@@ -202,10 +202,12 @@ export class GameState {
     this.flags = new FlagStore(content.flags);
     this.verbs = new VerbSystem(content.verbs, this.flags, content.verbFallbacks,
       content.combinations);
+    this.verbs.reached = (puzzle) => this.puzzles.get(puzzle) === 'complete';
     this.dialogue = new DialogueRunner(content.dialogue, this.flags, this.journals, {
       reached: (puzzle) => this.puzzles.get(puzzle) === 'complete',
       set: (puzzle, status) => { this.puzzles.set(puzzle, status); },
       holds: (item) => this.carried.includes(item),
+      grant: (items) => { for (const item of items) if (!this.inventory.includes(item)) this.inventory.push(item); },
     }, content.assay ? {
       file: content.assay,
       // A WON DUEL'S YIELDS (doc 03: Document A and the watch). The tree may

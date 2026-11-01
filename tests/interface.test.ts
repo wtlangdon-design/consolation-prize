@@ -759,7 +759,10 @@ test('repeat variants cycle FORWARD, then hold on the last one', async () => {
       for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
         // The first rule that answers NOW: an act variant (doc 05 Part Two-B)
         // is guarded and sits ahead of the chain it stands in for.
-        const rule = target.responses?.[verb]?.find((one) => state.flags.test(one.when));
+        // A rule gated on a puzzle (doc 57's headline board) answers only once
+        // the puzzle is complete, as the engine's VerbSystem decides.
+        const rule = target.responses?.[verb]?.find((one) => state.flags.test(one.when)
+          && (one.afterPuzzles ?? []).every((puzzle) => state.puzzleComplete(puzzle)));
         if (!rule?.say) continue;
         const expected = [rule.say, ...(rule.repeat ?? [])];
         // Q74: the verb clears on use, so it is re-selected per repeat. The

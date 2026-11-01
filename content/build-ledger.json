@@ -151,6 +151,25 @@
    "note": "Room 8, built 2026-11-01 under doc 55 (errata 72, 81). Acceptance is Tyler's, in the playthrough (Q151)."
   },
   {
+   "id": "room-09-clarion",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-09.json",
+    "docs/04-dialogue-trees.md",
+    "docs/57-puzzle-completion.md",
+    "docs/20-room-map.md"
+   ],
+   "dependsOn": [
+    "room-02-main-street"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-09-clarion.json",
+   "proof": "renders/proofs/clarion/proof.json",
+   "gauntlet": "tools/gauntlet/routes/clarion.json",
+   "blockers": [],
+   "note": "Room 9, built 2026-11-01 under doc 55 (errata 72, 82). Acceptance is Tyler's, in the playthrough (Q152)."
+  },
+  {
    "id": "room-05-assay-office",
    "kind": "room",
    "sources": [

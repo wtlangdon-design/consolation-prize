@@ -155,8 +155,12 @@ async function waitFor(page, want, upTo, why) {
     // up. A click while a line performs is spent on the line, never on the room.
     // A wait for one speaker reads past anyone else's line: Thad's echo of the
     // question he chose holds until clicked, and the reply waited for is next.
+    // And a wait for the conversation's list reads through its GREETING: an
+    // opening exchange (Frame's) is a line up and not an exchange performing,
+    // and it waits for its clicks too.
+    const reading = last?.performing || (want.dialogue === true && last?.says && !last?.options);
     if ((want.says === undefined || (last?.says && last.says !== want.says)) && READS_BY_CLICK
-      && last?.performing && Date.now() - lineSince >= READ_MS) {
+      && reading && Date.now() - lineSince >= READ_MS) {
       await clickScreen(page, NATIVE.width / 2, PLAY.height / 2);
       lineSince = Date.now();
     }

@@ -1,0 +1,189 @@
+{
+ "schema": 1,
+ "id": "room-09-clarion",
+ "room": "clarion",
+ "docRoom": 9,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 9 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/04-dialogue-trees.md",
+  "docs/57-puzzle-completion.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-09.json",
+    "docs/00-errata.md::82 · ROOM 9 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "Frame from Act I; B1 in Act II, E5 in Act III (on T_DECEASED); night, one visual state."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-09/graybox.json",
+    "docs/00-errata.md::82 · ROOM 9 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "Every subject is plate; Frame is a sprite; the headline board's editions are lines."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-09-frame-cut.png",
+    "docs/00-errata.md::82 · ROOM 9 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "Frame drawn in the master beside Thad, then alone on magenta in five poses, keyed whole."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/clarion/life/life.json"
+   ],
+   "note": "Frame breathes, talks, takes quotes and leans in; two lamps breathe."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-09-frame-cut.png"
+   ],
+   "note": "Frame stands on the floor beside the press at the room's curve."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-09/annotation.json"
+   ],
+   "note": "Two lamps, plate light and a runtime breath each."
+  },
+  "cluePerceptibility": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/00-errata.md::82 · ROOM 9 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "B1 and E5 are dialogue; the editions are a running gag, not a clue."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-09.json",
+    "content/rooms/clarion.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 68 lines compiled plus nine editions."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-09: 3 of 4 operations (master, people-free plate, Frame's five-pose sheet)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/clarion.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-09/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/clarion/proof.json"
+   ],
+   "note": "Panel D: B1, the trade."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/clarion/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/clarion/doors/life.json",
+    "tests/room-09.test.ts"
+   ],
+   "note": "Out to Main Street and back, twice; B1, E5 and the editions in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-09/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-09-clarion.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-09/plate-01/frame.json"
+   ]
+  },
+  {
+   "subject": "Ignatius Frame",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-09-frame.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-09/frame/frame.json"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q152 · Room 9, the Clarion office: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-01 (errata 82, delegated; the door ships as a stub exit under errata 72 F); BUILT, room-09 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate and Frame -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q152 · Room 9, the Clarion office: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-01 (errata 82, delegated; the door ships as a stub exit under errata 72 F); BUILT, room-09 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

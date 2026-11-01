@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game, with two people in it: the man in the blue coat standing on the floor in the middle, and the editor in the apron standing at the printing press.
+
+Remove both of them. Paint what is behind each, exactly as the room would look with nobody in it: the stacks of old newspapers, the floorboards and the lamplight on them; the front of the desk and its chair, the side of the press, the papers pinned on the wall, the floor beside the press.
+
+Change nothing else. Same framing, same camera, same pixel grid, same colours, same light, same objects in the same places: the door and its bell, the window and its lettering, the chalkboard, the newspaper stacks, the portrait, the pinned papers, the desk and its lamp, the hanging lamp, the press, the type case, the ink keg. The grey strips above and below stay grey. No people, no shadows of people, no text.

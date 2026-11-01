@@ -657,6 +657,163 @@
     "room:archive:mott_file:LOOK_AT"
    ],
    "note": "Doc 57 E9: Hob's signature and Mott's are the same small, upright hand. Set quietly; nothing announces it (invariant 7)."
+  },
+  {
+   "id": "T_MOTT_FACE_UNKNOWN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FRAME:FRA_A1:frame2"
+   ],
+   "note": "Doc 04 FRA_A1 option 2: 'sets T_MOTT_FACE_UNKNOWN groundwork'. Nothing reads it yet."
+  },
+  {
+   "id": "MISSPELLINGS_SEEN",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "dialogue:FRAME:FRA_A1:frame4",
+    "room:clarion:schedule_board:LOOK_AT"
+   ],
+   "note": "Doc 04 and doc 57's running gag: each misspelling Thad has seen, counted. Nothing reads it yet."
+  },
+  {
+   "id": "T_FANSHAWE_FUNERALS",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FRAME:FRA_A1:frame5"
+   ],
+   "note": "Doc 57 C3: Fanshawe attends every funeral (FRA_A1 5). Read by SOW_A1 5."
+  },
+  {
+   "id": "T_MEMORIAL_BOOKED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/57-puzzle-completion.md C3, the letter on Sowerby; SOW_A1 7 (Room 17) -- unbuilt"
+   ],
+   "note": "Doc 57 C3: Sowerby books Pike's memorial. Read by FRA_A1 option 6.",
+   "pending": true
+  },
+  {
+   "id": "T_FUNERAL_DAY",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FRAME:FRA_A1:frame6"
+   ],
+   "note": "Doc 57 C3: the funeral day, from FRA_A1 6 until Thad walks up Boot Hill. Read by Rooms 2, 11, 14, 17 and D4, not built."
+  },
+  {
+   "id": "T_VESSEL_LOCATION",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FRAME:FRA_B1:frame1",
+    "dialogue:FRAME:FRA_B1:frame2"
+   ],
+   "note": "Doc 57 B1: Frame's destination for a story -- Fiddler's Gulch. Read by B3 (Room 15)."
+  },
+  {
+   "id": "T_DECEASED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/57-puzzle-completion.md E5, SUM_C1 option 1 (Room 7; waits for the death certificate, E4) -- unbuilt"
+   ],
+   "note": "Doc 57 E5: the decease recorded. Opens FRA_E1 on the next TALK TO Frame.",
+   "pending": true
+  },
+  {
+   "id": "T_OBITUARY",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FRAME:FRA_E1:frame1"
+   ],
+   "note": "Doc 57 E5: THE OBITUARY printed."
+  },
+  {
+   "id": "T_HEADLINE_A3_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:clarion:schedule_board:LOOK_AT"
+   ],
+   "note": "Doc 57's running gag: the edition after A3 has been read on the headline board (errata 82 D's routing flag)."
+  },
+  {
+   "id": "T_HEADLINE_A5_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:clarion:schedule_board:LOOK_AT"
+   ],
+   "note": "Doc 57's running gag: the edition after A5 has been read on the headline board (errata 82 D's routing flag)."
+  },
+  {
+   "id": "T_HEADLINE_A7_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:clarion:schedule_board:LOOK_AT"
+   ],
+   "note": "Doc 57's running gag: the edition after A7 has been read on the headline board (errata 82 D's routing flag)."
+  },
+  {
+   "id": "T_HEADLINE_B5_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:clarion:schedule_board:LOOK_AT"
+   ],
+   "note": "Doc 57's running gag: the edition after B5 has been read on the headline board (errata 82 D's routing flag)."
+  },
+  {
+   "id": "T_HEADLINE_B6_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:clarion:schedule_board:LOOK_AT"
+   ],
+   "note": "Doc 57's running gag: the edition after B6 has been read on the headline board (errata 82 D's routing flag)."
+  },
+  {
+   "id": "T_HEADLINE_C5_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:clarion:schedule_board:LOOK_AT"
+   ],
+   "note": "Doc 57's running gag: the edition after C5 has been read on the headline board (errata 82 D's routing flag)."
+  },
+  {
+   "id": "T_HEADLINE_C3_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:clarion:schedule_board:LOOK_AT"
+   ],
+   "note": "Doc 57's running gag: the edition after C3 has been read on the headline board (errata 82 D's routing flag)."
+  },
+  {
+   "id": "T_HEADLINE_E3_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:clarion:schedule_board:LOOK_AT"
+   ],
+   "note": "Doc 57's running gag: the edition after E3 has been read on the headline board (errata 82 D's routing flag)."
+  },
+  {
+   "id": "T_HEADLINE_E5_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:clarion:schedule_board:LOOK_AT"
+   ],
+   "note": "Doc 57's running gag: the edition after E5 has been read on the headline board (errata 82 D's routing flag)."
   }
  ]
 }

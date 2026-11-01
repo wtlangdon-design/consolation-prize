@@ -1,0 +1,13 @@
+{
+ "assetId": "room-09",
+ "subject": "frame",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-09-clarion",
+ "promptFile": "reference/room-09/prompts/frame-01.txt",
+ "out": "art/staging/room-09/frame-01/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-09/composition-master-01.png"
+ ]
+}

@@ -85,6 +85,12 @@ export interface ResponseRule {
   /** The canonical puzzle this response completes (doc 57 E9: THE MOTT FILE, LOOK). */
   completes?: string;
   /**
+   * ANSWERS ONLY ONCE THESE PUZZLES ARE COMPLETE. Doc 57's running gag: the
+   * Clarion's headline board carries an edition "after A3", "after C5" -- and
+   * C5's completion is puzzle progress, not a flag (errata 66 B).
+   */
+  afterPuzzles?: string[];
+  /**
    * Lines for repeat selections, cycled in order. Doc 05 requires three
    * variants minimum on Room 2 hotspots -- the player will read them
    * hundreds of times and a hotspot that answers identically forever is the
@@ -1561,6 +1567,13 @@ export interface DialogueOption {
    * tree still never writes inventory (doc 34).
    */
   holds?: string[];
+  /**
+   * ITEMS THE OPTION HANDS OVER, on its first selection. Doc 04's FRA_E1
+   * option 1: "Gives THE OBITUARY." A tree never writes inventory (doc 34); the
+   * game state takes these when the exchange settles, as it takes a won duel's
+   * yields (errata 76 A).
+   */
+  gives?: string[];
   /** Puzzle progress the option writes (doc 53): WIN_B2's first row makes C6 pending. */
   puzzle?: Record<string, PuzzleStatus>;
   goto?: string;

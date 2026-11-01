@@ -1,0 +1,49 @@
+{
+ "schema": 1,
+ "room": "clarion",
+ "note": "ROOM 9's PROOF SPEC. The route is Main Street's, then the Clarion's door. The principal change is B1, the trade: TALK TO Frame, ask after Vessel, and pay with a story; he gives Fiddler's Gulch.",
+ "route": "clarion",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "B1 (doc 57): FRA_A1 option 1 opens the trade, and the piano-tuner story pays. Visible consequence: Frame's destination line; T_VESSEL_LOCATION written.",
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "TALK_TO"
+   },
+   {
+    "do": "click",
+    "world": [
+     1410,
+     450
+    ],
+    "why": "Frame, at his press"
+   },
+   {
+    "do": "waitFor",
+    "dialogue": true,
+    "upTo": 60
+   },
+   {
+    "do": "option",
+    "option": "frame1",
+    "why": "Where did Deke Vessel go?"
+   },
+   {
+    "do": "waitFor",
+    "dialogue": true,
+    "upTo": 60
+   },
+   {
+    "do": "option",
+    "option": "frame1",
+    "why": "the piano-tuner story"
+   },
+   {
+    "do": "waitFor",
+    "dialogue": true,
+    "upTo": 90
+   }
+  ]
+ }
+}

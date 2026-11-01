@@ -90,6 +90,8 @@ export interface DialogueResolution {
   readonly duelStart?: string;
   /** A counter chosen in a running duel: the duel advances when this settles. */
   readonly duelChoice?: string;
+  /** Items the option hands over when this settles (its `gives`, first selection only). */
+  readonly grants?: readonly string[];
 }
 
 /**
@@ -111,6 +113,8 @@ export interface MilestoneStore {
   set(id: string, status: PuzzleStatus): void;
   /** Whether he carries this item: read only, for an option's `holds` gate. */
   holds?(item: string): boolean;
+  /** The game state takes items an option `gives` (DialogueOption.gives). */
+  grant?(items: string[]): void;
 }
 
 //: EXIT ENDS THE CONVERSATION. That is the tag's function, not an exemption
@@ -594,6 +598,7 @@ export class DialogueRunner {
     ];
 
     return {
+      ...(selection === 1 && option.gives?.length ? { grants: option.gives } : {}),
       optionId: option.id,
       tree: treeId,
       node: nodeId,
@@ -702,6 +707,7 @@ export class DialogueRunner {
     commitBundle(exchange.tx.effects, this.dialogueWorld(), exchange.tx.journal);
 
     const { resolution } = exchange;
+    if (resolution.grants?.length) this.milestones.grant?.([...resolution.grants]);
     if (resolution.duelChoice && this.duel) {
       const choice = this.duel.commit(resolution.duelChoice);
       if (choice.ended) {
