@@ -324,12 +324,12 @@
  "characters": {
   "deke_vessel": {
    "rect": [
-    1180,
-    330,
-    120,
-    300
+    977,
+    387,
+    196,
+    428
    ],
-   "note": "ACT II. Not an examine hotspot -- doc 04 VES_B1, a character with a tree, found again in this room. Provisional until the sprite exists."
+   "note": "ACT II. Not an examine hotspot -- doc 04 VES_B1, a character with a tree, found again in this room. His sprite's bounds at 1075,815 (Tyler, 2026-11-01)."
   },
   "raccoon": {
    "rect": [

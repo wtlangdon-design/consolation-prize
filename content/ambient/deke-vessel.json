@@ -4,19 +4,19 @@
  "name": "DEKE VESSEL",
  "posture": "standing",
  "room": "nugget",
- "note": "Doc 27, DEKE VESSEL · Room 3: gates A3, the swindle. Drawn from Tyler's approved attempt 2 (art/staging/room-03/deke-02, generated against Thad in this room, 2026-10-31), keyed, despilled, the five poses registered on his legs by tools/art/cut-ambient-sheet.py, BOX-reduced to the bent curve's man where he stands -- 345 at the bar's end (Tyler, 2026-10-31: 312 too small, 375 'way too big', 345 chosen from four), 382 on the open floor at 760,730 since 2026-11-01, the same ruling at his new depth -- and graded to the bar men beside him (tools/grade/match-neighbours.py) after Tyler: 'Deke's coloring doesn't match anything else around him'.",
- "x": 760,
- "y": 730,
+ "note": "Doc 27, DEKE VESSEL · Room 3: gates A3, the swindle. Drawn from Tyler's approved attempt 2 (art/staging/room-03/deke-02, generated against Thad in this room, 2026-10-31), keyed, despilled, the five poses registered on his legs by tools/art/cut-ambient-sheet.py, BOX-reduced to the bent curve's man where he stands -- 345 at the bar's end (Tyler, 2026-10-31: 312 too small, 375 'way too big', 345 chosen from four), 428 at 1075,815 since 2026-11-01, the same ruling at his depth -- and graded to the bar men beside him (tools/grade/match-neighbours.py) after Tyler: 'Deke's coloring doesn't match anything else around him'.",
+ "x": 1075,
+ "y": 815,
  "zone": 0,
  "approachRadius": 160,
  "tree": "DEKE_VESSEL",
- "placeNote": "ON THE OPEN FLOOR between the door and the card table, facing the door -- doc 27 LOOK 1: 'watching the door'. Moved 2026-11-01 from the bar's near end (1060,655): Tyler, 'he's standing right in front of the other guy I can talk to which makes it so I kind of stand on Deke when talking to the gold nugget guy.' The build contract's 'near end of the bar' was a pre-art reservation; the room as played has two talkers at the bar's end and room for one. Earlier history: at 1109 he stood on the first stool's leg; 1060 cleared the leg but crowded the one-strike man.",
+ "placeNote": "AT THE BAR'S NEAR END, FEET LEVEL WITH THE SPITTOON, in the gap between the card table and the first drinker -- Tyler, 2026-11-01: on the open floor 'it feels really weird for him to just be standing in the middle of the room. What about down and to the right so his feet are in line with the spittoon but he's not overlapping the guys behind him?' Rendered at 1000, 1075 and 1080 on that line; 1075 clears the right-hand card player and the first drinker's stool. Still facing the batwing doors -- doc 27 LOOK 1, 'watching the door'. History: 1109,655 stood on the first stool's leg; 1060,655 crowded the one-strike man (Tyler: 'I kind of stand on Deke when talking to the gold nugget guy'); 760,730 cleared him but stood alone in the middle of the floor. At 815 he is nearer the camera than the one-strike man's talking spot (1110,640), so the two conversations no longer share ground.",
  "walkTo": {
-  "x": 640,
-  "y": 735,
+  "x": 925,
+  "y": 818,
   "facing": "right"
  },
- "walkToNote": "Floor at his left, between him and the door he is watching, so the two of them face each other in the open (2026-11-01).",
+ "walkToNote": "Floor at his left, the same gap as before scaled to this depth, so the two face each other with the room behind them (2026-11-01).",
  "barks": {},
  "barksNote": "Doc 07 writes no reputation barks for him: he is a doc 27 tree character, not one of the eighteen ambients.",
  "sprite": {
@@ -25,32 +25,32 @@
    [
     2,
     2,
-    174,
-    382
+    196,
+    428
    ],
    [
-    178,
+    200,
     2,
-    174,
-    382
+    196,
+    428
    ],
    [
-    354,
+    398,
     2,
-    174,
-    382
+    196,
+    428
    ],
    [
-    530,
+    596,
     2,
-    174,
-    382
+    196,
+    428
    ],
    [
-    706,
+    794,
     2,
-    174,
-    382
+    196,
+    428
    ]
   ],
   "rate": 0.35,
