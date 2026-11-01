@@ -253,7 +253,12 @@ export function planBoot(bundle: ContentBundle): BootPlan {
       later({ key: state.image, path: state.image });
     }
   }
-  later({ key: bundle.itemIcons.sheet, path: bundle.itemIcons.sheet });
+  // THE ITEM ICONS ARE REQUIRED. Deferred, a 1 KB sheet sat behind some two
+  // hundred actor frames, and a game started from a save or a playtest
+  // fixture -- inventory full from the first frame -- drew every item as its
+  // fallback label box until the queue reached it: on a phone, three boxes
+  // reading "THE" (Tyler, Room 4's fixture, 2026-11-01).
+  required.set(bundle.itemIcons.sheet, { key: bundle.itemIcons.sheet, path: bundle.itemIcons.sheet });
   // DEFERRED, because nobody carries a lamp in the first frame. Hob is placed
   // at beat 7 and the pool simply does not draw until its sprite arrives --
   // which is the right failure for a light: the road is unlit for a moment
