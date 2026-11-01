@@ -368,13 +368,48 @@ function splitUtterance(line) {
   return best ? { say: best.head, then: [best.tail] } : null;
 }
 
+/** A merged room's subjects in examineLayer's shape: variant 1 of each verb. */
+function mergedSubjects(file) {
+  const out = new Map();
+  for (const s of file.subjects) {
+    const responses = {};
+    for (const verb of ['LOOK_AT', 'LISTEN_TO']) if (s[verb]?.length) responses[verb] = [{ say: s[verb][0] }];
+    out.set(s.name, { name: s.name, responses });
+  }
+  return out;
+}
+/** A merged room's repeats in repeatVariants' shape. */
+function mergedRepeats(file) {
+  const out = new Map();
+  for (const s of file.subjects) {
+    const verbs = {};
+    for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
+      if (s[verb]?.length) verbs[verb] = { first: s[verb][0], rest: s[verb].slice(1) };
+    }
+    out.set(s.name, verbs);
+  }
+  return out;
+}
+/** A merged room's wrong-verb overrides in verbOverrides' shape. */
+function mergedOverrides(file) {
+  return new Map(file.subjects.filter((s) => s.overrides).map((s) => [s.name, { ...s.overrides }]));
+}
+
 let splits = 0;
 const unsplit = [];
 
 // ---- load ------------------------------------------------------------------
 const examineWhole = read('docs/05-examine-layer.md');
-const examine = section(examineWhole, room);
-if (!examine) fail('doc 05 has no scripted section. Run the writing pass first.');
+// A ROOM WHOSE WRITING IS MERGED (errata 67, doc 54) READS IT FROM
+// content/examine/room-NN.json -- tools/extract-examine.mjs's stitching of doc
+// 05, the batch doc, the repeats and doc 49, in errata 67's order. Doc 55
+// section 3 step 2: "the room's content/examine/room-NN.json already exists;
+// wire it." The words stay where they are; this reads them from the one file
+// that already assembled them, rather than assembling them a second way.
+const MERGED_PATH = `content/examine/room-${String(room).padStart(2, '0')}.json`;
+const MERGED = existsSync(MERGED_PATH) ? JSON.parse(read(MERGED_PATH)) : null;
+const examine = MERGED ? '' : section(examineWhole, room);
+if (!MERGED && !examine) fail('doc 05 has no scripted section. Run the writing pass first.');
 
 // A ROOM'S OWN CONTENT DOCUMENT, WHERE ONE EXISTS. Room 3 had one -- doc 16,
 // which completes doc 05's six unwritten hotspots and adds THE HAND OF CARDS
@@ -450,7 +485,7 @@ const annPath = annFlag > 0 && process.argv[annFlag + 1]
 if (!existsSync(annPath)) fail(`no annotation at ${annPath}. Run tools/annotate/room.html first.`);
 const ann = JSON.parse(readFileSync(annPath, 'utf8'));
 
-const hotspots = examineLayer(examine);
+const hotspots = MERGED ? mergedSubjects(MERGED) : examineLayer(examine);
 // DOC 05 NAMES A ROOM MORE THAN ONCE: its act-variant block, 1200 lines
 // below the examine layer, repeats the heading and writes subjects `*(act:
 // "2-4")*`. A subject that appears ONLY there is an act-gated hotspot; one
@@ -481,8 +516,8 @@ for (const block of actSections) {
   }
 }
 
-const overrides = verbOverrides(wrongDoc);
-const repeats = repeatVariants(wrongDoc);
+const overrides = MERGED ? mergedOverrides(MERGED) : verbOverrides(wrongDoc);
+const repeats = MERGED ? mergedRepeats(MERGED) : repeatVariants(wrongDoc);
 const written = ROOM_DOC ? roomDocHotspots(ROOM_DOC_TEXT) : new Map();
 
 // A ROOM DOCUMENT MAY WRITE HOTSPOTS DOC 05 ONLY NAMES. Doc 05 lists Room 3's
@@ -599,6 +634,7 @@ const slug = (name) => name.toLowerCase().replace(/^(the|a)\s+/, '').replace(/[^
 const liveIdByName = new Map((live0.hotspots ?? []).map((h) => [h.name, h.id]));
 const byId = new Map();
 for (const [name, entry] of hotspots) {
+  if (MERGED && ann.exitSubjects?.[name]) continue;
   byId.set(liveIdByName.get(name) ?? slug(name), { ...entry, docName: name });
 }
 
@@ -643,7 +679,7 @@ const built = { ...live };
 if (Array.isArray(ann.plateSize)) built.size = ann.plateSize;
 built.generated = {
   by: 'tools/compile-room.mjs',
-  from: ['docs/05-examine-layer.md', ROOM_DOC ?? 'docs/49-wrong-answers.md', annPath],
+  from: MERGED ? [MERGED_PATH, annPath] : ['docs/05-examine-layer.md', ROOM_DOC ?? 'docs/49-wrong-answers.md', annPath],
   note: 'GENERATED. Edit the documents or the annotation, never this file.',
 };
 // THE WALK BOX IS BANDS, NOT A POLYGON. The engine wants zoned rects, and
@@ -723,7 +759,7 @@ if (ann.entrances) {
   const dir = 'content/ambient';
   const cast = existsSync(dir)
     ? readdirSync(dir).map((file) => JSON.parse(readFileSync(`${dir}/${file}`, 'utf8')))
-      .filter((npc) => npc.room === built.id).map((npc) => npc.id).sort()
+      .filter((npc) => npc.room === built.id || npc.placements?.[built.id]).map((npc) => npc.id).sort()
     : [];
   if (cast.length) built.ambient = cast;
 }
@@ -847,7 +883,24 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
 built.hotspots.sort((a, b) => (a.rect[2] * a.rect[3]) - (b.rect[2] * b.rect[3]));
 
 const exitLines = ROOM_DOC && !ROOM_DOC_IS_RANGE ? roomDocExits(ROOM_DOC_TEXT) : new Map();
-built.exits = (live.exits ?? []).map((e) => {
+// A MERGED ROOM'S EXIT IS ONE OF ITS SUBJECTS (the annotation's `exitSubjects`):
+// doc 54 writes THE DOOR TO THE BAR with three LOOK and three LISTEN like the
+// table beside it, and doc 20 makes it the way out. Compiled as the exit with
+// those lines and its doc 49 overrides; never also a hotspot.
+const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name, spec]) => {
+  const subject = MERGED.subjects.find((s) => s.name === name);
+  if (!subject) fail(`exitSubjects names "${name}", which ${MERGED_PATH} does not write`);
+  const responses = {};
+  for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
+    const lines = subject[verb] ?? [];
+    if (lines.length) responses[verb] = [lines.length > 1 ? { say: lines[0], repeat: lines.slice(1) } : { say: lines[0] }];
+  }
+  return { id: spec.id, name, rect: ann.exits[spec.id], colour: 0, to: spec.to, responses,
+    ...(subject.overrides ? { overrides: subject.overrides } : {}), fallback: [],
+    defaultVerb: spec.defaultVerb ?? 'WALK_TO',
+    ...(ann.exitWalkTo?.[spec.id] ? { walkTo: ann.exitWalkTo[spec.id] } : {}) };
+}) : [];
+built.exits = [...subjectExits, ...(live.exits ?? []).filter((e) => !subjectExits.some((s) => s.id === e.id)).map((e) => {
   const { walkTo, ...rest } = e;
   if (walkTo) oldWalkTo.set(e.id, walkTo);
   // ITS LINES FROM THE ROOM DOC, where the doc writes them (PART FOUR). An
@@ -863,7 +916,29 @@ built.exits = (live.exits ?? []).map((e) => {
     ...(ann.exits[e.id] ? { rect: ann.exits[e.id] } : {}),
     ...(ann.exitWalkTo?.[e.id] ? { walkTo: ann.exitWalkTo[e.id] } : {}),
   };
-});
+})];
+// DOC 54'S OVERRIDES FOR PEOPLE, by the ambient ids that draw them. A verb
+// written "(in a duel)" carries the annotation's `peopleWhen` for that phrase;
+// a qualifier the annotation does not define is a build failure, not a guess.
+if (MERGED) {
+  const people = {};
+  for (const [name, verbs] of Object.entries(MERGED.exitsAndUnplaced ?? {})) {
+    if (ann.exitSubjects?.[name]) continue;
+    const ids = ann.people?.[name];
+    if (!ids) fail(`${MERGED_PATH} writes lines for "${name}" and the annotation's \`people\` names no figure for it`);
+    for (const [key, line] of Object.entries(verbs)) {
+      const parsed = /^([A-Z_]+)(?:\s*\((.+)\))?$/.exec(key);
+      if (!parsed) fail(`unreadable people override "${key}" for "${name}"`);
+      const [, verb, qualifier] = parsed;
+      const when = qualifier ? ann.peopleWhen?.[qualifier] : undefined;
+      if (qualifier && !when) fail(`"${name}" ${verb} is written "(${qualifier})" and the annotation's peopleWhen does not define it`);
+      for (const id of ids) {
+        ((people[id] ??= {})[verb] ??= []).push({ ...(when ? { when } : {}), say: line });
+      }
+    }
+  }
+  if (Object.keys(people).length) built.peopleResponses = people;
+}
 // THE FLOOR, THE APPROACH POINTS, AND WHY THE HEIGHTS ARE THE CANON ONES.
 //
 // The live walk boxes stopped at x1925 -- a 3700 street with floor under half

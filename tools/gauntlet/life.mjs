@@ -182,6 +182,15 @@ async function main() {
           // the file's own sheet would pass while the room stood empty --
           // which is precisely the failure this line exists to catch.
           const declared = npc.placements?.[room.id]?.sprite ?? npc.sprite;
+          // ABSENT BY HER OWN CONDITION IS NOT ABSENT BY FAULT. A person whose
+          // `when` does not hold in this frame's state is not in the room
+          // (Room 4's Vessel and judges before B3, errata 73 B), so her sheet
+          // has no reason to be loaded yet.
+          const when = npc.placements?.[room.id]?.when ?? npc.when;
+          const holds = Object.entries(when ?? {}).every(([flag, want]) => (typeof want === 'boolean'
+            ? (frame.flags ?? []).includes(flag) === want
+            : (frame.counters ?? {})[flag] === want));
+          if (!holds) continue;
           const sheet = frame.assets.find((a) => a.path === declared?.sheet);
           if (!sheet?.loaded) failures.push(`capture ${action.name}: ${npcId}'s sheet ${declared?.sheet ?? '(none declared)'} is not loaded -- she is absent`);
           for (const prop of npc.sprite?.props ?? []) {

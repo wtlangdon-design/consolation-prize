@@ -1,0 +1,160 @@
+{
+ "room": 4,
+ "note": "Ruling 22 steps 1-6 for the Nugget back room, written by tools/room04-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 76 B, C).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 610,
+   "height": 420
+  },
+  "near": {
+   "y": 840,
+   "height": 520
+  }
+ },
+ "walkable": [
+  60,
+  600,
+  1860,
+  240
+ ],
+ "exit": {
+  "hotspot": "THE DOOR TO THE BAR",
+  "to": "nugget",
+  "rect": [
+   70,
+   190,
+   210,
+   430
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 250,
+   "y": 700,
+   "facing": "right"
+  },
+  "thad_duel": {
+   "x": 780,
+   "y": 740,
+   "facing": "right"
+  },
+  "vessel_duel": {
+   "x": 1140,
+   "y": 740,
+   "facing": "left"
+  }
+ },
+ "judges": [
+  [
+   760,
+   330,
+   110,
+   170
+  ],
+  [
+   925,
+   320,
+   110,
+   180
+  ],
+  [
+   1090,
+   330,
+   110,
+   170
+  ]
+ ],
+ "occluders": [
+  "THE RING OF CHAIRS (near left)",
+  "THE RING OF CHAIRS (near right)"
+ ],
+ "surfaces": [
+  {
+   "surface": "back wall, painted plank",
+   "p10": 62.0,
+   "p90": 80.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 41.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "wainscot",
+   "p10": 56.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "floor, scored boards",
+   "p10": 82.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 56.5,
+   "lightAnchorMargin": 29.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE DOOR TO THE BAR",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SCOREBOARD",
+   "p10": 62.0,
+   "p90": 62.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 59.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WINDOW, PAINTED OVER",
+   "p10": 88.0,
+   "p90": 88.0,
+   "darkAnchorMargin": 62.5,
+   "lightAnchorMargin": 33.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE LONG TABLE",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CHAIRS (challenger)",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CHAIRS (champion)",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE RING OF CHAIRS (back)",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

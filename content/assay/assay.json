@@ -1,0 +1,835 @@
+{
+  "schema": 1,
+  "id": "ASSAY",
+  "note": "EXTRACTED from docs/03-liars-assay.md by tools/extract-content.mjs. Do not edit: change doc 03 and re-run. Lines are the document's; fields marked \"ruling\" are the errata's mechanism, carried as data.",
+  "exchangesToWin": 5,
+  "exchangesToWinRuling": "docs/03-liars-assay.md How it plays: \"First to five exchanges wins the duel.\"",
+  "offerRuling": "errata 73 C: a boast whose counter Thad has not learned offers its three wrong answers; a learned one adds the right counter as a fourth, in a slot that varies by pair.",
+  "bystander": "assay_ring",
+  "bystanderRuling": "errata 73 F: a voice from the ring of chairs, unnamed.",
+  "pairs": [
+    {
+      "n": 1,
+      "tier": 1,
+      "learnedFrom": "Vessel, Duel One",
+      "boast": "I pulled a nugget out of the Feather River the size of a bishop's fist.",
+      "counter": "I've seen your bishop. He was malnourished.",
+      "wrong": [
+        {
+          "text": "That is a very large fist.",
+          "reply": "It is. That's the point of the account.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "I don't believe in bishops.",
+          "reply": "Nobody's asking you to worship it, son, only to be impressed.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "I have a small nugget.",
+          "reply": "Then say so louder. That's how it's done.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_01"
+    },
+    {
+      "n": 2,
+      "tier": 1,
+      "learnedFrom": "Vessel, Duel One",
+      "boast": "My claim assayed at nine hundred dollars to the ton.",
+      "counter": "So did my grandmother, and she was mostly gravel.",
+      "wrong": [
+        {
+          "text": "Assayed by whom?",
+          "reply": "By a man I trust entirely. I see him every morning when I shave.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "That is forty-five cents a pound. I have done the arithmetic.",
+          "reply": "Rule five, son. No arithmetic. It's on the wall.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Congratulations.",
+          "reply": "Don't congratulate a man in an Assay. It looks like losing, because it is.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_02"
+    },
+    {
+      "n": 3,
+      "tier": 1,
+      "learnedFrom": "Vessel, Duel One",
+      "boast": "I've washed more gold than you've washed shirts.",
+      "counter": "That's true of everyone here, and it's a matter of some concern.",
+      "wrong": [
+        {
+          "text": "I send my shirts out.",
+          "reply": "Then I've washed more gold than your laundress, and she won't mind hearing it.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "I have four shirts. I am wearing the good one.",
+          "reply": "That's an inventory, Grubb. Nobody bets on an inventory.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Gold does not need washing. It is famously inert.",
+          "reply": "So's the audience, son. Look at them.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_03"
+    },
+    {
+      "n": 4,
+      "tier": 1,
+      "learnedFrom": "Vessel, Duel One",
+      "boast": "My luck is famous from here to Sacramento.",
+      "counter": "It's famous in Sacramento. That's why you're here.",
+      "wrong": [
+        {
+          "text": "I have never been to Sacramento.",
+          "reply": "Then you'll have to take my word for it, and you just have.",
+          "by": "deke_vessel",
+          "attribution": "Reply"
+        },
+        {
+          "text": "Luck is what a man calls the parts he did not arrange.",
+          "reply": "And the pencil calls it a point. Mark it.",
+          "by": "deke_vessel",
+          "attribution": "Reply"
+        },
+        {
+          "text": "I once found a dollar in a hymnal.",
+          "reply": "Keep it. You'll want it for the fee.",
+          "by": "deke_vessel",
+          "attribution": "Reply"
+        }
+      ],
+      "flag": "ASSAY_PAIR_04"
+    },
+    {
+      "n": 5,
+      "tier": 2,
+      "learnedFrom": "Winnie Ledger",
+      "boast": "My strike was so rich the assayer wept.",
+      "counter": "He weeps at everything. It's why we stopped inviting him.",
+      "wrong": [
+        {
+          "text": "The assayer is a woman.",
+          "reply": "Then she wept prettily, and I lent her my handkerchief. Do keep up.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "I would keep tears away from an assay. Salt affects the reading.",
+          "reply": "Everything affects the reading, Grubb. That's what I'm counting on.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Was he all right?",
+          "reply": "He'll live. You, I'm less sure of.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_05"
+    },
+    {
+      "n": 6,
+      "tier": 2,
+      "learnedFrom": "Winnie Ledger",
+      "boast": "I've had three fortunes and lost two.",
+      "counter": "Then you've had one fortune and told it twice.",
+      "wrong": [
+        {
+          "text": "Which one did you keep?",
+          "reply": "The one I'm telling you. It's the only kind that lasts.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Then you have one left. Could you lend me four dollars?",
+          "reply": "I could. I'd want a deed for it.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Two out of three is a poor rate of keeping.",
+          "reply": "It's a fine rate of telling, and telling's what's scored.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_06"
+    },
+    {
+      "n": 7,
+      "tier": 2,
+      "learnedFrom": "Winnie Ledger",
+      "boast": "I turned down ten thousand dollars for my claim.",
+      "counter": "I was there. He offered four, and you cried.",
+      "wrong": [
+        {
+          "text": "That was foolish of you.",
+          "reply": "It was. That's what makes it a good account. Nobody brags about the sensible thing.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "I bought a claim from you for four dollars and a watch.",
+          "reply": "So you know I've been through hard times, Grubb. Thank you for raising it.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Who offered it?",
+          "reply": "A gentleman. I didn't catch his name, on account of the weeping.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_07"
+    },
+    {
+      "n": 8,
+      "tier": 2,
+      "learnedFrom": "Winnie Ledger",
+      "boast": "I've never filed a claim that didn't pay.",
+      "counter": "You've never filed a claim.",
+      "wrong": [
+        {
+          "text": "I have filed one claim, and I regret it in detail.",
+          "reply": "Regret's not scored, Grubb. Only the size of the thing.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Never?",
+          "reply": "Never is the strongest word in the territory, son. I use it sparingly and on purpose.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Some claims pay in experience.",
+          "reply": "That's what we tell the Eastern men, Grubb. Don't repeat it back to me.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_08"
+    },
+    {
+      "n": 9,
+      "tier": 2,
+      "learnedFrom": "Winnie Ledger",
+      "boast": "Every man in this territory owes me money.",
+      "counter": "Every man in this territory owes someone money. You have described the territory.",
+      "wrong": [
+        {
+          "text": "I do not owe you money.",
+          "reply": "Not yet. The afternoon is young.",
+          "by": "deke_vessel",
+          "attribution": "Reply"
+        },
+        {
+          "text": "Would you like it in writing?",
+          "reply": "Nothing here is ever wanted in writing, Mr. Grubb. That's what keeps it cheerful.",
+          "by": "deke_vessel",
+          "attribution": "Reply"
+        },
+        {
+          "text": "Then you must be very rich, on paper.",
+          "reply": "Paper's where all the money in this territory lives. It's the climate.",
+          "by": "deke_vessel",
+          "attribution": "Reply"
+        }
+      ],
+      "flag": "ASSAY_PAIR_09"
+    },
+    {
+      "n": 10,
+      "tier": 3,
+      "learnedFrom": "Nickel Pratt",
+      "boast": "There's more gold in my tailings than in your whole claim.",
+      "counter": "There's more gold in my boot, and I would like it back.",
+      "wrong": [
+        {
+          "text": "You sold me my whole claim.",
+          "reply": "And I'd know, wouldn't I. That's why it's a strong account.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "What are tailings?",
+          "reply": "What's left over, Grubb. You'll be one shortly.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "That is a low bar, and I will not pretend otherwise.",
+          "reply": "Pretending otherwise is the whole sport, son. You've just declined to play.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_10"
+    },
+    {
+      "n": 11,
+      "tier": 3,
+      "learnedFrom": "Nickel Pratt",
+      "boast": "My vein runs forty feet wide.",
+      "counter": "So does the road, and it's about as productive.",
+      "wrong": [
+        {
+          "text": "Have you measured it?",
+          "reply": "Measuring's for men who expect to be checked.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "That is wider than this room.",
+          "reply": "Everything's wider than this room. That's why we come in here to say it.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "I have a vein in my temple that does something similar when I am lied to.",
+          "reply": "Then you'll want to sit down, son. It's going to be a long afternoon.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_11"
+    },
+    {
+      "n": 12,
+      "tier": 3,
+      "learnedFrom": "Nickel Pratt",
+      "boast": "I've dug through solid granite with my hands.",
+      "counter": "I have shaken your hands. They disagree.",
+      "wrong": [
+        {
+          "text": "Why would you not use a pick?",
+          "reply": "A pick's for men with nothing to prove.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "I tune pianos. My hands are the only part of me anyone has ever relied on.",
+          "reply": "Then keep them in your pockets, son. The judges can see them shaking.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Did it hurt?",
+          "reply": "Only the granite.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_12"
+    },
+    {
+      "n": 13,
+      "tier": 3,
+      "learnedFrom": "Nickel Pratt",
+      "boast": "There's a mountain named for me.",
+      "counter": "There's a hole named for you. I have fallen in it.",
+      "wrong": [
+        {
+          "text": "Which one?",
+          "reply": "The big one. You can't miss it, which is more than I can say for your counters.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "I once had a dog named for me. It was a misunderstanding.",
+          "reply": "And did it come when you called it? Mine doesn't either.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Mountains are named by surveyors, as a rule, not for prospectors.",
+          "reply": "This one was named by me, son, which saved the surveyor a trip.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_13"
+    },
+    {
+      "n": 14,
+      "tier": 3,
+      "learnedFrom": "Nickel Pratt",
+      "boast": "I hired forty men to work my claim.",
+      "counter": "I've met them. They are still waiting to be paid and they have formed opinions.",
+      "wrong": [
+        {
+          "text": "Forty is a great many men for a small claim.",
+          "reply": "They were small men, Grubb. I hired them by the yard.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Are you hiring?",
+          "reply": "Not tuners. Gold doesn't go flat.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "I work my claim alone, with a raccoon in an advisory capacity.",
+          "reply": "Then you're over-staffed by one raccoon.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_14"
+    },
+    {
+      "n": 15,
+      "tier": 3,
+      "learnedFrom": "Nickel Pratt",
+      "boast": "The gold came up so fast it followed me home.",
+      "counter": "Everything follows you home. That is not gold. That is the dog.",
+      "wrong": [
+        {
+          "text": "Gold has no legs.",
+          "reply": "Mine did. I'm sorry yours never learned.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Where do you live?",
+          "reply": "Ask the gold. It found the place.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Nothing has ever followed me anywhere, except a bill.",
+          "reply": "Then the bill knows something the gold doesn't.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_15"
+    },
+    {
+      "n": 16,
+      "tier": 4,
+      "learnedFrom": "Frame",
+      "boast": "I found a nugget shaped exactly like the President.",
+      "counter": "So did four men this month. It is a popular shape.",
+      "wrong": [
+        {
+          "text": "Which President?",
+          "reply": "The one that's in, son. I'm a patriot.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Did it say anything?",
+          "reply": "It said what Presidents say. I've forgotten it already.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "I have a turnip shaped like the Vice President.",
+          "reply": "Nobody remembers the Vice President, Grubb. That's a turnip.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_16"
+    },
+    {
+      "n": 17,
+      "tier": 4,
+      "learnedFrom": "Sowerby",
+      "boast": "My father died rich.",
+      "counter": "Your father died owing me two dollars, and I have chosen to regard it as a legacy.",
+      "wrong": [
+        {
+          "text": "I am sorry for your loss.",
+          "reply": "Don't be sorry in an Assay, son. It's a forfeit.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "My father died in debt, and he was very proud of how much.",
+          "reply": "That's a better account than mine, Grubb, and you've wasted it on a counter.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Of what?",
+          "reply": "Richness. It runs in the family.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_17"
+    },
+    {
+      "n": 18,
+      "tier": 4,
+      "learnedFrom": "Sheng",
+      "boast": "The Improvement Company came to me on their knees.",
+      "counter": "The Company comes to everyone on their knees. It is how they get under the door.",
+      "wrong": [
+        {
+          "text": "The Company has been very courteous to me.",
+          "reply": "Then they've not finished with you yet.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Were they proposing?",
+          "reply": "They were, and I said I'd think about it, and I'm still thinking. That's called leverage.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "That is also how I tune the bottom octave.",
+          "reply": "Nobody here has heard a bottom octave, son, and the Company would charge it rent.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_18"
+    },
+    {
+      "n": 19,
+      "tier": 4,
+      "learnedFrom": "Ozymandia",
+      "boast": "I panned a pound before breakfast.",
+      "counter": "You have never seen breakfast.",
+      "wrong": [
+        {
+          "text": "What did you have for breakfast?",
+          "reply": "Gold, Grubb. Weren't you listening?",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "A pound troy, or a pound avoirdupois?",
+          "reply": "A pound Vessel. It's heavier than both.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "I am not at my best before breakfast either.",
+          "reply": "That's an admission, Grubb. We don't do those in here.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_19"
+    },
+    {
+      "n": 20,
+      "tier": 4,
+      "learnedFrom": "Livery man",
+      "boast": "I once bought a saloon with a single nugget.",
+      "counter": "I have been in it. You overpaid.",
+      "wrong": [
+        {
+          "text": "This saloon?",
+          "reply": "A better one. This one I won at cards, which is more respectable.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "What did you buy with the change?",
+          "reply": "The bartender. He's been very loyal.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "I would not know what to do with a saloon.",
+          "reply": "You'd stand behind the bar, son, and the town would hand you its money. Hardest part's the apron.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_20"
+    },
+    {
+      "n": 21,
+      "tier": 5,
+      "learnedFrom": "Hob",
+      "boast": "I know where Mott's strike is.",
+      "counter": "So does everybody. That's the town. Try again.",
+      "wrong": [
+        {
+          "text": "Where?",
+          "reply": "If I told you, son, it'd be your account, and I'm using it.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "So do I, approximately.",
+          "reply": "Approximately's where everybody keeps it. It's crowded.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "Then why are you here and not there?",
+          "reply": "Because there's no audience out there, Grubb, and a strike's no good without one.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_21"
+    },
+    {
+      "n": 22,
+      "tier": 6,
+      "learnedFrom": "Reserved for Fanshawe",
+      "boast": "I built this town.",
+      "counter": "You sold this town a map to a place that isn't there, and then sold it shovels.",
+      "wrong": [
+        {
+          "text": "It is a very nice town.",
+          "reply": "Thank you, Mr. Grubb. I'll have that put on a plaque.",
+          "by": "fanshawe",
+          "attribution": "Fanshawe"
+        },
+        {
+          "text": "Some of it is level.",
+          "reply": "The important parts, Mr. Grubb. I see to the important parts.",
+          "by": "fanshawe",
+          "attribution": "Fanshawe"
+        },
+        {
+          "text": "With your own hands?",
+          "reply": "With other people's, which is the modern way.",
+          "by": "fanshawe",
+          "attribution": "Fanshawe"
+        }
+      ]
+    },
+    {
+      "n": 23,
+      "tier": 6,
+      "learnedFrom": "Reserved for Fanshawe",
+      "boast": "I have never been wrong about a claim in my life.",
+      "counter": "You have been right about exactly one, Colonel, and you have spent twelve years making sure nobody digs it.",
+      "wrong": [
+        {
+          "text": "I have been wrong about several. I find it restful.",
+          "reply": "Then rest, Mr. Grubb. Some of us have a town to run.",
+          "by": "fanshawe",
+          "attribution": "Fanshawe"
+        },
+        {
+          "text": "Neither have I. I have only had the one.",
+          "reply": "Then we're both perfect, and only one of us owns the town.",
+          "by": "fanshawe",
+          "attribution": "Fanshawe"
+        },
+        {
+          "text": "That must be very lonely.",
+          "reply": "Not at all. Being right draws a crowd, Mr. Grubb. Look around you.",
+          "by": "fanshawe",
+          "attribution": "Fanshawe"
+        }
+      ]
+    }
+  ],
+  "mockery": [
+    "That's not a lie, that's a remark.",
+    "You'll want to add a number to that.",
+    "There's a man in Sacramento who does that one properly.",
+    "I'll allow it, but the judges won't, and they're the ones with the pencil.",
+    "Son, you've told the truth. In front of people."
+  ],
+  "duels": {
+    "duel_one": {
+      "puzzle": "B5",
+      "opponent": "deke_vessel",
+      "opening": [
+        {
+          "speaker": "sowerby",
+          "line": "1. A man may not be interrupted in his account."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "2. A man's account may be doubted only by a better one."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "3. Truth is admissible but has never been raised."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "4. The judges' decision is final, and may be appealed to the same judges."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "5. No firearms. No knives. No arithmetic."
+        }
+      ],
+      "openingRuling": "errata 75: before the first exchange, Sowerby reads the handbill's five rules aloud, all of them.",
+      "sequence": [
+        1,
+        2,
+        3,
+        4,
+        1
+      ],
+      "sequenceRuling": "errata 73 D: pairs 1, 2, 3 and 4, then pair 1 again; nobody mutters on the repeat.",
+      "notebook": {
+        "1": {
+          "speaker": "thad",
+          "line": "Malnourished. Bishop. Yes."
+        },
+        "2": {
+          "speaker": "thad",
+          "line": "Grandmother. Gravel. Yes."
+        },
+        "3": {
+          "speaker": "thad",
+          "line": "Everyone. Shirts. Concern. Yes."
+        },
+        "4": {
+          "speaker": "thad",
+          "line": "In Sacramento. Not from. Yes."
+        }
+      },
+      "notebookRuling": "errata 73 D and 75: Thad writes each counter down as he hears it, and the notebook joins his repertoire when the duel is over.",
+      "learns": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "sets": {
+        "T_DUEL_ONE_LOST": true
+      },
+      "loss": [
+        {
+          "speaker": "deke_vessel",
+          "line": "You've no account in you at all, have you."
+        },
+        {
+          "speaker": "thad",
+          "line": "I have an account. It is scrupulously accurate."
+        },
+        {
+          "speaker": "deke_vessel",
+          "line": "That's the trouble."
+        }
+      ],
+      "winnable": false
+    },
+    "duel_two": {
+      "puzzle": "B6",
+      "opponent": "deke_vessel",
+      "pool": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "threshold": 14,
+      "opening": [
+        {
+          "speaker": "sowerby",
+          "line": "The rules of the Assay—"
+        },
+        {
+          "speaker": "deke_vessel",
+          "line": "He knows the rules, Reverend."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "Then he will enjoy them twice."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "1. A man may not be interrupted in his account."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "2. A man's account may be doubted only by a better one."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "3. Truth is admissible but has never been raised."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "4. The judges' decision is final, and may be appealed to the same judges."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "5. No firearms. No knives. No arithmetic."
+        }
+      ],
+      "openingRuling": "doc 03 Duel Two (errata 75): Sowerby, Vessel, Sowerby, and then \"(He reads all five.)\".",
+      "orderRuling": "errata 73 E, doc 57 B6 and errata 76 A: Tier 1 first, never repeating. Then, holding fourteen or more, the pairs Thad knows before the rest; holding fewer, the rest first (doc 02 B6: \">=14 pairs\").",
+      "win": [
+        {
+          "speaker": "deke_vessel",
+          "line": "Fine. Fine! I'll sign the cursed affidavit."
+        },
+        {
+          "speaker": "thad",
+          "line": "Thank you."
+        },
+        {
+          "speaker": "deke_vessel",
+          "line": "You didn't enjoy that at all, did you."
+        },
+        {
+          "speaker": "thad",
+          "line": "I found it educational."
+        },
+        {
+          "speaker": "deke_vessel",
+          "line": "That's worse."
+        }
+      ],
+      "setsOnWin": {
+        "T_DUEL_TWO_WON": true
+      },
+      "yields": [
+        "document_a",
+        "watch"
+      ],
+      "lossRuling": "errata 73 H: a lost Duel Two ends on the reply that lost it; nothing more is said."
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+ "assetId": "room-04",
+ "subject": "room-04-nugget-back",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-04-nugget-back",
+ "promptFile": "reference/room-04/prompts/plate-01.txt",
+ "out": "art/staging/room-04/plate-01/source.png",
+ "size": "1536x1024",
+ "images": ["art/staging/room-04/composition-master-01.png"]
+}

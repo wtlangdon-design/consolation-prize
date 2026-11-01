@@ -1,0 +1,99 @@
+{
+ "tableTop": 334,
+ "threshold": 40,
+ "box": [
+  730,
+  168,
+  1232,
+  334
+ ],
+ "judges": [
+  {
+   "judge": 1,
+   "staged": "art/staging/room-04/judges/judge-1.png",
+   "frames": [
+    [
+     2,
+     2,
+     125,
+     156
+    ],
+    [
+     129,
+     2,
+     125,
+     156
+    ]
+   ],
+   "anchor": {
+    "x": 804,
+    "y": 327
+   },
+   "bbox": [
+    742,
+    172,
+    125,
+    156
+   ],
+   "pixels": 10220
+  },
+  {
+   "judge": 2,
+   "staged": "art/staging/room-04/judges/judge-2.png",
+   "frames": [
+    [
+     2,
+     2,
+     161,
+     164
+    ],
+    [
+     165,
+     2,
+     161,
+     164
+    ]
+   ],
+   "anchor": {
+    "x": 992,
+    "y": 331
+   },
+   "bbox": [
+    912,
+    168,
+    161,
+    164
+   ],
+   "pixels": 15214
+  },
+  {
+   "judge": 3,
+   "staged": "art/staging/room-04/judges/judge-3.png",
+   "frames": [
+    [
+     2,
+     2,
+     127,
+     166
+    ],
+    [
+     131,
+     2,
+     127,
+     166
+    ]
+   ],
+   "anchor": {
+    "x": 1168,
+    "y": 333
+   },
+   "bbox": [
+    1105,
+    168,
+    127,
+    166
+   ],
+   "pixels": 10600
+  }
+ ]
+}

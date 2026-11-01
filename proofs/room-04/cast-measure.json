@@ -1,0 +1,71 @@
+{
+ "note": "Room 4's cast, measured before anyone looks (CLAUDE.md, character style gate step 2).",
+ "curve": {
+  "far": [
+   600,
+   470
+  ],
+  "near": [
+   840,
+   560
+  ]
+ },
+ "thad": {
+  "height": 530,
+  "texture": 4.27,
+  "lumMean": 58.1,
+  "lumSD": 36.8,
+  "satMean": 86.6,
+  "magentaEdgePct": 0.0,
+  "drawnAt": [
+   800,
+   760
+  ]
+ },
+ "deke": {
+  "height": 528,
+  "texture": 3.02,
+  "lumMean": 57.9,
+  "lumSD": 38.4,
+  "satMean": 119.5,
+  "magentaEdgePct": 0.0,
+  "drawnAt": [
+   1180,
+   760
+  ],
+  "curveHeightAtFeet": 530.0
+ },
+ "judges": [
+  {
+   "judge": 1,
+   "height": 156,
+   "texture": 4.38,
+   "lumMean": 37.9,
+   "lumSD": 21.8,
+   "satMean": 126.5,
+   "magentaEdgePct": 0.0,
+   "posture": "seated"
+  },
+  {
+   "judge": 2,
+   "height": 164,
+   "texture": 3.59,
+   "lumMean": 31.2,
+   "lumSD": 20.7,
+   "satMean": 65.7,
+   "magentaEdgePct": 0.0,
+   "posture": "seated"
+  },
+  {
+   "judge": 3,
+   "height": 166,
+   "texture": 4.72,
+   "lumMean": 39.1,
+   "lumSD": 22.0,
+   "satMean": 98.7,
+   "magentaEdgePct": 0.0,
+   "posture": "seated"
+  }
+ ],
+ "flags": []
+}

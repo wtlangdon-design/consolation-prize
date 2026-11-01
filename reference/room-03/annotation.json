@@ -185,6 +185,15 @@
    "note": "Through the batwing doors on the left wall, facing right into the room."
   },
   {
+   "from": "nugget_back",
+   "at": [
+    930,
+    590
+   ],
+   "facing": "right",
+   "note": "Back out of the back room, on the floor in front of the bar's near end (floor_1), LEFT of Deke Vessel's place (x 982-1138 is his figure, nearer the camera): at the door's own x he arrived hidden behind him. Room 4, errata 76 B."
+  },
+  {
    "from": "default",
    "at": [
     300,

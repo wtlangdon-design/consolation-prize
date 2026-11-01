@@ -1,0 +1,36 @@
+{
+ "sheet": "art/staging/room-04/sowerby/sowerby.png",
+ "frames": [
+  [
+   2,
+   2,
+   119,
+   229
+  ],
+  [
+   123,
+   2,
+   119,
+   229
+  ]
+ ],
+ "anchor": {
+  "x": 690,
+  "y": 308
+ },
+ "bbox": [
+  631,
+  80,
+  119,
+  229
+ ],
+ "pixels": 15043,
+ "box": [
+  628,
+  74,
+  756,
+  330
+ ],
+ "threshold": 18,
+ "source": "room-04 attempt 3 (art/staging/room-04/sowerby-01/source.png), derived with the room crop"
+}

@@ -1,0 +1,20 @@
+{
+ "assetId": "room-04",
+ "subject": "room-04-nugget-back",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-04-nugget-back",
+ "promptFile": "reference/room-04/prompts/composition-master-01.txt",
+ "out": "art/staging/room-04/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-04/layout-1536x1024.png",
+  "renders/room-01-in-engine-1920x1080.png",
+  "art/backgrounds/room-01-stage-road.png",
+  "reference/room-03/deke/style-reference.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "art/backgrounds/room-03-nugget.png",
+  "art/staging/room-03/deke-02/sheet.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

@@ -107,7 +107,114 @@
           "say": "Course you will."
         }
       ]
+    },
+    "VES_B1": {
+      "id": "VES_B1",
+      "prompt": "It contained a raccoon when I sold it. You bought the whole thing.",
+      "opening": [
+        {
+          "speaker": "deke_vessel",
+          "line": "Grubb! You came all this way. Was the claim not to your liking?"
+        },
+        {
+          "speaker": "thad",
+          "line": "The claim contains a raccoon and an opinion."
+        },
+        {
+          "speaker": "deke_vessel",
+          "line": "It contained a raccoon when I sold it. You bought the whole thing."
+        }
+      ],
+      "openingOnce": "T_VESSEL_GREETED",
+      "options": [
+        {
+          "id": "ves_b1_1",
+          "tag": "PROGRESS",
+          "text": "You sold me a worthless claim.",
+          "afterUse": "remove",
+          "say": "I sold you a claim. Worth is your department. Mine's volume."
+        },
+        {
+          "id": "ves_b1_2",
+          "tag": "TOPIC",
+          "text": "I want my four dollars back.",
+          "afterUse": "counted-repeat",
+          "say": "They're working, son. Money works out here.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "They've been promoted."
+            },
+            {
+              "selection": 3,
+              "say": "They're in hospitality now."
+            }
+          ]
+        },
+        {
+          "id": "ves_b1_3",
+          "tag": "ASSAY",
+          "text": "Teach me to lie like that.",
+          "afterUse": "remove",
+          "say": "Can't teach it. Can demonstrate it.",
+          "duel": "duel_one"
+        },
+        {
+          "id": "ves_b1_4",
+          "tag": "COMIC",
+          "text": "You'll answer for this someday.",
+          "afterUse": "retain",
+          "say": "I answer for it constantly. Nobody accepts the answer."
+        },
+        {
+          "id": "ves_b1_5",
+          "tag": "ASSAY",
+          "text": "I'd like a rematch.",
+          "afterUse": "retain",
+          "say": "Course you would. They all would. Pull up the chair, son, the judges are getting bored.",
+          "duel": "duel_two",
+          "when": {
+            "T_DUEL_ONE_LOST": true,
+            "T_DUEL_TWO_WON": false
+          }
+        },
+        {
+          "id": "ves_b1_6",
+          "tag": "PROGRESS",
+          "text": "I need you to sign an affidavit.",
+          "afterUse": "remove",
+          "exchange": [
+            {
+              "speaker": "deke_vessel",
+              "line": "Sign a paper saying I sold you mud under false pretenses? Son, that's a confession with a stamp on it."
+            },
+            {
+              "speaker": "deke_vessel",
+              "line": "Tell you what. We'll settle it the local way."
+            }
+          ],
+          "duel": "duel_one",
+          "puzzle": {
+            "B4": "complete"
+          }
+        },
+        {
+          "id": "ves_b1_x",
+          "tag": "EXIT",
+          "text": "Thank you. This has been clarifying.",
+          "universal": true,
+          "ends": true
+        }
+      ]
     }
   },
+  "entries": [
+    {
+      "when": {
+        "T_VESSEL_FOUND": true
+      },
+      "node": "VES_B1"
+    }
+  ],
   "start": "root"
 }

@@ -1,3 +1,4 @@
+import type { DuelSnapshot } from './Assay.ts';
 import type { FlagValue, PuzzleStatus } from './types.ts';
 import type { DialogueProgress } from './DialogueRunner.ts';
 
@@ -38,6 +39,8 @@ export interface SaveFile {
   puzzles?: Record<string, PuzzleStatus>;
   dialogueProgress: DialogueProgress;
   dialoguePosition: { tree: string | null; node: string | null };
+  /** A Liar's Assay duel in progress inside the open conversation (doc 03). Absent or null otherwise. */
+  duel?: DuelSnapshot | null;
   /**
    * Where he was standing, in the room named above.
    *

@@ -1804,8 +1804,11 @@ export class Renderer {
     // Tyler saw: their dialogue printed at the top of the screen instead of
     // over their heads. They are the only people in Room 2 and they were the
     // ones this could not find.
-    const npc = [...this.state.content.ambient.values()]
-      .find((each) => each.id === this.speaker);
+    // WHERE THIS ROOM PUTS HER, NOT WHERE HER FILE DOES. Room 4's Vessel is a
+    // placement of his Nugget record; read from the file, his words hung over
+    // his place at the Nugget's bar, which in the back room is empty floor.
+    const npc = this.ambient.present.find((each) => each.id === this.speaker)
+      ?? [...this.state.content.ambient.values()].find((each) => each.id === this.speaker);
     if (npc) {
       const height = this.state.heightForZone(npc.zone);
       // A FIGURE DRAWN TALLER THAN HIS ZONE'S MAN keeps his words above his

@@ -1483,6 +1483,8 @@ function minorTrees() {
     }
 
     if (options.length < 3) throw new Error(`doc 27: ${title} has ${options.length} options`);
+    // Vessel's Act II root is doc 04's, merged here so he is one tree.
+    const actTwo = who.tree === 'DEKE_VESSEL' ? vesselActTwo() : null;
 
     written.push(write(`content/dialogue/${who.tree.toLowerCase().replace(/_/g, '-')}.json`, {
       schema: 1,
@@ -1516,7 +1518,9 @@ function minorTrees() {
           opening: [rootSpeech[0]],
           options,
         },
+        ...(actTwo ? { VES_B1: actTwo.node } : {}),
       },
+      ...(actTwo ? { entries: actTwo.entries } : {}),
       start: 'root',
     }));
   }
@@ -2306,8 +2310,242 @@ function hobTree() {
   });
 }
 
+/**
+ * DOC 04's VES_B1: Vessel found again, in the Nugget's back room (errata 73 B).
+ *
+ * Merged into the DEKE_VESSEL tree doc 27 already writes, as a second node the
+ * tree OPENS ON once Vessel has been found (B3): one man, one tree file, the
+ * Act I root and the Act II root, which is the shape doc 04 gives Winnie and
+ * Hob. Option 3 starts Duel One and option 5 Duel Two -- the `duel` field names
+ * the duel in content/assay/assay.json, and the runner plays it after the
+ * option's own reply. Option 5's gate is errata 73 H's "offered once Duel One
+ * is lost", and it closes once Duel Two is won, because a won duel has nothing
+ * left to yield.
+ */
+function vesselActTwo() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('## DEKE VESSEL');
+  if (from < 0) throw new Error('doc 04: cannot find the DEKE VESSEL section');
+  const rest = doc.slice(from + 1);
+  const body = rest.slice(0, rest.search(/^## /m) > 0 ? rest.search(/^## /m) : rest.length);
+  const block = body.slice(body.indexOf('`VES_B1`'), body.indexOf('`VES_F1`'));
+  if (!block.includes('VES_B1')) throw new Error('doc 04: VES_B1 not found');
+  const SPEAKER = 'deke_vessel';
+  const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)]
+    .map((m) => m[1]);
+  if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
+  const notes = [];
+  const said = (text, where) => {
+    if (/\*/.test(text)) notes.push(`${where}: emphasis dropped from "${text}"`);
+    return plain(text);
+  };
+  const ROW = /^\| (\d+) \|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|[ \t]*$/gm;
+  const options = [];
+  for (const [, number, optionCell, tagCell, responseCell] of block.matchAll(ROW)) {
+    const where = `VES_B1 option ${number}`;
+    const tagged = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(`${tagCell} ${optionCell}`);
+    if (!tagged) throw new Error(`doc 04: ${where} has no tag`);
+    const text = quoted(optionCell)[0];
+    if (!text) throw new Error(`doc 04: ${where} has no option text`);
+    const option = { id: `ves_b1_${number}`, tag: tagged[1], text: said(text, where) };
+    if (tagged[2]) option.afterUse = tagged[2];
+    const [spoken, ...after] = responseCell.split('→');
+    // A counted-repeat writes its later answers after *(second)*, *(third)*.
+    const runs = spoken.split(/\*\((second|third|fourth)\)\*/);
+    const first = quoted(runs[0].replace(/\*\([^)]*\)\*/g, '')).map((q) => said(q, where));
+    for (const direction of stageDirections(runs[0])) notes.push(`${where} staging: ${direction}`);
+    if (first.length === 0) throw new Error(`doc 04: ${where} answers in no line`);
+    // Two lines with a beat between them (option 6) are an exchange, both his.
+    if (first.length === 1) option.say = first[0];
+    else option.exchange = first.map((line) => ({ speaker: SPEAKER, line }));
+    const ORDINAL = { second: 2, third: 3, fourth: 4 };
+    for (let at = 1; at < runs.length; at += 2) {
+      const line = quoted(runs[at + 1])[0];
+      if (!line) throw new Error(`doc 04: ${where} ${runs[at]} selection has no line`);
+      (option.repeats ??= []).push({ selection: ORDINAL[runs[at]], say: said(line, where) });
+    }
+    const state = after.join('→');
+    const duel = /\*\*Duel (One|Two)\.?\*\*/.exec(state);
+    if (duel) option.duel = duel[1] === 'One' ? 'duel_one' : 'duel_two';
+    if (duel?.[1] === 'Two') option.when = { T_DUEL_ONE_LOST: true, T_DUEL_TWO_WON: false };
+    // A PUZZLE THE ROW COMPLETES: option 6's "-> **B4**; **Duel One**" (errata 75).
+    const puzzle = /\*\*(B\d)\*\*/.exec(state);
+    if (puzzle) option.puzzle = { [puzzle[1]]: 'complete' };
+    for (const direction of stageDirections(state)) notes.push(`${where} after: ${direction}`);
+    if (state.trim() && !duel && !puzzle) notes.push(`${where}: state "${plain(state)}" names no duel; nothing set`);
+    options.push(option);
+  }
+  if (options.length !== 6) throw new Error(`doc 04: VES_B1 has ${options.length} options, not 6`);
+  if (!options.some((o) => o.tag === 'COMIC')) throw new Error('doc 04: VES_B1 has no [COMIC] option');
+  options.push({ id: 'ves_b1_x', tag: 'EXIT', text: POOL[3 % POOL.length], universal: true, ends: true });
+  for (const note of notes) process.stderr.write(`  doc 04 VES_B1: ${note}\n`);
+  // ITS OPENING IS DOC 03'S DUEL ONE EXCHANGE (doc 04, errata 75: "Its opening
+  // is doc 03's Duel One exchange"), played on the first TALK TO only (doc 57
+  // B4: "The first TALK TO plays..."): `openingOnce` names the flag that
+  // records it has been played.
+  const three = read('docs/03-liars-assay.md');
+  const duelOne = three.slice(three.indexOf('## DUEL ONE'), three.indexOf('## THE SPARRING'));
+  const firstGroup = duelOne.split(/\n\n/).find((chunk) => /^> \*\*VESSEL:\*\*/m.test(chunk));
+  const opening = [...firstGroup.matchAll(/^> \*\*([A-Z]+):\*\* "(.+?)"$/gm)]
+    .map(([, who, line]) => ({ speaker: who === 'THAD' ? 'thad' : SPEAKER, line: plain(line) }));
+  if (opening.length !== 3) throw new Error('doc 03: Duel One opening is not three lines');
+  return {
+    node: {
+      id: 'VES_B1',
+      prompt: opening[opening.length - 1].line,
+      opening,
+      openingOnce: 'T_VESSEL_GREETED',
+      options,
+    },
+    entries: [{ when: { T_VESSEL_FOUND: true }, node: 'VES_B1' }],
+  };
+}
+
+/**
+ * DOC 03, THE LIAR'S ASSAY, as data the duel runner plays (errata 73).
+ *
+ * Every line here is the document's: the 23 boasts and counters, the three
+ * wrong answers per pair with the reply each one gets (errata 73 A), the
+ * standing mockery pool, and Duels One and Two's spoken scenes. Pair 24 is
+ * Duel Four's and lives in its section; Duel Three's fifth exchange is the
+ * Main Street duel's and is extracted when that duel is built.
+ *
+ * WHAT IS NOT TEXT is marked as a ruling and carries its source: Duel One's
+ * sequence (errata 73 D), what Thad is offered (73 C), Duel Two's order and
+ * threshold (73 E, errata 76 A). A reply's speaker is the document's own
+ * attribution: Vessel and Reply are Vessel in Room 4's two duels; Fanshawe is
+ * Fanshawe.
+ */
+function assay() {
+  const doc = read('docs/03-liars-assay.md');
+  const part = (heading, next) => {
+    const from = doc.indexOf(heading);
+    if (from < 0) throw new Error(`doc 03: no "${heading}"`);
+    const to = next ? doc.indexOf(next, from + heading.length) : doc.length;
+    return doc.slice(from, to < 0 ? doc.length : to);
+  };
+
+  // PART TWO: the pairs, by tier.
+  const pairs = [];
+  const two = part('# PART TWO', '# PART THREE');
+  for (const tier of two.split(/^## Tier /m).slice(1)) {
+    const head = /^(\d) — (.+?) \((\d+)\)/.exec(tier);
+    if (!head) throw new Error(`doc 03: unreadable tier heading "${tier.split('\n')[0]}"`);
+    const [, tierNumber, learned, count] = head;
+    const found = [...tier.matchAll(/^\*\*(\d+)\.\*\*(?: \*\((.+?)\)\*)?\n> \*"(.+?)"\*\n> \*\*"(.+?)"\*\*/gm)];
+    for (const [, n, who, boast, counter] of found) {
+      pairs.push({
+        n: Number(n), tier: Number(tierNumber), learnedFrom: who ?? plain(learned).replace(/^Learned from /, ''),
+        boast: plain(boast), counter: plain(counter), wrong: [],
+        // The knowledge flag (content/flags/flags.json). Fanshawe's tier is never Thad's to learn.
+        ...(Number(tierNumber) <= 5 ? { flag: `ASSAY_PAIR_${String(n).padStart(2, '0')}` } : {}),
+      });
+    }
+    const written = Number(count) - (tier.includes('*see Duel Four.*') ? 1 : 0);
+    if (found.length !== written) throw new Error(`doc 03: Tier ${tierNumber} has ${found.length} pairs, not ${written}`);
+  }
+  if (pairs.length !== 23) throw new Error(`doc 03: ${pairs.length} pairs, not 23`);
+
+  // PART THREE: three wrong answers per pair, each with its reply.
+  const three = part('# PART THREE', '# PART FOUR');
+  const WRONG = /^> \*\*"(.+?)"\*\* — \*(Vessel|Reply|Fanshawe): "(.+?)"\*$/gm;
+  const BY = { Vessel: 'deke_vessel', Reply: 'deke_vessel', Fanshawe: 'fanshawe' };
+  const sample = three.slice(three.indexOf('Sample wrong answers for pair 1'), three.indexOf('## Wrong answers, pairs'));
+  const blocks = [['1', sample],
+    ...three.slice(three.indexOf('## Wrong answers, pairs')).split(/^\*\*(\d+)\.\*\* /m).slice(1)
+      .reduce((acc, item, i, arr) => (i % 2 === 0 ? [...acc, [item, arr[i + 1]]] : acc), [])];
+  for (const [n, text] of blocks) {
+    const pair = pairs.find((p) => p.n === Number(n));
+    if (!pair) throw new Error(`doc 03: wrong answers for unknown pair ${n}`);
+    const body = text.split(/^\*\*Duel Three|^\*\*Standing mockery/m)[0];
+    pair.wrong = [...body.matchAll(WRONG)].map(([, said, by, reply]) => ({
+      text: plain(said), reply: plain(reply), by: BY[by], attribution: by,
+    }));
+    if (pair.wrong.length !== 3) throw new Error(`doc 03: pair ${n} has ${pair.wrong.length} wrong answers, not 3`);
+  }
+  for (const pair of pairs) if (pair.wrong.length !== 3) throw new Error(`doc 03: pair ${pair.n} has no wrong answers`);
+  const seen = new Set();
+  for (const pair of pairs) {
+    for (const w of pair.wrong) {
+      if (seen.has(w.text)) throw new Error(`doc 03: wrong answer reused: "${w.text}" (Part Five, note 1)`);
+      seen.add(w.text);
+    }
+  }
+  const mockery = [...three.slice(three.indexOf('**Standing mockery lines**')).matchAll(/^- \*"(.+?)"\*$/gm)]
+    .map((m) => plain(m[1]));
+  if (mockery.length !== 5) throw new Error(`doc 03: ${mockery.length} mockery lines, not 5`);
+
+  // PART FOUR: the spoken scenes, as groups of quoted lines.
+  const SAYS = { VESSEL: 'deke_vessel', THAD: 'thad', SOWERBY: 'sowerby' };
+  // THE HANDBILL'S FIVE RULES (Part One), which Sowerby reads before each of
+  // Room 4's duels (errata 75). Read as the document lists them.
+  const rulesAt = doc.indexOf('**The rules, as posted');
+  const rules = [...doc.slice(rulesAt, doc.indexOf('Rule 3 is', rulesAt)).matchAll(/^> (\d\. .+)$/gm)]
+    .map((m) => ({ speaker: 'sowerby', line: plain(m[1]) }));
+  if (rules.length !== 5) throw new Error(`doc 03: ${rules.length} rules, not 5`);
+  const groups = (section) => section.split(/\n(?!> )/).map((chunk) => [...chunk.matchAll(/^> \*\*([A-Z]+):\*\* "(.+?)"(?: \*\([^)]*\)\*)?$/gm)])
+    .filter((g) => g.length).map((g) => g.map(([, who, line]) => {
+      if (!SAYS[who]) throw new Error(`doc 03: unknown speaker ${who}`);
+      return { speaker: SAYS[who], line: plain(line) };
+    }));
+  const one = groups(part('## DUEL ONE', '## THE SPARRING'));
+  if (one.length !== 4) throw new Error(`doc 03: Duel One has ${one.length} spoken groups, not 4`);
+  // The opening exchange is VES_B1's greeting now (doc 04, errata 75), not the duel's.
+  const [, [notebook], others, duelOneLoss] = one;
+  if (others.length !== 3) throw new Error('doc 03: Duel One writes the other three notebook lines as a group of three');
+  const two2 = groups(part('## DUEL TWO', '## DUEL FOUR'));
+  if (two2.length !== 2) throw new Error(`doc 03: Duel Two has ${two2.length} spoken groups, not 2`);
+  const [duelTwoPreamble, duelTwoWin] = two2;
+
+  return write('content/assay/assay.json', {
+    schema: 1,
+    id: 'ASSAY',
+    note: 'EXTRACTED from docs/03-liars-assay.md by tools/extract-content.mjs. Do not edit: change doc 03 and '
+      + 're-run. Lines are the document\'s; fields marked "ruling" are the errata\'s mechanism, carried as data.',
+    exchangesToWin: 5,
+    exchangesToWinRuling: 'docs/03-liars-assay.md How it plays: "First to five exchanges wins the duel."',
+    offerRuling: 'errata 73 C: a boast whose counter Thad has not learned offers its three wrong answers; a learned '
+      + 'one adds the right counter as a fourth, in a slot that varies by pair.',
+    bystander: 'assay_ring',
+    bystanderRuling: 'errata 73 F: a voice from the ring of chairs, unnamed.',
+    pairs,
+    mockery,
+    duels: {
+      duel_one: {
+        puzzle: 'B5',
+        opponent: 'deke_vessel',
+        opening: rules,
+        openingRuling: 'errata 75: before the first exchange, Sowerby reads the handbill\'s five rules aloud, all of them.',
+        sequence: [1, 2, 3, 4, 1],
+        sequenceRuling: 'errata 73 D: pairs 1, 2, 3 and 4, then pair 1 again; nobody mutters on the repeat.',
+        notebook: { 1: notebook, 2: others[0], 3: others[1], 4: others[2] },
+        notebookRuling: 'errata 73 D and 75: Thad writes each counter down as he hears it, and the notebook joins his '
+          + 'repertoire when the duel is over.',
+        learns: [1, 2, 3, 4],
+        sets: { T_DUEL_ONE_LOST: true },
+        loss: duelOneLoss,
+        winnable: false,
+      },
+      duel_two: {
+        puzzle: 'B6',
+        opponent: 'deke_vessel',
+        pool: Array.from({ length: 21 }, (_, i) => i + 1),
+        threshold: 14,
+        opening: [...duelTwoPreamble, ...rules],
+        openingRuling: 'doc 03 Duel Two (errata 75): Sowerby, Vessel, Sowerby, and then "(He reads all five.)".',
+        orderRuling: 'errata 73 E, doc 57 B6 and errata 76 A: Tier 1 first, never repeating. Then, holding fourteen '
+          + 'or more, the pairs Thad knows before the rest; holding fewer, the rest first (doc 02 B6: ">=14 pairs").',
+        win: duelTwoWin,
+        setsOnWin: { T_DUEL_TWO_WON: true },
+        yields: ['document_a', 'watch'],
+        lossRuling: 'errata 73 H: a lost Duel Two ends on the reply that lost it; nothing more is said.',
+      },
+    },
+  });
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), ...actTwoItems()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), ...actTwoItems(), assay()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

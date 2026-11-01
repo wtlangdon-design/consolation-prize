@@ -1,0 +1,39 @@
+{
+ "sheet": "art/staging/room-04/deke/deke-vessel-530-graded.png",
+ "frames": [
+  [
+   2,
+   2,
+   242,
+   530
+  ],
+  [
+   246,
+   2,
+   242,
+   530
+  ],
+  [
+   490,
+   2,
+   242,
+   530
+  ],
+  [
+   734,
+   2,
+   242,
+   530
+  ],
+  [
+   978,
+   2,
+   242,
+   530
+  ]
+ ],
+ "height": 530,
+ "cutBy": "tools/art/cut-ambient-sheet.py art/staging/room-03/deke-02/sheet.png 530",
+ "gradedBy": "tools/grade/match-neighbours.py, strength 0.9, against his own figure as the composition master painted him in this room (master-deke-pixels.npy)",
+ "despill": "after grading, 55 warm pixels (lips, cheeks) had crossed the key gate's (R+B)/2-G > 30; their green was lifted to sit 29 under it. No pixel deleted."
+}

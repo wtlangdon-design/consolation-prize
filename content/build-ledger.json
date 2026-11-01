@@ -76,6 +76,25 @@
    "contract": "content/build-contracts/room-03-nugget.json"
   },
   {
+   "id": "room-04-nugget-back",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-04.json",
+    "docs/03-liars-assay.md",
+    "docs/04-dialogue-trees.md",
+    "docs/20-room-map.md"
+   ],
+   "dependsOn": [
+    "room-03-nugget"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-04-nugget-back.json",
+   "proof": "renders/proofs/nugget-back/proof.json",
+   "gauntlet": "tools/gauntlet/routes/nugget-back.json",
+   "blockers": [],
+   "note": "Room 4, built 2026-11-01 under doc 55 (errata 72, 73, 74). Acceptance is Tyler's, in the playthrough (Q148)."
+  },
+  {
    "id": "room-05-assay-office",
    "kind": "room",
    "sources": [

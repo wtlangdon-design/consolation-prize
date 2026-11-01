@@ -309,6 +309,249 @@
    "writtenBy": [
     "dialogue:WINNIE:WIN_B1:winnie6"
    ]
+  },
+  {
+   "id": "T_VESSEL_FOUND",
+   "type": "boolean",
+   "initial": false,
+   "pending": true,
+   "writtenBy": [
+    "docs/02-puzzle-graph.md B3, the Grievance puzzle (Room 15) -- unbuilt"
+   ],
+   "note": "Errata 73 B: from B3's completion, Vessel is in Room 4. Gates his Act II root (VES_B1) and his and the judges' presence in the back room. B1-B3 are not built, so a fixture or the ?flags= control sets it."
+  },
+  {
+   "id": "T_DUEL_ONE_LOST",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "engine:assay:duel_one"
+   ],
+   "note": "B5. Written by the duel runner when Duel One ends (it always ends lost, by design). Gates VES_B1 option 5, the rematch (errata 73 H)."
+  },
+  {
+   "id": "T_DUEL_TWO_WON",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "engine:assay:duel_two"
+   ],
+   "note": "B6. Written by the duel runner when Duel Two is won, with Document A and the watch. Closes VES_B1 option 5."
+  },
+  {
+   "id": "ASSAY_PAIR_01",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "engine:assay:duel_one"
+   ],
+   "note": "Thad has learned pair 1 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Duel One's notebook (B5), when the duel ends (errata 73 D). Read by the duel runner, which offers the right counter only once this is true (errata 73 C)."
+  },
+  {
+   "id": "ASSAY_PAIR_02",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "engine:assay:duel_one"
+   ],
+   "note": "Thad has learned pair 2 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Duel One's notebook (B5), when the duel ends (errata 73 D). Read by the duel runner, which offers the right counter only once this is true (errata 73 C)."
+  },
+  {
+   "id": "ASSAY_PAIR_03",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "engine:assay:duel_one"
+   ],
+   "note": "Thad has learned pair 3 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Duel One's notebook (B5), when the duel ends (errata 73 D). Read by the duel runner, which offers the right counter only once this is true (errata 73 C)."
+  },
+  {
+   "id": "ASSAY_PAIR_04",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "engine:assay:duel_one"
+   ],
+   "note": "Thad has learned pair 4 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Duel One's notebook (B5), when the duel ends (errata 73 D). Read by the duel runner, which offers the right counter only once this is true (errata 73 C)."
+  },
+  {
+   "id": "ASSAY_PAIR_05",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md THE SPARRING -- Winnie (C6), Room 5 -- unbuilt"
+   ],
+   "note": "Thad has learned pair 5 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Winnie's sparring, C6. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_06",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md THE SPARRING -- Winnie (C6), Room 5 -- unbuilt"
+   ],
+   "note": "Thad has learned pair 6 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Winnie's sparring, C6. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_07",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md THE SPARRING -- Winnie (C6), Room 5 -- unbuilt"
+   ],
+   "note": "Thad has learned pair 7 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Winnie's sparring, C6. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_08",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md THE SPARRING -- Winnie (C6), Room 5 -- unbuilt"
+   ],
+   "note": "Thad has learned pair 8 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Winnie's sparring, C6. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_09",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md THE SPARRING -- Winnie (C6), Room 5 -- unbuilt"
+   ],
+   "note": "Thad has learned pair 9 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Winnie's sparring, C6. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_10",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md THE SPARRING -- Pratt (D5) -- unbuilt"
+   ],
+   "note": "Thad has learned pair 10 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Pratt's sparring, D5. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_11",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md THE SPARRING -- Pratt (D5) -- unbuilt"
+   ],
+   "note": "Thad has learned pair 11 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Pratt's sparring, D5. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_12",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md THE SPARRING -- Pratt (D5) -- unbuilt"
+   ],
+   "note": "Thad has learned pair 12 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Pratt's sparring, D5. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_13",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md THE SPARRING -- Pratt (D5) -- unbuilt"
+   ],
+   "note": "Thad has learned pair 13 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Pratt's sparring, D5. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_14",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md THE SPARRING -- Pratt (D5) -- unbuilt"
+   ],
+   "note": "Thad has learned pair 14 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Pratt's sparring, D5. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_15",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md THE SPARRING -- Pratt (D5) -- unbuilt"
+   ],
+   "note": "Thad has learned pair 15 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Pratt's sparring, D5. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_16",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md Tier 4, collected around town -- unbuilt"
+   ],
+   "note": "Thad has learned pair 16 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Tier 4, around town. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_17",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md Tier 4, collected around town -- unbuilt"
+   ],
+   "note": "Thad has learned pair 17 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Tier 4, around town. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_18",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md Tier 4, collected around town -- unbuilt"
+   ],
+   "note": "Thad has learned pair 18 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Tier 4, around town. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_19",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md Tier 4, collected around town -- unbuilt"
+   ],
+   "note": "Thad has learned pair 19 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Tier 4, around town. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_20",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "docs/03-liars-assay.md Tier 4, collected around town -- unbuilt"
+   ],
+   "note": "Thad has learned pair 20 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Tier 4, around town. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "ASSAY_PAIR_21",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:HOB:HOB_A1:hob6 -- not yet wired: the pair is reported, not set"
+   ],
+   "note": "Thad has learned pair 21 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Hob, Tier 5 (HOB_A1 option 6). Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
+   "pending": true
+  },
+  {
+   "id": "T_VESSEL_GREETED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "engine:dialogue:openingOnce DEKE_VESSEL/VES_B1"
+   ],
+   "note": "Doc 57 B4: the first TALK TO with Vessel in Room 4 plays doc 03's Duel One opening ('Grubb! You came all this way.'), once. Set by the dialogue runner when VES_B1 opens."
   }
  ]
 }

@@ -376,6 +376,59 @@ export function promoteDerived({ assetId, attempt, derived, provenance, shipping
   return promotion;
 }
 
+/**
+ * PROMOTE UNDER ERRATA 72 E: SHIPPED BEFORE IT IS ACCEPTED, AND SAYING SO.
+ *
+ * Tyler, 2026-10-31: "Every room merges to main and deploys as soon as it is
+ * built and green, so what he plays is what exists. Acceptance is his, as
+ * before; it is given or withheld while he plays." `promote` and
+ * `promoteDerived` refuse anything Tyler has not accepted, and they are right
+ * to: this does NOT set or imply `visual_accepted`, and nothing here writes it.
+ * It records the promotion as PENDING his playthrough, so the ledger never
+ * says an asset is accepted when it is only shipped.
+ *
+ * EVERY OTHER REFUSAL STANDS. The derived file must pass the technical gates
+ * now (`gates` is their result for THIS file); a composition master never
+ * ships; and a shipping path whose current file was promoted with acceptance
+ * is never overwritten by an unaccepted one -- that is the custody this file
+ * exists for.
+ */
+export function promoteProvisional({ assetId, attempt, derived, provenance, shippingPath, gates, by }) {
+  const file = ledger();
+  const row = file.attempts.find((one) => one.assetId === assetId && one.attempt === attempt);
+  if (!row) throw new Error(`no attempt ${attempt} for ${assetId} in ${LEDGER}`);
+  if (row.role === 'composition-master' && derived === row.out) {
+    throw new Error(`${assetId} attempt ${attempt} is a composition master and never ships as itself`);
+  }
+  if (!gates?.passed) throw new Error(`${derived} has no passing technical gate result`);
+  if (!existsSync(resolve(ROOT, derived))) throw new Error(`${derived} is gone -- nothing to promote`);
+  if (!provenance || !existsSync(resolve(ROOT, provenance))) {
+    throw new Error(`a derived promotion names the record of its derivation, and ${provenance} does not exist`);
+  }
+  const target = resolve(ROOT, shippingPath);
+  const replacing = existsSync(target) ? hashFile(shippingPath) : null;
+  if (replacing) {
+    const accepted = (file.promotions ?? []).filter((p) => p.to === shippingPath && p.hash === replacing
+      && (p.acceptedBy || p.acceptance === 'accepted'));
+    if (accepted.length) {
+      throw new Error(`${shippingPath} holds art promoted WITH acceptance (${accepted[0].acceptedBy ?? 'accepted'}); `
+        + 'an unaccepted asset may not replace it');
+    }
+  }
+  mkdirSync(dirname(target), { recursive: true });
+  copyFileSync(resolve(ROOT, derived), target);
+  const promotion = {
+    assetId, attempt, from: derived, derivedFrom: row.out, provenance, to: shippingPath,
+    hash: hashFile(derived), sourceHash: row.outputHash, replacedHash: replacing,
+    gates: { passed: true, kind: gates.kind ?? null },
+    acceptance: 'pending Tyler\'s playthrough (errata 72 E)', acceptedBy: null,
+    by: by ?? process.env.USER ?? 'unattributed', at: new Date().toISOString(),
+  };
+  (file.promotions ??= []).push(promotion);
+  write(LEDGER, file);
+  return promotion;
+}
+
 /* ------------------------------------------------------------------- CLI */
 
 if (import.meta.url === `file://${process.argv[1]}`) {

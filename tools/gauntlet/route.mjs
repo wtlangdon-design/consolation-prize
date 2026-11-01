@@ -244,6 +244,17 @@ export async function runRoute(page, route) {
         }
         continue;
       }
+      // A DECLARED FLAG, SET THROUGH THE HARNESS'S OWN CONTROL. For a state
+      // whose writer is not built yet (Room 4's T_VESSEL_FOUND is B3's, in a
+      // room that does not exist): the control refuses anything the registry
+      // does not declare, so a route cannot invent a state.
+      if (action.do === 'flags') {
+        const answer = await page.evaluate((values) => window.__gauntlet?.controls.flags(values), action.flags);
+        if (!answer?.ok) throw new Error(`the flag registry declares no ${answer?.refused?.join(', ')}`);
+        await page.waitForTimeout(400);
+        log.push(`${where}: set ${JSON.stringify(action.flags)} -- ${action.why ?? ''}`);
+        continue;
+      }
       if (action.do === 'verb') {
         const rect = verbRect(action.verb);
         await clickScreen(page, rect.x + rect.width / 2, rect.y + rect.height / 2);

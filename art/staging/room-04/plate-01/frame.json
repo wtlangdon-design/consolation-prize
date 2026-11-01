@@ -1,0 +1,20 @@
+{
+ "source": "art/staging/room-04/plate-01/source-repaired.png",
+ "crop": {
+  "x": 8,
+  "y": 120,
+  "width": 1520,
+  "height": 684
+ },
+ "out": "art/staging/room-04/plate-01/candidate-1920x864.png",
+ "repair": {
+  "what": "the champion's cushion, from composition-master-01",
+  "box": [
+   1052,
+   536,
+   1178,
+   585
+  ],
+  "pixels": 4081
+ }
+}

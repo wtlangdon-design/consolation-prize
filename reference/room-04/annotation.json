@@ -1,0 +1,212 @@
+{
+ "room": "nugget_back",
+ "plate": "art/backgrounds/room-04-nugget-back.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-04/plate-01/candidate-1920x864.png, room-04 attempt 2, the cushion restored and Room 4's own 20:9 crop -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-04-nugget-back.png",
+ "plateShippingHash": "87c98ead2c3411c02167ca89",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   240,
+   705
+  ],
+  [
+   1680,
+   705
+  ],
+  [
+   1680,
+   840
+  ],
+  [
+   240,
+   840
+  ]
+ ],
+ "walkableNote": "THE FLOOR IN FRONT OF EVERY CHAIR. The ring of chairs stands on the floor from y 560 to 725 (their feet), the challenger's and champion's chairs to 700-710, and the two near-corner chairs from 680 down: a man walking behind any of them would be drawn over a chair that is nearer than he is. So the band starts at 705, in front of all of them, and stops short of the near corners (x 240-1680). Errata 74 B. The duel marks (800,760) and (1180,760) stand in it either side of the burnt line.",
+ "scaling": {
+  "far": {
+   "y": 705,
+   "height": 509
+  },
+  "near": {
+   "y": 840,
+   "height": 560
+  },
+  "note": "ROOM 4'S DEPTH, FROM THE PEOPLE THE COMPOSITION MASTER PAINTED IN IT. The master drew Thad 549 tall with his feet at y 842 and Deke 553 at 838 (proofs/room-04/cast-measure.json's measurement); the judges' heads, about 70 px, put a standing man near 520 at the table (y 565). The curve is a standing man of 470 at y 600 and 560 at y 840 -- Room 5's own interior numbers, which a render against the plate preferred over the flatter reading -- sampled here at the walk band's edges: 509 at 705, 560 at 840."
+ },
+ "entrance": [
+  300,
+  730
+ ],
+ "entrances": [
+  {
+   "from": "nugget",
+   "at": [
+    300,
+    730
+   ],
+   "facing": "right",
+   "note": "Through the door to the bar, at left, on the floor in front of the ring of chairs."
+  },
+  {
+   "from": "default",
+   "at": [
+    300,
+    730
+   ],
+   "facing": "right",
+   "note": "Anything else arrives by the door."
+  }
+ ],
+ "hotspots": {
+  "long_table": [
+   665,
+   318,
+   675,
+   250
+  ],
+  "judges_pencil": [
+   770,
+   328,
+   85,
+   50
+  ],
+  "scoreboard": [
+   400,
+   0,
+   405,
+   255
+  ],
+  "lamp_over_the_table": [
+   890,
+   0,
+   205,
+   165
+  ],
+  "chairs": [
+   1320,
+   395,
+   180,
+   315
+  ],
+  "spit_line": [
+   955,
+   530,
+   75,
+   334
+  ],
+  "window_painted_over": [
+   1330,
+   0,
+   220,
+   295
+  ],
+  "second_rulebook": [
+   1058,
+   322,
+   115,
+   60
+  ],
+  "ring_of_chairs": [
+   1520,
+   300,
+   400,
+   440
+  ],
+  "chalk": [
+   452,
+   212,
+   60,
+   60
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE CHAIRS is the champion's chair, the one with the cushion its third LOOK names and its TALK TO addresses; the challenger's chair at the table's left end is drawn and not separately clickable. THE RING OF CHAIRS is the right-hand ring, the largest group. The pencil and the rulebook lie inside the table's rect and win by area; the chalk tin inside the scoreboard's.",
+ "exitSubjects": {
+  "THE DOOR TO THE BAR": {
+   "id": "to_bar",
+   "to": "nugget",
+   "defaultVerb": "WALK_TO"
+  }
+ },
+ "exitSubjectsNote": "Doc 54 writes the door as one of the room's eleven subjects, three LOOK and three LISTEN, and doc 20 makes it the way back to Room 3. It is compiled as the exit, carrying those lines, rather than as a hotspot beside one.",
+ "exits": {
+  "to_bar": [
+   70,
+   0,
+   200,
+   530
+  ]
+ },
+ "exitWalkTo": {
+  "to_bar": {
+   "x": 270,
+   "y": 720,
+   "facing": "left"
+  }
+ },
+ "people": {
+  "DEKE VESSEL": [
+   "deke_vessel"
+  ],
+  "THE JUDGES": [
+   "room_04_judge_1",
+   "room_04_judge_2",
+   "room_04_judge_3"
+  ]
+ },
+ "peopleWhen": {
+  "in a duel": {
+   "T_VESSEL_FOUND": true,
+   "T_DUEL_TWO_WON": false
+  }
+ },
+ "peopleNote": "Doc 54's Overrides for people, by the ambient ids that draw them. 'In a duel' is the Assay sitting: Vessel found (B3) and Duel Two not yet won (errata 76 B) -- a verb cannot be chosen during a duel's exchanges, which are a conversation, so the override answers in the room the duel is fought in, while it is still to be fought.",
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "table_lamp",
+   "at": [
+    995,
+    140
+   ],
+   "radius": 460,
+   "amount": 0.14,
+   "rate": 0.3,
+   "phase": 0.4,
+   "note": "THE LAMP OVER THE TABLE: one oil flame under a green shade, the only light. A slow, low breath on the pool it throws -- doc 05: 'The flame leans when the door opens.' It never stops and never signals anything (invariant 9)."
+  }
+ ],
+ "defaultVerbs": {
+  "long_table": "LOOK_AT",
+  "judges_pencil": "LOOK_AT",
+  "scoreboard": "LOOK_AT",
+  "lamp_over_the_table": "LOOK_AT",
+  "chairs": "LOOK_AT",
+  "spit_line": "LOOK_AT",
+  "window_painted_over": "LOOK_AT",
+  "second_rulebook": "LOOK_AT",
+  "ring_of_chairs": "LOOK_AT",
+  "chalk": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click -- LOOK AT, the game's own default (content/ui/verbs.json). The floor is not a hotspot: the walk band is clicked to walk.",
+ "occlusion": {
+  "note": "NO PLANE MASKS THAT CAN REACH HIM. The walk band (y 705-840) is in front of every chair, the table and the judges, so nothing in the plate is nearer the camera than a man standing in it except the two near-corner chairs, and the band stops short of them (x 240-1680). Every band is plane 0. The judges sit behind the table and are drawn as figures whose own cut ends at the table top, so the plate's table edge stays in front of them without a mask (tools/art/room04-judges.py).",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0,
+   "floor_0": 0,
+   "floor_1": 0,
+   "floor_2": 0,
+   "floor_3": 0,
+   "floor_4": 0,
+   "floor_5": 0
+  },
+  "planes": []
+ }
+}

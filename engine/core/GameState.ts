@@ -195,7 +195,14 @@ export class GameState {
     this.dialogue = new DialogueRunner(content.dialogue, this.flags, this.journals, {
       reached: (puzzle) => this.puzzles.get(puzzle) === 'complete',
       set: (puzzle, status) => { this.puzzles.set(puzzle, status); },
-    });
+    }, content.assay ? {
+      file: content.assay,
+      // A WON DUEL'S YIELDS (doc 03: Document A and the watch). The tree may
+      // not write inventory, so the game state takes them, once each.
+      grant: (items) => {
+        for (const item of items) if (!this.inventory.includes(item)) this.inventory.push(item);
+      },
+    } : undefined);
     // A PLAYTEST FIXTURE SAVES UNDER ITS OWN KEY, so a review session's
     // autosaves never overwrite the player's real game.
     this.saves = saveKey ? new SaveManager(storage, saveKey) : new SaveManager(storage);
@@ -1067,6 +1074,7 @@ export class GameState {
       puzzles: Object.fromEntries(this.puzzles),
       dialogueProgress: this.dialogue.progressSnapshot(),
       dialoguePosition: this.dialogue.positionSnapshot(),
+      duel: this.dialogue.duelSnapshot(),
       position: this.standing.get(this.currentRoomId),
     }, slot);
   }
@@ -1192,7 +1200,7 @@ export class GameState {
     this.flags.restore(save.flags);
     this.puzzles = new Map(Object.entries(save.puzzles ?? {})
       .filter(([, v]) => v === 'pending' || v === 'complete') as [string, PuzzleStatus][]);
-    this.dialogue.restore(save.dialogueProgress, save.dialoguePosition);
+    this.dialogue.restore(save.dialogueProgress, save.dialoguePosition, save.duel ?? null);
     this.currentRoomId = save.room;
     this.inventory = [...save.inventory];
     this.reputation = save.reputation;

@@ -1,0 +1,210 @@
+{
+ "schema": 1,
+ "room": "nugget_back",
+ "note": "ROOM 4's LIFE ROUTE, ruling 47: about a minute in the room, starting INSIDE it (the entry route is proofs/spec/nugget-back.json's). The empty room first -- the lamp is its only life -- then the Assay convenes (T_VESSEL_FOUND, B3, unbuilt) and the judges and Vessel breathe on their own beats; a walk; a LOOK; an authored wrong action; Duel One played through by the affidavit question (B4), Sowerby reading the rules first.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-empty",
+   "why": "before B3: the lamp, and nobody"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "capture",
+   "name": "02-empty-later",
+   "why": "the lamp's breath; nothing else moves, because nobody is here"
+  },
+  {
+   "do": "flags",
+   "flags": {
+    "T_VESSEL_FOUND": true
+   },
+   "why": "the Assay convenes (errata 73 B, 74 B)"
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "03-convened"
+  },
+  {
+   "do": "wait",
+   "seconds": 9,
+   "why": "the judges' beats are 5, 7 and 4.5 s: every one of them breathes in this window"
+  },
+  {
+   "do": "capture",
+   "name": "04-convened-later"
+  },
+  {
+   "do": "click",
+   "at": [
+    1400,
+    800
+   ],
+   "why": "walk across the room, in front of Vessel"
+  },
+  {
+   "do": "wait",
+   "seconds": 5
+  },
+  {
+   "do": "capture",
+   "name": "05-walked"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "scoreboard",
+   "why": "LOOK at the scoreboard"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 15
+  },
+  {
+   "do": "capture",
+   "name": "06-looked",
+   "assert": {
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "verb",
+   "verb": "PUSH"
+  },
+  {
+   "do": "click",
+   "on": "spit_line",
+   "why": "doc 49's PUSH on the spit line"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 15
+  },
+  {
+   "do": "capture",
+   "name": "07-wrong-verb",
+   "assert": {
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 5
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "at": [
+    1180,
+    500
+   ],
+   "why": "Vessel"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60,
+   "why": "the first TALK TO plays doc 03's Duel One greeting, then VES_B1's list"
+  },
+  {
+   "do": "option",
+   "option": "ves_b1_6",
+   "why": "I need you to sign an affidavit. -> B4, and Duel One (doc 57)"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 120,
+   "why": "his two lines, Sowerby reading the five rules, and the first boast; then the counters"
+  },
+  {
+   "do": "capture",
+   "name": "08-duel-one-offered",
+   "why": "three wrong answers and nothing else (errata 73 C)"
+  },
+  {
+   "do": "option",
+   "option": "w0"
+  },
+  {
+   "do": "waitFor",
+   "says": "assay_ring",
+   "upTo": 30,
+   "why": "Vessel's reply, then the voice from the ring mutters the counter (errata 73 F)"
+  },
+  {
+   "do": "capture",
+   "name": "09-the-ring-mutters",
+   "assert": {
+    "speaker": "assay_ring"
+   }
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "option",
+   "option": "w1"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "option",
+   "option": "w2"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "option",
+   "option": "w0"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "option",
+   "option": "w1",
+   "why": "the fifth exchange: the duel ends lost, and the loss scene plays"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 90,
+   "why": "back to VES_B1, Duel One spent and the rematch on offer"
+  },
+  {
+   "do": "capture",
+   "name": "10-after-duel-one",
+   "why": "VES_B1 again: option 3 gone, option 5 (the rematch) offered"
+  }
+ ]
+}

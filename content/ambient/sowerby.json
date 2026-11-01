@@ -1,0 +1,47 @@
+{
+ "schema": 1,
+ "id": "sowerby",
+ "name": "REVEREND SOWERBY",
+ "posture": "behind-counter",
+ "room": "nugget_back",
+ "when": {
+  "T_VESSEL_FOUND": true,
+  "T_DUEL_TWO_WON": false
+ },
+ "note": "Reverend Sowerby (doc 01: 'presides over funerals with enormous feeling... Charges by the adjective'). In Room 4 he presides over the Assay: errata 75 -- 'The judges sit in the dark beyond the lamp; Sowerby holds the pencil' -- and reads the handbill's five rules before each duel (doc 03). His first drawing, and so his canonical design (doc 38 section 1): room-04's third operation, an edit of the room as it stands with Thad, Deke and the judges in place, cut by subtraction (tools/art/room04-sowerby.py). Standing behind the table's left end, in the judges' shadow; the table hides him below the waist. Present while the Assay sits (errata 76 B). His id is his speaker id, so his lines are drawn over his head. No tree in this room; every verb is doc 07's people pool.",
+ "x": 690,
+ "y": 308,
+ "zone": 2,
+ "approachRadius": 40,
+ "tree": "",
+ "walkTo": {
+  "x": 700,
+  "y": 712,
+  "facing": "back"
+ },
+ "walkToNote": "On the floor in front of the table's left end, facing him across it.",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for Sowerby in Room 4.",
+ "sprite": {
+  "sheet": "art/actors/room-04-sowerby.png",
+  "frames": [
+   [
+    2,
+    2,
+    119,
+    229
+   ],
+   [
+    123,
+    2,
+    119,
+    229
+   ]
+  ],
+  "rate": 0.0,
+  "beatEvery": 6.0,
+  "beatSeconds": 1.6,
+  "phase": 3.1,
+  "note": "Frame 0 at rest; frame 1 a breath (everything above the table top lifted 1 px). Beats every 6 s, against the judges' 5, 7 and 4.5."
+ }
+}

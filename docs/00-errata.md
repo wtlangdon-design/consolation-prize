@@ -2263,3 +2263,37 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 **J · Every pair has a written route** (doc 57's table): Tier 4's five and the livery man's each gain an `[ASSAY]` option in which the character tells the story of the pair; Winnie's five and Pratt's six are their sparrings (WIN_B4 1, PRA_D6 4); 22–24 come with the truth at E10.
 
 **K · Smaller rulings.** Items follow `T_SWINDLED` (Q141 route 1). THE LIVERY BLANKET is the one blanket; HORSE BLANKET and doc 24's A5 line are superseded. The hotel room is the reward for A2; there is no key item. The map is what finds Prosperity (A4). A9's order is the deed, the survey, the fee. Doc 27's undertaker and Vessel supersede doc 04's sketches UND_A1 and VES_A1. FAN_A0 gives Fanshawe an Act I node before the swindle. The obituary is THADEUS GRUBBE (errata 9 over FRA_E1, now reconciled). Room 9's headline board shows errata 9's run. The F5 filing is Form 12-C (Amended) for Claim One, in Mott's name; Thad keeps Claim Two. `T_NO_GOLD_EVER` and `T_STRIKE_WAS_LIE` are one flag.
+
+# 76 · ROOM 4 BUILT — THE BUILDER'S DECISIONS (2026-11-01)
+
+*Made by the Room 4 builder under doc 55 section 5's standing delegation ("staging, mechanism and placement gaps ... each decision is named so it can be reversed by name"). No line was written. Every ruling below can be struck or changed by its letter.*
+
+**A · How the duels run, where errata 73 left it to the builder.**
+- **First to five, in both duels** (doc 03 "How it plays"). Duel One also ends when its five-boast sequence (73 D) is spent, and it always ends lost.
+- **Duel Two's order (73 E, doc 57 B6: "Tier 1 first, never repeating").** Tier 1 always first. Then, if the player holds fourteen or more of pairs 1–21, the pairs he holds before the rest; if he holds fewer, the rest before the pairs he holds. Each run is ascending. That makes doc 02 B6's "≥14 pairs" a property of the duel rather than a gate in front of it. **Every player holding fourteen can win, and no player holding thirteen can**, which `tests/assay.test.ts` proves over all 131,072 sets of pairs. The order reads what he knows, because no fixed order can promise that: Tier 1-then-ascending sends five unanswerable boasts at a player missing pairs 5–11, and Tier 4 is "optional, missable" (doc 03). That would be a dead end (invariant 6).
+- **The right counter's slot** among the four is `(3n + 1) mod 4` for pair n (73 C: "varies by pair and is never always the same slot").
+- **What starts Duel One (doc 57 B4).** VES_B1 option 6, "I need you to sign an affidavit.", completes **B4** and starts Duel One. Option 3 is the replay ("twice if asked"). Duel One completes **B5** when it ends, since it cannot be won. Duel Two completes **B6** when it is won. **The first TALK TO plays doc 03's Duel One greeting once** (`openingOnce`, `T_VESSEL_GREETED`).
+- **A duel's options (VES_B1 options 3 and 6, `remove`) are spent only once their duel has written its result.** A duel dropped mid-fight leaves it on offer (invariant 6). A duel saved mid-fight is in the save file and resumes at the same boast.
+- **A won duel's yields reach the inventory through the game state, not the tree**, because doc 34 keeps inventory out of a conversation.
+
+**B · Staging and placement.**
+- **The duel marks:** Thad at (800, 760) facing right, Vessel at (1180, 760) facing left, either side of the burnt line. Doc 54's "Not across the line" puts Vessel across it.
+- **Vessel is in Room 4 from B3** (73 B), as a second placement of his Room 3 record, gated on `T_VESSEL_FOUND`. That flag is declared pending because B3 (Room 15) is unbuilt. **The three judges sit behind the long table from B3 until Duel Two is won**, out of the lamp's pool (doc 05: the lamp "leaves the judges dark"). When the Assay is over they go home. Vessel has no written departure, so he stays.
+- **"In a duel"** (doc 54's people overrides) means the Assay is sitting: Vessel found and Duel Two not yet won. During a duel's own exchanges no verb can be chosen, because a duel is a conversation.
+- **The walk band (y 705–840, x 240–1680) is in front of every chair.** A man behind one would be drawn over a chair that is nearer than he is. No plane masks him anywhere he can stand.
+- **THE CHAIRS is the champion's chair**, the one with the cushion that its LOOK 3 and TALK TO name. The challenger's chair is drawn and not separately clickable. **THE RING OF CHAIRS is the right-hand group.**
+- **Coming back into the Nugget,** Thad arrives at (930, 590), left of Vessel's place at the bar. At the back door's own x he arrived hidden behind Vessel.
+- **Sowerby (errata 75: "Sowerby holds the pencil").** He stands behind the table's left end, in the judges' shadow, holding the pencil up, and is present while the Assay sits. Before each duel he reads the handbill's five rules as doc 03 Part One lists them (Duel Two adds doc 03's three-line exchange first). His ambient id is his speaker id, so his words sit over his head. **Room 4 is his first drawing and so his canonical design** (doc 38 section 1). Canon gives him only "Reverend" and his manner, so he is a plain 1850s preacher: black frock coat, white collar, grey hair. **Known look issue:** the edit that drew him took the chained pencil off the table into his hand, and the plate still shows it on the table.
+
+**C · The room's look.** Material identity (17b), distinct from the Nugget's warm timber next door: green-shaded lamplight, chalky grey slate, green paint, worn pine. **One visual state:** the only window is painted over, so the hour is never seen. THE DOOR TO THE BAR and THE WINDOW, PAINTED OVER are plate. `tools/room-gate.mjs` flagged both "it opens" from their names, but no line or verb opens either. The door is the exit, and a transit plays no picture of opening.
+
+**D · The art.** Room 4 used **3 of its 4 operations**: a composition master generated against Thad with the graybox as its layout, and the same picture with nobody in it.
+- **The plate.** The plate's dropped cushion was restored from the master's own pixels. The plate takes Room 4's own 20:9 crop (x 8, y 120), because the generator drew the slate, door and window above Room 5's crop.
+- **The judges** are the difference between the two pictures (doc 36 D4).
+- **Sowerby** is operation 3: an edit of the room as it stands (plate, judges, Deke, Thad at game size) adding only him, then cut by subtraction (`tools/art/room04-sowerby.py`). His texture is 2.86 against Thad's 4.27.
+- **Deke** is re-cut from your approved sheet at this room's 530 px, then graded to his own figure as the master painted him here.
+- **Promotion.** Everything shipped through `promoteProvisional` (errata 72 E): technical gates passed, and recorded as **pending your playthrough**, never as accepted.
+
+**E · Left for you, and not decided.**
+- The voice from the ring speaks in the fallback ink. No speech colour is assigned to it, or to Deke, because colours are look decisions you make from a rendered sample.
+- **A renderer fix:** a speaker's head is found where the room places them, not where their file does. Room 4's Vessel is a placement of his Nugget record, and his words had hung over his Nugget spot.

@@ -1,0 +1,34 @@
+{
+ "schema": 1,
+ "room": "nugget_back",
+ "note": "ROOM 4's PROOF SPEC. The route is the Nugget's, then its back room door. The principal change is the Assay convening: from B3's completion Vessel is in Room 4 (errata 73 B) and the judges sit with him (errata 76 B). B1-B3 are not built, so the change is set through the flag registry's T_VESSEL_FOUND (pending, B3).",
+ "route": "nugget-back",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "THE ASSAY CONVENES. Prerequisite: T_VESSEL_FOUND (B3, Room 15, unbuilt). Visible consequence: Deke Vessel at his mark across the burnt line, the three judges behind the table and Sowerby with the pencil. Then TALK TO Vessel opens VES_B1.",
+  "flags": {
+   "T_VESSEL_FOUND": true
+  },
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "TALK_TO",
+    "why": "so the click talks"
+   },
+   {
+    "do": "click",
+    "at": [
+     1180,
+     500
+    ],
+    "why": "Vessel, at his mark"
+   },
+   {
+    "do": "waitFor",
+    "dialogue": true,
+    "upTo": 60,
+    "why": "the first TALK TO plays the Duel One greeting (doc 57 B4), then VES_B1 opens; if Vessel is not there this times out, which is the assertion"
+   }
+  ]
+ }
+}
