@@ -1,0 +1,37 @@
+{
+  "room": 33,
+  "name": "THE LISTENING CHAMBER (F2)",
+  "special": "LOOK is the emptied ladder and LISTEN answers in pitch, with one prose line at the void (errata 70 D, F)",
+  "note": "EXTRACTED by tools/extract-examine.mjs. A doc 05 special case (errata 70).",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 33 — THE LISTENING CHAMBER *(F2)*"
+  ],
+  "subjects": [
+    {
+      "name": "EVERY ROCK SURFACE",
+      "aliases": [
+        "THE WALLS"
+      ],
+      "LOOK_AT": [
+        "Rock.",
+        "Rock. Identical to the last rock.",
+        "This is the same rock. I am confident it is the same rock.",
+        "Rock. I have stopped drawing distinctions.",
+        "Rock, a little to the left of the last rock.",
+        "More rock. It is being very consistent.",
+        "Rock, in the dark, where I left it.",
+        "Rock."
+      ],
+      "LOOK_AT_repeatsLast": true,
+      "LISTEN_TO": [],
+      "LISTEN_TO_is": "R33-TAP (pitch, no prose)"
+    },
+    {
+      "name": "THE VOID",
+      "LISTEN_TO": [
+        "…There's a room down there."
+      ],
+      "LISTEN_TO_is": "R33-VOID, once"
+    }
+  ]
+}

@@ -300,7 +300,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LOOK:** "Ezra Pike. The man I was sent to find. Six years."
 > **LISTEN:** "Nothing. I have come a very long way to hear it."
 
-**PIKE'S NEIGHBOUR** · **THE FRESH PLOT** *(dug in Act III, for Thad)*
+**PIKE'S NEIGHBOR** · **THE FRESH PLOT** *(dug in Act III, for Thad)*
 > **LOOK:** "A grave, open, waiting, with my name on the marker. Frame has spelled it wrong."
 > **LISTEN:** "Nothing, yet."
 
@@ -484,7 +484,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE CATALOGUE**
 > **LOOK:** "Eleven hundred pages of the East, delivered to the edge of nowhere twice a year. The most-read book in the territory, scripture included."
-> **LISTEN:** "Pages easing. It exhales civilisation."
+> **LISTEN:** "Pages easing. It exhales civilization."
 
 **THE CATALOGUE — LADIES' NOTIONS**
 > **LOOK:** "Forty pages of buttons, ribbon, and collars. Someone has folded a corner down, and I hope they get their collar."
@@ -558,7 +558,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. Fame this size is very quiet."
 
 **THE SAMPLE SHELF**
-> **LOOK:** "Rows of little bottles, each holding a pinch of the territory. Labelled in a hand that gets smaller as the years go on."
+> **LOOK:** "Rows of little bottles, each holding a pinch of the territory. Labeled in a hand that gets smaller as the years go on."
 > **LISTEN:** "Glass, shoulder to shoulder. A faint ring when the floor moves."
 
 **THE CRUCIBLE**
@@ -697,7 +697,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "They shift when the floor does. I wish they would not."
 
 **THE MEASURING WALL**
-> **LOOK:** "Heights pencilled on the door frame, like a family kitchen, except for what the measurements are for. I am between two men I never met."
+> **LOOK:** "Heights penciled on the door frame, like a family kitchen, except for what the measurements are for. I am between two men I never met."
 > **LISTEN:** "Nothing. The wall takes your measure and keeps it."
 
 **THE VIEWING TABLE**
@@ -866,7 +866,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "The street, through two walls. All of the noise and none of the words."
 
 **THE CRATES**
-> **LOOK:** "Empty crates stacked into a geography. Stencilled from cities that would not recognize where they ended up."
+> **LOOK:** "Empty crates stacked into a geography. Stenciled from cities that would not recognize where they ended up."
 > **LISTEN:** "Hollow wood. A knock would echo, if anyone were knocking."
 
 **THE RAIN BARREL**
@@ -1048,7 +1048,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Cloth, filling and luffing. The hill wearing sails."
 
 **THE COLLAR ADVERTISEMENT**
-> **LOOK:** "A printed advertisement for detachable collars, pinned inside the door. The gentleman modelling them is square-jawed, confident, and — I am increasingly sure — the same man as in every printed image in this town."
+> **LOOK:** "A printed advertisement for detachable collars, pinned inside the door. The gentleman modeling them is square-jawed, confident, and — I am increasingly sure — the same man as in every printed image in this town."
 > **LISTEN:** "Paper on a nail. The gentleman keeps his own counsel."
 
 **THE TICKET RAIL**
@@ -1353,7 +1353,7 @@ bark budget, not here.
 ## ROOM 7 — CLAIMS REGISTRAR
 
 **THE COUNTER** *(act: 3)*
-> **LOOK:** "Somewhere behind that partition is a certificate asserting my death, filed correctly, in perfect order. It is the best-organised thing that has ever happened to me."
+> **LOOK:** "Somewhere behind that partition is a certificate asserting my death, filed correctly, in perfect order. It is the best-organized thing that has ever happened to me."
 > **LISTEN:** "Sump, stamping. Every third document is somebody becoming official. I know the weight of it now."
 
 ## ROOM 12 — THE MERCANTILE

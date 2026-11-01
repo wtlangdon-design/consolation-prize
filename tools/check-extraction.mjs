@@ -29,6 +29,7 @@ export function check() {
   const lines = `${run.stdout ?? ''}${run.stderr ?? ''}`.trim().split('\n').filter(Boolean);
   if (run.status === 0) {
     for (const line of lines) report.note(line);
+    examineLayers(report);
     return report;
   }
   for (const line of lines) {
@@ -41,6 +42,25 @@ export function check() {
   }
   if (report.passed) report.fail(`extractor exited ${run.status} with no explanation`);
   return report;
+}
+
+/**
+ * AND EVERY ROOM'S EXAMINE LAYER (content/examine/room-NN.json), extracted
+ * by tools/extract-examine.mjs from the documents errata 67 merges. Same
+ * rule, same failure: a file that disagrees with its documents was edited by
+ * hand or left behind by an edit to the docs. The extractor also fails when a
+ * merged subject ends with fewer than three LOOK or LISTEN lines.
+ */
+function examineLayers(report) {
+  const run = spawnSync('node', ['tools/extract-examine.mjs', '--check'], { cwd: ROOT, encoding: 'utf8' });
+  for (const line of `${run.stdout ?? ''}`.trim().split('\n').filter(Boolean)) {
+    if (line.startsWith('stale: ')) {
+      report.fail(`${line.slice(7)} -- disagrees with its documents. Change the doc and re-run `
+        + 'tools/extract-examine.mjs');
+    } else if (line.startsWith('fail: ')) report.fail(line.slice(6));
+    else report.note(line);
+  }
+  if (run.status !== 0 && report.passed) report.fail(`extract-examine exited ${run.status}`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

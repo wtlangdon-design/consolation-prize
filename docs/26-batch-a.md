@@ -118,7 +118,7 @@
 **LISTEN** 1 "Nothing." · 2 "Nothing." · 3 "Nothing."
 
 ### THE TOOLS
-**LOOK** 1 "A saw, a plane, a brace, and a mallet, hung level and clean. This is a carpenter's shop that has specialised." · 2 "The plane has been used this morning. There are shavings and they are pale." · 3 "He makes them himself. I had assumed they came from somewhere."
+**LOOK** 1 "A saw, a plane, a brace, and a mallet, hung level and clean. This is a carpenter's shop that has specialized." · 2 "The plane has been used this morning. There are shavings and they are pale." · 3 "He makes them himself. I had assumed they came from somewhere."
 **LISTEN** 1 "Nothing." · 2 "Nothing." · 3 "Nothing. He is not working while I am standing here."
 
 ### THE WAITING BENCH

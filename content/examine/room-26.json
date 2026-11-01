@@ -1,0 +1,164 @@
+{
+  "room": 26,
+  "name": "THE CREEK & SLUICE",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 26 — THE CREEK & SLUICE",
+    "docs/10-examine-batch-3.md::ROOM 26 — THE CREEK & SLUICE",
+    "docs/54-batch-c.md::ROOM 26 · THE CREEK & SLUICE",
+    "docs/49-wrong-answers.md::ROOM 26 — THE CREEK & SLUICE"
+  ],
+  "subjects": [
+    {
+      "name": "THE CREEK",
+      "LOOK_AT": [
+        "The creek that talked a thousand men into staying. It carries just enough color to be cruel.",
+        "Six feet across and eight inches deep, and the reason two thousand people live here.",
+        "I followed it a little way upstream. It goes on being the same creek, which is more than most things here manage."
+      ],
+      "LISTEN_TO": [
+        "Water over stone, saying the same encouraging thing it has said for twelve years.",
+        "Water. It is the only thing in this territory that is doing exactly what it appears to be doing.",
+        "Water, and under it the clink of a pan on stone a long way down."
+      ],
+      "overrides": {
+        "USE": "I panned twice. Color both times — four flakes, a day's wage in encouragement, a cent in gold. The creek's whole business model, in one pan."
+      }
+    },
+    {
+      "name": "THE SLUICE",
+      "aliases": [
+        "THE SLUICE BOXES"
+      ],
+      "LOOK_AT": [
+        "A community sluice, forty feet of graded boxes, patched by every man who ever cursed it. It belongs to everyone, which means the repairs belong to no one.",
+        "Every patch is a different wood, and one patch is a door, with its number still on it.",
+        "The boxes are graded, the top ones wide and the bottom ones fine, so that what one man misses the next man misses more carefully."
+      ],
+      "LISTEN_TO": [
+        "Water working through the riffles. A wooden argument, well rehearsed.",
+        "Water, through wood, forty times over. It's almost a chord. It is not quite a chord.",
+        "One box knocks out of time with the others. I could find which in a minute. Nobody has asked me."
+      ],
+      "overrides": {
+        "PUSH": "Forty feet of communal grievance, and every patch in it is somebody's signature. It does not move for one man. That is nearly the town motto."
+      }
+    },
+    {
+      "name": "THE RIFFLES",
+      "LOOK_AT": [
+        "The cross-bars that are supposed to catch the gold. They catch sand, mercury beads, buttons, and once — the story goes — a wedding ring nobody would afterward claim.",
+        "Cleats to catch the heavy material. There is a great deal of heavy material and none of it is gold.",
+        "A brass button is caught on the third bar, with an anchor on it. A sailor came a very long way to lose it here."
+      ],
+      "LISTEN_TO": [
+        "Grit, ticking along the bars. The sound of almost.",
+        "Nothing.",
+        "Grit, then nothing, then grit. It is catching its breath."
+      ]
+    },
+    {
+      "name": "THE HEADGATE",
+      "LOOK_AT": [
+        "The gate that feeds the sluice. Opening it is a privilege rotated weekly by a schedule everyone disputes and everyone obeys.",
+        "The schedule is nailed to the post beside it and amended in five hands. Two of the amendments are threats.",
+        "It leaks at the bottom. The creek gets through a little every day, on nobody's schedule."
+      ],
+      "LISTEN_TO": [
+        "The creek, leaning on the boards. It would like to come through now, please.",
+        "Water pressing, polite and enormous.",
+        "A trickle at the bottom boards. The creek is not waiting for its week."
+      ],
+      "overrides": {
+        "PULL": "It is not my week. The schedule is disputed hourly and enforced absolutely."
+      }
+    },
+    {
+      "name": "THE MERCURY FLASK",
+      "LOOK_AT": [
+        "Quicksilver in an iron flask, chained to the sluice like the judges' pencil, and for the same reason.",
+        "The chain is newer than the flask. Somebody learned something.",
+        "It is heavier than it looks. It is the only thing out here that is."
+      ],
+      "LISTEN_TO": [
+        "A heavy, offended slosh.",
+        "A shift inside, slow and heavy, like something turning over in bed.",
+        "Nothing, until the chain moves, and then the slosh again, offended on principle."
+      ],
+      "overrides": {
+        "OPEN": "Chained, stoppered, and right. Quicksilver in this town would end up in the whiskey inside a week, as medicine."
+      }
+    },
+    {
+      "name": "THE BOOT PRINTS",
+      "aliases": [
+        "THE BANK"
+      ],
+      "LOOK_AT": [
+        "The bank is a plaster cast of every boot in the district, refreshed daily. The territory's most complete census.",
+        "Hobnailed, patched, and one barefoot. That man has my sympathy and my attention.",
+        "Mine are among them now. I have been counted."
+      ],
+      "LISTEN_TO": [
+        "Mud, drying. The morning shift, set in relief.",
+        "Water seeping into the newest prints, filling them one at a time.",
+        "Nothing. Tomorrow's shift will print over today's, and nobody will be counted twice."
+      ]
+    },
+    {
+      "name": "THE WILLOW",
+      "LOOK_AT": [
+        "One willow, spared by every axe because it holds the bank together. The only resident of the diggings with guaranteed tenure.",
+        "Twenty or thirty sets of initials are cut into the trunk, and not one of them inside a heart. Out here people commit to nothing but their names.",
+        "It leans over the water as though it were panning too, and having about the same luck."
+      ],
+      "LISTEN_TO": [
+        "Leaves. The single softest sound for a mile.",
+        "Leaves again. Softer than the water, softer than the men. The willow wins.",
+        "A bird somewhere inside it, saying one note and stopping, like a man who has thought better of it."
+      ],
+      "overrides": {
+        "TALK_TO": "The one resident with tenure. I paid my respects. It rustled: noted."
+      }
+    },
+    {
+      "name": "THE MAN PANNING",
+      "LOOK_AT": [
+        "A man, crouched, doing the same motion he was doing when I passed this morning.",
+        "Swirl, tip, look, sigh, scoop. He has done it so long his shoulders have learned it without him.",
+        "He looked up at me once. He did not seem to see a person, only something that was not gold."
+      ],
+      "LISTEN_TO": [
+        "Water, and breathing, and nothing else at all. He has not spoken in nine hours.",
+        "The pan's rim on stone, over and over, in perfect time. He would make a decent metronome.",
+        "Something very small under his breath: a tune with no middle to it, the same eight notes again."
+      ]
+    },
+    {
+      "name": "THE DISCARDED PAN",
+      "LOOK_AT": [
+        "A gold pan, in the willows, thrown. Not dropped. Thrown.",
+        "The bottom is worn bright from swirling. Whoever threw it had used it a long time first.",
+        "Nobody has picked it up. Out here a thrown pan is a kind of grave."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Water ticking against its rim in the shallows.",
+        "Nothing. It has been let go."
+      ]
+    },
+    {
+      "name": "THE FAR SIDE",
+      "LOOK_AT": [
+        "The far bank, close enough to hit with a stone and claimed by a different set of men, who look exactly like this set.",
+        "They are working the same water a few feet over. A different claim and the same creek; that is the whole law of the district.",
+        "A man on the far side raised his hat to me. I raised mine. We have now met, and neither of us will mention it again."
+      ],
+      "LISTEN_TO": [
+        "The same water, telling them the same thing.",
+        "Picks on the far side, a beat behind ours, like an echo with ambitions.",
+        "Someone over there laughing. It carries well across water, and it sounds expensive."
+      ]
+    }
+  ]
+}

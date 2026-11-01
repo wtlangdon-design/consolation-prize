@@ -1,0 +1,210 @@
+{
+  "room": 31,
+  "name": "THE FUNERAL",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 31 — THE FUNERAL",
+    "docs/10-examine-batch-3.md::ROOM 31 — THE FUNERAL",
+    "docs/54-batch-c.md::ROOM 31 · THE FUNERAL",
+    "docs/49-wrong-answers.md::ROOM 31 — THE FUNERAL"
+  ],
+  "subjects": [
+    {
+      "name": "THE COFFIN",
+      "LOOK_AT": [
+        "My coffin. Pine, with handles and a name plate. I am given to understand I look natural.",
+        "The lid is propped against the trestle, waiting for me, like a coat held out by a valet.",
+        "Someone has put a cushion in it. I suspect the undertaker, and I suspect he will charge."
+      ],
+      "LISTEN_TO": [
+        "Nothing from inside, which is the least I can do.",
+        "Nothing.",
+        "Nothing yet. That changes shortly, and I am trying not to think about it."
+      ],
+      "overrides": {
+        "OPEN": "Ahead of schedule. The lid stays shut; the plan requires my absence and I am contractually elsewhere.",
+        "USE": "It is in use. By me. Officially. The paperwork is immaculate."
+      }
+    },
+    {
+      "name": "THE NAME PLATE",
+      "LOOK_AT": [
+        "THADDEUS GRUB, it says. Even my death is missing a B. I would complain, but the plate was free and so, apparently, was I.",
+        "The engraver gave the G a flourish he could not afford to give the rest.",
+        "It will be on the lid, over my face, for the next few minutes of my life. I would have liked it spelled right for that."
+      ],
+      "LISTEN_TO": [
+        "Brass. It rings a little flat, which in this town is house style.",
+        "A faint ring when the wind catches the lid. Flat, as noted.",
+        "Nothing. Brass keeps its opinions about spelling to itself."
+      ]
+    },
+    {
+      "name": "THE MOURNERS",
+      "LOOK_AT": [
+        "A respectable turnout for a man of my brief acquaintance. Several are here for the singing. One is here for the will. There is no will.",
+        "Nine people have come to my funeral. I have been in Consolation eleven weeks. I do not know what to do with this and I am going to have to get into the box shortly.",
+        "One of them is holding his hat over his heart and his other hand over his wallet. He has been to funerals here before."
+      ],
+      "LISTEN_TO": [
+        "Shuffling, a cough, and somewhere in the middle of it, genuine crying. I was not prepared for the crying.",
+        "Nothing. Nine people, not talking.",
+        "A sniff at the back, and then a nose blown into a sleeve with real feeling."
+      ],
+      "overrides": {
+        "TALK_TO": "A stranger offered me comfort at my own funeral. I said the departed sounded like a fine man, taken too soon. He agreed, with feeling. I am having a very strange week."
+      }
+    },
+    {
+      "name": "REVEREND SOWERBY, OFFICIATING",
+      "aliases": [
+        "REVEREND SOWERBY"
+      ],
+      "LOOK_AT": [
+        "Sowerby at grade-two sincerity, which I paid for, delivering me to my reward. He keeps almost catching my eye and electing not to.",
+        "He is preparing to deliver four words for fifty cents and he is preparing thoroughly.",
+        "He has a card in his palm with the adjectives on it and is ticking them off as he goes. I am getting exactly what I paid for."
+      ],
+      "LISTEN_TO": [
+        "'…a man of music, taken flat…' — he wrote that this morning and is proud of it.",
+        "Nothing yet.",
+        "'…a man who came among us, and stayed…' — that one was free, I think. He has thrown it in."
+      ],
+      "overrides": {
+        "TALK_TO (during the service)": "He is mid-adjective. Interrupting would cost us both."
+      }
+    },
+    {
+      "name": "THE FLOWERS, WAXED",
+      "LOOK_AT": [
+        "The undertaker's wax lilies, making their weekly appearance. We are old colleagues by now, the lilies and I.",
+        "Somebody has wiped the dust off them for the occasion. That is the undertaker's idea of grief, and I find I accept it.",
+        "They lean toward the grave, the way everything here eventually does."
+      ],
+      "LISTEN_TO": [
+        "Nothing. They are beyond all that, as previously established.",
+        "A faint tap of wax on wax when the wind finds them.",
+        "Nothing. They have outlived everyone they were ever arranged for, and they will outlive me, technically."
+      ]
+    },
+    {
+      "name": "THE GRAVE",
+      "LOOK_AT": [
+        "Dug neat, in a good spot, uphill of the seepage — the undertaker does honest work for dishonest occasions. I am oddly touched by the drainage.",
+        "Six feet, measured. I am two inches shorter than the hole, which is the first time this town has given me room.",
+        "A plank is laid across it for the pallbearers. It looks like a very short bridge to nowhere in particular."
+      ],
+      "LISTEN_TO": [
+        "Loose soil trickling back in. The ground, impatient.",
+        "A clod falling from the edge, then another. The ground is in a hurry.",
+        "Nothing for a moment. Then the wind across the top of it, a low, open note."
+      ],
+      "overrides": {
+        "CLOSE": "Not yet. There is a man not in that box counting on the delay."
+      }
+    },
+    {
+      "name": "THE HEADBOARD",
+      "aliases": [
+        "THE MARKER"
+      ],
+      "LOOK_AT": [
+        "A board, painted while the paint lasted: my name, one date, and HE TUNED. As epitaphs in Boot Hill run, that is generous and accurate, which puts it in rare company.",
+        "THADDEUS GRUBB. Frame supplied the spelling and got it right, once, for a grave I am not going to be in.",
+        "The paint has run on the D's. My name is weeping slightly, which is more than I expected of it."
+      ],
+      "LISTEN_TO": [
+        "Wet paint, drying. My legacy, curing in the sun.",
+        "Nothing.",
+        "Nothing now. The paint has set. It is official."
+      ]
+    },
+    {
+      "name": "GRIEVANCE, IN BLACK",
+      "LOOK_AT": [
+        "Grievance in the hearse harness, wearing black well, as advertised. She has attended more funerals than the Reverend and behaves better at them.",
+        "A black ribbon is plaited into her mane. She has allowed this, which is a greater tribute than anything Sowerby will say.",
+        "She keeps her head turned a little toward the coffin. I do not think she is fooled."
+      ],
+      "LISTEN_TO": [
+        "A slow breath through the nose. Professional composure.",
+        "A hoof shifting once in the soft earth, then still.",
+        "Nothing. She is standing at attention, and she means it more than the mourners do."
+      ],
+      "overrides": {
+        "PICK_UP": "She is working."
+      }
+    },
+    {
+      "name": "THE ONE WHO KNOWS",
+      "aliases": [
+        "HOB, AT THE EDGE"
+      ],
+      "LOOK_AT": [
+        "At the back, not singing: Hob, hat in hand, watching a funeral he knows to be empty with an expression I cannot price. It takes one to know one, I suppose.",
+        "The night watchman, standing at the back, in daylight. I have never seen him in daylight.",
+        "He has not looked at the coffin once. He has looked at me twice."
+      ],
+      "LISTEN_TO": [
+        "Nothing from him. He mourns the way he watches. Completely, and without comment.",
+        "Nothing.",
+        "Nothing. I have never heard a man be so quiet on purpose."
+      ],
+      "overrides": {
+        "TALK_TO (before S2 beat 3)": "Not here. Not with the whole town watching me be dead."
+      }
+    },
+    {
+      "name": "THE DIRT PILE",
+      "LOOK_AT": [
+        "The dirt that was in the hole, beside the hole, waiting.",
+        "A shovel stands upright in it, waiting for a volunteer, and nobody is looking at it.",
+        "It is exactly the size of the hole. Nothing is ever wasted at the undertaker's."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Loose earth sliding down its side, rehearsing.",
+        "Nothing. It is very patient, for dirt."
+      ]
+    },
+    {
+      "name": "THE HATS",
+      "LOOK_AT": [
+        "Every man here has taken his hat off. For me. On the strength of a notice in the Clarion that misspelled my name.",
+        "Hats of every class, held against every chest. A hat is the only formal clothing most of these men own.",
+        "One man is holding two hats. I would like to know whose the other one is, and I am not going to ask at a funeral."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Nobody fans himself with a hat at a funeral.",
+        "A brim being turned in nervous fingers, round and round.",
+        "Nothing. Nine hats, held still."
+      ]
+    },
+    {
+      "name": "THE SKY",
+      "LOOK_AT": [
+        "Clear, very high and very blue. It is a beautiful day to be buried, if one has to be.",
+        "One cloud, keeping to itself over the hills.",
+        "I am going to want to remember this sky in a few minutes. I am trying to look at it properly."
+      ],
+      "LISTEN_TO": [
+        "A hawk, very high, one long cry.",
+        "Nothing up there. The sky is not attending.",
+        "Wind, high and thin. The last open-air sound for a while."
+      ]
+    },
+    {
+      "name": "BOOT HILL, BEYOND",
+      "LOOK_AT": [
+        "The rest of Boot Hill, rising behind in rows. My new neighbors, keeping a respectful distance.",
+        "Ezra Pike is up there, third row, second from the end. I came a very long way to join him.",
+        "From here the markers look like a crowd that came early and sat down."
+      ],
+      "LISTEN_TO": [
+        "Wind through the grass between the rows.",
+        "Nothing. The neighborhood is quiet, as advertised.",
+        "A loose board on some marker up the hill, tapping, like somebody keeping time for the service."
+      ]
+    }
+  ]
+}

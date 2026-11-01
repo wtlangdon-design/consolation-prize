@@ -1,0 +1,127 @@
+{
+  "room": 22,
+  "name": "THE ROAD TO THE CLAIMS",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 22 — THE ROAD TO THE CLAIMS",
+    "docs/10-examine-batch-3.md::ROOM 22 — THE ROAD TO THE CLAIMS",
+    "docs/54-batch-c.md::ROOM 22 · THE ROAD TO THE CLAIMS",
+    "docs/49-wrong-answers.md::ROOM 22 — THE ROAD TO THE CLAIMS"
+  ],
+  "subjects": [
+    {
+      "name": "THE ROAD",
+      "LOOK_AT": [
+        "Rutted a foot deep by everything the diggings ever needed. The town pours up this road each morning and drains back each night.",
+        "Worn a foot deep in twelve years. This much dirt was moved by boots, not by digging, and it is more than anybody has moved on purpose.",
+        "I have walked it enough times now to have a favorite rut. It is the one that does not fill with water."
+      ],
+      "LISTEN_TO": [
+        "Wind in the ruts. The road hums when it's empty, like a bottle.",
+        "Boots far up the road, coming or going. From here you cannot tell which, and often neither can they.",
+        "The hum again, low. The road sounds best when nobody is on it."
+      ]
+    },
+    {
+      "name": "THE MILE POST",
+      "aliases": [
+        "THE MILEPOST"
+      ],
+      "LOOK_AT": [
+        "A post with distances: THE CLAIMS 1 MI. TOWN 1 MI. Both sides written by men certain the other direction was the mistake.",
+        "The paint is fresh on the CLAIMS side and peeling on the TOWN side. The post knows which way the money walks.",
+        "Somebody has carved an arrow under TOWN pointing at the claims, and somebody else an arrow under CLAIMS pointing at town. The argument continues in pocketknife."
+      ],
+      "LISTEN_TO": [
+        "It knocks in the wind. A slow, patient count.",
+        "Nothing.",
+        "The knock, slower than yesterday. The wind is tired, or the post is."
+      ],
+      "overrides": {
+        "PUSH": "It leans toward town today. Yesterday, the diggings. The post is the district's mood, on a stick."
+      }
+    },
+    {
+      "name": "THE BOOT",
+      "LOOK_AT": [
+        "One boot, upright, beside the road, weathered to stone. Everyone knows it. Nobody moves it. It is the district's smallest monument.",
+        "It is laced. Whoever left it took the time to lace it first.",
+        "Somebody has put a wildflower in it, and somebody else has taken it out. The boot is a matter of local controversy."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It has said its piece.",
+        "Wind across its mouth, a low note, a little flat.",
+        "Nothing. Whatever it saw, it is not telling."
+      ],
+      "overrides": {
+        "PICK_UP": "You do not move the boot. I knew that before anyone told me. Some monuments explain themselves.",
+        "TALK_TO": "I asked it whose it was. The wind went through the eyelets. Take from that what you will; the district does."
+      }
+    },
+    {
+      "name": "THE VIEW BACK AT TOWN",
+      "LOOK_AT": [
+        "From here Consolation is a shelf of painted fronts under a church spire, like crockery that argues.",
+        "From this distance you cannot see that the fronts are false. It is the distance the town was built to be seen from.",
+        "A thread of smoke from the Nugget's chimney, straight up. Even the smoke goes there first."
+      ],
+      "LISTEN_TO": [
+        "The town, reduced to its bell and its hammering.",
+        "The bell, and a hammer that keeps a little behind it.",
+        "A dog, very small with distance, objecting to something on principle."
+      ]
+    },
+    {
+      "name": "THE VIEW AHEAD",
+      "LOOK_AT": [
+        "The hills, opened up in a hundred places, brown wounds in green hide. Somewhere in that is everyone's fortune, still playing hard to get.",
+        "From here every claim looks promising. Distance is an optimist.",
+        "Above it all, a bare ridge. Nobody digs up there. Nobody has a reason to."
+      ],
+      "LISTEN_TO": [
+        "Picks. Always, somewhere, picks.",
+        "Picks, and between the picks a man swearing in a steady, careful rhythm, like a hymn.",
+        "Picks, still. Somebody up there is always certain it is the next swing."
+      ]
+    },
+    {
+      "name": "THE MEN GOING OUT",
+      "LOOK_AT": [
+        "Men walking out with tools over their shoulders, at six in the morning. They are talking. Several of them are talking at once.",
+        "Every one of them is carrying something he bought at the Mercantile. The Mercantile is the only claim in the district that pays.",
+        "They walk fast. Optimism has a pace, and it is brisk."
+      ],
+      "LISTEN_TO": [
+        "Talk. A great deal of it, all at the same volume, none of it listened to. It's cheerful.",
+        "Plans, mostly. Each man is explaining to the man beside him what he will do with it.",
+        "A whistle somewhere in the middle, out of tune and cheerful about it."
+      ]
+    },
+    {
+      "name": "THE MEN COMING BACK",
+      "LOOK_AT": [
+        "The same men, walking in, at seven at night. Same tools. Same road.",
+        "Nobody is carrying anything he did not take out.",
+        "They walk slower than they walked out, and all at the same pace, without anyone having agreed to it."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Two dozen men on a road and not one of them is saying anything.",
+        "Boots. Only boots. Nobody even swears.",
+        "Nothing. Tomorrow they will talk again on the way out. This is the part nobody talks about."
+      ]
+    },
+    {
+      "name": "THE SCRUB",
+      "LOOK_AT": [
+        "Sage and greasewood, gray-green and low, holding the hillside together out of habit.",
+        "Something lives in it. I have seen it move with nobody near.",
+        "It was here before the road and will be here after. It has never needed the gold, or anything else."
+      ],
+      "LISTEN_TO": [
+        "Dry leaves, rattling like a gourd.",
+        "A rustle, then stillness. Whatever it is, it heard me first.",
+        "Wind through it, a long hiss. The hillside, breathing out."
+      ]
+    }
+  ]
+}

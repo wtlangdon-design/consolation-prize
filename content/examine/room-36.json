@@ -1,0 +1,145 @@
+{
+  "room": 36,
+  "name": "MAIN STREET, DAWN",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 36 — MAIN STREET, DAWN",
+    "docs/08-examine-batch-1.md::ROOM 36 — MAIN STREET, DAWN",
+    "docs/54-batch-c.md::ROOM 36 · MAIN STREET, DAWN",
+    "docs/49-wrong-answers.md::ROOM 36 — MAIN STREET, DAWN"
+  ],
+  "subjects": [
+    {
+      "name": "THE FALSE FRONTS",
+      "LOOK_AT": [
+        "The same two-story faces on the same one-story buildings — but at dawn, with the light behind them, they look like what they always were: a promise somebody kept badly and everybody kept anyway.",
+        "Two stories tall in front and one story deep. It is still a stage set. It is just that people live here.",
+        "A man is painting one of them. Not the front: the back, where nobody will see it."
+      ],
+      "LISTEN_TO": [
+        "Wind behind them, same as ever. It sounds less empty than it did. That may be me.",
+        "Wind. There is still a great deal of nothing behind these. It has stopped being funny and started being a fact about somebody's home.",
+        "Somebody behind one of them, frying something. The fronts finally have something behind them worth the name."
+      ]
+    },
+    {
+      "name": "THE IMPROVEMENT COMPANY SIGN",
+      "LOOK_AT": [
+        "The gilt is peeling off the lettering in the morning sun. Nobody will repaint it now, and the sign has the good grace to know it.",
+        "The C in COMPANY has already gone. It reads IMPROVEMENT OMPANY, which is more accurate than it used to be.",
+        "Nobody is standing under it. For twelve years somebody was always standing under it, waiting to be let in."
+      ],
+      "LISTEN_TO": [
+        "It creaks. It would like to be taken down. I know another sign that felt that way.",
+        "The creak again. It has said its piece and keeps on saying it.",
+        "The chain ticking against the bracket. It will come down in its own time."
+      ]
+    },
+    {
+      "name": "THE WATER TROUGH",
+      "LOOK_AT": [
+        "Three inches of water, and this morning, the whole sky in it.",
+        "Somebody has cleaned it. It is still three inches of water, and it is clean water.",
+        "I can see my own face in it, and the sky behind, and neither of us looks worried."
+      ],
+      "LISTEN_TO": [
+        "The thing that lives in it, surfacing. We have both made it through.",
+        "A small ripple. It has decided I am not a threat.",
+        "Nothing for a moment, then a bubble. We are both still here."
+      ]
+    },
+    {
+      "name": "THE BOARDWALK",
+      "LOOK_AT": [
+        "Six inches above the mud, same as ever. The distinction matters less this morning. Everyone is walking in the middle of the street anyway.",
+        "Somebody has swept it. Not the street: just the boardwalk, end to end, at dawn, for no reason anyone will admit to.",
+        "I stood on the loose board on purpose. It said what it always says. I find I had missed it."
+      ],
+      "LISTEN_TO": [
+        "The loose board, third from the end. Still loose. Somebody should see to that. It will outlast us all.",
+        "Boots further down, slow ones. Nobody is in a hurry this morning.",
+        "The loose board, under my own weight this time. A friendly note. A little flat."
+      ]
+    },
+    {
+      "name": "POSTED NOTICES",
+      "aliases": [
+        "THE POSTED NOTICES"
+      ],
+      "LOOK_AT": [
+        "Under all the claims and disputes, one new notice, official, sealed, correctly spelled. It has the whole board's attention.",
+        "Claims for sale, claims disputed, and a new one: CLAIM ONE, FILED, O. MOTT, WORKINGS TO COMMENCE. The lost dog notice has been taken down.",
+        "Somebody has drawn a small raccoon in the corner of the official notice. I am choosing not to know who."
+      ],
+      "LISTEN_TO": [
+        "Paper in wind. This morning it sounds like applause. I am aware that is me.",
+        "Paper, in wind. Less of it.",
+        "One sheet has come loose and gone off down the street, taking its business elsewhere."
+      ]
+    },
+    {
+      "name": "THE CHURCH STEEPLE",
+      "LOOK_AT": [
+        "The tallest thing in Consolation, catching the first light, as is its habit and its right.",
+        "The tallest thing in Consolation, and the only building as deep as it is tall.",
+        "A bird has landed on the cross at the top. It is the only thing in town higher than the bell, and it is not making anything of it."
+      ],
+      "LISTEN_TO": [
+        "The bell. In tune. Sowerby has not changed how he strikes it. Nothing changed but everything under it.",
+        "The bell again, the note settling into the hills. It took this town twelve years to sound like this.",
+        "The last of the bell, fading. Under it, nothing out of tune at all."
+      ]
+    },
+    {
+      "name": "A DOG",
+      "aliases": [
+        "THE DOG"
+      ],
+      "LOOK_AT": [
+        "The dog, in the early sun, in the middle of the street, on his back. He has always known something the rest of us are only learning this morning.",
+        "Bill. He is sitting with somebody now. He does not appear to have noticed a difference.",
+        "He has rolled over to warm the other side. He had the right idea all along."
+      ],
+      "LISTEN_TO": [
+        "Breathing. Contented. The town's oldest solvency, undiluted.",
+        "Breathing. Contented. He remains the only solvent resident of Consolation.",
+        "A small snore. The most honest sound on Main Street, and this morning it has competition."
+      ],
+      "overrides": {
+        "TALK_TO": "I thanked him. For nothing in particular. For being the town's one solvent institution. He accepted on the street's behalf."
+      }
+    },
+    {
+      "name": "THE MUD",
+      "LOOK_AT": [
+        "The same mud. It held my boot the first night and the truth the whole time. The only honest thing in the territory, as I believe I remarked.",
+        "The same mud. I know it now.",
+        "My boot print from the first night is long gone. The mud kept the truth and let the rest go."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It never once lied to me. Even now it declines to start.",
+        "Nothing. It never had anything to say and it never pretended otherwise, and in this town that made it remarkable.",
+        "A drip off the boardwalk into it, slow, unbothered, in no hurry for anything."
+      ],
+      "overrides": {
+        "PICK_UP": "I took a little, in a twist of paper. The one honest thing in the territory. A man should keep a sample of what saved him."
+      }
+    },
+    {
+      "name": "THE HILLS",
+      "LOOK_AT": [
+        "The hills, gone gold at the top — the ordinary kind, the kind the sun hands out free every morning and nobody ever had to dig for.",
+        "Gold country. For the first time since I arrived, that is simply a true statement.",
+        "The diggings are quiet, and the hills look, for once, like hills."
+      ],
+      "LISTEN_TO": [
+        "Very faint, and for the first time since I stepped off the coach: no picks. The hills, being left alone.",
+        "Nothing. They are extremely large, and they are not doing anything, and there is gold in them.",
+        "The wind coming down off them, cool, carrying nothing at all. It is a relief to hear nothing in a place that used to be so loud about it."
+      ],
+      "overrides": {
+        "TALK_TO": "I told them they could rest now. Presumptuous, possibly. But somebody ought to say it, and the piano man had the morning free."
+      }
+    }
+  ]
+}

@@ -139,7 +139,7 @@
 > **LISTEN:** "Nothing, boxed."
 
 **THE CHART**
-> **LOOK:** "A chart of the humours of the earth, hand-painted, extremely detailed, and entirely invented. It took somebody weeks."
+> **LOOK:** "A chart of the humors of the earth, hand-painted, extremely detailed, and entirely invented. It took somebody weeks."
 > **LISTEN:** "Nothing."
 
 **THE TESTIMONIAL LETTERS**
@@ -151,7 +151,7 @@
 > **LISTEN:** "Nothing unusual."
 
 **THE TASSELS** · **THE CRYSTAL** · **THE CUSHIONS** · **THE STOVE** · **THE CURTAIN** · **THE LAMP**
-> *(The crystal — **LOOK:** "Glass. Good glass, though. She has not economised on the glass.")*
+> *(The crystal — **LOOK:** "Glass. Good glass, though. She has not economized on the glass.")*
 
 ---
 
@@ -223,7 +223,7 @@
 > **LISTEN:** "Nothing."
 
 **THE BARRELS**
-> **LOOK:** "Empty barrels, stencilled for flour, stacked behind a company that does not sell flour."
+> **LOOK:** "Empty barrels, stenciled for flour, stacked behind a company that does not sell flour."
 > **LISTEN:** "Empty. All of them. Somebody has stacked forty empty barrels very carefully."
 
 **THE CAT**

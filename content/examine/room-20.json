@@ -1,0 +1,169 @@
+{
+  "room": 20,
+  "name": "THE BACK ALLEY",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 20 — THE BACK ALLEY",
+    "docs/09-examine-batch-2.md::ROOM 20 — THE BACK ALLEY",
+    "docs/54-batch-c.md::ROOM 20 · THE BACK ALLEY",
+    "docs/49-wrong-answers.md::ROOM 20 — THE BACK ALLEY"
+  ],
+  "subjects": [
+    {
+      "name": "THE ALLEY ITSELF",
+      "LOOK_AT": [
+        "The space behind Main Street, where the false fronts stop pretending. Bare boards, bare posts, and the backs of promises.",
+        "From back here you can see which buildings are brick and which are paint. They are all paint.",
+        "Somebody has swept a path down the middle. The rest has been left to its own devices, and its devices are mostly mud."
+      ],
+      "LISTEN_TO": [
+        "The street, through two walls. All of the noise and none of the words.",
+        "A door somewhere, opened and shut quickly. The alley is where the town comes to do what it would rather not do on the street.",
+        "The street noise, cut into slices by the gaps between the buildings."
+      ]
+    },
+    {
+      "name": "THE CRATES",
+      "LOOK_AT": [
+        "Empty crates stacked into a geography. Stenciled from cities that would not recognize where they ended up.",
+        "One reads FRAGILE in three languages. The crate under it has been crushed flat.",
+        "Somebody has carved a checkerboard into the top one. The game on it has been in progress for some time."
+      ],
+      "LISTEN_TO": [
+        "Hollow wood. A knock would echo, if anyone were knocking.",
+        "A scrabbling in the lowest crate, then a silence that is trying very hard.",
+        "Nothing. The crates have given up on being shipped anywhere."
+      ],
+      "overrides": {
+        "PUSH": "The stack is load-bearing for at least one wall and possibly one business."
+      }
+    },
+    {
+      "name": "THE RAIN BARREL",
+      "LOOK_AT": [
+        "A barrel under a downspout, holding last month's weather. Something has drunk from it recently; something else lives in it.",
+        "A skin of dust on the water and a single leaf on the dust. Last month's weather, with a bookmark.",
+        "Something is looking up at me from the bottom. I am choosing to believe it is my reflection."
+      ],
+      "LISTEN_TO": [
+        "A drip above, a ripple below. A small economy.",
+        "The drip, slower now. The economy is contracting.",
+        "A small plop from below. Whatever lives in there has made its position known."
+      ],
+      "overrides": {
+        "USE": "Whatever lives in it surfaced to watch me reconsider."
+      }
+    },
+    {
+      "name": "THE BACK DOORS",
+      "LOOK_AT": [
+        "Every establishment's second mouth. Deliveries, debts, and departures use these. The fronts are for arriving.",
+        "Each one has a different lock and the same scuff at boot height. Everybody leaves the same way.",
+        "The Nugget's back door is propped open with a brick. It is the only frank door in the row."
+      ],
+      "LISTEN_TO": [
+        "Bolts, in their brackets. The town, latched.",
+        "A bolt shot home somewhere along the row. Someone has decided against visitors.",
+        "Nothing. Every door in the row is listening for the same thing I am."
+      ]
+    },
+    {
+      "name": "THE WASH LINE",
+      "LOOK_AT": [
+        "A line strung wall to wall, flying one shirt and a set of long underwear at half mast. Somebody's whole wardrobe, publicly drying.",
+        "The shirt has been mended at both elbows by someone who cared, and at the collar by someone who did not.",
+        "It has been dry for a day and nobody has taken it in. It is waiting for its owner, like most things in this alley."
+      ],
+      "LISTEN_TO": [
+        "Cloth, snapping small. The underwear applauds the wind.",
+        "A clothes-peg creaking, holding on.",
+        "The underwear again, flapping. It has found its audience."
+      ],
+      "overrides": {
+        "PULL": "The long underwear waved. I waved back before I could stop myself."
+      }
+    },
+    {
+      "name": "THE CAT",
+      "LOOK_AT": [
+        "A cat on a crate, in the one square of sun. It has arranged the alley around itself.",
+        "A cat, in an alley, entirely uninterested in the gold rush.",
+        "She has moved six inches to the left, after the sun. It is the only progress anyone has made in this alley today."
+      ],
+      "LISTEN_TO": [
+        "Purring, at the frequency of ownership.",
+        "Nothing. She has heard everything that has ever been said back here and has drawn no conclusions.",
+        "Purring, briefly, then silence. She has decided I am furniture."
+      ],
+      "overrides": {
+        "PICK_UP": "The cat has a firm policy, administered through claws.",
+        "TALK_TO": "I explained my circumstances. The cat found them ordinary. It was, strange to say, the most comforting response I have collected."
+      }
+    },
+    {
+      "name": "THE BACK OF THE IMPROVEMENT COMPANY",
+      "LOOK_AT": [
+        "One story. From Main Street it is three. I have walked around it twice to be sure.",
+        "From here you can see the bracing that holds up the two stories that are not there. It is very good bracing. Somebody spent real money on the part nobody sees.",
+        "No windows on this side at all. A building that faces only one way."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It is the quietest building in Consolation from every side.",
+        "Nothing. Whatever goes on inside, the walls were built thick enough to keep it there.",
+        "Nothing still. I have stood here long enough to be noticed, and nobody has noticed."
+      ]
+    },
+    {
+      "name": "THE ASH PILE",
+      "LOOK_AT": [
+        "Ash from the Colonel's stove, swept out weekly. Some of it is paper that did not entirely burn. One corner reads BOSTON.",
+        "Most of it is ordinary ash. The paper in it was good paper, the heavy kind, with a watermark.",
+        "I have left the corner that says BOSTON where it lies. It is not mine, and in this town that is not a small distinction."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Ash has finished saying things.",
+        "A dry whisper when the wind lifts the scraps."
+      ]
+    },
+    {
+      "name": "THE BARRELS",
+      "LOOK_AT": [
+        "Empty barrels, stenciled for flour, stacked behind a company that does not sell flour.",
+        "Stacked in a pyramid, true and square. Whoever did it took pride in a pile of nothing.",
+        "I have stopped asking what things are for in this town. I have not stopped noticing."
+      ],
+      "LISTEN_TO": [
+        "Empty. All of them. Somebody has stacked forty empty barrels very carefully.",
+        "I knocked on one. Empty, and it said so at length.",
+        "Nothing. Forty empty barrels and not one rattle."
+      ]
+    },
+    {
+      "name": "THE MUD",
+      "LOOK_AT": [
+        "Alley mud, which is Main Street's mud without the audience.",
+        "Footprints both ways, mostly to and from the Nugget's back door, and the ones coming back are less straight.",
+        "It is the same mud as the street. I find that reassuring, which tells you how my week has gone."
+      ],
+      "LISTEN_TO": [
+        "Wet, and in no hurry.",
+        "Drips from the eaves, landing in it one at a time.",
+        "Nothing. Even the mud keeps its voice down back here."
+      ]
+    },
+    {
+      "name": "THE SIDE DOOR",
+      "LOOK_AT": [
+        "A door in the back of the Improvement Company that does not appear on the front of it.",
+        "No handle on this side. A keyhole, oiled.",
+        "Somebody uses this door. The step is worn, and Main Street does not know it exists."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. It is a very well-fitted door, for a back alley.",
+        "Nothing. If anyone is behind it, they are better at waiting than I am."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "room": 6,
+  "name": "ASSAY OFFICE, RECORDS ROOM",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 6 — ASSAY OFFICE, RECORDS ROOM",
+    "docs/08-examine-batch-1.md::ROOM 6 — ASSAY OFFICE, RECORDS ROOM",
+    "docs/54-batch-c.md::ROOM 6 · ASSAY OFFICE, RECORDS ROOM",
+    "docs/49-wrong-answers.md::ROOM 6 — ASSAY RECORDS ROOM"
+  ],
+  "subjects": [
+    {
+      "name": "THE REGISTER OF ASSAYS",
+      "aliases": [
+        "THE OFFICIAL LEDGER"
+      ],
+      "LOOK_AT": [
+        "Every ounce of color ever brought in, weighed and named. Nineteen names, twelve years. It is a shorter book than the town believes.",
+        "Nine years of assays, in a hand that has not varied once. Not one crossing-out.",
+        "The columns are ruled by hand, every page, every year. She has never once bought ruled paper."
+      ],
+      "LISTEN_TO": [
+        "Pages. Very few of them turn.",
+        "Nothing.",
+        "A page lifting in the draft from the door and lying down again exactly where it was."
+      ]
+    },
+    {
+      "name": "THE NINETEEN NAMES",
+      "LOOK_AT": [
+        "The nineteen. Some are dead, some left, one runs the bakehouse now. Not one of them found enough to matter, and every one of them is famous for it.",
+        "Each name has a date beside it, and the dates are spread across twelve years like a slow leak.",
+        "I have read them often enough to know any of them if I met him. I am not going to meet most of them."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Fame this size is very quiet.",
+        "Nothing. Nineteen men, filed quietly.",
+        "Nothing. A short list keeps a long silence."
+      ],
+      "overrides": {
+        "TALK_TO": "I read them aloud once, quietly. It felt like a roll call. Nobody answered, which is the point of the list."
+      }
+    },
+    {
+      "name": "THE SAMPLE SHELF",
+      "aliases": [
+        "THE SAMPLE WALL"
+      ],
+      "LOOK_AT": [
+        "Rows of little bottles, each holding a pinch of the territory. Labeled in a hand that gets smaller as the years go on.",
+        "Every sample assayed in nine years, in labeled vials. It is beautiful, in the way that only a completed thing is beautiful.",
+        "There are gaps where bottles were taken out and never returned. Some men took their pinch home to remember it by."
+      ],
+      "LISTEN_TO": [
+        "Glass, shoulder to shoulder. A faint ring when the floor moves.",
+        "Nothing. It is nine years of work and it is not asking for anything.",
+        "The ring again, very faint, as I step back. Glass, sorry to see me go."
+      ],
+      "overrides": {
+        "PICK_UP": "Every bottle is somebody's whole year. I am not qualified to hold a year."
+      }
+    },
+    {
+      "name": "THE CRUCIBLE",
+      "LOOK_AT": [
+        "The crucible that has judged every hope in the district. It is the size of a teacup and twice as final.",
+        "Its inside is glazed by fire to a dull gold that has nothing to do with gold.",
+        "Tongs hang beside it, long enough to keep a hand well away from the truth."
+      ],
+      "LISTEN_TO": [
+        "Cold. A crucible only speaks at temperature.",
+        "Nothing. It is waiting for a fire and a question.",
+        "A faint tick as it settles on its stand. Even cold, it has weight."
+      ],
+      "overrides": {
+        "USE": "Cold, and not mine to fire. Some instruments you earn."
+      }
+    },
+    {
+      "name": "THE SCALES CABINET",
+      "LOOK_AT": [
+        "The good scales, behind glass, level to a hair. The one instrument in Consolation nobody has ever accused of anything.",
+        "The glass door has a brass lock. The key, I am told, is on a ribbon round her neck.",
+        "Beside the scales, a set of weights in a velvet tray, each in its own hollow, none missing."
+      ],
+      "LISTEN_TO": [
+        "Nothing at all. Precision resting.",
+        "Nothing. Precision does not hum.",
+        "The glass door ticking very slightly in its frame when the street door goes."
+      ],
+      "overrides": {
+        "OPEN": "Locked, and the key is Winnie, and Winnie is the lock."
+      }
+    },
+    {
+      "name": "THE MAP OF CLAIMS",
+      "LOOK_AT": [
+        "The district in pencil, each claim a small rectangle of intention. Mine is there. It is drawn slightly crooked, which feels personal.",
+        "The claims along the creek are drawn in a careful hand, the ones up the hill in a quicker one, as if the town got ahead of her.",
+        "Claim One is drawn in ink and labeled. Every other claim is pencil."
+      ],
+      "LISTEN_TO": [
+        "Paper on a damp wall, easing.",
+        "A pin working loose somewhere in the damp.",
+        "Nothing. The district, flat and quiet, the way it never is."
+      ]
+    },
+    {
+      "name": "THE STOOL",
+      "LOOK_AT": [
+        "A high stool worn by the assayer's particular way of sitting, which is mostly leaning.",
+        "One leg has been mended with wire. She mended it herself, by the look of the wire.",
+        "It stands exactly where the window light falls on the ledger. Not an inch to the left."
+      ],
+      "LISTEN_TO": [
+        "One loose joint. It announces him.",
+        "The loose joint again, when I set a hand on it. It is used to one weight only.",
+        "Nothing. It is waiting for her."
+      ],
+      "overrides": {
+        "USE": "I sat on it. It announced me. I got down."
+      }
+    },
+    {
+      "name": "THE ACID BOTTLES",
+      "LOOK_AT": [
+        "Aqua fortis, in brown glass, with a stopper the shape of regret. It tells gold from everything that wishes it were.",
+        "Each bottle carries a printed label, POISON, and beneath it, in her hand: ALSO TRUTH.",
+        "One drop has eaten into the bench, a small brown crater. It was a test somebody failed."
+      ],
+      "LISTEN_TO": [
+        "A hiss so small it may be memory.",
+        "A tiny ping of glass as the shelf takes the weight of the morning.",
+        "Nothing. It does its work in silence, and I respect that more than I can say."
+      ]
+    },
+    {
+      "name": "THE FILED CERTIFICATES",
+      "LOOK_AT": [
+        "Certificates of assay, filed by year. The folders get thinner toward the present, like the town is holding its breath.",
+        "Each certificate is stamped, signed and dated, and most of them say nothing worth stamping.",
+        "The folders are tied with tape, and every bow is the same size."
+      ],
+      "LISTEN_TO": [
+        "Paper, in quantity. A dry sea.",
+        "Nothing. Certainty, in folders, makes no sound.",
+        "Paper settling in a drawer, a long, dry exhale."
+      ]
+    },
+    {
+      "name": "THE BACK WINDOW",
+      "aliases": [
+        "THE HIGH WINDOW"
+      ],
+      "LOOK_AT": [
+        "It looks up the diggings. From here you can watch men carry hope in and results out.",
+        "It is set high, so nobody passing can see in. She can see out only by standing on the stool.",
+        "From up here the diggings look like a page of arithmetic, and none of it adds up."
+      ],
+      "LISTEN_TO": [
+        "Picks, far off. The hills, being asked.",
+        "A pick, then another, then a man laughing at something that was probably not funny.",
+        "The wind across the glass, come down from the diggings with nothing in its hands."
+      ]
+    },
+    {
+      "name": "THE STAIN ON THE FLOOR",
+      "LOOK_AT": [
+        "An old acid burn, scrubbed at for years and settled into the grain. Some result somebody took badly.",
+        "Someone has laid a mat over the edge of it. The mat is not quite big enough.",
+        "It is the shape of a hand, if you look at it the wrong way, which I did."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Whatever happened here is finished happening.",
+        "Nothing. The floor has forgiven it.",
+        "Nothing. Even the boards around it are quiet."
+      ]
+    },
+    {
+      "name": "THE STOVE",
+      "LOOK_AT": [
+        "A small stove, lit low, with a kettle on it and a pan of something that might be supper or might be glue.",
+        "The fender is polished. Everything in this room is looked after, and the stove is looked after twice.",
+        "Her shawl is drying on the rail. She works here, and lives a good part of the rest of the time here too."
+      ],
+      "LISTEN_TO": [
+        "A low ticking, like a clock that has been told to keep its voice down.",
+        "The kettle, thinking about it.",
+        "Coals shifting, settling, staying in."
+      ]
+    },
+    {
+      "name": "THE COT IN THE CORNER",
+      "LOOK_AT": [
+        "A cot. Used. She has slept in this building, and recently, and more than once.",
+        "One blanket, folded square, and a pillow with the shape of a head still in it.",
+        "From it you can see the street door. She sleeps facing the way she might be needed."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. It is very carefully not being slept in, just now.",
+        "A spring easing in the frame, long after anyone sat on it."
+      ]
+    },
+    {
+      "name": "THE SPARE APRON",
+      "LOOK_AT": [
+        "A spare apron on a peg, starched and pressed, with acid holes along the hem in a neat row.",
+        "The pocket holds a pencil sharpened at one end only, which in this town is a sign of good character.",
+        "It matches the one she is wearing, stain for stain. She keeps a spare of everything except time."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Linen, on a peg.",
+        "The peg creaking very slightly when the door opens.",
+        "Nothing. It is ready for tomorrow, and the day after."
+      ]
+    },
+    {
+      "name": "THE SHELF OF REFERENCE VOLUMES",
+      "LOOK_AT": [
+        "Assaying manuals, a chemistry, a German dictionary and the territorial statutes, all with their spines broken in the right places.",
+        "One manual is annotated in her hand. In three places she has corrected the author.",
+        "The German dictionary is the most used. I cannot think what for, and I am afraid to ask."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Knowledge, resting.",
+        "A spine creaking as the shelf takes the damp.",
+        "Nothing. They have been read thoroughly and have nothing new to say."
+      ]
+    },
+    {
+      "name": "HER TEA THINGS",
+      "LOOK_AT": [
+        "A cup, a saucer, a tin of tea and a spoon, arranged on a tray as exactly as everything else she keeps.",
+        "One cup. She does not entertain.",
+        "The tin's label is from Canton by way of San Francisco by way of Sheng. Even her tea has a paper trail."
+      ],
+      "LISTEN_TO": [
+        "A faint clink of spoon on saucer as the floor moves.",
+        "Nothing. The cup is clean and dry and upside down.",
+        "Nothing. Tea for one makes the smallest sound in the world."
+      ]
+    }
+  ]
+}

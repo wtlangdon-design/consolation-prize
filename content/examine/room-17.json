@@ -1,0 +1,210 @@
+{
+  "room": 17,
+  "name": "CHURCH & MEETING HALL",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 17 — CHURCH & MEETING HALL",
+    "docs/09-examine-batch-2.md::ROOM 17 — CHURCH & MEETING HALL",
+    "docs/54-batch-c.md::ROOM 17 · CHURCH & MEETING HALL",
+    "docs/49-wrong-answers.md::ROOM 17 — CHURCH & MEETING HALL"
+  ],
+  "subjects": [
+    {
+      "name": "THE BELL ROPE",
+      "LOOK_AT": [
+        "The rope drops through a hole in the ceiling from the only bell in the district. Frayed at pulling height by six years of Reverend Sowerby's mornings.",
+        "A rope, going up through a hole in the ceiling to the flattest bell in the territory.",
+        "A second knot is tied higher up, for a taller ringer. Nobody has needed it since Sowerby came."
+      ],
+      "LISTEN_TO": [
+        "The rope creaks against the beam. The bell above holds its breath.",
+        "Nothing, at rest. It is the only time it is bearable.",
+        "A faint hum down the rope from above. The bell is never entirely silent; it is only flat quietly."
+      ],
+      "overrides": {
+        "PULL": "The whole town orders its morning by that flat note, and it was not morning. Sowerby appeared before the echo died. We have agreed it was the wind."
+      }
+    },
+    {
+      "name": "THE BELL",
+      "LOOK_AT": [
+        "You cannot see it from here. You can see where the ceiling knows about it.",
+        "A dark ring on the ceiling boards around the hole, where years of ringing have shaken the dust loose.",
+        "I have never seen it and I could draw you its crack."
+      ],
+      "LISTEN_TO": [
+        "A half-step flat, even in memory.",
+        "Nothing at the moment, and I can still hear exactly how wrong it is.",
+        "The beam it hangs from ticks in the heat. The bell is saving its error for the morning."
+      ]
+    },
+    {
+      "name": "THE PEWS",
+      "LOOK_AT": [
+        "Eight pews, benched close. On Sundays the whole town fits in here, which tells you something about the size of the town and something about Sundays.",
+        "Pews built from the crates the piano came in. The third one still reads PROVIDENCE R I, which is where I am from. I have sat down.",
+        "The back pew is worn smoother than the front. The town's devotion is strongest nearest the door."
+      ],
+      "LISTEN_TO": [
+        "Wood, easing. Six days of quiet with one loud one coming.",
+        "Nothing.",
+        "A pew creaking under nobody. Old wood remembering a Sunday."
+      ]
+    },
+    {
+      "name": "THE HYMNAL",
+      "LOOK_AT": [
+        "The hymnal, one copy per pew, tuned to whatever key the congregation reaches by verse two. There are pencil corrections in mine. They are wrong, but devout.",
+        "Somebody has pressed a flower in Hymn 41. It has outlasted whoever meant it.",
+        "Every hymn has its key printed at the top. Not one of them is the key this town sings in."
+      ],
+      "LISTEN_TO": [
+        "Pages. A soft chord of paper.",
+        "Nothing. Nobody opens it. They sing what they remember, and they remember it wrong, and they remember it wrong *together*, which is nearly as good.",
+        "Nothing. It is waiting for Sunday, when it will be overruled."
+      ],
+      "overrides": {
+        "USE": "I corrected the penciled corrections. Somebody has since corrected mine. The hymnal is now a debate."
+      }
+    },
+    {
+      "name": "THE PULPIT",
+      "LOOK_AT": [
+        "Built tall by a carpenter who admired authority. Sowerby preaches from beside it, which the carpenter would have taken hard.",
+        "There is a step behind it for a shorter preacher. Sowerby uses neither.",
+        "On the shelf inside, a sermon in Sowerby's hand, priced in the margin."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It keeps the sermons it was promised.",
+        "The boards behind it creak when the door opens, as though someone were about to begin.",
+        "Nothing. A pulpit nobody climbs is the quietest furniture in town."
+      ],
+      "overrides": {
+        "USE": "I stood at it a moment while the hall was empty. It faces a room of chairs the way my claim faces the future: expectantly, on faith."
+      }
+    },
+    {
+      "name": "THE MEETING TABLE",
+      "LOOK_AT": [
+        "The hall's other life: a long table where the town votes on things it has already decided at the Nugget.",
+        "Rings from coffee cups at one end and from whiskey glasses at the other. The town divides along the table.",
+        "The minutes book lies open at the last meeting. Item one: the Company's proposal. Carried. Item two: nothing."
+      ],
+      "LISTEN_TO": [
+        "A wobble in one leg. Democracy, structurally.",
+        "The wobble again when I lean on it. The motion is seconded.",
+        "Nothing. The town is not in session."
+      ]
+    },
+    {
+      "name": "THE STOVE, CHURCH-SIZED",
+      "aliases": [
+        "THE STOVE"
+      ],
+      "LOOK_AT": [
+        "A stove that heats the near half of the room. Salvation, like heat, reaches the back pews late.",
+        "Gilt letters on the door: GIVEN BY COL. A. FANSHAWE. Even the stove is grateful in public.",
+        "The front pews have their paint blistered from it and the back pews have frost in January. Theology, by distance."
+      ],
+      "LISTEN_TO": [
+        "Ticking iron. It preaches in the cold months.",
+        "A slow tick as it cools, like a clock with nothing to count.",
+        "Nothing. Cold iron, waiting for the cold months to give it something to say."
+      ],
+      "overrides": {
+        "TALK_TO": "I asked it to extend its range to the back pews. It ticked noncommittally, like everything else in this building with a congregation."
+      }
+    },
+    {
+      "name": "THE WINDOW GLASS",
+      "aliases": [
+        "THE WINDOW"
+      ],
+      "LOOK_AT": [
+        "Plain glass, no colors. The territory does its own stained glass at dawn and dusk, and the church accepts the donation.",
+        "Real glass, freighted four hundred miles. The single most expensive object in Consolation, and it looks out at mud.",
+        "There is a bubble in one pane, low in the corner. The whole street bends around it a little, like a congregation around a stranger."
+      ],
+      "LISTEN_TO": [
+        "Wind. The glass thins it into something nearly sung.",
+        "Nothing.",
+        "The wind again, nearly sung. It never quite reaches the note."
+      ]
+    },
+    {
+      "name": "THE COLLECTION PLATE",
+      "LOOK_AT": [
+        "Brass, dented, honest. It has held buttons, promissory notes, and once, famously, a nugget nobody would afterward claim.",
+        "Empty, and polished. It has been polished a great deal more than it has been filled.",
+        "Somebody has scratched a small cross on the rim and somebody else a small dollar sign, and both have been polished over equally."
+      ],
+      "LISTEN_TO": [
+        "A ring when set down. It sounds fuller than it is, which is a kindness.",
+        "Nothing.",
+        "A last ring as the plate settles on its bolt. Fuller than it is, again."
+      ],
+      "overrides": {
+        "PICK_UP": "It is bolted down, which I take to be doctrine informed by experience."
+      }
+    },
+    {
+      "name": "THE DOOR, ALWAYS UNLOCKED",
+      "LOOK_AT": [
+        "No lock on a church door, Sowerby says, and no hinge oiled either — so the door announces every sinner at full volume.",
+        "The hinge pin has been tapped half out and tapped back in. Somebody tried to oil it and was overruled.",
+        "It stands open more than it is shut. Sowerby says a church should be easy to enter. He says nothing about leaving."
+      ],
+      "LISTEN_TO": [
+        "The hinge, rehearsing.",
+        "The hinge, as I pass. It has my name ready.",
+        "The street through the gap, and the hinge waiting to comment on whoever comes next."
+      ]
+    },
+    {
+      "name": "THE SUBSCRIPTION LIST",
+      "LOOK_AT": [
+        "Who paid for what. The Colonel paid for the roof, the windows, the bell, and the stove, and his name is on all four in gilt.",
+        "The Colonel's name is in gilt four times. Everyone else's is in ink once, and some have been crossed out and written in again, smaller.",
+        "At the bottom, in pencil: ORGAN FUND — $3.15. It has been $3.15 for some years."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Gratitude, framed and hung, makes no sound.",
+        "The frame tapping the wall when the door goes. The Colonel, knocking politely."
+      ]
+    },
+    {
+      "name": "THE FLOOR",
+      "LOOK_AT": [
+        "Boards, laid properly, tongued and grooved. Somebody built this building to last and every other building on this street to sell.",
+        "A worn path runs from the door to the stove and another from the stove to the door. The pews are mostly decorative.",
+        "Not a nail head standing proud in the whole floor. Whoever laid it believed in something."
+      ],
+      "LISTEN_TO": [
+        "Solid underfoot. Not a creak in it, which in this town is a kind of miracle.",
+        "My own footsteps, sounding more certain than I feel.",
+        "Nothing. It was built to be quiet, and it is."
+      ]
+    },
+    {
+      "name": "THE NOTICE OF SERVICES",
+      "LOOK_AT": [
+        "SERVICES SUNDAY. FUNERALS AS REQUIRED. A schedule of fees below, in a smaller hand.",
+        "The fees are by the word, and the longer words cost more.",
+        "WEDDINGS has been painted out. There is room under it for something new, and nothing has been put there."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Paper, pinned flat.",
+        "The pin rattling in the draft from the door.",
+        "Nothing. A schedule with one fixed day has very little to say."
+      ]
+    }
+  ],
+  "exitsAndUnplaced": {
+    "REVEREND SOWERBY": {
+      "PICK_UP": "There would be a charge. There is a charge for everything here, including, I suspect, the suggestion.",
+      "PUSH": "He would bless me for it, at the standard rate.",
+      "USE": "He is available, by the word."
+    }
+  }
+}

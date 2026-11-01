@@ -1,0 +1,193 @@
+{
+  "room": 11,
+  "name": "FANSHAWE'S OFFICE",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 11 — FANSHAWE'S OFFICE",
+    "docs/54-batch-c.md::ROOM 11 · FANSHAWE'S OFFICE",
+    "docs/49-wrong-answers.md::ROOM 11 — FANSHAWE'S OFFICE"
+  ],
+  "subjects": [
+    {
+      "name": "THE PORTRAIT",
+      "LOOK_AT": [
+        "Colonel Fanshawe, painted at approximately twice life size and one-third his actual age.",
+        "The uniform has more braid than a regiment would issue and fewer stains than a war would allow.",
+        "The painter has given him a battle in the background. It is not clear which battle. I suspect the painter was told several."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Which is the first honest thing about it.",
+        "Canvas, stretched very taut, like the story.",
+        "Nothing. In oils he is the strong, silent type, which is the only thing the painter added."
+      ],
+      "overrides": {
+        "TALK_TO": "The painted one listens exactly as well and commits to less. I prefer him slightly."
+      }
+    },
+    {
+      "name": "THE SABRE",
+      "LOOK_AT": [
+        "A cavalry sabre, mounted. Beautifully kept.",
+        "The scabbard is engraved with a battle honor. I would tell you which, but the engraving and the Colonel disagree.",
+        "Not a nick on it. It is either the finest blade in the territory or it has never met anything."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It has never left this wall and it has never been sharpened.",
+        "Nothing. Steel at rest, and resting comfortably.",
+        "A faint ring when the door closes, and then it remembers itself."
+      ]
+    },
+    {
+      "name": "THE CHAIRS",
+      "LOOK_AT": [
+        "Eleven chairs, in a room that receives visitors one at a time.",
+        "Each one is turned slightly toward his desk, the way flowers turn toward a window.",
+        "Eleven chairs. I counted twice, and on the second count I had the strong impression I had been offered one."
+      ],
+      "LISTEN_TO": [
+        "Leather, settling. They are extremely comfortable and I do not wish to sit in one.",
+        "A cushion slowly breathing out. Somebody sat in it recently and was relieved of something.",
+        "Nothing. Good furniture in this town is very patient."
+      ],
+      "overrides": {
+        "PUSH": "They are heavier than they look. Everything in this office is heavier than it looks."
+      }
+    },
+    {
+      "name": "THE MAP WALL",
+      "LOOK_AT": [
+        "Every claim in the district, pinned. Two of them have red pins. One is Claim One. The other is mine.",
+        "Green pins for the Company, a great many. The two red pins are alone together near the middle.",
+        "My pin has been pushed all the way in. The others merely rest. I do not know why that bothers me as much as it does."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Pins ticking against the cork in the draft. A small, busy, acquisitive sound.",
+        "Nothing. The map is entirely up to date and has nothing further to report."
+      ]
+    },
+    {
+      "name": "THE DECANTER",
+      "LOOK_AT": [
+        "Good whisky, offered freely to everyone, always.",
+        "Cut glass, and the whisky catches the light so well I suspect the light came with it.",
+        "He pours for every visitor and none for himself. A man who never drinks, in a room built for drinking, is a man keeping count."
+      ],
+      "LISTEN_TO": [
+        "Full. It is always full. He does not drink it.",
+        "The stopper rings faintly when the desk is struck. Even the glass is in a cordial mood.",
+        "Nothing. It is full again. Somebody refills it quietly."
+      ],
+      "overrides": {
+        "OPEN": "It is always already open. Generosity, pre-loaded."
+      }
+    },
+    {
+      "name": "THE SUBMISSION LOG",
+      "LOOK_AT": [
+        "The Company's submission log, bound in green leather, closed, and lying where he can reach it and I cannot.",
+        "He has moved it an inch since I last looked. He is a courteous man and a careful one, and in him those are not in tension.",
+        "The spine is cracked in one place only, where it is opened most. Whatever is in it is consulted daily."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It is closed, and it will stay closed while he is in the room.",
+        "Nothing. Even the paper in this office waits to be invited.",
+        "Nothing. I have the distinct sense of the book listening back."
+      ],
+      "overrides": {
+        "PICK_UP (empty office)": "Nine years of priority submissions, filed one day a month, every month, in one hand. Winnie is going to want to see this, and she is not going to enjoy it.",
+        "PICK_UP_or_OPEN (Fanshawe present)": "Not with him in the room. He would offer to help me carry it."
+      }
+    },
+    {
+      "name": "THE SAFE",
+      "LOOK_AT": [
+        "A safe the size of a small cabin, painted with roses and a landscape, as though money could be made to feel at home.",
+        "The landscape has a river in it, running gold, toward the handle.",
+        "He has never opened it in front of me. He has opened everything else."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Iron this thick has heard nothing since it was cast.",
+        "Nothing. It does not tick, which is the first thing I listen for in a lock.",
+        "A dull note when the floor takes my weight. Heavy things have very little to say, and say it low."
+      ]
+    },
+    {
+      "name": "THE WINDOW",
+      "LOOK_AT": [
+        "A tall window over Main Street, curtained in velvet the color of good port. He can see the whole town from here, and the town can see him being generous.",
+        "The glass is new, thick, and very slightly green. The town looks prosperous through it. That may be what the glass is for.",
+        "From here you can see the Assay Office door and the Registrar's, and how long the line is at each."
+      ],
+      "LISTEN_TO": [
+        "Main Street, with the edges taken off. Even the noise is muffled into good manners in this room.",
+        "A wagon passing. Through this glass it sounds as if it is paying a call.",
+        "Nothing gets in that he has not let in. The street knocks politely and is not answered."
+      ]
+    },
+    {
+      "name": "THE STOCK PORTRAIT DRAWER",
+      "LOOK_AT": [
+        "A wide, shallow drawer in the sideboard, the kind printers keep plates in. Fine joinery, for something nobody is meant to look in.",
+        "It does not quite close. A corner of card shows at the gap, the good heavy kind photographers use.",
+        "He has offered me everything else in this room. He has not offered me this."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Whatever is in there is packed too tight to shift.",
+        "The runners squeak a little when the sideboard takes my weight. It has been opened recently.",
+        "Nothing more. I am being very good."
+      ],
+      "overrides": {
+        "OPEN_or_PICK_UP (empty office)": "The drawer is full of the same gentleman. Dozens of him, stacked, all looking nobly at nothing. Every one of him is Obadiah Mott.",
+        "PICK_UP_or_OPEN (Fanshawe present)": "Not with him in the room. He would offer to help me carry it."
+      }
+    },
+    {
+      "name": "THE HANDKERCHIEF",
+      "LOOK_AT": [
+        "A handkerchief of white silk, monogrammed in thread finer than anything else in the territory.",
+        "He offers it to anyone who looks upset. Several men have left this office with one, and with nothing else.",
+        "The initials are A.F., the A rather larger than the F, as though the A had done most of the work."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Silk is too well bred to rustle.",
+        "The faintest whisper of starch. Even his linen is persuasive.",
+        "Nothing at all. It is the softest thing in Consolation, and it has never once been used to wipe anything."
+      ]
+    },
+    {
+      "name": "THE LEDGERS",
+      "LOOK_AT": [
+        "Company ledgers, a shelf of them, in green morocco with gilt dates. Twelve years of accounts, bound handsomely enough to be believed.",
+        "The spines are all one thickness, year after year. Business in Consolation, it appears, never rises and never falls. It merely continues.",
+        "He has offered to let me read them, and I believe he would. That is how I know there is nothing in them."
+      ],
+      "LISTEN_TO": [
+        "Nothing. A shelf of figures that all agree with each other.",
+        "The shelf creaks under them. They are heavier than the business they describe.",
+        "Nothing. The particular quiet of a book that has never been audited."
+      ]
+    },
+    {
+      "name": "THE DOOR",
+      "LOOK_AT": [
+        "From this side it is a door like any other. From the lobby it is the most important door in the territory. He has arranged both.",
+        "The hinges are oiled so that it closes without a sound. Visitors find themselves inside before they have decided to come in.",
+        "There is no lock on this side. There has never been any need. Nobody leaves this office in a hurry."
+      ],
+      "LISTEN_TO": [
+        "The lobby, faintly, and the clock out there being eleven minutes wrong.",
+        "Nothing. A door this well hung keeps every secret in the room and lets in only the draft.",
+        "Voices in the lobby, waiting. Everyone waits out there. Nobody waits in here."
+      ]
+    }
+  ],
+  "exitsAndUnplaced": {
+    "COLONEL FANSHAWE": {
+      "PICK_UP": "He would allow it. He would find it delightful. That is the reason not to.",
+      "PUSH": "He would step aside before I touched him, and thank me, and I would be further in than I was.",
+      "GIVE": "Whatever I give him, he gives back something nicer. I have stopped giving him things.",
+      "USE": "He is the one who uses. It is not a position open to applicants."
+    }
+  }
+}

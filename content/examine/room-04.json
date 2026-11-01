@@ -1,0 +1,189 @@
+{
+  "room": 4,
+  "name": "NUGGET BACK ROOM",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 4 — NUGGET BACK ROOM",
+    "docs/09-examine-batch-2.md::ROOM 4 — THE NUGGET BACK ROOM",
+    "docs/54-batch-c.md::ROOM 4 · THE NUGGET BACK ROOM",
+    "docs/49-wrong-answers.md::ROOM 4 — NUGGET BACK ROOM"
+  ],
+  "subjects": [
+    {
+      "name": "THE LONG TABLE",
+      "aliases": [
+        "THE JUDGES' TABLE"
+      ],
+      "LOOK_AT": [
+        "One table, two chairs facing, and a great deal of floor for standing around it. The architecture of an argument.",
+        "A table, three chairs, and a great deal of authority for a room behind a saloon.",
+        "The top is scored with knife marks in tallies of five, older than the scoreboard. Somebody kept count before there was a slate to keep it on."
+      ],
+      "LISTEN_TO": [
+        "The wood is still. Between duels it keeps its own counsel.",
+        "Nothing. It is waiting to be sat at, which is most of what furniture does here.",
+        "A knuckle rapping it, somewhere in memory. The table remembers every point of order."
+      ]
+    },
+    {
+      "name": "THE JUDGES' PENCIL",
+      "aliases": [
+        "THE PENCIL"
+      ],
+      "LOOK_AT": [
+        "The pencil the judges score with, chained to the table like something precious. It is sharpened at both ends, which nobody will explain.",
+        "It has been sharpened so often there is very little pencil left between the two points. Justice, worn to a stub.",
+        "There are tooth marks on it, at both ends. The judges deliberate in the usual way."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It has written every verdict in town and holds no opinion.",
+        "Nothing.",
+        "The chain clinking against the table leg when the door opens."
+      ],
+      "overrides": {
+        "PICK_UP": "Chained, and the chain is newer than the pencil. There is a story and nobody will tell it to a newcomer."
+      }
+    },
+    {
+      "name": "THE SCOREBOARD",
+      "aliases": [
+        "THE TALLY BOARD"
+      ],
+      "LOOK_AT": [
+        "A slate of past Assays. The same three names win and the same eleven lose, and all fourteen keep playing.",
+        "Duels won, by name, in chalk, going back years. Deke Vessel has forty-one. Nickel Pratt has nine, which surprises me. Colonel Fanshawe has none — because Colonel Fanshawe has never entered.",
+        "The chalk on the oldest names has been gone over again and again, so it will not fade. Losing is kept up as carefully as winning."
+      ],
+      "LISTEN_TO": [
+        "Chalk dust, settling. The sound of standings.",
+        "Nothing.",
+        "Nothing, then a crumb of chalk dropping from the ledge. History, settling."
+      ],
+      "overrides": {
+        "USE": "Amending the slate is how the last man lost his chalk privileges, and the story is told as a tragedy."
+      }
+    },
+    {
+      "name": "THE LAMP OVER THE TABLE",
+      "aliases": [
+        "THE LAMP"
+      ],
+      "LOOK_AT": [
+        "Hung low, so the light lands on the liars and leaves the judges dark. Somebody thought about this.",
+        "The chain it hangs from has been shortened twice, a link at a time. The liars have been getting closer to the light.",
+        "Its shade is painted green inside, which makes everyone under it look slightly unwell and entirely sincere."
+      ],
+      "LISTEN_TO": [
+        "The flame leans when the door opens. It attends every duel.",
+        "The flame, leaning toward the door and settling back.",
+        "A low hiss. The lamp is the only one here that never exaggerates."
+      ]
+    },
+    {
+      "name": "THE CHAIRS",
+      "LOOK_AT": [
+        "Two chairs, worn in different places. The challenger's is worn at the edge of the seat; the champion's, at the back.",
+        "The challenger's chair has a short leg. Nobody has fixed it, because nobody thinks the challenger should be comfortable.",
+        "The champion's chair has a cushion. It was won, I am told, in a duel about the cushion."
+      ],
+      "LISTEN_TO": [
+        "A creak waiting to happen.",
+        "The short leg, rocking once as I touch it.",
+        "Nothing. Two chairs, facing, saying nothing to each other."
+      ],
+      "overrides": {
+        "TALK_TO": "'One day,' I told the champion's chair. It creaked. Not unkindly."
+      }
+    },
+    {
+      "name": "THE DOOR TO THE BAR",
+      "LOOK_AT": [
+        "The noise of the Nugget comes through it in outline. Bets travel the other way.",
+        "There is a slot at eye height, with a shutter, so the bar can be told the result without the bar being let in.",
+        "The paint is worn around the handle by men coming in confident and going out otherwise."
+      ],
+      "LISTEN_TO": [
+        "Money, changing its mind.",
+        "The bar. Muffled. Somebody out there has told the same story four times and it has grown twice.",
+        "A cheer, through the boards, for something that has nothing to do with in here."
+      ]
+    },
+    {
+      "name": "THE SPIT LINE",
+      "LOOK_AT": [
+        "A line scored in the floorboards. You stand behind it to boast. The floor in front of it is stained with the history of emphasis.",
+        "Some men stand a long way behind it. Some stand on it. Nobody stands in front of it, twice.",
+        "Someone has gone over it with a hot iron to keep it from wearing away. The line is the most maintained thing in the Nugget."
+      ],
+      "LISTEN_TO": [
+        "Nothing. The line has heard it all twice.",
+        "Nothing. It is a line, and it is enough.",
+        "Nothing. The boasts it has heard have all gone into the floor."
+      ],
+      "overrides": {
+        "PUSH": "You cannot move the line. Men have tried. The line is load-bearing, socially."
+      }
+    },
+    {
+      "name": "THE WINDOW, PAINTED OVER",
+      "LOOK_AT": [
+        "Painted over from the inside. What happens in the Assay is public and the window is not. I do not fully follow the reasoning either.",
+        "Someone has scratched a small hole in the paint at the corner, at eye height, the size of an eye.",
+        "The paint is the same green as the lamp shade. Somebody had a theory about green."
+      ],
+      "LISTEN_TO": [
+        "Wind on glass, dulled by paint. The outside, filed away.",
+        "The wind, filed under 'outside', and a cart going by in the margin.",
+        "Nothing. The window is keeping the room's confidence."
+      ]
+    },
+    {
+      "name": "THE SECOND RULEBOOK",
+      "LOOK_AT": [
+        "A longer copy of the rules, in a binder, with amendments. There are fourteen amendments. Eleven of them concern seating.",
+        "Amendment Nine: no man may boast of his own mother. Amendment Ten: or anybody else's.",
+        "The binder's spine is held together with string, and the string has an amendment of its own."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "A page turning back on its own, to the seating rules.",
+        "Nothing. Fourteen amendments, at rest."
+      ]
+    },
+    {
+      "name": "THE RING OF CHAIRS",
+      "LOOK_AT": [
+        "Chairs, in a ring, close in. Whatever happens in here happens with everyone's knees nearly touching.",
+        "The chairs nearest the table are worn at the front edge. Everybody leans in.",
+        "There are more chairs than there are men in town who come to duels. Somebody is optimistic about attendance."
+      ],
+      "LISTEN_TO": [
+        "Nothing yet.",
+        "One chair creaking as the floor shifts. An audience of one, getting comfortable.",
+        "Nothing. The ring is waiting for the next fool, and I am standing in the middle of it."
+      ]
+    },
+    {
+      "name": "THE CHALK",
+      "LOOK_AT": [
+        "A stub of chalk on the scoreboard's ledge, worn to the shape of a thumb.",
+        "It is kept in a little tin with a lid. Chalk has been stolen here before, I am told, by a man who meant to change history.",
+        "Only the judges may touch it. It is the most powerful object in the territory and it is the size of a bean."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Chalk at rest is silent.",
+        "The tin lid, ticking as the room warms.",
+        "Nothing. It speaks once a duel, on slate, and then it is done."
+      ]
+    }
+  ],
+  "exitsAndUnplaced": {
+    "DEKE VESSEL": {
+      "PICK_UP (in a duel)": "Not across the line. There are amendments."
+    },
+    "THE JUDGES": {
+      "TALK_TO (in a duel)": "They are deliberating. I can hear them chewing the pencil.",
+      "USE": "Nobody uses the judges. That is the one thing everyone here agrees on."
+    }
+  }
+}

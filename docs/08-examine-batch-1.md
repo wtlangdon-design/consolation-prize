@@ -11,7 +11,7 @@
 *Entered once, in Act III, as one's own executor. Nine hotspots. Contains the timesheet.*
 
 **THE SHELVES**
-> **LOOK:** "Every claim ever filed in this district, in boxes, in order. It is the most organised thing in Consolation and no one is permitted to look at it."
+> **LOOK:** "Every claim ever filed in this district, in boxes, in order. It is the most organized thing in Consolation and no one is permitted to look at it."
 > **LISTEN:** "Nothing. Paper does not keep secrets so much as decline to volunteer."
 
 **CLAIM ONE'S BOX**
@@ -75,7 +75,7 @@
 > **LISTEN:** "Nothing."
 
 **THE CATALOGUE — furniture pages**
-> **LOOK:** "Parlour suites. Somebody has turned down the corner of this page. Several somebodies. The corner is soft."
+> **LOOK:** "Parlor suites. Somebody has turned down the corner of this page. Several somebodies. The corner is soft."
 > **LISTEN:** "Nothing."
 
 **THE CATALOGUE — the page on pianos**
@@ -129,7 +129,7 @@
 *Eleven hotspots. The nineteen names are here, and they are findable before Winnie ever mentions them.*
 
 **THE SAMPLE WALL**
-> **LOOK:** "Every sample assayed in nine years, in labelled vials. It is beautiful, in the way that only a completed thing is beautiful."
+> **LOOK:** "Every sample assayed in nine years, in labeled vials. It is beautiful, in the way that only a completed thing is beautiful."
 > **LISTEN:** "Nothing. It is nine years of work and it is not asking for anything."
 
 **THE OFFICIAL LEDGER**
@@ -210,7 +210,7 @@
 > **LISTEN:** "Nothing."
 
 **THE OFFERINGS**
-> **LOOK:** "Coins, pressed into the dirt at the centre. Men have been leaving money here. I do not know what for and I do not think they do."
+> **LOOK:** "Coins, pressed into the dirt at the center. Men have been leaving money here. I do not know what for and I do not think they do."
 > **LISTEN:** "Nothing."
 
 **A NEW DIGGING**

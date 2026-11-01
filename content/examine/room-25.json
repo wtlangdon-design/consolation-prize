@@ -1,0 +1,187 @@
+{
+  "room": 25,
+  "name": "PRATT'S CLAIM",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 25 — PRATT'S CLAIM",
+    "docs/10-examine-batch-3.md::ROOM 25 — PRATT'S CLAIM",
+    "docs/54-batch-c.md::ROOM 25 · PRATT'S CLAIM",
+    "docs/49-wrong-answers.md::ROOM 25 — PRATT'S CLAIM"
+  ],
+  "subjects": [
+    {
+      "name": "THE CLAIM ENTIRE",
+      "LOOK_AT": [
+        "Nickel Pratt's forty feet, raked, edged, and swept. It has produced nothing in nine years and has never once looked like it.",
+        "There is not a weed on it. The weeds have heard about him.",
+        "If effort were gold this would be the richest forty feet in the territory, and he would sweep it anyway."
+      ],
+      "LISTEN_TO": [
+        "Order. It has a sound. It is this.",
+        "A rake somewhere near, at a steady pace. He is never far from his ground.",
+        "Nothing out of place. Even the silence is in rows."
+      ]
+    },
+    {
+      "name": "THE BORDER STONES",
+      "aliases": [
+        "THE BOUNDARY"
+      ],
+      "LOOK_AT": [
+        "His boundary, marked in whitewashed stones set a hand-width apart. The claim next door is a wilderness by comparison, and by comparison is the point.",
+        "Each stone is the size of a loaf and the size of all the others. He went looking for them.",
+        "The whitewash is fresh on the side facing out. He knows where his claim ends. He wants everyone else reminded."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Stones with a job.",
+        "Nothing. Stones agreeing with each other.",
+        "A lizard ticking across one and off again. It has respected the boundary."
+      ],
+      "overrides": {
+        "PUSH": "I nudged one a hand-width. When I passed at dusk it was back, and the whitewash was fresh. We have not discussed it. We will never discuss it."
+      }
+    },
+    {
+      "name": "THE TOOL RACK",
+      "LOOK_AT": [
+        "Pick, shovel, pan, and bar, hung in size order, oiled. They look forward to Monday. I have never seen tools look forward to anything.",
+        "Tools, hung, oiled, in order of length. Mine are in a pile and one of them is a raccoon's now.",
+        "Each tool's outline is painted on the board behind it, so an empty hook would be noticed. None is empty."
+      ],
+      "LISTEN_TO": [
+        "The pan swings a little. A single soft gong, on the hour, when the wind is right.",
+        "Nothing.",
+        "The pan again, one soft note. Pratt's clock, and it keeps better time than the Company's."
+      ],
+      "overrides": {
+        "PICK_UP": "Borrowing from Pratt is simple: you ask, he says yes, and then you are a man who borrowed from Pratt, and the tools come back cleaner than they left. I am not ready for the standard."
+      }
+    },
+    {
+      "name": "THE DIGGINGS, SUCH AS THEY ARE",
+      "aliases": [
+        "THE WORKINGS"
+      ],
+      "LOOK_AT": [
+        "His workings: a neat trench, square-cornered, deepening a careful inch a week. He is not digging for gold. He is digging correctly.",
+        "He has put a little roof over the deepest part, against rain. The nothing at the bottom is kept dry.",
+        "The walls are cut so straight you could hang a picture on them. Nobody is going to."
+      ],
+      "LISTEN_TO": [
+        "Loose earth trickling back in, politely refilling.",
+        "Nothing. It is very well made and there is nothing in it.",
+        "A pebble falls from the side and lands exactly where you would expect. Even the gravity here is tidy."
+      ]
+    },
+    {
+      "name": "THE TAILINGS PILE",
+      "aliases": [
+        "THE SPOIL HEAP"
+      ],
+      "LOOK_AT": [
+        "Even his refuse is graded — coarse to the left, fines to the right. It is the tidiest failure in the territory and he knows it, and that is the whole of what he has, and he keeps it swept.",
+        "The heaps have small wooden labels: COARSE, FINE, FINER. A fourth label stands beside an empty patch of ground. It says GOLD.",
+        "The coarse pile has a shovel stuck upright in it, and the fine pile a brush. He keeps a separate tool for each kind of nothing."
+      ],
+      "LISTEN_TO": [
+        "Gravel, settling by size. Even the discard sorts itself here.",
+        "Nothing.",
+        "Nothing. It has been sorted, and it has nothing more to say."
+      ]
+    },
+    {
+      "name": "THE CAMP CHAIR",
+      "LOOK_AT": [
+        "A folding chair, canvas, facing the trench at the angle of a man reviewing troops.",
+        "The canvas is patched in two places, both neatly, both square.",
+        "A second chair stands folded against the lean-to. It has never been unfolded."
+      ],
+      "LISTEN_TO": [
+        "Canvas easing on the frame. At attention, at rest.",
+        "Nothing. It does not creak. He would not permit it.",
+        "Canvas ticking in the wind, like a flag that has been told to be quiet."
+      ],
+      "overrides": {
+        "USE": "I sat in it. The trench looked back, square-cornered, patient. For one minute I understood him completely, and it was restful."
+      }
+    },
+    {
+      "name": "THE COFFEE POT",
+      "LOOK_AT": [
+        "On its own flat stone by a fire ring swept between uses. Pratt's coffee is famously terrible and famously punctual.",
+        "Blackened outside and spotless in. Pratt has his own idea of which side shows.",
+        "There is one cup. He has never been asked to share and has never had to refuse."
+      ],
+      "LISTEN_TO": [
+        "Tin, ticking in the sun. Ten o'clock is coming.",
+        "A faint ping as the tin warms. Ten o'clock is nearer.",
+        "Not yet. At ten it will boil, and the diggings will set their watches by the smell."
+      ]
+    },
+    {
+      "name": "THE SIGN: NO COLOR YET",
+      "aliases": [
+        "THE SIGN"
+      ],
+      "LOOK_AT": [
+        "A small board, neatly lettered: NO COLOR YET. The YET has been repainted more times than the rest. It is the most honest sign in the district and the most stubborn word in it.",
+        "N. PRATT. No claim name. Every other man out here named his. He has just put his name on it, which on reflection is the only accurate sign in the district.",
+        "The board is planed and the letters are ruled. He has taken more care over NO than most men take over YES."
+      ],
+      "LISTEN_TO": [
+        "Nothing. The sign says everything it hears.",
+        "The board ticks against its post in the wind. Not yet, not yet.",
+        "Nothing. The sign is waiting, along with the rest of him."
+      ],
+      "overrides": {
+        "TALK_TO": "'Any day now,' I told it. The YET gleamed. Somebody repaints that word the way other men pray."
+      }
+    },
+    {
+      "name": "THE TALLY POST",
+      "LOOK_AT": [
+        "Days worked, cut into the post in fives. I have counted them twice. Two thousand and six.",
+        "Every fifth stroke is cut a little deeper, as though he leaned on that day.",
+        "The post is nearly full. A second post stands beside it, already planed, waiting for the next two thousand."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. A count kept in wood makes no sound adding up.",
+        "Nothing. Tomorrow there will be one more mark, made quietly."
+      ]
+    },
+    {
+      "name": "THE LEAN-TO",
+      "LOOK_AT": [
+        "He sleeps out here. There is a bed, a stove, a cup, and a shelf, and the shelf is level.",
+        "The blanket on the bed is folded stripe-out. I have never before met a man with a position on the stripe.",
+        "A shaving mirror hangs on the post at exactly his height. He is not a man for stooping, or for compromise."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "The stove pipe pinging as it cools.",
+        "Nothing. A man who lives this tidily makes no noise at home."
+      ]
+    },
+    {
+      "name": "THE SLUICE",
+      "LOOK_AT": [
+        "A short sluice, built to plan and level to the bubble. Water goes through it exactly as intended and leaves exactly as it came.",
+        "The riffles are cleaned after every run. There is never anything to clean out of them. He cleans them anyway.",
+        "It is the only sluice in the district that does not leak. It also finds nothing, which puts it in good company."
+      ],
+      "LISTEN_TO": [
+        "Water through it, even and polite. No knocking, no splash.",
+        "A trickle at the bottom, and then nothing. He shuts it off at noon.",
+        "Nothing. Dry boards, waiting for tomorrow's water."
+      ]
+    }
+  ],
+  "exitsAndUnplaced": {
+    "NICKEL PRATT": {
+      "PICK_UP": "He would put up with it exactly once, and remember it exactly forever.",
+      "PUSH": "He has not moved off his line in nine years. I do not intend to be the exception.",
+      "USE": "He has a use already. It is this claim, and he is busy with it."
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "room": 14,
+  "name": "BOOT HILL",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 14 — BOOT HILL#1",
+    "docs/54-batch-c.md::ROOM 14 · BOOT HILL",
+    "docs/05-examine-layer.md::ROOM 14 — BOOT HILL#2",
+    "docs/49-wrong-answers.md::ROOM 14 — BOOT HILL"
+  ],
+  "subjects": [
+    {
+      "name": "MOTT'S MARKER",
+      "LOOK_AT": [
+        "A marker for Obadiah Mott, erected by public subscription in the fifth year. Well kept. Flowers, even.",
+        "The flowers are wax. The undertaker's lilies, on loan for the look of the thing.",
+        "It is the best-kept grave on the hill, for a man nobody here ever buried."
+      ],
+      "LISTEN_TO": [
+        "Nothing under it.",
+        "Nothing under it, still.",
+        "Wind across the stone. It has a lot of town to cover and it starts here."
+      ]
+    },
+    {
+      "name": "PIKE'S NEIGHBOR",
+      "LOOK_AT": [
+        "A grave, open, waiting, with my name on the marker. Frame has spelled it wrong.",
+        "The spade is still in the spoil heap, waiting for a decision that has already been made.",
+        "Frame's spelling is on the marker in paint. The undertaker has left room to correct it, and will not."
+      ],
+      "LISTEN_TO": [
+        "Nothing, yet.",
+        "A trickle of dirt into the bottom of it. Practice.",
+        "Nothing yet, for the second time. The yet is doing a great deal of work."
+      ]
+    },
+    {
+      "name": "MY OWN PLOT",
+      "LOOK_AT": [],
+      "LISTEN_TO": [],
+      "acts": [
+        {
+          "act": "3-4",
+          "LOOK_AT": [
+            "My plot, my headboard, HE TUNED. I visit. It is restful, in the way of problems that have been filed.",
+            "The grass has started over it. I am the first man in Consolation to watch his own grave come in.",
+            "Someone has left a tuning peg on the headboard, a piano's. I know whose piano. I am not going to say."
+          ],
+          "LISTEN_TO": [
+            "Wind in the oats. My grave is the only one here whose tenant can review the accommodations, and I give it high marks.",
+            "Nothing. Not from me, and I would know.",
+            "The oats again, and somewhere down the hill, a piano, in tune."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "THE NINETEEN",
+      "LOOK_AT": [
+        "AMOS TREADWELL. BLACKSMITH. 1850.",
+        "JOSIAH PENHALLOW. MINER, OF CORNWALL. 1851.",
+        "ELIAS CRANE. SURVEYOR. 1850.",
+        "RAFAEL SANDOVAL. MULETEER. 1852.",
+        "SILAS MARCHBANK. CLERK. 1851.",
+        "PATRICK KEANE. CARPENTER. 1853.",
+        "ABEL STROUD. GAMBLER. 1854.",
+        "ISAAC PELL. WHEELWRIGHT. 1855.",
+        "OWEN PROTHERO. COLLIER, OF GLAMORGAN. 1857.",
+        "The row ends. Nine names, nine trades, nine dates, and the same grass over all of them."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing.",
+        "Nothing.",
+        "Nothing.",
+        "Nothing.",
+        "Nothing.",
+        "Nothing.",
+        "Nothing.",
+        "Nothing.",
+        "Nothing."
+      ]
+    },
+    {
+      "name": "PIKE'S MARKER",
+      "LOOK_AT": [
+        "Ezra Pike. The man I was sent to find. Six years.",
+        "A plain board, kept upright. The undertaker's work, and paid for, I would guess, by the undertaker.",
+        "I have his letter of introduction in my coat. It introduces me to this."
+      ],
+      "LISTEN_TO": [
+        "Nothing. I have come a very long way to hear it.",
+        "Nothing, still. He was never going to answer, and I keep asking anyway.",
+        "Wind in the grass over him, and that is all the reply there is."
+      ],
+      "overrides": {
+        "TALK_TO": "I read him my letter of introduction. It seemed only right. He took it as well as anything else I've said here.",
+        "USE": "It is in use. That is the entire and only thing a plot can be."
+      }
+    }
+  ],
+  "exitsAndUnplaced": {
+    "THE GATE": {
+      "CLOSE": "It swings back. The latch is broken in the direction of welcome, which is not the direction you want a graveyard broken in."
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "room": 34,
+  "name": "UNDER PROSPERITY",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 34 — UNDER PROSPERITY",
+    "docs/10-examine-batch-3.md::ROOM 34 — UNDER PROSPERITY",
+    "docs/54-batch-c.md::ROOM 34 · UNDER PROSPERITY",
+    "docs/49-wrong-answers.md::ROOM 34 — UNDER PROSPERITY"
+  ],
+  "subjects": [
+    {
+      "name": "THE DARK",
+      "LOOK_AT": [
+        "Dark with a texture to it. The lamp makes a room the size of the lamp, and the rest of the underworld waits its turn.",
+        "I turned the lamp down once, to see what the dark was like on its own. I turned it back up.",
+        "It is not empty. It is only unlit."
+      ],
+      "LISTEN_TO": [
+        "My own ears, ringing faintly. Underground, silence has a pitch. I could tune to it.",
+        "The ringing in my ears, settling on a note. A little flat. Of course it is.",
+        "My own heartbeat, which I have not heard in some years, keeping better time than the town."
+      ]
+    },
+    {
+      "name": "THE AIR",
+      "aliases": [
+        "THE DRAUGHT"
+      ],
+      "LOOK_AT": [
+        "You cannot see it, and down here that is the most interesting thing about it: the flame leans. The air is going somewhere.",
+        "Nothing to look at. There has never been anything to look at.",
+        "There is nothing to see. I keep looking anyway, like a man rereading a letter he knows by heart."
+      ],
+      "LISTEN_TO": [
+        "Moving. Warmer than the day. I have heard this before, at the top of a hole, and used it to evict a raccoon.",
+        "Warmer. It has been warmer every foot.",
+        "Moving, and warmer. I have stopped being surprised by it and started paying attention."
+      ]
+    },
+    {
+      "name": "THE WALLS",
+      "LOOK_AT": [
+        "Clay, then rock, then a seam of something the lamp takes an interest in. I am declining to be excited. The territory has trained me thoroughly.",
+        "Rock.",
+        "Rock, mostly."
+      ],
+      "LISTEN_TO": [
+        "Water, somewhere inside the stone, going about its business.",
+        "Water inside the stone again, going about its business.",
+        "Nothing I can name yet. I am listening anyway. It is what I am for."
+      ]
+    },
+    {
+      "name": "THE TIMBERING",
+      "LOOK_AT": [
+        "Old timbering, not mine, not recent. Someone was down here before the town was up there, and shored it like they meant to come back.",
+        "The joints are pegged, not nailed, by somebody who had more time than nails.",
+        "It has held a town on top of it for twelve years without a word of complaint. I know men who could learn from it."
+      ],
+      "LISTEN_TO": [
+        "The wood takes the mountain's weight and says so, once in a while, quietly.",
+        "A long creak overhead, and then the mountain settles back.",
+        "Nothing for a while. Then one small tick, like a clock deciding not to strike."
+      ],
+      "overrides": {
+        "PULL": "The timber holds the mountain. I hold my curiosity. Everyone keeps their post."
+      }
+    },
+    {
+      "name": "THE SEAM",
+      "LOOK_AT": [
+        "The seam, where the lamp stops being casual. I have seen color in a pan, in a bottle, on a scale. I have never seen it at home before. It is different at home.",
+        "It runs at a slant into the dark, wider than my hand and further than the lamp.",
+        "I have looked at it for a long time. It does not do anything. It does not need to."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It has been keeping this quiet for longer than there have been ears.",
+        "Nothing. Gold has never had to raise its voice.",
+        "Nothing. Twelve years of a town, built on top of a silence."
+      ],
+      "overrides": {
+        "PICK_UP": "Not with my hands. This one goes through the window, into the book, past Winnie's scales — the whole liturgy. Some gold you take; this gold I intend to file."
+      }
+    },
+    {
+      "name": "THE OLD LANTERN",
+      "LOOK_AT": [
+        "A lantern, not mine, hung on a spike and burned dry — years dry. Its glass is clean. Someone tended it, once, regularly.",
+        "The wick has been trimmed square, the way a careful man trims one.",
+        "It hangs where it would light the way back up, not the way in. Whoever kept it always meant to leave."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Long finished. But kept, not abandoned. There is a difference and you can hear it.",
+        "Nothing. Its tin cooled a long time ago.",
+        "Nothing. It is waiting for its keeper, and its keeper is not coming down tonight."
+      ],
+      "overrides": {
+        "USE": "Not mine to light. Its keeper knows where it hangs, and I find I want him to find it as he left it."
+      }
+    },
+    {
+      "name": "THE FOOTPRINTS",
+      "LOOK_AT": [
+        "Boot prints in the clay, preserved like the creek bank's, but one pair, many visits, all the same stride. Even. He was counting.",
+        "The stride never shortens, coming or going. Whoever made these was never in a hurry and never tired.",
+        "Mine cross his now, clumsier and in a hurry. He would not have approved."
+      ],
+      "LISTEN_TO": [
+        "Nothing. But the silence here is worn smooth, like a path.",
+        "Nothing. The clay has kept every step and repeats none of them.",
+        "Nothing. A path nobody walks any more makes exactly this sound."
+      ]
+    },
+    {
+      "name": "THE WAY BACK UP",
+      "aliases": [
+        "THE WAY BACK"
+      ],
+      "LOOK_AT": [
+        "The rope to the surface, and the coin of gray light at the top of it. Up there this is still the worthless claim. I am in no hurry to correct anyone.",
+        "Daylight, a long way up, the size of a coin.",
+        "The coin of light has moved. It is later up there than I thought."
+      ],
+      "LISTEN_TO": [
+        "The surface, at a great distance: wind, and the suggestion of a town.",
+        "The town. Very faint. Somebody is arguing about a boundary.",
+        "Somebody up there laughing, very far off. They do not know yet."
+      ],
+      "overrides": {
+        "TALK_TO": "I called up that I was all right. The gray coin of daylight did not answer, which is how daylight is."
+      }
+    },
+    {
+      "name": "THE TUNNEL",
+      "LOOK_AT": [
+        "Forty feet of my own digging. It is not square and it is not swept and Nickel Pratt would weep.",
+        "There is a bend in it where I lost my nerve and a straight stretch after where I found it again.",
+        "My pick marks are everywhere and none of them in a line. It is the most honest piece of work I have ever done."
+      ],
+      "LISTEN_TO": [
+        "Air. Still moving. Still going somewhere.",
+        "My own breathing, loud in here. The tunnel keeps nothing to itself.",
+        "A trickle of loose dirt from the roof, then quiet: the tunnel, settling into being a tunnel."
+      ]
+    },
+    {
+      "name": "THE ROCK FACE",
+      "LOOK_AT": [
+        "Rock.",
+        "Rock. I have looked at it enough to know it is rock.",
+        "Still rock."
+      ],
+      "LISTEN_TO": [
+        "…Different. Not by much.",
+        "The same small difference. It has not gone away.",
+        "Not much. Not nothing."
+      ]
+    },
+    {
+      "name": "THE LAMP",
+      "LOOK_AT": [
+        "One lamp, and about four hours of oil in it.",
+        "Three hours of oil now. I am doing the arithmetic more often than I would like.",
+        "It throws my shadow up the wall, three times my size and twice as confident."
+      ],
+      "LISTEN_TO": [
+        "Burning.",
+        "A soft hiss as the wick drinks.",
+        "Burning, still. The most reassuring word in the language."
+      ]
+    },
+    {
+      "name": "THE TUNING FORK",
+      "LOOK_AT": [
+        "My father thought this was a sensible investment. He was, on the evidence, the only person in my family who has ever been right about anything.",
+        "The tines are worn bright at the ends, where I have struck it on ten thousand boot heels.",
+        "It is the only thing I own that is exactly what it claims to be."
+      ],
+      "LISTEN_TO": [
+        "A. Four hundred and forty. It is still the only correct thing within a hundred miles.",
+        "I struck it. A, held, ringing down to nothing.",
+        "A. The same A it gave in my father's shop. Some things do not move."
+      ]
+    },
+    {
+      "name": "THE FLOOR",
+      "LOOK_AT": [
+        "Clay, packed hard by somebody's boots long before mine.",
+        "My own prints, and the drag marks of my pick behind them.",
+        "It is level, more or less, which down here counts as hospitality."
+      ],
+      "LISTEN_TO": [
+        "My boots, thudding, close and flat.",
+        "Grit under my heel, very loud in all this quiet.",
+        "Nothing, when I stand still. I stand still a while longer, just to hear it."
+      ]
+    }
+  ]
+}
