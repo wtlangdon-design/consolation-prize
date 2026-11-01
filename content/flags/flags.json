@@ -220,8 +220,11 @@
    "id": "ACT",
    "type": "number",
    "initial": 1,
-   "writtenBy": [],
-   "note": "ERRATA 60: ACT is a numeric counter written at exactly four places, the act turns in docs/48-act-turn-beats.md (S1 sets 2, S2 sets 3, S4 sets 4). None of those scripts is built yet, so writtenBy is honestly empty: the flag is READ by act-gated content (Room 5 queue bench, acts 2-4) and written today only by the proof harness. Declared now because Room 5 is the first room whose authored state variation depends on it; Main Street's act-gated sign depended on it too and could not be proven for want of it."
+   "writtenBy": [
+    "docs/48-act-turn-beats.md: the act turns S1 (sets 2), S2 (3), S4 (4) -- unbuilt"
+   ],
+   "note": "ERRATA 60: ACT is a numeric counter written at exactly four places, the act turns in docs/48-act-turn-beats.md (S1 sets 2, S2 sets 3, S4 sets 4). None of those scripts is built yet, so writtenBy is honestly empty: the flag is READ by act-gated content (Room 5 queue bench, acts 2-4) and written today only by the proof harness. Declared now because Room 5 is the first room whose authored state variation depends on it; Main Street's act-gated sign depended on it too and could not be proven for want of it.",
+   "pending": true
   },
   {
    "id": "T_BORDERS_MOTT",
@@ -234,8 +237,11 @@
    "id": "T_RACCOON_NAMED",
    "type": "boolean",
    "initial": false,
-   "writtenBy": [],
-   "note": "Doc 04: WIN_B1 option 5 requires it. Written elsewhere (the raccoon), not built yet. EXTRACTED for Room 5 from docs/04-dialogue-trees.md::WINNIE LEDGER; the name is the document's."
+   "writtenBy": [
+    "docs/02-puzzle-graph.md A5, The Raccoon -- the player names it; Act II, unbuilt"
+   ],
+   "note": "Doc 04: WIN_B1 option 5 requires it. Written elsewhere (the raccoon), not built yet. EXTRACTED for Room 5 from docs/04-dialogue-trees.md::WINNIE LEDGER; the name is the document's.",
+   "pending": true
   },
   {
    "id": "T_STRIKE_FOUND",
