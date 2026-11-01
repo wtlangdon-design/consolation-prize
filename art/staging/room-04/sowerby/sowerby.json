@@ -4,13 +4,13 @@
   [
    2,
    2,
-   210,
+   187,
    437
   ],
   [
-   214,
+   191,
    2,
-   210,
+   187,
    437
   ]
  ],
@@ -18,16 +18,16 @@
   "x": 616,
   "y": 513
  },
- "drawnHeight": 379,
+ "drawnHeight": 533,
  "height": 437,
- "shift": 118,
+ "key": 90,
  "cutBox": [
-  407,
-  135,
-  182,
-  379
+  525,
+  300,
+  228,
+  533
  ],
- "pixels": 36015,
+ "pixels": 61618,
  "pencilCover": {
   "staged": "art/staging/room-04/sowerby/pencil-cover.png",
   "x": 811,
@@ -41,5 +41,5 @@
    ]
   ]
  },
- "source": "room-04 attempt 4 (art/staging/room-04/sowerby-02/source.png), derived with the room crop"
+ "source": "room-04 attempt 5 (art/staging/room-04/sowerby-03/source.png), keyed from the 1536x1024 source"
 }

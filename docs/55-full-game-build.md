@@ -101,4 +101,4 @@ Stop the room, not the build, and say so in doc 36 and to Tyler, when:
 | Room | Merged | PR | Operations used | Notes |
 |---|---|---|---|---|
 | 32 | 2026-10-31 | #75, #76 | 0 (drawn by script) | Awaiting audition |
-| 4 | 2026-11-01 | #78 (stopped), #84, #88 | 4 of 4 (master, plate, Sowerby, Sowerby redrawn whole) | The Liar's Assay engine and Duels One and Two; judges and Sowerby new, Deke re-cut. `?room=nugget_back`; `?fixture=r4-a` convenes the Assay. Awaiting playthrough (doc 36 Q148, errata 76) |
+| 4 | 2026-11-01 | #78 (stopped), #84, #88, #90-#92 | 5 of 5 (master, plate, Sowerby, Sowerby redrawn whole, Sowerby alone on magenta; Tyler raised the cap to 5) | The Liar's Assay engine and Duels One and Two; judges and Sowerby new, Deke re-cut. `?room=nugget_back`; `?fixture=r4-a` convenes the Assay. Awaiting playthrough (doc 36 Q148, errata 76) |

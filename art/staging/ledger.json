@@ -8021,6 +8021,135 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-01T17:44:03.373Z"
+  },
+  {
+   "attempt": 5,
+   "role": "canonical-design",
+   "assetId": "room-04",
+   "subject": "sowerby",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-04/prompts/sowerby-03.txt",
+   "promptHash": "0d812b4530825169c12bcc603bbfb2ea27d6f6725c74afe3fad636392883331f",
+   "references": [
+    {
+     "path": "art/staging/room-04/sowerby-03/base-1536x1024.png",
+     "hash": "162fe895317a3b13607dd229bea83893d7f1cd6c661356bc583748c3126d7944",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-03/deke-02/sheet.png",
+     "hash": "3930e896263cc1b6d7422b9fb0c47048a30bf0a2feca85389ffa1b33c46f8389",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-04-nugget-back",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Deke Vessel, approved by Tyler 2026-11-01)",
+      "path": "art/staging/room-03/deke-02/sheet.png",
+      "hash": "3930e896263cc1b6d7422b9fb0c47048a30bf0a2feca85389ffa1b33c46f8389",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "162fe895317a3b13607dd229bea83893d7f1cd6c661356bc583748c3126d7944",
+   "sourcePath": "art/staging/room-04/sowerby-03/base-1536x1024.png",
+   "out": "art/staging/room-04/sowerby-03/source.png",
+   "outputHash": "c2e2020fb17c4100eb0096734e9b6facae3bfde3e44c3da5d3ab71dce01e3416",
+   "bytes": 1275575,
+   "usage": {
+    "input_tokens": 10379,
+    "input_tokens_details": {
+     "image_tokens": 10064,
+     "text_tokens": 315
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 11930
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-01T18:15:48.895Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-01T18:15:48.907Z"
   }
  ],
  "promotions": [
@@ -8406,6 +8535,25 @@
    "acceptedBy": null,
    "by": "claude, Room 4 correction (Tyler 2026-11-01: \"The one leg is still cut off on the side\")",
    "at": "2026-11-01T17:51:04.775Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 5,
+   "from": "art/staging/room-04/sowerby/sowerby.png",
+   "derivedFrom": "art/staging/room-04/sowerby-03/source.png",
+   "provenance": "art/staging/room-04/sowerby/sowerby.json",
+   "to": "art/actors/room-04-sowerby.png",
+   "hash": "d1b1e341deb49368ca9ee5c15d21c5fcff1043c43f4ae5c7f8fd5175999e14c7",
+   "sourceHash": "c2e2020fb17c4100eb0096734e9b6facae3bfde3e44c3da5d3ab71dce01e3416",
+   "replacedHash": "433913896379ba5b91e34e766764db174087d892d65a815703b497a4e5ac3edd",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 correction (Tyler 2026-11-01: one more operation, Sowerby drawn whole)",
+   "at": "2026-11-01T18:18:00.310Z"
   }
  ],
  "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."
