@@ -105,7 +105,7 @@ Stop the room, not the build, and say so in doc 36 and to Tyler, when:
 | 6 | 2026-11-01 | #108 | 3 of 4 (master, plate, plate re-framed to hold the window, mat and cot) | The records room: night, nobody in it, sixteen subjects. `?room=assay_records`. Its door back has no lines (stub exit, doc 36 Q149, errata 79) |
 | 7 | 2026-11-01 | #109 | 3 of 4 (master, plate, Sump's five-pose sheet) | The claims registrar: Sump at his window, A6 and A9 at his counter (A9 plays from `?fixture=r7-b` until the survey's room exists), D1, E1, E2 by his tree. `?room=claims_registrar`. Five doc 49 objects unhoused and three of Sump's nodes waiting (doc 36 Q150, errata 80) |
 | 8 | 2026-11-01 | #110 | 2 of 4 (master; Thad out and the room re-framed in one edit) | The registrar's archive: entered through Room 7's archive door as the executor's agent (doc 57 E9), E9 seen by the form or by a look. `?fixture=r8-a`. Its door back has no lines (doc 36 Q151, errata 81) |
-| 9 | 2026-11-01 | PR_PENDING | 3 of 4 (master, plate, Frame's five-pose sheet) | The Clarion: Ignatius Frame at his press, B1 (the trade) and E5 (the obituary, `?fixture=r9-b`), the headline board's editions. `?room=clarion`. Its door back has no lines (doc 36 Q152, errata 82) |
+| 9 | 2026-11-01 | #111 | 3 of 4 (master, plate, Frame's five-pose sheet) | The Clarion: Ignatius Frame at his press, B1 (the trade) and E5 (the obituary, `?fixture=r9-b`), the headline board's editions. `?room=clarion`. Its door back has no lines (doc 36 Q152, errata 82) |
 
 ## 8 · What playing found — held by a script where a script can hold it
 
