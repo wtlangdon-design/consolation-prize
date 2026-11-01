@@ -8199,6 +8199,61 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-01T19:16:51.207Z"
+  },
+  {
+   "attempt": 4,
+   "role": "derived-state",
+   "assetId": "deke-vessel",
+   "subject": "deke-vessel",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 3,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "reference/room-03/deke-walk/prompt-02.txt",
+   "promptHash": "6f72dde1c7189477276f8dac77bfc7d4d14c825696f24d76d430836f3adb0d68",
+   "references": [
+    {
+     "path": "art/staging/room-03/deke-walk-01/sheet.png",
+     "hash": "25c174ae22060875b3301914bddf342ca42f0cce5fe38739e4870408fa27ee7e",
+     "transmitted": true
+    },
+    {
+     "path": "reference/room-03/deke-walk/hat-side-by-side.png",
+     "hash": "6381de684e90b871f41fda5c7f52114a162a56efa4fc961fdab01aae406192b5",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "25c174ae22060875b3301914bddf342ca42f0cce5fe38739e4870408fa27ee7e",
+   "sourcePath": "art/staging/room-03/deke-walk-01/sheet.png",
+   "out": "art/staging/room-03/deke-walk-02/sheet.png",
+   "outputHash": "7fb1b24825e248bff47861f7bbc43bffe9afa3114eb706f0543fc1931c266f08",
+   "bytes": 1359594,
+   "usage": {
+    "input_tokens": 3488,
+    "input_tokens_details": {
+     "image_tokens": 3072,
+     "text_tokens": 416
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 4860
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-01T19:44:29.328Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-01, deke-vessel cap 3",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-01T19:44:29.333Z"
   }
  ],
  "promotions": [
