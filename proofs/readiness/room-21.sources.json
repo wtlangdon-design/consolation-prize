@@ -1,0 +1,26 @@
+{
+ "schema": 1,
+ "room": 21,
+ "id": "room-21",
+ "name": "THE WATCHMAN'S SHACK",
+ "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 by the unattended room pass. The examine, act-variant and wrong-verb pointers were resolved mechanically from document headings. Dialogue and puzzles are NOT mapped: the room is blocked at the repeat-variant layer (doc 15 section 5, 'Repeat variants and verb fallbacks, 41 rooms', unchecked), which no mapping can change, so the gate's dialogue/puzzle NOs here mean 'not declared', not 'not written'. Map them before this room is reconsidered.",
+ "examine": {
+  "primary": "docs/05-examine-layer.md::ROOM 21 — THE WATCHMAN'S SHACK"
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 21 — THE WATCHMAN'S SHACK",
+ "dialogue": {
+  "characters": [],
+  "trees": [],
+  "mapped": false
+ },
+ "puzzles": {
+  "ids": [],
+  "source": null,
+  "mapped": false
+ },
+ "staging": {
+  "required": null,
+  "why": "not assessed: blocked at the examine layer"
+ },
+ "connectivity": "docs/20-room-map.md"
+}

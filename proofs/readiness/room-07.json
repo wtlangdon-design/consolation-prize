@@ -1,0 +1,223 @@
+{
+ "schema": 1,
+ "note": "ROOM CONTENT READINESS. Whether this room can be BUILT WITHOUT INVENTING ANYTHING. It holds no creative prose -- every answer cites a document path and an exact heading, or a qualified issue reference. It says nothing about whether the writing is good.",
+ "room": 7,
+ "id": "room-07-claims-registrar",
+ "name": "CLAIMS REGISTRAR",
+ "content": [
+  {
+   "id": "look-listen",
+   "question": "LOOK/LISTEN complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 7 — CLAIMS REGISTRAR#1",
+    "docs/25-rooms-05-07.md::ROOM 7 · CLAIMS REGISTRAR"
+   ],
+   "why": "10 subject(s), each with a LOOK and a LISTEN"
+  },
+  {
+   "id": "repeat-variants",
+   "question": "Repeat-selection variants complete?",
+   "answer": "NO",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 7 — CLAIMS REGISTRAR#1",
+    "docs/25-rooms-05-07.md::ROOM 7 · CLAIMS REGISTRAR"
+   ],
+   "why": "1 subject(s) short of three: THE TWO LINES (LOOK 1, LISTEN 1)"
+  },
+  {
+   "id": "act-variants",
+   "question": "Act/state variants complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 7 — CLAIMS REGISTRAR#2"
+   ],
+   "why": "1 act-gated subject(s) authored: THE COUNTER (act 3)"
+  },
+  {
+   "id": "wrong-verbs",
+   "question": "Wrong-verb layer complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/49-wrong-answers.md::ROOM 7 — CLAIMS REGISTRAR"
+   ],
+   "why": "4 authored refusal(s)"
+  },
+  {
+   "id": "dialogue",
+   "question": "Dialogue used by this room complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/04-dialogue-trees.md::REGISTRAR CADWALLADER SUMP — four nodes, act-gated"
+   ],
+   "why": "1 node(s) resolve for Registrar Cadwallader Sump"
+  },
+  {
+   "id": "puzzles",
+   "question": "Puzzle requirements complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*"
+   ],
+   "why": "A6, A9 are all specified in that section"
+  },
+  {
+   "id": "items",
+   "question": "Required items declared?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*"
+   ],
+   "why": "the puzzle section names the documents and topics this room issues and needs"
+  },
+  {
+   "id": "flags",
+   "question": "Required flags/state declared?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*"
+   ],
+   "why": "the puzzle section names the topic flags this room sets"
+  },
+  {
+   "id": "staging",
+   "question": "Beat/staging script complete OR genuinely not required?",
+   "answer": "YES",
+   "evidence": [
+    "docs/25-rooms-05-07.md::ROOM 7 · CLAIMS REGISTRAR"
+   ],
+   "why": "not required: No scripted sequence for Room 7 in any canonical document; it is entered, examined and talked in. SUM_F1's filing is doc 48 S6, an Act IV beat outside an Act I build."
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour sufficiently authored?",
+   "answer": "YES",
+   "evidence": [
+    "docs/04-dialogue-trees.md::REGISTRAR CADWALLADER SUMP — four nodes, act-gated",
+    "docs/25-rooms-05-07.md::ROOM 7 · CLAIMS REGISTRAR"
+   ],
+   "why": "Registrar Cadwallader Sump has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
+  },
+  {
+   "id": "open-canon",
+   "question": "Unresolved canon decisions affecting this room?",
+   "answer": "NO",
+   "evidence": [],
+   "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
+  }
+ ],
+ "subjectsFound": 10,
+ "subjectsDeclaredByDocument": 10,
+ "unresolvedCitations": [],
+ "dimensions": [
+  {
+   "id": "writing",
+   "question": "Writing",
+   "answer": "NO",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 7 — CLAIMS REGISTRAR#1",
+    "docs/25-rooms-05-07.md::ROOM 7 · CLAIMS REGISTRAR",
+    "docs/49-wrong-answers.md::ROOM 7 — CLAIMS REGISTRAR",
+    "docs/04-dialogue-trees.md::REGISTRAR CADWALLADER SUMP — four nodes, act-gated"
+   ],
+   "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
+  },
+  {
+   "id": "puzzle-behaviour",
+   "question": "Puzzle behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*"
+   ],
+   "why": "the puzzles sited here, the items they need and issue, and the flags they set"
+  },
+  {
+   "id": "act-behaviour",
+   "question": "Act/state behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 7 — CLAIMS REGISTRAR#2"
+   ],
+   "why": "1 act-gated subject(s) authored: THE COUNTER (act 3)"
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/04-dialogue-trees.md::REGISTRAR CADWALLADER SUMP — four nodes, act-gated",
+    "docs/25-rooms-05-07.md::ROOM 7 · CLAIMS REGISTRAR"
+   ],
+   "why": "Registrar Cadwallader Sump has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
+  },
+  {
+   "id": "staging-behaviour",
+   "question": "Staging behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/25-rooms-05-07.md::ROOM 7 · CLAIMS REGISTRAR"
+   ],
+   "why": "not required: No scripted sequence for Room 7 in any canonical document; it is entered, examined and talked in. SUM_F1's filing is doc 48 S6, an Act IV beat outside an Act I build."
+  },
+  {
+   "id": "visual-subjects",
+   "question": "Visual subject requirements",
+   "answer": "NO",
+   "evidence": [
+    "A renders/room-01-in-engine-1920x1080.png",
+    "B art/backgrounds/room-01-stage-road.png",
+    "C art/actors/thad-stand-front/stand-00.png"
+   ],
+   "why": "D and E: room-07-claims-registrar has no entry in reference/global-baseline.json. The comparable room and the casting references are declared per room, never inferred from a name."
+  },
+  {
+   "id": "geometry",
+   "question": "Geometry/placement",
+   "answer": "NO",
+   "evidence": [
+    "reference/room-07/annotation.json",
+    "content/rooms/claims-registrar.json",
+    "art/backgrounds/room-07-claims-registrar.png"
+   ],
+   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points | no shipping plate declared"
+  }
+ ],
+ "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
+ "buildableWithoutInvention": "NO",
+ "blocking": [
+  "repeat-variants: 1 subject(s) short of three: THE TWO LINES (LOOK 1, LISTEN 1)"
+ ],
+ "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
+ "geometry": [
+  {
+   "id": "annotation",
+   "question": "Room annotation exists?",
+   "answer": "NO",
+   "evidence": [
+    "reference/room-07/annotation.json"
+   ],
+   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points"
+  },
+  {
+   "id": "compiled",
+   "question": "Room JSON in the manifest?",
+   "answer": "YES",
+   "evidence": [
+    "content/rooms/claims-registrar.json"
+   ],
+   "why": "content/rooms/claims-registrar.json is loaded by the engine"
+  },
+  {
+   "id": "plate",
+   "question": "Shipping plate at the canonical size?",
+   "answer": "NO",
+   "evidence": [
+    "art/backgrounds/room-07-claims-registrar.png"
+   ],
+   "why": "no shipping plate declared"
+  }
+ ],
+ "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
+ "geometryReady": "NO",
+ "at": "2026-11-01T02:41:13.626Z"
+}

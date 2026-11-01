@@ -1,0 +1,222 @@
+{
+ "schema": 1,
+ "note": "ROOM CONTENT READINESS. Whether this room can be BUILT WITHOUT INVENTING ANYTHING. It holds no creative prose -- every answer cites a document path and an exact heading, or a qualified issue reference. It says nothing about whether the writing is good.",
+ "room": 6,
+ "id": "room-06",
+ "name": "ASSAY OFFICE, RECORDS ROOM",
+ "content": [
+  {
+   "id": "look-listen",
+   "question": "LOOK/LISTEN complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 6 — ASSAY OFFICE, RECORDS ROOM"
+   ],
+   "why": "11 subject(s), each with a LOOK and a LISTEN"
+  },
+  {
+   "id": "repeat-variants",
+   "question": "Repeat-selection variants complete?",
+   "answer": "NO",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 6 — ASSAY OFFICE, RECORDS ROOM"
+   ],
+   "why": "11 subject(s) short of three: THE REGISTER OF ASSAYS (LOOK 1, LISTEN 1); THE NINETEEN NAMES (LOOK 1, LISTEN 1); THE SAMPLE SHELF (LOOK 1, LISTEN 1); THE CRUCIBLE (LOOK 1, LISTEN 1); THE SCALES CABINET (LOOK 1, LISTEN 1); THE MAP OF CLAIMS (LOOK 1, LISTEN 1); THE STOOL (LOOK 1, LISTEN 1); THE ACID BOTTLES (LOOK 1, LISTEN 1); THE FILED CERTIFICATES (LOOK 1, LISTEN 1); THE BACK WINDOW (LOOK 1, LISTEN 1); THE STAIN ON THE FLOOR (LOOK 1, LISTEN 1)"
+  },
+  {
+   "id": "act-variants",
+   "question": "Act/state variants complete?",
+   "answer": "NO",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 6 — ASSAY OFFICE, RECORDS ROOM"
+   ],
+   "why": "no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart"
+  },
+  {
+   "id": "wrong-verbs",
+   "question": "Wrong-verb layer complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/49-wrong-answers.md::ROOM 6 — ASSAY RECORDS ROOM"
+   ],
+   "why": "3 authored refusal(s)"
+  },
+  {
+   "id": "dialogue",
+   "question": "Dialogue used by this room complete?",
+   "answer": "NO",
+   "evidence": [],
+   "why": "no dialogue declared for this room"
+  },
+  {
+   "id": "puzzles",
+   "question": "Puzzle requirements complete?",
+   "answer": "NO",
+   "evidence": [
+    "(none declared)"
+   ],
+   "why": "not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+  },
+  {
+   "id": "items",
+   "question": "Required items declared?",
+   "answer": "NO",
+   "evidence": [
+    "(none declared)"
+   ],
+   "why": "the declared puzzle section names no item or topic"
+  },
+  {
+   "id": "flags",
+   "question": "Required flags/state declared?",
+   "answer": "NO",
+   "evidence": [
+    "(none declared)"
+   ],
+   "why": "the declared puzzle section names no flag or topic"
+  },
+  {
+   "id": "staging",
+   "question": "Beat/staging script complete OR genuinely not required?",
+   "answer": "NO",
+   "evidence": [
+    "(none declared)"
+   ],
+   "why": "declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour sufficiently authored?",
+   "answer": "NO",
+   "evidence": [
+    "(no room content section declared)"
+   ],
+   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+  },
+  {
+   "id": "open-canon",
+   "question": "Unresolved canon decisions affecting this room?",
+   "answer": "NO",
+   "evidence": [],
+   "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
+  }
+ ],
+ "subjectsFound": 11,
+ "subjectsDeclaredByDocument": 11,
+ "unresolvedCitations": [],
+ "dimensions": [
+  {
+   "id": "writing",
+   "question": "Writing",
+   "answer": "NO",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 6 — ASSAY OFFICE, RECORDS ROOM",
+    "docs/49-wrong-answers.md::ROOM 6 — ASSAY RECORDS ROOM"
+   ],
+   "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
+  },
+  {
+   "id": "puzzle-behaviour",
+   "question": "Puzzle behaviour",
+   "answer": "NO",
+   "evidence": [
+    "(none declared)"
+   ],
+   "why": "the puzzles sited here, the items they need and issue, and the flags they set"
+  },
+  {
+   "id": "act-behaviour",
+   "question": "Act/state behaviour",
+   "answer": "NO",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 6 — ASSAY OFFICE, RECORDS ROOM"
+   ],
+   "why": "no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart"
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour",
+   "answer": "NO",
+   "evidence": [
+    "(no room content section declared)"
+   ],
+   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+  },
+  {
+   "id": "staging-behaviour",
+   "question": "Staging behaviour",
+   "answer": "NO",
+   "evidence": [
+    "(none declared)"
+   ],
+   "why": "declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+  },
+  {
+   "id": "visual-subjects",
+   "question": "Visual subject requirements",
+   "answer": "NO",
+   "evidence": [
+    "A renders/room-01-in-engine-1920x1080.png",
+    "B art/backgrounds/room-01-stage-road.png",
+    "C art/actors/thad-stand-front/stand-00.png"
+   ],
+   "why": "D and E: room-06 has no entry in reference/global-baseline.json. The comparable room and the casting references are declared per room, never inferred from a name."
+  },
+  {
+   "id": "geometry",
+   "question": "Geometry/placement",
+   "answer": "NO",
+   "evidence": [
+    "reference/room-06/annotation.json",
+    "(no room file declared)",
+    "(none declared)"
+   ],
+   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points | the room is not in the manifest | no shipping plate declared"
+  }
+ ],
+ "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
+ "buildableWithoutInvention": "NO",
+ "blocking": [
+  "repeat-variants: 11 subject(s) short of three: THE REGISTER OF ASSAYS (LOOK 1, LISTEN 1); THE NINETEEN NAMES (LOOK 1, LISTEN 1); THE SAMPLE SHELF (LOOK 1, LISTEN 1); THE CRUCIBLE (LOOK 1, LISTEN 1); THE SCALES CABINET (LOOK 1, LISTEN 1); THE MAP OF CLAIMS (LOOK 1, LISTEN 1); THE STOOL (LOOK 1, LISTEN 1); THE ACID BOTTLES (LOOK 1, LISTEN 1); THE FILED CERTIFICATES (LOOK 1, LISTEN 1); THE BACK WINDOW (LOOK 1, LISTEN 1); THE STAIN ON THE FLOOR (LOOK 1, LISTEN 1)",
+  "act-variants: no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart",
+  "dialogue: no dialogue declared for this room",
+  "puzzles: not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading.",
+  "items: the declared puzzle section names no item or topic",
+  "flags: the declared puzzle section names no flag or topic",
+  "staging: declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading.",
+  "character-behaviour: either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+ ],
+ "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
+ "geometry": [
+  {
+   "id": "annotation",
+   "question": "Room annotation exists?",
+   "answer": "NO",
+   "evidence": [
+    "reference/room-06/annotation.json"
+   ],
+   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points"
+  },
+  {
+   "id": "compiled",
+   "question": "Room JSON in the manifest?",
+   "answer": "NO",
+   "evidence": [
+    "(no room file declared)"
+   ],
+   "why": "the room is not in the manifest"
+  },
+  {
+   "id": "plate",
+   "question": "Shipping plate at the canonical size?",
+   "answer": "NO",
+   "evidence": [
+    "(none declared)"
+   ],
+   "why": "no shipping plate declared"
+  }
+ ],
+ "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
+ "geometryReady": "NO",
+ "at": "2026-11-01T02:42:22.645Z"
+}
