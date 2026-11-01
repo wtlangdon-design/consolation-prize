@@ -8,7 +8,7 @@ anchors reports its margin. The plan is what the plate is generated against,
 so a room that would bury him is re-blocked here, not re-lit later.
 
 Every position here is a staging decision under the standing delegation,
-recorded in errata 74 B and C; every object is doc 54's merged eleven.
+recorded in errata 76 B and C; every object is doc 54's merged eleven.
 
 Writes renders/room-04-graybox.png, renders/room-04-graybox-with-thad.png and
 proofs/room-04/graybox.json.
@@ -176,7 +176,7 @@ def main():
     out = {
         'room': 4,
         'note': 'Ruling 22 steps 1-6 for the Nugget back room, written by tools/room04-graybox.py before any '
-                'image operation. Positions and values are the plan the plate is generated against (errata 74 B, C).',
+                'image operation. Positions and values are the plan the plate is generated against (errata 76 B, C).',
         'thadAnchors': {'dark': round(dark, 1), 'light': round(light, 1),
                         'source': os.path.relpath(THAD, ROOT)},
         'depth': {'far': {'y': FAR[0], 'height': FAR[1]}, 'near': {'y': NEAR[0], 'height': NEAR[1]}},

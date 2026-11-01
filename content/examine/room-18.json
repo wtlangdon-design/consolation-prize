@@ -210,6 +210,19 @@
         "Boots. Two men, and neither of them is coming in.",
         "Nothing. It has gone quiet out there, which happens about four."
       ]
+    },
+    {
+      "name": "THE PARLOR PIANO",
+      "LOOK_AT": [
+        "An upright piano in the corner of the lobby, under a fern that is doing better than it is. The hotel calls this corner the parlor.",
+        "Walnut, with a brass plate: DONATED BY THE CONSOLATION IMPROVEMENT COMPANY. There is no plate saying who has played it since.",
+        "The clerk dusts it every morning, around the keys. He does not touch the keys. Neither does anyone else."
+      ],
+      "LISTEN_TO": [
+        "Nothing, until a cart goes by. Then every string answers, and every one of them is wrong in its own direction.",
+        "Still wrong. The A is the worst. The A is always the worst.",
+        "Four minutes' work, and a room for the night. I have done the arithmetic, which I gather is frowned on here."
+      ]
     }
   ]
 }

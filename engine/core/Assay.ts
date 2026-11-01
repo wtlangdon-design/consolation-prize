@@ -1,7 +1,7 @@
 import type { FlagValue } from './types.ts';
 
 /**
- * THE LIAR'S ASSAY, AS A MACHINE (doc 03, errata 73, errata 74 A).
+ * THE LIAR'S ASSAY, AS A MACHINE (doc 03, errata 73, errata 76 A).
  *
  * Everything said in a duel comes from content/assay/assay.json, which
  * tools/extract-content.mjs parses out of docs/03-liars-assay.md. This file
@@ -88,6 +88,11 @@ export interface DuelChoice {
   outcome: DuelOutcome | null;
   /** Flag writes that land when this choice settles. Empty until the duel ends. */
   sets: Record<string, FlagValue>;
+  /**
+   * The puzzle this choice completes: Duel One's (B5) when it ends, since it
+   * cannot be won; Duel Two's (B6) only when it is won (doc 57 B5, B6).
+   */
+  completes: string | null;
   /** Items that land when this choice settles. Empty unless the duel is won. */
   yields: string[];
 }
@@ -137,12 +142,12 @@ export function duelOrder(file: AssayFile, duelId: string, known: ReadonlySet<nu
   const pool = [...(duel.pool ?? [])].sort((a, b) => a - b);
   const tierOf = (n: number) => file.pairs.find((p) => p.n === n)?.tier ?? 0;
   const held = pool.filter((n) => known.has(n)).length;
-  if (held >= (duel.threshold ?? 0)) {
-    const later = pool.filter((n) => tierOf(n) !== 1);
-    return [...pool.filter((n) => tierOf(n) === 1),
-      ...later.filter((n) => known.has(n)), ...later.filter((n) => !known.has(n))];
-  }
-  return [...pool.filter((n) => !known.has(n)), ...pool.filter((n) => known.has(n))];
+  const first = pool.filter((n) => tierOf(n) === 1);
+  const later = pool.filter((n) => tierOf(n) !== 1);
+  const held2 = later.filter((n) => known.has(n));
+  const unheld = later.filter((n) => !known.has(n));
+  // Tier 1 always first (doc 57 B6); what follows is what decides it.
+  return held >= (duel.threshold ?? 0) ? [...first, ...held2, ...unheld] : [...first, ...unheld, ...held2];
 }
 
 /** The pairs the player knows, read from the knowledge flags. */
@@ -264,12 +269,14 @@ export class DuelSession {
     const outcome: DuelOutcome | null = !ended ? null : (player >= toWin ? 'won' : 'lost');
     const sets: Record<string, FlagValue> = {};
     let yields: string[] = [];
+    let completes: string | null = null;
     if (ended) {
       for (const n of this.duel.learns ?? []) {
         const flag = this.pair(n).flag;
         if (flag) sets[flag] = true;
       }
       Object.assign(sets, this.duel.sets ?? {});
+      if (this.duel.winnable === false || outcome === 'won') completes = this.duel.puzzle ?? null;
       if (outcome === 'won') {
         Object.assign(sets, this.duel.setsOnWin ?? {});
         yields = [...(this.duel.yields ?? [])];
@@ -283,7 +290,7 @@ export class DuelSession {
       lines.push(this.boastLine(this.sequence[index] as number));
     }
     return {
-      choice: { optionId, correct, lines, ended, outcome, sets, yields },
+      choice: { optionId, correct, lines, ended, outcome, sets, yields, completes },
       next: { index, player, opponent, muttered },
     };
   }

@@ -264,6 +264,8 @@ export class DialogueRunner {
     }
     this.activeTree = tree;
     this.activeNodeId = this.opensOn(tree);
+    const once = tree.nodes[this.activeNodeId]?.openingOnce;
+    if (once) this.flags.set(once, true);
   }
 
   /** The entry a tree opens through right now: the first whose flags hold and whose puzzle, if any, is complete. */
@@ -298,7 +300,11 @@ export class DialogueRunner {
     if (!tree) throw new Error(`Unknown dialogue tree: ${treeId}`);
     const entry = this.entryFor(tree);
     if (entry?.puzzle && !viaAction) return [];
-    return tree.nodes[entry?.node ?? tree.start]?.opening ?? [];
+    const node = tree.nodes[entry?.node ?? tree.start];
+    // AN OPENING PLAYED ONCE (doc 57 B4: "The first TALK TO plays..."): its
+    // flag records that it has been heard, and `start` sets it.
+    if (node?.openingOnce && this.flags.get(node.openingOnce) === true) return [];
+    return node?.opening ?? [];
   }
 
   /** The id of the open tree, or null. Read by the renderer to hold a speaker still. */
@@ -606,7 +612,13 @@ export class DialogueRunner {
       },
       goto: null,
       ends: false,
-      effects: flagEffects(prefix, choice.sets),
+      effects: [
+        ...flagEffects(prefix, choice.sets),
+        ...(choice.completes ? [{
+          id: `${prefix}#puzzle:${choice.completes}`, kind: 'puzzleProgress' as const,
+          puzzle: choice.completes, status: 'complete' as const,
+        }] : []),
+      ],
       duelChoice: optionId,
     };
   }

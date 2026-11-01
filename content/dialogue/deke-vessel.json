@@ -110,8 +110,22 @@
     },
     "VES_B1": {
       "id": "VES_B1",
-      "noPrompt": true,
-      "exceptionReason": "Doc 04 writes VES_B1 as a table only. The greeting is doc 03's Duel One opening, played by the duel when option 3 starts it.",
+      "prompt": "It contained a raccoon when I sold it. You bought the whole thing.",
+      "opening": [
+        {
+          "speaker": "deke_vessel",
+          "line": "Grubb! You came all this way. Was the claim not to your liking?"
+        },
+        {
+          "speaker": "thad",
+          "line": "The claim contains a raccoon and an opinion."
+        },
+        {
+          "speaker": "deke_vessel",
+          "line": "It contained a raccoon when I sold it. You bought the whole thing."
+        }
+      ],
+      "openingOnce": "T_VESSEL_GREETED",
       "options": [
         {
           "id": "ves_b1_1",
@@ -162,6 +176,26 @@
           "when": {
             "T_DUEL_ONE_LOST": true,
             "T_DUEL_TWO_WON": false
+          }
+        },
+        {
+          "id": "ves_b1_6",
+          "tag": "PROGRESS",
+          "text": "I need you to sign an affidavit.",
+          "afterUse": "remove",
+          "exchange": [
+            {
+              "speaker": "deke_vessel",
+              "line": "Sign a paper saying I sold you mud under false pretenses? Son, that's a confession with a stamp on it."
+            },
+            {
+              "speaker": "deke_vessel",
+              "line": "Tell you what. We'll settle it the local way."
+            }
+          ],
+          "duel": "duel_one",
+          "puzzle": {
+            "B4": "complete"
           }
         },
         {

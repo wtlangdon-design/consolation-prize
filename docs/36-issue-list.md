@@ -4687,13 +4687,18 @@ Under errata 72 F, a gap in a puzzle's path makes the room **wait**, not ship wi
 
 **To unblock:** the wrong counters and Vessel's replies, for every pair Vessel can throw in Duels One and Two. That is at least Tier 1 (pairs 2–4) for Duel One and every pair from which Duel Two draws. It is Tyler's writing. Then a ruling on item 1. Room 4's four operations are untouched and waiting.
 
-## Q147 · Room 4, the Nugget back room: built, awaiting Tyler's playthrough — **RULED 2026-11-01 (errata 74, delegated); BUILT, room-04 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E)**
+## Q147 · The 45 puzzles' own writing was never checked — **CLOSED 2026-11-01: AUDITED (doc 56), GATE CHECKS IT (errata 74), EVERY GAP WRITTEN OR DECIDED (doc 57, errata 75)**
 
-Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=nugget_back` and through the Nugget's back room door. The builder's decisions are errata 74. The proofs are `renders/proofs/nugget-back/` (four panels), `life/` (about four and a half minutes, including Duel One played through) and `doors/` (out and in by the real doors, twice).
+Tyler, after Q146: "Is it going to run into this same problem over and over with every room? I thought everything was done and ready to build." It would have. Q144's "writing layer finished" covered the examine layer only. Doc 56 is the audit: eight structural holes (an Act II deadlock, the fake funeral with no design, the executor unwritten, the funeral-to-coffin transition unstaged, A7's money loop, the act-3 boundary, F4's 24 pairs, D5's circular opening) and missing lines or items in most puzzles. Only C1, C5, E8, F2 (writing), B5 and B6 are complete.
+
+**Next:** close doc 56 act by act — decisions first (they change what gets written), then the writing, one voice, under Tyler's "finish the writing" instruction — adding each puzzle's entry to `proofs/readiness/puzzles.json` as it closes. Until then, rooms whose puzzles are open answer NO, which is correct.
+## Q148 · Room 4, the Nugget back room: built, awaiting Tyler's playthrough — **RULED 2026-11-01 (errata 76, delegated); BUILT, room-04 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E)**
+
+Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=nugget_back` and through the Nugget's back room door. The builder's decisions are errata 76. The proofs are `renders/proofs/nugget-back/` (four panels), `life/` (about four and a half minutes, including Duel One played through) and `doors/` (out and in by the real doors, twice).
 
 **For Tyler to look at first:**
-1. **Convene the Assay.** `T_VESSEL_FOUND` is B3's, and B1–B3 (Room 15) are not built, so in ordinary play the room is empty. Open `?fixture=r4-a`, then TALK TO Vessel and choose "Teach me to lie like that." for Duel One.
-2. **The judges and the re-cut Deke.** They passed style-gate steps 1, 2 and 4: generated against Thad in this room, measured with no texture flags (judges 3.6–4.7, Deke 3.0, Thad 4.3), and Deke graded to the room's light. Step 3 is your playthrough.
+1. **Convene the Assay.** `T_VESSEL_FOUND` is B3's, and B1–B3 (Rooms 9 and 15) are not built, so in ordinary play the room is empty. Open `?fixture=r4-a` and TALK TO Vessel: his greeting plays once, and "I need you to sign an affidavit." is B4 and Duel One, with Sowerby reading the rules first.
+2. **The judges, Sowerby and the re-cut Deke.** They passed style-gate steps 1, 2 and 4: generated against Thad in this room, measured with no texture flags (judges 3.6–4.7, Sowerby 2.9, Deke 3.0, Thad 4.3), and Deke graded to the room's light. Step 3 is your playthrough. Sowerby's look is new: Room 4 is his first drawing. The pencil shows both in his hand and on the table (errata 76 B).
 3. **Duel Two needs fourteen pairs,** and only Duel One's four can be earned yet. `?fixture=r4-b` starts with Duel One lost and fourteen pairs held; option 5 is the rematch.
 
 **Found while building:**

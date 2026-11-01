@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "sample",
+  "name": "A piece of the rock under Prosperity",
+  "short": "THE SAMPLE",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. F3, from the seam. Shown to Winnie (WIN_F1) and laid down at F5. Errata 66 ruling A: shown to the character at C5 and kept; never consumed.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "A piece of the rock from under Prosperity, about the size of a bishop's fist. It is very heavy for its size.",
+        "repeat": [
+          "Yellow, where the lamp catches it. All autumn I have been told what gold looks like by men who have never seen any. This is what it looks like.",
+          "I have not told anyone yet. I have not decided whom to tell first, and I suspect the answer is a form."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Nothing. It is too dense to ring.",
+        "repeat": [
+          "Nothing.",
+          "Nothing. It has kept quiet for a very long time and sees no reason to start now."
+        ]
+      }
+    ]
+  }
+}

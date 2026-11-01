@@ -19,7 +19,7 @@
    "status": "PASS",
    "evidence": [
     "proofs/readiness/room-04.json",
-    "docs/00-errata.md::74 · ROOM 4 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+    "docs/00-errata.md::76 · ROOM 4 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
    ],
    "note": "Visited from Act I (empty) and from B3 (the Assay convened: Vessel and the judges) to B6. One visual state: the only window is painted over."
   },
@@ -27,18 +27,18 @@
    "status": "PASS",
    "evidence": [
     "proofs/room-04/graybox.json",
-    "docs/00-errata.md::74 · ROOM 4 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+    "docs/00-errata.md::76 · ROOM 4 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
    ],
-   "note": "tools/room-gate.mjs 4: the door and the painted window flagged 'it opens' by name; neither opens (errata 74 C). Every person is a sprite."
+   "note": "tools/room-gate.mjs 4: the door and the painted window flagged 'it opens' by name; neither opens (errata 76 C). Every person is a sprite."
   },
   "cast": {
    "status": "PASS",
    "evidence": [
     "proofs/room-04/cast-measure.json",
     "art/staging/ledger.json",
-    "docs/00-errata.md::74 · ROOM 4 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+    "docs/00-errata.md::76 · ROOM 4 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
    ],
-   "note": "Judges generated against Thad in the room and cut by subtraction; Deke re-cut from Tyler's approved sheet and graded to the room."
+   "note": "Judges and Sowerby generated against Thad in the room and cut by subtraction; Deke re-cut from Tyler's approved sheet and graded to the room."
   },
   "roomLife": {
    "status": "PASS",
@@ -65,7 +65,7 @@
   "cluePerceptibility": {
    "status": "NOT-APPLICABLE",
    "evidence": [
-    "docs/00-errata.md::74 · ROOM 4 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+    "docs/00-errata.md::76 · ROOM 4 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
    ],
    "note": "No examine clue in this room carries a puzzle; the duels are dialogue."
   },
@@ -83,7 +83,7 @@
     "art/staging/caps.json",
     "art/staging/ledger.json"
    ],
-   "note": "room-04: 2 of 4 operations."
+   "note": "room-04: 3 of 4 operations (master, plate, Sowerby)."
   }
  },
  "liveGates": {
@@ -169,21 +169,31 @@
     "art/staging/ledger.json",
     "art/staging/room-04/deke/deke.json"
    ]
+  },
+  {
+   "subject": "Reverend Sowerby",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-04-sowerby.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-04/sowerby/sowerby.json"
+   ]
   }
  ],
  "acceptance": {
   "visual": {
    "status": "PENDING",
    "evidence": [
-    "docs/36-issue-list.md::Q147 · Room 4, the Nugget back room: built, awaiting Tyler's playthrough — **RULED 2026-11-01 (errata 74, delegated); BUILT, room-04 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E)**"
+    "docs/36-issue-list.md::Q148 · Room 4, the Nugget back room: built, awaiting Tyler's playthrough — **RULED 2026-11-01 (errata 76, delegated); BUILT, room-04 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E)**"
    ],
-   "scope": "plate, judges, Room 4's Deke -- errata 72 E: given or withheld in the playthrough"
+   "scope": "plate, judges, Sowerby, Room 4's Deke -- errata 72 E: given or withheld in the playthrough"
   },
   "gameplay": {
    "duels": {
     "status": "PENDING",
     "evidence": [
-     "docs/36-issue-list.md::Q147 · Room 4, the Nugget back room: built, awaiting Tyler's playthrough — **RULED 2026-11-01 (errata 74, delegated); BUILT, room-04 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E)**"
+     "docs/36-issue-list.md::Q148 · Room 4, the Nugget back room: built, awaiting Tyler's playthrough — **RULED 2026-11-01 (errata 76, delegated); BUILT, room-04 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E)**"
     ]
    }
   },

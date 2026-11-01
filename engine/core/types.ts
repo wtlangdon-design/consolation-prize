@@ -392,7 +392,7 @@ export interface AmbientFile {
   /**
    * WHEN THE PERSON IS THERE. Absent means always. Errata 73 B: Vessel is in
    * the Nugget's back room from B3's completion, and the judges sit with him
-   * while the Assay is convened (errata 74 B). A placement may carry its own.
+   * while the Assay is convened (errata 76 B). A placement may carry its own.
    */
   when?: Condition;
   /** The dialogue tree TALK TO opens. Empty for a person who has none. */
@@ -1486,6 +1486,12 @@ export interface DialogueNode {
    * the list opens when it is over. `prompt` remains the caption.
    */
   opening?: { speaker: string; line: string }[];
+  /**
+   * The flag that records this node's opening has been played, when it is
+   * played on the first conversation only (doc 57 B4). Set by the runner when
+   * the node opens.
+   */
+  openingOnce?: string;
   options: DialogueOption[];
 }
 

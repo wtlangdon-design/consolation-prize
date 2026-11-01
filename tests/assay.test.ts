@@ -10,7 +10,7 @@ import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
 
 /**
- * THE LIAR'S ASSAY (doc 03, errata 73, errata 74 A).
+ * THE LIAR'S ASSAY (doc 03, errata 73, errata 76 A).
  *
  * The rules a duel follows are mechanism and are proved here; every word a
  * duel says is doc 03's and is proved by check-extraction. The one property
@@ -74,16 +74,18 @@ test('Duel One: pairs 1-4 then 1 again, wrong answers only, lost five straight (
   assert.deepEqual(last!.yields, []);
 });
 
-test('Duel One: the first mutter is followed by the notebook line, and only pair 1 has one', async () => {
+test('Duel One: every mutter is followed by his notebook line, pairs 1-4 (errata 73 D, 75)', async () => {
   const file = await assayFile();
   const duel = new DuelSession(file, 'duel_one', new Set());
-  const first = duel.commit('w0');
-  const speakers = first.lines.map((l) => l.speaker);
   const writer = file.duels.duel_one!.notebook!['1']!.speaker;
-  assert.deepEqual(speakers.slice(0, 3), [file.duels.duel_one!.opponent, file.bystander, writer]);
-  const second = duel.commit('w1');
-  assert.deepEqual(second.lines.map((l) => l.speaker).slice(0, 2), ['deke_vessel', file.bystander]);
-  assert.ok(!second.lines.slice(2, -1).some((l) => l.speaker === writer), 'no notebook line is invented for pair 2');
+  for (const pair of [1, 2, 3, 4]) {
+    const choice = duel.commit('w0');
+    const speakers = choice.lines.map((l) => l.speaker);
+    assert.deepEqual(speakers.slice(0, 3), [file.duels.duel_one!.opponent, file.bystander, writer], `pair ${pair}`);
+    assert.equal(choice.lines[2]!.line, file.duels.duel_one!.notebook![String(pair)]!.line);
+  }
+  const repeat = duel.commit('w0');
+  assert.ok(!repeat.lines.some((l) => l.speaker === file.bystander), 'nobody mutters on the repeat of pair 1');
 });
 
 test('the right counter, once learned, is offered in a slot that varies by pair (errata 73 C)', async () => {
@@ -135,22 +137,35 @@ async function inBackRoom(flags: Record<string, boolean>) {
   return state;
 }
 
-test('VES_B1 opens once Vessel is found; option 3 starts Duel One, option 5 waits for its loss', async () => {
+test('VES_B1 opens once Vessel is found; option 6 is B4 and Duel One; B5 when it ends (doc 57)', async () => {
   const state = await inBackRoom({ T_VESSEL_FOUND: true });
   assert.equal(state.dialogue.positionSnapshot().node, 'VES_B1');
   const ids = () => state.dialogue.presentOptions().map((o) => o.option.id);
-  assert.ok(ids().includes('ves_b1_3'));
+  assert.ok(ids().includes('ves_b1_6') && ids().includes('ves_b1_3'));
   assert.ok(!ids().includes('ves_b1_5'), 'the rematch is offered once Duel One is lost');
 
-  const opened = state.dialogue.select('ves_b1_3');
-  assert.ok(opened.rest.length >= 4, 'the reply, the opening scene and the first boast');
+  const opened = state.dialogue.select('ves_b1_6');
+  assert.ok(opened.rest.length >= 6, 'his two lines, the five rules read, and the first boast');
+  assert.ok(state.puzzleComplete('B4'));
   assert.ok(state.dialogue.inDuel);
   for (let n = 0; n < 5; n += 1) state.dialogue.select(state.dialogue.presentOptions()[0]!.option.id);
   assert.ok(!state.dialogue.inDuel);
   assert.equal(state.flags.getBoolean('T_DUEL_ONE_LOST'), true);
   assert.equal(state.flags.getBoolean('ASSAY_PAIR_04'), true);
-  assert.ok(!ids().includes('ves_b1_3'), 'Duel One is spent');
+  assert.ok(state.puzzleComplete('B5'), 'Duel One completes B5 by being lost');
+  assert.ok(!ids().includes('ves_b1_6'), 'the affidavit question is spent');
+  assert.ok(ids().includes('ves_b1_3'), 'option 3 replays Duel One, twice if asked');
   assert.ok(ids().includes('ves_b1_5'), 'and the rematch is offered');
+});
+
+test('the Duel One greeting plays on the first TALK TO only (doc 57 B4)', async () => {
+  const state = await inBackRoom({});
+  state.dialogue.end();
+  state.flags.set('T_VESSEL_FOUND', true);
+  assert.equal(state.dialogue.openingOf('DEKE_VESSEL').length, 3);
+  state.dialogue.start('DEKE_VESSEL');
+  state.dialogue.end();
+  assert.equal(state.dialogue.openingOf('DEKE_VESSEL').length, 0);
 });
 
 test('Duel Two through the conversation: won with fourteen pairs, the yields reach the inventory', async () => {
@@ -161,6 +176,7 @@ test('Duel Two through the conversation: won with fourteen pairs, the yields rea
   assert.equal(state.flags.getBoolean('T_DUEL_TWO_WON'), true);
   assert.ok(state.carried.includes('document_a'));
   assert.ok(!state.dialogue.presentOptions().some((o) => o.option.id === 'ves_b1_5'), 'nothing left to win');
+  assert.ok(state.puzzleComplete('B6'));
 });
 
 test('a duel saved mid-fight resumes at the same boast (save/load restores partial trees)', async () => {

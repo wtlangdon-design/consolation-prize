@@ -40,7 +40,7 @@ bookends.*
 | 1 | Procession in: Grievance in black, the coffin, the town. Thad at the back, hat pulled low | none |
 | 2 | **Play.** Sowerby's eulogy loops as ambient bark ("…a man of music, taken flat…"); every hotspot live | full |
 | 3 | On LOOK at the grave the second time, or on exit toward Boot Hill: Hob, at Thad's shoulder, not looking at him: "Good turnout." Beat. "Better than mine." — and he walks. First seed, planted in daylight, deniable | none |
-| 4 | `T_FUNERAL_DONE`; Boot Hill opens | — |
+| 4 | *(Errata 75 F: replaced.)* THE COFFIN · USE — Thad lies down on the undertaker's promise of a loose lid; Room 32 begins with the nail. `T_FUNERAL_DONE` is set when HOB_C1 ends, doc 57 E7–E8 | none |
 
 Dependencies: Sowerby bark line; Hob mover in room 31; E-series flags.
 
@@ -66,7 +66,7 @@ panel reads); doc 05 room 32 lines (written).
 |---|---|---|
 | 1 | The shack by lamplight. Hob sets two cups. "You'll have noticed I talk more at night." | none |
 | 2 | **HOB_C2** (written, doc 04): the whole truth, at his pace, with his pauses. The tree's own `wait`-shaped silences are authored as short exchanges, not engine waits — a man deciding to keep talking | dialogue |
-| 3 | After settle: `T_HOB_IS_MOTT`, `T_STRIKE_WAS_LIE`. Outside, dawn is starting. "Twelve years I watched them look. You're the first that listened." | none |
+| 3 | After settle: `T_HOB_IS_MOTT`, `T_STRIKE_WAS_LIE` *(= doc 04's `T_NO_GOLD_EVER`, errata 75 K)*. Outside, dawn is starting. "Twelve years I watched them look. You're the first that listened." | none |
 | 4 | Act card: **PART FOUR — THE QUIETEST PART OF THE GAME** | none |
 
 Dependencies: HOB_C2 tree (written); shack room; dawn grade variant of the exterior (art).
@@ -92,7 +92,7 @@ errata 56 — this is the one place it finishes).
 
 | # | Beat | Control |
 |---|---|---|
-| 1 | The counter. Sump, the form, the pen — with ink. Every document the player gathered across four acts, laid down one by one (inventory-driven: each is a USE, the player performs the filing) | full |
+| 1 | The counter. Sump, the form, the pen — with ink. Every document the player gathered across four acts, laid down one by one (inventory-driven: each is a USE, the player performs the filing). *Full depth in doc 57 F5 (errata 75).* | full |
 | 2 | The name line. The one authored choice: the player writes **OBADIAH MOTT**. (Offered as a dialogue choice of names — his own, Winnie's, Mott's. Only one advances; the others get Sump's flattest look) | dialogue |
 | 3 | The county seal comes down. One stamp. It is the loudest sound in the game and the score rests under it | none |
 | 4 | Sump, reading it back, toneless as ever, and for once every word he says is a bomb going off in the street outside | none |

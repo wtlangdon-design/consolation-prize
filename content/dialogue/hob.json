@@ -78,6 +78,72 @@
         }
       ]
     },
+    "HOB_E6": {
+      "id": "HOB_E6",
+      "prompt": "Don't need to. Nobody's ever asked me for anything. I'd like to see how it goes.",
+      "opening": [
+        {
+          "speaker": "thad",
+          "line": "I need an executor. Somebody with no interest in any claim in this town."
+        },
+        {
+          "speaker": "hob",
+          "line": "That's me."
+        },
+        {
+          "speaker": "thad",
+          "line": "…You haven't heard what it is."
+        },
+        {
+          "speaker": "hob",
+          "line": "Don't need to. Nobody's ever asked me for anything. I'd like to see how it goes."
+        }
+      ],
+      "options": [
+        {
+          "id": "hob1",
+          "tag": "PROGRESS",
+          "text": "You'd be executor of my estate. It's forty feet of mud.",
+          "afterUse": "remove",
+          "say": "I know the mud."
+        },
+        {
+          "id": "hob2",
+          "tag": "TOPIC",
+          "text": "Will you come to the archive with me?",
+          "afterUse": "retain",
+          "say": "No."
+        },
+        {
+          "id": "hob3",
+          "tag": "TOPIC",
+          "text": "Have you ever been an executor before?",
+          "afterUse": "retain",
+          "say": "No. I've buried a few things."
+        },
+        {
+          "id": "hob4",
+          "tag": "TOPIC",
+          "text": "Why would you do this for me?",
+          "afterUse": "retain",
+          "say": "You asked."
+        },
+        {
+          "id": "hob5",
+          "tag": "COMIC",
+          "text": "Do you ever sleep?",
+          "afterUse": "retain",
+          "beat": "nothing"
+        },
+        {
+          "id": "hobx",
+          "tag": "EXIT",
+          "text": "I've taken enough of your time. I'll be taking more later.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
     "HOB_C1": {
       "id": "HOB_C1",
       "prompt": "I've watched them do it. It's not the same.",
@@ -133,7 +199,7 @@
         {
           "id": "hobx",
           "tag": "EXIT",
-          "text": "I've taken enough of your time. I'll be taking more later.",
+          "text": "I am going to leave now, in a dignified manner.",
           "universal": true,
           "ends": true
         }
@@ -205,9 +271,23 @@
           "beat": "He laughs. Once. It is the only laugh in the scene and it is awful."
         },
         {
+          "id": "hob6",
+          "tag": "TOPIC",
+          "text": "Grievance walked out after you, twelve years ago.",
+          "afterUse": "retain",
+          "say": "She wanted to see where I was going. I wasn't going anywhere. She's still waiting for me to start."
+        },
+        {
+          "id": "hob7",
+          "tag": "TOPIC",
+          "text": "This photograph isn't you.",
+          "afterUse": "retain",
+          "say": "It's a collar. Frame bought the plate off a drummer in '47. Mine was never taken."
+        },
+        {
           "id": "hobx",
           "tag": "EXIT",
-          "text": "I am going to leave now, in a dignified manner.",
+          "text": "Thank you. This has been clarifying.",
           "universal": true,
           "ends": true
         }

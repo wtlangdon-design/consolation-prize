@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "death_certificate",
+  "name": "The certificate of my death",
+  "short": "THE DEATH CERTIFICATE",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. E4. Used at E5 and E6 (via SUM_C1) and at F5. Cannot be lost. Errata 66 ruling A: shown to the character at C5 and kept; never consumed.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "A certificate of death for Thaddeus Grubb, piano tuner, signed by the Acting Territorial Assayer. Cause: 'Certified.'",
+        "repeat": [
+          "She has signed it in the same hand as everything else she signs. She did not make an exception for me.",
+          "I have read my own death certificate several times. It is very well written. There is nothing in it I would argue with."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Paper.",
+        "repeat": [
+          "Nothing.",
+          "Nothing. I keep expecting it to say something, as the subject."
+        ]
+      }
+    ]
+  }
+}

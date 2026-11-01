@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "linen_money",
+  "name": "Reverend Sowerby's linen debt",
+  "short": "THE LINEN MONEY",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. D4, from the collection plate on a funeral day. Given to Sheng. Errata 66 ruling A: shown to the character at C5 and kept; never consumed.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "Nine funerals' worth of linen money, out of the collection plate. Small coin, and one button somebody gave in good faith.",
+        "repeat": [
+          "It is owed to Mr. Sheng. It is in my pocket. I am keeping those two facts in that order.",
+          "The Reverend counted it out with his eyes shut, as though the plate might feel it."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Coin, and a button.",
+        "repeat": [
+          "Coin.",
+          "Nothing. It is somebody else's money and it is behaving accordingly."
+        ]
+      }
+    ]
+  }
+}

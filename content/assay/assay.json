@@ -664,18 +664,27 @@
       "opponent": "deke_vessel",
       "opening": [
         {
-          "speaker": "deke_vessel",
-          "line": "Grubb! You came all this way. Was the claim not to your liking?"
+          "speaker": "sowerby",
+          "line": "1. A man may not be interrupted in his account."
         },
         {
-          "speaker": "thad",
-          "line": "The claim contains a raccoon and an opinion."
+          "speaker": "sowerby",
+          "line": "2. A man's account may be doubted only by a better one."
         },
         {
-          "speaker": "deke_vessel",
-          "line": "It contained a raccoon when I sold it. You bought the whole thing."
+          "speaker": "sowerby",
+          "line": "3. Truth is admissible but has never been raised."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "4. The judges' decision is final, and may be appealed to the same judges."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "5. No firearms. No knives. No arithmetic."
         }
       ],
+      "openingRuling": "errata 75: before the first exchange, Sowerby reads the handbill's five rules aloud, all of them.",
       "sequence": [
         1,
         2,
@@ -688,9 +697,21 @@
         "1": {
           "speaker": "thad",
           "line": "Malnourished. Bishop. Yes."
+        },
+        "2": {
+          "speaker": "thad",
+          "line": "Grandmother. Gravel. Yes."
+        },
+        "3": {
+          "speaker": "thad",
+          "line": "Everyone. Shirts. Concern. Yes."
+        },
+        "4": {
+          "speaker": "thad",
+          "line": "In Sacramento. Not from. Yes."
         }
       },
-      "notebookRuling": "errata 73 D: the notebook joins Thad's repertoire when the duel is over. Doc 03 writes the notebook line for pair 1 only, so pairs 2-4 are muttered and not read back.",
+      "notebookRuling": "errata 73 D and 75: Thad writes each counter down as he hears it, and the notebook joins his repertoire when the duel is over.",
       "learns": [
         1,
         2,
@@ -743,7 +764,42 @@
         21
       ],
       "threshold": 14,
-      "orderRuling": "errata 73 E and errata 74 A: Tier 1 first, then ascending. While Thad holds fewer than fourteen pairs, Vessel leads with the boasts Thad cannot answer (doc 02 B6: \">=14 pairs\").",
+      "opening": [
+        {
+          "speaker": "sowerby",
+          "line": "The rules of the Assay—"
+        },
+        {
+          "speaker": "deke_vessel",
+          "line": "He knows the rules, Reverend."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "Then he will enjoy them twice."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "1. A man may not be interrupted in his account."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "2. A man's account may be doubted only by a better one."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "3. Truth is admissible but has never been raised."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "4. The judges' decision is final, and may be appealed to the same judges."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "5. No firearms. No knives. No arithmetic."
+        }
+      ],
+      "openingRuling": "doc 03 Duel Two (errata 75): Sowerby, Vessel, Sowerby, and then \"(He reads all five.)\".",
+      "orderRuling": "errata 73 E, doc 57 B6 and errata 76 A: Tier 1 first, never repeating. Then, holding fourteen or more, the pairs Thad knows before the rest; holding fewer, the rest first (doc 02 B6: \">=14 pairs\").",
       "win": [
         {
           "speaker": "deke_vessel",

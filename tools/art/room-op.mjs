@@ -33,7 +33,7 @@ for (const p of images) {
 }
 // STREAMED. An eight-reference edit takes longer than the ~30 s an idle connection
 // survives on the way back through the proxy: two unstreamed calls on 2026-11-01 came
-// back 502 at 30.7 s with no image (doc 36 Q147). Partial-image events keep the
+// back 502 at 30.7 s with no image (doc 36 Q148). Partial-image events keep the
 // response moving; the operation is the same one, and only the completed image is kept.
 form.append('stream', 'true');
 form.append('partial_images', '2');

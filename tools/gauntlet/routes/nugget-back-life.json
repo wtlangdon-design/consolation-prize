@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "nugget_back",
- "note": "ROOM 4's LIFE ROUTE, ruling 47: about a minute in the room, starting INSIDE it (the entry route is proofs/spec/nugget-back.json's). The empty room first -- the lamp is its only life -- then the Assay convenes (T_VESSEL_FOUND, B3, unbuilt) and the judges and Vessel breathe on their own beats; a walk; a LOOK; an authored wrong action; Duel One played through.",
+ "note": "ROOM 4's LIFE ROUTE, ruling 47: about a minute in the room, starting INSIDE it (the entry route is proofs/spec/nugget-back.json's). The empty room first -- the lamp is its only life -- then the Assay convenes (T_VESSEL_FOUND, B3, unbuilt) and the judges and Vessel breathe on their own beats; a walk; a LOOK; an authored wrong action; Duel One played through by the affidavit question (B4), Sowerby reading the rules first.",
  "actions": [
   {
    "do": "capture",
@@ -122,18 +122,19 @@
   {
    "do": "waitFor",
    "dialogue": true,
-   "upTo": 20
+   "upTo": 60,
+   "why": "the first TALK TO plays doc 03's Duel One greeting, then VES_B1's list"
   },
   {
    "do": "option",
-   "option": "ves_b1_3",
-   "why": "Teach me to lie like that. -> Duel One"
+   "option": "ves_b1_6",
+   "why": "I need you to sign an affidavit. -> B4, and Duel One (doc 57)"
   },
   {
    "do": "waitFor",
    "dialogue": true,
-   "upTo": 60,
-   "why": "his reply, the opening scene and the first boast play; the counters are offered"
+   "upTo": 120,
+   "why": "his two lines, Sowerby reading the five rules, and the first boast; then the counters"
   },
   {
    "do": "capture",

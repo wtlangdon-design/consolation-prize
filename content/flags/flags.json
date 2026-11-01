@@ -302,6 +302,15 @@
    ]
   },
   {
+   "id": "T_OFFICE_TOPIC",
+   "type": "bool",
+   "initial": false,
+   "note": "C2 (errata 75): Winnie has said the Company's log is in the Colonel's office. Opens FRA_A1 option 5.",
+   "writtenBy": [
+    "dialogue:WINNIE:WIN_B1:winnie6"
+   ]
+  },
+  {
    "id": "T_VESSEL_FOUND",
    "type": "boolean",
    "initial": false,
@@ -534,6 +543,15 @@
    ],
    "note": "Thad has learned pair 21 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Hob, Tier 5 (HOB_A1 option 6). Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
    "pending": true
+  },
+  {
+   "id": "T_VESSEL_GREETED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "engine:dialogue:openingOnce DEKE_VESSEL/VES_B1"
+   ],
+   "note": "Doc 57 B4: the first TALK TO with Vessel in Room 4 plays doc 03's Duel One opening ('Grubb! You came all this way.'), once. Set by the dialogue runner when VES_B1 opens."
   }
  ]
 }

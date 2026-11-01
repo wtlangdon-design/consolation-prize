@@ -165,7 +165,7 @@
    "T_DUEL_TWO_WON": false
   }
  },
- "peopleNote": "Doc 54's Overrides for people, by the ambient ids that draw them. 'In a duel' is the Assay sitting: Vessel found (B3) and Duel Two not yet won (errata 74 B) -- a verb cannot be chosen during a duel's exchanges, which are a conversation, so the override answers in the room the duel is fought in, while it is still to be fought.",
+ "peopleNote": "Doc 54's Overrides for people, by the ambient ids that draw them. 'In a duel' is the Assay sitting: Vessel found (B3) and Duel Two not yet won (errata 76 B) -- a verb cannot be chosen during a duel's exchanges, which are a conversation, so the override answers in the room the duel is fought in, while it is still to be fought.",
  "obstacles": [],
  "lamps": [
   {

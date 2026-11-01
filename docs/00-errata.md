@@ -2230,15 +2230,50 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 
 **G · The readiness gate missed this** because it checks that a puzzle's sections resolve, not that every node inside them is written. A builder may add a check that every duel node has three wrong answers and a reply for each. That is tooling and needs no ruling.
 
-# 74 · ROOM 4 BUILT — THE BUILDER'S DECISIONS (2026-11-01)
+# 74 · NAMED IS NOT WRITTEN: THE GATE CHECKS EACH PUZZLE'S CONTENT (2026-10-31)
+
+*Room 4 answered `BUILDABLE WITHOUT INVENTION: YES` and then stopped its builder on sixty-nine unwritten lines (Q146), because the gate asked only whether a room's puzzles were named. Tyler asked whether this would happen in every room. An audit of all 45 puzzles (doc 56) says it would have: most puzzles outside Room 4 lack lines, items or decisions.*
+
+**A · Every puzzle needs an audited content entry** in `proofs/readiness/puzzles.json`, listing what it needs: dialogue nodes (a doc 04/27 node with at least three written options and a [COMIC]), items (`## NAME` with LOOK and LISTEN 1–3), duel pairs (three wrong answers with replies each), and scenes or rulings (sections that resolve). `tools/lib/puzzle-content.mjs` checks each one, and the readiness gate's "Puzzle requirements complete?" answers NO for any room hosting a puzzle with no entry or with an unresolved need.
+
+**B · Today only B5 and B6 have entries**, so Room 4 is the only room with puzzles that answers YES. That is the truth, not a regression: doc 56 lists what each other puzzle lacks. An entry is added when a puzzle's gaps are closed, never before.
+
+# 75 · THE PUZZLE COMPLETION PASS (2026-11-01)
+
+*Tyler, 2026-10-31, on doc 56's audit: "You decide. And don't take shortcuts. Do everything correctly to make the game feel as much like an end product Monkey Island style game as possible. Keep the puzzles interesting and clever and tough without being impossible. Keep the dialogue really punchy and good. Make the game really come to life." Written and decided in one voice. **Doc 57 is the pass**; nodes are in doc 04, duel lines in doc 03, items in doc 23, room subjects in doc 54. Each ruling below can be reversed by name.*
+
+**A · Act II's deadlock is broken.** SUM_B1's documents no longer unlock one another in a chain (A → B → D), which made D wait on A while A (Duel Two) needed D's comebacks. All three are offered from SUM_B1's opening; C waits on A, B and D. The trials are any-order, as doc 02 says.
+
+**B · D5 no longer quotes an offer Thad has not heard.** PRA_D5 opened on the eleven-thousand-dollar offer, which is made only at E0b, after Document D. It now opens on the Company's own books — "Claim Two, contingent, eleven thousand dollars" — which Sheng reads Thad at D4. E0b's offer is then that same number, said out loud.
+
+**C · The fake funeral is a memorial for Ezra Pike** (C3). Fanshawe attends every funeral (Frame, FRA_A1 5); Pike was buried six years ago on credit and never sung over (Sowerby, SOW_A1 5); Thad's letter of introduction to Pike, sealed, is his standing to arrange it; Frame's notice starts **the funeral day**, which empties Fanshawe's office (C4) and fills Sowerby's plate (D4), and ends when Thad walks up Boot Hill. It can be held again. One funeral serves both trials, as doc 02 wants.
+
+**D · Sheng's terms are the linen debt (D3/D4)**, and his reading of the Thursday ledger is the reward. SHE_D1's loan moves to Act III: it is the two dollars and sixty cents Thad's funeral costs, and it is what doc 02 means by "Sheng's goodwill (D4)" at E3.
+
+**E · E6's executor is Hob, appointed on Form 31-E**, which Hob signs and Sump accepts once Thad is recorded deceased; Thad enters the archive as the executor's agent (docs 08 and 54's "as one's own executor" stands as Thad's description of it). **The signature is the clue (E9):** THE EXECUTOR'S FORM on THE MOTT FILE shows the same hand; or, with `T_HOB_HANDWRITING`, LOOKing at the file is enough — invariant 7's silent solve. THE TIMESHEET's LISTEN is unchanged and sets nothing.
+
+**F · E7: Thad gets into the coffin on purpose,** after S2 beat 3, on the undertaker's promise that the lid stays loose; the undertaker nails it from habit. Doc 04's graveside note (Thad in the box for Sowerby's eleven minutes) governs; S2's free play is the gathering before it. S2 beat 4 ("Boot Hill opens") is replaced.
+
+**G · A7's money loop is closed.** A8 requires the tuning fork only (doc 02's "requires the boundary" is withdrawn); the barman pays two dollars a tuning, the piano is flat again whenever Thad returns, and the filing fee pays Ozymandia, who divines over Fanshawe's map. Doc 02's dead-end audit ("repeatable… the joke improves with repetition") is now literally true.
+
+**H · ACT moves at the three act cards:** 2 at A10's PART TWO; **3 at E0b's PART THREE** (new card, after Clause 9); 4 at E10's PART FOUR. Errata 60's "the funeral's opening sets ACT 3" is withdrawn: E1–E6 come before the funeral.
+
+**I · Duel Three (F4) needs the five pairs it uses** — 4 and 9 (guaranteed in Act II) and 22–24 (given by the confession, E10) — not twenty-four; a lost exchange is thrown again; the order is 4, 9, 22, 23, then the fifth. Duels One and Two are first to five.
+
+**J · Every pair has a written route** (doc 57's table): Tier 4's five and the livery man's each gain an `[ASSAY]` option in which the character tells the story of the pair; Winnie's five and Pratt's six are their sparrings (WIN_B4 1, PRA_D6 4); 22–24 come with the truth at E10.
+
+**K · Smaller rulings.** Items follow `T_SWINDLED` (Q141 route 1). THE LIVERY BLANKET is the one blanket; HORSE BLANKET and doc 24's A5 line are superseded. The hotel room is the reward for A2; there is no key item. The map is what finds Prosperity (A4). A9's order is the deed, the survey, the fee. Doc 27's undertaker and Vessel supersede doc 04's sketches UND_A1 and VES_A1. FAN_A0 gives Fanshawe an Act I node before the swindle. The obituary is THADEUS GRUBBE (errata 9 over FRA_E1, now reconciled). Room 9's headline board shows errata 9's run. The F5 filing is Form 12-C (Amended) for Claim One, in Mott's name; Thad keeps Claim Two. `T_NO_GOLD_EVER` and `T_STRIKE_WAS_LIE` are one flag.
+
+# 76 · ROOM 4 BUILT — THE BUILDER'S DECISIONS (2026-11-01)
 
 *Made by the Room 4 builder under doc 55 section 5's standing delegation ("staging, mechanism and placement gaps ... each decision is named so it can be reversed by name"). No line was written. Every ruling below can be struck or changed by its letter.*
 
 **A · How the duels run, where errata 73 left it to the builder.**
 - **First to five, in both duels** (doc 03 "How it plays"). Duel One also ends when its five-boast sequence (73 D) is spent, and it always ends lost.
-- **Duel Two's order (73 E).** If the player holds fourteen or more of pairs 1–21: Tier 1 first ("Vessel escalates"), then the pairs he holds, then the rest, each run ascending. If he holds fewer: the boasts he cannot answer come first. That makes doc 02 B6's "≥14 pairs" a property of the duel rather than a gate in front of it. **Every player holding fourteen can win, and no player holding thirteen can**, which `tests/assay.test.ts` proves over all 131,072 sets of pairs. The order reads what he knows, because no fixed order can promise that: Tier 1-then-ascending sends five unanswerable boasts at a player missing pairs 5–11, and Tier 4 is "optional, missable" (doc 03). That would be a dead end (invariant 6).
+- **Duel Two's order (73 E, doc 57 B6: "Tier 1 first, never repeating").** Tier 1 always first. Then, if the player holds fourteen or more of pairs 1–21, the pairs he holds before the rest; if he holds fewer, the rest before the pairs he holds. Each run is ascending. That makes doc 02 B6's "≥14 pairs" a property of the duel rather than a gate in front of it. **Every player holding fourteen can win, and no player holding thirteen can**, which `tests/assay.test.ts` proves over all 131,072 sets of pairs. The order reads what he knows, because no fixed order can promise that: Tier 1-then-ascending sends five unanswerable boasts at a player missing pairs 5–11, and Tier 4 is "optional, missable" (doc 03). That would be a dead end (invariant 6).
 - **The right counter's slot** among the four is `(3n + 1) mod 4` for pair n (73 C: "varies by pair and is never always the same slot").
-- **Duel One's option (VES_B1 option 3, `remove`) is spent only once its duel has written its result.** A duel dropped mid-fight leaves it on offer (invariant 6). A duel saved mid-fight is in the save file and resumes at the same boast.
+- **What starts Duel One (doc 57 B4).** VES_B1 option 6, "I need you to sign an affidavit.", completes **B4** and starts Duel One. Option 3 is the replay ("twice if asked"). Duel One completes **B5** when it ends, since it cannot be won. Duel Two completes **B6** when it is won. **The first TALK TO plays doc 03's Duel One greeting once** (`openingOnce`, `T_VESSEL_GREETED`).
+- **A duel's options (VES_B1 options 3 and 6, `remove`) are spent only once their duel has written its result.** A duel dropped mid-fight leaves it on offer (invariant 6). A duel saved mid-fight is in the save file and resumes at the same boast.
 - **A won duel's yields reach the inventory through the game state, not the tree**, because doc 34 keeps inventory out of a conversation.
 
 **B · Staging and placement.**
@@ -2248,16 +2283,17 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 - **The walk band (y 705–840, x 240–1680) is in front of every chair.** A man behind one would be drawn over a chair that is nearer than he is. No plane masks him anywhere he can stand.
 - **THE CHAIRS is the champion's chair**, the one with the cushion that its LOOK 3 and TALK TO name. The challenger's chair is drawn and not separately clickable. **THE RING OF CHAIRS is the right-hand group.**
 - **Coming back into the Nugget,** Thad arrives at (930, 590), left of Vessel's place at the bar. At the back door's own x he arrived hidden behind Vessel.
-- **Sowerby's reading of the handbill before every match** (doc 03 Part One) is not staged. No line of it is written, and the handbill is Room 3's object.
+- **Sowerby (errata 75: "Sowerby holds the pencil").** He stands behind the table's left end, in the judges' shadow, holding the pencil up, and is present while the Assay sits. Before each duel he reads the handbill's five rules as doc 03 Part One lists them (Duel Two adds doc 03's three-line exchange first). His ambient id is his speaker id, so his words sit over his head. **Room 4 is his first drawing and so his canonical design** (doc 38 section 1). Canon gives him only "Reverend" and his manner, so he is a plain 1850s preacher: black frock coat, white collar, grey hair. **Known look issue:** the edit that drew him took the chained pencil off the table into his hand, and the plate still shows it on the table.
 
 **C · The room's look.** Material identity (17b), distinct from the Nugget's warm timber next door: green-shaded lamplight, chalky grey slate, green paint, worn pine. **One visual state:** the only window is painted over, so the hour is never seen. THE DOOR TO THE BAR and THE WINDOW, PAINTED OVER are plate. `tools/room-gate.mjs` flagged both "it opens" from their names, but no line or verb opens either. The door is the exit, and a transit plays no picture of opening.
 
-**D · The art.** Room 4 used **2 of its 4 operations**: a composition master generated against Thad with the graybox as its layout, and the same picture with nobody in it.
+**D · The art.** Room 4 used **3 of its 4 operations**: a composition master generated against Thad with the graybox as its layout, and the same picture with nobody in it.
 - **The plate.** The plate's dropped cushion was restored from the master's own pixels. The plate takes Room 4's own 20:9 crop (x 8, y 120), because the generator drew the slate, door and window above Room 5's crop.
 - **The judges** are the difference between the two pictures (doc 36 D4).
+- **Sowerby** is operation 3: an edit of the room as it stands (plate, judges, Deke, Thad at game size) adding only him, then cut by subtraction (`tools/art/room04-sowerby.py`). His texture is 2.86 against Thad's 4.27.
 - **Deke** is re-cut from your approved sheet at this room's 530 px, then graded to his own figure as the master painted him here.
 - **Promotion.** Everything shipped through `promoteProvisional` (errata 72 E): technical gates passed, and recorded as **pending your playthrough**, never as accepted.
 
 **E · Left for you, and not decided.**
 - The voice from the ring speaks in the fallback ink. No speech colour is assigned to it, or to Deke, because colours are look decisions you make from a rendered sample.
-- Only pair 1 has a notebook line (73 D), so pairs 2–4 are muttered and not read back.
+- **A renderer fix:** a speaker's head is found where the room places them, not where their file does. Room 4's Vessel is a placement of his Nugget record, and his words had hung over his Nugget spot.

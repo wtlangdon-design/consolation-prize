@@ -86,7 +86,8 @@
   "content/ambient/one-strike-man.json",
   "content/ambient/room-04-judge-1.json",
   "content/ambient/room-04-judge-2.json",
-  "content/ambient/room-04-judge-3.json"
+  "content/ambient/room-04-judge-3.json",
+  "content/ambient/sowerby.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",

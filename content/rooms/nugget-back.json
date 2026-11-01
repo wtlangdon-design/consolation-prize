@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "nugget_back",
   "name": "THE NUGGET BACK ROOM",
-  "materialIdentity": "green-shaded lamplight, chalky grey slate, green paint, worn pine (errata 17b; errata 74 C)",
+  "materialIdentity": "green-shaded lamplight, chalky grey slate, green paint, worn pine (errata 17b; errata 76 C)",
   "note": "Room 4, doc 20: behind the Bountiful Nugget's bar. The Liar's Assay is held here (doc 05; errata 73 B: Duels One and Two). Compiled by tools/compile-room.mjs from content/examine/room-04.json and reference/room-04/annotation.json.",
   "background": "art/backgrounds/room-04-nugget-back.png",
   "colours": {
@@ -103,7 +103,8 @@
     "deke_vessel",
     "room_04_judge_1",
     "room_04_judge_2",
-    "room_04_judge_3"
+    "room_04_judge_3",
+    "sowerby"
   ],
   "hotspots": [
     {

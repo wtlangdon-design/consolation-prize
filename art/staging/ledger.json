@@ -7714,6 +7714,135 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-01T06:58:45.051Z"
+  },
+  {
+   "attempt": 3,
+   "role": "canonical-design",
+   "assetId": "room-04",
+   "subject": "sowerby",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-04/prompts/sowerby-01.txt",
+   "promptHash": "dfe9d14b08daf27c0dc5a00e22bd864a965cb21bdff0f8f0887a2d128837c1fa",
+   "references": [
+    {
+     "path": "art/staging/room-04/sowerby-01/base-1536x1024.png",
+     "hash": "035f3e8ee5d2e5acc316862ec1b7aaf661fc940306c3ccbc757c02a7814b6459",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-03/deke-02/sheet.png",
+     "hash": "3930e896263cc1b6d7422b9fb0c47048a30bf0a2feca85389ffa1b33c46f8389",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-04-nugget-back",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Deke Vessel, approved by Tyler 2026-11-01)",
+      "path": "art/staging/room-03/deke-02/sheet.png",
+      "hash": "3930e896263cc1b6d7422b9fb0c47048a30bf0a2feca85389ffa1b33c46f8389",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "035f3e8ee5d2e5acc316862ec1b7aaf661fc940306c3ccbc757c02a7814b6459",
+   "sourcePath": "art/staging/room-04/sowerby-01/base-1536x1024.png",
+   "out": "art/staging/room-04/sowerby-01/source.png",
+   "outputHash": "877cf29c8dab57693c688a2eeed977fc704bb870ae457a0fbcb6e655751a5898",
+   "bytes": 1960768,
+   "usage": {
+    "input_tokens": 10355,
+    "input_tokens_details": {
+     "image_tokens": 10064,
+     "text_tokens": 291
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 11906
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-01T08:12:42.376Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-01T08:12:42.379Z"
   }
  ],
  "promotions": [
@@ -7909,6 +8038,25 @@
    "acceptedBy": null,
    "by": "claude, Room 4 builder (doc 55 section 3, errata 72 E)",
    "at": "2026-11-01T07:08:58.828Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 3,
+   "from": "art/staging/room-04/sowerby/sowerby.png",
+   "derivedFrom": "art/staging/room-04/sowerby-01/source.png",
+   "provenance": "art/staging/room-04/sowerby/sowerby.json",
+   "to": "art/actors/room-04-sowerby.png",
+   "hash": "271cbdf20e9826770ecfac984199fe218f8117a1df6bc5de08a4494fc25e3c78",
+   "sourceHash": "877cf29c8dab57693c688a2eeed977fc704bb870ae457a0fbcb6e655751a5898",
+   "replacedHash": null,
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-01T08:15:03.224Z"
   }
  ],
  "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."

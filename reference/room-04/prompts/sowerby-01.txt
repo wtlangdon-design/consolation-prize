@@ -1,0 +1,9 @@
+Image 1 is a frame from my pixel-art adventure game: the back room of a frontier saloon, where the town holds its bragging duels. The man in the long blue coat is the hero. The man in the brown coat facing him is his opponent. Three judges sit behind the long table in the shadow beyond the green lamp.
+
+Add ONE person and change nothing else:
+- Reverend Sowerby, the town's preacher, who presides over every duel. He STANDS behind the LEFT end of the long table, to the left of the three seated judges, holding up the short pencil that is chained to the table, as if about to mark a score.
+- A preacher of the 1850s West, past middle age: a plain black frock coat, a white collar, grey hair, no hat. A solemn face full of feeling.
+- He is in the same shadow as the judges, beyond the lamp's light. The table hides him below the waist.
+- Draw him in exactly the same pixel-art style as the people already in the picture, above all the hero in the blue coat: flat, soft shading, very little texture, simple shapes. Not sharp, not finely detailed, no hard internal contrast.
+
+Every other pixel stays exactly as it is: the same room, the same people in the same places, the same light, the same framing. No text anywhere.
