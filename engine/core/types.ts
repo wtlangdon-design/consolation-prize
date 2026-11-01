@@ -434,6 +434,8 @@ export interface AmbientFile {
     when?: Condition;
     /** Posture in this room, where it differs (see `posture`). */
     posture?: AmbientFile['posture'];
+    /** Where a conversation with this person stands IN THIS ROOM (see `walkTo`). */
+    walkTo?: AmbientFile['walkTo'];
     /**
      * The plane that masks her IN THIS ROOM. Phase 1.5I: Main Street's
      * candidate has no walk box behind its east hitching rail any more --

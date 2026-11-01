@@ -1,0 +1,455 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "nugget_back",
+ "roomWidth": 1920,
+ "branch": "claude/tender-sagan-buz50u",
+ "commit": "2e0d2d5198ba7fdc9d426a93bb115f4573182282",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "uncommitted": [
+  "M art/staging/ledger.json",
+  " M content/ambient/deke-vessel.json",
+  " M content/manifest.json",
+  " M content/rooms/nugget.json",
+  " M engine/core/Ambient.ts",
+  " M engine/core/types.ts",
+  " M proofs/readiness/room-04.json",
+  " M proofs/readiness/room-04.sources.json",
+  " M reference/room-03/annotation.json",
+  " M tools/art/staging.mjs",
+  " M tools/compile-room.mjs",
+  " M tools/gauntlet/proof.mjs",
+  " M tools/lib/chromium.mjs",
+  "?? art/actors/deke-vessel-room-04.png",
+  "?? art/actors/room-04-judge-1.png",
+  "?? art/actors/room-04-judge-2.png",
+  "?? art/actors/room-04-judge-3.png",
+  "?? art/backgrounds/room-04-nugget-back.png",
+  "?? content/ambient/room-04-judge-1.json",
+  "?? content/ambient/room-04-judge-2.json",
+  "?? content/ambient/room-04-judge-3.json",
+  "?? content/rooms/nugget-back.json",
+  "?? proofs/spec/nugget-back.json",
+  "?? reference/room-04/annotation.json",
+  "?? renders/proofs/nugget-back/",
+  "?? tools/art/room04-promote.mjs",
+  "?? tools/gauntlet/routes/nugget-back-doors.json",
+  "?? tools/gauntlet/routes/nugget-back.json"
+ ],
+ "visualState": null,
+ "candidates": [],
+ "route": "nugget-back",
+ "routeLog": [
+  "action 1 (wait): waited 2.5s",
+  "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up",
+  "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit",
+  "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED",
+  "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road",
+  "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever.",
+  "action 13 (wait): waited 3s",
+  "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road",
+  "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it",
+  "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it",
+  "action 17 (wait): waited 6s",
+  "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger",
+  "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street",
+  "action 20 (wait): waited 2s",
+  "action 21 (click): clicked main_street/to_nugget at world 2317,459 -- Main Street's Nugget doors",
+  "action 22 (waitFor): reached {\"room\":\"nugget\"} in room nugget",
+  "action 23 (wait): waited 3s",
+  "action 24 (waitFor): reached {\"dialogue\":true} in room nugget",
+  "action 25 (option): chose option deke_vessel7 -- his EXIT -- a player leaving the conversation to go through the back door",
+  "action 26 (wait): waited 7s",
+  "action 27 (click): clicked nugget/back_room_door at world 1115,335 -- the Nugget's back room door, behind the near end of the bar",
+  "action 28 (waitFor): reached {\"room\":\"nugget_back\"} in room nugget_back",
+  "action 29 (wait): waited 3s",
+  "action 1 (verb): chose verb TALK_TO -- so the click talks",
+  "action 2 (click): clicked screen 1180,500 -- Vessel, at his mark",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room nugget_back"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 706,
+    "xs": [
+     960,
+     780,
+     1140,
+     600,
+     1320,
+     420,
+     1500,
+     240,
+     1680
+    ],
+    "expect": 509,
+    "x": 960
+   },
+   "at": [
+    960,
+    706
+   ],
+   "reportedHeight": 509,
+   "expected": 509,
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "bounds": [
+    696,
+    197,
+    528,
+    562
+   ],
+   "order": 0,
+   "renderedHeight": 529,
+   "renderedBottom": 705,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 839,
+    "xs": [
+     960,
+     780,
+     1140,
+     600,
+     1320,
+     420,
+     1500,
+     240,
+     1680
+    ],
+    "expect": 560,
+    "x": 960
+   },
+   "at": [
+    960,
+    839
+   ],
+   "reportedHeight": 560,
+   "expected": 560,
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "bounds": [
+    669,
+    279,
+    581,
+    618
+   ],
+   "order": 0,
+   "renderedHeight": 560,
+   "renderedBottom": 838,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "nugget_back",
+   "clock": 142.277,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_VESSEL_OPENED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      730
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 518,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      31,
+      212,
+      537,
+      572
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:nugget_back",
+     "path": "art/backgrounds/room-04-nugget-back.png",
+     "drawn": "art/backgrounds/room-04-nugget-back.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "87c98ead2c3411c02167ca89ad5a97163f8176ea1d379823f89c741f12290e1e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [],
+   "capturedAt": "2026-11-01T07:27:22.239Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "7d844b180f8d5c28dc4dbf5bf10532a36c148532f144aefdb665a9abcf3575fa"
+  },
+  {
+   "panel": "A",
+   "room": "nugget_back",
+   "clock": 143.3935,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_VESSEL_OPENED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      730
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 518,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:nugget_back",
+     "path": "art/backgrounds/room-04-nugget-back.png",
+     "drawn": "art/backgrounds/room-04-nugget-back.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "87c98ead2c3411c02167ca89ad5a97163f8176ea1d379823f89c741f12290e1e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-01T07:27:23.342Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "9b16c4578290cb585e0cbfb4b004a29385c1ac5a4baf87c67b1ea09fbd71575f"
+  },
+  {
+   "panel": "D",
+   "room": "nugget_back",
+   "clock": 151.7099,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_VESSEL_OPENED",
+    "T_VESSEL_FOUND"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      800,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 530,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      525,
+      230,
+      550,
+      585
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 5,
+   "assets": [
+    {
+     "key": "bg:nugget_back",
+     "path": "art/backgrounds/room-04-nugget-back.png",
+     "drawn": "art/backgrounds/room-04-nugget-back.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "87c98ead2c3411c02167ca89ad5a97163f8176ea1d379823f89c741f12290e1e"
+    },
+    {
+     "key": "art/actors/deke-vessel-room-04.png",
+     "path": "art/actors/deke-vessel-room-04.png",
+     "drawn": "art/actors/deke-vessel-room-04.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b36259359365b14e100ff09c38bc0bf276f5a7cbdd682a9d9a5d168eec76e002"
+    },
+    {
+     "key": "art/actors/room-04-judge-1.png",
+     "path": "art/actors/room-04-judge-1.png",
+     "drawn": "art/actors/room-04-judge-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7eb9c678df939e38ab9bb56fe438083aa9ae0875cc4c4eb8178eff809feec03e"
+    },
+    {
+     "key": "art/actors/room-04-judge-2.png",
+     "path": "art/actors/room-04-judge-2.png",
+     "drawn": "art/actors/room-04-judge-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b98773ec9b79b70ac8ebe6544e8cea9a75fccd8ff80abbddeee53a463ae45b8d"
+    },
+    {
+     "key": "art/actors/room-04-judge-3.png",
+     "path": "art/actors/room-04-judge-3.png",
+     "drawn": "art/actors/room-04-judge-3.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "1c9ac034386642693bf7e1a93d78f14c8b1a737485c3a14f6244a27c16dbfa44"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)",
+    "cast(true)",
+    "stand(960,706)",
+    "cast(false)",
+    "cast(true)",
+    "stand(960,839)",
+    "cast(false)",
+    "cast(true)",
+    "flag T_VESSEL_FOUND=true"
+   ],
+   "capturedAt": "2026-11-01T07:27:31.680Z",
+   "intent": "principal changed state: THE ASSAY CONVENES. Prerequisite: T_VESSEL_FOUND (B3, Room 15, unbuilt). Visible consequence: Deke Vessel at his mark across the burnt line and the three judges behind the table. Then TALK TO Vessel opens VES_B1.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "887883be0e67c0a2a326a39828b78ed349b54429490008648e008184127a3f24",
+   "changedBy": "flags"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-01T07:27:31.680Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 339496,
+  "panels": 5,
+  "scale": 0.5
+ }
+}

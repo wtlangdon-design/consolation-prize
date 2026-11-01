@@ -70,6 +70,7 @@ export class AmbientLayer {
             // picture, and the shipping room keeps the one it shipped.
             sprite: placed.sprite ?? npc.sprite,
             posture: placed.posture ?? npc.posture,
+            walkTo: placed.walkTo ?? npc.walkTo,
           }
           : npc;
       });

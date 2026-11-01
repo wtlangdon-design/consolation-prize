@@ -1,0 +1,109 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 4, the Nugget back room. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r4-a",
+   "label": "R4-A The Assay convened (Duel One)",
+   "room": "nugget_back",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_BORDERS_MOTT": true,
+    "T_SWINDLED": true,
+    "ACT": 2,
+    "T_VESSEL_FOUND": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map"
+   ],
+   "derivedFrom": [
+    "docs/02-puzzle-graph.md:43-56 (Trial One: B4 offers the Assay, B5 Duel One, B6 Duel Two with >=14 pairs)",
+    "docs/00-errata.md::73 · THE LIAR'S ASSAY'S WRONG ANSWERS, AND HOW THE DUELS RUN (B: from B3's completion, Vessel is in Room 4)",
+    "content/fixtures/room-05.json r5-b (the Act II state these extend: A9, A10, S1)",
+    "docs/02-puzzle-graph.md:126-133 (the item ledger: the watch traded at A3 and returned at B6; deed and Company map held)"
+   ],
+   "notBuilt": [
+    "B1-B3 (Room 9, Room 15): nothing in the build writes T_VESSEL_FOUND yet; this fixture is how the room is played",
+    "the writers of T_BORDERS_MOTT (A9) and ACT (S1), as in r5-b"
+   ],
+   "expect": {
+    "tree": "DEKE_VESSEL",
+    "opensOn": "VES_B1"
+   },
+   "note": "Vessel found and the judges sitting. TALK TO him; option 3 is Duel One, which cannot be won."
+  },
+  {
+   "id": "r4-b",
+   "label": "R4-B The rematch, fourteen pairs (Duel Two)",
+   "room": "nugget_back",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_BORDERS_MOTT": true,
+    "T_SWINDLED": true,
+    "ACT": 2,
+    "T_VESSEL_FOUND": true,
+    "T_DUEL_ONE_LOST": true,
+    "ASSAY_PAIR_01": true,
+    "ASSAY_PAIR_02": true,
+    "ASSAY_PAIR_03": true,
+    "ASSAY_PAIR_04": true,
+    "ASSAY_PAIR_05": true,
+    "ASSAY_PAIR_06": true,
+    "ASSAY_PAIR_07": true,
+    "ASSAY_PAIR_08": true,
+    "ASSAY_PAIR_09": true,
+    "ASSAY_PAIR_10": true,
+    "ASSAY_PAIR_11": true,
+    "ASSAY_PAIR_12": true,
+    "ASSAY_PAIR_13": true,
+    "ASSAY_PAIR_14": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map"
+   ],
+   "derivedFrom": [
+    "docs/02-puzzle-graph.md:43-56 (Trial One: B4 offers the Assay, B5 Duel One, B6 Duel Two with >=14 pairs)",
+    "docs/00-errata.md::73 · THE LIAR'S ASSAY'S WRONG ANSWERS, AND HOW THE DUELS RUN (B: from B3's completion, Vessel is in Room 4)",
+    "content/fixtures/room-05.json r5-b (the Act II state these extend: A9, A10, S1)",
+    "docs/02-puzzle-graph.md:126-133 (the item ledger: the watch traded at A3 and returned at B6; deed and Company map held)",
+    "docs/02-puzzle-graph.md:143 (14 are obtainable from Trials Two and Three alone)"
+   ],
+   "notBuilt": [
+    "B1-B3 (Room 9, Room 15): nothing in the build writes T_VESSEL_FOUND yet; this fixture is how the room is played",
+    "the writers of T_BORDERS_MOTT (A9) and ACT (S1), as in r5-b",
+    "pairs 5-14 are Winnie's (C6) and Pratt's (D5) sparrings, neither built: they are set here directly"
+   ],
+   "expect": {
+    "tree": "DEKE_VESSEL",
+    "opensOn": "VES_B1"
+   },
+   "note": "Duel One lost and fourteen pairs held. TALK TO Vessel; option 5 is the rematch, which a player with fourteen pairs always can win."
+  }
+ ]
+}

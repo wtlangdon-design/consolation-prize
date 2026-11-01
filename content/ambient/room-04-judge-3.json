@@ -1,0 +1,47 @@
+{
+ "schema": 1,
+ "id": "room_04_judge_3",
+ "name": "THE JUDGES",
+ "posture": "seated",
+ "room": "nugget_back",
+ "when": {
+  "T_VESSEL_FOUND": true,
+  "T_DUEL_TWO_WON": false
+ },
+ "note": "One of the three judges of the Liar's Assay (doc 03 Part One; errata 73 B: 'the judges and the pencil are Room 4's'). Seated behind the long table, out of the lamp's pool (doc 05: the lamp 'leaves the judges dark'). Cut from room-04's composition master by subtraction against its plate (tools/art/room04-judges.py), so he is registered to the plate by construction. Present while the Assay sits: from B3 until Duel Two is won (errata 74 B). No tree: doc 54's TALK TO and USE are the room's (peopleResponses); every other verb is doc 07's people pool.",
+ "x": 1168,
+ "y": 333,
+ "zone": 2,
+ "approachRadius": 40,
+ "tree": "",
+ "walkTo": {
+  "x": 1140,
+  "y": 712,
+  "facing": "back"
+ },
+ "walkToNote": "On the floor in front of the table, facing it: the judges sit behind it and are spoken to across it.",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for the judges.",
+ "sprite": {
+  "sheet": "art/actors/room-04-judge-3.png",
+  "frames": [
+   [
+    2,
+    2,
+    127,
+    166
+   ],
+   [
+    131,
+    2,
+    127,
+    166
+   ]
+  ],
+  "rate": 0.0,
+  "beatEvery": 4.5,
+  "beatSeconds": 1.6,
+  "phase": 1.1,
+  "note": "Frame 0 at rest; frame 1 a breath (everything above the table top lifted 1 px, tools/rig/ambient-breath.py's rule with the table as the hem). Beats every 5, 7 and 4.5 s across the three, so they drift apart and never move together (ruling 20; Tyler: no person in a room is ever static)."
+ }
+}

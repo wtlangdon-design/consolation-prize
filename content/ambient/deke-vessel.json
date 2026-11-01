@@ -80,5 +80,84 @@
    ]
   ],
   "note": "Frames: 0 rest, 1 breath (the sway), 2 talking -- held while spoken to, and a break because doc 27's LISTEN is 'He has been talking since before I came in' -- 3 pushes his hat back, 4 looks out at the room. Breaks every 11 s: Tyler, no person in a room is ever static."
+ },
+ "placements": {
+  "nugget_back": {
+   "x": 1180,
+   "y": 760,
+   "zone": 0,
+   "when": {
+    "T_VESSEL_FOUND": true
+   },
+   "posture": "standing",
+   "walkTo": {
+    "x": 800,
+    "y": 760,
+    "facing": "right"
+   },
+   "sprite": {
+    "sheet": "art/actors/deke-vessel-room-04.png",
+    "frames": [
+     [
+      2,
+      2,
+      242,
+      530
+     ],
+     [
+      246,
+      2,
+      242,
+      530
+     ],
+     [
+      490,
+      2,
+      242,
+      530
+     ],
+     [
+      734,
+      2,
+      242,
+      530
+     ],
+     [
+      978,
+      2,
+      242,
+      530
+     ]
+    ],
+    "rate": 0.35,
+    "talkFrame": 2,
+    "phase": 0.3,
+    "breakEvery": 11,
+    "breaks": [
+     [
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     [
+      3,
+      3,
+      3,
+      3
+     ],
+     [
+      4,
+      4,
+      4,
+      4,
+      4
+     ]
+    ],
+    "note": "Room 4: the same five poses re-cut from Tyler's approved sheet at this room's height (530 at his mark, tools/art/cut-ambient-sheet.py) and graded to his own figure as room-04's composition master painted him here (tools/grade/match-neighbours.py). Faces left, toward Thad across the burnt line."
+   },
+   "note": "ERRATA 73 B: from B3's completion Vessel is in Room 4, across the spit line from Thad's duel mark ('Not across the line' -- doc 54). TALK TO stands Thad on his own mark, facing him."
+  }
  }
 }

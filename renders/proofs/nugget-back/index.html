@@ -1,0 +1,84 @@
+<!DOCTYPE html><meta charset="utf-8">
+<title>nugget_back — room proof</title>
+<style>
+ body{background:#14141a;color:#e8e8ee;font:14px/1.5 system-ui,sans-serif;margin:0;padding:20px}
+ h1{font-size:17px;margin:0 0 4px}
+ p.lede{color:#9a9aae;margin:0 0 8px;max-width:64em}
+ .verdict{font:13px ui-monospace,monospace;padding:8px 10px;border-radius:5px;margin:12px 0;
+   background:#12331e;border:1px solid #2c6b40}
+ figure{margin:0 0 22px}
+ img{width:100%;display:block;border-radius:5px;border:1px solid #2c2c38}
+ figcaption{padding:7px 2px;font-size:13px}
+ figcaption span{display:block;color:#8a8a9e;font:11.5px ui-monospace,monospace}
+ .sheet img{border-color:#4a6ea8}
+ p.gone{color:#8a8a9e;font:12px ui-monospace,monospace;border:1px dashed #3a3a48;
+   border-radius:5px;padding:14px;margin:0}
+ code{color:#c9b58a}
+</style>
+<h1>nugget_back — four-panel live-runtime proof</h1>
+<p class="lede">Every frame below is the full play area as the renderer drew it, in the running
+game, at <code>2e0d2d51</code> on <code>claude/tender-sagan-buz50u</code>.
+No crop, isolated sprite or source image appears here: those are for diagnosing what a full
+frame has already shown.</p>
+<p class="lede"><b>These panels establish technical admissibility only.</b> Nothing here says the
+art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted</code>.</p>
+<figure class="sheet">
+  <img src="contact-sheet.webp" alt="">
+  <figcaption><b>THE COMMITTED SHEET</b><span>Every panel, complete, at
+    50% &mdash;
+    downscaled, never cropped. The full-resolution captures are reproducible test artifacts
+    and are not in git; their hashes are below.</span></figcaption>
+</figure>
+<div class="verdict">PASS — technically admissible
+
+! working tree was dirty: these frames do not correspond to the commit above.</div>
+
+  <figure>
+    <img src="raw-captures-ignored/panel-b-populated.png" alt="" onerror="this.replaceWith(Object.assign(
+      document.createElement('p'), { className: 'gone', textContent:
+      'raw capture not committed -- regenerate with: npm run proof ' + "nugget_back" }))">
+    <figcaption><b>PANEL B &mdash; normal populated state</b>
+      <span>room nugget_back &middot; camera 0 &middot;
+        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN T_VESSEL_OPENED &middot;
+        inventory letter tuning_fork four_dollars</span>
+      <span>thad @300,730 518px sprite</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="raw-captures-ignored/panel-a-base.png" alt="" onerror="this.replaceWith(Object.assign(
+      document.createElement('p'), { className: 'gone', textContent:
+      'raw capture not committed -- regenerate with: npm run proof ' + "nugget_back" }))">
+    <figcaption><b>PANEL A &mdash; base state, cast suppressed</b>
+      <span>room nugget_back &middot; camera 0 &middot;
+        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN T_VESSEL_OPENED &middot;
+        inventory letter tuning_fork four_dollars</span>
+      <span>thad @300,730 518px sprite</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="raw-captures-ignored/panel-d-changed.png" alt="" onerror="this.replaceWith(Object.assign(
+      document.createElement('p'), { className: 'gone', textContent:
+      'raw capture not committed -- regenerate with: npm run proof ' + "nugget_back" }))">
+    <figcaption><b>PANEL D &mdash; principal changed state: THE ASSAY CONVENES. Prerequisite: T_VESSEL_FOUND (B3, Room 15, unbuilt). Visible consequence: Deke Vessel at his mark across the burnt line and the three judges behind the table. Then TALK TO Vessel opens VES_B1.</b>
+      <span>room nugget_back &middot; camera 0 &middot;
+        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN T_VESSEL_OPENED T_VESSEL_FOUND &middot;
+        inventory letter tuning_fork four_dollars</span>
+      <span>thad @800,760 530px sprite</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="raw-captures-ignored/panel-c-mud_far-far.png" alt="">
+    <figcaption><b>PANEL C &mdash; mud_far far, authored y706</b>
+      <span>expected 509px &middot; runtime 509px &middot;
+        silhouette 529px, bottom y705</span>
+      <span>art/actors/thad-idle-right/idle-05.png</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="raw-captures-ignored/panel-c-mud_near-near.png" alt="">
+    <figcaption><b>PANEL C &mdash; mud_near near, authored y839</b>
+      <span>expected 560px &middot; runtime 560px &middot;
+        silhouette 560px, bottom y838</span>
+      <span>art/actors/thad-idle-right/idle-05.png</span>
+    </figcaption>
+  </figure>

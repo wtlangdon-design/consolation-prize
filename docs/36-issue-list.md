@@ -4686,3 +4686,16 @@ Under errata 72 F, a gap in a puzzle's path makes the room **wait**, not ship wi
 5. **The duel engine does not exist.** Errata 69 already records it ("doc 03's duel machinery is not built"). This is plumbing a builder may write, but there is nothing to run through it until item 1 above, the missing lines, is written.
 
 **To unblock:** the wrong counters and Vessel's replies, for every pair Vessel can throw in Duels One and Two. That is at least Tier 1 (pairs 2–4) for Duel One and every pair from which Duel Two draws. It is Tyler's writing. Then a ruling on item 1. Room 4's four operations are untouched and waiting.
+
+## Q147 · Room 4, the Nugget back room: built, awaiting Tyler's playthrough — **RULED 2026-11-01 (errata 74, delegated); BUILT, room-04 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E)**
+
+Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=nugget_back` and through the Nugget's back room door. The builder's decisions are errata 74. The proofs are `renders/proofs/nugget-back/` (four panels), `life/` (about four and a half minutes, including Duel One played through) and `doors/` (out and in by the real doors, twice).
+
+**For Tyler to look at first:**
+1. **Convene the Assay.** `T_VESSEL_FOUND` is B3's, and B1–B3 (Room 15) are not built, so in ordinary play the room is empty. Open `?fixture=r4-a`, then TALK TO Vessel and choose "Teach me to lie like that." for Duel One.
+2. **The judges and the re-cut Deke.** They passed style-gate steps 1, 2 and 4: generated against Thad in this room, measured with no texture flags (judges 3.6–4.7, Deke 3.0, Thad 4.3), and Deke graded to the room's light. Step 3 is your playthrough.
+3. **Duel Two needs fourteen pairs,** and only Duel One's four can be earned yet. `?fixture=r4-b` starts with Duel One lost and fourteen pairs held; option 5 is the rematch.
+
+**Found while building:**
+- **Two image calls died at the proxy** with `502 upstream request failed` at about 30.7 s and returned no image. A free probe showed the 11 MB upload itself is fine (0.8 s), so the response path gives up on a slow generation. `tools/art/room-op.mjs` now streams partial images, and the next call returned in 31 s. The two failed calls produced nothing and are not ledger rows. Whether OpenAI billed them is unknown.
+- **`tools/lib/chromium.mjs`** looked only under `chrome-linux/`; this image's Chromium is under `chrome-linux64/`. Both are tried now.

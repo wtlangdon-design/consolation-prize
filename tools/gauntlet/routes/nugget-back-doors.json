@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "room": "nugget_back",
+ "note": "DOC 46 4.13's GAMEPLAY PASS for Room 4: in by the real door (the spec's entry route), then out to the Nugget and back in by the real doors, twice. Each capture asserts the room it should be in.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "00-arrived"
+  },
+  {
+   "do": "click",
+   "on": "to_bar",
+   "why": "THE DOOR TO THE BAR -- out"
+  },
+  {
+   "do": "waitFor",
+   "room": "nugget",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "01-out",
+   "room": "nugget"
+  },
+  {
+   "do": "click",
+   "on": "back_room_door",
+   "why": "and back in by the Nugget's back room door"
+  },
+  {
+   "do": "waitFor",
+   "room": "nugget_back",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "01-in"
+  },
+  {
+   "do": "click",
+   "on": "to_bar",
+   "why": "THE DOOR TO THE BAR -- out"
+  },
+  {
+   "do": "waitFor",
+   "room": "nugget",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "02-out",
+   "room": "nugget"
+  },
+  {
+   "do": "click",
+   "on": "back_room_door",
+   "why": "and back in by the Nugget's back room door"
+  },
+  {
+   "do": "waitFor",
+   "room": "nugget_back",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "02-in"
+  }
+ ]
+}

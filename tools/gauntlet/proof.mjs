@@ -605,9 +605,28 @@ async function main() {
       const populatedB = await decode(panelBshot.url);
       const baseA = await decode(panelAshot.url);
       const ambientIds = room.ambient ?? [];
+      // A PERSON IS LOOKED FOR WHERE AND WHEN THIS ROOM PUTS THEM: the room's
+      // placement (position and sheet) over the file's own, and only while
+      // the placement's or the file's `when` holds in panel B's state. Room 4's
+      // Vessel and judges are there from B3 and not before (errata 73 B), so
+      // their absence from an unconvened room is the room, not a missing sheet.
+      const holds = (when) => Object.entries(when ?? {}).every(([flag, want]) => {
+        if (typeof want === 'boolean') return panelB.flags.includes(flag) === want;
+        const got = panelB.counters?.[flag];
+        if (typeof want === 'number') return got === want;
+        return (want.atLeast === undefined || got >= want.atLeast)
+          && (want.atMost === undefined || got <= want.atMost)
+          && (want.equals === undefined || got === want.equals);
+      });
       for (const path of manifest.ambient ?? []) {
-        const npc = readJson(path);
+        const file = readJson(path);
+        const placed = file.placements?.[roomId];
+        const npc = placed ? { ...file, x: placed.x, y: placed.y, sprite: placed.sprite ?? file.sprite } : file;
         if (!ambientIds.includes(npc.id) || !npc.sprite?.frames?.length) continue;
+        if (!holds(placed?.when ?? file.when)) {
+          console.log(`    ambient ${npc.id}: absent in panel B by its own condition ${JSON.stringify(placed?.when ?? file.when)}`);
+          continue;
+        }
         const [, , fw, fh] = npc.sprite.frames[0];
         const camera = panelB.camera ?? 0;
         const box = { x: Math.round(npc.x - fw / 2 - camera), y: npc.y - fh, width: fw, height: fh + 2 };

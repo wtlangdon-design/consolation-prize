@@ -7814,6 +7814,101 @@
    "acceptedBy": "Tyler, visual rulings 2026-09-04 (plate, night, lamp, Winnie) and 2026-09-05 (floorboard C); gameplay Act I 2026-09-05",
    "by": "claude, on Tyler's Phase 1 instruction (opening-set retrofit, 2026-09-05)",
    "at": "2026-09-05T20:32:44.551Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 2,
+   "from": "art/staging/room-04/plate-01/candidate-1920x864.png",
+   "derivedFrom": "art/staging/room-04/plate-01/source.png",
+   "provenance": "art/staging/room-04/plate-01/frame.json",
+   "to": "art/backgrounds/room-04-nugget-back.png",
+   "hash": "87c98ead2c3411c02167ca89ad5a97163f8176ea1d379823f89c741f12290e1e",
+   "sourceHash": "8654f0f9f9acf9640e029f27f615298d0b96b155f8da68a6a9ea314cd7ca5d28",
+   "replacedHash": null,
+   "gates": {
+    "passed": true,
+    "kind": "plate"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-01T07:08:58.722Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 2,
+   "from": "art/staging/room-04/judges/judge-1.png",
+   "derivedFrom": "art/staging/room-04/plate-01/source.png",
+   "provenance": "art/staging/room-04/judges/judges.json",
+   "to": "art/actors/room-04-judge-1.png",
+   "hash": "7eb9c678df939e38ab9bb56fe438083aa9ae0875cc4c4eb8178eff809feec03e",
+   "sourceHash": "8654f0f9f9acf9640e029f27f615298d0b96b155f8da68a6a9ea314cd7ca5d28",
+   "replacedHash": null,
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-01T07:08:58.749Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 2,
+   "from": "art/staging/room-04/judges/judge-2.png",
+   "derivedFrom": "art/staging/room-04/plate-01/source.png",
+   "provenance": "art/staging/room-04/judges/judges.json",
+   "to": "art/actors/room-04-judge-2.png",
+   "hash": "b98773ec9b79b70ac8ebe6544e8cea9a75fccd8ff80abbddeee53a463ae45b8d",
+   "sourceHash": "8654f0f9f9acf9640e029f27f615298d0b96b155f8da68a6a9ea314cd7ca5d28",
+   "replacedHash": null,
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-01T07:08:58.762Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 2,
+   "from": "art/staging/room-04/judges/judge-3.png",
+   "derivedFrom": "art/staging/room-04/plate-01/source.png",
+   "provenance": "art/staging/room-04/judges/judges.json",
+   "to": "art/actors/room-04-judge-3.png",
+   "hash": "1c9ac034386642693bf7e1a93d78f14c8b1a737485c3a14f6244a27c16dbfa44",
+   "sourceHash": "8654f0f9f9acf9640e029f27f615298d0b96b155f8da68a6a9ea314cd7ca5d28",
+   "replacedHash": null,
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-01T07:08:58.772Z"
+  },
+  {
+   "assetId": "deke-vessel",
+   "attempt": 2,
+   "from": "art/staging/room-04/deke/deke-vessel-530-graded.png",
+   "derivedFrom": "art/staging/room-03/deke-02/sheet.png",
+   "provenance": "art/staging/room-04/deke/deke.json",
+   "to": "art/actors/deke-vessel-room-04.png",
+   "hash": "b36259359365b14e100ff09c38bc0bf276f5a7cbdd682a9d9a5d168eec76e002",
+   "sourceHash": "3930e896263cc1b6d7422b9fb0c47048a30bf0a2feca85389ffa1b33c46f8389",
+   "replacedHash": null,
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-01T07:08:58.828Z"
   }
  ],
  "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."

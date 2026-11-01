@@ -29,11 +29,16 @@ export async function browser() {
   const root = process.env.PLAYWRIGHT_BROWSERS_PATH || '/opt/pw-browsers';
   let found = [];
   try {
-    found = readdirSync(root)
-      .filter((name) => name.startsWith('chromium-'))
-      .sort()
-      .reverse()
-      .map((name) => resolve(root, name, 'chrome-linux/chrome'));
+    // NEWER BUILDS LIVE UNDER chrome-linux64, and the image links the one it
+    // ships at <root>/chromium. Both are tried; the old layout stays first.
+    found = [
+      ...readdirSync(root)
+        .filter((name) => name.startsWith('chromium-'))
+        .sort()
+        .reverse()
+        .flatMap((name) => [resolve(root, name, 'chrome-linux/chrome'), resolve(root, name, 'chrome-linux64/chrome')]),
+      resolve(root, 'chromium'),
+    ];
   } catch { /* no such directory: the first attempt's message is the answer */ }
   for (const executablePath of found) {
     try {
