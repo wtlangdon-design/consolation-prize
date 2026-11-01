@@ -4686,3 +4686,10 @@ Under errata 72 F, a gap in a puzzle's path makes the room **wait**, not ship wi
 5. **The duel engine does not exist.** Errata 69 already records it ("doc 03's duel machinery is not built"). This is plumbing a builder may write, but there is nothing to run through it until item 1 above, the missing lines, is written.
 
 **To unblock:** the wrong counters and Vessel's replies, for every pair Vessel can throw in Duels One and Two. That is at least Tier 1 (pairs 2–4) for Duel One and every pair from which Duel Two draws. It is Tyler's writing. Then a ruling on item 1. Room 4's four operations are untouched and waiting.
+
+## Q147 · The 45 puzzles' own writing was never checked — **OPEN 2026-10-31: AUDITED (doc 56), GATE NOW CHECKS IT (errata 74)**
+
+Tyler, after Q146: "Is it going to run into this same problem over and over with every room? I thought everything was done and ready to build." It would have. Q144's "writing layer finished" covered the examine layer only. Doc 56 is the audit: eight structural holes (an Act II deadlock, the fake funeral with no design, the executor unwritten, the funeral-to-coffin transition unstaged, A7's money loop, the act-3 boundary, F4's 24 pairs, D5's circular opening) and missing lines or items in most puzzles. Only C1, C5, E8, F2 (writing), B5 and B6 are complete.
+
+**Next:** close doc 56 act by act — decisions first (they change what gets written), then the writing, one voice, under Tyler's "finish the writing" instruction — adding each puzzle's entry to `proofs/readiness/puzzles.json` as it closes. Until then, rooms whose puzzles are open answer NO, which is correct.
+
