@@ -990,7 +990,9 @@
       },
       "neighbours": [
         "floor_3",
-        "floor_5_0"
+        "floor_5_0",
+        "floor_5_1",
+        "floor_5_2"
       ]
     },
     {
@@ -1001,11 +1003,11 @@
           "y": 759
         },
         {
-          "x": 1364,
+          "x": 775,
           "y": 759
         },
         {
-          "x": 1364,
+          "x": 775,
           "y": 812
         },
         {
@@ -1038,11 +1040,110 @@
       },
       "neighbours": [
         "floor_4",
+        "floor_5_2",
         "floor_6_0"
       ]
     },
     {
       "id": "floor_5_1",
+      "points": [
+        {
+          "x": 1005,
+          "y": 759
+        },
+        {
+          "x": 1364,
+          "y": 759
+        },
+        {
+          "x": 1364,
+          "y": 812
+        },
+        {
+          "x": 1005,
+          "y": 812
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 498,
+        "farHeight": 198,
+        "nearY": 858,
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            345
+          ],
+          [
+            797,
+            415
+          ]
+        ]
+      },
+      "neighbours": [
+        "floor_4",
+        "floor_5_2",
+        "floor_6_1"
+      ]
+    },
+    {
+      "id": "floor_5_2",
+      "points": [
+        {
+          "x": 775,
+          "y": 759
+        },
+        {
+          "x": 1005,
+          "y": 759
+        },
+        {
+          "x": 1005,
+          "y": 790
+        },
+        {
+          "x": 775,
+          "y": 790
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 498,
+        "farHeight": 198,
+        "nearY": 858,
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            345
+          ],
+          [
+            797,
+            415
+          ]
+        ]
+      },
+      "neighbours": [
+        "floor_4",
+        "floor_5_0",
+        "floor_5_1"
+      ]
+    },
+    {
+      "id": "floor_5_3",
       "points": [
         {
           "x": 1454,
@@ -1085,7 +1186,7 @@
         ]
       },
       "neighbours": [
-        "floor_6_1"
+        "floor_6_3"
       ]
     },
     {
@@ -1096,11 +1197,11 @@
           "y": 812
         },
         {
-          "x": 1364,
+          "x": 775,
           "y": 812
         },
         {
-          "x": 1364,
+          "x": 775,
           "y": 864
         },
         {
@@ -1140,6 +1241,103 @@
       "id": "floor_6_1",
       "points": [
         {
+          "x": 1005,
+          "y": 812
+        },
+        {
+          "x": 1364,
+          "y": 812
+        },
+        {
+          "x": 1364,
+          "y": 864
+        },
+        {
+          "x": 1005,
+          "y": 864
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 498,
+        "farHeight": 198,
+        "nearY": 858,
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            345
+          ],
+          [
+            797,
+            415
+          ]
+        ]
+      },
+      "neighbours": [
+        "floor_5_1",
+        "floor_6_2",
+        "floor_6_4"
+      ]
+    },
+    {
+      "id": "floor_6_2",
+      "points": [
+        {
+          "x": 775,
+          "y": 816
+        },
+        {
+          "x": 1005,
+          "y": 816
+        },
+        {
+          "x": 1005,
+          "y": 864
+        },
+        {
+          "x": 775,
+          "y": 864
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 498,
+        "farHeight": 198,
+        "nearY": 858,
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            345
+          ],
+          [
+            797,
+            415
+          ]
+        ]
+      },
+      "neighbours": [
+        "floor_6_0",
+        "floor_6_1"
+      ]
+    },
+    {
+      "id": "floor_6_3",
+      "points": [
+        {
           "x": 1454,
           "y": 812
         },
@@ -1180,12 +1378,12 @@
         ]
       },
       "neighbours": [
-        "floor_5_1",
-        "floor_6_2"
+        "floor_5_3",
+        "floor_6_4"
       ]
     },
     {
-      "id": "floor_6_2",
+      "id": "floor_6_4",
       "points": [
         {
           "x": 1364,
@@ -1228,8 +1426,8 @@
         ]
       },
       "neighbours": [
-        "floor_6_0",
-        "floor_6_1"
+        "floor_6_1",
+        "floor_6_3"
       ]
     }
   ],
@@ -1349,5 +1547,20 @@
     },
     "note": "Tyler, 2026-11-01: Thad and Deke 'look different from the rest of the characters in the room... the other characters all seem to have more detail and are a little darker.' The bar men and card players were drawn for this room and carry its lamplight; Thad is drawn in even, neutral light so he can go in every room, and Deke's shadows are shallower than his neighbours'. Measured on the sprites against the six patrons (mean luminance 47, darkest tenth 12): Thad 58/17, Deke 53/26. This grade (variant B of three shown to Tyler) lights both with a warm multiply [1, 0.9, 0.78] -- gentle enough to keep Thad's coat blue -- taking Thad to about 47/14; Deke also gets more contrast, because his darks never reached the room's, landing at about 33/8. Tyler, 2026-11-01: \"B but Deke ever so slightly brighter\" -- his brightness 0.85 to 0.9.",
     "saturate": 1.05
-  }
+  },
+  "props": [
+    {
+      "id": "whiskey_barrel",
+      "sheet": "art/props/room-03-barrel.png",
+      "x": 890,
+      "y": 812,
+      "frame": [
+        0,
+        0,
+        146,
+        236
+      ],
+      "note": "Set dressing at Deke's left, a drink on it (Tyler, 2026-11-01). Not a hotspot: no document writes a LOOK or LISTEN for it, so clicks go through it. Generated once (art/staging/room-03/barrel-01, room-03-barrel 1 of 2), keyed and BOX-reduced by tools/art/cut-prop.py to 225 px to the rim -- 0.53 of Deke's 428, his belt -- and graded to the bar front by tools/grade/match-neighbours.py at 0.9. Spans x 817-962, clear of Deke's rest-pose left edge at about 981."
+    }
+  ]
 }

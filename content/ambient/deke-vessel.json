@@ -12,11 +12,11 @@
  "tree": "DEKE_VESSEL",
  "placeNote": "AT THE BAR'S NEAR END, FEET LEVEL WITH THE SPITTOON, in the gap between the card table and the first drinker -- Tyler, 2026-11-01: on the open floor 'it feels really weird for him to just be standing in the middle of the room. What about down and to the right so his feet are in line with the spittoon but he's not overlapping the guys behind him?' Rendered at 1000, 1075 and 1080 on that line, then (Tyler, 2026-11-01: 'move Deke slightly to the left so he's not overlapping the guy at the bar at all') at 1030 and 1045: at 1035 his widest pose (frame 3, the hat, 97 px right of centre) ends at 1132, short of the first drinker, and his left touches only the card player's chair back. A whiskey barrel with a drink on it stands at his left (RoomFile.props, Tyler 2026-11-01) so he is not alone on an empty floor. Still facing the batwing doors -- doc 27 LOOK 1, 'watching the door'. History: 1109,655 stood on the first stool's leg; 1060,655 crowded the one-strike man (Tyler: 'I kind of stand on Deke when talking to the gold nugget guy'); 760,730 cleared him but stood alone in the middle of the floor. At 815 he is nearer the camera than the one-strike man's talking spot (1110,640), so the two conversations no longer share ground.",
  "walkTo": {
-  "x": 885,
+  "x": 730,
   "y": 818,
   "facing": "right"
  },
- "walkToNote": "Floor at his left, the same gap as before scaled to this depth (2026-11-01). When the barrel is placed at his left, Thad stands on its far side and they talk across it.",
+ "walkToNote": "Across the whiskey barrel from him (Tyler, 2026-11-01): the barrel stands at his left, 817-962 at 890,812, so Thad stands on its far side and they talk across it. Was 885,818, the floor at his left, before the barrel took it.",
  "barks": {},
  "barksNote": "Doc 07 writes no reputation barks for him: he is a doc 27 tree character, not one of the eighteen ambients.",
  "sprite": {

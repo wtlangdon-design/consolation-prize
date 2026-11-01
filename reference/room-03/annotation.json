@@ -233,6 +233,17 @@
     216
    ],
    "note": "The table, its chairs and the four men are one sprite; this is its footprint on the floor, which he walks round."
+  },
+  {
+   "id": "whiskey_barrel",
+   "rect": [
+    775,
+    790,
+    230,
+    26
+   ],
+   "keepsGroundAbove": true,
+   "note": "The whiskey barrel's footprint at its base: the barrel draws 817-962 at 890,812, and the rect runs about 40 px past it each side because his feet reach 29 px left and 43 px right of his centre -- a rect the barrel's own width let his boots walk through its staves (tools/gauntlet/barrel-proof.mjs). He walks round it; keepsGroundAbove so the floor behind it stays walkable and he can pass behind it, where it covers his legs."
   }
  ],
  "provisional": {
@@ -377,5 +388,20 @@
    "T_VESSEL_OPENED": true
   },
   "note": "Doc 35, VESSEL'S AUTO-OPEN, exactly: on entering, unless the swindle has happened or he has already opened, wait 1500 ms, he says \"You're the piano man.\" (his tree's opening, extracted from doc 27's Root) and the tree opens; T_VESSEL_OPENED makes it once only. Thad does not walk to him (doc 27: 'He opens. Thad does not approach him.')."
- }
+ },
+ "props": [
+  {
+   "id": "whiskey_barrel",
+   "sheet": "art/props/room-03-barrel.png",
+   "x": 890,
+   "y": 812,
+   "frame": [
+    0,
+    0,
+    146,
+    236
+   ],
+   "note": "Set dressing at Deke's left, a drink on it (Tyler, 2026-11-01). Not a hotspot: no document writes a LOOK or LISTEN for it, so clicks go through it. Generated once (art/staging/room-03/barrel-01, room-03-barrel 1 of 2), keyed and BOX-reduced by tools/art/cut-prop.py to 225 px to the rim -- 0.53 of Deke's 428, his belt -- and graded to the bar front by tools/grade/match-neighbours.py at 0.9. Spans x 817-962, clear of Deke's rest-pose left edge at about 981."
+  }
+ ]
 }

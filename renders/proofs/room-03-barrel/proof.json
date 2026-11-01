@@ -1,0 +1,374 @@
+{
+ "schema": 1,
+ "what": "reference/room-03/barrel/brief.md step 7, in the running game",
+ "commit": "cb25572beb8f7761d77eb8b7142afe00f21f2ec1",
+ "branch": "claude/whiskey-barrel-room-2mqopu",
+ "dirty": false,
+ "barrel": {
+  "id": "whiskey_barrel",
+  "sheet": "art/props/room-03-barrel.png",
+  "x": 890,
+  "y": 812,
+  "frame": [
+   0,
+   0,
+   146,
+   236
+  ],
+  "note": "Set dressing at Deke's left, a drink on it (Tyler, 2026-11-01). Not a hotspot: no document writes a LOOK or LISTEN for it, so clicks go through it. Generated once (art/staging/room-03/barrel-01, room-03-barrel 1 of 2), keyed and BOX-reduced by tools/art/cut-prop.py to 225 px to the rim -- 0.53 of Deke's 428, his belt -- and graded to the bar front by tools/grade/match-neighbours.py at 0.9. Spans x 817-962, clear of Deke's rest-pose left edge at about 981.",
+  "drawnBox": [
+   817,
+   577,
+   146,
+   236
+  ],
+  "obstacle": [
+   775,
+   790,
+   230,
+   26
+  ],
+  "sheetHash": "31d0061d1a9c3ebb39a19332d61e7b9af564d6db22ef91402c8515e31d342f02"
+ },
+ "paths": {
+  "behind": [
+   [
+    332,
+    761
+   ],
+   [
+    364,
+    761
+   ],
+   [
+    396,
+    762
+   ],
+   [
+    428,
+    763
+   ],
+   [
+    461,
+    763
+   ],
+   [
+    493,
+    764
+   ],
+   [
+    525,
+    765
+   ],
+   [
+    557,
+    765
+   ],
+   [
+    589,
+    766
+   ],
+   [
+    622,
+    767
+   ],
+   [
+    654,
+    767
+   ],
+   [
+    686,
+    768
+   ],
+   [
+    719,
+    769
+   ],
+   [
+    751,
+    770
+   ],
+   [
+    775,
+    770
+   ],
+   [
+    807,
+    770
+   ],
+   [
+    840,
+    770
+   ],
+   [
+    872,
+    770
+   ],
+   [
+    890,
+    770
+   ]
+  ],
+  "front": [
+   [
+    858,
+    776
+   ],
+   [
+    826,
+    781
+   ],
+   [
+    793,
+    787
+   ],
+   [
+    775,
+    790
+   ],
+   [
+    775,
+    812
+   ],
+   [
+    775,
+    846
+   ],
+   [
+    775,
+    852
+   ],
+   [
+    812,
+    852
+   ],
+   [
+    849,
+    852
+   ],
+   [
+    885,
+    852
+   ],
+   [
+    890,
+    852
+   ]
+  ]
+ },
+ "panels": [
+  {
+   "name": "b01-room-with-barrel",
+   "why": "the room with the barrel at Deke's left, after his opening is left",
+   "hash": "9ee250d74ede4aeb9fb3dc678a931c3ee0b421b47ce1a3eae3a0a1d73fea17f8",
+   "file": "raw-captures-ignored/b01-room-with-barrel.png",
+   "thad": {
+    "at": [
+     300,
+     760
+    ],
+    "bounds": [
+     94,
+     363,
+     412,
+     438
+    ],
+    "order": 0,
+    "from": "art/actors/thad-idlebreak-right/idle-break-10.png",
+    "fallback": false
+   },
+   "says": null,
+   "options": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   }
+  },
+  {
+   "name": "b02-thad-behind-barrel",
+   "why": "Thad behind the barrel: it draws after him and covers his legs",
+   "hash": "a7473a2d8779fd13fa0db69c34f446d1366ff3044c236cd186371e4d66b70227",
+   "file": "raw-captures-ignored/b02-thad-behind-barrel.png",
+   "thad": {
+    "at": [
+     890,
+     770
+    ],
+    "bounds": [
+     681,
+     368,
+     417,
+     444
+    ],
+    "order": 0,
+    "from": "art/actors/thad-idle-right/idle-00.png",
+    "fallback": false
+   },
+   "says": null,
+   "options": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "measured": {
+    "feet": [
+     890,
+     770
+    ],
+    "barrelBox": [
+     817,
+     577,
+     146,
+     236
+    ],
+    "sharedPixels": 11946,
+    "behind": true
+   }
+  },
+  {
+   "name": "b03-thad-in-front-of-barrel",
+   "why": "Thad in front of the barrel: he draws after it and covers it",
+   "hash": "543bce32d8be3068628330a487f5f3d5a0df2d3bbac8c65cfb33308415d363b0",
+   "file": "raw-captures-ignored/b03-thad-in-front-of-barrel.png",
+   "thad": {
+    "at": [
+     890,
+     852
+    ],
+    "bounds": [
+     654,
+     397,
+     472,
+     502
+    ],
+    "order": 0,
+    "from": "art/actors/thad-idle-right/idle-01.png",
+    "fallback": false
+   },
+   "says": null,
+   "options": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "measured": {
+    "feet": [
+     890,
+     852
+    ],
+    "sharedPixels": 17537,
+    "covers": true,
+    "wentRound": true
+   }
+  },
+  {
+   "name": "b04-talking-to-deke",
+   "why": "TALK TO Deke: Thad across the barrel from him, nobody overlapping",
+   "hash": "bf3ff8851b2aac9c88a25f589b467ed505cddcdd77cd8e4dda258d026045d21e",
+   "file": "raw-captures-ignored/b04-talking-to-deke.png",
+   "thad": {
+    "at": [
+     730,
+     818
+    ],
+    "bounds": [
+     507,
+     388,
+     446,
+     475
+    ],
+    "order": 0,
+    "from": "art/actors/thad-idle-right/idle-04.png",
+    "fallback": false
+   },
+   "says": null,
+   "options": 3,
+   "dialogueAt": {
+    "tree": "DEKE_VESSEL",
+    "node": "root"
+   },
+   "measured": {
+    "feet": [
+     730,
+     818
+    ],
+    "walkTo": {
+     "x": 730,
+     "y": 818,
+     "facing": "right"
+    },
+    "overlapping": [],
+    "facing": "right"
+   }
+  },
+  {
+   "name": "b05-talking-to-one-strike-man",
+   "why": "TALK TO one_strike_man: Thad at his unchanged place, clear of the barrel",
+   "hash": "119eab0f1390a9494256605c4b7e7fa74d3ce698d9517464f767f76918dc8427",
+   "file": "raw-captures-ignored/b05-talking-to-one-strike-man.png",
+   "thad": {
+    "at": [
+     1290,
+     745
+    ],
+    "bounds": [
+     1059,
+     356,
+     461,
+     429
+    ],
+    "order": 0,
+    "from": "art/actors/thad-idle-back/idle-00.png",
+    "fallback": false
+   },
+   "says": null,
+   "options": 4,
+   "dialogueAt": {
+    "tree": "amb_one_strike_man",
+    "node": "N1"
+   },
+   "measured": {
+    "feet": [
+     1290,
+     745
+    ],
+    "overlapping": []
+   }
+  },
+  {
+   "name": "b06-talking-to-card-sharp",
+   "why": "TALK TO card_sharp: Thad at his unchanged place, clear of the barrel",
+   "hash": "6ead20202a1c5ccd4276d09d871533a5ede9a5b8a160c6c1c3f9736edff74678",
+   "file": "raw-captures-ignored/b06-talking-to-card-sharp.png",
+   "thad": {
+    "at": [
+     960,
+     595
+    ],
+    "bounds": [
+     792,
+     312,
+     335,
+     312
+    ],
+    "order": 0,
+    "from": "art/actors/thad-idle-back/idle-04.png",
+    "fallback": false
+   },
+   "says": null,
+   "options": 4,
+   "dialogueAt": {
+    "tree": "amb_card_sharp",
+    "node": "N1"
+   },
+   "measured": {
+    "feet": [
+     960,
+     595
+    ],
+    "overlapping": []
+   }
+  }
+ ],
+ "failures": []
+}
