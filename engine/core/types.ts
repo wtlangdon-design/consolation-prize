@@ -1130,6 +1130,17 @@ export interface RoomFile {
   /** Doc 18's flicker, by a mechanism that works on a generated plate. */
   lamps?: RoomLamp[];
   /**
+   * THE ROOM'S LIGHT ON THE FIGURES THAT DO NOT CARRY IT (Tyler, 2026-11-01:
+   * Thad and Deke "look different from the rest of the characters in the
+   * room… the other characters all seem to have more detail and are a little
+   * darker"). Thad's sprites are drawn in even, neutral light so they can go
+   * in every room; a figure painted for a room carries that room's light.
+   * This grades the named figures into the room: a warm multiply for the
+   * light's colour, then brightness, contrast and saturation. Data, per room,
+   * per figure -- nothing is graded that is not named here.
+   */
+  figureLight?: FigureLight;
+  /**
    * Extra whole-plate frames, cycled with `background` as frame zero.
    *
    * TYLER'S ANSWER TO A PROBLEM I SPENT HOURS ON. The Nugget's seven men are
@@ -2240,6 +2251,24 @@ export interface PlaytestFixture {
  * One event on a room's timeline (errata 70 G). `at` is seconds of active,
  * unpaused time from entering the room.
  */
+/** A room's grade for the figures it names. See RoomFile.figureLight. */
+export interface FigureLight {
+  /** Mover ids (the player is `thad`) and ambient ids the grade applies to. */
+  figures: string[];
+  /** The light's colour as a multiply, each channel 0-1. Omitted: white. */
+  light?: [number, number, number];
+  brightness?: number;
+  contrast?: number;
+  saturate?: number;
+  /**
+   * A figure whose own drawing is flatter or brighter than the room's other
+   * figures takes its own brightness, contrast or saturation here, on top of
+   * the shared light (Deke's shadows are shallower than Thad's).
+   */
+  perFigure?: Record<string, { brightness?: number; contrast?: number; saturate?: number }>;
+  note?: string;
+}
+
 export type RoomTimelineStep = {
   at: number;
   note?: string;

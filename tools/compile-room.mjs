@@ -1355,6 +1355,8 @@ if (MERGED) {
   else delete built.population;
   // Doc 18's flicker, by the mechanism that works on a generated plate.
   if (ann.lamps) built.lamps = ann.lamps;
+  // Tyler, 2026-11-01: the room's light on the figures drawn apart from it.
+  if (ann.figureLight) built.figureLight = ann.figureLight;
   // Whole-plate animation, where a room declares it.
   if (ann.backgroundFrames) {
     built.backgroundFrames = ann.backgroundFrames;

@@ -16,7 +16,7 @@ export function stateImagePath(shown: { image?: string; imageByState?: Record<st
   const state = askedState();
   return (state && shown.imageByState?.[state]) || shown.image;
 }
-import type { ActorFile, AmbientFile, Interactable, OverlayFile, RoomLamp } from '../core/types.ts';
+import type { ActorFile, AmbientFile, FigureLight, Interactable, OverlayFile, RoomLamp } from '../core/types.ts';
 import { ActorSprite, type DrawnFrame } from './ActorSprite.ts';
 import { depthTies, watch } from '../dev/Watch.ts';
 import type { DrawRecord } from '../dev/Probe.ts';
@@ -303,6 +303,34 @@ export interface OverlayFor {
  * pointer happened to cause a redraw. Tyler, 2026-10-31: "everyone seems to
  * stop moving when I'm not clicking around."
  */
+/** A figure grade's brightness, contrast and saturation as a canvas filter string. */
+export function gradeFilter(grade: FigureLight): string {
+  const parts = [];
+  if (grade.brightness !== undefined) parts.push(`brightness(${grade.brightness})`);
+  if (grade.contrast !== undefined) parts.push(`contrast(${grade.contrast})`);
+  if (grade.saturate !== undefined) parts.push(`saturate(${grade.saturate})`);
+  return parts.length ? parts.join(' ') : 'none';
+}
+
+/**
+ * THE FRAME A FIGURE SHOWS WHILE IN CONVERSATION (Tyler, 2026-11-01: "Deke
+ * doesn't seem animated"). Doc 32 section 8.2's deadpan rule is that the
+ * reply pause is not filled with flapping, and the build read that as
+ * "hold the talk frame for the whole conversation" -- so a man stood frozen
+ * mid-gesture for as long as the list of choices was up. Now: the talk frame
+ * only while his own line is on screen; the rest of the time he breathes, on
+ * his two idle frames and nothing else -- no breaks, no hat, nothing that
+ * would read as filling the pause. Pure, like ambientFrameAt.
+ */
+export function conversationFrameAt(
+  declared: NonNullable<AmbientFile['sprite']>, phase: number, clock: number, speaking: boolean,
+): number {
+  if (speaking) return declared.talkFrame ?? 0;
+  if (declared.beatEvery || !declared.rate) return 0;
+  const idleFrames = Math.min(2, declared.frames.length);
+  return Math.floor((clock * declared.rate + phase) * 2) % idleFrames;
+}
+
 export function ambientFrameAt(
   declared: NonNullable<AmbientFile['sprite']>, phase: number, clock: number,
 ): number {
@@ -1196,12 +1224,13 @@ export class Renderer {
     // pixels and on nothing behind him; with no field it is drawn straight,
     // exactly as before.
     const tint = this.tintAt(feetX, feetY);
+    const grade = this.gradeFor(mover.id);
     const paint = (go: () => DrawnFrame | null): DrawnFrame | null => {
-      if (!tint) return go();
+      if (!tint && !grade) return go();
       let landed: DrawnFrame | null = null;
       const half = Math.ceil(mover.height * 0.6);
       this.drawTinted(tint, [Math.floor(feetX - half), Math.floor(feetY - mover.height - 8), half * 2, mover.height + 16],
-        () => { landed = go(); });
+        () => { landed = go(); }, grade);
       return landed;
     };
     const drawn = frames > 0 && paint(() => sprite.draw(
@@ -1494,6 +1523,14 @@ export class Renderer {
     return moverTint(live, feetX, feetY, askedState());
   }
 
+  /** The room's figure grade, if it names this figure. Null otherwise: drawn exactly as before. */
+  private gradeFor(id: string): FigureLight | null {
+    const light = this.state.room.figureLight;
+    if (!light || !light.figures.includes(id)) return null;
+    const own = light.perFigure?.[id];
+    return own ? { ...light, ...own } : light;
+  }
+
   /** A lamp is live unless a flag condition or an object-state condition says otherwise. */
   private lampLive(lamp: RoomLamp): boolean {
     if (lamp.when && !this.state.flags.test(lamp.when)) return false;
@@ -1509,7 +1546,8 @@ export class Renderer {
    * what `draw` put there; the plate under the man is never tinted. Falls
    * back to drawing straight when there is no scratch (tests, no document).
    */
-  private drawTinted(tint: MoverTint, bounds: [number, number, number, number], draw: () => void): void {
+  private drawTinted(tint: MoverTint | null, bounds: [number, number, number, number], draw: () => void,
+    grade: FigureLight | null = null): void {
     const scratch = this.scratch();
     if (!scratch) { draw(); return; }
     const camera = this.state.cameraX;
@@ -1518,11 +1556,29 @@ export class Renderer {
     scratch.translate(-camera, 0);
     const screenContext = this.screen.borrow(scratch);
     try {
+      // THE ROOM'S GRADE, FIRST. Brightness, contrast and saturation ride on
+      // the draw as a canvas filter -- none of them blurs, so the pixels stay
+      // hard-edged. The light's colour is a multiply over the figure; a
+      // multiply also paints the transparent pixels around him, so his own
+      // silhouette is stamped back in with `destination-in` afterwards.
+      if (grade) scratch.filter = gradeFilter(grade);
       draw();
+      scratch.filter = 'none';
+      if (grade?.light) {
+        const [r, g, b] = grade.light.map((v) => Math.round(Math.max(0, Math.min(1, v)) * 255));
+        scratch.save();
+        scratch.globalCompositeOperation = 'multiply';
+        scratch.fillStyle = `rgb(${r},${g},${b})`;
+        scratch.fillRect(bounds[0], bounds[1], bounds[2], bounds[3]);
+        scratch.globalCompositeOperation = 'destination-in';
+        draw();
+        scratch.restore();
+      }
     } finally {
+      scratch.filter = 'none';
       this.screen.borrow(screenContext);
     }
-    applyTint(scratch, tint, bounds[0], bounds[1], bounds[2], bounds[3]);
+    if (tint) applyTint(scratch, tint, bounds[0], bounds[1], bounds[2], bounds[3]);
     scratch.setTransform(1, 0, 0, 1, 0, 0);
     screenContext.drawImage(scratch.canvas, camera, 0);
   }
@@ -1554,9 +1610,11 @@ export class Renderer {
     // HELD STILL WHILE SPOKEN TO. Doc 32 section 8.2, deadpan rule: the
     // reply pause is not filled with flapping. Her own tree open means her
     // work stops on the talk frame; any other conversation leaves her be.
-    const talking = (this.state.dialogue.isActive
+    const inConversation = (this.state.dialogue.isActive
       && this.state.dialogue.activeTreeId === npc.tree) || this.greeting === npc.tree;
-    const index = talking ? (declared.talkFrame ?? 0) : this.ambientFrame(declared, phase);
+    const index = inConversation
+      ? conversationFrameAt(declared, phase, this.clock, this.speaker === npc.id)
+      : this.ambientFrame(declared, phase);
     const [sx, sy, width, height] = declared.frames[
       (index + declared.frames.length) % declared.frames.length
     ] as [number, number, number, number];
@@ -1567,8 +1625,9 @@ export class Renderer {
     const left = npc.x - Math.floor(drawW / 2);
     const top = npc.y - drawH + 1;
     const tint = this.tintAt(npc.x, npc.y);
+    const grade = this.gradeFor(npc.id);
     const draw = () => this.screen.context.drawImage(image, sx, sy, width, height, left, top, drawW, drawH);
-    if (tint) this.drawTinted(tint, [left, top, drawW, drawH], draw);
+    if (tint || grade) this.drawTinted(tint, [left, top, drawW, drawH], draw, grade);
     else draw();
     return index;
   }
