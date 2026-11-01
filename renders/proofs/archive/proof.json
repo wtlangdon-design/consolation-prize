@@ -4,47 +4,10 @@
  "room": "archive",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "03dc56a70f680fff9bf8b8e0eb3231b76622b091",
- "workingTreeClean": false,
- "dirtyAllowed": true,
- "uncommitted": [
-  "M art/staging/ledger.json",
-  " M art/ui/item-icons.png",
-  " M content/build-ledger.json",
-  " M content/combinations.json",
-  " M content/flags/flags.json",
-  " M content/manifest.json",
-  " M content/rooms/claims-registrar.json",
-  " M content/ui/duplicate-allowlist.json",
-  " M content/ui/item-icons.json",
-  " M engine/core/VerbSystem.ts",
-  " M engine/core/types.ts",
-  " M proofs/check-friction.json",
-  " M proofs/readiness/room-08.json",
-  " M proofs/readiness/room-08.sources.json",
-  " M reference/global-baseline.json",
-  " M reference/room-07/annotation.json",
-  " M renders/item-icons.png",
-  " M renders/item-icons@4x.png",
-  " M tools/check-written-content.mjs",
-  " M tools/compile-room.mjs",
-  " M tools/extract-content.mjs",
-  " M tools/pixelart/item_icons.py",
-  "?? art/backgrounds/room-08-archive.png",
-  "?? content/fixtures/room-08.json",
-  "?? content/rooms/archive.json",
-  "?? proofs/room-08/",
-  "?? proofs/spec/archive.json",
-  "?? reference/room-08/",
-  "?? renders/room-08-graybox-with-thad.png",
-  "?? renders/room-08-graybox.png",
-  "?? tests/room-08.test.ts",
-  "?? tools/art/room08-plate.mjs",
-  "?? tools/gauntlet/routes/archive-doors.json",
-  "?? tools/gauntlet/routes/archive-life.json",
-  "?? tools/gauntlet/routes/archive.json",
-  "?? tools/room08-graybox.py"
- ],
+ "commit": "bfd085c7ec895887008204b6601844a251189a95",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
  "visualState": null,
  "candidates": [],
  "route": "archive",
@@ -110,7 +73,7 @@
    ],
    "reportedHeight": 498,
    "expected": 498,
-   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-00.png",
    "bounds": [
     717,
     248,
@@ -147,7 +110,7 @@
    ],
    "reportedHeight": 569,
    "expected": 569,
-   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-04.png",
    "bounds": [
     680,
     280,
@@ -166,7 +129,7 @@
   {
    "panel": "B",
    "room": "archive",
-   "clock": 117.0107,
+   "clock": 117.9697,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -207,7 +170,7 @@
      "height": 521,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
       30,
       259,
@@ -237,15 +200,15 @@
     "flag T_EXECUTOR_NAMED=true",
     "flag ACT=3"
    ],
-   "capturedAt": "2026-11-01T22:16:29.987Z",
+   "capturedAt": "2026-11-01T22:31:11.641Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "4058c018986eebc27b7db8e718b50d00d9c46174633e76511b5303bb1a22efbf"
+   "hash": "aa3eda9b61810ce841f5cb604ce7498d9b56b09cae26d43380070a1575a4503c"
   },
   {
    "panel": "A",
    "room": "archive",
-   "clock": 118.0274,
+   "clock": 118.73639999999999,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -312,15 +275,15 @@
     "flag ACT=3",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-01T22:16:31.003Z",
+   "capturedAt": "2026-11-01T22:31:12.542Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "33d63a2d17450506c497d9f936bcd8699909480425bcd59595bae26bfadb1734"
+   "hash": "320cbc092af56d83fca07886abbe8e094bd1cce373a32517e20af4e87755c728"
   },
   {
    "panel": "D",
    "room": "archive",
-   "clock": 125.12710000000001,
+   "clock": 126.00269999999999,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -363,7 +326,7 @@
      "height": 570,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-00.png",
+     "from": "art/actors/thad-idle-back/idle-02.png",
      "bounds": [
       742,
       280,
@@ -402,10 +365,10 @@
     "cast(true)",
     "flag T_HOB_HANDWRITING=true"
    ],
-   "capturedAt": "2026-11-01T22:16:38.241Z",
+   "capturedAt": "2026-11-01T22:31:19.684Z",
    "intent": "principal changed state: E9 BY LOOKING (doc 57 E9, invariant 7). Prerequisite: T_HOB_HANDWRITING, set by the flag control. Visible consequence: the file's line is the one about its owner; T_SAME_HAND is written.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "c74faf867a83bfdb0643f05c35bcd394196ee768a5c775a540a3d4a97d9ee2f6",
+   "hash": "dfa0abe83f9b1bc83315c0d5c26c6ba52db799997a19cc86cbc77e2cf470e349",
    "changedBy": "flags"
   }
  ],
@@ -436,11 +399,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-01T22:16:38.241Z",
+ "at": "2026-11-01T22:31:19.684Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 265470,
+  "bytes": 265380,
   "panels": 5,
   "scale": 0.5
  }
