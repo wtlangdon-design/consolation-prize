@@ -453,6 +453,8 @@ export class GameScene extends Phaser.Scene {
     // Beat 9's carrier runs alongside the player rather than instead of him,
     // so it is ticked whether or not the opening runner is.
     if (this.carried.update(now, this.world)) this.markDirty();
+    // A character walking out (AmbientFile.exit) moves every frame he walks.
+    if (this.ambient.noteDepartures(now)) this.markDirty();
     if (this.sequence.isRunning || this.carried.isRunning) this.markDirty();
     // The opening's automatic segment has played out. Bank its flag writes
     // and move on -- to the driver's tree, or to control.

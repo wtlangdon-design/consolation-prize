@@ -395,6 +395,12 @@ export interface AmbientFile {
    * while the Assay is convened (errata 76 B). A placement may carry its own.
    */
   when?: Condition;
+  /**
+   * HOW HE LEAVES, when `when` stops holding while Thad is in the room. Tyler,
+   * 2026-11-01: a character must never just disappear. Without this he is
+   * simply absent; with it he walks the path and is gone at its end.
+   */
+  exit?: AmbientExit;
   /** The dialogue tree TALK TO opens. Empty for a person who has none. */
   tree: string;
   /**
@@ -2320,6 +2326,23 @@ export interface PlaytestFixture {
  * One event on a room's timeline (errata 70 G). `at` is seconds of active,
  * unpaused time from entering the room.
  */
+/** A walk out of the room. See AmbientFile.exit and engine/core/Departure.ts. */
+export interface AmbientExit {
+  /** Floor points from where he stands (not repeated) to the door, in room pixels. */
+  path: [number, number][];
+  /** Pixels per second along the path. */
+  speed: number;
+  sheet: string;
+  /** The walk cycle, in order. */
+  frames: [number, number, number, number][];
+  fps: number;
+  /** Which way the sheet draws him walking; the other way is mirrored. */
+  drawnFacing: 'left' | 'right';
+  /** The sheet's figure height, so he is drawn on the room's curve. */
+  figureHeight: number;
+  note?: string;
+}
+
 /** One piece of furniture drawn in depth order. See RoomFile.props. */
 export interface RoomProp {
   id: string;

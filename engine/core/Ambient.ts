@@ -1,4 +1,5 @@
-import type { AmbientFile } from './types.ts';
+import type { AmbientExit, AmbientFile } from './types.ts';
+import { departureAt, type DeparturePose } from './Departure.ts';
 import type { GameState } from './GameState.ts';
 
 export interface FiredBark {
@@ -37,8 +38,20 @@ export interface FiredBark {
  */
 const NPC_HALF_WIDTH = 0.2;
 
+/** A character walking out (AmbientFile.exit), where he is this frame. */
+export interface Departing {
+  npc: AmbientFile;
+  exit: AmbientExit;
+  pose: DeparturePose;
+}
+
 export class AmbientLayer {
   private readonly fired = new Set<string>();
+  /** Who was present last frame, in which room: how a departure is noticed. */
+  private seen = new Map<string, AmbientFile>();
+  private seenRoom: string | null = null;
+  private departures: { npc: AmbientFile; exit: AmbientExit; startedAt: number }[] = [];
+  private clock = 0;
 
   constructor(private readonly state: GameState) {}
 
@@ -74,6 +87,41 @@ export class AmbientLayer {
           }
           : npc;
       });
+  }
+
+  /**
+   * NOTICES WHO HAS JUST GONE. Called once a frame by the scene. A character
+   * present last frame and absent now, in the same room, with an `exit`,
+   * starts walking it; arriving in a room notices nothing, so a man who left
+   * while Thad was away is simply not there. True while anyone is walking.
+   */
+  noteDepartures(now: number): boolean {
+    this.clock = now;
+    const room = this.state.room.id;
+    const present = new Map(this.present.map((npc) => [npc.id, npc]));
+    if (room !== this.seenRoom) {
+      this.seenRoom = room;
+      this.departures = [];
+    } else {
+      for (const [id, npc] of this.seen) {
+        const exit = npc.exit;
+        if (!present.has(id) && exit && !this.departures.some((one) => one.npc.id === id)) {
+          // FROM WHERE HE STOOD: the path is the way to the door, and its
+          // first leg starts at his own feet.
+          this.departures.push({ npc, exit: { ...exit, path: [[npc.x, npc.y], ...exit.path] }, startedAt: now });
+        }
+      }
+    }
+    this.seen = present;
+    this.departures = this.departures.filter((one) => !departureAt(one.exit, now - one.startedAt).done);
+    return this.departures.length > 0;
+  }
+
+  /** Everyone walking out this frame, and where. */
+  get departing(): Departing[] {
+    return this.departures.map(({ npc, exit, startedAt }) => ({
+      npc, exit, pose: departureAt(exit, this.clock - startedAt),
+    }));
   }
 
   get reputationState(): string {

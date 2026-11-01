@@ -2,7 +2,7 @@ import type { GameState } from '../core/GameState.ts';
 import type { PresentedOption } from '../core/DialogueRunner.ts';
 import { FAR_WALK, IDLE_BREAK, type Actor } from '../core/Actor.ts';
 import type { RoomActors } from '../core/RoomActors.ts';
-import type { AmbientLayer } from '../core/Ambient.ts';
+import type { AmbientLayer, Departing } from '../core/Ambient.ts';
 import { askedState } from '../dev/RoomState.ts';
 import { applyTint, moverTint, type MoverTint } from './LightFields.ts';
 
@@ -233,6 +233,7 @@ export interface RoomFigure {
   npc?: AmbientFile;
   mover?: Actor;
   prop?: RoomProp;
+  walker?: Departing;
 }
 
 /**
@@ -246,8 +247,12 @@ export interface RoomFigure {
  * quietly went back to drawing one protagonist would look identical in every
  * screenshot of a room nobody had staged yet.
  */
-export function roomFigures(ambient: AmbientFile[], movers: Actor[], props: RoomProp[] = []): RoomFigure[] {
+export function roomFigures(ambient: AmbientFile[], movers: Actor[], props: RoomProp[] = [],
+  walkers: Departing[] = []): RoomFigure[] {
   return [
+    // A character walking out (AmbientFile.exit) is drawn where his walk has
+    // reached, in the same depth order as everyone else.
+    ...walkers.map((walker) => ({ id: walker.npc.id, feetX: walker.pose.x, feetY: walker.pose.y, walker })),
     // Furniture first, so a figure standing exactly on its base line is drawn
     // in front of it: the stable sort keeps insertion order on a tie.
     ...props.map((prop) => ({ id: prop.id, feetX: prop.x, feetY: prop.y, prop })),
@@ -1120,8 +1125,13 @@ export class Renderer {
     // the dark he is looking at) draws everyone but him.
     const playerHidden = this.state.room.actor === 'hidden';
     const props = (this.state.room.props ?? []).filter((prop) => this.state.flags.test(prop.when));
-    for (const figure of depthOrder(roomFigures(this.ambient.present, this.actors.all(), props))) {
+    for (const figure of depthOrder(roomFigures(this.ambient.present, this.actors.all(), props,
+      this.ambient.departing))) {
       if (playerHidden && figure.mover?.id === this.state.content.actor.id) continue;
+      if (figure.walker) {
+        this.drawWalker(figure.walker);
+        continue;
+      }
       if (figure.prop) {
         this.drawRoomProp(figure.prop);
         continue;
@@ -1167,6 +1177,45 @@ export class Renderer {
       watch.record('depth-tie', `${one} ${two}`,
         `both at feet y ${spans.find((s) => s.id === one)?.feetY}, overlapping in x`);
     }
+  }
+
+  /**
+   * A character walking out: his exit's walk cycle at the frame and place his
+   * walk has reached, on the room's curve, mirrored when he walks the other
+   * way from the sheet, and graded and tinted exactly as he was standing.
+   */
+  private drawWalker(walker: Departing): void {
+    const { npc, exit, pose } = walker;
+    const image = this.sheet(exit.sheet);
+    if (!image) {
+      watch.record('graybox:not-loaded', npc.id, `${exit.sheet} has not arrived; drew nothing`);
+      return;
+    }
+    const [sx, sy, width, height] = exit.frames[pose.frame % exit.frames.length]!;
+    const man = this.state.stagedHeightAt(pose.x, pose.y) ?? exit.figureHeight;
+    const scale = (man * (npc.sprite?.stature ?? 1)) / exit.figureHeight;
+    const drawW = Math.max(1, Math.round(width * scale));
+    const drawH = Math.max(1, Math.round(height * scale));
+    const left = pose.x - Math.floor(drawW / 2);
+    const top = pose.y - drawH + 1;
+    const mirror = (pose.heading < 0) !== (exit.drawnFacing === 'left');
+    // The context is read at draw time: drawTinted lends the screen a scratch.
+    const draw = () => {
+      const context = this.screen.context;
+      if (!mirror) {
+        context.drawImage(image, sx, sy, width, height, left, top, drawW, drawH);
+        return;
+      }
+      context.save();
+      context.translate(left + drawW, top);
+      context.scale(-1, 1);
+      context.drawImage(image, sx, sy, width, height, 0, 0, drawW, drawH);
+      context.restore();
+    };
+    const tint = this.tintAt(pose.x, pose.y);
+    const grade = this.gradeFor(npc.id);
+    if (tint || grade) this.drawTinted(tint, [left, top, drawW, drawH], draw, grade);
+    else draw();
   }
 
   /** A piece of furniture, 1:1, its bottom row on its base line. See RoomFile.props. */

@@ -1,0 +1,15 @@
+The attached image is from my pixel-art adventure game. The six figures on the left are Thad, the hero, walking to the left: a complete six-step walk cycle. The man on the right is Deke Vessel, standing.
+
+Draw DEKE VESSEL WALKING TO THE LEFT, as a six-frame walk cycle that matches Thad's six frames step for step: the same leg and arm positions in the same order, the same stride, the same bounce.
+
+DEKE must stay exactly himself in every frame:
+- Same face, moustache and grin, same hat pushed back on his head, same faded brown coat, worn shirt and belt, same tall polished boots.
+- Same pixel-art style, same pixel size, same flat soft shading, same small amount of texture as in the attached image. Not sharper and not more detailed.
+- Seen from the side, walking left, head turned left in the direction he is going. Relaxed and pleased with himself: an unhurried stroll, not a march.
+
+RULES — these matter more than anything else:
+- One row of six figures, left to right, all the same size, full length from hat to boots, with the boots on the same baseline.
+- Clear magenta space between figures. No figure touches or overlaps another.
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no Thad, nothing else in the picture.
+- Crisp pixel edges against the magenta. No soft glow or blur around him.
+- No text, labels, numbers or borders.
