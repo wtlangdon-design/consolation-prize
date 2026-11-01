@@ -43,6 +43,13 @@ export interface SelectionResult {
    * character's. Null now means only what it says.
    */
   sayer: string | null;
+  /**
+   * `say` is the option's authored STAGE DIRECTION, not a spoken line: the
+   * option has a `beat` and nothing to say. Tyler, 2026-10-31 (option A):
+   * a beat is shown as written, over the character, in a quieter ink --
+   * the one-strike man's "Tell me about it." had been answered by nothing.
+   */
+  direction: boolean;
   /** True once the conversation has closed. */
   ended: boolean;
 }
@@ -431,6 +438,7 @@ export class DialogueRunner {
     let say: string | null;
     let sayer: string | null = null;
     let rest: { speaker: string; line: string }[] = [];
+    let direction = false;
     if (rephrased) {
       say = rephrased.say;
     } else if (repeat?.exchange?.length) {
@@ -446,6 +454,14 @@ export class DialogueRunner {
       rest = exchange.slice(1);
     } else {
       say = option.say ?? null;
+      // A BEAT IS SHOWN, NEVER FILLED. The option has nothing to say and a
+      // stage direction for what happens instead; the direction is presented
+      // verbatim. check-content-schema forbids a beat beside a line, so this
+      // cannot shadow one.
+      if (say === null && option.beat) {
+        say = option.beat;
+        direction = true;
+      }
     }
     // AN UNATTRIBUTED ANSWER IS THE TREE'S OWNER, NOT NOBODY. An exchange
     // names its own speakers and keeps them; a plain `say` or `repeat` is the
@@ -477,7 +493,7 @@ export class DialogueRunner {
       optionId: option.id,
       tree: treeId,
       node: nodeId,
-      presentation: { say, sayer, rest, ended: ends },
+      presentation: { say, sayer, rest, direction, ended: ends },
       goto,
       ends,
       effects,
