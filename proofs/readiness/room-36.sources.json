@@ -3,30 +3,42 @@
  "room": 36,
  "id": "room-36",
  "name": "MAIN STREET, DAWN",
- "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 by the unattended room pass. The examine, act-variant and wrong-verb pointers were resolved mechanically from document headings. Dialogue and puzzles are NOT mapped: the room is blocked at the repeat-variant layer (doc 15 section 5, 'Repeat variants and verb fallbacks, 41 rooms', unchecked), which no mapping can change, so the gate's dialogue/puzzle NOs here mean 'not declared', not 'not written'. Map them before this room is reconsidered.",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54); doc 05 governs by errata 69 B.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 36 — MAIN STREET, DAWN",
+  "primary": "docs/05-examine-layer.md::ROOM 36 \u2014 MAIN STREET, DAWN",
   "batch": [
-   "docs/08-examine-batch-1.md::ROOM 36 — MAIN STREET, DAWN"
+   "docs/08-examine-batch-1.md::ROOM 36 \u2014 MAIN STREET, DAWN"
   ],
   "merged": [
-   "docs/08-examine-batch-1.md::ROOM 36 — MAIN STREET, DAWN"
-  ]
+   "docs/08-examine-batch-1.md::ROOM 36 \u2014 MAIN STREET, DAWN"
+  ],
+  "completions": [
+   "docs/54-batch-c.md::ROOM 36 \u00b7 MAIN STREET, DAWN"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "Room 36 is itself Room 2's Act IV variant (doc 20); it has no acts of its own."
+  }
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 36 — MAIN STREET, DAWN",
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 36 \u2014 MAIN STREET, DAWN",
  "dialogue": {
   "characters": [],
   "trees": [],
-  "mapped": false
+  "none": {
+   "source": "docs/48-act-turn-beats.md::S7 \u00b7 MAIN STREET, DAWN (the close)",
+   "why": "S7: 'Not a cutscene at all \u2026 the player walks'; nobody is staged to speak."
+  }
  },
  "puzzles": {
   "ids": [],
-  "source": null,
-  "mapped": false
+  "none": {
+   "source": "docs/02-puzzle-graph.md::Puzzle Dependency Graph \u2014 v1",
+   "why": "F5 has ended the puzzles; doc 02 sites none here."
+  }
  },
  "staging": {
-  "required": null,
-  "why": "not assessed: blocked at the examine layer"
+  "required": true,
+  "source": "docs/48-act-turn-beats.md::S7 \u00b7 MAIN STREET, DAWN (the close)"
  },
  "connectivity": "docs/20-room-map.md"
 }

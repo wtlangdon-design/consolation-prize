@@ -378,7 +378,7 @@ function ask(room, sources, note) {
   /* 4 · wrong-verb layer -------------------------------------------------- */
   const wrong = section(sources.wrongVerbs);
   const wrongLines = wrong.ok
-    ? (wrong.body.match(/^\*\*.+?\*\*\s*·\s*[A-Z ]+\s*—/gm) ?? []).length : 0;
+    ? (wrong.body.match(/^\*\*.+?\*\*\s*·\s*[A-Z_ ]+\s*—/gm) ?? []).length : 0;
   add('wrong-verbs', 'Wrong-verb layer complete?',
     wrong.ok && wrongLines > 0 ? 'YES' : 'NO',
     [sources.wrongVerbs ?? '(none declared)'],

@@ -630,3 +630,91 @@
 ### THE SLUICE FRAMES
 **LOOK** 1 "The frames of old sluices, their boards long since borrowed for something else. The skeleton of an idea about water." · 2 "One still has its riffles, nailed in hope and left in place." · 3 "The water they were built for went somewhere else a season later. Even the creek left the row."
 **LISTEN** 1 "Wind through the frames, a dry rattle where water should be." · 2 "A loose board tapping, as if asking to be used." · 3 "Nothing. They have been dry long enough to forget."
+
+---
+
+# ROOM 34 · UNDER PROSPERITY
+
+*Merged: doc 05's eight and doc 10's eight, twelve objects. The two passes describe two moments (decided under errata 68's delegation, recorded in errata 69 A): doc 10's is the way down — Thad's own tunnel, "LOOK is beginning to run out; LISTEN is beginning to take over" — and doc 05's is what the way down reaches once F3 has broken through: the old timbering, the tended lantern, the even footprints and the seam. One room, two states: **before F3** it shows doc 10's subjects with doc 05's THE DARK, THE AIR, THE WALLS, THE TIMBERING and THE WAY BACK UP; **after F3** doc 05's THE SEAM, THE OLD LANTERN and THE FOOTPRINTS appear. No line here says where the void is. F2 is found by ear in Room 33, without hints, and nothing in this room may point at it.*
+
+## Same object, both passes
+
+**THE AIR** ≡ **THE DRAUGHT**
+**THE WAY BACK UP** ≡ **THE WAY BACK**
+
+*(THE TIMBERING has the same name in both passes.)*
+
+## Repeats
+
+**THE DARK** — LOOK 2 "I turned the lamp down once, to see what the dark was like on its own. I turned it back up." · 3 "It is not empty. It is only unlit." | LISTEN 2 "The ringing in my ears, settling on a note. A little flat. Of course it is." · 3 "My own heartbeat, which I have not heard in some years, keeping better time than the town."
+
+**THE AIR** — LOOK 3 "There is nothing to see. I keep looking anyway, like a man rereading a letter he knows by heart." | LISTEN 3 "Moving, and warmer. I have stopped being surprised by it and started paying attention."
+
+**THE WALLS** — LOOK 2 "Rock." · 3 "Rock, mostly." | LISTEN 2 "Water inside the stone again, going about its business." · 3 "Nothing I can name yet. I am listening anyway. It is what I am for."
+
+*(THE WALLS' LOOK repeats empty out, as doc 10 asks of this room and doc 05 asks of Room 33's rock. Doc 10's THE ROCK FACE is the face of the tunnel, not these walls, and keeps its own lines.)*
+
+**THE TIMBERING** — LOOK 2 "The joints are pegged, not nailed, by somebody who had more time than nails." · 3 "It has held a town on top of it for twelve years without a word of complaint. I know men who could learn from it." | LISTEN 2 "A long creak overhead, and then the mountain settles back." · 3 "Nothing for a while. Then one small tick, like a clock deciding not to strike."
+
+**THE SEAM** — LOOK 2 "It runs at a slant into the dark, wider than my hand and further than the lamp." · 3 "I have looked at it for a long time. It does not do anything. It does not need to." | LISTEN 2 "Nothing. Gold has never had to raise its voice." · 3 "Nothing. Twelve years of a town, built on top of a silence."
+
+**THE OLD LANTERN** — LOOK 2 "The wick has been trimmed square, the way a careful man trims one." · 3 "It hangs where it would light the way back up, not the way in. Whoever kept it always meant to leave." | LISTEN 2 "Nothing. Its tin cooled a long time ago." · 3 "Nothing. It is waiting for its keeper, and its keeper is not coming down tonight."
+
+**THE FOOTPRINTS** — LOOK 2 "The stride never shortens, coming or going. Whoever made these was never in a hurry and never tired." · 3 "Mine cross his now, clumsier and in a hurry. He would not have approved." | LISTEN 2 "Nothing. The clay has kept every step and repeats none of them." · 3 "Nothing. A path nobody walks any more makes exactly this sound."
+
+**THE WAY BACK UP** — LOOK 3 "The coin of light has moved. It is later up there than I thought." | LISTEN 3 "Somebody up there laughing, very far off. They do not know yet."
+
+**THE TUNNEL** — LOOK 2 "There is a bend in it where I lost my nerve and a straight stretch after where I found it again." · 3 "My pick marks are everywhere and none of them in a line. It is the most honest piece of work I have ever done." | LISTEN 2 "My own breathing, loud in here. The tunnel keeps nothing to itself." · 3 "A trickle of loose dirt from the roof, then quiet: the tunnel, settling into being a tunnel."
+
+**THE ROCK FACE** — LOOK 2 "Rock. I have looked at it enough to know it is rock." · 3 "Still rock." | LISTEN 2 "The same small difference. It has not gone away." · 3 "Not much. Not nothing."
+
+*(THE ROCK FACE's LISTEN repeats say no more than doc 10's line 1 — "…Different. Not by much." — already says, and point nowhere.)*
+
+**THE LAMP** — LOOK 2 "Three hours of oil now. I am doing the arithmetic more often than I would like." · 3 "It throws my shadow up the wall, three times my size and twice as confident." | LISTEN 2 "A soft hiss as the wick drinks." · 3 "Burning, still. The most reassuring word in the language."
+
+**THE TUNING FORK** — LOOK 2 "The tines are worn bright at the ends, where I have struck it on ten thousand boot heels." · 3 "It is the only thing I own that is exactly what it claims to be." | LISTEN 2 "I struck it. A, held, ringing down to nothing." · 3 "A. The same A it gave in my father's shop. Some things do not move."
+
+### THE FLOOR
+**LOOK** 1 "Clay, packed hard by somebody's boots long before mine." · 2 "My own prints, and the drag marks of my pick behind them." · 3 "It is level, more or less, which down here counts as hospitality."
+**LISTEN** 1 "My boots, thudding, close and flat." · 2 "Grit under my heel, very loud in all this quiet." · 3 "Nothing, when I stand still. I stand still a while longer, just to hear it."
+
+## Merge decisions *(errata 68 H)*
+
+- **THE WALLS and THE ROCK FACE** are not declared one object: doc 05's walls are the chamber's, doc 10's face is the tunnel's end.
+- **The two moments** are recorded as errata 69 A; nothing else in the room changes with them.
+
+---
+
+# ROOM 36 · MAIN STREET, DAWN
+
+*Merged: doc 05's nine and doc 08's nine, the same nine objects. Doc 48 S7 says Room 36 is "scripted in doc 05", so where doc 08 contradicts it doc 05 stands (errata 68 H) and doc 08's line is dropped: the Company sign is peeling, not taken down; something still lives in the trough; the loose board is still loose; the bell is in tune. Doc 08's lines that agree with doc 05 stay, including the two that pay off the lost dog (doc 07 §18), which are conditional on it and change nothing else.*
+
+## Same object, both passes
+
+**POSTED NOTICES** ≡ **THE POSTED NOTICES**
+**A DOG** ≡ **THE DOG**
+
+## Repeats
+
+**THE FALSE FRONTS** — LOOK 3 "A man is painting one of them. Not the front: the back, where nobody will see it." | LISTEN 3 "Somebody behind one of them, frying something. The fronts finally have something behind them worth the name."
+
+**THE IMPROVEMENT COMPANY SIGN** — LOOK 2 "The C in COMPANY has already gone. It reads IMPROVEMENT OMPANY, which is more accurate than it used to be." · 3 "Nobody is standing under it. For twelve years somebody was always standing under it, waiting to be let in." | LISTEN 2 "The creak again. It has said its piece and keeps on saying it." · 3 "The chain ticking against the bracket. It will come down in its own time."
+
+**THE WATER TROUGH** — LOOK 3 "I can see my own face in it, and the sky behind, and neither of us looks worried." | LISTEN 2 "A small ripple. It has decided I am not a threat." · 3 "Nothing for a moment, then a bubble. We are both still here."
+
+**THE BOARDWALK** — LOOK 2 "Somebody has swept it. Not the street: just the boardwalk, end to end, at dawn, for no reason anyone will admit to." · 3 "I stood on the loose board on purpose. It said what it always says. I find I had missed it." | LISTEN 2 "Boots further down, slow ones. Nobody is in a hurry this morning." · 3 "The loose board, under my own weight this time. A friendly note. A little flat."
+
+**POSTED NOTICES** — LOOK 3 "Somebody has drawn a small raccoon in the corner of the official notice. I am choosing not to know who." | LISTEN 3 "One sheet has come loose and gone off down the street, taking its business elsewhere."
+
+**THE CHURCH STEEPLE** — LOOK 3 "A bird has landed on the cross at the top. It is the only thing in town higher than the bell, and it is not making anything of it." | LISTEN 2 "The bell again, the note settling into the hills. It took this town twelve years to sound like this." · 3 "The last of the bell, fading. Under it, nothing out of tune at all."
+
+**A DOG** — LOOK 3 "He has rolled over to warm the other side. He had the right idea all along." | LISTEN 3 "A small snore. The most honest sound on Main Street, and this morning it has competition."
+
+**THE MUD** — LOOK 3 "My boot print from the first night is long gone. The mud kept the truth and let the rest go." | LISTEN 3 "A drip off the boardwalk into it, slow, unbothered, in no hurry for anything."
+
+**THE HILLS** — LOOK 3 "The diggings are quiet, and the hills look, for once, like hills." | LISTEN 3 "The wind coming down off them, cool, carrying nothing at all. It is a relief to hear nothing in a place that used to be so loud about it."
+
+## Merge decisions *(errata 68 H)*
+
+- **Dropped, as contradicting doc 05 (doc 48 S7):** doc 08's THE IMPROVEMENT COMPANY SIGN LOOK and LISTEN; THE WATER TROUGH LISTEN; THE BOARDWALK LOOK and LISTEN; THE CHURCH STEEPLE LISTEN. The repeats above are numbered to fill the sequences those drops leave.
+- **Made at source:** doc 08's "Two storeys tall in front and one storey deep" becomes "Two stories tall in front and one story deep."

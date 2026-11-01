@@ -226,7 +226,7 @@
 *The closing screen. Room 2's nine hotspots, rewritten. The player has read the originals two hundred times.*
 
 **THE FALSE FRONTS**
-> **LOOK:** "Two storeys tall in front and one storey deep. It is still a stage set. It is just that people live here."
+> **LOOK:** "Two stories tall in front and one story deep. It is still a stage set. It is just that people live here."
 > **LISTEN:** "Wind. There is still a great deal of nothing behind these. It has stopped being funny and started being a fact about somebody's home."
 
 **THE IMPROVEMENT COMPANY SIGN**

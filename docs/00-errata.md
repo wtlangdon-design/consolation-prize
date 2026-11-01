@@ -2127,3 +2127,14 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 **G · Room 27's markers are doc 05's eleven.** Doc 08's eleven names are retired. Doc 08's device survives in one place: the blank marker's LISTEN repeats are "Nothing." Doc 08's THE MARKERS folds into the blank marker; its WORKINGS, SLUICE FRAMES, A BOOT and THE PATH merge in.
 
 **H · The merge's doubled jokes (every "For Tyler's cut" list in doc 54).** Where a merged object shows the same joke twice, the **later** variant is dropped from the sequence, provided three remain; doc 54 marks each as *Decided*. Mechanical corrections are made at source: doc 09's "storey" becomes "story"; doc 09's Grievance becomes "she"; doc 10's "C. PRATT" becomes "N. PRATT"; doc 10's *swept* loses its italics; doc 05's "THE SIGN: NO COLOUR YET" becomes "THE SIGN: NO COLOR YET". **Contradictions keep the version more lines are built on, and on a tie doc 05's (the later pass):** the key rack has four keys out (docs 09 and 26, three lines against one); the mile post reads 1 MI. both ways (doc 05); Pratt's working is the trench (doc 05); the sluice is one community sluice of forty feet (doc 05, which Room 26's mercury flask is chained to). The line that disagrees is dropped from its sequence. The price display is chalked *and* nailed up — no contradiction.
+
+---
+
+# 69 · FURTHER DELEGATED RULINGS (2026-10-31)
+
+*Made under the same delegation as 68 ("I want you to make all of those decisions yourself"), as the writing reached them.*
+
+**A · Room 34 is one room in two states.** Doc 10's Room 34 is the way down (Thad's tunnel, the rock face, the lamp, the fork); doc 05's is the old working the way down reaches after F3 (the timbering, the tended lantern, the even footprints, the seam). Before F3 the room shows doc 10's subjects with doc 05's THE DARK, THE AIR, THE WALLS, THE TIMBERING and THE WAY BACK UP; after F3, doc 05's THE SEAM, THE OLD LANTERN and THE FOOTPRINTS appear. F3 sets `T_BROKE_THROUGH` (doc 02's F3 row now says so), and that flag is the state. F3's breakthrough itself is staged in Room 33, which remains blocked on OQ-06.
+
+**B · Room 36 is doc 05's where doc 08 contradicts it**, because doc 48 S7 says Room 36 is "scripted in doc 05". Doc 08's sign, trough LISTEN, boardwalk and steeple LISTEN are dropped from their sequences; its agreeing lines, and its two lost-dog conditionals, stay.
+
