@@ -466,3 +466,57 @@ Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons
 
 - **THE SITE, LISTEN.** Doc 05's line 1 is "Wind in the workings. A hollow instrument, played badly"; doc 08's is "Nothing. Nothing whatsoever. It is the emptiest sound I have heard since I arrived." Both true, back to back.
 - **Two Mott markers.** THE SURVEY STAKE, ORIGINAL (doc 05) and THE MARKER STONE (doc 08) both stand at the site with Mott's name on them. Different objects, by their descriptions; whether the room wants both is art direction.
+
+---
+
+# ROOM 25 · PRATT'S CLAIM
+
+*Merged: doc 05's eight and doc 10's eight, eleven objects. Doc 04's voice rule governs the lines about him: "slow, dogged, no imagination whatsoever, and — it turns out — fundamentally decent." Nothing below touches D5's arithmetic (who pays him).*
+
+## Same object, both passes
+
+**THE DIGGINGS, SUCH AS THEY ARE** ≡ **THE WORKINGS**
+**THE TAILINGS PILE** ≡ **THE SPOIL HEAP**
+**THE BORDER STONES** ≡ **THE BOUNDARY**
+**THE SIGN: NO COLOUR YET** ≡ **THE SIGN**
+
+*(THE TOOL RACK has the same name in both passes.)*
+
+## Repeats
+
+**THE CLAIM ENTIRE** — LOOK 2 "There is not a weed on it. The weeds have heard about him." · 3 "If effort were gold this would be the richest forty feet in the territory, and he would sweep it anyway." | LISTEN 2 "A rake somewhere near, at a steady pace. He is never far from his ground." · 3 "Nothing out of place. Even the silence is in rows."
+
+**THE BORDER STONES** — LOOK 2 "Each stone is the size of a loaf and the size of all the others. He went looking for them." · 3 "The whitewash is fresh on the side facing out. He knows where his claim ends. He wants everyone else reminded." | LISTEN 2 "Nothing. Stones agreeing with each other." · 3 "A lizard ticking across one and off again. It has respected the boundary."
+
+**THE TOOL RACK** — LOOK 3 "Each tool's outline is painted on the board behind it, so an empty hook would be noticed. None is empty." | LISTEN 3 "The pan again, one soft note. Pratt's clock, and it keeps better time than the Company's."
+
+**THE DIGGINGS, SUCH AS THEY ARE** — LOOK 3 "He has put a little roof over the deepest part, against rain. The nothing at the bottom is kept dry." | LISTEN 3 "A pebble falls from the side and lands exactly where you would expect. Even the gravity here is tidy."
+
+**THE TAILINGS PILE** — LOOK 3 "The heaps have small wooden labels: COARSE, FINE, FINER. A fourth label stands beside an empty patch of ground. It says GOLD." | LISTEN 3 "Nothing. It has been sorted, and it has nothing more to say."
+
+**THE CAMP CHAIR** — LOOK 2 "The canvas is patched in two places, both neatly, both square." · 3 "A second chair stands folded against the lean-to. It has never been unfolded." | LISTEN 2 "Nothing. It does not creak. He would not permit it." · 3 "Canvas ticking in the wind, like a flag that has been told to be quiet."
+
+**THE COFFEE POT** — LOOK 2 "Blackened outside and spotless in. Pratt has his own idea of which side shows." · 3 "There is one cup. He has never been asked to share and has never had to refuse." | LISTEN 2 "A faint ping as the tin warms. Ten o'clock is nearer." · 3 "Not yet. At ten it will boil, and the diggings will set their watches by the smell."
+
+**THE SIGN: NO COLOUR YET** — LOOK 3 "The board is planed and the letters are ruled. He has taken more care over NO than most men take over YES." | LISTEN 2 "The board ticks against its post in the wind. Not yet, not yet." · 3 "Nothing. The sign is waiting, along with the rest of him."
+
+**THE TALLY POST** — LOOK 2 "Every fifth stroke is cut a little deeper, as though he leaned on that day." · 3 "The post is nearly full. A second post stands beside it, already planed, waiting for the next two thousand." | LISTEN 2 "Nothing. A count kept in wood makes no sound adding up." · 3 "Nothing. Tomorrow there will be one more mark, made quietly."
+
+**THE LEAN-TO** — LOOK 2 "The blanket on the bed is folded stripe-out. I have never before met a man with a position on the stripe." · 3 "A shaving mirror hangs on the post at exactly his height. He is not a man for stooping, or for compromise." | LISTEN 2 "The stove pipe pinging as it cools." · 3 "Nothing. A man who lives this tidily makes no noise at home."
+
+### THE SLUICE
+**LOOK** 1 "A short sluice, built to plan and level to the bubble. Water goes through it exactly as intended and leaves exactly as it came." · 2 "The riffles are cleaned after every run. There is never anything to clean out of them. He cleans them anyway." · 3 "It is the only sluice in the district that does not leak. It also finds nothing, which puts it in good company."
+**LISTEN** 1 "Water through it, even and polite. No knocking, no splash." · 2 "A trickle at the bottom, and then nothing. He shuts it off at noon." · 3 "Nothing. Dry boards, waiting for tomorrow's water."
+
+## Overrides
+
+> **NICKEL PRATT** · PICK UP — "He would put up with it exactly once, and remember it exactly forever."
+> **NICKEL PRATT** · PUSH — "He has not moved off his line in nine years. I do not intend to be the exception."
+> **NICKEL PRATT** · USE — "He has a use already. It is this claim, and he is busy with it."
+
+## For Tyler's cut
+
+- **THE TAILINGS PILE, LOOK.** Doc 05's line 1 ("Even his refuse is graded") and doc 10's line 1 ("He has sorted his waste rock") are one joke, back to back.
+- **THE DIGGINGS.** Doc 05's are "a neat trench … deepening a careful inch a week"; doc 10's are a mine, "timbered properly". One working, two descriptions of what it is. Doc 10's line also sets *swept* in markdown italics, which the emphasis check will refuse at extraction.
+- **His name.** Doc 10's sign reads "C. PRATT"; doc 04 calls him Nickel Pratt.
+- **The sign's name.** Doc 05 heads it THE SIGN: NO COLOUR YET (British), and the line itself reads NO COLOR YET. If the heading is what the panel shows, it needs the American spelling too.
