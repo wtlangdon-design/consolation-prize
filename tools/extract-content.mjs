@@ -64,6 +64,17 @@ function quoted(text) {
   return [...text.matchAll(/"([^"]+)"/g)].map((match) => match[1]);
 }
 
+/**
+ * FOLLOW-UP OPTIONS (Tyler, 2026-11-01). A tag cell may say `after 2` or
+ * `after 2, 3`: the option is offered only once those options of the same
+ * node have been asked. Returns the option ids, or undefined.
+ */
+function afterIds(tagCell, speaker) {
+  const found = /\bafter ([0-9][0-9, ]*)/.exec(tagCell ?? '');
+  if (!found) return undefined;
+  return found[1].split(',').map((n) => n.trim()).filter(Boolean).map((n) => `${speaker}${n}`);
+}
+
 /** A heading name as the id the content files already use for that thing. */
 function slug(name) {
   return name.trim().toLowerCase().replace(/^(the|a) /, '').replace(/\s+/g, '_');
@@ -1451,6 +1462,8 @@ function minorTrees() {
       }
 
       const option = { id: `${who.speaker}${number}`, text, tag };
+      const follows = afterIds(tagCell, who.speaker);
+      if (follows) option.after = follows;
       if (lines.length === 1 && lines[0].speaker === who.speaker) {
         option.say = lines[0].line;
       } else if (lines.length > 1) {
@@ -2063,6 +2076,8 @@ function winnieTree() {
       const tag = tagged[1];
       const afterUse = tagged[2] ?? null;
       const option = { id: `${SPEAKER}${number}`, tag };
+      const follows = afterIds(tagCell, SPEAKER);
+      if (follows) option.after = follows;
       const text = quoted(optionCell)[0];
       if (tag === 'EXIT') {
         hasExit = true;
@@ -2250,6 +2265,8 @@ function hobTree() {
       const text = quoted(optionCell)[0];
       if (!text) throw new Error(`doc 04: ${where} has no option text`);
       const option = { id: `${SPEAKER}${number}`, tag: tagged[1], text: said(text, where) };
+      const follows = afterIds(tagCell, SPEAKER);
+      if (follows) option.after = follows;
       if (tagged[2]) option.afterUse = tagged[2];
       const [spoken, ...after] = responseCell.split('→');
       // Thad's aside: everything after `Thad:` is his.

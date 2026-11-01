@@ -351,6 +351,11 @@ export class DialogueRunner {
     return Object.entries(writes).every(([flag, value]) => this.flags.get(flag) === value);
   }
 
+  /** Whether every option this one follows has been asked in this node. See DialogueOption.after. */
+  private followsAsked(option: DialogueOption, treeId: string, nodeId: string): boolean {
+    return (option.after ?? []).every((id) => this.countOf(treeId, nodeId, id) > 0);
+  }
+
   private knownPairs(): Set<number> {
     if (!this.assay) return new Set();
     return knownPairs(this.assay.file, (flag) => this.flags.get(flag) === true);
@@ -427,6 +432,7 @@ export class DialogueRunner {
     const out: PresentedOption[] = [];
     for (const authored of node.options) {
       if (!this.flags.test(authored.when)) continue;
+      if (!this.followsAsked(authored, treeId, nodeId)) continue;
       const taken = this.countOf(treeId, nodeId, authored.id);
       // ERRATA 57: THE OPTION'S OWN AFTERMATH DECIDES. `remove` is gone once
       // taken; `replace` gives way to what it names; `retain` and `rephrase`
@@ -487,7 +493,7 @@ export class DialogueRunner {
     if (!option) {
       throw new Error(`Unknown option: ${optionId}`);
     }
-    if (!this.flags.test(option.when)) {
+    if (!this.flags.test(option.when) || !this.followsAsked(option, this.activeTree.id, this.activeNodeId as string)) {
       throw new Error(`Gated option selected: ${optionId}`);
     }
     if (this.isSpent(option, this.countOf(this.activeTree.id, this.activeNodeId, option.id))) {

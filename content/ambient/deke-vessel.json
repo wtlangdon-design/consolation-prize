@@ -4,19 +4,19 @@
  "name": "DEKE VESSEL",
  "posture": "standing",
  "room": "nugget",
- "note": "Doc 27, DEKE VESSEL · Room 3: gates A3, the swindle. Drawn from Tyler's approved attempt 2 (art/staging/room-03/deke-02, generated against Thad in this room, 2026-10-31), keyed, despilled, the five poses registered on his legs by tools/art/cut-ambient-sheet.py, BOX-reduced to 345 -- the bent curve's man where he stands (Tyler, 2026-10-31: 312 too small, 375 'way too big', 345 chosen from four) -- and graded to the bar men beside him (tools/grade/match-neighbours.py) after Tyler: 'Deke's coloring doesn't match anything else around him'.",
- "x": 1060,
- "y": 655,
+ "note": "Doc 27, DEKE VESSEL · Room 3: gates A3, the swindle. Drawn from Tyler's approved attempt 2 (art/staging/room-03/deke-02, generated against Thad in this room, 2026-10-31), keyed, despilled, the five poses registered on his legs by tools/art/cut-ambient-sheet.py, BOX-reduced to the bent curve's man where he stands -- 345 at the bar's end (Tyler, 2026-10-31: 312 too small, 375 'way too big', 345 chosen from four), 382 on the open floor at 760,730 since 2026-11-01, the same ruling at his new depth -- and graded to the bar men beside him (tools/grade/match-neighbours.py) after Tyler: 'Deke's coloring doesn't match anything else around him'.",
+ "x": 760,
+ "y": 730,
  "zone": 0,
  "approachRadius": 160,
  "tree": "DEKE_VESSEL",
- "placeNote": "THE NEAR END OF THE BAR (build contract: 'must appear at the near end of the bar for A3'), standing clear of the first stool, to its left -- at 1109 his right boot came down on the stool's front leg, which stands nearer the camera than he does (Tyler, 2026-10-31: 'you have him standing on the stool leg') -- facing the door -- doc 27 LOOK 1: 'watching the door'.",
+ "placeNote": "ON THE OPEN FLOOR between the door and the card table, facing the door -- doc 27 LOOK 1: 'watching the door'. Moved 2026-11-01 from the bar's near end (1060,655): Tyler, 'he's standing right in front of the other guy I can talk to which makes it so I kind of stand on Deke when talking to the gold nugget guy.' The build contract's 'near end of the bar' was a pre-art reservation; the room as played has two talkers at the bar's end and room for one. Earlier history: at 1109 he stood on the first stool's leg; 1060 cleared the leg but crowded the one-strike man.",
  "walkTo": {
-  "x": 925,
-  "y": 668,
+  "x": 640,
+  "y": 735,
   "facing": "right"
  },
- "walkToNote": "Floor at his left, between him and the card table; Thad faces him and the door is behind Thad.",
+ "walkToNote": "Floor at his left, between him and the door he is watching, so the two of them face each other in the open (2026-11-01).",
  "barks": {},
  "barksNote": "Doc 07 writes no reputation barks for him: he is a doc 27 tree character, not one of the eighteen ambients.",
  "sprite": {
@@ -25,32 +25,32 @@
    [
     2,
     2,
-    157,
-    345
+    174,
+    382
    ],
    [
-    161,
+    178,
     2,
-    157,
-    345
+    174,
+    382
    ],
    [
-    320,
+    354,
     2,
-    157,
-    345
+    174,
+    382
    ],
    [
-    479,
+    530,
     2,
-    157,
-    345
+    174,
+    382
    ],
    [
-    638,
+    706,
     2,
-    157,
-    345
+    174,
+    382
    ]
   ],
   "rate": 0.35,

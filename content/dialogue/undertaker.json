@@ -58,6 +58,9 @@
           "id": "undertaker2",
           "text": "Up the hill?",
           "tag": "PROGRESS",
+          "after": [
+            "undertaker1"
+          ],
           "say": "Boot Hill. Third row, second from the end. He's got a marker.",
           "set": {
             "T_PIKE_DEAD": true
@@ -67,12 +70,18 @@
           "id": "undertaker3",
           "text": "What did he die of?",
           "tag": "TOPIC",
+          "after": [
+            "undertaker1"
+          ],
           "say": "Nothing interesting."
         },
         {
           "id": "undertaker4",
           "text": "I had a letter for him.",
           "tag": "TOPIC",
+          "after": [
+            "undertaker1"
+          ],
           "say": "You still have a letter for him."
         },
         {

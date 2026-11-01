@@ -13,11 +13,11 @@
  "greetsWithBark": true,
  "greetsWithBarkNote": "Tyler, 2026-10-31: TALK TO opens with his bark for the current reputation, so the tree's first options answer something. Doc 07 writes no root line for him; this stages his own barks, it adds none.",
  "walkTo": {
-  "x": 1185,
-  "y": 705,
+  "x": 1110,
+  "y": 640,
   "facing": "right"
  },
- "walkToNote": "Moved 2026-10-31 for Deke Vessel, who now stands at the bar's near end where Thad used to: Thad talks to the one-strike man from in front of the first stool, nearer the camera than its feet (y 705 against their 665), so he stands before it and not on it, and clear of Deke, so neither man hides the other. Moved again the same evening when Deke stepped left of the stool: (980,640) put Thad behind Deke.",
+ "walkToNote": "Beside him, at his left, in front of the first stool and facing him, so Thad stands next to the man he is talking to rather than in front of him (2026-11-01, after Deke moved to the open floor; before that Thad stood at 1185,705 with his back to the room, covering him).",
  "registrationNote": "His head top in the old plate is y 360 at x 1205. zone 2 is 222 tall, so y 582 puts speakerHead at 360. The frame is cut to 155x222, so Ambient.npcAt's box is x 1161-1249, y 360-582: his head, shoulders and back down to the stool.",
  "sprite": {
   "sheet": "art/actors/nugget-one-strike-identity.png",

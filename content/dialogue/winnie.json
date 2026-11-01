@@ -180,6 +180,9 @@
         {
           "id": "winnie2",
           "tag": "TOPIC",
+          "after": [
+            "winnie1"
+          ],
           "text": "Eight months? Who's ahead of me?",
           "afterUse": "retain",
           "say": "The Improvement Company. Perpetually. Priority submissions."
@@ -230,6 +233,9 @@
         {
           "id": "winnie6",
           "tag": "PROGRESS",
+          "after": [
+            "winnie2"
+          ],
           "text": "Who keeps the Company's log of submissions?",
           "afterUse": "remove",
           "say": "The Company. In the Colonel's office, in a drawer he sits in front of all day. I asked to see it once. He sent me a very kind note.",

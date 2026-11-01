@@ -43,7 +43,9 @@ Room 5 is the benchmark (doc 46 v2). Doc 46 Part Nine is the checklist. In order
 2. **Writing in, by extraction only.** Run `node tools/extract-examine.mjs` (the room's
    `content/examine/room-NN.json` already exists) and wire it. Dialogue trees this room needs
    that are not yet in `content/dialogue/` are added to `tools/extract-content.mjs` the way
-   `winnieTree()` and `hobTree()` are. No line is typed by hand.
+   `winnieTree()` and `hobTree()` are. No line is typed by hand. Each new extractor reads a
+   tag cell's `after N` through `afterIds()` (doc 04 node rule 7), so follow-up questions
+   wait for the question that raises them.
 3. **Graybox (ruling 22, steps 1–6).** Value block, walkable band and exits, object
    silhouettes, character placement and reach, occlusion test, **legibility gate**. A room that
    fails the legibility gate is re-blocked, not lit.
