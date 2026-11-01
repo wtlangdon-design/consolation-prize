@@ -244,6 +244,24 @@ Distributed across all Fanshawe nodes, all optional, all `[TOPIC]`. Only a playe
 He does not deny it, does not explain it, and does not become hostile. It is far worse than a denial, and it is entirely optional content that most players will miss. That is correct.
 
 
+## ACT I — `FAN_A2`: the dinner (A10) *(Batch C, doc 54)*
+
+*Written 2026-10-31 at Tyler's instruction. Doc 48 S1 lists this tree as "written, doc 04"; it was not — only its row in the Fanshawe Rule table was. Doc 02 A10: "Six options, five of which sell the claim in language Thad doesn't recognise as a sale. Find the one that doesn't." Doc 04's rule table: Thad receives dinner, wine and warmth, and gives up that he intends to work the claim — so the one option that does not sell is the one that tells Fanshawe exactly that. Doc 04's FAN_C1 note governs the other five: Fanshawe never lets a sale complete, because a sale would move the claim to someone who might dig. Each is accepted with delight and deferred, a different way each time.*
+
+> **FANSHAWE:** "You'll take wine. It takes itself, mostly." *(doc 48 S1, beat 1)*
+
+| # | Option | Tag | Response | Rule ledger |
+|---|---|---|---|---|
+| 1 | "I'd be glad of a partner in it." | `[TOPIC · retain]` | "Partners! Then we are partners. We'll do the paper when we're sober. I never do paper in drink. It's the only rule I keep." | sells half; deferred |
+| 2 | "You're welcome to the working of it while I learn the trade." | `[TOPIC · retain]` | "A lease! How modern of you. I'll have Sump draw something up." *(He will not. Sump is never asked.)* | leases it; deferred |
+| 3 | "Whatever's in it, I'd sooner it went to someone who'd use it." | `[TOPIC · retain]` | "Then we agree entirely, and that is the best foundation for anything. More wine?" *(The subject has gone wherever subjects go at his table.)* | gives it away; deferred |
+| 4 | "Put it down as a kindness, and I'll owe you." | `[TOPIC · retain]` | "You owe me nothing at all, Mr. Grubb." *(warmly)* "Yet." | mortgages it; deferred |
+| 5 | "I'd sign anything that came with a wine like this." | `[TOPIC · retain]` | "Then you shall sign nothing tonight. I would never take advantage of a man at his dinner." *(He means it. It is the most dangerous thing he says all evening.)* | signs it away; deferred |
+| 6 | "I mean to work it myself." | `[PROGRESS · remove]` | "Of course you do." *(He is delighted. He refills Thad's glass. He has learned the only thing he wanted to know.)* → A10, doc 48 S1 beat 3 | receives: dinner, wine, warmth. gives up: that he will work the claim |
+| 7 | "This is very good wine." | `[COMIC · retain]` | "Isn't it! I have no idea what it is. I buy whatever costs most and let it explain itself." | — |
+
+**Doc 48 S1 and doc 02 disagree**, and this node is written so either reading builds: doc 02 makes A10 a puzzle (find the one option that does not sell); S1 beat 3 says "whichever option" ends the dinner. Under doc 02, options 1–5 retain and grey and only 6 advances; under S1, every option advances. Reported for Tyler in doc 36 Q143.
+
 ## ACT II — `FAN_B1`: the introduction *(W1 growth)*
 
 Per the Fanshawe Rule: Thad receives the Registrar introduction; gives up that he is pursuing contiguity.

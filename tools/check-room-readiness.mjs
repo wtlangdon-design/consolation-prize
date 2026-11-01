@@ -425,12 +425,12 @@ function ask(room, sources, note) {
   // whatever a reader might infer from the prose around it.
   const itemsNamed = puzzleSource.ok && /Document [AB]|Topic:|item/i.test(puzzleSource.body);
   add('items', 'Required items declared?', itemsNamed ? 'YES' : 'NO',
-    [sources.puzzles?.source ?? '(none declared)'],
+    (puzzleRefs.filter(Boolean).length ? puzzleRefs.filter(Boolean) : ['(none declared)']),
     itemsNamed ? 'the puzzle section names the documents and topics this room issues and needs'
       : 'the declared puzzle section names no item or topic');
   const flagsNamed = puzzleSource.ok && /Topic:|`T_[A-Z_]+`|T_[A-Z_]+/.test(puzzleSource.body);
   add('flags', 'Required flags/state declared?', flagsNamed ? 'YES' : 'NO',
-    [sources.puzzles?.source ?? '(none declared)'],
+    (puzzleRefs.filter(Boolean).length ? puzzleRefs.filter(Boolean) : ['(none declared)']),
     flagsNamed ? 'the puzzle section names the topic flags this room sets'
       : 'the declared puzzle section names no flag or topic');
   }
