@@ -105,7 +105,9 @@ Stop the room, not the build, and say so in doc 36 and to Tyler, when:
 
 ## 8 · What playing found — held by a script where a script can hold it
 
-Every row here shipped past a green suite and was found by Tyler playing, by a review, or by a proof. Where a mechanical check now fails the build on it, the check is named; where the thing is taste, the process that worked is the rule. Read this before step 3. *(Harvested 2026-11-01 from commits since 2026-10-31, doc 36 Q133–Q148, errata 72–77, and the Room 3 and Room 4 playthrough fixes.)*
+Every row here shipped past a green suite and was found by Tyler playing, by a review, or by a proof. Where a mechanical check now fails the build on it, the check is named; where the thing is taste, the process that worked is the rule. Read this before step 3.
+
+**Every correction adds to this section or to the suite (Tyler, 2026-11-01: "when things are corrected, the lessons learned are built into the system").** When Tyler, a proof or a review finds something wrong, the fix is not finished until it carries the lesson with it, in the same PR: a test or check that fails on the defect (prove it by putting the defect back and watching it fail), or, where the thing is taste, a row here naming what went wrong, where, and the process that worked. A fix that only changes the one room teaches the next thirty nothing. *(Harvested 2026-11-01 from commits since 2026-10-31, doc 36 Q133–Q148, errata 72–77, and the Room 3 and Room 4 playthrough fixes.)*
 
 ### Caught by the suite now
 
