@@ -251,8 +251,8 @@ export function planBoot(bundle: ContentBundle): BootPlan {
     }
     // AND HIS WALK OUT (AmbientFile.exit). The walker is drawn the moment his
     // condition stops holding, with no time for a deferred queue to reach
-    // it; left off this list, Deke Vessel's first proof showed him standing
-    // at "All right." and gone the next frame, the thing the walk exists to
+    // it; left off this list, the first walk-out's proof showed the man standing
+    // at the deal's last line and gone the next frame, the thing the walk exists to
     // prevent, because his walk sheet had never been asked for.
     if (npc.exit) required.set(npc.exit.sheet, { key: npc.exit.sheet, path: npc.exit.sheet });
   }

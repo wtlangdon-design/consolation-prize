@@ -36,8 +36,8 @@ test('the walk cycle advances at its fps and wraps', () => {
 });
 
 /**
- * A WALK OUT IS LOADED AT BOOT. Deke Vessel's first proof in the browser
- * showed him at "All right." and gone the next frame: his exit sheet was on
+ * A WALK OUT IS LOADED AT BOOT. The first walk-out's proof in the browser
+ * showed him standing at the deal and gone the next frame: his exit sheet was on
  * no load list, so the walker had nothing to draw. Every declared exit's
  * sheet is required at boot, as every ambient's own sheet is.
  */
@@ -51,6 +51,6 @@ test('every ambient exit sheet is loaded at boot', async () => {
   const content = await loadContent(async (path: string) => JSON.parse(await readFile(resolve(root, path), 'utf8')));
   const required = new Set(planBoot(content).required.map((asset) => asset.path));
   const exits = [...content.ambient.values()].filter((npc) => npc.exit);
-  assert.ok(exits.length > 0, 'at least one character walks out (Deke Vessel)');
+  assert.ok(exits.length > 0, 'at least one character walks out');
   for (const npc of exits) assert.ok(required.has(npc.exit!.sheet), `${npc.id}'s walk ${npc.exit!.sheet} is loaded at boot`);
 });
