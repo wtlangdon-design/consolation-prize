@@ -1141,6 +1141,16 @@ export interface RoomFile {
    */
   figureLight?: FigureLight;
   /**
+   * FURNITURE A PERSON CAN STAND IN FRONT OF OR BEHIND. Tyler, 2026-11-01:
+   * a whiskey barrel beside Deke so he is not standing in an empty floor. A
+   * thing painted into the plate is always behind Thad; a prop is drawn in
+   * the figures' feet-Y order at its own base line, so he passes behind it
+   * and in front of it as he should. Set dressing only: it is not a hotspot
+   * (no document writes lines for it) and clicks go through it. The floor it
+   * stands on is carved out of the walk boxes by an annotation `obstacle`.
+   */
+  props?: RoomProp[];
+  /**
    * Extra whole-plate frames, cycled with `background` as frame zero.
    *
    * TYLER'S ANSWER TO A PROBLEM I SPENT HOURS ON. The Nugget's seven men are
@@ -2268,6 +2278,19 @@ export interface PlaytestFixture {
  * One event on a room's timeline (errata 70 G). `at` is seconds of active,
  * unpaused time from entering the room.
  */
+/** One piece of furniture drawn in depth order. See RoomFile.props. */
+export interface RoomProp {
+  id: string;
+  sheet: string;
+  /** Centre of its base, in room pixels. */
+  x: number;
+  /** Its base line: where it meets the floor, and its place in the depth order. */
+  y: number;
+  /** Source rect in `sheet`, drawn 1:1 with its bottom row on `y`. */
+  frame: [number, number, number, number];
+  note?: string;
+}
+
 /** A room's grade for the figures it names. See RoomFile.figureLight. */
 export interface FigureLight {
   /** Mover ids (the player is `thad`) and ambient ids the grade applies to. */

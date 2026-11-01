@@ -124,6 +124,8 @@ function roomImages(room: RoomFile): BootAsset[] {
     out.push({ key: `plate:${room.id}:${name}`, path });
   }
   if (room.foreground) out.push({ key: `fg:${room.id}`, path: room.foreground });
+  // Furniture drawn in depth order, keyed by path like a character's sheet.
+  for (const prop of room.props ?? []) out.push({ key: prop.sheet, path: prop.sheet });
   if (room.idles?.sheet) out.push({ key: `idle:${room.id}`, path: room.idles.sheet });
   // Occlusion masks are keyed by their content path, like character sheets,
   // because the renderer asks for one by the string the plane used to name it.

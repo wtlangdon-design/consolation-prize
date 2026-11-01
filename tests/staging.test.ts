@@ -309,6 +309,21 @@ test('every mover reaches the draw list, depth-sorted against the ambient set', 
   assert.deepEqual(order, ['the_coach', 'pie_woman', player.id]);
 });
 
+test('a room prop takes its place in the depth order by its base line', async () => {
+  const { actors, player } = await stage('the_coach');
+  actors.get('the_coach')!.placeAt(240, 100);
+  player.placeAt(60, 130);
+  const barrel = { id: 'barrel', sheet: 'x.png', x: 90, y: 118, frame: [0, 0, 10, 20] as [number, number, number, number] };
+  const crowd = [{ id: 'pie_woman', x: 80, y: 118, zone: 1 }] as never[];
+  // Behind the player (who is nearer), in front of the coach, and drawn
+  // before a figure standing exactly on its base line, so she is in front.
+  const order = depthOrder(roomFigures(crowd, actors.all(), [barrel])).map((figure) => figure.id);
+  assert.deepEqual(order, ['the_coach', 'barrel', 'pie_woman', player.id]);
+  player.placeAt(60, 110);
+  const behind = depthOrder(roomFigures(crowd, actors.all(), [barrel])).map((figure) => figure.id);
+  assert.deepEqual(behind, ['the_coach', player.id, 'barrel', 'pie_woman'], 'a man further back is drawn behind it');
+});
+
 test('every mover but the player is dropped when the room changes', async () => {
   const { actors, player } = await stage('the_coach');
   assert.equal(actors.all().length, 2);

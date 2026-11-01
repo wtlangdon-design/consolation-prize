@@ -252,6 +252,10 @@
   "room-36": {
    "attempts": 4,
    "why": "Tyler, 2026-10-31, full game build: 'Up to 4 per room (~120)'. Plate, companion state and this room's new characters, all logged under this id (errata 72)."
+  },
+  "room-03-barrel": {
+   "attempts": 2,
+   "why": "Tyler, 2026-11-01: 'I think we add the whiskey barrel... to the left of Deke with a drink sitting on it.' One operation for the barrel, one more only if the first plainly breaks the brief's rules (reference/room-03/barrel/brief.md). Not transferable. Written into this file under his instruction, not by a tool on its own initiative."
   }
  },
  "attemptsTotalWhy": "46 authorized through the two furniture-cluster operations of 2026-09-07, both spent and both rejected at the registration gate, plus the ONE bar-cluster operation Tyler authorized on 2026-09-11 when he accepted the build decision, salvaged the card cluster as canon and withdrew the Nugget freeze (doc 36 Q135). Hard ceiling 47. The previous accidental and rejected spends stay in the ledger exactly as written; nothing about the history is normalized. FULL GAME BUILD (Tyler, 2026-10-31): +120, four per room for thirty rooms (errata 72). 52 -> 172."

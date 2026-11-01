@@ -1357,6 +1357,7 @@ if (MERGED) {
   if (ann.lamps) built.lamps = ann.lamps;
   // Tyler, 2026-11-01: the room's light on the figures drawn apart from it.
   if (ann.figureLight) built.figureLight = ann.figureLight;
+  if (ann.props) built.props = ann.props;
   // Whole-plate animation, where a room declares it.
   if (ann.backgroundFrames) {
     built.backgroundFrames = ann.backgroundFrames;

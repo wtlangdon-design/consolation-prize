@@ -1,0 +1,18 @@
+The attached image is a frame from my pixel-art adventure game, set in an 1850s gold-rush saloon at night. The man in the long blue coat is Thad, the hero; the man with the moustache is Deke. I need ONE new object drawn to stand on this saloon floor between them, and it must look like it belongs in this exact picture.
+
+THE OBJECT — an old oak whiskey barrel standing upright on its end, used as a standing table:
+- A plain, well-used wooden barrel: dark oak staves, two or three iron hoops, a little scuffed.
+- On its flat top: one small glass of whiskey, about a third full. Nothing else.
+- Waist high on a man: the barrel's top would come to about Deke's belt.
+- Seen from the same angle as the room: slightly from above, so a little of the round top shows as an ellipse, with the glass sitting on it.
+- Lit by the same warm lamplight as the floor and the bar in the attached frame, from the upper left.
+
+STYLE — match the room and the characters exactly:
+- Same pixel-art style as the attached frame: same pixel size, same flat, soft shading, same small amount of texture. Not sharper and not more detailed than Thad or Deke.
+- Same colours as the wood of the bar, the stools and the card table in the frame.
+
+RULES — these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow on the floor, no people, nothing else in the picture.
+- One barrel, centred, the whole barrel in view from the top of the glass to the bottom of the barrel, standing straight up.
+- Crisp pixel edges against the magenta. No soft glow or blur around it.
+- No text, labels, numbers or borders.
