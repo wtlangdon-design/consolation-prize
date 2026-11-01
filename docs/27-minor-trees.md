@@ -3,6 +3,8 @@
 
 *Doc 04 sketches all three in a line each. Written out. Verbatim.*
 
+*Follow-up questions (Tyler, 2026-11-01): a tag cell marked `after N` is offered only once option N has been asked, so a list never asks about something nobody has mentioned — "Getting out of what?" comes after "I'm getting out."*
+
 ---
 
 # THE UNDERTAKER · Room 13
@@ -15,9 +17,9 @@
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "I'm looking for a man named Ezra Pike." | `[PROGRESS]` | *(He puts down what he is holding.)* "Eighteen fifty-two." — *"I'm sorry?"* — "Eighteen fifty-two. He's up the hill." |
-| 2 | "Up the hill?" | `[PROGRESS]` | "Boot Hill. Third row, second from the end. He's got a marker." → **`T_PIKE_DEAD`**, Boot Hill on the map |
-| 3 | "What did he die of?" | `[TOPIC]` | "Nothing interesting." |
-| 4 | "I had a letter for him." | `[TOPIC]` | "You still have a letter for him." |
+| 2 | "Up the hill?" | `[PROGRESS]` · after 1 | "Boot Hill. Third row, second from the end. He's got a marker." → **`T_PIKE_DEAD`**, Boot Hill on the map |
+| 3 | "What did he die of?" | `[TOPIC]` · after 1 | "Nothing interesting." |
+| 4 | "I had a letter for him." | `[TOPIC]` · after 1 | "You still have a letter for him." |
 | 5 | "Do you know everybody?" | `[COMIC]` | "I know everybody who's finished." |
 | 6 | `[EXIT]` "Thank you." | | "Mm." |
 
@@ -36,9 +38,9 @@
 |---|---|---|---|
 | 1 | "It's Grubb." | `[TOPIC]` | "It's as given." |
 | 2 | "I'd like a room." | `[PROGRESS]` | "Five dollars." |
-| 3 | "I have four." | `[PROGRESS]` | "Then you have four dollars and no room. Those are compatible." |
-| 4 | "Your piano is out of tune." | `[PROGRESS]` | "It is." — *"I could put it right."* — *(pause)* "For a room?" — *"For a room."* — *(He turns the register round.)* "Nineteen." → opens the A2 combination |
-| 5 | "Is there anything cheaper?" | `[COMIC]` | "There is the road." |
+| 3 | "I have four." | `[PROGRESS]` · after 2 | "Then you have four dollars and no room. Those are compatible." |
+| 4 | "Your piano is out of tune." | `[PROGRESS]` · after 3 | "It is." — *"I could put it right."* — *(pause)* "For a room?" — *"For a room."* — *(He turns the register round.)* "Nineteen." → opens the A2 combination |
+| 5 | "Is there anything cheaper?" | `[COMIC]` · after 2 | "There is the road." |
 | 6 | `[EXIT]` "I'll think about it." | | "Mr. Grubbe." |
 
 **Option 4 does not complete the puzzle.** It grants permission. The fork on the parlour piano is what earns the room, per doc 24's A2 pair.
@@ -58,10 +60,10 @@
 |---|---|---|---|
 | 1 | "How did you know?" | `[TOPIC]` | "Everybody knows. It's a small place and you're a new thing in it." |
 | 2 | "What are you selling?" | `[PROGRESS]` | "Nothing. I'm getting out." *(beat)* "Which is a kind of selling, I suppose." |
-| 3 | "Getting out of what?" | `[PROGRESS]` | "Claim Two. Producing, mind. But my sister's poorly and Sacramento's four days." |
-| 4 | "How much?" | `[PROGRESS]` | **"What have you got?"** — *"Four dollars."* — "Four dollars." *(He looks at the watch.)* "And that." |
-| 5 | "You seem cheerful for a man with a poorly sister." | `[COMIC]` | "I've made my peace with it." |
-| 6 | "All right." | `[PROGRESS] ✓` | *(The swindle. Four dollars and the watch for the deed.)* → `T_SWINDLED` |
+| 3 | "Getting out of what?" | `[PROGRESS]` · after 2 | "Claim Two. Producing, mind. But my sister's poorly and Sacramento's four days." |
+| 4 | "How much?" | `[PROGRESS]` · after 3 | **"What have you got?"** — *"Four dollars."* — "Four dollars." *(He looks at the watch.)* "And that." |
+| 5 | "You seem cheerful for a man with a poorly sister." | `[COMIC]` · after 3 | "I've made my peace with it." |
+| 6 | "All right." | `[PROGRESS] ✓` · after 4 | *(The swindle. Four dollars and the watch for the deed.)* → `T_SWINDLED` |
 | 7 | `[EXIT]` "I'll think about it." | | "Course you will." |
 
 **"What have you got?" is the entire con** and it is the only question in the scene. He does not price the claim. He prices Thad.

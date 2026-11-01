@@ -51,12 +51,18 @@
           "id": "hotel_clerk3",
           "text": "I have four.",
           "tag": "PROGRESS",
+          "after": [
+            "hotel_clerk2"
+          ],
           "say": "Then you have four dollars and no room. Those are compatible."
         },
         {
           "id": "hotel_clerk4",
           "text": "Your piano is out of tune.",
           "tag": "PROGRESS",
+          "after": [
+            "hotel_clerk3"
+          ],
           "exchange": [
             {
               "speaker": "hotel_clerk",
@@ -87,6 +93,9 @@
           "id": "hotel_clerk5",
           "text": "Is there anything cheaper?",
           "tag": "COMIC",
+          "after": [
+            "hotel_clerk2"
+          ],
           "say": "There is the road."
         },
         {

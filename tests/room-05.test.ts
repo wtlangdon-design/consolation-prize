@@ -40,7 +40,7 @@ test('a tree with entries opens on its start node with nothing set, and on the e
   assert.ok((state.dialogue.currentNode?.prompt?.length ?? 0) > 0, 'the start node has its opening line');
   const startOptions = state.dialogue.presentOptions().map((entry) => entry.option.id);
   assert.deepEqual(startOptions, tree.nodes[tree.start]!.options
-    .filter((option) => !option.when).map((option) => option.id), 'the ungated start options, in order');
+    .filter((option) => !option.when && !option.after?.length).map((option) => option.id), 'the ungated start options, in order');
   state.dialogue.end();
 
   // The LAST entry is the earliest act's; its flag alone must open its node.
@@ -48,7 +48,8 @@ test('a tree with entries opens on its start node with nothing set, and on the e
   for (const [flag, value] of Object.entries(entry.when ?? {})) state.flags.set(flag, value as boolean);
   state.dialogue.start(tree.id);
   const opened = state.dialogue.presentOptions().map((e) => e.option.id);
-  const wanted = tree.nodes[entry.node]!.options.filter((o) => !o.when).map((o) => o.id);
+  // A follow-up (doc 04 rule 7) waits for its question, so it is not in the opening list.
+  const wanted = tree.nodes[entry.node]!.options.filter((o) => !o.when && !o.after?.length).map((o) => o.id);
   assert.deepEqual(opened, wanted, `opens on ${entry.node} once ${Object.keys(entry.when ?? {}).join(', ')} holds`);
   state.dialogue.end();
 });

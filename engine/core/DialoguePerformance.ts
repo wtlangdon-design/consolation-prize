@@ -55,6 +55,8 @@ export interface HoldTiming {
   maximum: number;
   /** Doc 30 section 4.1: applied AFTER the calculation, then clamped again. */
   speed?: number;
+  /** Tyler, 2026-11-01: the line stays until a click; the hold only guards input. */
+  waitForClick?: boolean;
 }
 
 /**
@@ -145,6 +147,11 @@ export class DialoguePerformance {
    */
   tick(now: number): boolean {
     if (this.done) return false;
+    // UNLESS THE PLAYER HAS ASKED TO READ AT HIS OWN PACE (ui.json,
+    // conversationWaitsForClick). Doc 30's objection was to a line that waited
+    // forever because nothing timed it; this one waits because Tyler, playing,
+    // lost lines before he had read them. A click advances exactly one, as before.
+    if (this.timing.waitForClick) return false;
     if (now < this.holdUntil) return false;
     return this.next(now);
   }

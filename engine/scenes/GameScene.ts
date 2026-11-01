@@ -857,6 +857,14 @@ export class GameScene extends Phaser.Scene {
       return;
     }
 
+    // A GREETING BEING READ TAKES THE CLICK: the next line, or, after the
+    // last, nothing -- which lets the conversation's list open.
+    if (this.pendingTree?.greeted && this.sayLines.length > 0 && !this.performance) {
+      if (!this.advanceSay()) this.setSay(null);
+      this.markDirty();
+      return;
+    }
+
     if (pointInRect(x, y, this.panel.menuButton)) {
       this.state.menu.open();
       this.markDirty();
@@ -1662,6 +1670,7 @@ export class GameScene extends Phaser.Scene {
       perGlyph: timing?.holdPerGlyphSeconds ?? 0.055,
       minimum: timing?.holdMinimumSeconds ?? 1.8,
       maximum: timing?.holdMaximumSeconds ?? 8.0,
+      waitForClick: timing?.conversationWaitsForClick === true,
     };
   }
 
@@ -1968,7 +1977,10 @@ export class GameScene extends Phaser.Scene {
       this.barkAt = null;
     }
     this.sayingActor = text ? speaker : null;
-    this.sayUntil = text && !this.state.dialogue.isActive
+    // A GREETING WAITS FOR ITS CLICK too, when conversations do (ui.json).
+    const greetingWaits = this.pendingTree?.greeted === true
+      && this.state.content.ui.timing?.conversationWaitsForClick === true;
+    this.sayUntil = text && !this.state.dialogue.isActive && !greetingWaits
       ? this.time.now / 1000 + this.lineSeconds(text)
       : null;
   }

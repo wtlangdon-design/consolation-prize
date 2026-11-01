@@ -60,12 +60,18 @@
           "id": "deke_vessel3",
           "text": "Getting out of what?",
           "tag": "PROGRESS",
+          "after": [
+            "deke_vessel2"
+          ],
           "say": "Claim Two. Producing, mind. But my sister's poorly and Sacramento's four days."
         },
         {
           "id": "deke_vessel4",
           "text": "How much?",
           "tag": "PROGRESS",
+          "after": [
+            "deke_vessel3"
+          ],
           "exchange": [
             {
               "speaker": "deke_vessel",
@@ -89,12 +95,18 @@
           "id": "deke_vessel5",
           "text": "You seem cheerful for a man with a poorly sister.",
           "tag": "COMIC",
+          "after": [
+            "deke_vessel3"
+          ],
           "say": "I've made my peace with it."
         },
         {
           "id": "deke_vessel6",
           "text": "All right.",
           "tag": "PROGRESS",
+          "after": [
+            "deke_vessel4"
+          ],
           "beat": "The swindle. Four dollars and the watch for the deed.",
           "set": {
             "T_SWINDLED": true

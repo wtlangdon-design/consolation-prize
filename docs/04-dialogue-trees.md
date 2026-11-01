@@ -43,6 +43,7 @@ Every conversation node obeys these. They are not stylistic preferences; they ar
 4. **Exhausted `[TOPIC]` options grey out but remain visible and re-selectable.** Repeat responses differ from first responses.
 5. **Every `[EXIT]` is a joke.** Never "Goodbye."
 6. **Trees are act-gated.** Every character's root node has a different opening line per act. Characters who have watched Thad get humiliated reference it.
+7. **Follow-ups wait for their question** *(Tyler, 2026-11-01)*. A tag cell marked `after N` offers the option only once option N of the same node has been asked, as Monkey Island did: a follow-up arrives after the answer that raises it. The list only grows.
 
 ## Universal exit lines
 
@@ -104,11 +105,11 @@ The queue ledger, chained to the sill. *(Errata 75: getting in the book is not d
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
 | 1 | "I need a certified assay." | `[PROGRESS · remove]` | "You need to be in a queue that's eight months long and getting longer." | sets `T_ASSAY_QUEUE` |
-| 2 | "Eight months? Who's ahead of me?" | `[TOPIC · retain]` | "The Improvement Company. Perpetually. Priority submissions." | opens C2 path |
+| 2 | "Eight months? Who's ahead of me?" | `[TOPIC · retain]` · after 1 | "The Improvement Company. Perpetually. Priority submissions." | opens C2 path |
 | 3 | "Has anyone ever brought in Mott gold?" | `[PROGRESS · remove]` | *(She stops writing. It is the first time she has stopped writing.)* "Ask me that again when you've got something to trade." | flags her interest; required for C5 |
 | 4 | "You have very good handwriting." | `[COMIC · retain]` | "I know." | — |
 | 5 | "Would you like to hear about my raccoon?" | `[COMIC · counted-repeat]` | "No." | req `T_RACCOON_NAMED` |
-| 6 | "Who keeps the Company's log of submissions?" | `[PROGRESS · remove]` | "The Company. In the Colonel's office, in a drawer he sits in front of all day. I asked to see it once. He sent me a very kind note." | req `T_ASSAY_QUEUE`; sets `T_OFFICE_TOPIC` — C2 *(errata 75)* |
+| 6 | "Who keeps the Company's log of submissions?" | `[PROGRESS · remove]` · after 2 | "The Company. In the Colonel's office, in a drawer he sits in front of all day. I asked to see it once. He sent me a very kind note." | req `T_ASSAY_QUEUE`; sets `T_OFFICE_TOPIC` — C2 *(errata 75)* |
 
 **Option 5, repeat:** "The answer has not changed and will not change. The raccoon is not an assayable substance."
 **Option 5, fifth selection:** *(She puts down the pen.)* "What's its name." *(Thad tells her. She picks the pen back up.)* "That's a terrible name." — **This is the first crack, it costs the player nothing but persistence, and it is missable.**
@@ -437,7 +438,7 @@ He digs Thad out and speaks in complete sentences for the first time, and the ef
 |---|---|---|---|---|
 | 1 | "Where did Deke Vessel go?" | `[PROGRESS · remove]` | "I print the stage schedules! I know where everyone goes. Give me a story and I'll give you a coach." | opens B1 trade |
 | 2 | "What do you know about Mott?" | `[TOPIC · retain]` | "Everything! I wrote most of it." *(beat)* "Some of it was told to me." *(beat)* "I'd have to check which." | sets `T_MOTT_FACE_UNKNOWN` groundwork |
-| 3 | "Do you have a photograph of him?" | `[TOPIC · retain]` | "I have *the* photograph of him." *(It is a stock portrait. Sheng has the same one in his window, advertising collars.)* | |
+| 3 | "Do you have a photograph of him?" | `[TOPIC · retain]` · after 2 | "I have *the* photograph of him." *(It is a stock portrait. Sheng has the same one in his window, advertising collars.)* | |
 | 4 | "You've spelled my name wrong." | `[COMIC · counted-repeat]` | "Have I! Which way?" | `MISSPELLINGS_SEEN` +1 |
 | 5 | "Does Fanshawe ever leave his office?" | `[PROGRESS · remove]` | "For funerals! Every one. Front pew, black gloves, a wreath the size of a cartwheel. I print the notices, and he's the only man in town who reads them." | req `T_OFFICE_TOPIC`; sets `T_FANSHAWE_FUNERALS` — C3 *(errata 75)* |
 | 6 | "I need a funeral notice printed." | `[PROGRESS · retain]` | "A FUNERAL!" *(He has the type set before Thad has finished the name.)* "'MEMORIAL FOR E. PIKE, LATE. ALL WELCOME. REFRESHMENTS.' I've added refreshments. It doubles the turnout." | req `T_MEMORIAL_BOOKED`; begins the funeral day — C3 *(errata 75)* |
@@ -516,9 +517,9 @@ Every single conversation, regardless of topic, ends with Pratt making an offer.
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "Why do you want my claim?" | `[PROGRESS · remove]` | "Told to." *(He does not consider this strange.)* → `T_PRATT_PAID` |
-| 2 | "Told by whom?" | `[PROGRESS · remove]` | "Fella." |
-| 3 | "Which fella?" | `[PROGRESS · remove]` | "Didn't say. Paid, though. Regular." |
-| 4 | "How much are they paying you?" | `[PROGRESS · remove]` | "Two dollars a week." *(This is the puzzle. He is being paid two dollars a week to acquire something being offered eleven thousand.)* |
+| 2 | "Told by whom?" | `[PROGRESS · remove]` · after 1 | "Fella." |
+| 3 | "Which fella?" | `[PROGRESS · remove]` · after 2 | "Didn't say. Paid, though. Regular." |
+| 4 | "How much are they paying you?" | `[PROGRESS · remove]` · after 3 | "Two dollars a week." *(This is the puzzle. He is being paid two dollars a week to acquire something being offered eleven thousand.)* |
 | 5 | "How's the bite?" | `[COMIC · retain]` | "Healing wrong." *(Every time, for the rest of the game, in every act, including the ending.)* |
 | 6 | "Would you swear I've lived on my claim ninety days?" | `[PROGRESS · remove]` | "Nope." *(beat)* "Told not to." *(beat)* "Nine dollars." *(req `T_NINETY_DAYS`; D2; errata 75)* |
 | 7 | "Do you know what the Company thinks my claim is worth?" | `[PROGRESS · remove]` | → **PRA_D5**, the turn *(req `T_PRATT_TRAIL`; D5; errata 75)* |

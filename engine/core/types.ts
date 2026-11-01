@@ -1430,6 +1430,15 @@ export interface DialogueOption {
   /** The option shown in this one's place after its first selection (`afterUse: replace`). */
   replaceWith?: DialogueOption;
   /**
+   * OFFERED ONLY ONCE THESE HAVE BEEN ASKED (Tyler, 2026-11-01: "one thing
+   * about Monkey Island was that certain dialogue options didn't appear until
+   * other ones were clicked first"). Option ids in the same node. A follow-up
+   * question -- "Getting out of what?" -- arrives after the answer that raises
+   * it, so the list never asks about something nobody has mentioned. The list
+   * only ever grows: an option once offered is never taken back by this.
+   */
+  after?: string[];
+  /**
    * The option's response is a SCENE, not a line, and the scene is not built.
    *
    * Doc 27 writes Vessel's sixth option as "(The swindle. Four dollars and
@@ -1662,6 +1671,14 @@ export interface UiFile {
     holdMinimumSeconds?: number;
     holdMaximumSeconds?: number;
     holdNote?: string;
+    /**
+     * A CONVERSATION LINE STAYS UNTIL IT IS CLICKED (Tyler, 2026-11-01: "some
+     * of it disappears before I have a chance to read it… it shouldn't
+     * disappear until I click the screen"). Applies to a conversation's lines
+     * and its greeting; examine lines and barks keep their reading holds.
+     */
+    conversationWaitsForClick?: boolean;
+    conversationNote?: string;
   };
 }
 
