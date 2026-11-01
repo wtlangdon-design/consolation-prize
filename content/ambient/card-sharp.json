@@ -13,11 +13,11 @@
  "greetsWithBark": true,
  "greetsWithBarkNote": "Tyler, 2026-10-31: TALK TO opens with his bark for the current reputation, so the tree's first options answer something. Doc 07 writes no root line for him; this stages his own barks, it adds none.",
  "walkTo": {
-  "x": 1000,
-  "y": 598,
+  "x": 960,
+  "y": 595,
   "facing": "left"
  },
- "walkToNote": "Moved 2026-10-31 for Deke Vessel at the bar's near end: (1080,605) put Thad half behind him.",
+ "walkToNote": "Moved 2026-10-31 for Deke Vessel at the bar's near end: (1080,605) put Thad half behind him, and (1000,598) still did once Deke stepped left of the stool to 1060.",
  "registrationNote": "x IS THE FRAME'S HORIZONTAL CENTRE AND y IS ITS LAST ROW (Renderer.drawAmbient). His head top in the old plate is y 300 at x 930. zone 2 is 222 tall, so y 522 puts speakerHead at 300, the balloon over his hat. The frame is cut to 110x222 so Ambient.npcAt's box is x 886-974, y 300-522: his body, then the table edge and floor in front of him.",
  "hitboxNote": "HONEST LIMIT, same as the rebuild's: the box's lower part lies over the table in front of him. A hotspot wins over an ambient for every verb but TALK TO, so LOOK and LISTEN on THE PATRONS and THE HAND OF CARDS are unaffected; only TALK TO reaches him there, which is the right answer at a card table.",
  "sprite": {
