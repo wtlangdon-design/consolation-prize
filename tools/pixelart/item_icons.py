@@ -187,7 +187,42 @@ def padded_log(canvas: IndexedCanvas, palette: Palette) -> None:
     canvas.vline(16, 5, 11, umber.frac(0.30))
 
 
+def watch(canvas: IndexedCanvas, palette: Palette) -> None:
+    """His father's pocket watch: silver, round, a bow at the top and a few
+    links of chain. The only round thing in the panel that is not money, so
+    it is drawn as a face with hands rather than as a disc that could be a
+    coin. Doc 23: "Silver, worn smooth on one side by a thumb." """
+    grey = palette.family("grey")
+    bone = palette.family("bone")
+    void = palette.family("void")
+    cx, cy, r = 14, 11, 7
+    for y in range(cy - r, cy + r + 1):
+        for x in range(cx - r, cx + r + 1):
+            d2 = (x - cx) ** 2 + (y - cy) ** 2
+            if d2 > r * r + r:
+                continue
+            if d2 > (r - 1) ** 2 + (r - 1):
+                canvas.put(x, y, void.at(0))
+            elif d2 > (r - 2) ** 2 + (r - 2):
+                # The case: lighter on the left, where the thumb wore it.
+                canvas.put(x, y, grey.frac(0.90 if x < cx else 0.58))
+            else:
+                canvas.put(x, y, bone.frac(0.80))
+    # The hands, eleven minutes fast of nothing in particular.
+    ink = void.at(0)
+    canvas.vline(cx, cy - 3, 4, ink)
+    canvas.line(cx, cy, cx + 3, cy + 1, ink)
+    # The bow and crown on top.
+    canvas.rect(cx - 1, cy - r - 2, 3, 2, grey.frac(0.72))
+    canvas.outline(cx - 2, cy - r - 3, 5, 3, void.at(0))
+    # A few links of chain, off to the right.
+    for i, (x, y) in enumerate(((cx + 3, cy - r - 2), (cx + 5, cy - r - 1), (cx + 7, cy - r),
+                                (cx + 9, cy - r + 1), (cx + 11, cy - r + 3))):
+        canvas.put(x, y, grey.frac(0.80 if i % 2 == 0 else 0.50))
+
+
 ICONS = {
+    "watch": watch,
     "padded_log": padded_log,
     "tuning_fork": tuning_fork,
     "letter": letter,

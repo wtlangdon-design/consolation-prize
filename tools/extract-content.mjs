@@ -950,6 +950,49 @@ function combinations() {
     if (!routed) throw new Error(`doc 24: no routing on file for "${pair.say.slice(0, 40)}..."`);
     return { ...routed, say: pair.say };
   }), ...opening];
+  // DOC 57 A8: THE NUGGET PIANO ANSWERS BY CIRCUMSTANCE. Its five cases are
+  // the document's `> **THE PIANO** · USE THE TUNING FORK, *case* — ...`
+  // lines; their WORDS are read from there. Which flag or item each case
+  // tests, and what it gives, is routing, authored here the way OPENING_PAIRS
+  // is, in the order the cases must be tried: a visit's tuning first (the
+  // piano is flat again each time he comes back -- the room's onEnter clears
+  // T_NUGGET_PIANO_TUNED), then the fee still in his pocket, then the count.
+  const tuned = { T_NUGGET_PIANO_TUNED: true };
+  const paid = { T_NUGGET_PIANO_PAID: 1 };
+  const A8_CASES = [
+    ['already tuned this visit', { when: { T_NUGGET_PIANO_TUNED: true } }],
+    ['already holding THE FILING FEE', { holds: ['filing_fee'], set: tuned }],
+    ['first time', { when: { T_NUGGET_PIANO_PAID: 0 }, items: ['filing_fee'], set: tuned, add: paid, completes: 'A8' }],
+    ['second time', { when: { T_NUGGET_PIANO_PAID: 1 }, items: ['filing_fee'], set: tuned, add: paid }],
+    ['third time and after', { when: { T_NUGGET_PIANO_PAID: { atLeast: 2 } }, items: ['filing_fee'], set: tuned, add: paid }],
+  ];
+  const a8 = (() => {
+    const whole = read('docs/57-puzzle-completion.md');
+    const from = whole.indexOf('## A8 ');
+    if (from < 0) throw new Error('doc 57: no A8 section');
+    const body = whole.slice(from, whole.indexOf('\n## ', from + 5));
+    const found = new Map();
+    for (const line of body.split('\n')) {
+      const m = /^> \*\*THE PIANO\*\* · USE THE TUNING FORK, \*(.+?)\* — (.+)$/.exec(line);
+      if (!m) continue;
+      const spoken = m[2].split('→')[0];
+      const quotes = [...spoken.matchAll(/"([^"]+)"/g)].map((q) => q[1]);
+      if (!quotes.length) throw new Error(`doc 57 A8: "${m[1]}" has no line`);
+      found.set(m[1], quotes);
+    }
+    return A8_CASES.map(([label, routing]) => {
+      const quotes = found.get(label);
+      if (!quotes) throw new Error(`doc 57 A8: no case "${label}"`);
+      return { case: label, ...routing, say: quotes[0], ...(quotes.length > 1 ? { then: quotes.slice(1) } : {}) };
+    });
+  })();
+  for (const pair of rebuilt) {
+    if (pair.item === 'tuning_fork' && pair.room === 'nugget' && pair.target === 'piano') {
+      if (pair.say !== a8[2].say) throw new Error('doc 57 A8: the first time does not open on doc 24\'s line');
+      pair.rules = a8;
+    }
+  }
+
   const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string').length;
   if (rebuilt.length - opening.length !== spoken) {
     throw new Error(`doc 24: ${rebuilt.length - opening.length} spoken pairs extracted, ${spoken} on file`);
@@ -1464,6 +1507,12 @@ function minorTrees() {
       const option = { id: `${who.speaker}${number}`, text, tag };
       const follows = afterIds(tagCell, who.speaker);
       if (follows) option.after = follows;
+      // `ends` in the tag cell: the conversation closes after this exchange,
+      // as an EXIT's does (doc 27's note; Vessel's option 6, doc 57 A3).
+      if (/(^|·)\s*ends\s*(·|$)/.test(tagCell.replace(/`[^`]*`/g, ''))) option.ends = true;
+      // A bold puzzle id after the arrow is the puzzle the option completes.
+      const completes = after.join('→').match(/\*\*([A-F]\d+)\*\*/);
+      if (completes) option.puzzle = { [completes[1]]: 'complete' };
       if (lines.length === 1 && lines[0].speaker === who.speaker) {
         option.say = lines[0].line;
       } else if (lines.length > 1) {
@@ -1953,6 +2002,14 @@ function actTwoItems() {
       responses[verb] = [{ say: lines[0], repeat: lines.slice(1) }];
     }
     const acquired = /^\*(.+)\*$/m.exec(section[1])?.[1] ?? '';
+    // ITEMS FOLLOW THE FLAG (doc 57 A3, doc 36 Q141 route 1). "Held from the
+    // start. Traded at A3" is the watch's own acquisition line: carried from
+    // a new game until the swindle, which is the flag T_SWINDLED. Its return
+    // at B6 is the duel's grant, ordinary inventory.
+    const held = /Held from the start\./.test(acquired) && /Traded at A3/.test(acquired)
+      ? { heldWhen: { T_SWINDLED: false },
+        heldNote: 'From doc 23\'s acquisition line: held from the start until A3 (T_SWINDLED), back at B6 by the duel\'s grant.' }
+      : {};
     out.push(write(`content/items/${id.replace(/_/g, '-')}.json`, {
       schema: 1,
       id,
@@ -1960,6 +2017,7 @@ function actTwoItems() {
       short: display,
       note: `EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. ${acquired} Errata 66 ruling A: shown to the character at C5 and kept; never consumed.`,
       responses,
+      ...held,
     }));
   }
   return out;

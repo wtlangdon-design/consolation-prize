@@ -27,6 +27,11 @@ export interface ResolvedAction {
    */
   items?: string[];
   /**
+   * Items GIVEN by the object, which stays where it is: a payment rather than
+   * a pickup (a pair rule's `items`, doc 57 A8's fee). No ownership passes.
+   */
+  grants?: string[];
+  /**
    * The flag writes this response WOULD make, reserved rather than applied.
    *
    * Doc 34 section 1.2's second defect: "Item/verb resolution writes flags
@@ -166,6 +171,7 @@ export class VerbSystem {
    */
   resolveWith(
     _verbId: string, itemId: string, target: Interactable, roomId: string,
+    carried: readonly string[] = [],
   ): ResolvedAction {
     const table = this.combinations;
     const pair = table?.pairs.find(
@@ -173,6 +179,26 @@ export class VerbSystem {
         && candidate.room === roomId
         && candidate.target === target.id,
     );
+    // THE FIRST CASE WHOSE CIRCUMSTANCES HOLD (CombinationPair.rules).
+    const rule = pair?.rules?.find((one) => this.flags.test(one.when)
+      && (one.holds ?? []).every((item) => carried.includes(item)));
+    if (pair && rule) {
+      const prefix = `with/${roomId}/${target.id}/${itemId}`;
+      return {
+        say: rule.say,
+        ...(rule.then?.length ? { then: rule.then } : {}),
+        dialogue: null,
+        goto: null,
+        ...(rule.items?.length ? { grants: rule.items } : {}),
+        effects: [
+          ...flagEffects(prefix, rule.set, rule.add),
+          ...(rule.completes
+            ? [{ id: `${prefix}#complete:${rule.completes}`, kind: 'puzzleProgress' as const,
+              puzzle: rule.completes, status: 'complete' as const }]
+            : []),
+        ],
+      };
+    }
     if (pair) {
       return {
         say: pair.say ?? null,

@@ -107,7 +107,11 @@
           "after": [
             "deke_vessel4"
           ],
-          "beat": "The swindle. Four dollars and the watch for the deed.",
+          "ends": true,
+          "puzzle": {
+            "A3": "complete"
+          },
+          "say": "Pleasure, son. Look after her. She's got character.",
           "set": {
             "T_SWINDLED": true
           }

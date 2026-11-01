@@ -364,6 +364,9 @@ test('D31: an item combination reserves its writes, and precedence is unchanged'
     // one rather than a pool line standing in for it.
     assert.equal(action.say, pair.say ?? null);
     for (const effect of action.effects) {
+      // A case that completes a puzzle (doc 57 A8's first tuning) records it;
+      // nothing else a pair reserves is anything but flags.
+      if (effect.kind === 'puzzleProgress' && pair.rules?.some((rule) => rule.completes === effect.puzzle)) continue;
       assert.equal(EFFECT_PHASE[effect.kind], 'flags');
     }
   }

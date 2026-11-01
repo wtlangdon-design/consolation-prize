@@ -23,5 +23,9 @@
         ]
       }
     ]
-  }
+  },
+  "heldWhen": {
+    "T_SWINDLED": true
+  },
+  "heldNote": "Doc 57 A3, items follow the flag (doc 36 Q141 route 1): held once Vessel has sold it, and never lost (doc 02's ledger)."
 }

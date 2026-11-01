@@ -757,7 +757,9 @@ test('repeat variants cycle FORWARD, then hold on the last one', async () => {
     state.enterRoom(room.id);
     for (const target of [...room.hotspots, ...room.exits]) {
       for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
-        const rule = target.responses?.[verb]?.[0];
+        // The first rule that answers NOW: an act variant (doc 05 Part Two-B)
+        // is guarded and sits ahead of the chain it stands in for.
+        const rule = target.responses?.[verb]?.find((one) => state.flags.test(one.when));
         if (!rule?.say) continue;
         const expected = [rule.say, ...(rule.repeat ?? [])];
         // Q74: the verb clears on use, so it is re-selected per repeat. The

@@ -3,6 +3,8 @@
 
 *Doc 04 sketches all three in a line each. Written out. Verbatim.*
 
+*`ends` in a tag cell (2026-11-01): the conversation closes when that option's exchange is over, as an EXIT does — Vessel's option 6, after which he leaves (doc 57, A3). A bold puzzle id after the arrow (**A3**) is the puzzle the option completes.*
+
 *Follow-up questions (Tyler, 2026-11-01): a tag cell marked `after N` is offered only once option N has been asked, so a list never asks about something nobody has mentioned — "Getting out of what?" comes after "I'm getting out."*
 
 ---
@@ -63,7 +65,7 @@
 | 3 | "Getting out of what?" | `[PROGRESS]` · after 2 | "Claim Two. Producing, mind. But my sister's poorly and Sacramento's four days." |
 | 4 | "How much?" | `[PROGRESS]` · after 3 | **"What have you got?"** — *"Four dollars."* — "Four dollars." *(He looks at the watch.)* "And that." |
 | 5 | "You seem cheerful for a man with a poorly sister." | `[COMIC]` · after 3 | "I've made my peace with it." |
-| 6 | "All right." | `[PROGRESS] ✓` · after 4 | *(The swindle. Four dollars and the watch for the deed.)* → `T_SWINDLED` |
+| 6 | "All right." | `[PROGRESS] ✓` · after 4 · ends | *(The swindle. Four dollars and the watch for the deed.)* "Pleasure, son. Look after her. She's got character." *(He finishes his drink, collects his hat, and leaves the Nugget.)* → `T_SWINDLED` · **A3** |
 | 7 | `[EXIT]` "I'll think about it." | | "Course you will." |
 
 **"What have you got?" is the entire con** and it is the only question in the scene. He does not price the claim. He prices Thad.

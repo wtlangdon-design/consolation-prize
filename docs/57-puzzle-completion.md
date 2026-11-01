@@ -69,7 +69,7 @@ Built as doc 17 v3 and doc 27 have it: the stage driver sends Thad to the undert
 
 **Items follow the flag** (doc 36 Q141 route 1, ruled): FOUR DOLLARS and THE POCKET WATCH are held while `T_SWINDLED` is false; THE DEED is held once it is true; THE POCKET WATCH is held again once B6 is complete. The flag stays the single fact.
 
-When option 6's exchange settles:
+When option 6's exchange settles *(now written into doc 27's option 6, which is where the extractor reads it; the conversation ends and A3 completes)*:
 
 > **VESSEL:** "Pleasure, son. Look after her. She's got character." *(He finishes his drink, collects his hat, and leaves the Nugget. From now on he is not in Room 3.)*
 

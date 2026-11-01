@@ -10,6 +10,10 @@
  "zone": 0,
  "approachRadius": 160,
  "tree": "DEKE_VESSEL",
+ "when": {
+  "T_SWINDLED": false
+ },
+ "whenNote": "Doc 57 A3: once the swindle settles \"he finishes his drink, collects his hat, and leaves the Nugget. From now on he is not in Room 3.\" His Room 4 placement keeps its own condition (T_VESSEL_FOUND).",
  "placeNote": "AT THE BAR'S NEAR END, FEET LEVEL WITH THE SPITTOON, in the gap between the card table and the first drinker -- Tyler, 2026-11-01: on the open floor 'it feels really weird for him to just be standing in the middle of the room. What about down and to the right so his feet are in line with the spittoon but he's not overlapping the guys behind him?' Rendered at 1000, 1075 and 1080 on that line, then (Tyler, 2026-11-01: 'move Deke slightly to the left so he's not overlapping the guy at the bar at all') at 1030 and 1045: at 1035 his widest pose (frame 3, the hat, 97 px right of centre) ends at 1132, short of the first drinker, and his left touches only the card player's chair back. A whiskey barrel with a drink on it stands at his left (RoomFile.props, Tyler 2026-11-01) so he is not alone on an empty floor. Still facing the batwing doors -- doc 27 LOOK 1, 'watching the door'. History: 1109,655 stood on the first stool's leg; 1060,655 crowded the one-strike man (Tyler: 'I kind of stand on Deke when talking to the gold nugget guy'); 760,730 cleared him but stood alone in the middle of the floor. At 815 he is nearer the camera than the one-strike man's talking spot (1110,640), so the two conversations no longer share ground.",
  "walkTo": {
   "x": 730,

@@ -288,7 +288,8 @@
         ]
       },
       "overrides": {
-        "OPEN": "It is lit. I am not opening a lit stove in a wooden building full of drunk men."
+        "OPEN": "It is lit. I am not opening a lit stove in a wooden building full of drunk men.",
+        "PULL": "Every man in the room is suddenly watching. The pipe stays. The reputation nearly went."
       },
       "walkTo": {
         "x": 1065,
@@ -310,6 +311,24 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 2,
+                "atMost": 2
+              }
+            },
+            "say": "I tune it Thursdays now. It is the only thing in Consolation that is more honest when I finish with it."
+          },
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Tuned, and staying tuned. The room plays it differently now — softer, like the instrument earned something."
+          },
+          {
             "say": "An upright, hauled four hundred miles by mule, at a cost exceeding its value by an order of magnitude. Nobody here can play it.",
             "repeat": [
               "Nobody has touched it since I arrived. I check.",
@@ -318,6 +337,15 @@
           }
         ],
         "LISTEN_TO": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "A. Four hundred and forty. In this town, at last, that is not a foreign language."
+          },
           {
             "say": "C-sharp is a semitone flat and has been for years. Nobody has noticed.",
             "repeat": [
@@ -332,7 +360,9 @@
       },
       "overrides": {
         "USE": "I could tune it. Nobody has asked me, and I have decided that asking to be asked is beneath me.",
-        "OPEN": "The lid comes up. Inside is a piano, which is what I expected and somehow still a disappointment."
+        "OPEN": "The lid comes up. Inside is a piano, which is what I expected and somehow still a disappointment.",
+        "PUSH": "It has not been moved since it arrived, and the floor has grown around it like a tree around a nail.",
+        "TALK_TO": "Soon. We'll talk properly soon. Not in front of everyone."
       },
       "walkTo": {
         "x": 620,
@@ -554,6 +584,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "They drank to my memory on Tuesday. I attended. I am told I was well spoken of, briefly, between rounds."
+          },
+          {
             "say": "Mahogany. Genuinely. Somebody spent real money on the one surface everyone leans on.",
             "repeat": [
               "Mahogany. Four hundred miles from a tree that could have produced it.",
@@ -562,6 +601,15 @@
           }
         ],
         "LISTEN_TO": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "My name — one of its spellings — in a toast. It is a strange vintage, hearing yourself remembered at cost price."
+          },
           {
             "say": "Glasses. Talk.",
             "repeat": [
@@ -576,7 +624,8 @@
       },
       "overrides": {
         "USE": "That would cost money.",
-        "PUSH": "It does not move. It is the only thing in Consolation built to stay."
+        "PUSH": "It does not move. It is the only thing in Consolation built to stay.",
+        "OPEN": "The barman watches me consider it. We both put the idea down gently."
       },
       "walkTo": {
         "x": 1540,
@@ -669,11 +718,11 @@
     {
       "from": "nugget_back",
       "at": [
-        930,
+        870,
         590
       ],
       "facing": "right",
-      "note": "Back out of the back room, on the floor in front of the bar's near end (floor_1), LEFT of Deke Vessel's place (x 982-1138 is his figure, nearer the camera): at the door's own x he arrived hidden behind him. Room 4, errata 76 B."
+      "note": "Back out of the back room, on the floor in front of the bar's near end (floor_1), LEFT of where Deke Vessel stands (at 1035,815 since 2026-11-01 his figure spans x 937-1133, nearer the camera): at 930 Thad arrived half behind him, and at the door's own x wholly. Room 4, errata 76 B; moved 2026-11-01."
     },
     {
       "from": "default",
@@ -1525,6 +1574,9 @@
         "T_VESSEL_OPENED": true
       },
       "note": "Doc 35, VESSEL'S AUTO-OPEN, exactly: on entering, unless the swindle has happened or he has already opened, wait 1500 ms, he says \"You're the piano man.\" (his tree's opening, extracted from doc 27's Root) and the tree opens; T_VESSEL_OPENED makes it once only. Thad does not walk to him (doc 27: 'He opens. Thad does not approach him.')."
+    },
+    "set": {
+      "T_NUGGET_PIANO_TUNED": false
     }
   },
   "figureLight": {
@@ -1560,7 +1612,26 @@
         146,
         236
       ],
-      "note": "Set dressing at Deke's left, a drink on it (Tyler, 2026-11-01). Not a hotspot: no document writes a LOOK or LISTEN for it, so clicks go through it. Generated once (art/staging/room-03/barrel-01, room-03-barrel 1 of 2), keyed and BOX-reduced by tools/art/cut-prop.py to 225 px to the rim -- 0.53 of Deke's 428, his belt -- and graded to the bar front by tools/grade/match-neighbours.py at 0.9. Spans x 817-962, clear of Deke's rest-pose left edge at about 981. Then darkened by tools/art/darken-prop.py, now at brightness 0.75 with the base falling to 0.7 (Tyler, 2026-11-01: \"It's too bright. Please darken it so it fits in better.\" Chosen from 0.8, 0.7 and 0.6 rendered in the room; 0.6 went muddy). Then 0.75 (Tyler, 2026-11-01: \"Maybe ever so slightly lighter since the floor behind it is so bright?\")."
+      "note": "Set dressing at Deke's left, a drink on it (Tyler, 2026-11-01). Not a hotspot: no document writes a LOOK or LISTEN for it, so clicks go through it. Generated once (art/staging/room-03/barrel-01, room-03-barrel 1 of 2), keyed and BOX-reduced by tools/art/cut-prop.py to 225 px to the rim -- 0.53 of Deke's 428, his belt -- and graded to the bar front by tools/grade/match-neighbours.py at 0.9. Spans x 817-962, clear of Deke's rest-pose left edge at about 981. Then darkened by tools/art/darken-prop.py, now at brightness 0.75 with the base falling to 0.7 (Tyler, 2026-11-01: \"It's too bright. Please darken it so it fits in better.\" Chosen from 0.8, 0.7 and 0.6 rendered in the room; 0.6 went muddy). Then 0.75 (Tyler, 2026-11-01: \"Maybe ever so slightly lighter since the floor behind it is so bright?\").",
+      "when": {
+        "T_SWINDLED": false
+      }
+    },
+    {
+      "id": "whiskey_barrel_finished",
+      "sheet": "art/props/room-03-barrel-empty.png",
+      "x": 890,
+      "y": 812,
+      "frame": [
+        0,
+        0,
+        146,
+        236
+      ],
+      "note": "The same barrel once the swindle has settled: doc 57 A3, Vessel \"finishes his drink, collects his hat, and leaves the Nugget.\" The glass emptied by tools/art/empty-glass.py from the shipped barrel (no image operation); the dregs stay.",
+      "when": {
+        "T_SWINDLED": true
+      }
     }
   ]
 }

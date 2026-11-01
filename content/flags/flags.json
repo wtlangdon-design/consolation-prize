@@ -552,6 +552,25 @@
     "engine:dialogue:openingOnce DEKE_VESSEL/VES_B1"
    ],
    "note": "Doc 57 B4: the first TALK TO with Vessel in Room 4 plays doc 03's Duel One opening ('Grubb! You came all this way.'), once. Set by the dialogue runner when VES_B1 opens."
+  },
+  {
+   "id": "T_NUGGET_PIANO_TUNED",
+   "type": "bool",
+   "initial": false,
+   "note": "Doc 57 A8: the Nugget piano is in tune for the rest of this visit. \"The piano is flat again every time Thad comes back\": the room's onEnter clears it, and the fork's 'already tuned this visit' case reads it.",
+   "writtenBy": [
+    "combination:tuning_fork:nugget:piano",
+    "room:nugget:onEnter"
+   ]
+  },
+  {
+   "id": "T_NUGGET_PIANO_PAID",
+   "type": "number",
+   "initial": 0,
+   "note": "Doc 57 A8: how many times the barman has paid for a tuning. 0 is the first time (A8, THE FILING FEE), 1 the second, 2 and after the third; each pays two dollars unless the fee is still in his pocket.",
+   "writtenBy": [
+    "combination:tuning_fork:nugget:piano"
+   ]
   }
  ]
 }

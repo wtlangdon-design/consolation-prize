@@ -812,6 +812,31 @@ export interface CombinationPair {
   opens?: string;
   opensNode?: string;
   note?: string;
+  /**
+   * A PAIR THAT ANSWERS DIFFERENTLY BY CIRCUMSTANCE. Doc 57's A8: the Nugget
+   * piano pays the first time, pays with a different line the second and
+   * after, tunes for nothing while the fee is still in his pocket, and is
+   * still in tune if he has done it this visit. The first rule whose
+   * condition holds answers; with none, `say` does. Extracted from doc 57.
+   */
+  rules?: PairRule[];
+}
+
+/** One circumstance of a pair. See CombinationPair.rules. */
+export interface PairRule {
+  /** The document's own label for the case, kept for the reader. */
+  case?: string;
+  when?: Condition;
+  /** Items he must be carrying for this case to answer. */
+  holds?: string[];
+  say: string;
+  then?: string[];
+  /** Items this case puts in the inventory. */
+  items?: string[];
+  set?: FlagWrites;
+  add?: FlagAdds;
+  /** The canonical puzzle this case completes. */
+  completes?: string;
 }
 
 /** content/combinations.json -- doc 06's table, written by doc 24. */
@@ -971,6 +996,17 @@ export interface ItemFile {
   short?: string;
   /** In the inventory from a new game. The fork never leaves it. */
   startsHeld?: boolean;
+  /**
+   * ITEMS FOLLOW THE FLAG (doc 36 Q141 route 1, ruled; doc 57 A3). A tree may
+   * not write inventory, so a trade made in conversation is a flag, and the
+   * items read it: carried while `heldWhen` holds, whether or not anything
+   * granted it, and never carried while `lostWhen` holds, whatever did.
+   * The swindle: the watch and the four dollars until T_SWINDLED, the deed
+   * after it. A later grant (the watch at B6) is ordinary inventory.
+   */
+  heldWhen?: Condition;
+  lostWhen?: Condition;
+  heldNote?: string;
   /** No LOOK or LISTEN written yet. Doc 15 lists ~40 of these as unwritten. */
   linesPending?: boolean;
   responses?: Record<string, ResponseRule[]>;
@@ -1476,6 +1512,12 @@ export interface DialogueOption {
   /** Puzzle progress the option writes (doc 53): WIN_B2's first row makes C6 pending. */
   puzzle?: Record<string, PuzzleStatus>;
   goto?: string;
+  /**
+   * The conversation closes when this option's exchange is over, as an EXIT's
+   * does, without the option being an EXIT. Doc 27 `ends`: Vessel's option 6,
+   * after which he leaves the Nugget (doc 57, A3).
+   */
+  ends?: boolean;
   /**
    * Marks an option that changes state without presenting as progress.
    * Invariant 7: the player must not be able to tell. Purely documentary --
@@ -2288,6 +2330,8 @@ export interface RoomProp {
   y: number;
   /** Source rect in `sheet`, drawn 1:1 with its bottom row on `y`. */
   frame: [number, number, number, number];
+  /** Drawn only while this holds: two props for one object's two states. */
+  when?: Condition;
   note?: string;
 }
 
