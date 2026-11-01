@@ -596,12 +596,26 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 
 **`SUM_B1` (Act II — the three documents):** the trials' paper spine. One `[PROGRESS · rephrase]` option per document — "About Document A—" rephrasing as each is satisfied — and the citation for why B can only be issued to the deceased, delivered without the slightest acknowledgement that this is remarkable.
 
+*Grown to a node in Batch C (doc 54), 2026-10-31, at Tyler's instruction. The description names a citation "for why B can only be issued to the deceased"; nothing in doc 02 restricts Document B (the Assay of Record, C6) to the dead, and the only thing doc 02 gives the deceased is E2's archive access for an executor. Option 2 is written as that citation — the Act III loophole, planted in Act II and delivered as procedure. If the description meant something else, option 2 is the line to replace.*
+
+| # | Option | Tag | Response |
+|---|---|---|---|
+| 1 | "About Document A—" | `[PROGRESS · rephrase → "About Document B—"]` | "The Affidavit of Original Sale. Sworn by the vendor, on Form 4. The office does not require the vendor to be found. It requires him to sign." |
+| 1′ | "About Document B—" | `[PROGRESS · rephrase → "About Document D—"]` · *after Document A* | "The Assay of Record, from the Assay Office, on its own form. It need not find anything. It need only be issued." |
+| 1″ | "About Document D—" | `[PROGRESS · rephrase → "About Document C—"]` · *after Document B* | "Proof of Continuous Occupancy. Ninety days, attested by a neighbor. The office accepts one neighbor. It does not inquire into his character. It has never found that useful." |
+| 1‴ | "About Document C—" | `[PROGRESS · remove]` · *after Document D* | "Present A, B and D together and the office issues C, the Certificate of Contiguity. It is the only document that comes after D. I find that restful." → E0 |
+| 2 | "Can I see how Claim One was filed?" | `[TOPIC · retain]` | "Sealed filings are open to the court, to the claimholder, and to the executor of a deceased claimholder. Section nineteen. You are none of these, Mr. Grubb, and only one of them is beyond your control." |
+| 3 | "Do you ever stamp anything just for the pleasure of it?" | `[COMIC · retain]` | "Pleasure is not a ground. I stamp on grounds." |
+
 **`SUM_C1` (Act III — accepting the death certificate):**
 
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | *(present the certificate)* | `[PROGRESS · remove]` | *(He examines it. He examines Thad. He stamps it.)* "The office does not require the deceased to be absent. An oversight, possibly. I do not correct statute. I administer it." |
 | 2 | "You know I'm not dead." | `[TOPIC · remove]` | "I know what is *certified*, Mr. Grubb. It is the only kind of knowing this window does." |
+| 3 | "Is there a form for this?" | `[COMIC · retain]` | "Form 31-D. Notice of Decease, Self-Reported. Nobody has used it before. It was printed in hope." |
+
+*Option 3 added in Batch C (doc 54), 2026-10-31, at Tyler's instruction: the node had two options and no `[COMIC]`, against node rules 1 and 2. It answers SUM_A1's "Is there a form for that?"*
 
 **`SUM_F1` (Act IV — the filing)** is doc 48's S6. His one human moment is scripted there: *"…That's a very old claim number."* He stamps it. He does not look up. He knows exactly what he is doing.
 
@@ -644,6 +658,14 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 | 3 | "My condolences." | `[COMIC · retain]` | "Accepted on his behalf. He'd have wanted the credit." |
 
 **`UND_C1` (Act III — arrangements):** the coffin fitting. One `[PROGRESS · remove]` — "I'll need your best pine, handles, plate" — met with the measuring wall, the pencil, and no questions at all: *"Sizing's free. It's the only thing that is. Stand straight."* He is the only person in Act III who is completely unsurprised, because in his trade everyone lies down eventually and half of them get up in the night to check on things.
+
+*Grown to a node in Batch C (doc 54), 2026-10-31, at Tyler's instruction — the description above had one option against node rules 1 and 2. Options 2 and 3 are new; option 1 is the description's.*
+
+| # | Option | Tag | Response |
+|---|---|---|---|
+| 1 | "I'll need your best pine, handles, plate." | `[PROGRESS · remove]` | *(The measuring wall. The pencil. No questions at all.)* "Sizing's free. It's the only thing that is. Stand straight." |
+| 2 | "You haven't asked who it's for." | `[TOPIC · retain]` | "It's for whoever fits." |
+| 3 | "Could you make it roomy?" | `[COMIC · retain]` | "Everybody asks for roomy. Nobody's ever come back to complain." |
 
 
 ---
