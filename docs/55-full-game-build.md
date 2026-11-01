@@ -102,7 +102,7 @@ Stop the room, not the build, and say so in doc 36 and to Tyler, when:
 |---|---|---|---|---|
 | 32 | 2026-10-31 | #75, #76 | 0 (drawn by script) | Awaiting audition |
 | 4 | 2026-11-01 | #78 (stopped), #84, #88, #90, #91, #93 | 5 of 5 (master, plate, Sowerby, Sowerby redrawn whole, Sowerby alone on magenta; Tyler raised the cap to 5) | The Liar's Assay engine and Duels One and Two; judges and Sowerby new, Deke re-cut. `?room=nugget_back`; `?fixture=r4-a` convenes the Assay. Awaiting playthrough (doc 36 Q148, errata 76) |
-| 6 | 2026-11-01 | PR_PENDING | 3 of 4 (master, plate, plate re-framed to hold the window, mat and cot) | The records room: night, nobody in it, sixteen subjects. `?room=assay_records`. Its door back has no lines (stub exit, doc 36 Q149, errata 79) |
+| 6 | 2026-11-01 | #108 | 3 of 4 (master, plate, plate re-framed to hold the window, mat and cot) | The records room: night, nobody in it, sixteen subjects. `?room=assay_records`. Its door back has no lines (stub exit, doc 36 Q149, errata 79) |
 
 ## 8 · What playing found — held by a script where a script can hold it
 
