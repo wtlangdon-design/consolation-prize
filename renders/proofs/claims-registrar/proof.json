@@ -4,54 +4,10 @@
  "room": "claims_registrar",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "387b2906de68e880051173fb449f350d1d3af7e7",
- "workingTreeClean": false,
- "dirtyAllowed": true,
- "uncommitted": [
-  "M art/staging/ledger.json",
-  " M art/ui/item-icons.png",
-  " M content/build-ledger.json",
-  " M content/combinations.json",
-  " M content/flags/flags.json",
-  " M content/manifest.json",
-  " M content/rooms/claims-registrar.json",
-  " M content/ui/item-icons.json",
-  " M engine/core/DialogueRunner.ts",
-  " M engine/core/GameState.ts",
-  " M engine/core/VerbSystem.ts",
-  " M engine/core/types.ts",
-  " M engine/render/Renderer.ts",
-  " M engine/scenes/GameScene.ts",
-  " M proofs/check-friction.json",
-  " M proofs/played-pending.json",
-  " M reference/global-baseline.json",
-  " M renders/item-icons.png",
-  " M renders/item-icons@4x.png",
-  " M tests/resolution.test.ts",
-  " M tools/compile-room.mjs",
-  " M tools/extract-content.mjs",
-  " M tools/pixelart/item_icons.py",
-  "?? art/actors/room-07-sump.png",
-  "?? art/backgrounds/room-07-claims-registrar.png",
-  "?? content/ambient/sump.json",
-  "?? content/dialogue/sump.json",
-  "?? content/fixtures/room-07.json",
-  "?? engine/render/MapLayout.ts",
-  "?? proofs/room-07/",
-  "?? proofs/spec/claims-registrar.json",
-  "?? reference/room-07/",
-  "?? renders/room-07-graybox-with-thad.png",
-  "?? renders/room-07-graybox.png",
-  "?? renders/room-07-scale-check.png",
-  "?? renders/room-07-sump-cut.png",
-  "?? tests/map.test.ts",
-  "?? tests/room-07.test.ts",
-  "?? tools/art/room07-plate.mjs",
-  "?? tools/art/room07-promote.mjs",
-  "?? tools/art/room07-sump.py",
-  "?? tools/gauntlet/routes/claims-registrar.json",
-  "?? tools/room07-graybox.py"
- ],
+ "commit": "74a8bc6fed903c13b41d45d4b7f2f95afc93a16e",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
  "visualState": null,
  "candidates": [],
  "route": "claims-registrar",
@@ -83,7 +39,7 @@
   "action 25 (waitFor): reached {\"room\":\"claims_registrar\"} in room claims_registrar",
   "action 26 (wait): waited 3s",
   "action 1 (verb): chose verb LOOK_AT -- ",
-  "action 2 (click): clicked claims_registrar/counter at world 1418,575 -- the counter, which has an Act III line",
+  "action 2 (click): clicked claims_registrar/counter at world 1418,490 -- the counter, which has an Act III line",
   "action 3 (waitFor): reached {\"says\":\"thad\"} in room claims_registrar"
  ],
  "depthMarks": [
@@ -112,7 +68,7 @@
    ],
    "reportedHeight": 481,
    "expected": 481,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-00.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-04.png",
    "bounds": [
     365,
     272,
@@ -149,7 +105,7 @@
    ],
    "reportedHeight": 546,
    "expected": 546,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-04.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-08.png",
    "bounds": [
     332,
     303,
@@ -181,12 +137,12 @@
    },
    "seen": {
     "x": 1188,
-    "y": 257,
+    "y": 256,
     "width": 180,
-    "height": 194,
+    "height": 195,
     "bottom": 450,
     "right": 1367,
-    "changed": 14850
+    "changed": 17443
    },
    "props": []
   }
@@ -195,7 +151,7 @@
   {
    "panel": "B",
    "room": "claims_registrar",
-   "clock": 109.8366,
+   "clock": 109.7627,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -270,15 +226,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-01T21:40:01.893Z",
+   "capturedAt": "2026-11-01T21:55:34.471Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "5b5f970aaccfaf2890debbe6439991730910b62ed9b71d012752422b4fb424f7"
+   "hash": "3c1abd606f3629b747d9d8c5b6d6d0a5d8da192e785e21b001a077ac9fbcfd72"
   },
   {
    "panel": "A",
    "room": "claims_registrar",
-   "clock": 110.62,
+   "clock": 110.56269999999999,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -314,7 +270,7 @@
       800
      ],
      "facing": "right",
-     "clip": "idle",
+     "clip": "idle-break",
      "height": 513,
      "moving": false,
      "drawn": "sprite",
@@ -350,7 +306,7 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-01T21:40:02.852Z",
+   "capturedAt": "2026-11-01T21:55:35.458Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "b24536edcddc2328b2545eeec40fe6bfa1873091f2dee3501832d1ffa8392bf5"
@@ -358,7 +314,7 @@
   {
    "panel": "D",
    "room": "claims_registrar",
-   "clock": 117.903,
+   "clock": 117.5124,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -394,11 +350,11 @@
       849
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 546,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-11.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
       332,
       303,
@@ -443,10 +399,10 @@
     "cast(true)",
     "flag ACT=3"
    ],
-   "capturedAt": "2026-11-01T21:40:09.930Z",
+   "capturedAt": "2026-11-01T21:55:42.540Z",
    "intent": "principal changed state: ACT 3 (errata 75 H: set at E0b's card, in rooms not built, so the flag control sets it). Visible consequence: LOOK AT the counter speaks the Act III line.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "165f76a60e3162d286bf3c18d831e6f1048c2a7394540bea1a4032fc51ed6081",
+   "hash": "7961db4f9b74361ade23597318fff235e4ea316db098a61991eeacb7161f3bf4",
    "changedBy": "counters"
   }
  ],
@@ -477,11 +433,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-01T21:40:09.930Z",
+ "at": "2026-11-01T21:55:42.541Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 313088,
+  "bytes": 316846,
   "panels": 5,
   "scale": 0.5
  }
