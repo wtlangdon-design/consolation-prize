@@ -362,6 +362,20 @@ function ask(room, sources, note) {
     // prose count would call every merged room a misreading.
     const counted05 = [...primaryNames].filter((name) => !actOnlyNames.includes(name)).length;
     const countAgrees = declaredCount === null || declaredCount === counted05;
+    // A SPECIAL-CASE ROOM, by doc 05's own words. Room 32 has no hotspots and
+    // Room 33's LISTEN answers in pitch, not prose; three-and-three cannot be
+    // asked of either. Only a room whose own doc 05 section says "Special
+    // case", and whose sources point at the writing that completes it, is
+    // answered this way -- and it is answered with that citation, not a pass.
+    const special = sources.examine?.special;
+    const specialSource = special ? section(special.source) : null;
+    if (special && /\*\*\*Special case\./.test(primary.body) && specialSource?.ok) {
+      for (const [id, question] of [['look-listen', 'LOOK/LISTEN complete?'],
+        ['repeat-variants', 'Repeat-selection variants complete?']]) {
+        add(id, question, 'YES', [sources.examine.primary, special.source],
+          `special case (doc 05): ${special.why}`);
+      }
+    } else {
     add('look-listen', 'LOOK/LISTEN complete?',
       withoutBoth.length === 0 && countAgrees ? 'YES' : 'NO',
       [sources.examine.primary, ...(sources.examine.completions ?? [])],
@@ -381,6 +395,7 @@ function ask(room, sources, note) {
         ? `all ${subjects.length} subject(s) carry three LOOK and three LISTEN variants`
         : `${thin.length} subject(s) short of three: `
           + thin.map((s) => `${s.name} (LOOK ${s.look}, LISTEN ${s.listen})`).join('; '));
+    }
 
     /* 3 · act / state variants -------------------------------------------- */
     //

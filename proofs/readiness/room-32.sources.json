@@ -3,24 +3,38 @@
  "room": 32,
  "id": "room-32",
  "name": "INSIDE THE COFFIN *(E7)*",
- "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 by the unattended room pass. The examine, act-variant and wrong-verb pointers were resolved mechanically from document headings. Dialogue and puzzles are NOT mapped: the room is blocked at the repeat-variant layer (doc 15 section 5, 'Repeat variants and verb fallbacks, 41 rooms', unchecked), which no mapping can change, so the gate's dialogue/puzzle NOs here mean 'not declared', not 'not written'. Map them before this room is reconsidered.",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31; errata 70 A and B.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 32 — INSIDE THE COFFIN *(E7)*"
+  "primary": "docs/05-examine-layer.md::ROOM 32 \u2014 INSIDE THE COFFIN *(E7)*",
+  "special": {
+   "source": "docs/54-batch-c.md::ROOM 32 \u00b7 INSIDE THE COFFIN",
+   "why": "zero hotspots and no verb panel by invariant 2; the room is its timeline (errata 70 A, B)"
+  },
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "The coffin happens once, in Act III."
+  }
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 32 — INSIDE THE COFFIN",
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 32 \u2014 INSIDE THE COFFIN",
  "dialogue": {
-  "characters": [],
-  "trees": [],
-  "mapped": false
+  "characters": [
+   "Hob"
+  ],
+  "trees": [
+   "docs/04-dialogue-trees.md::ACT III \u2014 `HOB_C1`: after the coffin (E8)"
+  ]
  },
  "puzzles": {
-  "ids": [],
-  "source": null,
-  "mapped": false
+  "ids": [
+   "E7",
+   "E8"
+  ],
+  "source": "docs/02-puzzle-graph.md::ACT III \u2014 *Thaddeus Grubb Is Legally Dead*"
  },
  "staging": {
-  "required": null,
-  "why": "not assessed: blocked at the examine layer"
+  "required": true,
+  "source": "docs/54-batch-c.md::ROOM 32 \u00b7 INSIDE THE COFFIN"
  },
- "connectivity": "docs/20-room-map.md"
+ "connectivity": "docs/20-room-map.md",
+ "exits": "docs/54-batch-c.md::ROOM 32 \u00b7 INSIDE THE COFFIN"
 }
