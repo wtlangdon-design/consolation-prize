@@ -4,36 +4,10 @@
  "room": "assay_records",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "0fc7f01dd1adc645e7b1be04a25943cc06b3fe5d",
- "workingTreeClean": false,
- "dirtyAllowed": true,
- "uncommitted": [
-  "M art/staging/ledger.json",
-  " M content/manifest.json",
-  " M content/rooms/assay-office.json",
-  " D content/rooms/stub-assay-records.json",
-  " M proofs/readiness/room-06.json",
-  " M reference/global-baseline.json",
-  " M reference/room-05/annotation.json",
-  " M tools/compile-room.mjs",
-  " M tools/gauntlet/life.mjs",
-  " M tools/gauntlet/proof.mjs",
-  " M tools/gauntlet/route.mjs",
-  " M tools/gauntlet/routes/assay-office-act1.json",
-  " M tools/gauntlet/routes/assay-office-life.json",
-  "?? art/backgrounds/room-06-assay-records.png",
-  "?? content/rooms/assay-records.json",
-  "?? proofs/room-06/",
-  "?? proofs/spec/assay-records.json",
-  "?? reference/room-06/",
-  "?? renders/room-06-graybox-with-thad.png",
-  "?? renders/room-06-graybox.png",
-  "?? tools/art/room06-plate.mjs",
-  "?? tools/gauntlet/routes/assay-records-doors.json",
-  "?? tools/gauntlet/routes/assay-records-life.json",
-  "?? tools/gauntlet/routes/assay-records.json",
-  "?? tools/room06-graybox.py"
- ],
+ "commit": "099fb557d7262888a10f6eb8a9bd397e9913b2f7",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
  "visualState": null,
  "candidates": [],
  "route": "assay-records",
@@ -91,7 +65,7 @@
    ],
    "reportedHeight": 434,
    "expected": 434,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-03.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
    "bounds": [
     485,
     222,
@@ -128,7 +102,7 @@
    ],
    "reportedHeight": 528,
    "expected": 528,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-08.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
    "bounds": [
     436,
     316,
@@ -147,7 +121,7 @@
   {
    "panel": "B",
    "room": "assay_records",
-   "clock": 124.68339999999999,
+   "clock": 122.6901,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -187,7 +161,7 @@
      "height": 451,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
       146,
       239,
@@ -214,15 +188,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-01T20:38:43.167Z",
+   "capturedAt": "2026-11-01T20:50:25.298Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "7c493041b1ca4c5bc823e6b4eed8d7d99fa76494198021c4fa731e42a2c3b21c"
+   "hash": "d0cc946a63385850182a079253997af60b58d85a53b9f06dda88b0d0335783a8"
   },
   {
    "panel": "A",
    "room": "assay_records",
-   "clock": 125.7,
+   "clock": 123.7567,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -258,7 +232,7 @@
       690
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 451,
      "moving": false,
      "drawn": "sprite",
@@ -286,10 +260,10 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-01T20:38:44.223Z",
+   "capturedAt": "2026-11-01T20:50:26.384Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "14e5e9f034be610c0454fc67d7f4a3520d0246306dc1359faf2889666928d70e"
+   "hash": "da5afdfbfc0e0da91fb47aa262f832735b1e03357ce4a83d03f3aa557ebab9be"
   }
  ],
  "failures": [],
@@ -319,11 +293,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-01T20:38:49.474Z",
+ "at": "2026-11-01T20:50:32.059Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 242846,
+  "bytes": 242930,
   "panels": 4,
   "scale": 0.5
  }
