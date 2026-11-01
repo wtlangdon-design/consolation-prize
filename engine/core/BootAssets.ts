@@ -119,6 +119,10 @@ function roomImages(room: RoomFile): BootAsset[] {
   (room.backgroundFrames ?? []).forEach((path, index) => {
     out.push({ key: `bgf:${room.id}:${index}`, path });
   });
+  // Errata 70 G: a timeline room's whole-frame plates, keyed by name.
+  for (const [name, path] of Object.entries(room.plates ?? {})) {
+    out.push({ key: `plate:${room.id}:${name}`, path });
+  }
   if (room.foreground) out.push({ key: `fg:${room.id}`, path: room.foreground });
   if (room.idles?.sheet) out.push({ key: `idle:${room.id}`, path: room.idles.sheet });
   // Occlusion masks are keyed by their content path, like character sheets,

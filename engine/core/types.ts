@@ -1177,6 +1177,28 @@ export interface RoomFile {
   };
   /** Destinations doc 20 names but whose appearance rule nobody has stated. */
   pendingLocations?: { room: number | null; name: string; doc: string; missing: string }[];
+  /**
+   * ERRATA 70 G. A room that hides the verb panel and runs as its own
+   * cutscene: Room 32, inside the coffin. `interface: 'none'` draws no panel
+   * and ignores the pointer until a timeline step brings the panel back;
+   * `actor: 'hidden'` draws nobody, because the player is lying in the dark
+   * he is looking at. Both are fenced to timeline rooms by the content check.
+   */
+  interface?: 'none';
+  actor?: 'hidden';
+  /**
+   * Whole-frame pictures a timeline may switch between -- the seam of light
+   * narrowing as the dirt lands, then the lantern. Keyed by name; the first
+   * shown is `background`.
+   */
+  plates?: Record<string, string>;
+  /**
+   * The bed's playhead is carried silently while the room is up (doc 45
+   * R32-MUTE): a hard stop, not a fade, and no other bed starts.
+   */
+  music?: 'suspend';
+  /** Errata 70 G: timed events against active, unpaused time. See RoomTimeline. */
+  timeline?: RoomTimelineStep[];
   colours: { sky: number; ground: number };
   horizon: number;
   hotspots: Interactable[];
@@ -2172,4 +2194,18 @@ export interface PlaytestFixture {
   expect?: { tree?: string; opensOn?: string; interactables?: string[] };
   note?: string;
 }
+
+/**
+ * One event on a room's timeline (errata 70 G). `at` is seconds of active,
+ * unpaused time from entering the room.
+ */
+export type RoomTimelineStep = { at: number; note?: string } & (
+  | { do: 'plate'; plate: string }
+  | { do: 'sound'; src: string; gain?: number }
+  | { do: 'panel'; show: boolean }
+  /** Doc 45 R32-RETURN: the suspended bed comes back mid-phrase, hard. */
+  | { do: 'music'; resume: true }
+  /** Opens a conversation, as an accost does. */
+  | { do: 'dialogue'; tree: string }
+);
 
