@@ -4622,3 +4622,12 @@ Tyler's mandate (dated 2026-10-31): build as many rooms as possible in the canon
 **What the gate's dialogue and puzzle NOs mean for the rooms in the last three rows.** Their sources files declare examine and wrong-verb pointers only. Dialogue and puzzles are left unmapped (`mapped: false`), because the room is already blocked at the examine layer and no mapping can change that. Map them before reconsidering any of those rooms. Rooms 7, 13, 18 and 19 are fully mapped.
 
 **What would unblock the most rooms soonest:** the repeat-variant pass for the four nearly-ready rooms (7, 13, 18, 19), plus Sump's `SUM_B1`/`SUM_C1`. Room 18 is the closest: three subjects short. All of it is writing, so it is Tyler's.
+
+### Q141 addendum, 2026-10-31 evening (unattended, on Tyler's instruction)
+
+- **Shipped to main:** the bar men re-cut (no new art); the scale system — a bent height curve for the Nugget (a standing man at the bar's near end 312 → 375, front and back rulings unchanged), `tests/scale.test.ts`, `content/scale-anchors.json` and a `posture` on every visible figure; greetings drawn over their speaker instead of top-centre; doc 27's root lines spoken; the flag check green (ACT and T_RACCOON_NAMED declared `pending`); a 15-minute CI gauntlet timeout.
+- **Deke Vessel: built, awaiting Tyler's in-room approval** — PR #67, `claude/deke-in-the-nugget`. Cut from his approved attempt 2, graded to the bar men, at the bar's near end, animated, his doc 35 entrance and his doc 27 LOOK/LISTEN wired. Not merged, by the Character style gate.
+- **OPEN — the swindle's trade needs a ruling.** Option 6 ("All right.") sets `T_SWINDLED` and moves nothing: doc 34 keeps inventory out of dialogue trees, and no item can be gated by a flag. Two honest routes:
+  1. **Items follow the flag.** An item may declare when it is held (`four_dollars` gone once `T_SWINDLED`; `deed` held once it is set). Small, and the flag stays the single fact.
+  2. **The swindle is a scene.** Doc 27 writes it as a stage direction — "(The swindle. Four dollars and the watch for the deed.)" — so a short staged beat after option 6 performs the exchange and writes the inventory, the way the opening's beats write state. Closer to the document; needs a sequence step that may write inventory, and its staging is a creative decision.
+- **Rooms:** Q142 (merged) — every room after 5 is blocked on unwritten repeat variants; Room 18 is three subjects short. Writing is Tyler's.
