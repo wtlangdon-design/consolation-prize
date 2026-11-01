@@ -28,37 +28,49 @@
    [
     2,
     2,
-    195,
+    243,
     437
    ],
    [
-    199,
+    247,
     2,
-    195,
+    243,
     437
    ],
    [
-    396,
+    492,
     2,
-    195,
+    243,
     437
    ],
    [
-    593,
+    737,
     2,
-    195,
+    243,
     437
    ],
    [
-    790,
+    982,
     2,
-    195,
+    243,
+    437
+   ],
+   [
+    1227,
+    2,
+    243,
+    437
+   ],
+   [
+    1472,
+    2,
+    243,
     437
    ]
   ],
   "rate": 0.2,
   "phase": 0.35,
-  "note": "Frames: 0 rest · 1 breath (tools/rig/ambient-breath.py) · 2 pencil raised · 3 leaning toward the judges · 4 leaning back, all derived from his rest frame by tools/rig/room04-idles.py. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool (Tyler, 2026-11-01: 'the four men in the back are completely stationary').",
+  "note": "Frames: 0 rest · 1 breath · 2 pencil hand lowered · 3 lowered further · 4 raised · 5 leaning toward the judges · 6 leaning back, all derived from his rest frame by tools/rig/room04-idles.py (the forearm turned about the elbow). Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool -- most of them the pencil marking the air (errata 35: deliberate movement; Tyler, 2026-11-01: 'Sowerby's arm needs to move up and down otherwise it looks like he's frozen').",
   "props": [
    {
     "sheet": "art/objects/room-04/pencil-cover.png",
@@ -78,38 +90,49 @@
   "breaks": [
    [
     2,
-    0,
+    3,
+    3,
     2,
-    0,
-    2,
-    2
+    0
    ],
    [
+    2,
     3,
+    2,
+    0,
+    2,
     3,
-    3,
-    3,
-    3,
-    3,
-    3
+    2,
+    0
    ],
    [
     4,
     4,
     0,
-    4,
-    4
+    2,
+    0
    ],
    [
-    2,
-    2,
-    2,
+    5,
+    5,
+    5,
+    5,
+    5,
     0,
+    2,
     3,
-    3,
-    3
+    2,
+    0
+   ],
+   [
+    6,
+    6,
+    6,
+    0,
+    4,
+    0
    ]
   ],
-  "breakEvery": 9.0
+  "breakEvery": 4.0
  }
 }
