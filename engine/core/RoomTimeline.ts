@@ -49,6 +49,26 @@ export class RoomTimeline {
     return this.elapsedMs;
   }
 
+  /** The checkpoint step, if the timeline declares one. */
+  get checkpoint(): RoomTimelineStep | null {
+    return this.steps.find((step) => step.checkpoint) ?? null;
+  }
+
+  /**
+   * SKIP SCENE (errata 71 B): jumps to the checkpoint and returns every step
+   * from here up to and including it, in order, so the caller can apply
+   * their state without performing them. Nothing if there is no checkpoint
+   * ahead.
+   */
+  skipToCheckpoint(): RoomTimelineStep[] {
+    const target = this.steps.findIndex((step, index) => index >= this.next && step.checkpoint);
+    if (target < 0) return [];
+    const passed = this.steps.slice(this.next, target + 1);
+    this.next = target + 1;
+    this.elapsedMs = Math.max(this.elapsedMs, Math.round(this.steps[target]!.at * 1000));
+    return passed;
+  }
+
   /**
    * Advances by `activeMs` -- zero while paused -- and returns every step
    * whose time has come, in order. A long frame returns several at once

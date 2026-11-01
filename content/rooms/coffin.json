@@ -8,7 +8,7 @@
       "note": "Room 31: the lid closes at the end of doc 48 S2 (E7). Not built yet; until it is, ?room=coffin."
     }
   ],
-  "note": "Room 32 (E7). Doc 05: 'Special case. Zero hotspots. No verb panel.' Invariant 2. Its timeline is errata 70 B's, restated as the room's staging in docs/54-batch-c.md (ROOM 32 \u00b7 INSIDE THE COFFIN); the sounds are tools/audio/render-coffin-sfx.py's and the plates tools/art/render-coffin-plates.py's, and both await Tyler's audition. Reached only by ?room=coffin until Room 31 (the funeral) is built to lead here. HOB_C1, which the lid opens into, is not extracted yet; when it is, a `dialogue` step at 191 s opens it.",
+  "note": "Room 32 (E7). Doc 05: 'Special case. Zero hotspots. No verb panel.' Invariant 2. Its timeline is errata 70 B's, restated as the room's staging in docs/54-batch-c.md (ROOM 32 \u00b7 INSIDE THE COFFIN); the sounds are tools/audio/render-coffin-sfx.py's and the plates tools/art/render-coffin-plates.py's, and both await Tyler's audition. Reached only by ?room=coffin until Room 31 (the funeral) is built to lead here. The lid opens at 241 s -- four minutes sealed, three of them before Hob starts to dig (errata 71 A) -- straight into HOB_C1. Pointer intent reveals MENU and SKIP SCENE (errata 71 B). After HOB_C1 the panel's MAP is the way out until Room 31 is built to take him back up (doc 36 Q145).",
   "interface": "none",
   "actor": "hidden",
   "music": "suspend",
@@ -220,58 +220,121 @@
       "at": 180,
       "do": "music",
       "resume": true,
-      "note": "Doc 45 R32-RETURN: the score returns mid-phrase at the playhead it would have reached."
+      "note": "Doc 45 R32-RETURN: the score returns mid-phrase at the playhead it would have reached -- when Hob begins digging."
     },
     {
       "at": 180,
       "do": "sound",
       "src": "audio/sfx/r32-spade-far.wav",
+      "gain": 0.3,
+      "note": "Errata 71 A: Hob digs for about a minute -- far, then nearer -- so the lid opens at four minutes sealed (doc 34's contract, errata 52) and his count is true."
+    },
+    {
+      "at": 185,
+      "do": "sound",
+      "src": "audio/sfx/r32-spade-far.wav",
+      "gain": 0.33
+    },
+    {
+      "at": 190.5,
+      "do": "sound",
+      "src": "audio/sfx/r32-spade-far.wav",
+      "gain": 0.37
+    },
+    {
+      "at": 196,
+      "do": "sound",
+      "src": "audio/sfx/r32-spade-far.wav",
+      "gain": 0.41
+    },
+    {
+      "at": 202,
+      "do": "sound",
+      "src": "audio/sfx/r32-spade-far.wav",
+      "gain": 0.45
+    },
+    {
+      "at": 207.5,
+      "do": "sound",
+      "src": "audio/sfx/r32-spade-far.wav",
       "gain": 0.5
     },
     {
-      "at": 182.5,
+      "at": 213,
       "do": "sound",
-      "src": "audio/sfx/r32-spade-far.wav",
+      "src": "audio/sfx/r32-spade-near.wav",
       "gain": 0.6
     },
     {
-      "at": 184.5,
+      "at": 218,
       "do": "sound",
       "src": "audio/sfx/r32-spade-near.wav",
-      "gain": 0.85
+      "gain": 0.66
     },
     {
-      "at": 186,
+      "at": 222.5,
+      "do": "sound",
+      "src": "audio/sfx/r32-spade-near.wav",
+      "gain": 0.72
+    },
+    {
+      "at": 227,
+      "do": "sound",
+      "src": "audio/sfx/r32-spade-near.wav",
+      "gain": 0.78
+    },
+    {
+      "at": 231,
+      "do": "sound",
+      "src": "audio/sfx/r32-spade-near.wav",
+      "gain": 0.84
+    },
+    {
+      "at": 234,
+      "do": "sound",
+      "src": "audio/sfx/r32-spade-near.wav",
+      "gain": 0.9
+    },
+    {
+      "at": 236,
       "do": "sound",
       "src": "audio/sfx/r32-spade-lid.wav",
       "gain": 1.0
     },
     {
-      "at": 187.5,
+      "at": 237.5,
       "do": "sound",
       "src": "audio/sfx/r32-knock.wav",
       "gain": 0.9,
       "note": "S3 beat 3: even, a beat apart."
     },
     {
-      "at": 188.5,
+      "at": 238.5,
       "do": "sound",
       "src": "audio/sfx/r32-knock.wav",
       "gain": 0.9,
       "note": "S3 beat 3: even, a beat apart."
     },
     {
-      "at": 189.5,
+      "at": 239.5,
       "do": "sound",
       "src": "audio/sfx/r32-knock.wav",
       "gain": 0.9,
       "note": "S3 beat 3: even, a beat apart."
     },
     {
-      "at": 191,
+      "at": 241,
       "do": "plate",
       "plate": "lantern",
-      "note": "The lid opens on Hob's lantern. No line."
+      "note": "The lid opens on Hob's lantern. No line. 4:01 sealed."
+    },
+    {
+      "at": 241.5,
+      "do": "dialogue",
+      "tree": "HOB",
+      "completes": "E8",
+      "checkpoint": true,
+      "note": "Straight into HOB_C1 (doc 48 S3 beat 3). The lid opening is the action that completes E8 (doc 02: Hob digs him out), so HOB's E8 entry performs HOB_C1's opening once (errata 71 C). WATCH and SKIP SCENE both land here."
     }
   ]
 }

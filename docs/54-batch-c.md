@@ -1349,9 +1349,9 @@
 
 # ROOM 32 · INSIDE THE COFFIN
 
-*Doc 05: "Special case. Zero hotspots. No verb panel." Invariant 2. There is nothing to examine and nothing is written to be examined. What makes the room is its timeline, decided in errata 70 A and B; it is restated here as the room's staging so the build reads one place.*
+*Doc 05: "Special case. Zero hotspots. No verb panel." Invariant 2. There is nothing to examine and nothing is written to be examined. What makes the room is its timeline, decided in errata 70 A and B and brought under errata 52 by errata 71 A–C; it is restated here as the room's staging so the build reads one place.*
 
-## Staging *(errata 70 A, B)*
+## Staging *(errata 70 A, B; errata 71 A–C)*
 
 | # | At (active, unpaused) | What happens | Control |
 |---|---|---|---|
@@ -1359,15 +1359,16 @@
 | 2 | 2–30 s | `R32-DIRT`: shovelfuls on the lid every 2–3 s, close and hollow. Each narrows the seam light. | none |
 | 3 | 30–88 s | Shovelfuls every 4–6 s, duller — earth on earth. The seam light is gone by about 40 s. The last lands at about 88 s. | none |
 | 4 | 88–180 s | Nothing. | none |
-| 5 | 180 s | A spade, far off, then nearer. `R32-RETURN`: the score returns mid-phrase. **The verb panel returns first**, before the art resolves. | none |
-| 6 | ~186 s | The spade strikes the lid. Three knocks, even, a beat apart. The lid opens on Hob's lantern. No line. | none |
-| 7 | — | HOB_C1 (doc 04). | dialogue |
+| 5 | 180 s | Hob begins to dig: a spade, far off. `R32-RETURN`: the score returns mid-phrase. **The verb panel returns first**, before the art resolves. | none |
+| 6 | 180–236 s | About a minute of digging, far, then nearer, a stroke every four to six seconds. | none |
+| 7 | 236–241 s | The spade strikes the lid (236 s). Three knocks, even, a beat apart (237.5, 238.5, 239.5 s). The lid opens on Hob's lantern at 241 s — four minutes sealed, as Hob counts. No line. | none |
+| 8 | 241.5 s | **Checkpoint.** E8 completes; HOB_C1 (doc 04), its opening performed once. | dialogue |
 
-*No line of Thad's, no music, no narration, no joke, from 1 to 6. The player can do nothing, and that is the room.*
+*No line of Thad's, no music, no narration, no joke, from 1 to 7. The player can do nothing, and that is the room — except, by errata 52, ask for the menu or skip: moving the pointer shows MENU and SKIP SCENE for three seconds, and SKIP SCENE lands on step 8 with the state watching would have reached (errata 71 B).*
 
 ## Overrides
 
-*There is no verb panel until step 5, so there is nothing to override. From step 7 the conversation is HOB_C1's.*
+*There is no verb panel until step 5, so there is nothing to override. From step 8 the conversation is HOB_C1's.*
 
 > **HOB** · any verb but TALK TO, *as the lid opens* — *(no response: the panel has only just returned, and HOB_C1 opens on its own)*
 
@@ -1375,7 +1376,7 @@
 
 # ROOM 33 · THE LISTENING CHAMBER
 
-*Doc 05: "Special case. LOOK is deliberately useless. LISTEN is the interface." The mechanic is doc 28 Part Five's and doc 45's (errata 70 D): each LISTEN on the rock is a synthesized knock whose tail lengthens toward the void, drawn as a ripple of the same length. LISTEN returns pitch, not prose — the one prose line is the void's. The score is THADDEUS, complete, tuning from −35 cents to 0 across ninety seconds from the fork's first strike (errata 70 C).*
+*Doc 05: "Special case. LOOK is deliberately useless. LISTEN is the interface." The mechanic is doc 28 Part Five's and doc 45's (errata 70 D): each LISTEN on the rock is a synthesized knock whose tail lengthens toward the void, drawn as a ripple of the same length. LISTEN returns pitch, not prose — the one prose line is the void's. The score is THADDEUS, complete, tuning from −35 cents to 0 across ninety seconds from the confirmed void (errata 52; errata 71 E withdrew 70 C2's fork-strike start).*
 
 ## THE ROCK — LOOK, emptied *(errata 70 F)*
 
@@ -1387,14 +1388,14 @@
 
 **THE VOID** · LISTEN — *(doc 05's line, `R33-VOID`, once:)* "…There's a room down there."
 
-## Staging *(doc 48 S5 as amended by errata 70 C–E)*
+## Staging *(doc 48 S5 as amended by errata 70 C–E and errata 71 E)*
 
 | # | Beat | Control |
 |---|---|---|
-| 1 | The chamber. The tuning fork comes out unbidden — the only scripted USE in the game. One strike: A, 440. **The 90-second automation starts here.** | none |
-| 2 | Play: LOOK (the ladder above) and LISTEN (the taps). The void answers from the first tap. | full |
-| 3 | The void found: its line. When the score reaches 0 cents — at once, if it already has — Thad sits down in the dark and listens to THADDEUS, complete, in tune. No lines. | none |
-| 4 | Play resumes: F3. | full |
+| 1 | The chamber. The tuning fork comes out unbidden — the only scripted USE in the game. One strike: A, 440. The score stays at −35 cents. | none |
+| 2 | Play: LOOK (the ladder above) and LISTEN (the taps). The tap gradient is the only guide; the void answers from the first tap. | full |
+| 3 | The void found: its line. **The 90-second automation starts here** (errata 52). Thad sits down in the dark and listens while THADDEUS, complete, comes into tune and the lamp slows to stillness with it. No lines. | none |
+| 4 | When the ninety seconds are over, play resumes: F3. | full |
 
 ## F3 — breaking through *(errata 70 E)*
 

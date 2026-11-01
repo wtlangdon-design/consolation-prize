@@ -46,7 +46,7 @@ Dependencies: Sowerby bark line; Hob mover in room 31; E-series flags.
 
 ## S3 · INSIDE THE COFFIN (E7)
 
-*Errata 70 A: invariant 2 and doc 05 govern Room 32 — beats 1's line and beat 2 are void, beat 3 stands without "that answers his"; the timeline is doc 54's Room 32. Room 32 — already scripted in doc 05. The script is short because the room is the experience:
+*Errata 70 A: invariant 2 and doc 05 govern Room 32 — beats 1's line and beat 2 are void, beat 3 stands without "that answers his"; the timeline is doc 54's Room 32, with errata 71's four minutes sealed and MENU / SKIP SCENE on intent. Room 32 — already scripted in doc 05. The script is short because the room is the experience:
 dark, close, LISTEN is the only verb that matters and the walls answer.*
 
 | # | Beat | Control |
@@ -73,7 +73,7 @@ Dependencies: HOB_C2 tree (written); shack room; dawn grade variant of the exter
 
 ## S5 · THE LISTENING (F2)
 
-*Errata 70 C–E: OQ-06 ruled (THADDEUS complete, automation from the fork strike, void never gated); beat 2's "interval by interval" is void in favour of doc 28 Part Five's tap gradient; F3 follows beat 3. Room 33 — scripted in doc 05 as "Everything: (the puzzle)". The one set piece that is a
+*Errata 70 C–E and 71 E: OQ-06 ruled (THADDEUS complete, automation from the confirmed void per errata 52 — 70 C2's fork-strike start is withdrawn — void never gated); beat 2's "interval by interval" is void in favour of doc 28 Part Five's tap gradient; F3 follows beat 3. Room 33 — scripted in doc 05 as "Everything: (the puzzle)". The one set piece that is a
 mechanic, not a scene. Outline only marks the frame; the puzzle spec is doc 31's.*
 
 | # | Beat | Control |

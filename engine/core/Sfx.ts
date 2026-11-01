@@ -12,6 +12,8 @@
  */
 export class Sfx {
   private readonly missing = new Set<string>();
+  /** What is still ringing, so SKIP SCENE can cut it. */
+  private readonly live = new Set<HTMLAudioElement>();
 
   constructor(private readonly enabled: () => boolean, private readonly unlocked: () => boolean) {}
 
@@ -21,6 +23,14 @@ export class Sfx {
     const element = new Audio(src);
     element.volume = Math.max(0, Math.min(1, gain));
     element.addEventListener('error', () => this.missing.add(src));
+    element.addEventListener('ended', () => this.live.delete(element));
+    this.live.add(element);
     void element.play().catch(() => this.missing.add(src));
+  }
+
+  /** Cuts every one-shot still playing. */
+  stopAll(): void {
+    for (const element of this.live) element.pause();
+    this.live.clear();
   }
 }

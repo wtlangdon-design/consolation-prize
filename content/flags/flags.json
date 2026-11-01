@@ -282,6 +282,24 @@
    "type": "bool",
    "initial": false,
    "note": "Doc 35, VESSEL'S AUTO-OPEN: set when Deke Vessel opens on Thad on entering the Nugget, so he does it once. Written by the Nugget's onEnter.accost; read by the same accost's condition."
+  },
+  {
+   "id": "T_HOB_KNOWS",
+   "type": "bool",
+   "initial": false,
+   "note": "Doc 04, HOB_C1 option 2: \"I said no. I didn't say I didn't know him.\" Declared there by name.",
+   "writtenBy": [
+    "dialogue:HOB:HOB_C1:hob2"
+   ]
+  },
+  {
+   "id": "T_HOB_HANDWRITING",
+   "type": "bool",
+   "initial": false,
+   "note": "Doc 04, HOB_C1 option 4, declared there by name. Invariant 7: the option stays [COMIC] in the data and nothing marks it.",
+   "writtenBy": [
+    "dialogue:HOB:HOB_C1:hob4"
+   ]
   }
  ]
 }

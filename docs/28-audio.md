@@ -115,6 +115,8 @@ This is the only puzzle in the game with no text hints, and it has been unbuilda
 
 **Accessibility, and it is not optional.** The tail length is also rendered visually — the tap's ripple on screen lasts as long as the sound does. A player who cannot hear it can still see it. This does not weaken the puzzle: the ripple is the sound, drawn.
 
+*(Errata 52 and 71 E: the arc starts on the confirmed void, not during the search — elapsed time would make waiting advance it, and proximity would make it a meter. The ninety seconds are S5 beat 3, Thad sitting in the dark; the lamp and the score still arrive together.)*
+
 **And the tuning arc runs underneath.** As Thad narrows in, the global detune animates from −35 cents to 0 across ninety seconds. **By the time he finds the void, the score is in tune for the first time in the game.** Nothing announces it. Per doc 18, Room 33's lamp cycling ramps to zero on the same automation, so the room arrives at complete stillness and complete tune together.
 
 ---

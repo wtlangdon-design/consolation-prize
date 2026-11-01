@@ -4,6 +4,10 @@
  "button": {
   "label": "MENU"
  },
+ "sceneControls": {
+  "note": "ERRATA 71 B, from doc 34's coffin contract as errata 52 adopted it: in a room with no verb panel (Room 32), pointer intent reveals MENU -- the button label above -- and this, for a few seconds. SKIP SCENE lands on the same checkpoint watching does.",
+  "skip": "SKIP SCENE"
+ },
  "root": {
   "title": "MENU",
   "items": [

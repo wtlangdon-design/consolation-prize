@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
-import type { AmbientFile, Exit, Facing, Interactable, CombinationPair,
+import type { AmbientFile, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep,
 } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
 import { planBoot } from '../core/BootAssets.ts';
@@ -88,6 +88,13 @@ export class GameScene extends Phaser.Scene {
   private plate: string | null = null;
   /** The scene clock at the last timeline tick, in ms; null before the first. */
   private timelineAt: number | null = null;
+  /**
+   * ERRATA 71 B (doc 34's coffin contract, adopted by errata 52): while a
+   * timeline room keeps the panel away, pointer intent reveals MENU and SKIP
+   * SCENE for a few seconds. The scene-clock time they hide again, or null.
+   */
+  private sceneControlsUntil: number | null = null;
+  private static readonly SCENE_CONTROLS_MS = 3000;
   /** Doc 34 assertion 6's register. Step E swaps a RuntimeCoordinator in. */
   private readonly bodies = new BodyOwners();
   /** The one thing allowed to drive a mover from a script. Issue X4 defect 1. */
@@ -145,6 +152,12 @@ export class GameScene extends Phaser.Scene {
      * contact, after the beat; its tree's opening is then the action's.
      */
     evidence?: { pair: CombinationPair; beatUntil: number | null; committed: boolean };
+    /**
+     * A TIMELINE STEP THAT IS THE ACTION (errata 71 C): the puzzle it gates on
+     * has just completed, so the entry's opening is the action's, performed
+     * once -- Room 32's lid into HOB_C1.
+     */
+    viaAction?: boolean;
   } | null = null;
   /** How long the evidence is held before her before it lands: contact, then the line. */
   private static readonly EVIDENCE_BEAT_SECONDS = 1.1;
@@ -505,7 +518,7 @@ export class GameScene extends Phaser.Scene {
           // playthrough (2026-09-04): the exchange had never played -- the
           // node's last line stood as a caption over the options, which read
           // as a non sequitur when TALK TO was chosen.
-          let greeting = this.state.dialogue.openingOf(tree);
+          let greeting = this.state.dialogue.openingOf(tree, this.pendingTree.viaAction === true);
           const host = this.pendingTree.npc
             ? this.ambient.present.find((each) => each.id === this.pendingTree?.npc) : undefined;
           const remark = host?.greetsWithBark ? this.ambient.barkFor(host) : null;
@@ -581,6 +594,7 @@ export class GameScene extends Phaser.Scene {
       // Whose greeting is being said, so they hold still for it as they do
       // for their open tree.
       greeting: this.pendingTree?.greeted ? this.pendingTree.tree : null,
+      sceneControls: this.sceneControlsShowing() && !this.state.menu.isOpen,
     });
     this.texture.refresh();
   }
@@ -715,6 +729,10 @@ export class GameScene extends Phaser.Scene {
 
   private onPointerMove(pointer: Phaser.Input.Pointer): void {
     if (this.state.dialogue.isActive || this.state.menu.isOpen) return;
+    if (this.panelHidden) {
+      this.revealSceneControls();
+      return;
+    }
     const { x, y } = this.nativePoint(pointer);
 
     // ERRATA 29 CONDITION 1. An icon must never be the only way an item is
@@ -790,8 +808,27 @@ export class GameScene extends Phaser.Scene {
     }
 
     // ERRATA 70 G / INVARIANT 2: while a timeline room keeps the panel away
-    // there is nothing to click. The click above still unlocked audio.
-    if (this.panelHidden) return;
+    // there is nothing to click but the two controls errata 52 adopted from
+    // doc 34 -- MENU and SKIP SCENE, revealed by intent (errata 71 B). A
+    // click on neither reveals them. The click above still unlocked audio.
+    if (this.panelHidden) {
+      if (this.sceneControlsShowing()) {
+        if (pointInRect(x, y, this.panel.menuButton)) {
+          this.sceneControlsUntil = null;
+          this.state.menu.open();
+          this.markDirty();
+          return;
+        }
+        const skip = this.panel.mapButton;
+        if (skip && pointInRect(x, y, skip)) {
+          this.sceneControlsUntil = null;
+          this.skipScene();
+          return;
+        }
+      }
+      this.revealSceneControls();
+      return;
+    }
 
     // Ahead of the panel buttons, because the options are drawn over them.
     // A click on a conversation must never reach the MENU or MAP button
@@ -1203,16 +1240,56 @@ export class GameScene extends Phaser.Scene {
     // A frame longer than a quarter of a second is a stall or a hidden tab,
     // not time the player spent in the coffin.
     const step = this.state.menu.isOpen ? 0 : Math.min(250, Math.max(0, nowMs - last));
-    for (const due of this.timeline.advance(step)) {
-      switch (due.do) {
-        case 'plate': this.plate = due.plate; break;
-        case 'sound': this.sfx.play(due.src, due.gain ?? 1); break;
-        case 'panel': this.panelHidden = !due.show; break;
-        case 'music': this.music.resume(this.timeline.elapsed / 1000); this.musicResumed = true; break;
-        case 'dialogue': this.openTimelineTree(due.tree); break;
-      }
+    for (const due of this.timeline.advance(step)) this.applyTimelineStep(due, false);
+    if (this.sceneControlsUntil !== null && nowMs >= this.sceneControlsUntil) {
+      this.sceneControlsUntil = null;
       this.markDirty();
     }
+  }
+
+  /**
+   * One timeline step's effect. `silent` is SKIP SCENE's and a resumed
+   * checkpoint's: a skipped step's STATE lands (the plate, the panel, the
+   * returned bed) and its sound does not -- forty shovelfuls in one frame is
+   * not the scene, it is noise.
+   */
+  private applyTimelineStep(due: RoomTimelineStep, silent: boolean): void {
+    switch (due.do) {
+      case 'plate': this.plate = due.plate; break;
+      case 'sound': if (!silent) this.sfx.play(due.src, due.gain ?? 1); break;
+      case 'panel': this.panelHidden = !due.show; break;
+      case 'music': this.music.resume(this.timeline.elapsed / 1000); this.musicResumed = true; break;
+      case 'dialogue': {
+        const action = due.completes !== undefined && !this.state.puzzleComplete(due.completes);
+        if (due.completes) this.state.completeByTimeline(due.completes);
+        this.openTimelineTree(due.tree, action);
+        break;
+      }
+    }
+    this.markDirty();
+  }
+
+  /** Whether MENU and SKIP SCENE are drawn and clickable right now. */
+  private sceneControlsShowing(): boolean {
+    return this.panelHidden && this.sceneControlsUntil !== null && this.time.now < this.sceneControlsUntil;
+  }
+
+  private revealSceneControls(): void {
+    const was = this.sceneControlsShowing();
+    this.sceneControlsUntil = this.time.now + GameScene.SCENE_CONTROLS_MS;
+    if (!was) this.markDirty();
+  }
+
+  /**
+   * SKIP SCENE: to the checkpoint WATCH reaches, with the same state -- the
+   * plate, the panel, the bed at the playhead it would have reached -- and
+   * the same action at the end of it (errata 71 B). Sounds still ringing are
+   * cut; the ones skipped are never played.
+   */
+  private skipScene(): void {
+    this.sfx.stopAll();
+    for (const due of this.timeline.skipToCheckpoint()) this.applyTimelineStep(due, due.checkpoint !== true);
+    this.markDirty();
   }
 
   /**
@@ -1221,9 +1298,9 @@ export class GameScene extends Phaser.Scene {
    * the greeting -- with nobody to walk to. A tree the content does not have
    * yet is a silent no-op; the content check is what reports it.
    */
-  private openTimelineTree(tree: string): void {
+  private openTimelineTree(tree: string, viaAction = false): void {
     if (!this.state.content.dialogue.has(tree) || this.state.dialogue.isActive) return;
-    this.pendingTree = { tree, at: { x: this.actor.x, y: this.actor.y }, greeted: false };
+    this.pendingTree = { tree, at: { x: this.actor.x, y: this.actor.y }, greeted: false, viaAction };
   }
 
   /**
@@ -1254,7 +1331,17 @@ export class GameScene extends Phaser.Scene {
     this.timelineAt = null;
     this.plate = null;
     this.panelHidden = this.state.room.interface === 'none';
-    if (this.state.room.timeline?.length) this.timeline.start(this.state.room.timeline);
+    this.sceneControlsUntil = null;
+    if (this.state.room.timeline?.length) {
+      this.timeline.start(this.state.room.timeline);
+      // A ROOM WHOSE CHECKPOINT IS BEHIND THE PLAYER STARTS THERE (errata 71
+      // B). A save made at or after Room 32's lid -- E8 is complete -- loads
+      // onto the lantern with the panel back, not under four minutes of earth.
+      const checkpoint = this.timeline.checkpoint;
+      if (checkpoint?.do === 'dialogue' && checkpoint.completes && this.state.puzzleComplete(checkpoint.completes)) {
+        for (const due of this.timeline.skipToCheckpoint()) this.applyTimelineStep(due, true);
+      }
+    }
     this.sequence.cancel();
     this.carried.cancel();
     this.world.abandon();

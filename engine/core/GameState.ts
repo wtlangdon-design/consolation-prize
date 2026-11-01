@@ -1164,6 +1164,28 @@ export class GameState {
     this.autosave();
   }
 
+  /**
+   * A TIMELINE STEP THAT IS THE ACTION (errata 71 C): Room 32's lid opening
+   * completes E8 the way an evidence pair completes its puzzle -- through a
+   * journal, then an autosave at the checkpoint -- and nothing else. Already
+   * complete is a no-op, so a skip and a watch cannot complete it twice.
+   */
+  completeByTimeline(puzzle: string): void {
+    if (this.puzzles.get(puzzle) === 'complete') return;
+    this.serial += 1;
+    const id = `timeline:${this.currentRoomId}:${puzzle}#${this.serial}`;
+    const journal = this.journals.newJournal(id);
+    const bundle = journal.reserve(`${id}/bundle`, [
+      { id: `timeline/${this.currentRoomId}#${puzzle}`, kind: 'puzzleProgress', puzzle, status: 'complete' },
+    ]);
+    journal.mark('line');
+    journal.mark('lineSettle');
+    commitBundle(bundle, this.worldFor(`${this.currentRoomId}/timeline`), journal);
+    journal.mark('stable');
+    journal.release();
+    this.autosave();
+  }
+
   private restoreFrom(save: SaveFile): boolean {
     if (!this.content.rooms.has(save.room)) return false;
 

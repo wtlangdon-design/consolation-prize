@@ -1,0 +1,217 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "HOB",
+  "speaker": "hob",
+  "name": "HOB",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (HOB) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a response are Hob's; \"Thad:\" marks Thad's aside; an italic bracket alone is a beat. Entries are errata 71 D's. Universal exit lines are doc 04 part one's pool.",
+  "entries": [
+    {
+      "puzzle": "E9",
+      "node": "HOB_C2"
+    },
+    {
+      "puzzle": "E8",
+      "node": "HOB_C1"
+    }
+  ],
+  "start": "HOB_A1",
+  "nodes": {
+    "HOB_A1": {
+      "id": "HOB_A1",
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 writes HOB_A1 as a table only -- no opening exchange. Hob is a man walking past; TALK TO offers the list and he does not stop to greet.",
+      "options": [
+        {
+          "id": "hob1",
+          "tag": "TOPIC",
+          "text": "Good evening.",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "thad",
+              "line": "He is walking. I will consider that an evening."
+            }
+          ]
+        },
+        {
+          "id": "hob2",
+          "tag": "TOPIC",
+          "text": "Do you know anything about Claim One?",
+          "afterUse": "retain",
+          "beat": "nothing"
+        },
+        {
+          "id": "hob3",
+          "tag": "TOPIC",
+          "text": "Did you know Obadiah Mott?",
+          "afterUse": "retain",
+          "say": "No."
+        },
+        {
+          "id": "hob4",
+          "tag": "TOPIC",
+          "text": "How long have you been in Consolation?",
+          "afterUse": "retain",
+          "say": "Longer than it has."
+        },
+        {
+          "id": "hob5",
+          "tag": "COMIC",
+          "text": "Do you ever sleep?",
+          "afterUse": "retain",
+          "beat": "nothing"
+        },
+        {
+          "id": "hob6",
+          "tag": "ASSAY",
+          "text": "I know where Mott's strike is.",
+          "afterUse": "retain",
+          "say": "So does everybody. That's the town. Try again."
+        },
+        {
+          "id": "hobx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "HOB_C1": {
+      "id": "HOB_C1",
+      "prompt": "I've watched them do it. It's not the same.",
+      "opening": [
+        {
+          "speaker": "hob",
+          "line": "You were down four minutes. I counted. I always count."
+        },
+        {
+          "speaker": "thad",
+          "line": "…You've done this before."
+        },
+        {
+          "speaker": "hob",
+          "line": "I've watched them do it. It's not the same."
+        }
+      ],
+      "options": [
+        {
+          "id": "hob1",
+          "tag": "PROGRESS",
+          "text": "How did you know I was in there?",
+          "afterUse": "remove",
+          "say": "I know where every hole in this town is. It's the job."
+        },
+        {
+          "id": "hob2",
+          "tag": "PROGRESS",
+          "text": "You said you didn't know Mott.",
+          "afterUse": "remove",
+          "say": "I said no. I didn't say I didn't know him.",
+          "set": {
+            "T_HOB_KNOWS": true
+          }
+        },
+        {
+          "id": "hob3",
+          "tag": "PROGRESS",
+          "text": "Who are you?",
+          "afterUse": "retain",
+          "say": "The night watchman."
+        },
+        {
+          "id": "hob4",
+          "tag": "COMIC",
+          "text": "You have very neat handwriting.",
+          "afterUse": "retain",
+          "say": "…Yes.",
+          "set": {
+            "T_HOB_HANDWRITING": true
+          }
+        },
+        {
+          "id": "hobx",
+          "tag": "EXIT",
+          "text": "I've taken enough of your time. I'll be taking more later.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "HOB_C2": {
+      "id": "HOB_C2",
+      "prompt": "There isn't any, son. There never was. I made it up in a room in Boston to get three hundred dollars out of a man in a good coat, and I picked the spot off a map with my thumb.",
+      "opening": [
+        {
+          "speaker": "thad",
+          "line": "Claim One is in your hand."
+        },
+        {
+          "speaker": "hob",
+          "line": "Yes."
+        },
+        {
+          "speaker": "thad",
+          "line": "Where's the gold, Mr. Mott?"
+        },
+        {
+          "speaker": "hob",
+          "line": "There isn't any."
+        },
+        {
+          "speaker": "thad",
+          "line": "Where is it."
+        },
+        {
+          "speaker": "hob",
+          "line": "There isn't any, son. There never was. I made it up in a room in Boston to get three hundred dollars out of a man in a good coat, and I picked the spot off a map with my thumb."
+        }
+      ],
+      "options": [
+        {
+          "id": "hob1",
+          "tag": "PROGRESS",
+          "text": "Two thousand people live here.",
+          "afterUse": "retain",
+          "say": "Two thousand and eleven. I count them too."
+        },
+        {
+          "id": "hob2",
+          "tag": "PROGRESS",
+          "text": "Why didn't you leave?",
+          "afterUse": "retain",
+          "say": "Leaving proves it. Staying just looks like a man sweeping up."
+        },
+        {
+          "id": "hob3",
+          "tag": "PROGRESS",
+          "text": "Twelve years.",
+          "afterUse": "retain",
+          "say": "It's a long time to watch something you made."
+        },
+        {
+          "id": "hob4",
+          "tag": "PROGRESS",
+          "text": "Did you ever think about telling them?",
+          "afterUse": "retain",
+          "say": "Every night. Then it gets light and there's a town there."
+        },
+        {
+          "id": "hob5",
+          "tag": "COMIC",
+          "text": "You could have picked a better thumb.",
+          "afterUse": "retain",
+          "beat": "He laughs. Once. It is the only laugh in the scene and it is awful."
+        },
+        {
+          "id": "hobx",
+          "tag": "EXIT",
+          "text": "I am going to leave now, in a dignified manner.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

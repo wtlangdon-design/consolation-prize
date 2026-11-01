@@ -2182,8 +2182,132 @@ function winnieTree() {
   });
 }
 
+/**
+ * HOB, from doc 04's `# HOB` section: HOB_A1 (Acts I–II), HOB_C1 (after the
+ * coffin, E8) and HOB_C2 (the confession, E10).
+ *
+ * The same typography Winnie's tree is read by -- a `> **HOB:**` / `> **THAD:**`
+ * opening, a four-column table whose tag carries its aftermath (`[TOPIC ·
+ * retain]`), plain quotes in a response are Hob's, italic brackets are
+ * staging -- with two forms of Hob's own:
+ *
+ * - `*(nothing)*` is the whole reply on three Act I options. Doc 04: "Hob
+ *   keeps walking." It is carried as the option's `beat`, the form Tyler
+ *   ruled for a reply that is a direction (2026-10-31, option A).
+ * - `Thad: "…"` after a dash is THAD'S aside, not Hob's line -- "Thad's aside
+ *   supplies the joke". Carried as a one-line exchange spoken by Thad.
+ *
+ * The state is in the response cell, after the arrow: a backticked flag is
+ * set; `pair 21` is the Liar's Assay, reported (doc 03 machinery is not
+ * built). Emphasis inside a quoted line is dropped -- the face has no italic
+ * -- and reported, never silently.
+ *
+ * ENTRIES (errata 71 D). HOB_C2 after E9 and HOB_C1 after E8, each a
+ * puzzle-gated entry in errata 66 C's sense: the action that completes the
+ * puzzle performs the node's opening once -- Room 32's lid (E8), doc 48 S4's
+ * shack scene (E10's frame) -- and a TALK TO afterwards opens the list.
+ */
+function hobTree() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('\n# HOB\n');
+  if (from < 0) throw new Error('doc 04: cannot find the HOB section');
+  const rest = doc.slice(from + 1);
+  const end = rest.slice(1).search(/^# /m);
+  const body = end < 0 ? rest : rest.slice(0, end + 1);
+  const SPEAKER = 'hob';
+  const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)]
+    .map((m) => m[1]);
+  if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
+  const PUZZLE_ENTRY = [{ puzzle: 'E9', node: 'HOB_C2' }, { puzzle: 'E8', node: 'HOB_C1' }];
+  const unplayed = [];
+  const nodes = {};
+  let poolIndex = 0;
+  const said = (text, where) => {
+    if (/\*/.test(text)) unplayed.push(`${where}: emphasis dropped from "${text}"`);
+    return plain(text);
+  };
+
+  for (const block of body.split(/^## /m).slice(1)) {
+    const id = /`(HOB_[A-Z0-9]+)`/.exec(block.split('\n')[0])?.[1];
+    if (!id) continue;
+    const opening = [...block.matchAll(/^> \*\*(HOB|THAD):\*\* (.+)$/gm)].map((m) => {
+      const speaker = m[1] === 'THAD' ? 'thad' : SPEAKER;
+      const line = quoted(m[2]).map((q) => said(q, `${id} opening`)).join(' ');
+      if (!line) throw new Error(`doc 04: ${id} opening line by ${speaker} has no quoted speech`);
+      return { speaker, line };
+    });
+    const lastHob = [...opening].reverse().find((u) => u.speaker === SPEAKER);
+    const ROW = /^\| (\d+) \|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|[ \t]*$/gm;
+    const options = [];
+    for (const [, number, optionCell, tagCell, responseCell] of block.matchAll(ROW)) {
+      const where = `${id} option ${number}`;
+      const tagged = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(`${tagCell} ${optionCell}`);
+      if (!tagged) throw new Error(`doc 04: ${where} has no tag`);
+      const text = quoted(optionCell)[0];
+      if (!text) throw new Error(`doc 04: ${where} has no option text`);
+      const option = { id: `${SPEAKER}${number}`, tag: tagged[1], text: said(text, where) };
+      if (tagged[2]) option.afterUse = tagged[2];
+      const [spoken, ...after] = responseCell.split('→');
+      // Thad's aside: everything after `Thad:` is his.
+      const [hobPart, thadPart] = spoken.split(/\bThad:/);
+      const hobLines = quoted(hobPart.replace(/\*\([^)]*\)\*/g, '')).map((q) => said(q, where));
+      const thadLines = thadPart ? quoted(thadPart).map((q) => said(q, where)) : [];
+      const directions = [...hobPart.matchAll(/\*\(([^)]+)\)\*/g)].map((m) => m[1]);
+      if (thadLines.length && hobLines.length) throw new Error(`doc 04: ${where} has both Hob's line and Thad's aside`);
+      if (thadLines.length) {
+        option.exchange = thadLines.map((line) => ({ speaker: 'thad', line }));
+        unplayed.push(`${where} staging: ${directions.join(' ')} (Hob does not answer; Thad's aside plays)`);
+      } else if (hobLines.length === 1) {
+        option.say = hobLines[0];
+        if (directions.length) unplayed.push(`${where} staging: ${directions.join(' ')}`);
+      } else if (hobLines.length > 1) {
+        option.exchange = hobLines.map((line) => ({ speaker: SPEAKER, line }));
+      } else if (directions.length) {
+        option.beat = directions.join(' ');
+      } else {
+        throw new Error(`doc 04: ${where} has no line and no direction`);
+      }
+      const state = after.join('→');
+      const flag = /`(T_[A-Z_0-9]+)`/.exec(state);
+      if (flag) option.set = { [flag[1]]: true };
+      const pair = /pair (\d+)/.exec(state);
+      if (pair) unplayed.push(`${where}: Liar's Assay pair ${pair[1]} -- doc 03's duel machinery is not built; the line plays`);
+      if (state.trim() && !flag && !pair) unplayed.push(`${where}: state "${plain(state)}" names no flag; nothing set`);
+      options.push(option);
+    }
+    if (options.length < 3) throw new Error(`doc 04: ${id} has ${options.length} options`);
+    if (!options.some((o) => o.tag === 'EXIT')) {
+      options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[poolIndex % POOL.length], universal: true, ends: true });
+      poolIndex += 1;
+    }
+    nodes[id] = { id, ...(lastHob ? { prompt: lastHob.line } : { noPrompt: true,
+      exceptionReason: 'Doc 04 writes HOB_A1 as a table only -- no opening exchange. Hob is a man walking past; '
+        + 'TALK TO offers the list and he does not stop to greet.' }),
+      ...(opening.length ? { opening } : {}), options };
+  }
+  for (const want of ['HOB_A1', 'HOB_C1', 'HOB_C2']) if (!nodes[want]) throw new Error(`doc 04: ${want} was not extracted`);
+  const running = /^\*\*Running:\*\*/m.test(body);
+  if (running) unplayed.push('the "Running" lines (every fourth night, unprompted) are ambient barks, not this tree -- carried by the ambient layer when Hob is placed');
+  for (const note of unplayed) process.stderr.write(`  doc 04 HOB: ${note}\n`);
+
+  return write('content/dialogue/hob.json', {
+    aftermathAuthored: true,
+    schema: 1,
+    id: 'HOB',
+    speaker: SPEAKER,
+    name: 'HOB',
+    note: 'EXTRACTED from docs/04-dialogue-trees.md (HOB) by tools/extract-content.mjs. Do not edit: '
+      + 'change doc 04 and re-run. Plain quotes in a response are Hob\'s; "Thad:" marks Thad\'s aside; '
+      + 'an italic bracket alone is a beat. Entries are errata 71 D\'s. Universal exit lines are doc 04 '
+      + 'part one\'s pool.',
+    entries: PUZZLE_ENTRY,
+    start: 'HOB_A1',
+    nodes,
+  });
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), ...actTwoItems()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), ...actTwoItems()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

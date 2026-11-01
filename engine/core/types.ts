@@ -2130,6 +2130,8 @@ export type SequenceStagingStep =
 export interface MenuFile {
   schema: number;
   button: { label: string };
+  /** Errata 71 B: the panel-less timeline room's reveal-on-intent controls. */
+  sceneControls?: { skip: string };
   root: { title: string; items: { id: string; label: string }[] };
   save: { title: string; back: string };
   load: { title: string; back: string };
@@ -2199,13 +2201,28 @@ export interface PlaytestFixture {
  * One event on a room's timeline (errata 70 G). `at` is seconds of active,
  * unpaused time from entering the room.
  */
-export type RoomTimelineStep = { at: number; note?: string } & (
+export type RoomTimelineStep = {
+  at: number;
+  note?: string;
+  /**
+   * ERRATA 71 B (doc 34's coffin contract, adopted by errata 52): the one
+   * point WATCH and SKIP SCENE both land on. Skipping applies every earlier
+   * step's state silently and then this one; a room entered with this step's
+   * puzzle already complete starts here.
+   */
+  checkpoint?: true;
+} & (
   | { do: 'plate'; plate: string }
   | { do: 'sound'; src: string; gain?: number }
   | { do: 'panel'; show: boolean }
   /** Doc 45 R32-RETURN: the suspended bed comes back mid-phrase, hard. */
   | { do: 'music'; resume: true }
-  /** Opens a conversation, as an accost does. */
-  | { do: 'dialogue'; tree: string }
+  /**
+   * Opens a conversation, as an accost does. With `completes`, this step IS
+   * the action that completes that puzzle (errata 66 C's sense): the puzzle
+   * completes through a journal, and the tree's puzzle-gated entry performs
+   * its opening once. Room 32's lid: E8, into HOB_C1 (errata 71 C).
+   */
+  | { do: 'dialogue'; tree: string; completes?: string }
 );
 
