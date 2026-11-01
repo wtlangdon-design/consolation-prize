@@ -1243,3 +1243,51 @@
 ### HER TEA THINGS
 **LOOK** 1 "A cup, a saucer, a tin of tea and a spoon, arranged on a tray as exactly as everything else she keeps." · 2 "One cup. She does not entertain." · 3 "The tin's label is from Canton by way of San Francisco by way of Sheng. Even her tea has a paper trail."
 **LISTEN** 1 "A faint clink of spoon on saucer as the floor moves." · 2 "Nothing. The cup is clean and dry and upside down." · 3 "Nothing. Tea for one makes the smallest sound in the world."
+
+---
+
+# ROOM 14 · BOOT HILL
+
+*One pass only (doc 05), and its central subject was never written: "nine of Winnie's nineteen names appear here on markers … Each LOOK gives a name, a date, and a trade." Doc 08 likewise left the nineteen as a stage direction ("each gives a name, a trade, and a date. Nine of them will later be found on markers at Boot Hill. Ten will not, which is worse"). Both are written below, under errata 69 E. The nineteen are men who came to Winnie's window with the same question about Claim One (doc 04, WIN_B3); doc 05 Room 6 says some are dead, some left, and one runs the bakehouse now. Nine are here. Nothing says how they died, and nothing should.*
+
+## THE NINETEEN *(errata 69 E)*
+
+*THE NINETEEN is one hotspot: the row of markers. Its LOOK runs through the nine in order, one per selection — the player is reading along a row — and its LISTEN is "Nothing." for every one of them, as doc 05 specifies. The tenth LOOK onward repeats the ninth's row-end line. A player who has read the second ledger knows every name; a player who has not reads nine strangers. Recognition is the player's, never Thad's: he does not remark on it.*
+
+**THE NINETEEN** — LOOK 1 "AMOS TREADWELL. BLACKSMITH. 1850." · 2 "JOSIAH PENHALLOW. MINER, OF CORNWALL. 1851." · 3 "ELIAS CRANE. SURVEYOR. 1850." · 4 "RAFAEL SANDOVAL. MULETEER. 1852." · 5 "SILAS MARCHBANK. CLERK. 1851." · 6 "PATRICK KEANE. CARPENTER. 1853." · 7 "ABEL STROUD. GAMBLER. 1854." · 8 "ISAAC PELL. WHEELWRIGHT. 1855." · 9 "OWEN PROTHERO. COLLIER, OF GLAMORGAN. 1857." · 10 "The row ends. Nine names, nine trades, nine dates, and the same grass over all of them." | LISTEN 1 "Nothing." · 2 "Nothing." · 3 "Nothing." · 4 "Nothing." · 5 "Nothing." · 6 "Nothing." · 7 "Nothing." · 8 "Nothing." · 9 "Nothing." · 10 "Nothing."
+
+*(Doc 05 writes THE NINETEEN's variant 1 as a stage direction, not a line, so the run above starts at 1. Declare all ten LISTENs as deliberate repetitions.)*
+
+## Same object
+
+**PIKE'S MARKER** ≡ **PIKE'S HEADBOARD**
+**PIKE'S MARKER** ≡ **PLOT ELEVEN**
+**PIKE'S NEIGHBOUR** ≡ **THE FRESH PLOT**
+
+*(PIKE'S HEADBOARD and PLOT ELEVEN are doc 49's names for Ezra Pike's grave — "Plot eleven" (UND_A1), "third row, second from the end" (doc 27). Doc 05 gives Pike's line as "the tenth marker the player checks"; errata 69 E makes his grave its own hotspot, findable from Act I, with doc 05's line as its first LOOK. THE GATE is the room's exit. Doc 49's THE FENCE and THE WILD OATS name objects no pass places and are retired under errata 68 E.)*
+
+### PIKE'S MARKER
+**LOOK** 1 "Ezra Pike. The man I was sent to find. Six years." · 2 "A plain board, kept upright. The undertaker's work, and paid for, I would guess, by the undertaker." · 3 "I have his letter of introduction in my coat. It introduces me to this."
+**LISTEN** 1 "Nothing. I have come a very long way to hear it." · 2 "Nothing, still. He was never going to answer, and I keep asking anyway." · 3 "Wind in the grass over him, and that is all the reply there is."
+
+## Repeats
+
+**MOTT'S MARKER** — LOOK 2 "The flowers are wax. The undertaker's lilies, on loan for the look of the thing." · 3 "It is the best-kept grave on the hill, for a man nobody here ever buried." | LISTEN 2 "Nothing under it, still." · 3 "Wind across the stone. It has a lot of town to cover and it starts here."
+
+*(MOTT'S MARKER's LISTEN repeats keep doc 05's fact — there is nothing under it — and add none.)*
+
+**PIKE'S NEIGHBOUR** — LOOK 2 "The spade is still in the spoil heap, waiting for a decision that has already been made." · 3 "Frame's spelling is on the marker in paint. The undertaker has left room to correct it, and will not." | LISTEN 2 "A trickle of dirt into the bottom of it. Practice." · 3 "Nothing yet, for the second time. The yet is doing a great deal of work."
+
+**MY OWN PLOT** — LOOK 2 "The grass has started over it. I am the first man in Consolation to watch his own grave come in." · 3 "Someone has left a tuning peg on the headboard, a piano's. I know whose piano. I am not going to say." | LISTEN 2 "Nothing. Not from me, and I would know." · 3 "The oats again, and somewhere down the hill, a piano, in tune."
+
+*(MY OWN PLOT is Part Two-B's act 3–4 variant of the fresh plot, after the funeral; its repeats belong to the same acts.)*
+
+---
+
+# ROOM 5 · THE SECOND LEDGER'S NINETEEN *(errata 69 D and E)*
+
+*Doc 08's "THE NAMES — individually examinable, nineteen of them" moved here with the second ledger (errata 66 D, 69 D). Read from under Room 5's loose board after C5. Like THE NINETEEN on Boot Hill, one hotspot whose LOOK runs through the entries in order; its LISTEN is doc 08's "Nothing." for each. Each entry is the ledger's own: a name, a trade, a date, and — doc 08 — "a question, and nothing else. The questions are all the same question." The same nine as Boot Hill's, and ten more. Nine are dead, nine left, one runs the bakehouse (doc 05 Room 6). Thad reads; he does not comment until the last.*
+
+**THE NAMES** — LOOK 1 "Amos Treadwell, blacksmith. May 1849. The question." · 2 "Josiah Penhallow, miner. August 1849. The question." · 3 "Michael Doyle, teamster. October 1849. The question." · 4 "Heinrich Vogel, baker. March 1850. The question." · 5 "Elias Crane, surveyor. April 1850. The question." · 6 "Tobias Wren, printer. September 1850. The question." · 7 "Rafael Sandoval, muleteer. February 1851. The question." · 8 "Nathaniel Hobbs, attorney. May 1851. The question." · 9 "Silas Marchbank, clerk. June 1851. The question." · 10 "Gideon Fairweather, minister. April 1852. The question." · 11 "Patrick Keane, carpenter. November 1852. The question." · 12 "Jonas Whitlock, barber. March 1853. The question." · 13 "Abel Stroud, gambler. August 1853. The question." · 14 "Cyrus Lamb, prospector. June 1854. The question." · 15 "Isaac Pell, wheelwright. October 1854. The question." · 16 "Matthias Oakes, cooper. July 1855. The question." · 17 "Owen Prothero, collier. May 1856. The question." · 18 "Daniel Ashby, clerk. January 1857. The question." · 19 "Lemuel Garrow, drover. This spring. The question. The ink is hardly dry." | LISTEN 1 "Nothing." · 2 "Nothing." · 3 "Nothing." · 4 "Nothing." · 5 "Nothing." · 6 "Nothing." · 7 "Nothing." · 8 "Nothing." · 9 "Nothing." · 10 "Nothing." · 11 "Nothing." · 12 "Nothing." · 13 "Nothing." · 14 "Nothing." · 15 "Nothing." · 16 "Nothing." · 17 "Nothing." · 18 "Nothing." · 19 "Nothing."
+
+*(The nine on Boot Hill: Treadwell, Penhallow, Crane, Sandoval, Marchbank, Keane, Stroud, Pell, Prothero. Gone: Doyle, Wren, Hobbs, Fairweather, Whitlock, Lamb, Oakes, Ashby, Garrow. The bakehouse: Vogel. "The question" is the ledger's own word for it; what the question was is WIN_B3's to say.)*

@@ -2142,3 +2142,5 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 
 **D · Doc 08's nineteen names go with the second ledger to Room 5.** Errata 66 D put the second ledger under Room 5's board. Doc 08's "THE NAMES — individually examinable, nineteen of them" are that ledger's entries, so they are examined there, not in Room 6. Room 6 keeps doc 05's THE NINETEEN NAMES. The nineteen are written in doc 54 (Room 14's section) because nine of them are on Boot Hill's markers.
 
+**E · The nineteen names, written; Boot Hill's markers, and Pike's grave.** Neither doc 05 (Room 14) nor doc 08 (Room 6) wrote the nineteen; both left stage directions. They are written in doc 54: nineteen names, trades and dates in the second ledger (Room 5), nine of them again on Boot Hill with their years of death. Nothing says how any of them died. Boot Hill's THE NINETEEN and Room 5's THE NAMES are each one hotspot whose LOOK reads along the row. Ezra Pike's grave is its own hotspot (doc 49's PIKE'S HEADBOARD and PLOT ELEVEN, doc 27's "third row, second from the end"), findable from Act I, because A1 sends Thad to it; doc 05's "tenth marker" line is its first LOOK.
+
