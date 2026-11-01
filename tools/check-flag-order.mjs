@@ -48,6 +48,9 @@ function collectWrites(content) {
   // Errata 31c's room-entry writes. Standing somewhere is a write like any
   // other, and it is the only one no hotspot response can make.
   for (const { data } of content.rooms) record(data.onEnter?.set, undefined);
+  // Doc 35's auto-open: a character who opens on the player writes his
+  // once-only flags when he does.
+  for (const { data } of content.rooms) record(data.onEnter?.accost?.set, undefined);
 
   return { sets, adds };
 }
@@ -73,6 +76,11 @@ function collectReads(content) {
   for (const { treeId, nodeId, option } of allDialogueOptions(content)) {
     for (const [id, expected] of Object.entries(option.when ?? {})) {
       reads.push({ id, expected, where: `${treeId}/${nodeId}/${option.id}` });
+    }
+  }
+  for (const { data } of content.rooms) {
+    for (const [id, expected] of Object.entries(data.onEnter?.accost?.when ?? {})) {
+      reads.push({ id, expected, where: `${data.id}/onEnter/accost` });
     }
   }
   return reads;
