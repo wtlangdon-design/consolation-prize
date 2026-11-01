@@ -1,0 +1,13 @@
+Image 1 is a frame from my pixel-art adventure game. The man in the long blue coat on the left is Thad, the hero: he is the style standard. The preacher in the black frock coat at the chalkboard is Reverend Sowerby.
+
+Make exactly these changes:
+
+1. Replace EVERYTHING except the two men with flat, pure magenta (#FF00FF): the walls, the chalkboard, the floor, the table, the chairs, the lamp, the window, the door -- all of it becomes one flat magenta. No floor, no shadow, no furniture.
+
+2. Redraw Reverend Sowerby COMPLETE, in exactly the same place, at exactly the same size, in the same pose: standing full length, his right hand raised holding a short pencil, his left arm hanging at his side. Same face, grey hair, white collar, black frock coat to the knee, dark trousers, black boots. BOTH legs and BOTH boots are fully visible, from the coat's hem down to the soles, with nothing in front of them.
+
+3. Leave Thad exactly as he is.
+
+Draw Sowerby in exactly Thad's pixel-art style: the same pixel size, flat soft shading, very little texture, simple shapes, clean outlines. Not sharp, not finely detailed, no hard internal contrast. Keep his colours as they are, in the dim shadow of the room.
+
+Crisp pixel edges against the magenta. No glow or blur around either man. No text anywhere.
