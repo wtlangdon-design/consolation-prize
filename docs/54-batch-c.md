@@ -1049,3 +1049,69 @@
 > **AH-LAM SHENG** · PICK UP — "He would tell me my weight to the ounce, and what I owe him for the information."
 > **AH-LAM SHENG** · PUSH — "He is ironing. I value my hand."
 > **AH-LAM SHENG** · USE — "Everybody in town uses Sheng. He keeps a book of it."
+
+---
+
+# ROOM 16 · MADAME OZYMANDIA'S TENT
+
+*Merged: doc 05's twelve and doc 09's twelve, eighteen objects. One contradiction decided (errata 68 H): the price list is doc 09's — divination at two dollars, as doc 04's tree charges — because doc 05's ("THE FULL AND UNVARNISHED TRUTH, $4. The truth is exactly what I have") cannot be true after A3 has taken Thad's four dollars, and A7 comes after A3. Doc 05's PRICE LIST LOOK is dropped from the sequence. Doc 04 plants that she listens to the ground without knowing it; nothing below points at that.*
+
+## Same object, both passes
+
+**THE BRASS ROD** ≡ **THE ROD**
+**THE CRYSTAL BALL** ≡ **THE CRYSTAL**
+**MADAME OZYMANDIA'S TABLE** ≡ **THE TASSELS**
+**THE TESTIMONIAL BOARD** ≡ **THE TESTIMONIAL LETTERS**
+**THE LANTERN, RED** ≡ **THE LAMP**
+
+*(THE PRICE LIST has the same name in both passes.)*
+
+## Repeats
+
+**MADAME OZYMANDIA'S TABLE** — LOOK 2 "The fringe is long enough to hide a foot. I have decided not to wonder whose." · 3 "A ring of wear on the cloth where a hundred clients have rested their hands, palms up, and paid." | LISTEN 2 "The tassels again, swaying. I checked for a draft. There is a draft." · 3 "Nothing, for once. The table is between appointments."
+
+**THE CRYSTAL BALL** — LOOK 3 "A small chip on the underside, turned to the wall. Even the future has a bad side." | LISTEN 2 "Nothing. It is reflecting, which is quiet work." · 3 "A faint ring when the table is bumped. The future, briefly, in a key."
+
+**THE BRASS ROD** — LOOK 3 "The grip is wrapped in red thread, worn through to the brass where her thumb goes. Eleven years of the same thumb." | LISTEN 3 "Nothing, when I breathe normally. I have decided to breathe normally."
+
+**THE PRICE LIST** — LOOK 2 "Below the prices, smaller: SATISFACTION AS THE SPIRITS ALLOW." · 3 "Boundary divination costs the same as the ordinary kind. The earth does not charge extra for lines, apparently." | LISTEN 3 "The card tapping against the tent pole in the draft. Two dollars, two dollars."
+
+**THE CARDS** — LOOK 2 "The silk has a monogram, faded past reading. They were somebody else's before they were hers." · 3 "The deck is thinner than a full deck. Some futures, she says, are not for sale." | LISTEN 2 "A whisper of silk when the tent breathes." · 3 "Nothing. They are waiting to be told what they mean."
+
+**THE TEA SERVICE** — LOOK 2 "The cups are four different patterns, each from a different town she has left." · 3 "The leaves at the bottom of my cup made a shape. I asked what it was. She said it was a fee." | LISTEN 2 "A soft rattle of china when the table moves." · 3 "The pot, still murmuring. It is the only thing in the tent that never pretends."
+
+**THE INCENSE BURNER** — LOOK 2 "It is shaped like a small brass temple from a country she has certainly never seen." · 3 "The ash beneath it is a week deep. The smell of the tent is mostly the tent's own history." | LISTEN 2 "A thread of smoke whispering as it breaks against the canvas." · 3 "Nothing between draws, then the faint crackle again, working."
+
+**THE TENT WALLS** — LOOK 2 "Some of the painted stars are in constellations. Some are wherever she wanted a star." · 3 "From outside: FLOUR, FLOUR, FLOUR, in faded stencil. From inside: the heavens." | LISTEN 2 "A gust leaning on the canvas, and the stars bellying in." · 3 "The street through canvas, soft and far, like a rumor about a street."
+
+**THE TESTIMONIAL BOARD** — LOOK 3 "I WAS WRONG TO DOUBT is pinned higher than the others, at eye level. She knows which letter does the work." | LISTEN 3 "A pin working loose, and a letter sliding an inch before it holds. Even the convinced waver."
+
+**THE LANTERN, RED** — LOOK 2 "The red glass is cracked and mended with a strip of red ribbon. Nothing in here is allowed to be ordinary, not even a repair." · 3 "Under it my hands look like a stranger's, and a lucky one." | LISTEN 2 "A faint hiss from the wick. Steady, as advertised." · 3 "Nothing. The red keeps the flame quiet, or she does."
+
+**THE MONEY BOX** — LOOK 2 "The eye on the lid has been repainted. It used to look left. It now looks at you." · 3 "A slot in the top and no lock. It does not need one." | LISTEN 2 "Nothing. It is listening to me, possibly." · 3 "A single coin shifting as she passes the table. It knows its owner."
+
+**THE FLAP TO OUTSIDE** — LOOK 2 "Small bells are sewn along the hem. They ring when you leave, never when you come in." · 3 "The weights in the hem are horseshoes, four of them. Luck, put to practical use." | LISTEN 2 "The bells on the hem, faintly, in the wind." · 3 "The street, and then the flap closing it off with a soft and final thump."
+
+**THE SECOND ROD** — LOOK 2 "The box is lined in velvet and the spare is polished. It has never been used, and it is better looked after than the first." · 3 "Two rods. If one finds nothing, there is always the other, to find nothing in agreement." | LISTEN 2 "Nothing, under the table, in the dark." · 3 "A faint ring when the table is bumped. It would like to work."
+
+**THE CHART** — LOOK 2 "The earth's humors are color-coded. Gold is a warm humor. Debt, I notice, is not on it." · 3 "In one corner, very small, the painter's name. It is hers, in a different style." | LISTEN 2 "Nothing. Invented things make no noise." · 3 "The paper lifting at one corner in the draft from the flap."
+
+**THE GROUND** — LOOK 2 "Swept bare and level, with the marks of a broom going round in circles, like the rest of the business." · 3 "Her chair legs have sunk an inch into it. She has sat in exactly the same place for a very long time." | LISTEN 2 "Nothing unusual. Earth, under a tent." · 3 "Nothing. Packed dirt, minding its own business."
+
+### THE CUSHIONS
+**LOOK** 1 "Cushions on the client's side, faded velvet, each softer than the last. You sink into a consultation." · 2 "There is a coin down between two of them. I have left it. It is probably part of the act." · 3 "Her side has no cushion, only a hard stool. She does not need to be comfortable to be certain."
+**LISTEN** 1 "A soft sigh of velvet as I lean on one." · 2 "Nothing. They absorb everything, including doubt." · 3 "A faint crunch of something sewn inside. Lavender, or nerves."
+
+### THE STOVE
+**LOOK** 1 "A small iron stove, very hot, in a tent whose door is a sheet of canvas." · 2 "It is fed with pages from an almanac. The future, she tells me, is excellent fuel." · 3 "The heat makes the painted stars shimmer. I am almost certain that is deliberate."
+**LISTEN** 1 "A low roar, small and steady, like an audience waiting." · 2 "A page curling as it catches." · 3 "Iron ticking. It keeps better time than her predictions."
+
+### THE CURTAIN
+**LOOK** 1 "A curtain at the back, dark velvet with a fringe of gold thread, most of it still gold." · 2 "Behind it, she says, the spirits wait. Behind it, I am fairly sure, is her bed." · 3 "It is drawn exactly as far as she wants it drawn. I have never seen it move, and I have never seen it in the same place twice."
+**LISTEN** 1 "Breathing behind it, or the tent breathing. I prefer the tent." · 2 "Nothing behind the curtain. The spirits are between appointments." · 3 "The rings on the rail, faintly, when the wind leans on the tent."
+
+## Overrides
+
+> **MADAME OZYMANDIA** · PICK UP — "There would be a fee, and then a curse, and the fee would be larger."
+> **MADAME OZYMANDIA** · PUSH — "She would sway, theatrically, and describe it afterward as a vision."
+> **MADAME OZYMANDIA** · GIVE — "Anything I give her, she prices."
