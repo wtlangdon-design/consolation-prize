@@ -102,3 +102,32 @@ Stop the room, not the build, and say so in doc 36 and to Tyler, when:
 |---|---|---|---|---|
 | 32 | 2026-10-31 | #75, #76 | 0 (drawn by script) | Awaiting audition |
 | 4 | 2026-11-01 | #78 (stopped), #84, #88, #90, #91, #93 | 5 of 5 (master, plate, Sowerby, Sowerby redrawn whole, Sowerby alone on magenta; Tyler raised the cap to 5) | The Liar's Assay engine and Duels One and Two; judges and Sowerby new, Deke re-cut. `?room=nugget_back`; `?fixture=r4-a` convenes the Assay. Awaiting playthrough (doc 36 Q148, errata 76) |
+
+## 8 · What playing found — held by a script where a script can hold it
+
+Every row here shipped past a green suite and was found by Tyler playing, by a review, or by a proof. Where a mechanical check now fails the build on it, the check is named; where the thing is taste, the process that worked is the rule. Read this before step 3. *(Harvested 2026-11-01 from commits since 2026-10-31, doc 36 Q133–Q148, errata 72–77, and the Room 3 and Room 4 playthrough fixes.)*
+
+### Caught by the suite now
+
+| What went wrong | Instances | Now caught by |
+|---|---|---|
+| Thad's place for a conversation puts him on top of someone else, or he covers the person he is talking to | One-strike man behind Deke (#86, #87); the card sharp's stand on Deke's elbow; Room 4's stand for Deke in front of the first judge | `tests/staging-clear.test.ts` — every declared stand, against every figure who can be there at the same time, on drawn pixels |
+| A character who talks is drawn over another figure | Deke on the stool leg, then in front of the drinkers (166db1b, #87, #89); in Room 4 his head over the third judge's face | `tests/staging-clear.test.ts` |
+| A character vanishes in front of Thad | Deke after the swindle; the judges and Sowerby after Duel Two | By construction (`AmbientLayer.present`: who is in a room is decided when Thad arrives; a character leaves while he watches only by walking an `exit`), held by `tests/lessons.test.ts` |
+| A puzzle's writing exists and nothing in the game performs it | A3 traded nothing, A8 paid nothing (#97) | `tests/lessons.test.ts`: every puzzle sited wholly in built rooms is played by a test (`// PLAYS: A3, A8` in the test) or listed with its reason in `proofs/played-pending.json`; and every puzzle content waits on (`requiresPuzzles`, a gated entry, a rephrase) has something that completes it |
+| Content hands over an item the game never loads | The pocket watch (#97); the affidavit, Duel Two's yield | `tests/lessons.test.ts` — every item a combination, room, duel or fixture grants is in the manifest and has an icon; an item doc 23 holds "from the start" is carried in a new game |
+| A cut figure is in pieces or has holes | The judges' coats keyed out against the wall (87a5b82) | `tests/lessons.test.ts` for standing characters with trees (one piece; under 2% enclosed transparency). Bands and seated figures are not covered: see below |
+| Lines exist in a document but never reach a room | Doc 49's Nugget verbs; doc 05's act variants (#97) | `tools/compile-room.mjs` reads both for every room, and reports by name what has no hotspot yet |
+| A figure drawn at the wrong height after a move | Deke recut at 382, then 428 | `tests/scale.test.ts` |
+| A character standing still | The back row in Room 4 | `tests/movement.test.mjs` (errata 77) |
+
+### Not caught — the process that worked
+
+- **Cutting a figure out of a painted plate.** It carries the wall, loses dark clothes against dark walls, or slices a leg off (Room 4's Sowerby took four rounds). **Generate every new figure whole on magenta and key him.** Never cut a figure from an image where anything stands in front of him (e700515).
+- **Light and colour.** A figure or prop that is right by the numbers can still read wrong (Deke's lighting, the barrel's brightness, twice). **Render three versions in the room at game size and let Tyler pick**; a small nudge after that ("ever so slightly brighter") is a number, not a new image.
+- **Staging taste.** Whether a character feels anchored or "floating in the middle of the room" is Tyler's. Put talkers by furniture (a bar, a barrel) rather than on open floor, and show him the frame before merging.
+- **Walk cycles.** Derive the frames per second from the stride, never from a placeholder: Deke's brief's 8 fps would have slid his boots at three times his pace (8a7a3ad). Play the cycle in order contact–pass–contact, and check the walk frames against the approved standing look (his hat and jacket, 96dc0a9).
+- **Speech placement.** Lines drawn top-centre, over a face, or over the wrong spot (17f3a61, 4e2a559, errata 76 E). Each room's life proof triggers a greeting, a reply and a bark for every speaker and looks at where the words land.
+- **A person who cannot be clicked because the scenery behind him is bigger** (dc07048). In the life proof, hover every person with a tree and read the sentence line.
+- **Presentation changes break the gauntlet.** Turning on click-to-read (b13c222) turned the gauntlet red after merge. **Any change to `content/ui/ui.json` or the dialogue presentation runs the gauntlet in the same PR.**
+- **Art needs the "OpenAI" environment.** A session without the key writes a brief (`reference/room-NN/<subject>/brief.md`, a verbatim prompt, a reference image, a generator, the cap in `art/staging/caps.json`) and hands Tyler a paste-ready prompt for a session in that environment. The barrel and Deke's walk were made this way.

@@ -221,7 +221,25 @@ def watch(canvas: IndexedCanvas, palette: Palette) -> None:
         canvas.put(x, y, grey.frac(0.80 if i % 2 == 0 else 0.50))
 
 
+def document_a(canvas: IndexedCanvas, palette: Palette) -> None:
+    """Deke Vessel's affidavit: a sworn paper whose signature is a flourish so
+    large it runs into the margin and down it (doc 23). The flourish is what
+    tells it from the letter, the deed and the map."""
+    _paper(canvas, palette, 6, 2, 17, 17, tone=0.74)
+    _writing(canvas, palette, 8, 4, 11, 4)
+    ink = palette.family("umber").frac(0.10)
+    # The signature: a loop across the foot of the page and off its edge.
+    canvas.line(8, 15, 13, 12, ink)
+    canvas.line(13, 12, 16, 15, ink)
+    canvas.line(16, 15, 21, 11, ink)
+    canvas.line(21, 11, 24, 16, ink)
+    canvas.line(24, 16, 24, 19, ink)
+    seal = palette.family("accent_red")
+    canvas.rect(9, 9, 3, 3, seal.frac(0.55))
+
+
 ICONS = {
+    "document_a": document_a,
     "watch": watch,
     "padded_log": padded_log,
     "tuning_fork": tuning_fork,

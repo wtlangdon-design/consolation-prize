@@ -97,15 +97,16 @@
  },
  "placements": {
   "nugget_back": {
-   "x": 1180,
+   "x": 1380,
    "y": 760,
+   "placeNote": "Moved 1180 to 1380 on 2026-11-01: at 1180 his head covered the third judge's face (tests/staging-clear.test.ts, 38% of the judge's pixels). Right of the judges' row nobody is behind him, and he and Thad face each other across the room for the duels. Thad talks to him from 460,760, clear of Sowerby and the first judge (at 800 he covered the first judge).",
    "zone": 0,
    "when": {
     "T_VESSEL_FOUND": true
    },
    "posture": "standing",
    "walkTo": {
-    "x": 800,
+    "x": 460,
     "y": 760,
     "facing": "right"
    },

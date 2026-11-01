@@ -1360,6 +1360,8 @@ export class GameScene extends Phaser.Scene {
   }
 
   private enterRoomPerformance(from: string | null = this.state.previousRoomId): void {
+    // Who is in the room is decided now, as he arrives (AmbientLayer.present).
+    this.ambient.arrived();
     this.musicResumed = false;
     this.applyMusic();
     // ERRATA 70 G. A timeline room starts its clock on entry; any other room

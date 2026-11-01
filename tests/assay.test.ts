@@ -9,6 +9,8 @@ import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
 
+// PLAYS: B4, B5, B6
+
 /**
  * THE LIAR'S ASSAY (doc 03, errata 73, errata 76 A).
  *

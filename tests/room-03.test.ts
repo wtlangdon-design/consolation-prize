@@ -8,6 +8,8 @@ import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
 
+// PLAYS: A3, A8
+
 /**
  * ROOM 3'S TWO PUZZLES, PLAYED. Tyler, 2026-11-01: "What else needs to be done
  * in this room?" Played through, neither paid off: agreeing to Vessel's deal
