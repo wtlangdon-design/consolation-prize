@@ -161,7 +161,7 @@
 *Ten hotspots. Everything Fanshawe has been protecting, and none of it is gold.*
 
 **THE ORIGINAL SUBSCRIPTION**
-> **LOOK:** "The subscription for the Mott expedition, Boston, 1847. Eleven names. The fourth is A. Fanshawe. He was not a colonel then either."
+> **LOOK:** "The subscription for the Mott expedition, Boston, 1846. Eleven names. The fourth is A. Fanshawe. He was not a colonel then either."
 > **LISTEN:** "Nothing."
 
 **THE MAPS**
@@ -169,7 +169,7 @@
 > **LISTEN:** "Nothing."
 
 **THE STOCK PORTRAIT BOXES**
-> **LOOK:** "Four gross of portraits of a man in a good collar, purchased at wholesale in 1851. The Clarion has been printing him as Obadiah Mott for eleven years."
+> **LOOK:** "Four gross of portraits of a man in a good collar, purchased at wholesale in 1851. The Clarion has been printing him as Obadiah Mott for seven years." *(Errata 10 dates, applied at source 2026-10-31.)*
 > **LISTEN:** "Nothing."
 
 **THE REAL LEDGERS**

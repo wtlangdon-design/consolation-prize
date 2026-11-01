@@ -820,3 +820,56 @@
 > **REVEREND SOWERBY** · TALK TO, *during the service* — "He is mid-adjective. Interrupting would cost us both."
 > **THE ONE WHO KNOWS** · TALK TO, *before S2 beat 3* — "Not here. Not with the whole town watching me be dead."
 > **GRIEVANCE, IN BLACK** · PICK UP — "She is working."
+
+---
+
+# ROOM 35 · THE COMPANY VAULT
+
+*Merged: doc 05's ten and doc 10's ten, sixteen objects. Act IV. One contradiction, decided for doc 05 on a tie (errata 68 H): the strongbox holds money, "less than the town believes", so doc 10's "Open. Empty." and its LISTEN are dropped. Doc 10's two dates now carry errata 10's corrections at source (the subscription is 1846; the portraits have been printed as Mott for seven years), and doc 05's "labelled" is spelled the American way.*
+
+## Same object, both passes
+
+**THE LEDGER SHELF** ≡ **THE REAL LEDGERS**
+**THE VAULT DOOR** ≡ **THE DOOR**
+**THE GAS LAMP, FIXED** ≡ **THE LAMP**
+**THE GAS LAMP, FIXED** ≡ **THE GAS LAMP**
+**THE MAP, PRIVATE** ≡ **THE PRIVATE MAP**
+**FANSHAWE'S PRIVATE DRAWER** ≡ **FANSHAWE'S DRAWER**
+
+*(The last three are doc 49's names. THE STRONGBOX has the same name in both passes.)*
+
+## Repeats
+
+**THE VAULT DOOR** — LOOK 2 "The bolts are as thick as my wrist, and there are eleven of them. Somebody counted his secrets and ordered a bolt for each." · 3 "It stands open. For a door this expensive, it looks very tired of the arrangement." | LISTEN 2 "The tumblers ticking faintly as the door settles on its hinges." · 3 "A long iron sigh when I lean on it. The most honest thing in the building is the weight of this door."
+
+**THE LEDGER SHELF** — LOOK 3 "The last page of the last book is ruled off neatly. Somebody knew this year might be the last and wanted the totals tidy." | LISTEN 3 "The shelf creaks under twelve years of very profitable nothing."
+
+**THE DEED BOXES** — LOOK 2 "My hotel is in here. So is the Nugget, and the church roof, and the ground under the Clarion." · 3 "The box marked MAIN STREET is the heaviest. The town's spine, in tin." | LISTEN 2 "A lid shifting as the vault cools." · 3 "Nothing. Property keeps very still when it is being looked at."
+
+**THE SEARCH FUND** — LOOK 2 "The donations get smaller every year and more numerous. The search is kept alive by the people who can least afford it." · 3 "The last entry is from Ohio, two dollars, with a note: FOR THE FINDING. It was entered in the same hand as all the others." | LISTEN 2 "Nothing. A book of other people's hope, closed." · 3 "The binding creaks as it opens. It is used to being opened by someone more interested in the totals."
+
+**THE MAP, PRIVATE** — LOOK 2 "Year by year the pins move outward. The search has been walking politely away from Claim One for twelve years." · 3 "It is beautifully drawn. It would be the best map in the territory, if it were trying to help anyone." | LISTEN 2 "A pin dropping out of the cork and ticking on the floor." · 3 "Nothing. The rigging has done its work."
+
+**THE STRONGBOX** — LOOK 2 "Coin, sorted by denomination, and a great deal of air between the stacks." · 3 "I had expected to want it. I find I do not." | LISTEN 2 "A coin turning over as I set the lid down. A small, embarrassed sound." · 3 "Nothing. Less money than the door suggests, and it knows it."
+
+**FANSHAWE'S PRIVATE DRAWER** — LOOK 2 "The key is not here. The Colonel carries it, I imagine, next to the five versions of his war." · 3 "It is the one locked thing in the vault. Everything else he has kept for the Company. This he has kept for himself." | LISTEN 2 "The paper inside sliding again, alone." · 3 "Nothing. Whatever is in there, he has kept it quiet longer than the gold."
+
+**THE CHAMPAGNE** — LOOK 2 "The dust on it is twelve years thick. I wrote nothing in it, which took some restraint." · 3 "FOR THE DAY. I begin to think he meant the day he would no longer need to lie, and that he never once expected it to come." | LISTEN 2 "A tiny tick from the cork as the vault cools. Hope, pressing." · 3 "Nothing. It has waited this long. It can wait for somebody else's day."
+
+**THE GAS LAMP, FIXED** — LOOK 2 "The mantle has never been lit. It is as white as the day it was unpacked." · 3 "There is an oil lamp on the floor beneath it, doing all the work." | LISTEN 2 "The hum again, when the door moves." · 3 "Nothing. It is very good at being unlit."
+
+**THE VISITOR'S CHAIR** — LOOK 2 "It faces the strongbox, not the maps. Whoever sits here sits looking at what he has, not at what he says." · 3 "On the floor beside it, a glass with a finger of whisky in it, untouched. He pours, even here, and does not drink." | LISTEN 2 "Leather settling. It was sat in today." · 3 "Nothing. The thinking done in this chair has never been said aloud anywhere."
+
+**THE ORIGINAL SUBSCRIPTION** — LOOK 2 "Eleven names, all signed in the same confident ink. Ten of them, I would guess, never saw this territory." · 3 "Fanshawe's signature is the smallest on the page. It is the only modest thing he has ever done, and it was the start of everything." | LISTEN 2 "Nothing. Paper twelve years old, keeping the oldest secret in town." · 3 "The page lifting a little in the draft from the door, then lying back down."
+
+**THE MAPS** — LOOK 2 "On every map the strike is somewhere else. On every map it is marked with exactly the same little cross." · 3 "There is a twelfth map, half drawn, the ink still bright. The Colonel was planning another edition." | LISTEN 2 "Paper rustling as I lift one. Lighter than it should be, for what it cost the town." · 3 "Nothing. Eleven maps to nowhere, in perfect agreement."
+
+**THE STOCK PORTRAIT BOXES** — LOOK 2 "Four gross, less however many the Clarion has used. The boxes are still nearly full. There is a great deal of Obadiah Mott left." · 3 "He has a kind face, the man in the collar. I hope he never learned what became of it." | LISTEN 2 "Card, packed tight, the way you pack anything bought by the gross." · 3 "Nothing. A great many copies of one man, and not one of them has anything to say."
+
+**THE UNSOLD DEEDS** — LOOK 2 "Every one is drawn properly, right side up, with a boundary description. They kept the good paperwork for themselves." · 3 "Two hundred claims, and one gap in the ring around Claim One. The gap is mine." | LISTEN 2 "Nothing. Two hundred claims nobody is allowed to dig, keeping very quiet about it." · 3 "The bundle shifting as I set it down. Paper, heavier than any of it is worth."
+
+**THE CORRESPONDENCE FILE** — LOOK 2 "Each letter is warmer than the last. By the ninth year he writes to Boston like a man writing home." · 3 "The replies are not in the file. Either Boston stopped answering or he stopped keeping what it said." | LISTEN 1 "Nothing. A file of copies keeps its originals to itself." · 2 "Paper sliding inside the folder when I tilt it." · 3 "Nothing. Nine years of the same letter, and not one of them said aloud."
+
+### THE SHARE CERTIFICATES
+**LOOK** 1 "Shares in the Consolation Improvement Company, beautifully engraved, with a sunrise over a gold field that does not exist." · 2 "These are unsigned. The Company kept its own shares and sold the town everything else." · 3 "Each one has a vignette of a miner holding up a nugget and smiling. He has the same face as Obadiah Mott."
+**LISTEN** 1 "Nothing. Engraved paper is very confident and very quiet." · 2 "A stack shifting, crisp, like cards being squared." · 3 "Nothing. The sunrise on them has been rising for twelve years without a sound."

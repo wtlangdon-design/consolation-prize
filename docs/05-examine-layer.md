@@ -1234,7 +1234,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. Double entries keep each other quiet."
 
 **THE DEED BOXES**
-> **LOOK:** "Tin boxes of deeds, labelled by street. The Company owns the fronts, the backs, the lots between, and the mortgage on most of what it doesn't. Consolation, in a filing system."
+> **LOOK:** "Tin boxes of deeds, labeled by street. The Company owns the fronts, the backs, the lots between, and the mortgage on most of what it doesn't. Consolation, in a filing system."
 > **LISTEN:** "Tin, ticking with the temperature. The town, expanding and contracting."
 
 **THE SEARCH FUND**
