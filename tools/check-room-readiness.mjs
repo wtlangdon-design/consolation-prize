@@ -239,8 +239,10 @@ function batchSubjects(body) {
       // "The board" names THE BOARD OF NAMES: a parenthesis may shorten.
       // And may change the article: "(The boot" is doc 08's A BOOT.
       const bare = (text) => text.replace(/^(THE|A|AN)\s+/, '');
+      // Or name it by its last word: "(Cloth" is THE BOLTS OF CLOTH.
       const mine = notes.find((one) => bare(name) === bare(one.noted)
-        || bare(name).startsWith(`${bare(one.noted)} `));
+        || bare(name).startsWith(`${bare(one.noted)} `)
+        || bare(name).endsWith(` ${bare(one.noted)}`));
       sketched.push({ name, look: Boolean(mine?.look), listen: Boolean(mine?.listen) });
     }
   }

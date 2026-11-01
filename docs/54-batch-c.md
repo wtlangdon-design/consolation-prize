@@ -1115,3 +1115,77 @@
 > **MADAME OZYMANDIA** · PICK UP — "There would be a fee, and then a curse, and the fee would be larger."
 > **MADAME OZYMANDIA** · PUSH — "She would sway, theatrically, and describe it afterward as a vision."
 > **MADAME OZYMANDIA** · GIVE — "Anything I give her, she prices."
+
+---
+
+# ROOM 12 · THE MERCANTILE
+
+*Merged: doc 05's sixteen and doc 08's sixteen, twenty-four objects — still the highest count in the game, as both passes intended. Two contradictions and one doubled joke decided (errata 68 H): the catalogue is doc 05's eleven hundred pages (five more pages of it are written there), so doc 08's cover LOOK ("four hundred pages") is dropped; doc 08's THE DYNAMITE LOOK repeats doc 05's stove joke and is dropped. Errata 68 A's two PICK UPs (the pickled eggs and the tonic, on Thad's account) are in Room 23's section and belong here.*
+
+## Same object, both passes
+
+**THE CREDIT LEDGER** ≡ **THE DEBT LEDGER**
+**THE PICKAXES** ≡ **THE PICKAXE**
+**THE DYNAMITE CRATE** ≡ **THE DYNAMITE**
+**THE CALICO** ≡ **THE BOLTS OF CLOTH**
+**THE CATALOGUE** ≡ **THE CATALOGUE — cover**
+**THE CATALOGUE — MUSICAL INSTRUMENTS** ≡ **THE CATALOGUE — the page on pianos**
+**TINNED GOODS** ≡ **THE TINNED GOODS**
+
+*(THE STOVE has the same name in both passes. Doc 05's THE SCALES are the store's working scales; doc 08's THE UNSOLD SCALES, a dozen in paper, are another object.)*
+
+## Repeats
+
+**THE COUNTER** — LOOK 2 "There is a groove worn in it where coins slide, exactly the width of a dollar." · 3 "A brass rule is let into the edge for measuring cloth. It is the only straight thing in the building." | LISTEN 2 "A coin, somewhere, being set down very firmly." · 3 "Nothing. Wood that has heard every argument about price has stopped taking sides."
+
+**THE SCALES** — LOOK 2 "A little dish of lead shot sits beside them, for adjustments. The adjustments are made out of sight." · 3 "They are the brightest object in the store. Something that busy keeps its shine." | LISTEN 2 "The pan settling, still to the same side." · 3 "Nothing. They are between customers, and between opinions."
+
+**THE CREDIT LEDGER** — LOOK 3 "The ink changes color halfway down the page, where he ran out and carried on in whatever was nearest." | LISTEN 3 "A page turning back on itself, as if it would rather not look forward."
+
+**TINNED GOODS** — LOOK 3 "Every tin is dented in the same place at the same height. They came over the same mountain in the same crate." | LISTEN 2 "The fizz again, from the tin marked MEAT. I am moving away from it." · 3 "Nothing from the peaches. They are above all this."
+
+**THE PICKLE JAR** — LOOK 2 "A wooden spoon hangs beside it on a string, for fishing. The string is short and the jar is deep. It is a test of character." · 3 "The eggs have been in brine so long they have the color of old ivory and the confidence of old money." | LISTEN 2 "A slow bubble rising through the brine and arriving with nothing to say." · 3 "Nothing. The eggs are waiting, and they have time."
+
+**DR. PURVIS'S TONIC** — LOOK 2 "The label shows Dr. Purvis himself, bearded and benevolent. The same beard is on the hair restorer, the cough syrup and the horse liniment." · 3 "Ingredients: 'Restorative Principles.' I should like to meet the chemist who isolated them." | LISTEN 2 "A faint fizz against the glass when I tilt the shelf." · 3 "Nothing, which is somehow worse."
+
+**THE PICKAXES** — LOOK 3 "The handles are numbered in chalk. Somebody is keeping count of how much optimism has left the store." | LISTEN 3 "The loose one again, clicking on its haft. It is the only one of them that has ever told the truth."
+
+**THE DYNAMITE CRATE** — LOOK 2 "The lid is open, and a newspaper is laid over the sticks. The newspaper is the Clarion. It seems an appropriate use." · 3 "Somebody has chalked FRAGILE on it, and somebody else has added, smaller, BUT FINE." | LISTEN 3 "Nothing. I have listened as long as I am prepared to."
+
+**THE STOVE** — LOOK 2 "A ring of chairs around it, each claimed by habit. Nobody has ever asked who sits where; everybody knows." · 3 "A coffee pot on the back has never been washed, on principle. It is said to improve." | LISTEN 2 "A log settling in the firebox, and the chairs going quiet, as if someone important had come in." · 3 "Iron ticking. Yesterday's opinions, cooling."
+
+**THE CALICO** — LOOK 2 "A card is pinned to the bolt: PROSPERITY, 12¢ THE YARD. It is the cheapest prosperity in town, and nobody is buying." · 3 "The blue flowers have faded on the outside of the bolt, where the window light reaches. Even Prosperity fades in public." | LISTEN 3 "A thread catching on my sleeve and letting go."
+
+**THE CATALOGUE** — LOOK 2 "The spine has been mended with flour paste and a strip of the Clarion. It holds." · 3 "Every page is thumbed at the bottom corner except the page on trusses, which is thumbed at the top, quickly." | LISTEN 3 "Pages riffling when the door opens. Civilization, in a draft."
+
+**THE CATALOGUE — LADIES' NOTIONS** — LOOK 2 "Someone has ticked a pair of gloves in pencil, crossed the tick out, and ticked it again." · 3 "The prices are in Chicago dollars. Out here a Chicago dollar buys about a third of a ribbon." | LISTEN 2 "A pin dropping somewhere in the store. Nothing to do with the page." · 3 "A page lifting and falling back. Somebody's wish, reconsidered."
+
+**THE CATALOGUE — PATENT MACHINES** — LOOK 2 "A machine for peeling, coring and slicing an apple at once. There is not an apple within two hundred miles." · 3 "The Improved Posture Brace is endorsed by a bishop. The bishop, in the engraving, is stooping." | LISTEN 2 "Nothing. On paper they are all very quiet machines." · 3 "Nothing, and it is trying even harder."
+
+**THE CATALOGUE — FIREARMS** — LOOK 2 "Someone has drawn a mustache on the man demonstrating the revolver. It suits him." · 3 "The cheapest revolver costs less than the cheapest hymnal. I draw no conclusion. The territory does." | LISTEN 2 "Nothing. Paper guns go off very quietly." · 3 "Nothing. The safest page in the book, and the most read after the pianos."
+
+**THE CATALOGUE — MUSICAL INSTRUMENTS** — LOOK 3 "In the corner of the page, a tuning fork, eleven cents. Mine cost my father considerably more, and was worth it." | LISTEN 3 "Nothing. I have stopped pretending otherwise."
+
+**THE CATALOGUE — ORDER FORM** — LOOK 2 "Under ITEM someone has written PIANO, under QUANTITY, ONE, and under PAYMENT, nothing at all." · 3 "Delivery in six to ten weeks, it promises. It does not say from when." | LISTEN 2 "The carbon, faintly, as the page settles: everything said twice, quietly." · 3 "Nothing. An order not sent is very patient."
+
+**THE PRICE LIST** — LOOK 2 "Coffee, a dollar the pound. I have stopped converting. Converting only makes it worse." · 3 "At the bottom: CREDIT EXTENDED TO ESTABLISHED CUSTOMERS. In this town that is everyone." | LISTEN 2 "The board ticking against the wall when the door goes." · 3 "Nothing. Prices this high have no need to raise their voices."
+
+**THE SHOVELS** — LOOK 2 "Each has a price tag on a string, and the strings have been retied as the price went up." · 3 "Somebody scratched his initials into one handle before buying it, and has not come back for it." | LISTEN 2 "Nothing. Forty shovels, standing at ease." · 3 "A faint scrape as one leans into another."
+
+**THE PANS** — LOOK 2 "The top pan has a dent in the middle the shape of a fist. Somebody returned it." · 3 "They nest perfectly, one inside the next, all the way to the ceiling. It is the most orderly hope in the district." | LISTEN 2 "The ring again, a little flat, when a wagon passes." · 3 "Nothing between wagons. Tin, waiting to be disappointed."
+
+**THE UNSOLD SCALES** — LOOK 2 "The paper on them has yellowed and the scales underneath are still new. It is a strange kind of age." · 3 "He has never marked them down. He is still waiting for the men who would need to weigh things." | LISTEN 2 "Nothing. A dozen scales, perfectly balanced, with nothing to weigh." · 3 "The paper crackling as I lean on the shelf. That is as close as they have come to being used."
+
+**THE CATALOGUE — furniture pages** — LOOK 2 "A parlor suite in red plush, freight extra. The freight is more than the suite." · 3 "Somebody has pencilled a small man sitting on the settee. He looks very comfortable. He is the only comfortable man in Consolation." | LISTEN 2 "Nothing. Soft furniture, on paper, is softer still." · 3 "Nothing. The page is too worn to rustle."
+
+### THE BOOTS
+**LOOK** 1 "Boots in pairs, tied together by the laces and hung on a nail. The only things in town guaranteed to go everywhere together." · 2 "The leather is good and the price is better than the leather. That is not a compliment." · 3 "One boot without a partner, marked down to half. I know a monument on the claims road it would suit."
+**LISTEN** 1 "Leather creaking as the pairs turn on their nail." · 2 "Nothing. New boots have not been anywhere to talk about." · 3 "The laces tapping together, like two people agreeing quietly."
+
+### THE NAILS
+**LOOK** 1 "Nails by the pound in a keg, every size mixed. You buy them and sort them yourself, at no extra charge." · 2 "Most of the town is held together with nails from this keg, and the town shows it." · 3 "A magnet on a string hangs by the keg, for fishing out the size you want. It is the best tool in the store, and it is not for sale."
+**LISTEN** 1 "A small metallic shifting when the floor moves." · 2 "Nothing. Nails keep their points to themselves." · 3 "The magnet clicking against the keg's rim as it sways."
+
+### THE LAMP OIL
+**LOOK** 1 "Lamp oil in a drum with a tap, a funnel, and a sign saying NO LIGHTS. The stove is four feet away." · 2 "The tap drips. A thin dark ring on the floor records every drop since the drum arrived." · 3 "The town runs on this after dark. It is the only thing in Consolation that keeps the lights on, and it is sold by the pint."
+**LISTEN** 1 "A drip, slow and oily, into the tray." · 2 "Nothing. Oil is in no hurry." · 3 "The drip again. Somebody should tighten that tap, and somebody never does."
