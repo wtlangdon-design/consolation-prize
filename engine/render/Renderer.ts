@@ -55,6 +55,12 @@ export interface Frame {
    * no panel, because there is nothing the player may do with it.
    */
   showPanel?: boolean;
+  /**
+   * ERRATA 71 B: a panel-less timeline room (Room 32) is showing MENU and SKIP
+   * SCENE because the pointer moved. Drawn in the cells MENU and MAP occupy in
+   * the panel, on nothing -- no panel behind them.
+   */
+  sceneControls?: boolean;
   /** The map location under the pointer, so it can draw as the live one. */
   hoveredLocation?: string | null;
   /**
@@ -675,8 +681,28 @@ export class Renderer {
     if (frame.actCard) this.drawActCard(frame.actCard);
     this.drawTitle();
     if (frame.showPanel !== false) this.drawPanel(frame);
+    else if (frame.sceneControls) this.drawSceneControls();
     // Last, so it sits over everything including the panel.
     this.drawMenu();
+  }
+
+  /**
+   * MENU and SKIP SCENE, alone, where MENU and MAP sit in the panel -- the
+   * place a player who has used the panel already looks. The labels are
+   * content/ui/menu.json's.
+   */
+  private drawSceneControls(): void {
+    const ctx = this.screen.context;
+    const cells: [Rect | null, string][] = [
+      [this.panel.menuButton, this.state.menu.buttonLabel],
+      [this.panel.mapButton, this.state.content.menu.sceneControls?.skip ?? ''],
+    ];
+    for (const [rect, label] of cells) {
+      if (!rect || !label) continue;
+      this.screen.fill(rect.x, rect.y, rect.width, rect.height, this.screen.role('buttonBg'));
+      const x = rect.x + Math.floor((rect.width - this.panelFont.measure(label)) / 2);
+      this.panelFont.draw(ctx, label, x, this.labelY(rect), this.screen.roleColour('ink'));
+    }
   }
 
   /**

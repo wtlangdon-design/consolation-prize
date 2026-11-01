@@ -45,3 +45,40 @@ test('Room 32 keeps its contract: no hotspots, no exits, the panel back at 180 s
     if (step.do === 'plate') assert.ok(room.plates?.[step.plate], `plate ${step.plate} is declared`);
   }
 });
+
+/**
+ * Errata 71 B: SKIP SCENE lands where WATCH does. Everything up to and
+ * including the checkpoint comes back, in order, once; nothing after it.
+ */
+test('skipToCheckpoint returns every step up to and including the checkpoint, once', () => {
+  const timeline = new RoomTimeline();
+  timeline.start([
+    { at: 1, do: 'plate', plate: 'a' },
+    { at: 2, do: 'sound', src: 'x.wav' },
+    { at: 5, do: 'dialogue', tree: 'T', checkpoint: true },
+    { at: 9, do: 'plate', plate: 'b' },
+  ]);
+  timeline.advance(1500);
+  assert.deepEqual(timeline.skipToCheckpoint().map((s) => s.at), [2, 5]);
+  assert.equal(timeline.elapsed, 5000);
+  assert.deepEqual(timeline.skipToCheckpoint(), [], 'a second skip has nowhere to go');
+  assert.deepEqual(timeline.advance(4000).map((s) => s.at), [9]);
+});
+
+test('Room 32: four minutes sealed, Hob counts true, and one checkpoint that completes E8 into HOB', () => {
+  const room = JSON.parse(readFileSync('content/rooms/coffin.json', 'utf8')) as RoomFile;
+  const steps = room.timeline ?? [];
+  const checkpoints = steps.filter((s) => s.checkpoint);
+  assert.equal(checkpoints.length, 1, 'watch and skip land at ONE checkpoint');
+  const cp = checkpoints[0]!;
+  assert.equal(cp.do, 'dialogue');
+  if (cp.do === 'dialogue') {
+    assert.equal(cp.tree, 'HOB');
+    assert.equal(cp.completes, 'E8');
+  }
+  const lantern = steps.find((s) => s.do === 'plate' && s.plate === 'lantern');
+  assert.ok(lantern && lantern.at >= 240 && lantern.at < 245, "HOB_C1: 'You were down four minutes.'");
+  assert.ok(steps.every((s) => s.at <= cp.at), 'nothing is scheduled after the checkpoint');
+  const hob = JSON.parse(readFileSync('content/dialogue/hob.json', 'utf8'));
+  assert.ok(hob.entries.some((e: { puzzle?: string; node: string }) => e.puzzle === 'E8' && e.node === 'HOB_C1'));
+});

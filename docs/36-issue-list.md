@@ -4659,3 +4659,13 @@ Tyler, 2026-10-31: "do everything you have to to finish the writing so the other
 **Deke Vessel merged (PR #67), Tyler: "Approve deke", 2026-10-31** — after the move off the stool leg (x 1109 → 1060) and the two approaches re-sited around him. Q141's swindle-trade question is answered by errata 68 C's reading only as far as the flag: `T_SWINDLED` is Deke's; the four dollars and the watch still need the items-follow-the-flag mechanism (Q141 addendum, route 1) when Room 3's A3 is wired.
 
 Also written: FAN_A2 (the dinner), RAC_A1 (the raccoon's naming), PRA_A1, UND_C1, SUM_B1 and SUM_C1 grown to full nodes, LIV_A1 option 5, A5's attempts, the office search, B3, and the nineteen names. What remains for a room is the build's own work: annotation, plate, art (and Tyler's visual acceptance), and wiring.
+
+## Q145 · Hob extracted, Room 32 brought under errata 52 — **RULED 2026-10-31 (errata 71, delegated); BUILT, AWAITING TYLER'S AUDITION OF ROOM 32**
+
+Errata 71. HOB's three nodes are in content/dialogue/hob.json; Room 32's lid opens at four minutes sealed and completes E8 into HOB_C1; MENU and SKIP SCENE appear on pointer intent; errata 70 C2's fork-strike start for the F2 arc is withdrawn in favour of errata 52's confirmed void.
+
+**Left to the rooms that own them, not open questions:**
+- **Room 31 takes Thad back up.** After HOB_C1 he is still in Room 32 with the panel back and nothing to click; the panel's MAP is the way out (doc 20 rule 2), so nothing is stranded, but the climb out of the grave to Boot Hill at night is Room 31's to stage when it is built.
+- **Room 21 performs HOB_C2's opening.** The entry is gated on E9; doc 48 S4's shack scene (the two cups, the lamp) is the action that speaks the confession's opening, and S4 beat 3 writes `T_HOB_IS_MOTT` and `T_STRIKE_WAS_LIE`.
+- **Hob's "Running" lines** go to the ambient layer when he is placed in a night room.
+- **HOB_A1 option 6's pair 21** waits on doc 03's duel machinery.
