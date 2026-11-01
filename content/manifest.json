@@ -25,7 +25,8 @@
   "content/rooms/thads-room.json",
   "content/rooms/undertaker.json",
   "content/rooms/main-street-candidate.json",
-  "content/rooms/nugget-candidate.json"
+  "content/rooms/nugget-candidate.json",
+  "content/rooms/coffin.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",

@@ -1058,7 +1058,11 @@ export class Renderer {
     // and a bug in any of those would show in panel A as though it were the
     // plate's.
     if (this.castHidden) return;
+    // ERRATA 70 G: a room that hides the player (Room 32 -- he is lying in
+    // the dark he is looking at) draws everyone but him.
+    const playerHidden = this.state.room.actor === 'hidden';
     for (const figure of depthOrder(roomFigures(this.ambient.present, this.actors.all()))) {
+      if (playerHidden && figure.mover?.id === this.state.content.actor.id) continue;
       // An ambient that declares its own plane is masked by it; everyone
       // else by the box under their feet. See AmbientFile.clipPlane.
       const declaredPlane = figure.npc ? (figure.npc as AmbientFile).clipPlane : undefined;

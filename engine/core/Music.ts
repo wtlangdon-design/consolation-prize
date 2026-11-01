@@ -49,6 +49,8 @@ export class Music {
   private unlocked = false;
   private readonly cache = new Map<string, HTMLAudioElement>();
   private readonly missing = new Set<string>();
+  /** A bed stopped dead by `suspend`, and where it was. */
+  private suspended: { element: HTMLAudioElement | null; gain: number; position: number } | null = null;
 
   constructor(private readonly enabled: () => boolean) {}
 
@@ -69,6 +71,8 @@ export class Music {
 
   /** Requests a bed. Idempotent: asking for the one already playing is free. */
   play(track: MusicTrack | null): void {
+    // Nothing starts over a suspended bed; the return is `resume`'s alone.
+    if (this.suspended) return;
     this.wanted = track;
     if (!track) {
       this.fadeOut();
@@ -90,6 +94,50 @@ export class Music {
       this.missing.add(track.src);
     });
     this.playing = { element, gain: target };
+  }
+
+  /**
+   * DOC 45 R32-MUTE: the lid closes and the score stops dead -- not a fade --
+   * with its playhead carried silently. Nothing else may start while it is
+   * suspended: a room change into the coffin must not crossfade to anything.
+   */
+  suspend(): void {
+    if (this.suspended) return;
+    const voice = this.playing;
+    this.suspended = voice
+      ? { element: voice.element, gain: voice.gain, position: voice.element.currentTime }
+      : { element: null, gain: 0, position: 0 };
+    if (voice) voice.element.pause();
+    this.playing = null;
+  }
+
+  /** Whether a gesture has unlocked audio; the one-shots share the answer. */
+  get isUnlocked(): boolean {
+    return this.unlocked;
+  }
+
+  get isSuspended(): boolean {
+    return this.suspended !== null;
+  }
+
+  /**
+   * DOC 45 R32-RETURN: "a hard return mid-phrase at the playhead position the
+   * score would have reached". `elapsedSeconds` is the active time the bed was
+   * down; the bed loops, so the position wraps at its length. No fade in: the
+   * return is the point, and doc 28 Part Four says it tells the player how
+   * long they were down there.
+   */
+  resume(elapsedSeconds: number): void {
+    const held = this.suspended;
+    this.suspended = null;
+    if (!held?.element) return;
+    const length = Number.isFinite(held.element.duration) && held.element.duration > 0
+      ? held.element.duration : 0;
+    const position = held.position + elapsedSeconds;
+    held.element.currentTime = length ? position % length : 0;
+    held.element.volume = held.gain;
+    void held.element.play().catch(() => undefined);
+    this.playing = { element: held.element, gain: held.gain };
   }
 
   /** Stops everything, immediately. For a hard cut such as quitting to menu. */

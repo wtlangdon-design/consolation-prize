@@ -32,6 +32,8 @@ import {
 } from '../render/Screen.ts';
 import { SequenceRunner, type SequenceStep } from '../core/Sequence.ts';
 import { CarriedBeats } from '../core/CarriedBeats.ts';
+import { RoomTimeline } from '../core/RoomTimeline.ts';
+import { Sfx } from '../core/Sfx.ts';
 import {
   actCardOf, playfieldClick, segmentsOf, stepsFor, writesOf, type Segment,
 } from '../core/Opening.ts';
@@ -74,6 +76,18 @@ export class GameScene extends Phaser.Scene {
   /** Every named mover in the room, the player among them. Issue X4 defect 3. */
   private actors!: RoomActors;
   private readonly music = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
+  /** Errata 70 G: one-shots, under the same switch and the same unlock as the beds. */
+  private readonly sfx = new Sfx(() => this.state.menu.toggle(MUSIC_OPTION), () => this.music.isUnlocked);
+  /** Errata 70 G: a room that is its own cutscene (Room 32). */
+  private readonly timeline = new RoomTimeline();
+  /** True while a timeline room keeps the verb panel away. */
+  private panelHidden = false;
+  /** Set when a suspending room's timeline has brought the bed back. */
+  private musicResumed = false;
+  /** Which of the room's `plates` is showing; null is its `background`. */
+  private plate: string | null = null;
+  /** The scene clock at the last timeline tick, in ms; null before the first. */
+  private timelineAt: number | null = null;
   /** Doc 34 assertion 6's register. Step E swaps a RuntimeCoordinator in. */
   private readonly bodies = new BodyOwners();
   /** The one thing allowed to drive a mover from a script. Issue X4 defect 1. */
@@ -403,6 +417,7 @@ export class GameScene extends Phaser.Scene {
     // A LINE CLEARS ITSELF. Doc 30 section 4.1's reading hold, and the build
     // had none: interactive dialogue waited for a click forever, which is what
     // made a conversation read as a menu of prompts rather than a performance.
+    this.tickTimeline();
     if (this.performance?.tick(now)) this.showPerformance();
     if (this.actors.update(now)) this.markDirty();
     this.sweepSteps(now);
@@ -553,7 +568,7 @@ export class GameScene extends Phaser.Scene {
       // `panel`, so the clicks were going to the list all along. This was
       // never a hit-testing bug; it only looked like one because the thing
       // underneath was still visible and invited the click.
-      showPanel: this.opening === null && !this.choicesShowing(),
+      showPanel: this.opening === null && !this.choicesShowing() && !this.panelHidden,
       hoveredLocation: this.hoveredLocation,
       // Doc 44: the beat travels with the frame so a violation recorded
       // while it is drawn can name it. Undefined outside a performance.
@@ -602,6 +617,10 @@ export class GameScene extends Phaser.Scene {
   private backgroundFor(roomId: string): CanvasImageSource | null {
     const room = this.state.content.rooms.get(roomId);
     if (!room?.background) return null;
+    if (this.plate && roomId === this.state.roomId) {
+      const plateKey = `plate:${roomId}:${this.plate}`;
+      if (this.textures.exists(plateKey)) return this.textures.get(plateKey).getSourceImage() as CanvasImageSource;
+    }
     // WHOLE-PLATE FRAMES, if the room declares them. Frame zero is
     // `background` itself, so a room with no extra frames is unchanged.
     let key = `bg:${roomId}`;
@@ -769,6 +788,10 @@ export class GameScene extends Phaser.Scene {
       this.onMenuClick(y);
       return;
     }
+
+    // ERRATA 70 G / INVARIANT 2: while a timeline room keeps the panel away
+    // there is nothing to click. The click above still unlocked audio.
+    if (this.panelHidden) return;
 
     // Ahead of the panel buttons, because the options are drawn over them.
     // A click on a conversation must never reach the MENU or MAP button
@@ -1167,11 +1190,55 @@ export class GameScene extends Phaser.Scene {
    * assertion 6 on the first thing the next room tried to animate.
    */
   /**
+   * ERRATA 70 G: advances the room's timeline by ACTIVE time -- nothing while
+   * the menu is open, which is doc 45's "active, unpaused" -- and does each
+   * step that came due. The scene's own clock is used rather than the frame
+   * delta so a backgrounded tab (which stops the frame loop) adds nothing.
+   */
+  private tickTimeline(): void {
+    if (!this.timeline.isRunning) return;
+    const nowMs = this.time.now;
+    const last = this.timelineAt ?? nowMs;
+    this.timelineAt = nowMs;
+    // A frame longer than a quarter of a second is a stall or a hidden tab,
+    // not time the player spent in the coffin.
+    const step = this.state.menu.isOpen ? 0 : Math.min(250, Math.max(0, nowMs - last));
+    for (const due of this.timeline.advance(step)) {
+      switch (due.do) {
+        case 'plate': this.plate = due.plate; break;
+        case 'sound': this.sfx.play(due.src, due.gain ?? 1); break;
+        case 'panel': this.panelHidden = !due.show; break;
+        case 'music': this.music.resume(this.timeline.elapsed / 1000); this.musicResumed = true; break;
+        case 'dialogue': this.openTimelineTree(due.tree); break;
+      }
+      this.markDirty();
+    }
+  }
+
+  /**
+   * A conversation a timeline opens (Room 32's lid opening on Hob, into
+   * HOB_C1). Routed as an accost is -- the tree's own opening line, through
+   * the greeting -- with nobody to walk to. A tree the content does not have
+   * yet is a silent no-op; the content check is what reports it.
+   */
+  private openTimelineTree(tree: string): void {
+    if (!this.state.content.dialogue.has(tree) || this.state.dialogue.isActive) return;
+    this.pendingTree = { tree, at: { x: this.actor.x, y: this.actor.y }, greeted: false };
+  }
+
+  /**
    * The bed for wherever he is now. Doc 45's O-01-M while the title menu is
    * up, the room's own track otherwise, and silence for a room that names
    * none -- which is every room today, because THADDEUS has not been written.
    */
   private applyMusic(): void {
+    // DOC 45 R32-MUTE: the coffin stops the score dead and carries its place.
+    if (this.state.room.music === 'suspend') {
+      // Until the timeline's resume; after it the returned bed plays on, and
+      // a click that calls this must not stop it again.
+      if (!this.musicResumed) this.music.suspend();
+      return;
+    }
     const declared = this.state.content.manifest.music;
     if (!declared) return;
     const room = declared.rooms?.[this.state.room.id];
@@ -1179,7 +1246,15 @@ export class GameScene extends Phaser.Scene {
   }
 
   private enterRoomPerformance(from: string | null = this.state.previousRoomId): void {
+    this.musicResumed = false;
     this.applyMusic();
+    // ERRATA 70 G. A timeline room starts its clock on entry; any other room
+    // stops whatever timeline was running and gives the panel back.
+    this.timeline.stop();
+    this.timelineAt = null;
+    this.plate = null;
+    this.panelHidden = this.state.room.interface === 'none';
+    if (this.state.room.timeline?.length) this.timeline.start(this.state.room.timeline);
     this.sequence.cancel();
     this.carried.cancel();
     this.world.abandon();
