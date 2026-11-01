@@ -1,6 +1,8 @@
 # Deke Vessel — generation brief (Room 3, A3 the swindle)
 
-Written 2026-10-31 and reviewed by Tyler. **Not yet generated. No image operation spent.**
+Written 2026-10-31 and reviewed by Tyler.
+
+**Status 2026-11-01:** cap 3 (`art/staging/caps.json`, asset `deke-vessel`). Attempt 1 (this prompt, `prompt-01.txt`) REJECTED by Tyler: too sharp. Attempt 2 is the correction he dictated (`prompt-02.txt`, reference built by `tools/art/deke-correction-ref.py`) and is AWAITING HIS REVIEW beside Thad. Measurements: `tools/art/deke-measure.py`. Nothing cut or placed. One operation remains.
 
 ## Sources (nothing here is invented beyond art direction)
 - Doc 27, DEKE VESSEL · Room 3: voice "sunny, shameless, and visibly enjoying himself".
