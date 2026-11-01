@@ -7353,6 +7353,104 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-12T20:47:20.622Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "deke-vessel",
+   "subject": "deke-vessel",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "reference/room-03/deke/prompt-01.txt",
+   "promptHash": "bbfe8fd92fd677452a13d33c2815a2b572c435cddee05da30c420cd7a0c0c025",
+   "references": [
+    {
+     "path": "reference/room-03/deke/style-reference.png",
+     "hash": "e7ae0edee5b2ce8c60f65d2da9c4be691240cfcb7528dbf5cd8cd4dfd0733368",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "e7ae0edee5b2ce8c60f65d2da9c4be691240cfcb7528dbf5cd8cd4dfd0733368",
+   "sourcePath": "reference/room-03/deke/style-reference.png",
+   "out": "art/staging/room-03/deke-01/sheet.png",
+   "outputHash": "458acd152edfbad2796fe5fc560917007a0f6a2d4476e0d8b30f90eb33d78759",
+   "bytes": 1648651,
+   "usage": {
+    "input_tokens": 1212,
+    "input_tokens_details": {
+     "image_tokens": 608,
+     "text_tokens": 604
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+     "image_tokens": 343,
+     "text_tokens": 0
+    },
+    "total_tokens": 1555
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-01T02:30:40.965Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-01, deke-vessel cap 3",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-01T02:30:40.987Z"
+  },
+  {
+   "attempt": 2,
+   "role": "canonical-design",
+   "assetId": "deke-vessel",
+   "subject": "deke-vessel",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "reference/room-03/deke/prompt-02.txt",
+   "promptHash": "6b6ef2619d4fdeed0ef295094c0df62adf5ae888b1e84faed0ac746b7602ba7f",
+   "references": [
+    {
+     "path": "art/staging/room-03/deke-02/reference.png",
+     "hash": "756d297c7701c0176a937a25b2fbe29a0eb58a1827ed75ffa9c87cfe0ddb8a44",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "756d297c7701c0176a937a25b2fbe29a0eb58a1827ed75ffa9c87cfe0ddb8a44",
+   "sourcePath": "art/staging/room-03/deke-02/reference.png",
+   "out": "art/staging/room-03/deke-02/sheet.png",
+   "outputHash": "3930e896263cc1b6d7422b9fb0c47048a30bf0a2feca85389ffa1b33c46f8389",
+   "bytes": 1335044,
+   "usage": {
+    "input_tokens": 563,
+    "input_tokens_details": {
+     "image_tokens": 448,
+     "text_tokens": 115
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 1935
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-01T02:33:10.416Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-01, deke-vessel cap 3",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-01T02:33:10.421Z"
   }
  ],
  "promotions": [

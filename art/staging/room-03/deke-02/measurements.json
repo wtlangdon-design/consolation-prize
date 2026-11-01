@@ -1,0 +1,57 @@
+{
+ "poseCount": 5,
+ "sourceHeights": [
+  626,
+  626,
+  626,
+  628,
+  626
+ ],
+ "baselineSpread": 0,
+ "magentaTintedEdgePct": 50.09,
+ "poses": [
+  {
+   "height": 296,
+   "texture": 4.59,
+   "lumMean": 83.5,
+   "lumSD": 37.0,
+   "satMean": 117.4
+  },
+  {
+   "height": 296,
+   "texture": 4.61,
+   "lumMean": 83.7,
+   "lumSD": 37.3,
+   "satMean": 117.5
+  },
+  {
+   "height": 296,
+   "texture": 4.57,
+   "lumMean": 84.0,
+   "lumSD": 37.2,
+   "satMean": 117.5
+  },
+  {
+   "height": 296,
+   "texture": 4.65,
+   "lumMean": 85.3,
+   "lumSD": 36.9,
+   "satMean": 117.6
+  },
+  {
+   "height": 296,
+   "texture": 4.98,
+   "lumMean": 84.2,
+   "lumSD": 36.3,
+   "satMean": 117.8
+  }
+ ],
+ "thad": {
+  "height": 296,
+  "texture": 6.48,
+  "lumMean": 58.7,
+  "lumSD": 37.1,
+  "satMean": 85.5
+ },
+ "metricNote": "here = mean absolute luminance difference between 4-neighbours over\nthe figure interior (alpha eroded 2 px), at Thad's in-game height, box\nresampled. The 6.09 / 4.90 figures in CLAUDE.md came from a metric that was\nnever committed; this one gives Thad 6.44, so compare within this file only."
+}

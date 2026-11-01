@@ -1,0 +1,30 @@
+The attached image is a frame from my pixel-art adventure game. The man in the long blue coat is Thad, the hero. I need a NEW character drawn to stand in this same saloon, and he must look like he belongs in the same game as Thad.
+
+STYLE — match Thad exactly, not the room:
+- Same pixel-art style as Thad: same pixel size, same flat, simple shading, same small amount of texture, same clean outlines.
+- Same proportions as Thad: same head size relative to the body, same overall height.
+- Same warm lamplight as the attached frame.
+
+THE CHARACTER — Deke Vessel, a swindler:
+- Middle-aged and weathered. He has been out West a long time and is about to leave it in a very good mood.
+- Sunny, shameless, completely at ease. A big, easy, friendly grin.
+- His hat is pushed back on his head.
+- His BOOTS ARE EXCELLENT: tall, well-kept, polished. EVERYTHING ABOVE THE BOOTS IS SHABBY: battered hat, faded and patched coat or vest, worn shirt. The contrast should look deliberate.
+- No gun, no weapons, nothing in his hands unless a pose says so.
+
+THE SHEET — one image, five poses of this same man, side by side, left to right:
+1. REST: standing at ease, weight on one leg, thumbs hooked in his belt, hat pushed back, grinning, looking toward the left of the picture (the saloon door).
+2. BREATH: identical to pose 1 except his shoulders are very slightly raised. Nothing else changes.
+3. TALKING: as pose 1, but mouth open mid-sentence and one hand held out palm-up, as if making a perfectly reasonable point.
+4. HAT: as pose 1, but he pushes his hat further back with one finger, pleased with himself.
+5. SPOTS A CUSTOMER: as pose 1, but his head turns to look straight out at the viewer with a big friendly grin. His body does not move.
+
+RULES — these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no furniture, no bar, nothing else in the picture.
+- He stands on his own. He does not lean on or touch anything.
+- All five poses are full-length (hat to boots), the same size, with boots on the same baseline.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Body turned three-quarters toward the left of the picture in every pose.
+- Between poses, ONLY the change described above happens. Same clothes, same colours, same face, same proportions, same pixels everywhere else.
+- Crisp pixel edges against the magenta. No soft glow or blur around him.
+- No text, labels, numbers or borders.
