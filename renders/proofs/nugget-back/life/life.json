@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "nugget_back",
- "commit": "129fc781c89f8ac8df0acefc3ce8808c3c14a5f5",
+ "commit": "ccc95228865ee18a834d84eb74859d75ae9ad2f6",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -12,138 +12,138 @@
  "entryRoute": "nugget-back",
  "warped": false,
  "lifeRoute": "nugget-back-life",
- "durationSeconds": 277.62,
+ "durationSeconds": 305.12,
  "events": [
   {
-   "t": 4.82,
+   "t": 4.03,
    "line": "entry route nugget-back: 29 action(s)"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 1 (wait): waited 2.5s"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 13 (wait): waited 3s"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 17 (wait): waited 6s"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 20 (wait): waited 2s"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 21 (click): clicked main_street/to_nugget at world 2317,459 -- Main Street's Nugget doors"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 22 (waitFor): reached {\"room\":\"nugget\"} in room nugget"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 23 (wait): waited 3s"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 24 (waitFor): reached {\"dialogue\":true} in room nugget"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 25 (option): chose option deke_vessel7 -- his EXIT -- a player leaving the conversation to go through the back door"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 26 (wait): waited 7s"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 27 (click): clicked nugget/back_room_door at world 1115,335 -- the Nugget's back room door, behind the near end of the bar"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 28 (waitFor): reached {\"room\":\"nugget_back\"} in room nugget_back"
   },
   {
-   "t": 139.47,
+   "t": 137.65,
    "line": "action 29 (wait): waited 3s"
   },
   {
-   "t": 139.5,
+   "t": 137.68,
    "line": "in nugget_back; life route: 40 action(s)"
   },
   {
-   "t": 140.13,
+   "t": 138.27,
    "line": "capture 01-empty: room nugget_back, says null, options 0, control null"
   },
   {
-   "t": 141.15,
+   "t": 139.33,
    "trace": {
     "says": null,
     "control": null,
@@ -158,7 +158,7 @@
    }
   },
   {
-   "t": 142.19,
+   "t": 140.32,
    "trace": {
     "says": null,
     "control": null,
@@ -173,7 +173,7 @@
    }
   },
   {
-   "t": 143.18,
+   "t": 141.29,
    "trace": {
     "says": null,
     "control": null,
@@ -188,7 +188,7 @@
    }
   },
   {
-   "t": 144.17,
+   "t": 142.29,
    "trace": {
     "says": null,
     "control": null,
@@ -203,7 +203,7 @@
    }
   },
   {
-   "t": 145.17,
+   "t": 143.3,
    "trace": {
     "says": null,
     "control": null,
@@ -218,34 +218,19 @@
    }
   },
   {
-   "t": 146.14,
+   "t": 144.27,
    "line": "action 1 (wait): waited 6s"
   },
   {
-   "t": 146.18,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     300,
-     730
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 146.74,
+   "t": 145.05,
    "line": "capture 02-empty-later: room nugget_back, says null, options 0, control null"
   },
   {
-   "t": 147.21,
+   "t": 145.49,
    "line": "action 1 (flags): set {\"T_VESSEL_FOUND\":true} -- the Assay convenes (errata 73 B, 74 B)"
   },
   {
-   "t": 148.29,
+   "t": 146.55,
    "trace": {
     "says": null,
     "control": null,
@@ -260,11 +245,11 @@
    }
   },
   {
-   "t": 149.21,
+   "t": 147.49,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 149.29,
+   "t": 147.56,
    "trace": {
     "says": null,
     "control": null,
@@ -279,11 +264,11 @@
    }
   },
   {
-   "t": 149.88,
+   "t": 148.17,
    "line": "capture 03-convened: room nugget_back, says null, options 0, control null"
   },
   {
-   "t": 150.95,
+   "t": 149.21,
    "trace": {
     "says": null,
     "control": null,
@@ -298,7 +283,7 @@
    }
   },
   {
-   "t": 151.94,
+   "t": 150.22,
    "trace": {
     "says": null,
     "control": null,
@@ -313,7 +298,7 @@
    }
   },
   {
-   "t": 152.95,
+   "t": 151.24,
    "trace": {
     "says": null,
     "control": null,
@@ -328,7 +313,7 @@
    }
   },
   {
-   "t": 153.93,
+   "t": 152.24,
    "trace": {
     "says": null,
     "control": null,
@@ -343,7 +328,7 @@
    }
   },
   {
-   "t": 154.94,
+   "t": 153.22,
    "trace": {
     "says": null,
     "control": null,
@@ -358,7 +343,7 @@
    }
   },
   {
-   "t": 155.91,
+   "t": 154.21,
    "trace": {
     "says": null,
     "control": null,
@@ -373,7 +358,7 @@
    }
   },
   {
-   "t": 156.96,
+   "t": 155.22,
    "trace": {
     "says": null,
     "control": null,
@@ -388,7 +373,7 @@
    }
   },
   {
-   "t": 157.9,
+   "t": 156.21,
    "trace": {
     "says": null,
     "control": null,
@@ -403,19 +388,19 @@
    }
   },
   {
-   "t": 158.88,
+   "t": 157.18,
    "line": "action 1 (wait): waited 9s"
   },
   {
-   "t": 159.56,
+   "t": 157.76,
    "line": "capture 04-convened-later: room nugget_back, says null, options 0, control null"
   },
   {
-   "t": 159.79,
+   "t": 157.96,
    "line": "action 1 (click): clicked screen 1400,800 -- walk across the room, in front of Vessel"
   },
   {
-   "t": 160.8,
+   "t": 159.07,
    "trace": {
     "says": null,
     "control": null,
@@ -430,7 +415,7 @@
    }
   },
   {
-   "t": 161.86,
+   "t": 160.02,
    "trace": {
     "says": null,
     "control": null,
@@ -438,14 +423,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1178,
-     746
+     1143,
+     745
     ],
     "moving": true
    }
   },
   {
-   "t": 162.82,
+   "t": 161.06,
    "trace": {
     "says": null,
     "control": null,
@@ -460,7 +445,7 @@
    }
   },
   {
-   "t": 163.82,
+   "t": 162.03,
    "trace": {
     "says": null,
     "control": null,
@@ -475,11 +460,11 @@
    }
   },
   {
-   "t": 164.8,
+   "t": 162.97,
    "line": "action 1 (wait): waited 5s"
   },
   {
-   "t": 164.87,
+   "t": 162.99,
    "trace": {
     "says": null,
     "control": null,
@@ -494,19 +479,19 @@
    }
   },
   {
-   "t": 165.57,
+   "t": 163.73,
    "line": "capture 05-walked: room nugget_back, says null, options 0, control null"
   },
   {
-   "t": 165.69,
+   "t": 163.84,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 165.99,
+   "t": 164.21,
    "line": "action 1 (click): clicked nugget_back/scoreboard at world 603,128 -- LOOK at the scoreboard"
   },
   {
-   "t": 167.02,
+   "t": 165.28,
    "trace": {
     "says": null,
     "control": null,
@@ -514,14 +499,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     979,
+     964,
      820
     ],
     "moving": true
    }
   },
   {
-   "t": 168.04,
+   "t": 166.25,
    "trace": {
     "says": null,
     "control": null,
@@ -536,15 +521,30 @@
    }
   },
   {
-   "t": 168.19,
+   "t": 166.4,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room nugget_back"
   },
   {
-   "t": 168.9,
+   "t": 167.16,
    "line": "capture 06-looked: room nugget_back, says \"thad\", options 0, control null"
   },
   {
-   "t": 169.95,
+   "t": 168.2,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     603,
+     838
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169.2,
    "trace": {
     "says": null,
     "control": null,
@@ -559,7 +559,7 @@
    }
   },
   {
-   "t": 170.95,
+   "t": 170.18,
    "trace": {
     "says": null,
     "control": null,
@@ -574,26 +574,11 @@
    }
   },
   {
-   "t": 171.97,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     603,
-     838
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 172.91,
+   "t": 171.17,
    "line": "action 1 (wait): waited 4s"
   },
   {
-   "t": 172.94,
+   "t": 171.22,
    "trace": {
     "says": null,
     "control": null,
@@ -608,23 +593,23 @@
    }
   },
   {
-   "t": 173.01,
+   "t": 171.32,
    "line": "action 1 (verb): chose verb PUSH -- "
   },
   {
-   "t": 173.42,
+   "t": 171.81,
    "line": "action 1 (click): clicked nugget_back/spit_line at world 993,697 -- doc 49's PUSH on the spit line"
   },
   {
-   "t": 173.78,
+   "t": 172.25,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room nugget_back"
   },
   {
-   "t": 174.52,
+   "t": 172.96,
    "line": "capture 07-wrong-verb: room nugget_back, says \"thad\", options 0, control null"
   },
   {
-   "t": 175.6,
+   "t": 173.96,
    "trace": {
     "says": "thad",
     "control": null,
@@ -639,7 +624,7 @@
    }
   },
   {
-   "t": 176.62,
+   "t": 175.07,
    "trace": {
     "says": "thad",
     "control": null,
@@ -654,7 +639,7 @@
    }
   },
   {
-   "t": 177.54,
+   "t": 176.01,
    "trace": {
     "says": "thad",
     "control": null,
@@ -669,7 +654,7 @@
    }
   },
   {
-   "t": 178.53,
+   "t": 176.99,
    "trace": {
     "says": null,
     "control": null,
@@ -684,11 +669,11 @@
    }
   },
   {
-   "t": 179.53,
+   "t": 177.97,
    "line": "action 1 (wait): waited 5s"
   },
   {
-   "t": 179.61,
+   "t": 178.03,
    "trace": {
     "says": null,
     "control": null,
@@ -703,29 +688,194 @@
    }
   },
   {
-   "t": 179.7,
+   "t": 178.1,
    "line": "action 1 (verb): chose verb TALK_TO -- "
   },
   {
-   "t": 179.94,
+   "t": 178.33,
    "line": "action 1 (click): clicked screen 1180,500 -- Vessel"
   },
   {
-   "t": 180.4,
+   "t": 179.33,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 180.36,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 181.4,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 182.35,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 183.41,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 184.4,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 185.34,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 186.41,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 187.4,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 188.37,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.38,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.87,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_back"
   },
   {
-   "t": 180.82,
-   "line": "action 1 (option): chose option ves_b1_3 -- Teach me to lie like that. -> Duel One"
+   "t": 190.24,
+   "line": "action 1 (option): chose option ves_b1_6 -- I need you to sign an affidavit. -> B4, and Duel One (doc 57)"
   },
   {
-   "t": 181.87,
+   "t": 191.26,
    "trace": {
     "says": "thad",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 5,
+    "options": 6,
     "thad": [
      800,
      760
@@ -734,118 +884,13 @@
    }
   },
   {
-   "t": 182.89,
-   "trace": {
-    "says": "deke_vessel",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 183.9,
-   "trace": {
-    "says": "deke_vessel",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 184.86,
-   "trace": {
-    "says": "deke_vessel",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 185.85,
-   "trace": {
-    "says": "deke_vessel",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 186.9,
-   "trace": {
-    "says": "deke_vessel",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 187.85,
-   "trace": {
-    "says": "deke_vessel",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 188.84,
-   "trace": {
-    "says": "deke_vessel",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 189.86,
+   "t": 192.25,
    "trace": {
     "says": "thad",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 5,
+    "options": 6,
     "thad": [
      800,
      760
@@ -854,43 +899,13 @@
    }
   },
   {
-   "t": 190.9,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 191.85,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 192.88,
+   "t": 193.31,
    "trace": {
     "says": "deke_vessel",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 5,
+    "options": 6,
     "thad": [
      800,
      760
@@ -899,13 +914,13 @@
    }
   },
   {
-   "t": 193.91,
+   "t": 194.28,
    "trace": {
     "says": "deke_vessel",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 5,
+    "options": 6,
     "thad": [
      800,
      760
@@ -914,13 +929,13 @@
    }
   },
   {
-   "t": 194.85,
+   "t": 195.3,
    "trace": {
     "says": "deke_vessel",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 5,
+    "options": 6,
     "thad": [
      800,
      760
@@ -929,13 +944,13 @@
    }
   },
   {
-   "t": 195.87,
+   "t": 196.3,
    "trace": {
     "says": "deke_vessel",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 5,
+    "options": 6,
     "thad": [
      800,
      760
@@ -944,13 +959,13 @@
    }
   },
   {
-   "t": 196.85,
+   "t": 197.32,
    "trace": {
     "says": "deke_vessel",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 5,
+    "options": 6,
     "thad": [
      800,
      760
@@ -959,13 +974,13 @@
    }
   },
   {
-   "t": 197.9,
+   "t": 198.26,
    "trace": {
     "says": "deke_vessel",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 5,
+    "options": 6,
     "thad": [
      800,
      760
@@ -974,13 +989,13 @@
    }
   },
   {
-   "t": 198.91,
+   "t": 199.3,
    "trace": {
     "says": "deke_vessel",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 5,
+    "options": 6,
     "thad": [
      800,
      760
@@ -989,13 +1004,13 @@
    }
   },
   {
-   "t": 199.89,
+   "t": 200.26,
    "trace": {
     "says": "deke_vessel",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 5,
+    "options": 6,
     "thad": [
      800,
      760
@@ -1004,40 +1019,13 @@
    }
   },
   {
-   "t": 200.48,
-   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_back"
-  },
-  {
-   "t": 201.23,
-   "line": "capture 08-duel-one-offered: room nugget_back, says null, options 3, control null"
-  },
-  {
-   "t": 201.69,
-   "line": "action 1 (option): chose option w0 -- "
-  },
-  {
-   "t": 202.73,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 203.76,
+   "t": 201.3,
    "trace": {
     "says": "deke_vessel",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 3,
+    "options": 6,
     "thad": [
      800,
      760
@@ -1046,13 +1034,13 @@
    }
   },
   {
-   "t": 204.7,
+   "t": 202.29,
    "trace": {
-    "says": "deke_vessel",
+    "says": "sowerby",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 3,
+    "options": 6,
     "thad": [
      800,
      760
@@ -1061,13 +1049,13 @@
    }
   },
   {
-   "t": 205.72,
+   "t": 203.31,
    "trace": {
-    "says": "deke_vessel",
+    "says": "sowerby",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 3,
+    "options": 6,
     "thad": [
      800,
      760
@@ -1076,21 +1064,13 @@
    }
   },
   {
-   "t": 206.16,
-   "line": "action 1 (waitFor): reached {\"says\":\"assay_ring\"} in room nugget_back"
-  },
-  {
-   "t": 206.79,
-   "line": "capture 09-the-ring-mutters: room nugget_back, says \"assay_ring\", options 3, control null"
-  },
-  {
-   "t": 207.82,
+   "t": 204.31,
    "trace": {
-    "says": "assay_ring",
+    "says": "sowerby",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 3,
+    "options": 6,
     "thad": [
      800,
      760
@@ -1099,13 +1079,13 @@
    }
   },
   {
-   "t": 208.85,
+   "t": 205.26,
    "trace": {
-    "says": "assay_ring",
+    "says": "sowerby",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 3,
+    "options": 6,
     "thad": [
      800,
      760
@@ -1114,13 +1094,13 @@
    }
   },
   {
-   "t": 209.81,
+   "t": 206.29,
    "trace": {
-    "says": "thad",
+    "says": "sowerby",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 3,
+    "options": 6,
     "thad": [
      800,
      760
@@ -1129,13 +1109,13 @@
    }
   },
   {
-   "t": 210.8,
+   "t": 207.31,
    "trace": {
-    "says": "thad",
+    "says": "sowerby",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 3,
+    "options": 6,
     "thad": [
      800,
      760
@@ -1144,13 +1124,13 @@
    }
   },
   {
-   "t": 211.82,
+   "t": 208.3,
    "trace": {
-    "says": "deke_vessel",
+    "says": "sowerby",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 3,
+    "options": 6,
     "thad": [
      800,
      760
@@ -1159,13 +1139,13 @@
    }
   },
   {
-   "t": 212.87,
+   "t": 209.26,
    "trace": {
-    "says": "deke_vessel",
+    "says": "sowerby",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 3,
+    "options": 6,
     "thad": [
      800,
      760
@@ -1174,13 +1154,58 @@
    }
   },
   {
-   "t": 213.86,
+   "t": 210.35,
    "trace": {
-    "says": "deke_vessel",
+    "says": "sowerby",
     "control": null,
     "beat": null,
     "performing": true,
-    "options": 3,
+    "options": 6,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 211.29,
+   "trace": {
+    "says": "sowerby",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 212.3,
+   "trace": {
+    "says": "sowerby",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 213.32,
+   "trace": {
+    "says": "sowerby",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
     "thad": [
      800,
      760
@@ -1190,14 +1215,153 @@
   },
   {
    "t": 214.3,
+   "trace": {
+    "says": "sowerby",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 215.35,
+   "trace": {
+    "says": "sowerby",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 216.28,
+   "trace": {
+    "says": "sowerby",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 217.31,
+   "trace": {
+    "says": "sowerby",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 218.32,
+   "trace": {
+    "says": "sowerby",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 219.31,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 220.32,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 221.33,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 222.31,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 222.87,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_back"
   },
   {
-   "t": 214.61,
-   "line": "action 1 (option): chose option w1 -- "
+   "t": 223.5,
+   "line": "capture 08-duel-one-offered: room nugget_back, says null, options 3, control null"
   },
   {
-   "t": 215.64,
+   "t": 223.85,
+   "line": "action 1 (option): chose option w0 -- "
+  },
+  {
+   "t": 224.88,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1212,37 +1376,7 @@
    }
   },
   {
-   "t": 216.64,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 217.69,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 218.65,
+   "t": 225.86,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1257,7 +1391,7 @@
    }
   },
   {
-   "t": 219.68,
+   "t": 226.9,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1272,7 +1406,7 @@
    }
   },
   {
-   "t": 220.62,
+   "t": 227.9,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1287,136 +1421,46 @@
    }
   },
   {
-   "t": 221.67,
-   "trace": {
-    "says": "assay_ring",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
+   "t": 228.42,
+   "line": "action 1 (waitFor): reached {\"says\":\"assay_ring\"} in room nugget_back"
   },
   {
-   "t": 222.67,
-   "trace": {
-    "says": "assay_ring",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 223.62,
-   "trace": {
-    "says": "assay_ring",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 224.66,
-   "trace": {
-    "says": "assay_ring",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 225.71,
-   "trace": {
-    "says": "deke_vessel",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 226.65,
-   "trace": {
-    "says": "deke_vessel",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 227.68,
-   "trace": {
-    "says": "deke_vessel",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 227.88,
-   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_back"
-  },
-  {
-   "t": 228.18,
-   "line": "action 1 (option): chose option w2 -- "
-  },
-  {
-   "t": 229.19,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
+   "t": 229.15,
+   "line": "capture 09-the-ring-mutters: room nugget_back, says \"assay_ring\", options 3, control null"
   },
   {
    "t": 230.2,
    "trace": {
+    "says": "assay_ring",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 231.18,
+   "trace": {
+    "says": "assay_ring",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 232.19,
+   "trace": {
     "says": "thad",
     "control": null,
     "beat": null,
@@ -1430,22 +1474,7 @@
    }
   },
   {
-   "t": 231.22,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 232.24,
+   "t": 233.17,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1460,7 +1489,7 @@
    }
   },
   {
-   "t": 233.2,
+   "t": 234.22,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1475,67 +1504,7 @@
    }
   },
   {
-   "t": 234.21,
-   "trace": {
-    "says": "assay_ring",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 235.25,
-   "trace": {
-    "says": "assay_ring",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 236.23,
-   "trace": {
-    "says": "assay_ring",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 237.21,
-   "trace": {
-    "says": "assay_ring",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 238.2,
+   "t": 235.21,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1550,7 +1519,7 @@
    }
   },
   {
-   "t": 239.24,
+   "t": 236.24,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1565,30 +1534,466 @@
    }
   },
   {
-   "t": 240.21,
-   "trace": {
-    "says": "deke_vessel",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     800,
-     760
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 240.8,
+   "t": 236.49,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_back"
   },
   {
-   "t": 241.12,
+   "t": 236.82,
+   "line": "action 1 (option): chose option w1 -- "
+  },
+  {
+   "t": 237.88,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 238.87,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 239.86,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 240.89,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 241.89,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 242.89,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 243.87,
+   "trace": {
+    "says": "assay_ring",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 244.91,
+   "trace": {
+    "says": "assay_ring",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 245.89,
+   "trace": {
+    "says": "assay_ring",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 246.89,
+   "trace": {
+    "says": "assay_ring",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 247.91,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 248.84,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 249.85,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 250.86,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 251.86,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 252.07,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_back"
+  },
+  {
+   "t": 252.38,
+   "line": "action 1 (option): chose option w2 -- "
+  },
+  {
+   "t": 253.4,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 254.41,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 255.44,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 256.43,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 257.44,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 258.4,
+   "trace": {
+    "says": "assay_ring",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 259.4,
+   "trace": {
+    "says": "assay_ring",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 260.42,
+   "trace": {
+    "says": "assay_ring",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 261.41,
+   "trace": {
+    "says": "assay_ring",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 262.48,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 263.4,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 264.42,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 265.41,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 266.44,
+   "trace": {
+    "says": "deke_vessel",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 267.07,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_back"
+  },
+  {
+   "t": 267.45,
    "line": "action 1 (option): chose option w0 -- "
   },
   {
-   "t": 242.18,
+   "t": 268.46,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1603,7 +2008,7 @@
    }
   },
   {
-   "t": 243.15,
+   "t": 269.46,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1618,7 +2023,7 @@
    }
   },
   {
-   "t": 244.15,
+   "t": 270.52,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1633,7 +2038,7 @@
    }
   },
   {
-   "t": 245.19,
+   "t": 271.51,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1648,7 +2053,7 @@
    }
   },
   {
-   "t": 246.13,
+   "t": 272.51,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1663,7 +2068,7 @@
    }
   },
   {
-   "t": 247.21,
+   "t": 273.53,
    "trace": {
     "says": "assay_ring",
     "control": null,
@@ -1678,7 +2083,7 @@
    }
   },
   {
-   "t": 248.15,
+   "t": 274.54,
    "trace": {
     "says": "assay_ring",
     "control": null,
@@ -1693,7 +2098,7 @@
    }
   },
   {
-   "t": 249.18,
+   "t": 275.52,
    "trace": {
     "says": "assay_ring",
     "control": null,
@@ -1708,7 +2113,7 @@
    }
   },
   {
-   "t": 250.17,
+   "t": 276.47,
    "trace": {
     "says": "assay_ring",
     "control": null,
@@ -1723,7 +2128,37 @@
    }
   },
   {
-   "t": 251.19,
+   "t": 277.51,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 278.52,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     800,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 279.5,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1738,7 +2173,7 @@
    }
   },
   {
-   "t": 252.17,
+   "t": 280.5,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1753,7 +2188,7 @@
    }
   },
   {
-   "t": 253.16,
+   "t": 281.52,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1768,7 +2203,7 @@
    }
   },
   {
-   "t": 254.19,
+   "t": 282.49,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1783,15 +2218,15 @@
    }
   },
   {
-   "t": 254.78,
+   "t": 283.15,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_back"
   },
   {
-   "t": 255.08,
+   "t": 283.52,
    "line": "action 1 (option): chose option w1 -- the fifth exchange: the duel ends lost, and the loss scene plays"
   },
   {
-   "t": 256.11,
+   "t": 284.57,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1806,7 +2241,7 @@
    }
   },
   {
-   "t": 257.11,
+   "t": 285.62,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1821,7 +2256,7 @@
    }
   },
   {
-   "t": 258.14,
+   "t": 286.53,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1836,7 +2271,7 @@
    }
   },
   {
-   "t": 259.11,
+   "t": 287.53,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1851,7 +2286,7 @@
    }
   },
   {
-   "t": 260.14,
+   "t": 288.55,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1866,7 +2301,7 @@
    }
   },
   {
-   "t": 261.12,
+   "t": 289.56,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1881,7 +2316,7 @@
    }
   },
   {
-   "t": 262.17,
+   "t": 290.6,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1896,7 +2331,7 @@
    }
   },
   {
-   "t": 263.12,
+   "t": 291.58,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1911,7 +2346,7 @@
    }
   },
   {
-   "t": 264.1,
+   "t": 292.56,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1926,7 +2361,7 @@
    }
   },
   {
-   "t": 265.11,
+   "t": 293.63,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1941,7 +2376,7 @@
    }
   },
   {
-   "t": 266.14,
+   "t": 294.54,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1956,7 +2391,7 @@
    }
   },
   {
-   "t": 267.15,
+   "t": 295.61,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1971,7 +2406,7 @@
    }
   },
   {
-   "t": 268.11,
+   "t": 296.59,
    "trace": {
     "says": "deke_vessel",
     "control": null,
@@ -1986,23 +2421,23 @@
    }
   },
   {
-   "t": 268.66,
+   "t": 297.12,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_back"
   },
   {
-   "t": 269.38,
-   "line": "capture 10-after-duel-one: room nugget_back, says null, options 5, control null"
+   "t": 297.78,
+   "line": "capture 10-after-duel-one: room nugget_back, says null, options 6, control null"
   }
  ],
  "captures": [
   {
    "name": "01-empty",
    "why": "before B3: the lamp, and nobody",
-   "t": 140.1,
+   "t": 138.25,
    "file": "renders/proofs/nugget-back/life/raw-captures-ignored/01-empty.png",
-   "hash": "cebd59fcfea329702c643f213cd160f347f90334082cff63a16819700314da5d",
+   "hash": "17c77aa3cf9a4e70efd77e8d2357039b0cff64efaa9c6e6f9a990eadc7482513",
    "room": "nugget_back",
-   "clock": 139.5996,
+   "clock": 137.80120000000002,
    "control": null,
    "says": null,
    "options": 0,
@@ -2037,7 +2472,7 @@
      "height": 518,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
       31,
       212,
@@ -2072,11 +2507,11 @@
   {
    "name": "02-empty-later",
    "why": "the lamp's breath; nothing else moves, because nobody is here",
-   "t": 146.72,
+   "t": 145.02,
    "file": "renders/proofs/nugget-back/life/raw-captures-ignored/02-empty-later.png",
-   "hash": "9247765717c0134a144b035ef4391bccc20ad6fbdcd680a4bb5f9173827fd65e",
+   "hash": "fbe8819992d5d5deacac5b29401b25fb23fa7f7e598c1cec0dc3f4dc9fbff3fb",
    "room": "nugget_back",
-   "clock": 146.216,
+   "clock": 144.701,
    "control": null,
    "says": null,
    "options": 0,
@@ -2107,11 +2542,11 @@
       730
      ],
      "facing": "right",
-     "clip": "idle",
+     "clip": "idle-break",
      "height": 518,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-02.png",
+     "from": "art/actors/thad-idlebreak-right/idle-break-04.png",
      "bounds": [
       31,
       212,
@@ -2146,11 +2581,11 @@
   {
    "name": "03-convened",
    "why": null,
-   "t": 149.85,
+   "t": 148.16,
    "file": "renders/proofs/nugget-back/life/raw-captures-ignored/03-convened.png",
-   "hash": "62499f5a0ca523f7ef34e6af7a1bdd5b5b51b77c81988490eadab0c465a2ae38",
+   "hash": "59a5771873dc40780029c0ed62c9c2e8de9b83dca37e8e6294accb5b163e9ebd",
    "room": "nugget_back",
-   "clock": 149.3159,
+   "clock": 147.63410000000002,
    "control": null,
    "says": null,
    "options": 0,
@@ -2186,7 +2621,7 @@
      "height": 518,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-03.png",
+     "from": "art/actors/thad-idlebreak-right/idle-break-09.png",
      "bounds": [
       31,
       212,
@@ -2245,6 +2680,14 @@
      "candidate": false,
      "loaded": true,
      "hash": "1c9ac034386642693bf7e1a93d78f14c8b1a737485c3a14f6244a27c16dbfa44"
+    },
+    {
+     "key": "art/actors/room-04-sowerby.png",
+     "path": "art/actors/room-04-sowerby.png",
+     "drawn": "art/actors/room-04-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "271cbdf20e9826770ecfac984199fe218f8117a1df6bc5de08a4494fc25e3c78"
     }
    ],
    "stubs": [],
@@ -2253,11 +2696,11 @@
   {
    "name": "04-convened-later",
    "why": null,
-   "t": 159.53,
+   "t": 157.75,
    "file": "renders/proofs/nugget-back/life/raw-captures-ignored/04-convened-later.png",
-   "hash": "8e51dfa25f8889297d84f9f1bdd58e2ec389f701358e265c3b208cb03f2a47f2",
+   "hash": "2047cb38d3319fce277a5ceb2d7bd8c87d7d766360fefc7d2773ad48ac15d284",
    "room": "nugget_back",
-   "clock": 158.9988,
+   "clock": 157.3005,
    "control": null,
    "says": null,
    "options": 0,
@@ -2293,7 +2736,7 @@
      "height": 518,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-03.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
       31,
       212,
@@ -2352,6 +2795,14 @@
      "candidate": false,
      "loaded": true,
      "hash": "1c9ac034386642693bf7e1a93d78f14c8b1a737485c3a14f6244a27c16dbfa44"
+    },
+    {
+     "key": "art/actors/room-04-sowerby.png",
+     "path": "art/actors/room-04-sowerby.png",
+     "drawn": "art/actors/room-04-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "271cbdf20e9826770ecfac984199fe218f8117a1df6bc5de08a4494fc25e3c78"
     }
    ],
    "stubs": [],
@@ -2360,11 +2811,11 @@
   {
    "name": "05-walked",
    "why": null,
-   "t": 165.55,
+   "t": 163.71,
    "file": "renders/proofs/nugget-back/life/raw-captures-ignored/05-walked.png",
-   "hash": "a509092c5cc14edea4481331ebdf451e4242770320f6267423fcc9f63160f1b3",
+   "hash": "c91e2a60ee8fa4e3b8b7bea59db42637c453367dd9d426f65698f71969433221",
    "room": "nugget_back",
-   "clock": 165.1986,
+   "clock": 163.4169,
    "control": null,
    "says": null,
    "options": 0,
@@ -2400,7 +2851,7 @@
      "height": 545,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-front/idle-00.png",
+     "from": "art/actors/thad-idle-front/idle-02.png",
      "bounds": [
       1076,
       254,
@@ -2459,6 +2910,14 @@
      "candidate": false,
      "loaded": true,
      "hash": "1c9ac034386642693bf7e1a93d78f14c8b1a737485c3a14f6244a27c16dbfa44"
+    },
+    {
+     "key": "art/actors/room-04-sowerby.png",
+     "path": "art/actors/room-04-sowerby.png",
+     "drawn": "art/actors/room-04-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "271cbdf20e9826770ecfac984199fe218f8117a1df6bc5de08a4494fc25e3c78"
     }
    ],
    "stubs": [],
@@ -2467,11 +2926,11 @@
   {
    "name": "06-looked",
    "why": null,
-   "t": 168.89,
+   "t": 167.14,
    "file": "renders/proofs/nugget-back/life/raw-captures-ignored/06-looked.png",
-   "hash": "78d209b8cd34f212fe1314c302db44aa862da26dde446cc00375a3ae0d67e6c6",
+   "hash": "fd0164ca06ff438eecf692595f0b250a27a1a17d844ae2990b16a7d0958707e7",
    "room": "nugget_back",
-   "clock": 168.2985,
+   "clock": 166.51670000000001,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -2507,7 +2966,7 @@
      "height": 559,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-01.png",
+     "from": "art/actors/thad-idle-back/idle-03.png",
      "bounds": [
       272,
       279,
@@ -2566,6 +3025,14 @@
      "candidate": false,
      "loaded": true,
      "hash": "1c9ac034386642693bf7e1a93d78f14c8b1a737485c3a14f6244a27c16dbfa44"
+    },
+    {
+     "key": "art/actors/room-04-sowerby.png",
+     "path": "art/actors/room-04-sowerby.png",
+     "drawn": "art/actors/room-04-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "271cbdf20e9826770ecfac984199fe218f8117a1df6bc5de08a4494fc25e3c78"
     }
    ],
    "stubs": [],
@@ -2574,11 +3041,11 @@
   {
    "name": "07-wrong-verb",
    "why": null,
-   "t": 174.5,
+   "t": 172.93,
    "file": "renders/proofs/nugget-back/life/raw-captures-ignored/07-wrong-verb.png",
-   "hash": "e9ea2b0b7cf6788251d4b3ed66de9e77c2b556b0f7480cbe6ed7ac8914cd5b6d",
+   "hash": "62a13ed27233f91a5ffe9c2b2459877995ee82a4638b173a9a6163f98d3d03c1",
    "room": "nugget_back",
-   "clock": 173.8982,
+   "clock": 172.6498,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -2614,7 +3081,7 @@
      "height": 559,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-03.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
       386,
       279,
@@ -2673,6 +3140,14 @@
      "candidate": false,
      "loaded": true,
      "hash": "1c9ac034386642693bf7e1a93d78f14c8b1a737485c3a14f6244a27c16dbfa44"
+    },
+    {
+     "key": "art/actors/room-04-sowerby.png",
+     "path": "art/actors/room-04-sowerby.png",
+     "drawn": "art/actors/room-04-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "271cbdf20e9826770ecfac984199fe218f8117a1df6bc5de08a4494fc25e3c78"
     }
    ],
    "stubs": [],
@@ -2681,11 +3156,11 @@
   {
    "name": "08-duel-one-offered",
    "why": "three wrong answers and nothing else (errata 73 C)",
-   "t": 201.21,
+   "t": 223.47,
    "file": "renders/proofs/nugget-back/life/raw-captures-ignored/08-duel-one-offered.png",
-   "hash": "0c247edcaad38afe529613f7eb5aa48e4aaf5d59b5ccc5b9a9f10aaecfe40163",
+   "hash": "b904609bc141da9466fdd9a6ecd485ee28880264329e9eb53a9637101dc6a424",
    "room": "nugget_back",
-   "clock": 200.8471,
+   "clock": 223.0311,
    "control": null,
    "says": null,
    "options": 3,
@@ -2702,7 +3177,8 @@
     "T_CASE_DOWN",
     "T_CASE_TAKEN",
     "T_VESSEL_OPENED",
-    "T_VESSEL_FOUND"
+    "T_VESSEL_FOUND",
+    "T_VESSEL_GREETED"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
@@ -2721,7 +3197,7 @@
      "height": 530,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-02.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
       525,
       230,
@@ -2780,6 +3256,14 @@
      "candidate": false,
      "loaded": true,
      "hash": "1c9ac034386642693bf7e1a93d78f14c8b1a737485c3a14f6244a27c16dbfa44"
+    },
+    {
+     "key": "art/actors/room-04-sowerby.png",
+     "path": "art/actors/room-04-sowerby.png",
+     "drawn": "art/actors/room-04-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "271cbdf20e9826770ecfac984199fe218f8117a1df6bc5de08a4494fc25e3c78"
     }
    ],
    "stubs": [],
@@ -2788,11 +3272,11 @@
   {
    "name": "09-the-ring-mutters",
    "why": null,
-   "t": 206.76,
+   "t": 229.13,
    "file": "renders/proofs/nugget-back/life/raw-captures-ignored/09-the-ring-mutters.png",
-   "hash": "599fefe6a3de0f5c946592ce1b1b2259d8ad149ad36fc5e794360f2a8475ae4b",
+   "hash": "45ad25f8a1f87a2333c70f445e38d6c10a33e971d192fa837c11b92ec331a909",
    "room": "nugget_back",
-   "clock": 206.247,
+   "clock": 228.831,
    "control": null,
    "says": "assay_ring",
    "options": 3,
@@ -2809,7 +3293,8 @@
     "T_CASE_DOWN",
     "T_CASE_TAKEN",
     "T_VESSEL_OPENED",
-    "T_VESSEL_FOUND"
+    "T_VESSEL_FOUND",
+    "T_VESSEL_GREETED"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
@@ -2828,7 +3313,7 @@
      "height": 530,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-03.png",
+     "from": "art/actors/thad-idlebreak-right/idle-break-06.png",
      "bounds": [
       525,
       230,
@@ -2887,6 +3372,14 @@
      "candidate": false,
      "loaded": true,
      "hash": "1c9ac034386642693bf7e1a93d78f14c8b1a737485c3a14f6244a27c16dbfa44"
+    },
+    {
+     "key": "art/actors/room-04-sowerby.png",
+     "path": "art/actors/room-04-sowerby.png",
+     "drawn": "art/actors/room-04-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "271cbdf20e9826770ecfac984199fe218f8117a1df6bc5de08a4494fc25e3c78"
     }
    ],
    "stubs": [],
@@ -2895,14 +3388,14 @@
   {
    "name": "10-after-duel-one",
    "why": "VES_B1 again: option 3 gone, option 5 (the rematch) offered",
-   "t": 269.37,
+   "t": 297.76,
    "file": "renders/proofs/nugget-back/life/raw-captures-ignored/10-after-duel-one.png",
-   "hash": "b6bdc6f685b29ef5cb1fd78c2ffafe568d711e4f48c5509a4d19f941822a55f4",
+   "hash": "42e2cdaf47e6844bdb7020833a531390b4c7f0f2b8b7c098065f6488e8735f7b",
    "room": "nugget_back",
-   "clock": 268.74440000000004,
+   "clock": 297.49490000000003,
    "control": null,
    "says": null,
-   "options": 5,
+   "options": 6,
    "flags": [
     "T_OPENING_SAID",
     "T_COACH_DEPARTED",
@@ -2921,7 +3414,8 @@
     "ASSAY_PAIR_01",
     "ASSAY_PAIR_02",
     "ASSAY_PAIR_03",
-    "ASSAY_PAIR_04"
+    "ASSAY_PAIR_04",
+    "T_VESSEL_GREETED"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
@@ -2940,7 +3434,7 @@
      "height": 530,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-02.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
       525,
       230,
@@ -2999,6 +3493,14 @@
      "candidate": false,
      "loaded": true,
      "hash": "1c9ac034386642693bf7e1a93d78f14c8b1a737485c3a14f6244a27c16dbfa44"
+    },
+    {
+     "key": "art/actors/room-04-sowerby.png",
+     "path": "art/actors/room-04-sowerby.png",
+     "drawn": "art/actors/room-04-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "271cbdf20e9826770ecfac984199fe218f8117a1df6bc5de08a4494fc25e3c78"
     }
    ],
    "stubs": [],
@@ -3017,7 +3519,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 277.62s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 305.12s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -3032,5 +3534,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-01T08:03:13.352Z"
+ "at": "2026-11-01T08:25:43.456Z"
 }
