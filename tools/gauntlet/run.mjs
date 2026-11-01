@@ -259,6 +259,18 @@ async function sample(page, script, state, armed) {
   let driving = null;
   const started = Date.now();
   const deadline = started + 180_000;
+  // READING. ui.json conversationWaitsForClick (Tyler, 2026-11-01) holds every
+  // conversation line until it is clicked, so an exchange never stops
+  // performing on its own: the driver's tree sat on its first answer, the
+  // input's next choice found no rows, and the opening timed out at 180s.
+  // With that set the click IS the designed path rather than the skip, and
+  // the hold only guards input; so a line that has been up for doc 30's
+  // minimum reading hold is clicked once, as a quick reader would. The probe
+  // never carries the words, so the minimum is the only hold it can know.
+  const timing = readJson('content/ui/ui.json').timing ?? {};
+  const readsByClick = timing.conversationWaitsForClick === true;
+  const readMs = (timing.holdMinimumSeconds ?? 1.8) * 1000;
+  let lineSince = null;
 
   for (;;) {
     if (Date.now() > deadline) {
@@ -272,6 +284,15 @@ async function sample(page, script, state, armed) {
       continue;
     }
     const now = (Date.now() - started) / 1000;
+    if (readsByClick) {
+      const line = frame.performing === true ? `${frame.says ?? ''}` : null;
+      if (line === null) lineSince = null;
+      else if (lineSince === null) lineSince = Date.now();
+      else if (Date.now() - lineSince >= readMs) {
+        await clickPlayArea(page, NATIVE.width / 2, NATIVE.height / 2);
+        lineSince = Date.now();
+      }
+    }
 
     if (frame.beat !== previous) {
       if (previous !== null) {
@@ -450,7 +471,11 @@ async function drive(page, input, script, beat, state) {
     // during an exchange to the utterance, and a harness that clicked through
     // one would be testing the skip path every time instead of the
     // performance.
-    for (let guard = 0; guard < 400; guard += 1) {
+    //
+    // A LINE THAT WAITS FOR A CLICK is clicked by the sampler, not here (see
+    // READING in `sample`): two clickers would each advance a line. So this
+    // only waits, and long enough for an exchange read at the minimum hold.
+    for (let guard = 0; guard < 1500; guard += 1) {
       const busy = await page.evaluate(() => window.__gauntlet?.probe()?.performing === true);
       if (!busy) break;
       await page.waitForTimeout(120);

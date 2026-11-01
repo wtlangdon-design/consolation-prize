@@ -1,0 +1,16 @@
+Image 1 is a frame from my pixel-art adventure game: the back room of a frontier saloon, where the town holds its bragging duels. The man in the long blue coat is the hero. The man in the brown coat facing him is his opponent. Three judges sit behind the long table in the shadow beyond the green lamp.
+
+Make exactly TWO changes and nothing else:
+
+1. Add ONE person: Reverend Sowerby, the town's preacher, who presides over every duel.
+- He STANDS FULL LENGTH on the floor at the back wall, in front of the chalkboard, in the gap between the empty chair at the left end of the table and the table's left end. He is to the left of the three seated judges.
+- His WHOLE BODY shows, head to boots: black frock coat to the knee, dark trousers, black boots standing flat on the floorboards at the foot of the back wall. The table does NOT hide him; he stands beside it, not behind it.
+- He holds up a short pencil in one hand, as if about to mark a score on the chalkboard.
+- A preacher of the 1850s West, past middle age: a plain black frock coat, a white collar, grey hair, no hat. A solemn face full of feeling.
+- His head is level with the bottom third of the chalkboard, so he is the size of a standing man at the back wall, a little taller than the seated judges.
+- He is in the same shadow as the judges, beyond the lamp's light.
+- Draw him in exactly the same pixel-art style as the people already in the picture, above all the hero in the blue coat: flat, soft shading, very little texture, simple shapes. Not sharp, not finely detailed, no hard internal contrast.
+
+2. Remove the small grey pencil lying on the left half of the tabletop. That part of the table becomes plain bare wood, matching the wood around it.
+
+Every other pixel stays exactly as it is: the same room, the same people in the same places, the same light, the same framing. No text anywhere.

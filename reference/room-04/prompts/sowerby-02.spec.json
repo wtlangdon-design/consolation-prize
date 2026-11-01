@@ -1,0 +1,11 @@
+{
+ "assetId": "room-04",
+ "subject": "sowerby",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-04-nugget-back",
+ "promptFile": "reference/room-04/prompts/sowerby-02.txt",
+ "out": "art/staging/room-04/sowerby-02/source.png",
+ "size": "1536x1024",
+ "images": ["art/staging/room-04/sowerby-02/base-1536x1024.png"]
+}

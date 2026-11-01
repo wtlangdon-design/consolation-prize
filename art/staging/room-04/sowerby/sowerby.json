@@ -4,33 +4,42 @@
   [
    2,
    2,
-   119,
-   229
+   206,
+   442
   ],
   [
-   123,
+   210,
    2,
-   119,
-   229
+   206,
+   442
   ]
  ],
  "anchor": {
-  "x": 690,
-  "y": 308
+  "x": 616,
+  "y": 525
  },
- "bbox": [
-  631,
-  80,
-  119,
-  229
+ "drawnHeight": 391,
+ "height": 442,
+ "shift": 118,
+ "cutBox": [
+  407,
+  135,
+  182,
+  391
  ],
- "pixels": 15043,
- "box": [
-  628,
-  74,
-  756,
-  330
- ],
- "threshold": 18,
- "source": "room-04 attempt 3 (art/staging/room-04/sowerby-01/source.png), derived with the room crop"
+ "pixels": 40005,
+ "pencilCover": {
+  "staged": "art/staging/room-04/sowerby/pencil-cover.png",
+  "x": 811,
+  "y": 375,
+  "frames": [
+   [
+    0,
+    0,
+    78,
+    43
+   ]
+  ]
+ },
+ "source": "room-04 attempt 4 (art/staging/room-04/sowerby-02/source.png), derived with the room crop"
 }

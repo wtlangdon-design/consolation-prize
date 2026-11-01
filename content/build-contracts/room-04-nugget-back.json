@@ -83,7 +83,7 @@
     "art/staging/caps.json",
     "art/staging/ledger.json"
    ],
-   "note": "room-04: 3 of 4 operations (master, plate, Sowerby)."
+   "note": "room-04: 4 of 4 operations (master, plate, Sowerby, Sowerby redrawn whole after Tyler's first look)."
   }
  },
  "liveGates": {
@@ -185,7 +185,7 @@
   "visual": {
    "status": "PENDING",
    "evidence": [
-    "docs/36-issue-list.md::Q148 · Room 4, the Nugget back room: built, awaiting Tyler's playthrough — **RULED 2026-11-01 (errata 76, delegated); BUILT, room-04 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E)**"
+    "docs/36-issue-list.md::Q148 · Room 4, the Nugget back room: built, awaiting Tyler's playthrough — **RULED 2026-11-01 (errata 76, delegated); BUILT, room-04 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E)**"
    ],
    "scope": "plate, judges, Sowerby, Room 4's Deke -- errata 72 E: given or withheld in the playthrough"
   },
@@ -193,7 +193,7 @@
    "duels": {
     "status": "PENDING",
     "evidence": [
-     "docs/36-issue-list.md::Q148 · Room 4, the Nugget back room: built, awaiting Tyler's playthrough — **RULED 2026-11-01 (errata 76, delegated); BUILT, room-04 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E)**"
+     "docs/36-issue-list.md::Q148 · Room 4, the Nugget back room: built, awaiting Tyler's playthrough — **RULED 2026-11-01 (errata 76, delegated); BUILT, room-04 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E)**"
     ]
    }
   },

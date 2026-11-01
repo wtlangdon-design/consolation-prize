@@ -632,7 +632,10 @@
         "farY": 705,
         "farHeight": 509,
         "nearY": 840,
-        "nearHeight": 560
+        "nearHeight": 560,
+        "beyondY": 525,
+        "beyondHeight": 442,
+        "beyondNote": "THE BACK WALL, FROM THE SAME CURVE. Sowerby stands at the foot of the back wall, behind the walkable band (Tyler, 2026-11-01: a whole man, legs and all). The depth note's own curve -- a standing man of 470 at y 600 and 560 at y 840 -- gives 442 at y 525; nothing walks there, and the sample exists so a figure standing there is held to the room's man like any other."
       },
       "neighbours": [
         "mud_mid"
@@ -665,7 +668,10 @@
         "farY": 705,
         "farHeight": 509,
         "nearY": 840,
-        "nearHeight": 560
+        "nearHeight": 560,
+        "beyondY": 525,
+        "beyondHeight": 442,
+        "beyondNote": "THE BACK WALL, FROM THE SAME CURVE. Sowerby stands at the foot of the back wall, behind the walkable band (Tyler, 2026-11-01: a whole man, legs and all). The depth note's own curve -- a standing man of 470 at y 600 and 560 at y 840 -- gives 442 at y 525; nothing walks there, and the sample exists so a figure standing there is held to the room's man like any other."
       },
       "neighbours": [
         "mud_far",
@@ -699,7 +705,10 @@
         "farY": 705,
         "farHeight": 509,
         "nearY": 840,
-        "nearHeight": 560
+        "nearHeight": 560,
+        "beyondY": 525,
+        "beyondHeight": 442,
+        "beyondNote": "THE BACK WALL, FROM THE SAME CURVE. Sowerby stands at the foot of the back wall, behind the walkable band (Tyler, 2026-11-01: a whole man, legs and all). The depth note's own curve -- a standing man of 470 at y 600 and 560 at y 840 -- gives 442 at y 525; nothing walks there, and the sample exists so a figure standing there is held to the room's man like any other."
       },
       "neighbours": [
         "mud_mid"

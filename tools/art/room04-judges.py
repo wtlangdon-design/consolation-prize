@@ -32,8 +32,12 @@ PLATE = f'{S}/plate-01/unrepaired-1920x864.png'
 # who stands in the master from x 1205 down. Their legs under the table differ
 # from the plate's empty chairs only by noise, so the cut is the upper body
 # and the plate's own table edge stays in front of them.
-BOX = (730, 168, 1232, 334)
-THRESHOLD = 40          # summed |RGB| difference; resampling noise sits under 25
+BOX = (730, 160, 1238, 334)
+THRESHOLD = 26          # summed |RGB| difference averaged over SMOOTH px; the wall's noise averages ~16
+SMOOTH = 5
+CLOSE = 6
+LAMP_FOOT = ((940, 1080), 168)
+DEKE_CORNER = (1226, 318)
 GAP = 2                 # px between frames on the sheet
 # Where the gaps between the three men fall, read off the same mask.
 GAP_WINDOWS = [(880, 925), (1070, 1110)]
@@ -41,30 +45,61 @@ GAP_WINDOWS = [(880, 925), (1070, 1110)]
 m = np.asarray(Image.open(MASTER).convert('RGBA')).astype(int)
 p = np.asarray(Image.open(PLATE).convert('RGBA')).astype(int)
 x0, y0, x1, y1 = BOX
-diff = np.abs(m[..., :3] - p[..., :3]).sum(2)
+diff = np.abs(m[..., :3] - p[..., :3]).sum(2).astype(float)
+# THE SECOND CUT (Tyler, 2026-11-01: "the guys in the back row all have
+# pieces of them missing"). The first thresholded each pixel on its own, and a
+# dark coat over a dark wall differs from the empty plate by less than the
+# resampling noise in places -- so the coats came out holed, with loose
+# outline pixels floating where the interior had dropped. The figures are
+# solid shapes in the difference once it is averaged over a few pixels, so
+# the mask is taken from the AVERAGED difference, its holes filled, and each
+# judge's own largest body kept and filled row by row between its outermost
+# pixels. A seated man's silhouette -- hat, head, shoulders, arms on the
+# table -- has no concavity a row could cross, so the row fill only closes
+# gaps. The master and the plate are registered, so any wall the fill takes
+# in is the plate's own wall.
+smooth = ndi.uniform_filter(diff, size=SMOOTH)
 mask = np.zeros(diff.shape, bool)
-mask[y0:y1, x0:x1] = diff[y0:y1, x0:x1] > THRESHOLD
-mask = ndi.binary_closing(mask, iterations=3)
+mask[y0:y1, x0:x1] = smooth[y0:y1, x0:x1] > THRESHOLD
+mask = ndi.binary_closing(mask, iterations=CLOSE)
 mask = ndi.binary_fill_holes(mask)
-mask = ndi.binary_opening(mask, iterations=1)
-labels, count = ndi.label(mask)
-sizes = ndi.sum(mask, labels, range(1, count + 1))
-keep = [i + 1 for i, s in enumerate(sizes) if s >= 400]
+# The lamp's brass foot touches the middle man's hat. It is the plate's lamp,
+# and a breath frame would lift it with him, so it stays out of the cut.
+mask[:LAMP_FOOT[1], LAMP_FOOT[0][0]:LAMP_FOOT[0][1]] = False
+# Deke's hat reaches the third man's right elbow in the master; the game does
+# not stand Deke there, so that corner is the plate's.
+mask[DEKE_CORNER[1]:, DEKE_CORNER[0]:] = False
 column = mask.sum(axis=0)
 splits = [lo + int(np.argmin(column[lo:hi])) for lo, hi in GAP_WINDOWS]
 edges = [x0, splits[0], splits[1], x1]
 table_top = y1
-print('splits', splits, 'components', len(keep))
+print('splits', splits)
+
+
+def body(lo, hi):
+    """The judge between columns lo and hi: his largest piece, filled row by row."""
+    own = mask.copy()
+    own[:, :lo] = False
+    own[:, hi:] = False
+    labels, count = ndi.label(own)
+    sizes = ndi.sum(own, labels, range(1, count + 1))
+    own = labels == (1 + int(np.argmax(sizes)))
+    # One pixel's opening takes off the thin spurs the blackboard's frame
+    # leaves on the first man's hat; the largest piece is kept again after it.
+    own = ndi.binary_opening(own, iterations=1)
+    labels, count = ndi.label(own)
+    sizes = ndi.sum(own, labels, range(1, count + 1))
+    own = ndi.binary_fill_holes(labels == (1 + int(np.argmax(sizes))))
+    for y in np.where(own.any(1))[0]:
+        xs = np.where(own[y])[0]
+        own[y, xs.min():xs.max() + 1] = True
+    return own
 
 out = []
 os.makedirs(f'{S}/judges', exist_ok=True)
 for j in range(3):
     lo, hi = edges[j], edges[j + 1]
-    own = np.zeros_like(mask)
-    for label in keep:
-        own |= labels == label
-    own[:, :lo] = False
-    own[:, hi:] = False
+    own = body(lo, hi)
     ys, xs = np.where(own)
     t, b, l, r = ys.min(), ys.max() + 1, xs.min(), xs.max() + 1
     rgba = m[t:b, l:r].copy()
