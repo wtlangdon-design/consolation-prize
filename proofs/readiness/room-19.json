@@ -1,0 +1,225 @@
+{
+ "schema": 1,
+ "note": "ROOM CONTENT READINESS. Whether this room can be BUILT WITHOUT INVENTING ANYTHING. It holds no creative prose -- every answer cites a document path and an exact heading, or a qualified issue reference. It says nothing about whether the writing is good.",
+ "room": 19,
+ "id": "room-19-thads-room",
+ "name": "THAD'S HOTEL ROOM",
+ "content": [
+  {
+   "id": "look-listen",
+   "question": "LOOK/LISTEN complete?",
+   "answer": "NO",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM",
+    "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM"
+   ],
+   "why": "1 subject(s) without both: THE COAT ON THE DOOR"
+  },
+  {
+   "id": "repeat-variants",
+   "question": "Repeat-selection variants complete?",
+   "answer": "NO",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM",
+    "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM"
+   ],
+   "why": "6 subject(s) short of three: THE LETTERS HOME (LOOK 1, LISTEN 1); THE WARDROBE (LOOK 1, LISTEN 1); THE LAMP (LOOK 1, LISTEN 1); THE FLOORBOARDS (LOOK 1, LISTEN 1); THE DOOR (LOOK 1, LISTEN 1); THE COAT ON THE DOOR (LOOK 0, LISTEN 3)"
+  },
+  {
+   "id": "act-variants",
+   "question": "Act/state variants complete?",
+   "answer": "NO",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM"
+   ],
+   "why": "no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart"
+  },
+  {
+   "id": "wrong-verbs",
+   "question": "Wrong-verb layer complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/49-wrong-answers.md::ROOM 19 — THAD'S HOTEL ROOM"
+   ],
+   "why": "4 authored refusal(s)"
+  },
+  {
+   "id": "dialogue",
+   "question": "Dialogue used by this room complete?",
+   "answer": "NO",
+   "evidence": [],
+   "why": "no dialogue declared for this room"
+  },
+  {
+   "id": "puzzles",
+   "question": "Puzzle requirements complete?",
+   "answer": "NO",
+   "evidence": [
+    "(none declared)"
+   ],
+   "why": "not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+  },
+  {
+   "id": "items",
+   "question": "Required items declared?",
+   "answer": "NO",
+   "evidence": [
+    "(none declared)"
+   ],
+   "why": "the declared puzzle section names no item or topic"
+  },
+  {
+   "id": "flags",
+   "question": "Required flags/state declared?",
+   "answer": "NO",
+   "evidence": [
+    "(none declared)"
+   ],
+   "why": "the declared puzzle section names no flag or topic"
+  },
+  {
+   "id": "staging",
+   "question": "Beat/staging script complete OR genuinely not required?",
+   "answer": "YES",
+   "evidence": [
+    "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM"
+   ],
+   "why": "not required: No scripted sequence for this room in any canonical document."
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour sufficiently authored?",
+   "answer": "NO",
+   "evidence": [
+    "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM"
+   ],
+   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+  },
+  {
+   "id": "open-canon",
+   "question": "Unresolved canon decisions affecting this room?",
+   "answer": "NO",
+   "evidence": [],
+   "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
+  }
+ ],
+ "subjectsFound": 12,
+ "subjectsDeclaredByDocument": null,
+ "unresolvedCitations": [],
+ "dimensions": [
+  {
+   "id": "writing",
+   "question": "Writing",
+   "answer": "NO",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM",
+    "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM",
+    "docs/49-wrong-answers.md::ROOM 19 — THAD'S HOTEL ROOM"
+   ],
+   "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
+  },
+  {
+   "id": "puzzle-behaviour",
+   "question": "Puzzle behaviour",
+   "answer": "NO",
+   "evidence": [
+    "(none declared)"
+   ],
+   "why": "the puzzles sited here, the items they need and issue, and the flags they set"
+  },
+  {
+   "id": "act-behaviour",
+   "question": "Act/state behaviour",
+   "answer": "NO",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM"
+   ],
+   "why": "no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart"
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour",
+   "answer": "NO",
+   "evidence": [
+    "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM"
+   ],
+   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+  },
+  {
+   "id": "staging-behaviour",
+   "question": "Staging behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM"
+   ],
+   "why": "not required: No scripted sequence for this room in any canonical document."
+  },
+  {
+   "id": "visual-subjects",
+   "question": "Visual subject requirements",
+   "answer": "NO",
+   "evidence": [
+    "A renders/room-01-in-engine-1920x1080.png",
+    "B art/backgrounds/room-01-stage-road.png",
+    "C art/actors/thad-stand-front/stand-00.png"
+   ],
+   "why": "D and E: room-19-thads-room has no entry in reference/global-baseline.json. The comparable room and the casting references are declared per room, never inferred from a name."
+  },
+  {
+   "id": "geometry",
+   "question": "Geometry/placement",
+   "answer": "NO",
+   "evidence": [
+    "reference/room-19/annotation.json",
+    "content/rooms/thads-room.json",
+    "art/backgrounds/room-19-thads-room.png"
+   ],
+   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points | art/backgrounds/room-19-thads-room.png is 320x144, PNG colour type 3 -- indexed, which no pixel check in this project can read"
+  }
+ ],
+ "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
+ "buildableWithoutInvention": "NO",
+ "blocking": [
+  "look-listen: 1 subject(s) without both: THE COAT ON THE DOOR",
+  "repeat-variants: 6 subject(s) short of three: THE LETTERS HOME (LOOK 1, LISTEN 1); THE WARDROBE (LOOK 1, LISTEN 1); THE LAMP (LOOK 1, LISTEN 1); THE FLOORBOARDS (LOOK 1, LISTEN 1); THE DOOR (LOOK 1, LISTEN 1); THE COAT ON THE DOOR (LOOK 0, LISTEN 3)",
+  "act-variants: no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart",
+  "dialogue: no dialogue declared for this room",
+  "puzzles: not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading.",
+  "items: the declared puzzle section names no item or topic",
+  "flags: the declared puzzle section names no flag or topic",
+  "character-behaviour: either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+ ],
+ "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
+ "geometry": [
+  {
+   "id": "annotation",
+   "question": "Room annotation exists?",
+   "answer": "NO",
+   "evidence": [
+    "reference/room-19/annotation.json"
+   ],
+   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points"
+  },
+  {
+   "id": "compiled",
+   "question": "Room JSON in the manifest?",
+   "answer": "YES",
+   "evidence": [
+    "content/rooms/thads-room.json"
+   ],
+   "why": "content/rooms/thads-room.json is loaded by the engine"
+  },
+  {
+   "id": "plate",
+   "question": "Shipping plate at the canonical size?",
+   "answer": "NO",
+   "evidence": [
+    "art/backgrounds/room-19-thads-room.png"
+   ],
+   "why": "art/backgrounds/room-19-thads-room.png is 320x144, PNG colour type 3 -- indexed, which no pixel check in this project can read"
+  }
+ ],
+ "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
+ "geometryReady": "NO",
+ "at": "2026-11-01T02:41:49.028Z"
+}

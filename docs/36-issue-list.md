@@ -4601,3 +4601,33 @@ The first card-sharp approach (930,630 facing back) put Thad between the player 
 3. **The Fiddler (doc 07 §11) has no figure** in either room.
 
 `proofs/room-03/old-nugget-ships/card-sharp-speaks.webp` · `one-strike-man-speaks.webp`
+
+## Q142 · The unattended room pass of 2026-11-01: every room after Room 5 is BLOCKED by its readiness gate — **REPORTED 2026-11-01, NOTHING BUILT, NO IMAGE OPERATION SPENT**
+
+Tyler's mandate (dated 2026-10-31): build as many rooms as possible in the canonical build order after Room 5, unattended, readiness gate first, up to 25 image operations (6 per room), Room 3 and Deke excluded. The order used is doc 20's room numbering, 6 to 36. Every room got a `proofs/readiness/room-NN.sources.json` and a gate run (`proofs/readiness/room-NN.json`). **All 30 answer `BUILDABLE WITHOUT INVENTION: NO`.** No plate or character was generated and nothing was wired.
+
+**The common blocker is the repeat-variant layer.** The gate requires three LOOK and three LISTEN variants for every subject. Doc 15 §5 still lists "Repeat variants and verb fallbacks, 41 rooms" as unchecked, and only docs 25 (Rooms 5–7) and 26 (Rooms 13, 18, 19) write that layer. Every other room has one LOOK and one LISTEN per subject, and writing the other two is content generation. That is not this pass's to do.
+
+| Room | Blocking (from its gate record) |
+|---|---|
+| 7 Claims Registrar | Doc 19 §2 rewrites THE TWO LINES with three variants, but in a format the gate's parser doesn't read (the doc 25 parser wants `**NAME** — LOOK` lines). That is a **tooling gap**, not a writing gap. The real blockers are in dialogue: **`SUM_B1` (Act II) is a description with no written options** ("one `[PROGRESS · rephrase]` option per document"), and **`SUM_C1` (Act III) has two options and no `[COMIC]`**, against the ≥3 / ≥1 rule. Also, no `reference/global-baseline.json` entry, no annotation and no plate. |
+| 13 Undertaker's | Seven doc 05 subjects (THE TEETH, THE MEASURING WALL, THE VIEWING TABLE, THE LEDGER OF ACCOUNTS, …) have one variant each; no act variants; `UND_C1` is a description; plate is 320×144 indexed. |
+| 18 Hotel Lobby | THE CLERK'S BELL, THE PAINTING and THE FRONT WINDOW (doc 05) have one variant each; doc 26 wrote variants for doc 09's four only. Plate is 320×144 indexed. |
+| 19 Thad's Room | THE COAT ON THE DOOR has no LISTEN; six doc 05 subjects have one variant each; no act variants. |
+| 6, 8, 10, 12, 14–17, 20–22, 25–31, 34–36 | Repeat variants short on every subject (one each). Room 6 also carries two different eleven-hotspot sets (doc 05 and doc 08), and doc 08's nineteen individually examinable names are a stage direction, not lines. |
+| 9, 11, 23/24 | As above, and some subjects lack a LOOK or a LISTEN altogether (9: FRAME'S DESK, THE INK, THE SPIKE, THE WINDOW, THE SCHEDULE…; 11: THE SUBMISSION LOG, THE SAFE, THE WINDOW…; 23/24: THE CREEK, THE RIDGE). |
+| 32 Inside the Coffin | Zero hotspots by design (invariant 2), and docs 05, 12, 45 and 48 S3 specify it. Blocked because its effect is audio — `R32-MUTE`, `R32-DIRT` and `R32-RETURN` — and doc 15 §4 records that no audio exists. It is also entered only from Room 31, which is blocked. |
+| 33 Listening Chamber | Doc 45 marks the score mix and the tuning trigger **OPEN (OQ-06)**: "Do not … choose a Room 33 theme without an answer." |
+
+**What the gate's dialogue and puzzle NOs mean for the rooms in the last three rows.** Their sources files declare examine and wrong-verb pointers only. Dialogue and puzzles are left unmapped (`mapped: false`), because the room is already blocked at the examine layer and no mapping can change that. Map them before reconsidering any of those rooms. Rooms 7, 13, 18 and 19 are fully mapped.
+
+**What would unblock the most rooms soonest:** the repeat-variant pass for the four nearly-ready rooms (7, 13, 18, 19), plus Sump's `SUM_B1`/`SUM_C1`. Room 18 is the closest: three subjects short. All of it is writing, so it is Tyler's.
+
+### Q141 addendum, 2026-10-31 evening (unattended, on Tyler's instruction)
+
+- **Shipped to main:** the bar men re-cut (no new art); the scale system — a bent height curve for the Nugget (a standing man at the bar's near end 312 → 375, front and back rulings unchanged), `tests/scale.test.ts`, `content/scale-anchors.json` and a `posture` on every visible figure; greetings drawn over their speaker instead of top-centre; doc 27's root lines spoken; the flag check green (ACT and T_RACCOON_NAMED declared `pending`); a 15-minute CI gauntlet timeout.
+- **Deke Vessel: built, awaiting Tyler's in-room approval** — PR #67, `claude/deke-in-the-nugget`. Cut from his approved attempt 2, graded to the bar men, at the bar's near end, animated, his doc 35 entrance and his doc 27 LOOK/LISTEN wired. Not merged, by the Character style gate.
+- **OPEN — the swindle's trade needs a ruling.** Option 6 ("All right.") sets `T_SWINDLED` and moves nothing: doc 34 keeps inventory out of dialogue trees, and no item can be gated by a flag. Two honest routes:
+  1. **Items follow the flag.** An item may declare when it is held (`four_dollars` gone once `T_SWINDLED`; `deed` held once it is set). Small, and the flag stays the single fact.
+  2. **The swindle is a scene.** Doc 27 writes it as a stage direction — "(The swindle. Four dollars and the watch for the deed.)" — so a short staged beat after option 6 performs the exchange and writes the inventory, the way the opening's beats write state. Closer to the document; needs a sequence step that may write inventory, and its staging is a creative decision.
+- **Rooms:** Q142 (merged) — every room after 5 is blocked on unwritten repeat variants; Room 18 is three subjects short. Writing is Tyler's.
