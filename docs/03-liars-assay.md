@@ -312,6 +312,14 @@ Vessel opens with pair 1. Thad has no counters. He loses five straight exchanges
 
 > **THAD:** "Malnourished. Bishop. Yes."
 
+*The other three, as he hears them (errata 75):*
+
+> **THAD:** "Grandmother. Gravel. Yes."
+> **THAD:** "Everyone. Shirts. Concern. Yes."
+> **THAD:** "In Sacramento. Not from. Yes."
+
+*Before the first exchange, Reverend Sowerby reads the handbill's five rules aloud, all of them, with feeling (errata 75). The judges sit in the dark beyond the lamp; Sowerby holds the pencil.*
+
 Loss dialogue:
 
 > **VESSEL:** "You've no account in you at all, have you."
@@ -344,6 +352,12 @@ Loss dialogue:
 
 *Puzzle B6. Requires 14 pairs. Five exchanges, best-of.*
 
+*Errata 75: first to five exchanges, as in Duel One (Part One, "How it plays"); "five exchanges, best-of" means the same thing here. Before the first exchange:*
+
+> **SOWERBY:** "The rules of the Assay—"
+> **VESSEL:** "He knows the rules, Reverend."
+> **SOWERBY:** "Then he will enjoy them twice." *(He reads all five.)*
+
 Vessel escalates. Thad answers flatly, without pleasure, like a man reading corrections. Winning line:
 
 > **VESSEL:** "Fine. Fine! I'll sign the cursed affidavit."
@@ -361,6 +375,12 @@ Vessel escalates. Thad answers flatly, without pleasure, like a man reading corr
 > **FANSHAWE:** "No hard feelings, Mr. Grubb. It's simply how we settle things here. You'll find it very fair."
 
 Exchanges one through four use pairs 22, 23, and two returning boasts — Fanshawe deploys pair 4 and pair 9 against Thad, which the player will recognise, because Fanshawe has been listening the whole game.
+
+*Errata 75: in the order 4, 9, 22, 23, then the fifth. **A lost exchange is thrown again**, because Fanshawe would rather win convincingly than on a technicality — the Fanshawe rule, applied to the duel. After the reply to a wrong answer, one of these, in turn:*
+
+> **FANSHAWE:** "Shall we have that one again? I'd hate to win on a technicality."
+> **FANSHAWE:** "Again, I think. The judges have barely sharpened the pencil."
+> **FANSHAWE:** "Once more. I want the town to remember this properly."
 
 Then the fifth exchange.
 
@@ -380,6 +400,11 @@ The street erupts. Thad wins the duel, unanimously, on the greatest lie ever tol
 
 > **THAD:** "It's true."
 > **SOWERBY:** "Better still!"
+
+*Afterward (errata 75):*
+
+> **FANSHAWE:** *(He puts on his hat.)* "Well played, Mr. Grubb."
+*(He means it. He walks back up the street to his office, and for the first time in twelve years, he closes the door.)*
 
 **And that is the point.** Thad wins the duel and fails completely at the thing he wanted, because Consolation is structurally incapable of hearing the truth — Rule 3 has been on the wall of the saloon since the first hour of the game. He has just proved that no amount of saying it will ever work.
 

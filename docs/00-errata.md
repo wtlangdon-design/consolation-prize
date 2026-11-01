@@ -2237,3 +2237,29 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 **A · Every puzzle needs an audited content entry** in `proofs/readiness/puzzles.json`, listing what it needs: dialogue nodes (a doc 04/27 node with at least three written options and a [COMIC]), items (`## NAME` with LOOK and LISTEN 1–3), duel pairs (three wrong answers with replies each), and scenes or rulings (sections that resolve). `tools/lib/puzzle-content.mjs` checks each one, and the readiness gate's "Puzzle requirements complete?" answers NO for any room hosting a puzzle with no entry or with an unresolved need.
 
 **B · Today only B5 and B6 have entries**, so Room 4 is the only room with puzzles that answers YES. That is the truth, not a regression: doc 56 lists what each other puzzle lacks. An entry is added when a puzzle's gaps are closed, never before.
+
+# 75 · THE PUZZLE COMPLETION PASS (2026-11-01)
+
+*Tyler, 2026-10-31, on doc 56's audit: "You decide. And don't take shortcuts. Do everything correctly to make the game feel as much like an end product Monkey Island style game as possible. Keep the puzzles interesting and clever and tough without being impossible. Keep the dialogue really punchy and good. Make the game really come to life." Written and decided in one voice. **Doc 57 is the pass**; nodes are in doc 04, duel lines in doc 03, items in doc 23, room subjects in doc 54. Each ruling below can be reversed by name.*
+
+**A · Act II's deadlock is broken.** SUM_B1's documents no longer unlock one another in a chain (A → B → D), which made D wait on A while A (Duel Two) needed D's comebacks. All three are offered from SUM_B1's opening; C waits on A, B and D. The trials are any-order, as doc 02 says.
+
+**B · D5 no longer quotes an offer Thad has not heard.** PRA_D5 opened on the eleven-thousand-dollar offer, which is made only at E0b, after Document D. It now opens on the Company's own books — "Claim Two, contingent, eleven thousand dollars" — which Sheng reads Thad at D4. E0b's offer is then that same number, said out loud.
+
+**C · The fake funeral is a memorial for Ezra Pike** (C3). Fanshawe attends every funeral (Frame, FRA_A1 5); Pike was buried six years ago on credit and never sung over (Sowerby, SOW_A1 5); Thad's letter of introduction to Pike, sealed, is his standing to arrange it; Frame's notice starts **the funeral day**, which empties Fanshawe's office (C4) and fills Sowerby's plate (D4), and ends when Thad walks up Boot Hill. It can be held again. One funeral serves both trials, as doc 02 wants.
+
+**D · Sheng's terms are the linen debt (D3/D4)**, and his reading of the Thursday ledger is the reward. SHE_D1's loan moves to Act III: it is the two dollars and sixty cents Thad's funeral costs, and it is what doc 02 means by "Sheng's goodwill (D4)" at E3.
+
+**E · E6's executor is Hob, appointed on Form 31-E**, which Hob signs and Sump accepts once Thad is recorded deceased; Thad enters the archive as the executor's agent (docs 08 and 54's "as one's own executor" stands as Thad's description of it). **The signature is the clue (E9):** THE EXECUTOR'S FORM on THE MOTT FILE shows the same hand; or, with `T_HOB_HANDWRITING`, LOOKing at the file is enough — invariant 7's silent solve. THE TIMESHEET's LISTEN is unchanged and sets nothing.
+
+**F · E7: Thad gets into the coffin on purpose,** after S2 beat 3, on the undertaker's promise that the lid stays loose; the undertaker nails it from habit. Doc 04's graveside note (Thad in the box for Sowerby's eleven minutes) governs; S2's free play is the gathering before it. S2 beat 4 ("Boot Hill opens") is replaced.
+
+**G · A7's money loop is closed.** A8 requires the tuning fork only (doc 02's "requires the boundary" is withdrawn); the barman pays two dollars a tuning, the piano is flat again whenever Thad returns, and the filing fee pays Ozymandia, who divines over Fanshawe's map. Doc 02's dead-end audit ("repeatable… the joke improves with repetition") is now literally true.
+
+**H · ACT moves at the three act cards:** 2 at A10's PART TWO; **3 at E0b's PART THREE** (new card, after Clause 9); 4 at E10's PART FOUR. Errata 60's "the funeral's opening sets ACT 3" is withdrawn: E1–E6 come before the funeral.
+
+**I · Duel Three (F4) needs the five pairs it uses** — 4 and 9 (guaranteed in Act II) and 22–24 (given by the confession, E10) — not twenty-four; a lost exchange is thrown again; the order is 4, 9, 22, 23, then the fifth. Duels One and Two are first to five.
+
+**J · Every pair has a written route** (doc 57's table): Tier 4's five and the livery man's each gain an `[ASSAY]` option in which the character tells the story of the pair; Winnie's five and Pratt's six are their sparrings (WIN_B4 1, PRA_D6 4); 22–24 come with the truth at E10.
+
+**K · Smaller rulings.** Items follow `T_SWINDLED` (Q141 route 1). THE LIVERY BLANKET is the one blanket; HORSE BLANKET and doc 24's A5 line are superseded. The hotel room is the reward for A2; there is no key item. The map is what finds Prosperity (A4). A9's order is the deed, the survey, the fee. Doc 27's undertaker and Vessel supersede doc 04's sketches UND_A1 and VES_A1. FAN_A0 gives Fanshawe an Act I node before the swindle. The obituary is THADEUS GRUBBE (errata 9 over FRA_E1, now reconciled). Room 9's headline board shows errata 9's run. The F5 filing is Form 12-C (Amended) for Claim One, in Mott's name; Thad keeps Claim Two. `T_NO_GOLD_EVER` and `T_STRIKE_WAS_LIE` are one flag.

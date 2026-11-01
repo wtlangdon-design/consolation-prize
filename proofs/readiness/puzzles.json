@@ -1,26 +1,1173 @@
 {
  "schema": 1,
- "note": "ERRATA 74. What each of the 45 puzzles needs written, from the audit of 2026-10-31, checked by tools/lib/puzzle-content.mjs and read by the readiness gate. Kinds: node (a doc 04/27 node with >=3 written options and a [COMIC]), item (a '## NAME' with LOOK and LISTEN 1-3 in doc 23 or 54), duel (doc 03 Part Three: three wrong answers with replies per pair), section (a doc heading that resolves, optionally containing a marker). A puzzle with no entry has not been audited, and the gate answers NO for any room that hosts it.",
+ "note": "ERRATA 74. What each of the 45 puzzles needs written, from the audit of 2026-10-31 (doc 56), closed by the completion pass of 2026-11-01 (doc 57, errata 75), checked by tools/lib/puzzle-content.mjs and read by the readiness gate. Kinds: node (a doc 04/27 node with >=3 written options and a [COMIC]), item (a '## NAME' with LOOK and LISTEN 1-3 in doc 23 or 54), duel (doc 03 Part Three: three wrong answers with replies per pair), section (a doc heading that resolves, optionally containing a marker). A puzzle with no entry has not been audited, and the gate answers NO for any room that hosts it.",
  "puzzles": {
-  "B5": {
-   "rooms": [4],
-   "audited": "2026-10-31",
+  "A1": {
+   "rooms": [
+    1,
+    13,
+    14
+   ],
+   "audited": "2026-11-01",
    "needs": [
-    { "kind": "node", "id": "VES_B1" },
-    { "kind": "duel", "pairs": [1, 2, 3, 4] },
-    { "kind": "section", "ref": "docs/03-liars-assay.md::DUEL ONE — Deke Vessel (unwinnable by design)" },
-    { "kind": "section", "ref": "docs/00-errata.md::73 · THE LIAR'S ASSAY'S WRONG ANSWERS, AND HOW THE DUELS RUN (2026-10-31)" }
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::A1 · Deliver the letter to Ezra Pike"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/27-minor-trees.md::THE UNDERTAKER · Room 13"
+    },
+    {
+     "kind": "item",
+     "name": "THE LETTER"
+    },
+    {
+     "kind": "node",
+     "id": "FAN_A0"
+    }
+   ]
+  },
+  "A2": {
+   "rooms": [
+    18
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::A2 · Get a room with four dollars when the room costs five"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/27-minor-trees.md::THE HOTEL CLERK · Room 18"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/54-batch-c.md::ROOM 18 · HOTEL LOBBY",
+     "contains": "THE PARLOR PIANO"
+    },
+    {
+     "kind": "item",
+     "name": "THE TUNING FORK"
+    }
+   ]
+  },
+  "A3": {
+   "rooms": [
+    3
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::A3 · The swindle"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/27-minor-trees.md::DEKE VESSEL · Room 3"
+    },
+    {
+     "kind": "item",
+     "name": "FOUR DOLLARS"
+    },
+    {
+     "kind": "item",
+     "name": "THE POCKET WATCH"
+    },
+    {
+     "kind": "item",
+     "name": "THE DEED"
+    }
+   ]
+  },
+  "A4": {
+   "rooms": [
+    11,
+    22,
+    23
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::A4 · Find the claim"
+    },
+    {
+     "kind": "node",
+     "id": "FAN_A1"
+    },
+    {
+     "kind": "item",
+     "name": "THE COMPANY MAP"
+    }
+   ]
+  },
+  "A5": {
+   "rooms": [
+    23,
+    12,
+    15,
+    25
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::A5 · The raccoon"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/54-batch-c.md::A5 — the raccoon"
+    },
+    {
+     "kind": "node",
+     "id": "RAC_A1"
+    },
+    {
+     "kind": "node",
+     "id": "PRA_A1"
+    },
+    {
+     "kind": "node",
+     "id": "LIV_A1"
+    },
+    {
+     "kind": "item",
+     "name": "THE LIVERY BLANKET"
+    },
+    {
+     "kind": "item",
+     "name": "THE PICKLED EGGS"
+    },
+    {
+     "kind": "item",
+     "name": "DR. PURVIS'S TONIC"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/00-errata.md::68 · Q143 DECIDED"
+    }
+   ]
+  },
+  "A6": {
+   "rooms": [
+    7
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::A6 · The deed has no boundary"
+    },
+    {
+     "kind": "node",
+     "id": "SUM_A1"
+    }
+   ]
+  },
+  "A7": {
+   "rooms": [
+    16,
+    7
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::A7 · The survey"
+    },
+    {
+     "kind": "node",
+     "id": "OZY_A1"
+    },
+    {
+     "kind": "node",
+     "id": "SUM_A1"
+    },
+    {
+     "kind": "item",
+     "name": "THE SURVEY"
+    },
+    {
+     "kind": "item",
+     "name": "THE FILING FEE"
+    },
+    {
+     "kind": "item",
+     "name": "THE COMPANY MAP"
+    }
+   ]
+  },
+  "A8": {
+   "rooms": [
+    3
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::A8 · The filing fee"
+    },
+    {
+     "kind": "item",
+     "name": "THE FILING FEE"
+    },
+    {
+     "kind": "item",
+     "name": "THE TUNING FORK"
+    }
+   ]
+  },
+  "A9": {
+   "rooms": [
+    7
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::A9 · File the deed — the Act I turn"
+    },
+    {
+     "kind": "node",
+     "id": "SUM_A1"
+    },
+    {
+     "kind": "item",
+     "name": "THE DEED"
+    },
+    {
+     "kind": "item",
+     "name": "THE SURVEY"
+    },
+    {
+     "kind": "item",
+     "name": "THE FILING FEE"
+    },
+    {
+     "kind": "item",
+     "name": "THE INVITATION"
+    }
+   ]
+  },
+  "A10": {
+   "rooms": [
+    11
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::A10 · Survive dinner at Fanshawe's"
+    },
+    {
+     "kind": "node",
+     "id": "FAN_A2"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/48-act-turn-beats.md::S1 · THE DINNER AT FANSHAWE'S"
+    },
+    {
+     "kind": "item",
+     "name": "THE INVITATION"
+    },
+    {
+     "kind": "item",
+     "name": "THE HANDKERCHIEF"
+    }
+   ]
+  },
+  "B1": {
+   "rooms": [
+    9
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::B1 · Find where Vessel went"
+    },
+    {
+     "kind": "node",
+     "id": "FRA_A1"
+    },
+    {
+     "kind": "node",
+     "id": "FRA_B1"
+    }
+   ]
+  },
+  "B2": {
+   "rooms": [
+    15
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::B2 · Get two days out of town"
+    },
+    {
+     "kind": "node",
+     "id": "LIV_A1"
+    }
+   ]
+  },
+  "B3": {
+   "rooms": [
+    15
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::B3 · The Grievance puzzle"
+    },
+    {
+     "kind": "node",
+     "id": "LIV_A1"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/54-batch-c.md::ROOM 15 · THE LIVERY STABLE"
+    },
+    {
+     "kind": "item",
+     "name": "THE TUNING FORK"
+    }
+   ]
+  },
+  "B4": {
+   "rooms": [
+    4
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::B4 · Vessel refuses to sign"
+    },
+    {
+     "kind": "node",
+     "id": "VES_B1"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/03-liars-assay.md::DUEL ONE — Deke Vessel (unwinnable by design)"
+    }
+   ]
+  },
+  "B5": {
+   "rooms": [
+    4
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::B5 · Duel One"
+    },
+    {
+     "kind": "node",
+     "id": "VES_B1"
+    },
+    {
+     "kind": "duel",
+     "pairs": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "kind": "section",
+     "ref": "docs/03-liars-assay.md::DUEL ONE — Deke Vessel (unwinnable by design)",
+     "contains": "Grandmother. Gravel. Yes."
+    },
+    {
+     "kind": "section",
+     "ref": "docs/00-errata.md::73 · THE LIAR'S ASSAY'S WRONG ANSWERS"
+    }
    ]
   },
   "B6": {
-   "rooms": [4],
-   "audited": "2026-10-31",
+   "rooms": [
+    4
+   ],
+   "audited": "2026-11-01",
    "needs": [
-    { "kind": "node", "id": "VES_B1" },
-    { "kind": "duel", "pairs": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21] },
-    { "kind": "section", "ref": "docs/03-liars-assay.md::DUEL TWO — Deke Vessel, rematch (winnable)" },
-    { "kind": "item", "name": "THE POCKET WATCH" },
-    { "kind": "item", "name": "THE AFFIDAVIT" }
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::B6 · Beat Vessel"
+    },
+    {
+     "kind": "node",
+     "id": "VES_B1"
+    },
+    {
+     "kind": "duel",
+     "pairs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+     ]
+    },
+    {
+     "kind": "section",
+     "ref": "docs/03-liars-assay.md::DUEL TWO — Deke Vessel, rematch (winnable)"
+    },
+    {
+     "kind": "item",
+     "name": "THE POCKET WATCH"
+    },
+    {
+     "kind": "item",
+     "name": "THE AFFIDAVIT"
+    },
+    {
+     "kind": "node",
+     "id": "WIN_B4"
+    },
+    {
+     "kind": "node",
+     "id": "PRA_D6"
+    },
+    {
+     "kind": "node",
+     "id": "FRA_A1"
+    },
+    {
+     "kind": "node",
+     "id": "SOW_A1"
+    },
+    {
+     "kind": "node",
+     "id": "SHE_A1"
+    },
+    {
+     "kind": "node",
+     "id": "OZY_A1"
+    },
+    {
+     "kind": "node",
+     "id": "HOB_A1"
+    }
+   ]
+  },
+  "C1": {
+   "rooms": [
+    5
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::C1 · Winnie refuses"
+    },
+    {
+     "kind": "node",
+     "id": "WIN_B1"
+    }
+   ]
+  },
+  "C2": {
+   "rooms": [
+    5
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::C2 · The queue is padded"
+    },
+    {
+     "kind": "node",
+     "id": "WIN_B1"
+    }
+   ]
+  },
+  "C3": {
+   "rooms": [
+    9,
+    17,
+    14
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::C3 · Manufacture a funeral"
+    },
+    {
+     "kind": "node",
+     "id": "FRA_A1"
+    },
+    {
+     "kind": "node",
+     "id": "SOW_A1"
+    },
+    {
+     "kind": "item",
+     "name": "THE LETTER"
+    }
+   ]
+  },
+  "C4": {
+   "rooms": [
+    11
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::C4 · Search the office"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/54-batch-c.md::C3/C4 — the office, empty"
+    },
+    {
+     "kind": "item",
+     "name": "THE SUBMISSION LOG"
+    },
+    {
+     "kind": "item",
+     "name": "THE PHOTOGRAPH"
+    }
+   ]
+  },
+  "C5": {
+   "rooms": [
+    5
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::C5 · Show Winnie"
+    },
+    {
+     "kind": "node",
+     "id": "WIN_B2"
+    },
+    {
+     "kind": "item",
+     "name": "THE SUBMISSION LOG"
+    }
+   ]
+  },
+  "C6": {
+   "rooms": [
+    5
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::C6 · The assay returns"
+    },
+    {
+     "kind": "node",
+     "id": "WIN_B4"
+    },
+    {
+     "kind": "item",
+     "name": "THE ASSAY OF RECORD"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/03-liars-assay.md::THE SPARRING — Winnie (C6)"
+    }
+   ]
+  },
+  "D1": {
+   "rooms": [
+    7
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::D1 · The ninety-day rule"
+    },
+    {
+     "kind": "node",
+     "id": "SUM_B1"
+    }
+   ]
+  },
+  "D2": {
+   "rooms": [
+    23,
+    25
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::D2 · The only neighbor is Nickel Pratt"
+    },
+    {
+     "kind": "node",
+     "id": "PRA_D2"
+    },
+    {
+     "kind": "node",
+     "id": "PRA_B1"
+    }
+   ]
+  },
+  "D3": {
+   "rooms": [
+    28
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::D3 · Follow the money"
+    },
+    {
+     "kind": "node",
+     "id": "SHE_A1"
+    },
+    {
+     "kind": "node",
+     "id": "SHE_D1"
+    }
+   ]
+  },
+  "D4": {
+   "rooms": [
+    17,
+    14,
+    28
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::D4 · Sheng's task"
+    },
+    {
+     "kind": "node",
+     "id": "SOW_A1"
+    },
+    {
+     "kind": "node",
+     "id": "SHE_D1"
+    },
+    {
+     "kind": "item",
+     "name": "THE LINEN MONEY"
+    }
+   ]
+  },
+  "D5": {
+   "rooms": [
+    25
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::D5 · Turn Pratt"
+    },
+    {
+     "kind": "node",
+     "id": "PRA_B1"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/04-dialogue-trees.md::`PRA_D5` — the turn"
+    },
+    {
+     "kind": "node",
+     "id": "PRA_D6"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/03-liars-assay.md::THE SPARRING — Pratt (D5)"
+    }
+   ]
+  },
+  "D6": {
+   "rooms": [
+    7
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::D6 · The attestation"
+    },
+    {
+     "kind": "node",
+     "id": "PRA_D6"
+    },
+    {
+     "kind": "item",
+     "name": "THE ATTESTATION"
+    }
+   ]
+  },
+  "E0": {
+   "rooms": [
+    7
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::E0 · The Certificate of Contiguity"
+    },
+    {
+     "kind": "node",
+     "id": "SUM_B1"
+    },
+    {
+     "kind": "item",
+     "name": "THE AFFIDAVIT"
+    },
+    {
+     "kind": "item",
+     "name": "THE ASSAY OF RECORD"
+    },
+    {
+     "kind": "item",
+     "name": "THE ATTESTATION"
+    },
+    {
+     "kind": "item",
+     "name": "THE CERTIFICATE"
+    }
+   ]
+  },
+  "E0b": {
+   "rooms": [
+    11
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::E0b · Fanshawe's offer — the Act II turn"
+    },
+    {
+     "kind": "node",
+     "id": "FAN_C1"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/00-errata.md::75 · THE PUZZLE COMPLETION PASS"
+    }
+   ]
+  },
+  "E1": {
+   "rooms": [
+    7
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::E1 · Have Mott declared dead"
+    },
+    {
+     "kind": "node",
+     "id": "SUM_E1"
+    }
+   ]
+  },
+  "E2": {
+   "rooms": [
+    7
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::E2 · The loophole"
+    },
+    {
+     "kind": "node",
+     "id": "SUM_E1"
+    }
+   ]
+  },
+  "E3": {
+   "rooms": [
+    17,
+    28,
+    13
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::E3 · The eulogy, and paying for one's own funeral"
+    },
+    {
+     "kind": "node",
+     "id": "SOW_C1"
+    },
+    {
+     "kind": "node",
+     "id": "SHE_D1"
+    },
+    {
+     "kind": "node",
+     "id": "UND_C1"
+    },
+    {
+     "kind": "item",
+     "name": "SHENG'S LOAN"
+    }
+   ]
+  },
+  "E4": {
+   "rooms": [
+    5
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::E4 · The certificate"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/04-dialogue-trees.md::ACT III — `WIN_C1`"
+    },
+    {
+     "kind": "item",
+     "name": "THE DEATH CERTIFICATE"
+    }
+   ]
+  },
+  "E5": {
+   "rooms": [
+    7,
+    9
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::E5 · The obituary"
+    },
+    {
+     "kind": "node",
+     "id": "SUM_C1"
+    },
+    {
+     "kind": "node",
+     "id": "FRA_E1"
+    },
+    {
+     "kind": "item",
+     "name": "THE OBITUARY"
+    },
+    {
+     "kind": "item",
+     "name": "THE DEATH CERTIFICATE"
+    }
+   ]
+  },
+  "E6": {
+   "rooms": [
+    20,
+    7
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::E6 · Appoint the executor"
+    },
+    {
+     "kind": "node",
+     "id": "HOB_E6"
+    },
+    {
+     "kind": "item",
+     "name": "THE EXECUTOR'S FORM"
+    }
+   ]
+  },
+  "E7": {
+   "rooms": [
+    31,
+    32
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::E7 · The coffin"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/48-act-turn-beats.md::S2 · THE FUNERAL (Act III opening)"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/54-batch-c.md::ROOM 31 · THE FUNERAL"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/54-batch-c.md::ROOM 32 · INSIDE THE COFFIN"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/00-errata.md::70 · ROOMS 32 AND 33"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/00-errata.md::71 · ROOM 32 MEETS ERRATA 52"
+    }
+   ]
+  },
+  "E8": {
+   "rooms": [
+    32,
+    31
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::E8 · Hob digs him out"
+    },
+    {
+     "kind": "node",
+     "id": "HOB_C1"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/54-batch-c.md::ROOM 32 · INSIDE THE COFFIN"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/00-errata.md::71 · ROOM 32 MEETS ERRATA 52"
+    }
+   ]
+  },
+  "E9": {
+   "rooms": [
+    7,
+    8
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::E9 · The archive — Hob is Mott"
+    },
+    {
+     "kind": "item",
+     "name": "THE EXECUTOR'S FORM"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/54-batch-c.md::ROOM 8 · REGISTRAR'S ARCHIVE"
+    },
+    {
+     "kind": "node",
+     "id": "HOB_C1"
+    }
+   ]
+  },
+  "E10": {
+   "rooms": [
+    21
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::E10 · The confession — the Act III turn"
+    },
+    {
+     "kind": "node",
+     "id": "HOB_C2"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/48-act-turn-beats.md::S4 · THE CONFESSION"
+    }
+   ]
+  },
+  "F1": {
+   "rooms": [
+    23,
+    24,
+    34
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::F1 · One last look at Prosperity"
+    },
+    {
+     "kind": "item",
+     "name": "THE PICKAXE"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/54-batch-c.md::ROOM 34 · UNDER PROSPERITY"
+    }
+   ]
+  },
+  "F2": {
+   "rooms": [
+    33
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::F2 · The Listening"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/54-batch-c.md::ROOM 33 · THE LISTENING CHAMBER"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/00-errata.md::70 · ROOMS 32 AND 33"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/00-errata.md::71 · ROOM 32 MEETS ERRATA 52"
+    },
+    {
+     "kind": "item",
+     "name": "THE TUNING FORK"
+    }
+   ]
+  },
+  "F3": {
+   "rooms": [
+    33,
+    34
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::F3 · Break through"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/54-batch-c.md::ROOM 33 · THE LISTENING CHAMBER",
+     "contains": "F3 — breaking through"
+    },
+    {
+     "kind": "item",
+     "name": "THE SAMPLE"
+    },
+    {
+     "kind": "item",
+     "name": "THE PICKAXE"
+    },
+    {
+     "kind": "node",
+     "id": "WIN_F1"
+    }
+   ]
+  },
+  "F4": {
+   "rooms": [
+    2
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::F4 · The final duel — Duel Three"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/03-liars-assay.md::DUEL FOUR — Colonel Absalom Fanshawe (public, Main Street)",
+     "contains": "Shall we have that one again?"
+    },
+    {
+     "kind": "duel",
+     "pairs": [
+      4,
+      9,
+      22,
+      23,
+      "fifth"
+     ]
+    },
+    {
+     "kind": "section",
+     "ref": "docs/00-errata.md::75 · THE PUZZLE COMPLETION PASS"
+    }
+   ]
+  },
+  "F5": {
+   "rooms": [
+    7
+   ],
+   "audited": "2026-11-01",
+   "needs": [
+    {
+     "kind": "section",
+     "ref": "docs/57-puzzle-completion.md::F5 · The filing — the last puzzle"
+    },
+    {
+     "kind": "node",
+     "id": "SUM_F1"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/04-dialogue-trees.md::ACT IV — grown to nodes"
+    },
+    {
+     "kind": "section",
+     "ref": "docs/48-act-turn-beats.md::S6 · THE FILING"
+    },
+    {
+     "kind": "item",
+     "name": "THE DEATH CERTIFICATE"
+    },
+    {
+     "kind": "item",
+     "name": "THE DEED"
+    },
+    {
+     "kind": "item",
+     "name": "THE CERTIFICATE"
+    },
+    {
+     "kind": "item",
+     "name": "THE SAMPLE"
+    }
    ]
   }
  }
