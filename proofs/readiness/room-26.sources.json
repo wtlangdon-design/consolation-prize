@@ -3,30 +3,42 @@
  "room": 26,
  "id": "room-26",
  "name": "THE CREEK & SLUICE",
- "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 by the unattended room pass. The examine, act-variant and wrong-verb pointers were resolved mechanically from document headings. Dialogue and puzzles are NOT mapped: the room is blocked at the repeat-variant layer (doc 15 section 5, 'Repeat variants and verb fallbacks, 41 rooms', unchecked), which no mapping can change, so the gate's dialogue/puzzle NOs here mean 'not declared', not 'not written'. Map them before this room is reconsidered.",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54) from docs 02, 05, 09/10, 20 and 54.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 26 — THE CREEK & SLUICE",
+  "primary": "docs/05-examine-layer.md::ROOM 26 \u2014 THE CREEK & SLUICE",
   "batch": [
-   "docs/10-examine-batch-3.md::ROOM 26 — THE CREEK & SLUICE"
+   "docs/10-examine-batch-3.md::ROOM 26 \u2014 THE CREEK & SLUICE"
   ],
   "merged": [
-   "docs/10-examine-batch-3.md::ROOM 26 — THE CREEK & SLUICE"
-  ]
+   "docs/10-examine-batch-3.md::ROOM 26 \u2014 THE CREEK & SLUICE"
+  ],
+  "completions": [
+   "docs/54-batch-c.md::ROOM 26 \u00b7 THE CREEK & SLUICE"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "Part Two-B wrote no variant for the creek."
+  }
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 26 — THE CREEK & SLUICE",
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 26 \u2014 THE CREEK & SLUICE",
  "dialogue": {
   "characters": [],
   "trees": [],
-  "mapped": false
+  "none": {
+   "source": "docs/20-room-map.md::From the map \u2014 the diggings",
+   "why": "Nobody is staged here to speak; doc 10's man panning is an examine subject and does not talk."
+  }
  },
  "puzzles": {
   "ids": [],
-  "source": null,
-  "mapped": false
+  "none": {
+   "source": "docs/02-puzzle-graph.md::Puzzle Dependency Graph \u2014 v1",
+   "why": "Doc 02 sites none of the 45 here."
+  }
  },
  "staging": {
-  "required": null,
-  "why": "not assessed: blocked at the examine layer"
+  "required": false,
+  "why": "No doc 48 script is sited here."
  },
  "connectivity": "docs/20-room-map.md"
 }

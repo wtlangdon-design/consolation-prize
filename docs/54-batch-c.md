@@ -284,3 +284,82 @@ Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons
 
 - **THE VIEW, LOOK.** Doc 05's line 1 calls the town "a stage set"; doc 10's line 1 says "every building on Main Street is a front with nothing behind it". One idea, twice in a row.
 - **"Nothing coming."** Doc 17 note 3 counts three uses in the game (Room 1's two repeats and the ridge). The ridge now says it three times, so the game says it five.
+
+---
+
+# ROOM 20 · THE BACK ALLEY
+
+*Merged: doc 05's six and doc 09's six, eleven objects (THE CAT is in both). Doc 09's subjects are the plants — "the most informative screen in Act II" — and their repeats add no fact the first lines did not already give.*
+
+## Repeats
+
+**THE ALLEY ITSELF** — LOOK 2 "From back here you can see which buildings are brick and which are paint. They are all paint." · 3 "Somebody has swept a path down the middle. The rest has been left to its own devices, and its devices are mostly mud." | LISTEN 2 "A door somewhere, opened and shut quickly. The alley is where the town comes to do what it would rather not do on the street." · 3 "The street noise, cut into slices by the gaps between the buildings."
+
+**THE CRATES** — LOOK 2 "One reads FRAGILE in three languages. The crate under it has been crushed flat." · 3 "Somebody has carved a checkerboard into the top one. The game on it has been in progress for some time." | LISTEN 2 "A scrabbling in the lowest crate, then a silence that is trying very hard." · 3 "Nothing. The crates have given up on being shipped anywhere."
+
+**THE RAIN BARREL** — LOOK 2 "A skin of dust on the water and a single leaf on the dust. Last month's weather, with a bookmark." · 3 "Something is looking up at me from the bottom. I am choosing to believe it is my reflection." | LISTEN 2 "The drip, slower now. The economy is contracting." · 3 "A small plop from below. Whatever lives in there has made its position known."
+
+**THE BACK DOORS** — LOOK 2 "Each one has a different lock and the same scuff at boot height. Everybody leaves the same way." · 3 "The Nugget's back door is propped open with a brick. It is the only frank door in the row." | LISTEN 2 "A bolt shot home somewhere along the row. Someone has decided against visitors." · 3 "Nothing. Every door in the row is listening for the same thing I am."
+
+**THE WASH LINE** — LOOK 2 "The shirt has been mended at both elbows by someone who cared, and at the collar by someone who did not." · 3 "It has been dry for a day and nobody has taken it in. It is waiting for its owner, like most things in this alley." | LISTEN 2 "A clothes-peg creaking, holding on." · 3 "The underwear again, flapping. It has found its audience."
+
+**THE CAT** — LOOK 3 "She has moved six inches to the left, after the sun. It is the only progress anyone has made in this alley today." | LISTEN 3 "Purring, briefly, then silence. She has decided I am furniture."
+
+**THE BACK OF THE IMPROVEMENT COMPANY** — LOOK 2 "From here you can see the bracing that holds up the two stories that are not there. It is very good bracing. Somebody spent real money on the part nobody sees." · 3 "No windows on this side at all. A building that faces only one way." | LISTEN 2 "Nothing. Whatever goes on inside, the walls were built thick enough to keep it there." · 3 "Nothing still. I have stood here long enough to be noticed, and nobody has noticed."
+
+**THE ASH PILE** — LOOK 2 "Most of it is ordinary ash. The paper in it was good paper, the heavy kind, with a watermark." · 3 "I have left the corner that says BOSTON where it lies. It is not mine, and in this town that is not a small distinction." | LISTEN 2 "Nothing. Ash has finished saying things." · 3 "A dry whisper when the wind lifts the scraps."
+
+**THE BARRELS** — LOOK 2 "Stacked in a pyramid, true and square. Whoever did it took pride in a pile of nothing." · 3 "I have stopped asking what things are for in this town. I have not stopped noticing." | LISTEN 2 "I knocked on one. Empty, and it said so at length." · 3 "Nothing. Forty empty barrels and not one rattle."
+
+**THE SIDE DOOR** — LOOK 2 "No handle on this side. A keyhole, oiled." · 3 "Somebody uses this door. The step is worn, and Main Street does not know it exists." | LISTEN 2 "Nothing. It is a very well-fitted door, for a back alley." · 3 "Nothing. If anyone is behind it, they are better at waiting than I am."
+
+### THE MUD
+**LOOK** 1 "Alley mud, which is Main Street's mud without the audience." · 2 "Footprints both ways, mostly to and from the Nugget's back door, and the ones coming back are less straight." · 3 "It is the same mud as the street. I find that reassuring, which tells you how my week has gone."
+**LISTEN** 1 "Wet, and in no hurry." · 2 "Drips from the eaves, landing in it one at a time." · 3 "Nothing. Even the mud keeps its voice down back here."
+
+## For Tyler's cut
+
+- **THE BACK OF THE IMPROVEMENT COMPANY, LOOK 1** (doc 09) says "One storey". The American-English check will refuse "storey" when it is extracted; "One story" is the American spelling. A line change in doc 09, and his.
+- **THE BACK OF THE IMPROVEMENT COMPANY, LISTEN 1** (doc 09) calls it "the quietest building in Consolation from every side", and doc 05's Room 10 LISTEN hears "a pen nib, somewhere behind the panelling, writing without pause".
+
+---
+
+# ROOM 26 · THE CREEK & SLUICE
+
+*Merged: doc 05's seven and doc 10's seven, ten objects.*
+
+## Same object, both passes
+
+**THE SLUICE** ≡ **THE SLUICE BOXES**
+**THE BOOT PRINTS** ≡ **THE BANK**
+
+*(THE CREEK and THE RIFFLES have the same name in both passes. Doc 05's boot prints are "the bank … a plaster cast of every boot in the district"; doc 10 only sketches THE BANK.)*
+
+## Repeats
+
+**THE CREEK** — LOOK 3 "I followed it a little way upstream. It goes on being the same creek, which is more than most things here manage." | LISTEN 3 "Water, and under it the clink of a pan on stone a long way down."
+
+**THE SLUICE** — LOOK 3 "Every patch is a different wood, and one patch is a door, with its number still on it." | LISTEN 3 "One box knocks out of time with the others. I could find which in a minute. Nobody has asked me."
+
+**THE RIFFLES** — LOOK 3 "A brass button is caught on the third bar, with an anchor on it. A sailor came a very long way to lose it here." | LISTEN 3 "Grit, then nothing, then grit. It is catching its breath."
+
+**THE HEADGATE** — LOOK 2 "The schedule is nailed to the post beside it and amended in five hands. Two of the amendments are threats." · 3 "It leaks at the bottom. The creek gets through a little every day, on nobody's schedule." | LISTEN 2 "Water pressing, polite and enormous." · 3 "A trickle at the bottom boards. The creek is not waiting for its week."
+
+**THE MERCURY FLASK** — LOOK 2 "The chain is newer than the flask. Somebody learned something." · 3 "It is heavier than it looks. It is the only thing out here that is." | LISTEN 2 "A shift inside, slow and heavy, like something turning over in bed." · 3 "Nothing, until the chain moves, and then the slosh again, offended on principle."
+
+**THE BOOT PRINTS** — LOOK 2 "Hobnailed, patched, and one barefoot. That man has my sympathy and my attention." · 3 "Mine are among them now. I have been counted." | LISTEN 2 "Water seeping into the newest prints, filling them one at a time." · 3 "Nothing. Tomorrow's shift will print over today's, and nobody will be counted twice."
+
+**THE WILLOW** — LOOK 2 "Twenty or thirty sets of initials are cut into the trunk, and not one of them inside a heart. Out here people commit to nothing but their names." · 3 "It leans over the water as though it were panning too, and having about the same luck." | LISTEN 2 "Leaves again. Softer than the water, softer than the men. The willow wins." · 3 "A bird somewhere inside it, saying one note and stopping, like a man who has thought better of it."
+
+**THE MAN PANNING** — LOOK 2 "Swirl, tip, look, sigh, scoop. He has done it so long his shoulders have learned it without him." · 3 "He looked up at me once. He did not seem to see a person, only something that was not gold." | LISTEN 2 "The pan's rim on stone, over and over, in perfect time. He would make a decent metronome." · 3 "Something very small under his breath: a tune with no middle to it, the same eight notes again."
+
+**THE DISCARDED PAN** — LOOK 2 "The bottom is worn bright from swirling. Whoever threw it had used it a long time first." · 3 "Nobody has picked it up. Out here a thrown pan is a kind of grave." | LISTEN 2 "Water ticking against its rim in the shallows." · 3 "Nothing. It has been let go."
+
+### THE FAR SIDE
+**LOOK** 1 "The far bank, close enough to hit with a stone and claimed by a different set of men, who look exactly like this set." · 2 "They are working the same water a few feet over. A different claim and the same creek; that is the whole law of the district." · 3 "A man on the far side raised his hat to me. I raised mine. We have now met, and neither of us will mention it again."
+**LISTEN** 1 "The same water, telling them the same thing." · 2 "Picks on the far side, a beat behind ours, like an echo with ambitions." · 3 "Someone over there laughing. It carries well across water, and it sounds expensive."
+
+## For Tyler's cut
+
+- **THE SLUICE.** Doc 05's is one community sluice, "forty feet of graded boxes"; doc 10's is "forty sluices along a hundred yards of creek". One object, two descriptions of what it is.
+- **THE CREEK, LOOK.** Doc 05's line 1 ("talked a thousand men into staying") and doc 10's line 1 ("the reason two thousand people live here") make one point twice, with different populations.
