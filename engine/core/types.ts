@@ -390,6 +390,13 @@ export interface AmbientFile {
    */
   posture?: 'standing' | 'seated' | 'band' | 'identity' | 'animal' | 'behind-counter';
   /**
+   * WHY THIS VISIBLE FIGURE IS ALLOWED TO BE STILL, quoting the ruling.
+   * Errata 77: every visible character in a shipping room moves, deliberately,
+   * and tests/movement.test.mjs measures it from the frames; this is the only
+   * way past that check, and it has to say whose decision it was.
+   */
+  movementException?: string;
+  /**
    * WHEN THE PERSON IS THERE. Absent means always. Errata 73 B: Vessel is in
    * the Nugget's back room from B3's completion, and the judges sit with him
    * while the Assay is convened (errata 76 B). A placement may carry its own.
