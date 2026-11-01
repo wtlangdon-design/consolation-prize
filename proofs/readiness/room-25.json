@@ -10,27 +10,29 @@
    "question": "LOOK/LISTEN complete?",
    "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 25 — PRATT'S CLAIM"
+    "docs/05-examine-layer.md::ROOM 25 — PRATT'S CLAIM",
+    "docs/54-batch-c.md::ROOM 25 · PRATT'S CLAIM"
    ],
-   "why": "8 subject(s), each with a LOOK and a LISTEN"
+   "why": "11 subject(s), each with a LOOK and a LISTEN"
   },
   {
    "id": "repeat-variants",
    "question": "Repeat-selection variants complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 25 — PRATT'S CLAIM"
+    "docs/05-examine-layer.md::ROOM 25 — PRATT'S CLAIM",
+    "docs/54-batch-c.md::ROOM 25 · PRATT'S CLAIM"
    ],
-   "why": "8 subject(s) short of three: THE CLAIM ENTIRE (LOOK 1, LISTEN 1); THE BORDER STONES (LOOK 1, LISTEN 1); THE TOOL RACK (LOOK 1, LISTEN 1); THE DIGGINGS, SUCH AS THEY ARE (LOOK 1, LISTEN 1); THE TAILINGS PILE (LOOK 1, LISTEN 1); THE CAMP CHAIR (LOOK 1, LISTEN 1); THE COFFEE POT (LOOK 1, LISTEN 1); THE SIGN: NO COLOUR YET (LOOK 1, LISTEN 1)"
+   "why": "all 11 subject(s) carry three LOOK and three LISTEN variants"
   },
   {
    "id": "act-variants",
    "question": "Act/state variants complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 25 — PRATT'S CLAIM"
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
    ],
-   "why": "no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart"
+   "why": "none, by doctrine: Part Two-B wrote no variant for Pratt's claim."
   },
   {
    "id": "wrong-verbs",
@@ -39,59 +41,67 @@
    "evidence": [
     "docs/49-wrong-answers.md::ROOM 25 — PRATT'S CLAIM"
    ],
-   "why": "2 authored refusal(s)"
+   "why": "4 authored refusal(s)"
   },
   {
    "id": "dialogue",
    "question": "Dialogue used by this room complete?",
-   "answer": "NO",
-   "evidence": [],
-   "why": "no dialogue declared for this room"
+   "answer": "YES",
+   "evidence": [
+    "docs/04-dialogue-trees.md::`PRA_A1` — next door, Act I *(Batch C, doc 54; errata 68 A)*",
+    "docs/04-dialogue-trees.md::Root: `PRA_B1`",
+    "docs/04-dialogue-trees.md::`PRA_D2` — the first encounter *(W1 growth)*",
+    "docs/04-dialogue-trees.md::`PRA_D5` — the turn",
+    "docs/04-dialogue-trees.md::`PRA_D6` — after the signing *(W1 growth)*"
+   ],
+   "why": "5 node(s) resolve for Nickel Pratt"
   },
   {
    "id": "puzzles",
    "question": "Puzzle requirements complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::TRIAL THREE — Proof of Continuous Occupancy (Document D)"
    ],
-   "why": "not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "D2, D5, D6 are all specified in that section"
   },
   {
    "id": "items",
    "question": "Required items declared?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::TRIAL THREE — Proof of Continuous Occupancy (Document D)"
    ],
-   "why": "the declared puzzle section names no item or topic"
+   "why": "the puzzle section names the documents and topics this room issues and needs"
   },
   {
    "id": "flags",
    "question": "Required flags/state declared?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::TRIAL THREE — Proof of Continuous Occupancy (Document D)"
    ],
-   "why": "the declared puzzle section names no flag or topic"
+   "why": "the puzzle section names the topic flags this room sets"
   },
   {
    "id": "staging",
    "question": "Beat/staging script complete OR genuinely not required?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/54-batch-c.md::ROOM 25 · PRATT'S CLAIM"
    ],
-   "why": "declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "not required: No doc 48 script is sited here; D2, D5 and D6 are Pratt's dialogue nodes."
   },
   {
    "id": "character-behaviour",
    "question": "Character behaviour sufficiently authored?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(no room content section declared)"
+    "docs/04-dialogue-trees.md::`PRA_A1` — next door, Act I *(Batch C, doc 54; errata 68 A)*",
+    "docs/04-dialogue-trees.md::Root: `PRA_B1`",
+    "docs/54-batch-c.md::ROOM 25 · PRATT'S CLAIM"
    ],
-   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+   "why": "Nickel Pratt has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
   },
   {
    "id": "open-canon",
@@ -101,55 +111,63 @@
    "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
   }
  ],
- "subjectsFound": 8,
+ "subjectsFound": 11,
  "subjectsDeclaredByDocument": 8,
  "unresolvedCitations": [],
  "dimensions": [
   {
    "id": "writing",
    "question": "Writing",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/05-examine-layer.md::ROOM 25 — PRATT'S CLAIM",
-    "docs/49-wrong-answers.md::ROOM 25 — PRATT'S CLAIM"
+    "docs/54-batch-c.md::ROOM 25 · PRATT'S CLAIM",
+    "docs/49-wrong-answers.md::ROOM 25 — PRATT'S CLAIM",
+    "docs/04-dialogue-trees.md::`PRA_A1` — next door, Act I *(Batch C, doc 54; errata 68 A)*",
+    "docs/04-dialogue-trees.md::Root: `PRA_B1`",
+    "docs/04-dialogue-trees.md::`PRA_D2` — the first encounter *(W1 growth)*",
+    "docs/04-dialogue-trees.md::`PRA_D5` — the turn",
+    "docs/04-dialogue-trees.md::`PRA_D6` — after the signing *(W1 growth)*"
    ],
    "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
   },
   {
    "id": "puzzle-behaviour",
    "question": "Puzzle behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::TRIAL THREE — Proof of Continuous Occupancy (Document D)"
    ],
    "why": "the puzzles sited here, the items they need and issue, and the flags they set"
   },
   {
    "id": "act-behaviour",
    "question": "Act/state behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 25 — PRATT'S CLAIM"
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
    ],
-   "why": "no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart"
+   "why": "none, by doctrine: Part Two-B wrote no variant for Pratt's claim."
   },
   {
    "id": "character-behaviour",
    "question": "Character behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(no room content section declared)"
+    "docs/04-dialogue-trees.md::`PRA_A1` — next door, Act I *(Batch C, doc 54; errata 68 A)*",
+    "docs/04-dialogue-trees.md::Root: `PRA_B1`",
+    "docs/54-batch-c.md::ROOM 25 · PRATT'S CLAIM"
    ],
-   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+   "why": "Nickel Pratt has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
   },
   {
    "id": "staging-behaviour",
    "question": "Staging behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/54-batch-c.md::ROOM 25 · PRATT'S CLAIM"
    ],
-   "why": "declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "not required: No doc 48 script is sited here; D2, D5 and D6 are Pratt's dialogue nodes."
   },
   {
    "id": "visual-subjects",
@@ -175,17 +193,8 @@
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
- "buildableWithoutInvention": "NO",
- "blocking": [
-  "repeat-variants: 8 subject(s) short of three: THE CLAIM ENTIRE (LOOK 1, LISTEN 1); THE BORDER STONES (LOOK 1, LISTEN 1); THE TOOL RACK (LOOK 1, LISTEN 1); THE DIGGINGS, SUCH AS THEY ARE (LOOK 1, LISTEN 1); THE TAILINGS PILE (LOOK 1, LISTEN 1); THE CAMP CHAIR (LOOK 1, LISTEN 1); THE COFFEE POT (LOOK 1, LISTEN 1); THE SIGN: NO COLOUR YET (LOOK 1, LISTEN 1)",
-  "act-variants: no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart",
-  "dialogue: no dialogue declared for this room",
-  "puzzles: not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading.",
-  "items: the declared puzzle section names no item or topic",
-  "flags: the declared puzzle section names no flag or topic",
-  "staging: declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading.",
-  "character-behaviour: either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
- ],
+ "buildableWithoutInvention": "YES",
+ "blocking": [],
  "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
  "geometry": [
   {
@@ -218,5 +227,5 @@
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
  "geometryReady": "NO",
- "at": "2026-11-01T02:42:24.025Z"
+ "at": "2026-11-01T04:44:13.912Z"
 }

@@ -3,27 +3,42 @@
  "room": 16,
  "id": "room-16",
  "name": "OZYMANDIA'S TENT",
- "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 by the unattended room pass. The examine, act-variant and wrong-verb pointers were resolved mechanically from document headings. Dialogue and puzzles are NOT mapped: the room is blocked at the repeat-variant layer (doc 15 section 5, 'Repeat variants and verb fallbacks, 41 rooms', unchecked), which no mapping can change, so the gate's dialogue/puzzle NOs here mean 'not declared', not 'not written'. Map them before this room is reconsidered.",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54).",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT",
+  "primary": "docs/05-examine-layer.md::ROOM 16 \u2014 OZYMANDIA'S TENT",
   "batch": [
-   "docs/09-examine-batch-2.md::ROOM 16 — MADAME OZYMANDIA'S TENT"
+   "docs/09-examine-batch-2.md::ROOM 16 \u2014 MADAME OZYMANDIA'S TENT"
+  ],
+  "merged": [
+   "docs/09-examine-batch-2.md::ROOM 16 \u2014 MADAME OZYMANDIA'S TENT"
+  ],
+  "completions": [
+   "docs/54-batch-c.md::ROOM 16 \u00b7 MADAME OZYMANDIA'S TENT"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "Part Two-B wrote no variant for the tent. Her Act IV appearance is at Prosperity (doc 04), not here."
+  }
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 16 \u2014 OZYMANDIA'S TENT",
+ "dialogue": {
+  "characters": [
+   "Madame Ozymandia"
+  ],
+  "trees": [
+   "docs/04-dialogue-trees.md::MADAME OZYMANDIA"
   ]
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 16 — OZYMANDIA'S TENT",
- "dialogue": {
-  "characters": [],
-  "trees": [],
-  "mapped": false
- },
  "puzzles": {
-  "ids": [],
-  "source": null,
-  "mapped": false
+  "ids": [
+   "A7"
+  ],
+  "source": "docs/02-puzzle-graph.md::ACT I \u2014 *In Which Our Hero Is Robbed, and Enjoys It*"
  },
  "staging": {
-  "required": null,
-  "why": "not assessed: blocked at the examine layer"
+  "required": false,
+  "why": "A7 is her dialogue option 1; no doc 48 script is sited in the tent."
  },
- "connectivity": "docs/20-room-map.md"
+ "connectivity": "docs/20-room-map.md",
+ "exits": "docs/54-batch-c.md::ROOM 16 \u00b7 MADAME OZYMANDIA'S TENT"
 }

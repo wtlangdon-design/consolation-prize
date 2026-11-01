@@ -10,27 +10,29 @@
    "question": "LOOK/LISTEN complete?",
    "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 35 — THE COMPANY VAULT"
+    "docs/05-examine-layer.md::ROOM 35 — THE COMPANY VAULT",
+    "docs/54-batch-c.md::ROOM 35 · THE COMPANY VAULT"
    ],
-   "why": "10 subject(s), each with a LOOK and a LISTEN"
+   "why": "16 subject(s), each with a LOOK and a LISTEN"
   },
   {
    "id": "repeat-variants",
    "question": "Repeat-selection variants complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 35 — THE COMPANY VAULT"
+    "docs/05-examine-layer.md::ROOM 35 — THE COMPANY VAULT",
+    "docs/54-batch-c.md::ROOM 35 · THE COMPANY VAULT"
    ],
-   "why": "10 subject(s) short of three: THE VAULT DOOR (LOOK 1, LISTEN 1); THE LEDGER SHELF (LOOK 1, LISTEN 1); THE DEED BOXES (LOOK 1, LISTEN 1); THE SEARCH FUND (LOOK 1, LISTEN 1); THE MAP, PRIVATE (LOOK 1, LISTEN 1); THE STRONGBOX (LOOK 1, LISTEN 1); FANSHAWE'S PRIVATE DRAWER (LOOK 1, LISTEN 1); THE CHAMPAGNE (LOOK 1, LISTEN 1); THE GAS LAMP, FIXED (LOOK 1, LISTEN 1); THE VISITOR'S CHAIR (LOOK 1, LISTEN 1)"
+   "why": "all 16 subject(s) carry three LOOK and three LISTEN variants"
   },
   {
    "id": "act-variants",
    "question": "Act/state variants complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 35 — THE COMPANY VAULT"
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
    ],
-   "why": "no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart"
+   "why": "none, by doctrine: The vault opens only in Act IV (doc 20); it has no other act."
   },
   {
    "id": "wrong-verbs",
@@ -39,59 +41,61 @@
    "evidence": [
     "docs/49-wrong-answers.md::ROOM 35 — THE COMPANY VAULT"
    ],
-   "why": "4 authored refusal(s)"
+   "why": "5 authored refusal(s)"
   },
   {
    "id": "dialogue",
    "question": "Dialogue used by this room complete?",
-   "answer": "NO",
-   "evidence": [],
-   "why": "no dialogue declared for this room"
+   "answer": "YES",
+   "evidence": [
+    "docs/20-room-map.md::Act III and IV"
+   ],
+   "why": "no character speaks in this room: The vault is empty of people; nobody is staged in it."
   },
   {
    "id": "puzzles",
    "question": "Puzzle requirements complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::Puzzle Dependency Graph — v1"
    ],
-   "why": "not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "no puzzle is sited in this room: Doc 02 sites none of the 45 in the vault; it is an Act IV room to look at, gated by act (doc 20)."
   },
   {
    "id": "items",
    "question": "Required items declared?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::Puzzle Dependency Graph — v1"
    ],
-   "why": "the declared puzzle section names no item or topic"
+   "why": "no puzzle is sited in this room: Doc 02 sites none of the 45 in the vault; it is an Act IV room to look at, gated by act (doc 20)."
   },
   {
    "id": "flags",
    "question": "Required flags/state declared?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::Puzzle Dependency Graph — v1"
    ],
-   "why": "the declared puzzle section names no flag or topic"
+   "why": "no puzzle is sited in this room: Doc 02 sites none of the 45 in the vault; it is an Act IV room to look at, gated by act (doc 20)."
   },
   {
    "id": "staging",
    "question": "Beat/staging script complete OR genuinely not required?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/05-examine-layer.md::ROOM 35 — THE COMPANY VAULT"
    ],
-   "why": "declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "not required: No doc 48 script is sited here."
   },
   {
    "id": "character-behaviour",
    "question": "Character behaviour sufficiently authored?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(no room content section declared)"
+    "docs/20-room-map.md::Act III and IV"
    ],
-   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+   "why": "no character is present to behave"
   },
   {
    "id": "open-canon",
@@ -101,55 +105,57 @@
    "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
   }
  ],
- "subjectsFound": 10,
+ "subjectsFound": 16,
  "subjectsDeclaredByDocument": null,
  "unresolvedCitations": [],
  "dimensions": [
   {
    "id": "writing",
    "question": "Writing",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/05-examine-layer.md::ROOM 35 — THE COMPANY VAULT",
-    "docs/49-wrong-answers.md::ROOM 35 — THE COMPANY VAULT"
+    "docs/54-batch-c.md::ROOM 35 · THE COMPANY VAULT",
+    "docs/49-wrong-answers.md::ROOM 35 — THE COMPANY VAULT",
+    "docs/20-room-map.md::Act III and IV"
    ],
    "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
   },
   {
    "id": "puzzle-behaviour",
    "question": "Puzzle behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::Puzzle Dependency Graph — v1"
    ],
    "why": "the puzzles sited here, the items they need and issue, and the flags they set"
   },
   {
    "id": "act-behaviour",
    "question": "Act/state behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 35 — THE COMPANY VAULT"
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
    ],
-   "why": "no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart"
+   "why": "none, by doctrine: The vault opens only in Act IV (doc 20); it has no other act."
   },
   {
    "id": "character-behaviour",
    "question": "Character behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(no room content section declared)"
+    "docs/20-room-map.md::Act III and IV"
    ],
-   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+   "why": "no character is present to behave"
   },
   {
    "id": "staging-behaviour",
    "question": "Staging behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/05-examine-layer.md::ROOM 35 — THE COMPANY VAULT"
    ],
-   "why": "declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "not required: No doc 48 script is sited here."
   },
   {
    "id": "visual-subjects",
@@ -175,17 +181,8 @@
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
- "buildableWithoutInvention": "NO",
- "blocking": [
-  "repeat-variants: 10 subject(s) short of three: THE VAULT DOOR (LOOK 1, LISTEN 1); THE LEDGER SHELF (LOOK 1, LISTEN 1); THE DEED BOXES (LOOK 1, LISTEN 1); THE SEARCH FUND (LOOK 1, LISTEN 1); THE MAP, PRIVATE (LOOK 1, LISTEN 1); THE STRONGBOX (LOOK 1, LISTEN 1); FANSHAWE'S PRIVATE DRAWER (LOOK 1, LISTEN 1); THE CHAMPAGNE (LOOK 1, LISTEN 1); THE GAS LAMP, FIXED (LOOK 1, LISTEN 1); THE VISITOR'S CHAIR (LOOK 1, LISTEN 1)",
-  "act-variants: no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart",
-  "dialogue: no dialogue declared for this room",
-  "puzzles: not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading.",
-  "items: the declared puzzle section names no item or topic",
-  "flags: the declared puzzle section names no flag or topic",
-  "staging: declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading.",
-  "character-behaviour: either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
- ],
+ "buildableWithoutInvention": "YES",
+ "blocking": [],
  "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
  "geometry": [
   {
@@ -218,5 +215,5 @@
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
  "geometryReady": "NO",
- "at": "2026-11-01T02:42:25.081Z"
+ "at": "2026-11-01T04:44:14.564Z"
 }

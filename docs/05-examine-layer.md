@@ -944,7 +944,7 @@ The only prose line in the entire room, on the correct spot:
 > **LOOK:** "On its own flat stone by a fire ring swept between uses. Pratt's coffee is famously terrible and famously punctual."
 > **LISTEN:** "Tin, ticking in the sun. Ten o'clock is coming."
 
-**THE SIGN: NO COLOUR YET**
+**THE SIGN: NO COLOR YET**
 > **LOOK:** "A small board, neatly lettered: NO COLOR YET. The YET has been repainted more times than the rest. It is the most honest sign in the district and the most stubborn word in it."
 > **LISTEN:** "Nothing. The sign says everything it hears."
 
@@ -1234,7 +1234,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. Double entries keep each other quiet."
 
 **THE DEED BOXES**
-> **LOOK:** "Tin boxes of deeds, labelled by street. The Company owns the fronts, the backs, the lots between, and the mortgage on most of what it doesn't. Consolation, in a filing system."
+> **LOOK:** "Tin boxes of deeds, labeled by street. The Company owns the fronts, the backs, the lots between, and the mortgage on most of what it doesn't. Consolation, in a filing system."
 > **LISTEN:** "Tin, ticking with the temperature. The town, expanding and contracting."
 
 **THE SEARCH FUND**

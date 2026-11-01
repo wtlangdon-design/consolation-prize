@@ -10,27 +10,29 @@
    "question": "LOOK/LISTEN complete?",
    "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 17 — CHURCH & MEETING HALL"
+    "docs/05-examine-layer.md::ROOM 17 — CHURCH & MEETING HALL",
+    "docs/54-batch-c.md::ROOM 17 · CHURCH & MEETING HALL"
    ],
-   "why": "10 subject(s), each with a LOOK and a LISTEN"
+   "why": "13 subject(s), each with a LOOK and a LISTEN"
   },
   {
    "id": "repeat-variants",
    "question": "Repeat-selection variants complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 17 — CHURCH & MEETING HALL"
+    "docs/05-examine-layer.md::ROOM 17 — CHURCH & MEETING HALL",
+    "docs/54-batch-c.md::ROOM 17 · CHURCH & MEETING HALL"
    ],
-   "why": "10 subject(s) short of three: THE BELL ROPE (LOOK 1, LISTEN 1); THE BELL (LOOK 1, LISTEN 1); THE PEWS (LOOK 1, LISTEN 1); THE HYMNAL (LOOK 1, LISTEN 1); THE PULPIT (LOOK 1, LISTEN 1); THE MEETING TABLE (LOOK 1, LISTEN 1); THE STOVE, CHURCH-SIZED (LOOK 1, LISTEN 1); THE WINDOW GLASS (LOOK 1, LISTEN 1); THE COLLECTION PLATE (LOOK 1, LISTEN 1); THE DOOR, ALWAYS UNLOCKED (LOOK 1, LISTEN 1)"
+   "why": "all 13 subject(s) carry three LOOK and three LISTEN variants"
   },
   {
    "id": "act-variants",
    "question": "Act/state variants complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 17 — CHURCH & MEETING HALL"
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
    ],
-   "why": "no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart"
+   "why": "none, by doctrine: Part Two-B wrote no variant for the church."
   },
   {
    "id": "wrong-verbs",
@@ -39,59 +41,67 @@
    "evidence": [
     "docs/49-wrong-answers.md::ROOM 17 — CHURCH & MEETING HALL"
    ],
-   "why": "3 authored refusal(s)"
+   "why": "5 authored refusal(s)"
   },
   {
    "id": "dialogue",
    "question": "Dialogue used by this room complete?",
-   "answer": "NO",
-   "evidence": [],
-   "why": "no dialogue declared for this room"
+   "answer": "YES",
+   "evidence": [
+    "docs/04-dialogue-trees.md::`SOW_A1` — the root *(W1 growth)*",
+    "docs/04-dialogue-trees.md::`SOW_C1` — negotiating one's own funeral"
+   ],
+   "why": "2 node(s) resolve for Reverend Sowerby"
   },
   {
    "id": "puzzles",
    "question": "Puzzle requirements complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::TRIAL THREE — Proof of Continuous Occupancy (Document D)",
+    "docs/02-puzzle-graph.md::ACT III — *Thaddeus Grubb Is Legally Dead*"
    ],
-   "why": "not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "D4, E3 are all specified in that section"
   },
   {
    "id": "items",
    "question": "Required items declared?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::TRIAL THREE — Proof of Continuous Occupancy (Document D)",
+    "docs/02-puzzle-graph.md::ACT III — *Thaddeus Grubb Is Legally Dead*"
    ],
-   "why": "the declared puzzle section names no item or topic"
+   "why": "the puzzle section names the documents and topics this room issues and needs"
   },
   {
    "id": "flags",
    "question": "Required flags/state declared?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::TRIAL THREE — Proof of Continuous Occupancy (Document D)",
+    "docs/02-puzzle-graph.md::ACT III — *Thaddeus Grubb Is Legally Dead*"
    ],
-   "why": "the declared puzzle section names no flag or topic"
+   "why": "the puzzle section names the topic flags this room sets"
   },
   {
    "id": "staging",
    "question": "Beat/staging script complete OR genuinely not required?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/54-batch-c.md::ROOM 17 · CHURCH & MEETING HALL"
    ],
-   "why": "declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "not required: E3 is SOW_C1, a dialogue puzzle with its own price counter; D4 is collected in conversation. No doc 48 script is sited in the church."
   },
   {
    "id": "character-behaviour",
    "question": "Character behaviour sufficiently authored?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(no room content section declared)"
+    "docs/04-dialogue-trees.md::`SOW_A1` — the root *(W1 growth)*",
+    "docs/04-dialogue-trees.md::`SOW_C1` — negotiating one's own funeral",
+    "docs/54-batch-c.md::ROOM 17 · CHURCH & MEETING HALL"
    ],
-   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+   "why": "Reverend Sowerby has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
   },
   {
    "id": "open-canon",
@@ -101,55 +111,61 @@
    "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
   }
  ],
- "subjectsFound": 10,
+ "subjectsFound": 13,
  "subjectsDeclaredByDocument": 10,
  "unresolvedCitations": [],
  "dimensions": [
   {
    "id": "writing",
    "question": "Writing",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/05-examine-layer.md::ROOM 17 — CHURCH & MEETING HALL",
-    "docs/49-wrong-answers.md::ROOM 17 — CHURCH & MEETING HALL"
+    "docs/54-batch-c.md::ROOM 17 · CHURCH & MEETING HALL",
+    "docs/49-wrong-answers.md::ROOM 17 — CHURCH & MEETING HALL",
+    "docs/04-dialogue-trees.md::`SOW_A1` — the root *(W1 growth)*",
+    "docs/04-dialogue-trees.md::`SOW_C1` — negotiating one's own funeral"
    ],
    "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
   },
   {
    "id": "puzzle-behaviour",
    "question": "Puzzle behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::TRIAL THREE — Proof of Continuous Occupancy (Document D)",
+    "docs/02-puzzle-graph.md::ACT III — *Thaddeus Grubb Is Legally Dead*"
    ],
    "why": "the puzzles sited here, the items they need and issue, and the flags they set"
   },
   {
    "id": "act-behaviour",
    "question": "Act/state behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 17 — CHURCH & MEETING HALL"
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
    ],
-   "why": "no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart"
+   "why": "none, by doctrine: Part Two-B wrote no variant for the church."
   },
   {
    "id": "character-behaviour",
    "question": "Character behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(no room content section declared)"
+    "docs/04-dialogue-trees.md::`SOW_A1` — the root *(W1 growth)*",
+    "docs/04-dialogue-trees.md::`SOW_C1` — negotiating one's own funeral",
+    "docs/54-batch-c.md::ROOM 17 · CHURCH & MEETING HALL"
    ],
-   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+   "why": "Reverend Sowerby has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
   },
   {
    "id": "staging-behaviour",
    "question": "Staging behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/54-batch-c.md::ROOM 17 · CHURCH & MEETING HALL"
    ],
-   "why": "declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "not required: E3 is SOW_C1, a dialogue puzzle with its own price counter; D4 is collected in conversation. No doc 48 script is sited in the church."
   },
   {
    "id": "visual-subjects",
@@ -175,17 +191,8 @@
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
- "buildableWithoutInvention": "NO",
- "blocking": [
-  "repeat-variants: 10 subject(s) short of three: THE BELL ROPE (LOOK 1, LISTEN 1); THE BELL (LOOK 1, LISTEN 1); THE PEWS (LOOK 1, LISTEN 1); THE HYMNAL (LOOK 1, LISTEN 1); THE PULPIT (LOOK 1, LISTEN 1); THE MEETING TABLE (LOOK 1, LISTEN 1); THE STOVE, CHURCH-SIZED (LOOK 1, LISTEN 1); THE WINDOW GLASS (LOOK 1, LISTEN 1); THE COLLECTION PLATE (LOOK 1, LISTEN 1); THE DOOR, ALWAYS UNLOCKED (LOOK 1, LISTEN 1)",
-  "act-variants: no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart",
-  "dialogue: no dialogue declared for this room",
-  "puzzles: not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading.",
-  "items: the declared puzzle section names no item or topic",
-  "flags: the declared puzzle section names no flag or topic",
-  "staging: declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading.",
-  "character-behaviour: either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
- ],
+ "buildableWithoutInvention": "YES",
+ "blocking": [],
  "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
  "geometry": [
   {
@@ -218,5 +225,5 @@
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
  "geometryReady": "NO",
- "at": "2026-11-01T02:42:23.473Z"
+ "at": "2026-11-01T04:44:13.355Z"
 }

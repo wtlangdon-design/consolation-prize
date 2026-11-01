@@ -23,7 +23,7 @@ cutscene frame around a live tree — control is `dialogue` throughout the middl
 |---|---|---|
 | 1 | Thad seated; the table laid absurdly well; Fanshawe pours. "You'll take wine. It takes itself, mostly." | none |
 | 2 | **The tree (FAN_A2).** Six options; five sell Prosperity in language Thad doesn't recognise as a sale. The player is the mark, live | dialogue |
-| 3 | Whichever option — the pen with no ink, the charm, the handkerchief pocketed absently. `T_SWINDLED` set here, AFTER the exchange settles | dialogue |
+| 3 | Whichever option — the pen with no ink, the charm, the handkerchief pocketed absently. `T_DINED` set here, AFTER the exchange settles *(errata 68 C: `T_SWINDLED` is Deke's, A3)* | dialogue |
 | 4 | Thad on the porch, holding the deed wrong side up. "A very fine dinner." Beat. "I believe I own something." | none |
 | 5 | Act card: **PART TWO — THREE PIECES OF PAPER** | none |
 

@@ -29,7 +29,7 @@
 *Eight hotspots. The best-worked claim in the district. It has never produced anything.*
 
 **THE WORKINGS**
-> **LOOK:** "Square. Timbered properly. Swept — somebody has *swept* a mine. This is the finest piece of work in the territory and there has never been a thing in it."
+> **LOOK:** "Square. Timbered properly. Swept — somebody has swept a mine. This is the finest piece of work in the territory and there has never been a thing in it."
 > **LISTEN:** "Nothing. It is very well made and there is nothing in it."
 
 **THE TALLY POST**
@@ -49,7 +49,7 @@
 > **LISTEN:** "Nothing."
 
 **THE SIGN** · **THE SLUICE** · **THE BOUNDARY**
-> *(The sign — **LOOK:** "C. PRATT. No claim name. Every other man out here named his. He has just put his name on it, which on reflection is the only accurate sign in the district.")*
+> *(The sign — **LOOK:** "N. PRATT. No claim name. Every other man out here named his. He has just put his name on it, which on reflection is the only accurate sign in the district.")*
 
 ---
 
@@ -109,7 +109,7 @@
 > **LISTEN:** "Nothing."
 
 **THE MARKER**
-> **LOOK:** "THADEUS GRUBBE. Frame supplied the spelling. It is the last one and it is not the best one."
+> **LOOK:** "THADDEUS GRUBB. Frame supplied the spelling and got it right, once, for a grave I am not going to be in." *(Errata ruling, doc 00 line ~104; applied at source 2026-10-31.)*
 > **LISTEN:** "Nothing."
 
 **THE COFFIN**
@@ -161,7 +161,7 @@
 *Ten hotspots. Everything Fanshawe has been protecting, and none of it is gold.*
 
 **THE ORIGINAL SUBSCRIPTION**
-> **LOOK:** "The subscription for the Mott expedition, Boston, 1847. Eleven names. The fourth is A. Fanshawe. He was not a colonel then either."
+> **LOOK:** "The subscription for the Mott expedition, Boston, 1846. Eleven names. The fourth is A. Fanshawe. He was not a colonel then either."
 > **LISTEN:** "Nothing."
 
 **THE MAPS**
@@ -169,7 +169,7 @@
 > **LISTEN:** "Nothing."
 
 **THE STOCK PORTRAIT BOXES**
-> **LOOK:** "Four gross of portraits of a man in a good collar, purchased at wholesale in 1851. The Clarion has been printing him as Obadiah Mott for eleven years."
+> **LOOK:** "Four gross of portraits of a man in a good collar, purchased at wholesale in 1851. The Clarion has been printing him as Obadiah Mott for seven years." *(Errata 10 dates, applied at source 2026-10-31.)*
 > **LISTEN:** "Nothing."
 
 **THE REAL LEDGERS**

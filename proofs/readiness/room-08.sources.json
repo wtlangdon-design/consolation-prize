@@ -3,27 +3,41 @@
  "room": 8,
  "id": "room-08",
  "name": "REGISTRAR'S ARCHIVE",
- "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 by the unattended room pass. The examine, act-variant and wrong-verb pointers were resolved mechanically from document headings. Dialogue and puzzles are NOT mapped: the room is blocked at the repeat-variant layer (doc 15 section 5, 'Repeat variants and verb fallbacks, 41 rooms', unchecked), which no mapping can change, so the gate's dialogue/puzzle NOs here mean 'not declared', not 'not written'. Map them before this room is reconsidered.",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54).",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 8 — REGISTRAR'S ARCHIVE",
+  "primary": "docs/05-examine-layer.md::ROOM 8 \u2014 REGISTRAR'S ARCHIVE",
   "batch": [
-   "docs/08-examine-batch-1.md::ROOM 8 — REGISTRAR'S ARCHIVE"
-  ]
+   "docs/08-examine-batch-1.md::ROOM 8 \u2014 REGISTRAR'S ARCHIVE"
+  ],
+  "merged": [
+   "docs/08-examine-batch-1.md::ROOM 8 \u2014 REGISTRAR'S ARCHIVE"
+  ],
+  "completions": [
+   "docs/54-batch-c.md::ROOM 8 \u00b7 REGISTRAR'S ARCHIVE"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "Doc 08: 'Entered once, in Act III, as one's own executor.' It has no other act."
+  }
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 8 — REGISTRAR'S ARCHIVE",
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 8 \u2014 REGISTRAR'S ARCHIVE",
  "dialogue": {
   "characters": [],
   "trees": [],
-  "mapped": false
+  "none": {
+   "source": "docs/02-puzzle-graph.md::ACT III \u2014 *Thaddeus Grubb Is Legally Dead*",
+   "why": "E9 is solved by looking and listening alone; nobody is staged in the archive."
+  }
  },
  "puzzles": {
-  "ids": [],
-  "source": null,
-  "mapped": false
+  "ids": [
+   "E9"
+  ],
+  "source": "docs/02-puzzle-graph.md::ACT III \u2014 *Thaddeus Grubb Is Legally Dead*"
  },
  "staging": {
-  "required": null,
-  "why": "not assessed: blocked at the examine layer"
+  "required": false,
+  "why": "No doc 48 script is sited in the archive; E9 is the player's own realisation."
  },
  "connectivity": "docs/20-room-map.md"
 }

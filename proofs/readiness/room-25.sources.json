@@ -3,27 +3,48 @@
  "room": 25,
  "id": "room-25",
  "name": "PRATT'S CLAIM",
- "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 by the unattended room pass. The examine, act-variant and wrong-verb pointers were resolved mechanically from document headings. Dialogue and puzzles are NOT mapped: the room is blocked at the repeat-variant layer (doc 15 section 5, 'Repeat variants and verb fallbacks, 41 rooms', unchecked), which no mapping can change, so the gate's dialogue/puzzle NOs here mean 'not declared', not 'not written'. Map them before this room is reconsidered.",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54). Pratt's trees are sited here because his claim is where doc 02's D-trial finds him.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 25 — PRATT'S CLAIM",
+  "primary": "docs/05-examine-layer.md::ROOM 25 \u2014 PRATT'S CLAIM",
   "batch": [
-   "docs/10-examine-batch-3.md::ROOM 25 — PRATT'S CLAIM"
+   "docs/10-examine-batch-3.md::ROOM 25 \u2014 PRATT'S CLAIM"
+  ],
+  "merged": [
+   "docs/10-examine-batch-3.md::ROOM 25 \u2014 PRATT'S CLAIM"
+  ],
+  "completions": [
+   "docs/54-batch-c.md::ROOM 25 \u00b7 PRATT'S CLAIM"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "Part Two-B wrote no variant for Pratt's claim."
+  }
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 25 \u2014 PRATT'S CLAIM",
+ "dialogue": {
+  "characters": [
+   "Nickel Pratt"
+  ],
+  "trees": [
+   "docs/04-dialogue-trees.md::`PRA_A1` \u2014 next door, Act I *(Batch C, doc 54; errata 68 A)*",
+   "docs/04-dialogue-trees.md::Root: `PRA_B1`",
+   "docs/04-dialogue-trees.md::`PRA_D2` \u2014 the first encounter *(W1 growth)*",
+   "docs/04-dialogue-trees.md::`PRA_D5` \u2014 the turn",
+   "docs/04-dialogue-trees.md::`PRA_D6` \u2014 after the signing *(W1 growth)*"
   ]
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 25 — PRATT'S CLAIM",
- "dialogue": {
-  "characters": [],
-  "trees": [],
-  "mapped": false
- },
  "puzzles": {
-  "ids": [],
-  "source": null,
-  "mapped": false
+  "ids": [
+   "D2",
+   "D5",
+   "D6"
+  ],
+  "source": "docs/02-puzzle-graph.md::TRIAL THREE \u2014 Proof of Continuous Occupancy (Document D)"
  },
  "staging": {
-  "required": null,
-  "why": "not assessed: blocked at the examine layer"
+  "required": false,
+  "why": "No doc 48 script is sited here; D2, D5 and D6 are Pratt's dialogue nodes."
  },
- "connectivity": "docs/20-room-map.md"
+ "connectivity": "docs/20-room-map.md",
+ "exits": "docs/54-batch-c.md::ROOM 25 \u00b7 PRATT'S CLAIM"
 }

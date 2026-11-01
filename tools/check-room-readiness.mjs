@@ -105,10 +105,66 @@ function doc25Subjects(body) {
   const blocks = body.split(/^###\s+/m).slice(1);
   for (const block of blocks) {
     const name = block.split('\n')[0].trim();
-    const look = /^\*\*LOOK\*\*(.*)$/m.exec(block);
-    const listen = /^\*\*LISTEN\*\*(.*)$/m.exec(block);
+    // `**LOOK**`, or `**LOOK Act I**` / `**LOOK Acts I–II**` (doc 26's Room 19):
+    // an act-labelled run is still that act's three variants.
+    const look = /^\*\*LOOK(?: Acts? [^*]+)?\*\*(.*)$/m.exec(block);
+    const listen = /^\*\*LISTEN(?: Acts? [^*]+)?\*\*(.*)$/m.exec(block);
     const variants = (line) => (line ? (line[1].match(/(?:^|·)\s*\d+\s+"/g) ?? []).length : 0);
     out.push({ name, lookVariants: variants(look), listenVariants: variants(listen) });
+  }
+  // A SUBJECT REWRITTEN IN PROSE, its runs quoted. Doc 19 section 2 rewrites
+  // Room 7's THE TWO LINES as "**THE TWO LINES is rewritten ...:**" followed by
+  // "> **LOOK** 1 ... · 2 ... · 3 ..." -- three variants each, complete, and
+  // read as missing because neither form above matched a quoted run. The name
+  // is the capitalised run that opens the bold line.
+  {
+    const lines = body.split('\n');
+    for (let i = 0; i < lines.length; i += 1) {
+      const look = /^>\s*\*\*LOOK\*\*(.*)$/.exec(lines[i].trim());
+      if (!look) continue;
+      let name = null;
+      for (let j = i - 1; j >= 0 && name === null; j -= 1) {
+        const bold = /^\*\*([A-Z][A-Z0-9'’ ,.&-]*[A-Z0-9])\b/.exec(lines[j].trim());
+        if (bold) name = bold[1].replace(/\s+(IS|ARE)$/, '').trim();
+      }
+      if (!name) continue;
+      const listenLine = lines.slice(i + 1, i + 3).map((l) => /^>\s*\*\*LISTEN\*\*(.*)$/.exec(l.trim())).find(Boolean);
+      const count = (text) => (text.match(/(?:^|·)\s*\d+\s+"/g) ?? []).length;
+      out.push({ name, lookVariants: count(look[1]), listenVariants: listenLine ? count(listenLine[1]) : 0 });
+    }
+  }
+  // A SUBJECT INTRODUCED BY A NOTE: `**HIS MOTHER'S LETTERS** — *Correction…*`
+  // and then, a line or two later, unquoted numbered `**LOOK…**` and
+  // `**LISTEN…**` runs (doc 26's Room 19). The note is not a variant.
+  {
+    const lines = body.split('\n');
+    for (let i = 0; i < lines.length; i += 1) {
+      const intro = /^\*\*([A-Z][^*]+?)\*\*\s*—\s*\*[^*]/.exec(lines[i].trim());
+      if (!intro) continue;
+      const window = lines.slice(i + 1, i + 6).map((l) => l.trim());
+      const lookLine = window.map((l) => /^\*\*LOOK(?: Acts? [^*]+)?\*\*(.*)$/.exec(l)).find(Boolean);
+      const listenLine = window.map((l) => /^\*\*LISTEN(?: Acts? [^*]+)?\*\*(.*)$/.exec(l)).find(Boolean);
+      if (!lookLine && !listenLine) continue;
+      const count = (text) => (text.match(/(?:^|·)\s*\d+\s+"/g) ?? []).length;
+      out.push({ name: intro[1].trim(), lookVariants: lookLine ? count(lookLine[1]) : 0,
+        listenVariants: listenLine ? count(listenLine[1]) : 0 });
+    }
+  }
+  // AN EXIT, in doc 25/26's shape: `**THE DOOR → Room 18**` and then
+  // unquoted `**LOOK** 1 "..."` and `**LISTEN** 1 "..."` lines. An exit is a
+  // hotspot, and doc 05 sometimes names the same door as a subject.
+  {
+    const lines = body.split('\n');
+    for (let i = 0; i < lines.length; i += 1) {
+      const exit = /^\*\*(.+?)\s+→\s+Room\s+\d+\*\*\s*$/.exec(lines[i].trim());
+      if (!exit) continue;
+      const lookLine = /^\*\*LOOK\*\*(.*)$/.exec((lines[i + 1] ?? '').trim());
+      const listenLine = /^\*\*LISTEN\*\*(.*)$/.exec((lines[i + 2] ?? '').trim());
+      if (!lookLine && !listenLine) continue;
+      const count = (text) => (text.match(/(?:^|·)\s*\d+\s+"/g) ?? []).length;
+      out.push({ name: exit[1].trim(), lookVariants: lookLine ? count(lookLine[1]) : 0,
+        listenVariants: listenLine ? count(listenLine[1]) : 0, exit: true });
+    }
   }
   // Repeat variants for doc 05's own subjects are written as a bold run
   // rather than as `###` blocks.
@@ -125,13 +181,72 @@ function doc25Subjects(body) {
     const listenHalf = halves[1] ? halves[1].replace(/^\s*LISTEN\s*/, '') : null;
     out.push({
       name: found[1].trim(),
-      // Variant 1 lives in doc 05; this line supplies 2 and 3.
-      lookVariants: count(halves[0]) + 1,
-      listenVariants: listenHalf === null ? 0 : count(listenHalf) + 1,
+      // A CONTINUATION SUPPLIES EXACTLY THE VARIANTS IT LISTS. Variant 1 lives
+      // in doc 05 or in a batch doc and is counted from there -- since the
+      // merge ruling (errata 67) both can supply one, so "+1 for the line
+      // elsewhere" would be a guess about how many lines elsewhere there are.
+      lookVariants: count(halves[0]),
+      listenVariants: listenHalf === null ? 0 : count(listenHalf),
       continuation: true,
     });
   }
   return out;
+}
+
+/**
+ * ERRATA 67: THE TWO EXAMINE PASSES ARE MERGED. A completion section may say
+ * that two names are one object -- `**THE TEETH** ≡ **THE JAR OF TEETH**`, the
+ * first name the one the room keeps -- and their variants are counted together.
+ * Declared, never guessed: two subjects with different names are two objects
+ * unless a document says otherwise.
+ */
+function aliases(body) {
+  const out = new Map();
+  for (const line of body.split('\n')) {
+    const found = /^\*\*(.+?)\*\*\s*≡\s*\*\*(.+?)\*\*/.exec(line.trim());
+    if (found) out.set(found[2].trim(), found[1].trim());
+  }
+  return out;
+}
+
+/**
+ * The batch docs (08, 09, 10) in their own shape: doc 05's quote lines for the
+ * subjects they script in full, and a line of bold names joined by `·` for the
+ * ones they only sketch. A sketched subject sometimes carries one LOOK in a
+ * parenthesis under it -- `*(The road — **LOOK:** "...")*` -- which is counted.
+ */
+function batchSubjects(body) {
+  const { written } = doc05Subjects(body);
+  const sketched = [];
+  const lines = body.split('\n');
+  for (let at = 0; at < lines.length; at += 1) {
+    const line = lines[at].trim();
+    if (!/^\*\*[^*]+\*\*(\s*·\s*\*\*[^*]+\*\*)+\s*$/.test(line)) continue;
+    const names = [...line.matchAll(/\*\*([^*]+)\*\*/g)].map((m) => m[1].trim());
+    // `*(The road east — **LOOK:** "..." **LISTEN:** "...")*`, or either verb
+    // alone (Room 18's stairs carry only a LISTEN).
+    // One parenthesis per sketched subject that has a line, each on its own
+    // line under the names (doc 08's Room 27 carries two).
+    const notes = [];
+    for (let k = at + 1; k < lines.length; k += 1) {
+      const next = lines[k].trim();
+      const note = /^>?\s*\*\((.+?)\s+—\s+\*\*(LOOK|LISTEN):?\*\*/.exec(next);
+      if (!note) break;
+      notes.push({ noted: note[1].trim().toUpperCase(),
+        look: /\*\*LOOK:?\*\*/.test(next), listen: /\*\*LISTEN:?\*\*/.test(next) });
+    }
+    for (const name of names) {
+      // "The board" names THE BOARD OF NAMES: a parenthesis may shorten.
+      // And may change the article: "(The boot" is doc 08's A BOOT.
+      const bare = (text) => text.replace(/^(THE|A|AN)\s+/, '');
+      // Or name it by its last word: "(Cloth" is THE BOLTS OF CLOTH.
+      const mine = notes.find((one) => bare(name) === bare(one.noted)
+        || bare(name).startsWith(`${bare(one.noted)} `)
+        || bare(name).endsWith(` ${bare(one.noted)}`));
+      sketched.push({ name, look: Boolean(mine?.look), listen: Boolean(mine?.listen) });
+    }
+  }
+  return [...written, ...sketched];
 }
 
 /* ----------------------------------------------------------- the questions */
@@ -156,23 +271,70 @@ function ask(room, sources, note) {
     declaredCount = counted ? WORDS[counted[1].toLowerCase()] ?? null : null;
 
     const completions = [];
+    const alias = new Map();
     for (const reference of sources.examine?.completions ?? []) {
       const found = section(reference);
-      if (found.ok) completions.push(...doc25Subjects(found.body));
+      if (!found.ok) continue;
+      completions.push(...doc25Subjects(found.body));
+      for (const [from, to] of aliases(found.body)) alias.set(from, to);
     }
+    const named = (name) => alias.get(name) ?? name;
     const byName = new Map();
+    const slot = (name) => {
+      const key = named(name);
+      if (!byName.has(key)) byName.set(key, { name: key, look: 0, listen: 0 });
+      return byName.get(key);
+    };
     for (const one of parsed.written) {
-      byName.set(one.name, { name: one.name, look: one.look ? 1 : 0, listen: one.listen ? 1 : 0 });
+      const at = slot(one.name);
+      at.look += one.look ? 1 : 0;
+      at.listen += one.listen ? 1 : 0;
+    }
+    // A SUBJECT ONLY THE ACT BLOCK DECLARES (Room 5's queue bench) has its
+    // first line there, once. The continuation that follows it no longer adds
+    // one for a line elsewhere, so the line elsewhere is counted here.
+    {
+      const reference = sources.examine?.actVariants;
+      const block = reference && reference !== sources.examine?.primary ? section(reference) : null;
+      const seen = new Set(parsed.written.map((one) => one.name));
+      if (block?.ok) {
+        for (const one of doc05Subjects(block.body).written) {
+          if (!one.act || seen.has(one.name)) continue;
+          seen.add(one.name);
+          const at = slot(one.name);
+          at.look += one.look ? 1 : 0;
+          at.listen += one.listen ? 1 : 0;
+        }
+      }
+    }
+    // THE BATCH PASS, MERGED (errata 67). Each subject it writes adds its own
+    // first line; a subject both passes wrote is one object with two.
+    for (const reference of sources.examine?.merged ?? []) {
+      const found = section(reference);
+      if (!found.ok) continue;
+      // A BATCH SUBJECT A RULING MOVED ELSEWHERE (errata 66 D: the second
+      // ledger is Room 5's) is not this room's. The room must cite the
+      // ruling, and the ruling must resolve.
+      const retired = sources.examine?.retired;
+      const retiredNames = retired && section(retired.ruling).ok ? retired.names : [];
+      for (const one of batchSubjects(found.body)) {
+        if (retiredNames.some((name) => one.name.startsWith(name))) continue;
+        const at = slot(one.name);
+        at.look += one.look ? 1 : 0;
+        at.listen += one.listen ? 1 : 0;
+      }
     }
     for (const one of completions) {
-      const at = byName.get(one.name) ?? { name: one.name, look: 0, listen: 0 };
-      at.look = Math.max(at.look, one.lookVariants);
-      at.listen = Math.max(at.listen, one.listenVariants);
-      byName.set(one.name, at);
+      const at = slot(one.name);
+      if (one.continuation) {
+        at.look += one.lookVariants;
+        at.listen += one.listenVariants;
+      } else {
+        at.look = Math.max(at.look, one.lookVariants);
+        at.listen = Math.max(at.listen, one.listenVariants);
+      }
     }
-    for (const name of parsed.pending) {
-      if (!byName.has(name)) byName.set(name, { name, look: 0, listen: 0 });
-    }
+    for (const name of parsed.pending) slot(name);
     subjects = [...byName.values()];
 
     const withoutBoth = subjects.filter((one) => one.look < 1 || one.listen < 1);
@@ -195,7 +357,10 @@ function ask(room, sources, note) {
       ? doc05Subjects(actSectionEarly.body).written
         .filter((one) => one.act && !primaryNames.has(one.name)).map((one) => one.name)
       : [];
-    const counted05 = subjects.filter((one) => !actOnlyNames.includes(one.name)).length;
+    // DOC 05'S OWN SUBJECTS against doc 05's own count. The merged room is
+    // larger by design (errata 67), and comparing the union with one pass's
+    // prose count would call every merged room a misreading.
+    const counted05 = [...primaryNames].filter((name) => !actOnlyNames.includes(name)).length;
     const countAgrees = declaredCount === null || declaredCount === counted05;
     add('look-listen', 'LOOK/LISTEN complete?',
       withoutBoth.length === 0 && countAgrees ? 'YES' : 'NO',
@@ -229,7 +394,30 @@ function ask(room, sources, note) {
       ? primary : section(actReference);
     const acts = actSection.ok
       ? doc05Subjects(actSection.body).written.filter((one) => one.act) : [];
-    add('act-variants', 'Act/state variants complete?',
+    // A DECLARED NONE, CITED. Doc 05 Part Two-B's doctrine is that a hotspot
+    // re-answers only "when the town's knowledge changes what Thad sees -- not
+    // every hotspot, every act, which would be bloat", and Part Two-B is the
+    // whole act-variant pass. A room that pass left out has none by that
+    // doctrine. The declaration must name the doctrine, the doctrine must
+    // resolve, and the pass must not name the room -- otherwise this is NO.
+    const none = sources.examine?.actVariantsNone;
+    const doctrine = none ? section(none.doctrine) : null;
+    const passNamesRoom = doctrine?.ok
+      && new RegExp(`^## ROOM ${room}\\b`, 'm').test(doctrine.body);
+    // ACT-LABELLED RUNS, in the batch docs' shape (`**LOOK Act IV:**`,
+    // `**LOOK Acts I–II**`): doc 08 writes Room 19's act variants that way,
+    // not as Part Two-B's `*(act: N)*`. Counted where a room points at them.
+    const labelled = (sources.examine?.actVariantsIn ?? []).flatMap((reference) => {
+      const found = section(reference);
+      return found.ok ? found.body.match(/^>?\s*\*\*(?:LOOK|LISTEN) Acts? [^*]+\*\*/gm) ?? [] : [];
+    });
+    if (acts.length === 0 && labelled.length > 0) {
+      add('act-variants', 'Act/state variants complete?', 'YES', sources.examine.actVariantsIn,
+        `${labelled.length} act-labelled run(s) authored in the batch shape`);
+    } else if (acts.length === 0 && none && doctrine?.ok && !passNamesRoom) {
+      add('act-variants', 'Act/state variants complete?', 'YES', [none.doctrine],
+        `none, by doctrine: ${none.why}`);
+    } else add('act-variants', 'Act/state variants complete?',
       acts.length > 0 ? 'YES' : 'NO',
       [sources.examine.actVariants ?? sources.examine.primary],
       acts.length > 0
@@ -243,7 +431,7 @@ function ask(room, sources, note) {
   /* 4 · wrong-verb layer -------------------------------------------------- */
   const wrong = section(sources.wrongVerbs);
   const wrongLines = wrong.ok
-    ? (wrong.body.match(/^\*\*.+?\*\*\s*·\s*[A-Z ]+\s*—/gm) ?? []).length : 0;
+    ? (wrong.body.match(/^\*\*.+?\*\*\s*·\s*[A-Z_ ]+\s*—/gm) ?? []).length : 0;
   add('wrong-verbs', 'Wrong-verb layer complete?',
     wrong.ok && wrongLines > 0 ? 'YES' : 'NO',
     [sources.wrongVerbs ?? '(none declared)'],
@@ -254,7 +442,14 @@ function ask(room, sources, note) {
   /* 5 · dialogue used by this room ---------------------------------------- */
   const trees = sources.dialogue?.trees ?? [];
   const unresolved = trees.filter((reference) => !section(reference).ok);
-  add('dialogue', 'Dialogue used by this room complete?',
+  // NOBODY SPEAKS HERE, DECLARED AND CITED. A room no character is staged in
+  // has no dialogue to be incomplete -- but only a room that SAYS so, with the
+  // document that places nobody there. Silence is never the default.
+  const silent = trees.length === 0 && sources.dialogue?.none && section(sources.dialogue.none.source).ok;
+  if (silent) {
+    add('dialogue', 'Dialogue used by this room complete?', 'YES', [sources.dialogue.none.source],
+      `no character speaks in this room: ${sources.dialogue.none.why}`);
+  } else add('dialogue', 'Dialogue used by this room complete?',
     trees.length > 0 && unresolved.length === 0 ? 'YES' : 'NO',
     trees,
     trees.length === 0
@@ -264,13 +459,28 @@ function ask(room, sources, note) {
         : `${unresolved.length} declared node(s) do not resolve: ${unresolved.join('; ')}`);
 
   /* 6 · puzzle requirements ----------------------------------------------- */
-  const puzzleSource = section(sources.puzzles?.source);
+  // ONE SECTION OR SEVERAL. Doc 02 is cut by act and trial, and a room that
+  // hosts an Act I puzzle and an Act III one has its puzzles in two sections.
+  const puzzleRefs = [sources.puzzles?.source ?? null].flat();
+  const puzzleParts = puzzleRefs.map((reference) => section(reference));
+  const broken = puzzleParts.find((part) => !part.ok);
+  const puzzleSource = broken ?? { ok: true, body: puzzleParts.map((part) => part.body).join('\n') };
   const ids = sources.puzzles?.ids ?? [];
   const absent = puzzleSource.ok
     ? ids.filter((id) => !new RegExp(`\\*\\*${id}\\*\\*`).test(puzzleSource.body)) : ids;
+  // NO PUZZLE IS SITED HERE, declared and cited, as for dialogue: the source
+  // must resolve and must not itself site a puzzle id in the declaration.
+  const noPuzzle = ids.length === 0 && sources.puzzles?.none && section(sources.puzzles.none.source).ok;
+  if (noPuzzle) {
+    for (const [id, question] of [['puzzles', 'Puzzle requirements complete?'],
+      ['items', 'Required items declared?'], ['flags', 'Required flags/state declared?']]) {
+      add(id, question, 'YES', [sources.puzzles.none.source],
+        `no puzzle is sited in this room: ${sources.puzzles.none.why}`);
+    }
+  } else {
   add('puzzles', 'Puzzle requirements complete?',
     puzzleSource.ok && ids.length > 0 && absent.length === 0 ? 'YES' : 'NO',
-    [sources.puzzles?.source ?? '(none declared)'],
+    puzzleRefs.filter(Boolean).length ? puzzleRefs.filter(Boolean) : ['(none declared)'],
     !puzzleSource.ok ? `not resolvable: ${puzzleSource.why}`
       : ids.length === 0 ? 'no puzzles declared for this room'
         : absent.length === 0 ? `${ids.join(', ')} are all specified in that section`
@@ -285,14 +495,15 @@ function ask(room, sources, note) {
   // whatever a reader might infer from the prose around it.
   const itemsNamed = puzzleSource.ok && /Document [AB]|Topic:|item/i.test(puzzleSource.body);
   add('items', 'Required items declared?', itemsNamed ? 'YES' : 'NO',
-    [sources.puzzles?.source ?? '(none declared)'],
+    (puzzleRefs.filter(Boolean).length ? puzzleRefs.filter(Boolean) : ['(none declared)']),
     itemsNamed ? 'the puzzle section names the documents and topics this room issues and needs'
       : 'the declared puzzle section names no item or topic');
   const flagsNamed = puzzleSource.ok && /Topic:|`T_[A-Z_]+`|T_[A-Z_]+/.test(puzzleSource.body);
   add('flags', 'Required flags/state declared?', flagsNamed ? 'YES' : 'NO',
-    [sources.puzzles?.source ?? '(none declared)'],
+    (puzzleRefs.filter(Boolean).length ? puzzleRefs.filter(Boolean) : ['(none declared)']),
     flagsNamed ? 'the puzzle section names the topic flags this room sets'
       : 'the declared puzzle section names no flag or topic');
+  }
 
   /* 9 · beat / staging script --------------------------------------------- */
   if (sources.staging?.required === false) {
@@ -316,7 +527,10 @@ function ask(room, sources, note) {
   const overrides = sources.exits ? section(sources.exits) : { ok: false, why: 'none declared' };
   const behaviour = trees.length > 0 && unresolved.length === 0 && overrides.ok
     && /##\s*Overrides/m.test(overrides.body);
-  add('character-behaviour', 'Character behaviour sufficiently authored?',
+  if (silent) {
+    add('character-behaviour', 'Character behaviour sufficiently authored?', 'YES',
+      [sources.dialogue.none.source], 'no character is present to behave');
+  } else add('character-behaviour', 'Character behaviour sufficiently authored?',
     behaviour ? 'YES' : 'NO',
     [...(trees.slice(0, 2)), sources.exits ?? '(no room content section declared)'],
     behaviour

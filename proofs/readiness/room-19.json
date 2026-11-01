@@ -8,31 +8,34 @@
   {
    "id": "look-listen",
    "question": "LOOK/LISTEN complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM",
-    "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM"
+    "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM",
+    "docs/54-batch-c.md::ROOM 19 · THAD'S HOTEL ROOM"
    ],
-   "why": "1 subject(s) without both: THE COAT ON THE DOOR"
+   "why": "13 subject(s), each with a LOOK and a LISTEN"
   },
   {
    "id": "repeat-variants",
    "question": "Repeat-selection variants complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM",
-    "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM"
+    "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM",
+    "docs/54-batch-c.md::ROOM 19 · THAD'S HOTEL ROOM"
    ],
-   "why": "6 subject(s) short of three: THE LETTERS HOME (LOOK 1, LISTEN 1); THE WARDROBE (LOOK 1, LISTEN 1); THE LAMP (LOOK 1, LISTEN 1); THE FLOORBOARDS (LOOK 1, LISTEN 1); THE DOOR (LOOK 1, LISTEN 1); THE COAT ON THE DOOR (LOOK 0, LISTEN 3)"
+   "why": "all 13 subject(s) carry three LOOK and three LISTEN variants"
   },
   {
    "id": "act-variants",
    "question": "Act/state variants complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM"
+    "docs/08-examine-batch-1.md::ROOM 19 — THAD'S HOTEL ROOM",
+    "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM"
    ],
-   "why": "no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart"
+   "why": "8 act-labelled run(s) authored in the batch shape"
   },
   {
    "id": "wrong-verbs",
@@ -41,41 +44,43 @@
    "evidence": [
     "docs/49-wrong-answers.md::ROOM 19 — THAD'S HOTEL ROOM"
    ],
-   "why": "4 authored refusal(s)"
+   "why": "5 authored refusal(s)"
   },
   {
    "id": "dialogue",
    "question": "Dialogue used by this room complete?",
-   "answer": "NO",
-   "evidence": [],
-   "why": "no dialogue declared for this room"
+   "answer": "YES",
+   "evidence": [
+    "docs/04-dialogue-trees.md::The letters, written (W7 pass, doc 47)"
+   ],
+   "why": "1 node(s) resolve for "
   },
   {
    "id": "puzzles",
    "question": "Puzzle requirements complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::Puzzle Dependency Graph — v1"
    ],
-   "why": "not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "no puzzle is sited in this room: No puzzle in doc 02 is sited in Room 19; the letters-home system lives here and is never tracked (invariant 10)."
   },
   {
    "id": "items",
    "question": "Required items declared?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::Puzzle Dependency Graph — v1"
    ],
-   "why": "the declared puzzle section names no item or topic"
+   "why": "no puzzle is sited in this room: No puzzle in doc 02 is sited in Room 19; the letters-home system lives here and is never tracked (invariant 10)."
   },
   {
    "id": "flags",
    "question": "Required flags/state declared?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::Puzzle Dependency Graph — v1"
    ],
-   "why": "the declared puzzle section names no flag or topic"
+   "why": "no puzzle is sited in this room: No puzzle in doc 02 is sited in Room 19; the letters-home system lives here and is never tracked (invariant 10)."
   },
   {
    "id": "staging",
@@ -89,11 +94,12 @@
   {
    "id": "character-behaviour",
    "question": "Character behaviour sufficiently authored?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
+    "docs/04-dialogue-trees.md::The letters, written (W7 pass, doc 47)",
     "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM"
    ],
-   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+   "why": " has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
   },
   {
    "id": "open-canon",
@@ -103,47 +109,51 @@
    "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
   }
  ],
- "subjectsFound": 12,
+ "subjectsFound": 13,
  "subjectsDeclaredByDocument": null,
  "unresolvedCitations": [],
  "dimensions": [
   {
    "id": "writing",
    "question": "Writing",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM",
     "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM",
-    "docs/49-wrong-answers.md::ROOM 19 — THAD'S HOTEL ROOM"
+    "docs/54-batch-c.md::ROOM 19 · THAD'S HOTEL ROOM",
+    "docs/49-wrong-answers.md::ROOM 19 — THAD'S HOTEL ROOM",
+    "docs/04-dialogue-trees.md::The letters, written (W7 pass, doc 47)"
    ],
    "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
   },
   {
    "id": "puzzle-behaviour",
    "question": "Puzzle behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::Puzzle Dependency Graph — v1"
    ],
    "why": "the puzzles sited here, the items they need and issue, and the flags they set"
   },
   {
    "id": "act-behaviour",
    "question": "Act/state behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM"
+    "docs/08-examine-batch-1.md::ROOM 19 — THAD'S HOTEL ROOM",
+    "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM"
    ],
-   "why": "no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart"
+   "why": "8 act-labelled run(s) authored in the batch shape"
   },
   {
    "id": "character-behaviour",
    "question": "Character behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
+    "docs/04-dialogue-trees.md::The letters, written (W7 pass, doc 47)",
     "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM"
    ],
-   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+   "why": " has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
   },
   {
    "id": "staging-behaviour",
@@ -178,17 +188,8 @@
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
- "buildableWithoutInvention": "NO",
- "blocking": [
-  "look-listen: 1 subject(s) without both: THE COAT ON THE DOOR",
-  "repeat-variants: 6 subject(s) short of three: THE LETTERS HOME (LOOK 1, LISTEN 1); THE WARDROBE (LOOK 1, LISTEN 1); THE LAMP (LOOK 1, LISTEN 1); THE FLOORBOARDS (LOOK 1, LISTEN 1); THE DOOR (LOOK 1, LISTEN 1); THE COAT ON THE DOOR (LOOK 0, LISTEN 3)",
-  "act-variants: no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart",
-  "dialogue: no dialogue declared for this room",
-  "puzzles: not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading.",
-  "items: the declared puzzle section names no item or topic",
-  "flags: the declared puzzle section names no flag or topic",
-  "character-behaviour: either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
- ],
+ "buildableWithoutInvention": "YES",
+ "blocking": [],
  "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
  "geometry": [
   {
@@ -221,5 +222,5 @@
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
  "geometryReady": "NO",
- "at": "2026-11-01T02:41:49.028Z"
+ "at": "2026-11-01T04:44:13.492Z"
 }

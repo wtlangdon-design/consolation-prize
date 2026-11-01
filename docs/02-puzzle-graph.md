@@ -115,7 +115,7 @@ Document C requires **A**, **B**, and **D**. Three independent trials. Any order
 |---|---|---|---|---|
 | **F1** | One last look at Prosperity | Thad remembers the hole was warm. Air moves through solid rock. It has done since Act I, puzzle five | E10, Topic A5 | The draught. **Twenty-hour payoff** |
 | **F2** | **THE LISTENING** | Tap and hear. The player must locate the void by ear. No text hints, no highlighted hotspot, no hint system. The score begins coming into tune underneath | F1, tuning fork | The void located |
-| **F3** | Break through | Under Prosperity: the strike Mott invented, exactly where he randomly said it was | F2, pickaxe | **The gold** |
+| **F3** | Break through | Under Prosperity: the strike Mott invented, exactly where he randomly said it was | F2, pickaxe | **The gold.** Sets `T_BROKE_THROUGH`, which turns Room 34 to its second state *(errata 69 A)* |
 | **F4** | **The Liar's Assay — final duel** | Fanshawe challenges him publicly to discredit him. Thad wins by telling the plain, complete truth. The judges score it as the greatest lie ever told in the territory | F3, 24 pairs | Fanshawe publicly beaten at his own institution |
 | **F5** | **THE FILING** | The last puzzle is a form. Thad files the strike in Obadiah Mott's name. The gold is real, so the town survives. The claim is Mott's, so the legend becomes retroactively true. A claim must be worked by its holder within thirty days, so Mott must come forward. Fanshawe's business was the search, and the search is over | F4, Winnie's signature | **ENDING.** Then the final letter home, entirely true, and very short |
 

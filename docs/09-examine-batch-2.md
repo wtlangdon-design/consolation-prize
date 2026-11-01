@@ -99,11 +99,11 @@
 *Eight hotspots. Three of them are Grievance.*
 
 **GRIEVANCE**
-> **LOOK:** "A mule. He has looked at me once, at length, and has not felt the need to do it again."
-> **LISTEN:** "Nothing. He is holding his breath. I am almost certain he is holding his breath."
+> **LOOK:** "A mule. She has looked at me once, at length, and has not felt the need to do it again."
+> **LISTEN:** "Nothing. She is holding her breath. I am almost certain she is holding her breath."
 
 **GRIEVANCE'S STALL**
-> **LOOK:** "His name is burned into the post. The other stalls are numbered. Somebody, at some point, decided this animal warranted a name."
+> **LOOK:** "Her name is burned into the post. The other stalls are numbered. Somebody, at some point, decided this animal warranted a name."
 > **LISTEN:** "Nothing."
 
 **GRIEVANCE'S BLANKET**
@@ -215,7 +215,7 @@
 *Six hotspots. The most informative screen in Act II, and nobody will come here.*
 
 **THE BACK OF THE IMPROVEMENT COMPANY**
-> **LOOK:** "One storey. From Main Street it is three. I have walked around it twice to be sure."
+> **LOOK:** "One story. From Main Street it is three. I have walked around it twice to be sure."
 > **LISTEN:** "Nothing. It is the quietest building in Consolation from every side."
 
 **THE ASH PILE**

@@ -11,19 +11,21 @@
    "answer": "YES",
    "evidence": [
     "docs/05-examine-layer.md::ROOM 7 — CLAIMS REGISTRAR#1",
-    "docs/25-rooms-05-07.md::ROOM 7 · CLAIMS REGISTRAR"
+    "docs/25-rooms-05-07.md::ROOM 7 · CLAIMS REGISTRAR",
+    "docs/19-19b-resolutions.md::2 · ROOM 7, THE REGISTRAR — the contradiction is mine, and the spindle wins"
    ],
-   "why": "10 subject(s), each with a LOOK and a LISTEN"
+   "why": "11 subject(s), each with a LOOK and a LISTEN"
   },
   {
    "id": "repeat-variants",
    "question": "Repeat-selection variants complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/05-examine-layer.md::ROOM 7 — CLAIMS REGISTRAR#1",
-    "docs/25-rooms-05-07.md::ROOM 7 · CLAIMS REGISTRAR"
+    "docs/25-rooms-05-07.md::ROOM 7 · CLAIMS REGISTRAR",
+    "docs/19-19b-resolutions.md::2 · ROOM 7, THE REGISTRAR — the contradiction is mine, and the spindle wins"
    ],
-   "why": "1 subject(s) short of three: THE TWO LINES (LOOK 1, LISTEN 1)"
+   "why": "all 11 subject(s) carry three LOOK and three LISTEN variants"
   },
   {
    "id": "act-variants",
@@ -41,7 +43,7 @@
    "evidence": [
     "docs/49-wrong-answers.md::ROOM 7 — CLAIMS REGISTRAR"
    ],
-   "why": "4 authored refusal(s)"
+   "why": "6 authored refusal(s)"
   },
   {
    "id": "dialogue",
@@ -106,17 +108,18 @@
    "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
   }
  ],
- "subjectsFound": 10,
+ "subjectsFound": 11,
  "subjectsDeclaredByDocument": 10,
  "unresolvedCitations": [],
  "dimensions": [
   {
    "id": "writing",
    "question": "Writing",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/05-examine-layer.md::ROOM 7 — CLAIMS REGISTRAR#1",
     "docs/25-rooms-05-07.md::ROOM 7 · CLAIMS REGISTRAR",
+    "docs/19-19b-resolutions.md::2 · ROOM 7, THE REGISTRAR — the contradiction is mine, and the spindle wins",
     "docs/49-wrong-answers.md::ROOM 7 — CLAIMS REGISTRAR",
     "docs/04-dialogue-trees.md::REGISTRAR CADWALLADER SUMP — four nodes, act-gated"
    ],
@@ -183,10 +186,8 @@
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
- "buildableWithoutInvention": "NO",
- "blocking": [
-  "repeat-variants: 1 subject(s) short of three: THE TWO LINES (LOOK 1, LISTEN 1)"
- ],
+ "buildableWithoutInvention": "YES",
+ "blocking": [],
  "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
  "geometry": [
   {
@@ -219,5 +220,5 @@
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
  "geometryReady": "NO",
- "at": "2026-11-01T02:41:13.626Z"
+ "at": "2026-11-01T04:44:12.627Z"
 }
