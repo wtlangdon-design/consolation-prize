@@ -4,6 +4,26 @@
   "speaker": "deke_vessel",
   "name": "DEKE VESSEL",
   "note": "EXTRACTED from docs/27-minor-trees.md by tools/extract-content.mjs. Do not edit: change doc 27 and re-run. Speakers come from the document's own typography -- plain quotes are deke_vessel, italic quotes are Thad, and an italic bracket is a stage direction nobody says.",
+  "examine": {
+    "LOOK_AT": [
+      {
+        "say": "A man at the bar with his hat pushed back, entirely at ease, watching the door.",
+        "repeat": [
+          "His boots are good. Everything above the boots is not, and I have decided that is deliberate.",
+          "He has been in this territory a long time and he is leaving it in a very good mood."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Talking. He has been talking since before I came in and he has not yet said anything.",
+        "repeat": [
+          "Still talking.",
+          "He has stopped, which is worse."
+        ]
+      }
+    ]
+  },
   "nodes": {
     "root": {
       "id": "root",

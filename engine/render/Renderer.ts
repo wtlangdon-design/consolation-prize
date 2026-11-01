@@ -1778,7 +1778,15 @@ export class Renderer {
       .find((each) => each.id === this.speaker);
     if (npc) {
       const height = this.state.heightForZone(npc.zone);
-      return { x: npc.x, headY: npc.y - height, height };
+      // A FIGURE DRAWN TALLER THAN HIS ZONE'S MAN keeps his words above his
+      // own head. Deke Vessel is drawn at the depth curve's height where he
+      // stands (312) and every zone height is shorter, so the zone anchor put
+      // "You're the piano man." across his face. The higher of the two
+      // anchors is used, so every figure drawn at or under its zone height --
+      // the whole cast before him -- is exactly where it was.
+      const drawn = this.ambientDrawnTop(npc);
+      const headY = drawn ? Math.min(npc.y - height, drawn.top) : npc.y - height;
+      return { x: npc.x, headY, height: drawn ? Math.max(height, drawn.height) : height };
     }
 
     for (const overlay of this.state.content.overlays.values()) {

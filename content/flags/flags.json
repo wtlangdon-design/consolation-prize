@@ -276,6 +276,12 @@
     "dialogue:WINNIE:WIN_B2:winnie3"
    ],
    "note": "Doc 04: WIN_B2 option 3 sets it. Gates WIN_B3. EXTRACTED for Room 5 from docs/04-dialogue-trees.md::WINNIE LEDGER; the name is the document's."
+  },
+  {
+   "id": "T_VESSEL_OPENED",
+   "type": "bool",
+   "initial": false,
+   "note": "Doc 35, VESSEL'S AUTO-OPEN: set when Deke Vessel opens on Thad on entering the Nugget, so he does it once. Written by the Nugget's onEnter.accost; read by the same accost's condition."
   }
  ]
 }

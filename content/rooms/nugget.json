@@ -1287,6 +1287,7 @@
   "retiredNote": "THE 320x144 RELICS ARE GONE. This room carried an `idles` layer declaring four 18-pixel figures against a sheet drawn for the retired 320x144 presentation, and a foreground plane of the same vintage -- both drawn into a 1920x864 room, which is what put black boxes on the floor and one beside Thad. They described the same men who are now baked into the plates: the bar’s near and middle drinkers, a seated player, and doc 16’s man beside the stove.\nTHE MAN ON THE LANDING SURVIVES THE DELETION, because he was never in that list. Ruling 20 makes him an explicit exception -- his whole joke is that he never moves -- and doc 16 keeps him in THE STAIRS: there is always a man on the landing.",
   "ambient": [
     "card_sharp",
+    "deke_vessel",
     "nugget_bar1",
     "nugget_bar2",
     "nugget_bar3",
@@ -1304,5 +1305,19 @@
     "floor_4",
     "floor_5",
     "floor_6"
-  ]
+  ],
+  "onEnter": {
+    "accost": {
+      "npc": "deke_vessel",
+      "when": {
+        "T_SWINDLED": false,
+        "T_VESSEL_OPENED": false
+      },
+      "afterSeconds": 1.5,
+      "set": {
+        "T_VESSEL_OPENED": true
+      },
+      "note": "Doc 35, VESSEL'S AUTO-OPEN, exactly: on entering, unless the swindle has happened or he has already opened, wait 1500 ms, he says \"You're the piano man.\" (his tree's opening, extracted from doc 27's Root) and the tree opens; T_VESSEL_OPENED makes it once only. Thad does not walk to him (doc 27: 'He opens. Thad does not approach him.')."
+    }
+  }
 }

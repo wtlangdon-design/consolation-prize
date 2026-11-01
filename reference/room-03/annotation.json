@@ -335,5 +335,17 @@
  "overrideAliases": {
   "CARDS": "THE HAND OF CARDS"
  },
- "overrideAliasesNote": "Doc 16 Part Three writes its overrides by short name (PIANO, BAR, STOVE...) and the compiler resolves a short name by unique prefix with or without a leading THE. CARDS is the one short name that is not a prefix of its doc 05 subject (THE HAND OF CARDS), so it is declared here, per room, and the compiler refuses an alias whose target doc 05 does not name."
+ "overrideAliasesNote": "Doc 16 Part Three writes its overrides by short name (PIANO, BAR, STOVE...) and the compiler resolves a short name by unique prefix with or without a leading THE. CARDS is the one short name that is not a prefix of its doc 05 subject (THE HAND OF CARDS), so it is declared here, per room, and the compiler refuses an alias whose target doc 05 does not name.",
+ "onEnterAccost": {
+  "npc": "deke_vessel",
+  "when": {
+   "T_SWINDLED": false,
+   "T_VESSEL_OPENED": false
+  },
+  "afterSeconds": 1.5,
+  "set": {
+   "T_VESSEL_OPENED": true
+  },
+  "note": "Doc 35, VESSEL'S AUTO-OPEN, exactly: on entering, unless the swindle has happened or he has already opened, wait 1500 ms, he says \"You're the piano man.\" (his tree's opening, extracted from doc 27's Root) and the tree opens; T_VESSEL_OPENED makes it once only. Thad does not walk to him (doc 27: 'He opens. Thad does not approach him.')."
+ }
 }

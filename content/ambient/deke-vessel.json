@@ -1,0 +1,84 @@
+{
+ "schema": 1,
+ "id": "deke_vessel",
+ "name": "DEKE VESSEL",
+ "posture": "standing",
+ "room": "nugget",
+ "note": "Doc 27, DEKE VESSEL · Room 3: gates A3, the swindle. Drawn from Tyler's approved attempt 2 (art/staging/room-03/deke-02, generated against Thad in this room, 2026-10-31), keyed, despilled, the five poses registered on his legs by tools/art/cut-ambient-sheet.py, BOX-reduced to 345 -- the bent curve's man where he stands (Tyler, 2026-10-31: 312 too small, 375 'way too big', 345 chosen from four) -- and graded to the bar men beside him (tools/grade/match-neighbours.py) after Tyler: 'Deke's coloring doesn't match anything else around him'.",
+ "x": 1060,
+ "y": 655,
+ "zone": 0,
+ "approachRadius": 160,
+ "tree": "DEKE_VESSEL",
+ "placeNote": "THE NEAR END OF THE BAR (build contract: 'must appear at the near end of the bar for A3'), standing clear of the first stool, to its left -- at 1109 his right boot came down on the stool's front leg, which stands nearer the camera than he does (Tyler, 2026-10-31: 'you have him standing on the stool leg') -- facing the door -- doc 27 LOOK 1: 'watching the door'.",
+ "walkTo": {
+  "x": 925,
+  "y": 668,
+  "facing": "right"
+ },
+ "walkToNote": "Floor at his left, between him and the card table; Thad faces him and the door is behind Thad.",
+ "barks": {},
+ "barksNote": "Doc 07 writes no reputation barks for him: he is a doc 27 tree character, not one of the eighteen ambients.",
+ "sprite": {
+  "sheet": "art/actors/deke-vessel.png",
+  "frames": [
+   [
+    2,
+    2,
+    157,
+    345
+   ],
+   [
+    161,
+    2,
+    157,
+    345
+   ],
+   [
+    320,
+    2,
+    157,
+    345
+   ],
+   [
+    479,
+    2,
+    157,
+    345
+   ],
+   [
+    638,
+    2,
+    157,
+    345
+   ]
+  ],
+  "rate": 0.35,
+  "talkFrame": 2,
+  "phase": 0.3,
+  "breakEvery": 11,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   [
+    3,
+    3,
+    3,
+    3
+   ],
+   [
+    4,
+    4,
+    4,
+    4,
+    4
+   ]
+  ],
+  "note": "Frames: 0 rest, 1 breath (the sway), 2 talking -- held while spoken to, and a break because doc 27's LISTEN is 'He has been talking since before I came in' -- 3 pushes his hat back, 4 looks out at the room. Breaks every 11 s: Tyler, no person in a room is ever static."
+ }
+}

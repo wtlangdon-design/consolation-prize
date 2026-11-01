@@ -930,6 +930,19 @@ export class GameScene extends Phaser.Scene {
       }
     }
     if (npc && chosen !== null && chosen !== 'TALK_TO') {
+      // HIS OWN LINES FIRST. A character with an examine layer (doc 27's three)
+      // is examined like an object: the lines live on his tree file and play
+      // through applyInteraction, so the second LISTEN is "Still talking."
+      // because the count is kept where every object's is.
+      const layer = npc.tree ? this.state.content.dialogue.get(npc.tree)?.examine : undefined;
+      if (layer?.[chosen]?.length) {
+        const [hx, hy, hw, hh] = this.ambient.hitBox(npc);
+        this.applyInteraction({
+          id: npc.id, name: npc.name, rect: [hx, hy, hw, hh], colour: 0, responses: layer,
+        } as Interactable, chosen);
+        this.markDirty();
+        return;
+      }
       const pool = this.state.content.verbFallbacks?.people?.[chosen];
       if (Array.isArray(pool) && pool.length) {
         this.setSay(pool[0]!, this.state.content.actor.id);
@@ -1189,6 +1202,36 @@ export class GameScene extends Phaser.Scene {
     // A RESUME IS NOT AN ARRIVAL: coming back from the map or a load puts him
     // where he stood, and a man does not remark on a town he is standing in.
     if (!resume) this.arrivalLines();
+    this.armAccost(resume !== null && resume !== undefined);
+  }
+
+  /** The pending accost's timer, cancelled by leaving the room. */
+  private accostTimer?: Phaser.Time.TimerEvent;
+
+  /**
+   * Doc 35's auto-open: a character in this room who opens on Thad. The room
+   * says who, when and how long he waits; the tree's own opening line is what
+   * he says, through the same greeting route TALK TO takes -- only Thad does
+   * not walk to him. A resume (the map, a load) is not an arrival and does not
+   * re-arm it; the `set` flags make it once only in any case.
+   */
+  private armAccost(resumed: boolean): void {
+    this.accostTimer?.remove();
+    this.accostTimer = undefined;
+    const accost = this.state.room.onEnter?.accost;
+    if (!accost || resumed || !this.state.flags.test(accost.when)) return;
+    const room = this.state.roomId;
+    this.accostTimer = this.time.delayedCall((accost.afterSeconds ?? 0) * 1000, () => {
+      this.accostTimer = undefined;
+      if (this.state.roomId !== room || this.state.dialogue.isActive || this.pendingTree) return;
+      if (!this.state.flags.test(accost.when)) return;
+      const npc = this.ambient.present.find((each) => each.id === accost.npc);
+      if (!npc?.tree) return;
+      for (const [id, value] of Object.entries(accost.set ?? {})) this.state.flags.set(id, value);
+      this.actor.faceToward(npc.x, npc.y);
+      this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y }, greeted: false, npc: npc.id };
+      this.markDirty();
+    });
   }
 
   /**
