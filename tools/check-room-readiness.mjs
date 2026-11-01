@@ -110,6 +110,27 @@ function doc25Subjects(body) {
     const variants = (line) => (line ? (line[1].match(/(?:^|·)\s*\d+\s+"/g) ?? []).length : 0);
     out.push({ name, lookVariants: variants(look), listenVariants: variants(listen) });
   }
+  // A SUBJECT REWRITTEN IN PROSE, its runs quoted. Doc 19 section 2 rewrites
+  // Room 7's THE TWO LINES as "**THE TWO LINES is rewritten ...:**" followed by
+  // "> **LOOK** 1 ... · 2 ... · 3 ..." -- three variants each, complete, and
+  // read as missing because neither form above matched a quoted run. The name
+  // is the capitalised run that opens the bold line.
+  {
+    const lines = body.split('\n');
+    for (let i = 0; i < lines.length; i += 1) {
+      const look = /^>\s*\*\*LOOK\*\*(.*)$/.exec(lines[i].trim());
+      if (!look) continue;
+      let name = null;
+      for (let j = i - 1; j >= 0 && name === null; j -= 1) {
+        const bold = /^\*\*([A-Z][A-Z0-9'’ ,.&-]*[A-Z0-9])\b/.exec(lines[j].trim());
+        if (bold) name = bold[1].replace(/\s+(IS|ARE)$/, '').trim();
+      }
+      if (!name) continue;
+      const listenLine = lines.slice(i + 1, i + 3).map((l) => /^>\s*\*\*LISTEN\*\*(.*)$/.exec(l.trim())).find(Boolean);
+      const count = (text) => (text.match(/(?:^|·)\s*\d+\s+"/g) ?? []).length;
+      out.push({ name, lookVariants: count(look[1]), listenVariants: listenLine ? count(listenLine[1]) : 0 });
+    }
+  }
   // Repeat variants for doc 05's own subjects are written as a bold run
   // rather than as `###` blocks.
   for (const line of body.split('\n')) {
