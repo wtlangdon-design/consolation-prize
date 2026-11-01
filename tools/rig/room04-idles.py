@@ -81,7 +81,7 @@ FIGURES = {
 JUDGE_BREAKS = [[2, 2, 2, 2, 2, 2, 2, 2, 0],        # confers with his neighbour
                 [3, 0, 3, 0, 3, 3, 0],              # drums his hands on the table
                 [4, 4, 0, 4, 4, 0],                 # nods
-                [5, 5, 5, 5, 5, 0]]                 # glances the other way
+                [5, 5, 5, 0, 2, 2, 2, 2, 0]]        # glances the other way, then confers
 SOWERBY_BREAKS = [[2, 3, 3, 2, 0],                  # marks the air with the pencil
                   [2, 3, 2, 0, 2, 3, 2, 0],         # and again, twice
                   [4, 4, 0, 2, 0],                  # lifts it, brings it down

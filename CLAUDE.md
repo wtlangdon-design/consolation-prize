@@ -76,6 +76,7 @@ Three rooms have already shipped or nearly shipped broken by ignoring this. Thir
 3. **Tyler sees it beside Thad and the nearby cast at game size, then placed in the room,** before it is cut into the game for real.
    **Full game build (Tyler, 2026-10-31, errata 72): this step moves to the playthrough.** A character that passes steps 1 and 2 is cut into the game; Tyler flags misses as he plays, and step 4 corrects them against Thad. Steps 1, 2 and 4 are unchanged.
 4. **A miss is corrected, not accepted.** Tyler rejected "accept it" for style mismatches. A correction shows the generator the side-by-side, within the attempt cap Tyler sets in `art/staging/caps.json`.
+5. **It moves from the start (errata 77).** Every visible character ships with something changing at least every 10 s and a deliberate action -- a frame that changes at least 10% of the figure, not a breath -- played at least every 30 s. Put the action poses in the generation brief; with no image budget left, derive them from the rest frame (`tools/rig/room04-idles.py`). **Enforced by `tests/movement.test.mjs`**; the only way past it is a `movementException` quoting a ruling.
 
 ## Content is extracted from the docs, never retyped
 

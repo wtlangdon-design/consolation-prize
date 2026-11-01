@@ -2297,3 +2297,23 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 **E · Left for you, and not decided.**
 - The voice from the ring speaks in the fallback ink. No speech colour is assigned to it, or to Deke, because colours are look decisions you make from a rendered sample.
 - **A renderer fix:** a speaker's head is found where the room places them, not where their file does. Room 4's Vessel is a placement of his Nugget record, and his words had hung over his Nugget spot.
+
+---
+
+# 77 · EVERY CHARACTER MOVES FROM THE START, AND IT IS CHECKED (2026-11-01)
+
+**Tyler's ruling.** After Room 4's back row shipped with a one-pixel breath and nothing else -- "the four men in the back are completely stationary", then "I thought it was written into our production rules that everyone had to have deliberate movement" -- he asked: "How do we ensure future characters all have movement from the start?" and chose to write the rule down and enforce it with a check, as character scale already is.
+
+It was written down: errata 35 says nobody is ever perfectly still and gives named figures deliberate actions, not a breath. What it lacked was a check, so a figure could ship holding a breath and nothing else and nothing would fail. That is closed here.
+
+**The rule.** Every visible character in a shipping room, in its own room and in every room a placement puts it:
+
+1. **Is never still.** Something on it changes at least every 10 seconds: a running idle (`rate`) or a beat (`beatEvery`).
+2. **Has a deliberate action.** At least one frame changes 10% of the figure's pixels against its rest frame. A one-pixel breath changes 5-8% and does not count; a lean, a gesture, a turned head or a drink does.
+3. **Does it often enough.** That action plays at least every 30 seconds -- in the beat, in a break from its pool, or in the running idle. 30 s is the slowest pace already approved (Main Street's three, 23-29 s).
+
+`tests/movement.test.mjs` holds all three, measured from the frames themselves and from the engine's own schedule (`ambientFrameAt`, sampled over ten minutes of play), not from what a file says about them -- so a crawling idle or an action buried in one break pool of four fails as the gap it really leaves. Run against Room 4 as it first shipped, it fails exactly the four men Tyler flagged and passes everyone else.
+
+**Exceptions.** `identity` figures draw nothing and are not checked; candidate rooms are not shipping rooms. Any other figure that must be still -- the Nugget candidate's man on the landing, "who has not moved", would be one -- carries a `movementException` that quotes the ruling allowing it. There is no silent way past the check.
+
+**From the start.** A new character is generated with its action poses in the brief (as Deke's five-pose sheet was). Where a room has no image operations left, actions are derived from the character's own rest frame with whole-pixel moves that cannot open a hole: leans and nods as shears, hands lifted by a warp, a forearm turned about the corner of the joint it folds into (`tools/rig/room04-idles.py`, Room 4's back row). The character style gate in CLAUDE.md carries this as its fifth step.
