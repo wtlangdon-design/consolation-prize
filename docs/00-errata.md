@@ -2138,3 +2138,5 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 
 **B · Room 36 is doc 05's where doc 08 contradicts it**, because doc 48 S7 says Room 36 is "scripted in doc 05". Doc 08's sign, trough LISTEN, boardwalk and steeple LISTEN are dropped from their sequences; its agreeing lines, and its two lost-dog conditionals, stay.
 
+**C · Room 19 (Thad's room).** The window faces the **alley** (doc 08 and doc 26, five lines, against doc 05's one): doc 05's THE WINDOW LOOK is dropped from the sequence; its LISTEN stays. The room costs **five** dollars a week (doc 02 A2; doc 26): doc 08's "four" is corrected at source. Doc 26's THE DESK LOOK 2 and LISTEN 3 copy doc 08's line 1 almost word for word and are dropped from the sequence. Doc 05's THE LETTERS HOME is Thad's drafts, the same object as doc 08's THE OUTGOING LETTER; doc 05's THE DOOR is the room's exit, whose lines doc 26 writes.
+

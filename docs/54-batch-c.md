@@ -873,3 +873,23 @@
 ### THE SHARE CERTIFICATES
 **LOOK** 1 "Shares in the Consolation Improvement Company, beautifully engraved, with a sunrise over a gold field that does not exist." · 2 "These are unsigned. The Company kept its own shares and sold the town everything else." · 3 "Each one has a vignette of a miner holding up a nugget and smiling. He has the same face as Obadiah Mott."
 **LISTEN** 1 "Nothing. Engraved paper is very confident and very quiet." · 2 "A stack shifting, crisp, like cards being squared." · 3 "Nothing. The sunrise on them has been rising for twelve years without a sound."
+
+---
+
+# ROOM 19 · THAD'S HOTEL ROOM
+
+*Merged: doc 05's nine and doc 08's nine (doc 26 completed doc 08's), fourteen objects. Decided in errata 69 C: the window faces the alley; the room is five dollars a week; doc 26's two near-copies of doc 08's desk line are dropped from its sequence. The letters-home system's text is doc 04 Part Three's, and nothing here refers to it (invariant 10).*
+
+## Same object, both passes
+
+**THE LETTERS HOME** ≡ **THE OUTGOING LETTER**
+
+*(THE BED, THE WASHSTAND, THE WINDOW and THE DESK have the same name in both passes. Doc 05's THE DOOR is the exit to Room 18, whose LOOK and LISTEN runs are doc 26's.)*
+
+## Repeats
+
+**THE WARDROBE** — LOOK 2 "The bottom drawer sticks. I have nothing to put in it, so we have come to an accommodation." · 3 "Somebody left a single glove on the top shelf. Nobody in Consolation owns gloves, so it was a visitor, and he lost the other one too." | LISTEN 2 "The door drifting on its hinge, a long, thin creak." · 3 "Nothing. My second shirt has nothing to say for itself."
+
+**THE LAMP** — LOOK 2 "A notice is tacked beside it: GUESTS WILL KINDLY NOT TURN UP THE WICK. Kindly is underlined." · 3 "I turned it up a quarter inch. Nobody came. I turned it back down anyway." | LISTEN 2 "A small flutter when the door opens. It does not like visitors either." · 3 "Nothing. It burns at the volume management prefers."
+
+**THE FLOORBOARDS** — LOOK 2 "One board is newer than the others, and nailed down harder." · 3 "At night the lobby lamp shines up through the gaps, and the floor glows in stripes, like a cell, or a keyboard." | LISTEN 2 "The clerk below, turning a page." · 3 "Somebody crossing the lobby slowly and stopping at the foot of the stairs. Then going on."
