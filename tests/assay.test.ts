@@ -207,3 +207,36 @@ test('a duel dropped mid-fight leaves Duel One on offer (invariant 6)', async ()
   state.dialogue.start('DEKE_VESSEL');
   assert.ok(state.dialogue.presentOptions().some((o) => o.option.id === 'ves_b1_3'));
 });
+
+test('the Assay stays sitting until the player walks out after Duel Two, and is gone when he returns', async () => {
+  const state = new GameState(await loadContent(fsReader), new MemoryStorage());
+  // Every name is read from the data: the room the Assay sits in is the one
+  // whose door writes T_ASSAY_ADJOURNED, and the sitting figures are the ones
+  // whose presence that flag ends.
+  const roomId = [...state.content.rooms.values()]
+    .find((room) => room.exits.some((exit) => exit.setOnTransit?.T_ASSAY_ADJOURNED !== undefined))!.id;
+  state.flags.set('T_VESSEL_FOUND', true);
+  state.enterRoom(roomId);
+  const door = () => state.room.exits.find((exit) => exit.setOnTransit?.T_ASSAY_ADJOURNED !== undefined)!;
+  const sitting = () => (state.room.ambient ?? [])
+    .map((id) => state.content.ambient.get(id)!)
+    .filter((npc) => (npc.when as Record<string, unknown> | undefined)?.T_ASSAY_ADJOURNED === false)
+    // AmbientLayer.present's own rule (engine/core/Ambient.ts).
+    .filter((npc) => state.flags.test(npc.placements?.[state.roomId]?.when ?? npc.when));
+  const leave = () => {
+    const out = door();
+    state.interact(out, 'WALK_TO');
+    assert.equal(state.roomId, out.to);
+    state.enterRoom(roomId);
+  };
+  const seated = sitting().length;
+  assert.ok(seated >= 4, 'the judges and the presiding figure are there once the Assay convenes');
+  leave();
+  assert.notEqual(state.flags.get('T_ASSAY_ADJOURNED'), true, 'leaving before the win adjourns nothing');
+  assert.equal(sitting().length, seated);
+  state.flags.set('T_DUEL_TWO_WON', true);
+  assert.equal(sitting().length, seated, 'winning does not make anyone vanish in front of him');
+  leave();
+  assert.equal(state.flags.get('T_ASSAY_ADJOURNED'), true, 'walking out after the win adjourns it');
+  assert.equal(sitting().length, 0, 'and when he comes back they are gone');
+});

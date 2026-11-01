@@ -536,6 +536,13 @@
       },
       "fallback": [],
       "defaultVerb": "WALK_TO",
+      "setOnTransit": {
+        "T_ASSAY_ADJOURNED": true
+      },
+      "setOnTransitWhen": {
+        "T_DUEL_TWO_WON": true
+      },
+      "note": "THE ASSAY ADJOURNS WHEN THAD WALKS OUT AFTER DUEL TWO, not the instant it is won. The judges and Sowerby have no walk to leave by, and a character who vanishes in front of the player is what Tyler ruled out (2026-11-01: 'it would bother me immensely to have a character just disappear'). So they stay while he is in the room, and the door writes T_ASSAY_ADJOURNED as he leaves; when he comes back they are gone, which arriving in a room never notices.",
       "walkTo": {
         "x": 270,
         "y": 720,
@@ -549,7 +556,7 @@
         {
           "when": {
             "T_VESSEL_FOUND": true,
-            "T_DUEL_TWO_WON": false
+            "T_ASSAY_ADJOURNED": false
           },
           "say": "Not across the line. There are amendments."
         }
@@ -560,7 +567,7 @@
         {
           "when": {
             "T_VESSEL_FOUND": true,
-            "T_DUEL_TWO_WON": false
+            "T_ASSAY_ADJOURNED": false
           },
           "say": "They are deliberating. I can hear them chewing the pencil."
         }
@@ -576,7 +583,7 @@
         {
           "when": {
             "T_VESSEL_FOUND": true,
-            "T_DUEL_TWO_WON": false
+            "T_ASSAY_ADJOURNED": false
           },
           "say": "They are deliberating. I can hear them chewing the pencil."
         }
@@ -592,7 +599,7 @@
         {
           "when": {
             "T_VESSEL_FOUND": true,
-            "T_DUEL_TWO_WON": false
+            "T_ASSAY_ADJOURNED": false
           },
           "say": "They are deliberating. I can hear them chewing the pencil."
         }

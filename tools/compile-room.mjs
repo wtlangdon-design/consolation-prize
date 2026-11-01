@@ -963,6 +963,9 @@ const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name,
   return { id: spec.id, name, rect: ann.exits[spec.id], colour: 0, to: spec.to, responses,
     ...(subject.overrides ? { overrides: subject.overrides } : {}), fallback: [],
     defaultVerb: spec.defaultVerb ?? 'WALK_TO',
+    ...(spec.setOnTransit ? { setOnTransit: spec.setOnTransit } : {}),
+    ...(spec.setOnTransitWhen ? { setOnTransitWhen: spec.setOnTransitWhen } : {}),
+    ...(spec.note ? { note: spec.note } : {}),
     ...(ann.exitWalkTo?.[spec.id] ? { walkTo: ann.exitWalkTo[spec.id] } : {}) };
 }) : [];
 built.exits = [...subjectExits, ...(live.exits ?? []).filter((e) => !subjectExits.some((s) => s.id === e.id)).map((e) => {

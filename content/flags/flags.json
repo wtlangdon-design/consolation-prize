@@ -339,6 +339,15 @@
    "note": "B6. Written by the duel runner when Duel Two is won, with Document A and the watch. Closes VES_B1 option 5."
   },
   {
+   "id": "T_ASSAY_ADJOURNED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:nugget_back/to_bar"
+   ],
+   "note": "Room 4's door writes it as Thad leaves once T_DUEL_TWO_WON holds (setOnTransitWhen). The judges and Sowerby are present until it is set, so the Assay is still sitting while he is in the room after his win and gone when he comes back -- nobody vanishes in front of him."
+  },
+  {
    "id": "ASSAY_PAIR_01",
    "type": "boolean",
    "initial": false,

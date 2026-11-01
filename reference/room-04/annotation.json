@@ -135,7 +135,14 @@
   "THE DOOR TO THE BAR": {
    "id": "to_bar",
    "to": "nugget",
-   "defaultVerb": "WALK_TO"
+   "defaultVerb": "WALK_TO",
+   "setOnTransit": {
+    "T_ASSAY_ADJOURNED": true
+   },
+   "setOnTransitWhen": {
+    "T_DUEL_TWO_WON": true
+   },
+   "note": "THE ASSAY ADJOURNS WHEN THAD WALKS OUT AFTER DUEL TWO, not the instant it is won. The judges and Sowerby have no walk to leave by, and a character who vanishes in front of the player is what Tyler ruled out (2026-11-01: 'it would bother me immensely to have a character just disappear'). So they stay while he is in the room, and the door writes T_ASSAY_ADJOURNED as he leaves; when he comes back they are gone, which arriving in a room never notices."
   }
  },
  "exitSubjectsNote": "Doc 54 writes the door as one of the room's eleven subjects, three LOOK and three LISTEN, and doc 20 makes it the way back to Room 3. It is compiled as the exit, carrying those lines, rather than as a hotspot beside one.",
@@ -167,7 +174,7 @@
  "peopleWhen": {
   "in a duel": {
    "T_VESSEL_FOUND": true,
-   "T_DUEL_TWO_WON": false
+   "T_ASSAY_ADJOURNED": false
   }
  },
  "peopleNote": "Doc 54's Overrides for people, by the ambient ids that draw them. 'In a duel' is the Assay sitting: Vessel found (B3) and Duel Two not yet won (errata 76 B) -- a verb cannot be chosen during a duel's exchanges, which are a conversation, so the override answers in the room the duel is fought in, while it is still to be fought.",

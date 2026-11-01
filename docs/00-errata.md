@@ -2295,7 +2295,8 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 - **Promotion.** Everything shipped through `promoteProvisional` (errata 72 E): technical gates passed, and recorded as **pending your playthrough**, never as accepted.
 
 **E · Left for you, and not decided.**
-- The voice from the ring speaks in the fallback ink. No speech colour is assigned to it, or to Deke, because colours are look decisions you make from a rendered sample.
+- ~~The voice from the ring speaks in the fallback ink.~~ **Decided by the builder under errata 78:** three sets rendered on the room in the game at x6; Deke sunny gold `#f2c85a`, Sowerby pale violet `#c8b4e8`, the ring a dim warm grey `#b0a898` (`content/ui/speech-colours.json`, each with its reason). Change freely.
+- **The Assay adjourns when Thad walks out after Duel Two, not the instant it is won (builder, errata 78).** Played in the browser, winning made the judges and Sowerby vanish in front of him -- what Tyler ruled out for Vessel the same day ("it would bother me immensely to have a character just disappear"). They have no walk to leave by, so they stay while he is in the room; the door writes `T_ASSAY_ADJOURNED` as he leaves (`setOnTransitWhen`, new: an exit's flag writes only while a condition holds), and when he comes back they are gone.
 - **A renderer fix:** a speaker's head is found where the room places them, not where their file does. Room 4's Vessel is a placement of his Nugget record, and his words had hung over his Nugget spot.
 
 ---
@@ -2317,3 +2318,18 @@ It was written down: errata 35 says nobody is ever perfectly still and gives nam
 **Exceptions.** `identity` figures draw nothing and are not checked; candidate rooms are not shipping rooms. Any other figure that must be still -- the Nugget candidate's man on the landing, "who has not moved", would be one -- carries a `movementException` that quotes the ruling allowing it. There is no silent way past the check.
 
 **From the start.** A new character is generated with its action poses in the brief (as Deke's five-pose sheet was). Where a room has no image operations left, actions are derived from the character's own rest frame with whole-pixel moves that cannot open a hole: leans and nods as shears, hands lifted by a warp, a forearm turned about the corner of the joint it folds into (`tools/rig/room04-idles.py`, Room 4's back row). The character style gate in CLAUDE.md carries this as its fifth step.
+
+---
+
+# 78 · NO OFFICIAL PLAYTHROUGH UNTIL THE WHOLE GAME IS READY (2026-11-01)
+
+**Tyler's ruling.** Asked whether Room 4 was complete and what it needed from him: "I'm not going to officially play through anything until the game is ready for a full play through. Until then I'm expecting you to get everything to it's best possible place."
+
+**What changes.** Errata 72 E has rooms ship before acceptance and Tyler accept them in the playthrough; that stands, and the playthrough is now one, at the end. Until then a room is not waiting on him: its builder takes it as far as it can go without him --
+
+- **Plays it in the running game,** every route through it, and fixes what reads badly (placement of lines, legibility of choices, people who vanish or freeze), instead of handing those to the playthrough.
+- **Makes the look decisions earlier errata left to Tyler** where the room needs them to be finished -- a speech colour, a staging choice -- from a rendered sample in the room, recorded with its reason so he can reverse it in one place.
+- **Stops only where the writing or a ruling is missing,** exactly as before: never generated content, never a gate skipped.
+
+What Tyler still decides: acceptance of the art (errata 72 E, at the full playthrough), and anything that asks him for a decision the docs do not make.
+
