@@ -77,8 +77,13 @@ export interface ResponseRule {
    *
    * Not `repeat`, which is a different question: repeat is what he says the
    * SECOND time you look, and this is the rest of what he says the first.
+   * A line with a speaker is theirs (doc 57 E9: Sump at the archive door).
    */
-  then?: string[];
+  then?: SpokenLine[];
+  /** Who speaks `say`, when it is not Thad (doc 57 E9's archive door: Sump). */
+  by?: string;
+  /** The canonical puzzle this response completes (doc 57 E9: THE MOTT FILE, LOOK). */
+  completes?: string;
   /**
    * Lines for repeat selections, cycled in order. Doc 05 requires three
    * variants minimum on Room 2 hotspots -- the player will read them

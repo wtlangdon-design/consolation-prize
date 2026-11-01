@@ -1068,6 +1068,23 @@ function combinations() {
       ];
     }
   }
+  // DOC 57 E9: THE EXECUTOR'S FORM on THE MOTT FILE, in the archive (Room 8).
+  // One case, the same hand: T_SAME_HAND and E9. Its words are the document's.
+  {
+    const whole = read('docs/57-puzzle-completion.md');
+    const from = whole.indexOf('## E9 ');
+    if (from < 0) throw new Error('doc 57: no E9 section');
+    const body = whole.slice(from, whole.indexOf('\n## ', from + 5));
+    const m = /^> \*\*THE MOTT FILE\*\* · USE THE EXECUTOR'S FORM — (.+)$/m.exec(body);
+    if (!m) throw new Error('doc 57 E9: no "THE MOTT FILE · USE THE EXECUTOR\'S FORM" line');
+    const [line] = quoted(m[1].split('→')[0]);
+    if (!line) throw new Error('doc 57 E9: the form on the file has no line');
+    rebuilt.push({
+      item: 'executor_form', room: 'archive', target: 'mott_file', puzzle: 'E9', say: line,
+      note: 'Doc 57 E9 (not doc 24): the executor\'s form on the Mott file -- the same hand.',
+      rules: [{ case: 'the same hand', say: line, set: { T_SAME_HAND: true }, completes: 'E9' }],
+    });
+  }
   rebuilt.push({
     item: 'survey', room: 'claims_registrar', target: 'counter', puzzle: 'A9', say: registrar.surveyAfter.line,
     note: 'Doc 57 A9 (not doc 24): the survey on the counter, after the deed and before it.',

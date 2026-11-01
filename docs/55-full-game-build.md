@@ -104,6 +104,7 @@ Stop the room, not the build, and say so in doc 36 and to Tyler, when:
 | 4 | 2026-11-01 | #78 (stopped), #84, #88, #90, #91, #93 | 5 of 5 (master, plate, Sowerby, Sowerby redrawn whole, Sowerby alone on magenta; Tyler raised the cap to 5) | The Liar's Assay engine and Duels One and Two; judges and Sowerby new, Deke re-cut. `?room=nugget_back`; `?fixture=r4-a` convenes the Assay. Awaiting playthrough (doc 36 Q148, errata 76) |
 | 6 | 2026-11-01 | #108 | 3 of 4 (master, plate, plate re-framed to hold the window, mat and cot) | The records room: night, nobody in it, sixteen subjects. `?room=assay_records`. Its door back has no lines (stub exit, doc 36 Q149, errata 79) |
 | 7 | 2026-11-01 | #109 | 3 of 4 (master, plate, Sump's five-pose sheet) | The claims registrar: Sump at his window, A6 and A9 at his counter (A9 plays from `?fixture=r7-b` until the survey's room exists), D1, E1, E2 by his tree. `?room=claims_registrar`. Five doc 49 objects unhoused and three of Sump's nodes waiting (doc 36 Q150, errata 80) |
+| 8 | 2026-11-01 | PR_PENDING | 2 of 4 (master; Thad out and the room re-framed in one edit) | The registrar's archive: entered through Room 7's archive door as the executor's agent (doc 57 E9), E9 seen by the form or by a look. `?fixture=r8-a`. Its door back has no lines (doc 36 Q151, errata 81) |
 
 ## 8 · What playing found — held by a script where a script can hold it
 
@@ -124,6 +125,7 @@ Every row here shipped past a green suite and was found by Tyler playing, by a r
 | Lines exist in a document but never reach a room | Doc 49's Nugget verbs; doc 05's act variants (#97) | `tools/compile-room.mjs` reads both for every room, and reports by name what has no hotspot yet |
 | A figure drawn at the wrong height after a move | Deke recut at 382, then 428 | `tests/scale.test.ts` |
 | A place on the map could not be clicked: another place's label ran across its marker | The registrar, Room 7's only built way in, under the undertaker's label (errata 80 H) | `tests/map.test.ts` — every place that can be travelled to is reached by its own marker, in every fixture's state |
+| A scene that leads to another room changed rooms before its lines were read | The archive door's exchange hung its first line over the archive and lost the rest (errata 81 F) | `tests/room-08.test.ts` — a response with lines and a destination reports `goesTo` and does not change the room itself |
 | A character standing still | The back row in Room 4 | `tests/movement.test.mjs` (errata 77) |
 
 ### Not caught — the process that worked

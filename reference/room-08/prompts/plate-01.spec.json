@@ -1,0 +1,11 @@
+{
+ "assetId": "room-08",
+ "subject": "room-08-archive",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-08-archive",
+ "promptFile": "reference/room-08/prompts/plate-01.txt",
+ "out": "art/staging/room-08/plate-01/source.png",
+ "size": "1536x1024",
+ "images": ["art/staging/room-08/plate-01/base-1536x1024.png"]
+}

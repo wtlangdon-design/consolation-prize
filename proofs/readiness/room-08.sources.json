@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": 8,
- "id": "room-08",
+ "id": "room-08-archive",
  "name": "REGISTRAR'S ARCHIVE",
  "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54).",
  "examine": {
@@ -39,5 +39,7 @@
   "required": false,
   "why": "No doc 48 script is sited in the archive; E9 is the player's own realisation."
  },
- "connectivity": "docs/20-room-map.md"
+ "connectivity": "docs/20-room-map.md",
+ "roomFile": "content/rooms/archive.json",
+ "plate": "art/backgrounds/room-08-archive.png"
 }

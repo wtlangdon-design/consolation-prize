@@ -4732,3 +4732,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Waiting for other rooms (errata 80 E):** SUM_B1's About Document C (E0: Documents B and D, from C6 and D6), SUM_C1 (E5: the death certificate, E4) and SUM_F1 (F5, Act IV). Pratt at the counter (D6) waits for Pratt.
 
 **For Tyler, in the playthrough:** Sump's look (errata 80 B -- his first drawing), the plate (80 G), and A9's read-back, which plays from the fixture `r7-b` until Ozymandia's room exists.
+
+## Q151 · Room 8, the registrar's archive: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-01 (errata 81, delegated; the door ships as a stub exit under errata 72 F); BUILT, room-08 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Fourteen subjects, 90 lines (content/examine/room-08.json); entered from Room 7 by doc 57 E9's door scene; E9 played both ways in `tests/room-08.test.ts` (fixtures `r8-a`, `r8-b`). Proofs under `renders/proofs/archive/`.
+
+**Open:** the archive's side of its door has no LOOK or LISTEN in any document (doc 57 E9 writes the registrar's side). Three of each, in doc 54's Room 8 section, would close it; not in a puzzle's path.

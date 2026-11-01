@@ -210,5 +210,23 @@
  "supersededBy": {
   "THE TWO LINES": "docs/19-19b-resolutions.md::# 2 · ROOM 7, THE REGISTRAR — the contradiction is mine, and the spindle wins"
  },
- "supersededByNote": "Doc 19 section 2: THE TWO LINES is rewritten (no figures), and the spindle survives. The room file shipped doc 19's lines before this compile; the compiler now reads them from doc 19."
+ "supersededByNote": "Doc 19 section 2: THE TWO LINES is rewritten (no figures), and the spindle survives. The room file shipped doc 19's lines before this compile; the compiler now reads them from doc 19.",
+ "sceneLines": [
+  {
+   "hotspot": "sealed_archive_door",
+   "verb": "OPEN",
+   "ref": "docs/57-puzzle-completion.md::## E9 · The archive — Hob is Mott",
+   "subject": "THE ARCHIVE DOOR",
+   "verbText": "OPEN",
+   "case": "with `T_EXECUTOR_NAMED`",
+   "speakers": {
+    "SUMP": "sump"
+   },
+   "when": {
+    "T_EXECUTOR_NAMED": true
+   },
+   "goto": "archive"
+  }
+ ],
+ "sceneLinesNote": "Doc 57 E9: with T_EXECUTOR_NAMED (E6), OPEN on the archive door is Sump's exchange and the door unlocks into Room 8 (doc 20: 'reachable only as an executor'). Before it, the door's own OPEN override answers."
 }

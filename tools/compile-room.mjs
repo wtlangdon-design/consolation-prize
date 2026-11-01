@@ -973,6 +973,59 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
   };
 });
 
+// DOC 57'S SCENE LINES ON A ROOM'S OWN SUBJECTS. Doc 57 writes a puzzle's
+// moments as `> **SUBJECT** · VERB, *case* — words` lines: THE ARCHIVE DOOR ·
+// OPEN, *with `T_EXECUTOR_NAMED`* (E9), THE MOTT FILE · LOOK, *with
+// `T_HOB_HANDWRITING`* (E9). The annotation's `sceneLines` names each one
+// by its section, subject, verb and case, and says what it does (`when`,
+// `set`, `completes`, `goto`); the WORDS and who speaks them are read from the
+// document here. A segment led by `**NAME:**` is that speaker's (the speaker
+// map is the annotation's); any other quoted segment is Thad's. Italic
+// directions are staging and are reported, not spoken. A line the document
+// does not write is a build failure naming it.
+function sceneLine(spec) {
+  const [path, heading] = spec.ref.split('::');
+  const text = read(path);
+  const at = text.indexOf(heading);
+  if (at < 0) fail(`sceneLines: ${path} has no section "${heading}"`);
+  const rest = text.slice(at + heading.length);
+  const next = /\n## /.exec(rest);
+  const body = rest.slice(0, next ? next.index : rest.length);
+  const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`^> \\*\\*${esc(spec.subject)}\\*\\* · ${esc(spec.verbText)}, \\*${esc(spec.case)}\\* — (.+)$`, 'm');
+  const m = re.exec(body);
+  if (!m) fail(`sceneLines: ${spec.ref} writes no "${spec.subject} · ${spec.verbText}, ${spec.case}" line`);
+  const [spoken] = m[1].split('→');
+  const lines = [];
+  for (const segment of spoken.split(/\s—\s/)) {
+    const who = /^\s*\*\*([A-Z' ]+):\*\*/.exec(segment);
+    const speaker = who ? (spec.speakers ?? {})[who[1]] : 'thad';
+    if (who && !speaker) fail(`sceneLines: "${who[1]}" speaks in ${spec.ref} and the annotation's speakers do not name them`);
+    for (const q of segment.matchAll(/"([^"]+)"/g)) lines.push({ speaker, line: q[1].replace(/\*/g, '') });
+  }
+  if (!lines.length) fail(`sceneLines: ${spec.subject} · ${spec.verbText}, ${spec.case} has no spoken line`);
+  const [first, ...more] = lines;
+  return {
+    ...(spec.when ? { when: spec.when } : {}),
+    say: first.line,
+    ...(first.speaker !== 'thad' ? { by: first.speaker } : {}),
+    ...(more.length ? { then: more.map((l) => (l.speaker === 'thad' ? l.line : l)) } : {}),
+    ...(spec.set ? { set: spec.set } : {}),
+    ...(spec.completes ? { completes: spec.completes } : {}),
+    ...(spec.goto ? { goto: spec.goto } : {}),
+    sceneLine: `${spec.ref} · ${spec.case}`,
+  };
+}
+
+// The annotation's scene lines, each placed ahead of its subject's ordinary
+// lines for that verb: the first rule whose condition holds answers.
+for (const spec of ann.sceneLines ?? []) {
+  const hotspot = built.hotspots.find((one) => one.id === spec.hotspot);
+  if (!hotspot) fail(`sceneLines: no hotspot "${spec.hotspot}" in this room`);
+  const rule = sceneLine(spec);
+  (hotspot.responses[spec.verb] ??= []).unshift(rule);
+}
+
 // SMALLEST RECT FIRST, because resolution takes the first hit and the writing
 // gives no order at all. false_fronts is 3040x290 and covers the sign, the
 // steeple and the notices; listed before them it swallows all three and the

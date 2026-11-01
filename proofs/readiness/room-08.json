@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM CONTENT READINESS. Whether this room can be BUILT WITHOUT INVENTING ANYTHING. It holds no creative prose -- every answer cites a document path and an exact heading, or a qualified issue reference. It says nothing about whether the writing is good.",
  "room": 8,
- "id": "room-08",
+ "id": "room-08-archive",
  "name": "REGISTRAR'S ARCHIVE",
  "content": [
   {
@@ -57,9 +57,10 @@
    "question": "Puzzle requirements complete?",
    "answer": "YES",
    "evidence": [
-    "docs/02-puzzle-graph.md::ACT III — *Thaddeus Grubb Is Legally Dead*"
+    "docs/02-puzzle-graph.md::ACT III — *Thaddeus Grubb Is Legally Dead*",
+    "proofs/readiness/puzzles.json"
    ],
-   "why": "E9 are all specified in that section"
+   "why": "E9 are specified, and every piece of their content is written"
   },
   {
    "id": "items",
@@ -126,7 +127,8 @@
    "question": "Puzzle behaviour",
    "answer": "YES",
    "evidence": [
-    "docs/02-puzzle-graph.md::ACT III — *Thaddeus Grubb Is Legally Dead*"
+    "docs/02-puzzle-graph.md::ACT III — *Thaddeus Grubb Is Legally Dead*",
+    "proofs/readiness/puzzles.json"
    ],
    "why": "the puzzles sited here, the items they need and issue, and the flags they set"
   },
@@ -160,24 +162,26 @@
   {
    "id": "visual-subjects",
    "question": "Visual subject requirements",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "A renders/room-01-in-engine-1920x1080.png",
     "B art/backgrounds/room-01-stage-road.png",
-    "C art/actors/thad-stand-front/stand-00.png"
+    "C art/actors/thad-stand-front/stand-00.png",
+    "D art/backgrounds/room-05-assay-office.png",
+    "E reference/casting/room-01-casting-master.png"
    ],
-   "why": "D and E: room-08 has no entry in reference/global-baseline.json. The comparable room and the casting references are declared per room, never inferred from a name."
+   "why": "every baseline slot is satisfied: A, B, C, D, E"
   },
   {
    "id": "geometry",
    "question": "Geometry/placement",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "reference/room-08/annotation.json",
-    "(no room file declared)",
-    "(none declared)"
+    "content/rooms/archive.json",
+    "art/backgrounds/room-08-archive.png"
    ],
-   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points | the room is not in the manifest | no shipping plate declared"
+   "why": "annotation, room file and plate are all present at the canonical size"
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
@@ -188,32 +192,32 @@
   {
    "id": "annotation",
    "question": "Room annotation exists?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "reference/room-08/annotation.json"
    ],
-   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points"
+   "why": "authored geometry is on disk"
   },
   {
    "id": "compiled",
    "question": "Room JSON in the manifest?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(no room file declared)"
+    "content/rooms/archive.json"
    ],
-   "why": "the room is not in the manifest"
+   "why": "content/rooms/archive.json is loaded by the engine"
   },
   {
    "id": "plate",
    "question": "Shipping plate at the canonical size?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "art/backgrounds/room-08-archive.png"
    ],
-   "why": "no shipping plate declared"
+   "why": "art/backgrounds/room-08-archive.png is 1920x864, PNG colour type 2"
   }
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
- "geometryReady": "NO",
- "at": "2026-11-01T05:09:20.790Z"
+ "geometryReady": "YES",
+ "at": "2026-11-01T22:28:10.767Z"
 }

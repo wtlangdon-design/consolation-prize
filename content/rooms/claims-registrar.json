@@ -251,6 +251,29 @@
               "Nothing at all. Whatever is in there is not moving."
             ]
           }
+        ],
+        "OPEN": [
+          {
+            "when": {
+              "T_EXECUTOR_NAMED": true
+            },
+            "say": "The executor of the late Mr. Grubb.",
+            "by": "sump",
+            "then": [
+              "His agent.",
+              {
+                "speaker": "sump",
+                "line": "You resemble him."
+              },
+              "So I'm told.",
+              {
+                "speaker": "sump",
+                "line": "Twenty minutes. The archive closes at four, and so do I."
+              }
+            ],
+            "goto": "archive",
+            "sceneLine": "docs/57-puzzle-completion.md::## E9 · The archive — Hob is Mott · with `T_EXECUTOR_NAMED`"
+          }
         ]
       },
       "overrides": {

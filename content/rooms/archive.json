@@ -1,0 +1,803 @@
+{
+  "schema": 1,
+  "id": "archive",
+  "name": "THE REGISTRAR'S ARCHIVE",
+  "materialIdentity": "Paper, dust and dark stacks, lit only by the lamp in its bracket by the door (doc 08); night, as the registrar's through its door (errata 81)",
+  "note": "Room 8, doc 20: the registrar's sealed archive, behind THE SEALED ARCHIVE DOOR in Room 7. Entered once, in Act III, as the executor's agent (doc 57 E9: the door opens with T_EXECUTOR_NAMED). Nobody is staged here. E9 is seen here, quietly. Compiled by tools/compile-room.mjs from content/examine/room-08.json and reference/room-08/annotation.json.",
+  "background": "art/backgrounds/room-08-archive.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 320,
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        200,
+        745,
+        1550,
+        35
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        200,
+        780,
+        1550,
+        35
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        200,
+        815,
+        1550,
+        35
+      ]
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "county_seal",
+      "name": "THE COUNTY SEAL",
+      "rect": [
+        520,
+        450,
+        45,
+        55
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The seal that makes paper true. A pound of brass with the weight of scripture.",
+            "repeat": [
+              "The handle is wrapped in chamois so it will not mark. Even the seal is handled with care.",
+              "Around the rim, CONSOLATION COUNTY; in the middle, a pickaxe crossed with a quill. That is the whole economy, and it is accurate."
+            ],
+            "then": [
+              "Sump cleans it more often than it needs."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It speaks only when pressed.",
+            "repeat": [
+              "Nothing. It is resting between truths.",
+              "A faint ring when I set it down. Brass, agreeing with itself."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I lifted it an inch. The weight of it is a legal argument. I set it down persuaded."
+      },
+      "walkTo": {
+        "x": 543,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "executors_ledger",
+      "name": "THE EXECUTORS' LEDGER",
+      "rect": [
+        575,
+        462,
+        95,
+        40
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A record of every man who has entered this room. Nineteen names.",
+            "repeat": [
+              "The ink of the last entry before mine is years old. Nobody has been dead enough to come in here for a long time.",
+              "I signed it. Under occupation I wrote 'deceased', because it seemed the honest thing."
+            ],
+            "then": [
+              "I am the twentieth, and I am dead."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. A book of visitors, none of whom is visiting.",
+              "The page settling as I close it. Twenty names now, and one of them still breathing."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 623,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "timesheet",
+      "name": "THE TIMESHEET",
+      "rect": [
+        1135,
+        315,
+        100,
+        65
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The watch rota for the year of the strike, kept for no reason anyone remembers.",
+            "repeat": [
+              "The watchman's hours, signed weekly. Twelve years of them, in a stack.",
+              "Bundled with string and labeled by year. The archive keeps everything, including what nobody asked it to keep."
+            ],
+            "then": [
+              "Names, nights, initials."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper. Same hand as the filing.",
+            "repeat": [
+              "Paper. Same hand as the filing.",
+              "Paper. Same hand as the filing."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1185,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim_one_s_box",
+      "name": "CLAIM ONE'S BOX",
+      "rect": [
+        1025,
+        305,
+        110,
+        75
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The most famous claim in the territory.",
+            "repeat": [
+              "It has a brass corner piece, which none of the others has. Somebody felt the most famous box deserved a little armor.",
+              "The label is in Sump's hand, and has been relabeled once, in Sump's hand, more neatly."
+            ],
+            "then": [
+              "The box is the same size as all the others, which I find unreasonable."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. A box holding one sheet makes the same sound as an empty one.",
+              "Nothing. The most famous box in the territory has nothing to say for itself."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1080,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "lamp_bracket",
+      "name": "THE LAMP BRACKET",
+      "rect": [
+        355,
+        110,
+        90,
+        230
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "No open flame in the archive; the lamp lives in a bracket by the door, and the deep stacks stay dark. What the archive knows, it knows in the dark.",
+            "repeat": [
+              "The wall above it is scorched in a neat oval, the shape of a lamp held at that height for a long time.",
+              "It is the only light allowed in here, and it is allowed only as far as the door."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The bracket rocks a little. Someone takes the lamp down more than Sump admits.",
+            "repeat": [
+              "The bracket creaking as the door swings.",
+              "Nothing. The lamp is down, and the bracket is waiting for it."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 400,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "chair",
+      "name": "THE CHAIR",
+      "rect": [
+        1210,
+        485,
+        130,
+        250
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "One chair. Facing the shelves. Somebody sits in here.",
+            "repeat": [
+              "A plain chair with a cushion worn flat in the shape of one particular person.",
+              "I did not sit in it. It felt like someone else's."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It has been sat in a great deal and it is not saying by whom.",
+            "repeat": [
+              "A creak as the cushion lets go of the last shape it held.",
+              "Nothing. It is waiting for whoever it waits for."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1275,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "dust",
+      "name": "THE DUST",
+      "rect": [
+        1010,
+        285,
+        375,
+        105
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Undisturbed everywhere except one shelf, at chest height, where somebody has been reaching for years.",
+            "repeat": [
+              "It lies on everything else like a sheet over the furniture in a closed house.",
+              "My own prints are in it now. It will remember me longer than the town does."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Dust is very good at being undisturbed.",
+              "Nothing. I sneezed once, which is the loudest thing this room has heard in a year."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1198,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "unclaimed_correspondence",
+      "name": "THE UNCLAIMED CORRESPONDENCE",
+      "rect": [
+        445,
+        125,
+        160,
+        275
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A pigeonhole of letters addressed to men the territory has misplaced.",
+            "repeat": [
+              "One is addressed to Ezra Pike. Six years waiting. I carried its twin eleven hundred miles.",
+              "Some envelopes have been readdressed three times, each to a camp further west. The last is addressed to nowhere at all, and was delivered here."
+            ],
+            "then": [
+              "Some have waited years. The postage is a small museum."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Envelopes. Patience, in paper form.",
+            "repeat": [
+              "A soft slither as one envelope leans into another.",
+              "Nothing. Letters keep very quiet when nobody is coming for them."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "Other men's letters. I have one of my own addressed to a dead man; I know how they feel about being held."
+      },
+      "walkTo": {
+        "x": 525,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "barred_window",
+      "name": "THE BARRED WINDOW",
+      "rect": [
+        1485,
+        10,
+        175,
+        265
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Barred, on the inside. Whoever built this was not worried about people getting in.",
+            "repeat": [
+              "The bars are set in mortar on the inside of the frame. Somebody built a room to keep paper from escaping.",
+              "Through the bars, a slice of Main Street: one hitching rail, one horse, one man looking at neither."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Main Street. Muffled. It sounds like a town from in here.",
+            "repeat": [
+              "A wagon passing, reduced to a rumor.",
+              "Somebody laughing outside. In here it sounds like a story about someone else."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1573,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "mott_file",
+      "name": "THE MOTT FILE",
+      "rect": [
+        965,
+        450,
+        230,
+        250
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "when": {
+              "T_HOB_HANDWRITING": true
+            },
+            "say": "The famous filing, under glass. A very neat hand. I have told its owner so, to his face, and he looked at me for a long time.",
+            "set": {
+              "T_SAME_HAND": true
+            },
+            "completes": "E9",
+            "sceneLine": "docs/57-puzzle-completion.md::## E9 · The archive — Hob is Mott · with `T_HOB_HANDWRITING`"
+          },
+          {
+            "say": "The famous filing. The original declaration of the strike, under glass now, because people kept touching it. The signature is confident. The rest is brief.",
+            "repeat": [
+              "One sheet. A date, a name, an assertion, and a signature. There is no location on it. There has never been a location on it. Ten thousand men have dug for twelve years on the strength of a sheet of paper that does not say where.",
+              "It is shorter than my letter to my mother. It has done considerably more."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It has said what it has to say for twelve years.",
+            "repeat": [
+              "Nothing at all.",
+              "Nothing. Twelve years under glass, and still nothing to add."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "Under glass, and the glass is under Sump, and Sump is under statute. It is the best-defended document in the territory."
+      },
+      "walkTo": {
+        "x": 1080,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "filing_ladder",
+      "name": "THE FILING LADDER",
+      "rect": [
+        740,
+        50,
+        130,
+        560
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A ladder on a rail, for reaching the years nobody asks about.",
+            "repeat": [
+              "The rungs are worn smooth in the middle, the way rungs are.",
+              "From the top rung you can touch the ceiling and the oldest box in the district at once."
+            ],
+            "then": [
+              "The wheels are rusted at 1858 and shine at the present."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The rail, ticking as the building cools.",
+            "repeat": [
+              "A wheel squeaking a quarter turn as I lean on it.",
+              "Nothing. It has been put back exactly where it was, which is to say, used."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "It rolls to 1858 and stops of its own accord, like a horse that knows the route."
+      },
+      "walkTo": {
+        "x": 805,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "clerk_s_desk",
+      "name": "THE CLERK'S DESK",
+      "rect": [
+        375,
+        470,
+        340,
+        240
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Sump's desk in the archive, angled so he can see the door and the door cannot see what he is reading.",
+            "repeat": [
+              "A blotter, a pen and a stamp pad, all squared to the edge. Sump's archive desk is Sump in furniture.",
+              "One drawer has a brass label: PENDING. It is empty. Nothing in Sump's charge is pending for long."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A drawer that does not quite shut. It holds something read often.",
+            "repeat": [
+              "The drawer that will not quite shut, ticking when the floor moves.",
+              "Nothing. Sump's desk is quiet even when he is not at it."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 545,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "damp_corner",
+      "name": "THE DAMP CORNER",
+      "rect": [
+        1450,
+        270,
+        290,
+        420
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The roof lets go here in the wet months, and the records of 1851 have paid for it.",
+            "repeat": [
+              "A bucket under the worst of it, half full, and a second bucket under the first bucket's overflow.",
+              "Whatever was filed in 1851 is legible only as a color now: a soft brown peace."
+            ],
+            "then": [
+              "The town's third year is a soft gray brick."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A drip, in season. Today it is only thinking about it.",
+            "repeat": [
+              "A single drop, at last, into the bucket. It had been thinking about it for some time.",
+              "Nothing. The roof is saving up."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1595,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "stacks",
+      "name": "THE STACKS",
+      "rect": [
+        610,
+        0,
+        790,
+        600
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Shelves to the ceiling, every claim and quarrel in the district folded into brown paper. The town's entire memory, filed under mostly the wrong letters.",
+            "repeat": [
+              "Every claim ever filed in this district, in boxes, in order. It is the most organized thing in Consolation and no one is permitted to look at it.",
+              "The boxes for the first year are the thinnest. It took the town a year to start lying in quantity."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Settling. An archive breathes about once an hour.",
+            "repeat": [
+              "Nothing. Paper does not keep secrets so much as decline to volunteer.",
+              "A box settling on a high shelf. The archive, turning over in its sleep."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "One folder is never one folder. The stacks are an ecosystem and I am not licensed to hunt in it."
+      },
+      "walkTo": {
+        "x": 1005,
+        "y": 850,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "back_to_registrar",
+      "name": "THE REGISTRAR'S",
+      "stub": true,
+      "rect": [
+        170,
+        80,
+        170,
+        665
+      ],
+      "colour": 0,
+      "to": "claims_registrar",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "The one way back to Room 7. NO DOCUMENT WRITES THIS DOOR from the archive side (doc 05, doc 08 and doc 54 give the archive no door subject; doc 57 E9 writes Room 7's side). A stub exit, as Room 6's way back is (errata 79 F): it works, and its LOOK and LISTEN wait for lines (doc 36 Q151).",
+      "walkTo": {
+        "x": 260,
+        "y": 760,
+        "facing": "back"
+      }
+    }
+  ],
+  "ambient": [],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-08.json",
+      "reference/room-08/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkableOutline": [
+    [
+      200,
+      745
+    ],
+    [
+      1750,
+      745
+    ],
+    [
+      1750,
+      850
+    ],
+    [
+      200,
+      850
+    ]
+  ],
+  "entrance": [
+    300,
+    780
+  ],
+  "entrances": [
+    {
+      "from": "claims_registrar",
+      "at": [
+        300,
+        780
+      ],
+      "facing": "right",
+      "note": "Through the archive door from the registrar's, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        300,
+        780
+      ],
+      "facing": "right",
+      "note": "Anything else arrives by the door."
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 200,
+          "y": 745
+        },
+        {
+          "x": 1750,
+          "y": 745
+        },
+        {
+          "x": 1750,
+          "y": 780
+        },
+        {
+          "x": 200,
+          "y": 780
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 745,
+        "farHeight": 497,
+        "nearY": 850,
+        "nearHeight": 570
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 200,
+          "y": 780
+        },
+        {
+          "x": 1750,
+          "y": 780
+        },
+        {
+          "x": 1750,
+          "y": 815
+        },
+        {
+          "x": 200,
+          "y": 815
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 745,
+        "farHeight": 497,
+        "nearY": 850,
+        "nearHeight": 570
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 200,
+          "y": 815
+        },
+        {
+          "x": 1750,
+          "y": 815
+        },
+        {
+          "x": 1750,
+          "y": 850
+        },
+        {
+          "x": 200,
+          "y": 850
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 745,
+        "farHeight": 497,
+        "nearY": 850,
+        "nearHeight": 570
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "bracket_lamp",
+      "at": [
+        395,
+        265
+      ],
+      "radius": 760,
+      "amount": 0.15,
+      "rate": 0.3,
+      "phase": 0.25,
+      "note": "THE LAMP BRACKET (doc 08: 'the lamp lives in a bracket by the door, and the deep stacks stay dark'). The room's only light, a slow, low breath; it never signals anything (invariant 9)."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-08/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

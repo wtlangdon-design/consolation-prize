@@ -17,6 +17,7 @@
   "content/rooms/assay-office.json",
   "content/rooms/assay-records.json",
   "content/rooms/claims-registrar.json",
+  "content/rooms/archive.json",
   "content/rooms/stub-company.json",
   "content/rooms/stub-clarion.json",
   "content/rooms/stub-claims-road.json",
@@ -51,7 +52,8 @@
  "fixtures": [
   "content/fixtures/room-05.json",
   "content/fixtures/room-04.json",
-  "content/fixtures/room-07.json"
+  "content/fixtures/room-07.json",
+  "content/fixtures/room-08.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -70,7 +72,8 @@
   "content/items/watch.json",
   "content/items/document-a.json",
   "content/items/survey.json",
-  "content/items/invitation.json"
+  "content/items/invitation.json",
+  "content/items/executor-form.json"
  ],
  "scaling": "content/actors/scaling.json",
  "ambient": [

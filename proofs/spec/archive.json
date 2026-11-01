@@ -1,0 +1,29 @@
+{
+ "schema": 1,
+ "room": "archive",
+ "note": "ROOM 8's PROOF SPEC. The route is Room 7's, then the archive door as the executor's agent. The principal change is E9 by looking: with T_HOB_HANDWRITING (HOB_C1's [COMIC] option, Room 21, unbuilt), LOOK at the Mott file is enough, and nothing announces it.",
+ "route": "archive",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "E9 BY LOOKING (doc 57 E9, invariant 7). Prerequisite: T_HOB_HANDWRITING, set by the flag control. Visible consequence: the file's line is the one about its owner; T_SAME_HAND is written.",
+  "flags": {
+   "T_HOB_HANDWRITING": true
+  },
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "LOOK_AT"
+   },
+   {
+    "do": "click",
+    "on": "mott_file",
+    "why": "THE MOTT FILE"
+   },
+   {
+    "do": "waitFor",
+    "says": "thad",
+    "upTo": 30
+   }
+  ]
+ }
+}

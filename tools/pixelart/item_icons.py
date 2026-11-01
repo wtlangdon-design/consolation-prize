@@ -268,6 +268,24 @@ def invitation(canvas: IndexedCanvas, palette: Palette) -> None:
     canvas.hline(11, 12, 9, ink.frac(0.18))
 
 
+def executor_form(canvas: IndexedCanvas, palette: Palette) -> None:
+    """Form 31-E, Appointment of Executor: a printed form with ruled boxes and a
+    stamp, signed in a very neat, small, upright hand (doc 23: "Signed 'Hob',
+    and nothing else"). The short, upright signature and the round stamp tell it
+    from the survey's wandering purple and the affidavit's flourish."""
+    _paper(canvas, palette, 6, 2, 18, 17, tone=0.78)
+    grey = palette.family("grey")
+    canvas.hline(8, 5, 14, grey.frac(0.40))
+    canvas.hline(8, 8, 14, grey.frac(0.40))
+    canvas.hline(8, 11, 14, grey.frac(0.40))
+    ink = palette.family("umber").frac(0.10)
+    for x in (9, 11, 13):
+        canvas.vline(x, 14, 3, ink)
+    canvas.hline(9, 15, 5, ink)
+    stamp = palette.family("accent_red")
+    canvas.outline(17, 12, 5, 5, stamp.frac(0.55))
+
+
 ICONS = {
     "document_a": document_a,
     "watch": watch,
@@ -282,6 +300,7 @@ ICONS = {
     "filing_fee": filing_fee,
     "survey": survey,
     "invitation": invitation,
+    "executor_form": executor_form,
 }
 
 

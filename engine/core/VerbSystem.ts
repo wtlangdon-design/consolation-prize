@@ -299,12 +299,19 @@ export class VerbSystem {
         // variants are what the second look is for.
         then: (this.repeatCursor.get(`${scope}/${target.id}#${index}:${verbId}`) ?? 0) === 0
           ? matched.then : undefined,
+        ...(matched.by ? { by: matched.by } : {}),
         dialogue: matched.dialogue ?? null,
         goto: matched.goto ?? null,
         state: matched.setState,
         take: matched.take,
         items: matched.items,
-        effects: flagEffects(`act/${scope}/${target.id}/${verbId}#${index}`, matched.set, matched.add),
+        effects: [
+          ...flagEffects(`act/${scope}/${target.id}/${verbId}#${index}`, matched.set, matched.add),
+          ...(matched.completes
+            ? [{ id: `act/${scope}/${target.id}/${verbId}#${index}#complete:${matched.completes}`,
+              kind: 'puzzleProgress' as const, puzzle: matched.completes, status: 'complete' as const }]
+            : []),
+        ],
       };
     }
 

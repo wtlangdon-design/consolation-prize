@@ -34,7 +34,8 @@
   "interior-institutional": [
    "room-05-assay-office",
    "room-06-assay-records",
-   "room-07-claims-registrar"
+   "room-07-claims-registrar",
+   "room-08-archive"
   ]
  },
  "rooms": {
@@ -176,6 +177,22 @@
     }
    ],
    "castingNote": "Registrar Sump is new and has no approved image. He is drawn first in the composition master, behind his counter beside Thad (style gate step 1), and then drawn alone on magenta from that master (doc 55 section 8: generate every new figure whole and key him). Canon gives him no appearance (errata 80 B)."
+  },
+  "room-08-archive": {
+   "visualType": "interior-institutional",
+   "comparable": {
+    "id": "room-05-assay-office",
+    "path": "art/backgrounds/room-05-assay-office.png",
+    "note": "D -- the approved institutional interior at night. The archive is the registrar's back room (Room 7, built at errata 80, not yet accepted, so not a baseline): paper, dust and dark stacks, lit only from the door."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody is staged in the archive (doc 20; the readiness gate). Thad is painted once in the master for scale and taken out."
   }
  }
 }

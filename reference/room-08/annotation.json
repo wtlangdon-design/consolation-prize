@@ -1,0 +1,227 @@
+{
+ "room": "archive",
+ "plate": "art/backgrounds/room-08-archive.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-08/plate-01/candidate-1920x864.png, room-08 attempt 2, Room 8's own 20:9 crop -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-08-archive.png",
+ "plateShippingHash": "f498149ddf4d83abbd2f1cf2",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   200,
+   745
+  ],
+  [
+   1750,
+   745
+  ],
+  [
+   1750,
+   850
+  ],
+  [
+   200,
+   850
+  ]
+ ],
+ "walkableNote": "THE FLOOR IN FRONT OF EVERYTHING. The door's foot is at y 740, the chair's at 735, the desk's at 710 and the case's at 700; the band starts at 745, in front of them all, and runs the room's width short of the walls.",
+ "scaling": {
+  "far": {
+   "y": 745,
+   "height": 497
+  },
+  "near": {
+   "y": 850,
+   "height": 570
+  },
+  "note": "ROOM 8'S DEPTH, FROM THE DESK. Operation 2 re-framed the master: the clerk's desk, 185 tall in the master, is 240 here, which makes the man the master painted beside it about 530 with his feet at y 792. Along Room 7's slope (0.69 per row), next door: 497 at the band's far edge, 570 at its near."
+ },
+ "entrance": [
+  300,
+  780
+ ],
+ "entrances": [
+  {
+   "from": "claims_registrar",
+   "at": [
+    300,
+    780
+   ],
+   "facing": "right",
+   "note": "Through the archive door from the registrar's, at left."
+  },
+  {
+   "from": "default",
+   "at": [
+    300,
+    780
+   ],
+   "facing": "right",
+   "note": "Anything else arrives by the door."
+  }
+ ],
+ "hotspots": {
+  "stacks": [
+   610,
+   0,
+   790,
+   600
+  ],
+  "filing_ladder": [
+   740,
+   50,
+   130,
+   560
+  ],
+  "timesheet": [
+   1135,
+   315,
+   100,
+   65
+  ],
+  "dust": [
+   1010,
+   285,
+   375,
+   105
+  ],
+  "county_seal": [
+   520,
+   450,
+   45,
+   55
+  ],
+  "executors_ledger": [
+   575,
+   462,
+   95,
+   40
+  ],
+  "mott_file": [
+   965,
+   450,
+   230,
+   250
+  ],
+  "chair": [
+   1210,
+   485,
+   130,
+   250
+  ],
+  "barred_window": [
+   1485,
+   10,
+   175,
+   265
+  ],
+  "damp_corner": [
+   1450,
+   270,
+   290,
+   420
+  ],
+  "lamp_bracket": [
+   355,
+   110,
+   90,
+   230
+  ],
+  "unclaimed_correspondence": [
+   445,
+   125,
+   160,
+   275
+  ],
+  "clerk_s_desk": [
+   375,
+   470,
+   340,
+   240
+  ],
+  "claim_one_s_box": [
+   1025,
+   305,
+   110,
+   75
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE DUST is the one shelf at chest height wiped clean by years of reaching; CLAIM ONE'S BOX (the brass corner) and THE TIMESHEET (the string-tied bundles) stand on it and win by area. THE COUNTY SEAL and THE EXECUTORS' LEDGER lie on THE CLERK'S DESK and win the same way; THE FILING LADDER wins over THE STACKS; THE BARRED WINDOW over THE DAMP CORNER below it. THE LAMP BRACKET carries the scorch above it.",
+ "exits": {
+  "back_to_registrar": [
+   170,
+   80,
+   170,
+   665
+  ]
+ },
+ "exitWalkTo": {
+  "back_to_registrar": {
+   "x": 260,
+   "y": 760,
+   "facing": "back"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "bracket_lamp",
+   "at": [
+    395,
+    265
+   ],
+   "radius": 760,
+   "amount": 0.15,
+   "rate": 0.3,
+   "phase": 0.25,
+   "note": "THE LAMP BRACKET (doc 08: 'the lamp lives in a bracket by the door, and the deep stacks stay dark'). The room's only light, a slow, low breath; it never signals anything (invariant 9)."
+  }
+ ],
+ "defaultVerbs": {
+  "stacks": "LOOK_AT",
+  "filing_ladder": "LOOK_AT",
+  "timesheet": "LOOK_AT",
+  "dust": "LOOK_AT",
+  "county_seal": "LOOK_AT",
+  "executors_ledger": "LOOK_AT",
+  "mott_file": "LOOK_AT",
+  "chair": "LOOK_AT",
+  "barred_window": "LOOK_AT",
+  "damp_corner": "LOOK_AT",
+  "lamp_bracket": "LOOK_AT",
+  "unclaimed_correspondence": "LOOK_AT",
+  "clerk_s_desk": "LOOK_AT",
+  "claim_one_s_box": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click. The floor is not a hotspot.",
+ "occlusion": {
+  "note": "NO PLANE MASKS THAT CAN REACH HIM: the walk band is in front of every piece of furniture.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ },
+ "sceneLines": [
+  {
+   "hotspot": "mott_file",
+   "verb": "LOOK_AT",
+   "ref": "docs/57-puzzle-completion.md::## E9 · The archive — Hob is Mott",
+   "subject": "THE MOTT FILE",
+   "verbText": "LOOK",
+   "case": "with `T_HOB_HANDWRITING`",
+   "when": {
+    "T_HOB_HANDWRITING": true
+   },
+   "set": {
+    "T_SAME_HAND": true
+   },
+   "completes": "E9"
+  }
+ ],
+ "sceneLinesNote": "Doc 57 E9's second way to see it: invariant 7 at work -- HOB_C1's [COMIC] option set T_HOB_HANDWRITING, and LOOKing at the file is enough. Nothing announces it."
+}

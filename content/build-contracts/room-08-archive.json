@@ -1,0 +1,179 @@
+{
+ "schema": 1,
+ "id": "room-08-archive",
+ "room": "archive",
+ "docRoom": 8,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 8 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/08-examine-batch-1.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/57-puzzle-completion.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-08.json",
+    "docs/00-errata.md::81 · ROOM 8 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "Act III only, entered through doc 57 E9's door scene; night, one visual state."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-08/graybox.json",
+    "docs/00-errata.md::81 · ROOM 8 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "Every subject is plate; nothing changes state visibly."
+  },
+  "cast": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "proofs/readiness/room-08.json"
+   ],
+   "note": "No character is present (doc 20). Thad was painted once in the master as the scale anchor and taken out."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/archive/life/life.json"
+   ],
+   "note": "The lamp in its bracket breathes; nobody lives here."
+  },
+  "physicalContact": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/00-errata.md::81 · ROOM 8 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "No figure touches any furniture."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-08/annotation.json",
+    "proofs/room-08/graybox.json"
+   ],
+   "note": "One lamp by the door (doc 08); the stacks stay dark; the floor is lit near the door."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-08.test.ts",
+    "docs/00-errata.md::81 · ROOM 8 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "E9 is the player's own realisation: the form on the file, or a LOOK with T_HOB_HANDWRITING. The timesheet's LISTEN is unmarked (invariant 3)."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-08.json",
+    "content/examine/room-08.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 90 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-08: 2 of 4 operations (master; Thad out and the room re-framed in one edit)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/archive.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-08/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/archive/proof.json"
+   ],
+   "note": "Panel D: E9 by looking."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/archive/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/archive/doors/life.json",
+    "tests/room-08.test.ts"
+   ],
+   "note": "Out to the registrar's and back through the archive door, twice; E9 in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-08/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-08-archive.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-08/plate-01/frame.json"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q151 · Room 8, the registrar's archive: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-01 (errata 81, delegated; the door ships as a stub exit under errata 72 F); BUILT, room-08 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q151 · Room 8, the registrar's archive: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-01 (errata 81, delegated; the door ships as a stub exit under errata 72 F); BUILT, room-08 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

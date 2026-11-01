@@ -2378,3 +2378,21 @@ What Tyler still decides: acceptance of the art (errata 72 E, at the full playth
 - **The map made Room 7 unreachable.** At the play area's type scale the undertaker's label runs across the registrar's marker, and the first label under a click won, so the registrar -- whose only built way in is the map -- could not be clicked in Act I. A map click now goes to a place that can be travelled to before one that cannot, then to the nearest marker (`engine/render/MapLayout.ts`); `tests/map.test.ts` proves every travellable place is reached by its own marker in every fixture's state, and fails on the old rule.
 - **An item on a person with a plain pair** (doc 57's fee on Sump) fell through to the people pool; it now resolves through the same interaction as an item on any object, walking Thad to the person's stand. A pair rule may name who speaks its line (`by`), give the rest of an exchange with speakers (`then`), and take items (`takes`).
 - **The compiler** reads a subject's base lines from the room document before doc 05's act block (Room 7's counter had taken its Act III line as its first LOOK), and an annotation may name a section that supersedes a subject whole (`supersededBy`: doc 19 section 2's THE TWO LINES).
+
+---
+
+# 81 · ROOM 8 BUILT — THE BUILDER'S DECISIONS (2026-11-01)
+
+*Made by the Room 8 builder under doc 55 section 5's standing delegation. No line was written. Every ruling below can be struck or changed by its letter.*
+
+**A · One visual state, night,** as Room 7 through its door. The lamp in its bracket by the door is the only light and the deep stacks stay dark (doc 08); the barred window shows the night street. Nobody is staged here (the readiness gate), and the archive has no act but Act III (doc 08: "Entered once, in Act III, as one's own executor").
+
+**B · The way in is doc 57 E9's door.** In Room 7, OPEN on THE SEALED ARCHIVE DOOR with `T_EXECUTOR_NAMED` is the clerk's exchange (doc 57's words, by speaker) and leads into Room 8; before it, the door's own OPEN override answers ("Locked..."). E6, which names the executor, is in rooms not built, so `T_EXECUTOR_NAMED` is declared pending and the fixture `r8-a` and the proof route set it.
+
+**C · E9, both ways, quietly.** THE EXECUTOR'S FORM on THE MOTT FILE (the same hand), or LOOK at the file with `T_HOB_HANDWRITING` (invariant 7): each writes `T_SAME_HAND` and completes E9, and nothing announces it. THE TIMESHEET's LISTEN is the same line three times, declared a deliberate repetition in `content/ui/duplicate-allowlist.json` as doc 54 asks, with nothing else said about it (invariant 3). THE EXECUTOR'S FORM joins the manifest with a drawn icon.
+
+**D · The art: 2 of room-08's 4 operations.** A composition master against the graybox with Thad once for scale; then one edit that took him out and extended the walls into the side strips, which re-framed the room whole (as Room 6's third did). Room 8's own crop, x 8, y 140. Promoted provisionally (errata 72 E). Two operations unspent.
+
+**E · The way back has no lines** (doc 36 Q151): no document writes the archive's side of its door. A stub exit, as Room 6's is.
+
+**F · Found while building, and fixed.** A response that leads elsewhere and has lines -- the archive door -- moved the room at once, so the clerk's first line hung over the archive and the rest were cancelled. The game state now reports such a destination (`goesTo`) and the scene moves once the last line has been read; `tests/room-08.test.ts` holds it. An examine response may now name its speaker, carry speaker-tagged lines and complete a puzzle; an annotation's `sceneLines` reads doc 57's scene lines on a room's subjects, words and speakers from the document.
