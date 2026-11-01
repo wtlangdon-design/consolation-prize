@@ -950,6 +950,8 @@ built.exits = (live.exits ?? []).map((e) => {
     kind: 'curve',
     farY: ann.scaling.far.y, farHeight: ann.scaling.far.height,
     nearY: ann.scaling.near.y, nearHeight: ann.scaling.near.height,
+    // A BENT CURVE, where the annotation says the painting needs one.
+    ...(ann.scaling.samples ? { samples: ann.scaling.samples.map((s) => [s.y, s.height]) } : {}),
   };
   // THE THIRD SAMPLE, ABOVE THE BAND. heightIn CLAMPS above farY unless the
   // curve says what happens up there, and a clamp means a staged character

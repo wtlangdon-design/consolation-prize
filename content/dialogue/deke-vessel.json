@@ -8,6 +8,12 @@
     "root": {
       "id": "root",
       "prompt": "You're the piano man.",
+      "opening": [
+        {
+          "speaker": "deke_vessel",
+          "line": "You're the piano man."
+        }
+      ],
       "options": [
         {
           "id": "deke_vessel1",

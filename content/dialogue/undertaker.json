@@ -8,6 +8,12 @@
     "root": {
       "id": "root",
       "prompt": "Yes.",
+      "opening": [
+        {
+          "speaker": "undertaker",
+          "line": "Yes."
+        }
+      ],
       "options": [
         {
           "id": "undertaker1",

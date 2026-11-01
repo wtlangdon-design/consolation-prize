@@ -2,6 +2,7 @@
  "schema": 1,
  "id": "pie_woman",
  "name": "THE PIE WOMAN",
+ "posture": "standing",
  "note": "Doc 07 #6. Pies of unstated provenance. Best R_DEAD bark in the game.",
  "room": "main_street",
  "x": 2180,
