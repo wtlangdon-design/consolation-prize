@@ -180,13 +180,29 @@ async function flush(page) {
   }
 }
 
-/** Waits out a performing exchange rather than clicking through it. */
+/**
+ * Waits out a performing exchange rather than clicking through it -- UNLESS a
+ * click is the only thing that ends a line. ui.json conversationWaitsForClick
+ * (Tyler, 2026-11-01) holds every conversation line until it is clicked, so an
+ * exchange never stops performing on its own and this waited out its deadline
+ * on the first answer. Then the click is the designed path, not the skip: a
+ * line up for doc 30's minimum reading hold is clicked once, as a quick reader
+ * would. The opening's gauntlet (tools/gauntlet/run.mjs) learned the same.
+ */
+const TIMING = readJson('content/ui/ui.json').timing ?? {};
+const READS_BY_CLICK = TIMING.conversationWaitsForClick === true;
+const READ_MS = (TIMING.holdMinimumSeconds ?? 1.8) * 1000;
 async function settle(page, upTo = 60) {
   const deadline = Date.now() + upTo * 1000;
+  let lineSince = Date.now();
   for (;;) {
     const state = await probe(page);
     if (!state?.performing) return;
     if (Date.now() > deadline) throw new Error(`route: an exchange has been performing for ${upTo}s`);
+    if (READS_BY_CLICK && Date.now() - lineSince >= READ_MS) {
+      await clickScreen(page, NATIVE.width / 2, PLAY.height / 2);
+      lineSince = Date.now();
+    }
     await page.waitForTimeout(120);
   }
 }

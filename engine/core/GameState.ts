@@ -672,7 +672,9 @@ export class GameState {
       // exit can write nothing at all: this branch returns before the response
       // resolves, so `set` on a response never fires for the verb that
       // actually goes through the door.
-      for (const [flag, value] of Object.entries(exit.setOnTransit ?? {})) {
+      const writes = exit.setOnTransitWhen === undefined || this.flags.test(exit.setOnTransitWhen)
+        ? exit.setOnTransit ?? {} : {};
+      for (const [flag, value] of Object.entries(writes)) {
         effects.push({
           id: `act/${objectKey}/${verb}#transit:flag:${flag}`, kind: 'flag', flag, value,
         });

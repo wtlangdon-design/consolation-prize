@@ -257,6 +257,14 @@ export interface Exit extends Interactable {
    */
   setOnTransit?: Record<string, boolean | number>;
   /**
+   * `setOnTransit` is written only while this holds. Room 4's door writes
+   * T_ASSAY_ADJOURNED only once Duel Two is won, so the judges and Sowerby,
+   * who have no walk to leave by, are there until Thad walks out and gone
+   * when he comes back -- never vanishing in front of him (Tyler, 2026-11-01:
+   * "it would bother me immensely to have a character just disappear").
+   */
+  setOnTransitWhen?: Condition;
+  /**
    * This exit does not travel when it is taken. Something else says when.
    *
    * NAMED FOR WHAT IT MEANS. Doc 17's ending is a departure the player

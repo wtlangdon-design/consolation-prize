@@ -18,6 +18,18 @@
     "hob": {
       "colour": "#d8a860",
       "note": "Lamplight. He carries the only lit thing on the road and it is the one visual fact the player has about him, so his lines are the colour of the thing he is holding."
+    },
+    "deke_vessel": {
+      "colour": "#f2c85a",
+      "note": "Sunny gold. Doc 03's brief for him is 'sunny, shameless, completely at ease', and his lines are the cheerful ones in every room he talks in. Brighter and yellower than Hob's lamplight (#d8a860), and they never share a room. Chosen by the Room 4 builder from three sets rendered on the room in the game at x6 with the game's own face and outline (Tyler, 2026-11-01: no official playthrough until the game is ready for one, and until then 'I'm expecting you to get everything to its best possible place'). Adjust freely; check-speech-colours keeps it off the fallback."
+    },
+    "sowerby": {
+      "colour": "#c8b4e8",
+      "note": "Pale violet: the clerical colour, solemn without being cold, and the farthest of the cast from Thad's warm off-white. He reads the rules and presides; his lines should never be mistaken for a duellist's. Chosen by the Room 4 builder from three sets rendered on the room in the game at x6 with the game's own face and outline (Tyler, 2026-11-01: no official playthrough until the game is ready for one, and until then 'I'm expecting you to get everything to its best possible place'). Adjust freely; check-speech-colours keeps it off the fallback."
+    },
+    "assay_ring": {
+      "colour": "#b0a898",
+      "note": "The voice from the ring of chairs: a dim, warm grey, a murmur rather than a person -- anonymous by design, and visibly NOT the fallback ink, so an unattributed line still looks unattributed. Chosen by the Room 4 builder from three sets rendered on the room in the game at x6 with the game's own face and outline (Tyler, 2026-11-01: no official playthrough until the game is ready for one, and until then 'I'm expecting you to get everything to its best possible place'). Adjust freely; check-speech-colours keeps it off the fallback."
     }
   }
 }
