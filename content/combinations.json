@@ -24,7 +24,80 @@
       "room": "nugget",
       "target": "piano",
       "puzzle": "A8",
-      "say": "Four minutes. C-sharp has come home, and nobody in this room has looked up."
+      "say": "Four minutes. C-sharp has come home, and nobody in this room has looked up.",
+      "rules": [
+        {
+          "case": "already tuned this visit",
+          "when": {
+            "T_NUGGET_PIANO_TUNED": true
+          },
+          "say": "It is still in tune. Nobody has had time to undo it."
+        },
+        {
+          "case": "already holding THE FILING FEE",
+          "holds": [
+            "filing_fee"
+          ],
+          "set": {
+            "T_NUGGET_PIANO_TUNED": true
+          },
+          "say": "I have tuned it again, for nothing. The barman did not pay and I did not ask. It is a matter of principle, and I am not sure whose."
+        },
+        {
+          "case": "first time",
+          "when": {
+            "T_NUGGET_PIANO_PAID": 0
+          },
+          "items": [
+            "filing_fee"
+          ],
+          "set": {
+            "T_NUGGET_PIANO_TUNED": true
+          },
+          "add": {
+            "T_NUGGET_PIANO_PAID": 1
+          },
+          "completes": "A8",
+          "say": "Four minutes. C-sharp has come home, and nobody in this room has looked up.",
+          "then": [
+            "The barman has paid me. Neither of us has mentioned it. It is the most professional transaction of my life."
+          ]
+        },
+        {
+          "case": "second time",
+          "when": {
+            "T_NUGGET_PIANO_PAID": 1
+          },
+          "items": [
+            "filing_fee"
+          ],
+          "set": {
+            "T_NUGGET_PIANO_TUNED": true
+          },
+          "add": {
+            "T_NUGGET_PIANO_PAID": 1
+          },
+          "say": "Flat again. A man at the bar says the right note was making him nervous. Four minutes. Two dollars, on the bar, unmentioned. We have a routine."
+        },
+        {
+          "case": "third time and after",
+          "when": {
+            "T_NUGGET_PIANO_PAID": {
+              "atLeast": 2
+            }
+          },
+          "items": [
+            "filing_fee"
+          ],
+          "set": {
+            "T_NUGGET_PIANO_TUNED": true
+          },
+          "add": {
+            "T_NUGGET_PIANO_PAID": 1
+          },
+          "say": "C-sharp, home again. Two dollars, again. I am, by the narrowest definition, employed."
+        }
+      ]
     },
     {
       "item": "deed",

@@ -219,8 +219,24 @@ export class GameState {
       .map((item) => item.id);
   }
 
+  /**
+   * What he is carrying: the inventory, less anything whose `lostWhen` now
+   * holds, plus anything whose `heldWhen` does (ItemFile.heldWhen). Derived
+   * every time from the flags, so a save restores it by restoring them.
+   */
   get carried(): string[] {
-    return [...this.inventory];
+    const items = this.content.items;
+    const lost = (id: string) => {
+      const rule = items.get(id)?.lostWhen;
+      return rule !== undefined && this.flags.test(rule);
+    };
+    const out = this.inventory.filter((id) => !lost(id));
+    for (const item of items.values()) {
+      if (item.heldWhen && this.flags.test(item.heldWhen) && !out.includes(item.id) && !lost(item.id)) {
+        out.push(item.id);
+      }
+    }
+    return out;
   }
 
   get heldItem(): string | null {
@@ -262,7 +278,7 @@ export class GameState {
 
   /** Moves the inventory window, clamped to what is actually carried. */
   scrollInventory(by: number, visible: number): void {
-    const last = Math.max(0, this.inventory.length - visible);
+    const last = Math.max(0, this.carried.length - visible);
     this.scroll = Math.max(0, Math.min(last, this.scroll + by));
   }
 
@@ -700,7 +716,7 @@ export class GameState {
     // R5o: the predicate was written, correct, and unreached by the branch it
     // was written for.
     const action = this.held && this.verbs.carries(verb)
-      ? this.verbs.resolveWith(verb, this.held, target, room)
+      ? this.verbs.resolveWith(verb, this.held, target, room, this.carried)
       : this.verbs.resolve(verb, target, room);
 
     // World state first, then flags, then inventory -- errata 48's order, as
@@ -725,6 +741,9 @@ export class GameState {
     // require target.item and does not conflict with it.
     for (const [n, item] of (action.items ?? []).entries()) {
       effects.push({ id: `act/${objectKey}/${verb}#take${n}`, kind: 'inventoryAdd', item });
+    }
+    for (const [n, item] of (action.grants ?? []).entries()) {
+      effects.push({ id: `act/${objectKey}/${verb}#grant${n}`, kind: 'inventoryAdd', item, keepsSource: true });
     }
     if (action.take && target.item) {
       // Doc 22 item 9's ownership half. It rides on the inventory effect
@@ -841,8 +860,10 @@ export class GameState {
       setObjectState: (object, state) => { this.objectStates.set(object, state); },
       setPuzzle: (puzzle, status) => { this.puzzles.set(puzzle, status); },
       enterRoom: (room) => { this.arrive(room); },
-      addInventory: (item) => {
-        this.taken.add(objectKey);
+      addInventory: (item, keepsSource) => {
+        // A container emptied or an object picked up leaves the room; a thing
+        // that PAYS (the Nugget piano's fee, doc 57 A8) stays where it is.
+        if (!keepsSource) this.taken.add(objectKey);
         if (!this.inventory.includes(item)) this.inventory.push(item);
       },
       removeInventory: (item) => {

@@ -136,7 +136,7 @@ export type DurableEffect =
   | { id: string; kind: 'flag'; flag: string; value: FlagValue }
   | { id: string; kind: 'flagAdd'; flag: string; delta: number }
   | { id: string; kind: 'objectState'; object: string; state: string }
-  | { id: string; kind: 'inventoryAdd'; item: string }
+  | { id: string; kind: 'inventoryAdd'; item: string; /** Given BY the object, which stays (a payment, not a pickup). */ keepsSource?: boolean }
   | { id: string; kind: 'inventoryRemove'; item: string }
   | { id: string; kind: 'room'; room: string }
   | { id: string; kind: 'dialogueTaken'; tree: string; node: string; option: string }

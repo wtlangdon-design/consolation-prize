@@ -61,7 +61,7 @@ export interface DurableWorld {
   setFlag(flag: string, value: FlagValue): void;
   addFlag(flag: string, delta: number): void;
   setObjectState(object: string, state: string): void;
-  addInventory(item: string): void;
+  addInventory(item: string, keepsSource?: boolean): void;
   removeInventory(item: string): void;
   enterRoom(room: string): void;
   markDialogueTaken(tree: string, node: string, option: string): void;
@@ -102,7 +102,7 @@ function applyEffect(effect: DurableEffect, world: DurableWorld): void {
       world.setObjectState(effect.object, effect.state);
       return;
     case 'inventoryAdd':
-      world.addInventory(effect.item);
+      world.addInventory(effect.item, effect.keepsSource);
       return;
     case 'inventoryRemove':
       world.removeInventory(effect.item);

@@ -563,7 +563,9 @@ export class DialogueRunner {
       }
     }
 
-    const ends = option.tag === EXIT_TAG;
+    // EXIT, or an option whose document says the conversation is over (doc 27
+    // `ends`: Vessel takes the money and leaves, doc 57 A3).
+    const ends = option.tag === EXIT_TAG || option.ends === true;
     const goto = !ends && option.goto ? option.goto : null;
     if (goto && !this.activeTree.nodes[goto]) {
       throw new Error(`Unknown goto target: ${goto}`);

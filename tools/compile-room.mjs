@@ -503,12 +503,38 @@ const actSections = [];
   }
 }
 const actOnly = new Map();
+// ACT VARIANTS ON A SUBJECT THE ROOM ALREADY HAS (Part Two-B): THE PIANO's
+// act 2 and act 4 lines, THE BAR's act 3. Compiled as guarded rules ahead of
+// the subject's own, so the act's line answers in its act and the ordinary
+// chain everywhere else. Name to [{ atLeast, atMost, act, responses }].
+const actVariants = new Map();
+const actSpan = (spec) => {
+  const span = /^(\d)(?:-(\d))?$/.exec(String(spec));
+  if (!span) fail(`act "${spec}" is not N or N-M`);
+  return { atLeast: Number(span[1]), atMost: Number(span[2] ?? span[1]) };
+};
 for (const block of actSections) {
   for (const [name, entry] of examineLayer(block)) {
     const act = new RegExp(`\\*\\*${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\*\\*\\s*\\*\\(act:\\s*"?([^)"]+)"?\\)\\*`).exec(block);
     if (hotspots.has(name)) {
-      process.stderr.write(`  doc 05 act variant for "${name}" (act ${act?.[1] ?? '?'}) is NOT compiled -- `
-        + 'Part Two-B variants on an existing hotspot are not yet supported by this compiler\n');
+      // ONE ENTRY PER OCCURRENCE, NOT PER NAME. THE PIANO appears twice in
+      // Room 3's block (acts 2 and 4); read by name, the second's lines
+      // overwrote the first's under the first's act.
+      if (actVariants.has(name)) continue;
+      const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const heads = [...block.matchAll(new RegExp(`^\\*\\*${escaped}\\*\\*\\s*\\*\\(act:\\s*"?([^)"]+)"?\\)\\*.*$`, 'gm'))];
+      if (!heads.length) fail(`doc 05 repeats "${name}" in an act block without an act`);
+      actVariants.set(name, heads.map((head) => {
+        const rest = block.slice(head.index + head[0].length);
+        const end = /^\*\*[^*]+\*\*/m.exec(rest);
+        const chunk = end ? rest.slice(0, end.index) : rest;
+        const responses = {};
+        for (const [label, verb] of [['LOOK', 'LOOK_AT'], ['LISTEN', 'LISTEN_TO']]) {
+          const line = new RegExp(`^>\\s*\\*\\*${label}:\\*\\*\\s*"([\\s\\S]*?)"\\s*$`, 'm').exec(chunk);
+          if (line) responses[verb] = [{ say: line[1] }];
+        }
+        return { act: head[1], ...actSpan(head[1]), responses };
+      }));
       continue;
     }
     hotspots.set(name, { ...entry, actOnly: act?.[1] ?? null });
@@ -601,6 +627,40 @@ if (ROOM_DOC) {
   // exactly as doc 13's PART THREE does.
   for (const [name, verbs] of roomDocHotspots(ROOM_DOC_TEXT)) {
     if (!repeats.has(name)) repeats.set(name, verbs);
+  }
+
+  // DOC 49 STILL WRITES FOR A ROOM THAT HAS ITS OWN DOCUMENT. Its Room 2
+  // section says so outright -- "This section contributes only what doc 13
+  // lacks" -- and its Room 3 section writes THE PIANO's PUSH and TALK TO,
+  // THE BAR's OPEN and THE STOVE PIPE's PULL, none of which doc 16 has. With
+  // the room doc standing in for doc 49 above, those lines were never read
+  // (Tyler, 2026-11-01: "make sure the piano is actually interactable").
+  // A verb only doc 49 writes is added; a verb both write keeps the room
+  // doc's line unless doc 49 marks its own `*(supersedes ...)*`. A name that
+  // is no hotspot here (THE RACCOON, a character not yet in the room) is
+  // reported and left for the room that houses it.
+  if (!ROOM_DOC_IS_RANGE) {
+    const fortyNine = section(read('docs/49-wrong-answers.md'), room);
+    const superseding = new Set();
+    for (const line of fortyNine.split('\n')) {
+      const m = /^\*\*([^*]+)\*\*\s*·\s*([A-Z_]+)\s*—.*\*\(supersedes/.exec(line);
+      if (m) superseding.add(`${m[1].trim()}|${m[2]}`);
+    }
+    for (const [short, verbs] of verbOverrides(fortyNine)) {
+      const name = resolveName(short);
+      if (!hotspots.has(name)) {
+        process.stderr.write(`  doc 49 "${short}" is no hotspot in this room; its lines wait for whoever houses it\n`);
+        continue;
+      }
+      const into = overrides.get(name) ?? {};
+      for (const [verb, line] of Object.entries(verbs)) {
+        if (!into[verb] || superseding.has(`${short}|${verb}`)) into[verb] = line;
+        else if (into[verb] !== line) {
+          process.stderr.write(`  doc 49 "${short}" ${verb} differs from ${ROOM_DOC} and does not supersede it; ${ROOM_DOC}'s stands\n`);
+        }
+      }
+      overrides.set(name, into);
+    }
   }
 }
 
@@ -791,6 +851,11 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
     const whole = variants?.rest.length ? { ...base, repeat: variants.rest } : base;
     const split = splitUtterance(whole.say ?? '');
     responses[verb] = [split ? { ...whole, ...split } : whole];
+    // The subject's act variants answer first, each in its own act.
+    for (const variant of [...(actVariants.get(entry.docName) ?? [])].reverse()) {
+      const said = variant.responses[verb]?.[0]?.say;
+      if (said) responses[verb].unshift({ when: { ACT: { atLeast: variant.atLeast, atMost: variant.atMost } }, say: said });
+    }
     if (split) splits += 1;
     else if (wraps(whole.say ?? '') > 3) unsplit.push(`${entry.docName}/${verb}`);
   }
@@ -1378,6 +1443,9 @@ if (MERGED) {
   }
   // A CHARACTER WHO OPENS ON THE PLAYER (doc 35's auto-open), declared in the
   // annotation because it is staging in this room.
+  if (ann.onEnterSet) {
+    built.onEnter = { ...(built.onEnter ?? {}), set: { ...(built.onEnter?.set ?? {}), ...ann.onEnterSet } };
+  }
   if (ann.onEnterAccost) {
     built.onEnter = { ...(built.onEnter ?? {}), accost: ann.onEnterAccost };
   }

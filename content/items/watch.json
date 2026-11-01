@@ -23,5 +23,9 @@
         ]
       }
     ]
-  }
+  },
+  "heldWhen": {
+    "T_SWINDLED": false
+  },
+  "heldNote": "From doc 23's acquisition line: held from the start until A3 (T_SWINDLED), back at B6 by the duel's grant."
 }

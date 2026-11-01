@@ -75,6 +75,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "My funeral notice, prominently posted. 'THE PIANO MAN, MOURNED BY ALL.' Frame has finally found a spelling he cannot get wrong."
+          },
+          {
             "say": "Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who cannot. He is doing better than anyone.",
             "repeat": [
               "The lost dog notice has been up six weeks. The dog is on this street.",
@@ -83,6 +92,15 @@
           }
         ],
         "LISTEN_TO": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Paper in wind. One of those sheets is my whole official existence, flapping."
+          },
           {
             "say": "Paper, in wind. A great deal of it.",
             "repeat": [
@@ -166,6 +184,15 @@
         ],
         "LISTEN_TO": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "He knows me. Tail, twice. The one resident who never read a word of paper in his life, and therefore the one resident I am still alive to."
+          },
+          {
             "say": "Breathing. Contented. He is the only solvent resident of Consolation.",
             "repeat": [
               "Still contented. Still solvent.",
@@ -221,7 +248,8 @@
       },
       "overrides": {
         "PICK_UP": "It is four hundred yards away and approximately forty feet tall. I admire the ambition of the instruction.",
-        "TALK_TO": "I am not going to shout at a church from a street."
+        "TALK_TO": "I am not going to shout at a church from a street.",
+        "USE": "It is a steeple. Its use is being seen from everywhere, and it is currently in use."
       },
       "walkTo": {
         "x": 788,
@@ -252,6 +280,15 @@
       },
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Fresh gilt on the lettering. Business is good. Business, for the Company, is always the search, and the search just outlived its most annoying obstacle. Me."
+          },
           {
             "say": "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering.",
             "repeat": [
@@ -425,6 +462,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 2,
+                "atMost": 2
+              }
+            },
+            "say": "Two stories in front, one behind, same as ever — but now every doorway says good morning to me by name. Approximately by name."
+          },
+          {
             "say": "Half this street is two stories tall in front and one story deep.",
             "repeat": [
               "Still two stories of nothing. I keep hoping the back will have arrived.",
@@ -437,6 +483,15 @@
         ],
         "LISTEN_TO": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 2,
+                "atMost": 2
+              }
+            },
+            "say": "Wind behind them, and under it, my own name being discussed. Approximately my name."
+          },
+          {
             "say": "Wind. There is a great deal of nothing behind half of these.",
             "repeat": [
               "The same nothing. It is a very consistent nothing.",
@@ -447,7 +502,8 @@
       },
       "overrides": {
         "PUSH": "I have pushed the front of a building. It did not fall over, which is more than I expected.",
-        "PULL": "If I pull hard enough the entire town comes down, and I have not settled how I feel about that."
+        "PULL": "If I pull hard enough the entire town comes down, and I have not settled how I feel about that.",
+        "OPEN": "The front is the part that doesn't open. That is its entire function and its entire biography."
       },
       "walkTo": {
         "x": 1580,

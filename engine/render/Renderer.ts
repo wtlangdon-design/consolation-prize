@@ -1119,7 +1119,8 @@ export class Renderer {
     // ERRATA 70 G: a room that hides the player (Room 32 -- he is lying in
     // the dark he is looking at) draws everyone but him.
     const playerHidden = this.state.room.actor === 'hidden';
-    for (const figure of depthOrder(roomFigures(this.ambient.present, this.actors.all(), this.state.room.props))) {
+    const props = (this.state.room.props ?? []).filter((prop) => this.state.flags.test(prop.when));
+    for (const figure of depthOrder(roomFigures(this.ambient.present, this.actors.all(), props))) {
       if (playerHidden && figure.mover?.id === this.state.content.actor.id) continue;
       if (figure.prop) {
         this.drawRoomProp(figure.prop);
