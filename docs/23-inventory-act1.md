@@ -85,6 +85,27 @@
 **LOOK** 1 "The Improvement Company's submission log. Two-thirds of these entries are the same sample under different names." · 2 "Same weights, same notation, same hand. Different claim numbers. Repeated until the queue became eight months long." · 3 "Nine years of delay, entered neatly enough to look like work."
 **LISTEN** 1 "Paper." · 2 "Nothing." · 3 "Nothing. It has already said enough."
 
+## Written 2026-10-31 *(errata 73 H)*
+
+*Room 4's Duel Two returns the watch and yields Document A. Neither had lines. Written under Tyler's instruction to finish the writing; strike or change by name.*
+
+| Item | Full name | Display name |
+|---|---|---|
+| watch | My father's pocket watch | THE POCKET WATCH |
+| document_a | Deke Vessel's affidavit | THE AFFIDAVIT |
+
+## THE POCKET WATCH
+*Held from the start. Traded at A3, returned at B6. Never consumed after that.*
+
+**LOOK** 1 "My father's watch. It runs eleven minutes fast, by his design, so that I would never be late to anything." · 2 "Eleven minutes fast. I could correct it in a moment. That would be correcting him, and I have never once managed that." · 3 "Silver, worn smooth on one side by a thumb. Not mine. I am working on it."
+**LISTEN** 1 "Ticking. Slightly ahead of everything." · 2 "Still eleven minutes ahead." · 3 "Ticking. Eleven minutes into the future, and in no hurry about it."
+
+## THE AFFIDAVIT
+*Document A. Acquired B6. Shown at E0; kept as a souvenir.*
+
+**LOOK** 1 "Deke Vessel's sworn affidavit that he sold me a claim under false pretenses. Document A." · 2 "He has signed it with a flourish so large it runs into the margin and some way down it. He is proud of this too." · 3 "Under oath, Deke Vessel has told the truth. I have it in writing, which is the only place out here it would survive."
+**LISTEN** 1 "Paper." · 2 "Nothing." · 3 "Nothing. It is the quietest thing Deke Vessel has ever produced."
+
 ---
 
 ## Notes

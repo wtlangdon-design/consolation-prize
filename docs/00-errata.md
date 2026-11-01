@@ -2226,4 +2226,6 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 
 **F · The bystander who mutters each counter** is a voice from the ring of chairs, unnamed, as doc 03 writes it. Staging.
 
+**H · Room 4's other three gaps, written.** Duel Two had no way to be asked for, and the two things it returns had no lines. Written: **VES_B1 option 5**, "I'd like a rematch." (doc 04), offered once Duel One is lost; **THE POCKET WATCH** and **THE AFFIDAVIT** (Document A), three LOOK and three LISTEN each (doc 23). A lost Duel Two ends on the reply that lost it; nothing more is said, and option 5 offers it again.
+
 **G · The readiness gate missed this** because it checks that a puzzle's sections resolve, not that every node inside them is written. A builder may add a check that every duel node has three wrong answers and a reply for each. That is tooling and needs no ruling.
