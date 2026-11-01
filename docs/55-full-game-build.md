@@ -99,3 +99,4 @@ Stop the room, not the build, and say so in doc 36 and to Tyler, when:
 | Room | Merged | PR | Operations used | Notes |
 |---|---|---|---|---|
 | 32 | 2026-10-31 | #75, #76 | 0 (drawn by script) | Awaiting audition |
+| 4 | — (stopped 2026-11-01) | — | 0 of 4 | Stopped before art: the Liar's Assay's wrong counters are unwritten for pairs 2–24 (doc 36 Q146) |

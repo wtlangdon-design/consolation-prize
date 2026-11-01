@@ -4669,3 +4669,20 @@ Errata 71. HOB's three nodes are in content/dialogue/hob.json; Room 32's lid ope
 - **Room 21 performs HOB_C2's opening.** The entry is gated on E9; doc 48 S4's shack scene (the two cups, the lamp) is the action that speaks the confession's opening, and S4 beat 3 writes `T_HOB_IS_MOTT` and `T_STRIKE_WAS_LIE`.
 - **Hob's "Running" lines** go to the ambient layer when he is placed in a night room.
 - **HOB_A1 option 6's pair 21** waits on doc 03's duel machinery.
+
+## Q146 · Room 4 (the Nugget back room) stops before art: the Liar's Assay's wrong counters are unwritten — **STOPPED 2026-11-01 (doc 55 §6, errata 72 F); NO IMAGE OPERATION SPENT (room-04: 0 of 4)**
+
+The builder session for Room 4 ran its gate under doc 55 §3. **`node tools/check-room-readiness.mjs 4` answers `BUILDABLE WITHOUT INVENTION: YES`**, and the examine layer, the repeats and the wrong-verb refusals really are complete (doc 05 + doc 09 merged in doc 54, doc 49). The room stops at the next question: the puzzles it hosts.
+
+**What is missing.** Room 4 hosts B5 and B6 (doc 02, Trial One): Duel One and Duel Two against Deke Vessel, both on the critical path to Document A. The duel's written spec is doc 03 Part Three: *"Every node offers four counters. Three are wrong and all three must be funny"*, each wrong counter answered by the opponent. Doc 03 Part Five, note 1, forbids the shortcut: *"An agent told to 'implement dialogue combat' will generate one wrong option and reuse it. Do not permit this."* **Only pair 1 has its wrong counters written** (three, each with Vessel's reply). Pairs 2–24 have none. A search of every doc for each Tier 1 boast finds the boast and its correct counter, and nothing else. Doc 04's line budget ("Liar's Assay (24 pairs × 4 options + mockery) ~200") and doc 15 §2 ("[ ] The Liar's Assay … mockery pool") both count this layer as still to come. That is up to 69 wrong counters and 69 replies. The gate answered YES because it checks that the duel sections *resolve*, not that every node in them is written. Q144's "writing layer finished" covers the examine layer; it did not cover this.
+
+Under errata 72 F, a gap in a puzzle's path makes the room **wait**, not ship without it. Room 4 has nothing else to do: the duels are the reason the room exists.
+
+**Other things found, for whoever clears this.** None of them stop the room on its own; the builder could decide them under the standing delegation once the lines exist.
+1. **Where Duel One happens.** Doc 03: *"Puzzle B5. A camp two days out."* That matches B2 ("Get two days out of town") and B3 (Grievance carries Thad there). Doc 05 ("The Assay duels are held here") and doc 54 ("Duels One and Two are fought here") put it in Room 4. Doc 20 has no camp room. Duel Two's location is not stated in doc 03.
+2. **Duel One's arithmetic.** "He loses five straight exchanges", but Tier 1 is four pairs. Something repeats, or Vessel's fifth boast is one Thad never learns.
+3. **What Thad is offered when he has no counters** (Duel One), and **which boasts Vessel throws in Duel Two** ("Vessel escalates"). Both are mechanism choices.
+4. **The bystander who mutters each correct counter** (doc 03 Part One, "Learning") is unnamed. That is staging.
+5. **The duel engine does not exist.** Errata 69 already records it ("doc 03's duel machinery is not built"). This is plumbing a builder may write, but there is nothing to run through it until item 1 above, the missing lines, is written.
+
+**To unblock:** the wrong counters and Vessel's replies, for every pair Vessel can throw in Duels One and Two. That is at least Tier 1 (pairs 2–4) for Duel One and every pair from which Duel Two draws. It is Tyler's writing. Then a ruling on item 1. Room 4's four operations are untouched and waiting.
