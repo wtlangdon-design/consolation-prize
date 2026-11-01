@@ -893,3 +893,47 @@
 **THE LAMP** — LOOK 2 "A notice is tacked beside it: GUESTS WILL KINDLY NOT TURN UP THE WICK. Kindly is underlined." · 3 "I turned it up a quarter inch. Nobody came. I turned it back down anyway." | LISTEN 2 "A small flutter when the door opens. It does not like visitors either." · 3 "Nothing. It burns at the volume management prefers."
 
 **THE FLOORBOARDS** — LOOK 2 "One board is newer than the others, and nailed down harder." · 3 "At night the lobby lamp shines up through the gaps, and the floor glows in stripes, like a cell, or a keyboard." | LISTEN 2 "The clerk below, turning a page." · 3 "Somebody crossing the lobby slowly and stopping at the foot of the stairs. Then going on."
+
+---
+
+# ROOM 8 · REGISTRAR'S ARCHIVE
+
+*Merged: doc 05's nine and doc 08's nine, fourteen objects. Entered once, in Act III, as Thad's own executor (doc 08). **THE TIMESHEET's LISTEN is one of the three lines that must never be marked.** Both passes wrote it word for word the same — "Paper. Same hand as the filing." — so its first two variants are already identical, and its third is the same line again: changing it on the third listen would be the only change in the room that means anything. Declare it a deliberate repetition in content, and nothing more. Its LOOK repeats are as unremarkable as the stacks'. None of the room's quiet seeds (the dust at chest height, the lamp taken down, the drawer read often, the chair) is added to or pointed at.*
+
+## Same object, both passes
+
+**THE STACKS** ≡ **THE SHELVES**
+**THE MOTT FILE** ≡ **THE FILING ITSELF**
+**THE LAMP BRACKET** ≡ **THE LAMP**
+
+*(THE TIMESHEET has the same name in both passes.)*
+
+## Repeats
+
+**THE STACKS** — LOOK 3 "The boxes for the first year are the thinnest. It took the town a year to start lying in quantity." | LISTEN 3 "A box settling on a high shelf. The archive, turning over in its sleep."
+
+**THE FILING LADDER** — LOOK 2 "The rungs are worn smooth in the middle, the way rungs are." · 3 "From the top rung you can touch the ceiling and the oldest box in the district at once." | LISTEN 2 "A wheel squeaking a quarter turn as I lean on it." · 3 "Nothing. It has been put back exactly where it was, which is to say, used."
+
+**THE MOTT FILE** — LOOK 3 "It is shorter than my letter to my mother. It has done considerably more." | LISTEN 3 "Nothing. Twelve years under glass, and still nothing to add."
+
+**THE TIMESHEET** — LOOK 3 "Bundled with string and labeled by year. The archive keeps everything, including what nobody asked it to keep." | LISTEN 3 "Paper. Same hand as the filing."
+
+**THE COUNTY SEAL** — LOOK 2 "The handle is wrapped in chamois so it will not mark. Even the seal is handled with care." · 3 "Around the rim, CONSOLATION COUNTY; in the middle, a pickaxe crossed with a quill. That is the whole economy, and it is accurate." | LISTEN 2 "Nothing. It is resting between truths." · 3 "A faint ring when I set it down. Brass, agreeing with itself."
+
+**THE UNCLAIMED CORRESPONDENCE** — LOOK 2 "One is addressed to Ezra Pike. Six years waiting. I carried its twin eleven hundred miles." · 3 "Some envelopes have been readdressed three times, each to a camp further west. The last is addressed to nowhere at all, and was delivered here." | LISTEN 2 "A soft slither as one envelope leans into another." · 3 "Nothing. Letters keep very quiet when nobody is coming for them."
+
+**THE DAMP CORNER** — LOOK 2 "A bucket under the worst of it, half full, and a second bucket under the first bucket's overflow." · 3 "Whatever was filed in 1851 is legible only as a color now: a soft brown peace." | LISTEN 2 "A single drop, at last, into the bucket. It had been thinking about it for some time." · 3 "Nothing. The roof is saving up."
+
+**THE CLERK'S DESK** — LOOK 2 "A blotter, a pen and a stamp pad, all squared to the edge. Sump's archive desk is Sump in furniture." · 3 "One drawer has a brass label: PENDING. It is empty. Nothing in Sump's charge is pending for long." | LISTEN 2 "The drawer that will not quite shut, ticking when the floor moves." · 3 "Nothing. Sump's desk is quiet even when he is not at it."
+
+**THE LAMP BRACKET** — LOOK 2 "The wall above it is scorched in a neat oval, the shape of a lamp held at that height for a long time." · 3 "It is the only light allowed in here, and it is allowed only as far as the door." | LISTEN 2 "The bracket creaking as the door swings." · 3 "Nothing. The lamp is down, and the bracket is waiting for it."
+
+**CLAIM ONE'S BOX** — LOOK 2 "It has a brass corner piece, which none of the others has. Somebody felt the most famous box deserved a little armor." · 3 "The label is in Sump's hand, and has been relabeled once, in Sump's hand, more neatly." | LISTEN 2 "Nothing. A box holding one sheet makes the same sound as an empty one." · 3 "Nothing. The most famous box in the territory has nothing to say for itself."
+
+**THE EXECUTORS' LEDGER** — LOOK 2 "The ink of the last entry before mine is years old. Nobody has been dead enough to come in here for a long time." · 3 "I signed it. Under occupation I wrote 'deceased', because it seemed the honest thing." | LISTEN 2 "Nothing. A book of visitors, none of whom is visiting." · 3 "The page settling as I close it. Twenty names now, and one of them still breathing."
+
+**THE BARRED WINDOW** — LOOK 2 "The bars are set in mortar on the inside of the frame. Somebody built a room to keep paper from escaping." · 3 "Through the bars, a slice of Main Street: one hitching rail, one horse, one man looking at neither." | LISTEN 2 "A wagon passing, reduced to a rumor." · 3 "Somebody laughing outside. In here it sounds like a story about someone else."
+
+**THE DUST** — LOOK 2 "It lies on everything else like a sheet over the furniture in a closed house." · 3 "My own prints are in it now. It will remember me longer than the town does." | LISTEN 2 "Nothing. Dust is very good at being undisturbed." · 3 "Nothing. I sneezed once, which is the loudest thing this room has heard in a year."
+
+**THE CHAIR** — LOOK 2 "A plain chair with a cushion worn flat in the shape of one particular person." · 3 "I did not sit in it. It felt like someone else's." | LISTEN 2 "A creak as the cushion lets go of the last shape it held." · 3 "Nothing. It is waiting for whoever it waits for."
