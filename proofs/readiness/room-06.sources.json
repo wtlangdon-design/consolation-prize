@@ -3,30 +3,50 @@
  "room": 6,
  "id": "room-06",
  "name": "ASSAY OFFICE, RECORDS ROOM",
- "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 by the unattended room pass. The examine, act-variant and wrong-verb pointers were resolved mechanically from document headings. Dialogue and puzzles are NOT mapped: the room is blocked at the repeat-variant layer (doc 15 section 5, 'Repeat variants and verb fallbacks, 41 rooms', unchecked), which no mapping can change, so the gate's dialogue/puzzle NOs here mean 'not declared', not 'not written'. Map them before this room is reconsidered.",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54); errata 66 D and 69 D move three doc 08 subjects to Room 5.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 6 — ASSAY OFFICE, RECORDS ROOM",
+  "primary": "docs/05-examine-layer.md::ROOM 6 \u2014 ASSAY OFFICE, RECORDS ROOM",
   "batch": [
-   "docs/08-examine-batch-1.md::ROOM 6 — ASSAY OFFICE, RECORDS ROOM"
+   "docs/08-examine-batch-1.md::ROOM 6 \u2014 ASSAY OFFICE, RECORDS ROOM"
   ],
   "merged": [
-   "docs/08-examine-batch-1.md::ROOM 6 — ASSAY OFFICE, RECORDS ROOM"
-  ]
+   "docs/08-examine-batch-1.md::ROOM 6 \u2014 ASSAY OFFICE, RECORDS ROOM"
+  ],
+  "completions": [
+   "docs/54-batch-c.md::ROOM 6 \u00b7 ASSAY OFFICE, RECORDS ROOM"
+  ],
+  "retired": {
+   "ruling": "docs/00-errata.md::66 \u00b7 ROOM 5'S LATER STATES \u2014 OWNER RULINGS A TO K (2026-09-05), AND DOC 08'S RECORDS-ROOM FLOORBOARD SUPERSEDED",
+   "names": [
+    "THE FLOORBOARD, LIFTED",
+    "THE SECOND LEDGER",
+    "THE NAMES"
+   ]
+  },
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "Part Two-B wrote no variant for the records room."
+  }
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 6 — ASSAY RECORDS ROOM",
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 6 \u2014 ASSAY RECORDS ROOM",
  "dialogue": {
   "characters": [],
   "trees": [],
-  "mapped": false
+  "none": {
+   "source": "docs/20-room-map.md::Interiors \u2014 one way in, one way back",
+   "why": "Winnie is at her window in Room 5; her trees are mapped there. Nobody is staged in the records room."
+  }
  },
  "puzzles": {
   "ids": [],
-  "source": null,
-  "mapped": false
+  "none": {
+   "source": "docs/02-puzzle-graph.md::Puzzle Dependency Graph \u2014 v1",
+   "why": "Trial Two's puzzles are solved at Winnie's window (Room 5); none is sited in the records room."
+  }
  },
  "staging": {
-  "required": null,
-  "why": "not assessed: blocked at the examine layer"
+  "required": false,
+  "why": "No doc 48 script is sited here."
  },
  "connectivity": "docs/20-room-map.md"
 }

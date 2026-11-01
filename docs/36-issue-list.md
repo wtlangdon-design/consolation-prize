@@ -4644,3 +4644,15 @@ Found while writing the repeat-variant layer (doc 54) under errata 67. Each is a
 6. **B3, the Grievance puzzle (Room 15) — interface.** Doc 02: "Grievance responds to one whistled pitch. The livery man hums it badly. Thad, by ear, corrects it." The bible lists a tin whistle among the items. Nothing says how the player chooses or corrects a pitch — a whistle with notes, a USE that offers pitches as options, the tuning fork as reference — and that choice is the puzzle. LIV_A1 option 4 (the hum) is written. A ruling, then the lines.
 7. **Room 27's eleven markers — which eleven.** Doc 05 writes eleven named markers, each with its own LOOK and LISTEN (EUREKA, PROVIDENCE, THE SURE THING, PATIENCE, THE MOTHERLODE, LUCKY DAN'S, BONANZA, GLORY HOLE, THE WIDOW'S MITE, NEW CANAAN, and the blank one). Doc 08 names eleven different ones (Sure Thing, Providence, The Widow's Mite, Second Chance, Last Chance, Katherine, Bonanza No. 2, Bonanza No. 3, Repentance, Home, and one weathered blank) as a stage direction, and gives all eleven the same LISTEN — "Nothing." — on purpose: "the eleventh lands differently than the first." Merging cannot keep both: one row, eleven posts, two sets of names and two LISTEN designs. **Recommendation: doc 05's eleven**, which are written, with doc 08's device kept by giving the blank one the last word; doc 08's WORKINGS, SLUICE FRAMES, A BOOT and THE PATH merge in as they are. The repeats are written once this is ruled.
 
+
+## Q144 · Batch C: the writing layer is finished for every room the build order reaches — **CLOSED 2026-10-31**
+
+Tyler, 2026-10-31: "do everything you have to to finish the writing so the other rooms can be built." Q142's finding — every room after Room 5 blocked at the repeat-variant layer — is answered by doc 54 (Batch C), errata 67 (the two examine passes merged, by Tyler's ruling), and errata 68 and 69 (decisions delegated to Claude: "I want you to make all of those decisions yourself").
+
+| | Rooms |
+|---|---|
+| **BUILDABLE WITHOUT INVENTION: YES** | 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 34, 35, 36 |
+| NO — its own open issues, not writing | 5 (Q23, Q26, Q111; already built) |
+| NO — audio, not writing | 32 (doc 15 §4: no audio exists), 33 (OQ-06) |
+
+Also written: FAN_A2 (the dinner), RAC_A1 (the raccoon's naming), PRA_A1, UND_C1, SUM_B1 and SUM_C1 grown to full nodes, LIV_A1 option 5, A5's attempts, the office search, B3, and the nineteen names. What remains for a room is the build's own work: annotation, plate, art (and Tyler's visual acceptance), and wiring.

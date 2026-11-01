@@ -96,7 +96,7 @@
 *Nine hotspots. The letters home live here. Available in every act, and every hotspot has an act variant.*
 
 **THE DESK**
-> **LOOK:** "A desk, a chair, and a window facing an alley. For four dollars a week, I had expected a slightly worse alley."
+> **LOOK:** "A desk, a chair, and a window facing an alley. For five dollars a week, I had expected a slightly worse alley." *(Five, not four: doc 02 A2 prices the room at five, and doc 26 says five. Errata 69 C.)*
 > **LISTEN:** "Nothing. It is the only place in Consolation where nobody is talking."
 
 **HIS MOTHER'S LETTERS**
@@ -226,7 +226,7 @@
 *The closing screen. Room 2's nine hotspots, rewritten. The player has read the originals two hundred times.*
 
 **THE FALSE FRONTS**
-> **LOOK:** "Two storeys tall in front and one storey deep. It is still a stage set. It is just that people live here."
+> **LOOK:** "Two stories tall in front and one story deep. It is still a stage set. It is just that people live here."
 > **LISTEN:** "Wind. There is still a great deal of nothing behind these. It has stopped being funny and started being a fact about somebody's home."
 
 **THE IMPROVEMENT COMPANY SIGN**

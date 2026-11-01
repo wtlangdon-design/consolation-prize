@@ -105,8 +105,10 @@ function doc25Subjects(body) {
   const blocks = body.split(/^###\s+/m).slice(1);
   for (const block of blocks) {
     const name = block.split('\n')[0].trim();
-    const look = /^\*\*LOOK\*\*(.*)$/m.exec(block);
-    const listen = /^\*\*LISTEN\*\*(.*)$/m.exec(block);
+    // `**LOOK**`, or `**LOOK Act I**` / `**LOOK Acts I–II**` (doc 26's Room 19):
+    // an act-labelled run is still that act's three variants.
+    const look = /^\*\*LOOK(?: Acts? [^*]+)?\*\*(.*)$/m.exec(block);
+    const listen = /^\*\*LISTEN(?: Acts? [^*]+)?\*\*(.*)$/m.exec(block);
     const variants = (line) => (line ? (line[1].match(/(?:^|·)\s*\d+\s+"/g) ?? []).length : 0);
     out.push({ name, lookVariants: variants(look), listenVariants: variants(listen) });
   }
@@ -129,6 +131,39 @@ function doc25Subjects(body) {
       const listenLine = lines.slice(i + 1, i + 3).map((l) => /^>\s*\*\*LISTEN\*\*(.*)$/.exec(l.trim())).find(Boolean);
       const count = (text) => (text.match(/(?:^|·)\s*\d+\s+"/g) ?? []).length;
       out.push({ name, lookVariants: count(look[1]), listenVariants: listenLine ? count(listenLine[1]) : 0 });
+    }
+  }
+  // A SUBJECT INTRODUCED BY A NOTE: `**HIS MOTHER'S LETTERS** — *Correction…*`
+  // and then, a line or two later, unquoted numbered `**LOOK…**` and
+  // `**LISTEN…**` runs (doc 26's Room 19). The note is not a variant.
+  {
+    const lines = body.split('\n');
+    for (let i = 0; i < lines.length; i += 1) {
+      const intro = /^\*\*([A-Z][^*]+?)\*\*\s*—\s*\*[^*]/.exec(lines[i].trim());
+      if (!intro) continue;
+      const window = lines.slice(i + 1, i + 6).map((l) => l.trim());
+      const lookLine = window.map((l) => /^\*\*LOOK(?: Acts? [^*]+)?\*\*(.*)$/.exec(l)).find(Boolean);
+      const listenLine = window.map((l) => /^\*\*LISTEN(?: Acts? [^*]+)?\*\*(.*)$/.exec(l)).find(Boolean);
+      if (!lookLine && !listenLine) continue;
+      const count = (text) => (text.match(/(?:^|·)\s*\d+\s+"/g) ?? []).length;
+      out.push({ name: intro[1].trim(), lookVariants: lookLine ? count(lookLine[1]) : 0,
+        listenVariants: listenLine ? count(listenLine[1]) : 0 });
+    }
+  }
+  // AN EXIT, in doc 25/26's shape: `**THE DOOR → Room 18**` and then
+  // unquoted `**LOOK** 1 "..."` and `**LISTEN** 1 "..."` lines. An exit is a
+  // hotspot, and doc 05 sometimes names the same door as a subject.
+  {
+    const lines = body.split('\n');
+    for (let i = 0; i < lines.length; i += 1) {
+      const exit = /^\*\*(.+?)\s+→\s+Room\s+\d+\*\*\s*$/.exec(lines[i].trim());
+      if (!exit) continue;
+      const lookLine = /^\*\*LOOK\*\*(.*)$/.exec((lines[i + 1] ?? '').trim());
+      const listenLine = /^\*\*LISTEN\*\*(.*)$/.exec((lines[i + 2] ?? '').trim());
+      if (!lookLine && !listenLine) continue;
+      const count = (text) => (text.match(/(?:^|·)\s*\d+\s+"/g) ?? []).length;
+      out.push({ name: exit[1].trim(), lookVariants: lookLine ? count(lookLine[1]) : 0,
+        listenVariants: listenLine ? count(listenLine[1]) : 0, exit: true });
     }
   }
   // Repeat variants for doc 05's own subjects are written as a bold run
@@ -204,8 +239,10 @@ function batchSubjects(body) {
       // "The board" names THE BOARD OF NAMES: a parenthesis may shorten.
       // And may change the article: "(The boot" is doc 08's A BOOT.
       const bare = (text) => text.replace(/^(THE|A|AN)\s+/, '');
+      // Or name it by its last word: "(Cloth" is THE BOLTS OF CLOTH.
       const mine = notes.find((one) => bare(name) === bare(one.noted)
-        || bare(name).startsWith(`${bare(one.noted)} `));
+        || bare(name).startsWith(`${bare(one.noted)} `)
+        || bare(name).endsWith(` ${bare(one.noted)}`));
       sketched.push({ name, look: Boolean(mine?.look), listen: Boolean(mine?.listen) });
     }
   }
@@ -275,7 +312,13 @@ function ask(room, sources, note) {
     for (const reference of sources.examine?.merged ?? []) {
       const found = section(reference);
       if (!found.ok) continue;
+      // A BATCH SUBJECT A RULING MOVED ELSEWHERE (errata 66 D: the second
+      // ledger is Room 5's) is not this room's. The room must cite the
+      // ruling, and the ruling must resolve.
+      const retired = sources.examine?.retired;
+      const retiredNames = retired && section(retired.ruling).ok ? retired.names : [];
       for (const one of batchSubjects(found.body)) {
+        if (retiredNames.some((name) => one.name.startsWith(name))) continue;
         const at = slot(one.name);
         at.look += one.look ? 1 : 0;
         at.listen += one.listen ? 1 : 0;
@@ -361,7 +404,17 @@ function ask(room, sources, note) {
     const doctrine = none ? section(none.doctrine) : null;
     const passNamesRoom = doctrine?.ok
       && new RegExp(`^## ROOM ${room}\\b`, 'm').test(doctrine.body);
-    if (acts.length === 0 && none && doctrine?.ok && !passNamesRoom) {
+    // ACT-LABELLED RUNS, in the batch docs' shape (`**LOOK Act IV:**`,
+    // `**LOOK Acts I–II**`): doc 08 writes Room 19's act variants that way,
+    // not as Part Two-B's `*(act: N)*`. Counted where a room points at them.
+    const labelled = (sources.examine?.actVariantsIn ?? []).flatMap((reference) => {
+      const found = section(reference);
+      return found.ok ? found.body.match(/^>?\s*\*\*(?:LOOK|LISTEN) Acts? [^*]+\*\*/gm) ?? [] : [];
+    });
+    if (acts.length === 0 && labelled.length > 0) {
+      add('act-variants', 'Act/state variants complete?', 'YES', sources.examine.actVariantsIn,
+        `${labelled.length} act-labelled run(s) authored in the batch shape`);
+    } else if (acts.length === 0 && none && doctrine?.ok && !passNamesRoom) {
       add('act-variants', 'Act/state variants complete?', 'YES', [none.doctrine],
         `none, by doctrine: ${none.why}`);
     } else add('act-variants', 'Act/state variants complete?',
@@ -378,7 +431,7 @@ function ask(room, sources, note) {
   /* 4 · wrong-verb layer -------------------------------------------------- */
   const wrong = section(sources.wrongVerbs);
   const wrongLines = wrong.ok
-    ? (wrong.body.match(/^\*\*.+?\*\*\s*·\s*[A-Z ]+\s*—/gm) ?? []).length : 0;
+    ? (wrong.body.match(/^\*\*.+?\*\*\s*·\s*[A-Z_ ]+\s*—/gm) ?? []).length : 0;
   add('wrong-verbs', 'Wrong-verb layer complete?',
     wrong.ok && wrongLines > 0 ? 'YES' : 'NO',
     [sources.wrongVerbs ?? '(none declared)'],

@@ -13,7 +13,7 @@
     "docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#1",
     "docs/25-rooms-05-07.md::ROOM 5 · ASSAY OFFICE, FRONT"
    ],
-   "why": "9 subject(s), each with a LOOK and a LISTEN"
+   "why": "12 subject(s), each with a LOOK and a LISTEN"
   },
   {
    "id": "repeat-variants",
@@ -23,7 +23,7 @@
     "docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#1",
     "docs/25-rooms-05-07.md::ROOM 5 · ASSAY OFFICE, FRONT"
    ],
-   "why": "all 9 subject(s) carry three LOOK and three LISTEN variants"
+   "why": "all 12 subject(s) carry three LOOK and three LISTEN variants"
   },
   {
    "id": "act-variants",
@@ -110,14 +110,19 @@
    "question": "Unresolved canon decisions affecting this room?",
    "answer": "YES",
    "evidence": [
-    "docs/36-issue-list.md::Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST",
-    "docs/36-issue-list.md::Q23 · ROOM 5 HAS NO ANNOTATION, AND THAT IS NOT A CONTENT PROBLEM"
+    "docs/36-issue-list.md::Q23 · ROOM 5 HAS NO ANNOTATION, AND THAT IS NOT A CONTENT PROBLEM",
+    "docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT",
+    "docs/36-issue-list.md::Q109 · Room 5 Act I gameplay acceptance pass — three defects found and fixed at source — **OWNER-ACCEPTED 2026-09-05 (see Q114)**",
+    "docs/36-issue-list.md::Q111 · Room 5's later-act states as playtest URLs — three constructible, four blocked by unbuilt and unspecified content",
+    "docs/36-issue-list.md::Q114 · Factory v2 consolidated from Room 5: the room contract, the DAY/NIGHT companion check, the proof judgement, and the compiler's false DROPPED report — **RECORDED AND BUILT 2026-09-05**",
+    "docs/36-issue-list.md::Q115 · Opening-set continuity retrofit audit: Main Street and the Nugget against Factory v2 and the Room 1 + Room 5 authorities — **AUDITED 2026-09-05, RETROFIT SCOPE AWAITING TYLER**",
+    "docs/36-issue-list.md::Q142 · The unattended room pass of 2026-11-01: every room after Room 5 is BLOCKED by its readiness gate — **REPORTED 2026-11-01, NOTHING BUILT, NO IMAGE OPERATION SPENT**"
    ],
-   "why": "2 open item(s) name this room"
+   "why": "7 open item(s) name this room"
   }
  ],
- "subjectsFound": 9,
- "subjectsDeclaredByDocument": 8,
+ "subjectsFound": 12,
+ "subjectsDeclaredByDocument": 9,
  "unresolvedCitations": [],
  "dimensions": [
   {
@@ -193,19 +198,19 @@
   {
    "id": "geometry",
    "question": "Geometry/placement",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "reference/room-05/annotation.json",
     "content/rooms/assay-office.json",
     "art/backgrounds/room-05-assay-office.png"
    ],
-   "why": "art/backgrounds/room-05-assay-office.png is 320x144, PNG colour type 3 -- indexed, which no pixel check in this project can read"
+   "why": "annotation, room file and plate are all present at the canonical size"
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
  "buildableWithoutInvention": "NO",
  "blocking": [
-  "open-canon: 2 open item(s) name this room"
+  "open-canon: 7 open item(s) name this room"
  ],
  "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
  "geometry": [
@@ -230,14 +235,14 @@
   {
    "id": "plate",
    "question": "Shipping plate at the canonical size?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "art/backgrounds/room-05-assay-office.png"
    ],
-   "why": "art/backgrounds/room-05-assay-office.png is 320x144, PNG colour type 3 -- indexed, which no pixel check in this project can read"
+   "why": "art/backgrounds/room-05-assay-office.png is 1920x864, PNG colour type 2"
   }
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
- "geometryReady": "NO",
- "at": "2026-09-04T18:31:27.099Z"
+ "geometryReady": "YES",
+ "at": "2026-11-01T04:44:12.490Z"
 }

@@ -2127,3 +2127,20 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 **G · Room 27's markers are doc 05's eleven.** Doc 08's eleven names are retired. Doc 08's device survives in one place: the blank marker's LISTEN repeats are "Nothing." Doc 08's THE MARKERS folds into the blank marker; its WORKINGS, SLUICE FRAMES, A BOOT and THE PATH merge in.
 
 **H · The merge's doubled jokes (every "For Tyler's cut" list in doc 54).** Where a merged object shows the same joke twice, the **later** variant is dropped from the sequence, provided three remain; doc 54 marks each as *Decided*. Mechanical corrections are made at source: doc 09's "storey" becomes "story"; doc 09's Grievance becomes "she"; doc 10's "C. PRATT" becomes "N. PRATT"; doc 10's *swept* loses its italics; doc 05's "THE SIGN: NO COLOUR YET" becomes "THE SIGN: NO COLOR YET". **Contradictions keep the version more lines are built on, and on a tie doc 05's (the later pass):** the key rack has four keys out (docs 09 and 26, three lines against one); the mile post reads 1 MI. both ways (doc 05); Pratt's working is the trench (doc 05); the sluice is one community sluice of forty feet (doc 05, which Room 26's mercury flask is chained to). The line that disagrees is dropped from its sequence. The price display is chalked *and* nailed up — no contradiction.
+
+---
+
+# 69 · FURTHER DELEGATED RULINGS (2026-10-31)
+
+*Made under the same delegation as 68 ("I want you to make all of those decisions yourself"), as the writing reached them.*
+
+**A · Room 34 is one room in two states.** Doc 10's Room 34 is the way down (Thad's tunnel, the rock face, the lamp, the fork); doc 05's is the old working the way down reaches after F3 (the timbering, the tended lantern, the even footprints, the seam). Before F3 the room shows doc 10's subjects with doc 05's THE DARK, THE AIR, THE WALLS, THE TIMBERING and THE WAY BACK UP; after F3, doc 05's THE SEAM, THE OLD LANTERN and THE FOOTPRINTS appear. F3 sets `T_BROKE_THROUGH` (doc 02's F3 row now says so), and that flag is the state. F3's breakthrough itself is staged in Room 33, which remains blocked on OQ-06.
+
+**B · Room 36 is doc 05's where doc 08 contradicts it**, because doc 48 S7 says Room 36 is "scripted in doc 05". Doc 08's sign, trough LISTEN, boardwalk and steeple LISTEN are dropped from their sequences; its agreeing lines, and its two lost-dog conditionals, stay.
+
+**C · Room 19 (Thad's room).** The window faces the **alley** (doc 08 and doc 26, five lines, against doc 05's one): doc 05's THE WINDOW LOOK is dropped from the sequence; its LISTEN stays. The room costs **five** dollars a week (doc 02 A2; doc 26): doc 08's "four" is corrected at source. Doc 26's THE DESK LOOK 2 and LISTEN 3 copy doc 08's line 1 almost word for word and are dropped from the sequence. Doc 05's THE LETTERS HOME is Thad's drafts, the same object as doc 08's THE OUTGOING LETTER; doc 05's THE DOOR is the room's exit, whose lines doc 26 writes.
+
+**D · Doc 08's nineteen names go with the second ledger to Room 5.** Errata 66 D put the second ledger under Room 5's board. Doc 08's "THE NAMES — individually examinable, nineteen of them" are that ledger's entries, so they are examined there, not in Room 6. Room 6 keeps doc 05's THE NINETEEN NAMES. The nineteen are written in doc 54 (Room 14's section) because nine of them are on Boot Hill's markers.
+
+**E · The nineteen names, written; Boot Hill's markers, and Pike's grave.** Neither doc 05 (Room 14) nor doc 08 (Room 6) wrote the nineteen; both left stage directions. They are written in doc 54: nineteen names, trades and dates in the second ledger (Room 5), nine of them again on Boot Hill with their years of death. Nothing says how any of them died. Boot Hill's THE NINETEEN and Room 5's THE NAMES are each one hotspot whose LOOK reads along the row. Ezra Pike's grave is its own hotspot (doc 49's PIKE'S HEADBOARD and PLOT ELEVEN, doc 27's "third row, second from the end"), findable from Act I, because A1 sends Thad to it; doc 05's "tenth marker" line is its first LOOK.
+

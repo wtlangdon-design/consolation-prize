@@ -3,30 +3,41 @@
  "room": 34,
  "id": "room-34",
  "name": "UNDER PROSPERITY",
- "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 by the unattended room pass. The examine, act-variant and wrong-verb pointers were resolved mechanically from document headings. Dialogue and puzzles are NOT mapped: the room is blocked at the repeat-variant layer (doc 15 section 5, 'Repeat variants and verb fallbacks, 41 rooms', unchecked), which no mapping can change, so the gate's dialogue/puzzle NOs here mean 'not declared', not 'not written'. Map them before this room is reconsidered.",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54); two states by errata 69 A.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 34 — UNDER PROSPERITY",
+  "primary": "docs/05-examine-layer.md::ROOM 34 \u2014 UNDER PROSPERITY",
   "batch": [
-   "docs/10-examine-batch-3.md::ROOM 34 — UNDER PROSPERITY"
+   "docs/10-examine-batch-3.md::ROOM 34 \u2014 UNDER PROSPERITY"
   ],
   "merged": [
-   "docs/10-examine-batch-3.md::ROOM 34 — UNDER PROSPERITY"
-  ]
+   "docs/10-examine-batch-3.md::ROOM 34 \u2014 UNDER PROSPERITY"
+  ],
+  "completions": [
+   "docs/54-batch-c.md::ROOM 34 \u00b7 UNDER PROSPERITY"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "Part Two-B wrote no variant: the room exists only in Act IV. Its change is F3's state (errata 69 A), not an act."
+  }
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 34 — UNDER PROSPERITY",
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 34 \u2014 UNDER PROSPERITY",
  "dialogue": {
   "characters": [],
   "trees": [],
-  "mapped": false
+  "none": {
+   "source": "docs/20-room-map.md::Act III and IV",
+   "why": "Thad is alone underground."
+  }
  },
  "puzzles": {
-  "ids": [],
-  "source": null,
-  "mapped": false
+  "ids": [
+   "F3"
+  ],
+  "source": "docs/02-puzzle-graph.md::ACT IV \u2014 *The Quietest Part of the Game*"
  },
  "staging": {
-  "required": null,
-  "why": "not assessed: blocked at the examine layer"
+  "required": false,
+  "why": "F3's breakthrough is staged in Room 33 (errata 69 A); Room 34 only changes state after it."
  },
  "connectivity": "docs/20-room-map.md"
 }
