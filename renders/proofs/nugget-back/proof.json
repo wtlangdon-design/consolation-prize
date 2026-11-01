@@ -4,7 +4,7 @@
  "room": "nugget_back",
  "roomWidth": 1920,
  "branch": "claude/tender-sagan-buz50u",
- "commit": "0214c776602bacc05f1e4959d4614261287ce322",
+ "commit": "b7b754fda45a93c6297b7a4d7b12d99e361ac905",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -71,7 +71,7 @@
    ],
    "reportedHeight": 509,
    "expected": 509,
-   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
    "bounds": [
     696,
     197,
@@ -79,7 +79,7 @@
     562
    ],
    "order": 0,
-   "renderedHeight": 529,
+   "renderedHeight": 509,
    "renderedBottom": 705,
    "file": "raw-captures-ignored/panel-c-mud_far-far.png"
   },
@@ -108,7 +108,7 @@
    ],
    "reportedHeight": 560,
    "expected": 560,
-   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
    "bounds": [
     669,
     279,
@@ -127,7 +127,7 @@
   {
    "panel": "B",
    "room": "nugget_back",
-   "clock": 143.1728,
+   "clock": 143.8581,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -166,7 +166,7 @@
      "height": 518,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
       31,
       212,
@@ -193,15 +193,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-01T07:50:45.677Z",
+   "capturedAt": "2026-11-01T08:20:05.760Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "2b0b8356f37d9382dbc128bd28de52f7a541ccd49718fb2aa2fd4feb00e65f27"
+   "hash": "eb56c624f7f5ff96d0664954ad381b9bb023ba98ec231d730b4b7a6f70dd8561"
   },
   {
    "panel": "A",
    "room": "nugget_back",
-   "clock": 144.52270000000001,
+   "clock": 145.12470000000002,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -264,15 +264,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-01T07:50:46.918Z",
+   "capturedAt": "2026-11-01T08:20:06.956Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "da04834ae3cc45d0a4a12fe6118a6335058443af691dd69b23cda7c396078a49"
+   "hash": "eb98fdb85c06ac0bf4d0262e2359e36357e677d5b219bde575d751ae87f7de12"
   },
   {
    "panel": "D",
    "room": "nugget_back",
-   "clock": 153.03910000000002,
+   "clock": 164.274,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -289,7 +289,8 @@
     "T_CASE_DOWN",
     "T_CASE_TAKEN",
     "T_VESSEL_OPENED",
-    "T_VESSEL_FOUND"
+    "T_VESSEL_FOUND",
+    "T_VESSEL_GREETED"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
@@ -312,7 +313,7 @@
      "height": 530,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
       525,
       230,
@@ -325,7 +326,7 @@
     }
    },
    "says": null,
-   "options": 5,
+   "options": 6,
    "assets": [
     {
      "key": "bg:nugget_back",
@@ -366,6 +367,14 @@
      "candidate": false,
      "loaded": true,
      "hash": "1c9ac034386642693bf7e1a93d78f14c8b1a737485c3a14f6244a27c16dbfa44"
+    },
+    {
+     "key": "art/actors/room-04-sowerby.png",
+     "path": "art/actors/room-04-sowerby.png",
+     "drawn": "art/actors/room-04-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "271cbdf20e9826770ecfac984199fe218f8117a1df6bc5de08a4494fc25e3c78"
     }
    ],
    "stubs": [],
@@ -381,10 +390,10 @@
     "cast(true)",
     "flag T_VESSEL_FOUND=true"
    ],
-   "capturedAt": "2026-11-01T07:50:55.410Z",
-   "intent": "principal changed state: THE ASSAY CONVENES. Prerequisite: T_VESSEL_FOUND (B3, Room 15, unbuilt). Visible consequence: Deke Vessel at his mark across the burnt line and the three judges behind the table. Then TALK TO Vessel opens VES_B1.",
+   "capturedAt": "2026-11-01T08:20:26.243Z",
+   "intent": "principal changed state: THE ASSAY CONVENES. Prerequisite: T_VESSEL_FOUND (B3, Room 15, unbuilt). Visible consequence: Deke Vessel at his mark across the burnt line, the three judges behind the table and Sowerby with the pencil. Then TALK TO Vessel opens VES_B1.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "48b9fb9e8c8974489de88a6885a144658425017f6758db53a8a0d61aee5b5a6f",
+   "hash": "62d2ae8ecb8b2f6d03d64654c60c4c157909915668f88155fa1488d43f8cf342",
    "changedBy": "flags"
   }
  ],
@@ -415,11 +424,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-01T07:50:55.411Z",
+ "at": "2026-11-01T08:20:26.243Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 339286,
+  "bytes": 340202,
   "panels": 5,
   "scale": 0.5
  }
