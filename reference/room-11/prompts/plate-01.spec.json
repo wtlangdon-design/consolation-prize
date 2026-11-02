@@ -1,0 +1,13 @@
+{
+ "assetId": "room-11",
+ "subject": "room-11-fanshawe-office",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-11-fanshawe-office",
+ "promptFile": "reference/room-11/prompts/plate-01.txt",
+ "out": "art/staging/room-11/plate-01/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-11/composition-master-01.png"
+ ]
+}

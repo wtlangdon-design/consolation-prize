@@ -1,0 +1,284 @@
+{
+ "room": 11,
+ "note": "Ruling 22 steps 1-6 for Fanshawe's office, written by tools/room11-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 84).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 740,
+   "height": 497
+  },
+  "near": {
+   "y": 850,
+   "height": 573
+  },
+  "from": "Room 5's interior numbers (reference/room-05/annotation.json)"
+ },
+ "walkable": [
+  220,
+  740,
+  1500,
+  110
+ ],
+ "exit": {
+  "hotspot": "THE DOOR",
+  "to": "company_lobby",
+  "rect": [
+   30,
+   150,
+   180,
+   540
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 300,
+   "y": 780,
+   "facing": "right"
+  },
+  "talk_fanshawe": {
+   "x": 1020,
+   "y": 790,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE DOOR",
+   "rect": [
+    30,
+    150,
+    180,
+    540
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WINDOW",
+   "rect": [
+    240,
+    60,
+    240,
+    500
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MAP WALL",
+   "rect": [
+    520,
+    90,
+    380,
+    330
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CHAIRS",
+   "rect": [
+    500,
+    470,
+    420,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PORTRAIT",
+   "rect": [
+    960,
+    30,
+    280,
+    380
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SABRE",
+   "rect": [
+    1260,
+    120,
+    160,
+    70
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "FANSHAWE'S DESK",
+   "rect": [
+    940,
+    450,
+    440,
+    240
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE HANDKERCHIEF",
+   "rect": [
+    980,
+    440,
+    60,
+    24
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SUBMISSION LOG",
+   "rect": [
+    1260,
+    432,
+    90,
+    30
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LEDGERS",
+   "rect": [
+    1440,
+    110,
+    260,
+    330
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STOCK PORTRAIT DRAWER",
+   "rect": [
+    1440,
+    470,
+    260,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE DECANTER",
+   "rect": [
+    1480,
+    380,
+    60,
+    90
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SAFE",
+   "rect": [
+    1730,
+    200,
+    190,
+    490
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "COLONEL FANSHAWE (behind the desk)",
+   "rect": [
+    1110,
+    220,
+    130,
+    230
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: every piece of furniture is behind it, and Fanshawe is cut at his desk by his own posture, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "walls, red damask",
+   "p10": 56.0,
+   "p90": 73.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 48.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "floor, Turkey carpet",
+   "p10": 84.0,
+   "p90": 93.0,
+   "darkAnchorMargin": 58.5,
+   "lightAnchorMargin": 28.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE DOOR",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WINDOW",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE MAP WALL",
+   "p10": 92.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 66.5,
+   "lightAnchorMargin": 29.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CHAIRS",
+   "p10": 62.0,
+   "p90": 62.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 59.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PORTRAIT",
+   "p10": 60.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "FANSHAWE'S DESK",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 63.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE LEDGERS",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE STOCK PORTRAIT DRAWER",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SAFE",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

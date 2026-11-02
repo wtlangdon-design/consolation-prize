@@ -1,0 +1,212 @@
+{
+ "schema": 1,
+ "id": "room-11-fanshawe-office",
+ "room": "fanshawe_office",
+ "docRoom": 11,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 11 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/04-dialogue-trees.md",
+  "docs/57-puzzle-completion.md",
+  "docs/48-act-turn-beats.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-11.json",
+    "docs/00-errata.md::84 · ROOM 11 BUILT — THE BUILDER'S DECISIONS (2026-11-02)"
+   ],
+   "note": "Fanshawe in every act but the funeral day; A4 in Act I, A10 at the Act I turn, C4 on the funeral day, E0b at the Act II turn; night."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-11/graybox.json",
+    "docs/00-errata.md::84 · ROOM 11 BUILT — THE BUILDER'S DECISIONS (2026-11-02)"
+   ],
+   "note": "Every subject is plate; Fanshawe is a sprite; the dinner and the bare desk are props from operation 4 and the plate."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-11-fanshawe-cut.png",
+    "docs/00-errata.md::84 · ROOM 11 BUILT — THE BUILDER'S DECISIONS (2026-11-02)"
+   ],
+   "note": "Fanshawe drawn in the master beside Thad, then alone on magenta in five poses, keyed whole and cut at the desk top."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/fanshawe-office/life/life.json"
+   ],
+   "note": "Fanshawe breathes, welcomes, reads his watch and laughs; the desk lamp breathes."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-11-fanshawe-cut.png"
+   ],
+   "note": "Fanshawe stands behind his desk, cut at its top's back edge."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-11/annotation.json"
+   ],
+   "note": "The desk lamp, plate light and a runtime breath."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-11.test.ts",
+    "docs/00-errata.md::84 · ROOM 11 BUILT — THE BUILDER'S DECISIONS (2026-11-02)"
+   ],
+   "note": "The drawer's card shows at its gap (doc 54 LOOK 2); the log lies on the desk. Both refuse while he is present."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-11.json",
+    "content/rooms/fanshawe-office.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 80 lines compiled, Fanshawe's six nodes extracted."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-11: 4 of 4 operations (master, people-free plate, Fanshawe's five-pose sheet, the portrait restored and the dinner laid)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/fanshawe-office.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-11/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/fanshawe-office/proof.json"
+   ],
+   "note": "Panel D: the dinner's option 6 -- the handkerchief and T_DINED."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/fanshawe-office/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/fanshawe-office/doors/life.json",
+    "tests/room-11.test.ts"
+   ],
+   "note": "Out to the lobby and back, twice; A4, A10 with beat 4, C4 and E0b in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-11/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-11-fanshawe-office.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-11/plate-01/frame.json"
+   ]
+  },
+  {
+   "subject": "Colonel Fanshawe",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-11-fanshawe.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-11/fanshawe/fanshawe.json"
+   ]
+  },
+  {
+   "subject": "the dinner",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/props/room-11-dinner.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "tools/art/room11-props.py"
+   ],
+   "note": "Drawn while Thad holds THE INVITATION, until T_DINED."
+  },
+  {
+   "subject": "the bare desk",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/props/room-11-desk-bare.png",
+   "evidence": [
+    "tools/art/room11-props.py"
+   ],
+   "note": "Drawn once T_DINED is set."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q154 · Room 11, Fanshawe's office: built, awaiting Tyler's playthrough; FAN_D1 cannot be reached and the dinner's staging is reported — **RULED 2026-11-02 (errata 84, delegated); BUILT, room-11 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate, the dinner, the bare desk and Fanshawe -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q154 · Room 11, Fanshawe's office: built, awaiting Tyler's playthrough; FAN_D1 cannot be reached and the dinner's staging is reported — **RULED 2026-11-02 (errata 84, delegated); BUILT, room-11 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

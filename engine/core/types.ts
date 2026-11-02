@@ -91,6 +91,12 @@ export interface ResponseRule {
    */
   afterPuzzles?: string[];
   /**
+   * ANSWERS ONLY UNTIL ANY OF THESE PUZZLES IS COMPLETE (errata 84 G). Doc 57
+   * C4: the drawer gives THE PHOTOGRAPH once; its flag, T_MOTT_FACE_UNKNOWN,
+   * is also Frame's groundwork and cannot mark the taking.
+   */
+  untilPuzzles?: string[];
+  /**
    * Lines for repeat selections, cycled in order. Doc 05 requires three
    * variants minimum on Room 2 hotspots -- the player will read them
    * hundreds of times and a hotspot that answers identically forever is the
@@ -275,6 +281,13 @@ export interface Exit extends Interactable {
    * "it would bother me immensely to have a character just disappear").
    */
   setOnTransitWhen?: Condition;
+  /**
+   * A BEAT PLAYED AT THE DOOR (errata 84 E). The first rule whose `when` holds
+   * is spoken as he goes through -- `say`, `then`, `by` -- its `set` is
+   * written, and the room changes once the last line is read. Doc 57 A10's
+   * beat 4 at Fanshawe's door is the case. Absent, transit is silent (doc 14).
+   */
+  transitScene?: ResponseRule[];
   /**
    * This exit does not travel when it is taken. Something else says when.
    *
@@ -1287,6 +1300,12 @@ export interface RoomFile {
     say?: string[];
     sayOnce?: string;
     /**
+     * The lines play only while this holds, and playing them writes `sayOnce`
+     * (errata 84 G). Doc 54's empty office: "On first entering it" while the
+     * funeral runs -- not on the first entry ever.
+     */
+    sayWhen?: Condition;
+    /**
      * A CHARACTER WHO ACCOSTS THE PLAYER. Doc 27: Deke Vessel "opens. Thad
      * does not approach him." Doc 35 ("VESSEL'S AUTO-OPEN") specifies it:
      * when the condition holds on entering, wait, then the character's tree
@@ -1295,7 +1314,7 @@ export interface RoomFile {
      * the same tree; this is how he finds Thad, not the only way in. "This
      * is the pattern for every character who accosts the player."
      */
-    accost?: { npc: string; when?: Condition; afterSeconds?: number; set?: FlagWrites; note?: string };
+    accost?: { npc: string; when?: Condition; whenAny?: Condition[]; afterSeconds?: number; set?: FlagWrites; note?: string };
   };
   /** Destinations doc 20 names but whose appearance rule nobody has stated. */
   pendingLocations?: { room: number | null; name: string; doc: string; missing: string }[];
@@ -1825,6 +1844,8 @@ export interface PaletteFile {
 
 export interface ManifestFile {
   menu: string;
+  /** The act cards shown after the opening, by the ACT they announce. Optional. */
+  actCards?: string;
   schema: number;
   font: string;
   scaling: string;
@@ -2070,6 +2091,11 @@ export interface ContentBundle {
   combinations: CombinationsFile;
   itemIcons: ItemIconsFile;
   sequences: Map<string, SequenceFile>;
+  /**
+   * THE ACT CARDS AFTER THE OPENING, by the ACT value each announces (errata
+   * 84 C). Extracted from doc 57. Empty when the manifest declares none.
+   */
+  actCards: Map<number, string>;
   /** Head overlays by id. Empty until something declares one. */
   overlays: Map<string, OverlayFile>;
   /** The lamp's ground light, or null when the manifest declares none. */
@@ -2460,3 +2486,9 @@ export type RoomTimelineStep = {
   | { do: 'dialogue'; tree: string; completes?: string }
 );
 
+/** content/act-cards.json: the card shown when ACT rises to a key in play. */
+export interface ActCardsFile {
+  schema: number;
+  note?: string;
+  cards: Record<string, string>;
+}

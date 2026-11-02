@@ -25,7 +25,7 @@ from scipy import ndimage as ndi
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 S = os.path.join(ROOT, 'art/staging/room-09')
-SOURCE = f'{S}/frame-01/sheet.png'
+SOURCE = f'{S}/frame-02/sheet.png'
 GAP = 2
 KEY = 90
 FEET = 717            # his boots on the floor beside the press (the master painted them at source y 738)
@@ -144,7 +144,7 @@ def main():
         'frameNames': ['rest', 'breath', 'talking', 'taking a quote', 'leaning in'],
         'topLeft': {'x': x0, 'y': y0}, 'anchor': {'x': x0 + W // 2, 'y': y0 + H},
         'height': HEIGHT, 'feetRow': round(feet, 1), 'key': KEY,
-        'source': 'room-09 attempt 3 (art/staging/room-09/frame-01/sheet.png)',
+        'source': 'room-09 attempt 4 (art/staging/room-09/frame-02/sheet.png), redrawn against Thad from attempt 3',
     }
     json.dump(record, open(f'{S}/frame/frame.json', 'w'), indent=1)
     plate = Image.open(os.path.join(ROOT, 'art/backgrounds/room-09-clarion.png')).convert('RGBA')

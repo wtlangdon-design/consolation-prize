@@ -1,0 +1,16 @@
+Image 1 shows two characters from my pixel-art adventure game side by side at the same scale. On the left is Thad, the hero: he is the style standard. On the right is the lobby clerk as he is drawn now -- and he is WRONG: his pixels are far too small and his detail far too fine. Look at Thad: his pixels are BIG square blocks, about eight times larger than the lobby clerk's. Thad is only about 80 pixels tall from hair to shoes; every pixel of him is a clear, chunky square; his face is a handful of blocks -- one dark block for an eye, a few for the nose and mouth; his clothes are a few flat tones with no fine texture.
+
+Image 2 is the lobby clerk's sheet of five poses, drawn too finely. Redraw that same sheet -- the same man, the same clothes and colours, the same five poses in the same order, left to right -- in THAD'S PIXEL SIZE:
+- Each pose about 80 big pixels tall from head to shoes (a slightly smaller, thinner man than Thad), exactly as coarse as Thad. Every pixel a large, crisp square block, the same size as Thad's.
+- Simple shapes and flat colour areas, the way Thad is drawn. No fine texture, no tiny highlights, no thin lines -- a feature too small for one of Thad's blocks is left out.
+- The face as simple as Thad's: a few blocks, dark blocks for the eyes, the features still readable.
+
+The poses, as in image 2: 1 rest, both hands flat at waist height as if on a desk; 2 breath, identical but shoulders very slightly raised; 3 writing, head bowed, pen in his right hand; 4 the watch, a small gold pocket watch held up at chest height; 5 looking up, chin lifted, straight at the viewer.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, nothing else in the picture.
+- All five poses the same size, with his shoes on the same baseline, each about two-thirds the height of the picture.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same face everywhere else.
+- Crisp pixel edges against the magenta. No soft glow or blur around him.
+- No text, labels, numbers or borders.

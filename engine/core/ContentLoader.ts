@@ -1,5 +1,6 @@
 import type { AssayFile } from './Assay.ts';
 import type {
+  ActCardsFile,
   ActorFile,
   CarriedLightFile,
   OverlayFile,
@@ -144,6 +145,12 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     dialogue.set(tree.id, tree);
   }
 
+  const actCards = new Map<number, string>();
+  if (manifest.actCards) {
+    const file = (await read(manifest.actCards)) as ActCardsFile;
+    for (const [act, card] of Object.entries(file.cards)) actCards.set(Number(act), card);
+  }
+
   if (!rooms.has(manifest.startRoom)) {
     throw new Error(`Start room not found: ${manifest.startRoom}`);
   }
@@ -153,7 +160,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, carriedLight, paths,
     speechColours, assay, items, fixtures, panel,
     combinations, itemIcons,
-    sequences,
+    sequences, actCards,
   };
 }
 

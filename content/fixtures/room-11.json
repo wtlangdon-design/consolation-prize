@@ -1,0 +1,210 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 11, Fanshawe's office. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r11-a",
+   "label": "R11-A Act I, swindled: the Colonel and his map (A4)",
+   "room": "fanshawe_office",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed"
+   ],
+   "puzzles": {
+    "A3": "complete"
+   },
+   "derivedFrom": [
+    "docs/04-dialogue-trees.md::ACT I — Root: `FAN_A1`",
+    "docs/57-puzzle-completion.md::A4 · Find the claim"
+   ],
+   "expect": {
+    "tree": "FANSHAWE",
+    "opensOn": "FAN_A1"
+   },
+   "note": "After the swindle, before the survey: TALK TO Fanshawe opens FAN_A1, and either answer about the claim gives THE COMPANY MAP."
+  },
+  {
+   "id": "r11-b",
+   "label": "R11-B Act I, holding the invitation: the dinner (A10)",
+   "room": "fanshawe_office",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete"
+   },
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::A10 · Survive dinner at Fanshawe's",
+    "docs/48-act-turn-beats.md::S1 · THE DINNER AT FANSHAWE'S (A10 — the Act I turn)"
+   ],
+   "expect": {
+    "tree": "FANSHAWE",
+    "opensOn": "FAN_A2"
+   },
+   "note": "A9 done, the invitation held: the table is laid and Fanshawe opens FAN_A2 on entering. Option 6 ends the dinner (THE HANDKERCHIEF, T_DINED); leaving by the door plays beat 4, ACT 2 and the card."
+  },
+  {
+   "id": "r11-c",
+   "label": "R11-C Act II, the funeral day: the empty office (C4)",
+   "room": "fanshawe_office",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "ACT": 2,
+    "T_DINED": true,
+    "T_FANSHAWE_FUNERALS": true,
+    "T_MEMORIAL_BOOKED": true,
+    "T_FUNERAL_DAY": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "handkerchief",
+    "letter"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "A10": "complete",
+    "C3": "complete"
+   },
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::C4 · Search the office",
+    "docs/54-batch-c.md::C3/C4 — the office, empty *(errata 68 D)*"
+   ],
+   "notBuilt": [
+    "C3's chain (Rooms 14 and 17): Sowerby's memorial and Boot Hill, which begin and end the day"
+   ],
+   "expect": {
+    "interactables": [
+     "submission_log",
+     "stock_portrait_drawer"
+    ]
+   },
+   "note": "Fanshawe is up the hill: PICK UP the log (THE SUBMISSION LOG), OPEN the drawer (THE PHOTOGRAPH, C4)."
+  },
+  {
+   "id": "r11-d",
+   "label": "R11-D Act II, after E0: the offer (E0b)",
+   "room": "fanshawe_office",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "ACT": 2,
+    "T_DINED": true,
+    "T_ASSAY_QUEUE": true,
+    "T_NINETY_DAYS": true,
+    "T_QUEUE_PADDED": true,
+    "T_MOTT_FACE_UNKNOWN": true,
+    "T_CLAIM1_BLANK": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "handkerchief",
+    "padded_log",
+    "photograph"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "A10": "complete",
+    "C3": "complete",
+    "C4": "complete",
+    "D1": "complete"
+   },
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::E0b · Fanshawe's offer — the Act II turn"
+   ],
+   "notBuilt": [
+    "E0 (Room 7): SUM_B1 option 1''' writes T_CLAIM1_BLANK and waits on Documents B and D (doc 36 Q150); C5, C6 and D2-D6 in rooms not built"
+   ],
+   "expect": {
+    "tree": "FANSHAWE",
+    "opensOn": "FAN_C1"
+   },
+   "note": "Claim One's back is blank: Fanshawe opens FAN_C1 on entering. Option 1, the contract, is E0b; ACT 3 and its card follow."
+  }
+ ]
+}

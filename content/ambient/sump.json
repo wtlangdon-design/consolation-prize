@@ -4,7 +4,7 @@
  "name": "REGISTRAR SUMP",
  "posture": "behind-counter",
  "room": "claims_registrar",
- "x": 1278,
+ "x": 1275,
  "y": 450,
  "zone": 2,
  "approachRadius": 40,
@@ -15,7 +15,7 @@
  },
  "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: on the floor before the counter's left end, clear of the ticket spindle (at x 960 his head sat on it in the life proof) and left of the FILING sign and its rope, facing him across the counter (errata 80 C). The queue posts stand on the floor in front of his window, so Thad does not stand in either line; nobody does.",
  "tree": "SUMP",
- "note": "REGISTRAR CADWALLADER SUMP, at his window in the partition (doc 04: 'every response is a citation... completely immovable'). Canon gives him no appearance, so he is a plain territorial clerk of the 1850s -- spectacles, white shirt, black sleeve protectors, dark waistcoat (errata 80 B). Drawn first in room-07's composition master beside Thad (style gate step 1), then alone on magenta in five poses (room-07 operation 3), keyed by tools/art/room07-sump.py. BEHIND THE COUNTER, as Winnie is in Room 5: the sheet stops at the ledger's far edge, so `y` is the row under his resting hands, not his feet. Present in every act: the office is his.",
+ "note": "REGISTRAR CADWALLADER SUMP, at his window in the partition (doc 04: 'every response is a citation... completely immovable'). Canon gives him no appearance, so he is a plain territorial clerk of the 1850s -- spectacles, white shirt, black sleeve protectors, dark waistcoat (errata 80 B). Drawn first in room-07's composition master beside Thad (style gate step 1), then alone on magenta in five poses (room-07 operation 3), keyed by tools/art/room07-sump.py. BEHIND THE COUNTER, as Winnie is in Room 5: the sheet stops at the ledger's far edge, so `y` is the row under his resting hands, not his feet. Present in every act: the office is his. REDRAWN AT THAD'S PIXEL SIZE (Tyler, 2026-11-02: 'Thad is pixelated, not smooth'; 'Bigger pixels'): the five poses regenerated against a side-by-side of Thad beside him (errata 84 J).",
  "barks": {},
  "barksNote": "Doc 07 writes no barks for Sump.",
  "sprite": {
@@ -24,32 +24,32 @@
    [
     2,
     2,
-    180,
-    222
+    203,
+    236
    ],
    [
-    184,
+    207,
     2,
-    180,
-    222
+    203,
+    236
    ],
    [
-    366,
+    412,
     2,
-    180,
-    222
+    203,
+    236
    ],
    [
-    548,
+    617,
     2,
-    180,
-    222
+    203,
+    236
    ],
    [
-    730,
+    822,
     2,
-    180,
-    222
+    203,
+    236
    ]
   ],
   "rate": 0.25,

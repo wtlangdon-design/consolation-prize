@@ -4,32 +4,32 @@
   [
    2,
    2,
-   180,
-   222
+   203,
+   236
   ],
   [
-   184,
+   207,
    2,
-   180,
-   222
+   203,
+   236
   ],
   [
-   366,
+   412,
    2,
-   180,
-   222
+   203,
+   236
   ],
   [
-   548,
+   617,
    2,
-   180,
-   222
+   203,
+   236
   ],
   [
-   730,
+   822,
    2,
-   180,
-   222
+   203,
+   236
   ]
  ],
  "frameNames": [
@@ -40,17 +40,17 @@
   "looking up"
  ],
  "topLeft": {
-  "x": 1188,
-  "y": 228
+  "x": 1174,
+  "y": 214
  },
  "anchor": {
-  "x": 1278,
+  "x": 1275,
   "y": 450
  },
  "height": 450,
- "feetRow": 706.5,
+ "feetRow": 698.2,
  "cut": 450,
  "handsTo": 450,
  "key": 90,
- "source": "room-07 attempt 3 (art/staging/room-07/sump-01/sheet.png)"
+ "source": "room-07 attempt 4 (art/staging/room-07/sump-02/sheet.png), redrawn against Thad from attempt 3"
 }

@@ -295,7 +295,8 @@ export class VerbSystem {
   resolve(verbId: string, target: Interactable, scope = ''): ResolvedAction {
     const rules = target.responses?.[verbId];
     const index = rules?.findIndex((rule: ResponseRule) => this.flags.test(rule.when)
-      && (rule.afterPuzzles ?? []).every((puzzle) => this.reached(puzzle))) ?? -1;
+      && (rule.afterPuzzles ?? []).every((puzzle) => this.reached(puzzle))
+      && !(rule.untilPuzzles ?? []).some((puzzle) => this.reached(puzzle))) ?? -1;
     const matched = index >= 0 ? rules?.[index] : undefined;
 
     if (matched) {

@@ -1,0 +1,467 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "fanshawe_office",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "5543b2d77ce67ce5bb1c8141a0096be88b23e720",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": "fanshawe-office",
+ "routeLog": [
+  "action 1 (wait): waited 2.5s",
+  "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up",
+  "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit",
+  "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED",
+  "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road",
+  "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever.",
+  "action 13 (wait): waited 3s",
+  "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road",
+  "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it",
+  "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it",
+  "action 17 (wait): waited 6s",
+  "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger",
+  "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street",
+  "action 20 (wait): waited 2s",
+  "action 21 (click): clicked world 1950,760 -- walk west along the street from the east end",
+  "action 22 (wait): waited 20s",
+  "action 23 (click): clicked world 1700,770 -- west again: a click west of the camera's left edge does not register, so in short legs the camera follows",
+  "action 24 (wait): waited 5s",
+  "action 25 (click): clicked world 1450,780 -- ",
+  "action 26 (wait): waited 5s",
+  "action 27 (click): clicked world 1200,790 -- ",
+  "action 28 (wait): waited 5s",
+  "action 29 (click): clicked world 950,790 -- west again, in short legs",
+  "action 30 (wait): waited 5s",
+  "action 31 (click): clicked world 750,790 -- ",
+  "action 32 (wait): waited 5s",
+  "action 33 (click): clicked main_street/to_company at world 689,464 -- Main Street's door to the Improvement Company",
+  "action 34 (waitFor): reached {\"room\":\"company_lobby\"} in room company_lobby",
+  "action 35 (wait): waited 3s",
+  "action 36 (click): clicked company_lobby/to_office at world 1838,340 -- the door to the office -- the lobby's way on",
+  "action 37 (waitFor): reached {\"room\":\"fanshawe_office\"} in room fanshawe_office",
+  "action 38 (wait): waited 3s",
+  "action 1 (verb): chose verb TALK_TO -- ",
+  "action 2 (click): clicked world 1060,380 -- Fanshawe, at his desk",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room fanshawe_office",
+  "action 4 (option): chose option fanshawe6 -- I mean to work it myself.",
+  "action 5 (waitFor): reached {\"flag\":\"T_DINED\"} in room fanshawe_office"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 736,
+    "xs": [
+     923,
+     743,
+     1102,
+     564,
+     1281,
+     384,
+     1461,
+     205,
+     1640
+    ],
+    "expect": 471,
+    "x": 923
+   },
+   "at": [
+    923,
+    736
+   ],
+   "reportedHeight": 471,
+   "expected": 471,
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "bounds": [
+    679,
+    265,
+    488,
+    520
+   ],
+   "order": 0,
+   "renderedHeight": 471,
+   "renderedBottom": 735,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 854,
+    "xs": [
+     923,
+     743,
+     1102,
+     564,
+     1281,
+     384,
+     1461,
+     205,
+     1640
+    ],
+    "expect": 552,
+    "x": 923
+   },
+   "at": [
+    923,
+    854
+   ],
+   "reportedHeight": 552,
+   "expected": 552,
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "bounds": [
+    637,
+    302,
+    572,
+    609
+   ],
+   "order": 0,
+   "renderedHeight": 572,
+   "renderedBottom": 853,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "fanshawe",
+   "feet": [
+    1031,
+    500
+   ],
+   "sheet": "art/actors/room-11-fanshawe.png",
+   "clipPlane": null,
+   "box": {
+    "x": 918,
+    "y": 271,
+    "width": 226,
+    "height": 231
+   },
+   "seen": {
+    "x": 982,
+    "y": 272,
+    "width": 155,
+    "height": 229,
+    "bottom": 500,
+    "right": 1136,
+    "changed": 22764
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "fanshawe_office",
+   "clock": 167.5162,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 501,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-00.png",
+     "bounds": [
+      40,
+      279,
+      519,
+      553
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:fanshawe_office",
+     "path": "art/backgrounds/room-11-fanshawe-office.png",
+     "drawn": "art/backgrounds/room-11-fanshawe-office.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "59d56e6b86d3fdd29dae96d13dc0f6aa0beca38f096621ab83fecb64dd55f941"
+    },
+    {
+     "key": "art/actors/room-11-fanshawe.png",
+     "path": "art/actors/room-11-fanshawe.png",
+     "drawn": "art/actors/room-11-fanshawe.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e2c1d920dc781195919bfb2ef794ade8eeba1e38a18d55244d1c3351e41c2046"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [],
+   "capturedAt": "2026-11-02T13:59:46.337Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "16d8ad1675585a3f21e7c0121667131083b50806e0aeca34414cd086b76b7e27"
+  },
+  {
+   "panel": "A",
+   "room": "fanshawe_office",
+   "clock": 168.5495,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 501,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:fanshawe_office",
+     "path": "art/backgrounds/room-11-fanshawe-office.png",
+     "drawn": "art/backgrounds/room-11-fanshawe-office.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "59d56e6b86d3fdd29dae96d13dc0f6aa0beca38f096621ab83fecb64dd55f941"
+    },
+    {
+     "key": "art/actors/room-11-fanshawe.png",
+     "path": "art/actors/room-11-fanshawe.png",
+     "drawn": "art/actors/room-11-fanshawe.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e2c1d920dc781195919bfb2ef794ade8eeba1e38a18d55244d1c3351e41c2046"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-02T13:59:47.349Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "2d5e10df2dba7d0158e9a5007d86e0af6029a7eb54d6966b654435587c3f2c6c"
+  },
+  {
+   "panel": "D",
+   "room": "fanshawe_office",
+   "clock": 184.2489,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_DINED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "handkerchief",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      820,
+      790
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 508,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      519,
+      282,
+      601,
+      561
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:fanshawe_office",
+     "path": "art/backgrounds/room-11-fanshawe-office.png",
+     "drawn": "art/backgrounds/room-11-fanshawe-office.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "59d56e6b86d3fdd29dae96d13dc0f6aa0beca38f096621ab83fecb64dd55f941"
+    },
+    {
+     "key": "art/actors/room-11-fanshawe.png",
+     "path": "art/actors/room-11-fanshawe.png",
+     "drawn": "art/actors/room-11-fanshawe.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e2c1d920dc781195919bfb2ef794ade8eeba1e38a18d55244d1c3351e41c2046"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)",
+    "cast(true)",
+    "stand(923,736)",
+    "cast(false)",
+    "cast(true)",
+    "stand(923,854)",
+    "cast(false)",
+    "cast(true)",
+    "flag T_BORDERS_MOTT=true"
+   ],
+   "capturedAt": "2026-11-02T14:00:03.074Z",
+   "intent": "principal changed state: A10 (doc 57, doc 48 S1). Prerequisite: T_BORDERS_MOTT (A9's turn), set by the flag control. Visible consequence: the table is laid; after option 6, the handkerchief is Thad's and the desk is bare; T_DINED written.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "3c7bb17a1a64279cc84a5c606dd9466d518fdae0389a2f81a274612443adb80b",
+   "changedBy": "flags, inventory"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-02T14:00:03.074Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 577882,
+  "panels": 5,
+  "scale": 0.5
+ }
+}

@@ -4,31 +4,31 @@
   [
    2,
    2,
-   243,
+   242,
    502
   ],
   [
-   247,
+   246,
    2,
-   243,
+   242,
    502
   ],
   [
-   492,
+   490,
    2,
-   243,
+   242,
    502
   ],
   [
-   737,
+   734,
    2,
-   243,
+   242,
    502
   ],
   [
-   982,
+   978,
    2,
-   243,
+   242,
    502
   ]
  ],
@@ -40,15 +40,15 @@
   "leaning in"
  ],
  "topLeft": {
-  "x": 1251,
+  "x": 1258,
   "y": 215
  },
  "anchor": {
-  "x": 1372,
+  "x": 1379,
   "y": 717
  },
  "height": 502,
  "feetRow": 717,
  "key": 90,
- "source": "room-09 attempt 3 (art/staging/room-09/frame-01/sheet.png)"
+ "source": "room-09 attempt 4 (art/staging/room-09/frame-02/sheet.png), redrawn against Thad from attempt 3"
 }

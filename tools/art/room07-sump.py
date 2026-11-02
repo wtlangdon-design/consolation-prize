@@ -40,7 +40,7 @@ from scipy import ndimage as ndi
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 S = os.path.join(ROOT, 'art/staging/room-07')
-SOURCE = f'{S}/sump-01/sheet.png'
+SOURCE = f'{S}/sump-02/sheet.png'
 GAP = 2
 KEY = 90
 HEIGHT = 450          # a standing man just behind the counter (feet near y 699 on the room's curve)
@@ -166,7 +166,7 @@ def main():
         'frameNames': ['rest', 'breath', 'writing', 'stamping', 'looking up'],
         'topLeft': {'x': x0, 'y': y0}, 'anchor': {'x': x0 + W // 2, 'y': y0 + H},
         'height': HEIGHT, 'feetRow': round(feet, 1), 'cut': CUT, 'handsTo': HANDS, 'key': KEY,
-        'source': 'room-07 attempt 3 (art/staging/room-07/sump-01/sheet.png)',
+        'source': 'room-07 attempt 4 (art/staging/room-07/sump-02/sheet.png), redrawn against Thad from attempt 3',
     }
     json.dump(record, open(f'{S}/sump/sump.json', 'w'), indent=1)
     plate = Image.open(os.path.join(ROOT, 'art/backgrounds/room-07-claims-registrar.png')).convert('RGBA')

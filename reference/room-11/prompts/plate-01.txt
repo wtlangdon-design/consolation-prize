@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game, with two people in it: the man in the blue coat standing on the carpet in front of the chairs, and the gentleman with the silver moustache standing behind the desk.
+
+Remove both of them. Paint what is behind each, exactly as the room would look with nobody in it: the leather armchairs, the cork board of maps and the red damask wall, the carpet and the lamplight on it; behind the desk, the lower part of the gilt-framed portrait and the dark wainscot, and the empty top of the desk with its lamp, the closed green book and the folded white handkerchief where they are.
+
+Change nothing else. Same framing, same camera, same pixel grid, same colours, same light, same objects in the same places: the door, the window and its curtains, the map board, the chairs, the portrait, the sabre, the desk with its lamp, book and handkerchief, the bookshelf of ledgers, the sideboard and its half-open drawer, the decanter, the painted safe, the carpet. The grey strips above and below stay grey. No people, no shadows of people, no text.

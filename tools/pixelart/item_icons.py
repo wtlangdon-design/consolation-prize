@@ -300,7 +300,37 @@ def obituary(canvas: IndexedCanvas, palette: Palette) -> None:
         canvas.hline(10, row, 10 - (row % 4 == 3) * 3, ink)
 
 
+def handkerchief(canvas: IndexedCanvas, palette: Palette) -> None:
+    """Colonel Fanshawe's handkerchief: white silk folded in a square, corner
+    over corner, a small gold monogram in one corner (doc 54: "monogrammed in
+    thread finer than anything else in the territory"). The only icon that is
+    cloth, and white rather than the papers' bone."""
+    bone = palette.family("bone")
+    canvas.rect(8, 5, 14, 12, bone.frac(0.92))
+    canvas.line(8, 5, 21, 16, bone.frac(0.70))
+    canvas.hline(8, 16, 14, bone.frac(0.62))
+    canvas.vline(21, 5, 12, bone.frac(0.62))
+    gold = palette.family("accent_gold")
+    canvas.rect(10, 12, 3, 3, gold.frac(0.55))
+
+
+def photograph(canvas: IndexedCanvas, palette: Palette) -> None:
+    """THE PHOTOGRAPH: a cabinet card on heavy mount -- a sepia oval with a
+    gentleman's head and shoulders in it (doc 23: "There were forty of him in
+    the drawer"). Upright, brown-mounted, the only icon with a face."""
+    umber = palette.family("umber")
+    canvas.rect(9, 2, 12, 17, umber.frac(0.30))
+    ochre = palette.family("ochre")
+    canvas.rect(10, 3, 10, 13, ochre.frac(0.70))
+    dark = umber.frac(0.12)
+    canvas.rect(13, 5, 4, 4, dark)
+    canvas.rect(12, 9, 6, 6, dark)
+    canvas.hline(10, 17, 10, umber.frac(0.55))
+
+
 ICONS = {
+    "handkerchief": handkerchief,
+    "photograph": photograph,
     "document_a": document_a,
     "watch": watch,
     "padded_log": padded_log,

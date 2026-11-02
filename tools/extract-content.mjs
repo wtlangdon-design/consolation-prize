@@ -3017,8 +3017,189 @@ function assay() {
   });
 }
 
+/**
+ * DOC 04, COLONEL ABSALOM FANSHAWE: Room 11's tree (errata 84). Read as
+ * Frame's is (spokenIn, quoted, afterIds), from doc 04's Fanshawe layout:
+ * nodes are `## ACT I — Root: \`FAN_A1\`` and `## ACT II — \`FAN_B1\`: ...`
+ * headings, each a table whose fifth column is a State or a Rule ledger; the
+ * `## THE WAR` section between A1 and A2 is not a node. Doc 57 writes the
+ * dinner's frame (A10) and the offer's turn (E0b): their lines are read from
+ * doc 57 here. Every string is a document's.
+ *
+ * ROUTING THE PROSE NAMES IN WORDS, authored here as A8_CASES is: FAN_A1 1
+ * and 2 both give THE COMPANY MAP (doc 04: "Gives map"; "He gives the map
+ * anyway"); FAN_A2 6 is A10 (doc 57: beat 3's line, THE HANDKERCHIEF,
+ * `T_DINED`) and ends the dinner; FAN_A2's universal exit is doc 57's "Leaving
+ * the table" line; FAN_B1 1 goes on to FAN_B2 (the introduction, then the
+ * card: errata 84 D); FAN_C1 1 is E0b, with Thad's aside and `ACT` 3 (doc 57).
+ * FAN_D1 is not built: three of the war's five contradictions are written but
+ * no node offers them, so it cannot be reached (doc 36 Q154).
+ *
+ * ENTRIES (doc 57, doc 04): FAN_C1 after E0 until the clause is read; FAN_A2
+ * while Thad holds THE INVITATION (`T_BORDERS_MOTT`) until `T_DINED`; FAN_B1
+ * from Act II; FAN_A1 once swindled; else FAN_A0.
+ */
+function fanshaweTree() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('# COLONEL ABSALOM FANSHAWE');
+  const to = doc.indexOf('\n# HOB', from);
+  if (from < 0 || to < 0) throw new Error('doc 04: cannot find the FANSHAWE section');
+  const body = doc.slice(from, to);
+  const d57 = read('docs/57-puzzle-completion.md');
+  const section57 = (heading) => {
+    const at = d57.indexOf(heading);
+    if (at < 0) throw new Error(`doc 57: no section "${heading}"`);
+    const rest = d57.slice(at + heading.length);
+    return rest.slice(0, (/\n## |\n---\n/.exec(rest) ?? { index: rest.length }).index);
+  };
+  const a10 = section57('## A10 · Survive dinner at Fanshawe\'s');
+  const bullet = (label) => {
+    const m = new RegExp(`^- \\*\\*${label}\\*\\*.*$`, 'm').exec(a10);
+    if (!m) throw new Error(`doc 57 A10: no "${label}" bullet`);
+    return m[0];
+  };
+  const leaving = /\*\*FANSHAWE:\*\* "([^"]+)"/.exec(bullet('Leaving the table'))?.[1];
+  const beat3 = /\*\*FANSHAWE:\*\* "([^"]+)"/.exec(bullet('Beat 3, after option 6 settles:'))?.[1];
+  if (!leaving || !beat3) throw new Error('doc 57 A10: the leaving line or beat 3\'s line was not found');
+  const turn = /\*\*The turn:\*\*[^*]*\*"([^"]+)"\*/.exec(body)?.[1];
+  if (!turn) throw new Error('doc 04 FAN_C1: Thad\'s aside ("The turn") was not found');
+  const SPEAKER = 'fanshawe';
+  const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
+  if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
+  const ROUTE = {
+    'FAN_A1:1': { gives: ['company_map'] },
+    'FAN_A1:2': { gives: ['company_map'] },
+    'FAN_A2:6': { then: [{ speaker: SPEAKER, line: beat3 }], gives: ['handkerchief'], set: { T_DINED: true },
+      puzzle: { A10: 'complete' }, ends: true },
+    'FAN_B1:1': { goto: 'FAN_B2' },
+    'FAN_C1:1': { then: [{ speaker: 'thad', line: turn }], set: { ACT: 3 }, puzzle: { E0b: 'complete' } },
+  };
+  const EXIT_SAY = { FAN_A2: leaving };
+  const ENTRY = [
+    ['FAN_C1', { T_CLAIM1_BLANK: true, T_EXCAVATION_CLAUSE: false }],
+    ['FAN_A2', { T_BORDERS_MOTT: true, T_DINED: false }],
+    ['FAN_B1', { ACT: { atLeast: 2 } }],
+    ['FAN_A1', { T_SWINDLED: true }],
+  ];
+  const unplayed = [];
+  const nodes = {};
+  let poolIndex = 0;
+  const sections = body.split(/^(?=## )/m);
+  for (const section of sections) {
+    const head = /^## ACT [IV]+ — (?:Root: )?`(FAN_[A-Z0-9]+)`/.exec(section);
+    if (!head) continue;
+    const id = head[1];
+    const text = section;
+    const ROW = /^\| (\d+) \|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|(?:[ \t]*(.*?)[ \t]*\|)?[ \t]*$/gm;
+    const rows = [...text.matchAll(ROW)];
+    if (!rows.length) {
+      unplayed.push(`${id}: no option table -- not built (doc 36 Q154)`);
+      continue;
+    }
+    const opening = [...text.matchAll(/^> \*\*(FANSHAWE|THAD):\*\* (.+)$/gm)].map((m) => {
+      const speaker = m[1] === 'THAD' ? 'thad' : SPEAKER;
+      for (const d of m[2].matchAll(/\*\(([^)]+)\)\*/g)) unplayed.push(`${id} opening (${speaker}) staging: ${d[1]}`);
+      const line = quoted(m[2].replace(/\*\([^)]*\)\*/g, '')).join(' ').replace(/\*/g, '');
+      if (!line) throw new Error(`doc 04: ${id} opening line by ${speaker} has no quoted speech`);
+      return { speaker, line };
+    });
+    const lastOwn = [...opening].reverse().find((u) => u.speaker === SPEAKER);
+    const options = [];
+    let hasExit = false;
+    for (const [, number, optionCell, tagCell, responseCell, stateCell] of rows) {
+      const route = ROUTE[`${id}:${number}`] ?? {};
+      const tagged = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(`${tagCell} ${optionCell}`);
+      if (!tagged) throw new Error(`doc 04: ${id} option ${number} has no tag`);
+      const option = { id: `${SPEAKER}${number}`, tag: tagged[1] };
+      const optionText = quoted(optionCell)[0];
+      if (tagged[1] === 'EXIT') {
+        hasExit = true;
+        option.text = optionText ?? POOL[poolIndex % POOL.length];
+        if (!optionText) { option.universal = true; poolIndex += 1; }
+        option.ends = true;
+      } else {
+        if (!optionText) throw new Error(`doc 04: ${id} option ${number} has no option text`);
+        option.text = optionText;
+      }
+      if (tagged[2]) option.afterUse = tagged[2];
+      const follows = afterIds(tagCell, SPEAKER);
+      if (follows) option.after = follows;
+      const ORDINALS = { second: 2, third: 3 };
+      const [replyCell] = responseCell.split('→');
+      const pieces = replyCell.split(/\*\((second|third)\)\*/);
+      const first = spokenIn(pieces[0], SPEAKER);
+      for (const d of first.staging) unplayed.push(`${id} option ${number} staging: ${d}`);
+      const lines = [...first.lines, ...(route.then ?? [])];
+      if (lines.length === 1 && lines[0].speaker === SPEAKER) option.say = lines[0].line;
+      else if (lines.length) option.exchange = lines;
+      else throw new Error(`doc 04: ${id} option ${number} has no reply`);
+      for (let k = 1; k < pieces.length; k += 2) {
+        const later = spokenIn(pieces[k + 1] ?? '', SPEAKER);
+        for (const d of later.staging) unplayed.push(`${id} option ${number} selection ${ORDINALS[pieces[k]]} staging: ${d}`);
+        if (later.lines.length) (option.repeats ??= []).push({ selection: ORDINALS[pieces[k]], say: later.lines.map((l) => l.line).join(' ') });
+      }
+      const state = `${stateCell ?? ''} ${responseCell.split('→').slice(1).join(' ')}`;
+      const counter = /`([A-Z_0-9]+)` \+1/.exec(state);
+      const sets = [...state.matchAll(/sets `([A-Z_0-9]+)`/g)].map((m) => m[1]);
+      const set = { ...Object.fromEntries(sets.map((f) => [f, true])), ...(route.set ?? {}) };
+      if (Object.keys(set).length) option.set = set;
+      if (counter) option.add = { [counter[1]]: 1 };
+      if (route.goto) option.goto = route.goto;
+      if (route.gives) option.gives = route.gives;
+      if (route.puzzle) option.puzzle = route.puzzle;
+      if (route.ends) option.ends = true;
+      options.push(option);
+    }
+    if (!hasExit) {
+      const exit = { id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[poolIndex % POOL.length], universal: true, ends: true };
+      if (EXIT_SAY[id]) exit.say = EXIT_SAY[id];
+      options.push(exit);
+      poolIndex += 1;
+    }
+    nodes[id] = { id, ...(lastOwn ? { prompt: lastOwn.line } : { noPrompt: true,
+      exceptionReason: 'Doc 04 writes this node as a table only.' }),
+      ...(opening.length ? { opening } : {}), options };
+  }
+  for (const want of ['FAN_A0', 'FAN_A1', 'FAN_A2', 'FAN_B1', 'FAN_B2', 'FAN_C1']) {
+    if (!nodes[want]) throw new Error(`doc 04: ${want} was not extracted`);
+  }
+  for (const note of unplayed) process.stderr.write(`  doc 04 FANSHAWE: ${note}\n`);
+  return write('content/dialogue/fanshawe.json', {
+    aftermathAuthored: true,
+    schema: 1,
+    id: 'FANSHAWE',
+    speaker: SPEAKER,
+    name: 'COLONEL ABSALOM FANSHAWE',
+    note: 'EXTRACTED from docs/04-dialogue-trees.md (COLONEL ABSALOM FANSHAWE) and docs/57-puzzle-completion.md (A10, E0b) '
+      + 'by tools/extract-content.mjs. Do not edit: change the documents and re-run. Plain quotes in a reply are '
+      + 'Fanshawe\'s, italic quotes Thad\'s. Universal exit lines are doc 04 part one\'s pool.',
+    entries: ENTRY.map(([node, when]) => ({ when, node })),
+    start: 'FAN_A0',
+    nodes,
+  });
+}
+
+/**
+ * THE ACT CARDS AFTER THE OPENING (errata 84 C). Doc 57 names each act turn's
+ * card in bold: A10's "the act card, **PART TWO — ...**" (doc 48 S1 beat 5)
+ * and E0b's "the act card, **PART THREE — ...**". Keyed by the ACT value the
+ * turn sets; the engine shows a card when ACT rises to its number in play.
+ */
+function actCards() {
+  const d57 = read('docs/57-puzzle-completion.md');
+  const cards = {};
+  for (const m of d57.matchAll(/the act card, \*\*(PART [A-Z]+ — [^*]+)\*\*, and `ACT` = (\d)/g)) cards[m[2]] = m[1];
+  if (!cards['2'] || !cards['3']) throw new Error('doc 57: the act cards for ACT 2 and 3 were not found');
+  return write('content/act-cards.json', {
+    schema: 1,
+    note: 'EXTRACTED from docs/57-puzzle-completion.md (A10, E0b) by tools/extract-content.mjs. The card shown when '
+      + 'ACT rises to the key in play. Act IV\'s turn (doc 48 S4) is not built.',
+    cards,
+  });
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), ...actTwoItems(), assay()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), actCards(), ...actTwoItems(), assay()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

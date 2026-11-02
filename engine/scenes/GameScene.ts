@@ -134,6 +134,16 @@ export class GameScene extends Phaser.Scene {
   private pendingSay: { speaker: string | null; line: string }[] = [];
   /** A scene's destination, travelled to once its lines have been read (GameState.resolveInteraction). */
   private travelAfterSay: string | null = null;
+  /**
+   * THE ACT CARDS AFTER THE OPENING (errata 84 C). ACT is the one fact; when it
+   * rises in play, that act's card (content/act-cards.json, from doc 57) is
+   * shown once the scene's last line has been read and no conversation is
+   * open, and holds the opening card's time. A load or a fixture is not a
+   * turn: `lastAct` is re-read from the state then, so no card plays.
+   */
+  private lastAct: number | null = null;
+  private pendingActCard: string | null = null;
+  private actCardUntil: number | null = null;
   /** Lines to speak once the arrival walk finishes, not during it. */
   private linesOnArrival: { speaker: string; line: string }[] | null = null;
 
@@ -418,6 +428,7 @@ export class GameScene extends Phaser.Scene {
       this.enterRoomPerformance();
       this.markDirty();
     }
+    this.watchActTurn(now);
     this.view.setClock(now);
     if (this.cycleChanged()) this.markDirty();
     // THE WORLD MOVES, THEN SETTLES, THEN THE SCRIPT DECIDES. This order is
@@ -824,6 +835,9 @@ export class GameScene extends Phaser.Scene {
     this.applyMusic();
     const { x, y } = this.nativePoint(pointer);
     const secondary = pointer.rightButtonDown();
+
+    // An act card holds the screen for its time; a click does not cut it.
+    if (this.actCardUntil !== null) return;
 
     // The menu takes every click while it is open, including clicks on the
     // verb panel behind it.
@@ -1459,12 +1473,16 @@ export class GameScene extends Phaser.Scene {
     this.accostTimer?.remove();
     this.accostTimer = undefined;
     const accost = this.state.room.onEnter?.accost;
-    if (!accost || resumed || !this.state.flags.test(accost.when)) return;
+    // `whenAny`: he opens on Thad in any of several states (errata 84 F --
+    // Fanshawe at the dinner and at the offer); the tree's entries say which node.
+    const holds = () => Boolean(accost) && this.state.flags.test(accost!.when)
+      && (!accost!.whenAny || accost!.whenAny.some((when) => this.state.flags.test(when)));
+    if (!accost || resumed || !holds()) return;
     const room = this.state.roomId;
     this.accostTimer = this.time.delayedCall((accost.afterSeconds ?? 0) * 1000, () => {
       this.accostTimer = undefined;
       if (this.state.roomId !== room || this.state.dialogue.isActive || this.pendingTree) return;
-      if (!this.state.flags.test(accost.when)) return;
+      if (!holds()) return;
       const npc = this.ambient.present.find((each) => each.id === accost.npc);
       if (!npc?.tree) return;
       for (const [id, value] of Object.entries(accost.set ?? {})) this.state.flags.set(id, value);
@@ -1934,7 +1952,11 @@ export class GameScene extends Phaser.Scene {
     if (!entry?.say?.length && !entry?.walkTo) return;
     const who = this.state.content.actor.id;
     const lines = (entry.say ?? []).map((line) => ({ speaker: who, line }));
-    const held = entry.sayOnce && this.state.flags.get(entry.sayOnce) === true;
+    const held = (entry.sayOnce && this.state.flags.get(entry.sayOnce) === true)
+      || (entry.sayWhen !== undefined && !this.state.flags.test(entry.sayWhen));
+    if (entry.sayWhen !== undefined && !held && lines.length && entry.sayOnce) {
+      this.state.flags.set(entry.sayOnce, true);
+    }
 
     // HE WALKS IN AND THEN SPEAKS, not both at once. Arriving already standing
     // there read as having come down out of the hills, so he now walks in from
@@ -2336,7 +2358,38 @@ export class GameScene extends Phaser.Scene {
   }
 
   /** Clears anything that referred to the room we are no longer in. */
+  /** The act card's turn: queued when ACT rises, shown when the scene is quiet. */
+  private watchActTurn(now: number): void {
+    const act = Number(this.state.flags.get('ACT') ?? 1);
+    if (this.lastAct === null || this.opening || act < this.lastAct) {
+      this.lastAct = act;
+    } else if (act > this.lastAct) {
+      this.lastAct = act;
+      const card = this.state.content.actCards.get(act);
+      if (card) this.pendingActCard = card;
+    }
+    if (this.pendingActCard !== null && this.actCardUntil === null && !this.state.dialogue.isActive
+      && this.sayingActor === null && this.pendingSay.length === 0 && this.travelAfterSay === null
+      && !this.sequence.isRunning && !this.pendingTree) {
+      this.actCard = this.pendingActCard;
+      this.pendingActCard = null;
+      // The opening's card holds its beat's ~3 s plus its reading time (ui.json).
+      this.actCardUntil = now + 3 + (this.state.content.ui.timing?.actCardExtraSeconds ?? 0);
+      this.markDirty();
+    }
+    if (this.actCardUntil !== null && now >= this.actCardUntil) {
+      this.actCard = null;
+      this.actCardUntil = null;
+      this.state.autosave();
+      this.markDirty();
+    }
+  }
+
   private afterLoad(): void {
+    this.lastAct = null;
+    this.pendingActCard = null;
+    this.actCard = null;
+    this.actCardUntil = null;
     this.hovered = null;
     this.hoveredName = null;
     this.sayLines = [];

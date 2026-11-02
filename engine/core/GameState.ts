@@ -692,6 +692,30 @@ export class GameState {
           id: `act/${objectKey}/${verb}#transit:flag:${flag}`, kind: 'flag', flag, value,
         });
       }
+      // A DOOR THAT IS A BEAT (errata 84 E). Doc 57 A10's beat 4 "plays at the
+      // office door as Thad leaves": the first `transitScene` rule whose
+      // condition holds is spoken where he stands, its flags are written, and
+      // the room changes once its last line has been read -- the archive
+      // door's `goesTo`, for an exit. Doc 14's "transit produces no line" is
+      // the rule for every other crossing.
+      const scene = exit.transitScene?.find((rule) => this.flags.test(rule.when));
+      if (scene && !exit.travelWhenTold) {
+        for (const [flag, value] of Object.entries(scene.set ?? {})) {
+          effects.push({ id: `act/${objectKey}/${verb}#scene:flag:${flag}`, kind: 'flag', flag, value });
+        }
+        return {
+          target, verb, room, objectKey,
+          action: { say: scene.say ?? null, dialogue: null, goto: null, effects: [] },
+          transit: true,
+          destination: null,
+          dialogue: null,
+          say: scene.say ?? null,
+          ...(scene.by ? { by: scene.by } : {}),
+          then: scene.then,
+          goesTo: transit,
+          effects,
+        };
+      }
       // AN EXIT THAT TRAVELS WHEN TOLD DOES NOT TRAVEL NOW. Doc 17's ending is
       // a departure the player watches; an exit that moves you the instant you
       // touch it cannot also be one. The flag above releases the beat, and the

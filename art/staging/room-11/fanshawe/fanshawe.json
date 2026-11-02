@@ -1,0 +1,56 @@
+{
+ "sheet": "art/staging/room-11/fanshawe/fanshawe.png",
+ "frames": [
+  [
+   2,
+   2,
+   226,
+   229
+  ],
+  [
+   230,
+   2,
+   226,
+   229
+  ],
+  [
+   458,
+   2,
+   226,
+   229
+  ],
+  [
+   686,
+   2,
+   226,
+   229
+  ],
+  [
+   914,
+   2,
+   226,
+   229
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "welcome",
+  "the watch",
+  "laughing"
+ ],
+ "topLeft": {
+  "x": 918,
+  "y": 271
+ },
+ "anchor": {
+  "x": 1031,
+  "y": 500
+ },
+ "height": 404,
+ "feetRow": 675,
+ "cut": 500,
+ "handsTo": 500,
+ "key": 90,
+ "source": "room-11 attempt 5 (art/staging/room-11/fanshawe-02/sheet.png), redrawn against Thad from attempt 3"
+}

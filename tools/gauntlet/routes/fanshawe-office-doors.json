@@ -1,0 +1,109 @@
+{
+ "schema": 1,
+ "room": "fanshawe_office",
+ "note": "DOC 46 4.13's GAMEPLAY PASS for Room 11: in by the lobby's inner door (the spec's route), then out to the lobby and back in, twice.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "00-arrived"
+  },
+  {
+   "do": "click",
+   "on": "to_lobby",
+   "why": "the door -- out to the lobby"
+  },
+  {
+   "do": "waitFor",
+   "room": "company_lobby",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "01-out",
+   "room": "company_lobby"
+  },
+  {
+   "do": "click",
+   "world": [
+    1500,
+    780
+   ],
+   "why": "step back toward the inner door from the lobby"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "click",
+   "on": "to_office",
+   "why": "and back in by the lobby's inner door"
+  },
+  {
+   "do": "waitFor",
+   "room": "fanshawe_office",
+   "upTo": 90
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "01-in"
+  },
+  {
+   "do": "click",
+   "on": "to_lobby",
+   "why": "the door -- out to the lobby"
+  },
+  {
+   "do": "waitFor",
+   "room": "company_lobby",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "02-out",
+   "room": "company_lobby"
+  },
+  {
+   "do": "click",
+   "world": [
+    1500,
+    780
+   ],
+   "why": "step back toward the inner door from the lobby"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "click",
+   "on": "to_office",
+   "why": "and back in by the lobby's inner door"
+  },
+  {
+   "do": "waitFor",
+   "room": "fanshawe_office",
+   "upTo": 90
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "02-in"
+  }
+ ]
+}
