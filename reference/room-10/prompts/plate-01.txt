@@ -1,0 +1,9 @@
+Image 1 is a finished background from my pixel-art adventure game, with two people in it: the man in the blue coat standing on the red carpet in the middle, and the clerk standing behind the high reception desk.
+
+Remove both of them. Paint what is behind each, exactly as the room would look with nobody in it: the red carpet runner, the floorboards and the lamplight on them; behind the desk, the green wall and the wainscot under the big portrait, with the desk lamp and the brass bell still standing on the desk top.
+
+Two small additions, painted in the same style, light and pixel grid as the rest:
+- Between the pamphlet rack and the reception desk, under the big green map, a small low table carrying a scale model of a fine little town: a bank, an opera house, two little churches, a green park, a paved main street. Move the brass spittoon a little left, onto the floor in front of the pamphlet rack.
+- The row of waiting chairs has six chairs, not five, all alike, all facing right toward the inner door.
+
+Change nothing else. Same framing, same camera, same pixel grid, same colours, same light, same objects in the same places: the street door, the slatted blinds, the stove and its glow, the subscription ledger on its stand, the chairs, the framed maps and letters, the pamphlet rack, the spittoon, the big green map, the portrait of the colonel with the globe, the desk with its lamp and bell, the case clock, the inner door. The grey strips above and below stay grey. No people, no shadows of people, no text.

@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: a company's front lobby at night.
+
+Make ONE change: the tall wooden pamphlet rack standing on the floor between the waiting chairs and the model town is now EMPTY. Every pamphlet is gone from every slot; the bare wooden shelves and the back of the rack show where they were, in the same wood and the same lamplight as the rack's frame.
+
+Change nothing else at all. Same framing, same camera, same pixel grid, same colours, same light; every other object exactly as it is, pixel for pixel: the door, the blinds, the stove, the ledger stand, the chairs, the framed maps and letters, the spittoon, the green map, the model town, the portrait, the desk with its lamp and bell, the clock, the inner door, the carpet and the floor. The grey strips above and below stay grey. No people, no text.

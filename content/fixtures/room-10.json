@@ -1,0 +1,90 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 10, the Improvement Company lobby. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r10-a",
+   "label": "R10-A Act I, the lobby after the swindle",
+   "room": "company_lobby",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map"
+   ],
+   "derivedFrom": [
+    "docs/20-room-map.md::Interiors — one way in, one way back",
+    "docs/05-examine-layer.md::ROOM 10 — IMPROVEMENT COMPANY LOBBY"
+   ],
+   "expect": {
+    "interactables": [
+     "prospectus_rack",
+     "chairs",
+     "reception_desk",
+     "door_to_the_office"
+    ]
+   },
+   "note": "In the lobby in Act I, the rack full and the clerk at his desk."
+  },
+  {
+   "id": "r10-b",
+   "label": "R10-B Act IV, the rack empty",
+   "room": "company_lobby",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_BORDERS_MOTT": true,
+    "T_SWINDLED": true,
+    "T_ASSAY_QUEUE": true,
+    "T_NO_MOTT_GOLD": true,
+    "T_SECOND_LEDGER": true,
+    "T_STRIKE_FOUND": true,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "pickaxe"
+   ],
+   "derivedFrom": [
+    "docs/05-examine-layer.md::ROOM 10 — IMPROVEMENT COMPANY LOBBY#2",
+    "content/fixtures/room-05.json r5-g (the Act IV state it shares)"
+   ],
+   "notBuilt": [
+    "the writers of T_STRIKE_FOUND (F3) and ACT 4 (S4), as r5-g records"
+   ],
+   "expect": {
+    "interactables": [
+     "prospectus_rack",
+     "chairs"
+    ]
+   },
+   "note": "Act IV: the rack is empty (a prop over the plate) and THE PROSPECTUS RACK and THE CHAIRS answer with doc 05 Part Two-B's act-4 lines."
+  }
+ ]
+}

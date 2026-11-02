@@ -1,0 +1,13 @@
+{
+ "assetId": "room-10",
+ "subject": "room-10-company-lobby",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-10-company-lobby",
+ "promptFile": "reference/room-10/prompts/plate-01.txt",
+ "out": "art/staging/room-10/plate-01/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-10/composition-master-01.png"
+ ]
+}

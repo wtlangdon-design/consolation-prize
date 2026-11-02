@@ -18,7 +18,7 @@
   "content/rooms/assay-records.json",
   "content/rooms/claims-registrar.json",
   "content/rooms/archive.json",
-  "content/rooms/stub-company.json",
+  "content/rooms/company-lobby.json",
   "content/rooms/clarion.json",
   "content/rooms/stub-claims-road.json",
   "content/rooms/harness-a.json",
@@ -55,7 +55,8 @@
   "content/fixtures/room-04.json",
   "content/fixtures/room-07.json",
   "content/fixtures/room-08.json",
-  "content/fixtures/room-09.json"
+  "content/fixtures/room-09.json",
+  "content/fixtures/room-10.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -101,7 +102,8 @@
   "content/ambient/room-04-judge-3.json",
   "content/ambient/sowerby.json",
   "content/ambient/sump.json",
-  "content/ambient/frame.json"
+  "content/ambient/frame.json",
+  "content/ambient/lobby-clerk.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",

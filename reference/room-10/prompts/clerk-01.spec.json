@@ -1,0 +1,11 @@
+{
+ "assetId": "room-10",
+ "subject": "lobby-clerk",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-10-company-lobby",
+ "promptFile": "reference/room-10/prompts/clerk-01.txt",
+ "out": "art/staging/room-10/clerk-01/sheet.png",
+ "size": "1536x1024",
+ "images": ["art/staging/room-10/composition-master-01.png"]
+}

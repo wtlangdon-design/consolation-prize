@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "lobby_clerk",
+ "name": "THE CLERK",
+ "posture": "behind-counter",
+ "room": "company_lobby",
+ "x": 1439,
+ "y": 392,
+ "zone": 2,
+ "approachRadius": 40,
+ "note": "THE LOBBY CLERK, at the Improvement Company's high desk. Docs 05, 49 and 54 place him (\"High enough that you address the clerk's collar\"; \"Free, insists the clerk\"; \"The clerk, breathing through his nose with the patience of a professional\") and no document gives him a tree, a bark or an appearance (the readiness gate: he is not spoken to). So he is a neat, thin young clerk of the 1850s -- hair pomaded and parted in the middle, a high stiff collar, sleeve garters, a dark waistcoat (errata 83 B). Drawn first in room-10's composition master beside Thad (style gate step 1), then alone on magenta in five poses (room-10 operation 3), keyed by tools/art/room10-clerk.py. BEHIND THE DESK, as Sump is behind his counter: the sheet stops at the desk top's front edge, so `y` is the row under his resting hands, not his feet. Present in every act: no document removes him.",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for the lobby clerk, and no document writes him a line.",
+ "sprite": {
+  "sheet": "art/actors/room-10-clerk.png",
+  "frames": [
+   [
+    2,
+    2,
+    111,
+    152
+   ],
+   [
+    115,
+    2,
+    111,
+    152
+   ],
+   [
+    228,
+    2,
+    111,
+    152
+   ],
+   [
+    341,
+    2,
+    111,
+    152
+   ],
+   [
+    454,
+    2,
+    111,
+    152
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.5,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    0
+   ],
+   [
+    2,
+    2,
+    0,
+    4,
+    4,
+    0
+   ]
+  ],
+  "breakEvery": 7,
+  "frameNote": "0 rest (hands on the desk) · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 writing · 3 the watch, held up and read · 4 looking up. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool: he writes, he reads his watch, he looks up (errata 35 and 77: a deliberate action at least every 30 s).",
+  "provenance": "art/staging/room-10/clerk/clerk.json"
+ }
+}

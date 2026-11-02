@@ -1,0 +1,896 @@
+{
+  "schema": 1,
+  "id": "company_lobby",
+  "name": "THE IMPROVEMENT COMPANY LOBBY",
+  "materialIdentity": "Varnished walnut, polished brass and Company green, with one red runner because doc 05 writes it red (17b, assigned at composition time); night, the desk lamp and the stove (errata 83 A)",
+  "note": "Room 10, doc 20: the Improvement Company's lobby, on Main Street. The lobby clerk at his high desk (no tree in any document); the inner door is Fanshawe's office (Room 11). No puzzle is sited here (doc 02). Compiled by tools/compile-room.mjs from content/examine/room-10.json and reference/room-10/annotation.json",
+  "background": "art/backgrounds/room-10-company-lobby.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 320,
+  "hotspots": [
+    {
+      "id": "spittoon_polished",
+      "name": "THE SPITTOON, POLISHED",
+      "rect": [
+        875,
+        530,
+        70,
+        75
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A spittoon polished to a shine that forbids its purpose. Nobody has ever dared.",
+            "repeat": [
+              "My face is in it, warped and improved. It is a very flattering spittoon.",
+              "There is a small brass plaque on it, which says PRESENTED, and nothing else."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A ring, faint, like a bell that regrets being one.",
+            "repeat": [
+              "A hum when the door closes, tuned more or less to F.",
+              "Nothing. It has never been used, and it has never looked better."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 910,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "testimonials",
+      "name": "THE TESTIMONIALS",
+      "rect": [
+        470,
+        110,
+        100,
+        240
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Framed letters of thanks from satisfied claimholders. Four of them.",
+            "repeat": [
+              "One thanks the Company 'for everything'. It does not go into detail.",
+              "There is room on the wall for forty. Somebody planned for more gratitude than arrived."
+            ],
+            "then": [
+              "I have read the dates. They are all from the first two years."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Thanks, framed, goes very quiet after two years.",
+              "A frame settling on its wire. Even the gratitude is sagging."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 520,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "subscription_book",
+      "name": "THE SUBSCRIPTION BOOK",
+      "rect": [
+        320,
+        410,
+        180,
+        230
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Shares in the Company, at a dollar. A long list of names, and beside each a small number, and the numbers were larger nearer the top of the page.",
+            "repeat": [
+              "There is a pen beside it, inked and ready. It is the only pen in town that is always inked.",
+              "The last name on the page has subscribed for one share. It is spelled carefully, as if it mattered."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "The page lifting in the warm air off the stove.",
+              "Nothing. It is waiting for the next small number."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 410,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "prospectus_rack",
+      "name": "THE PROSPECTUS RACK",
+      "rect": [
+        895,
+        200,
+        125,
+        352
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "The rack is empty. TERRITORY OF TOMORROW went out of print somewhere between the filing and the morning after."
+          },
+          {
+            "say": "Pamphlets: CONSOLATION — TERRITORY OF TOMORROW.",
+            "repeat": [
+              "On the back of each pamphlet, a small form: I WISH TO INVEST $___ IN TOMORROW. Several have been filled in and not mailed.",
+              "The river in the drawing has a steamboat on it now. Each edition, the town gets more water."
+            ],
+            "then": [
+              "The artist has drawn the town with a river it does not have, running gold it has not got."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "The draft, unemployed."
+          },
+          {
+            "say": "Paper, riffling in the door's draft. Optimism, ventilated.",
+            "repeat": [
+              "A pamphlet slipping down in its slot, settling into a better position.",
+              "Nothing. Tomorrow keeps very quiet in print."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "Free, insists the clerk. Nothing in this building is free. I took one. We shall see what it cost."
+      },
+      "walkTo": {
+        "x": 958,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "stove",
+      "name": "THE STOVE",
+      "rect": [
+        205,
+        370,
+        160,
+        325
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A stove, lit, in a lobby, in July. Nobody who comes in here is ever cold.",
+            "repeat": [
+              "There are scraps of paper in the ash pan, half burned. The Company heats its lobby with what it no longer needs.",
+              "It is very warm in here. You do not want to leave, and you do not want to take your coat off, and so you sit."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Burning. Paper, I think, rather than wood.",
+            "repeat": [
+              "A soft collapse in the firebox as something settles.",
+              "Burning, steadily. It is never allowed to go out, which is the most expensive thing in the room."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 285,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "model",
+      "name": "THE MODEL",
+      "rect": [
+        1000,
+        370,
+        270,
+        200
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A scale model of Consolation as it will be. A bank, an opera house, a second church, a park. It is beautifully made. It has been beautifully made for nine years.",
+            "repeat": [
+              "The opera house has tiny painted posters on it for an opera that has not been written.",
+              "The model's Main Street is paved. The real one is three yards away and is not."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. A town in miniature is even quieter than the real one.",
+              "A tiny bell in the model church, ringing when I knock the table. It is in tune, which is how I know it is a model."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1135,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "portrait_of_fanshawe",
+      "name": "THE PORTRAIT OF FANSHAWE",
+      "rect": [
+        1395,
+        15,
+        205,
+        290
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The Colonel, in oils, one hand on a globe.",
+            "repeat": [
+              "The painter has given him a kindly eye and a firm jaw and charged, I imagine, for both.",
+              "A brass plate below it: COL. A. FANSHAWE, FOUNDER. The rank is engraved deeper than the name."
+            ],
+            "then": [
+              "The globe is turned so his thumb covers the East."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Canvas. Even the painting says nothing without an appointment.",
+            "repeat": [
+              "The frame ticks against the wall when the inner door opens. He knows when somebody is going in.",
+              "Nothing. An oil portrait at rest is the most patient listener in the building."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "Straightened it. It was straight. It is now very slightly crooked and I feel I have accomplished something.",
+        "USE": "I spun it. His thumb-mark is worn into it over the East. I stopped spinning it."
+      },
+      "walkTo": {
+        "x": 1498,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "clock",
+      "name": "THE CLOCK",
+      "rect": [
+        1620,
+        60,
+        115,
+        530
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A fine clock, eleven minutes slow. In this building, your appointment is always slightly sooner than you think, and you are always slightly late.",
+            "repeat": [
+              "The clerk winds it every morning, carefully, so that it stays eleven minutes slow.",
+              "Brass pendulum, walnut case. It is the best-made lie in the room, and it has competition."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "It ticks with authority. Wrong, but with authority.",
+            "repeat": [
+              "Tick. Tick. Wrong, wrong, with conviction.",
+              "The chime, gathering itself. It will strike eleven minutes after the town has gone to lunch."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "Setting it right would be an act of vandalism against a working system."
+      },
+      "walkTo": {
+        "x": 1678,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "window_blinds",
+      "name": "THE WINDOW BLINDS",
+      "rect": [
+        225,
+        60,
+        190,
+        330
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Half-drawn, always, at the same angle.",
+            "repeat": [
+              "The slats are dusted. The window behind them is not.",
+              "Through the slats, the street in strips: a horse's head, a wheel, a man's boots, and nothing whole."
+            ],
+            "then": [
+              "The Company sees the street; the street sees slats."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A tap when the wind moves them. The building's one nervous habit.",
+            "repeat": [
+              "A slat ticking in the draft from the door.",
+              "The street, cut into slices and served politely."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 320,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "map_wall",
+      "name": "THE MAP WALL",
+      "rect": [
+        570,
+        95,
+        270,
+        260
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Maps to Mott's strike, framed, for sale.",
+            "repeat": [
+              "Each one is priced. The more certain the map, the higher the price, and the most certain is very expensive indeed.",
+              "I have stood in front of them for a while now. The strike has been in eleven places and I have not moved."
+            ],
+            "then": [
+              "Eleven different maps, all of them authoritative, all of them different."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Eleven confident maps, not arguing with each other in public.",
+              "The glass of one frame humming faintly when a wagon passes."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 705,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "map_of_holdings",
+      "name": "THE MAP OF HOLDINGS",
+      "rect": [
+        1055,
+        65,
+        280,
+        260
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The district again, but coloured: what the Company owns is green, and the map is mostly green. My claim is a small white apology near the edge.",
+            "repeat": [
+              "The green is hand-tinted, and someone has gone over the edges twice, so there is no doubt where the Company ends. It does not, much.",
+              "The legend has two entries: COMPANY and OTHER. OTHER is in very small type."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. The green does not need to say anything.",
+            "repeat": [
+              "Nothing. Paper with this much green on it is very composed.",
+              "The frame tapping the wall as the inner door shuts."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1195,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "door_to_the_office",
+      "name": "THE DOOR TO THE OFFICE",
+      "rect": [
+        1755,
+        80,
+        165,
+        520
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Panelled, brass-handled, and it opens for you exactly when the Colonel finds it useful.",
+            "repeat": [
+              "The handle is polished on the inside of the curve, where the Colonel's hand goes, and dull where a visitor would reach.",
+              "A pane of frosted glass at head height, through which nothing can be seen and everything is suggested."
+            ],
+            "then": [
+              "I have watched men age in front of it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Voices, shaped like laughter, sized like arithmetic.",
+            "repeat": [
+              "A laugh behind it, generous and long. Somebody is being given something.",
+              "Nothing. Then the latch, and the door opens exactly as I look away from it."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1715,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "reception_desk",
+      "name": "THE RECEPTION DESK",
+      "rect": [
+        1255,
+        392,
+        380,
+        233
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "High enough that you address the clerk's collar.",
+            "repeat": [
+              "A brass bell on the desk, polished, with no sign it has ever been rung. The clerk sees you coming.",
+              "The clerk's book is open at today. My name is in it already, with the time I arrived: eleven minutes early."
+            ],
+            "then": [
+              "Papers pass over it in one direction only."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A pen nib, somewhere behind the panelling, writing without pause.",
+            "repeat": [
+              "The pen nib again, behind the panelling, steady as rain.",
+              "The clerk, breathing through his nose with the patience of a professional."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1445,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "chairs",
+      "name": "THE CHAIRS",
+      "rect": [
+        490,
+        370,
+        395,
+        250
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Six chairs, and for the first time in Company history, nobody waiting in any of them. Comfort with no takers. It is the saddest furniture in the territory and I cannot spare it a full minute."
+          },
+          {
+            "say": "Six chairs, each more comfortable than anything else in the territory.",
+            "repeat": [
+              "The cushions are plumped after every visitor. I have watched the clerk do it, tenderly.",
+              "Each one faces the inner door. You wait looking at the thing you are waiting for."
+            ],
+            "then": [
+              "A man could wait here all day, and that is the design."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Upholstery, accepting someone's shape. It approves of everyone.",
+            "repeat": [
+              "Leather, settling. That is the sound of somebody deciding to stay a bit longer.",
+              "A long, comfortable exhale of horsehair. It is the sound of an afternoon going missing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I sat. Twenty minutes evaporated. These chairs are how the Company buys time — literally, in bulk, from visitors."
+      },
+      "walkTo": {
+        "x": 688,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "carpet",
+      "name": "THE CARPET",
+      "rect": [
+        205,
+        645,
+        1715,
+        58
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An actual carpet, red as a promise, freighted a thousand miles so that boots could apologize for themselves at the door.",
+            "repeat": [
+              "Turkish, or claiming to be. The only floor covering in Consolation, and it goes right up to the mud at the threshold.",
+              "A path is worn in it from the street door to the inner door, and nowhere else. Nobody wanders in here."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It swallows footsteps whole.",
+            "repeat": [
+              "Nothing. It takes my footsteps and keeps them.",
+              "A faint grit underfoot by the door, where the territory got in."
+            ],
+            "then": [
+              "You could be robbed here politely and not hear it coming."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "It runs under the desk, under the door, and — for all I know — under the town."
+      },
+      "walkTo": {
+        "x": 1063,
+        "y": 850,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "back_to_street",
+      "name": "MAIN STREET",
+      "stub": true,
+      "rect": [
+        0,
+        60,
+        205,
+        640
+      ],
+      "colour": 0,
+      "to": "main_street",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: the one way back to Main Street. NO DOCUMENT WRITES THIS DOOR from inside the lobby (doc 14 writes Main Street's side). A stub exit, as Rooms 6, 8 and 9's are (doc 36 Q153).",
+      "walkTo": {
+        "x": 230,
+        "y": 770,
+        "facing": "left"
+      }
+    }
+  ],
+  "ambient": [
+    "lobby_clerk"
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-10.json",
+      "reference/room-10/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        205,
+        705,
+        1535,
+        48
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        205,
+        753,
+        1535,
+        49
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        205,
+        802,
+        1535,
+        48
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      205,
+      705
+    ],
+    [
+      1740,
+      705
+    ],
+    [
+      1740,
+      850
+    ],
+    [
+      205,
+      850
+    ]
+  ],
+  "entrance": [
+    300,
+    770
+  ],
+  "entrances": [
+    {
+      "from": "main_street",
+      "at": [
+        300,
+        770
+      ],
+      "facing": "right",
+      "note": "In by the street door, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        300,
+        770
+      ],
+      "facing": "right",
+      "note": "Anything else arrives by the door."
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 205,
+          "y": 705
+        },
+        {
+          "x": 1740,
+          "y": 705
+        },
+        {
+          "x": 1740,
+          "y": 753
+        },
+        {
+          "x": 205,
+          "y": 753
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 705,
+        "farHeight": 440,
+        "nearY": 850,
+        "nearHeight": 540
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 205,
+          "y": 753
+        },
+        {
+          "x": 1740,
+          "y": 753
+        },
+        {
+          "x": 1740,
+          "y": 802
+        },
+        {
+          "x": 205,
+          "y": 802
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 705,
+        "farHeight": 440,
+        "nearY": 850,
+        "nearHeight": 540
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 205,
+          "y": 802
+        },
+        {
+          "x": 1740,
+          "y": 802
+        },
+        {
+          "x": 1740,
+          "y": 850
+        },
+        {
+          "x": 205,
+          "y": 850
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 705,
+        "farHeight": 440,
+        "nearY": 850,
+        "nearHeight": 540
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "desk_lamp",
+      "at": [
+        1300,
+        300
+      ],
+      "radius": 460,
+      "amount": 0.1,
+      "rate": 0.27,
+      "phase": 0.3,
+      "note": "The oil lamp on the reception desk. A slow, low breath (invariant 9)."
+    },
+    {
+      "id": "stove_glow",
+      "at": [
+        290,
+        600
+      ],
+      "radius": 300,
+      "amount": 0.12,
+      "rate": 0.41,
+      "phase": 0.7,
+      "note": "The stove's firebox, which is never allowed to go out (doc 54), on its own phase."
+    }
+  ],
+  "props": [
+    {
+      "id": "prospectus_rack_empty",
+      "sheet": "art/props/room-10-rack-empty.png",
+      "x": 957,
+      "y": 551,
+      "frame": [
+        0,
+        0,
+        125,
+        352
+      ],
+      "when": {
+        "ACT": {
+          "atLeast": 4
+        }
+      },
+      "note": "Doc 05 Part Two-B, THE PROSPECTUS RACK, act 4: \"The rack is empty.\" Room-10 operation 4 emptied the plate's rack and changed nothing else; tools/art/room10-rack.py keeps only the pixels that changed, over the rack, so in Act IV the pamphlets are bare shelves. Not a hotspot: THE PROSPECTUS RACK is."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-10/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}
