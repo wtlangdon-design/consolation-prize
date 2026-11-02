@@ -1,0 +1,68 @@
+{
+ "source": "art/staging/room-11/plate-01/composite-source.png",
+ "crop": {
+  "x": 8,
+  "y": 170,
+  "width": 1520,
+  "height": 684
+ },
+ "out": "art/staging/room-11/plate-01/candidate-1920x864.png",
+ "derivation": {
+  "transform": "errata-63-fixed-room-source-acquisition",
+  "provisional": true,
+  "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+  "source": {
+   "path": "art/staging/room-11/plate-01/composite-source.png",
+   "hash": "9d66a132a8ceb49f843cefc0a187b8feb0a01cdbd12a0acbf1bcf1b3ec14a265",
+   "width": 1536,
+   "height": 1024,
+   "bytes": 2116227,
+   "kept": true
+  },
+  "crop": {
+   "x": 8,
+   "y": 170,
+   "width": 1520,
+   "height": 684,
+   "aspect": "20:9"
+  },
+  "resample": {
+   "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+   "lobes": 3,
+   "from": [
+    1520,
+    684
+   ],
+   "to": [
+    1920,
+    864
+   ],
+   "factor": 1.263157894736842,
+   "normalisedWeights": true,
+   "premultiplied": true,
+   "rounding": "half-away-from-zero, clamped to 0..255",
+   "forbidden": [
+    "nearest-neighbour",
+    "ai-upscale",
+    "sharpen",
+    "denoise",
+    "recolour",
+    "contrast-enhancement",
+    "generative-second-pass"
+   ]
+  },
+  "derived": {
+   "path": "art/staging/room-11/plate-01/candidate-1920x864.png",
+   "hash": "59d56e6b86d3fdd29dae96d13dc0f6aa0beca38f096621ab83fecb64dd55f941",
+   "width": 1920,
+   "height": 864,
+   "bytes": 3491010,
+   "colourType": 2
+  }
+ },
+ "sources": [
+  "room-11 attempt 2 (plate-01/source.png): the room",
+  "room-11 attempt 4 (dinner-01/source.png): the portrait's canvas only"
+ ],
+ "why": "Room 11 takes the standard 20:9 crop of operation 2 with operation 4's portrait (tools/art/room11-compose.py, tools/art/room11-plate.mjs)."
+}

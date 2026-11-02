@@ -451,45 +451,6 @@
       }
     },
     {
-      "id": "door_to_the_office",
-      "name": "THE DOOR TO THE OFFICE",
-      "rect": [
-        1755,
-        80,
-        165,
-        520
-      ],
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Panelled, brass-handled, and it opens for you exactly when the Colonel finds it useful.",
-            "repeat": [
-              "The handle is polished on the inside of the curve, where the Colonel's hand goes, and dull where a visitor would reach.",
-              "A pane of frosted glass at head height, through which nothing can be seen and everything is suggested."
-            ],
-            "then": [
-              "I have watched men age in front of it."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Voices, shaped like laughter, sized like arithmetic.",
-            "repeat": [
-              "A laugh behind it, generous and long. Somebody is being given something.",
-              "Nothing. Then the latch, and the door opens exactly as I look away from it."
-            ]
-          }
-        ]
-      },
-      "walkTo": {
-        "x": 1715,
-        "y": 847,
-        "facing": "back"
-      }
-    },
-    {
       "id": "reception_desk",
       "name": "THE RECEPTION DESK",
       "rect": [
@@ -624,6 +585,46 @@
   ],
   "exits": [
     {
+      "id": "to_office",
+      "name": "THE DOOR TO THE OFFICE",
+      "rect": [
+        1755,
+        80,
+        165,
+        520
+      ],
+      "colour": 0,
+      "to": "fanshawe_office",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Panelled, brass-handled, and it opens for you exactly when the Colonel finds it useful. I have watched men age in front of it.",
+            "repeat": [
+              "The handle is polished on the inside of the curve, where the Colonel's hand goes, and dull where a visitor would reach.",
+              "A pane of frosted glass at head height, through which nothing can be seen and everything is suggested."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Voices, shaped like laughter, sized like arithmetic.",
+            "repeat": [
+              "A laugh behind it, generous and long. Somebody is being given something.",
+              "Nothing. Then the latch, and the door opens exactly as I look away from it."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: the lobby's one way on, into Fanshawe's office (Room 11). Doc 05 and doc 54 write it; built as the exit with those lines (errata 84).",
+      "walkTo": {
+        "x": 1720,
+        "y": 770,
+        "facing": "right"
+      }
+    },
+    {
       "id": "back_to_street",
       "name": "MAIN STREET",
       "stub": true,
@@ -727,6 +728,15 @@
       ],
       "facing": "right",
       "note": "In by the street door, at left."
+    },
+    {
+      "from": "fanshawe_office",
+      "at": [
+        1700,
+        780
+      ],
+      "facing": "left",
+      "note": "Out of the inner door, at right."
     },
     {
       "from": "default",

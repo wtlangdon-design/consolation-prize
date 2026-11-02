@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": 11,
- "id": "room-11",
+ "id": "room-11-fanshawe-office",
  "name": "FANSHAWE'S OFFICE",
  "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54) from docs 02, 04, 05, 48 and 54. Open decisions affecting the room are in doc 36 Q143 where it is named.",
  "examine": {
@@ -47,5 +47,7 @@
   "source": "docs/48-act-turn-beats.md::S1 \u00b7 THE DINNER AT FANSHAWE'S (A10 \u2014 the Act I turn)"
  },
  "connectivity": "docs/20-room-map.md",
- "exits": "docs/54-batch-c.md::ROOM 11 \u00b7 FANSHAWE'S OFFICE"
+ "exits": "docs/54-batch-c.md::ROOM 11 \u00b7 FANSHAWE'S OFFICE",
+ "roomFile": "content/rooms/fanshawe-office.json",
+ "plate": "art/backgrounds/room-11-fanshawe-office.png"
 }

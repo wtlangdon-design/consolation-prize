@@ -1,0 +1,445 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "FANSHAWE",
+  "speaker": "fanshawe",
+  "name": "COLONEL ABSALOM FANSHAWE",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (COLONEL ABSALOM FANSHAWE) and docs/57-puzzle-completion.md (A10, E0b) by tools/extract-content.mjs. Do not edit: change the documents and re-run. Plain quotes in a reply are Fanshawe's, italic quotes Thad's. Universal exit lines are doc 04 part one's pool.",
+  "entries": [
+    {
+      "when": {
+        "T_CLAIM1_BLANK": true,
+        "T_EXCAVATION_CLAUSE": false
+      },
+      "node": "FAN_C1"
+    },
+    {
+      "when": {
+        "T_BORDERS_MOTT": true,
+        "T_DINED": false
+      },
+      "node": "FAN_A2"
+    },
+    {
+      "when": {
+        "ACT": {
+          "atLeast": 2
+        }
+      },
+      "node": "FAN_B1"
+    },
+    {
+      "when": {
+        "T_SWINDLED": true
+      },
+      "node": "FAN_A1"
+    }
+  ],
+  "start": "FAN_A0",
+  "nodes": {
+    "FAN_A0": {
+      "id": "FAN_A0",
+      "prompt": "A letter! Then you'll want a claim to write home about.",
+      "opening": [
+        {
+          "speaker": "fanshawe",
+          "line": "Mr. Grubb! Off the coach this morning and in my office by noon. You'll want a claim. Everyone wants a claim."
+        },
+        {
+          "speaker": "thad",
+          "line": "I have come about a letter."
+        },
+        {
+          "speaker": "fanshawe",
+          "line": "A letter! Then you'll want a claim to write home about."
+        }
+      ],
+      "options": [
+        {
+          "id": "fanshawe1",
+          "tag": "TOPIC",
+          "text": "I'm looking for Ezra Pike.",
+          "afterUse": "retain",
+          "say": "Dear Ezra. He has moved somewhere very quiet. The undertaker keeps his address."
+        },
+        {
+          "id": "fanshawe2",
+          "tag": "TOPIC",
+          "text": "I don't want a claim.",
+          "afterUse": "retain",
+          "say": "Nobody does on the first day. On the second they've bought one, and on the third they come to me. I'll keep the chair warm."
+        },
+        {
+          "id": "fanshawe3",
+          "tag": "TOPIC",
+          "text": "I have four dollars.",
+          "afterUse": "retain",
+          "say": "Then you are the best-capitalized man to arrive this week, and I congratulate you, and I would keep a hand on them in the Nugget."
+        },
+        {
+          "id": "fanshawe4",
+          "tag": "COMIC",
+          "text": "Is it always this warm in here?",
+          "afterUse": "retain",
+          "say": "Always. I keep a fire in every season. Warm men are generous men, Mr. Grubb, and so are warm offices."
+        },
+        {
+          "id": "fanshawex",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "FAN_A1": {
+      "id": "FAN_A1",
+      "prompt": "Everyone here has. It's how we get our start. Which claim?",
+      "opening": [
+        {
+          "speaker": "fanshawe",
+          "line": "Mr. Grubb! Sit down, sit down. You've the look of a man who's been sold something."
+        },
+        {
+          "speaker": "thad",
+          "line": "I have been."
+        },
+        {
+          "speaker": "fanshawe",
+          "line": "Everyone here has. It's how we get our start. Which claim?"
+        }
+      ],
+      "options": [
+        {
+          "id": "fanshawe1",
+          "tag": "PROGRESS",
+          "text": "Number two. Prosperity.",
+          "afterUse": "remove",
+          "say": "Prosperity! You've named it. Nobody names them. I like you enormously.",
+          "gives": [
+            "company_map"
+          ]
+        },
+        {
+          "id": "fanshawe2",
+          "tag": "PROGRESS",
+          "text": "I'd rather not say.",
+          "afterUse": "remove",
+          "say": "Very wise. Very wise indeed.",
+          "gives": [
+            "company_map"
+          ]
+        },
+        {
+          "id": "fanshawe3",
+          "tag": "TOPIC",
+          "text": "Were you really a colonel?",
+          "afterUse": "remove",
+          "say": "Chapultepec, '47. Terrible business. Wonderful weather.",
+          "add": {
+            "WAR_CONTRADICTIONS": 1
+          }
+        },
+        {
+          "id": "fanshawe4",
+          "tag": "COMIC",
+          "text": "You have a great many chairs.",
+          "afterUse": "retain",
+          "say": "I do! I have found that a man will tell you anything if you sit him down. It's the standing ones you want to watch."
+        },
+        {
+          "id": "fanshawex",
+          "tag": "EXIT",
+          "text": "I've taken enough of your time. I'll be taking more later.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "FAN_A2": {
+      "id": "FAN_A2",
+      "prompt": "You'll take wine. It takes itself, mostly.",
+      "opening": [
+        {
+          "speaker": "fanshawe",
+          "line": "You'll take wine. It takes itself, mostly."
+        }
+      ],
+      "options": [
+        {
+          "id": "fanshawe1",
+          "tag": "TOPIC",
+          "text": "I'd be glad of a partner in it.",
+          "afterUse": "retain",
+          "say": "Partners! Then we are partners. We'll do the paper when we're sober. I never do paper in drink. It's the only rule I keep."
+        },
+        {
+          "id": "fanshawe2",
+          "tag": "TOPIC",
+          "text": "You're welcome to the working of it while I learn the trade.",
+          "afterUse": "retain",
+          "say": "A lease! How modern of you. I'll have Sump draw something up."
+        },
+        {
+          "id": "fanshawe3",
+          "tag": "TOPIC",
+          "text": "Whatever's in it, I'd sooner it went to someone who'd use it.",
+          "afterUse": "retain",
+          "say": "Then we agree entirely, and that is the best foundation for anything. More wine?"
+        },
+        {
+          "id": "fanshawe4",
+          "tag": "TOPIC",
+          "text": "Put it down as a kindness, and I'll owe you.",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "fanshawe",
+              "line": "You owe me nothing at all, Mr. Grubb."
+            },
+            {
+              "speaker": "fanshawe",
+              "line": "Yet."
+            }
+          ]
+        },
+        {
+          "id": "fanshawe5",
+          "tag": "TOPIC",
+          "text": "I'd sign anything that came with a wine like this.",
+          "afterUse": "retain",
+          "say": "Then you shall sign nothing tonight. I would never take advantage of a man at his dinner."
+        },
+        {
+          "id": "fanshawe6",
+          "tag": "PROGRESS",
+          "text": "I mean to work it myself.",
+          "afterUse": "remove",
+          "exchange": [
+            {
+              "speaker": "fanshawe",
+              "line": "Of course you do."
+            },
+            {
+              "speaker": "fanshawe",
+              "line": "Keep it. I have dozens."
+            }
+          ],
+          "set": {
+            "T_DINED": true
+          },
+          "gives": [
+            "handkerchief"
+          ],
+          "puzzle": {
+            "A10": "complete"
+          },
+          "ends": true
+        },
+        {
+          "id": "fanshawe7",
+          "tag": "COMIC",
+          "text": "This is very good wine.",
+          "afterUse": "retain",
+          "say": "Isn't it! I have no idea what it is. I buy whatever costs most and let it explain itself."
+        },
+        {
+          "id": "fanshawex",
+          "tag": "EXIT",
+          "text": "I am going to leave now, in a dignified manner.",
+          "universal": true,
+          "ends": true,
+          "say": "Already? Then come back when you're hungry. The table will keep."
+        }
+      ]
+    },
+    "FAN_B1": {
+      "id": "FAN_B1",
+      "prompt": "Sump! A dear friend. I shall write you a note. Sump respects notes the way other men respect weather.",
+      "opening": [
+        {
+          "speaker": "fanshawe",
+          "line": "Sump! A dear friend. I shall write you a note. Sump respects notes the way other men respect weather."
+        }
+      ],
+      "options": [
+        {
+          "id": "fanshawe1",
+          "tag": "PROGRESS",
+          "text": "I need to see the Registrar about my boundary.",
+          "afterUse": "remove",
+          "say": "Your boundary! A man who knows where he ends. Rare. I shall send a note ahead.",
+          "goto": "FAN_B2"
+        },
+        {
+          "id": "fanshawe2",
+          "tag": "TOPIC",
+          "text": "What do you want for it?",
+          "afterUse": "retain",
+          "say": "Want? Mr. Grubb, a favor that costs something is a transaction. I deal only in favours."
+        },
+        {
+          "id": "fanshawe3",
+          "tag": "COMIC",
+          "text": "Your clock is slow.",
+          "afterUse": "retain",
+          "say": "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it."
+        },
+        {
+          "id": "fanshawex",
+          "tag": "EXIT",
+          "text": "Thank you. This has been clarifying.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "FAN_B2": {
+      "id": "FAN_B2",
+      "prompt": "The famous card! Take a copy. Take two. History belongs to everybody.",
+      "opening": [
+        {
+          "speaker": "fanshawe",
+          "line": "The famous card! Take a copy. Take two. History belongs to everybody."
+        }
+      ],
+      "options": [
+        {
+          "id": "fanshawe1",
+          "tag": "PROGRESS",
+          "text": "I'd like to see Claim One's index card.",
+          "afterUse": "remove",
+          "say": "Of course. You'll find it agrees with the sealed filing in every particular."
+        },
+        {
+          "id": "fanshawe2",
+          "tag": "TOPIC",
+          "text": "Why does the Company keep copies of claim records?",
+          "afterUse": "retain",
+          "say": "Because the courthouse could burn down, Mr. Grubb. Buildings do."
+        },
+        {
+          "id": "fanshawe3",
+          "tag": "TOPIC",
+          "text": "Buena Vista must have been something.",
+          "afterUse": "remove",
+          "say": "Buena Vista! Spring of '48. I shall never forget it.",
+          "add": {
+            "WAR_CONTRADICTIONS": 1
+          }
+        },
+        {
+          "id": "fanshawe4",
+          "tag": "COMIC",
+          "text": "The chairs are new.",
+          "afterUse": "retain",
+          "say": "They are! One must reinvest."
+        },
+        {
+          "id": "fanshawex",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "FAN_C1": {
+      "id": "FAN_C1",
+      "prompt": "For forty feet of mud.",
+      "opening": [
+        {
+          "speaker": "fanshawe",
+          "line": "Eleven thousand dollars."
+        },
+        {
+          "speaker": "thad",
+          "line": "For forty feet of mud."
+        },
+        {
+          "speaker": "fanshawe",
+          "line": "For forty feet of mud."
+        }
+      ],
+      "options": [
+        {
+          "id": "fanshawe1",
+          "tag": "PROGRESS",
+          "text": "May I read the contract?",
+          "afterUse": "remove",
+          "exchange": [
+            {
+              "speaker": "fanshawe",
+              "line": "Of course! Read every word. I want you to read every word."
+            },
+            {
+              "speaker": "thad",
+              "line": "He doesn't want the claim. He wants it quiet."
+            }
+          ],
+          "set": {
+            "T_EXCAVATION_CLAUSE": true,
+            "ACT": 3
+          },
+          "puzzle": {
+            "E0b": "complete"
+          }
+        },
+        {
+          "id": "fanshawe2",
+          "tag": "PROGRESS",
+          "text": "Yes.",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "fanshawe",
+              "line": "Splendid!"
+            },
+            {
+              "speaker": "fanshawe",
+              "line": "Ink! The one thing this office never has. Forgive me — I'll send for some."
+            }
+          ]
+        },
+        {
+          "id": "fanshawe3",
+          "tag": "PROGRESS",
+          "text": "No.",
+          "afterUse": "counted-repeat",
+          "say": "Twelve thousand.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Thirteen. I'm enjoying this."
+            },
+            {
+              "selection": 3,
+              "say": "Fourteen, and you drive a very hard bargain for a man who isn't bargaining."
+            }
+          ]
+        },
+        {
+          "id": "fanshawe4",
+          "tag": "TOPIC",
+          "text": "Why does a worthless claim cost eleven thousand dollars?",
+          "afterUse": "retain",
+          "say": "Because you'd like it to be worth more, and I'd like you to be happy."
+        },
+        {
+          "id": "fanshawe5",
+          "tag": "COMIC",
+          "text": "I've named a raccoon after you.",
+          "afterUse": "retain",
+          "say": "Have you! What a splendid animal it must be."
+        },
+        {
+          "id": "fanshawex",
+          "tag": "EXIT",
+          "text": "I've taken enough of your time. I'll be taking more later.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

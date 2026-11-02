@@ -1,0 +1,56 @@
+{
+ "sheet": "art/staging/room-11/fanshawe/fanshawe.png",
+ "frames": [
+  [
+   2,
+   2,
+   203,
+   229
+  ],
+  [
+   207,
+   2,
+   203,
+   229
+  ],
+  [
+   412,
+   2,
+   203,
+   229
+  ],
+  [
+   617,
+   2,
+   203,
+   229
+  ],
+  [
+   822,
+   2,
+   203,
+   229
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "welcome",
+  "the watch",
+  "laughing"
+ ],
+ "topLeft": {
+  "x": 930,
+  "y": 271
+ },
+ "anchor": {
+  "x": 1031,
+  "y": 500
+ },
+ "height": 404,
+ "feetRow": 675,
+ "cut": 500,
+ "handsTo": 500,
+ "key": 90,
+ "source": "room-11 attempt 3 (art/staging/room-11/fanshawe-01/sheet.png)"
+}

@@ -221,9 +221,10 @@
    "type": "number",
    "initial": 1,
    "writtenBy": [
-    "docs/48-act-turn-beats.md: the act turns S1 (sets 2), S2 (3), S4 (4) -- unbuilt"
+    "room:fanshawe_office:to_lobby:transit (doc 57 A10 beat 4, sets 2)",
+    "dialogue:FANSHAWE:FAN_C1:fanshawe1 (E0b, sets 3)"
    ],
-   "note": "ERRATA 60: ACT is a numeric counter written at exactly four places, the act turns in docs/48-act-turn-beats.md (S1 sets 2, S2 sets 3, S4 sets 4). None of those scripts is built yet, so writtenBy is honestly empty: the flag is READ by act-gated content (Room 5 queue bench, acts 2-4) and written today only by the proof harness. Declared now because Room 5 is the first room whose authored state variation depends on it; Main Street's act-gated sign depended on it too and could not be proven for want of it.",
+   "note": "ERRATA 60: ACT is a numeric counter written at exactly four places, the act turns in docs/48-act-turn-beats.md (S1 sets 2, S2 sets 3, S4 sets 4). None of those scripts is built yet, so writtenBy is honestly empty: the flag is READ by act-gated content (Room 5 queue bench, acts 2-4) and written today only by the proof harness. Declared now because Room 5 is the first room whose authored state variation depends on it; Main Street's act-gated sign depended on it too and could not be proven for want of it. ERRATA 84: Room 11 writes 2 (the dinner's beat 4 at the door) and 3 (E0b); S4's 4 is unbuilt, so the flag stays pending. Each rise in play shows its card (content/act-cards.json).",
    "pending": true
   },
   {
@@ -814,6 +815,60 @@
     "room:clarion:schedule_board:LOOK_AT"
    ],
    "note": "Doc 57's running gag: the edition after E5 has been read on the headline board (errata 82 D's routing flag)."
+  },
+  {
+   "id": "T_DINED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FANSHAWE:FAN_A2:fanshawe6"
+   ],
+   "note": "Doc 48 S1 / doc 57 A10: set when the dinner's option 6 settles (errata 68 C: T_SWINDLED is Deke's). Ends the dinner's accost and table; hides Room 11's handkerchief."
+  },
+  {
+   "id": "T_CLAIM1_BLANK",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [],
+   "pending": true,
+   "note": "Doc 57 C6/E0: Sump turns Claim One's filing over and its back is blank. Written by SUM_B1 option 1''' (E0), which waits unextracted on Documents B and D (doc 36 Q150). Read by FAN_C1's entry (E0b)."
+  },
+  {
+   "id": "T_EXCAVATION_CLAUSE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FANSHAWE:FAN_C1:fanshawe1"
+   ],
+   "note": "Doc 04 FAN_C1 option 1: Clause 9 read; E0b, the Act II turn. Ends the offer's accost."
+  },
+  {
+   "id": "WAR_CONTRADICTIONS",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "dialogue:FANSHAWE:FAN_A1:fanshawe3",
+    "dialogue:FANSHAWE:FAN_B2:fanshawe3"
+   ],
+   "note": "Doc 04's war, counted. Two of its five contradictions are offered by a node; the other three are written but asked by none, so FAN_D1's payoff (all five) cannot be reached and is not built (doc 36 Q154). Nothing reads it yet."
+  },
+  {
+   "id": "T_QUEUE_PADDED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:fanshawe_office:submission_log:PICK_UP"
+   ],
+   "note": "Doc 57 C4: the padded log taken from the empty office on the funeral day."
+  },
+  {
+   "id": "T_EMPTY_OFFICE_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:fanshawe_office:onEnter"
+   ],
+   "note": "Doc 54: 'On first entering it' while the funeral runs, Thad's one line about the empty office; set as it plays (errata 84 G)."
   }
  ]
 }

@@ -54,6 +54,15 @@
    "note": "In by the street door, at left."
   },
   {
+   "from": "fanshawe_office",
+   "at": [
+    1700,
+    780
+   ],
+   "facing": "left",
+   "note": "Out of the inner door, at right."
+  },
+  {
    "from": "default",
    "at": [
     300,
@@ -142,12 +151,6 @@
    115,
    530
   ],
-  "door_to_the_office": [
-   1755,
-   80,
-   165,
-   520
-  ],
   "carpet": [
    205,
    645,
@@ -155,13 +158,19 @@
    58
   ]
  },
- "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE TESTIMONIALS are the column of small framed letters at the left of the cluster; THE MAP WALL is the rest of it, the framed maps. THE CARPET is the runner's far stretch, behind the walk band, so a click on the floor still walks. THE RECEPTION DESK is its front, below the clerk; the clerk stands over it.",
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE TESTIMONIALS are the column of small framed letters at the left of the cluster; THE MAP WALL is the rest of it, the framed maps. THE CARPET is the runner's far stretch, behind the walk band, so a click on the floor still walks. THE RECEPTION DESK is its front, below the clerk; the clerk stands over it. THE DOOR TO THE OFFICE is the exit to Room 11 (exitSubjects).",
  "exits": {
   "back_to_street": [
    0,
    60,
    205,
    640
+  ],
+  "to_office": [
+   1755,
+   80,
+   165,
+   520
   ]
  },
  "exitWalkTo": {
@@ -169,6 +178,11 @@
    "x": 230,
    "y": 770,
    "facing": "left"
+  },
+  "to_office": {
+   "x": 1720,
+   "y": 770,
+   "facing": "right"
   }
  },
  "obstacles": [],
@@ -212,7 +226,6 @@
   "portrait_of_fanshawe": "LOOK_AT",
   "reception_desk": "LOOK_AT",
   "clock": "LOOK_AT",
-  "door_to_the_office": "LOOK_AT",
   "carpet": "LOOK_AT"
  },
  "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
@@ -244,5 +257,13 @@
    },
    "note": "Doc 05 Part Two-B, THE PROSPECTUS RACK, act 4: \"The rack is empty.\" Room-10 operation 4 emptied the plate's rack and changed nothing else; tools/art/room10-rack.py keeps only the pixels that changed, over the rack, so in Act IV the pamphlets are bare shelves. Not a hotspot: THE PROSPECTUS RACK is."
   }
- ]
+ ],
+ "exitSubjects": {
+  "THE DOOR TO THE OFFICE": {
+   "id": "to_office",
+   "to": "fanshawe_office",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 20: the lobby's one way on, into Fanshawe's office (Room 11). Doc 05 and doc 54 write it; built as the exit with those lines (errata 84)."
+  }
+ }
 }

@@ -99,7 +99,9 @@ test('WIN_B2\'s rows move the world as doc 04 says, through W1, and the states s
   assert.ok(state.carried.includes(pair.item), 'the log is still held');
   // Apart: puzzle progress, topic flags, inventory, counts.
   assert.deepEqual(Object.keys(state.puzzleProgress()).sort(), ['C1', 'C2', 'C3', 'C4', 'C5', 'C6']);
-  assert.equal(state.flags.isDefined('T_QUEUE_PADDED'), false, 'no topic flag stands in for C5 (the build declares none)');
+  // T_QUEUE_PADDED is C4's -- the log taken from the empty office (doc 57 C4,
+  // Room 11) -- and nothing at Winnie's window writes it: C5 is puzzle progress.
+  assert.notEqual(state.flags.get('T_QUEUE_PADDED'), true, 'no topic flag stands in for C5');
   assert.deepEqual(state.dialogue.progressSnapshot()[tree], { 'WIN_B1:winnie1': 1, 'WIN_B2:winnie1': 1, 'WIN_B2:winnie2': 1, 'WIN_B2:winnie3': 1, 'WIN_B2:winnie4': 1 });
 });
 

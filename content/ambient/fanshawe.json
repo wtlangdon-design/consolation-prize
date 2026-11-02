@@ -1,0 +1,94 @@
+{
+ "schema": 1,
+ "id": "fanshawe",
+ "name": "COLONEL FANSHAWE",
+ "posture": "behind-counter",
+ "room": "fanshawe_office",
+ "x": 1031,
+ "y": 500,
+ "zone": 2,
+ "approachRadius": 40,
+ "when": {
+  "T_FUNERAL_DAY": false
+ },
+ "whenNote": "Errata 68 D: on the funeral day the office is drawn without him; he is up the hill. He never leaves his office except for funerals (doc 57).",
+ "walkTo": {
+  "x": 820,
+  "y": 790,
+  "facing": "right"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: on the carpet before the desk's left end, clear of his welcoming hand (errata 84 C).",
+ "tree": "FANSHAWE",
+ "note": "COLONEL ABSALOM FANSHAWE, President of the Consolation Improvement Company, at his desk (doc 04: 'warm, generous, expansive, unfailingly courteous'). Canon gives him no appearance but his portrait's ('painted at approximately twice life size and one-third his actual age'), so he is a portly, prosperous gentleman of about sixty with the portrait's moustache -- silver hair and whiskers, a black frock coat, a brocade waistcoat, a gold watch chain (errata 84 B). Drawn first in room-11's composition master beside Thad (style gate step 1), then alone on magenta in five poses (room-11 operation 3), keyed by tools/art/room11-fanshawe.py. BEHIND THE DESK: the sheet stops at the desk top's back edge, so `y` is the cut row, not his feet.",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for Fanshawe.",
+ "sprite": {
+  "sheet": "art/actors/room-11-fanshawe.png",
+  "frames": [
+   [
+    2,
+    2,
+    203,
+    229
+   ],
+   [
+    207,
+    2,
+    203,
+    229
+   ],
+   [
+    412,
+    2,
+    203,
+    229
+   ],
+   [
+    617,
+    2,
+    203,
+    229
+   ],
+   [
+    822,
+    2,
+    203,
+    229
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.7,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    4,
+    0
+   ],
+   [
+    2,
+    2,
+    0,
+    4,
+    4,
+    0
+   ]
+  ],
+  "breakEvery": 7,
+  "talkFrame": 2,
+  "frameNote": "0 rest (hands on his waistcoat) · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 welcome, his hand open · 3 the watch · 4 laughing. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool (errata 35 and 77: a deliberate action at least every 30 s). He welcomes as he talks.",
+  "provenance": "art/staging/room-11/fanshawe/fanshawe.json"
+ }
+}

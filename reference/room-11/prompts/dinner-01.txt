@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game: a rich red office at night, with nobody in it. Image 2 is the same room with people in it, for reference only.
+
+Make exactly TWO changes to image 1, painted in the same style, light and pixel grid as the rest:
+1. THE PORTRAIT. The big gilt-framed painting above the desk must show what it shows in image 2: a full-length portrait of a young colonel in a dark gold-braided uniform with a red sash, standing, with a battle in the background. Paint the whole canvas, top to bottom, inside the same frame. No one stands in front of it.
+2. THE DESK, LAID FOR DINNER. The desk top is laid absurdly well for a dinner for two: a white cloth over the green leather, two places with fine china plates, silver cutlery, crystal wine glasses, a bottle of red wine, two silver candlesticks with lit candles, and a silver dish with a domed cover. The oil lamp stays where it is. The green book and the folded white handkerchief are gone from the desk top, under the cloth.
+
+Change nothing else at all. Same framing, same camera, same pixel grid, same colours, same light; every other object exactly as it is, pixel for pixel: the door, the window and curtains, the map board, the chairs, the frame of the portrait, the sabre, the front of the desk, the bookshelf, the sideboard and its drawer, the decanter, the safe, the carpet. The grey strips above and below stay grey. No people, no text.

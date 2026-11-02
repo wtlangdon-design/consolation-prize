@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "note": "EXTRACTED from docs/57-puzzle-completion.md (A10, E0b) by tools/extract-content.mjs. The card shown when ACT rises to the key in play. Act IV's turn (doc 48 S4) is not built.",
+  "cards": {
+    "2": "PART TWO — THREE PIECES OF PAPER",
+    "3": "PART THREE — THADDEUS GRUBB IS LEGALLY DEAD"
+  }
+}

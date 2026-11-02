@@ -226,6 +226,22 @@
     }
    ],
    "castingNote": "The lobby clerk is new and has no approved image; canon gives him no appearance (errata 83 B). He is drawn first in the composition master behind his desk beside Thad (style gate step 1), then alone on magenta in five poses."
+  },
+  "room-11-fanshawe-office": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-03-nugget",
+    "path": "art/backgrounds/room-03-nugget.png",
+    "note": "D -- the approved public interior on Main Street at night. Fanshawe's office is deep leather, gilt and red, the only saturated interior in the game (errata 17b), so a comparable and not a palette."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Colonel Fanshawe has no approved image; canon gives him no appearance but his portrait's (errata 84 B). He is drawn first in the composition master behind his desk beside Thad (style gate step 1), then alone on magenta in five poses."
   }
  }
 }

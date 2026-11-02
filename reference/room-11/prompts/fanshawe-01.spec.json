@@ -1,0 +1,11 @@
+{
+ "assetId": "room-11",
+ "subject": "fanshawe",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-11-fanshawe-office",
+ "promptFile": "reference/room-11/prompts/fanshawe-01.txt",
+ "out": "art/staging/room-11/fanshawe-01/sheet.png",
+ "size": "1536x1024",
+ "images": ["art/staging/room-11/composition-master-01.png"]
+}

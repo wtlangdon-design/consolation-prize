@@ -1,0 +1,385 @@
+{
+ "room": "fanshawe_office",
+ "plate": "art/backgrounds/room-11-fanshawe-office.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-11/plate-01/candidate-1920x864.png: room-11 attempt 2 with attempt 4's portrait, the standard 20:9 crop -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-11-fanshawe-office.png",
+ "plateShippingHash": "59d56e6b86d3fdd29dae96d1",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   205,
+   735
+  ],
+  [
+   1640,
+   735
+  ],
+  [
+   1640,
+   855
+  ],
+  [
+   205,
+   855
+  ]
+ ],
+ "walkableNote": "THE CARPET IN FRONT OF EVERYTHING. The chairs' feet are at y 650, the desk's at 720, the sideboard's at 650 and the safe's at 770. So the band runs y 735-855 from the door's step (x 205) to the safe (x 1640).",
+ "scaling": {
+  "far": {
+   "y": 735,
+   "height": 470
+  },
+  "near": {
+   "y": 855,
+   "height": 553
+  },
+  "note": "ROOM 11'S DEPTH, FROM THE MAN THE MASTER PAINTED. The composition master drew Thad about 405 tall with his feet at source y 800, which is 512 at y 796 in this plate's frame; along Room 5's slope (0.69 per row) that is 470 at the band's far edge and 553 at its near. Fanshawe stands behind his desk at y 675, at 404 on the same curve (tools/art/room11-fanshawe.py)."
+ },
+ "entrance": [
+  300,
+  780
+ ],
+ "entrances": [
+  {
+   "from": "company_lobby",
+   "at": [
+    300,
+    780
+   ],
+   "facing": "right",
+   "note": "In by the door from the lobby, at left."
+  },
+  {
+   "from": "default",
+   "at": [
+    300,
+    780
+   ],
+   "facing": "right",
+   "note": "Anything else arrives by the door."
+  }
+ ],
+ "hotspots": {
+  "window": [
+   210,
+   40,
+   270,
+   560
+  ],
+  "map_wall": [
+   520,
+   55,
+   365,
+   310
+  ],
+  "chairs": [
+   315,
+   400,
+   545,
+   250
+  ],
+  "portrait": [
+   918,
+   5,
+   315,
+   395
+  ],
+  "sabre": [
+   1250,
+   100,
+   75,
+   245
+  ],
+  "handkerchief": [
+   885,
+   488,
+   105,
+   46
+  ],
+  "submission_log": [
+   1215,
+   484,
+   100,
+   46
+  ],
+  "ledgers": [
+   1410,
+   60,
+   240,
+   300
+  ],
+  "decanter": [
+   1525,
+   362,
+   80,
+   98
+  ],
+  "stock_portrait_drawer": [
+   1375,
+   460,
+   290,
+   190
+  ],
+  "safe": [
+   1655,
+   80,
+   250,
+   690
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE STOCK PORTRAIT DRAWER is the sideboard with its drawer not quite closed; THE DECANTER stands on it. THE HANDKERCHIEF and THE SUBMISSION LOG are the linen and the green book on the desk; Fanshawe stands between them. The desk itself is no subject.",
+ "hotspotWhen": {
+  "handkerchief": {
+   "T_DINED": false
+  }
+ },
+ "exitSubjects": {
+  "THE DOOR": {
+   "id": "to_lobby",
+   "to": "company_lobby",
+   "defaultVerb": "WALK_TO",
+   "transitScene": [
+    {
+     "ref": "docs/57-puzzle-completion.md::## A10 · Survive dinner at Fanshawe's",
+     "bullet": "Beat 4",
+     "when": {
+      "T_DINED": true,
+      "ACT": {
+       "atMost": 1
+      }
+     },
+     "set": {
+      "ACT": 2
+     }
+    }
+   ],
+   "note": "Doc 20: the one way back to the lobby. Doc 57 A10's beat 4 plays here the first time Thad leaves after the dinner -- the doorway is the porch -- and sets ACT 2, whose card follows (errata 84 C, E)."
+  }
+ },
+ "exits": {
+  "to_lobby": [
+   0,
+   140,
+   200,
+   560
+  ]
+ },
+ "exitWalkTo": {
+  "to_lobby": {
+   "x": 230,
+   "y": 780,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "desk_lamp",
+   "at": [
+    1190,
+    450
+   ],
+   "radius": 520,
+   "amount": 0.1,
+   "rate": 0.25,
+   "phase": 0.4,
+   "note": "The oil lamp on Fanshawe's desk. A slow, low breath (invariant 9)."
+  }
+ ],
+ "defaultVerbs": {
+  "window": "LOOK_AT",
+  "map_wall": "LOOK_AT",
+  "chairs": "LOOK_AT",
+  "portrait": "LOOK_AT",
+  "sabre": "LOOK_AT",
+  "handkerchief": "LOOK_AT",
+  "submission_log": "LOOK_AT",
+  "ledgers": "LOOK_AT",
+  "decanter": "LOOK_AT",
+  "stock_portrait_drawer": "LOOK_AT",
+  "safe": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
+ "occlusion": {
+  "note": "NO PLANE MASKS THAT CAN REACH HIM: the walk band is in front of every piece of furniture; Fanshawe is cut at his desk top by his own posture.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ },
+ "people": {
+  "COLONEL FANSHAWE": [
+   "fanshawe"
+  ]
+ },
+ "onEnterAccost": {
+  "npc": "fanshawe",
+  "afterSeconds": 0.5,
+  "whenAny": [
+   {
+    "T_BORDERS_MOTT": true,
+    "T_DINED": false
+   },
+   {
+    "T_CLAIM1_BLANK": true,
+    "T_EXCAVATION_CLAUSE": false
+   }
+  ],
+  "note": "Doc 57: the dinner (A10) plays on entering while Thad holds THE INVITATION, until T_DINED; the offer (E0b) the next time he enters after E0, until the clause is read. The tree's entries say which (errata 84 F)."
+ },
+ "onEnterSay": {
+  "fromRef": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)*",
+  "sayOnce": "T_EMPTY_OFFICE_SEEN",
+  "sayWhen": {
+   "T_FUNERAL_DAY": true
+  }
+ },
+ "sceneLines": [
+  {
+   "hotspot": "submission_log",
+   "verb": "PICK_UP",
+   "ref": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)*",
+   "subject": "THE SUBMISSION LOG** or **THE STOCK PORTRAIT DRAWER",
+   "verbText": "PICK UP or OPEN",
+   "case": "Fanshawe present",
+   "when": {
+    "T_FUNERAL_DAY": false
+   }
+  },
+  {
+   "hotspot": "submission_log",
+   "verb": "OPEN",
+   "ref": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)*",
+   "subject": "THE SUBMISSION LOG** or **THE STOCK PORTRAIT DRAWER",
+   "verbText": "PICK UP or OPEN",
+   "case": "Fanshawe present",
+   "when": {
+    "T_FUNERAL_DAY": false
+   }
+  },
+  {
+   "hotspot": "stock_portrait_drawer",
+   "verb": "PICK_UP",
+   "ref": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)*",
+   "subject": "THE SUBMISSION LOG** or **THE STOCK PORTRAIT DRAWER",
+   "verbText": "PICK UP or OPEN",
+   "case": "Fanshawe present",
+   "when": {
+    "T_FUNERAL_DAY": false
+   }
+  },
+  {
+   "hotspot": "stock_portrait_drawer",
+   "verb": "OPEN",
+   "ref": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)*",
+   "subject": "THE SUBMISSION LOG** or **THE STOCK PORTRAIT DRAWER",
+   "verbText": "PICK UP or OPEN",
+   "case": "Fanshawe present",
+   "when": {
+    "T_FUNERAL_DAY": false
+   }
+  },
+  {
+   "hotspot": "submission_log",
+   "verb": "PICK_UP",
+   "ref": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)*",
+   "subject": "THE SUBMISSION LOG",
+   "verbText": "PICK UP",
+   "case": "empty office",
+   "when": {
+    "T_FUNERAL_DAY": true,
+    "T_QUEUE_PADDED": false
+   },
+   "items": [
+    "padded_log"
+   ],
+   "set": {
+    "T_QUEUE_PADDED": true
+   }
+  },
+  {
+   "hotspot": "stock_portrait_drawer",
+   "verb": "OPEN",
+   "ref": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)*",
+   "subject": "THE STOCK PORTRAIT DRAWER",
+   "verbText": "OPEN or PICK UP",
+   "case": "empty office",
+   "when": {
+    "T_FUNERAL_DAY": true
+   },
+   "untilPuzzles": [
+    "C4"
+   ],
+   "items": [
+    "photograph"
+   ],
+   "set": {
+    "T_MOTT_FACE_UNKNOWN": true
+   },
+   "completes": "C4"
+  },
+  {
+   "hotspot": "stock_portrait_drawer",
+   "verb": "PICK_UP",
+   "ref": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)*",
+   "subject": "THE STOCK PORTRAIT DRAWER",
+   "verbText": "OPEN or PICK UP",
+   "case": "empty office",
+   "when": {
+    "T_FUNERAL_DAY": true
+   },
+   "untilPuzzles": [
+    "C4"
+   ],
+   "items": [
+    "photograph"
+   ],
+   "set": {
+    "T_MOTT_FACE_UNKNOWN": true
+   },
+   "completes": "C4"
+  }
+ ],
+ "sceneLinesNote": "Doc 54's C3/C4 lines (errata 68 D): on the funeral day the log gives THE SUBMISSION LOG and T_QUEUE_PADDED, and the drawer THE PHOTOGRAPH and T_MOTT_FACE_UNKNOWN, completing C4 (doc 57); with Fanshawe present both refuse. Each empty-office rule answers once.",
+ "props": [
+  {
+   "id": "dinner",
+   "sheet": "art/props/room-11-dinner.png",
+   "x": 1095,
+   "y": 643,
+   "frame": [
+    0,
+    0,
+    543,
+    245
+   ],
+   "when": {
+    "T_BORDERS_MOTT": true,
+    "T_DINED": false
+   },
+   "note": "Doc 48 S1 beat 1: 'the table laid absurdly well'. Room-11 operation 4 laid the desk; tools/art/room11-props.py keeps its changed pixels. Drawn while Thad holds THE INVITATION, until the dinner ends."
+  },
+  {
+   "id": "desk_bare",
+   "sheet": "art/props/room-11-desk-bare.png",
+   "x": 939,
+   "y": 533,
+   "frame": [
+    0,
+    0,
+    102,
+    44
+   ],
+   "when": {
+    "T_DINED": true
+   },
+   "note": "Doc 57 A10: after the dinner the handkerchief is Thad's, and Room 11's own is not drawn. The plate's own leather laid over it (tools/art/room11-props.py)."
+  }
+ ]
+}

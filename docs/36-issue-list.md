@@ -4751,3 +4751,8 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 
 **Open:** the lobby's side of its street door has no LOOK or LISTEN in any document. Not in a puzzle's path. The inner door waits for Room 11 (errata 83 D). **For Tyler:** the clerk's look (errata 83 B -- his first drawing); the plate shows five chairs where doc 05 says six (errata 83 G a); doc 49's "I took one" plays at the empty rack in Act IV (errata 83 G b).
 
+## Q154 · Room 11, Fanshawe's office: built, awaiting Tyler's playthrough; FAN_D1 cannot be reached and the dinner's staging is reported — **RULED 2026-11-02 (errata 84, delegated); BUILT, room-11 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Twelve subjects and 80 lines (content/examine/room-11.json; THE DOOR is the exit); Colonel Fanshawe at his desk with FAN_A0, A1, A2, B1, B2 and C1; A10, C4 and E0b played in `tests/room-11.test.ts` (fixtures `r11-a` to `r11-d`); the act cards for Acts II and III. The lobby's inner door now leads here. Proofs under `renders/proofs/fanshawe-office/`.
+
+**Open:** FAN_D1 cannot be reached -- three of the war's five contradictions are written but no node asks for them (errata 84 I a). S1's staging is reported, not played (errata 84 I b). E0b waits on E0 (SUM_B1's triple-prime option, Q150). **For Tyler:** Fanshawe's look (errata 84 B -- his first drawing); the dinner (`?fixture=r11-b`): the laid table, the one option that does not sell, beat 4 at the door and the PART TWO card; the plate's chairs (six, doc 05 says eleven).

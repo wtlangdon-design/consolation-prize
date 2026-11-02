@@ -1,0 +1,880 @@
+{
+  "schema": 1,
+  "id": "fanshawe_office",
+  "name": "FANSHAWE'S OFFICE",
+  "materialIdentity": "Deep leather, gilt, red -- the only saturated interior in the game (17b); night, the desk lamp (errata 84 A)",
+  "note": "Room 11, doc 20: Colonel Fanshawe's office, off the Improvement Company's lobby. Fanshawe at his desk (doc 04 FANSHAWE); A4's map, the dinner (A10, doc 48 S1), the funeral day's search (C4) and the offer (E0b) are his room's (doc 57). Compiled by tools/compile-room.mjs from content/examine/room-11.json and reference/room-11/annotation.json",
+  "background": "art/backgrounds/room-11-fanshawe-office.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 320,
+  "hotspots": [
+    {
+      "id": "submission_log",
+      "name": "THE SUBMISSION LOG",
+      "rect": [
+        1215,
+        484,
+        100,
+        46
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The Company's submission log, bound in green leather, closed, and lying where he can reach it and I cannot.",
+            "repeat": [
+              "He has moved it an inch since I last looked. He is a courteous man and a careful one, and in him those are not in tension.",
+              "The spine is cracked in one place only, where it is opened most. Whatever is in it is consulted daily."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It is closed, and it will stay closed while he is in the room.",
+            "repeat": [
+              "Nothing. Even the paper in this office waits to be invited.",
+              "Nothing. I have the distinct sense of the book listening back."
+            ]
+          }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_FUNERAL_DAY": true,
+              "T_QUEUE_PADDED": false
+            },
+            "say": "Nine years of priority submissions, filed one day a month, every month, in one hand. Winnie is going to want to see this, and she is not going to enjoy it.",
+            "set": {
+              "T_QUEUE_PADDED": true
+            },
+            "items": [
+              "padded_log"
+            ],
+            "sceneLine": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)* · empty office"
+          },
+          {
+            "when": {
+              "T_FUNERAL_DAY": false
+            },
+            "say": "Not with him in the room. He would offer to help me carry it.",
+            "sceneLine": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)* · Fanshawe present"
+          }
+        ],
+        "OPEN": [
+          {
+            "when": {
+              "T_FUNERAL_DAY": false
+            },
+            "say": "Not with him in the room. He would offer to help me carry it.",
+            "sceneLine": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)* · Fanshawe present"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1265,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "handkerchief",
+      "name": "THE HANDKERCHIEF",
+      "rect": [
+        885,
+        488,
+        105,
+        46
+      ],
+      "when": {
+        "T_DINED": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A handkerchief of white silk, monogrammed in thread finer than anything else in the territory.",
+            "repeat": [
+              "He offers it to anyone who looks upset. Several men have left this office with one, and with nothing else.",
+              "The initials are A.F., the A rather larger than the F, as though the A had done most of the work."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Silk is too well bred to rustle.",
+            "repeat": [
+              "The faintest whisper of starch. Even his linen is persuasive.",
+              "Nothing at all. It is the softest thing in Consolation, and it has never once been used to wipe anything."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 938,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "decanter",
+      "name": "THE DECANTER",
+      "rect": [
+        1525,
+        362,
+        80,
+        98
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Good whisky, offered freely to everyone, always.",
+            "repeat": [
+              "Cut glass, and the whisky catches the light so well I suspect the light came with it.",
+              "He pours for every visitor and none for himself. A man who never drinks, in a room built for drinking, is a man keeping count."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Full. It is always full. He does not drink it.",
+            "repeat": [
+              "The stopper rings faintly when the desk is struck. Even the glass is in a cordial mood.",
+              "Nothing. It is full again. Somebody refills it quietly."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "It is always already open. Generosity, pre-loaded."
+      },
+      "walkTo": {
+        "x": 1565,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "sabre",
+      "name": "THE SABRE",
+      "rect": [
+        1250,
+        100,
+        75,
+        245
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A cavalry sabre, mounted. Beautifully kept.",
+            "repeat": [
+              "The scabbard is engraved with a battle honor. I would tell you which, but the engraving and the Colonel disagree.",
+              "Not a nick on it. It is either the finest blade in the territory or it has never met anything."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It has never left this wall and it has never been sharpened.",
+            "repeat": [
+              "Nothing. Steel at rest, and resting comfortably.",
+              "A faint ring when the door closes, and then it remembers itself."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1288,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "stock_portrait_drawer",
+      "name": "THE STOCK PORTRAIT DRAWER",
+      "rect": [
+        1375,
+        460,
+        290,
+        190
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A wide, shallow drawer in the sideboard, the kind printers keep plates in.",
+            "repeat": [
+              "It does not quite close. A corner of card shows at the gap, the good heavy kind photographers use.",
+              "He has offered me everything else in this room. He has not offered me this."
+            ],
+            "then": [
+              "Fine joinery, for something nobody is meant to look in."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Whatever is in there is packed too tight to shift.",
+            "repeat": [
+              "The runners squeak a little when the sideboard takes my weight. It has been opened recently.",
+              "Nothing more. I am being very good."
+            ]
+          }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_FUNERAL_DAY": true
+            },
+            "untilPuzzles": [
+              "C4"
+            ],
+            "say": "The drawer is full of the same gentleman. Dozens of him, stacked, all looking nobly at nothing. Every one of him is Obadiah Mott.",
+            "set": {
+              "T_MOTT_FACE_UNKNOWN": true
+            },
+            "items": [
+              "photograph"
+            ],
+            "completes": "C4",
+            "sceneLine": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)* · empty office"
+          },
+          {
+            "when": {
+              "T_FUNERAL_DAY": false
+            },
+            "say": "Not with him in the room. He would offer to help me carry it.",
+            "sceneLine": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)* · Fanshawe present"
+          }
+        ],
+        "OPEN": [
+          {
+            "when": {
+              "T_FUNERAL_DAY": true
+            },
+            "untilPuzzles": [
+              "C4"
+            ],
+            "say": "The drawer is full of the same gentleman. Dozens of him, stacked, all looking nobly at nothing. Every one of him is Obadiah Mott.",
+            "set": {
+              "T_MOTT_FACE_UNKNOWN": true
+            },
+            "items": [
+              "photograph"
+            ],
+            "completes": "C4",
+            "sceneLine": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)* · empty office"
+          },
+          {
+            "when": {
+              "T_FUNERAL_DAY": false
+            },
+            "say": "Not with him in the room. He would offer to help me carry it.",
+            "sceneLine": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)* · Fanshawe present"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1520,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "ledgers",
+      "name": "THE LEDGERS",
+      "rect": [
+        1410,
+        60,
+        240,
+        300
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Company ledgers, a shelf of them, in green morocco with gilt dates.",
+            "repeat": [
+              "The spines are all one thickness, year after year. Business in Consolation, it appears, never rises and never falls. It merely continues.",
+              "He has offered to let me read them, and I believe he would. That is how I know there is nothing in them."
+            ],
+            "then": [
+              "Twelve years of accounts, bound handsomely enough to be believed."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. A shelf of figures that all agree with each other.",
+            "repeat": [
+              "The shelf creaks under them. They are heavier than the business they describe.",
+              "Nothing. The particular quiet of a book that has never been audited."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1530,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "map_wall",
+      "name": "THE MAP WALL",
+      "rect": [
+        520,
+        55,
+        365,
+        310
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Every claim in the district, pinned. Two of them have red pins. One is Claim One.",
+            "repeat": [
+              "Green pins for the Company, a great many. The two red pins are alone together near the middle.",
+              "My pin has been pushed all the way in. The others merely rest. I do not know why that bothers me as much as it does."
+            ],
+            "then": [
+              "The other is mine."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Pins ticking against the cork in the draft. A small, busy, acquisitive sound.",
+              "Nothing. The map is entirely up to date and has nothing further to report."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 703,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "portrait",
+      "name": "THE PORTRAIT",
+      "rect": [
+        918,
+        5,
+        315,
+        395
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Colonel Fanshawe, painted at approximately twice life size and one-third his actual age.",
+            "repeat": [
+              "The uniform has more braid than a regiment would issue and fewer stains than a war would allow.",
+              "The painter has given him a battle in the background. It is not clear which battle. I suspect the painter was told several."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Which is the first honest thing about it.",
+            "repeat": [
+              "Canvas, stretched very taut, like the story.",
+              "Nothing. In oils he is the strong, silent type, which is the only thing the painter added."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "The painted one listens exactly as well and commits to less. I prefer him slightly."
+      },
+      "walkTo": {
+        "x": 1076,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "chairs",
+      "name": "THE CHAIRS",
+      "rect": [
+        315,
+        400,
+        545,
+        250
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Eleven chairs, in a room that receives visitors one at a time.",
+            "repeat": [
+              "Each one is turned slightly toward his desk, the way flowers turn toward a window.",
+              "Eleven chairs. I counted twice, and on the second count I had the strong impression I had been offered one."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Leather, settling. They are extremely comfortable and I do not wish to sit in one.",
+            "repeat": [
+              "A cushion slowly breathing out. Somebody sat in it recently and was relieved of something.",
+              "Nothing. Good furniture in this town is very patient."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "They are heavier than they look. Everything in this office is heavier than it looks."
+      },
+      "walkTo": {
+        "x": 588,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "window",
+      "name": "THE WINDOW",
+      "rect": [
+        210,
+        40,
+        270,
+        560
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A tall window over Main Street, curtained in velvet the color of good port.",
+            "repeat": [
+              "The glass is new, thick, and very slightly green. The town looks prosperous through it. That may be what the glass is for.",
+              "From here you can see the Assay Office door and the Registrar's, and how long the line is at each."
+            ],
+            "then": [
+              "He can see the whole town from here, and the town can see him being generous."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Main Street, with the edges taken off.",
+            "repeat": [
+              "A wagon passing. Through this glass it sounds as if it is paying a call.",
+              "Nothing gets in that he has not let in. The street knocks politely and is not answered."
+            ],
+            "then": [
+              "Even the noise is muffled into good manners in this room."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 345,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "safe",
+      "name": "THE SAFE",
+      "rect": [
+        1655,
+        80,
+        250,
+        690
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A safe the size of a small cabin, painted with roses and a landscape, as though money could be made to feel at home.",
+            "repeat": [
+              "The landscape has a river in it, running gold, toward the handle.",
+              "He has never opened it in front of me. He has opened everything else."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Iron this thick has heard nothing since it was cast.",
+            "repeat": [
+              "Nothing. It does not tick, which is the first thing I listen for in a lock.",
+              "A dull note when the floor takes my weight. Heavy things have very little to say, and say it low."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1615,
+        "y": 852,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_lobby",
+      "name": "THE DOOR",
+      "rect": [
+        0,
+        140,
+        200,
+        560
+      ],
+      "colour": 0,
+      "to": "company_lobby",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "From this side it is a door like any other. From the lobby it is the most important door in the territory. He has arranged both.",
+            "repeat": [
+              "The hinges are oiled so that it closes without a sound. Visitors find themselves inside before they have decided to come in.",
+              "There is no lock on this side. There has never been any need. Nobody leaves this office in a hurry."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The lobby, faintly, and the clock out there being eleven minutes wrong.",
+            "repeat": [
+              "Nothing. A door this well hung keeps every secret in the room and lets in only the draft.",
+              "Voices in the lobby, waiting. Everyone waits out there. Nobody waits in here."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "transitScene": [
+        {
+          "when": {
+            "T_DINED": true,
+            "ACT": {
+              "atMost": 1
+            }
+          },
+          "say": "A very fine dinner.",
+          "then": [
+            "I believe I own something."
+          ],
+          "set": {
+            "ACT": 2
+          },
+          "sceneLine": "docs/57-puzzle-completion.md::## A10 · Survive dinner at Fanshawe's · Beat 4"
+        }
+      ],
+      "note": "Doc 20: the one way back to the lobby. Doc 57 A10's beat 4 plays here the first time Thad leaves after the dinner -- the doorway is the porch -- and sets ACT 2, whose card follows (errata 84 C, E).",
+      "walkTo": {
+        "x": 230,
+        "y": 780,
+        "facing": "left"
+      }
+    }
+  ],
+  "ambient": [
+    "fanshawe"
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-11.json",
+      "reference/room-11/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        205,
+        735,
+        1435,
+        40
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        205,
+        775,
+        1435,
+        40
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        205,
+        815,
+        1435,
+        40
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      205,
+      735
+    ],
+    [
+      1640,
+      735
+    ],
+    [
+      1640,
+      855
+    ],
+    [
+      205,
+      855
+    ]
+  ],
+  "entrance": [
+    300,
+    780
+  ],
+  "entrances": [
+    {
+      "from": "company_lobby",
+      "at": [
+        300,
+        780
+      ],
+      "facing": "right",
+      "note": "In by the door from the lobby, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        300,
+        780
+      ],
+      "facing": "right",
+      "note": "Anything else arrives by the door."
+    }
+  ],
+  "peopleResponses": {
+    "fanshawe": {
+      "PICK_UP": [
+        {
+          "say": "He would allow it. He would find it delightful. That is the reason not to."
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "He would step aside before I touched him, and thank me, and I would be further in than I was."
+        }
+      ],
+      "GIVE": [
+        {
+          "say": "Whatever I give him, he gives back something nicer. I have stopped giving him things."
+        }
+      ],
+      "USE": [
+        {
+          "say": "He is the one who uses. It is not a position open to applicants."
+        }
+      ]
+    }
+  },
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 205,
+          "y": 735
+        },
+        {
+          "x": 1640,
+          "y": 735
+        },
+        {
+          "x": 1640,
+          "y": 775
+        },
+        {
+          "x": 205,
+          "y": 775
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 735,
+        "farHeight": 470,
+        "nearY": 855,
+        "nearHeight": 553
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 205,
+          "y": 775
+        },
+        {
+          "x": 1640,
+          "y": 775
+        },
+        {
+          "x": 1640,
+          "y": 815
+        },
+        {
+          "x": 205,
+          "y": 815
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 735,
+        "farHeight": 470,
+        "nearY": 855,
+        "nearHeight": 553
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 205,
+          "y": 815
+        },
+        {
+          "x": 1640,
+          "y": 815
+        },
+        {
+          "x": 1640,
+          "y": 855
+        },
+        {
+          "x": 205,
+          "y": 855
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 735,
+        "farHeight": 470,
+        "nearY": 855,
+        "nearHeight": 553
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "desk_lamp",
+      "at": [
+        1190,
+        450
+      ],
+      "radius": 520,
+      "amount": 0.1,
+      "rate": 0.25,
+      "phase": 0.4,
+      "note": "The oil lamp on Fanshawe's desk. A slow, low breath (invariant 9)."
+    }
+  ],
+  "props": [
+    {
+      "id": "dinner",
+      "sheet": "art/props/room-11-dinner.png",
+      "x": 1095,
+      "y": 643,
+      "frame": [
+        0,
+        0,
+        543,
+        245
+      ],
+      "when": {
+        "T_BORDERS_MOTT": true,
+        "T_DINED": false
+      },
+      "note": "Doc 48 S1 beat 1: 'the table laid absurdly well'. Room-11 operation 4 laid the desk; tools/art/room11-props.py keeps its changed pixels. Drawn while Thad holds THE INVITATION, until the dinner ends."
+    },
+    {
+      "id": "desk_bare",
+      "sheet": "art/props/room-11-desk-bare.png",
+      "x": 939,
+      "y": 533,
+      "frame": [
+        0,
+        0,
+        102,
+        44
+      ],
+      "when": {
+        "T_DINED": true
+      },
+      "note": "Doc 57 A10: after the dinner the handkerchief is Thad's, and Room 11's own is not drawn. The plate's own leather laid over it (tools/art/room11-props.py)."
+    }
+  ],
+  "onEnter": {
+    "accost": {
+      "npc": "fanshawe",
+      "afterSeconds": 0.5,
+      "whenAny": [
+        {
+          "T_BORDERS_MOTT": true,
+          "T_DINED": false
+        },
+        {
+          "T_CLAIM1_BLANK": true,
+          "T_EXCAVATION_CLAUSE": false
+        }
+      ],
+      "note": "Doc 57: the dinner (A10) plays on entering while Thad holds THE INVITATION, until T_DINED; the offer (E0b) the next time he enters after E0, until the clause is read. The tree's entries say which (errata 84 F)."
+    },
+    "sayOnce": "T_EMPTY_OFFICE_SEEN",
+    "sayWhen": {
+      "T_FUNERAL_DAY": true
+    },
+    "say": [
+      "Empty. It is the first time I have seen this room without somebody being generous in it."
+    ]
+  },
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-11/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

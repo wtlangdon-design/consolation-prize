@@ -909,6 +909,18 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
   // doc 24's rule that "On what." is not the answer to USE THE TUNING FORK ON
   // THE MUD had nothing left to be true of. One field name, two mechanisms.
   const objectOverrides = { ...(overrides.get(entry.docName) ?? {}) };
+  // A CASE IS NOT A VERB (errata 84 G). Doc 54 writes Room 11's funeral-day
+  // lines as `· PICK UP, *empty office*`, and the examine extraction carries
+  // them as overrides keyed "PICK_UP (empty office)", which no verb can ever
+  // reach. The annotation's sceneLines play them by their case; an override
+  // key that is not a verb is dropped only when a scene line on this hotspot
+  // reads it, and is a build failure otherwise.
+  for (const key of Object.keys(objectOverrides)) {
+    if (/^[A-Z_]+$/.test(key)) continue;
+    const read = (ann.sceneLines ?? []).some((spec) => spec.hotspot === id && key.includes(spec.case));
+    if (!read) fail(`${id}: override "${key}" is a case, not a verb, and no sceneLines entry plays it`);
+    delete objectOverrides[key];
+  }
   const old = (live.hotspots ?? []).find((h) => h.id === id);
   // THE DEFAULT VERB CARRIES OVER, FOR THE SAME REASON THE ID DOES. It is not
   // in doc 05 and it is not in the annotation -- errata 28b makes it the verb
@@ -943,6 +955,10 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
     const atMost = span[2] ? Number(span[2]) : atLeast;
     actGate = { when: { ACT: { atLeast, atMost } }, act: String(actSpec) };
   }
+  // A SUBJECT THAT IS THERE UNTIL SOMETHING HAPPENS (errata 84 G): the
+  // annotation's `hotspotWhen.<id>` joins any act gate. Doc 57 A10: "Room 11's
+  // own handkerchief hotspot is not drawn from now on."
+  if (ann.hotspotWhen?.[id]) actGate = { ...actGate, when: { ...(actGate.when ?? {}), ...ann.hotspotWhen[id] } };
   return {
     id,
     name: entry.docName,
@@ -982,7 +998,7 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
 // OPEN, *with `T_EXECUTOR_NAMED`* (E9), THE MOTT FILE · LOOK, *with
 // `T_HOB_HANDWRITING`* (E9). The annotation's `sceneLines` names each one
 // by its section, subject, verb and case, and says what it does (`when`,
-// `set`, `completes`, `goto`); the WORDS and who speaks them are read from the
+// `set`, `items`, `completes`, `goto`); the WORDS and who speaks them are read from the
 // document here. A segment led by `**NAME:**` is that speaker's (the speaker
 // map is the annotation's); any other quoted segment is Thad's. Italic
 // directions are staging and are reported, not spoken. A line the document
@@ -1011,10 +1027,12 @@ function sceneLine(spec) {
   const [first, ...more] = lines;
   return {
     ...(spec.when ? { when: spec.when } : {}),
+    ...(spec.untilPuzzles ? { untilPuzzles: spec.untilPuzzles } : {}),
     say: first.line,
     ...(first.speaker !== 'thad' ? { by: first.speaker } : {}),
     ...(more.length ? { then: more.map((l) => (l.speaker === 'thad' ? l.line : l)) } : {}),
     ...(spec.set ? { set: spec.set } : {}),
+    ...(spec.items ? { items: spec.items } : {}),
     ...(spec.completes ? { completes: spec.completes } : {}),
     ...(spec.goto ? { goto: spec.goto } : {}),
     sceneLine: `${spec.ref} · ${spec.case}`,
@@ -1076,6 +1094,27 @@ const exitLines = ROOM_DOC && !ROOM_DOC_IS_RANGE ? roomDocExits(ROOM_DOC_TEXT) :
 // doc 54 writes THE DOOR TO THE BAR with three LOOK and three LISTEN like the
 // table beside it, and doc 20 makes it the way out. Compiled as the exit with
 // those lines and its doc 49 overrides; never also a hotspot.
+// A BEAT PLAYED AT A DOOR (errata 84 E): the annotation names a document's
+// bullet (`- **Beat 4** ...`) and what it does; the WORDS are the bullet's
+// quoted lines before its "Then", Thad's unless a `**NAME:**` leads them.
+function transitBeat(spec) {
+  const [path, heading] = spec.ref.split('::');
+  const text = read(path);
+  const at = text.indexOf(heading);
+  if (at < 0) fail(`transitScene: ${path} has no section "${heading}"`);
+  const rest = text.slice(at + heading.length);
+  const body = rest.slice(0, (/\n## |\n---\n/.exec(rest) ?? { index: rest.length }).index);
+  const esc = (v) => v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const m = new RegExp(`^- \\*\\*${esc(spec.bullet)}\\*\\* (.+)$`, 'm').exec(body);
+  if (!m) fail(`transitScene: ${spec.ref} has no "- **${spec.bullet}**" bullet`);
+  const [spoken] = m[1].split(/\sThen\s/);
+  const lines = [...spoken.matchAll(/"([^"]+)"/g)].map((q) => q[1].replace(/\*/g, ''));
+  if (!lines.length) fail(`transitScene: ${spec.ref} "${spec.bullet}" has no spoken line`);
+  const [first, ...more] = lines;
+  return { ...(spec.when ? { when: spec.when } : {}), say: first, ...(more.length ? { then: more } : {}),
+    ...(spec.set ? { set: spec.set } : {}), sceneLine: `${spec.ref} · ${spec.bullet}` };
+}
+
 const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name, spec]) => {
   const subject = MERGED.subjects.find((s) => s.name === name);
   if (!subject) fail(`exitSubjects names "${name}", which ${MERGED_PATH} does not write`);
@@ -1089,6 +1128,7 @@ const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name,
     defaultVerb: spec.defaultVerb ?? 'WALK_TO',
     ...(spec.setOnTransit ? { setOnTransit: spec.setOnTransit } : {}),
     ...(spec.setOnTransitWhen ? { setOnTransitWhen: spec.setOnTransitWhen } : {}),
+    ...(spec.transitScene ? { transitScene: spec.transitScene.map(transitBeat) } : {}),
     ...(spec.note ? { note: spec.note } : {}),
     ...(ann.exitWalkTo?.[spec.id] ? { walkTo: ann.exitWalkTo[spec.id] } : {}) };
 }) : [];
@@ -1577,7 +1617,22 @@ if (MERGED) {
     built.onEnter = { ...(built.onEnter ?? {}), accost: ann.onEnterAccost };
   }
   if (ann.onEnterSay) {
-    built.onEnter = { ...(built.onEnter ?? {}), ...ann.onEnterSay };
+    // `fromRef` reads the lines from a document section's quoted `> "..."`
+    // lines rather than carrying them in the annotation (errata 84 G).
+    const { fromRef, ...rest } = ann.onEnterSay;
+    let said = rest.say;
+    if (fromRef) {
+      const [path, heading] = fromRef.split('::');
+      const text = read(path);
+      const at = text.indexOf(heading);
+      if (at < 0) fail(`onEnterSay: ${path} has no section "${heading}"`);
+      const after = text.slice(at + heading.length);
+      const body = after.slice(0, (/\n## |\n---\n/.exec(after) ?? { index: after.length }).index);
+      const first = /^> "([^"]+)"$/m.exec(body);
+      if (!first) fail(`onEnterSay: ${fromRef} has no quoted line`);
+      said = [first[1]];
+    }
+    built.onEnter = { ...(built.onEnter ?? {}), ...rest, ...(said ? { say: said } : {}) };
   }
   // OCCLUSION PLANES, WHERE THE ANNOTATION AUTHORS THEM. Geometry read off the
   // plate belongs with the rest of the geometry, and a room file this tool

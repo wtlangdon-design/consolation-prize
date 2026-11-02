@@ -1,0 +1,42 @@
+{
+ "schema": 1,
+ "room": "fanshawe_office",
+ "note": "ROOM 11's PROOF SPEC. The route is Room 10's, then the inner door. The principal change is A10, the dinner: holding the invitation, the table is laid; FAN_A2's option 6, 'I mean to work it myself', ends it with the handkerchief.",
+ "route": "fanshawe-office",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "A10 (doc 57, doc 48 S1). Prerequisite: T_BORDERS_MOTT (A9's turn), set by the flag control. Visible consequence: the table is laid; after option 6, the handkerchief is Thad's and the desk is bare; T_DINED written.",
+  "flags": {
+   "T_BORDERS_MOTT": true
+  },
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "TALK_TO"
+   },
+   {
+    "do": "click",
+    "world": [
+     1060,
+     380
+    ],
+    "why": "Fanshawe, at his desk"
+   },
+   {
+    "do": "waitFor",
+    "dialogue": true,
+    "upTo": 60
+   },
+   {
+    "do": "option",
+    "option": "fanshawe6",
+    "why": "I mean to work it myself."
+   },
+   {
+    "do": "waitFor",
+    "flag": "T_DINED",
+    "upTo": 90
+   }
+  ]
+ }
+}

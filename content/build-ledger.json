@@ -188,6 +188,26 @@
    "note": "Room 10, built 2026-11-02 under doc 55 (errata 72, 83). Acceptance is Tyler's, in the playthrough (Q153)."
   },
   {
+   "id": "room-11-fanshawe-office",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-11.json",
+    "docs/04-dialogue-trees.md",
+    "docs/57-puzzle-completion.md",
+    "docs/48-act-turn-beats.md",
+    "docs/20-room-map.md"
+   ],
+   "dependsOn": [
+    "room-10-company-lobby"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-11-fanshawe-office.json",
+   "proof": "renders/proofs/fanshawe-office/proof.json",
+   "gauntlet": "tools/gauntlet/routes/fanshawe-office.json",
+   "blockers": [],
+   "note": "Room 11, built 2026-11-02 under doc 55 (errata 72, 84). Acceptance is Tyler's, in the playthrough (Q154)."
+  },
+  {
    "id": "room-05-assay-office",
    "kind": "room",
    "sources": [

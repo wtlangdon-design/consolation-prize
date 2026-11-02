@@ -1,0 +1,24 @@
+Image 1 is a frame from my pixel-art adventure game: a rich red office at night. The man in the long blue coat on the left is Thad, the hero, and he is the style standard. The portly gentleman with the silver hair and moustache behind the desk is Colonel Fanshawe. I need Fanshawe drawn on his own, whole, as a sheet of five poses.
+
+STYLE -- match Thad exactly, not the room:
+- The same pixel-art style as Thad and as Fanshawe already is in image 1: the same pixel size, flat soft shading, very little texture, simple shapes, clean outlines. Not sharp, not finely detailed, no hard internal contrast.
+- The same proportions: the same head size relative to the body. Fanshawe is a little shorter than Thad and much stouter.
+- The same warm lamplight as image 1.
+
+THE CHARACTER -- Colonel Fanshawe, exactly as image 1 shows him: a portly, prosperous gentleman of about sixty, silver hair, a fine silver moustache and side whiskers, ruddy cheeks, a black frock coat, a rich brocade waistcoat with a gold watch chain, a white shirt and a black silk cravat. Below the waist, dark trousers and polished black shoes. Warm, generous, delighted with everyone.
+
+THE SHEET -- one image, five poses of this same man, side by side, left to right, each FULL LENGTH from head to shoes:
+1. REST: standing, facing the viewer and turned slightly to the left of the picture, both hands resting on his waistcoat, smiling warmly.
+2. BREATH: identical to pose 1 except his shoulders are very slightly raised. Nothing else changes.
+3. WELCOME: as pose 1, but his right hand is held out open toward the left of the picture, palm up, in welcome, as in image 1.
+4. THE WATCH: as pose 1, but he holds his gold pocket watch up in his right hand on its chain and glances at it, still smiling.
+5. LAUGHING: as pose 1, but his head is tipped back a little and he laughs, eyes crinkled, one hand on his belly. His feet do not move.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no desk, no furniture, nothing else in the picture.
+- He stands on his own and touches nothing.
+- All five poses the same size, with his shoes on the same baseline, each about two-thirds the height of the picture.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same face, same proportions everywhere else.
+- Crisp pixel edges against the magenta. No soft glow or blur around him.
+- No text, labels, numbers or borders.

@@ -75,7 +75,7 @@
   },
   {
    "do": "click",
-   "on": "door_to_the_office",
+   "on": "to_office",
    "why": "the inner door"
   },
   {
