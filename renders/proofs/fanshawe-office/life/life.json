@@ -1,0 +1,2117 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "fanshawe_office",
+ "commit": "bcca74399b5e8bb19f4125c11079caaa0c7cb16e",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "fanshawe-office",
+ "warped": false,
+ "lifeRoute": "fanshawe-office-life",
+ "durationSeconds": 250.07,
+ "events": [
+  {
+   "t": 3.22,
+   "line": "entry route fanshawe-office: 38 action(s)"
+  },
+  {
+   "t": 159.32,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 159.32,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 159.32,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 159.32,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 159.32,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 159.32,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 159.32,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 159.32,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 159.32,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 159.32,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 159.32,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 159.32,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 159.32,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 159.32,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 159.32,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 159.32,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 159.32,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 159.32,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 159.32,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 159.32,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 159.32,
+   "line": "action 21 (click): clicked world 1950,760 -- walk west along the street from the east end"
+  },
+  {
+   "t": 159.32,
+   "line": "action 22 (wait): waited 20s"
+  },
+  {
+   "t": 159.32,
+   "line": "action 23 (click): clicked world 1700,770 -- west again: a click west of the camera's left edge does not register, so in short legs the camera follows"
+  },
+  {
+   "t": 159.32,
+   "line": "action 24 (wait): waited 5s"
+  },
+  {
+   "t": 159.32,
+   "line": "action 25 (click): clicked world 1450,780 -- "
+  },
+  {
+   "t": 159.32,
+   "line": "action 26 (wait): waited 5s"
+  },
+  {
+   "t": 159.32,
+   "line": "action 27 (click): clicked world 1200,790 -- "
+  },
+  {
+   "t": 159.32,
+   "line": "action 28 (wait): waited 5s"
+  },
+  {
+   "t": 159.32,
+   "line": "action 29 (click): clicked world 950,790 -- west again, in short legs"
+  },
+  {
+   "t": 159.32,
+   "line": "action 30 (wait): waited 5s"
+  },
+  {
+   "t": 159.32,
+   "line": "action 31 (click): clicked world 750,790 -- "
+  },
+  {
+   "t": 159.32,
+   "line": "action 32 (wait): waited 5s"
+  },
+  {
+   "t": 159.32,
+   "line": "action 33 (click): clicked main_street/to_company at world 689,464 -- Main Street's door to the Improvement Company"
+  },
+  {
+   "t": 159.32,
+   "line": "action 34 (waitFor): reached {\"room\":\"company_lobby\"} in room company_lobby"
+  },
+  {
+   "t": 159.32,
+   "line": "action 35 (wait): waited 3s"
+  },
+  {
+   "t": 159.32,
+   "line": "action 36 (click): clicked company_lobby/to_office at world 1838,340 -- the door to the office -- the lobby's way on"
+  },
+  {
+   "t": 159.32,
+   "line": "action 37 (waitFor): reached {\"room\":\"fanshawe_office\"} in room fanshawe_office"
+  },
+  {
+   "t": 159.32,
+   "line": "action 38 (wait): waited 3s"
+  },
+  {
+   "t": 159.37,
+   "line": "in fanshawe_office; life route: 37 action(s)"
+  },
+  {
+   "t": 160.12,
+   "line": "capture 01-arrived: room fanshawe_office, says null, options 0, control null"
+  },
+  {
+   "t": 161.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 162.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 163.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 164.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 165.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 166.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 167.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.13,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 168.81,
+   "line": "capture 02-fanshawe-at-his-desk: room fanshawe_office, says null, options 0, control null"
+  },
+  {
+   "t": 169.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.86,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 171.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.86,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 173.89,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 175.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 176.83,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 176.86,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 177.5,
+   "line": "capture 03-fanshawe-later: room fanshawe_office, says null, options 0, control null"
+  },
+  {
+   "t": 177.59,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 177.79,
+   "line": "action 1 (click): clicked world 1060,380 -- Fanshawe, at his desk"
+  },
+  {
+   "t": 178.81,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     707,
+     788
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 179.85,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 180.8,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 181.86,
+   "trace": {
+    "says": "fanshawe",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 182.81,
+   "trace": {
+    "says": "fanshawe",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 183.8,
+   "trace": {
+    "says": "fanshawe",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 184.03,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room fanshawe_office"
+  },
+  {
+   "t": 184.7,
+   "line": "capture 04-fan-a0: room fanshawe_office, says null, options 5, control null"
+  },
+  {
+   "t": 184.91,
+   "line": "action 1 (option): chose option fanshawe3 -- I have four dollars."
+  },
+  {
+   "t": 185.96,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 186.91,
+   "trace": {
+    "says": "fanshawe",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 187,
+   "line": "action 1 (waitFor): reached {\"says\":\"fanshawe\"} in room fanshawe_office"
+  },
+  {
+   "t": 187.75,
+   "line": "capture 05-fanshawe-speaks: room fanshawe_office, says \"fanshawe\", options 5, control null"
+  },
+  {
+   "t": 188.78,
+   "trace": {
+    "says": "fanshawe",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.79,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 5,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.86,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room fanshawe_office"
+  },
+  {
+   "t": 190.08,
+   "line": "action 1 (option): chose option fanshawe4 -- Is it always this warm in here?"
+  },
+  {
+   "t": 191.09,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 192.11,
+   "trace": {
+    "says": "fanshawe",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 193.13,
+   "trace": {
+    "says": "fanshawe",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 194.07,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room fanshawe_office"
+  },
+  {
+   "t": 194.28,
+   "line": "action 1 (option): chose option fanshawex -- leave"
+  },
+  {
+   "t": 195.31,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 196.34,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 197.32,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 198.31,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 199.3,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     820,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 200.28,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 200.39,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 200.66,
+   "line": "action 1 (click): clicked fanshawe_office/portrait at world 1076,203 -- the portrait"
+  },
+  {
+   "t": 201.71,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1076,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 201.96,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room fanshawe_office"
+  },
+  {
+   "t": 202.54,
+   "line": "capture 06-look-portrait: room fanshawe_office, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 203.57,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1076,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 204.57,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1076,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 205.56,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1076,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 206.58,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1076,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 207.58,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1076,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 208.56,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1076,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 209.59,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1076,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 210.55,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 210.65,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 210.91,
+   "line": "action 1 (click): clicked fanshawe_office/window at world 345,320 -- Main Street through the glass"
+  },
+  {
+   "t": 211.93,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     651,
+     855
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 212.85,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room fanshawe_office"
+  },
+  {
+   "t": 213.55,
+   "line": "capture 07-listen-window: room fanshawe_office, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 214.57,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     345,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 215.56,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     345,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 216.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     345,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 217.59,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     345,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 218.58,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     345,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 219.59,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     345,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 220.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     345,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 221.55,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 221.66,
+   "line": "action 1 (verb): chose verb OPEN -- "
+  },
+  {
+   "t": 221.88,
+   "line": "action 1 (click): clicked fanshawe_office/decanter at world 1565,411 -- doc 49's authored OPEN"
+  },
+  {
+   "t": 222.89,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     770,
+     855
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 223.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1232,
+     855
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 224.95,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1565,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 224.95,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room fanshawe_office"
+  },
+  {
+   "t": 225.61,
+   "line": "capture 08-open-decanter: room fanshawe_office, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 226.64,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1565,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 227.64,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1565,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 228.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1565,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 229.66,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1565,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 230.66,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1565,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 231.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1565,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 232.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1565,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 233.61,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 233.68,
+   "line": "action 1 (verb): chose verb PICK_UP -- "
+  },
+  {
+   "t": 233.88,
+   "line": "action 1 (click): clicked fanshawe_office/submission_log at world 1265,507 -- doc 54: not with him in the room"
+  },
+  {
+   "t": 234.88,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room fanshawe_office"
+  },
+  {
+   "t": 234.88,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1265,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 235.57,
+   "line": "capture 09-pickup-log: room fanshawe_office, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 236.61,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1265,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 237.6,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1265,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 238.6,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1265,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 239.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1265,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 240.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1265,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 241.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1265,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 242.59,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1265,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 243.58,
+   "line": "action 1 (wait): waited 8s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": null,
+   "t": 160.12,
+   "file": "renders/proofs/fanshawe-office/life/raw-captures-ignored/01-arrived.png",
+   "hash": "bf04e647c722b309ccabb801517220f93eceb64c91bfdbc4df3256f790d41bc6",
+   "room": "fanshawe_office",
+   "clock": 159.8739,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 501,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      40,
+      279,
+      519,
+      553
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:fanshawe_office",
+     "path": "art/backgrounds/room-11-fanshawe-office.png",
+     "drawn": "art/backgrounds/room-11-fanshawe-office.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "59d56e6b86d3fdd29dae96d13dc0f6aa0beca38f096621ab83fecb64dd55f941"
+    },
+    {
+     "key": "art/actors/room-11-fanshawe.png",
+     "path": "art/actors/room-11-fanshawe.png",
+     "drawn": "art/actors/room-11-fanshawe.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e2c1d920dc781195919bfb2ef794ade8eeba1e38a18d55244d1c3351e41c2046"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-fanshawe-at-his-desk",
+   "why": null,
+   "t": 168.81,
+   "file": "renders/proofs/fanshawe-office/life/raw-captures-ignored/02-fanshawe-at-his-desk.png",
+   "hash": "81130b30a56f28963e8b13290e1e819b02cd54b7f8d3afd292f5479ec9c41e72",
+   "room": "fanshawe_office",
+   "clock": 168.5402,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 501,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-02.png",
+     "bounds": [
+      40,
+      279,
+      519,
+      553
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:fanshawe_office",
+     "path": "art/backgrounds/room-11-fanshawe-office.png",
+     "drawn": "art/backgrounds/room-11-fanshawe-office.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "59d56e6b86d3fdd29dae96d13dc0f6aa0beca38f096621ab83fecb64dd55f941"
+    },
+    {
+     "key": "art/actors/room-11-fanshawe.png",
+     "path": "art/actors/room-11-fanshawe.png",
+     "drawn": "art/actors/room-11-fanshawe.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e2c1d920dc781195919bfb2ef794ade8eeba1e38a18d55244d1c3351e41c2046"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-fanshawe-later",
+   "why": null,
+   "t": 177.49,
+   "file": "renders/proofs/fanshawe-office/life/raw-captures-ignored/03-fanshawe-later.png",
+   "hash": "4ca606c4ae0c25fb8776fe372f364231b35f793aaf53297071d1da56948606d1",
+   "room": "fanshawe_office",
+   "clock": 177.22320000000002,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 501,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      40,
+      279,
+      519,
+      553
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:fanshawe_office",
+     "path": "art/backgrounds/room-11-fanshawe-office.png",
+     "drawn": "art/backgrounds/room-11-fanshawe-office.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "59d56e6b86d3fdd29dae96d13dc0f6aa0beca38f096621ab83fecb64dd55f941"
+    },
+    {
+     "key": "art/actors/room-11-fanshawe.png",
+     "path": "art/actors/room-11-fanshawe.png",
+     "drawn": "art/actors/room-11-fanshawe.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e2c1d920dc781195919bfb2ef794ade8eeba1e38a18d55244d1c3351e41c2046"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-fan-a0",
+   "why": null,
+   "t": 184.7,
+   "file": "renders/proofs/fanshawe-office/life/raw-captures-ignored/04-fan-a0.png",
+   "hash": "b7d68a10790258dd288b821a9ab7e35741ad0deb95f1c9cf51ce55f934d6a3bf",
+   "room": "fanshawe_office",
+   "clock": 184.4396,
+   "control": null,
+   "says": null,
+   "options": 5,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      820,
+      790
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 508,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      519,
+      282,
+      601,
+      561
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:fanshawe_office",
+     "path": "art/backgrounds/room-11-fanshawe-office.png",
+     "drawn": "art/backgrounds/room-11-fanshawe-office.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "59d56e6b86d3fdd29dae96d13dc0f6aa0beca38f096621ab83fecb64dd55f941"
+    },
+    {
+     "key": "art/actors/room-11-fanshawe.png",
+     "path": "art/actors/room-11-fanshawe.png",
+     "drawn": "art/actors/room-11-fanshawe.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e2c1d920dc781195919bfb2ef794ade8eeba1e38a18d55244d1c3351e41c2046"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-fanshawe-speaks",
+   "why": null,
+   "t": 187.75,
+   "file": "renders/proofs/fanshawe-office/life/raw-captures-ignored/05-fanshawe-speaks.png",
+   "hash": "2c3507e830ee0a7e9f731be2bb72de6704604894af235513561f2aad23055c41",
+   "room": "fanshawe_office",
+   "clock": 187.5061,
+   "control": null,
+   "says": "fanshawe",
+   "options": 5,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      820,
+      790
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 508,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      519,
+      282,
+      601,
+      561
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:fanshawe_office",
+     "path": "art/backgrounds/room-11-fanshawe-office.png",
+     "drawn": "art/backgrounds/room-11-fanshawe-office.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "59d56e6b86d3fdd29dae96d13dc0f6aa0beca38f096621ab83fecb64dd55f941"
+    },
+    {
+     "key": "art/actors/room-11-fanshawe.png",
+     "path": "art/actors/room-11-fanshawe.png",
+     "drawn": "art/actors/room-11-fanshawe.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e2c1d920dc781195919bfb2ef794ade8eeba1e38a18d55244d1c3351e41c2046"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-look-portrait",
+   "why": "where the words land",
+   "t": 202.53,
+   "file": "renders/proofs/fanshawe-office/life/raw-captures-ignored/06-look-portrait.png",
+   "hash": "8cfda9a21a44c7d07eaae2f89cf763ce5a077a1fe3e44eedc886fbed4d835775",
+   "room": "fanshawe_office",
+   "clock": 202.2722,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1076,
+      855
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 553,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      748,
+      302,
+      655,
+      611
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:fanshawe_office",
+     "path": "art/backgrounds/room-11-fanshawe-office.png",
+     "drawn": "art/backgrounds/room-11-fanshawe-office.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "59d56e6b86d3fdd29dae96d13dc0f6aa0beca38f096621ab83fecb64dd55f941"
+    },
+    {
+     "key": "art/actors/room-11-fanshawe.png",
+     "path": "art/actors/room-11-fanshawe.png",
+     "drawn": "art/actors/room-11-fanshawe.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e2c1d920dc781195919bfb2ef794ade8eeba1e38a18d55244d1c3351e41c2046"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-listen-window",
+   "why": "where the words land",
+   "t": 213.54,
+   "file": "renders/proofs/fanshawe-office/life/raw-captures-ignored/07-listen-window.png",
+   "hash": "7b860f34398e02699508c548022c336e3b6fc36043484b8975fb37803d6c343e",
+   "room": "fanshawe_office",
+   "clock": 213.2885,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      345,
+      855
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 553,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      17,
+      302,
+      655,
+      611
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:fanshawe_office",
+     "path": "art/backgrounds/room-11-fanshawe-office.png",
+     "drawn": "art/backgrounds/room-11-fanshawe-office.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "59d56e6b86d3fdd29dae96d13dc0f6aa0beca38f096621ab83fecb64dd55f941"
+    },
+    {
+     "key": "art/actors/room-11-fanshawe.png",
+     "path": "art/actors/room-11-fanshawe.png",
+     "drawn": "art/actors/room-11-fanshawe.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e2c1d920dc781195919bfb2ef794ade8eeba1e38a18d55244d1c3351e41c2046"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "08-open-decanter",
+   "why": "where the words land",
+   "t": 225.6,
+   "file": "renders/proofs/fanshawe-office/life/raw-captures-ignored/08-open-decanter.png",
+   "hash": "40ac0ef2c25b162c6712114d6ee1783d3af412604d4d7f51452c0eea3a7bd4da",
+   "room": "fanshawe_office",
+   "clock": 225.3546,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1565,
+      855
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 553,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      1237,
+      302,
+      655,
+      611
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:fanshawe_office",
+     "path": "art/backgrounds/room-11-fanshawe-office.png",
+     "drawn": "art/backgrounds/room-11-fanshawe-office.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "59d56e6b86d3fdd29dae96d13dc0f6aa0beca38f096621ab83fecb64dd55f941"
+    },
+    {
+     "key": "art/actors/room-11-fanshawe.png",
+     "path": "art/actors/room-11-fanshawe.png",
+     "drawn": "art/actors/room-11-fanshawe.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e2c1d920dc781195919bfb2ef794ade8eeba1e38a18d55244d1c3351e41c2046"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "09-pickup-log",
+   "why": "where the words land",
+   "t": 235.57,
+   "file": "renders/proofs/fanshawe-office/life/raw-captures-ignored/09-pickup-log.png",
+   "hash": "e76c585377ef1fa424dc6fe787852b2dab3a162b94b9b0ed3059f6eb7c29656d",
+   "room": "fanshawe_office",
+   "clock": 235.3208,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1265,
+      855
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 553,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      937,
+      302,
+      655,
+      611
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:fanshawe_office",
+     "path": "art/backgrounds/room-11-fanshawe-office.png",
+     "drawn": "art/backgrounds/room-11-fanshawe-office.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "59d56e6b86d3fdd29dae96d13dc0f6aa0beca38f096621ab83fecb64dd55f941"
+    },
+    {
+     "key": "art/actors/room-11-fanshawe.png",
+     "path": "art/actors/room-11-fanshawe.png",
+     "drawn": "art/actors/room-11-fanshawe.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e2c1d920dc781195919bfb2ef794ade8eeba1e38a18d55244d1c3351e41c2046"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 250.08s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-02T14:04:18.435Z"
+}
