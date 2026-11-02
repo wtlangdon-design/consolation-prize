@@ -83,6 +83,32 @@ export function check() {
     }
   }
 
+  // COMING BACK THROUGH THE DOOR YOU LEFT BY. A room with several doors that
+  // you return to from one of its own doors must say where that door's
+  // arrival is; otherwise the engine uses `default`, which is one place for
+  // every door, and you come out of the Company's door at the far end of the
+  // street. Main Street named that arrival `from: "company"` while the room
+  // was `company_lobby` (Room 10, 2026-11-02), and nothing failed: the
+  // arrival simply never matched.
+  const byId = new Map(content.rooms.map(({ data }) => [data.id, data]));
+  let returns = 0;
+  for (const { data: room } of content.rooms) {
+    if (room.fixture) continue;
+    const doors = (room.exits ?? []).filter((exit) => exit.to && byId.has(exit.to));
+    if (doors.length < 2) continue;
+    const arrivals = new Set((room.entrances ?? []).map((one) => one.from));
+    for (const door of doors) {
+      const back = (byId.get(door.to).exits ?? []).some((exit) => exit.to === room.id);
+      if (!back) continue;
+      returns += 1;
+      if (!arrivals.has(door.to)) {
+        report.fail(`${room.id}: you can come back from ${door.to} (through ${door.id}), and no entrance `
+          + `says where -- add { "from": "${door.to}" } at ${door.id}, or you arrive at its default`);
+      }
+    }
+  }
+  report.note(`${returns} way(s) back into a room of several doors, each with its own arrival`);
+
   report.note(`${byExit} room(s) entered through an exit, `
     + `${byDeclaration} through a declared entrance, 1 by starting there`);
   if (fixtures > 0) report.note(`${fixtures} engine fixture room(s) excluded -- not places`);

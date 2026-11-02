@@ -1,0 +1,24 @@
+Image 1 is a frame from my pixel-art adventure game: a company's front lobby at night. The man in the long blue coat in the middle is Thad, the hero, and he is the style standard. The clerk behind the high desk, with the high white collar, white shirt sleeves and dark waistcoat, is the lobby clerk. I need the clerk drawn on his own, whole, as a sheet of five poses.
+
+STYLE -- match Thad exactly, not the room:
+- The same pixel-art style as Thad and as the clerk already is in image 1: the same pixel size, flat soft shading, very little texture, simple shapes, clean outlines. Not sharp, not finely detailed, no hard internal contrast.
+- The same proportions: the same head size relative to the body. The clerk is a slightly smaller, thinner man than Thad.
+- The same warm lamplight as image 1.
+
+THE CHARACTER -- the lobby clerk, exactly as image 1 shows him: a neat, thin young man, hair pomaded flat and parted in the middle, clean-shaven, a very high stiff white collar with a small dark bow tie, white shirt with black sleeve garters on the upper arms, a dark buttoned waistcoat. Below the waist, plain dark trousers and plain black shoes. Patient, polite, unhurried; his face is pleasant and gives nothing away.
+
+THE SHEET -- one image, five poses of this same man, side by side, left to right, each FULL LENGTH from head to shoes:
+1. REST: standing straight, facing the viewer and turned slightly to the left of the picture, both hands resting flat side by side in front of him at waist height, as if on a desk top.
+2. BREATH: identical to pose 1 except his shoulders are very slightly raised. Nothing else changes.
+3. WRITING: as pose 1, but his head is bowed and his right hand holds a pen at waist height, writing on an unseen page; his left hand stays flat.
+4. THE WATCH: as pose 1, but his right hand holds a small gold pocket watch up at chest height, open, and his eyes are on it. His left hand stays flat.
+5. LOOKING UP: as pose 1, but he lifts his chin and looks straight out at the viewer, patiently. His body does not move.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no desk, no furniture, nothing else in the picture.
+- He stands on his own and touches nothing.
+- All five poses the same size, with his shoes on the same baseline, each about two-thirds the height of the picture.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same face, same proportions everywhere else.
+- Crisp pixel edges against the magenta. No soft glow or blur around him.
+- No text, labels, numbers or borders.

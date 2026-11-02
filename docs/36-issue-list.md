@@ -4744,3 +4744,10 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Nine subjects and 68 lines (content/examine/room-09.json); Ignatius Frame at his press with FRA_A1, FRA_B1 and FRA_E1; B1 and E5 played in `tests/room-09.test.ts` (fixtures `r9-a`, `r9-b`); the headline board's nine editions. Proofs under `renders/proofs/clarion/`.
 
 **Open:** the Clarion's side of its street door has no LOOK or LISTEN in any document. Not in a puzzle's path. **For Tyler:** Frame's look (errata 82 B -- his first drawing); FRA_A1 option 4's "rotate and never resolve" plays its three answers once each and then holds the last.
+
+## Q153 · Room 10, the Improvement Company lobby: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-02 (errata 83, delegated; the door ships as a stub exit under errata 72 F); BUILT, room-10 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Fifteen subjects and 99 lines (content/examine/room-10.json, doc 49's five refusals); the lobby clerk behind his desk, who is not spoken to; the act-4 prospectus rack, empty (`?fixture=r10-b`). No puzzle is sited here. Proofs under `renders/proofs/company-lobby/`.
+
+**Open:** the lobby's side of its street door has no LOOK or LISTEN in any document. Not in a puzzle's path. The inner door waits for Room 11 (errata 83 D). **For Tyler:** the clerk's look (errata 83 B -- his first drawing); the plate shows five chairs where doc 05 says six (errata 83 G a); doc 49's "I took one" plays at the empty rack in Act IV (errata 83 G b).
+

@@ -566,7 +566,7 @@
         124
       ],
       "colour": 200,
-      "to": "stub_company",
+      "to": "company_lobby",
       "responses": {
         "LOOK_AT": [
           {
@@ -1129,13 +1129,13 @@
       "note": "THE STREET’S EAST EDGE, FACING DOWN IT. He was placed at x3477 facing the camera, which is in front of the barren hills -- so he read as having come down out of the mountains rather than along the road into town, and Room 1 has him walking off between two buildings. At the edge facing left he is arriving."
     },
     {
-      "from": "company",
+      "from": "company_lobby",
       "at": [
         689,
         642
       ],
       "facing": "front",
-      "note": "Out of company’s door, facing the street."
+      "note": "Out of company_lobby’s door, facing the street."
     },
     {
       "from": "clarion",
@@ -1156,13 +1156,13 @@
       "note": "Out of nugget’s door, facing the street."
     },
     {
-      "from": "hotel",
+      "from": "hotel_lobby",
       "at": [
         2707,
         624
       ],
       "facing": "front",
-      "note": "Out of hotel’s door, facing the street."
+      "note": "Out of hotel_lobby’s door, facing the street."
     },
     {
       "from": "assay_office",
@@ -1172,6 +1172,15 @@
       ],
       "facing": "front",
       "note": "Out of assay_office’s door, facing the street."
+    },
+    {
+      "from": "stub_claims_road",
+      "at": [
+        3477,
+        603
+      ],
+      "facing": "front",
+      "note": "Back from the claims road, at the road out (to_claims_road's own walk-to), facing the street."
     }
   ],
   "lamps": [

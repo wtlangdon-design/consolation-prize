@@ -170,6 +170,24 @@
    "note": "Room 9, built 2026-11-01 under doc 55 (errata 72, 82). Acceptance is Tyler's, in the playthrough (Q152)."
   },
   {
+   "id": "room-10-company-lobby",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-10.json",
+    "docs/49-wrong-answers.md",
+    "docs/20-room-map.md"
+   ],
+   "dependsOn": [
+    "room-02-main-street"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-10-company-lobby.json",
+   "proof": "renders/proofs/company-lobby/proof.json",
+   "gauntlet": "tools/gauntlet/routes/company-lobby.json",
+   "blockers": [],
+   "note": "Room 10, built 2026-11-02 under doc 55 (errata 72, 83). Acceptance is Tyler's, in the playthrough (Q153)."
+  },
+  {
    "id": "room-05-assay-office",
    "kind": "room",
    "sources": [

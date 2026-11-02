@@ -1,0 +1,20 @@
+Image 1 is the layout for one room of my pixel-art adventure game: grey blocks for walls and furniture, and the hero (the man in the long coat) standing on the floor. Paint this room as a finished game background with two people in it, keeping the camera, the layout and every block where image 1 puts it. Paint the room ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched. The whole room, from the ceiling to the floor in front of the hero, fits inside that band.
+
+THE ROOM: the front lobby of a land-and-mining company's office in a gold-rush town, 1850s, at night: the Improvement Company. The one expensive interior on a muddy street -- polished, comfortable, too warm, quietly persuasive. Image 5 is a saloon on the same street at the same hour, for the world and the night light only.
+- Far left: the street door. Beside it a window with wooden slatted blinds half drawn, all at the same angle; the dark night street in strips between the slats.
+- Under the window: a squat iron stove, lit, its little door glowing. Beside the stove a small wooden stand holding a big open subscription ledger with a pen and inkwell.
+- Left of middle, along the back wall: a row of six plush upholstered waiting chairs, all facing right toward the inner door. On the wall above them a cluster of small framed letters, and a wall of many small framed maps hung close together.
+- Middle: a tall wooden rack of printed pamphlets standing on the floor; a polished brass spittoon on the floor beside it.
+- Right of middle: a large framed map on the wall, mostly tinted green with a few small white patches. Below it, on a table, a scale model of a fine little town: a bank, an opera house, two churches, a park, a paved main street.
+- Right: a high, panelled reception desk with a brass bell on it, and behind it the clerk. On the wall above the desk a big oil portrait in a gilt frame: a colonel with one hand on a globe.
+- Far right: a tall walnut case clock with a brass pendulum, then the panelled inner door, brass-handled, with a pane of frosted glass at head height.
+- Floor: waxed boards, with a long red carpet runner from the street door to the inner door.
+- Light: an oil lamp on the desk and the stove's glow; the corners dimmer. No daylight.
+
+THE PEOPLE (this picture is a reference painting, so people are allowed in it):
+- The hero from image 4, standing where image 1 puts him, at exactly that size, facing right toward the desk.
+- THE CLERK, standing behind the high desk, seen from the chest up over it, looking at the hero with professional patience: a neat, thin young man, hair pomaded flat and parted in the middle, a very high stiff white collar, black sleeve garters on his white shirt sleeves, a dark waistcoat, a pen in his hand. The size of a standing man at that depth.
+
+THE LOOK: the same pixel-art style as images 2, 3 and 6, and the same hand as the hero: flat, soft shading, very little texture, simple shapes, a visible pixel grid. Not sharp, not finely detailed, no hard internal contrast. Draw the clerk exactly as softly as the hero. This room has its own colours: varnished walnut, polished brass, Company green, one red runner, warm lamplight. Nothing near black where the hero stands.
+
+RULES: no text, letters or numbers anywhere -- the pamphlets, the maps, the letters, the ledger and the clock face carry marks, never words. No border, no frame around the picture, no caption.

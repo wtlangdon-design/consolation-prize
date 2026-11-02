@@ -1,0 +1,29 @@
+{
+ "schema": 1,
+ "room": "company_lobby",
+ "note": "ROOM 10's PROOF SPEC. The route is Main Street's, then the Improvement Company's door. No puzzle is sited in the lobby; the principal change is its one visual state: in Act IV the prospectus rack is empty, and its LOOK is doc 05 Part Two-B's act-4 line.",
+ "route": "company-lobby",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "ACT 4 (doc 05 Part Two-B, errata 83 A). Prerequisite: ACT 4, set by the flag control. Visible consequence: the rack's pamphlets are gone (the act-4 prop) and THE PROSPECTUS RACK answers with the act-4 line.",
+  "flags": {
+   "ACT": 4
+  },
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "LOOK_AT"
+   },
+   {
+    "do": "click",
+    "on": "prospectus_rack",
+    "why": "THE PROSPECTUS RACK"
+   },
+   {
+    "do": "waitFor",
+    "says": "thad",
+    "upTo": 30
+   }
+  ]
+ }
+}

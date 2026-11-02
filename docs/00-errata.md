@@ -2416,3 +2416,22 @@ What Tyler still decides: acceptance of the art (errata 72 E, at the full playth
 **F · The way back has no lines** (doc 36 Q152): doc 14 writes Main Street's side of the Clarion door and nothing writes the inside. A stub exit, as Rooms 6 and 8's are.
 
 **G · Found while building.** The compiler drops a document's `*emphasis*` asterisks in merged rooms (doc 54 italicises *Clarion*; the face has no italic). The gauntlet's waits read through a conversation's greeting under click-to-read, and a route along Main Street walks in short legs (the camera does not follow a click west of its edge).
+
+# 83 · ROOM 10 BUILT — THE BUILDER'S DECISIONS (2026-11-02)
+
+*Made by the Room 10 builder under doc 55 section 5's standing delegation. No line was written. Every ruling below can be struck or changed by its letter.*
+
+**A · Night, and Act IV's empty rack.** The lobby is on Main Street, whose base state is night (errata 64a), and its stove is never allowed to go out (doc 54): the desk lamp and the stove's glow, the street dark through the blinds. Doc 05 Part Two-B writes THE PROSPECTUS RACK empty in act 4, which is a picture: room-10 operation 4 emptied the plate's rack and changed nothing else, and `tools/art/room10-rack.py` ships only the pixels that changed, as a prop drawn while `ACT` is at least 4. THE CHAIRS' act-4 line ("nobody waiting in any of them") needs no picture: nobody is drawn waiting in any act. **Identity (17b, assigned at composition time):** varnished walnut, polished brass and Company green, with one red runner because doc 05 writes the carpet red; Fanshawe's office (Room 11) keeps the game's saturated red.
+
+**B · The lobby clerk's look.** Docs 05, 49 and 54 place a clerk at the desk ("High enough that you address the clerk's collar"; "Free, insists the clerk"; "breathing through his nose with the patience of a professional") and give him no tree, no bark and no appearance. He is a neat, thin young clerk: pomaded hair parted in the middle, a high stiff collar and bow tie, sleeve garters, a dark waistcoat. Drawn first in the composition master behind his desk beside Thad, then alone on magenta in five poses (rest, breath, writing, the watch, looking up), keyed by `tools/art/room10-clerk.py` and cut at the desk top (posture behind-counter, as Sump). **Room 10 is his first drawing and so his canonical design** (doc 38 section 1). He is not spoken to; a TALK TO on him answers from the verb pools.
+
+**C · Staging.** The street door, the blinds and the stove at the left, the subscription book on its stand by the stove (doc 54: "the warm air off the stove"); the chairs along the back wall facing the inner door (doc 54), the testimonials and the map wall above them; the prospectus rack and the spittoon; the map of holdings over the model on its table; the portrait over the desk; the case clock; the inner door at the right. The walk band runs the runner from the street door to the clock, short of the inner door.
+
+**D · The inner door is a hotspot, not yet a way through.** THE DOOR TO THE OFFICE has its lines (docs 05, 54); Room 11 is not built, and Room 11's build makes the door an exit, as Room 8's made Room 7's archive door one.
+
+**E · The art: 4 of room-10's 4 operations.** A composition master against the graybox with Thad and the clerk (it kept the 20:9 band, so the standard crop); the same room with nobody in it, adding the model town the master left out; the clerk's five-pose sheet; the act-4 rack. Promoted provisionally (errata 72 E).
+
+**F · The way back has no lines** (doc 36 Q153): doc 14 writes Main Street's side of the Company door and nothing writes the inside. A stub exit, as Rooms 6, 8 and 9's are.
+
+**G · Found while building.** (a) and (b) are reported, not changed. (a) The plate has five chairs and doc 05 says six; operation 2 was asked for six and painted five, and no operation was left to ask again. (b) Doc 49's THE PROSPECTUS RACK · PICK UP ("I took one") is ungated, so it plays in Act IV beside an empty rack; choosing to gate a written line is not the builder's. (c) **Fixed:** Main Street's arrivals named the Company door `company` and the hotel door `hotel`, which are not room ids, and gave the claims road no arrival, so coming back through any of the three put Thad at the street's east edge. They now name `company_lobby`, `hotel_lobby` and `stub_claims_road`, and `tools/check-room-entries.mjs` fails a way back into a room of several doors that has no arrival of its own.
+

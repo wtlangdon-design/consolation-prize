@@ -511,7 +511,7 @@
         220
       ],
       "colour": 200,
-      "to": "stub_company",
+      "to": "company_lobby",
       "responses": {
         "LOOK_AT": [
           {
@@ -1245,7 +1245,7 @@
       "note": "as default"
     },
     {
-      "from": "company",
+      "from": "company_lobby",
       "at": [
         525,
         620
@@ -1270,7 +1270,7 @@
       "note": "PHASE 1.5I: 620 -> 592, up onto the boardwalk, x untouched. The saloon door is dead centre of the hitching rail's span, so the mud he used to arrive on is behind the rail -- and that ground is gone. He now steps out of the Nugget onto its own pavement, which is where a man leaving a saloon stands. `arrivalBySource` still says 2317,624; nothing reads it (the compiler uses `entrances`) and it is left alone rather than half-corrected."
     },
     {
-      "from": "hotel",
+      "from": "hotel_lobby",
       "at": [
         3060,
         620

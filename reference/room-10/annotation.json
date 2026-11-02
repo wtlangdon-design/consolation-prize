@@ -1,0 +1,248 @@
+{
+ "room": "company_lobby",
+ "plate": "art/backgrounds/room-10-company-lobby.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-10/plate-01/candidate-1920x864.png, room-10 attempt 2, the standard 20:9 crop -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-10-company-lobby.png",
+ "plateShippingHash": "70410c3e23ca7c7d59fb2746",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   205,
+   705
+  ],
+  [
+   1740,
+   705
+  ],
+  [
+   1740,
+   850
+  ],
+  [
+   205,
+   850
+  ]
+ ],
+ "walkableNote": "THE PUBLIC FLOOR, ON THE RUNNER AND IN FRONT OF IT. The stove's feet are at y 695, the chairs' at 620, the desk's at 625 and the clock's at 590; the runner's far edge is at y 650. So the band runs y 705-850 from the street door's step (x 205) to the case clock (x 1740), short of the inner door, which is Room 11's to open.",
+ "scaling": {
+  "far": {
+   "y": 705,
+   "height": 440
+  },
+  "near": {
+   "y": 850,
+   "height": 540
+  },
+  "note": "ROOM 10'S DEPTH, FROM THE MAN THE MASTER PAINTED. The composition master drew Thad about 372 tall with his feet at source y 762, which is 470 at y 748 in this plate's frame; along Room 5's slope (0.69 per row) that is 440 at the band's far edge and 540 at its near. The clerk stands behind his desk at y 600, at 368 on the same curve (tools/art/room10-clerk.py)."
+ },
+ "entrance": [
+  300,
+  770
+ ],
+ "entrances": [
+  {
+   "from": "main_street",
+   "at": [
+    300,
+    770
+   ],
+   "facing": "right",
+   "note": "In by the street door, at left."
+  },
+  {
+   "from": "default",
+   "at": [
+    300,
+    770
+   ],
+   "facing": "right",
+   "note": "Anything else arrives by the door."
+  }
+ ],
+ "hotspots": {
+  "window_blinds": [
+   225,
+   60,
+   190,
+   330
+  ],
+  "stove": [
+   205,
+   370,
+   160,
+   325
+  ],
+  "subscription_book": [
+   320,
+   410,
+   180,
+   230
+  ],
+  "testimonials": [
+   470,
+   110,
+   100,
+   240
+  ],
+  "chairs": [
+   490,
+   370,
+   395,
+   250
+  ],
+  "map_wall": [
+   570,
+   95,
+   270,
+   260
+  ],
+  "prospectus_rack": [
+   895,
+   200,
+   125,
+   352
+  ],
+  "spittoon_polished": [
+   875,
+   530,
+   70,
+   75
+  ],
+  "map_of_holdings": [
+   1055,
+   65,
+   280,
+   260
+  ],
+  "model": [
+   1000,
+   370,
+   270,
+   200
+  ],
+  "portrait_of_fanshawe": [
+   1395,
+   15,
+   205,
+   290
+  ],
+  "reception_desk": [
+   1255,
+   392,
+   380,
+   233
+  ],
+  "clock": [
+   1620,
+   60,
+   115,
+   530
+  ],
+  "door_to_the_office": [
+   1755,
+   80,
+   165,
+   520
+  ],
+  "carpet": [
+   205,
+   645,
+   1715,
+   58
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE TESTIMONIALS are the column of small framed letters at the left of the cluster; THE MAP WALL is the rest of it, the framed maps. THE CARPET is the runner's far stretch, behind the walk band, so a click on the floor still walks. THE RECEPTION DESK is its front, below the clerk; the clerk stands over it.",
+ "exits": {
+  "back_to_street": [
+   0,
+   60,
+   205,
+   640
+  ]
+ },
+ "exitWalkTo": {
+  "back_to_street": {
+   "x": 230,
+   "y": 770,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "desk_lamp",
+   "at": [
+    1300,
+    300
+   ],
+   "radius": 460,
+   "amount": 0.1,
+   "rate": 0.27,
+   "phase": 0.3,
+   "note": "The oil lamp on the reception desk. A slow, low breath (invariant 9)."
+  },
+  {
+   "id": "stove_glow",
+   "at": [
+    290,
+    600
+   ],
+   "radius": 300,
+   "amount": 0.12,
+   "rate": 0.41,
+   "phase": 0.7,
+   "note": "The stove's firebox, which is never allowed to go out (doc 54), on its own phase."
+  }
+ ],
+ "defaultVerbs": {
+  "window_blinds": "LOOK_AT",
+  "stove": "LOOK_AT",
+  "subscription_book": "LOOK_AT",
+  "testimonials": "LOOK_AT",
+  "chairs": "LOOK_AT",
+  "map_wall": "LOOK_AT",
+  "prospectus_rack": "LOOK_AT",
+  "spittoon_polished": "LOOK_AT",
+  "map_of_holdings": "LOOK_AT",
+  "model": "LOOK_AT",
+  "portrait_of_fanshawe": "LOOK_AT",
+  "reception_desk": "LOOK_AT",
+  "clock": "LOOK_AT",
+  "door_to_the_office": "LOOK_AT",
+  "carpet": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
+ "occlusion": {
+  "note": "NO PLANE MASKS THAT CAN REACH HIM: the walk band is in front of every piece of furniture; the clerk is cut at his desk top by his own posture.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ },
+ "props": [
+  {
+   "id": "prospectus_rack_empty",
+   "sheet": "art/props/room-10-rack-empty.png",
+   "x": 957,
+   "y": 551,
+   "frame": [
+    0,
+    0,
+    125,
+    352
+   ],
+   "when": {
+    "ACT": {
+     "atLeast": 4
+    }
+   },
+   "note": "Doc 05 Part Two-B, THE PROSPECTUS RACK, act 4: \"The rack is empty.\" Room-10 operation 4 emptied the plate's rack and changed nothing else; tools/art/room10-rack.py keeps only the pixels that changed, over the rack, so in Act IV the pamphlets are bare shelves. Not a hotspot: THE PROSPECTUS RACK is."
+  }
+ ]
+}

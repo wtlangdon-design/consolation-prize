@@ -1,0 +1,56 @@
+{
+ "sheet": "art/staging/room-10/clerk/clerk.png",
+ "frames": [
+  [
+   2,
+   2,
+   111,
+   152
+  ],
+  [
+   115,
+   2,
+   111,
+   152
+  ],
+  [
+   228,
+   2,
+   111,
+   152
+  ],
+  [
+   341,
+   2,
+   111,
+   152
+  ],
+  [
+   454,
+   2,
+   111,
+   152
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "writing",
+  "the watch",
+  "looking up"
+ ],
+ "topLeft": {
+  "x": 1384,
+  "y": 240
+ },
+ "anchor": {
+  "x": 1439,
+  "y": 392
+ },
+ "height": 368,
+ "feetRow": 608.8,
+ "cut": 390,
+ "handsTo": 392,
+ "key": 90,
+ "source": "room-10 attempt 3 (art/staging/room-10/clerk-01/sheet.png)"
+}

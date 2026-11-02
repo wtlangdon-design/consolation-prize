@@ -1,0 +1,339 @@
+{
+ "room": 10,
+ "note": "Ruling 22 steps 1-6 for the Improvement Company lobby, written by tools/room10-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 83).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 740,
+   "height": 497
+  },
+  "near": {
+   "y": 850,
+   "height": 573
+  },
+  "from": "Room 5's interior numbers (reference/room-05/annotation.json)"
+ },
+ "walkable": [
+  230,
+  745,
+  1320,
+  105
+ ],
+ "exit": {
+  "hotspot": "THE STREET DOOR",
+  "to": "main_street",
+  "rect": [
+   30,
+   160,
+   180,
+   530
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 330,
+   "y": 790,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE STREET DOOR",
+   "rect": [
+    30,
+    160,
+    180,
+    530
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WINDOW BLINDS",
+   "rect": [
+    240,
+    130,
+    230,
+    320
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STOVE",
+   "rect": [
+    250,
+    470,
+    140,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SUBSCRIPTION BOOK",
+   "rect": [
+    405,
+    500,
+    80,
+    190
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TESTIMONIALS",
+   "rect": [
+    510,
+    170,
+    210,
+    240
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CHAIRS",
+   "rect": [
+    500,
+    530,
+    400,
+    160
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MAP WALL",
+   "rect": [
+    740,
+    140,
+    280,
+    250
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PROSPECTUS RACK",
+   "rect": [
+    920,
+    420,
+    100,
+    270
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SPITTOON, POLISHED",
+   "rect": [
+    870,
+    640,
+    44,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MAP OF HOLDINGS",
+   "rect": [
+    1040,
+    130,
+    230,
+    290
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MODEL",
+   "rect": [
+    1040,
+    540,
+    220,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PORTRAIT OF FANSHAWE",
+   "rect": [
+    1300,
+    80,
+    150,
+    240
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE RECEPTION DESK",
+   "rect": [
+    1280,
+    440,
+    270,
+    250
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CLOCK",
+   "rect": [
+    1570,
+    150,
+    70,
+    540
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE DOOR TO THE OFFICE",
+   "rect": [
+    1660,
+    180,
+    170,
+    510
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LOBBY CLERK (behind the desk)",
+   "rect": [
+    1370,
+    250,
+    110,
+    190
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: every piece of furniture is behind it, and the clerk is cut at his desk by his own posture, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "walls, walnut panelling",
+   "p10": 60.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 25.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "floor, waxed boards",
+   "p10": 81.0,
+   "p90": 85.0,
+   "darkAnchorMargin": 55.5,
+   "lightAnchorMargin": 36.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "the runner, red",
+   "p10": 81.0,
+   "p90": 85.0,
+   "darkAnchorMargin": 55.5,
+   "lightAnchorMargin": 36.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE STREET DOOR",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WINDOW BLINDS",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE STOVE",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SUBSCRIPTION BOOK",
+   "p10": 94.0,
+   "p90": 94.0,
+   "darkAnchorMargin": 68.5,
+   "lightAnchorMargin": 27.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TESTIMONIALS",
+   "p10": 94.0,
+   "p90": 94.0,
+   "darkAnchorMargin": 68.5,
+   "lightAnchorMargin": 27.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CHAIRS",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE MAP WALL",
+   "p10": 92.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 66.5,
+   "lightAnchorMargin": 29.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PROSPECTUS RACK",
+   "p10": 90.0,
+   "p90": 90.0,
+   "darkAnchorMargin": 64.5,
+   "lightAnchorMargin": 31.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE MAP OF HOLDINGS",
+   "p10": 88.0,
+   "p90": 88.0,
+   "darkAnchorMargin": 62.5,
+   "lightAnchorMargin": 33.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE MODEL",
+   "p10": 94.0,
+   "p90": 94.0,
+   "darkAnchorMargin": 68.5,
+   "lightAnchorMargin": 27.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PORTRAIT OF FANSHAWE",
+   "p10": 60.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE RECEPTION DESK",
+   "p10": 62.0,
+   "p90": 62.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 59.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CLOCK",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

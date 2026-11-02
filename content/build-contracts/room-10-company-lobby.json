@@ -1,0 +1,198 @@
+{
+ "schema": 1,
+ "id": "room-10-company-lobby",
+ "room": "company_lobby",
+ "docRoom": 10,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 10 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-10.json",
+    "docs/00-errata.md::83 · ROOM 10 BUILT — THE BUILDER'S DECISIONS (2026-11-02)"
+   ],
+   "note": "The clerk in every act; no puzzle sited here; night; the rack empty in Act IV."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-10/graybox.json",
+    "docs/00-errata.md::83 · ROOM 10 BUILT — THE BUILDER'S DECISIONS (2026-11-02)"
+   ],
+   "note": "Every subject is plate; the clerk is a sprite; the act-4 rack is a prop cut from operation 4."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-10-clerk-cut.png",
+    "docs/00-errata.md::83 · ROOM 10 BUILT — THE BUILDER'S DECISIONS (2026-11-02)"
+   ],
+   "note": "The clerk drawn in the master beside Thad, then alone on magenta in five poses, keyed whole and cut at the desk top."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/company-lobby/life/life.json"
+   ],
+   "note": "The clerk breathes, writes, reads his watch and looks up; the desk lamp and the stove breathe."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-10-clerk-cut.png"
+   ],
+   "note": "The clerk's hands rest on the desk top; he is cut at its front edge."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-10/annotation.json"
+   ],
+   "note": "The desk lamp and the stove, plate light and a runtime breath each."
+  },
+  "cluePerceptibility": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/00-errata.md::83 · ROOM 10 BUILT — THE BUILDER'S DECISIONS (2026-11-02)"
+   ],
+   "note": "No puzzle is sited in the lobby."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-10.json",
+    "content/rooms/company-lobby.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 99 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-10: 4 of 4 operations (master, people-free plate, the clerk's five-pose sheet, the act-4 rack)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/company-lobby.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-10/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/company-lobby/proof.json"
+   ],
+   "note": "Panel D: the clerk at his desk."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/company-lobby/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/company-lobby/doors/life.json",
+    "tests/room-10.test.ts"
+   ],
+   "note": "Out to Main Street and back, twice; the act-4 rack and the clerk in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-10/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-10-company-lobby.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-10/plate-01/frame.json"
+   ]
+  },
+  {
+   "subject": "the lobby clerk",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-10-clerk.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-10/clerk/clerk.json"
+   ]
+  },
+  {
+   "subject": "the act-4 rack",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/props/room-10-rack-empty.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "tools/art/room10-rack.py"
+   ],
+   "note": "Drawn while ACT is at least 4."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q153 · Room 10, the Improvement Company lobby: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-02 (errata 83, delegated; the door ships as a stub exit under errata 72 F); BUILT, room-10 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate, the act-4 rack and the clerk -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q153 · Room 10, the Improvement Company lobby: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-02 (errata 83, delegated; the door ships as a stub exit under errata 72 F); BUILT, room-10 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}
