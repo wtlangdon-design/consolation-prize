@@ -1,0 +1,2088 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "company_lobby",
+ "commit": "476f1ed527a541be24c636119ecf92333b2b2107",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "company-lobby",
+ "warped": false,
+ "lifeRoute": "company-lobby-life",
+ "durationSeconds": 240.54,
+ "events": [
+  {
+   "t": 3.19,
+   "line": "entry route company-lobby: 35 action(s)"
+  },
+  {
+   "t": 152.87,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 152.87,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 152.87,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 152.87,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 152.87,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 152.87,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 152.87,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 152.87,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 152.87,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 152.87,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 152.87,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 152.87,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 152.87,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 152.87,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 152.87,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 152.87,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 152.87,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 152.87,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 152.87,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 152.87,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 152.87,
+   "line": "action 21 (click): clicked world 1950,760 -- walk west along the street from the east end"
+  },
+  {
+   "t": 152.87,
+   "line": "action 22 (wait): waited 20s"
+  },
+  {
+   "t": 152.87,
+   "line": "action 23 (click): clicked world 1700,770 -- west again: a click west of the camera's left edge does not register, so in short legs the camera follows"
+  },
+  {
+   "t": 152.87,
+   "line": "action 24 (wait): waited 5s"
+  },
+  {
+   "t": 152.87,
+   "line": "action 25 (click): clicked world 1450,780 -- "
+  },
+  {
+   "t": 152.87,
+   "line": "action 26 (wait): waited 5s"
+  },
+  {
+   "t": 152.87,
+   "line": "action 27 (click): clicked world 1200,790 -- "
+  },
+  {
+   "t": 152.87,
+   "line": "action 28 (wait): waited 5s"
+  },
+  {
+   "t": 152.87,
+   "line": "action 29 (click): clicked world 950,790 -- west again, in short legs"
+  },
+  {
+   "t": 152.87,
+   "line": "action 30 (wait): waited 5s"
+  },
+  {
+   "t": 152.87,
+   "line": "action 31 (click): clicked world 750,790 -- "
+  },
+  {
+   "t": 152.87,
+   "line": "action 32 (wait): waited 5s"
+  },
+  {
+   "t": 152.87,
+   "line": "action 33 (click): clicked main_street/to_company at world 689,464 -- Main Street's door to the Improvement Company"
+  },
+  {
+   "t": 152.87,
+   "line": "action 34 (waitFor): reached {\"room\":\"company_lobby\"} in room company_lobby"
+  },
+  {
+   "t": 152.87,
+   "line": "action 35 (wait): waited 3s"
+  },
+  {
+   "t": 152.9,
+   "line": "in company_lobby; life route: 35 action(s)"
+  },
+  {
+   "t": 153.47,
+   "line": "capture 01-arrived: room company_lobby, says null, options 0, control null"
+  },
+  {
+   "t": 154.48,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 155.51,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 156.51,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 157.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 158.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 159.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 160.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 161.47,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 162.1,
+   "line": "capture 02-clerk-at-work: room company_lobby, says null, options 0, control null"
+  },
+  {
+   "t": 163.13,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 164.13,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 165.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 166.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 167.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.1,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 170.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.74,
+   "line": "capture 03-clerk-later: room company_lobby, says null, options 0, control null"
+  },
+  {
+   "t": 170.85,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 171.09,
+   "line": "action 1 (click): clicked company_lobby/reception_desk at world 1445,509 -- the desk, the clerk's collar"
+  },
+  {
+   "t": 172.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     681,
+     781
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 173.13,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1089,
+     792
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 174.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1445,
+     844
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 174.61,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room company_lobby"
+  },
+  {
+   "t": 175.19,
+   "line": "capture 04-look-desk: room company_lobby, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 176.23,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1445,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 177.22,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1445,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.22,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1445,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179.27,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1445,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 180.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1445,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 181.23,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1445,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 182.27,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1445,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 183.2,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 183.31,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 183.57,
+   "line": "action 1 (click): clicked company_lobby/model at world 1135,470 -- the model town"
+  },
+  {
+   "t": 184.58,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1135,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 184.61,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room company_lobby"
+  },
+  {
+   "t": 185.12,
+   "line": "capture 05-look-model: room company_lobby, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 186.16,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1135,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 187.19,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1135,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 188.17,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1135,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.18,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1135,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 190.19,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1135,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 191.18,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1135,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 192.2,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1135,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 193.13,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 193.21,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 193.47,
+   "line": "action 1 (click): clicked company_lobby/door_to_the_office at world 1838,340 -- the inner door"
+  },
+  {
+   "t": 194.47,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1548,
+     847
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 195.06,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room company_lobby"
+  },
+  {
+   "t": 195.72,
+   "line": "capture 06-listen-door: room company_lobby, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 196.76,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1715,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 197.75,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1715,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 198.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1715,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 199.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1715,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 200.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1715,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 201.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1715,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 202.73,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1715,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 203.72,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 203.82,
+   "line": "action 1 (verb): chose verb USE -- "
+  },
+  {
+   "t": 204.07,
+   "line": "action 1 (click): clicked company_lobby/chairs at world 688,495 -- doc 49's authored USE"
+  },
+  {
+   "t": 205.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1294,
+     847
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 206.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     860,
+     847
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 206.78,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room company_lobby"
+  },
+  {
+   "t": 207.37,
+   "line": "capture 07-use-chairs: room company_lobby, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 208.4,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     688,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 209.41,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     688,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 210.39,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     688,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 211.42,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     688,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 212.4,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     688,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 213.4,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     688,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 214.41,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     688,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 215.38,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 215.43,
+   "line": "action 1 (verb): chose verb PUSH -- "
+  },
+  {
+   "t": 215.69,
+   "line": "action 1 (click): clicked company_lobby/portrait_of_fanshawe at world 1498,160 -- doc 49's authored PUSH"
+  },
+  {
+   "t": 216.74,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1123,
+     847
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 217.72,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1498,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 217.9,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room company_lobby"
+  },
+  {
+   "t": 218.47,
+   "line": "capture 08-push-portrait: room company_lobby, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 219.56,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1498,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 220.5,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1498,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 221.48,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1498,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 222.51,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1498,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 223.5,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1498,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 224.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1498,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 225.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1498,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 226.48,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 226.53,
+   "line": "action 1 (verb): chose verb PICK_UP -- "
+  },
+  {
+   "t": 226.78,
+   "line": "action 1 (click): clicked company_lobby/prospectus_rack at world 958,376 -- doc 49's authored PICK UP"
+  },
+  {
+   "t": 227.83,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1070,
+     847
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 228.3,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room company_lobby"
+  },
+  {
+   "t": 228.84,
+   "line": "capture 09-pickup-rack: room company_lobby, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 229.87,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     958,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 230.92,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     958,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 231.89,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     958,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 232.87,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     958,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 233.89,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     958,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 234.88,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     958,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 235.91,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     958,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 236.85,
+   "line": "action 1 (wait): waited 8s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": null,
+   "t": 153.46,
+   "file": "renders/proofs/company-lobby/life/raw-captures-ignored/01-arrived.png",
+   "hash": "6a81c9a436c629e5cdcca675636c4cfaf50ab1cb8795cc19b6f46ac83a96657b",
+   "room": "company_lobby",
+   "clock": 153.2019,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      770
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 485,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      48,
+      285,
+      503,
+      535
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:company_lobby",
+     "path": "art/backgrounds/room-10-company-lobby.png",
+     "drawn": "art/backgrounds/room-10-company-lobby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "70410c3e23ca7c7d59fb27460ec1ff94f04862404414c5d895b37b1448c03721"
+    },
+    {
+     "key": "art/actors/room-10-clerk.png",
+     "path": "art/actors/room-10-clerk.png",
+     "drawn": "art/actors/room-10-clerk.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1eb7d871c72aeb6a447dca978cf5c7e6c20aa1ac42f15542a5e2155199c700e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-clerk-at-work",
+   "why": null,
+   "t": 162.09,
+   "file": "renders/proofs/company-lobby/life/raw-captures-ignored/02-clerk-at-work.png",
+   "hash": "68a77aa2063ac44e034dc5b51604c55a96a549f71f8c4a39751e6adc04067e3a",
+   "room": "company_lobby",
+   "clock": 161.6182,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      770
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 485,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-06.png",
+     "bounds": [
+      48,
+      285,
+      503,
+      535
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:company_lobby",
+     "path": "art/backgrounds/room-10-company-lobby.png",
+     "drawn": "art/backgrounds/room-10-company-lobby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "70410c3e23ca7c7d59fb27460ec1ff94f04862404414c5d895b37b1448c03721"
+    },
+    {
+     "key": "art/actors/room-10-clerk.png",
+     "path": "art/actors/room-10-clerk.png",
+     "drawn": "art/actors/room-10-clerk.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1eb7d871c72aeb6a447dca978cf5c7e6c20aa1ac42f15542a5e2155199c700e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-clerk-later",
+   "why": null,
+   "t": 170.73,
+   "file": "renders/proofs/company-lobby/life/raw-captures-ignored/03-clerk-later.png",
+   "hash": "bf6316dd0203dc91d1fa0e9b17f8df527429ed47db31f22aa8111087ed2a2dd0",
+   "room": "company_lobby",
+   "clock": 170.4512,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      770
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 485,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      48,
+      285,
+      503,
+      535
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:company_lobby",
+     "path": "art/backgrounds/room-10-company-lobby.png",
+     "drawn": "art/backgrounds/room-10-company-lobby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "70410c3e23ca7c7d59fb27460ec1ff94f04862404414c5d895b37b1448c03721"
+    },
+    {
+     "key": "art/actors/room-10-clerk.png",
+     "path": "art/actors/room-10-clerk.png",
+     "drawn": "art/actors/room-10-clerk.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1eb7d871c72aeb6a447dca978cf5c7e6c20aa1ac42f15542a5e2155199c700e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-look-desk",
+   "why": "where the words land",
+   "t": 175.19,
+   "file": "renders/proofs/company-lobby/life/raw-captures-ignored/04-look-desk.png",
+   "hash": "71a72421479c57f3604a43226fa568e200e61469127f39e15f1540b73e3e4b43",
+   "room": "company_lobby",
+   "clock": 174.91770000000002,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1445,
+      847
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 538,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      1126,
+      309,
+      637,
+      594
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:company_lobby",
+     "path": "art/backgrounds/room-10-company-lobby.png",
+     "drawn": "art/backgrounds/room-10-company-lobby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "70410c3e23ca7c7d59fb27460ec1ff94f04862404414c5d895b37b1448c03721"
+    },
+    {
+     "key": "art/actors/room-10-clerk.png",
+     "path": "art/actors/room-10-clerk.png",
+     "drawn": "art/actors/room-10-clerk.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1eb7d871c72aeb6a447dca978cf5c7e6c20aa1ac42f15542a5e2155199c700e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-look-model",
+   "why": "where the words land",
+   "t": 185.12,
+   "file": "renders/proofs/company-lobby/life/raw-captures-ignored/05-look-model.png",
+   "hash": "817495a1014e1aafd7bbfa224fee8eb60197c20fe887e895a5de8eaaf0148c7d",
+   "room": "company_lobby",
+   "clock": 184.7173,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1135,
+      847
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 538,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      816,
+      309,
+      637,
+      594
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:company_lobby",
+     "path": "art/backgrounds/room-10-company-lobby.png",
+     "drawn": "art/backgrounds/room-10-company-lobby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "70410c3e23ca7c7d59fb27460ec1ff94f04862404414c5d895b37b1448c03721"
+    },
+    {
+     "key": "art/actors/room-10-clerk.png",
+     "path": "art/actors/room-10-clerk.png",
+     "drawn": "art/actors/room-10-clerk.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1eb7d871c72aeb6a447dca978cf5c7e6c20aa1ac42f15542a5e2155199c700e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-listen-door",
+   "why": "where the words land",
+   "t": 195.71,
+   "file": "renders/proofs/company-lobby/life/raw-captures-ignored/06-listen-door.png",
+   "hash": "82ec43698893c9d1b80ee315c16ad0c00e388038c843fbc94b49b52accd71fe5",
+   "room": "company_lobby",
+   "clock": 195.4335,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1715,
+      847
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 538,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      1396,
+      309,
+      637,
+      594
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:company_lobby",
+     "path": "art/backgrounds/room-10-company-lobby.png",
+     "drawn": "art/backgrounds/room-10-company-lobby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "70410c3e23ca7c7d59fb27460ec1ff94f04862404414c5d895b37b1448c03721"
+    },
+    {
+     "key": "art/actors/room-10-clerk.png",
+     "path": "art/actors/room-10-clerk.png",
+     "drawn": "art/actors/room-10-clerk.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1eb7d871c72aeb6a447dca978cf5c7e6c20aa1ac42f15542a5e2155199c700e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-use-chairs",
+   "why": "where the words land",
+   "t": 207.37,
+   "file": "renders/proofs/company-lobby/life/raw-captures-ignored/07-use-chairs.png",
+   "hash": "08a5f9eaac669d5af6d6427818665ada2457701512def9c849e9bff7e2462bdd",
+   "room": "company_lobby",
+   "clock": 207.0997,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      688,
+      847
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 538,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      369,
+      309,
+      637,
+      594
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:company_lobby",
+     "path": "art/backgrounds/room-10-company-lobby.png",
+     "drawn": "art/backgrounds/room-10-company-lobby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "70410c3e23ca7c7d59fb27460ec1ff94f04862404414c5d895b37b1448c03721"
+    },
+    {
+     "key": "art/actors/room-10-clerk.png",
+     "path": "art/actors/room-10-clerk.png",
+     "drawn": "art/actors/room-10-clerk.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1eb7d871c72aeb6a447dca978cf5c7e6c20aa1ac42f15542a5e2155199c700e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "08-push-portrait",
+   "why": "where the words land",
+   "t": 218.47,
+   "file": "renders/proofs/company-lobby/life/raw-captures-ignored/08-push-portrait.png",
+   "hash": "d5bb5284da8915e1a2e14652fe2a95dfd89067dad5d55ee167389a9589a8d81c",
+   "room": "company_lobby",
+   "clock": 218.0493,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1498,
+      847
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 538,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      1179,
+      309,
+      637,
+      594
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:company_lobby",
+     "path": "art/backgrounds/room-10-company-lobby.png",
+     "drawn": "art/backgrounds/room-10-company-lobby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "70410c3e23ca7c7d59fb27460ec1ff94f04862404414c5d895b37b1448c03721"
+    },
+    {
+     "key": "art/actors/room-10-clerk.png",
+     "path": "art/actors/room-10-clerk.png",
+     "drawn": "art/actors/room-10-clerk.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1eb7d871c72aeb6a447dca978cf5c7e6c20aa1ac42f15542a5e2155199c700e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "09-pickup-rack",
+   "why": "where the words land",
+   "t": 228.84,
+   "file": "renders/proofs/company-lobby/life/raw-captures-ignored/09-pickup-rack.png",
+   "hash": "5c004c4d6db1fb8668c5298257bdd4f80f7a39ce6c42b18603b503b07e56d3be",
+   "room": "company_lobby",
+   "clock": 228.4156,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      958,
+      847
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 538,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      639,
+      309,
+      637,
+      594
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:company_lobby",
+     "path": "art/backgrounds/room-10-company-lobby.png",
+     "drawn": "art/backgrounds/room-10-company-lobby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "70410c3e23ca7c7d59fb27460ec1ff94f04862404414c5d895b37b1448c03721"
+    },
+    {
+     "key": "art/actors/room-10-clerk.png",
+     "path": "art/actors/room-10-clerk.png",
+     "drawn": "art/actors/room-10-clerk.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1eb7d871c72aeb6a447dca978cf5c7e6c20aa1ac42f15542a5e2155199c700e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 240.54s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-02T00:29:21.911Z"
+}
