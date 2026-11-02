@@ -13,6 +13,12 @@
    "date": "2026-11-01",
    "kind": "loosened",
    "why": "Room 8 built: THE TIMESHEET's LISTEN is one line written three times by the documents, and doc 54 says to declare the repetition in content. Not a misfire."
+  },
+  {
+   "check": "tests/c5.test.ts",
+   "date": "2026-11-02",
+   "kind": "loosened",
+   "why": "Room 11 built: the test held that the build declares no T_QUEUE_PADDED flag, standing for 'no topic flag stands in for C5'. Doc 57 C4 names T_QUEUE_PADDED as the log's pickup in the empty office, so it is now declared; the test now holds the same intent -- nothing at Winnie's window writes it. Not a misfire."
   }
  ]
 }
