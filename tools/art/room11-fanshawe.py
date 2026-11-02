@@ -10,7 +10,8 @@ reference/room-11/prompts/fanshawe-01.txt): rest, breath, welcome, the watch,
 laughing. Keyed, never cut from a plate (doc 55 section 8).
 
 KEYING, as tools/art/room10-clerk.py does it: not hole-filled, the largest
-piece per pose, the edge eroded one source pixel, a despill.
+piece per pose, the edge eroded one source pixel, a despill. Then SOFTENED to
+Thad's flat look (`soften`, below): the sheet came back too sharp beside him.
 
 BEHIND THE DESK (posture behind-counter, as Sump and the clerk). He is scaled
 to HEIGHT, the room's curve at his feet behind the desk (y 675), placed with
@@ -27,7 +28,7 @@ import os
 import subprocess
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageFilter
 from scipy import ndimage as ndi
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -41,6 +42,24 @@ CUT = 500             # below this he is behind the desk top's back edge (plate 
 HANDS = 500           # one straight cut
 CENTRE_X = 1060       # behind the desk, left of the lamp (x 1190), under the portrait
 POSES = ['rest', 'welcome', 'the watch', 'laughing']   # sheet poses 1, 3, 4, 5
+
+
+SOFTEN = 5            # median size: Thad's flat look (Tyler, 2026-11-02: is he too sharp?)
+
+
+def soften(rgba):
+    """TOO SHARP IS THE USUAL MISS (CLAUDE.md style gate). Tyler asked whether
+    Fanshawe was too sharp beside Thad, and the texture metric agreed: 10.4
+    against Thad's 4.45 at game size -- the brocade, the hair, hard folds. A
+    median of SOFTEN pixels over his colours (outside filled from his own
+    nearest pixel, so the key never enters) keeps his outline and every colour
+    and takes the fine detail out: 4.46. tests/sharpness.test.ts holds it."""
+    m = rgba[..., 3] > 0
+    _, (iy, ix) = ndi.distance_transform_edt(~m, return_indices=True)
+    filled = Image.fromarray(rgba[..., :3][iy, ix]).filter(ImageFilter.MedianFilter(SOFTEN))
+    out = rgba.copy()
+    out[..., :3] = np.asarray(filled)
+    return out
 
 
 def key_figures(src):
@@ -108,6 +127,7 @@ def main():
         w, h = round(img.width * scale), round(img.height * scale)
         s = np.asarray(img.resize((w, h), Image.LANCZOS)).copy()
         s[..., 3] = np.where(s[..., 3] >= 128, 255, 0)
+        s = soften(s)
         opaque = s[..., 3] > 0
         c = s[..., :3].astype(int)
         cast = opaque & ((c[..., 0] + c[..., 2]) / 2 - c[..., 1] > 24)

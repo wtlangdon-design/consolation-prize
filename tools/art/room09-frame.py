@@ -20,7 +20,7 @@ import os
 import subprocess
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageFilter
 from scipy import ndimage as ndi
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -32,6 +32,24 @@ FEET = 717            # his boots on the floor beside the press (the master pain
 HEIGHT = 502          # the room's curve at y 717 (reference/room-09/annotation.json: 518 at 740, 0.69 per row)
 CENTRE_X = 1410       # beside the press, where the master stood him
 POSES = ['rest', 'writing', 'stamping', 'looking up']   # sheet poses 1, 3, 4, 5
+
+
+SOFTEN = 5            # median size: Thad's flat look (errata 84 J)
+
+
+def soften(rgba):
+    """TOO SHARP IS THE USUAL MISS (CLAUDE.md style gate). Tyler asked whether
+    Fanshawe was too sharp beside Thad (2026-11-02); the texture metric found
+    Frame the same, at 8.4 against Thad's ~4.5 at game size. A median of
+    SOFTEN pixels over his colours (outside filled from his own nearest pixel,
+    so the key never enters) keeps the outline and every colour and takes the
+    fine detail out. tests/sharpness.test.ts holds it."""
+    m = rgba[..., 3] > 0
+    _, (iy, ix) = ndi.distance_transform_edt(~m, return_indices=True)
+    filled = Image.fromarray(rgba[..., :3][iy, ix]).filter(ImageFilter.MedianFilter(SOFTEN))
+    out = rgba.copy()
+    out[..., :3] = np.asarray(filled)
+    return out
 
 
 def key_figures(src):
@@ -98,6 +116,7 @@ def main():
         w, h = round(img.width * scale), round(img.height * scale)
         s = np.asarray(img.resize((w, h), Image.LANCZOS)).copy()
         s[..., 3] = np.where(s[..., 3] >= 128, 255, 0)
+        s = soften(s)
         opaque = s[..., 3] > 0
         c = s[..., :3].astype(int)
         cast = opaque & ((c[..., 0] + c[..., 2]) / 2 - c[..., 1] > 24)

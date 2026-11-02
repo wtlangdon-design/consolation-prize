@@ -11285,6 +11285,158 @@
    "acceptedBy": null,
    "by": "claude, Room 11 builder (doc 55 section 3, errata 72 E)",
    "at": "2026-11-02T00:51:59.785Z"
+  },
+  {
+   "assetId": "room-11",
+   "attempt": 3,
+   "from": "art/staging/room-11/fanshawe/fanshawe.png",
+   "derivedFrom": "art/staging/room-11/fanshawe-01/sheet.png",
+   "provenance": "art/staging/room-11/fanshawe/fanshawe.json",
+   "to": "art/actors/room-11-fanshawe.png",
+   "hash": "40689014a74adcf4603db770a36f0872502cc097fa337dfcf8cd03ad931957e4",
+   "sourceHash": "615591aff594e9e0ba498dbd1c7593a387a7dd6381ce7439b56466e47b072086",
+   "replacedHash": "0b2dac66c53ea986e2cf376204c601da524dc650c34a092bae140d0c4c4f4fc4",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 11 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-02T06:08:11.797Z"
+  },
+  {
+   "assetId": "room-07",
+   "attempt": 3,
+   "from": "art/staging/room-07/sump/sump.png",
+   "derivedFrom": "art/staging/room-07/sump-01/sheet.png",
+   "provenance": "art/staging/room-07/sump/sump.json",
+   "to": "art/actors/room-07-sump.png",
+   "hash": "6877a50a6396536833291708bd444aa0f5dac0d7255014e3e0630767adb79232",
+   "sourceHash": "dac65d4ce5d5862f30cdca5f0893a86c7ec3ea1ca5d237f218efdc66fe8029d8",
+   "replacedHash": "46eede4422a3c1b34e1d8c174d992aab4e8437990ec0a2069bd551b7b51315b9",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 7 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-02T06:09:32.104Z"
+  },
+  {
+   "assetId": "room-09",
+   "attempt": 3,
+   "from": "art/staging/room-09/frame/frame.png",
+   "derivedFrom": "art/staging/room-09/frame-01/sheet.png",
+   "provenance": "art/staging/room-09/frame/frame.json",
+   "to": "art/actors/room-09-frame.png",
+   "hash": "6069ca82bdde58b184ac869b8557ee4d5d712c3dbe541e6c53cee81dd7b76c24",
+   "sourceHash": "168ccc464d812a6158c923d8ac054a99f3f233e2ed16797f1e4ea44fe24f072d",
+   "replacedHash": "dc850c7e1184fa28fd0a1ff5d5f3ba0a15099a09880c0657d6574dc8b8d46728",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 9 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-02T06:09:32.206Z"
+  },
+  {
+   "assetId": "room-10",
+   "attempt": 3,
+   "from": "art/staging/room-10/clerk/clerk.png",
+   "derivedFrom": "art/staging/room-10/clerk-01/sheet.png",
+   "provenance": "art/staging/room-10/clerk/clerk.json",
+   "to": "art/actors/room-10-clerk.png",
+   "hash": "d161a18a1d5a21b72fa424765a0b3c35e893d05b2a488b40f3e0e9838b1205c8",
+   "sourceHash": "7246c515b8b411e22882f2a9106a0cd6fbc86c4a0d0f5ebe2184966cca60d1b8",
+   "replacedHash": "f1eb7d871c72aeb6a447dca978cf5c7e6c20aa1ac42f15542a5e2155199c700e",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 10 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-02T06:09:32.282Z"
+  },
+  {
+   "assetId": "room-10",
+   "attempt": 3,
+   "from": "art/staging/room-10/clerk/clerk.png",
+   "derivedFrom": "art/staging/room-10/clerk-01/sheet.png",
+   "provenance": "art/staging/room-10/clerk/clerk.json",
+   "to": "art/actors/room-10-clerk.png",
+   "hash": "a27785ef01cf5dd14b64fa5f3c9e4156e98e2c23e4583c2f7b0cf902a7456d7b",
+   "sourceHash": "7246c515b8b411e22882f2a9106a0cd6fbc86c4a0d0f5ebe2184966cca60d1b8",
+   "replacedHash": "d161a18a1d5a21b72fa424765a0b3c35e893d05b2a488b40f3e0e9838b1205c8",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 10 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-02T06:09:42.379Z"
+  },
+  {
+   "assetId": "room-10",
+   "attempt": 3,
+   "from": "art/staging/room-10/clerk/clerk.png",
+   "derivedFrom": "art/staging/room-10/clerk-01/sheet.png",
+   "provenance": "art/staging/room-10/clerk/clerk.json",
+   "to": "art/actors/room-10-clerk.png",
+   "hash": "28b5453612f12978250e29e0f2e664c64c8dfec6b8f94ab086d260160dc90c02",
+   "sourceHash": "7246c515b8b411e22882f2a9106a0cd6fbc86c4a0d0f5ebe2184966cca60d1b8",
+   "replacedHash": "a27785ef01cf5dd14b64fa5f3c9e4156e98e2c23e4583c2f7b0cf902a7456d7b",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 10 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-02T06:10:58.405Z"
+  },
+  {
+   "assetId": "room-10",
+   "attempt": 3,
+   "from": "art/staging/room-10/clerk/clerk.png",
+   "derivedFrom": "art/staging/room-10/clerk-01/sheet.png",
+   "provenance": "art/staging/room-10/clerk/clerk.json",
+   "to": "art/actors/room-10-clerk.png",
+   "hash": "a27785ef01cf5dd14b64fa5f3c9e4156e98e2c23e4583c2f7b0cf902a7456d7b",
+   "sourceHash": "7246c515b8b411e22882f2a9106a0cd6fbc86c4a0d0f5ebe2184966cca60d1b8",
+   "replacedHash": "28b5453612f12978250e29e0f2e664c64c8dfec6b8f94ab086d260160dc90c02",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 10 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-02T06:11:17.758Z"
+  },
+  {
+   "assetId": "room-10",
+   "attempt": 3,
+   "from": "art/staging/room-10/clerk/clerk.png",
+   "derivedFrom": "art/staging/room-10/clerk-01/sheet.png",
+   "provenance": "art/staging/room-10/clerk/clerk.json",
+   "to": "art/actors/room-10-clerk.png",
+   "hash": "a0adaf7b5d35aa0c0342d865fde03ec062115868beccc25b3024f4bf63590520",
+   "sourceHash": "7246c515b8b411e22882f2a9106a0cd6fbc86c4a0d0f5ebe2184966cca60d1b8",
+   "replacedHash": "a27785ef01cf5dd14b64fa5f3c9e4156e98e2c23e4583c2f7b0cf902a7456d7b",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 10 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-02T06:11:48.914Z"
   }
  ],
  "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."
