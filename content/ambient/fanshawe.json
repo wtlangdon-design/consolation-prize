@@ -19,7 +19,7 @@
  },
  "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: on the carpet before the desk's left end, clear of his welcoming hand (errata 84 C).",
  "tree": "FANSHAWE",
- "note": "COLONEL ABSALOM FANSHAWE, President of the Consolation Improvement Company, at his desk (doc 04: 'warm, generous, expansive, unfailingly courteous'). Canon gives him no appearance but his portrait's ('painted at approximately twice life size and one-third his actual age'), so he is a portly, prosperous gentleman of about sixty with the portrait's moustache -- silver hair and whiskers, a black frock coat, a brocade waistcoat, a gold watch chain (errata 84 B). Drawn first in room-11's composition master beside Thad (style gate step 1), then alone on magenta in five poses (room-11 operation 3), keyed by tools/art/room11-fanshawe.py. BEHIND THE DESK: the sheet stops at the desk top's back edge, so `y` is the cut row, not his feet.",
+ "note": "COLONEL ABSALOM FANSHAWE, President of the Consolation Improvement Company, at his desk (doc 04: 'warm, generous, expansive, unfailingly courteous'). Canon gives him no appearance but his portrait's ('painted at approximately twice life size and one-third his actual age'), so he is a portly, prosperous gentleman of about sixty with the portrait's moustache -- silver hair and whiskers, a black frock coat, a brocade waistcoat, a gold watch chain (errata 84 B). Drawn first in room-11's composition master beside Thad (style gate step 1), then alone on magenta in five poses (room-11 operation 3), keyed by tools/art/room11-fanshawe.py. BEHIND THE DESK: the sheet stops at the desk top's back edge, so `y` is the cut row, not his feet. REDRAWN AT THAD'S PIXEL SIZE (Tyler, 2026-11-02: 'Thad is pixelated, not smooth'; 'Bigger pixels'): the five poses regenerated against a side-by-side of Thad beside him (errata 84 J).",
  "barks": {},
  "barksNote": "Doc 07 writes no barks for Fanshawe.",
  "sprite": {
@@ -28,31 +28,31 @@
    [
     2,
     2,
-    203,
+    226,
     229
    ],
    [
-    207,
+    230,
     2,
-    203,
+    226,
     229
    ],
    [
-    412,
+    458,
     2,
-    203,
+    226,
     229
    ],
    [
-    617,
+    686,
     2,
-    203,
+    226,
     229
    ],
    [
-    822,
+    914,
     2,
-    203,
+    226,
     229
    ]
   ],

@@ -4,31 +4,31 @@
   [
    2,
    2,
-   203,
+   226,
    229
   ],
   [
-   207,
+   230,
    2,
-   203,
+   226,
    229
   ],
   [
-   412,
+   458,
    2,
-   203,
+   226,
    229
   ],
   [
-   617,
+   686,
    2,
-   203,
+   226,
    229
   ],
   [
-   822,
+   914,
    2,
-   203,
+   226,
    229
   ]
  ],
@@ -40,7 +40,7 @@
   "laughing"
  ],
  "topLeft": {
-  "x": 930,
+  "x": 918,
   "y": 271
  },
  "anchor": {
@@ -52,5 +52,5 @@
  "cut": 500,
  "handsTo": 500,
  "key": 90,
- "source": "room-11 attempt 3 (art/staging/room-11/fanshawe-01/sheet.png)"
+ "source": "room-11 attempt 5 (art/staging/room-11/fanshawe-02/sheet.png), redrawn against Thad from attempt 3"
 }

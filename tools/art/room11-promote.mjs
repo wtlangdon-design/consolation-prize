@@ -4,7 +4,7 @@
 import { runGates } from './gates.mjs';
 import { promoteProvisional } from './staging.mjs';
 
-const item = { assetId: 'room-11', attempt: 3, kind: 'sprite', derived: 'art/staging/room-11/fanshawe/fanshawe.png',
+const item = { assetId: 'room-11', attempt: 5, kind: 'sprite', derived: 'art/staging/room-11/fanshawe/fanshawe.png',
   provenance: 'art/staging/room-11/fanshawe/fanshawe.json', to: 'art/actors/room-11-fanshawe.png' };
 const gates = runGates(item.derived, { kind: item.kind });
 if (!gates.passed) throw new Error(`${item.derived} fails its gates: ${JSON.stringify(gates).slice(0, 400)}`);

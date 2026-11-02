@@ -11929,6 +11929,82 @@
    "acceptedBy": null,
    "by": "claude, Room 10 builder (doc 55 section 3, errata 72 E)",
    "at": "2026-11-02T06:11:48.914Z"
+  },
+  {
+   "assetId": "room-07",
+   "attempt": 4,
+   "from": "art/staging/room-07/sump/sump.png",
+   "derivedFrom": "art/staging/room-07/sump-02/sheet.png",
+   "provenance": "art/staging/room-07/sump/sump.json",
+   "to": "art/actors/room-07-sump.png",
+   "hash": "b8f214e110069a5601ae5cc1d1dcbf275ae9387f355fa2dffd7c7cf4ff1746f9",
+   "sourceHash": "0ed221e204fcc647048e8d160635e2c395b4fb171e71d5c8a1e75235e50d6714",
+   "replacedHash": "6877a50a6396536833291708bd444aa0f5dac0d7255014e3e0630767adb79232",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 7 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-02T13:52:57.966Z"
+  },
+  {
+   "assetId": "room-09",
+   "attempt": 4,
+   "from": "art/staging/room-09/frame/frame.png",
+   "derivedFrom": "art/staging/room-09/frame-02/sheet.png",
+   "provenance": "art/staging/room-09/frame/frame.json",
+   "to": "art/actors/room-09-frame.png",
+   "hash": "90a783c441579bcef5e369339cd4a345b812c78e4b5f2166dac98d53aa7919a2",
+   "sourceHash": "519ef2199ba51a94653d613c1b924b8f186b5832e1dfa5781496c715c172b4e3",
+   "replacedHash": "6069ca82bdde58b184ac869b8557ee4d5d712c3dbe541e6c53cee81dd7b76c24",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 9 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-02T13:52:58.081Z"
+  },
+  {
+   "assetId": "room-10",
+   "attempt": 5,
+   "from": "art/staging/room-10/clerk/clerk.png",
+   "derivedFrom": "art/staging/room-10/clerk-02/sheet.png",
+   "provenance": "art/staging/room-10/clerk/clerk.json",
+   "to": "art/actors/room-10-clerk.png",
+   "hash": "b04605c872d4004894abad889c42edc5fcc3604767c0790dd00cb7f36161cfc2",
+   "sourceHash": "afc73fb8566a62db9eb9a1cebe74a2c616c660cc19fd0a0c946e81c0810ab5dc",
+   "replacedHash": "a0adaf7b5d35aa0c0342d865fde03ec062115868beccc25b3024f4bf63590520",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 10 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-02T13:52:58.159Z"
+  },
+  {
+   "assetId": "room-11",
+   "attempt": 5,
+   "from": "art/staging/room-11/fanshawe/fanshawe.png",
+   "derivedFrom": "art/staging/room-11/fanshawe-02/sheet.png",
+   "provenance": "art/staging/room-11/fanshawe/fanshawe.json",
+   "to": "art/actors/room-11-fanshawe.png",
+   "hash": "e2c1d920dc781195919bfb2ef794ade8eeba1e38a18d55244d1c3351e41c2046",
+   "sourceHash": "a15e05b5d1b40b62b5708a07761433d0079790d0b1b3a61b99616d536c44cfd0",
+   "replacedHash": "40689014a74adcf4603db770a36f0872502cc097fa337dfcf8cd03ad931957e4",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 11 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-02T13:52:58.242Z"
   }
  ],
  "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."

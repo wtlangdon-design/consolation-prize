@@ -20,36 +20,18 @@ import os
 import subprocess
 
 import numpy as np
-from PIL import Image, ImageFilter
+from PIL import Image
 from scipy import ndimage as ndi
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 S = os.path.join(ROOT, 'art/staging/room-09')
-SOURCE = f'{S}/frame-01/sheet.png'
+SOURCE = f'{S}/frame-02/sheet.png'
 GAP = 2
 KEY = 90
 FEET = 717            # his boots on the floor beside the press (the master painted them at source y 738)
 HEIGHT = 502          # the room's curve at y 717 (reference/room-09/annotation.json: 518 at 740, 0.69 per row)
 CENTRE_X = 1410       # beside the press, where the master stood him
 POSES = ['rest', 'writing', 'stamping', 'looking up']   # sheet poses 1, 3, 4, 5
-
-
-SOFTEN = 5            # median size: Thad's flat look (errata 84 J)
-
-
-def soften(rgba):
-    """TOO SHARP IS THE USUAL MISS (CLAUDE.md style gate). Tyler asked whether
-    Fanshawe was too sharp beside Thad (2026-11-02); the texture metric found
-    Frame the same, at 8.4 against Thad's ~4.5 at game size. A median of
-    SOFTEN pixels over his colours (outside filled from his own nearest pixel,
-    so the key never enters) keeps the outline and every colour and takes the
-    fine detail out. tests/sharpness.test.ts holds it."""
-    m = rgba[..., 3] > 0
-    _, (iy, ix) = ndi.distance_transform_edt(~m, return_indices=True)
-    filled = Image.fromarray(rgba[..., :3][iy, ix]).filter(ImageFilter.MedianFilter(SOFTEN))
-    out = rgba.copy()
-    out[..., :3] = np.asarray(filled)
-    return out
 
 
 def key_figures(src):
@@ -116,7 +98,6 @@ def main():
         w, h = round(img.width * scale), round(img.height * scale)
         s = np.asarray(img.resize((w, h), Image.LANCZOS)).copy()
         s[..., 3] = np.where(s[..., 3] >= 128, 255, 0)
-        s = soften(s)
         opaque = s[..., 3] > 0
         c = s[..., :3].astype(int)
         cast = opaque & ((c[..., 0] + c[..., 2]) / 2 - c[..., 1] > 24)
@@ -163,7 +144,7 @@ def main():
         'frameNames': ['rest', 'breath', 'talking', 'taking a quote', 'leaning in'],
         'topLeft': {'x': x0, 'y': y0}, 'anchor': {'x': x0 + W // 2, 'y': y0 + H},
         'height': HEIGHT, 'feetRow': round(feet, 1), 'key': KEY,
-        'source': 'room-09 attempt 3 (art/staging/room-09/frame-01/sheet.png)',
+        'source': 'room-09 attempt 4 (art/staging/room-09/frame-02/sheet.png), redrawn against Thad from attempt 3',
     }
     json.dump(record, open(f'{S}/frame/frame.json', 'w'), indent=1)
     plate = Image.open(os.path.join(ROOT, 'art/backgrounds/room-09-clarion.png')).convert('RGBA')

@@ -31,12 +31,12 @@ import os
 import subprocess
 
 import numpy as np
-from PIL import Image, ImageFilter
+from PIL import Image
 from scipy import ndimage as ndi
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 S = os.path.join(ROOT, 'art/staging/room-10')
-SOURCE = f'{S}/clerk-01/sheet.png'
+SOURCE = f'{S}/clerk-02/sheet.png'
 GAP = 2
 KEY = 90
 HEIGHT = 368          # the room's curve at y 600, his feet behind the desk (440 at 705, 0.69 a row)
@@ -45,36 +45,6 @@ CUT = 390             # below this he is behind the desk's front edge
 HANDS = 392           # one straight cut, at the desk top's front edge
 CENTRE_X = 1440       # between the desk lamp (x 1300) and the bell (x 1565)
 POSES = ['rest', 'writing', 'the watch', 'looking up']   # sheet poses 1, 3, 4, 5
-
-
-SOFTEN = 7            # median size: Thad's flat look (errata 84 J)
-
-
-FACE = 3              # the head's median
-HEAD = 0.16           # the head, as a share of his standing height
-
-
-def soften(rgba):
-    """TOO SHARP IS THE USUAL MISS (CLAUDE.md style gate). Tyler asked whether
-    Fanshawe was too sharp beside Thad (2026-11-02); the texture metric found
-    the lobby clerk the same, at 12.3 against Thad's ~4.5 at game size. A median of
-    SOFTEN pixels over his colours (outside filled from his own nearest pixel,
-    so the key never enters) keeps the outline and every colour and takes the
-    fine detail out. tests/sharpness.test.ts holds it.
-
-    HIS FACE TAKES A LIGHTER ONE. He is drawn small (his face is about 25
-    pixels), and a median of 7 erased his eyes; so the head, the top HEAD of
-    his height, takes a median of FACE, and only his clothes take SOFTEN."""
-    m = rgba[..., 3] > 0
-    _, (iy, ix) = ndi.distance_transform_edt(~m, return_indices=True)
-    base = Image.fromarray(rgba[..., :3][iy, ix])
-    body = np.asarray(base.filter(ImageFilter.MedianFilter(SOFTEN)))
-    face = np.asarray(base.filter(ImageFilter.MedianFilter(FACE)))
-    out = rgba.copy()
-    head = int(round(HEAD * rgba.shape[0]))
-    out[..., :3] = body
-    out[:head, :, :3] = face[:head]
-    return out
 
 
 def key_figures(src):
@@ -142,7 +112,6 @@ def main():
         w, h = round(img.width * scale), round(img.height * scale)
         s = np.asarray(img.resize((w, h), Image.LANCZOS)).copy()
         s[..., 3] = np.where(s[..., 3] >= 128, 255, 0)
-        s = soften(s)
         opaque = s[..., 3] > 0
         c = s[..., :3].astype(int)
         cast = opaque & ((c[..., 0] + c[..., 2]) / 2 - c[..., 1] > 24)
@@ -193,7 +162,7 @@ def main():
         'frameNames': ['rest', 'breath', 'writing', 'the watch', 'looking up'],
         'topLeft': {'x': x0, 'y': y0}, 'anchor': {'x': x0 + W // 2, 'y': y0 + H},
         'height': HEIGHT, 'feetRow': round(feet, 1), 'cut': CUT, 'handsTo': HANDS, 'key': KEY,
-        'source': 'room-10 attempt 3 (art/staging/room-10/clerk-01/sheet.png)',
+        'source': 'room-10 attempt 5 (art/staging/room-10/clerk-02/sheet.png), redrawn against Thad from attempt 3',
     }
     json.dump(record, open(f'{S}/clerk/clerk.json', 'w'), indent=1)
     plate = Image.open(os.path.join(ROOT, 'art/backgrounds/room-10-company-lobby.png')).convert('RGBA')

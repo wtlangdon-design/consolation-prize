@@ -4,32 +4,32 @@
   [
    2,
    2,
-   111,
-   152
+   121,
+   154
   ],
   [
-   115,
+   125,
    2,
-   111,
-   152
+   121,
+   154
   ],
   [
-   228,
+   248,
    2,
-   111,
-   152
+   121,
+   154
   ],
   [
-   341,
+   371,
    2,
-   111,
-   152
+   121,
+   154
   ],
   [
-   454,
+   494,
    2,
-   111,
-   152
+   121,
+   154
   ]
  ],
  "frameNames": [
@@ -40,17 +40,17 @@
   "looking up"
  ],
  "topLeft": {
-  "x": 1384,
-  "y": 240
+  "x": 1375,
+  "y": 238
  },
  "anchor": {
-  "x": 1439,
+  "x": 1435,
   "y": 392
  },
  "height": 368,
- "feetRow": 608.8,
+ "feetRow": 606.6,
  "cut": 390,
  "handsTo": 392,
  "key": 90,
- "source": "room-10 attempt 3 (art/staging/room-10/clerk-01/sheet.png)"
+ "source": "room-10 attempt 5 (art/staging/room-10/clerk-02/sheet.png), redrawn against Thad from attempt 3"
 }

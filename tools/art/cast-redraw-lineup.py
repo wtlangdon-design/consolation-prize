@@ -1,15 +1,15 @@
-"""The full build's cast before and after softening, each beside Thad, at game
-size against its own room. No image operation.
+"""The full build's cast before and after its redraw at Thad's pixel size, each
+beside Thad, at game size against its own room. No image operation.
 
-Tyler (2026-11-02) asked whether Fanshawe was too sharp beside Thad; the
-texture metric found Sump, Frame and the lobby clerk the same, and each cut
-script now softens its figure (errata 84 J). This writes the comparison a
-person looks at: for each figure, the shipped sprite before (from git, the
-commit given) and after, in its room, with Thad standing beside it at that
-room's curve.
+Tyler (2026-11-02) asked whether Fanshawe was too sharp beside Thad; Sump,
+Frame and the lobby clerk were the same. Post-processing was rejected ("Thad
+is pixelated, not smooth"); each was regenerated against a side-by-side of
+Thad (errata 84 J). This writes the comparison a person looks at: the sprite
+as first shipped (from the directory given) and as redrawn, in its room, with
+Thad standing beside it at that room's curve.
 
-usage: python3 tools/art/cast-softening-lineup.py <old-sprite-dir>
-Writes renders/full-build-cast-softening.png.
+usage: python3 tools/art/cast-redraw-lineup.py <old-sprite-dir>
+Writes renders/full-build-cast-redrawn.png.
 """
 import json
 import os
@@ -54,8 +54,8 @@ def main():
         out.paste(after, (780, yy))
         yy += before.height + 20
     ImageDraw.Draw(out)
-    out.save(os.path.join(ROOT, 'renders/full-build-cast-softening.png'))
-    print('renders/full-build-cast-softening.png', out.size)
+    out.save(os.path.join(ROOT, 'renders/full-build-cast-redrawn.png'))
+    print('renders/full-build-cast-redrawn.png', out.size)
 
 
 if __name__ == '__main__':
