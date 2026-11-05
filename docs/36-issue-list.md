@@ -4780,3 +4780,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Twelve subjects and seventy-one lines; the livery man in his chair and his tree, LIV_A1; Grievance over her door; two mules in the pen. B2 and the blanket on loan (`?fixture=r15-a`), B3 -- the fork, "Twelve years.", the ride over black and the Nugget (`?fixture=r15-b`) -- played in `tests/room-15.test.ts`. Reached by the map; its doors lead back to it. Proofs under `renders/proofs/livery/`.
 
 **Open, for Tyler:** (a) Doc 09 ("Four mules, numbered") and doc 54's mule repeats ("Number Three is asleep standing up", "Chewing, in four slightly different rhythms") describe four; the pen holds two (errata 88 F). Say if a line should change or the pen should be redrawn. (b) B3's staging -- Thad striking the fork, whistling the tune corrected, Grievance walking out of her stall -- is not animated; her line and the ride play. (c) The livery man, Grievance and the mules are new figures for the playthrough (errata 72 D).
+
+## Q159 · Room 16, Madame Ozymandia's tent: built, awaiting Tyler's playthrough; her look is the builder's — **RULED 2026-11-05 (errata 89, delegated); BUILT, room-16 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Eighteen subjects and 107 lines; Madame Ozymandia behind her table and her tree, OZY_A1; A7 -- her price, the filing fee, the map divined into THE SURVEY -- played in `tests/room-16.test.ts` (`?fixture=r16-a`). Reached by the map; its flap leads back to it. Proofs under `renders/proofs/ozymandias-tent/`.
+
+**Open, for Tyler:** (a) No document describes her; she is drawn as an 1850s spiritualist medium, after the master drew a caricature the builder's brief invited (errata 89 B). Look at her. (b) The filing fee used on her before she has named a price answers from the item's pool; no case is written for it.

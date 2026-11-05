@@ -362,6 +362,88 @@
       ]
     },
     {
+      "item": "filing_fee",
+      "room": "ozymandias_tent",
+      "target": "ozymandia",
+      "puzzle": "A7",
+      "say": "That was the filing fee. It is now a divining fee. Money out here changes careers faster than men do.",
+      "note": "Doc 57 A7, step 3: the filing fee becomes a divining fee, once she has named her price (OZY_A1 option 1).",
+      "rules": [
+        {
+          "case": "after OZY_A1 option 1",
+          "when": {
+            "T_OZY_ASKED": true,
+            "T_OZY_PAID": false
+          },
+          "say": "That was the filing fee. It is now a divining fee. Money out here changes careers faster than men do.",
+          "then": [
+            {
+              "speaker": "ozymandia",
+              "line": "The earth thanks you. I shall pass it on."
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "Now. Show me the ground."
+            },
+            {
+              "speaker": "thad",
+              "line": "It is two miles away and up a hill."
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "Then show me a picture of it."
+            }
+          ],
+          "takes": [
+            "filing_fee"
+          ],
+          "set": {
+            "T_OZY_PAID": true
+          }
+        }
+      ]
+    },
+    {
+      "item": "company_map",
+      "room": "ozymandias_tent",
+      "target": "ozymandia",
+      "puzzle": "A7",
+      "say": "The earth has spoken. The earth was brief.",
+      "note": "Doc 57 A7: the map divined -- THE SURVEY, on Form 12-C. She hands the map back.",
+      "rules": [
+        {
+          "case": "after T_OZY_PAID",
+          "when": {
+            "T_OZY_PAID": true
+          },
+          "by": "ozymandia",
+          "say": "The earth has spoken. The earth was brief.",
+          "then": [
+            {
+              "speaker": "thad",
+              "line": "You keep Form 12-C?"
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "The earth prefers them."
+            }
+          ],
+          "items": [
+            "survey"
+          ],
+          "completes": "A7"
+        },
+        {
+          "case": "not yet paid",
+          "when": {
+            "T_OZY_PAID": false
+          },
+          "by": "ozymandia",
+          "say": "The earth will read your map — two dollars — the earth reads everything — in advance —"
+        }
+      ]
+    },
+    {
       "item": "tuning_fork",
       "room": "livery",
       "target": "grievance",

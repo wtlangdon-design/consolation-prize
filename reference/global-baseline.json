@@ -306,6 +306,22 @@
     }
    ],
    "castingNote": "The livery man and Grievance have no approved image. No document describes the livery man's looks; Grievance is a mule 'the color of a wet saddle' (doc 54). Both drawn in the composition master beside Thad, then on magenta against a side-by-side with Thad (doc 55 section 8)."
+  },
+  "room-16-tent": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-03-nugget",
+    "path": "art/backgrounds/room-03-nugget.png",
+    "note": "D -- the approved public interior at night. The tent is painted canvas, velvet and brass under a red lantern (errata 89 A)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Madame Ozymandia has no approved image and no written appearance; doc 01 gives her a brass rod, a great deal of humming and an entrance fee (errata 89 B). Drawn in the composition master beside Thad, then on magenta against a side-by-side with Thad."
   }
  }
 }

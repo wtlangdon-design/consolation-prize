@@ -1,0 +1,368 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "ozymandias_tent",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "7ded2e3bd949152190b6fb7274a594562263340b",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": "ozymandias-tent",
+ "routeLog": [
+  "action 1 (wait): waited 2.5s",
+  "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up",
+  "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit",
+  "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED",
+  "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road",
+  "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever.",
+  "action 13 (wait): waited 3s",
+  "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road",
+  "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it",
+  "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it",
+  "action 17 (wait): waited 6s",
+  "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger",
+  "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street",
+  "action 20 (wait): waited 2s",
+  "action 21 (click): clicked screen 554,1052 -- the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)",
+  "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map",
+  "action 23 (wait): waited 1s",
+  "action 24 (click): clicked screen 950,585 -- the tent's place on the map (content/rooms/town-map.json loc_tent)",
+  "action 25 (waitFor): reached {\"room\":\"ozymandias_tent\"} in room ozymandias_tent",
+  "action 26 (wait): waited 3s"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 756,
+    "xs": [
+     1050,
+     843,
+     1258,
+     635,
+     1465,
+     428,
+     1673,
+     220,
+     1880
+    ],
+    "expect": 449,
+    "x": 1050
+   },
+   "at": [
+    1050,
+    756
+   ],
+   "reportedHeight": 449,
+   "expected": 449,
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-04.png",
+   "bounds": [
+    817,
+    307,
+    466,
+    496
+   ],
+   "order": 0,
+   "renderedHeight": 449,
+   "renderedBottom": 755,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     1050,
+     843,
+     1258,
+     635,
+     1465,
+     428,
+     1673,
+     220,
+     1880
+    ],
+    "expect": 518,
+    "x": 1050
+   },
+   "at": [
+    1050,
+    857
+   ],
+   "reportedHeight": 518,
+   "expected": 518,
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-08.png",
+   "bounds": [
+    781,
+    339,
+    537,
+    572
+   ],
+   "order": 0,
+   "renderedHeight": 535,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "ozymandia",
+   "feet": [
+    966,
+    530
+   ],
+   "sheet": "art/actors/room-16-ozymandia.png",
+   "clipPlane": 1,
+   "box": {
+    "x": 852,
+    "y": 289,
+    "width": 228,
+    "height": 243
+   },
+   "seen": {
+    "x": 853,
+    "y": 322,
+    "width": 227,
+    "height": 201,
+    "bottom": 522,
+    "right": 1079,
+    "changed": 14493
+   },
+   "props": [],
+   "maskedAbove": 522
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "ozymandias_tent",
+   "clock": 113.1216,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 479,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      51,
+      321,
+      497,
+      529
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:ozymandias_tent",
+     "path": "art/backgrounds/room-16-tent.png",
+     "drawn": "art/backgrounds/room-16-tent.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6eb1e2e2dc2e956731727eb583c840b0be7ab28e35cee8064fe5b0136ac9473d"
+    },
+    {
+     "key": "art/masks/room-16-plane-1.png",
+     "path": "art/masks/room-16-plane-1.png",
+     "drawn": "art/masks/room-16-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "12c956e0aa4c92f5330baa39aae8770dc5ddfa83bb1cb48911aaa61a714ce381"
+    },
+    {
+     "key": "art/actors/room-16-ozymandia.png",
+     "path": "art/actors/room-16-ozymandia.png",
+     "drawn": "art/actors/room-16-ozymandia.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "84ea53f0fb6714e5c660390eab89ffe021d443bb35cc40a5614b04953be48525"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [],
+   "capturedAt": "2026-11-05T04:00:19.442Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "1a5169bca58aae22ea48b947f4ae8ebfab24606cbc10d70ecbabaabb080b181e"
+  },
+  {
+   "panel": "A",
+   "room": "ozymandias_tent",
+   "clock": 114.1382,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 479,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:ozymandias_tent",
+     "path": "art/backgrounds/room-16-tent.png",
+     "drawn": "art/backgrounds/room-16-tent.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6eb1e2e2dc2e956731727eb583c840b0be7ab28e35cee8064fe5b0136ac9473d"
+    },
+    {
+     "key": "art/masks/room-16-plane-1.png",
+     "path": "art/masks/room-16-plane-1.png",
+     "drawn": "art/masks/room-16-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "12c956e0aa4c92f5330baa39aae8770dc5ddfa83bb1cb48911aaa61a714ce381"
+    },
+    {
+     "key": "art/actors/room-16-ozymandia.png",
+     "path": "art/actors/room-16-ozymandia.png",
+     "drawn": "art/actors/room-16-ozymandia.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "84ea53f0fb6714e5c660390eab89ffe021d443bb35cc40a5614b04953be48525"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T04:00:20.427Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "4ce7bea75e563ba9772fa024bff3b6990455207543e90dbec73428a77bdc78da"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T04:00:25.369Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 277236,
+  "panels": 4,
+  "scale": 0.5
+ }
+}

@@ -1,0 +1,24 @@
+Image 1 shows Thad, the hero of my pixel-art adventure game, the style standard. Look at Thad's pixels: BIG square blocks. Thad is only about 80 pixels tall from hair to shoes; every pixel of him is a clear, chunky square; his face is a handful of blocks; his clothes are a few flat tones with no fine texture.
+
+Image 2 is the room she sits in: a diviner's tent at night, with a round table under a red lantern.
+
+I need MADAME OZYMANDIA drawn on her own, as a sheet of five poses, in THAD'S PIXEL SIZE.
+
+THE CHARACTER: a theatrical American spiritualist medium of the 1850s -- a stage performer who sells divinations, with enormous self-assurance. About fifty, plump and upright, a pale round face, grey-streaked dark hair in tight ringlets under a small black bonnet with a short black lace veil pushed up off her face; a high-collared black silk dress, a lace collar, a large cameo brooch at her throat, black lace fingerless gloves, a few rings. Dignified, dramatic, slightly ridiculous. Not a gypsy, no head-wrap, no hoop earrings.
+
+THE SHEET -- one image, five poses of this same woman, side by side, left to right, each FULL LENGTH from bonnet to shoes, standing, facing the viewer:
+1. REST: hands spread palm-down at waist height, as if over a crystal ball on a table, eyes half closed.
+2. BREATH: identical to pose 1 except her shoulders very slightly raised. Nothing else changes.
+3. HUMMING: as pose 1, but her head tilted back, eyes shut, mouth a small round O, humming dramatically.
+4. TALKING: as pose 1, but one hand raised high, fingers spread, pronouncing something, eyes wide.
+5. MONEY: as pose 1, but one hand held out flat, palm up, at waist height, expecting payment, with a businesslike look.
+
+STYLE: every pose about 75 big pixels tall from bonnet to shoes, exactly as coarse as Thad; every pixel a large, crisp square block the size of Thad's; simple shapes and flat colour areas; the face as simple as Thad's -- a few blocks, dark blocks for the eyes.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no table, nothing else in the picture.
+- All five poses the same size, shoes on the same baseline, each about two-thirds the height of the picture.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same face everywhere else.
+- Crisp pixel edges against the magenta. No soft glow or blur around her.
+- No text, labels, numbers or borders.

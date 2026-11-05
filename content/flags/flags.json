@@ -530,7 +530,7 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "docs/03-liars-assay.md Tier 4, collected around town -- unbuilt"
+    "dialogue:OZYMANDIA:OZY_A1:ozymandia5"
    ],
    "note": "Thad has learned pair 19 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Tier 4, around town. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
    "pending": true
@@ -957,6 +957,24 @@
     "dialogue:LIVERY_MAN:LIV_A1:livery_man5"
    ],
    "note": "Doc 04 LIV_A1 option 5: THE LIVERY BLANKET on loan (errata 88 D). While set the bin is drawn bare and GRIEVANCE'S BLANKET is not a subject; A5 (Rooms 23/24, not built) clears it when the blanket comes back (doc 23)."
+  },
+  {
+   "id": "T_OZY_ASKED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:OZYMANDIA:OZY_A1:ozymandia1"
+   ],
+   "note": "Doc 04 OZY_A1 option 1: she names her price, two dollars, in advance (doc 57 A7 step 2). The filing fee answers it (errata 89 E)."
+  },
+  {
+   "id": "T_OZY_PAID",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:filing_fee:ozymandias_tent:ozymandia"
+   ],
+   "note": "Doc 57 A7 step 3: the filing fee spent as a divining fee. Opens the map's divining."
   }
  ]
 }

@@ -1,0 +1,200 @@
+{
+ "schema": 1,
+ "id": "room-16-tent",
+ "room": "ozymandias_tent",
+ "docRoom": 16,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 16 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/04-dialogue-trees.md",
+  "docs/05-examine-layer.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/57-puzzle-completion.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-16.json",
+    "docs/00-errata.md::89 · ROOM 16 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Ozymandia behind her table in every act here; A7 here; night; one visual state."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-16/graybox.json",
+    "docs/00-errata.md::89 · ROOM 16 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Every subject is plate; Ozymandia is the one figure; nothing in the picture changes."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-16-ozymandia-cut.png",
+    "docs/00-errata.md::89 · ROOM 16 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Ozymandia generated on magenta against Thad, cut at the table top; her look the builder's (errata 89 B)."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/ozymandias-tent/life/life.json"
+   ],
+   "note": "She hums, pronounces and holds out a palm; the red lantern and the stove breathe."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-16-ozymandia-cut.png"
+   ],
+   "note": "She stands behind the table, cut at its top; the ball, box and tea pot are a plane in front of her."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-16/annotation.json"
+   ],
+   "note": "The red lantern and the stove, plate light and a runtime breath each."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-16.test.ts",
+    "docs/00-errata.md::89 · ROOM 16 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "She asks for the fee in advance before the map can be read."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-16.json",
+    "content/rooms/mercantile.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 107 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-16: 3 of 4 operations (master, people-free plate, her five-pose sheet)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/mercantile.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-16/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/ozymandias-tent/proof.json"
+   ],
+   "note": "No principal change: one visual state (errata 89 D)."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/ozymandias-tent/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/ozymandias-tent/doors/life.json",
+    "tests/room-16.test.ts"
+   ],
+   "note": "Out by the flap to the map and back, twice; A7 in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-16/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-16-tent.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-16/plate-01/frame.json"
+   ]
+  },
+  {
+   "subject": "Madame Ozymandia",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-16-ozymandia.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-16/ozymandia/ozymandia.json"
+   ]
+  },
+  {
+   "subject": "the table's plane",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/masks/room-16-plane-1.png",
+   "evidence": [
+    "tools/art/room16-ozymandia.py"
+   ],
+   "note": "The ball, box and tea pot in front of her."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q159 · Room 16, Madame Ozymandia's tent: built, awaiting Tyler's playthrough; her look is the builder's — **RULED 2026-11-05 (errata 89, delegated); BUILT, room-16 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q159 · Room 16, Madame Ozymandia's tent: built, awaiting Tyler's playthrough; her look is the builder's — **RULED 2026-11-05 (errata 89, delegated); BUILT, room-16 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

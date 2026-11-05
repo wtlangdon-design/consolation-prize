@@ -1,0 +1,314 @@
+{
+ "room": 16,
+ "note": "Ruling 22 steps 1-6 for Ozymandia's tent, written by tools/room16-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 89).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 745,
+   "height": 440
+  },
+  "near": {
+   "y": 855,
+   "height": 516
+  },
+  "from": "Room 5's slope, a little smaller than Room 13's"
+ },
+ "walkable": [
+  220,
+  745,
+  1660,
+  110
+ ],
+ "exit": {
+  "hotspot": "THE FLAP TO OUTSIDE",
+  "to": "town_map",
+  "rect": [
+   20,
+   150,
+   240,
+   550
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 300,
+   "y": 790,
+   "facing": "right"
+  },
+  "talk_ozymandia": {
+   "x": 720,
+   "y": 790,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE FLAP TO OUTSIDE",
+   "rect": [
+    20,
+    150,
+    240,
+    550
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TESTIMONIAL BOARD",
+   "rect": [
+    300,
+    200,
+    150,
+    190
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PRICE LIST",
+   "rect": [
+    470,
+    220,
+    100,
+    120
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE INCENSE BURNER",
+   "rect": [
+    600,
+    560,
+    70,
+    140
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CUSHIONS",
+   "rect": [
+    620,
+    640,
+    150,
+    70
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CURTAIN",
+   "rect": [
+    800,
+    120,
+    320,
+    450
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LANTERN, RED",
+   "rect": [
+    930,
+    40,
+    60,
+    90
+   ],
+   "where": "light"
+  },
+  {
+   "name": "MADAME OZYMANDIA (behind the table)",
+   "rect": [
+    880,
+    250,
+    160,
+    300
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "MADAME OZYMANDIA'S TABLE",
+   "rect": [
+    760,
+    520,
+    400,
+    180
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CRYSTAL BALL",
+   "rect": [
+    925,
+    450,
+    70,
+    75
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CARDS",
+   "rect": [
+    800,
+    500,
+    60,
+    25
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TEA SERVICE",
+   "rect": [
+    1050,
+    480,
+    80,
+    45
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MONEY BOX",
+   "rect": [
+    1130,
+    495,
+    60,
+    35
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SECOND ROD",
+   "rect": [
+    900,
+    640,
+    110,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BRASS ROD",
+   "rect": [
+    1190,
+    360,
+    40,
+    340
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STOVE",
+   "rect": [
+    1300,
+    480,
+    130,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CHART",
+   "rect": [
+    1560,
+    180,
+    200,
+    230
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the table, the stove and the cushions are behind it, and Ozymandia is cut at her table top, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "tent walls, painted canvas",
+   "p10": 56.0,
+   "p90": 81.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 40.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "the ground, bare earth",
+   "p10": 91.0,
+   "p90": 99.0,
+   "darkAnchorMargin": 65.5,
+   "lightAnchorMargin": 22.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE FLAP TO OUTSIDE",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TESTIMONIAL BOARD",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 78.5,
+   "lightAnchorMargin": 17.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE INCENSE BURNER",
+   "p10": 60.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CUSHIONS",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CURTAIN",
+   "p10": 52.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 26.5,
+   "lightAnchorMargin": 25.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "MADAME OZYMANDIA'S TABLE",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE BRASS ROD",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 78.5,
+   "lightAnchorMargin": 17.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE STOVE",
+   "p10": 46.0,
+   "p90": 46.0,
+   "darkAnchorMargin": 20.5,
+   "lightAnchorMargin": 75.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE CHART",
+   "p10": 100.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 74.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

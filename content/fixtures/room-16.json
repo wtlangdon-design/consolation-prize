@@ -1,0 +1,50 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 16, Madame Ozymandia's tent. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r16-a",
+   "label": "R16-A Act I, the survey wanted: Ozymandia's price, the fee, the map (A7)",
+   "room": "ozymandias_tent",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_PIKE_DEAD": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed",
+    "company_map",
+    "filing_fee"
+   ],
+   "puzzles": {
+    "A1": "complete",
+    "A3": "complete",
+    "A4": "complete",
+    "A6": "complete",
+    "A8": "complete"
+   },
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::A7 · The survey",
+    "docs/04-dialogue-trees.md::MADAME OZYMANDIA"
+   ],
+   "notBuilt": [
+    "A6 (Room 7), A4 (Room 11) and A8 (Room 3) are built; set here as their outcomes so the tent starts ready"
+   ],
+   "note": "TALK TO her and ask for a boundary (option 1, her price); USE THE FILING FEE on her; USE THE COMPANY MAP on her: THE SURVEY."
+  }
+ ]
+}

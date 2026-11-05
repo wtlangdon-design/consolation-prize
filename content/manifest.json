@@ -32,7 +32,8 @@
   "content/rooms/nugget-candidate.json",
   "content/rooms/coffin.json",
   "content/rooms/boot-hill.json",
-  "content/rooms/livery.json"
+  "content/rooms/livery.json",
+  "content/rooms/ozymandias-tent.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -50,7 +51,8 @@
   "content/dialogue/sump.json",
   "content/dialogue/frame.json",
   "content/dialogue/fanshawe.json",
-  "content/dialogue/livery-man.json"
+  "content/dialogue/livery-man.json",
+  "content/dialogue/ozymandia.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -67,7 +69,8 @@
   "content/fixtures/room-12.json",
   "content/fixtures/room-13.json",
   "content/fixtures/room-14.json",
-  "content/fixtures/room-15.json"
+  "content/fixtures/room-15.json",
+  "content/fixtures/room-16.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -124,7 +127,8 @@
   "content/ambient/undertaker.json",
   "content/ambient/livery-man.json",
   "content/ambient/grievance.json",
-  "content/ambient/other-mules.json"
+  "content/ambient/other-mules.json",
+  "content/ambient/ozymandia.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",
