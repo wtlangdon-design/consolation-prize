@@ -4,7 +4,7 @@
  "room": "pratts_claim",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "6c5a097c80ffb55f084e79b2b9bab56999d48af0",
+ "commit": "a5f09e649f44fd5a19e23e3b26d5bf6e17f9b168",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -12,7 +12,12 @@
  "candidates": [],
  "route": null,
  "routeLog": [
-  "started from fixture r25-a, then entered pratts_claim by control -- NOT proof that a player can reach it"
+  "started from fixture r25-a, then entered pratts_claim by control -- NOT proof that a player can reach it",
+  "action 1 (verb): chose verb TALK_TO -- ",
+  "action 2 (click): clicked world 1180,560 -- Pratt, on his rake",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room pratts_claim",
+  "action 4 (option): chose option prattx -- the universal exit",
+  "action 5 (waitFor): reached {\"says\":\"pratt\"} in room pratts_claim"
  ],
  "depthMarks": [
   {
@@ -40,11 +45,16 @@
    ],
    "reportedHeight": 278,
    "expected": 278,
-   "drawnFrom": null,
-   "bounds": null,
-   "order": -1,
-   "renderedHeight": null,
-   "renderedBottom": null,
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "bounds": [
+    911,
+    283,
+    288,
+    307
+   ],
+   "order": 0,
+   "renderedHeight": 327,
+   "renderedBottom": 609,
    "file": "raw-captures-ignored/panel-c-mud_far-far.png"
   },
   {
@@ -72,11 +82,16 @@
    ],
    "reportedHeight": 479,
    "expected": 479,
-   "drawnFrom": null,
-   "bounds": null,
-   "order": -1,
-   "renderedHeight": null,
-   "renderedBottom": null,
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
+   "bounds": [
+    806,
+    378,
+    497,
+    529
+   ],
+   "order": 0,
+   "renderedHeight": 499,
+   "renderedBottom": 856,
    "file": "raw-captures-ignored/panel-c-mud_near-near.png"
   }
  ],
@@ -97,7 +112,15 @@
     "width": 363,
     "height": 398
    },
-   "seen": null,
+   "seen": {
+    "x": 1000,
+    "y": 323,
+    "width": 182,
+    "height": 393,
+    "bottom": 715,
+    "right": 1181,
+    "changed": 31905
+   },
    "props": []
   }
  ],
@@ -105,7 +128,7 @@
   {
    "panel": "B",
    "room": "pratts_claim",
-   "clock": 2.7561999999999998,
+   "clock": 9.2735,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -156,10 +179,15 @@
      "clip": "idle",
      "height": 427,
      "moving": false,
-     "drawn": "not-drawn",
-     "from": null,
-     "bounds": null,
-     "order": -1,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      38,
+      353,
+      443,
+      471
+     ],
+     "order": 0,
      "clipLevel": 0,
      "fallback": false
     }
@@ -172,7 +200,7 @@
      "path": "art/backgrounds/room-25-pratts-claim.png",
      "drawn": "art/backgrounds/room-25-pratts-claim.png",
      "candidate": false,
-     "loaded": false,
+     "loaded": true,
      "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
     },
     {
@@ -184,24 +212,20 @@
      "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
     }
    ],
-   "stubs": [
-    "thad: not-drawn"
-   ],
-   "missingAssets": [
-    "art/backgrounds/room-25-pratts-claim.png"
-   ],
+   "stubs": [],
+   "missingAssets": [],
    "controlWrites": [
     "enter(pratts_claim)"
    ],
-   "capturedAt": "2026-11-05T16:56:07.181Z",
+   "capturedAt": "2026-11-05T17:00:53.822Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "0a58ad77ac2dad2e1c967ea40da70fdaca47e778811243489efaed1a4394e228"
+   "hash": "202c27c188c424830dbe6a85b562d0ffb1150cf7bcb783d21f67e528bc9db89d"
   },
   {
    "panel": "A",
    "room": "pratts_claim",
-   "clock": 2.7561999999999998,
+   "clock": 10.190100000000001,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -252,7 +276,7 @@
      "clip": "idle",
      "height": 427,
      "moving": false,
-     "drawn": "not-drawn",
+     "drawn": "sprite",
      "from": null,
      "bounds": null,
      "order": -1,
@@ -268,7 +292,7 @@
      "path": "art/backgrounds/room-25-pratts-claim.png",
      "drawn": "art/backgrounds/room-25-pratts-claim.png",
      "candidate": false,
-     "loaded": false,
+     "loaded": true,
      "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
     },
     {
@@ -280,25 +304,21 @@
      "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
     }
    ],
-   "stubs": [
-    "thad: not-drawn"
-   ],
-   "missingAssets": [
-    "art/backgrounds/room-25-pratts-claim.png"
-   ],
+   "stubs": [],
+   "missingAssets": [],
    "controlWrites": [
     "enter(pratts_claim)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T16:56:07.808Z",
+   "capturedAt": "2026-11-05T17:00:54.721Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "0a58ad77ac2dad2e1c967ea40da70fdaca47e778811243489efaed1a4394e228"
+   "hash": "35fcfd4dcfffb6abceb4f4a2e71b144ca896024c58d830c27869b039302379a1"
   },
   {
    "panel": "D",
    "room": "pratts_claim",
-   "clock": 2.7561999999999998,
+   "clock": 20.389599999999998,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -342,30 +362,35 @@
    "movers": {
     "thad": {
      "at": [
-      1055,
-      857
+      930,
+      760
      ],
-     "facing": "left",
-     "clip": "walk",
-     "height": 479,
-     "moving": true,
-     "drawn": "not-drawn",
-     "from": null,
-     "bounds": null,
-     "order": -1,
+     "facing": "right",
+     "clip": "idle",
+     "height": 413,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      716,
+      347,
+      428,
+      456
+     ],
+     "order": 0,
      "clipLevel": 0,
      "fallback": false
     }
    },
-   "says": null,
-   "options": 0,
+   "says": "pratt",
+   "options": 4,
    "assets": [
     {
      "key": "bg:pratts_claim",
      "path": "art/backgrounds/room-25-pratts-claim.png",
      "drawn": "art/backgrounds/room-25-pratts-claim.png",
      "candidate": false,
-     "loaded": false,
+     "loaded": true,
      "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
     },
     {
@@ -377,12 +402,8 @@
      "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
     }
    ],
-   "stubs": [
-    "thad: not-drawn"
-   ],
-   "missingAssets": [
-    "art/backgrounds/room-25-pratts-claim.png"
-   ],
+   "stubs": [],
+   "missingAssets": [],
    "controlWrites": [
     "enter(pratts_claim)",
     "cast(false)",
@@ -394,26 +415,16 @@
     "cast(false)",
     "cast(true)"
    ],
-   "capturedAt": "2026-11-05T16:57:12.367Z",
+   "capturedAt": "2026-11-05T17:01:04.939Z",
    "intent": "principal changed state: PRATT_OFFERS (doc 04: 'Every single conversation, regardless of topic, ends with Pratt making an offer'). Visible consequence: TALK TO him and leave, and he names his price.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "0a58ad77ac2dad2e1c967ea40da70fdaca47e778811243489efaed1a4394e228",
+   "hash": "704093dc60cae88131532c8b9603c57f30651fc837e2b5a922f17bd005e9fc9e",
    "changedBy": "nothing"
   }
  ],
  "failures": [
-  "ambient pratt: nothing drew in its box at 1180,716 -- the sheet art/actors/room-25-pratt.png did not arrive, or she stands off-camera",
-  "gate 7: at mud_far/far he drew as \"not-drawn\", not as the clip that was asked for",
-  "gate 7: at mud_near/near he drew as \"not-drawn\", not as the clip that was asked for",
-  "panel D: reaching the changed state failed -- route: waitFor {\"do\":\"waitFor\",\"dialogue\":true,\"upTo\":60} timed out after 60s. It saw: room pratts_claim, control null, beat -, 0 option(s), handedOver true",
-  "panel D: after the principal change ran, not one flag, counter or inventory item differs from panel B. The change went nowhere, and this is panel B twice under another filename.",
-  "panel B: a stub or fallback drew -- thad: not-drawn",
-  "panel B: declared asset(s) never loaded -- art/backgrounds/room-25-pratts-claim.png",
-  "panel A: a stub or fallback drew -- thad: not-drawn",
-  "panel A: declared asset(s) never loaded -- art/backgrounds/room-25-pratts-claim.png",
-  "panel D: a stub or fallback drew -- thad: not-drawn",
-  "panel D: declared asset(s) never loaded -- art/backgrounds/room-25-pratts-claim.png",
-  "page error: Cannot read properties of undefined (reading 'sky')"
+  "gate 8B: his feet are authoritatively at y561 and the drawn silhouette bottoms out at y609 -- 48px of float. Q34 shipped 175px of exactly this.",
+  "panel D: after the principal change ran, not one flag, counter or inventory item differs from panel B. The change went nowhere, and this is panel B twice under another filename."
  ],
  "passed": false,
  "visual_accepted": false,
@@ -441,11 +452,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T16:57:12.368Z",
+ "at": "2026-11-05T17:01:04.939Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 12144,
+  "bytes": 657860,
   "panels": 5,
   "scale": 0.5
  }
