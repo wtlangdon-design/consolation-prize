@@ -1,0 +1,13 @@
+{
+ "assetId": "room-19",
+ "subject": "room-19-thads-room",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-19-thads-room",
+ "promptFile": "reference/room-19/prompts/plate-01.txt",
+ "out": "art/staging/room-19/plate-01/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-19/plate-01/input.png"
+ ]
+}

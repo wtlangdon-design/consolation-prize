@@ -1489,7 +1489,7 @@ function roomsBatchA() {
     // ROOM 13 IS COMPILED NOW (errata 86): tools/compile-room.mjs builds it
     // from content/examine/room-13.json, which carries doc 26's lines merged
     // with docs 05, 09 and 54. This pass would rewrite a file it no longer owns.
-    if (number === 13 || number === 18) continue;   // compiled by compile-room from annotations (errata 86, 91)
+    if (number === 13 || number === 18 || number === 19) continue;   // compiled by compile-room from annotations (errata 86, 91, 92)
     const path = FILE[number];
     if (!path) throw new Error(`doc 26: no room file for room ${number}`);
     const room = JSON.parse(read(path));
@@ -3592,6 +3592,74 @@ function ozymandiaTree() {
  * option 3 sets `T_SOWERBY_PRICE` (E3 step 1). A universal exit from doc 04's
  * pool closes each node. Every string is the document's.
  */
+/**
+ * DOC 04 PART THREE, THE LETTERS HOME: Room 19's one choice (errata 92 E).
+ * "Each act offers three versions of the letter to his mother: honest,
+ * flattering, and flattering with a number in it. The player picks freely.
+ * Nothing tracks it." One node per act, I to III. Its three options are the
+ * document's own names for the versions (the headings after the act); the
+ * letter itself is the option's ECHO (doc 30 section 6.2), the line Thad
+ * speaks for the choice, and the node closes. Act IV is "the only version
+ * offered. No choice." and is not a node: `actFour` holds its four lines, which
+ * THE LETTERS HOME reads in Act IV (the room's annotation, `opensTree`).
+ * Nothing is set, and nothing reads a choice (invariant 10).
+ */
+function lettersHome() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('## The letters, written');
+  const to = doc.indexOf('\n---', from);
+  if (from < 0 || to < 0) throw new Error('doc 04: no letters section');
+  const body = doc.slice(from, to);
+  const ROMAN = { I: 1, II: 2, III: 3, IV: 4 };
+  const letters = [...body.matchAll(/^\*\*ACT (I|II|III|IV) — ([^*]+)\*\*\n((?:> .*\n?)+)/gm)].map((m) => ({
+    act: ROMAN[m[1]],
+    version: m[2].trim().replace(/\.$/, ''),
+    lines: m[3].split('\n').map((line) => line.replace(/^> ?/, '').trim()).filter(Boolean),
+  }));
+  if (letters.length !== 10) throw new Error(`doc 04: ${letters.length} letters, not 10`);
+  const unquote = (text) => {
+    if (!text.startsWith('"') || !text.endsWith('"')) throw new Error(`doc 04: a letter is not one quotation: ${text.slice(0, 40)}`);
+    return text.slice(1, -1);
+  };
+  const nodes = {};
+  const entries = [];
+  for (const act of [1, 2, 3]) {
+    const three = letters.filter((one) => one.act === act);
+    if (three.length !== 3) throw new Error(`doc 04: Act ${act} has ${three.length} letters`);
+    const id = `LETTERS_${act}`;
+    nodes[id] = {
+      noPrompt: true,
+      exceptionReason: 'Doc 04 Part Three: a parallel choice system, three versions of one letter, not a conversation. Nobody is spoken to.',
+      noComic: true,
+      noComicReason: 'Doc 04 Part Three: the three versions are the choice; none is a joke option.',
+      noReply: true,
+      noReplyReason: 'Doc 04 Part Three: the letter is the whole of it, written in his voice; nobody answers a letter here.',
+      options: three.map((one, n) => {
+        if (one.lines.length !== 1) throw new Error(`doc 04: Act ${act} ${one.version} is not one paragraph`);
+        return { id: `letter${act}_${n + 1}`, tag: 'TOPIC', afterUse: 'retain', text: one.version, echo: unquote(one.lines[0]), ends: true };
+      }),
+    };
+    entries.push({ when: { ACT: act }, node: id });
+  }
+  const last = letters.find((one) => one.act === 4);
+  const four = [...last.lines];
+  if (!four[0].startsWith('"') || !four.at(-1).endsWith('"')) throw new Error('doc 04: the Act IV letter is not one quotation');
+  four[0] = four[0].slice(1);
+  four[four.length - 1] = four.at(-1).slice(0, -1);
+  return write('content/dialogue/letters-home.json', {
+    aftermathAuthored: true,
+    schema: 1,
+    id: 'LETTERS_HOME',
+    speaker: 'thad',
+    note: 'EXTRACTED from docs/04-dialogue-trees.md (PART THREE, the letters, written) by tools/extract-content.mjs. '
+      + `Do not edit: change doc 04 and re-run. Act IV is not a node: ${JSON.stringify(last.version)}.`,
+    actFour: four,
+    entries,
+    start: 'LETTERS_1',
+    nodes,
+  });
+}
+
 function sowerbyTree() {
   const doc = read('docs/04-dialogue-trees.md');
   const from = doc.indexOf('# REVEREND SOWERBY');
@@ -3662,7 +3730,7 @@ function sowerbyTree() {
 }
 
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

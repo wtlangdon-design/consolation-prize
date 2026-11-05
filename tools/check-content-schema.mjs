@@ -183,6 +183,10 @@ export function check() {
         report.fail(`${treeId}/${nodeId}/${option.id}: no response line`);
       }
     }
+    // DOC 30 §6.2's ECHO is a line Thad speaks: a string with words in it.
+    if (option.echo !== undefined && (typeof option.echo !== 'string' || !option.echo.trim())) {
+      report.fail(`${treeId}/${nodeId}/${option.id}: echo is not a line`);
+    }
     if (option.beat) beats.push(`${treeId}/${nodeId}/${option.id}: ${option.beat}`);
   }
 

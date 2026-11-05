@@ -1,0 +1,181 @@
+{
+ "schema": 1,
+ "id": "room-19-thads-room",
+ "room": "thads_room",
+ "docRoom": 19,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 19 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/04-dialogue-trees.md",
+  "docs/05-examine-layer.md",
+  "docs/08-examine-batch-1.md",
+  "docs/26-batch-a.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-19.json",
+    "docs/00-errata.md::92 · ROOM 19 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "His room in every act; the letters home here, untracked; night."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-19/graybox.json",
+    "docs/00-errata.md::92 · ROOM 19 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Every subject is plate; nobody but Thad is here; the letters change nothing in the picture."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "docs/00-errata.md::92 · ROOM 19 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "No figure but Thad."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/thads-room/life/life.json"
+   ],
+   "note": "The desk lamp breathes; Thad is the only figure."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-19/annotation.json"
+   ],
+   "note": "The walk band stays in front of every piece of furniture; it passes the bed's foot only nearer than it."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-19/annotation.json"
+   ],
+   "note": "One lamp on the desk, plate light and a runtime breath."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-19.test.ts",
+    "docs/00-errata.md::92 · ROOM 19 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "No puzzle is sited here; nothing in the room points at the wall's number (doc 26 note 1)."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-19.json",
+    "content/rooms/thads-room.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 91 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-19: 2 of 4 operations (master, the plate with nobody in it)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/thads-room.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-19/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/thads-room/proof.json"
+   ],
+   "note": "Panel D: Act IV; the picture does not change."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/thads-room/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/thads-room/doors/life.json",
+    "tests/room-19.test.ts"
+   ],
+   "note": "Down the door to the lobby and back up the stairs, twice; the letters home in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-19/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-19-thads-room.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-19/plate-01/frame.json"
+   ],
+   "note": "Promoted provisionally (errata 72 E)."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q162 · Room 19, Thad's room: rebuilt, awaiting Tyler's playthrough; the outgoing letter does not quote the choice back — **RULED 2026-11-05 (errata 92, delegated); BUILT, room-19 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q162 · Room 19, Thad's room: rebuilt, awaiting Tyler's playthrough; the outgoing letter does not quote the choice back — **RULED 2026-11-05 (errata 92, delegated); BUILT, room-19 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

@@ -1085,6 +1085,30 @@ for (const spec of ann.sceneLines ?? []) {
   (hotspot.responses[spec.verb] ??= []).unshift(rule);
 }
 
+// A SUBJECT THAT OPENS A CHOICE (errata 92 E). Doc 04 Part Three's letters
+// home are "available in Thad's hotel room in every act": the annotation's
+// `opensTree.<id>` names the verb, the tree and the acts it opens in, and the
+// response is the tree itself -- no line, nothing set. `lastLetter` names the
+// act the tree has no node for ("the only version offered. No choice.") and
+// the field of the extracted tree file its lines are read from; the first is
+// the response, the rest follow it. A tree the file does not hold, or an act
+// span that is not N-M, is a build failure.
+for (const [id, spec] of Object.entries(ann.opensTree ?? {})) {
+  const hotspot = built.hotspots.find((one) => one.id === id);
+  if (!hotspot) fail(`opensTree: no hotspot "${id}" in this room`);
+  const tree = JSON.parse(read(spec.file));
+  if (tree.id !== spec.tree) fail(`opensTree: ${spec.file} holds ${tree.id}, not ${spec.tree}`);
+  const span = /^(\d)-(\d)$/.exec(String(spec.acts));
+  if (!span) fail(`opensTree: acts "${spec.acts}" on ${id} is not N-M`);
+  const rules = [{ when: { ACT: { atLeast: Number(span[1]), atMost: Number(span[2]) } }, dialogue: spec.tree }];
+  if (spec.lastLetter) {
+    const lines = tree[spec.lastLetter.field];
+    if (!Array.isArray(lines) || !lines.length) fail(`opensTree: ${spec.file} has no ${spec.lastLetter.field} lines`);
+    rules.push({ when: { ACT: spec.lastLetter.act }, say: lines[0], ...(lines.length > 1 ? { then: lines.slice(1) } : {}) });
+  }
+  hotspot.responses[spec.verb] = [...rules, ...(hotspot.responses[spec.verb] ?? [])];
+}
+
 // DOC 57'S RUNNING GAG ON A ROOM'S BOARD. "After each event below, its next
 // LOOK is that edition's line (then its ordinary lines resume), and
 // MISSPELLINGS_SEEN counts it." The annotation's `headlines` names the board,

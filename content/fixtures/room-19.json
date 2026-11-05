@@ -1,0 +1,72 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 19, Thad's room. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r19-a",
+   "label": "R19-A Act I, the room given: the letters home, Act I's three",
+   "room": "thads_room",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_ROOM_GRANTED": true,
+    "T_TUNES_PIANOS": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "watch"
+   ],
+   "derivedFrom": [
+    "docs/04-dialogue-trees.md::PART THREE — THE LETTERS HOME",
+    "docs/57-puzzle-completion.md::A2 · Get a room with four dollars when the room costs five"
+   ],
+   "note": "USE THE LETTERS HOME: Act I's three versions; any one is read and the letter closes. Nothing tracks it."
+  },
+  {
+   "id": "r19-b",
+   "label": "R19-B Act IV: the only version offered",
+   "room": "thads_room",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_ROOM_GRANTED": true,
+    "T_TUNES_PIANOS": true,
+    "ACT": 4,
+    "T_SWINDLED": true,
+    "T_BORDERS_MOTT": true,
+    "T_ASSAY_QUEUE": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "watch"
+   ],
+   "derivedFrom": [
+    "docs/04-dialogue-trees.md::PART THREE — THE LETTERS HOME",
+    "docs/02-puzzle-graph.md::Puzzle Dependency Graph — v1"
+   ],
+   "note": "USE THE LETTERS HOME: Act IV's letter, four lines, no choice."
+  }
+ ]
+}

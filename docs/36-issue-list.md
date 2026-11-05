@@ -4798,3 +4798,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Thirteen subjects and ninety-two lines; the clerk behind his desk and his tree (doc 27); A2 -- his leave, the fork on the parlor piano, the room -- played in `tests/room-18.test.ts` (`?fixture=r18-a`); the stairs refuse in the clerk's words until then. Main Street's hotel door leads here; the stairs lead to Room 19. Proofs under `renders/proofs/hotel-lobby/`.
 
 **Open, for Tyler:** (a) No document describes the clerk; he is drawn as a fussy period desk clerk (errata 91 B). (b) Room 19 behind the stairs is still the retired 320x144 room until it is rebuilt (next).
+
+## Q162 · Room 19, Thad's room: rebuilt, awaiting Tyler's playthrough; the outgoing letter does not quote the choice back — **RULED 2026-11-05 (errata 92, delegated); BUILT, room-19 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Thirteen subjects and ninety-one lines; nobody but Thad. The letters home (doc 04 Part Three): USE THE LETTERS HOME offers the act's three versions in Acts I-III and reads the only one in Act IV, played in `tests/room-19.test.ts` (`?fixture=r19-a`, `?fixture=r19-b`). The lobby's stairs lead here; the door leads back down. Proofs under `renders/proofs/thads-room/`. A defect found here and fixed for the whole game: split first lines (`then`) were never spoken (errata 92 F).
+
+**Open, for Tyler:** (a) Doc 08 says THE OUTGOING LETTER's LOOK "reflects whichever version the player last chose"; doc 04, doc 15 and invariant 10 say nothing tracks it. Built to the invariant: the letter's LOOK is its written lines always (errata 92 D). (b) Which verb opens the letters is not written; USE does. (c) The split-line fix means the first LOOK or LISTEN of 139 objects across the built rooms now says its whole written line where it said only the first sentence before: worth a look in rooms already played.

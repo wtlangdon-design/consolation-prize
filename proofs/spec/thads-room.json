@@ -1,0 +1,19 @@
+{
+ "schema": 1,
+ "room": "thads_room",
+ "note": "ROOM 19's PROOF SPEC. The route is the hotel lobby's, then up the stairs with the room given. The room's principal change is the act: in Act IV the letters home offer one version and no choice. Played in tests/room-19.test.ts.",
+ "route": "thads-room",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "ACT 4 (doc 04 Part Three: the only version offered). Visible consequence: none in the picture -- the frame is taken to show the room unchanged.",
+  "flags": {
+   "ACT": 4
+  },
+  "actions": [
+   {
+    "do": "wait",
+    "seconds": 2
+   }
+  ]
+ }
+}

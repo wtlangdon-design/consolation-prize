@@ -92,8 +92,22 @@ export function check() {
   if (defaults.length > 0) {
     report.note(`${defaults.length} always-present default set(s) declared`);
   }
+  // A MERGED NAME IS THE SAME OBJECT (doc 54, errata 69 C): "THE LETTERS
+  // HOME ≡ THE OUTGOING LETTER" -- Room 19's sheet carries doc 05's name, and
+  // doc 26's default set is declared under doc 08's. The merge's own lines
+  // say which names are one object; nothing here lists them.
+  const merged = readFileSync(resolve(ROOT, 'docs/54-batch-c.md'), 'utf8');
+  const sameAs = (name) => {
+    const names = new Set([name]);
+    for (const m of merged.matchAll(/^\*\*(.+?)\*\* ≡ \*\*(.+?)\*\*$/gm)) {
+      if (m[1] === name) names.add(m[2]);
+      if (m[2] === name) names.add(m[1]);
+    }
+    return names;
+  };
   for (const { doc, name } of defaults) {
-    const owners = targets.filter(({ target }) => target.name === name);
+    const names = sameAs(name);
+    const owners = targets.filter(({ target }) => names.has(target.name));
     if (owners.length !== 1) {
       report.fail(`${doc}: "${name}" matches ${owners.length} hotspots, not 1`);
       continue;

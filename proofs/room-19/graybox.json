@@ -1,0 +1,256 @@
+{
+ "room": 19,
+ "note": "Ruling 22 steps 1-6 for Thad's room, written by tools/room19-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 92).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 745,
+   "height": 440
+  },
+  "near": {
+   "y": 855,
+   "height": 516
+  },
+  "from": "Room 5's slope, a little smaller than Room 13's"
+ },
+ "walkable": [
+  220,
+  745,
+  1660,
+  110
+ ],
+ "exit": {
+  "hotspot": "THE DOOR",
+  "to": "hotel_lobby",
+  "rect": [
+   30,
+   150,
+   200,
+   550
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 300,
+   "y": 790,
+   "facing": "right"
+  },
+  "at_the_desk": {
+   "x": 760,
+   "y": 760,
+   "facing": "back"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE DOOR",
+   "rect": [
+    30,
+    150,
+    200,
+    550
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE COAT ON THE DOOR",
+   "rect": [
+    70,
+    250,
+    100,
+    200
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WARDROBE",
+   "rect": [
+    260,
+    150,
+    200,
+    550
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WINDOW",
+   "rect": [
+    740,
+    150,
+    220,
+    270
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE DESK",
+   "rect": [
+    620,
+    470,
+    300,
+    230
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LAMP",
+   "rect": [
+    840,
+    395,
+    45,
+    75
+   ],
+   "where": "light"
+  },
+  {
+   "name": "THE LETTERS HOME",
+   "rect": [
+    690,
+    452,
+    90,
+    25
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "HIS MOTHER'S LETTERS",
+   "rect": [
+    640,
+    452,
+    45,
+    25
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TUNING FORK CASE",
+   "rect": [
+    790,
+    458,
+    40,
+    18
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WASHSTAND",
+   "rect": [
+    1000,
+    480,
+    130,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BED",
+   "rect": [
+    1200,
+    500,
+    500,
+    200
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WALL",
+   "rect": [
+    1720,
+    150,
+    180,
+    550
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the wardrobe, the desk, the washstand and the bed are behind it, and nobody else is here, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "walls, faded paper",
+   "p10": 60.0,
+   "p90": 82.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 39.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "floor, bare boards",
+   "p10": 92.0,
+   "p90": 99.0,
+   "darkAnchorMargin": 66.5,
+   "lightAnchorMargin": 22.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE DOOR",
+   "p10": 50.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 24.5,
+   "lightAnchorMargin": 63.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE COAT ON THE DOOR",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 24.5,
+   "lightAnchorMargin": 71.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE WARDROBE",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WINDOW",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE DESK",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WASHSTAND",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE BED",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WALL",
+   "p10": 76.0,
+   "p90": 76.0,
+   "darkAnchorMargin": 50.5,
+   "lightAnchorMargin": 45.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

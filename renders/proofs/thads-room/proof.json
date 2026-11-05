@@ -1,0 +1,417 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "thads_room",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "bf5fd7dab3a0164c5da0416b4583886f2d5b0a50",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": "thads-room",
+ "routeLog": [
+  "action 1 (wait): waited 2.5s",
+  "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up",
+  "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit",
+  "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED",
+  "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road",
+  "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever.",
+  "action 13 (wait): waited 3s",
+  "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road",
+  "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it",
+  "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it",
+  "action 17 (wait): waited 6s",
+  "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger",
+  "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street",
+  "action 20 (wait): waited 2s",
+  "action 21 (click): clicked world 2950,790 -- west along the street toward the hotel",
+  "action 22 (wait): waited 5s",
+  "action 23 (click): clicked main_street/to_hotel at world 2707,474 -- the hotel's door, Main Street's",
+  "action 24 (waitFor): reached {\"room\":\"hotel_lobby\"} in room hotel_lobby",
+  "action 25 (wait): waited 3s",
+  "action 26 (flags): set {\"T_TUNES_PIANOS\":true,\"T_ROOM_GRANTED\":true} -- A2, the room given; played in tests/room-18.test.ts",
+  "action 27 (wait): waited 1s",
+  "action 28 (click): clicked hotel_lobby/stairs at world 1813,385 -- the stairs, now a way up",
+  "action 29 (waitFor): reached {\"room\":\"thads_room\"} in room thads_room",
+  "action 30 (wait): waited 3s",
+  "action 1 (wait): waited 2s"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "floor_0",
+    "kind": "far",
+    "y": 761,
+    "xs": [
+     795,
+     649,
+     941,
+     503,
+     1088,
+     356,
+     1234,
+     210,
+     1380
+    ],
+    "expect": 451,
+    "x": 795
+   },
+   "at": [
+    795,
+    761
+   ],
+   "reportedHeight": 451,
+   "expected": 451,
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "bounds": [
+    561,
+    310,
+    468,
+    498
+   ],
+   "order": 0,
+   "renderedHeight": 451,
+   "renderedBottom": 760,
+   "file": "raw-captures-ignored/panel-c-floor_0-far.png"
+  },
+  {
+   "mark": {
+    "box": "floor_6",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     1035,
+     829,
+     1241,
+     623,
+     1448,
+     416,
+     1654,
+     210,
+     1860
+    ],
+    "expect": 516,
+    "x": 1035
+   },
+   "at": [
+    1035,
+    857
+   ],
+   "reportedHeight": 516,
+   "expected": 516,
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "bounds": [
+    767,
+    341,
+    535,
+    570
+   ],
+   "order": 0,
+   "renderedHeight": 517,
+   "renderedBottom": 857,
+   "file": "raw-captures-ignored/panel-c-floor_6-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "thads_room",
+   "clock": 132.18810000000002,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_TUNES_PIANOS",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_ROOM_GRANTED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 471,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      56,
+      319,
+      488,
+      520
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:thads_room",
+     "path": "art/backgrounds/room-19-thads-room.png",
+     "drawn": "art/backgrounds/room-19-thads-room.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "4a2ba7db65da2dcc4f17405f53316dd3c5bf58dac80dc8f1a5ea75453af87434"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "flag T_TUNES_PIANOS=true",
+    "flag T_ROOM_GRANTED=true"
+   ],
+   "capturedAt": "2026-11-05T05:30:01.162Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "b8555c44aeabc1b1322303027c96de10ccb088943c3fff945ced9fdffcb88614"
+  },
+  {
+   "panel": "A",
+   "room": "thads_room",
+   "clock": 133.15470000000002,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_TUNES_PIANOS",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_ROOM_GRANTED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 471,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:thads_room",
+     "path": "art/backgrounds/room-19-thads-room.png",
+     "drawn": "art/backgrounds/room-19-thads-room.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "4a2ba7db65da2dcc4f17405f53316dd3c5bf58dac80dc8f1a5ea75453af87434"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "flag T_TUNES_PIANOS=true",
+    "flag T_ROOM_GRANTED=true",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T05:30:02.093Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "06acecea87476d97192dacecba75711987d09e5cc63bd09ec49a22cb64776315"
+  },
+  {
+   "panel": "D",
+   "room": "thads_room",
+   "clock": 141.271,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_TUNES_PIANOS",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_ROOM_GRANTED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      1035,
+      857
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 516,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-08.png",
+     "bounds": [
+      767,
+      341,
+      535,
+      570
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:thads_room",
+     "path": "art/backgrounds/room-19-thads-room.png",
+     "drawn": "art/backgrounds/room-19-thads-room.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "4a2ba7db65da2dcc4f17405f53316dd3c5bf58dac80dc8f1a5ea75453af87434"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "flag T_TUNES_PIANOS=true",
+    "flag T_ROOM_GRANTED=true",
+    "cast(false)",
+    "cast(true)",
+    "stand(795,761)",
+    "cast(false)",
+    "cast(true)",
+    "stand(1035,857)",
+    "cast(false)",
+    "cast(true)",
+    "flag ACT=4"
+   ],
+   "capturedAt": "2026-11-05T05:30:10.200Z",
+   "intent": "principal changed state: ACT 4 (doc 04 Part Three: the only version offered). Visible consequence: none in the picture -- the frame is taken to show the room unchanged.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "2690765bfe61ef0c610e4a2b1b7ebe387f3f9aaa93f17da45326e5a40eee2ec9",
+   "changedBy": "counters"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T05:30:10.200Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 233374,
+  "panels": 5,
+  "scale": 0.5
+ }
+}

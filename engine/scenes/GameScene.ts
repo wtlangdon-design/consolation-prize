@@ -1724,7 +1724,9 @@ export class GameScene extends Phaser.Scene {
     // option.echo when present, otherwise option.text". Spoken by whoever the
     // manifest says the protagonist is -- no .ts file names him.
     // THE WORDING AS DRAWN, which is the option's own or its rephrase.
-    const echo = { speaker: this.state.content.actor.id, line: chosen.text };
+    // DOC 30 §6.2's `option.echo when present`: the letters home name a
+    // version in the list and speak the letter (doc 04 Part Three).
+    const echo = { speaker: this.state.content.actor.id, line: chosen.option.echo ?? chosen.text };
     const replies = [
       ...(said.say ? [{
         speaker: said.sayer,
