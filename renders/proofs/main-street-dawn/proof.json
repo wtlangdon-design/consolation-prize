@@ -1,0 +1,536 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "main_street_dawn",
+ "roomWidth": 3700,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "f430648988292661226abd711c70338048054c9c",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r36-a, then entered main_street_dawn by control -- NOT proof that a player can reach it",
+  "action 1 (wait): waited 2s"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far_0",
+    "kind": "far",
+    "y": 585,
+    "xs": [
+     961,
+     736,
+     1186,
+     511,
+     1412,
+     285,
+     1637,
+     60,
+     1862
+    ],
+    "expect": 105,
+    "x": 961
+   },
+   "at": [
+    961,
+    585
+   ],
+   "reportedHeight": 105,
+   "expected": 105,
+   "drawnFrom": "art/actors/thad-idle-left/idle-02.png",
+   "bounds": [
+    906,
+    480,
+    109,
+    116
+   ],
+   "order": 0,
+   "renderedHeight": 105,
+   "renderedBottom": 584,
+   "file": "raw-captures-ignored/panel-c-mud_far_0-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     1875,
+     1421,
+     2329,
+     968,
+     2783,
+     514,
+     3236,
+     60,
+     3690
+    ],
+    "expect": 206,
+    "x": 1875
+   },
+   "at": [
+    1875,
+    857
+   ],
+   "reportedHeight": 206,
+   "expected": 206,
+   "drawnFrom": "art/actors/thad-idle-left/idle-05.png",
+   "bounds": [
+    1768,
+    651,
+    214,
+    227
+   ],
+   "order": 0,
+   "renderedHeight": 206,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "dawn_dog",
+   "feet": [
+    2628,
+    765
+   ],
+   "sheet": "art/actors/room-36-dog.png",
+   "clipPlane": null,
+   "box": {
+    "x": 789,
+    "y": 677,
+    "width": 119,
+    "height": 90
+   },
+   "seen": {
+    "x": 793,
+    "y": 698,
+    "width": 113,
+    "height": 64,
+    "bottom": 761,
+    "right": 905,
+    "changed": 4733
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "main_street_dawn",
+   "clock": 9.088899999999999,
+   "beat": null,
+   "control": null,
+   "camera": 1780,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "blanket",
+    "pickaxe",
+    "sample"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      3660,
+      600
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 111,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-02.png",
+     "bounds": [
+      3602,
+      489,
+      115,
+      123
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:main_street_dawn",
+     "path": "art/backgrounds/room-36-main-street-dawn.png",
+     "drawn": "art/backgrounds/room-36-main-street-dawn.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "08bef467c2750c5af85af4534883c5151ba14f0e2ce860802650b5392fd4a217"
+    },
+    {
+     "key": "art/actors/room-36-dog.png",
+     "path": "art/actors/room-36-dog.png",
+     "drawn": "art/actors/room-36-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f9e2672b11220940b0c46aee037979a4a807de8dc833bd5b28acce97323e7850"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(main_street_dawn)"
+   ],
+   "capturedAt": "2026-11-05T23:54:09.667Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "bd956ce14e4888e9ba4d57a0667b306726b94750fa4b8fbb2f7bb581de1acbd1"
+  },
+  {
+   "panel": "A",
+   "room": "main_street_dawn",
+   "clock": 9.938799999999999,
+   "beat": null,
+   "control": null,
+   "camera": 1780,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "blanket",
+    "pickaxe",
+    "sample"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      3660,
+      600
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 111,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:main_street_dawn",
+     "path": "art/backgrounds/room-36-main-street-dawn.png",
+     "drawn": "art/backgrounds/room-36-main-street-dawn.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "08bef467c2750c5af85af4534883c5151ba14f0e2ce860802650b5392fd4a217"
+    },
+    {
+     "key": "art/actors/room-36-dog.png",
+     "path": "art/actors/room-36-dog.png",
+     "drawn": "art/actors/room-36-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f9e2672b11220940b0c46aee037979a4a807de8dc833bd5b28acce97323e7850"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(main_street_dawn)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T23:54:10.505Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "8a45312134ac324d660d654e7af0e96cf142153bc7be2472618a4c49bf5f672d"
+  },
+  {
+   "panel": "D",
+   "room": "main_street_dawn",
+   "clock": 17.5885,
+   "beat": null,
+   "control": null,
+   "camera": 595,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH",
+    "T_CLOSE_SAID"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "blanket",
+    "pickaxe",
+    "sample"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      1875,
+      857
+     ],
+     "facing": "left",
+     "clip": "idle-break",
+     "height": 206,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-left/idle-break-06.png",
+     "bounds": [
+      1768,
+      651,
+      214,
+      227
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:main_street_dawn",
+     "path": "art/backgrounds/room-36-main-street-dawn.png",
+     "drawn": "art/backgrounds/room-36-main-street-dawn.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "08bef467c2750c5af85af4534883c5151ba14f0e2ce860802650b5392fd4a217"
+    },
+    {
+     "key": "art/actors/room-36-dog.png",
+     "path": "art/actors/room-36-dog.png",
+     "drawn": "art/actors/room-36-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f9e2672b11220940b0c46aee037979a4a807de8dc833bd5b28acce97323e7850"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(main_street_dawn)",
+    "cast(false)",
+    "cast(true)",
+    "stand(961,585)",
+    "cast(false)",
+    "cast(true)",
+    "stand(1875,857)",
+    "cast(false)",
+    "cast(true)",
+    "flag T_CLOSE_SAID=true"
+   ],
+   "capturedAt": "2026-11-05T23:54:18.148Z",
+   "intent": "principal changed state: DOC 48 S7 BEATS 3-4, as state: T_CLOSE_SAID set by the flag control, the coach stop gone and the street left at its close. The close itself -- 'Leave the mud.' and the letter over black -- is played by clicking the stop in the doors route (tools/gauntlet/routes/main-street-dawn-doors.json), from where the fixture stands him; by panel D the proof has moved him far down the street.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "9bee100fc5f4aaed2dceeb899b7802f06a29918118381e9a6381e33ec737cbc1",
+   "changedBy": "flags"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T23:54:18.148Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 882590,
+  "panels": 5,
+  "scale": 0.5
+ }
+}
