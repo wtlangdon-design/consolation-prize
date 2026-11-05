@@ -1,9 +1,9 @@
 {
  "room": "prosperity",
  "plate": "art/backgrounds/room-23-prosperity.png",
- "plateNote": "Read on the promoted plate (art/staging/room-23/plate-01/candidate-1920x864.png, room-23 attempt 2, a 20:9 crop from y 200 -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateNote": "NIGHT (Tyler, 2026-11-05; errata 98): room-23 attempt 4 relit the empty plate to the town's hour, every object where it was (art/staging/room-23/plate-night/frame.json). Read on the promoted plate (art/staging/room-23/plate-01/candidate-1920x864.png, room-23 attempt 2, a 20:9 crop from y 200 -- frame.json). Every rect below was read off that picture with a grid over it.",
  "plateShipping": "art/backgrounds/room-23-prosperity.png",
- "plateShippingHash": "62990833d1a3",
+ "plateShippingHash": "cd47d1784cc9",
  "plateSize": [
   1920,
   864

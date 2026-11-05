@@ -2678,3 +2678,13 @@ What Tyler still decides: acceptance of the art (errata 72 E, at the full playth
 **E · The art: all 4 of room-25's operations.** A composition master; the claim with nobody on it; Pratt's sheet on magenta against Thad -- four poses with his rake (rest, breath, checking the sky, raking), four walking with his mallet, four driving the stake. The Prosperity frames are graded into its dusk. THE SIGN's board is painted blank and lettered in the shipping face from the documents ("N. PRATT", doc 54; "NO COLOR YET", the sign's name), ruled in three lines (`tools/art/room25-sign.py`). The fourth relit the plate to dusk (A).
 
 **F · What waits.** D6's second half is Room 7's: "the next time Thad enters the Registrar's, Pratt is at the counter" -- PRA_D6 option 5 sets `T_PRATT_SWEARS` and the counter scene is not staged yet. A5's fourth way (PRA_A1 option 1) plays as dialogue; Pratt's walk over to the hole is the line's stage direction, not staged.
+
+# 98 · THE DIGGINGS ARE AT NIGHT — OWNER RULING (Tyler, 2026-11-05)
+
+*Tyler: "Raise the caps if you need to to make sure everything is appropriately set at night. Going from night back to dusk doesn't make sense."*
+
+**A · The town's hour is night, everywhere outside.** Errata 64a set Act I's Main Street at night and 64d ruled out a clock; Rooms 22, 23/24 and 25 were built at dusk (95 A, 96 A, 97 A), so walking out of the night town onto the road went back in time. All three are relit to night, and those three letters' hour is superseded by this one. The only change of light the game makes is the one the documents write: dawn at the end (doc 48 S4 beat 3, the shack's window; Room 36, Main Street at dawn).
+
+**B · How.** One operation each relit the empty plate to night against the approved night exteriors (Rooms 1 and 14) -- room-22 attempt 4, room-23 attempt 4, room-25 attempt 5 (its cap raised by one under this ruling; `art/staging/caps.json`). Nothing moved: every rect, walk band and depth curve stands. The figures carry one night grade (0.66, 0.68, 0.84): the miners, the raccoons and the meeting, Pratt on his claim and on Prosperity, and his stake. THE SIGN's pale lettering stands.
+
+**C · No line changed.** Doc 10 times the miners "six in the morning and seven at night" and both crowds walk the road (95 E): at night they are the late shift home and the early one out, unchanged. "Lovely morning" is Thad's, said in the dark; Pratt checks the sky and says "Yep."

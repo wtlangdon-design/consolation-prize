@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "prosperity",
   "name": "PROSPERITY",
-  "materialIdentity": "A bare hillside claim: mud, rock and something unidentified, a leaning stake, a dark old hole; dusk (errata 96 A)",
+  "materialIdentity": "A bare hillside claim: mud, rock and something unidentified, a leaning stake, a dark old hole; night, the town's hour (errata 98)",
   "note": "Rooms 23 and 24, doc 20: Thad's claim and its hole (one room, CLAUDE.md), above the road to the claims. Reached by the road's way up and by the map, only while Thad holds the Company's map (doc 57 A4). THE HOLE's LISTEN is one of the three lines that must never be marked (invariant 3, doc 05): it is compiled like every other line. A5, the raccoon, plays here (doc 54); F1 in Act IV. Lines EXTRACTED from the documents by tools/extract-examine.mjs and compiled by tools/compile-room.mjs. Do not edit: change the docs and re-run.",
   "background": "art/backgrounds/room-23-prosperity.png",
   "colours": {

@@ -4,7 +4,7 @@
  "room": "prosperity",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "41470700550ca82d7334c05d08f4278ba6cb3100",
+ "commit": "734a4cb8243ebececd19a553e35e6413b95a34f5",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -115,7 +115,7 @@
     "height": 80,
     "bottom": 482,
     "right": 1217,
-    "changed": 3246
+    "changed": 3230
    },
    "props": []
   }
@@ -124,7 +124,7 @@
   {
    "panel": "B",
    "room": "prosperity",
-   "clock": 9.172600000000001,
+   "clock": 9.2871,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -153,7 +153,8 @@
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
-    "RACCOON_NAME": 0
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
    },
    "inventory": [
     "tuning_fork",
@@ -196,7 +197,7 @@
      "drawn": "art/backgrounds/room-23-prosperity.png",
      "candidate": false,
      "loaded": true,
-     "hash": "62990833d1a3af0d698f7cbade7ed4592bfb933648bd93be85cbb7e232e0a7f0"
+     "hash": "cd47d1784cc93ce84ac772e0eb38fadbf297c8b6d1c758d3cb5efeada272b2ab"
     },
     {
      "key": "art/actors/room-23-raccoon.png",
@@ -204,7 +205,7 @@
      "drawn": "art/actors/room-23-raccoon.png",
      "candidate": false,
      "loaded": true,
-     "hash": "319b03e86a798a733f42fcad99bfc53d65924a3942af0d80bed0c6ae774e21e1"
+     "hash": "5d01d9cbdc7f4d4d483a6ed5f48eb0a602f6d657f041e5a74fca009fc2c93d69"
     }
    ],
    "stubs": [],
@@ -212,15 +213,15 @@
    "controlWrites": [
     "enter(prosperity)"
    ],
-   "capturedAt": "2026-11-05T16:28:14.360Z",
+   "capturedAt": "2026-11-05T18:34:22.714Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "e4d702f10189a9b2f1573193b813fd4ffab2b3bebc07fe85a3b7295965ee08a3"
+   "hash": "87025d0695d2a2e5e881c424c0f605b27321cde57f8d07c2e98c0a17e815c30e"
   },
   {
    "panel": "A",
    "room": "prosperity",
-   "clock": 10.0226,
+   "clock": 10.1204,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -249,7 +250,8 @@
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
-    "RACCOON_NAME": 0
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
    },
    "inventory": [
     "tuning_fork",
@@ -287,7 +289,7 @@
      "drawn": "art/backgrounds/room-23-prosperity.png",
      "candidate": false,
      "loaded": true,
-     "hash": "62990833d1a3af0d698f7cbade7ed4592bfb933648bd93be85cbb7e232e0a7f0"
+     "hash": "cd47d1784cc93ce84ac772e0eb38fadbf297c8b6d1c758d3cb5efeada272b2ab"
     },
     {
      "key": "art/actors/room-23-raccoon.png",
@@ -295,7 +297,7 @@
      "drawn": "art/actors/room-23-raccoon.png",
      "candidate": false,
      "loaded": true,
-     "hash": "319b03e86a798a733f42fcad99bfc53d65924a3942af0d80bed0c6ae774e21e1"
+     "hash": "5d01d9cbdc7f4d4d483a6ed5f48eb0a602f6d657f041e5a74fca009fc2c93d69"
     }
    ],
    "stubs": [],
@@ -304,15 +306,15 @@
     "enter(prosperity)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T16:28:15.192Z",
+   "capturedAt": "2026-11-05T18:34:23.538Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "1c157b9d6f5ea163ce562f64517156925ca85307d9642a515d73662cdc5415b8"
+   "hash": "0c3cc0212d91ad4f4996021a651ce07ea405600af01a29456a577e5b6cac3e9a"
   },
   {
    "panel": "D",
    "room": "prosperity",
-   "clock": 24.6386,
+   "clock": 24.7198,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -342,7 +344,8 @@
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
-    "RACCOON_NAME": 0
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
    },
    "inventory": [
     "tuning_fork",
@@ -385,7 +388,7 @@
      "drawn": "art/backgrounds/room-23-prosperity.png",
      "candidate": false,
      "loaded": true,
-     "hash": "62990833d1a3af0d698f7cbade7ed4592bfb933648bd93be85cbb7e232e0a7f0"
+     "hash": "cd47d1784cc93ce84ac772e0eb38fadbf297c8b6d1c758d3cb5efeada272b2ab"
     },
     {
      "key": "art/actors/room-23-raccoon.png",
@@ -393,7 +396,7 @@
      "drawn": "art/actors/room-23-raccoon.png",
      "candidate": false,
      "loaded": true,
-     "hash": "319b03e86a798a733f42fcad99bfc53d65924a3942af0d80bed0c6ae774e21e1"
+     "hash": "5d01d9cbdc7f4d4d483a6ed5f48eb0a602f6d657f041e5a74fca009fc2c93d69"
     }
    ],
    "stubs": [],
@@ -410,10 +413,10 @@
     "cast(true)",
     "flag T_RACCOON_MEETING=true"
    ],
-   "capturedAt": "2026-11-05T16:28:29.812Z",
+   "capturedAt": "2026-11-05T18:34:38.145Z",
    "intent": "principal changed state: T_RACCOON_MEETING (doc 54 A5, the bait). Visible consequence: three more raccoons walk in along the slope and settle in around the first.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "41282593ad3f6dfd3d9199de0e0af00ba048402fcd5b4c62067564d882f78073",
+   "hash": "1eff6dc9a75a88ea54abcd5b12a4e4f64d7b19db8bbf8537d0d3371dba260132",
    "changedBy": "flags"
   }
  ],
@@ -444,11 +447,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T16:28:29.813Z",
+ "at": "2026-11-05T18:34:38.145Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 352276,
+  "bytes": 359230,
   "panels": 5,
   "scale": 0.5
  }

@@ -30,7 +30,7 @@ GAP = 2
 SIT = 80           # his sitting height in the plate, at the hole's mouth (well up the hill)
 MOUTH = (1180, 482)  # the centre of the hole's mouth, its floor
 MEET = [(-100, 4, (1.1, 1.05, 0.95)), (100, 3, (0.85, 0.85, 0.9)), (170, 7, (1.0, 0.95, 0.9))]
-DUSK = (0.72, 0.72, 0.8)   # graded into the hillside's light
+NIGHT = (0.66, 0.68, 0.84)   # graded into the hillside's night (Tyler, 2026-11-05)
 
 
 def frames_of(src, mask, y0, y1):
@@ -97,8 +97,8 @@ def main():
     sit = frames_of(src, mask, rows[0], split)
     walk = frames_of(src, mask, split, rows[-1] + 1)
     k = SIT / max(f.shape[0] for f in sit)
-    sit = [tint(scaled(f, k), DUSK) for f in sit]
-    walk = [tint(scaled(f, k), DUSK) for f in walk]
+    sit = [tint(scaled(f, k), NIGHT) for f in sit]
+    walk = [tint(scaled(f, k), NIGHT) for f in walk]
     he = sheet(sit + walk, 'raccoon', {'sitHeight': SIT, 'walkHeight': max(f.shape[0] for f in walk),
                                        'frameNames': ['rest', 'breath', 'look', 'eat', 'walk 1', 'walk 2', 'walk 3', 'walk 4'],
                                        'anchor': {'x': MOUTH[0], 'y': MOUTH[1]},

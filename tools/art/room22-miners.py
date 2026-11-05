@@ -21,6 +21,7 @@ from scipy import ndimage as ndi
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 S = os.path.join(ROOT, 'art/staging/room-22')
 KEY = 90
+NIGHT = (0.66, 0.68, 0.84)   # the diggings at night, the grade Rooms 23 and 25 use
 GAP = 2
 
 
@@ -62,10 +63,13 @@ def main():
             cast = (c[..., 0] + c[..., 2]) / 2 - c[..., 1] > 24
             for ch in (0, 2):
                 c[..., ch] = np.where(cast, np.minimum(c[..., ch], c[..., 1] + 24), c[..., ch])
+            # GRADED INTO THE ROAD'S NIGHT (Tyler, 2026-11-05: the diggings are at
+            # the town's hour), as Rooms 23 and 25 grade their figures.
+            c = (c.astype(float) * np.array(NIGHT)).astype(int)
             # NEAR-BLACK PURPLES READ AS TRAPPED KEY (tools/check-residual-key.mjs,
-            # as Room 16's veil did): their red warmed by 3 so R is not B.
-            dark = (np.abs(c[..., 0] - c[..., 2]) <= 1) & (c[..., 0] - c[..., 1] >= 8) & (c[..., 0] < 40)
-            c[..., 0] = np.where(dark, c[..., 0] + 3, c[..., 0])
+            # as Room 16's veil did): their red warmed so R is not B.
+            dark = (np.abs(c[..., 0] - c[..., 2]) <= 1) & (c[..., 0] - c[..., 1] >= 8) & (c[..., 0] < 48)
+            c[..., 0] = np.where(dark, c[..., 0] + 4, c[..., 0])
             px[..., :3] = c
             px[..., 3] = np.where(m, 255, 0)
             frames.append(rgba)

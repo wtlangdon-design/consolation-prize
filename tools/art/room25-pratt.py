@@ -3,12 +3,12 @@
 ON HIS CLAIM (doc 04 PRA_A1: "Pratt on his own claim, beside Prosperity,
 raking"): rest, breath, his head tipped back to check the sky ("He looks up
 at the sky, checking"), and raking -- the deliberate action errata 77 asks
-for. Graded into Room 25's dusk, the hour next door (Tyler, 2026-11-05).
+for. Graded into Room 25's night, the town's hour (Tyler, 2026-11-05).
 
 ON PROSPERITY (doc 57 D2: "Pratt is on it, pulling up the stake"; doc 04
 PRA_D2: "with a stake and a mallet, mid-jump"): the mallet at rest, breath,
 raised and striking a new stake at his boots; and his walk, mallet in hand,
-for when he goes back next door. Graded into Room 23's dusk.
+for when he goes back next door. Graded into Room 23's night.
 
 Cut per cell, not per blob: the new stake stands apart from him in three of
 the four frames and belongs to every one. Keyed off magenta as
@@ -32,7 +32,7 @@ HOME = (1450, 716)       # where he rakes, in Room 25: before the trench, clear 
 HOME_H = 395             # Room 25's curve at y 716 is 383; he is the bigger man (1.03)
 JUMP = (560, 762)        # beside the claim marker on Prosperity
 JUMP_H = 409             # Room 23's curve at y 762 is 397, times 1.03
-DUSK = (0.72, 0.72, 0.8)
+NIGHT = (0.66, 0.68, 0.84)   # the diggings at night (Tyler, 2026-11-05)
 
 
 def cells(src, mask):
@@ -177,17 +177,17 @@ def main():
     mask = ndi.binary_opening(key < KEY, iterations=1)
     rake, walk, mallet = cells(src, mask)
     k = HOME_H / rake[0].shape[0]
-    home = sheet([[tint(scaled(f, k), DUSK) for f in rake]], 'pratt', {
+    home = sheet([[tint(scaled(f, k), NIGHT) for f in rake]], 'pratt', {
         'height': HOME_H, 'frameNames': ['rest', 'breath', 'sky', 'rake'], 'anchor': {'x': HOME[0], 'y': HOME[1]},
         'source': 'room-25 attempt 3 (art/staging/room-25/pratt-01/sheet.png), the top row'})
     j = JUMP_H / mallet[0].shape[0]
     jw = JUMP_H / max(f.shape[0] for f in walk) * 0.97
-    jump_tiles = [tint(scaled(f, j), DUSK) for f in mallet] + [tint(scaled(f, jw), DUSK) for f in walk]
+    jump_tiles = [tint(scaled(f, j), NIGHT) for f in mallet] + [tint(scaled(f, jw), NIGHT) for f in walk]
     jump = sheet([jump_tiles[:4], jump_tiles[4:]], 'pratt-jump', {
         'height': JUMP_H, 'walkHeight': max(t.shape[0] for t in jump_tiles[4:]),
         'frameNames': ['mallet rest', 'mallet breath', 'mallet up', 'mallet down', 'walk 1', 'walk 2', 'walk 3', 'walk 4'],
         'drawnFacing': 'left', 'anchor': {'x': JUMP[0], 'y': JUMP[1]},
-        'source': 'room-25 attempt 3, the bottom and middle rows, graded into Room 23\'s dusk'})
+        'source': 'room-25 attempt 3, the bottom and middle rows, graded into Room 23\'s night'})
     stake = unstake(jump)
     plate = Image.open(os.path.join(ROOT, 'art/backgrounds/room-25-pratts-claim.png')).convert('RGBA')
     p = Image.open(f'{S}/pratt/pratt.png').convert('RGBA')

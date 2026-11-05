@@ -4,7 +4,7 @@
  "room": "claims_road",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "4ad0b6e2ff359f73c4d9c25290b216d401364307",
+ "commit": "2240419b8cc1559fa8b9cf83d3b3b9f75683e4e4",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -62,7 +62,7 @@
    ],
    "reportedHeight": 279,
    "expected": 279,
-   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
    "bounds": [
     885,
     437,
@@ -99,7 +99,7 @@
    ],
    "reportedHeight": 374,
    "expected": 374,
-   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
    "bounds": [
     836,
     483,
@@ -107,7 +107,7 @@
     413
    ],
    "order": 0,
-   "renderedHeight": 374,
+   "renderedHeight": 394,
    "renderedBottom": 856,
    "file": "raw-captures-ignored/panel-c-mud_near-near.png"
   }
@@ -118,7 +118,7 @@
   {
    "panel": "B",
    "room": "claims_road",
-   "clock": 114.27560000000001,
+   "clock": 118.1635,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -142,7 +142,9 @@
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
    },
    "inventory": [
     "letter",
@@ -161,7 +163,7 @@
      "height": 329,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
       69,
       461,
@@ -182,7 +184,7 @@
      "drawn": "art/backgrounds/room-22-claims-road.png",
      "candidate": false,
      "loaded": true,
-     "hash": "2fa7d921a4f119b8ab0e66fc31c8c6d19e92b8422cf983f63c4b9492ed631439"
+     "hash": "88a5f4efd234d1e364a8669304ff72ec20f2d2e3051d9dd87dcab89f14942ba0"
     },
     {
      "key": "art/actors/room-22-miners.png",
@@ -190,7 +192,7 @@
      "drawn": "art/actors/room-22-miners.png",
      "candidate": false,
      "loaded": true,
-     "hash": "1c6e94cf8614e4cd0d745b6ad4fea96318e4ec526652f5d37b2a33ba984638cf"
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
     },
     {
      "key": "art/actors/room-22-miners.png",
@@ -198,21 +200,21 @@
      "drawn": "art/actors/room-22-miners.png",
      "candidate": false,
      "loaded": true,
-     "hash": "1c6e94cf8614e4cd0d745b6ad4fea96318e4ec526652f5d37b2a33ba984638cf"
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
     }
    ],
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-05T15:59:27.430Z",
+   "capturedAt": "2026-11-05T18:28:50.573Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "1c0e7ea040bd49733cf5b18f2a5bdb3257f6891682b2bd4dbe7f0393ed7bf5db"
+   "hash": "ae41b92596f38637a6f4aeb4c7158749bd357294e2c1f89bc14965c28ac7473a"
   },
   {
    "panel": "A",
    "room": "claims_road",
-   "clock": 115.15889999999999,
+   "clock": 119.0968,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -236,7 +238,9 @@
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
    },
    "inventory": [
     "letter",
@@ -271,7 +275,7 @@
      "drawn": "art/backgrounds/room-22-claims-road.png",
      "candidate": false,
      "loaded": true,
-     "hash": "2fa7d921a4f119b8ab0e66fc31c8c6d19e92b8422cf983f63c4b9492ed631439"
+     "hash": "88a5f4efd234d1e364a8669304ff72ec20f2d2e3051d9dd87dcab89f14942ba0"
     },
     {
      "key": "art/actors/room-22-miners.png",
@@ -279,7 +283,7 @@
      "drawn": "art/actors/room-22-miners.png",
      "candidate": false,
      "loaded": true,
-     "hash": "1c6e94cf8614e4cd0d745b6ad4fea96318e4ec526652f5d37b2a33ba984638cf"
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
     },
     {
      "key": "art/actors/room-22-miners.png",
@@ -287,7 +291,7 @@
      "drawn": "art/actors/room-22-miners.png",
      "candidate": false,
      "loaded": true,
-     "hash": "1c6e94cf8614e4cd0d745b6ad4fea96318e4ec526652f5d37b2a33ba984638cf"
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
     }
    ],
    "stubs": [],
@@ -295,10 +299,10 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T15:59:28.330Z",
+   "capturedAt": "2026-11-05T18:28:51.526Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "37cd823d412ba880e32679e2767c2a5faabc3858f09fed48aa89add11fe05a5b"
+   "hash": "3cafdaeede6ad5eb2194338d3a1c7e63939017476806f3656746a83127db0cfa"
   }
  ],
  "failures": [],
@@ -328,11 +332,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T15:59:32.572Z",
+ "at": "2026-11-05T18:28:56.132Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 382408,
+  "bytes": 364594,
   "panels": 4,
   "scale": 0.5
  }

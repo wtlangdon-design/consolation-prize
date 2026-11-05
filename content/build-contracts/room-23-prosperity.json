@@ -59,7 +59,7 @@
    "evidence": [
     "reference/room-23/annotation.json"
    ],
-   "note": "Dusk; the raccoons graded into it."
+   "note": "Night, the town's hour (Tyler, 2026-11-05; errata 98); the figures graded into it."
   },
   "cluePerceptibility": {
    "status": "PASS",
@@ -83,7 +83,7 @@
     "art/staging/caps.json",
     "art/staging/ledger.json"
    ],
-   "note": "room-23: 3 of 4 operations (master, plate, the raccoon's sheet)."
+   "note": "room-23: 4 of 4 operations, the last the relight to night (errata 98)."
   }
  },
  "liveGates": {
@@ -147,9 +147,9 @@
    "path": "art/backgrounds/room-23-prosperity.png",
    "evidence": [
     "art/staging/ledger.json",
-    "art/staging/room-23/plate-01/frame.json"
+    "art/staging/room-23/plate-night/frame.json"
    ],
-   "note": "Promoted provisionally (errata 72 E)."
+   "note": "Attempt 4, relit to night; promoted provisionally (errata 72 E)."
   },
   {
    "subject": "the raccoon",

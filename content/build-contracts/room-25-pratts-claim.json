@@ -60,7 +60,7 @@
    "evidence": [
     "reference/room-25/annotation.json"
    ],
-   "note": "Dusk, the hour next door (Tyler, 2026-11-05); Pratt graded into it."
+   "note": "Night, the town's hour (Tyler, 2026-11-05; errata 98); the figures graded into it."
   },
   "cluePerceptibility": {
    "status": "PASS",
@@ -84,7 +84,7 @@
     "art/staging/caps.json",
     "art/staging/ledger.json"
    ],
-   "note": "room-25: 4 of 4 operations (master, plate, Pratt's sheet, the plate relit to dusk)."
+   "note": "room-25: 5 of 5 operations, the last the relight to night (errata 98)."
   }
  },
  "liveGates": {
@@ -148,9 +148,9 @@
    "path": "art/backgrounds/room-25-pratts-claim.png",
    "evidence": [
     "art/staging/ledger.json",
-    "art/staging/room-25/plate-02/frame.json"
+    "art/staging/room-25/plate-night/frame.json"
    ],
-   "note": "Attempt 4, attempt 2 relit to dusk; promoted provisionally (errata 72 E)."
+   "note": "Attempt 5, relit to night; promoted provisionally (errata 72 E)."
   },
   {
    "subject": "Pratt, on his claim",
