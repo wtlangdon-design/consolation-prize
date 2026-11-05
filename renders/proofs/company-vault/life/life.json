@@ -1,0 +1,909 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "company_vault",
+ "commit": "8182c5accf979be449700d2a64dd0ae6ef13ea3d",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": null,
+ "fixture": "r35-a",
+ "warped": false,
+ "lifeRoute": "company-vault-life",
+ "durationSeconds": 35.98,
+ "events": [
+  {
+   "t": 2.92,
+   "line": "started from fixture r35-a, no entry route"
+  },
+  {
+   "t": 6.11,
+   "line": "in company_vault; life route: 21 action(s)"
+  },
+  {
+   "t": 6.83,
+   "line": "capture 01-arrived: room company_vault, says null, options 0, control null"
+  },
+  {
+   "t": 7.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     460,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 8.84,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     460,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 9.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     460,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     460,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 11.86,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     460,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.84,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 12.86,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     460,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.89,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 13.07,
+   "line": "action 1 (click): clicked company_vault/strongbox at world 1092,570 -- THE STRONGBOX"
+  },
+  {
+   "t": 14.1,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     773,
+     797
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 15.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1087,
+     805
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 15.7,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room company_vault"
+  },
+  {
+   "t": 16.2,
+   "line": "capture 02-look-strongbox: room company_vault, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 16.23,
+   "line": "action 1 (waitFor): reached {} in room company_vault"
+  },
+  {
+   "t": 17.24,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1092,
+     823
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.24,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1092,
+     823
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 19.24,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 19.25,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1092,
+     823
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 19.3,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 19.45,
+   "line": "action 1 (click): clicked company_vault/champagne at world 1636,241 -- THE CHAMPAGNE"
+  },
+  {
+   "t": 19.48,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room company_vault"
+  },
+  {
+   "t": 19.98,
+   "line": "capture 03-listen-champagne: room company_vault, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 20.02,
+   "line": "action 1 (waitFor): reached {} in room company_vault"
+  },
+  {
+   "t": 21.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1557,
+     857
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 22.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1571,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 23.03,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 23.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1571,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 23.07,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 23.22,
+   "line": "action 1 (click): clicked company_vault/map_private at world 1438,277 -- THE MAP, PRIVATE"
+  },
+  {
+   "t": 23.27,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room company_vault"
+  },
+  {
+   "t": 23.72,
+   "line": "capture 04-look-map: room company_vault, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 23.75,
+   "line": "action 1 (waitFor): reached {} in room company_vault"
+  },
+  {
+   "t": 24.76,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1438,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 25.77,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1438,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 26.76,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 26.77,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1438,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 27.77,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1438,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 28.77,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1438,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 29.79,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1438,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 30.8,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1438,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 31.78,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1438,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 32.8,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1438,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 33.77,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1438,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 34.76,
+   "line": "action 1 (wait): waited 8s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "the vault",
+   "t": 6.83,
+   "file": "renders/proofs/company-vault/life/raw-captures-ignored/01-arrived.png",
+   "hash": "2400494242d7f5c96b2ba3783faeb688f2f6ebd3d971fdb45ffbeaa430f6b435",
+   "room": "company_vault",
+   "clock": 6.4593,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      460,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 386,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      260,
+      404,
+      400,
+      426
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:company_vault",
+     "path": "art/backgrounds/room-35-company-vault.png",
+     "drawn": "art/backgrounds/room-35-company-vault.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "afa28d776735a7c11afb656a8184561e1471b005acb59c822e79edd43b2d7c33"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-look-strongbox",
+   "why": null,
+   "t": 16.2,
+   "file": "renders/proofs/company-vault/life/raw-captures-ignored/02-look-strongbox.png",
+   "hash": "215bd85c3092776068f07ef7f64811f0296c71aeacd560cc98033c83c8451173",
+   "room": "company_vault",
+   "clock": 16.0088,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1092,
+      823
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 395,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      858,
+      428,
+      468,
+      436
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:company_vault",
+     "path": "art/backgrounds/room-35-company-vault.png",
+     "drawn": "art/backgrounds/room-35-company-vault.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "afa28d776735a7c11afb656a8184561e1471b005acb59c822e79edd43b2d7c33"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-listen-champagne",
+   "why": null,
+   "t": 19.98,
+   "file": "renders/proofs/company-vault/life/raw-captures-ignored/03-listen-champagne.png",
+   "hash": "96a3b9c8c3c9434f6c4afc096c4b5f12cf9925fbd641bbd4798117a82eb8b6f5",
+   "room": "company_vault",
+   "clock": 19.6587,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1202,
+      857
+     ],
+     "facing": "right",
+     "clip": "walk",
+     "height": 404,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-right/walk-02.png",
+     "bounds": [
+      1010,
+      453,
+      407,
+      434
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:company_vault",
+     "path": "art/backgrounds/room-35-company-vault.png",
+     "drawn": "art/backgrounds/room-35-company-vault.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "afa28d776735a7c11afb656a8184561e1471b005acb59c822e79edd43b2d7c33"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-look-map",
+   "why": null,
+   "t": 23.72,
+   "file": "renders/proofs/company-vault/life/raw-captures-ignored/04-look-map.png",
+   "hash": "f45a8432be75be4fde2e3ac3932afe42d520c2d9da8020e4e050c6c878be25c1",
+   "room": "company_vault",
+   "clock": 23.4419,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1451,
+      857
+     ],
+     "facing": "left",
+     "clip": "walk",
+     "height": 404,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-left/walk-02.png",
+     "bounds": [
+      1236,
+      453,
+      407,
+      434
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:company_vault",
+     "path": "art/backgrounds/room-35-company-vault.png",
+     "drawn": "art/backgrounds/room-35-company-vault.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "afa28d776735a7c11afb656a8184561e1471b005acb59c822e79edd43b2d7c33"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 35.98s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T23:16:18.110Z"
+}

@@ -61,6 +61,15 @@
    ],
    "facing": "right",
    "note": "Anything else arrives by the door."
+  },
+  {
+   "from": "company_vault",
+   "at": [
+    1615,
+    840
+   ],
+   "facing": "left",
+   "note": "Out of the vault, by the safe (errata 99 I)."
   }
  ],
  "hotspots": {
@@ -166,6 +175,12 @@
    140,
    200,
    560
+  ],
+  "to_company_vault": [
+   1700,
+   250,
+   170,
+   350
   ]
  },
  "exitWalkTo": {
@@ -173,6 +188,11 @@
    "x": 230,
    "y": 780,
    "facing": "left"
+  },
+  "to_company_vault": {
+   "x": 1615,
+   "y": 852,
+   "facing": "back"
   }
  },
  "obstacles": [],

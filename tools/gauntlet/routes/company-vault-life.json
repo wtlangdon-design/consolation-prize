@@ -1,0 +1,101 @@
+{
+ "schema": 1,
+ "room": "company_vault",
+ "note": "ROOM 35's LIFE ROUTE, ruling 47: about a minute in the vault (fixture r35-a). Nobody here; the oil lamp is the only moving thing. LOOK at the strongbox, LISTEN to the champagne, LOOK at the private map.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-arrived",
+   "why": "the vault"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "strongbox",
+   "why": "THE STRONGBOX"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "02-look-strongbox"
+  },
+  {
+   "do": "waitFor",
+   "idle": true,
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "champagne",
+   "why": "THE CHAMPAGNE"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "03-listen-champagne"
+  },
+  {
+   "do": "waitFor",
+   "idle": true,
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "map_private",
+   "why": "THE MAP, PRIVATE"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "04-look-map"
+  },
+  {
+   "do": "waitFor",
+   "idle": true,
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  }
+ ]
+}

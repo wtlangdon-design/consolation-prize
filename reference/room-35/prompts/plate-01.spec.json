@@ -1,0 +1,13 @@
+{
+ "assetId": "room-35",
+ "subject": "room-35-company-vault",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-35-company-vault",
+ "promptFile": "reference/room-35/prompts/plate-01.txt",
+ "out": "art/staging/room-35/plate-01/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-35/plate-01/input.png"
+ ]
+}

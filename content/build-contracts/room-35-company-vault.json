@@ -1,0 +1,179 @@
+{
+ "schema": 1,
+ "id": "room-35-company-vault",
+ "room": "company_vault",
+ "docRoom": 35,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 35 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/10-examine-batch-3.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-35.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "One picture; Act IV only (doc 20); in through THE SAFE in Fanshawe's office."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-35/graybox.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Every subject is plate."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-35.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Nobody: 'The vault is empty of people'."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/company-vault/life/life.json"
+   ],
+   "note": "Nobody here; the oil lamp is the only moving thing."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/company-vault/proof.json"
+   ],
+   "note": "Thad stands on the iron floor; the chair and the lamp are obstacles."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-35/annotation.json"
+   ],
+   "note": "Lamplit interior; no lift."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-35.test.ts",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "No puzzle is sited here."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-35.json",
+    "content/rooms/company-vault.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 95 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-35: 2 of 4 operations (master, plate)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/company-vault.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-35/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/company-vault/proof.json"
+   ],
+   "note": "Panel D: the act gate (ACT 3). Started from fixture r35-a."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/company-vault/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/company-vault/doors/life.json",
+    "tests/room-35.test.ts"
+   ],
+   "note": "Out through the vault door and back in through the safe, twice."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-35/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships. The search fund and the deeds are copied back from it."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-35-company-vault.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-35/plate-01/frame.json"
+   ],
+   "note": "Attempt 2, patched; promoted provisionally (errata 72 E)."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q175 · Room 35, the Company vault: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 I, delegated); BUILT, room-35 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q175 · Room 35, the Company vault: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 I, delegated); BUILT, room-35 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

@@ -4883,3 +4883,7 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 - **The ninety seconds have no music.** `R33-M` is THADDEUS complete, and it does not exist: the only THADDEUS is the four-bar placeholder, written to stop on the third. Finishing it is composing, which is yours or a composer's (doc 28 Part Seven). The tuning, the lamp and the lock all run; until the bed exists they run over silence.
 - **Thad stands, not sits,** for the ninety seconds (doc 48 S5 beat 3): there is no seated Thad to draw him with.
 
+## Q175 · Room 35, the Company vault: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 I, delegated); BUILT, room-35 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Sixteen subjects and ninety-five lines; nobody, no puzzle. In through THE SAFE in Fanshawe's office from Act IV (`?fixture=r35-a`). Played in `tests/room-35.test.ts`. Proofs under `renders/proofs/company-vault/`.
+

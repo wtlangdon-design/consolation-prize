@@ -131,6 +131,7 @@ Stop the room, not the build, and say so in doc 36 and to Tyler, when:
 | 31 | 2026-11-05 | #139 | 4 of 4 (master, plate, the watchman's walk, the hill at night) | The funeral by day: thirteen subjects, the town at the grave, Sowerby's eulogy as a bark; beat 3 on the second LOOK at the grave; THE COFFIN · USE into Room 32 (E7), and Room 32 hands back to the hill at night (E8, `T_FUNERAL_DONE`). Up from Boot Hill's plot once the executor is named (`?fixture=r31-a`). Procession unstaged; seven mourners drawn for nine (doc 36 Q173, errata 99 G) |
 | 34 | 2026-11-05 | #141 | 3 of 4 (master, plate, the second state) | Under Prosperity: Thad's tunnel by his lamp, thirteen subjects; down by the pickaxe on the hole after F1 and by the hole after; THE GAP to Room 33 (doc 57's lines); after F3 the seam, the lantern and the footprints (errata 69 A). `?fixture=r34-a` (doc 36 Q174, errata 99 H) |
 | 33 | 2026-11-05 | #141 | 3 of 4 (master, plate, the broken wall) | The listening chamber: the LOOK ladder, LISTEN as taps with ripples toward the void, its one line, the ninety seconds tuning the score and stilling the lamp; F3's three swings into Room 34's second state. `R33-M` unwritten -- the ninety seconds are silent (doc 36 Q174, errata 99 H). `?fixture=r33-a` |
+| 35 | 2026-11-05 | #142 | 2 of 4 (master, plate) | The Company vault: sixteen subjects, nobody; in through THE SAFE in Fanshawe's office from Act IV, out by THE VAULT DOOR. `?fixture=r35-a` (doc 36 Q175, errata 99 I) |
 
 ## 8 · What playing found — held by a script where a script can hold it
 

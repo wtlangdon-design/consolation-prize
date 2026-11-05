@@ -1,0 +1,1007 @@
+{
+  "schema": 1,
+  "id": "company_vault",
+  "name": "THE COMPANY VAULT",
+  "materialIdentity": "The Improvement Company's iron vault behind Fanshawe's office: the great round door, the real ledgers, the deeds of the whole town, the search fund, the private map, the strongbox, the champagne for the day; lit by an oil lamp on the floor under a gas lamp never lit (errata 99 I)",
+  "note": "Room 35, doc 20: the Company vault, off Fanshawe's office (11), gated to Act IV. Sixteen subjects (doc 54), nobody, no puzzle. In through THE SAFE in Room 11 from Act IV; out by THE VAULT DOOR (errata 99 I).",
+  "background": "art/backgrounds/room-35-company-vault.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "exits": [
+    {
+      "id": "to_fanshawe_office",
+      "name": "THE VAULT DOOR",
+      "rect": [
+        0,
+        80,
+        350,
+        720
+      ],
+      "colour": 0,
+      "to": "fanshawe_office",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A door from a city bank, freighted here whole. It cost more than everything it protects, which the Colonel would call an investment in impressions.",
+            "repeat": [
+              "The bolts are as thick as my wrist, and there are eleven of them. Somebody counted his secrets and ordered a bolt for each.",
+              "It stands open. For a door this expensive, it looks very tired of the arrangement."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The mechanism, oiled and huge. It breathes better than most residents.",
+            "repeat": [
+              "The tumblers ticking faintly as the door settles on its hinges.",
+              "A long iron sigh when I lean on it. The most honest thing in the building is the weight of this door."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 54: the great door, standing open -- the way back into Fanshawe's office (doc 20).",
+      "walkTo": {
+        "x": 420,
+        "y": 780,
+        "facing": "left"
+      }
+    }
+  ],
+  "ambient": [],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-35.json",
+      "reference/room-35/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        380,
+        700,
+        1220,
+        53
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        380,
+        753,
+        1220,
+        52
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        380,
+        805,
+        1220,
+        53
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      380,
+      700
+    ],
+    [
+      1600,
+      700
+    ],
+    [
+      1600,
+      858
+    ],
+    [
+      380,
+      858
+    ]
+  ],
+  "entrance": [
+    460,
+    790
+  ],
+  "entrances": [
+    {
+      "from": "fanshawe_office",
+      "at": [
+        460,
+        790
+      ],
+      "facing": "right",
+      "note": "In through the great door, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        460,
+        790
+      ],
+      "facing": "right",
+      "note": "As through the door."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "unsold_deeds",
+      "name": "THE UNSOLD DEEDS",
+      "rect": [
+        767,
+        504,
+        107,
+        53
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Two hundred claims, unsold, held quietly. All of them adjoining Claim One. Every piece of ground a man might dig near the strike belongs to the Company, and has for years.",
+            "repeat": [
+              "Every one is drawn properly, right side up, with a boundary description. They kept the good paperwork for themselves.",
+              "Two hundred claims, and one gap in the ring around Claim One. The gap is mine."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Two hundred claims nobody is allowed to dig, keeping very quiet about it.",
+              "The bundle shifting as I set it down. Paper, heavier than any of it is worth."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 821,
+        "y": 823,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "share_certificates",
+      "name": "THE SHARE CERTIFICATES",
+      "rect": [
+        1600,
+        393,
+        91,
+        67
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Shares in the Consolation Improvement Company, beautifully engraved, with a sunrise over a gold field that does not exist.",
+            "repeat": [
+              "These are unsigned. The Company kept its own shares and sold the town everything else.",
+              "Each one has a vignette of a miner holding up a nugget and smiling. He has the same face as Obadiah Mott."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Engraved paper is very confident and very quiet.",
+            "repeat": [
+              "A stack shifting, crisp, like cards being squared.",
+              "Nothing. The sunrise on them has been rising for twelve years without a sound."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1560,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "champagne",
+      "name": "THE CHAMPAGNE",
+      "rect": [
+        1611,
+        167,
+        49,
+        147
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "One bottle, dusty, laid down with a label in Fanshawe's hand: FOR THE DAY.",
+            "repeat": [
+              "The dust on it is twelve years thick. I wrote nothing in it, which took some restraint.",
+              "FOR THE DAY. I begin to think he meant the day he would no longer need to lie, and that he never once expected it to come."
+            ],
+            "then": [
+              "He has never specified which day. I begin to suspect the bottle is the point."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Corked hope.",
+            "repeat": [
+              "A tiny tick from the cork as the vault cools. Hope, pressing.",
+              "Nothing. It has waited this long. It can wait for somebody else's day."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "FOR THE DAY, says the label. It is not my day to declare. Though it is closer than the Colonel thinks."
+      },
+      "walkTo": {
+        "x": 1571,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "gas_lamp_fixed",
+      "name": "THE GAS LAMP, FIXED",
+      "rect": [
+        720,
+        100,
+        67,
+        153
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A fixed lamp, plumbed for gas that does not exist within a thousand miles.",
+            "repeat": [
+              "The mantle has never been lit. It is as white as the day it was unpacked.",
+              "There is an oil lamp on the floor beneath it, doing all the work."
+            ],
+            "then": [
+              "Installed for how it looks unlit. The whole Company, in one fitting."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A hollow pipe. It hums when the vault door moves, an organ note for an empty church.",
+            "repeat": [
+              "The hum again, when the door moves.",
+              "Nothing. It is very good at being unlit."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "Plumbed for gas that does not exist within a thousand miles. I turned the key. Nothing, magnificently."
+      },
+      "walkTo": {
+        "x": 754,
+        "y": 823,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "search_fund",
+      "name": "THE SEARCH FUND",
+      "rect": [
+        540,
+        387,
+        233,
+        120
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The subscription book for the Mott Search Fund, twelve years of donations from three territories. The search is the Company's best property and it is very well maintained.",
+            "repeat": [
+              "The donations get smaller every year and more numerous. The search is kept alive by the people who can least afford it.",
+              "The last entry is from Ohio, two dollars, with a note: FOR THE FINDING. It was entered in the same hand as all the others."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Banknotes settle differently than paper. Softer. Better fed.",
+            "repeat": [
+              "Nothing. A book of other people's hope, closed.",
+              "The binding creaks as it opens. It is used to being opened by someone more interested in the totals."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 657,
+        "y": 823,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "strongbox",
+      "name": "THE STRONGBOX",
+      "rect": [
+        1003,
+        483,
+        177,
+        173
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The actual money, in the actual box. Less than the town believes.",
+            "repeat": [
+              "Coin, sorted by denomination, and a great deal of air between the stacks.",
+              "I had expected to want it. I find I do not."
+            ],
+            "then": [
+              "The Company's fortune is mostly the town's belief, held at interest."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Coin, but thinly. An echo with good posture.",
+            "repeat": [
+              "A coin turning over as I set the lid down. A small, embarrassed sound.",
+              "Nothing. Less money than the door suggests, and it knows it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "Lighter than its reputation, which is the Company entire. I put it down before the metaphor could finish."
+      },
+      "walkTo": {
+        "x": 1092,
+        "y": 823,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "fanshawe_s_private_drawer",
+      "name": "FANSHAWE'S PRIVATE DRAWER",
+      "rect": [
+        1193,
+        447,
+        156,
+        207
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A drawer with its own lock, its own key, and its own smell of good tobacco.",
+            "repeat": [
+              "The key is not here. The Colonel carries it, I imagine, next to the five versions of his war.",
+              "It is the one locked thing in the vault. Everything else he has kept for the Company. This he has kept for himself."
+            ],
+            "then": [
+              "Whatever the Colonel keeps from the Company, he keeps here."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "One paper, sliding when the drawer is tried. A single secret, loosely filed.",
+            "repeat": [
+              "The paper inside sliding again, alone.",
+              "Nothing. Whatever is in there, he has kept it quiet longer than the gold."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "Locked, and the lock is better than the vault's. Whatever the Colonel keeps from the Company matters more to him than the money he keeps for it."
+      },
+      "walkTo": {
+        "x": 1271,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "original_subscription",
+      "name": "THE ORIGINAL SUBSCRIPTION",
+      "rect": [
+        1727,
+        107,
+        153,
+        227
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The subscription for the Mott expedition, Boston, 1846. Eleven names. The fourth is A.",
+            "repeat": [
+              "Eleven names, all signed in the same confident ink. Ten of them, I would guess, never saw this territory.",
+              "Fanshawe's signature is the smallest on the page. It is the only modest thing he has ever done, and it was the start of everything."
+            ],
+            "then": [
+              "Fanshawe. He was not a colonel then either."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Paper twelve years old, keeping the oldest secret in town.",
+              "The page lifting a little in the draft from the door, then lying back down."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "stock_portrait_boxes",
+      "name": "THE STOCK PORTRAIT BOXES",
+      "rect": [
+        953,
+        140,
+        147,
+        240
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Four gross of portraits of a man in a good collar, purchased at wholesale in 1851. The Clarion has been printing him as Obadiah Mott for seven years.",
+            "repeat": [
+              "Four gross, less however many the Clarion has used. The boxes are still nearly full. There is a great deal of Obadiah Mott left.",
+              "He has a kind face, the man in the collar. I hope he never learned what became of it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Card, packed tight, the way you pack anything bought by the gross.",
+              "Nothing. A great many copies of one man, and not one of them has anything to say."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1027,
+        "y": 823,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "maps",
+      "name": "THE MAPS",
+      "rect": [
+        1117,
+        133,
+        150,
+        247
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The originals of all eleven maps to Mott's strike. Same hand. Same paper. Same ink.",
+            "repeat": [
+              "On every map the strike is somewhere else. On every map it is marked with exactly the same little cross.",
+              "There is a twelfth map, half drawn, the ink still bright. The Colonel was planning another edition."
+            ],
+            "then": [
+              "They were drawn in an afternoon."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Paper rustling as I lift one. Lighter than it should be, for what it cost the town.",
+              "Nothing. Eleven maps to nowhere, in perfect agreement."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1192,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "correspondence_file",
+      "name": "THE CORRESPONDENCE FILE",
+      "rect": [
+        1653,
+        400,
+        227,
+        173
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Letters to Boston. Nine years of them, copied out in his own hand, all saying the same thing in different words: that the search continues, that hopes are high, and that further funds would be timely.",
+            "repeat": [
+              "Each letter is warmer than the last. By the ninth year he writes to Boston like a man writing home.",
+              "The replies are not in the file. Either Boston stopped answering or he stopped keeping what it said."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. A file of copies keeps its originals to itself.",
+            "repeat": [
+              "Paper sliding inside the folder when I tilt it.",
+              "Nothing. Nine years of the same letter, and not one of them said aloud."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "deed_boxes",
+      "name": "THE DEED BOXES",
+      "rect": [
+        673,
+        200,
+        267,
+        180
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Tin boxes of deeds, labeled by street. The Company owns the fronts, the backs, the lots between, and the mortgage on most of what it doesn't. Consolation, in a filing system.",
+            "repeat": [
+              "My hotel is in here. So is the Nugget, and the church roof, and the ground under the Clarion.",
+              "The box marked MAIN STREET is the heaviest. The town's spine, in tin."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Tin, ticking with the temperature. The town, expanding and contracting.",
+            "repeat": [
+              "A lid shifting as the vault cools.",
+              "Nothing. Property keeps very still when it is being looked at."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 807,
+        "y": 823,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "map_private",
+      "name": "THE MAP, PRIVATE",
+      "rect": [
+        1296,
+        133,
+        284,
+        287
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Another map of the district — but this one has the Company's true holdings, and pins where the search is to be steered next. Away, always, from anything owned. It is a map of where gold must never be found.",
+            "repeat": [
+              "Year by year the pins move outward. The search has been walking politely away from Claim One for twelve years.",
+              "It is beautifully drawn. It would be the best map in the territory, if it were trying to help anyone."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Pins in cork. The quietest rigging imaginable.",
+            "repeat": [
+              "A pin dropping out of the cork and ticking on the floor.",
+              "Nothing. The rigging has done its work."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "A map of where gold must never be found. I checked one spot. My claim is not marked. Nobody ever thought to steer anyone away from Prosperity. Nobody ever had to."
+      },
+      "walkTo": {
+        "x": 1438,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "visitor_s_chair",
+      "name": "THE VISITOR'S CHAIR",
+      "rect": [
+        1300,
+        493,
+        287,
+        340
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "One chair, inside a vault, facing the boxes. Someone sits in here, with the money and the maps, and thinks. The upholstery says: often, and at length.",
+            "repeat": [
+              "It faces the strongbox, not the maps. Whoever sits here sits looking at what he has, not at what he says.",
+              "On the floor beside it, a glass with a finger of whisky in it, untouched. He pours, even here, and does not drink."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. What gets thought in here does not leak.",
+            "repeat": [
+              "Leather settling. It was sat in today.",
+              "Nothing. The thinking done in this chair has never been said aloud anywhere."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1444,
+        "y": 858,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "ledger_shelf",
+      "name": "THE LEDGER SHELF",
+      "rect": [
+        349,
+        87,
+        298,
+        586
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The Company's books, bound in green, immaculate.",
+            "repeat": [
+              "The Company's actual accounts. It has never once traded in gold. It trades in maps, permits, tools, filings, lots, lumber and hope, and it has been extraordinarily profitable.",
+              "The last page of the last book is ruled off neatly. Somebody knew this year might be the last and wanted the totals tidy."
+            ],
+            "then": [
+              "Every year of the search, entered twice: once as it happened, once as it pays."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Double entries keep each other quiet.",
+            "repeat": [
+              "Nothing.",
+              "The shelf creaks under twelve years of very profitable nothing."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 498,
+        "y": 823,
+        "facing": "back"
+      }
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far_0",
+      "points": [
+        {
+          "x": 380,
+          "y": 700
+        },
+        {
+          "x": 1180,
+          "y": 700
+        },
+        {
+          "x": 1180,
+          "y": 753
+        },
+        {
+          "x": 380,
+          "y": 753
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 363,
+        "nearY": 858,
+        "nearHeight": 404
+      },
+      "neighbours": [
+        "mud_mid_0"
+      ]
+    },
+    {
+      "id": "mud_far_1",
+      "points": [
+        {
+          "x": 1275,
+          "y": 700
+        },
+        {
+          "x": 1290,
+          "y": 700
+        },
+        {
+          "x": 1290,
+          "y": 753
+        },
+        {
+          "x": 1275,
+          "y": 753
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 363,
+        "nearY": 858,
+        "nearHeight": 404
+      },
+      "neighbours": [
+        "mud_mid_1"
+      ]
+    },
+    {
+      "id": "mud_mid_0",
+      "points": [
+        {
+          "x": 380,
+          "y": 753
+        },
+        {
+          "x": 1180,
+          "y": 753
+        },
+        {
+          "x": 1180,
+          "y": 805
+        },
+        {
+          "x": 380,
+          "y": 805
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 363,
+        "nearY": 858,
+        "nearHeight": 404
+      },
+      "neighbours": [
+        "mud_far_0",
+        "mud_near_0"
+      ]
+    },
+    {
+      "id": "mud_mid_1",
+      "points": [
+        {
+          "x": 1275,
+          "y": 753
+        },
+        {
+          "x": 1290,
+          "y": 753
+        },
+        {
+          "x": 1290,
+          "y": 805
+        },
+        {
+          "x": 1275,
+          "y": 805
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 363,
+        "nearY": 858,
+        "nearHeight": 404
+      },
+      "neighbours": [
+        "mud_far_1",
+        "mud_near_1"
+      ]
+    },
+    {
+      "id": "mud_near_0",
+      "points": [
+        {
+          "x": 380,
+          "y": 805
+        },
+        {
+          "x": 1180,
+          "y": 805
+        },
+        {
+          "x": 1180,
+          "y": 858
+        },
+        {
+          "x": 380,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 363,
+        "nearY": 858,
+        "nearHeight": 404
+      },
+      "neighbours": [
+        "mud_mid_0",
+        "mud_near_2"
+      ]
+    },
+    {
+      "id": "mud_near_1",
+      "points": [
+        {
+          "x": 1275,
+          "y": 805
+        },
+        {
+          "x": 1290,
+          "y": 805
+        },
+        {
+          "x": 1290,
+          "y": 858
+        },
+        {
+          "x": 1275,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 363,
+        "nearY": 858,
+        "nearHeight": 404
+      },
+      "neighbours": [
+        "mud_mid_1",
+        "mud_near_2",
+        "mud_near_3"
+      ]
+    },
+    {
+      "id": "mud_near_2",
+      "points": [
+        {
+          "x": 1180,
+          "y": 830
+        },
+        {
+          "x": 1275,
+          "y": 830
+        },
+        {
+          "x": 1275,
+          "y": 858
+        },
+        {
+          "x": 1180,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 363,
+        "nearY": 858,
+        "nearHeight": 404
+      },
+      "neighbours": [
+        "mud_near_0",
+        "mud_near_1"
+      ]
+    },
+    {
+      "id": "mud_near_3",
+      "points": [
+        {
+          "x": 1290,
+          "y": 850
+        },
+        {
+          "x": 1600,
+          "y": 850
+        },
+        {
+          "x": 1600,
+          "y": 858
+        },
+        {
+          "x": 1290,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 363,
+        "nearY": 858,
+        "nearHeight": 404
+      },
+      "neighbours": [
+        "mud_near_1"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "the_oil_lamp",
+      "at": [
+        1226,
+        700
+      ],
+      "radius": 260,
+      "amount": 0.07,
+      "rate": 0.6,
+      "phase": 0.3,
+      "note": "The oil lamp on the floor, the only light: a slow flame (invariant 9)."
+    }
+  ],
+  "props": [],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-35/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}
