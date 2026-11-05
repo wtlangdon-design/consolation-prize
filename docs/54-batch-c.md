@@ -357,6 +357,14 @@
 **LOOK** 1 "Alley mud, which is Main Street's mud without the audience." · 2 "Footprints both ways, mostly to and from the Nugget's back door, and the ones coming back are less straight." · 3 "It is the same mud as the street. I find that reassuring, which tells you how my week has gone."
 **LISTEN** 1 "Wet, and in no hurry." · 2 "Drips from the eaves, landing in it one at a time." · 3 "Nothing. Even the mud keeps its voice down back here."
 
+## Overrides
+
+*Hob is in the alley only on his rounds for HOB_E6 (doc 04: "on his rounds at night (Main Street, the back alley)"). These answer a wrong verb on him there. Written 2026-11-05 by the Room 20 builder at Tyler's request ("write three lines for Hob on his rounds"), errata 93 G; not from an earlier pass.*
+
+> **HOB** · PICK UP — "I am not going to pick up the night watchman. He has somewhere to be, and it is every door in this alley, in order."
+> **HOB** · PUSH — "I am not going to push a man carrying a lit lantern down an alley full of dry crates."
+> **HOB** · USE — "He is holding a lantern and a great deal of patience. I am not going to put either of them to work."
+
 ## Merge decisions *(errata 68 H)*
 
 - **"storey".** **Decided and made:** doc 09 now reads "One story".

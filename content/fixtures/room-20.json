@@ -34,7 +34,7 @@
   },
   {
    "id": "r20-b",
-   "label": "R20-B Act III, Section nineteen said aloud (E6's writing; Hob is not placed yet)",
+   "label": "R20-B Act III, Section nineteen said aloud: Hob on his rounds (E6)",
    "room": "back_alley",
    "flags": {
     "T_OPENING_SAID": true,
@@ -81,7 +81,7 @@
     "docs/04-dialogue-trees.md::ACT III — `HOB_E6`: the executor (E6) *(errata 75)*",
     "docs/57-puzzle-completion.md::E6 · Appoint the executor"
    ],
-   "note": "Hob is not on his rounds anywhere yet (doc 36 Q163 e). tests/room-20.test.ts opens HOB_E6 directly: option 1 gives THE EXECUTOR'S FORM; then the form to Sump in Room 7."
+   "note": "TALK TO Hob: HOB_E6; option 1 gives THE EXECUTOR'S FORM. Then the form to Sump in Room 7 -- refused until the death is recorded (T_DECEASED), accepted after: E6."
   }
  ]
 }

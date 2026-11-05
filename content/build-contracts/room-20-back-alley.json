@@ -20,7 +20,7 @@
     "proofs/readiness/room-20.json",
     "docs/00-errata.md::93 · ROOM 20 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
    ],
-   "note": "The alley in every act; no puzzle sited; night."
+   "note": "The alley in every act; Hob on his rounds from T_EXECUTOR_RULE until E6 (HOB_E6); night."
   },
   "staticVsStatefulArt": {
    "status": "PASS",
@@ -37,7 +37,7 @@
     "renders/room-20-cat.png",
     "docs/00-errata.md::93 · ROOM 20 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
    ],
-   "note": "The cat generated on magenta against Thad and sat on the crate's lid."
+   "note": "The cat generated on magenta against Thad and sat on the crate's lid; Hob is his approved Room 1 drawing, mirrored and scaled to the alley."
   },
   "roomLife": {
    "status": "PASS",
@@ -66,7 +66,7 @@
     "tests/room-20.test.ts",
     "docs/00-errata.md::93 · ROOM 20 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
    ],
-   "note": "No puzzle is sited here; doc 09's plants are examine lines only."
+   "note": "E6: Hob is in the alley only while he is wanted, with his lantern, and TALK TO opens HOB_E6."
   },
   "contentCompilerHealth": {
    "status": "PASS",
@@ -104,7 +104,7 @@
    "evidence": [
     "renders/proofs/back-alley/proof.json"
    ],
-   "note": "No principal change: nothing is sited here and nothing in the picture changes (principalChange none)."
+   "note": "Panel D: Section nineteen said aloud (T_EXECUTOR_RULE); Hob on his rounds."
   },
   "lifeProof": {
    "status": "PASS",
@@ -160,6 +160,16 @@
     "art/staging/room-20/cat/cat.json"
    ],
    "note": "Promoted provisionally (errata 72 E)."
+  },
+  {
+   "subject": "Hob",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-20-hob.png",
+   "evidence": [
+    "art/staging/room-20/hob/hob.json"
+   ],
+   "note": "His approved Room 1 frames, mirrored and scaled; no image operation."
   }
  ],
  "acceptance": {

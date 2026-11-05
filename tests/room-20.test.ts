@@ -2,10 +2,10 @@
  * ROOM 20, THE BACK ALLEY, played through the game state from the room's own
  * fixture (content/fixtures/room-20.json).
  *
- * Doc 20: "20 · Back alley | Main Street, east end". E6's writing is read
- * here too -- doc 04's HOB_E6 gives THE EXECUTOR'S FORM and doc 57 E6 takes it
- * to the Registrar -- but nothing places the giver where a player can find him
- * yet (proofs/played-pending.json, E6), so this does not claim to play it.
+ * Doc 20: "20 · Back alley | Main Street, east end". E6 begins here: doc 04's
+ * HOB_E6, Hob "on his rounds at night" once Section nineteen is said aloud
+ * (Tyler, 2026-11-05: the alley), gives THE EXECUTOR'S FORM, and doc 57 E6
+ * takes it to the Registrar. A wrong verb on Hob is doc 54's Room 20 Overrides.
  * The cat is a figure on the top crate, and her lines -- doc 05's,
  * doc 09's, doc 54's and doc 49's PICK UP and TALK TO -- are THE CAT
  * hotspot's, which lies over her. Every line asserted is read from the
@@ -21,6 +21,8 @@ import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
 import type { Interactable } from '../engine/core/types.ts';
+
+// PLAYS: E6
 
 
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
@@ -73,9 +75,12 @@ const caseOf = (state: GameState, label: string) => {
   return rule;
 };
 
-test('E6\'s writing: HOB_E6 gives the form; the Registrar takes it once the death is recorded', async () => {
+test('E6: Hob on his rounds gives the form; the Registrar takes it once the death is recorded', async () => {
   const state = await inState('r20-b');
-  state.dialogue.start('HOB');
+  const hob = [...state.content.ambient.values()].find((one) => one.room === state.roomId && one.tree
+    && state.flags.test(one.when));
+  assert.ok(hob?.tree, 'Hob is on his rounds in the alley, with his tree');
+  state.dialogue.start(hob.tree);
   assert.equal(state.dialogue.positionSnapshot().node, 'HOB_E6', 'the executor, once Section nineteen is said aloud');
   const first = state.dialogue.presentOptions().find((one) => one.option.gives?.length);
   assert.ok(first, 'one option gives the form');
@@ -100,4 +105,18 @@ test('E6\'s writing: HOB_E6 gives the form; the Registrar takes it once the deat
   assert.deepEqual(named.then, rule.then, 'the read-back, whole');
   assert.ok(state.puzzleComplete('E6'));
   assert.ok(state.carried.includes(form), 'handed back, never consumed');
+
+  state.enterRoom('back_alley');
+  assert.ok(!state.flags.test(hob.when), 'his rounds here are done with');
+});
+
+test('a wrong verb on Hob in the alley is doc 54\'s line for it', async () => {
+  const state = await inState('r20-b');
+  const doc54 = await readFile(resolve(ROOT, 'docs/54-batch-c.md'), 'utf8');
+  const lines = state.room.peopleResponses?.hob;
+  assert.ok(lines, 'his refusals are the room\'s');
+  for (const verb of ['PICK_UP', 'PUSH', 'USE']) {
+    const said = lines[verb]?.[0]?.say;
+    assert.ok(said && doc54.includes(`"${said}"`), `${verb}: doc 54's line`);
+  }
 });

@@ -148,7 +148,11 @@
   ]
  },
  "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE CAT is the cat's figure on the top crate (content/ambient/alley-cat.json). THE BACK DOORS are the row at the left, the propped one among them; THE SIDE DOOR is the one in the Company's back wall. THE ALLEY ITSELF is everything behind that nothing smaller claims; THE MUD is the ground, walked on by a bare click.",
- "people": {},
+ "people": {
+  "HOB": [
+   "hob"
+  ]
+ },
  "exits": {
   "to_main_street": [
    150,
