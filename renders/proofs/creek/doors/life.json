@@ -1,0 +1,805 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "creek",
+ "commit": "8200db45fb497d3e3818af0a372fa0802c3c914a",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": null,
+ "fixture": "r26-a",
+ "warped": false,
+ "lifeRoute": "creek-doors",
+ "durationSeconds": 24.12,
+ "events": [
+  {
+   "t": 2.58,
+   "line": "started from fixture r26-a, no entry route"
+  },
+  {
+   "t": 5.65,
+   "line": "in creek; life route: 23 action(s)"
+  },
+  {
+   "t": 6.61,
+   "line": "capture 00-arrived: room creek, says null, options 0, control null"
+  },
+  {
+   "t": 7.02,
+   "line": "action 1 (click): clicked creek/to_claims_road at world 55,712 -- up to the road"
+  },
+  {
+   "t": 7.36,
+   "line": "action 1 (waitFor): reached {\"room\":\"claims_road\"} in room claims_road"
+  },
+  {
+   "t": 8.37,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 9.4,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.37,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 10.38,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.88,
+   "line": "capture 01-out: room claims_road, says null, options 0, control null"
+  },
+  {
+   "t": 11.02,
+   "line": "action 1 (click): clicked screen 540,1052 -- the MAP button"
+  },
+  {
+   "t": 11.09,
+   "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 12.09,
+   "line": "action 1 (wait): waited 1s"
+  },
+  {
+   "t": 12.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.16,
+   "line": "action 1 (click): clicked screen 1570,560 -- the creek's marker"
+  },
+  {
+   "t": 12.2,
+   "line": "action 1 (waitFor): reached {\"room\":\"creek\"} in room creek"
+  },
+  {
+   "t": 13.23,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 14.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 14.22,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 14.72,
+   "line": "capture 01-in: room creek, says null, options 0, control null"
+  },
+  {
+   "t": 14.88,
+   "line": "action 1 (click): clicked creek/to_claims_road at world 55,712 -- up to the road"
+  },
+  {
+   "t": 15.21,
+   "line": "action 1 (waitFor): reached {\"room\":\"claims_road\"} in room claims_road"
+  },
+  {
+   "t": 16.23,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 17.23,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.21,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 18.22,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.7,
+   "line": "capture 02-out: room claims_road, says null, options 0, control null"
+  },
+  {
+   "t": 18.84,
+   "line": "action 1 (click): clicked screen 540,1052 -- the MAP button"
+  },
+  {
+   "t": 18.87,
+   "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 19.88,
+   "line": "action 1 (wait): waited 1s"
+  },
+  {
+   "t": 19.89,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 19.94,
+   "line": "action 1 (click): clicked screen 1570,560 -- the creek's marker"
+  },
+  {
+   "t": 19.98,
+   "line": "action 1 (waitFor): reached {\"room\":\"creek\"} in room creek"
+  },
+  {
+   "t": 20.98,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 21.98,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 22,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 22.51,
+   "line": "capture 02-in: room creek, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "00-arrived",
+   "why": null,
+   "t": 6.6,
+   "file": "renders/proofs/creek/doors/raw-captures-ignored/00-arrived.png",
+   "hash": "0d7e029c04fb83d563ea65a520d602418a21d6804d5e7405114d308e76ee05d2",
+   "room": "creek",
+   "clock": 6.208399999999999,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 349,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      79,
+      441,
+      362,
+      385
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:creek",
+     "path": "art/backgrounds/room-26-creek.png",
+     "drawn": "art/backgrounds/room-26-creek.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2423285fa11828740e609778ccecc461c5bd5fdf22b0a1a0c0937a0714ea32ad"
+    },
+    {
+     "key": "art/actors/room-26-panner.png",
+     "path": "art/actors/room-26-panner.png",
+     "drawn": "art/actors/room-26-panner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f1edd94c21cace4efcd367a83e81f2a7c512a240b67bbf4d3ff426371142109"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-out",
+   "why": null,
+   "t": 10.88,
+   "file": "renders/proofs/creek/doors/raw-captures-ignored/01-out.png",
+   "hash": "e44f9f67edd8f0bac117eb0e542e1f1a8bd28b3a30e97c5ab23d17e22e15f857",
+   "room": "claims_road",
+   "clock": 10.5749,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      700,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 336,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      526,
+      464,
+      348,
+      371
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_road",
+     "path": "art/backgrounds/room-22-claims-road.png",
+     "drawn": "art/backgrounds/room-22-claims-road.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "88a5f4efd234d1e364a8669304ff72ec20f2d2e3051d9dd87dcab89f14942ba0"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-in",
+   "why": null,
+   "t": 14.72,
+   "file": "renders/proofs/creek/doors/raw-captures-ignored/01-in.png",
+   "hash": "fdce932dfb4824e5d845ac22088b163f161b701f4a42fce727f4b5f5a15e2ff2",
+   "room": "creek",
+   "clock": 14.5581,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 349,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      19,
+      441,
+      362,
+      385
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:creek",
+     "path": "art/backgrounds/room-26-creek.png",
+     "drawn": "art/backgrounds/room-26-creek.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2423285fa11828740e609778ccecc461c5bd5fdf22b0a1a0c0937a0714ea32ad"
+    },
+    {
+     "key": "art/actors/room-26-panner.png",
+     "path": "art/actors/room-26-panner.png",
+     "drawn": "art/actors/room-26-panner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f1edd94c21cace4efcd367a83e81f2a7c512a240b67bbf4d3ff426371142109"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-out",
+   "why": null,
+   "t": 18.69,
+   "file": "renders/proofs/creek/doors/raw-captures-ignored/02-out.png",
+   "hash": "5f39d2518d9b7399cc0ba09e8dfe02b6f3a8dddd4fa25b1502242812a8ae0f01",
+   "room": "claims_road",
+   "clock": 18.391299999999998,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      700,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 336,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      526,
+      464,
+      348,
+      371
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_road",
+     "path": "art/backgrounds/room-22-claims-road.png",
+     "drawn": "art/backgrounds/room-22-claims-road.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "88a5f4efd234d1e364a8669304ff72ec20f2d2e3051d9dd87dcab89f14942ba0"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-in",
+   "why": null,
+   "t": 22.5,
+   "file": "renders/proofs/creek/doors/raw-captures-ignored/02-in.png",
+   "hash": "0c8faa19758975f611bdebfd0e59db2a4ef9b3ccb990d3d2eb889b5def6fc01f",
+   "room": "creek",
+   "clock": 22.3245,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 349,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      19,
+      441,
+      362,
+      385
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:creek",
+     "path": "art/backgrounds/room-26-creek.png",
+     "drawn": "art/backgrounds/room-26-creek.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2423285fa11828740e609778ccecc461c5bd5fdf22b0a1a0c0937a0714ea32ad"
+    },
+    {
+     "key": "art/actors/room-26-panner.png",
+     "path": "art/actors/room-26-panner.png",
+     "drawn": "art/actors/room-26-panner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f1edd94c21cace4efcd367a83e81f2a7c512a240b67bbf4d3ff426371142109"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 24.12s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T19:36:16.649Z"
+}
