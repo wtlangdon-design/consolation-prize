@@ -1,0 +1,105 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 30, Mott's supposed site. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r30-a",
+   "label": "R30-A Act I, at Mott's supposed site: the famous nothing by night",
+   "room": "motts_site",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_EGGS_ON_ACCOUNT": true,
+    "T_TONIC_ON_ACCOUNT": true,
+    "T_BLANKET_BORROWED": true,
+    "T_SEEN_CLAIMS_ROAD": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed"
+   ],
+   "derivedFrom": [
+    "docs/05-examine-layer.md::ROOM 30 — MOTT'S SUPPOSED STRIKE SITE",
+    "docs/54-batch-c.md::ROOM 30 · MOTT'S SUPPOSED SITE"
+   ],
+   "note": "No puzzle is sited here (doc 02). LOOK and LISTEN at the thirteen subjects."
+  },
+  {
+   "id": "r30-b",
+   "label": "R30-B Act IV, at the site, after the truth",
+   "room": "motts_site",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "T_NINETY_DAYS": true,
+    "ACT": 4,
+    "T_ASSAY_QUEUE": true,
+    "T_NEED_TO_DIE": true,
+    "T_EXECUTOR_RULE": true,
+    "T_PIKE_DEAD": true,
+    "T_EXECUTOR_NAMED": true,
+    "T_DECEASED": true,
+    "T_SAME_HAND": true,
+    "T_HOB_HANDWRITING": true,
+    "T_HOB_IS_MOTT": true,
+    "T_NO_GOLD_EVER": true,
+    "T_WARM_HOLE": true,
+    "T_PICKAXE_ON_ACCOUNT": true,
+    "T_SEEN_CLAIMS_ROAD": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "blanket",
+    "pickaxe"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "D1": "complete",
+    "E1": "complete",
+    "E2": "complete",
+    "E6": "complete",
+    "E9": "complete",
+    "E10": "complete",
+    "A5": "complete"
+   },
+   "derivedFrom": [
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
+   ],
+   "note": "THE SITE ENTIRE answers with doc 05 Part Two-B's Act IV line."
+  }
+ ]
+}

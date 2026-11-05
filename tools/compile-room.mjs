@@ -557,16 +557,34 @@ const actSpan = (spec) => {
   if (!span) fail(`act "${spec}" is not N or N-M`);
   return { atLeast: Number(span[1]), atMost: Number(span[2] ?? span[1]) };
 };
+// A MERGED SUBJECT'S OWN ACT LINES (doc 54's merge carries Part Two-B's lines
+// in `acts`): guarded rules ahead of its chain, as an act block's are. Never
+// read until Room 30, so THE SITE's Act IV line -- and Room 23's CLAIM MARKER
+// and HOLE act lines -- compiled to nothing (errata 99 F).
+for (const s of MERGED?.subjects ?? []) {
+  if (!s.acts?.length || actOnlyLines(s)) continue;
+  actVariants.set(s.name, s.acts.map((a) => {
+    const responses = {};
+    for (const verb of ['LOOK_AT', 'LISTEN_TO']) if (a[verb]?.length) responses[verb] = [{ say: plainLine(a[verb][0]) }];
+    return { act: String(a.act), ...actSpan(a.act), responses };
+  }));
+}
 for (const block of actSections) {
-  for (const [name, entry] of examineLayer(block)) {
+  for (let [name, entry] of examineLayer(block)) {
     const act = new RegExp(`\\*\\*${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\*\\*\\s*\\*\\(act:\\s*"?([^)"]+)"?\\)\\*`).exec(block);
     const writtenWhole = Object.values(written.get(name) ?? {}).some((variants) => variants?.first);
     // Already read from its act block, repeats and all (actOnlyLines).
     if (hotspots.get(name)?.fromActs) continue;
     // A NAME DOC 54 MERGED INTO ANOTHER (errata 96 B): THE CLAIM MARKER (MINE)
-    // "is this stake"; the merged subject carries its act's lines already.
-    if (MERGED?.subjects.some((one) => (one.aliases ?? []).includes(name))) continue;
-    if (hotspots.has(name) || writtenWhole) {
+    // "is this stake". Its act's lines are the merged subject's: read from the
+    // merged subject's `acts` above when the merge carries them, folded onto it
+    // under the merged name when it does not (errata 99 F).
+    const mergedInto = MERGED?.subjects.find((one) => (one.aliases ?? []).includes(name));
+    if (mergedInto) {
+      if (mergedInto.acts?.length || actVariants.has(mergedInto.name)) continue;
+      name = mergedInto.name;
+    }
+    if (hotspots.has(name) || writtenWhole || mergedInto) {
       // ONE ENTRY PER OCCURRENCE, NOT PER NAME. THE PIANO appears twice in
       // Room 3's block (acts 2 and 4); read by name, the second's lines
       // overwrote the first's under the first's act.

@@ -35,6 +35,7 @@
   "content/rooms/claim-row.json",
   "content/rooms/laundry.json",
   "content/rooms/high-ridge.json",
+  "content/rooms/motts-site.json",
   "content/rooms/undertaker.json",
   "content/rooms/main-street-candidate.json",
   "content/rooms/nugget-candidate.json",
@@ -97,7 +98,8 @@
   "content/fixtures/room-26.json",
   "content/fixtures/room-27.json",
   "content/fixtures/room-28.json",
-  "content/fixtures/room-29.json"
+  "content/fixtures/room-29.json",
+  "content/fixtures/room-30.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",

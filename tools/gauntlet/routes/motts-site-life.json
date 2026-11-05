@@ -1,0 +1,93 @@
+{
+ "schema": 1,
+ "room": "motts_site",
+ "note": "ROOM 30's LIFE ROUTE, ruling 47: about a minute at the site, starting there (fixture r30-a). Nobody here. LOOK at the offerings, LISTEN to the old windlass, LOOK at the marker stone.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-arrived",
+   "why": "the site"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "offerings",
+   "why": "THE OFFERINGS"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "02-look-offerings",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "waitFor",
+   "idle": true,
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "old_windlass",
+   "why": "THE OLD WINDLASS"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "03-listen-windlass"
+  },
+  {
+   "do": "waitFor",
+   "idle": true,
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "marker_stone",
+   "why": "THE MARKER STONE"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "04-look-stone"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  }
+ ]
+}

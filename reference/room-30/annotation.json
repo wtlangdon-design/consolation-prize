@@ -1,0 +1,200 @@
+{
+ "room": "motts_site",
+ "plate": "art/backgrounds/room-30-motts-site.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-30/plate-01/candidate-lifted-1920x864.png, room-30 attempt 2, the master's band, no lift needed -- frame.json). Every rect was read off the plate source: x and y less the crop, times 1.263.",
+ "plateShipping": "art/backgrounds/room-30-motts-site.png",
+ "plateShippingHash": "86f0d64c781d",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   500,
+   700
+  ],
+  [
+   1460,
+   700
+  ],
+  [
+   1460,
+   858
+  ],
+  [
+   500,
+   858
+  ]
+ ],
+ "walkableNote": "THE NEAR RIM, between the sieve pile and the stake and stone.",
+ "scaling": {
+  "far": {
+   "y": 700,
+   "height": 271
+  },
+  "near": {
+   "y": 858,
+   "height": 379
+  },
+  "note": "ROOM 30'S DEPTH, FROM THE MASTER: Thad stood with his feet at y 760 and was drawn about 312 tall; along Room 5's slope (0.68 a row) that is 271 at the band's far edge and 379 at its near."
+ },
+ "entrance": [
+  560,
+  800
+ ],
+ "entrances": [
+  {
+   "from": "claims_road",
+   "at": [
+    560,
+    800
+   ],
+   "facing": "right",
+   "note": "In from the road, at left."
+  },
+  {
+   "from": "default",
+   "at": [
+    560,
+    800
+   ],
+   "facing": "right",
+   "note": "As from the road."
+  },
+  {
+   "from": "town_map",
+   "at": [
+    560,
+    800
+   ],
+   "facing": "right",
+   "note": "From the map, as from the road."
+  }
+ ],
+ "hotspots": {
+  "offerings": [
+   849,
+   448,
+   215,
+   44
+  ],
+  "initials": [
+   186,
+   341,
+   57,
+   328
+  ],
+  "survey_stake": [
+   1626,
+   474,
+   44,
+   284
+  ],
+  "new_digging": [
+   1303,
+   461,
+   290,
+   107
+  ],
+  "marker_stone": [
+   1493,
+   644,
+   126,
+   152
+  ],
+  "old_windlass": [
+   1196,
+   290,
+   164,
+   183
+  ],
+  "view_back_to_town": [
+   1569,
+   96,
+   351,
+   94
+  ],
+  "sieve_pile": [
+   28,
+   644,
+   470,
+   164
+  ],
+  "view_of_prosperity": [
+   0,
+   76,
+   520,
+   88
+  ],
+  "bedrock": [
+   600,
+   380,
+   700,
+   200
+  ],
+  "spoil_heaps": [
+   0,
+   164,
+   1920,
+   126
+  ],
+  "pits": [
+   250,
+   290,
+   1500,
+   330
+  ],
+  "site": [
+   0,
+   620,
+   1920,
+   244
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE SITE (THE GROUND) is the rim underfoot, walked on by a bare click; its Act IV line is doc 05 Part Two-B's. THE OFFERINGS and A NEW DIGGING were added by the plate operation (errata 99 F).",
+ "people": {},
+ "exits": {
+  "to_claims_road": [
+   0,
+   450,
+   170,
+   414
+  ]
+ },
+ "exitWalkTo": {
+  "to_claims_road": {
+   "x": 520,
+   "y": 800,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [],
+ "defaultVerbs": {
+  "offerings": "LOOK_AT",
+  "initials": "LOOK_AT",
+  "survey_stake": "LOOK_AT",
+  "new_digging": "LOOK_AT",
+  "marker_stone": "LOOK_AT",
+  "old_windlass": "LOOK_AT",
+  "view_back_to_town": "LOOK_AT",
+  "sieve_pile": "LOOK_AT",
+  "view_of_prosperity": "LOOK_AT",
+  "bedrock": "LOOK_AT",
+  "spoil_heaps": "LOOK_AT",
+  "pits": "LOOK_AT",
+  "site": "WALK_TO"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click, except THE SITE underfoot, which is walked on.",
+ "props": [],
+ "occlusion": {
+  "note": "No plane: the site is a bowl below and behind the rim.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}

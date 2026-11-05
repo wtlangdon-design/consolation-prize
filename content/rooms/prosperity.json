@@ -261,6 +261,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Prosperity. Named by a liar, bought by a fool, and correct the entire time. There is a sermon in that and Sowerby cannot have it."
+          },
+          {
             "say": "A stake with a number on it.",
             "repeat": [
               "The number is painted on with confidence and very little paint.",

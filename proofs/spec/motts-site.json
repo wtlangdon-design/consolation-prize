@@ -1,0 +1,34 @@
+{
+ "schema": 1,
+ "room": "motts_site",
+ "note": "ROOM 30's PROOF SPEC. The site is on the map once Thad has walked the road to the claims (errata 99 A); the proof starts from fixture r30-a and says so. The principal change is Act IV: THE SITE answers with Part Two-B's line.",
+ "fixture": "r30-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "ACT 4 (doc 05 Part Two-B, THE SITE ENTIRE). Visible consequence: LOOK at the site gives the Act IV line.",
+  "flags": {
+   "ACT": 4
+  },
+  "actions": [
+   {
+    "do": "wait",
+    "seconds": 8,
+    "why": "ACT rising shows PART FOUR's card, and clicks wait for it to clear (errata 84 E)"
+   },
+   {
+    "do": "verb",
+    "verb": "LOOK_AT"
+   },
+   {
+    "do": "click",
+    "on": "site",
+    "why": "THE SITE, underfoot"
+   },
+   {
+    "do": "waitFor",
+    "says": "thad",
+    "upTo": 60
+   }
+  ]
+ }
+}

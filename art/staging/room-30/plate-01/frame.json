@@ -1,0 +1,75 @@
+{
+ "source": "art/staging/room-30/plate-01/source.png",
+ "crop": {
+  "x": 8,
+  "y": 170,
+  "width": 1520,
+  "height": 684
+ },
+ "out": "art/staging/room-30/plate-01/candidate-lifted-1920x864.png",
+ "derivation": {
+  "transform": "errata-63-fixed-room-source-acquisition",
+  "provisional": true,
+  "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+  "source": {
+   "path": "art/staging/room-30/plate-01/source.png",
+   "hash": "ab82de309747e1115c5e5f15c54d2e165b95ca0a63cd1468581335b114891f3f",
+   "width": 1536,
+   "height": 1024,
+   "bytes": 1908349,
+   "kept": true
+  },
+  "crop": {
+   "x": 8,
+   "y": 170,
+   "width": 1520,
+   "height": 684,
+   "aspect": "20:9"
+  },
+  "resample": {
+   "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+   "lobes": 3,
+   "from": [
+    1520,
+    684
+   ],
+   "to": [
+    1920,
+    864
+   ],
+   "factor": 1.263157894736842,
+   "normalisedWeights": true,
+   "premultiplied": true,
+   "rounding": "half-away-from-zero, clamped to 0..255",
+   "forbidden": [
+    "nearest-neighbour",
+    "ai-upscale",
+    "sharpen",
+    "denoise",
+    "recolour",
+    "contrast-enhancement",
+    "generative-second-pass"
+   ]
+  },
+  "derived": {
+   "path": "art/staging/room-30/plate-01/candidate-1920x864.png",
+   "hash": "abadad16cb130fa0a3776d286c677fa864a544f94be5a1122de4cd1be86db5bf",
+   "width": 1920,
+   "height": 864,
+   "bytes": 2853544,
+   "colourType": 2
+  }
+ },
+ "lift": {
+  "gain": 1,
+  "groundBefore": [
+   34.8,
+   58.2
+  ],
+  "groundAfter": [
+   34.8,
+   58.2
+  ]
+ },
+ "why": "Room 30 takes a 20:9 crop from y 170: the master painted the whole canvas (tools/art/room30-plate.mjs)."
+}

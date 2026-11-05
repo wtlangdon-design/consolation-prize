@@ -198,6 +198,33 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 2,
+                "atMost": 2
+              }
+            },
+            "say": "Four from home. She has told the neighbours. The neighbours are also proud of me."
+          },
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Five from home. She asks whether I am eating."
+          },
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Six. I am going to answer this one properly."
+          },
+          {
             "say": "Three from home. She is proud of me. She has been given no reason to be.",
             "repeat": [
               "She asks about the weather here as though it were a place that has weather.",
@@ -275,6 +302,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "My good coat. It has been in a grave."
+          },
           {
             "say": "My good coat.",
             "repeat": [
@@ -400,6 +436,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "The alley. The cat has gone. The barrels are the same."
+          },
           {
             "say": "The alley.",
             "repeat": [

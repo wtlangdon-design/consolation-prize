@@ -127,6 +127,7 @@ Stop the room, not the build, and say so in doc 36 and to Tyler, when:
 | 27 | 2026-11-05 | #133 | 4 of 4 (master, plate, two asks for the eleventh marker) | The abandoned claim row at night: fifteen subjects, eleven markers (the last a prop cut from the tenth), nobody. `?room=claim_row`. No puzzle sited (doc 36 Q169, errata 99 C) |
 | 28 | 2026-11-05 | #134 | 3 of 4 (master, plate, Sheng and his board) | Sheng's laundry at night: seventeen subjects, Sheng ironing, his two trees -- D3, and D4's laundry half with the linen money in hand (`?fixture=r28-a`, `r28-b`); the loan in Act III. `?room=laundry`. The Reverend's funeral-day collection waits (doc 36 Q170, errata 99 D) |
 | 29 | 2026-11-05 | #135 | 2 of 4 (master, plate) | The high ridge at night: eight subjects, Consolation's lamps below; up the path from Sheng's door, which is now the way up; the 320x144 plate retired. `?room=high_ridge`. No puzzle sited (doc 36 Q171, errata 99 E) |
+| 30 | 2026-11-05 | #137 | 2 of 4 (master, plate) | Mott's supposed site at night: thirteen subjects, the offerings and a new digging; THE SITE's Act IV line. `?room=motts_site`. No puzzle sited. And the compiler now reads a merged subject's act lines: Room 19's and Room 23's dropped act lines restored (doc 36 Q172, errata 99 F) |
 
 ## 8 · What playing found — held by a script where a script can hold it
 
