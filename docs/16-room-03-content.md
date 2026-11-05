@@ -10,91 +10,91 @@
 # PART ONE — NEWLY WRITTEN HOTSPOTS
 
 ## THE STAIRS
-**LOOK** 1 "Stairs, up to rooms I have not been invited to. There is a man on the landing. There is always a man on the landing." · 2 "He has not moved. I have begun to suspect he is not waiting for anything." · 3 "Eleven steps. I have counted them from down here, which is as far as I have got."
-**LISTEN** 1 "Boards, above. Somebody pacing a room about the size of mine." · 2 "Still pacing." · 3 "He has stopped. That is somehow worse."
+**LOOK** 1 "Stairs, up to rooms I haven't been invited to. There's a man on the landing. There is always a man on the landing." · 2 "He hasn't moved. I'm starting to think he isn't waiting for anything. He came with the stairs." · 3 "Eleven steps. I've counted them from down here, which is as far up as I've got."
+**LISTEN** 1 "Boards, overhead. Somebody pacing a room about the size of mine." · 2 "Four steps, turn. Four steps, turn. Definitely the size of mine." · 3 "He's stopped. Somehow that's worse."
 
 ## THE FADED PORTRAIT
-**LOOK** 1 "A portrait of a man in a good collar, hung crooked, above a saloon. Nobody in here knows who he is. I have asked three people and had three answers." · 2 "The three answers were a governor, a founder, and 'that's Bill's uncle.'" · 3 "It is the same photograph the Clarion prints as Obadiah Mott. I am fairly sure. I am not going to raise it."
-**LISTEN** 1 "Nothing. He has been silent about it for years." · 2 "Nothing." · 3 "Nothing. He is a man in Ohio and nobody is asking him."
+**LOOK** 1 "A portrait of a man in a good collar, hung crooked. Nobody in here knows who he is. I asked three people and got three answers." · 2 "A governor, a founder, and 'that's Bill's uncle.' Bill was not available to confirm." · 3 "It's the same photograph the Clarion prints as Obadiah Mott. I'm almost sure. I'm keeping that to myself until I'm sure."
+**LISTEN** 1 "Silent. He's kept quiet about who he is for years." · 2 "Not a word. Not even a crooked one." · 3 "Nothing. He's a man in Ohio, and nobody here is asking him."
 
 ## THE SPITTOON
-**LOOK** 1 "A spittoon, positioned optimistically far from anyone sitting down." · 2 "The floor around it tells the story of a town that has tried." · 3 "Brass. Somebody polished this once, as a joke or as a duty."
-**LISTEN** 1 "Regrettably, yes." · 2 "Still yes." · 3 "I have stopped."
+**LOOK** 1 "A spittoon, placed optimistically far from anyone sitting down." · 2 "The floor around it tells the story of a town that has tried, and tried, and missed." · 3 "Brass. Somebody polished this once. I'd like to know what they'd done to deserve it."
+**LISTEN** 1 "Regrettably, yes." · 2 "Yes. Again. There's a man at the bar with tremendous range and no aim." · 3 "I've stopped listening to the spittoon. Best decision I've made in the territory."
 
 ## THE STOVE
-**LOOK** 1 "A cast iron stove, lit, in July. Nobody has raised it and I am not going to be the first." · 2 "Still lit. There is a man beside it who has not taken his coat off since I arrived in this territory." · 3 "The warmest thing in Consolation, wasted on a room full of men who are already drinking."
-**LISTEN** 1 "It ticks. It is the only object in this room doing honest work." · 2 "Ticking. Working." · 3 "Nothing. It has gone out and nobody has noticed."
+**LOOK** 1 "A cast-iron stove, lit, in July. Nobody's said anything. I'm not going to be the first." · 2 "Still lit. The man beside it hasn't taken his coat off since I arrived in the territory. I'm beginning to think he can't." · 3 "The warmest thing in Consolation, wasted on a room full of men who've already warmed themselves the other way."
+**LISTEN** 1 "It ticks. The one thing in this room doing honest work." · 2 "Tick. Tick. Still working. Still the only one." · 3 "Nothing. It's gone out, and nobody has noticed."
 
 ## THE WINDOW
-**LOOK** 1 "A window onto Main Street, and the cleanest thing in the building, because it is the only thing anyone in here looks at." · 2 "From in here the street looks better. That is what a window is for." · 3 "Somebody has scratched a name into the pane. It is not a name I know."
-**LISTEN** 1 "The street. Muffled. Somebody arguing about a boundary." · 2 "Still the boundary. Still arguing." · 3 "The stage has come in. Four days from Sacramento and eleven new men who think they are early."
+**LOOK** 1 "A window onto Main Street. The cleanest thing in the building, because it's the only thing in here anybody looks at." · 2 "From in here the street looks almost respectable. That's what windows are for." · 3 "Somebody's scratched a name into the pane. Not one I know. I checked it for mine anyway, out of habit."
+**LISTEN** 1 "The street, muffled. Two men arguing about a boundary." · 2 "The boundary again. Neither of them has given an inch." · 3 "The stage is in. Four days from Sacramento, and eleven new men who think they're early."
 
 ## THE PATRONS
-**LOOK** 1 "Nine men drinking after dark, all of whom were at their claims by seven this morning and will be again by seven tomorrow. This is the part in between." · 2 "The same nine. I have started to be able to tell them apart, which I regard as a poor sign." · 3 "Nobody in here is talking about anything but where the gold is. They have been having this conversation for twelve years and it has not advanced."
-**LISTEN** 1 "Talk. A great deal of it, all at the same volume, none of it listened to." · 2 "Somebody in the corner has told the same story four times and it has grown twice." · 3 "The word 'Mott' comes up about once a minute. I have counted. It is once a minute."
+**LOOK** 1 "Nine men drinking after dark. Every one of them was at his claim by seven this morning, and will be again by seven tomorrow. This is the bit in between." · 2 "The same nine. I can tell them apart now. I don't think that's good news for me." · 3 "They're talking about where the gold is. They've been talking about where the gold is for twelve years. Nobody has gone and got it."
+**LISTEN** 1 "Talk. Lots of it, all at the same volume, none of it listened to." · 2 "A man in the corner has told the same story four times. It's grown twice. There's a bear in it now." · 3 "The word 'Mott' comes up about once a minute. I've timed it. It's once a minute."
 
 ## THE HAND OF CARDS *(new)*
-**LOOK** 1 "A hand of cards, face up, abandoned. It is a very good hand. Somebody left a very good hand on a table and went outside." · 2 "Still there. Nobody has claimed it and nobody has cleared it." · 3 "I have decided he is coming back. I have decided this several times."
-**LISTEN** 1 "Nothing." · 2 "Nothing." · 3 "Nothing. Whoever he was, he is not in the building."
+**LOOK** 1 "A hand of cards, face up, abandoned. A very good hand. Somebody walked away from it and went outside. I'd have stayed for a much worse one." · 2 "Still there. Nobody's claimed it. Nobody's cleared it. Nobody's even looked at it, except me, a lot." · 3 "I have decided he is coming back. I have decided this several times, each time more firmly."
+**LISTEN** 1 "Quiet. Cards don't say much when nobody's holding them." · 2 "Not a whisper." · 3 "Nothing. Whoever he was, he isn't in the building."
 
 ---
 
 # PART TWO — REPEAT VARIANTS FOR EXISTING HOTSPOTS
 
 ## THE HANDBILL
-**LOOK** 2 "I have read it twice. Rule five forbids arithmetic, which I assume has a history." · 3 "Rule four permits an appeal to the same judges who made the decision. Somebody thought about that and wrote it down anyway."
-**LISTEN** 2 "Paper. Still not being read." · 3 "Nothing. It has outlasted everyone who nailed it up."
+**LOOK** 2 "Rule five forbids arithmetic. There's a story behind that, and I'd pay good money to hear it, if I could count it out." · 3 "Rule four: you may appeal the judges' decision to the same judges. Somebody thought that through, and nailed it up anyway."
+**LISTEN** 2 "Paper, lifting a little in the draught from the door. Still unread." · 3 "Silence. It has outlasted everyone who nailed it up."
 
 ## THE PIANO
-**LOOK** 2 "Nobody has touched it since I arrived. I check." · 3 "There is a bottle ring on the lid. Several. It is being used as furniture."
-**LISTEN** 2 "Still C-sharp. Still flat. Still nobody." · 3 "I could put it right in four minutes, and I have begun to think about it during other activities."
+**LOOK** 2 "Nobody's touched it since I came in. I check. I check more than is healthy." · 3 "Bottle rings on the lid. Several. They are using a piano as a table, and I am being very calm about it."
+**LISTEN** 2 "C-sharp. Still flat. It's like a stone in my shoe, if my shoe were across the room." · 3 "I could put it right in four minutes. I've started thinking about it at mealtimes."
 
 ## THE CHANDELIER
-**LOOK** 2 "Brass, crystal, and a dirt floor. Somebody made a decision about priorities and I should like to meet them." · 3 "It is not lit. It has never been lit while I have been in this room."
-**LISTEN** 2 "Ticking as it cools. Still hanging over mud." · 3 "Nothing. It is the most expensive object in the territory and it has nothing to say for itself."
+**LOOK** 2 "Brass, crystal, and a dirt floor. Somebody made a decision about priorities. I'd like to shake his hand, and then check my pockets." · 3 "It isn't lit. It's never been lit while I've been in here. I think they're saving it for something."
+**LISTEN** 2 "Ticking, cooling, hanging over mud." · 3 "Nothing. All that money, and it has nothing to say for itself."
 
 ## THE BAR
-**LOOK** 2 "Mahogany. Four hundred miles from a tree that could have produced it." · 3 "The only maintained surface in Consolation, and it is a bar."
-**LISTEN** 2 "Glasses. Talk. The same story, larger." · 3 "Somebody is being served ahead of somebody else and it is being noticed."
+**LOOK** 2 "Mahogany, four hundred miles from the nearest tree that could have grown it. I'd like to meet the mule." · 3 "The best-kept surface in town, and it's a bar. I don't think that's an accident."
+**LISTEN** 2 "Glasses. Talk. The bear is now eleven feet tall and has a grievance." · 3 "Somebody's being served ahead of somebody else, and it's being noticed."
 
 ## THE MIRROR
-**LOOK** 2 "Still me. I had hoped for some improvement." · 3 "Eleven weeks, and I have started to look like I belong here, which was not the plan."
-**LISTEN** 2 "Still nothing." · 3 "Nothing. I keep checking. It keeps not."
+**LOOK** 2 "Still me. I'd hoped for some improvement. The coat is doing its best." · 3 "Eleven weeks, and I'm starting to look like I belong here. That was never the plan."
+**LISTEN** 2 "Still quiet. I keep expecting it to say something about the coat." · 3 "Nothing. I keep checking. It keeps not."
 
 ---
 
 # PART THREE — OBJECT OVERRIDES
 
-> **PIANO** · USE — "I could tune it. Nobody has asked me, and I have decided that asking to be asked is beneath me."
-> **PIANO** · OPEN — "The lid comes up. Inside is a piano, which is what I expected and somehow still a disappointment."
+> **PIANO** · USE — "I could tune it. Nobody's asked. I'm not going to ask to be asked. I'm going to stand near it until somebody has the idea."
+> **PIANO** · OPEN — "The lid comes up. Inside: a piano. Exactly what I expected, and somehow still a letdown."
 > **BAR** · USE — "That would cost money."
-> **BAR** · PUSH — "It does not move. It is the only thing in Consolation built to stay."
-> **CHANDELIER** · PULL — "It is nine feet up and it weighs more than I do. I shall admire it from here."
+> **BAR** · PUSH — "It doesn't move. It's the only thing in town built to stay."
+> **CHANDELIER** · PULL — "It's nine feet up and heavier than I am. I'll admire it from down here, like everyone else."
 > **SPITTOON** · PICK UP — "No."
-> **STOVE** · OPEN — "It is lit. I am not opening a lit stove in a wooden building full of drunk men."
-> **PATRONS** · TALK TO — "I have tried. They are very friendly, and they want to know what I know, and I know nothing, and this disappoints them each time."
-> **HANDBILL** · PICK UP — "It has been nailed on. Thoroughly. Somebody wanted the rules to stay up."
-> **CARDS** · PICK UP — "It is not my hand."
-> **CARDS** · USE — "I do not play. My father was very clear about it, and he was wrong about most things."
-> **STAIRS** · USE — "I have not been invited up and I am not going to invite myself."
+> **STOVE** · OPEN — "It's lit. I'm not opening a lit stove in a wooden building full of drunk men. I've read how that story ends. Everyone has."
+> **PATRONS** · TALK TO — "I've tried. They're very friendly. They want to know what I know. I know nothing, and it disappoints them fresh every time."
+> **HANDBILL** · PICK UP — "It's nailed on. Thoroughly. Somebody wanted the rules to stay up a great deal more than they wanted them read."
+> **CARDS** · PICK UP — "It isn't my hand. If it were, I'd be a lot more cheerful."
+> **CARDS** · USE — "I don't play. My father was very clear about that, and he was wrong about most things, so I've been meaning to start."
+> **STAIRS** · USE — "I haven't been invited up, and I'm not going to invite myself. I have been practising looking like someone who might be."
 
 ---
 
 # PART FOUR — EXITS
 
 ## THE FRONT DOORS → Room 2
-**LOOK** 1 "Batwing doors, from the inside. They swing both ways, which from in here reads as a warning rather than a convenience." · 2 "The street past them. It is always a surprise." · 3 "Six inches of boardwalk and then the mud. I know exactly how far it is now."
-**LISTEN** 1 "The street. It sounds busier from in here than it is." · 2 "Boots on the boardwalk. Somebody deciding whether to come in." · 3 "Nothing. Everyone who is coming in is in."
+**LOOK** 1 "Batwing doors, from the inside. They swing both ways. From in here, that reads as a warning." · 2 "The street, past them. Somehow it's a surprise every time." · 3 "Six inches of boardwalk and then the mud. I know exactly how far now. My boots know it better."
+**LISTEN** 1 "The street. It sounds busier from in here than it is." · 2 "Boots on the boardwalk. Somebody deciding whether to come in. Deciding no." · 3 "Nothing. Everyone who's coming in is in."
 
 ## THE BACK ROOM DOOR → Room 4
 *(Ruling 19b, resolved by doc 19 § 1: the LOOK named men going through a shut door. Moved to LISTEN, which may describe what sight cannot.)*
 
-**LOOK** 1 "A door behind the bar, shut. There is a room back there and things are settled in it." · 2 "Shut. It has been shut every time I have looked, which is not the same as locked." · 3 "A door behind the bar. Shut, and shut in a way that has been decided rather than just closed."
-**LISTEN** 1 "Nothing. Whatever happens back there happens quietly, and then everyone agrees about it." · 2 "A pencil. Somebody is writing something down." · 3 "Two men going in. A little later, two men coming out, and one of the two is pleased."
+**LOOK** 1 "A door behind the bar, shut. There's a room back there where things get settled." · 2 "Shut. It's been shut every time I've looked. That isn't the same as locked, and I've thought about the difference a lot." · 3 "Shut in a way that's been decided, not just closed. I didn't know doors could do that. This one can."
+**LISTEN** 1 "Nothing. Whatever happens back there happens quietly, and then everyone agrees about it." · 2 "A pencil. Somebody is writing something down." · 3 "Two men going in. A while later, two men coming out, and one of them pleased."
 
 **Overrides**
 > BACK ROOM DOOR · OPEN — *(walks through)*
-> BACK ROOM DOOR · KNOCK is not a verb. PUSH — "It gives half an inch and stops. Somebody has a chair against it."
+> BACK ROOM DOOR · KNOCK is not a verb. PUSH — "It gives half an inch and stops. There's a chair against it. I apologise to the chair."
 
 ---
 

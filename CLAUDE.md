@@ -6,7 +6,7 @@
 
 ## What this is
 
-A 2D point-and-click comedy adventure game in the tradition of *The Secret of Monkey Island*. Frontier gold rush town, 1850s. Dry, deadpan. Ten-to-twelve hours, 45 puzzles, 42 screens, ~3,850 written lines.
+A 2D point-and-click comedy adventure game in the tradition of *The Secret of Monkey Island*. Frontier gold rush town, 1850s. Clever, warm, and at times silly — deadpan in delivery, not in ambition (**errata 100, `docs/59-voice-guide.md`**). Ten-to-twelve hours, 45 puzzles, 42 screens, ~3,850 written lines.
 
 **`docs/00-errata.md` overrides every other document on every point it addresses. Read it first.**
 
@@ -128,6 +128,7 @@ A line that needs changing is changed in `/docs` and re-extracted. Never edited 
 
 - **Never fan out subagents on content.** Parallelised comedy produces tonal mush. One voice writes Thad. Subagents are acceptable for engine plumbing, tooling, art batching, and validation — never for dialogue, examine lines, or barks.
 - **Never generate written content.** It all exists. Missing line → stop and report.
+  **The one exception is errata 100's dialogue pass:** existing lines rewritten to doc 59, in /docs, one voice, room by room, structure and puzzle facts untouched. Room 3 is the sample, and **no other room is rewritten until Tyler has ruled on it.** A line the documents never wrote is still a hard stop.
 - **Never `/loop` on quality.** Loop on validation scripts, which have exit conditions. "Until it's perfect" has none.
 - **Never add features not in the design documents.** If something seems missing, say so and stop.
 

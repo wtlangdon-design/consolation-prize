@@ -48,10 +48,10 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 ## ROOM 3 — THE BOUNTIFUL NUGGET
 
-**THE PIANO** · PUSH — "It has not been moved since it arrived, and the floor has grown around it like a tree around a nail."
+**THE PIANO** · PUSH — "I lean on it. It doesn't budge. It hasn't moved since it arrived, and the floor has grown round it like a tree round a nail."
 **THE PIANO** · TALK_TO — "Soon. We'll talk properly soon. Not in front of everyone."
 **THE BAR** · OPEN — "The barman watches me consider it. We both put the idea down gently."
-**THE STOVE PIPE** · PULL — "Every man in the room is suddenly watching. The pipe stays. The reputation nearly went."
+**THE STOVE PIPE** · PULL — "Every man in the room is suddenly watching. The pipe stays. My reputation very nearly didn't."
 **THE RACCOON** · TALK_TO — "He knows his name now. He answers to it the way the town answers to 'prosperous' — inconsistently, and only for food."
 **THE RACCOON** · PICK_UP — "He permits it for exactly four seconds. I have learned the number precisely."
 

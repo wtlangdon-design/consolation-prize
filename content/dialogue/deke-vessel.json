@@ -9,17 +9,17 @@
       {
         "say": "A man at the bar with his hat pushed back, entirely at ease, watching the door.",
         "repeat": [
-          "His boots are good. Everything above the boots is not, and I have decided that is deliberate.",
-          "He has been in this territory a long time and he is leaving it in a very good mood."
+          "His boots are good. Everything above the boots isn't, and I've decided that's on purpose.",
+          "He's been in the territory a long time and he's leaving it in a very good mood. I'd like whatever he's having."
         ]
       }
     ],
     "LISTEN_TO": [
       {
-        "say": "Talking. He has been talking since before I came in and he has not yet said anything.",
+        "say": "Talking. He's been talking since before I came in, and he hasn't said anything yet.",
         "repeat": [
-          "Still talking.",
-          "He has stopped, which is worse."
+          "Still talking. A lovely voice for saying nothing in.",
+          "He's stopped talking. He's looking at me."
         ]
       }
     ]
@@ -39,7 +39,7 @@
           "id": "deke_vessel1",
           "text": "How did you know?",
           "tag": "TOPIC",
-          "say": "Everybody knows. It's a small place and you're a new thing in it."
+          "say": "Everybody knows. Small place, and you're the newest thing in it."
         },
         {
           "id": "deke_vessel2",
@@ -107,7 +107,20 @@
           "after": [
             "deke_vessel3"
           ],
-          "say": "I've made my peace with it."
+          "exchange": [
+            {
+              "speaker": "deke_vessel",
+              "line": "I've made my peace with it."
+            },
+            {
+              "speaker": "deke_vessel",
+              "line": "…"
+            },
+            {
+              "speaker": "deke_vessel",
+              "line": "She hasn't, but she's a long way off."
+            }
+          ]
         },
         {
           "id": "deke_vessel6",
