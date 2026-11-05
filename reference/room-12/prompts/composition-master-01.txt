@@ -1,0 +1,17 @@
+Image 1 is the layout for one room of my pixel-art adventure game: grey blocks for walls and furniture, and the hero (the man in the long coat) standing on the floor. Paint this room as a finished game background with the hero in it, keeping the camera, the layout and every block where image 1 puts it. Paint the room ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched. The whole room, from the ceiling to the floor in front of the hero, fits inside that band.
+
+THE ROOM: the general store of a gold-rush town, 1850s, at night: the Mercantile. Crowded, warm, everything for sale; broken up by bolts of fabric, tin cans and printed paper labels. Nobody behind the counter -- the storekeeper is in the back room. Image 5 is a saloon on the same street at the same hour, for the world and the night light only.
+- Far left: the street door. Beside it, high on the wall, pairs of boots tied together by the laces and hung on a nail; below them a rack of pickaxes, one with a loose head; a barrel of shovels with price tags on strings.
+- Left of middle: a tower of tin gold pans nested one inside the next up toward the ceiling; a big painted price board on the wall; a pot-bellied iron stove with a ring of old chairs around it and a coffee pot on top; beside the stove a wooden crate of dynamite with its lid open and a newspaper over the sticks.
+- Middle: a table stacked with bolts of calico, the outer folds faded.
+- Right: a long scarred wooden counter. On it, from left to right: a brass weighing scale with a dish of lead shot; a big open credit ledger; a very thick mail-order catalogue lying open, with five paper slips sticking up out of it as bookmarks; a loose order form beside it; and at the counter's end a huge glass jar of pickled eggs with a wooden spoon on a string.
+- Behind the counter, shelves to the ceiling: tinned goods with printed labels; a row of brown medicine bottles of patent tonic with a bearded doctor on the labels; a dozen unsold scales still wrapped in yellowed paper; cans of lamp oil. A curtained doorway to the back room.
+- In front of the counter's end: a keg of nails.
+- Floor: worn boards.
+- Light: an oil lamp hanging over the counter and the stove's glow; the corners dimmer. No daylight.
+
+THE HERO from image 4, standing where image 1 puts him, at exactly that size, facing right toward the counter.
+
+THE LOOK: the same pixel-art style as images 2, 3 and 6: flat, soft shading, very little texture, simple shapes, a visible pixel grid. This room has its own colours: warm wood and lamplight, broken up by faded calico blue, tin silver and bright printed labels. Nothing near black where the hero stands.
+
+RULES: no readable text, letters or numbers anywhere -- the labels, the price board, the ledger, the catalogue and the order form carry marks, never words. No border, no frame around the picture, no caption.

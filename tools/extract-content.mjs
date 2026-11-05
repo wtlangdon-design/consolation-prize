@@ -3198,8 +3198,46 @@ function actCards() {
   });
 }
 
+/**
+ * DOC 23'S ACT I STORE ITEMS: THE PICKLED EGGS and DR. PURVIS'S TONIC (Room
+ * 12, errata 85). Doc 23's other Act I items were transcribed into
+ * content/items by hand before this extractor existed; these two were written
+ * later (doc 57) and are extracted, in the same grammar actTwoItems reads.
+ */
+function storeItems() {
+  const doc = read('docs/23-inventory-act1.md');
+  const body = doc.slice(0, doc.indexOf('## Act II items'));
+  const out = [];
+  for (const want of ['eggs', 'tonic']) {
+    const row = new RegExp(`^\\| ${want} \\| (.+?) \\| (.+?) \\|$`, 'm').exec(body);
+    if (!row) throw new Error(`doc 23: no table row for ${want}`);
+    const [, fullName, display] = row;
+    const heading = new RegExp(`^## ${display.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\n([\\s\\S]*?)(?=^## |^---)`, 'm');
+    const section = heading.exec(body);
+    if (!section) throw new Error(`doc 23: no section for ${display}`);
+    const responses = {};
+    for (const [verb, label] of [['LOOK_AT', 'LOOK'], ['LISTEN_TO', 'LISTEN']]) {
+      const line = new RegExp(`^\\*\\*${label}\\*\\* (.+)$`, 'm').exec(section[1]);
+      if (!line) throw new Error(`doc 23: ${display} has no ${label} run`);
+      const lines = [...line[1].matchAll(/\d "([^"]+)"/g)].map((m) => m[1]);
+      if (lines.length !== 3) throw new Error(`doc 23: ${display} ${label} has ${lines.length} lines, not 3`);
+      responses[verb] = [{ say: lines[0], repeat: lines.slice(1) }];
+    }
+    const acquired = /^\*(.+)\*$/m.exec(section[1])?.[1] ?? '';
+    out.push(write(`content/items/${want}.json`, {
+      schema: 1,
+      id: want,
+      name: fullName,
+      short: display,
+      note: `EXTRACTED from docs/23-inventory-act1.md (Act I items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. ${acquired}`,
+      responses,
+    }));
+  }
+  return out;
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), actCards(), ...actTwoItems(), assay()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

@@ -20,6 +20,7 @@
   "content/rooms/archive.json",
   "content/rooms/company-lobby.json",
   "content/rooms/fanshawe-office.json",
+  "content/rooms/mercantile.json",
   "content/rooms/clarion.json",
   "content/rooms/stub-claims-road.json",
   "content/rooms/harness-a.json",
@@ -59,7 +60,8 @@
   "content/fixtures/room-08.json",
   "content/fixtures/room-09.json",
   "content/fixtures/room-10.json",
-  "content/fixtures/room-11.json"
+  "content/fixtures/room-11.json",
+  "content/fixtures/room-12.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -82,7 +84,9 @@
   "content/items/executor-form.json",
   "content/items/obituary.json",
   "content/items/handkerchief.json",
-  "content/items/photograph.json"
+  "content/items/photograph.json",
+  "content/items/eggs.json",
+  "content/items/tonic.json"
  ],
  "scaling": "content/actors/scaling.json",
  "ambient": [

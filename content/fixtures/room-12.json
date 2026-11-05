@@ -1,0 +1,107 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 12, the Mercantile. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r12-a",
+   "label": "R12-A Act I, swindled: the store, on account",
+   "room": "mercantile",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed"
+   ],
+   "puzzles": {
+    "A3": "complete"
+   },
+   "derivedFrom": [
+    "docs/54-batch-c.md::## Overrides *(errata 68 A)*",
+    "docs/02-puzzle-graph.md (item ledger: the pickaxe, Mercantile, Act I)"
+   ],
+   "expect": {
+    "interactables": [
+     "pickaxes",
+     "pickle_jar",
+     "dr_purvis_s_tonic",
+     "catalogue",
+     "credit_ledger"
+    ]
+   },
+   "note": "PICK UP the pickaxes, the pickle jar and the tonic: each goes on Thad's account once."
+  },
+  {
+   "id": "r12-b",
+   "label": "R12-B Act III, recorded deceased: the account ruled off",
+   "room": "mercantile",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "ACT": 3,
+    "T_ASSAY_QUEUE": true,
+    "T_NINETY_DAYS": true,
+    "T_NEED_TO_DIE": true,
+    "T_EXECUTOR_RULE": true,
+    "T_DECEASED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "D1": "complete",
+    "E1": "complete",
+    "E2": "complete",
+    "E4": "complete"
+   },
+   "derivedFrom": [
+    "docs/05-examine-layer.md::PART TWO-B (THE CREDIT LEDGER, act 3)"
+   ],
+   "notBuilt": [
+    "E3-E4 and SUM_C1 (Room 7, deferred): the death certificate and the decease that open FRA_E1"
+   ],
+   "expect": {
+    "interactables": [
+     "credit_ledger",
+     "dynamite_crate"
+    ]
+   },
+   "note": "Act III: THE CREDIT LEDGER and THE DYNAMITE CRATE answer with doc 05 Part Two-B's act lines."
+  }
+ ]
+}

@@ -1012,7 +1012,11 @@ function sceneLine(spec) {
   const next = /\n## /.exec(rest);
   const body = rest.slice(0, next ? next.index : rest.length);
   const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const re = new RegExp(`^> \\*\\*${esc(spec.subject)}\\*\\* · ${esc(spec.verbText)}, \\*${esc(spec.case)}\\* — (.+)$`, 'm');
+  // A line with no case (`> **THE PICKLE JAR** · PICK UP — "..."`, doc 54) is
+  // read when the annotation names none (errata 85 D).
+  const re = spec.case
+    ? new RegExp(`^> \\*\\*${esc(spec.subject)}\\*\\* · ${esc(spec.verbText)}, \\*${esc(spec.case)}\\* — (.+)$`, 'm')
+    : new RegExp(`^> \\*\\*${esc(spec.subject)}\\*\\* · ${esc(spec.verbText)} — (.+)$`, 'm');
   const m = re.exec(body);
   if (!m) fail(`sceneLines: ${spec.ref} writes no "${spec.subject} · ${spec.verbText}, ${spec.case}" line`);
   const [spoken] = m[1].split('→');
@@ -1033,9 +1037,10 @@ function sceneLine(spec) {
     ...(more.length ? { then: more.map((l) => (l.speaker === 'thad' ? l.line : l)) } : {}),
     ...(spec.set ? { set: spec.set } : {}),
     ...(spec.items ? { items: spec.items } : {}),
+    ...(spec.grants ? { grants: spec.grants } : {}),
     ...(spec.completes ? { completes: spec.completes } : {}),
     ...(spec.goto ? { goto: spec.goto } : {}),
-    sceneLine: `${spec.ref} · ${spec.case}`,
+    sceneLine: `${spec.ref} · ${spec.case ?? 'first'}`,
   };
 }
 

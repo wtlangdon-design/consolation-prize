@@ -145,6 +145,7 @@ test('C4: on the funeral day he is up the hill; the log and the drawer give up w
   assert.ok(state.puzzleComplete('C4'));
   state.interact(drawer, 'OPEN');
   assert.equal(state.carried.filter((item) => item === 'photograph').length, 1, 'forty of him, but one is enough');
+  assert.ok(state.findTarget('stock_portrait_drawer'), 'the drawer is still the sideboard\'s: one photograph leaves, not the drawer');
 });
 
 test('C4: with him in the room, neither the log nor the drawer can be taken', async () => {

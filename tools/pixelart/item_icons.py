@@ -328,7 +328,31 @@ def photograph(canvas: IndexedCanvas, palette: Palette) -> None:
     canvas.hline(10, 17, 10, umber.frac(0.55))
 
 
+def eggs(canvas: IndexedCanvas, palette: Palette) -> None:
+    """THE PICKLED EGGS: a squat glass jar of pale eggs in brine under a tin
+    lid (doc 23). The only icon that is glass with something round inside it."""
+    grey = palette.family("grey")
+    canvas.rect(9, 5, 12, 13, grey.frac(0.55))
+    bone = palette.family("bone")
+    for x, y in ((11, 8), (15, 8), (13, 11), (11, 14), (16, 13)):
+        canvas.rect(x, y, 3, 3, bone.frac(0.85))
+    canvas.rect(8, 3, 14, 2, grey.frac(0.35))
+
+
+def tonic(canvas: IndexedCanvas, palette: Palette) -> None:
+    """DR. PURVIS'S TONIC: a tall brown bottle with a wired cork and a pale
+    label (doc 23: "The cork has been wired down"). Narrow and upright, the
+    only bottle in the inventory."""
+    umber = palette.family("umber")
+    canvas.rect(12, 6, 7, 13, umber.frac(0.35))
+    canvas.rect(14, 2, 3, 4, umber.frac(0.50))
+    canvas.rect(14, 1, 3, 1, palette.family("grey").frac(0.70))
+    canvas.rect(13, 10, 5, 5, palette.family("bone").frac(0.80))
+
+
 ICONS = {
+    "eggs": eggs,
+    "tonic": tonic,
     "handkerchief": handkerchief,
     "photograph": photograph,
     "document_a": document_a,

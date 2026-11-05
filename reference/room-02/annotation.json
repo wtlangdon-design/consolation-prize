@@ -154,6 +154,12 @@
    372,
    320,
    190
+  ],
+  "to_mercantile": [
+   170,
+   400,
+   270,
+   165
   ]
  },
  "exitWalkTo": {
@@ -185,6 +191,11 @@
   "to_claims_road": {
    "x": 3477,
    "y": 603,
+   "facing": "back"
+  },
+  "to_mercantile": {
+   "x": 260,
+   "y": 640,
    "facing": "back"
   }
  },
@@ -318,6 +329,15 @@
    ],
    "facing": "front",
    "note": "Back from the claims road, at the road out (to_claims_road's own walk-to), facing the street."
+  },
+  {
+   "from": "mercantile",
+   "at": [
+    260,
+    640
+   ],
+   "facing": "front",
+   "note": "Out of the Mercantile's door, on its steps, facing the street."
   }
  ],
  "onEnterSay": {

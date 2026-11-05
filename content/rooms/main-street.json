@@ -761,6 +761,28 @@
         "y": 624,
         "facing": "back"
       }
+    },
+    {
+      "id": "to_mercantile",
+      "name": "THE MERCANTILE",
+      "stub": true,
+      "rect": [
+        170,
+        400,
+        270,
+        165
+      ],
+      "colour": 0,
+      "to": "mercantile",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: one of Main Street's six façades, the store with goods in its window west of the Company. It had no door until Room 12 was built (errata 85 E). Doc 14 writes no lines for it, so it carries none (doc 36 Q155).",
+      "walkTo": {
+        "x": 260,
+        "y": 640,
+        "facing": "back"
+      }
     }
   ],
   "walkBoxes": [
@@ -1181,6 +1203,15 @@
       ],
       "facing": "front",
       "note": "Back from the claims road, at the road out (to_claims_road's own walk-to), facing the street."
+    },
+    {
+      "from": "mercantile",
+      "at": [
+        260,
+        640
+      ],
+      "facing": "front",
+      "note": "Out of the Mercantile's door, on its steps, facing the street."
     }
   ],
   "lamps": [

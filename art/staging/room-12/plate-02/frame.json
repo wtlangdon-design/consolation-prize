@@ -1,0 +1,67 @@
+{
+ "source": "art/staging/room-12/plate-02/source.png",
+ "crop": {
+  "x": 8,
+  "y": 130,
+  "width": 1520,
+  "height": 684
+ },
+ "out": "art/staging/room-12/plate-02/candidate-1920x864.png",
+ "derivation": {
+  "transform": "errata-63-fixed-room-source-acquisition",
+  "provisional": true,
+  "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+  "source": {
+   "path": "art/staging/room-12/plate-02/source.png",
+   "hash": "5602286db69ad5f90384befbcfbae1a23d2c0a52a09e508aac92641f4bb19565",
+   "width": 1536,
+   "height": 1024,
+   "bytes": 2493644,
+   "kept": true
+  },
+  "crop": {
+   "x": 8,
+   "y": 130,
+   "width": 1520,
+   "height": 684,
+   "aspect": "20:9"
+  },
+  "resample": {
+   "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+   "lobes": 3,
+   "from": [
+    1520,
+    684
+   ],
+   "to": [
+    1920,
+    864
+   ],
+   "factor": 1.263157894736842,
+   "normalisedWeights": true,
+   "premultiplied": true,
+   "rounding": "half-away-from-zero, clamped to 0..255",
+   "forbidden": [
+    "nearest-neighbour",
+    "ai-upscale",
+    "sharpen",
+    "denoise",
+    "recolour",
+    "contrast-enhancement",
+    "generative-second-pass"
+   ]
+  },
+  "derived": {
+   "path": "art/staging/room-12/plate-02/candidate-1920x864.png",
+   "hash": "314c4a547802c2e0f1cb6266da39d47264732b06ec773441ada68cfed14565a1",
+   "width": 1920,
+   "height": 864,
+   "bytes": 3554532,
+   "colourType": 2
+  }
+ },
+ "sources": [
+  "room-12 attempt 3 (plate-02/source.png): attempt 2 with the unsold scales and the lamp oil"
+ ],
+ "why": "The master filled the 3:2 canvas; Room 12 takes its own 20:9 crop, x 8-1528, y 130-814 (tools/art/room12-plate.mjs)."
+}

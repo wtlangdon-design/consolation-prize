@@ -316,13 +316,13 @@
    "untilPuzzles": [
     "C4"
    ],
-   "items": [
-    "photograph"
-   ],
    "set": {
     "T_MOTT_FACE_UNKNOWN": true
    },
-   "completes": "C4"
+   "completes": "C4",
+   "grants": [
+    "photograph"
+   ]
   },
   {
    "hotspot": "stock_portrait_drawer",
@@ -337,13 +337,13 @@
    "untilPuzzles": [
     "C4"
    ],
-   "items": [
-    "photograph"
-   ],
    "set": {
     "T_MOTT_FACE_UNKNOWN": true
    },
-   "completes": "C4"
+   "completes": "C4",
+   "grants": [
+    "photograph"
+   ]
   }
  ],
  "sceneLinesNote": "Doc 54's C3/C4 lines (errata 68 D): on the funeral day the log gives THE SUBMISSION LOG and T_QUEUE_PADDED, and the drawer THE PHOTOGRAPH and T_MOTT_FACE_UNKNOWN, completing C4 (doc 57); with Fanshawe present both refuse. Each empty-office rule answers once.",

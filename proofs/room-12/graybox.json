@@ -1,0 +1,373 @@
+{
+ "room": 12,
+ "note": "Ruling 22 steps 1-6 for the Mercantile, written by tools/room12-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 85).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 740,
+   "height": 497
+  },
+  "near": {
+   "y": 850,
+   "height": 573
+  },
+  "from": "Room 5's interior numbers (reference/room-05/annotation.json)"
+ },
+ "walkable": [
+  210,
+  740,
+  1670,
+  110
+ ],
+ "exit": {
+  "hotspot": "THE STREET DOOR",
+  "to": "main_street",
+  "rect": [
+   30,
+   150,
+   180,
+   540
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 300,
+   "y": 790,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE STREET DOOR",
+   "rect": [
+    30,
+    150,
+    180,
+    540
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BOOTS",
+   "rect": [
+    230,
+    110,
+    150,
+    140
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PICKAXES",
+   "rect": [
+    230,
+    270,
+    150,
+    420
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SHOVELS",
+   "rect": [
+    390,
+    470,
+    110,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PANS",
+   "rect": [
+    400,
+    60,
+    110,
+    390
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PRICE LIST",
+   "rect": [
+    560,
+    90,
+    220,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STOVE",
+   "rect": [
+    560,
+    380,
+    150,
+    310
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE DYNAMITE CRATE",
+   "rect": [
+    720,
+    600,
+    110,
+    90
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CALICO",
+   "rect": [
+    850,
+    500,
+    170,
+    190
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "TINNED GOODS",
+   "rect": [
+    1060,
+    110,
+    300,
+    300
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "DR. PURVIS'S TONIC",
+   "rect": [
+    1380,
+    160,
+    160,
+    140
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE UNSOLD SCALES",
+   "rect": [
+    1560,
+    100,
+    200,
+    170
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LAMP OIL",
+   "rect": [
+    1560,
+    300,
+    180,
+    130
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE COUNTER",
+   "rect": [
+    1040,
+    470,
+    640,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SCALES",
+   "rect": [
+    1080,
+    400,
+    110,
+    70
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CREDIT LEDGER",
+   "rect": [
+    1210,
+    430,
+    120,
+    40
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CATALOGUE",
+   "rect": [
+    1350,
+    420,
+    160,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CATALOGUE slips",
+   "rect": [
+    1350,
+    380,
+    160,
+    40
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CATALOGUE \u2014 ORDER FORM",
+   "rect": [
+    1520,
+    440,
+    70,
+    30
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PICKLE JAR",
+   "rect": [
+    1610,
+    360,
+    70,
+    110
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE NAILS",
+   "rect": [
+    1700,
+    590,
+    100,
+    100
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: every piece of furniture is behind it, and nobody else is drawn, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "walls, plank and shelving",
+   "p10": 60.0,
+   "p90": 88.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 33.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "floor, worn boards",
+   "p10": 90.0,
+   "p90": 99.0,
+   "darkAnchorMargin": 64.5,
+   "lightAnchorMargin": 22.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE STREET DOOR",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PICKAXES",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SHOVELS",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PANS",
+   "p10": 92.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 66.5,
+   "lightAnchorMargin": 29.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE STOVE",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE DYNAMITE CRATE",
+   "p10": 72.0,
+   "p90": 72.0,
+   "darkAnchorMargin": 46.5,
+   "lightAnchorMargin": 49.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CALICO",
+   "p10": 88.0,
+   "p90": 88.0,
+   "darkAnchorMargin": 62.5,
+   "lightAnchorMargin": 33.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "TINNED GOODS",
+   "p10": 76.0,
+   "p90": 76.0,
+   "darkAnchorMargin": 50.5,
+   "lightAnchorMargin": 45.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "DR. PURVIS'S TONIC",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE LAMP OIL",
+   "p10": 66.0,
+   "p90": 88.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 33.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE COUNTER",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE NAILS",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

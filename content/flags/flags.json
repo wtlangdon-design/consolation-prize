@@ -869,6 +869,33 @@
     "room:fanshawe_office:onEnter"
    ],
    "note": "Doc 54: 'On first entering it' while the funeral runs, Thad's one line about the empty office; set as it plays (errata 84 G)."
+  },
+  {
+   "id": "T_EGGS_ON_ACCOUNT",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:mercantile:pickle_jar:PICK_UP"
+   ],
+   "note": "Doc 54 (errata 68 A, 75): the first PICK UP on THE PICKLE JAR puts it on Thad's account and gives it; the next answers 'again' where doc 54 writes one (errata 85 D)."
+  },
+  {
+   "id": "T_TONIC_ON_ACCOUNT",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:mercantile:dr_purvis_s_tonic:PICK_UP"
+   ],
+   "note": "Doc 54 (errata 68 A, 75): the first PICK UP on DR. PURVIS'S TONIC puts it on Thad's account and gives it; the next answers 'again' where doc 54 writes one (errata 85 D)."
+  },
+  {
+   "id": "T_PICKAXE_ON_ACCOUNT",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:mercantile:pickaxes:PICK_UP"
+   ],
+   "note": "Doc 54 (errata 68 A, 75): the first PICK UP on THE PICKAXES puts it on Thad's account and gives it; the next answers 'again' where doc 54 writes one (errata 85 D)."
   }
  ]
 }

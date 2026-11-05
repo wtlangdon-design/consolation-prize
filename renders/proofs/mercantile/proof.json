@@ -1,0 +1,411 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "mercantile",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "be5e595d6695df1786bded2441b3e9e749e23bb0",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": "mercantile",
+ "routeLog": [
+  "action 1 (wait): waited 2.5s",
+  "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up",
+  "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit",
+  "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED",
+  "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road",
+  "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever.",
+  "action 13 (wait): waited 3s",
+  "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road",
+  "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it",
+  "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it",
+  "action 17 (wait): waited 6s",
+  "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger",
+  "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street",
+  "action 20 (wait): waited 2s",
+  "action 21 (click): clicked world 1950,760 -- walk west along the street from the east end",
+  "action 22 (wait): waited 20s",
+  "action 23 (click): clicked world 1700,770 -- west again: a click west of the camera's left edge does not register, so in short legs the camera follows",
+  "action 24 (wait): waited 5s",
+  "action 25 (click): clicked world 1450,780 -- ",
+  "action 26 (wait): waited 5s",
+  "action 27 (click): clicked world 1200,790 -- ",
+  "action 28 (wait): waited 5s",
+  "action 29 (click): clicked world 950,790 -- west again, in short legs",
+  "action 30 (wait): waited 5s",
+  "action 31 (click): clicked world 750,790 -- ",
+  "action 32 (wait): waited 5s",
+  "action 33 (click): clicked world 550,790 -- west again, past the Company",
+  "action 34 (wait): waited 5s",
+  "action 35 (click): clicked main_street/to_mercantile at world 305,483 -- the Mercantile's door, Main Street's sixth façade",
+  "action 36 (waitFor): reached {\"room\":\"mercantile\"} in room mercantile",
+  "action 37 (wait): waited 3s",
+  "action 1 (verb): chose verb PICK_UP -- ",
+  "action 2 (click): clicked mercantile/pickaxes at world 370,325 -- THE PICKAXES",
+  "action 3 (waitFor): reached {\"says\":\"thad\"} in room mercantile"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 721,
+    "xs": [
+     835,
+     644,
+     1026,
+     453,
+     1218,
+     261,
+     1409,
+     70,
+     1600
+    ],
+    "expect": 420,
+    "x": 835
+   },
+   "at": [
+    835,
+    721
+   ],
+   "reportedHeight": 420,
+   "expected": 420,
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-02.png",
+   "bounds": [
+    617,
+    301,
+    435,
+    464
+   ],
+   "order": 0,
+   "renderedHeight": 421,
+   "renderedBottom": 721,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 854,
+    "xs": [
+     835,
+     644,
+     1026,
+     453,
+     1218,
+     261,
+     1409,
+     70,
+     1600
+    ],
+    "expect": 511,
+    "x": 835
+   },
+   "at": [
+    835,
+    854
+   ],
+   "reportedHeight": 511,
+   "expected": 511,
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-06.png",
+   "bounds": [
+    570,
+    343,
+    530,
+    564
+   ],
+   "order": 0,
+   "renderedHeight": 511,
+   "renderedBottom": 853,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "mercantile",
+   "clock": 165.0059,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 467,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-00.png",
+     "bounds": [
+      58,
+      323,
+      484,
+      516
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:mercantile",
+     "path": "art/backgrounds/room-12-mercantile.png",
+     "drawn": "art/backgrounds/room-12-mercantile.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "314c4a547802c2e0f1cb6266da39d47264732b06ec773441ada68cfed14565a1"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [],
+   "capturedAt": "2026-11-05T01:43:54.490Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "81514a1eb36d05d23dd995dc4dcc2784945667a7a69957be17f181eab984530c"
+  },
+  {
+   "panel": "A",
+   "room": "mercantile",
+   "clock": 166.0393,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 467,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:mercantile",
+     "path": "art/backgrounds/room-12-mercantile.png",
+     "drawn": "art/backgrounds/room-12-mercantile.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "314c4a547802c2e0f1cb6266da39d47264732b06ec773441ada68cfed14565a1"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T01:43:55.542Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "1f6427241d35639d76805f039366089611593da9ed07e4ab0eb28a3640e65d64"
+  },
+  {
+   "panel": "D",
+   "room": "mercantile",
+   "clock": 174.32229999999998,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_PICKAXE_ON_ACCOUNT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "pickaxe",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      370,
+      854
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 511,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      67,
+      343,
+      605,
+      564
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": "thad",
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:mercantile",
+     "path": "art/backgrounds/room-12-mercantile.png",
+     "drawn": "art/backgrounds/room-12-mercantile.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "314c4a547802c2e0f1cb6266da39d47264732b06ec773441ada68cfed14565a1"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)",
+    "cast(true)",
+    "stand(835,721)",
+    "cast(false)",
+    "cast(true)",
+    "stand(835,854)",
+    "cast(false)",
+    "cast(true)"
+   ],
+   "capturedAt": "2026-11-05T01:44:03.960Z",
+   "intent": "principal changed state: Doc 54: the first PICK UP on THE PICKAXES puts the loose-headed one on Thad's account. Visible consequence: THE PICKAXE in the inventory; T_PICKAXE_ON_ACCOUNT written; the rack stays.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "3992d3a8302a25ab7fba57db44647a65c00023259c355e61161225ecff9d6e82",
+   "changedBy": "flags, inventory"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T01:44:03.960Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 665118,
+  "panels": 5,
+  "scale": 0.5
+ }
+}

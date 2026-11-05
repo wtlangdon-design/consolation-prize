@@ -1,0 +1,364 @@
+{
+ "room": "mercantile",
+ "plate": "art/backgrounds/room-12-mercantile.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-12/plate-02/candidate-1920x864.png, room-12 attempt 3, its own 20:9 crop -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-12-mercantile.png",
+ "plateShippingHash": "314c4a547802c2e0f1cb6266",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   70,
+   720
+  ],
+  [
+   1600,
+   720
+  ],
+  [
+   1600,
+   855
+  ],
+  [
+   70,
+   855
+  ]
+ ],
+ "walkableNote": "THE FLOOR IN FRONT OF EVERYTHING. The shovels' barrel stands to y 695, the crate to 700 and the counter's near end to 740; the nail keg comes forward to the frame's foot at x 1645, so the band stops at x 1600.",
+ "scaling": {
+  "far": {
+   "y": 720,
+   "height": 419
+  },
+  "near": {
+   "y": 855,
+   "height": 512
+  },
+  "note": "ROOM 12'S DEPTH, FROM THE MAN THE MASTER PAINTED. The composition master drew Thad about 390 tall with his feet at source y 785, which is 493 at y 827 in this plate's frame; along Room 5's slope (0.69 per row) that is 419 at the band's far edge and 512 at its near."
+ },
+ "entrance": [
+  300,
+  790
+ ],
+ "entrances": [
+  {
+   "from": "main_street",
+   "at": [
+    300,
+    790
+   ],
+   "facing": "right",
+   "note": "In by the street doors, at left."
+  },
+  {
+   "from": "default",
+   "at": [
+    300,
+    790
+   ],
+   "facing": "right",
+   "note": "Anything else arrives by the door."
+  }
+ ],
+ "hotspots": {
+  "boots": [
+   300,
+   0,
+   120,
+   230
+  ],
+  "pickaxes": [
+   290,
+   220,
+   160,
+   210
+  ],
+  "shovels": [
+   295,
+   430,
+   150,
+   265
+  ],
+  "pans": [
+   440,
+   0,
+   140,
+   340
+  ],
+  "price_list": [
+   590,
+   0,
+   110,
+   240
+  ],
+  "stove": [
+   600,
+   270,
+   200,
+   330
+  ],
+  "dynamite_crate": [
+   500,
+   550,
+   190,
+   150
+  ],
+  "calico": [
+   855,
+   175,
+   290,
+   210
+  ],
+  "tinned_goods": [
+   780,
+   20,
+   380,
+   150
+  ],
+  "unsold_scales": [
+   1460,
+   40,
+   290,
+   95
+  ],
+  "lamp_oil": [
+   1760,
+   40,
+   160,
+   370
+  ],
+  "scales": [
+   1140,
+   290,
+   130,
+   165
+  ],
+  "catalogue": [
+   1205,
+   425,
+   210,
+   75
+  ],
+  "credit_ledger": [
+   1420,
+   420,
+   200,
+   110
+  ],
+  "pickle_jar": [
+   1755,
+   370,
+   120,
+   195
+  ],
+  "counter": [
+   1060,
+   440,
+   860,
+   300
+  ],
+  "nails": [
+   1645,
+   655,
+   175,
+   209
+  ],
+  "dr_purvis_s_tonic": [
+   1460,
+   145,
+   290,
+   120
+  ],
+  "catalogue_ladies_notions": [
+   1268,
+   380,
+   34,
+   45
+  ],
+  "catalogue_patent_machines": [
+   1305,
+   380,
+   34,
+   45
+  ],
+  "catalogue_firearms": [
+   1342,
+   380,
+   34,
+   45
+  ],
+  "catalogue_musical_instruments": [
+   1379,
+   380,
+   34,
+   45
+  ],
+  "catalogue_order_form": [
+   1600,
+   495,
+   120,
+   60
+  ],
+  "catalogue_furniture_pages": [
+   1416,
+   380,
+   40,
+   45
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE CATALOGUE is the left book open on the counter; its five written sections are the five paper slips standing up out of it, left to right, and THE CATALOGUE -- ORDER FORM is the loose sheet beside the right book, THE CREDIT LEDGER (errata 85 C). The chairs are THE STOVE's. THE UNSOLD SCALES are the paper-wrapped shapes on the top shelves.",
+ "exits": {
+  "back_to_street": [
+   40,
+   240,
+   230,
+   420
+  ]
+ },
+ "exitWalkTo": {
+  "back_to_street": {
+   "x": 200,
+   "y": 770,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "counter_lamp",
+   "at": [
+    1345,
+    90
+   ],
+   "radius": 520,
+   "amount": 0.1,
+   "rate": 0.26,
+   "phase": 0.5,
+   "note": "The oil lamp hung over the counter. A slow, low breath (invariant 9)."
+  },
+  {
+   "id": "stove_glow",
+   "at": [
+    655,
+    470
+   ],
+   "radius": 260,
+   "amount": 0.12,
+   "rate": 0.4,
+   "phase": 0.1,
+   "note": "The stove's firebox, on its own phase."
+  }
+ ],
+ "defaultVerbs": {
+  "boots": "LOOK_AT",
+  "pickaxes": "LOOK_AT",
+  "shovels": "LOOK_AT",
+  "pans": "LOOK_AT",
+  "price_list": "LOOK_AT",
+  "stove": "LOOK_AT",
+  "dynamite_crate": "LOOK_AT",
+  "calico": "LOOK_AT",
+  "tinned_goods": "LOOK_AT",
+  "unsold_scales": "LOOK_AT",
+  "lamp_oil": "LOOK_AT",
+  "scales": "LOOK_AT",
+  "catalogue": "LOOK_AT",
+  "credit_ledger": "LOOK_AT",
+  "pickle_jar": "LOOK_AT",
+  "counter": "LOOK_AT",
+  "nails": "LOOK_AT",
+  "dr_purvis_s_tonic": "LOOK_AT",
+  "catalogue_ladies_notions": "LOOK_AT",
+  "catalogue_patent_machines": "LOOK_AT",
+  "catalogue_firearms": "LOOK_AT",
+  "catalogue_musical_instruments": "LOOK_AT",
+  "catalogue_order_form": "LOOK_AT",
+  "catalogue_furniture_pages": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
+ "occlusion": {
+  "note": "NO PLANE MASKS THAT CAN REACH HIM: the walk band is in front of every piece of furniture and stops short of the nail keg.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ },
+ "sceneLines": [
+  {
+   "hotspot": "pickle_jar",
+   "verb": "PICK_UP",
+   "ref": "docs/54-batch-c.md::## Overrides *(errata 68 A)*",
+   "subject": "THE PICKLE JAR",
+   "verbText": "PICK UP",
+   "when": {
+    "T_EGGS_ON_ACCOUNT": false
+   },
+   "set": {
+    "T_EGGS_ON_ACCOUNT": true
+   },
+   "grants": [
+    "eggs"
+   ]
+  },
+  {
+   "hotspot": "pickle_jar",
+   "verb": "PICK_UP",
+   "ref": "docs/54-batch-c.md::## Overrides *(errata 68 A)*",
+   "subject": "THE PICKLE JAR",
+   "verbText": "PICK UP",
+   "case": "again",
+   "when": {
+    "T_EGGS_ON_ACCOUNT": true
+   }
+  },
+  {
+   "hotspot": "dr_purvis_s_tonic",
+   "verb": "PICK_UP",
+   "ref": "docs/54-batch-c.md::## Overrides *(errata 68 A)*",
+   "subject": "DR. PURVIS'S TONIC",
+   "verbText": "PICK UP",
+   "when": {
+    "T_TONIC_ON_ACCOUNT": false
+   },
+   "set": {
+    "T_TONIC_ON_ACCOUNT": true
+   },
+   "grants": [
+    "tonic"
+   ]
+  },
+  {
+   "hotspot": "pickaxes",
+   "verb": "PICK_UP",
+   "ref": "docs/54-batch-c.md::## Overrides *(errata 68 A)*",
+   "subject": "THE PICKAXES",
+   "verbText": "PICK UP",
+   "when": {
+    "T_PICKAXE_ON_ACCOUNT": false
+   },
+   "set": {
+    "T_PICKAXE_ON_ACCOUNT": true
+   },
+   "grants": [
+    "pickaxe"
+   ]
+  },
+  {
+   "hotspot": "pickaxes",
+   "verb": "PICK_UP",
+   "ref": "docs/54-batch-c.md::## Overrides *(errata 68 A)*",
+   "subject": "THE PICKAXES",
+   "verbText": "PICK UP",
+   "case": "again",
+   "when": {
+    "T_PICKAXE_ON_ACCOUNT": true
+   }
+  }
+ ],
+ "sceneLinesNote": "Doc 54's errata 68 A pickups, on Thad's account: the first PICK UP gives the item and marks the account; the jar and the pickaxes answer their written 'again' after. The tonic has no 'again' written: once on account, its PICK UP is its override line, and nothing more is given (doc 36 Q155)."
+}

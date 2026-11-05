@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game: a general store at night, nobody in it.
+
+Make exactly TWO changes, painted in the same style, light and pixel grid as the rest:
+1. On the second shelf from the top at the upper right, replace the row of small tied cloth sacks with a row of a dozen small weighing scales still wrapped in yellowed brown paper, the shape of each scale showing through the paper.
+2. On the shelves just left of the red curtain at the far right, replace what stands there with square tin cans of lamp oil, each with a small spout on top.
+
+Change nothing else at all. Same framing, same camera, same pixel grid, same colours, same light; every other object exactly as it is, pixel for pixel: the doors, the boots, the pickaxes and shovels, the pans, the price board, the stove and chairs, the dynamite crate, the bolts of cloth, the tins, the tonic bottles, the counter with its scales, the two open books and their paper slips, the order form, the pickle jar, the curtain, the nail keg, the floor. No people, no text.

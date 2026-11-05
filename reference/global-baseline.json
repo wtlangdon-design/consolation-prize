@@ -242,6 +242,22 @@
     }
    ],
    "castingNote": "Colonel Fanshawe has no approved image; canon gives him no appearance but his portrait's (errata 84 B). He is drawn first in the composition master behind his desk beside Thad (style gate step 1), then alone on magenta in five poses."
+  },
+  "room-12-mercantile": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-03-nugget",
+    "path": "art/backgrounds/room-03-nugget.png",
+    "note": "D -- the approved public interior on Main Street at night. The Mercantile is warm, broken up by fabric, tin and printed labels (errata 17b), so a comparable and not a palette."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody is drawn in the Mercantile: the proprietor is in the back room (doc 49). Thad alone."
   }
  }
 }

@@ -1,0 +1,26 @@
+{
+ "schema": 1,
+ "room": "mercantile",
+ "note": "ROOM 12's PROOF SPEC. The route is Main Street's, then the Mercantile's door. No puzzle is solved here; the principal change is THE PICKAXE, on account (doc 54, errata 75): PICK UP the pickaxes.",
+ "route": "mercantile",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "Doc 54: the first PICK UP on THE PICKAXES puts the loose-headed one on Thad's account. Visible consequence: THE PICKAXE in the inventory; T_PICKAXE_ON_ACCOUNT written; the rack stays.",
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "PICK_UP"
+   },
+   {
+    "do": "click",
+    "on": "pickaxes",
+    "why": "THE PICKAXES"
+   },
+   {
+    "do": "waitFor",
+    "says": "thad",
+    "upTo": 30
+   }
+  ]
+ }
+}

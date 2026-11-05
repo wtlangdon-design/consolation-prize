@@ -314,6 +314,10 @@ export class VerbSystem {
         state: matched.setState,
         take: matched.take,
         items: matched.items,
+        // GIVEN, AND THE SOURCE STAYS (errata 85 F): a jar of eggs off the
+        // shelf, a photograph from a drawer of forty. `items` takes its
+        // source with it, as Room 1's case is taken; these are not taken.
+        ...(matched.grants?.length ? { grants: matched.grants } : {}),
         effects: [
           ...flagEffects(`act/${scope}/${target.id}/${verbId}#${index}`, matched.set, matched.add),
           ...(matched.completes
