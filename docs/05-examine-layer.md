@@ -122,23 +122,23 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 **THE HANDBILL** — ***critical, Act I, and nobody will read it***
 > **LOOK:** *(full text)*
 > "RULES OF THE ASSAY. One: a man may not be interrupted in his account. Two: a man's account may be doubted only by a better one. Three: truth is admissible but has never been raised. Four: the judges' decision is final and may be appealed to the same judges. Five: no firearms, no knives, no arithmetic."
-> **LISTEN:** "Paper. It has been on this wall a long time. It has stopped being read."
+> **LISTEN:** "Paper. It's been on this wall so long it's stopped being read."
 
 **THE PIANO**
-> **LOOK:** "An upright, hauled four hundred miles by mule, at a cost exceeding its value by an order of magnitude. Nobody here can play it."
-> **LISTEN:** "C-sharp is a semitone flat and has been for years. Nobody has noticed. I have made a note of it. I have made several notes of it."
+> **LOOK:** "An upright, hauled four hundred miles by mule at ten times what it's worth. Nobody here can play it. I could make it worth playing. I'd only need asking."
+> **LISTEN:** "C-sharp is a semitone flat, and has been for years. Nobody's noticed. I've noticed. I've noticed several times."
 
 **THE CHANDELIER**
-> **LOOK:** "A chandelier. Below it, a dirt floor. The two have never been introduced."
-> **LISTEN:** "It ticks as it cools. It is the most expensive object in the territory and it is hanging over mud."
+> **LOOK:** "A chandelier. Underneath it, a dirt floor. The two have never been introduced."
+> **LISTEN:** "It ticks as it cools. The most expensive object in the territory, and it's hanging over mud."
 
 **THE BAR**
-> **LOOK:** "Mahogany. Genuinely. Somebody spent real money on the one surface everyone leans on."
-> **LISTEN:** "Glasses. Talk. Somebody in the corner has told the same story four times and it has grown twice."
+> **LOOK:** "Mahogany. Genuine mahogany. Somebody spent real money on the one surface everybody leans on."
+> **LISTEN:** "Glasses. Talk. The story in the corner is on its fifth telling, and the bear has a name now."
 
 **THE MIRROR**
 > **LOOK:** "I look like a man who has recently been robbed and is being brave about it."
-> **LISTEN:** "Nothing. Mirrors are silent, which is the only restraint they show."
+> **LISTEN:** "Quiet. Mirrors never say anything. It's the only restraint they show."
 
 **THE STAIRS** · **THE FADED PORTRAIT** · **THE SPITTOON** · **THE STOVE** · **THE WINDOW** · **THE PATRONS** — *(full lines in doc 16, which completes this room; the spittoon's LISTEN line is "Regrettably, yes.")*
 
@@ -1334,15 +1334,15 @@ bark budget, not here.
 ## ROOM 3 — THE BOUNTIFUL NUGGET
 
 **THE BAR** *(act: 3)*
-> **LOOK:** "They drank to my memory on Tuesday. I attended. I am told I was well spoken of, briefly, between rounds."
-> **LISTEN:** "My name — one of its spellings — in a toast. It is a strange vintage, hearing yourself remembered at cost price."
+> **LOOK:** "They drank to my memory on Tuesday. I was there. I'm told I was spoken of very warmly, briefly, between rounds."
+> **LISTEN:** "My name — one of its spellings — in a toast. It's a strange vintage, being remembered at cost price."
 
 **THE PIANO** *(act: 2)*
-> **LOOK:** "I tune it Thursdays now. It is the only thing in Consolation that is more honest when I finish with it."
+> **LOOK:** "I tune it Thursdays now. It's the only thing in Consolation that comes out more honest after I've been at it."
 
 **THE PIANO** *(act: 4)*
-> **LOOK:** "Tuned, and staying tuned. The room plays it differently now — softer, like the instrument earned something."
-> **LISTEN:** "A. Four hundred and forty. In this town, at last, that is not a foreign language."
+> **LOOK:** "Tuned, and staying tuned. The room plays it softer now, like it knows what it cost."
+> **LISTEN:** "A. Four hundred and forty. In this town, at last, that's not a foreign language."
 
 ## ROOM 5 — ASSAY OFFICE, FRONT
 

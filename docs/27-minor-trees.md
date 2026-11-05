@@ -60,11 +60,11 @@
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "How did you know?" | `[TOPIC]` | "Everybody knows. It's a small place and you're a new thing in it." |
+| 1 | "How did you know?" | `[TOPIC]` | "Everybody knows. Small place, and you're the newest thing in it." |
 | 2 | "What are you selling?" | `[PROGRESS]` | "Nothing. I'm getting out." *(beat)* "Which is a kind of selling, I suppose." |
 | 3 | "Getting out of what?" | `[PROGRESS]` · after 2 | "Claim Two. Producing, mind. But my sister's poorly and Sacramento's four days." |
 | 4 | "How much?" | `[PROGRESS]` · after 3 | **"What have you got?"** — *"Four dollars."* — "Four dollars." *(He looks at the watch.)* "And that." |
-| 5 | "You seem cheerful for a man with a poorly sister." | `[COMIC]` · after 3 | "I've made my peace with it." |
+| 5 | "You seem cheerful for a man with a poorly sister." | `[COMIC]` · after 3 | "I've made my peace with it." *(beat)* "She hasn't, but she's a long way off." |
 | 6 | "All right." | `[PROGRESS] ✓` · after 4 · ends | *(The swindle. Four dollars and the watch for the deed.)* "Pleasure, son. Look after her. She's got character." *(He finishes his drink, collects his hat, and leaves the Nugget.)* → `T_SWINDLED` · **A3** |
 | 7 | `[EXIT]` "I'll think about it." | | "Course you will." |
 
@@ -87,8 +87,8 @@
 **LISTEN** 1 "A pen. He is writing something that is not the register." · 2 "Still writing." · 3 "Nothing. He has stopped, and he is waiting for me to go so that he can start again."
 
 ## DEKE VESSEL
-**LOOK** 1 "A man at the bar with his hat pushed back, entirely at ease, watching the door." · 2 "His boots are good. Everything above the boots is not, and I have decided that is deliberate." · 3 "He has been in this territory a long time and he is leaving it in a very good mood."
-**LISTEN** 1 "Talking. He has been talking since before I came in and he has not yet said anything." · 2 "Still talking." · 3 "He has stopped, which is worse."
+**LOOK** 1 "A man at the bar with his hat pushed back, entirely at ease, watching the door." · 2 "His boots are good. Everything above the boots isn't, and I've decided that's on purpose." · 3 "He's been in the territory a long time and he's leaving it in a very good mood. I'd like whatever he's having."
+**LISTEN** 1 "Talking. He's been talking since before I came in, and he hasn't said anything yet." · 2 "Still talking. A lovely voice for saying nothing in." · 3 "He's stopped talking. He's looking at me."
 
 ---
 
