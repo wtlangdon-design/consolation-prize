@@ -52,7 +52,10 @@
     "T_CASE_TAKEN": true,
     "T_ROOM_GRANTED": true,
     "T_TUNES_PIANOS": true,
-    "ACT": 4
+    "ACT": 4,
+    "T_SWINDLED": true,
+    "T_BORDERS_MOTT": true,
+    "T_ASSAY_QUEUE": true
    },
    "inventory": [
     "tuning_fork",
@@ -60,7 +63,8 @@
     "watch"
    ],
    "derivedFrom": [
-    "docs/04-dialogue-trees.md::PART THREE — THE LETTERS HOME"
+    "docs/04-dialogue-trees.md::PART THREE — THE LETTERS HOME",
+    "docs/02-puzzle-graph.md::Puzzle Dependency Graph — v1"
    ],
    "note": "USE THE LETTERS HOME: Act IV's letter, four lines, no choice."
   }
