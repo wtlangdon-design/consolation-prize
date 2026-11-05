@@ -1,0 +1,175 @@
+{
+ "schema": 1,
+ "id": "room-12-mercantile",
+ "room": "mercantile",
+ "docRoom": 12,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 12 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-12.json",
+    "docs/00-errata.md::85 · ROOM 12 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Nobody drawn; the store issues the pickaxe, the eggs and the tonic on account; night; the act lines are lines."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-12/graybox.json",
+    "docs/00-errata.md::85 · ROOM 12 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Every subject is plate; nothing changes in the picture."
+  },
+  "cast": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/00-errata.md::85 · ROOM 12 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Nobody is drawn: the proprietor is in the back room (doc 49)."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/mercantile/life/life.json"
+   ],
+   "note": "The lamp over the counter and the stove breathe; no figure."
+  },
+  "physicalContact": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/00-errata.md::85 · ROOM 12 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "No figure stands in the room but Thad."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-12/annotation.json"
+   ],
+   "note": "The counter lamp and the stove, plate light and a runtime breath each."
+  },
+  "cluePerceptibility": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/00-errata.md::85 · ROOM 12 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "No puzzle is solved here; the three things on account answer PICK UP."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-12.json",
+    "content/rooms/mercantile.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 160 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-12: 3 of 4 operations (master, people-free plate with the catalogue's slips, the unsold scales and the lamp oil)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/mercantile.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-12/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/mercantile/proof.json"
+   ],
+   "note": "Panel D: THE PICKAXE on account."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/mercantile/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/mercantile/doors/life.json",
+    "tests/room-12.test.ts"
+   ],
+   "note": "Out to Main Street and back, twice; the three pickups and the Act III ledger in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-12/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-12-mercantile.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-12/plate-02/frame.json"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q155 · Room 12, the Mercantile: built, awaiting Tyler's playthrough; its doors carry no lines — **RULED 2026-11-05 (errata 85, delegated; the doors ship as stub exits under errata 72 F); BUILT, room-12 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q155 · Room 12, the Mercantile: built, awaiting Tyler's playthrough; its doors carry no lines — **RULED 2026-11-05 (errata 85, delegated; the doors ship as stub exits under errata 72 F); BUILT, room-12 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

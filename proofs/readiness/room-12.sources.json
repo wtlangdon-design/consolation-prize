@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": 12,
- "id": "room-12",
+ "id": "room-12-mercantile",
  "name": "THE MERCANTILE",
  "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54).",
  "examine": {
@@ -39,5 +39,7 @@
   "required": false,
   "why": "No doc 48 script is sited in the store."
  },
- "connectivity": "docs/20-room-map.md"
+ "connectivity": "docs/20-room-map.md",
+ "roomFile": "content/rooms/mercantile.json",
+ "plate": "art/backgrounds/room-12-mercantile.png"
 }

@@ -237,7 +237,7 @@
             "set": {
               "T_MOTT_FACE_UNKNOWN": true
             },
-            "items": [
+            "grants": [
               "photograph"
             ],
             "completes": "C4",
@@ -263,7 +263,7 @@
             "set": {
               "T_MOTT_FACE_UNKNOWN": true
             },
-            "items": [
+            "grants": [
               "photograph"
             ],
             "completes": "C4",

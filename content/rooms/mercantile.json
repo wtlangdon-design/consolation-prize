@@ -1,0 +1,1260 @@
+{
+  "schema": 1,
+  "id": "mercantile",
+  "name": "THE MERCANTILE",
+  "materialIdentity": "Warm, but broken up by fabric, tin and printed labels (17b); night, the lamp over the counter and the stove (errata 85 A)",
+  "note": "Room 12, doc 20: the Mercantile, on Main Street. Nobody is drawn: the proprietor is in the back room (doc 49). The store issues THE PICKAXE, THE PICKLED EGGS and DR. PURVIS'S TONIC on Thad's account (doc 54, errata 68 A, 75). No puzzle is solved here (doc 02). Compiled by tools/compile-room.mjs from content/examine/room-12.json and reference/room-12/annotation.json",
+  "background": "art/backgrounds/room-12-mercantile.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 320,
+  "hotspots": [
+    {
+      "id": "catalogue_ladies_notions",
+      "name": "THE CATALOGUE — LADIES' NOTIONS",
+      "rect": [
+        1268,
+        380,
+        34,
+        45
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Forty pages of buttons, ribbon, and collars.",
+            "repeat": [
+              "Someone has ticked a pair of gloves in pencil, crossed the tick out, and ticked it again.",
+              "The prices are in Chicago dollars. Out here a Chicago dollar buys about a third of a ribbon."
+            ],
+            "then": [
+              "Someone has folded a corner down, and I hope they get their collar."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Longing is silent.",
+            "repeat": [
+              "A pin dropping somewhere in the store. Nothing to do with the page.",
+              "A page lifting and falling back. Somebody's wish, reconsidered."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1285,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "catalogue_patent_machines",
+      "name": "THE CATALOGUE — PATENT MACHINES",
+      "rect": [
+        1305,
+        380,
+        34,
+        45
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Machines for washing, for churning, and for the improvement of posture.",
+            "repeat": [
+              "A machine for peeling, coring and slicing an apple at once. There is not an apple within two hundred miles.",
+              "The Improved Posture Brace is endorsed by a bishop. The bishop, in the engraving, is stooping."
+            ],
+            "then": [
+              "Every one endorsed by clergy."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing, and it's trying.",
+            "repeat": [
+              "Nothing. On paper they are all very quiet machines.",
+              "Nothing, and it is trying even harder."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1322,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "catalogue_firearms",
+      "name": "THE CATALOGUE — FIREARMS",
+      "rect": [
+        1342,
+        380,
+        34,
+        45
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Two pages of revolvers, between the hymnals and the hair oil, which is about where they sit in life as well.",
+            "repeat": [
+              "Someone has drawn a mustache on the man demonstrating the revolver. It suits him.",
+              "The cheapest revolver costs less than the cheapest hymnal. I draw no conclusion. The territory does."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Paper guns. The safest kind.",
+            "repeat": [
+              "Nothing. Paper guns go off very quietly.",
+              "Nothing. The safest page in the book, and the most read after the pianos."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1359,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "catalogue_musical_instruments",
+      "name": "THE CATALOGUE — MUSICAL INSTRUMENTS",
+      "rect": [
+        1379,
+        380,
+        34,
+        45
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A parlor organ, freight paid, four months out. There is also an upright piano. I have read its description many times. It is spelled correctly and tuned by definition.",
+            "repeat": [
+              "Uprights, from ninety dollars. Delivery not available west of St. Louis.",
+              "In the corner of the page, a tuning fork, eleven cents. Mine cost my father considerably more, and was worth it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "I can nearly hear it. That is not the same as hearing it.",
+            "repeat": [
+              "Nothing. It's a picture of a piano. I am aware that I am doing this.",
+              "Nothing. I have stopped pretending otherwise."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1396,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "catalogue_furniture_pages",
+      "name": "THE CATALOGUE — furniture pages",
+      "rect": [
+        1416,
+        380,
+        40,
+        45
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Parlor suites. Somebody has turned down the corner of this page. Several somebodies.",
+            "repeat": [
+              "A parlor suite in red plush, freight extra. The freight is more than the suite.",
+              "Somebody has penciled a small man sitting on the settee. He looks very comfortable. He is the only comfortable man in Consolation."
+            ],
+            "then": [
+              "The corner is soft."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Soft furniture, on paper, is softer still.",
+              "Nothing. The page is too worn to rustle."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1436,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "catalogue_order_form",
+      "name": "THE CATALOGUE — ORDER FORM",
+      "rect": [
+        1600,
+        495,
+        120,
+        60
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The order form, in triplicate.",
+            "repeat": [
+              "Under ITEM someone has written PIANO, under QUANTITY, ONE, and under PAYMENT, nothing at all.",
+              "Delivery in six to ten weeks, it promises. It does not say from when."
+            ],
+            "then": [
+              "Consolation's real currency is the promise of goods from elsewhere."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Carbon paper, whispering everything twice.",
+            "repeat": [
+              "The carbon, faintly, as the page settles: everything said twice, quietly.",
+              "Nothing. An order not sent is very patient."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1560,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "catalogue",
+      "name": "THE CATALOGUE",
+      "rect": [
+        1205,
+        425,
+        210,
+        75
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Eleven hundred pages of the East, delivered to the edge of nowhere twice a year.",
+            "repeat": [
+              "The spine has been mended with flour paste and a strip of the Clarion. It holds.",
+              "Every page is thumbed at the bottom corner except the page on trusses, which is thumbed at the top, quickly."
+            ],
+            "then": [
+              "The most-read book in the territory, scripture included."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Pages easing. It exhales civilization.",
+            "repeat": [
+              "Nothing.",
+              "Pages riffling when the door opens. Civilization, in a draft."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "The store copy stays. The store copy always stays. It is the town's one shared scripture and this is its altar."
+      },
+      "walkTo": {
+        "x": 1310,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "scales",
+      "name": "THE SCALES",
+      "rect": [
+        1140,
+        290,
+        130,
+        165
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Polished bright.",
+            "repeat": [
+              "A little dish of lead shot sits beside them, for adjustments. The adjustments are made out of sight.",
+              "They are the brightest object in the store. Something that busy keeps its shine."
+            ],
+            "then": [
+              "They weigh dust honest and flour otherwise, or so the men at the Nugget say."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A faint tick as they settle. Always to the same side.",
+            "repeat": [
+              "The pan settling, still to the same side.",
+              "Nothing. They are between customers, and between opinions."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I weighed my four dollars. The scales say three-eighty. The scales and Sheng should talk."
+      },
+      "walkTo": {
+        "x": 1205,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "credit_ledger",
+      "name": "THE CREDIT LEDGER",
+      "rect": [
+        1420,
+        420,
+        200,
+        110
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "My account is ruled off and marked DECEASED. Cleanest my finances have ever looked."
+          },
+          {
+            "say": "Names, sums, and a column of small marks I decline to interpret.",
+            "repeat": [
+              "Every man in town, and a number beside him. The numbers only go one way. He is not worried, because they cannot leave until they pay, and they cannot pay.",
+              "The ink changes color halfway down the page, where he ran out and carried on in whatever was nearest."
+            ],
+            "then": [
+              "Half the town is in this book, and none of it gets out."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Debt is quiet until it isn't.",
+            "repeat": [
+              "Nothing.",
+              "A page turning back on itself, as if it would rather not look forward."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1520,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "pickle_jar",
+      "name": "THE PICKLE JAR",
+      "rect": [
+        1755,
+        370,
+        120,
+        195
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Pickled eggs in a jar the size of a christening font. The brine has opinions.",
+            "repeat": [
+              "A wooden spoon hangs beside it on a string, for fishing. The string is short and the jar is deep. It is a test of character.",
+              "The eggs have been in brine so long they have the color of old ivory and the confidence of old money."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The brine, working. I am not reassured.",
+            "repeat": [
+              "A slow bubble rising through the brine and arriving with nothing to say.",
+              "Nothing. The eggs are waiting, and they have time."
+            ]
+          }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_EGGS_ON_ACCOUNT": true
+            },
+            "say": "One is an account. Two is a habit.",
+            "sceneLine": "docs/54-batch-c.md::## Overrides *(errata 68 A)* · again"
+          },
+          {
+            "when": {
+              "T_EGGS_ON_ACCOUNT": false
+            },
+            "say": "One jar, on my account. I have an account now. I am told that makes me a resident.",
+            "set": {
+              "T_EGGS_ON_ACCOUNT": true
+            },
+            "grants": [
+              "eggs"
+            ],
+            "sceneLine": "docs/54-batch-c.md::## Overrides *(errata 68 A)* · first"
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "One jar, on my account. I have an account now. I am told that makes me a resident.",
+        "OPEN": "The brine and I regarded each other. I resealed the arrangement."
+      }
+    },
+    {
+      "id": "price_list",
+      "name": "THE PRICE LIST",
+      "rect": [
+        590,
+        0,
+        110,
+        240
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Flour, twelve dollars the barrel. In Providence it is two. I have read this list four times looking for the error and the error is that I came here.",
+            "repeat": [
+              "Coffee, a dollar the pound. I have stopped converting. Converting only makes it worse.",
+              "At the bottom: CREDIT EXTENDED TO ESTABLISHED CUSTOMERS. In this town that is everyone."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It is entirely comfortable with itself.",
+            "repeat": [
+              "The board ticking against the wall when the door goes.",
+              "Nothing. Prices this high have no need to raise their voices."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 645,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "unsold_scales",
+      "name": "THE UNSOLD SCALES",
+      "rect": [
+        1460,
+        40,
+        290,
+        95
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A dozen assayer's scales, still in their paper.",
+            "repeat": [
+              "The paper on them has yellowed and the scales underneath are still new. It is a strange kind of age.",
+              "He has never marked them down. He is still waiting for the men who would need to weigh things."
+            ],
+            "then": [
+              "He ordered them in the first year, for all the men who would need to weigh things."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. They have never been out of the paper.",
+            "repeat": [
+              "Nothing. A dozen scales, perfectly balanced, with nothing to weigh.",
+              "The paper crackling as I lean on the shelf. That is as close as they have come to being used."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1420,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "boots",
+      "name": "THE BOOTS",
+      "rect": [
+        300,
+        0,
+        120,
+        230
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Boots in pairs, tied together by the laces and hung on a nail.",
+            "repeat": [
+              "The leather is good and the price is better than the leather. That is not a compliment.",
+              "One boot without a partner, marked down to half. I know a monument on the claims road it would suit."
+            ],
+            "then": [
+              "The only things in town guaranteed to go everywhere together."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Leather creaking as the pairs turn on their nail.",
+            "repeat": [
+              "Nothing. New boots have not been anywhere to talk about.",
+              "The laces tapping together, like two people agreeing quietly."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 360,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "dynamite_crate",
+      "name": "THE DYNAMITE CRATE",
+      "rect": [
+        500,
+        550,
+        190,
+        150
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 4
+              }
+            },
+            "say": "Still beside the stove. The town has survived twelve years of lies and one crate of dynamite, and I no longer know which is the greater miracle."
+          },
+          {
+            "say": "Dynamite, stored beside the stove, which tells you everything about the proprietor's understanding of the product.",
+            "repeat": [
+              "The lid is open, and a newspaper is laid over the sticks. The newspaper is the Clarion. It seems an appropriate use.",
+              "Somebody has chalked FRAGILE on it, and somebody else has added, smaller, BUT FINE."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It is either perfectly safe or saving itself.",
+            "repeat": [
+              "…No. I would rather not.",
+              "Nothing. I have listened as long as I am prepared to."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "The proprietor says it's perfectly safe. The proprietor stores it by the stove. I decline both the product and the reasoning."
+      },
+      "walkTo": {
+        "x": 595,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "pickaxes",
+      "name": "THE PICKAXES",
+      "rect": [
+        290,
+        220,
+        160,
+        210
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Picks, new. Heads tight, hafts bright. Optimism by the dozen, at a dollar ten.",
+            "repeat": [
+              "A pickaxe with a loose head, marked down accordingly. It is the only honest transaction available in this building.",
+              "The handles are numbered in chalk. Somebody is keeping count of how much optimism has left the store."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing yet. A pick only learns to speak underground.",
+            "repeat": [
+              "The head, shifting. It has an opinion about being carried.",
+              "The loose one again, clicking on its haft. It is the only one of them that has ever told the truth."
+            ]
+          }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_PICKAXE_ON_ACCOUNT": true
+            },
+            "say": "One pickaxe is equipment. Two is a statement, and I have nothing to say.",
+            "sceneLine": "docs/54-batch-c.md::## Overrides *(errata 68 A)* · again"
+          },
+          {
+            "when": {
+              "T_PICKAXE_ON_ACCOUNT": false
+            },
+            "say": "The one with the loose head, on my account. It is the only one I can afford, and the only one honest about itself.",
+            "set": {
+              "T_PICKAXE_ON_ACCOUNT": true
+            },
+            "grants": [
+              "pickaxe"
+            ],
+            "sceneLine": "docs/54-batch-c.md::## Overrides *(errata 68 A)* · first"
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "The one with the loose head, on my account. It is the only one I can afford, and the only one honest about itself."
+      },
+      "walkTo": {
+        "x": 370,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "dr_purvis_s_tonic",
+      "name": "DR. PURVIS'S TONIC",
+      "rect": [
+        1460,
+        145,
+        290,
+        120
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Restorative Bile Tonic. Restores bile, presumably.",
+            "repeat": [
+              "The label shows Dr. Purvis himself, bearded and benevolent. The same beard is on the hair restorer, the cough syrup and the horse liniment.",
+              "Ingredients: 'Restorative Principles.' I should like to meet the chemist who isolated them."
+            ],
+            "then": [
+              "The testimonials on the label are all in the same hand."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "It settles. Something in it is still deciding.",
+            "repeat": [
+              "A faint fizz against the glass when I tilt the shelf.",
+              "Nothing, which is somehow worse."
+            ]
+          }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_TONIC_ON_ACCOUNT": false
+            },
+            "say": "On account, with the eggs. It was wrapped for me as though it might go off, in either sense.",
+            "set": {
+              "T_TONIC_ON_ACCOUNT": true
+            },
+            "grants": [
+              "tonic"
+            ],
+            "sceneLine": "docs/54-batch-c.md::## Overrides *(errata 68 A)* · first"
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "On account, with the eggs. It was wrapped for me as though it might go off, in either sense."
+      },
+      "walkTo": {
+        "x": 1420,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "nails",
+      "name": "THE NAILS",
+      "rect": [
+        1645,
+        655,
+        175,
+        209
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Nails by the pound in a keg, every size mixed.",
+            "repeat": [
+              "Most of the town is held together with nails from this keg, and the town shows it.",
+              "A magnet on a string hangs by the keg, for fishing out the size you want. It is the best tool in the store, and it is not for sale."
+            ],
+            "then": [
+              "You buy them and sort them yourself, at no extra charge."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A small metallic shifting when the floor moves.",
+            "repeat": [
+              "Nothing. Nails keep their points to themselves.",
+              "The magnet clicking against the keg's rim as it sways."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shovels",
+      "name": "THE SHOVELS",
+      "rect": [
+        295,
+        430,
+        150,
+        265
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Forty shovels. There are two thousand men in Consolation and forty shovels, and somehow this has never become a problem, which tells you something about the men.",
+            "repeat": [
+              "Each has a price tag on a string, and the strings have been retied as the price went up.",
+              "Somebody scratched his initials into one handle before buying it, and has not come back for it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Forty shovels, standing at ease.",
+              "A faint scrape as one leans into another."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 370,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "pans",
+      "name": "THE PANS",
+      "rect": [
+        440,
+        0,
+        140,
+        340
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Gold pans, stacked to the ceiling. He has never had to reorder.",
+            "repeat": [
+              "The top pan has a dent in the middle the shape of a fist. Somebody returned it.",
+              "They nest perfectly, one inside the next, all the way to the ceiling. It is the most orderly hope in the district."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "They ring, faintly, when the door opens. Tin. Flat, obviously.",
+            "repeat": [
+              "The ring again, a little flat, when a wagon passes.",
+              "Nothing between wagons. Tin, waiting to be disappointed."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 510,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "tinned_goods",
+      "name": "TINNED GOODS",
+      "rect": [
+        780,
+        20,
+        380,
+        150
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Tins from the East. The labels show harvests of implausible color.",
+            "repeat": [
+              "Peaches, from Baltimore, at a dollar the tin. There is a man in the corner looking at them the way other men look at gold.",
+              "Every tin is dented in the same place at the same height. They came over the same mountain in the same crate."
+            ],
+            "then": [
+              "One is marked simply MEAT, with confidence."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "One of them, very faintly, fizzes.",
+            "repeat": [
+              "The fizz again, from the tin marked MEAT. I am moving away from it.",
+              "Nothing from the peaches. They are above all this."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 970,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "lamp_oil",
+      "name": "THE LAMP OIL",
+      "rect": [
+        1760,
+        40,
+        160,
+        370
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Lamp oil in a drum with a tap, a funnel, and a sign saying NO LIGHTS.",
+            "repeat": [
+              "The tap drips. A thin dark ring on the floor records every drop since the drum arrived.",
+              "The town runs on this after dark. It is the only thing in Consolation that keeps the lights on, and it is sold by the pint."
+            ],
+            "then": [
+              "The stove is four feet away."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A drip, slow and oily, into the tray.",
+            "repeat": [
+              "Nothing. Oil is in no hurry.",
+              "The drip again. Somebody should tighten that tap, and somebody never does."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "calico",
+      "name": "THE CALICO",
+      "rect": [
+        855,
+        175,
+        290,
+        210
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A bolt of calico in a print called Prosperity. Small blue flowers.",
+            "repeat": [
+              "A card is pinned to the bolt: PROSPERITY, 12¢ THE YARD. It is the cheapest prosperity in town, and nobody is buying.",
+              "The blue flowers have faded on the outside of the bolt, where the window light reaches. Even Prosperity fades in public."
+            ],
+            "then": [
+              "Nobody in this town has bought a dress in a year."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Cloth. A held breath of a sound.",
+            "repeat": [
+              "Nothing. It is the softest thing within two hundred miles and nobody in here has touched it.",
+              "A thread catching on my sleeve and letting go."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "Forty yards would come off that bolt at a tug, and the proprietor knows the sound a tug makes from the back room."
+      },
+      "walkTo": {
+        "x": 1000,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "stove",
+      "name": "THE STOVE",
+      "rect": [
+        600,
+        270,
+        200,
+        330
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The stove around which the town's opinions are formed each evening.",
+            "repeat": [
+              "A ring of chairs around it, each claimed by habit. Nobody has ever asked who sits where; everybody knows.",
+              "A coffee pot on the back has never been washed, on principle. It is said to improve."
+            ],
+            "then": [
+              "Stand close and you can feel yesterday's arguments."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Iron, ticking as it cools. It talks most after everyone has gone.",
+            "repeat": [
+              "A log settling in the firebox, and the chairs going quiet, as if someone important had come in.",
+              "Iron ticking. Yesterday's opinions, cooling."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I addressed it as the true mayor of Consolation. It warmed to the subject."
+      },
+      "walkTo": {
+        "x": 700,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "counter",
+      "name": "THE COUNTER",
+      "rect": [
+        1060,
+        440,
+        860,
+        300
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Scarred by forty years of coins pushed across it, most of them reluctantly.",
+            "repeat": [
+              "There is a groove worn in it where coins slide, exactly the width of a dollar.",
+              "A brass rule is let into the edge for measuring cloth. It is the only straight thing in the building."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wood. It has absorbed a great deal of haggling and repeats none of it.",
+            "repeat": [
+              "A coin, somewhere, being set down very firmly.",
+              "Nothing. Wood that has heard every argument about price has stopped taking sides."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1490,
+        "y": 853,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "back_to_street",
+      "name": "MAIN STREET",
+      "stub": true,
+      "rect": [
+        40,
+        240,
+        230,
+        420
+      ],
+      "colour": 0,
+      "to": "main_street",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: the one way back to Main Street. NO DOCUMENT WRITES THIS DOOR from inside the store (doc 14 writes Main Street's side). A stub exit, as Rooms 6, 8, 9 and 10's are (doc 36 Q155).",
+      "walkTo": {
+        "x": 200,
+        "y": 770,
+        "facing": "left"
+      }
+    }
+  ],
+  "ambient": [],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-12.json",
+      "reference/room-12/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        70,
+        720,
+        1530,
+        45
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        70,
+        765,
+        1530,
+        45
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        70,
+        810,
+        1530,
+        45
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      70,
+      720
+    ],
+    [
+      1600,
+      720
+    ],
+    [
+      1600,
+      855
+    ],
+    [
+      70,
+      855
+    ]
+  ],
+  "entrance": [
+    300,
+    790
+  ],
+  "entrances": [
+    {
+      "from": "main_street",
+      "at": [
+        300,
+        790
+      ],
+      "facing": "right",
+      "note": "In by the street doors, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        300,
+        790
+      ],
+      "facing": "right",
+      "note": "Anything else arrives by the door."
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 70,
+          "y": 720
+        },
+        {
+          "x": 1600,
+          "y": 720
+        },
+        {
+          "x": 1600,
+          "y": 765
+        },
+        {
+          "x": 70,
+          "y": 765
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 720,
+        "farHeight": 419,
+        "nearY": 855,
+        "nearHeight": 512
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 70,
+          "y": 765
+        },
+        {
+          "x": 1600,
+          "y": 765
+        },
+        {
+          "x": 1600,
+          "y": 810
+        },
+        {
+          "x": 70,
+          "y": 810
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 720,
+        "farHeight": 419,
+        "nearY": 855,
+        "nearHeight": 512
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 70,
+          "y": 810
+        },
+        {
+          "x": 1600,
+          "y": 810
+        },
+        {
+          "x": 1600,
+          "y": 855
+        },
+        {
+          "x": 70,
+          "y": 855
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 720,
+        "farHeight": 419,
+        "nearY": 855,
+        "nearHeight": 512
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "counter_lamp",
+      "at": [
+        1345,
+        90
+      ],
+      "radius": 520,
+      "amount": 0.1,
+      "rate": 0.26,
+      "phase": 0.5,
+      "note": "The oil lamp hung over the counter. A slow, low breath (invariant 9)."
+    },
+    {
+      "id": "stove_glow",
+      "at": [
+        655,
+        470
+      ],
+      "radius": 260,
+      "amount": 0.12,
+      "rate": 0.4,
+      "phase": 0.1,
+      "note": "The stove's firebox, on its own phase."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-12/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

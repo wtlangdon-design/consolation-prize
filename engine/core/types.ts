@@ -65,6 +65,12 @@ export interface ResponseRule {
    * inventory went empty. R5o: the grant was written and nothing reached it.
    */
   items?: string[];
+  /**
+   * Items GIVEN while the object stays in the room (errata 85 F): one jar off
+   * a shelf of them, one photograph from a drawer of forty. `items` treats the
+   * object as a container that is itself taken.
+   */
+  grants?: string[];
   say?: string;
   /**
    * Further utterances, spoken one after another after `say`.
