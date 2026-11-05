@@ -33,7 +33,7 @@ KEY = 90
 HEIGHT = 300          # a standing man behind the desk, by the desk's own height (about 1 m, 180 px)
 HANDS_AT = 440        # the rest pose's hands at the desk top's back edge (plate y 442)
 CUT = 445             # below this he is behind the desk top
-HANDS = 449           # his hands may lie a little onto it
+HANDS = 445           # one cut, at the desk top: the register plane covers that row
 # THE REGISTER, open on the desk in front of him: its pages (x 1147-1272, y 408-447).
 DESK = (1145, 406, 1275, 447)
 CENTRE_X = 1210       # behind the register

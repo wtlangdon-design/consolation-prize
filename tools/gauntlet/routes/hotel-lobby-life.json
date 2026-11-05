@@ -113,13 +113,9 @@
    "seconds": 8
   },
   {
-   "do": "verb",
-   "verb": "WALK_TO"
-  },
-  {
    "do": "click",
    "on": "stairs_closed",
-   "why": "the stairs before the room: the clerk's line"
+   "why": "the stairs before the room: a bare click walks (their default verb), and the clerk answers"
   },
   {
    "do": "waitFor",
