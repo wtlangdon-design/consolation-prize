@@ -4,7 +4,7 @@
  "room": "fanshawe_office",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "5543b2d77ce67ce5bb1c8141a0096be88b23e720",
+ "commit": "dce32b9b475b578a1cab7f93d928bcc0cf87a207",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -53,8 +53,10 @@
   "action 1 (verb): chose verb TALK_TO -- ",
   "action 2 (click): clicked world 1060,380 -- Fanshawe, at his desk",
   "action 3 (waitFor): reached {\"dialogue\":true} in room fanshawe_office",
-  "action 4 (option): chose option fanshawe6 -- I mean to work it myself.",
-  "action 5 (waitFor): reached {\"flag\":\"T_DINED\"} in room fanshawe_office"
+  "action 4 (option): chose option fanshawe2 -- You're welcome to the working of it -- a pitch, deferred; the honest answer follows it",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room fanshawe_office",
+  "action 6 (option): chose option fanshawe6 -- I mean to work it myself.",
+  "action 7 (waitFor): reached {\"flag\":\"T_DINED\"} in room fanshawe_office"
  ],
  "depthMarks": [
   {
@@ -82,7 +84,7 @@
    ],
    "reportedHeight": 471,
    "expected": 471,
-   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
    "bounds": [
     679,
     265,
@@ -119,7 +121,7 @@
    ],
    "reportedHeight": 552,
    "expected": 552,
-   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
    "bounds": [
     637,
     302,
@@ -156,7 +158,7 @@
     "height": 229,
     "bottom": 500,
     "right": 1136,
-    "changed": 22764
+    "changed": 22791
    },
    "props": []
   }
@@ -165,7 +167,7 @@
   {
    "panel": "B",
    "room": "fanshawe_office",
-   "clock": 167.5162,
+   "clock": 166.6729,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -207,7 +209,7 @@
      "height": 501,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-00.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
       40,
       279,
@@ -242,15 +244,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-02T13:59:46.337Z",
+   "capturedAt": "2026-11-05T01:17:34.130Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "16d8ad1675585a3f21e7c0121667131083b50806e0aeca34414cd086b76b7e27"
+   "hash": "a52561cf42d884ce28f422e84a42335b584e60fdc0e924f02b28a4a97af2755f"
   },
   {
    "panel": "A",
    "room": "fanshawe_office",
-   "clock": 168.5495,
+   "clock": 167.9062,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -324,15 +326,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-02T13:59:47.349Z",
+   "capturedAt": "2026-11-05T01:17:35.323Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "2d5e10df2dba7d0158e9a5007d86e0af6029a7eb54d6966b654435587c3f2c6c"
+   "hash": "a206f6da82eb335844ed8af72154e29b70e5472c824b864bc73ac635e67d31ee"
   },
   {
    "panel": "D",
    "room": "fanshawe_office",
-   "clock": 184.2489,
+   "clock": 188.672,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -377,7 +379,7 @@
      "height": 508,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-04.png",
+     "from": "art/actors/thad-idle-back/idle-02.png",
      "bounds": [
       519,
       282,
@@ -422,10 +424,10 @@
     "cast(true)",
     "flag T_BORDERS_MOTT=true"
    ],
-   "capturedAt": "2026-11-02T14:00:03.074Z",
+   "capturedAt": "2026-11-05T01:17:56.100Z",
    "intent": "principal changed state: A10 (doc 57, doc 48 S1). Prerequisite: T_BORDERS_MOTT (A9's turn), set by the flag control. Visible consequence: the table is laid; after option 6, the handkerchief is Thad's and the desk is bare; T_DINED written.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "3c7bb17a1a64279cc84a5c606dd9466d518fdae0389a2f81a274612443adb80b",
+   "hash": "e2022c7a475676fe609096854d72f37227fb70bc64ad7497efc8f48a32edb71f",
    "changedBy": "flags, inventory"
   }
  ],
@@ -456,11 +458,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-02T14:00:03.074Z",
+ "at": "2026-11-05T01:17:56.101Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 577882,
+  "bytes": 578170,
   "panels": 5,
   "scale": 0.5
  }
