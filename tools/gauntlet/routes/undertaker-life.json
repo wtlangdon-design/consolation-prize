@@ -99,8 +99,22 @@
    "why": "leave the conversation"
   },
   {
+   "do": "waitFor",
+   "says": "undertaker",
+   "upTo": 30,
+   "why": "Thad's \"Thank you.\" holds until clicked; this reads past it to his answer"
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    430
+   ],
+   "why": "read past his \"Mm.\" -- a line under conversationWaitsForClick holds until clicked, and the next click would be spent on it"
+  },
+  {
    "do": "wait",
-   "seconds": 6
+   "seconds": 4
   },
   {
    "do": "verb",

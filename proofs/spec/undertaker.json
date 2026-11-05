@@ -12,6 +12,11 @@
   },
   "actions": [
    {
+    "do": "wait",
+    "seconds": 8,
+    "why": "ACT rising shows PART THREE's card, and clicks wait for it to clear (errata 84 E)"
+   },
+   {
     "do": "verb",
     "verb": "TALK_TO"
    },
