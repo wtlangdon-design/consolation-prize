@@ -1,0 +1,921 @@
+{
+  "schema": 1,
+  "id": "funeral",
+  "name": "THE FUNERAL",
+  "materialIdentity": "Thad's own plot at the end of Boot Hill's third row, by day, very high and very blue: the town in black at the grave, the pine coffin on its trestles, the hearse and its mule; at night after the burial, the hill empty and the grave dug open (errata 99 G)",
+  "note": "Room 31, doc 20: the funeral, reached from Boot Hill once the executor is named (E6). Doc 48 S2 stages it -- the player wanders his own funeral; beat 3 is Hob's 'Good turnout.' on the second LOOK at the grave or at the way back; doc 57 E7's THE COFFIN · USE lies him down and Room 32 begins. When HOB_C1 ends Room 32 hands him back here at night beside the open grave (E8), and T_FUNERAL_DONE is written by his line (errata 99 G).",
+  "background": "art/backgrounds/room-31-funeral.png",
+  "plates": {
+    "night": "art/backgrounds/room-31-funeral-night.png"
+  },
+  "plateWhen": [
+    {
+      "when": {
+        "T_LAID_IN": true
+      },
+      "plate": "night"
+    }
+  ],
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "exits": [
+    {
+      "id": "to_boot_hill",
+      "name": "BOOT HILL, BEYOND",
+      "rect": [
+        900,
+        0,
+        860,
+        288
+      ],
+      "colour": 0,
+      "to": "boot_hill",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The rest of Boot Hill, rising behind in rows. My new neighbors, keeping a respectful distance.",
+            "repeat": [
+              "Ezra Pike is up there, third row, second from the end. I came a very long way to join him.",
+              "From here the markers look like a crowd that came early and sat down."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind through the grass between the rows.",
+            "repeat": [
+              "Nothing. The neighborhood is quiet, as advertised.",
+              "A loose board on some marker up the hill, tapping, like somebody keeping time for the service."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "transitScene": [
+        {
+          "when": {
+            "T_GOOD_TURNOUT": false,
+            "T_LAID_IN": false
+          },
+          "say": "Good turnout.",
+          "by": "hob",
+          "then": [
+            {
+              "speaker": "hob",
+              "line": "Better than mine."
+            }
+          ],
+          "set": {
+            "T_GOOD_TURNOUT": true
+          },
+          "stays": true,
+          "sceneLine": "docs/48-act-turn-beats.md::## S2 · THE FUNERAL (Act III opening) · beat 3"
+        },
+        {
+          "when": {
+            "T_LAID_IN": false
+          },
+          "say": "It is my funeral. I should stay for it.",
+          "stays": true,
+          "sceneLine": "docs/57-puzzle-completion.md::## E7 · The coffin · During the funeral"
+        }
+      ],
+      "note": "Doc 54: the rest of Boot Hill rising behind in rows -- the way back toward it (doc 20). Doc 48 S2 beat 3 plays here if it has not yet ('or on exit toward Boot Hill'); after it, doc 57 E7: 'During the funeral, Room 31's exits are refused.' At night it is the way down (errata 99 G).",
+      "walkTo": {
+        "x": 1350,
+        "y": 760,
+        "facing": "back"
+      }
+    }
+  ],
+  "ambient": [
+    "funeral_grievance",
+    "funeral_hob",
+    "funeral_mourners",
+    "funeral_sowerby",
+    "funeral_undertaker"
+  ],
+  "props": [
+    {
+      "id": "hearse",
+      "sheet": "art/props/room-31-hearse.png",
+      "x": 361,
+      "y": 733,
+      "frame": [
+        0,
+        0,
+        422,
+        578
+      ],
+      "when": {
+        "T_LAID_IN": false
+      },
+      "note": "The hearse, and the pine coffin on its trestles in front of it with its lid propped and the name plate on the lid (doc 05, doc 54). One prop: they arrive and leave together. Cut from room-31's composition master by tools/art/room31-cast.py; gone by night (doc 57 E8)."
+    }
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-31.json",
+      "reference/room-31/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        0,
+        740,
+        1920,
+        39
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        0,
+        779,
+        1920,
+        40
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        0,
+        819,
+        1920,
+        39
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      0,
+      740
+    ],
+    [
+      1920,
+      740
+    ],
+    [
+      1920,
+      858
+    ],
+    [
+      0,
+      858
+    ]
+  ],
+  "entrance": [
+    300,
+    800
+  ],
+  "entrances": [
+    {
+      "from": "boot_hill",
+      "at": [
+        300,
+        800
+      ],
+      "facing": "right",
+      "note": "Up from Boot Hill, at the back of the gathering (doc 48 S2 beat 1: 'Thad at the back')."
+    },
+    {
+      "from": "coffin",
+      "at": [
+        930,
+        770
+      ],
+      "facing": "right",
+      "note": "Out of the grave, at night (doc 57 E8: 'Thad is in Room 31 at night beside the open grave')."
+    },
+    {
+      "from": "default",
+      "at": [
+        300,
+        800
+      ],
+      "facing": "right",
+      "note": "As from Boot Hill."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "name_plate",
+      "name": "THE NAME PLATE",
+      "rect": [
+        245,
+        540,
+        70,
+        45
+      ],
+      "when": {
+        "T_LAID_IN": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "THADDEUS GRUB, it says. Even my death is missing a B.",
+            "repeat": [
+              "The engraver gave the G a flourish he could not afford to give the rest.",
+              "It will be on the lid, over my face, for the next few minutes of my life. I would have liked it spelled right for that."
+            ],
+            "then": [
+              "I would complain, but the plate was free and so, apparently, was I."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Brass. It rings a little flat, which in this town is house style.",
+            "repeat": [
+              "A faint ring when the wind catches the lid. Flat, as noted.",
+              "Nothing. Brass keeps its opinions about spelling to itself."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 280,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "flowers_waxed",
+      "name": "THE FLOWERS, WAXED",
+      "rect": [
+        1008,
+        428,
+        64,
+        104
+      ],
+      "when": {
+        "T_LAID_IN": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The undertaker's wax lilies, making their weekly appearance.",
+            "repeat": [
+              "Somebody has wiped the dust off them for the occasion. That is the undertaker's idea of grief, and I find I accept it.",
+              "They lean toward the grave, the way everything here eventually does."
+            ],
+            "then": [
+              "We are old colleagues by now, the lilies and I."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. They are beyond all that, as previously established.",
+            "repeat": [
+              "A faint tap of wax on wax when the wind finds them.",
+              "Nothing. They have outlived everyone they were ever arranged for, and they will outlive me, technically."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1040,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "headboard",
+      "name": "THE HEADBOARD",
+      "rect": [
+        948,
+        372,
+        72,
+        172
+      ],
+      "when": {
+        "T_LAID_IN": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A board, painted while the paint lasted: my name, one date, and HE TUNED.",
+            "repeat": [
+              "THADDEUS GRUBB. Frame supplied the spelling and got it right, once, for a grave I am not going to be in.",
+              "The paint has run on the D's. My name is weeping slightly, which is more than I expected of it."
+            ],
+            "then": [
+              "As epitaphs in Boot Hill run, that is generous and accurate, which puts it in rare company."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wet paint, drying. My legacy, curing in the sun.",
+            "repeat": [
+              "Nothing.",
+              "Nothing now. The paint has set. It is official."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 984,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "grave",
+      "name": "THE GRAVE",
+      "rect": [
+        812,
+        533,
+        236,
+        127
+      ],
+      "when": {
+        "T_LAID_IN": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "when": {
+              "T_GOOD_TURNOUT": false,
+              "T_GRAVE_LOOKED": true
+            },
+            "say": "Six feet, measured. I am two inches shorter than the hole, which is the first time this town has given me room.",
+            "then": [
+              {
+                "speaker": "hob",
+                "line": "Good turnout."
+              },
+              {
+                "speaker": "hob",
+                "line": "Better than mine."
+              }
+            ],
+            "set": {
+              "T_GOOD_TURNOUT": true
+            },
+            "sceneLine": "docs/48-act-turn-beats.md::## S2 · THE FUNERAL (Act III opening) · beat 3"
+          },
+          {
+            "say": "Dug neat, in a good spot, uphill of the seepage — the undertaker does honest work for dishonest occasions. I am oddly touched by the drainage.",
+            "repeat": [
+              "Six feet, measured. I am two inches shorter than the hole, which is the first time this town has given me room.",
+              "A plank is laid across it for the pallbearers. It looks like a very short bridge to nowhere in particular."
+            ],
+            "set": {
+              "T_GRAVE_LOOKED": true
+            }
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Loose soil trickling back in. The ground, impatient.",
+            "repeat": [
+              "A clod falling from the edge, then another. The ground is in a hurry.",
+              "Nothing for a moment. Then the wind across the top of it, a low, open note."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "CLOSE": "Not yet. There is a man not in that box counting on the delay."
+      },
+      "walkTo": {
+        "x": 930,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "reverend_sowerby_officiating",
+      "name": "REVEREND SOWERBY, OFFICIATING",
+      "rect": [
+        757,
+        186,
+        140,
+        320
+      ],
+      "when": {
+        "T_LAID_IN": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Sowerby at grade-two sincerity, which I paid for, delivering me to my reward.",
+            "repeat": [
+              "He is preparing to deliver four words for fifty cents and he is preparing thoroughly.",
+              "He has a card in his palm with the adjectives on it and is ticking them off as he goes. I am getting exactly what I paid for."
+            ],
+            "then": [
+              "He keeps almost catching my eye and electing not to."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "'…a man of music, taken flat…' — he wrote that this morning and is proud of it.",
+            "repeat": [
+              "Nothing yet.",
+              "'…a man who came among us, and stayed…' — that one was free, I think. He has thrown it in."
+            ]
+          }
+        ],
+        "TALK_TO": [
+          {
+            "when": {
+              "T_LAID_IN": false
+            },
+            "say": "He is mid-adjective. Interrupting would cost us both.",
+            "sceneLine": "docs/54-batch-c.md::# ROOM 31 · THE FUNERAL >> ## Overrides · during the service"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 827,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "one_who_knows",
+      "name": "THE ONE WHO KNOWS",
+      "rect": [
+        1772,
+        230,
+        143,
+        375
+      ],
+      "when": {
+        "T_GOOD_TURNOUT": false,
+        "T_LAID_IN": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "At the back, not singing: Hob, hat in hand, watching a funeral he knows to be empty with an expression I cannot price. It takes one to know one, I suppose.",
+            "repeat": [
+              "The night watchman, standing at the back, in daylight. I have never seen him in daylight.",
+              "He has not looked at the coffin once. He has looked at me twice."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing from him. He mourns the way he watches.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. I have never heard a man be so quiet on purpose."
+            ],
+            "then": [
+              "Completely, and without comment."
+            ]
+          }
+        ],
+        "TALK_TO": [
+          {
+            "when": {
+              "T_GOOD_TURNOUT": false
+            },
+            "say": "Not here. Not with the whole town watching me be dead.",
+            "sceneLine": "docs/54-batch-c.md::# ROOM 31 · THE FUNERAL >> ## Overrides · before S2 beat 3"
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1844,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "hats",
+      "name": "THE HATS",
+      "rect": [
+        1240,
+        430,
+        500,
+        110
+      ],
+      "when": {
+        "T_LAID_IN": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Every man here has taken his hat off. For me.",
+            "repeat": [
+              "Hats of every class, held against every chest. A hat is the only formal clothing most of these men own.",
+              "One man is holding two hats. I would like to know whose the other one is, and I am not going to ask at a funeral."
+            ],
+            "then": [
+              "On the strength of a notice in the Clarion that misspelled my name."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Nobody fans himself with a hat at a funeral.",
+            "repeat": [
+              "A brim being turned in nervous fingers, round and round.",
+              "Nothing. Nine hats, held still."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1490,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "dirt_pile",
+      "name": "THE DIRT PILE",
+      "rect": [
+        1040,
+        355,
+        192,
+        305
+      ],
+      "when": {
+        "T_LAID_IN": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The dirt that was in the hole, beside the hole, waiting.",
+            "repeat": [
+              "A shovel stands upright in it, waiting for a volunteer, and nobody is looking at it.",
+              "It is exactly the size of the hole. Nothing is ever wasted at the undertaker's."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Loose earth sliding down its side, rehearsing.",
+              "Nothing. It is very patient, for dirt."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1136,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "sky",
+      "name": "THE SKY",
+      "rect": [
+        0,
+        0,
+        900,
+        118
+      ],
+      "when": {
+        "T_LAID_IN": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Clear, very high and very blue. It is a beautiful day to be buried, if one has to be.",
+            "repeat": [
+              "One cloud, keeping to itself over the hills.",
+              "I am going to want to remember this sky in a few minutes. I am trying to look at it properly."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A hawk, very high, one long cry.",
+            "repeat": [
+              "Nothing up there. The sky is not attending.",
+              "Wind, high and thin. The last open-air sound for a while."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 450,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "coffin",
+      "name": "THE COFFIN",
+      "rect": [
+        180,
+        440,
+        392,
+        292
+      ],
+      "when": {
+        "T_LAID_IN": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "My coffin. Pine, with handles and a name plate. I am given to understand I look natural.",
+            "repeat": [
+              "The lid is propped against the trestle, waiting for me, like a coat held out by a valet.",
+              "Someone has put a cushion in it. I suspect the undertaker, and I suspect he will charge."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing from inside, which is the least I can do.",
+            "repeat": [
+              "Nothing.",
+              "Nothing yet. That changes shortly, and I am trying not to think about it."
+            ]
+          }
+        ],
+        "USE": [
+          {
+            "when": {
+              "T_GOOD_TURNOUT": true,
+              "T_LAID_IN": false
+            },
+            "say": "This is the part of the plan where I lie down.",
+            "then": [
+              {
+                "speaker": "funeral_undertaker",
+                "line": "Lid stays loose. Knock twice when they've gone."
+              }
+            ],
+            "completes": "E7",
+            "goto": "coffin",
+            "sceneLine": "docs/57-puzzle-completion.md::## E7 · The coffin · after S2 beat 3"
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "Ahead of schedule. The lid stays shut; the plan requires my absence and I am contractually elsewhere.",
+        "USE": "It is in use. By me. Officially. The paperwork is immaculate."
+      },
+      "walkTo": {
+        "x": 376,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "grievance_in_black",
+      "name": "GRIEVANCE, IN BLACK",
+      "rect": [
+        0,
+        188,
+        255,
+        512
+      ],
+      "when": {
+        "T_LAID_IN": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Grievance in the hearse harness, wearing black well, as advertised.",
+            "repeat": [
+              "A black ribbon is plaited into her mane. She has allowed this, which is a greater tribute than anything Sowerby will say.",
+              "She keeps her head turned a little toward the coffin. I do not think she is fooled."
+            ],
+            "then": [
+              "She has attended more funerals than the Reverend and behaves better at them."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A slow breath through the nose. Professional composure.",
+            "repeat": [
+              "A hoof shifting once in the soft earth, then still.",
+              "Nothing. She is standing at attention, and she means it more than the mourners do."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "She is working."
+      },
+      "walkTo": {
+        "x": 128,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "mourners",
+      "name": "THE MOURNERS",
+      "rect": [
+        1232,
+        290,
+        522,
+        378
+      ],
+      "when": {
+        "T_LAID_IN": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A respectable turnout for a man of my brief acquaintance.",
+            "repeat": [
+              "Nine people have come to my funeral. I have been in Consolation eleven weeks. I do not know what to do with this and I am going to have to get into the box shortly.",
+              "One of them is holding his hat over his heart and his other hand over his wallet. He has been to funerals here before."
+            ],
+            "then": [
+              "Several are here for the singing. One is here for the will. There is no will."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Shuffling, a cough, and somewhere in the middle of it, genuine crying.",
+            "repeat": [
+              "Nothing. Nine people, not talking.",
+              "A sniff at the back, and then a nose blown into a sleeve with real feeling."
+            ],
+            "then": [
+              "I was not prepared for the crying."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "A stranger offered me comfort at my own funeral. I said the departed sounded like a fine man, taken too soon. He agreed, with feeling. I am having a very strange week."
+      },
+      "walkTo": {
+        "x": 1493,
+        "y": 857,
+        "facing": "back"
+      }
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 0,
+          "y": 740
+        },
+        {
+          "x": 1920,
+          "y": 740
+        },
+        {
+          "x": 1920,
+          "y": 779
+        },
+        {
+          "x": 0,
+          "y": 779
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 740,
+        "farHeight": 369,
+        "nearY": 858,
+        "nearHeight": 400,
+        "beyondY": 502,
+        "beyondHeight": 308,
+        "beyondNote": "Behind the band, where the service stands: Sowerby at the grave's head (feet y 502) is 314 in the master, the undertaker (611) 336."
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 0,
+          "y": 779
+        },
+        {
+          "x": 1920,
+          "y": 779
+        },
+        {
+          "x": 1920,
+          "y": 819
+        },
+        {
+          "x": 0,
+          "y": 819
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 740,
+        "farHeight": 369,
+        "nearY": 858,
+        "nearHeight": 400,
+        "beyondY": 502,
+        "beyondHeight": 308,
+        "beyondNote": "Behind the band, where the service stands: Sowerby at the grave's head (feet y 502) is 314 in the master, the undertaker (611) 336."
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 0,
+          "y": 819
+        },
+        {
+          "x": 1920,
+          "y": 819
+        },
+        {
+          "x": 1920,
+          "y": 858
+        },
+        {
+          "x": 0,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 740,
+        "farHeight": 369,
+        "nearY": 858,
+        "nearHeight": 400,
+        "beyondY": 502,
+        "beyondHeight": 308,
+        "beyondNote": "Behind the band, where the service stands: Sowerby at the grave's head (feet y 502) is 314 in the master, the undertaker (611) 336."
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [],
+  "onEnter": {
+    "sayWhen": {
+      "T_LAID_IN": true,
+      "T_FUNERAL_DONE": false
+    },
+    "saySet": {
+      "T_FUNERAL_DONE": true
+    },
+    "note": "Doc 57 E8: out of Room 32 and HOB_C1, Thad on the hill at night; his line writes T_FUNERAL_DONE.",
+    "say": [
+      "Out. I have been buried and dug up in one evening, and of the two I preferred the second."
+    ]
+  },
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-31/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

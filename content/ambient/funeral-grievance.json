@@ -1,0 +1,70 @@
+{
+ "schema": 1,
+ "id": "funeral_grievance",
+ "name": "GRIEVANCE",
+ "posture": "animal",
+ "room": "funeral",
+ "when": {
+  "T_LAID_IN": false
+ },
+ "note": "GRIEVANCE, IN BLACK (doc 05: 'in the hearse harness, wearing black well'). The mule in her black plume and harness, hitched to the hearse (a prop, room-31-hearse); cut from room-31's composition master by tools/art/room31-cast.py with the strip of hearse beside her, which never moves -- her actions move her head only (errata 99 G).",
+ "x": 129,
+ "y": 700,
+ "zone": 2,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "She does not speak.",
+ "sprite": {
+  "sheet": "art/actors/room-31-grievance.png",
+  "frames": [
+   [
+    2,
+    2,
+    276,
+    505
+   ],
+   [
+    280,
+    2,
+    276,
+    505
+   ],
+   [
+    558,
+    2,
+    276,
+    505
+   ],
+   [
+    836,
+    2,
+    276,
+    505
+   ]
+  ],
+  "rate": 0.2,
+  "phase": 0.7,
+  "breaks": [
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    0
+   ],
+   [
+    1,
+    1,
+    0
+   ]
+  ],
+  "breakEvery": 7,
+  "talkFrame": 0,
+  "frameNote": "0 rest, in the hearse harness · 1 an ear goes back · 2 her head goes down · 3 her head turns away from the hill. A break every `breakEvery` seconds (errata 77).",
+  "provenance": "art/staging/room-31/cast/cast.json"
+ }
+}

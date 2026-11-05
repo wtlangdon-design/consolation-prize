@@ -1,0 +1,8 @@
+Image 1 is a finished background from my pixel-art adventure game: a graveyard hill on a bright day -- rows of wooden grave boards, an open grave with a plank across it, a new headboard and some lilies at its head, a dirt heap with a shovel in it, far blue hills at the left.
+
+Paint the SAME place, from the SAME camera, late at NIGHT, after the grave has been dug open again:
+1. Night: a deep blue night sky with a few stars and a bright moon; cool blue moonlight over the whole hill; the far hills dark blue. The grass, the boards, the headboard and the dirt in moonlight -- clearly readable, not black.
+2. The grave is open, the plank gone. At the bottom of it, a pine coffin with its lid off, the lid leaning against the inside of the grave.
+3. The dirt heap is thrown about, freshly dug, the shovel lying on top of it.
+
+Keep everything else where it is: every grave board on the hill, the headboard, the lilies, the shape of the hill, the camera. Same pixel grid, same big square pixels. No people, no animals, no lanterns, no text, no numerals.

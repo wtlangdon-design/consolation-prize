@@ -118,6 +118,15 @@
       ],
       "facing": "right",
       "note": "In by the gate, at left: the map leads here."
+    },
+    {
+      "from": "funeral",
+      "at": [
+        1700,
+        590
+      ],
+      "facing": "left",
+      "note": "Down from the funeral at the plot beside Pike's, at the back right (errata 99 G)."
     }
   ],
   "hotspots": [
@@ -172,6 +181,7 @@
       ],
       "when": {
         "T_OBITUARY": true,
+        "T_EXECUTOR_NAMED": false,
         "T_FUNERAL_DONE": false
       },
       "defaultVerb": "LOOK_AT",
@@ -362,6 +372,33 @@
         "x": 300,
         "y": 780,
         "facing": "left"
+      }
+    },
+    {
+      "id": "to_funeral",
+      "name": "PIKE'S NEIGHBOR",
+      "rect": [
+        1630,
+        165,
+        200,
+        190
+      ],
+      "colour": 0,
+      "to": "funeral",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: Room 31, the funeral, is reached from Boot Hill once the executor is named (E6). The open plot beside Pike is where it is held, so from E6 until the funeral is done the plot is the way up to it; its words stay on PIKE'S NEIGHBOR, which is hidden meanwhile (errata 99 G).",
+      "stub": true,
+      "when": {
+        "T_EXECUTOR_NAMED": true,
+        "T_OBITUARY": true,
+        "T_FUNERAL_DONE": false
+      },
+      "walkTo": {
+        "x": 1700,
+        "y": 580,
+        "facing": "back"
       }
     }
   ],

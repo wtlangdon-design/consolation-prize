@@ -113,6 +113,13 @@ export interface ResponseRule {
   add?: FlagAdds;
   dialogue?: string;
   goto?: string;
+  /**
+   * A DOOR'S SCENE THAT KEEPS HIM IN THE ROOM. A `transitScene` rule is
+   * spoken at the door and the room changes when it has been read; with this
+   * set, it is spoken and he stays. Doc 57 E7: "During the funeral, Room 31's
+   * exits are refused."
+   */
+  stays?: boolean;
 }
 
 /**
@@ -1417,8 +1424,22 @@ export interface RoomFile {
    * R32-MUTE): a hard stop, not a fade, and no other bed starts.
    */
   music?: 'suspend';
+  /**
+   * WHICH WHOLE-FRAME PLATE THE ROOM SHOWS, BY STATE (Room 31: the hill at
+   * night once Thad has lain down in his coffin, doc 57 E8). The first entry
+   * whose condition holds names one of `plates`; none holding shows
+   * `background`. A timeline's own plate step wins over these.
+   */
+  plateWhen?: { when: Condition; plate: string }[];
   /** Errata 70 G: timed events against active, unpaused time. See RoomTimeline. */
   timeline?: RoomTimelineStep[];
+  /**
+   * WHERE A TIMELINE ROOM HANDS ON TO, once it is over. Doc 57 E8: "When
+   * HOB_C1 ends, Thad is in Room 31 at night beside the open grave." When the
+   * timeline has run out, the conversation it opened has closed and no line
+   * is up, the room changes to `goto` -- while `when` holds, if it is given.
+   */
+  afterTimeline?: { goto: string; when?: Condition; note?: string };
   colours: { sky: number; ground: number };
   horizon: number;
   hotspots: Interactable[];

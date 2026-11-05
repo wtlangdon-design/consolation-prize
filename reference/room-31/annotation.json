@@ -1,0 +1,361 @@
+{
+ "room": "funeral",
+ "plate": "art/backgrounds/room-31-funeral.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-31/plate-01/candidate-lifted-1920x864.png, room-31 attempt 2, crop x 8 y 200 1520x684 -- frame.json). Every rect was read off the master and the plate: x less 8 and y less 200, times 1.263. The night companion (attempt 4) shares the frame.",
+ "plateShipping": "art/backgrounds/room-31-funeral.png",
+ "plateShippingHash": "e86d226bcff6",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   0,
+   740
+  ],
+  [
+   1920,
+   740
+  ],
+  [
+   1920,
+   858
+  ],
+  [
+   0,
+   858
+  ]
+ ],
+ "walkableNote": "THE GRASS IN FRONT OF THE SERVICE. The coffin's trestles stand to y 733 and the mule's hooves to y 700, so the band starts at y 740 and everything of the funeral is behind it.",
+ "scaling": {
+  "far": {
+   "y": 740,
+   "height": 369
+  },
+  "near": {
+   "y": 858,
+   "height": 400
+  },
+  "beyond": {
+   "y": 502,
+   "height": 308,
+   "note": "Behind the band, where the service stands: Sowerby at the grave's head (feet y 502) is 314 in the master, the undertaker (611) 336."
+  },
+  "note": "ROOM 31'S DEPTH, FROM THE MASTER: Thad stood with his feet at y 859 and was drawn 400 tall, the undertaker 336 at y 611 -- a shallow hill, 0.26 a row, not Room 5's 0.68."
+ },
+ "entrance": [
+  300,
+  800
+ ],
+ "entrances": [
+  {
+   "from": "boot_hill",
+   "at": [
+    300,
+    800
+   ],
+   "facing": "right",
+   "note": "Up from Boot Hill, at the back of the gathering (doc 48 S2 beat 1: 'Thad at the back')."
+  },
+  {
+   "from": "coffin",
+   "at": [
+    930,
+    770
+   ],
+   "facing": "right",
+   "note": "Out of the grave, at night (doc 57 E8: 'Thad is in Room 31 at night beside the open grave')."
+  },
+  {
+   "from": "default",
+   "at": [
+    300,
+    800
+   ],
+   "facing": "right",
+   "note": "As from Boot Hill."
+  }
+ ],
+ "hotspots": {
+  "name_plate": [
+   245,
+   540,
+   70,
+   45
+  ],
+  "flowers_waxed": [
+   1008,
+   428,
+   64,
+   104
+  ],
+  "headboard": [
+   948,
+   372,
+   72,
+   172
+  ],
+  "hats": [
+   1240,
+   430,
+   500,
+   110
+  ],
+  "grave": [
+   812,
+   533,
+   236,
+   127
+  ],
+  "reverend_sowerby_officiating": [
+   757,
+   186,
+   140,
+   320
+  ],
+  "one_who_knows": [
+   1772,
+   230,
+   143,
+   375
+  ],
+  "dirt_pile": [
+   1040,
+   355,
+   192,
+   305
+  ],
+  "coffin": [
+   180,
+   440,
+   392,
+   292
+  ],
+  "grievance_in_black": [
+   0,
+   188,
+   255,
+   512
+  ],
+  "mourners": [
+   1232,
+   290,
+   522,
+   378
+  ],
+  "sky": [
+   0,
+   0,
+   900,
+   118
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. The people are hotspots over their figures (Room 26's panner, errata 99 B): no figure at the funeral has a conversation, so the hotspot answers every verb (and TALK TO where it is written). Everything but the way back is the service's, and is gone at night (T_LAID_IN).",
+ "hotspotWhen": {
+  "name_plate": {
+   "T_LAID_IN": false
+  },
+  "flowers_waxed": {
+   "T_LAID_IN": false
+  },
+  "headboard": {
+   "T_LAID_IN": false
+  },
+  "hats": {
+   "T_LAID_IN": false
+  },
+  "grave": {
+   "T_LAID_IN": false
+  },
+  "reverend_sowerby_officiating": {
+   "T_LAID_IN": false
+  },
+  "dirt_pile": {
+   "T_LAID_IN": false
+  },
+  "coffin": {
+   "T_LAID_IN": false
+  },
+  "grievance_in_black": {
+   "T_LAID_IN": false
+  },
+  "mourners": {
+   "T_LAID_IN": false
+  },
+  "sky": {
+   "T_LAID_IN": false
+  },
+  "one_who_knows": {
+   "T_GOOD_TURNOUT": false,
+   "T_LAID_IN": false
+  }
+ },
+ "people": {},
+ "exitSubjects": {
+  "BOOT HILL, BEYOND": {
+   "id": "to_boot_hill",
+   "to": "boot_hill",
+   "defaultVerb": "WALK_TO",
+   "transitScene": [
+    {
+     "ref": "docs/48-act-turn-beats.md::## S2 · THE FUNERAL (Act III opening)",
+     "row": "3",
+     "speaker": "hob",
+     "when": {
+      "T_GOOD_TURNOUT": false,
+      "T_LAID_IN": false
+     },
+     "set": {
+      "T_GOOD_TURNOUT": true
+     },
+     "stays": true
+    },
+    {
+     "ref": "docs/57-puzzle-completion.md::## E7 · The coffin",
+     "bullet": "During the funeral",
+     "when": {
+      "T_LAID_IN": false
+     },
+     "stays": true
+    }
+   ],
+   "note": "Doc 54: the rest of Boot Hill rising behind in rows -- the way back toward it (doc 20). Doc 48 S2 beat 3 plays here if it has not yet ('or on exit toward Boot Hill'); after it, doc 57 E7: 'During the funeral, Room 31's exits are refused.' At night it is the way down (errata 99 G)."
+  }
+ },
+ "exits": {
+  "to_boot_hill": [
+   900,
+   0,
+   860,
+   288
+  ]
+ },
+ "exitWalkTo": {
+  "to_boot_hill": {
+   "x": 1350,
+   "y": 760,
+   "facing": "back"
+  }
+ },
+ "obstacles": [],
+ "lamps": [],
+ "defaultVerbs": {
+  "name_plate": "LOOK_AT",
+  "flowers_waxed": "LOOK_AT",
+  "headboard": "LOOK_AT",
+  "hats": "LOOK_AT",
+  "grave": "LOOK_AT",
+  "reverend_sowerby_officiating": "LOOK_AT",
+  "one_who_knows": "LOOK_AT",
+  "dirt_pile": "LOOK_AT",
+  "coffin": "LOOK_AT",
+  "grievance_in_black": "LOOK_AT",
+  "mourners": "LOOK_AT",
+  "sky": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Everything at a funeral is looked at on a bare click.",
+ "sceneLines": [
+  {
+   "hotspot": "coffin",
+   "verb": "USE",
+   "ref": "docs/57-puzzle-completion.md::## E7 · The coffin",
+   "subject": "THE COFFIN",
+   "verbText": "USE",
+   "case": "after S2 beat 3",
+   "speakers": {
+    "UNDERTAKER": "funeral_undertaker"
+   },
+   "when": {
+    "T_GOOD_TURNOUT": true,
+    "T_LAID_IN": false
+   },
+   "completes": "E7",
+   "goto": "coffin"
+  },
+  {
+   "hotspot": "reverend_sowerby_officiating",
+   "verb": "TALK_TO",
+   "ref": "docs/54-batch-c.md::# ROOM 31 · THE FUNERAL >> ## Overrides",
+   "subject": "REVEREND SOWERBY",
+   "verbText": "TALK TO",
+   "case": "during the service",
+   "when": {
+    "T_LAID_IN": false
+   }
+  },
+  {
+   "hotspot": "one_who_knows",
+   "verb": "TALK_TO",
+   "ref": "docs/54-batch-c.md::# ROOM 31 · THE FUNERAL >> ## Overrides",
+   "subject": "THE ONE WHO KNOWS",
+   "verbText": "TALK TO",
+   "case": "before S2 beat 3",
+   "when": {
+    "T_GOOD_TURNOUT": false
+   }
+  }
+ ],
+ "sceneLinesNote": "Doc 57 E7: after beat 3, USE on the coffin is the lying down -- Thad's line, the undertaker's -- and Room 32 begins; before it doc 49's refusal answers. Doc 54's two TALK TO cases answer for the whole service and until beat 3. T_LAID_IN is written by Room 32 on entry, not here: the service stays on the hill while the lines are said.",
+ "beatOnRepeat": [
+  {
+   "hotspot": "grave",
+   "verb": "LOOK_AT",
+   "ref": "docs/48-act-turn-beats.md::## S2 · THE FUNERAL (Act III opening)",
+   "row": "3",
+   "speaker": "hob",
+   "firstFlag": "T_GRAVE_LOOKED",
+   "when": {
+    "T_GOOD_TURNOUT": false
+   },
+   "set": {
+    "T_GOOD_TURNOUT": true
+   }
+  }
+ ],
+ "ambientBarks": [
+  {
+   "file": "content/ambient/funeral-sowerby.json",
+   "ref": "docs/48-act-turn-beats.md::## S2 · THE FUNERAL (Act III opening)",
+   "row": "2"
+  }
+ ],
+ "onEnterSay": {
+  "fromRef": "docs/57-puzzle-completion.md::## E8 · Hob digs him out",
+  "sayWhen": {
+   "T_LAID_IN": true,
+   "T_FUNERAL_DONE": false
+  },
+  "saySet": {
+   "T_FUNERAL_DONE": true
+  },
+  "note": "Doc 57 E8: out of Room 32 and HOB_C1, Thad on the hill at night; his line writes T_FUNERAL_DONE."
+ },
+ "props": [
+  {
+   "id": "hearse",
+   "sheet": "art/props/room-31-hearse.png",
+   "x": 361,
+   "y": 733,
+   "frame": [
+    0,
+    0,
+    422,
+    578
+   ],
+   "when": {
+    "T_LAID_IN": false
+   },
+   "note": "The hearse, and the pine coffin on its trestles in front of it with its lid propped and the name plate on the lid (doc 05, doc 54). One prop: they arrive and leave together. Cut from room-31's composition master by tools/art/room31-cast.py; gone by night (doc 57 E8)."
+  }
+ ],
+ "occlusion": {
+  "note": "No plane: the whole service is behind the band.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}

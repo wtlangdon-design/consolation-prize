@@ -1,0 +1,14 @@
+{
+ "assetId": "room-31",
+ "subject": "room-31-funeral",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-31-funeral",
+ "promptFile": "reference/room-31/prompts/plate-night.txt",
+ "out": "art/staging/room-31/plate-night/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-31/plate-night/input.png",
+  "art/backgrounds/room-14-boot-hill.png"
+ ]
+}

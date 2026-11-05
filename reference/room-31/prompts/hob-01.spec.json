@@ -1,0 +1,14 @@
+{
+ "assetId": "room-31",
+ "subject": "hob-funeral",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-31-funeral",
+ "promptFile": "reference/room-31/prompts/hob-01.txt",
+ "out": "art/staging/room-31/hob-01/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-31/hob-01/vs-thad.png",
+  "art/staging/room-31/composition-master-01.png"
+ ]
+}

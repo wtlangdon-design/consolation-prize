@@ -1,0 +1,204 @@
+{
+ "schema": 1,
+ "id": "room-31-funeral",
+ "room": "funeral",
+ "docRoom": 31,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 31 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/10-examine-batch-3.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/48-act-turn-beats.md",
+  "docs/57-puzzle-completion.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-31.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Two pictures: the service by day; the hill at night after Room 32 (doc 57 E8). Reached from Boot Hill's plot after E6."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-31/graybox.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The hearse and coffin are a day prop; the night is its own plate (plateWhen)."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-31.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The undertaker, Sowerby, the mourners, the watchman, Grievance: cut from the master, actions derived (errata 77)."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/funeral/life/life.json"
+   ],
+   "note": "Sowerby's eulogy bark; the mourners shift; beat 3 and the watchman walks."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/funeral/proof.json"
+   ],
+   "note": "Thad stands on the grass in front of the service."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-31/annotation.json",
+    "art/staging/room-31/plate-night/frame.json"
+   ],
+   "note": "Day, as written; the night plate at Boot Hill's level without a lift."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-31.test.ts",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "E7 sited here: the coffin, after beat 3, said in the room; doc 49's refusal before."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-31.json",
+    "content/rooms/funeral.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 81 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-31: 4 of 4 operations (master, plate, the watchman's walk, the night)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/funeral.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-31/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/funeral/proof.json"
+   ],
+   "note": "Panel D: beat 3, the second LOOK at the grave. Started from fixture r31-a."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/funeral/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/funeral/doors/life.json",
+    "tests/room-31.test.ts"
+   ],
+   "note": "The way back twice (beat 3, the refusal), then out by the map to Boot Hill and up the plot again."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-31/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships. The cast is cut from it."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-31-funeral.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-31/plate-01/frame.json"
+   ],
+   "note": "Attempt 2; promoted provisionally (errata 72 E)."
+  },
+  {
+   "subject": "the night",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-31-funeral-night.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-31/plate-night/frame.json"
+   ],
+   "note": "Attempt 4; promoted provisionally (errata 72 E)."
+  },
+  {
+   "subject": "the watchman's walk",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-31-hob-walk.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-31/hob-01/walk.json"
+   ],
+   "note": "Attempt 3, cut by tools/art/cut-walk-sheet.py."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q173 · Room 31, the funeral: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 G, delegated); BUILT, room-31 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plates and the cast -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q173 · Room 31, the funeral: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 G, delegated); BUILT, room-31 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

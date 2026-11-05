@@ -1,0 +1,117 @@
+{
+ "schema": 1,
+ "room": "funeral",
+ "note": "DOC 46 4.13's GAMEPLAY PASS for Room 31: from the fixture's service, the way back toward the hill twice -- beat 3, then the refusal (doc 57 E7: 'During the funeral, Room 31's exits are refused') -- then out by the map to Boot Hill and up the plot to the funeral again. Each capture asserts the room it should be in.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "00-arrived"
+  },
+  {
+   "do": "click",
+   "on": "to_boot_hill",
+   "why": "toward the rest of the hill: beat 3"
+  },
+  {
+   "do": "waitFor",
+   "says": "hob",
+   "upTo": 60
+  },
+  {
+   "do": "waitFor",
+   "idle": true,
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "01-beat-three",
+   "room": "funeral"
+  },
+  {
+   "do": "click",
+   "on": "to_boot_hill",
+   "why": "toward the hill again: refused"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 60
+  },
+  {
+   "do": "waitFor",
+   "idle": true,
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "02-refused",
+   "room": "funeral"
+  },
+  {
+   "do": "click",
+   "at": [
+    540,
+    1052
+   ],
+   "why": "the MAP button"
+  },
+  {
+   "do": "waitFor",
+   "room": "town_map",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "click",
+   "at": [
+    1370,
+    95
+   ],
+   "why": "Boot Hill's marker"
+  },
+  {
+   "do": "waitFor",
+   "room": "boot_hill",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "03-boot-hill",
+   "room": "boot_hill"
+  },
+  {
+   "do": "click",
+   "on": "to_funeral",
+   "why": "up to the plot"
+  },
+  {
+   "do": "waitFor",
+   "room": "funeral",
+   "upTo": 90
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "04-back",
+   "room": "funeral"
+  }
+ ]
+}

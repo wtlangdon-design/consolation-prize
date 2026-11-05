@@ -1,0 +1,212 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 31, the funeral. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r31-a",
+   "label": "R31-A Act III, the executor named: Thad at his own funeral",
+   "room": "funeral",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "T_NINETY_DAYS": true,
+    "ACT": 3,
+    "T_ASSAY_QUEUE": true,
+    "T_NEED_TO_DIE": true,
+    "T_EXECUTOR_RULE": true,
+    "T_SOWERBY_PRICE": true,
+    "T_PIKE_DEAD": true,
+    "T_FUNERAL_BOOKED": true,
+    "T_COFFIN_SIZED": true,
+    "T_OBITUARY": true,
+    "T_DECEASED": true,
+    "T_EXECUTOR_NAMED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "executor_form"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "D1": "complete",
+    "E1": "complete",
+    "E2": "complete",
+    "E3": "complete",
+    "E4": "complete",
+    "E5": "complete",
+    "E6": "complete"
+   },
+   "derivedFrom": [
+    "docs/48-act-turn-beats.md::S2 · THE FUNERAL (Act III opening)",
+    "docs/57-puzzle-completion.md::E7 · The coffin",
+    "docs/54-batch-c.md::ROOM 31 · THE FUNERAL"
+   ],
+   "notBuilt": [
+    "E4 (Room 5) and E5 (Room 9) write T_DECEASED and T_OBITUARY on paths whose earlier rooms are not all built: set here as their outcomes"
+   ],
+   "note": "Doc 48 S2: the service by day, every hotspot live; beat 3 waits on the second LOOK at the grave or the way back toward Boot Hill."
+  },
+  {
+   "id": "r31-b",
+   "label": "R31-B Act III, at the funeral after Hob's 'Good turnout.'",
+   "room": "funeral",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "T_NINETY_DAYS": true,
+    "ACT": 3,
+    "T_ASSAY_QUEUE": true,
+    "T_NEED_TO_DIE": true,
+    "T_EXECUTOR_RULE": true,
+    "T_SOWERBY_PRICE": true,
+    "T_PIKE_DEAD": true,
+    "T_FUNERAL_BOOKED": true,
+    "T_COFFIN_SIZED": true,
+    "T_OBITUARY": true,
+    "T_DECEASED": true,
+    "T_EXECUTOR_NAMED": true,
+    "T_GRAVE_LOOKED": true,
+    "T_GOOD_TURNOUT": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "executor_form"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "D1": "complete",
+    "E1": "complete",
+    "E2": "complete",
+    "E3": "complete",
+    "E4": "complete",
+    "E5": "complete",
+    "E6": "complete"
+   },
+   "derivedFrom": [
+    "docs/48-act-turn-beats.md::S2 · THE FUNERAL (Act III opening)",
+    "docs/57-puzzle-completion.md::E7 · The coffin",
+    "docs/54-batch-c.md::ROOM 31 · THE FUNERAL"
+   ],
+   "notBuilt": [
+    "E4 (Room 5) and E5 (Room 9) write T_DECEASED and T_OBITUARY on paths whose earlier rooms are not all built: set here as their outcomes"
+   ],
+   "note": "Doc 57 E7: the coffin now lies him down (USE), and the exits refuse."
+  },
+  {
+   "id": "r31-c",
+   "label": "R31-C Act III, out of the grave at night (E8)",
+   "room": "funeral",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "T_NINETY_DAYS": true,
+    "ACT": 3,
+    "T_ASSAY_QUEUE": true,
+    "T_NEED_TO_DIE": true,
+    "T_EXECUTOR_RULE": true,
+    "T_SOWERBY_PRICE": true,
+    "T_PIKE_DEAD": true,
+    "T_FUNERAL_BOOKED": true,
+    "T_COFFIN_SIZED": true,
+    "T_OBITUARY": true,
+    "T_DECEASED": true,
+    "T_EXECUTOR_NAMED": true,
+    "T_GRAVE_LOOKED": true,
+    "T_GOOD_TURNOUT": true,
+    "T_LAID_IN": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "executor_form"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "D1": "complete",
+    "E1": "complete",
+    "E2": "complete",
+    "E3": "complete",
+    "E4": "complete",
+    "E5": "complete",
+    "E6": "complete",
+    "E7": "complete",
+    "E8": "complete"
+   },
+   "derivedFrom": [
+    "docs/48-act-turn-beats.md::S2 · THE FUNERAL (Act III opening)",
+    "docs/57-puzzle-completion.md::E7 · The coffin",
+    "docs/54-batch-c.md::ROOM 31 · THE FUNERAL",
+    "docs/57-puzzle-completion.md::E8 · Hob digs him out"
+   ],
+   "notBuilt": [
+    "E4 (Room 5) and E5 (Room 9) write T_DECEASED and T_OBITUARY on paths whose earlier rooms are not all built: set here as their outcomes"
+   ],
+   "note": "Doc 57 E8: the hill at night, the grave open, nobody; his line writes T_FUNERAL_DONE."
+  }
+ ]
+}

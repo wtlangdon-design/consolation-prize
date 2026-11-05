@@ -67,6 +67,18 @@
    "date": "2026-11-05",
    "kind": "loosened",
    "why": "Room 29's THE ROAD EAST LISTEN is 'Nothing coming.' three times, as Room 1's is: doc 54 decides 'five uses, deliberately ... doc 17's rule is that the line does not vary'. Declared, as the stage road's are."
+  },
+  {
+   "check": "content/ui/duplicate-allowlist.json",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "Room 31's THE GRAVE: doc 48 S2 beat 3 fires on the second LOOK and doc 54 has LOOK 2 play first, then Hob -- so the beat rule opens with the chain's own second line. Declared once, for that one moment."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "'repeat variants cycle FORWARD' walked every LOOK chain to its end, and Room 31's grave chain is interrupted by design: doc 48 S2 beat 3 is the second LOOK, Hob's. The chain is now checked up to the ask a scene rule (sceneLine) answers instead; every other chain is checked whole, as before."
   }
  ]
 }

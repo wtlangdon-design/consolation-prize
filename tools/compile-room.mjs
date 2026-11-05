@@ -761,7 +761,9 @@ const slug = (name) => name.toLowerCase().replace(/^(the|a)\s+/, '').replace(/[^
 const liveIdByName = new Map((live0.hotspots ?? []).map((h) => [h.name, h.id]));
 const byId = new Map();
 for (const [name, entry] of hotspots) {
-  if (MERGED && ann.exitSubjects?.[name]) continue;
+  // An exit that is ALSO the thing itself (Room 14's open plot: looked at
+  // until the funeral is arranged, then the way to it) stays a hotspot too.
+  if (MERGED && ann.exitSubjects?.[name] && !ann.exitSubjects[name].alsoHotspot) continue;
   byId.set(liveIdByName.get(name) ?? slug(name), { ...entry, docName: name });
 }
 
@@ -1057,9 +1059,14 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
 // directions are staging and are reported, not spoken. A line the document
 // does not write is a build failure naming it.
 function sceneLine(spec) {
-  const [path, heading] = spec.ref.split('::');
+  const [path, headingRef] = spec.ref.split('::');
   const text = read(path);
-  const at = text.indexOf(heading);
+  // `A >> B`: section B, the first one after heading A. Doc 54 has an
+  // `## Overrides` under most rooms; Room 31's is the one after its own title.
+  const [within, heading] = headingRef.includes(' >> ') ? headingRef.split(' >> ') : [null, headingRef];
+  const from = within === null ? 0 : text.indexOf(within);
+  if (from < 0) fail(`sceneLines: ${path} has no section "${within}"`);
+  const at = text.indexOf(heading, from);
   if (at < 0) fail(`sceneLines: ${path} has no section "${heading}"`);
   const rest = text.slice(at + heading.length);
   const next = /\n## /.exec(rest);
@@ -1074,8 +1081,11 @@ function sceneLine(spec) {
   if (!m) fail(`sceneLines: ${spec.ref} writes no "${spec.subject} · ${spec.verbText}, ${spec.case}" line`);
   const [spoken] = m[1].split('→');
   const lines = [];
-  for (const segment of spoken.split(/\s—\s/)) {
-    const who = /^\s*\*\*([A-Z' ]+):\*\*/.exec(segment);
+  // A speaker's line can follow another's with no dash between them (doc 57
+  // E7: Thad's line, then **UNDERTAKER:** in the same breath), so a segment
+  // also starts at each `**NAME:**`.
+  for (const segment of spoken.split(/\s—\s|(?=\*\*[A-Z' -]+:\*\*)/)) {
+    const who = /^\s*\*\*([A-Z' -]+):\*\*/.exec(segment);
     const speaker = who ? (spec.speakers ?? {})[who[1]] : 'thad';
     if (who && !speaker) fail(`sceneLines: "${who[1]}" speaks in ${spec.ref} and the annotation's speakers do not name them`);
     for (const q of segment.matchAll(/"([^"]+)"/g)) lines.push({ speaker, line: q[1].replace(/\*/g, '') });
@@ -1104,6 +1114,38 @@ for (const spec of ann.sceneLines ?? []) {
   if (!hotspot) fail(`sceneLines: no hotspot "${spec.hotspot}" in this room`);
   const rule = sceneLine(spec);
   (hotspot.responses[spec.verb] ??= []).unshift(rule);
+}
+
+// A BEAT ON A REPEATED LOOK (doc 48 S2 beat 3, doc 54: "S2's beat 3 fires
+// on the second LOOK at the grave, so THE GRAVE's LOOK 2 below plays and then
+// Hob speaks"). The subject's ordinary rule records the first look
+// (`firstFlag`); the second plays the subject's own second line, then the
+// beat's words, read from the script table's row, by the beat's speaker.
+for (const spec of ann.beatOnRepeat ?? []) {
+  const hotspot = built.hotspots.find((one) => one.id === spec.hotspot);
+  if (!hotspot) fail(`beatOnRepeat: no hotspot "${spec.hotspot}" in this room`);
+  const rules = hotspot.responses[spec.verb] ?? [];
+  const ordinary = rules.find((rule) => rule.repeat?.length && !rule.when);
+  if (!ordinary) fail(`beatOnRepeat: ${spec.hotspot} ${spec.verb} has no ordinary rule with a second line`);
+  const words = beatQuotes(spec, sectionBody(spec.ref, 'beatOnRepeat'), 'beatOnRepeat');
+  ordinary.set = { ...(ordinary.set ?? {}), [spec.firstFlag]: true };
+  rules.unshift({ when: { ...(spec.when ?? {}), [spec.firstFlag]: true }, say: ordinary.repeat[0],
+    then: words.map((line) => ({ speaker: spec.speaker, line })), ...(spec.set ? { set: spec.set } : {}),
+    sceneLine: `${spec.ref} · beat ${spec.row}` });
+  hotspot.responses[spec.verb] = rules;
+}
+
+// A BARK A SCRIPT WRITES (doc 48 S2 beat 2: "Sowerby's eulogy loops as
+// ambient bark"). The quoted words of the row are the figure's bark in every
+// reputation state -- a eulogy does not change with what the town thinks of
+// the deceased -- written into its ambient file, never typed there.
+if (WRITE) for (const spec of ann.ambientBarks ?? []) {
+  const words = beatQuotes(spec, sectionBody(spec.ref, 'ambientBarks'), 'ambientBarks');
+  const npc = JSON.parse(read(spec.file));
+  const states = JSON.parse(read('content/reputation.json')).states;
+  npc.barks = Object.fromEntries(states.map((state) => [state, words[0]]));
+  npc.barksNote = `Read by tools/compile-room.mjs from ${spec.ref}, beat ${spec.row}: the same words in every state.`;
+  writeFileSync(spec.file, `${JSON.stringify(npc, null, 1)}\n`);
 }
 
 // A SUBJECT THAT OPENS A CHOICE (errata 92 E). Doc 04 Part Three's letters
@@ -1244,15 +1286,44 @@ function transitBeat(spec) {
   if (at < 0) fail(`transitScene: ${path} has no section "${heading}"`);
   const rest = text.slice(at + heading.length);
   const body = rest.slice(0, (/\n## |\n---\n/.exec(rest) ?? { index: rest.length }).index);
+  const [first, ...more] = beatQuotes(spec, body, 'transitScene');
+  const by = spec.speaker && spec.speaker !== 'thad' ? spec.speaker : null;
+  return { ...(spec.when ? { when: spec.when } : {}), say: first, ...(by ? { by } : {}),
+    ...(more.length ? { then: by ? more.map((line) => ({ speaker: by, line })) : more } : {}),
+    ...(spec.set ? { set: spec.set } : {}), ...(spec.stays ? { stays: true } : {}),
+    sceneLine: `${spec.ref} · ${spec.bullet ?? `beat ${spec.row}`}` };
+}
+
+// THE QUOTED WORDS OF ONE BEAT, read three ways: a bold bullet (`- **Beat 4**
+// ...`, the words before its "Then"), a plain bullet named by how it starts
+// (doc 57 E7: `- During the funeral, Room 31's exits are refused: "..."`), or
+// a script table's row by its beat number (doc 48 S2: `| 3 | ... "Good
+// turnout." Beat. "Better than mine." ... |`). Every quote is one line, in
+// order, all by one speaker (the spec's).
+function beatQuotes(spec, body, what) {
   const esc = (v) => v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const m = new RegExp(`^- \\*\\*${esc(spec.bullet)}\\*\\* (.+)$`, 'm').exec(body);
-  if (!m) fail(`transitScene: ${spec.ref} has no "- **${spec.bullet}**" bullet`);
+  let m;
+  if (spec.row !== undefined) {
+    m = new RegExp(`^\\| ${esc(String(spec.row))} \\| (.+)$`, 'm').exec(body);
+    if (!m) fail(`${what}: ${spec.ref} has no table row ${spec.row}`);
+  } else {
+    m = new RegExp(`^- \\*\\*${esc(spec.bullet)}\\*\\* (.+)$`, 'm').exec(body)
+      ?? new RegExp(`^- (${esc(spec.bullet)}.+)$`, 'm').exec(body);
+    if (!m) fail(`${what}: ${spec.ref} has no "- **${spec.bullet}**" bullet`);
+  }
   const [spoken] = m[1].split(/\sThen\s/);
   const lines = [...spoken.matchAll(/"([^"]+)"/g)].map((q) => q[1].replace(/\*/g, ''));
-  if (!lines.length) fail(`transitScene: ${spec.ref} "${spec.bullet}" has no spoken line`);
-  const [first, ...more] = lines;
-  return { ...(spec.when ? { when: spec.when } : {}), say: first, ...(more.length ? { then: more } : {}),
-    ...(spec.set ? { set: spec.set } : {}), sceneLine: `${spec.ref} · ${spec.bullet}` };
+  if (!lines.length) fail(`${what}: ${spec.ref} "${spec.bullet ?? spec.row}" has no spoken line`);
+  return lines;
+}
+
+function sectionBody(ref, what) {
+  const [path, heading] = ref.split('::');
+  const text = read(path);
+  const at = text.indexOf(heading);
+  if (at < 0) fail(`${what}: ${path} has no section "${heading}"`);
+  const rest = text.slice(at + heading.length);
+  return rest.slice(0, (/\n## |\n---\n/.exec(rest) ?? { index: rest.length }).index);
 }
 
 const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name, spec]) => {
@@ -1265,12 +1336,14 @@ const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name,
     ?? (spec.stub || spec.pending ? { name } : undefined);
   if (!subject) fail(`exitSubjects names "${name}", which ${MERGED_PATH} does not write`);
   const responses = {};
-  for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
+  // An exit that is also a hotspot (alsoHotspot) leaves the subject's words to
+  // the hotspot, which carries them: the same line in two places is a duplicate.
+  for (const verb of spec.alsoHotspot ? [] : ['LOOK_AT', 'LISTEN_TO']) {
     const lines = subject[verb] ?? [];
     if (lines.length) responses[verb] = [lines.length > 1 ? { say: lines[0], repeat: lines.slice(1) } : { say: lines[0] }];
   }
   return { id: spec.id, name, rect: ann.exits[spec.id], colour: 0, to: spec.to, responses,
-    ...(subject.overrides ? { overrides: subject.overrides } : {}), fallback: [],
+    ...(subject.overrides && !spec.alsoHotspot ? { overrides: subject.overrides } : {}), fallback: [],
     defaultVerb: spec.defaultVerb ?? 'WALK_TO',
     ...(spec.setOnTransit ? { setOnTransit: spec.setOnTransit } : {}),
     ...(spec.setOnTransitWhen ? { setOnTransitWhen: spec.setOnTransitWhen } : {}),
@@ -1817,7 +1890,8 @@ if (MERGED) {
       const after = text.slice(at + heading.length);
       const body = after.slice(0, (/\n## |\n---\n/.exec(after) ?? { index: after.length }).index);
       // An indented quote is a bullet's (doc 57 C3's Room 14 line); it counts.
-      const first = /^\s*> "([^"]+)"$/m.exec(body);
+      // A line that ends in what it writes (doc 57 E8: `> "Out. ..." → T_FUNERAL_DONE`) counts.
+      const first = /^\s*> "([^"]+)"(?:\s*→.*)?$/m.exec(body);
       if (!first) fail(`onEnterSay: ${fromRef} has no quoted line`);
       said = [first[1]];
     }

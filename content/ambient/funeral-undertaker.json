@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "id": "funeral_undertaker",
+ "name": "THE UNDERTAKER",
+ "posture": "standing",
+ "room": "funeral",
+ "when": {
+  "T_LAID_IN": false
+ },
+ "note": "THE UNDERTAKER AT THE COFFIN (doc 57 E7: he speaks there -- 'Lid stays loose. Knock twice when they've gone.' -- and nails the lid). No examine pass writes him at the funeral, so he has no hotspot of his own; cut from room-31's composition master by tools/art/room31-cast.py, in his Room 13 apron (errata 99 G). Gone with the service: from T_LAID_IN the hill is night and empty.",
+ "x": 616,
+ "y": 611,
+ "zone": 2,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for the undertaker.",
+ "sprite": {
+  "sheet": "art/actors/room-31-undertaker.png",
+  "frames": [
+   [
+    2,
+    2,
+    135,
+    336
+   ],
+   [
+    139,
+    2,
+    135,
+    336
+   ],
+   [
+    276,
+    2,
+    135,
+    336
+   ],
+   [
+    413,
+    2,
+    135,
+    336
+   ],
+   [
+    550,
+    2,
+    135,
+    336
+   ]
+  ],
+  "rate": 0.22,
+  "phase": 0.3,
+  "breaks": [
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    0
+   ]
+  ],
+  "breakEvery": 7,
+  "talkFrame": 0,
+  "frameNote": "0 rest, hands folded · 1 breath · 2 a lean toward the coffin · 3 a nod · 4 a lean back. A break every `breakEvery` seconds (errata 77).",
+  "provenance": "art/staging/room-31/cast/cast.json"
+ }
+}

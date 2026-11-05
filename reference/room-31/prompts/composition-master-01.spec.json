@@ -1,0 +1,17 @@
+{
+ "assetId": "room-31",
+ "subject": "room-31-funeral",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-31-funeral",
+ "promptFile": "reference/room-31/prompts/composition-master-01.txt",
+ "out": "art/staging/room-31/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-31/layout-1536x1024.png",
+  "art/backgrounds/room-14-boot-hill.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/room-31/cast-board.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

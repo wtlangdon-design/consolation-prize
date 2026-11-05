@@ -643,9 +643,8 @@
    "id": "T_EXECUTOR_NAMED",
    "type": "boolean",
    "initial": false,
-   "pending": true,
    "writtenBy": [
-    "docs/57-puzzle-completion.md E6, the executor's form to Sump with T_DECEASED (Room 7; the form is HOB_E6's, Room 20) -- unbuilt"
+    "combination:executor_form:claims_registrar:sump"
    ],
    "note": "Doc 57 E6: Sump accepts Hob as executor. Read by THE ARCHIVE DOOR's OPEN in Room 7 (doc 57 E9), which lets Thad into Room 8. A fixture or the ?flags= control sets it until E6's pieces are built."
   },
@@ -927,12 +926,41 @@
    "note": "Doc 57 E3: the loan spent at the undertaker's; Thad's own funeral is booked. WIN_C1 (E4) waits on it."
   },
   {
+   "id": "T_GRAVE_LOOKED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:funeral:grave:LOOK_AT"
+   ],
+   "note": "Doc 48 S2 beat 3 fires on the SECOND LOOK at the grave (doc 54): the first LOOK writes this, so the second can be told from it (errata 99 G)."
+  },
+  {
+   "id": "T_GOOD_TURNOUT",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:funeral:grave:LOOK_AT",
+    "room:funeral:to_boot_hill:transitScene"
+   ],
+   "note": "Doc 48 S2 beat 3 has played: Hob's \"Good turnout.\" on the second LOOK at the grave, or at the way back toward Boot Hill. Hob walks off; THE COFFIN · USE now lies down (doc 57 E7) and the exits refuse (errata 99 G)."
+  },
+  {
+   "id": "T_LAID_IN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:coffin:onEnter"
+   ],
+   "note": "Doc 57 E7: Thad has lain down in his coffin and Room 32 has begun. From here Room 31 is the hill at night, the service over and everyone gone (doc 57 E8, errata 99 G)."
+  },
+  {
    "id": "T_FUNERAL_DONE",
    "type": "boolean",
    "initial": false,
-   "writtenBy": [],
-   "pending": true,
-   "note": "Doc 57 E8: set when HOB_C1 ends, Thad dug out (Room 32, not built). Read by Boot Hill: MY OWN PLOT replaces the open grave (errata 87 D)."
+   "writtenBy": [
+    "room:funeral:onEnter"
+   ],
+   "note": "Doc 57 E8: set when Thad, dug out, is back on the hill at night (Room 31's arrival line after Room 32 and HOB_C1). Read by Boot Hill: MY OWN PLOT replaces the open grave (errata 87 D); the plot stops leading to the funeral."
   },
   {
    "id": "T_HUM_HEARD",

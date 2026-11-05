@@ -72,6 +72,15 @@
    ],
    "facing": "right",
    "note": "In by the gate, at left: the map leads here."
+  },
+  {
+   "from": "funeral",
+   "at": [
+    1700,
+    590
+   ],
+   "facing": "left",
+   "note": "Down from the funeral at the plot beside Pike's, at the back right (errata 99 G)."
   }
  ],
  "hotspots": {
@@ -110,6 +119,7 @@
  "hotspotWhen": {
   "pike_s_neighbor": {
    "T_OBITUARY": true,
+   "T_EXECUTOR_NAMED": false,
    "T_FUNERAL_DONE": false
   },
   "my_own_plot": {
@@ -123,6 +133,19 @@
    "defaultVerb": "WALK_TO",
    "note": "Doc 20 and errata 43: Boot Hill is reached by the map, and its gate leads back to it. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE GATE A LOOK OR LISTEN (doc 54: 'THE GATE is the room's exit'), so it is a stub exit as the records room's door is (errata 72 F, doc 36 Q157); the gate works, and its LOOK and LISTEN wait for lines.",
    "stub": true
+  },
+  "PIKE'S NEIGHBOR": {
+   "id": "to_funeral",
+   "to": "funeral",
+   "defaultVerb": "WALK_TO",
+   "alsoHotspot": true,
+   "when": {
+    "T_EXECUTOR_NAMED": true,
+    "T_OBITUARY": true,
+    "T_FUNERAL_DONE": false
+   },
+   "note": "Doc 20: Room 31, the funeral, is reached from Boot Hill once the executor is named (E6). The open plot beside Pike is where it is held, so from E6 until the funeral is done the plot is the way up to it; its words stay on PIKE'S NEIGHBOR, which is hidden meanwhile (errata 99 G).",
+   "stub": true
   }
  },
  "exits": {
@@ -131,6 +154,12 @@
    240,
    320,
    450
+  ],
+  "to_funeral": [
+   1630,
+   165,
+   200,
+   190
   ]
  },
  "exitWalkTo": {
@@ -138,6 +167,11 @@
    "x": 300,
    "y": 780,
    "facing": "left"
+  },
+  "to_funeral": {
+   "x": 1700,
+   "y": 580,
+   "facing": "back"
   }
  },
  "obstaclesNote": "Mott's obelisk only.",

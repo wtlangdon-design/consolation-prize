@@ -1,0 +1,250 @@
+{
+ "note": "Cut by tools/art/room31-cast.py from operation 1 minus operation 2 (crop x 8, y 200, 1520x684).",
+ "figures": {
+  "undertaker": {
+   "sheet": "art/actors/room-31-undertaker.png",
+   "frames": [
+    [
+     2,
+     2,
+     135,
+     336
+    ],
+    [
+     139,
+     2,
+     135,
+     336
+    ],
+    [
+     276,
+     2,
+     135,
+     336
+    ],
+    [
+     413,
+     2,
+     135,
+     336
+    ],
+    [
+     550,
+     2,
+     135,
+     336
+    ]
+   ],
+   "x": 616,
+   "y": 611,
+   "figureHeight": 336,
+   "box": [
+    561,
+    275,
+    672,
+    611
+   ],
+   "frameNote": "0 rest, hands folded \u00b7 1 breath \u00b7 2 a lean toward the coffin \u00b7 3 a nod \u00b7 4 a lean back"
+  },
+  "sowerby": {
+   "sheet": "art/actors/room-31-sowerby.png",
+   "frames": [
+    [
+     2,
+     2,
+     147,
+     314
+    ],
+    [
+     151,
+     2,
+     147,
+     314
+    ],
+    [
+     300,
+     2,
+     147,
+     314
+    ],
+    [
+     449,
+     2,
+     147,
+     314
+    ],
+    [
+     598,
+     2,
+     147,
+     314
+    ]
+   ],
+   "x": 828,
+   "y": 502,
+   "figureHeight": 314,
+   "box": [
+    767,
+    188,
+    890,
+    502
+   ],
+   "frameNote": "0 rest, a finger raised \u00b7 1 breath \u00b7 2 rocks forward with the sermon \u00b7 3 rocks back \u00b7 4 a nod"
+  },
+  "hob": {
+   "sheet": "art/actors/room-31-hob.png",
+   "frames": [
+    [
+     2,
+     2,
+     149,
+     368
+    ],
+    [
+     153,
+     2,
+     149,
+     368
+    ],
+    [
+     304,
+     2,
+     149,
+     368
+    ],
+    [
+     455,
+     2,
+     149,
+     368
+    ]
+   ],
+   "x": 1832,
+   "y": 602,
+   "figureHeight": 368,
+   "box": [
+    1770,
+    234,
+    1895,
+    602
+   ],
+   "frameNote": "0 rest, hat in hand \u00b7 1 breath \u00b7 2 his weight shifts \u00b7 3 his head goes down"
+  },
+  "grievance": {
+   "sheet": "art/actors/room-31-grievance.png",
+   "frames": [
+    [
+     2,
+     2,
+     276,
+     505
+    ],
+    [
+     280,
+     2,
+     276,
+     505
+    ],
+    [
+     558,
+     2,
+     276,
+     505
+    ],
+    [
+     836,
+     2,
+     276,
+     505
+    ]
+   ],
+   "x": 129,
+   "y": 700,
+   "figureHeight": 505,
+   "box": [
+    3,
+    195,
+    255,
+    700
+   ],
+   "frameNote": "0 rest, in the hearse harness \u00b7 1 an ear goes back \u00b7 2 her head goes down \u00b7 3 her head turns away from the hill"
+  },
+  "mourners": {
+   "sheet": "art/actors/room-31-mourners.png",
+   "frames": [
+    [
+     2,
+     2,
+     546,
+     372
+    ],
+    [
+     550,
+     2,
+     546,
+     372
+    ],
+    [
+     1098,
+     2,
+     546,
+     372
+    ],
+    [
+     1646,
+     2,
+     546,
+     372
+    ],
+    [
+     2194,
+     2,
+     546,
+     372
+    ]
+   ],
+   "x": 1493,
+   "y": 668,
+   "figureHeight": 372,
+   "box": [
+    1232,
+    296,
+    1754,
+    668
+   ],
+   "frameNote": "0 rest, hats held \u00b7 1 breath \u00b7 2-4 a few of them shifting their weight, a different few each time"
+  }
+ },
+ "props": {
+  "hearse": {
+   "sheet": "art/props/room-31-hearse.png",
+   "frame": [
+    0,
+    0,
+    422,
+    578
+   ],
+   "x": 361,
+   "y": 733,
+   "box": [
+    150,
+    155,
+    572,
+    733
+   ]
+  }
+ },
+ "namePlate": {
+  "rect": [
+   262,
+   556,
+   30,
+   15
+  ],
+  "brass": [
+   206,
+   154,
+   59
+  ]
+ }
+}
