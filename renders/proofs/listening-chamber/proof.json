@@ -1,0 +1,465 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "listening_chamber",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "61eeeffab2c2e6591673c051b168fc90d8357e2f",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r33-a, then entered listening_chamber by control -- NOT proof that a player can reach it",
+  "action 1 (verb): chose verb LISTEN_TO -- ",
+  "action 2 (click): clicked world 1395,335 -- the void, where room-33 operation 3 broke the wall",
+  "action 3 (waitFor): reached {\"says\":\"thad\"} in room listening_chamber"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far_0",
+    "kind": "far",
+    "y": 701,
+    "xs": [
+     470,
+     418,
+     523,
+     365,
+     575,
+     313,
+     628,
+     260,
+     680
+    ],
+    "expect": 342,
+    "x": 470
+   },
+   "at": [
+    470,
+    701
+   ],
+   "reportedHeight": 342,
+   "expected": 342,
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "bounds": [
+    292,
+    359,
+    355,
+    378
+   ],
+   "order": 0,
+   "renderedHeight": 342,
+   "renderedBottom": 700,
+   "file": "raw-captures-ignored/panel-c-mud_far_0-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     980,
+     800,
+     1160,
+     620,
+     1340,
+     440,
+     1520,
+     260,
+     1700
+    ],
+    "expect": 383,
+    "x": 980
+   },
+   "at": [
+    980,
+    857
+   ],
+   "reportedHeight": 383,
+   "expected": 383,
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
+   "bounds": [
+    781,
+    474,
+    397,
+    423
+   ],
+   "order": 0,
+   "renderedHeight": 383,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "listening_chamber",
+   "clock": 9.0835,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "blanket",
+    "pickaxe"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      340,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 363,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      152,
+      417,
+      376,
+      401
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:listening_chamber",
+     "path": "art/backgrounds/room-33-listening-chamber.png",
+     "drawn": "art/backgrounds/room-33-listening-chamber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "77c9a9a4eeba8070dcaccc37282ac2de57e989c9e26d204b2b837e32c6381632"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(listening_chamber)"
+   ],
+   "capturedAt": "2026-11-05T22:49:29.491Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "d77230868374464cfdaf737a5c8f66b04dc09fb733f6ba4a885a7215364d4557"
+  },
+  {
+   "panel": "A",
+   "room": "listening_chamber",
+   "clock": 9.8169,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "blanket",
+    "pickaxe"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      340,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 363,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:listening_chamber",
+     "path": "art/backgrounds/room-33-listening-chamber.png",
+     "drawn": "art/backgrounds/room-33-listening-chamber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "77c9a9a4eeba8070dcaccc37282ac2de57e989c9e26d204b2b837e32c6381632"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(listening_chamber)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T22:49:30.286Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "cf324db97b65e78b1aa40bdab906984c84c999f4c4445fa4282e19d414e1f016"
+  },
+  {
+   "panel": "D",
+   "room": "listening_chamber",
+   "clock": 15.6166,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "blanket",
+    "pickaxe"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      960,
+      825
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 374,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      738,
+      451,
+      443,
+      413
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": "thad",
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:listening_chamber",
+     "path": "art/backgrounds/room-33-listening-chamber.png",
+     "drawn": "art/backgrounds/room-33-listening-chamber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "77c9a9a4eeba8070dcaccc37282ac2de57e989c9e26d204b2b837e32c6381632"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(listening_chamber)",
+    "cast(false)",
+    "cast(true)",
+    "stand(470,701)",
+    "cast(false)",
+    "cast(true)",
+    "stand(980,857)",
+    "cast(false)",
+    "cast(true)"
+   ],
+   "capturedAt": "2026-11-05T22:49:36.105Z",
+   "intent": "principal changed state: F2 (doc 05, doc 45 R33-VOID; errata 71 E): LISTEN on the void answers from the first tap with its line, and the ninety seconds begin. Visible consequence: the void's line, and T_VOID_FOUND.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "5c018180e70732ec74975ac5844f8e70bd9e9af70b45962f3755838e0a9b1ea5",
+   "changedBy": "flags"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T22:49:36.105Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 320766,
+  "panels": 5,
+  "scale": 0.5
+ }
+}
