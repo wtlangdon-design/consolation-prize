@@ -5,8 +5,8 @@ block, the walkable ground and the way back next door, the merged subjects as
 silhouettes, Thad at every depth, and the LEGIBILITY GATE. One other figure:
 Nickel Pratt, raking.
 
-Morning -- "Lovely morning" (doc 04 PRA_A1), the coffee pot not yet at ten
-(doc 54). Left to right: the way back next door to Prosperity; THE BORDER
+Planned for morning ("Lovely morning", doc 04 PRA_A1) and relit to dusk, the
+hour next door (Tyler, 2026-11-05; errata 97 A). Left to right: the way back next door to Prosperity; THE BORDER
 STONES, a whitewashed line; THE LEAN-TO with THE TOOL RACK on its side; THE
 SIGN: NO COLOR YET on its post; THE CAMP CHAIR facing the trench, THE COFFEE
 POT on its fire; THE TALLY POST and its spare; THE DIGGINGS, a square trench

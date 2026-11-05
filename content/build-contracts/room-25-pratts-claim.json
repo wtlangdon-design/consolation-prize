@@ -22,7 +22,7 @@
     "proofs/readiness/room-25.json",
     "docs/00-errata.md::97 · ROOM 25 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
    ],
-   "note": "Pratt raking in every act; his tree by act and by D5; reached next door and with the map; morning."
+   "note": "Pratt raking in every act; his tree by act and by D5; reached next door and with the map; dusk."
   },
   "staticVsStatefulArt": {
    "status": "PASS",
@@ -60,7 +60,7 @@
    "evidence": [
     "reference/room-25/annotation.json"
    ],
-   "note": "Early morning; on Prosperity he is graded into its dusk."
+   "note": "Dusk, the hour next door (Tyler, 2026-11-05); Pratt graded into it."
   },
   "cluePerceptibility": {
    "status": "PASS",
@@ -84,7 +84,7 @@
     "art/staging/caps.json",
     "art/staging/ledger.json"
    ],
-   "note": "room-25: 3 of 4 operations (master, plate, Pratt's sheet)."
+   "note": "room-25: 4 of 4 operations (master, plate, Pratt's sheet, the plate relit to dusk)."
   }
  },
  "liveGates": {
@@ -148,9 +148,9 @@
    "path": "art/backgrounds/room-25-pratts-claim.png",
    "evidence": [
     "art/staging/ledger.json",
-    "art/staging/room-25/plate-01/frame.json"
+    "art/staging/room-25/plate-02/frame.json"
    ],
-   "note": "Promoted provisionally (errata 72 E)."
+   "note": "Attempt 4, attempt 2 relit to dusk; promoted provisionally (errata 72 E)."
   },
   {
    "subject": "Pratt, on his claim",

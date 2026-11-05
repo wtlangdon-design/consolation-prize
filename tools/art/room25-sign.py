@@ -5,8 +5,9 @@ it cannot spell. The words are the documents': the sign's name in doc 05 / doc
 54 ("THE SIGN: NO COLOR YET") and its name line (doc 54: "doc 10's sign reads
 N. PRATT"). Drawn in art/ui/font-5x7.json, the shipping bitmap face (errata
 62), two plate pixels to a font pixel, ruled in three lines to fit the board
-("the letters are ruled", doc 54). The YET is a fresher black than the rest:
-"The YET has been repainted more times than the rest" (doc 05).
+("the letters are ruled", doc 54). Pale paint, as his whitewashed stones, so it
+reads at dusk; the YET is the freshest and brightest: "The YET has been
+repainted more times than the rest" (doc 05), "The YET gleamed" (doc 49).
 
 Writes art/props/room-25-sign.png and prints the prop's place.
 """
@@ -20,8 +21,8 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 BOARD = (745, 186, 144, 92)     # the board on the plate, x y w h
 SCALE = 2
-INK = (40, 30, 22, 255)
-FRESH = (24, 19, 15, 255)
+INK = (118, 114, 118, 255)
+FRESH = (176, 172, 164, 255)
 
 
 def texts():

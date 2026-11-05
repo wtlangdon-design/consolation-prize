@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: a tidy gold claim on a hillside, painted in early-morning light. Image 2 is the claim next door, from the same game, at dusk.
+
+Make exactly ONE change: relight image 1 to DUSK, the same hour and the same light as image 2 -- the sky deep blue going dark with a few dark clouds, the last orange glow low on the horizon behind the hills, the hills dark against it, the ground and everything on it in dim, cool, bluish dusk light with soft shadows. Nothing glows; no lamps, no fire.
+
+Change nothing else. Same camera, same pixel grid, same big square pixels, every object exactly where it is and the same shape and size: the line of white stones, the lean-to, the tool rack, the blank board on its post, the camp chair, the coffee pot on its stones, the two posts, the sluice, the trench with its little roof, the three sorted heaps, the hills. No people, no animals, no text, no numerals; the board stays blank. No border, no frame.

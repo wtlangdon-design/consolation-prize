@@ -436,11 +436,11 @@
    "castingNote": "The raccoon, drawn in the master and then on magenta against Thad."
   },
   "room-25-pratts-claim": {
-   "visualType": "exterior-morning",
+   "visualType": "exterior-night",
    "comparable": {
     "id": "room-01-stage-road",
     "path": "art/backgrounds/room-01-stage-road.png",
-    "note": "D -- the approved exterior: hills, low light. Pratt's claim is next door to Prosperity on the same hillside, in early morning: 'Lovely morning' (doc 04 PRA_A1), the coffee not yet at ten (doc 54) (errata 97 A)."
+    "note": "D -- the approved exterior: hills, dusk going to dark. Pratt's claim is next door to Prosperity, on the same hillside at the same hour (Tyler, 2026-11-05; errata 97 A)."
    },
    "casting": [
     {
