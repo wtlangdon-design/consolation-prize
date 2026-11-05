@@ -1,0 +1,1546 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "watchmans_shack",
+ "commit": "011f21880d43b5fcea322a5bf83e95f53f5ccff5",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "watchmans-shack",
+ "warped": false,
+ "lifeRoute": "watchmans-shack-life",
+ "durationSeconds": 228.82,
+ "events": [
+  {
+   "t": 4.8,
+   "line": "entry route watchmans-shack: 38 action(s)"
+  },
+  {
+   "t": 162.96,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 162.96,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 162.96,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 162.96,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 162.96,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 162.96,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 162.96,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 162.96,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 162.96,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 162.96,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 162.96,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 162.96,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 162.96,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 162.96,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 162.96,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 162.96,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 162.96,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 162.96,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 162.96,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 162.96,
+   "line": "action 20 (wait): waited 7s"
+  },
+  {
+   "t": 162.96,
+   "line": "action 21 (click): clicked world 1900,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 162.96,
+   "line": "action 22 (wait): waited 1s"
+  },
+  {
+   "t": 162.96,
+   "line": "action 23 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 162.96,
+   "line": "action 24 (click): clicked world 1300,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 162.96,
+   "line": "action 25 (wait): waited 1s"
+  },
+  {
+   "t": 162.96,
+   "line": "action 26 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 162.96,
+   "line": "action 27 (click): clicked world 700,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 162.96,
+   "line": "action 28 (wait): waited 1s"
+  },
+  {
+   "t": 162.96,
+   "line": "action 29 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 162.96,
+   "line": "action 30 (click): clicked world 150,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 162.96,
+   "line": "action 31 (wait): waited 1s"
+  },
+  {
+   "t": 162.96,
+   "line": "action 32 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 162.96,
+   "line": "action 33 (click): clicked main_street/to_back_alley at world 29,510 -- THE BACK LOTS"
+  },
+  {
+   "t": 162.96,
+   "line": "action 34 (waitFor): reached {\"room\":\"back_alley\"} in room back_alley"
+  },
+  {
+   "t": 162.96,
+   "line": "action 35 (wait): waited 3s"
+  },
+  {
+   "t": 162.96,
+   "line": "action 36 (click): clicked back_alley/to_watchmans_shack at world 1893,710 -- the alley's far end, the shack"
+  },
+  {
+   "t": 162.96,
+   "line": "action 37 (waitFor): reached {\"room\":\"watchmans_shack\"} in room watchmans_shack"
+  },
+  {
+   "t": 162.96,
+   "line": "action 38 (wait): waited 3s"
+  },
+  {
+   "t": 162.97,
+   "line": "in watchmans_shack; life route: 24 action(s)"
+  },
+  {
+   "t": 163.72,
+   "line": "capture 01-arrived: room watchmans_shack, says null, options 0, control null"
+  },
+  {
+   "t": 164.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 165.77,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 166.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 167.8,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.77,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.77,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 171.73,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 171.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.32,
+   "line": "capture 02-the-shack: room watchmans_shack, says null, options 0, control null"
+  },
+  {
+   "t": 173.38,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.35,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 175.4,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 176.34,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 177.34,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.33,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 178.37,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.45,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 178.9,
+   "line": "action 1 (click): clicked watchmans_shack/tally_marks at world 1600,300 -- THE TALLY MARKS"
+  },
+  {
+   "t": 179.98,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     673,
+     808
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 180.91,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1045,
+     815
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 181.96,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1446,
+     824
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 182.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1600,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 183.06,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room watchmans_shack"
+  },
+  {
+   "t": 183.77,
+   "line": "capture 03-look-tally: room watchmans_shack, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 184.85,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1600,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 185.83,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1600,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 186.8,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1600,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 187.87,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1600,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 188.79,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1600,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.81,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1600,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 190.82,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1600,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 191.79,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 191.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1600,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 191.93,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 192.37,
+   "line": "action 1 (click): clicked watchmans_shack/window at world 893,250 -- the street, all of it"
+  },
+  {
+   "t": 192.44,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room watchmans_shack"
+  },
+  {
+   "t": 193.15,
+   "line": "capture 04-listen-window: room watchmans_shack, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 194.18,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     978,
+     855
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 195.24,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     893,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 196.19,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     893,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 197.17,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     893,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 198.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     893,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 199.24,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     893,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 200.24,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     893,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 201.16,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 201.36,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 201.77,
+   "line": "action 1 (click): clicked watchmans_shack/coat_on_the_nail at world 313,408 -- THE COAT ON THE NAIL"
+  },
+  {
+   "t": 201.86,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room watchmans_shack"
+  },
+  {
+   "t": 202.66,
+   "line": "capture 05-look-coat: room watchmans_shack, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 203.7,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     313,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 204.74,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     313,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 205.72,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     313,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 206.76,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     313,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 207.67,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     313,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 208.73,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     313,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 209.71,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     313,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 210.67,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 210.73,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     313,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 210.8,
+   "line": "action 1 (verb): chose verb USE -- "
+  },
+  {
+   "t": 211.19,
+   "line": "action 1 (click): clicked watchmans_shack/cot at world 1595,645 -- doc 49's USE on the cot"
+  },
+  {
+   "t": 212.24,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     714,
+     856
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 213.26,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1143,
+     856
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 214.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1510,
+     857
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 214.78,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room watchmans_shack"
+  },
+  {
+   "t": 215.45,
+   "line": "capture 06-use-cot: room watchmans_shack, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 216.53,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 217.5,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 218.48,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 219.56,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 220.49,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 221.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 222.55,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 223.47,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 223.51,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     857
+    ],
+    "moving": false
+   }
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "arrival by the door",
+   "t": 163.69,
+   "file": "renders/proofs/watchmans-shack/life/raw-captures-ignored/01-arrived.png",
+   "hash": "09a14256496c5e582983bdac544193c144fc23853064e8fd0997361eb244cc5f",
+   "room": "watchmans_shack",
+   "clock": 163.1466,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 476,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      53,
+      324,
+      494,
+      526
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:watchmans_shack",
+     "path": "art/backgrounds/room-21-watchmans-shack.png",
+     "drawn": "art/backgrounds/room-21-watchmans-shack.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8f4c60e454a6f4219e94488919286a586d792c482a0b79e1cda9fa7f2665bc14"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-the-shack",
+   "why": null,
+   "t": 172.3,
+   "file": "renders/proofs/watchmans-shack/life/raw-captures-ignored/02-the-shack.png",
+   "hash": "6d92e09ac0c00d03ea1a23317a0c8239811499c1094cae833d5145321ab07428",
+   "room": "watchmans_shack",
+   "clock": 171.8462,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 476,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      53,
+      324,
+      494,
+      526
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:watchmans_shack",
+     "path": "art/backgrounds/room-21-watchmans-shack.png",
+     "drawn": "art/backgrounds/room-21-watchmans-shack.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8f4c60e454a6f4219e94488919286a586d792c482a0b79e1cda9fa7f2665bc14"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-look-tally",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 183.75,
+   "file": "renders/proofs/watchmans-shack/life/raw-captures-ignored/03-look-tally.png",
+   "hash": "6f14d5bf91bec1c5e8a19069c23828fb9b2b83a604f5fb69e61cce941116a936",
+   "room": "watchmans_shack",
+   "clock": 183.1625,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1600,
+      855
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 513,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      1296,
+      342,
+      607,
+      566
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:watchmans_shack",
+     "path": "art/backgrounds/room-21-watchmans-shack.png",
+     "drawn": "art/backgrounds/room-21-watchmans-shack.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8f4c60e454a6f4219e94488919286a586d792c482a0b79e1cda9fa7f2665bc14"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-listen-window",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 193.13,
+   "file": "renders/proofs/watchmans-shack/life/raw-captures-ignored/04-listen-window.png",
+   "hash": "4cb777b9f04049c353879c464c8551b88a5f735f5448e29ff36a6853c9b7a842",
+   "room": "watchmans_shack",
+   "clock": 192.5787,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1427,
+      855
+     ],
+     "facing": "left",
+     "clip": "walk",
+     "height": 513,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-left/walk-01.png",
+     "bounds": [
+      1153,
+      342,
+      517,
+      550
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:watchmans_shack",
+     "path": "art/backgrounds/room-21-watchmans-shack.png",
+     "drawn": "art/backgrounds/room-21-watchmans-shack.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8f4c60e454a6f4219e94488919286a586d792c482a0b79e1cda9fa7f2665bc14"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-look-coat",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 202.64,
+   "file": "renders/proofs/watchmans-shack/life/raw-captures-ignored/05-look-coat.png",
+   "hash": "681c894a0d7acafb5eb655214b12086e2ed60586693adb81b39a73965c78b501",
+   "room": "watchmans_shack",
+   "clock": 202.0284,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      700,
+      855
+     ],
+     "facing": "left",
+     "clip": "walk",
+     "height": 513,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-left/walk-04.png",
+     "bounds": [
+      426,
+      342,
+      517,
+      550
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:watchmans_shack",
+     "path": "art/backgrounds/room-21-watchmans-shack.png",
+     "drawn": "art/backgrounds/room-21-watchmans-shack.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8f4c60e454a6f4219e94488919286a586d792c482a0b79e1cda9fa7f2665bc14"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-use-cot",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 215.44,
+   "file": "renders/proofs/watchmans-shack/life/raw-captures-ignored/06-use-cot.png",
+   "hash": "cd0b5a3d20c01c9302e5071718f64ea15fe083b060b82e936b937ae3fcb1bc21",
+   "room": "watchmans_shack",
+   "clock": 214.9279,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1595,
+      857
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 514,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      1290,
+      343,
+      609,
+      567
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:watchmans_shack",
+     "path": "art/backgrounds/room-21-watchmans-shack.png",
+     "drawn": "art/backgrounds/room-21-watchmans-shack.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8f4c60e454a6f4219e94488919286a586d792c482a0b79e1cda9fa7f2665bc14"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 228.82s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T09:02:42.438Z"
+}
