@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "pratts_claim",
- "commit": "57b4364d46ace1a29fe539e6fc7be3c284ec9294",
+ "commit": "dc0639b03e992dba4286ddec030d312e2b4147c6",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -13,30 +13,30 @@
  "fixture": "r25-a",
  "warped": false,
  "lifeRoute": "pratts-claim-doors",
- "durationSeconds": 23.32,
+ "durationSeconds": 23.43,
  "events": [
   {
-   "t": 2.82,
+   "t": 2.85,
    "line": "started from fixture r25-a, no entry route"
   },
   {
-   "t": 5.88,
+   "t": 6.04,
    "line": "in pratts_claim; life route: 17 action(s)"
   },
   {
-   "t": 6.66,
+   "t": 7,
    "line": "capture 00-arrived: room pratts_claim, says null, options 0, control null"
   },
   {
-   "t": 7.29,
+   "t": 7.42,
    "line": "action 1 (click): clicked pratts_claim/to_prosperity at world 45,622 -- next door, over the border stones"
   },
   {
-   "t": 7.61,
+   "t": 7.75,
    "line": "action 1 (waitFor): reached {\"room\":\"prosperity\"} in room prosperity"
   },
   {
-   "t": 8.63,
+   "t": 8.76,
    "trace": {
     "says": null,
     "control": null,
@@ -51,7 +51,7 @@
    }
   },
   {
-   "t": 9.64,
+   "t": 9.78,
    "trace": {
     "says": null,
     "control": null,
@@ -66,11 +66,11 @@
    }
   },
   {
-   "t": 10.62,
+   "t": 10.76,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 10.63,
+   "t": 10.78,
    "trace": {
     "says": null,
     "control": null,
@@ -85,19 +85,19 @@
    }
   },
   {
-   "t": 11.06,
+   "t": 11.22,
    "line": "capture 01-out: room prosperity, says null, options 0, control null"
   },
   {
-   "t": 11.25,
+   "t": 11.36,
    "line": "action 1 (click): clicked prosperity/to_pratts_claim at world 1870,712 -- and back, past the creek"
   },
   {
-   "t": 11.59,
+   "t": 11.8,
    "line": "action 1 (waitFor): reached {\"room\":\"pratts_claim\"} in room pratts_claim"
   },
   {
-   "t": 12.6,
+   "t": 12.8,
    "trace": {
     "says": null,
     "control": null,
@@ -112,11 +112,11 @@
    }
   },
   {
-   "t": 13.6,
+   "t": 13.8,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 13.6,
+   "t": 13.82,
    "trace": {
     "says": null,
     "control": null,
@@ -131,19 +131,19 @@
    }
   },
   {
-   "t": 14.13,
+   "t": 14.31,
    "line": "capture 01-in: room pratts_claim, says null, options 0, control null"
   },
   {
-   "t": 14.29,
+   "t": 14.45,
    "line": "action 1 (click): clicked pratts_claim/to_prosperity at world 45,622 -- next door, over the border stones"
   },
   {
-   "t": 14.63,
+   "t": 14.78,
    "line": "action 1 (waitFor): reached {\"room\":\"prosperity\"} in room prosperity"
   },
   {
-   "t": 15.64,
+   "t": 15.8,
    "trace": {
     "says": null,
     "control": null,
@@ -158,7 +158,7 @@
    }
   },
   {
-   "t": 16.64,
+   "t": 16.79,
    "trace": {
     "says": null,
     "control": null,
@@ -173,11 +173,11 @@
    }
   },
   {
-   "t": 17.63,
+   "t": 17.79,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 17.65,
+   "t": 17.8,
    "trace": {
     "says": null,
     "control": null,
@@ -192,19 +192,19 @@
    }
   },
   {
-   "t": 18.08,
+   "t": 18.24,
    "line": "capture 02-out: room prosperity, says null, options 0, control null"
   },
   {
-   "t": 18.22,
+   "t": 18.4,
    "line": "action 1 (click): clicked prosperity/to_pratts_claim at world 1870,712 -- and back, past the creek"
   },
   {
-   "t": 18.65,
+   "t": 18.87,
    "line": "action 1 (waitFor): reached {\"room\":\"pratts_claim\"} in room pratts_claim"
   },
   {
-   "t": 19.66,
+   "t": 19.89,
    "trace": {
     "says": null,
     "control": null,
@@ -219,11 +219,11 @@
    }
   },
   {
-   "t": 20.65,
+   "t": 20.87,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 20.68,
+   "t": 20.88,
    "trace": {
     "says": null,
     "control": null,
@@ -238,7 +238,7 @@
    }
   },
   {
-   "t": 21.18,
+   "t": 21.38,
    "line": "capture 02-in: room pratts_claim, says null, options 0, control null"
   }
  ],
@@ -246,11 +246,11 @@
   {
    "name": "00-arrived",
    "why": null,
-   "t": 6.65,
+   "t": 6.99,
    "file": "renders/proofs/pratts-claim/doors/raw-captures-ignored/00-arrived.png",
-   "hash": "fe8452f77bdc881e351b18c58d0551f3b169a72596586d8af33267becd2612a5",
+   "hash": "184644788c326c4657f77727ae19089ef6e67bc2f4924e171b7becedb5ef0c8a",
    "room": "pratts_claim",
-   "clock": 6.4002,
+   "clock": 6.6151,
    "control": null,
    "says": null,
    "options": 0,
@@ -294,7 +294,7 @@
      "height": 427,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-02.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
       38,
       353,
@@ -337,11 +337,11 @@
   {
    "name": "01-out",
    "why": null,
-   "t": 11.06,
+   "t": 11.21,
    "file": "renders/proofs/pratts-claim/doors/raw-captures-ignored/01-out.png",
    "hash": "36b009f40a9c1056c9a46161ac17aa036a0a892e9c5ec0bdc06d88d25c9066ad",
    "room": "prosperity",
-   "clock": 10.7834,
+   "clock": 10.9649,
    "control": null,
    "says": null,
    "options": 0,
@@ -428,11 +428,11 @@
   {
    "name": "01-in",
    "why": null,
-   "t": 14.12,
+   "t": 14.3,
    "file": "renders/proofs/pratts-claim/doors/raw-captures-ignored/01-in.png",
-   "hash": "a6171e3ca6d43d7c220e1d349f5d8c49e64a2f206c8938fc3a4c5112658aa6d7",
+   "hash": "620fdb0cdb8fe422917e3ed11b1d659608fc34060b393f5605e9db4b91db87bc",
    "room": "pratts_claim",
-   "clock": 13.9333,
+   "clock": 14.1315,
    "control": null,
    "says": null,
    "options": 0,
@@ -519,11 +519,11 @@
   {
    "name": "02-out",
    "why": null,
-   "t": 18.08,
+   "t": 18.23,
    "file": "renders/proofs/pratts-claim/doors/raw-captures-ignored/02-out.png",
    "hash": "ee736aa1dde3d1f7e6d939dd46fd0660366070629eb71636bee0972691d8cbad",
    "room": "prosperity",
-   "clock": 17.799799999999998,
+   "clock": 17.9813,
    "control": null,
    "says": null,
    "options": 0,
@@ -610,11 +610,11 @@
   {
    "name": "02-in",
    "why": null,
-   "t": 21.18,
+   "t": 21.37,
    "file": "renders/proofs/pratts-claim/doors/raw-captures-ignored/02-in.png",
-   "hash": "d67252221be6a613ab688e54f47e57ca5c4ccb4d31688a5a5538bb3da4774aa9",
+   "hash": "9198ea5bd5859824a5a43318c858b0062774e939a50cdc9d54812cc0678c6ca4",
    "room": "pratts_claim",
-   "clock": 20.9829,
+   "clock": 21.1978,
    "control": null,
    "says": null,
    "options": 0,
@@ -711,7 +711,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 23.32s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 23.43s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -726,5 +726,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T17:02:54.679Z"
+ "at": "2026-11-05T17:06:03.002Z"
 }
