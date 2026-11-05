@@ -70,11 +70,26 @@
             },
             {
               "speaker": "pratt",
+              "line": "He thinks about it for some time.",
+              "direction": true
+            },
+            {
+              "speaker": "pratt",
               "line": "All right."
             },
             {
               "speaker": "pratt",
+              "line": "He walks over, unhurried, and reaches into the hole. The bite. He withdraws the hand and studies it.",
+              "direction": true
+            },
+            {
+              "speaker": "pratt",
               "line": "He's in there."
+            },
+            {
+              "speaker": "pratt",
+              "line": "From this moment Pratt dislikes Thad, steadily and without heat, the way he does everything.",
+              "direction": true
             }
           ],
           "when": {
@@ -89,14 +104,34 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "Nine dollars for what?",
-          "say": "Your claim."
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Your claim."
+            },
+            {
+              "speaker": "pratt",
+              "line": "He says it as though it were the weather.",
+              "direction": true
+            }
+          ]
         },
         {
           "id": "pratt3",
           "tag": "COMIC",
           "afterUse": "retain",
           "text": "Lovely morning.",
-          "say": "Yep."
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "He looks up at the sky, checking.",
+              "direction": true
+            },
+            {
+              "speaker": "pratt",
+              "line": "Yep."
+            }
+          ]
         },
         {
           "id": "pratt4",
@@ -127,10 +162,20 @@
           "tag": "PROGRESS",
           "afterUse": "remove",
           "text": "Why do you want my claim?",
-          "say": "Told to.",
           "set": {
             "T_PRATT_PAID": true
-          }
+          },
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Told to."
+            },
+            {
+              "speaker": "pratt",
+              "line": "He does not consider this strange.",
+              "direction": true
+            }
+          ]
         },
         {
           "id": "pratt2",
@@ -181,7 +226,15 @@
             },
             {
               "speaker": "pratt",
+              "line": "…"
+            },
+            {
+              "speaker": "pratt",
               "line": "Told not to."
+            },
+            {
+              "speaker": "pratt",
+              "line": "…"
             },
             {
               "speaker": "pratt",
@@ -291,6 +344,10 @@
             },
             {
               "speaker": "pratt",
+              "line": "…"
+            },
+            {
+              "speaker": "pratt",
               "line": "Sheng's door. Thursdays."
             }
           ]
@@ -300,14 +357,34 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "What will you do now?",
-          "say": "Keep the claim next to yours tidy."
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Keep the claim next to yours tidy."
+            },
+            {
+              "speaker": "pratt",
+              "line": "It is not his claim either. Nobody has ever had the heart to tell him, and by now it is his the way anything is anybody's here: by upkeep.",
+              "direction": true
+            }
+          ]
         },
         {
           "id": "pratt3",
           "tag": "COMIC",
           "afterUse": "retain",
           "text": "Twenty dollars and the hen.",
-          "say": "…You're learning the market."
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "a long, respectful pause",
+              "direction": true
+            },
+            {
+              "speaker": "pratt",
+              "line": "…You're learning the market."
+            }
+          ]
         },
         {
           "id": "pratt4",
@@ -325,6 +402,11 @@
             {
               "speaker": "pratt",
               "line": "Yep."
+            },
+            {
+              "speaker": "pratt",
+              "line": "He puts his hat on.",
+              "direction": true
             },
             {
               "speaker": "pratt",

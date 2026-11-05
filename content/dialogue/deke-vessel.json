@@ -52,6 +52,10 @@
             },
             {
               "speaker": "deke_vessel",
+              "line": "…"
+            },
+            {
+              "speaker": "deke_vessel",
               "line": "Which is a kind of selling, I suppose."
             }
           ]
@@ -87,6 +91,11 @@
             },
             {
               "speaker": "deke_vessel",
+              "line": "He looks at the watch.",
+              "direction": true
+            },
+            {
+              "speaker": "deke_vessel",
               "line": "And that."
             }
           ]
@@ -111,10 +120,20 @@
           "puzzle": {
             "A3": "complete"
           },
-          "say": "Pleasure, son. Look after her. She's got character.",
           "set": {
             "T_SWINDLED": true
-          }
+          },
+          "exchange": [
+            {
+              "speaker": "deke_vessel",
+              "line": "Pleasure, son. Look after her. She's got character."
+            },
+            {
+              "speaker": "deke_vessel",
+              "line": "He finishes his drink, collects his hat, and leaves the Nugget.",
+              "direction": true
+            }
+          ]
         },
         {
           "id": "deke_vessel7",

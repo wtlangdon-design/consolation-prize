@@ -1742,7 +1742,11 @@ export class GameScene extends Phaser.Scene {
         line: said.direction ? GameScene.asDirection(said.say) : said.say,
         direction: said.direction,
       }] : []),
-      ...said.rest.map((spoken) => ({ speaker: spoken.speaker, line: spoken.line })),
+      ...said.rest.map((spoken) => ({
+        speaker: spoken.speaker,
+        line: spoken.direction ? GameScene.asDirection(spoken.line) : spoken.line,
+        direction: spoken.direction === true,
+      })),
     ];
     this.performance = new DialoguePerformance(
       exchange, echo, replies, this.holdTiming(), this.lastFrameAt);

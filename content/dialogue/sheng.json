@@ -55,7 +55,17 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "Why does nobody know this?",
-          "say": "Because I do laundry."
+          "exchange": [
+            {
+              "speaker": "sheng",
+              "line": "Because I do laundry."
+            },
+            {
+              "speaker": "sheng",
+              "line": "He returns to doing laundry.",
+              "direction": true
+            }
+          ]
         },
         {
           "id": "sheng4",
@@ -93,6 +103,10 @@
             {
               "speaker": "sheng",
               "line": "Once. A Company man told me, 'The Improvement Company came to me on their knees.' I said, 'The Company comes to everyone on their knees. It is how they get under the door.'"
+            },
+            {
+              "speaker": "sheng",
+              "line": "…"
             },
             {
               "speaker": "sheng",
