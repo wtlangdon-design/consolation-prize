@@ -373,24 +373,30 @@ function splitUtterance(line) {
 // screen the asterisks would be drawn. Dropped here, as the tree extractors drop
 // it, and nowhere else: the merged file keeps the document's words exactly.
 const plainLine = (line) => line.replace(/\*([^*\s][^*]*?)\*/g, '$1');
+// A SUBJECT WRITTEN ONLY IN ONE ACT (Room 14's MY OWN PLOT, act "3-4", doc
+// 05 Part Two-B with doc 54's repeats) has no lines of its own: its act's
+// lines ARE its lines, and the act gates the hotspot (errata 87 E).
+const actOnlyLines = (s) => (!s.LOOK_AT?.length && !s.LISTEN_TO?.length && s.acts?.length === 1 ? s.acts[0] : null);
 function mergedSubjects(file) {
   const out = new Map();
   for (const s of file.subjects) {
+    const own = actOnlyLines(s) ?? s;
     const responses = {};
-    for (const verb of ['LOOK_AT', 'LISTEN_TO']) if (s[verb]?.length) responses[verb] = [{ say: plainLine(s[verb][0]) }];
-    out.set(s.name, { name: s.name, responses });
+    for (const verb of ['LOOK_AT', 'LISTEN_TO']) if (own[verb]?.length) responses[verb] = [{ say: plainLine(own[verb][0]) }];
+    out.set(s.name, { name: s.name, responses, ...(own !== s ? { actOnly: own.act, fromActs: true } : {}) });
   }
   return out;
 }
 /** A merged room's repeats in repeatVariants' shape. */
 function mergedRepeats(file) {
   const out = new Map();
-  for (const s of file.subjects) {
+  for (const s0 of file.subjects) {
+    const s = actOnlyLines(s0) ?? s0;
     const verbs = {};
     for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
       if (s[verb]?.length) verbs[verb] = { first: plainLine(s[verb][0]), rest: s[verb].slice(1).map(plainLine) };
     }
-    out.set(s.name, verbs);
+    out.set(s0.name, verbs);
   }
   return out;
 }
@@ -555,6 +561,8 @@ for (const block of actSections) {
   for (const [name, entry] of examineLayer(block)) {
     const act = new RegExp(`\\*\\*${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\*\\*\\s*\\*\\(act:\\s*"?([^)"]+)"?\\)\\*`).exec(block);
     const writtenWhole = Object.values(written.get(name) ?? {}).some((variants) => variants?.first);
+    // Already read from its act block, repeats and all (actOnlyLines).
+    if (hotspots.get(name)?.fromActs) continue;
     if (hotspots.has(name) || writtenWhole) {
       // ONE ENTRY PER OCCURRENCE, NOT PER NAME. THE PIANO appears twice in
       // Room 3's block (acts 2 and 4); read by name, the second's lines
@@ -1140,7 +1148,10 @@ function transitBeat(spec) {
 }
 
 const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name, spec]) => {
-  const subject = MERGED.subjects.find((s) => s.name === name);
+  // An exit with no LOOK or LISTEN of its own and only doc 49's refusal is
+  // filed under `exitsAndUnplaced` (Room 14's THE GATE, errata 87 E).
+  const subject = MERGED.subjects.find((s) => s.name === name)
+    ?? (MERGED.exitsAndUnplaced?.[name] ? { name, overrides: MERGED.exitsAndUnplaced[name] } : undefined);
   if (!subject) fail(`exitSubjects names "${name}", which ${MERGED_PATH} does not write`);
   const responses = {};
   for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
@@ -1154,6 +1165,8 @@ const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name,
     ...(spec.setOnTransitWhen ? { setOnTransitWhen: spec.setOnTransitWhen } : {}),
     ...(spec.transitScene ? { transitScene: spec.transitScene.map(transitBeat) } : {}),
     ...(spec.note ? { note: spec.note } : {}),
+    // A door no document gives a LOOK or LISTEN (errata 72 F; Room 14's gate).
+    ...(spec.stub ? { stub: true } : {}),
     ...(ann.exitWalkTo?.[spec.id] ? { walkTo: ann.exitWalkTo[spec.id] } : {}) };
 }) : [];
 built.exits = [...subjectExits, ...(live.exits ?? []).filter((e) => !subjectExits.some((s) => s.id === e.id)).map((e) => {
@@ -1652,7 +1665,8 @@ if (MERGED) {
       if (at < 0) fail(`onEnterSay: ${path} has no section "${heading}"`);
       const after = text.slice(at + heading.length);
       const body = after.slice(0, (/\n## |\n---\n/.exec(after) ?? { index: after.length }).index);
-      const first = /^> "([^"]+)"$/m.exec(body);
+      // An indented quote is a bullet's (doc 57 C3's Room 14 line); it counts.
+      const first = /^\s*> "([^"]+)"$/m.exec(body);
       if (!first) fail(`onEnterSay: ${fromRef} has no quoted line`);
       said = [first[1]];
     }

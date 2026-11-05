@@ -1312,6 +1312,13 @@ export interface RoomFile {
      */
     sayWhen?: Condition;
     /**
+     * Written when the lines play, not on every entry (errata 87 C). Doc 57
+     * C3: walking up Boot Hill on the funeral day ENDS the day -- the line is
+     * said and `T_FUNERAL_DAY` clears. `set` lands before the lines are read,
+     * so clearing the day there would leave `sayWhen` nothing to hold on.
+     */
+    saySet?: FlagWrites;
+    /**
      * A CHARACTER WHO ACCOSTS THE PLAYER. Doc 27: Deke Vessel "opens. Thad
      * does not approach him." Doc 35 ("VESSEL'S AUTO-OPEN") specifies it:
      * when the condition holds on entering, wait, then the character's tree

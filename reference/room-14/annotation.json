@@ -1,0 +1,223 @@
+{
+ "room": "boot_hill",
+ "plate": "art/backgrounds/room-14-boot-hill.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-14/plate-02/candidate-1920x864.png, room-14 attempt 3, the scattered stones, the standard 20:9 crop -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-14-boot-hill.png",
+ "plateShippingHash": "9a942450ba8b8917c7cba357",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   480,
+   575
+  ],
+  [
+   1880,
+   560
+  ],
+  [
+   1880,
+   858
+  ],
+  [
+   200,
+   858
+  ],
+  [
+   200,
+   735
+  ],
+  [
+   480,
+   700
+  ]
+ ],
+ "walkableNote": "THE GRASS BEFORE THE STONES. The lowest boards' feet are at y 530, so the band starts at 560-575 and every board is behind it. At the left the gate's posts and the fence stand to y 680-720, so the band there starts below them (y 735). Mott's obelisk stands IN the band: it is an obstacle, with the grass behind it, so Thad passes in front of it and is never drawn across it.",
+ "obstacles": [
+  {
+   "id": "motts_obelisk",
+   "rect": [
+    480,
+    560,
+    290,
+    240
+   ],
+   "note": "Mott's stone and its lilies (x 540-715, foot at y 795) and the grass behind them: he walks round in front, never behind, so nothing needs a clip plane."
+  }
+ ],
+ "scaling": {
+  "far": {
+   "y": 575,
+   "height": 285
+  },
+  "near": {
+   "y": 858,
+   "height": 305
+  },
+  "note": "ROOM 14'S DEPTH, FROM THE MAN THE MASTER PAINTED. The composition master drew Thad about 240 tall with his feet at source y 830, which is 303 at y 834 in this plate's frame. The painting is nearly flat in depth -- the back boards (y 170-295) are drawn the size of the front ones (y 395-530) -- so the curve is too: 285 at the band's far edge, 305 at its near."
+ },
+ "entrance": [
+  330,
+  790
+ ],
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    330,
+    790
+   ],
+   "facing": "right",
+   "note": "In by the gate, at left: the map leads here."
+  }
+ ],
+ "hotspots": {
+  "mott_s_marker": [
+   530,
+   510,
+   195,
+   290
+  ],
+  "nineteen": [
+   630,
+   165,
+   905,
+   370
+  ],
+  "pike_s_marker": [
+   1540,
+   160,
+   88,
+   145
+  ],
+  "pike_s_neighbor": [
+   1630,
+   165,
+   200,
+   190
+  ],
+  "my_own_plot": [
+   1630,
+   165,
+   200,
+   190
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE NINETEEN is the scatter of boards between Mott's stone and Pike's (one hotspot, read along, doc 54). PIKE'S MARKER is the right-most board at the back, at the hill's crest; the plot beside it, to its right, is PIKE'S NEIGHBOR while it is dug and MY OWN PLOT after the funeral (errata 87 D).",
+ "hotspotWhen": {
+  "pike_s_neighbor": {
+   "T_OBITUARY": true,
+   "T_FUNERAL_DONE": false
+  },
+  "my_own_plot": {
+   "T_FUNERAL_DONE": true
+  }
+ },
+ "exitSubjects": {
+  "THE GATE": {
+   "id": "the_gate",
+   "to": "town_map",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 20 and errata 43: Boot Hill is reached by the map, and its gate leads back to it. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE GATE A LOOK OR LISTEN (doc 54: 'THE GATE is the room's exit'), so it is a stub exit as the records room's door is (errata 72 F, doc 36 Q157); the gate works, and its LOOK and LISTEN wait for lines.",
+   "stub": true
+  }
+ },
+ "exits": {
+  "the_gate": [
+   150,
+   240,
+   320,
+   450
+  ]
+ },
+ "exitWalkTo": {
+  "the_gate": {
+   "x": 300,
+   "y": 780,
+   "facing": "left"
+  }
+ },
+ "obstaclesNote": "Mott's obelisk only.",
+ "lamps": [
+  {
+   "id": "town_lights",
+   "at": [
+    90,
+    430
+   ],
+   "radius": 260,
+   "amount": 0.06,
+   "rate": 0.18,
+   "phase": 0.2,
+   "note": "The town's lamps below the hill, at the left. A slow, faint breath (invariant 9): nothing on the hill moves for a reason."
+  }
+ ],
+ "defaultVerbs": {
+  "mott_s_marker": "LOOK_AT",
+  "nineteen": "LOOK_AT",
+  "pike_s_marker": "LOOK_AT",
+  "pike_s_neighbor": "LOOK_AT",
+  "my_own_plot": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every marker here is looked at on a bare click.",
+ "occlusion": {
+  "note": "NO PLANE: every board's foot is above the band, and Mott's stone is an obstacle with its ground behind it.",
+  "clipPlane": {
+   "floor_0": 0,
+   "floor_1": 0,
+   "floor_2": 0,
+   "floor_3": 0,
+   "floor_4": 0,
+   "floor_5": 0
+  },
+  "planes": []
+ },
+ "props": [
+  {
+   "id": "fresh_plot",
+   "sheet": "art/props/room-14-fresh-plot.png",
+   "x": 1694,
+   "y": 365,
+   "frame": [
+    0,
+    0,
+    377,
+    240
+   ],
+   "when": {
+    "T_OBITUARY": true,
+    "T_FUNERAL_DONE": false
+   },
+   "note": "Doc 05: the grave dug in Act III for Thad, open, the marker painted in Frame's spelling -- so from the obituary (E5) until the funeral. Room-14 operation 4's changed pixels (tools/art/room14-props.py)."
+  },
+  {
+   "id": "own_plot",
+   "sheet": "art/props/room-14-own-plot.png",
+   "x": 1662,
+   "y": 293,
+   "frame": [
+    0,
+    0,
+    215,
+    132
+   ],
+   "when": {
+    "T_FUNERAL_DONE": true
+   },
+   "note": "Doc 05 Part Two-B: after the funeral, the headboard, the grass starting over it, a tuning peg on top. Composed from operations 4 and 5 (tools/art/room14-compose.py, errata 87 F)."
+  }
+ ],
+ "onEnterSay": {
+  "fromRef": "docs/57-puzzle-completion.md::## C3 · Manufacture a funeral",
+  "sayWhen": {
+   "T_FUNERAL_DAY": true
+  },
+  "saySet": {
+   "T_FUNERAL_DAY": false
+  },
+  "note": "Doc 57 C3: 'Room 14, Boot Hill -- entering ends the day. The service is just over.' The line plays and the day clears; it can be held again (errata 87 C)."
+ }
+}

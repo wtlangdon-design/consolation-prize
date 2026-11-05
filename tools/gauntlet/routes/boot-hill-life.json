@@ -1,0 +1,182 @@
+{
+ "schema": 1,
+ "room": "boot_hill",
+ "note": "ROOM 14's LIFE ROUTE, ruling 47: about a minute and a half on the hill, starting on it (the entry route is proofs/spec/boot-hill.json's). Nobody stands here; the town's lamps breathe below. LOOKs along the nineteen, at Pike and at Mott; a LISTEN; doc 49's TALK TO on Pike's board and CLOSE on the gate. The grave states are panel D and tests/room-14.test.ts.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-arrived",
+   "why": "arrival from the map"
+  },
+  {
+   "do": "wait",
+   "seconds": 8,
+   "why": "the town's lamps breathe below"
+  },
+  {
+   "do": "capture",
+   "name": "02-the-hill"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "nineteen",
+   "why": "the first of the nine, read along the row"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "03-look-nineteen-1",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "nineteen",
+   "why": "the second"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "04-look-nineteen-2",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "pike_s_marker",
+   "why": "Pike, at last"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "05-look-pike",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "pike_s_marker",
+   "why": "Nothing."
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "06-listen-pike",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "mott_s_marker",
+   "why": "Mott's stone"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "07-look-mott",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "pike_s_marker",
+   "why": "doc 49's TALK TO on his headboard"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "08-talk-pike",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "CLOSE"
+  },
+  {
+   "do": "click",
+   "on": "the_gate",
+   "why": "doc 49's CLOSE on the gate"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "09-close-gate",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  }
+ ]
+}

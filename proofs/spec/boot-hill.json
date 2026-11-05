@@ -1,0 +1,19 @@
+{
+ "schema": 1,
+ "room": "boot_hill",
+ "note": "ROOM 14's PROOF SPEC. The route is the undertaker's, his news, then the map. The room's principal change is the plot beside Pike: dug for Thad once his obituary is printed (E5), until the funeral (errata 87 D). The funeral day and MY OWN PLOT are in tests/room-14.test.ts.",
+ "route": "boot-hill",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "T_OBITUARY (E5, Room 9: its earlier steps run through rooms not built, so the flag control sets it). Visible consequence: the open grave, its spoil heap and spade, and a new board beside Pike's.",
+  "flags": {
+   "T_OBITUARY": true
+  },
+  "actions": [
+   {
+    "do": "wait",
+    "seconds": 2
+   }
+  ]
+ }
+}

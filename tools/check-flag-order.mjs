@@ -48,6 +48,7 @@ function collectWrites(content) {
   // Errata 31c's room-entry writes. Standing somewhere is a write like any
   // other, and it is the only one no hotspot response can make.
   for (const { data } of content.rooms) record(data.onEnter?.set, undefined);
+  for (const { data } of content.rooms) record(data.onEnter?.saySet, undefined);
   // Doc 35's auto-open: a character who opens on the player writes his
   // once-only flags when he does.
   for (const { data } of content.rooms) record(data.onEnter?.accost?.set, undefined);

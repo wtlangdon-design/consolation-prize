@@ -1959,6 +1959,7 @@ export class GameScene extends Phaser.Scene {
     if (entry.sayWhen !== undefined && !held && lines.length && entry.sayOnce) {
       this.state.flags.set(entry.sayOnce, true);
     }
+    if (!held && lines.length && entry.saySet) this.state.flags.applyWrites(entry.saySet);
 
     // HE WALKS IN AND THEN SPEAKS, not both at once. Arriving already standing
     // there read as having come down out of the hills, so he now walks in from

@@ -52,8 +52,6 @@
   {
    "id": "loc_boot_hill",
    "room": "boot_hill",
-   "label": "BOOT HILL",
-   "unbuilt": true,
    "at": [
     1370,
     95

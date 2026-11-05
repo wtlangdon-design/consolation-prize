@@ -1,0 +1,17 @@
+{
+ "assetId": "room-14",
+ "subject": "room-14-boot-hill",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-14-boot-hill",
+ "promptFile": "reference/room-14/prompts/composition-master-01.txt",
+ "out": "art/staging/room-14/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-14/layout-1536x1024.png",
+  "renders/room-01-in-engine-1920x1080.png",
+  "art/backgrounds/room-01-stage-road.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

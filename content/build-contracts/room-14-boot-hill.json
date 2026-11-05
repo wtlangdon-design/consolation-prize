@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "id": "room-14-boot-hill",
+ "room": "boot_hill",
+ "docRoom": 14,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 14 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/57-puzzle-completion.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-14.json",
+    "docs/00-errata.md::87 · ROOM 14 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Nobody drawn; the funeral day ends here; the plot beside Pike is grass, then dug for Thad (from the obituary), then his own grave (after the funeral); night."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-14/graybox.json",
+    "docs/00-errata.md::87 · ROOM 14 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The hill is plate; the open grave and the filled grave are props on their flags."
+  },
+  "cast": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/00-errata.md::87 · ROOM 14 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Nobody living is staged on Boot Hill (doc 20)."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/boot-hill/life/life.json"
+   ],
+   "note": "The town's lamps breathe below; no figure."
+  },
+  "physicalContact": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/00-errata.md::87 · ROOM 14 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "No figure stands on the hill but Thad; Mott's stone is an obstacle he passes in front of."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-14/annotation.json"
+   ],
+   "note": "Moonlight in the plate; the town's lamps a runtime breath."
+  },
+  "cluePerceptibility": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/00-errata.md::87 · ROOM 14 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "No puzzle is solved here; the states answer LOOK."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-14.json",
+    "content/rooms/mercantile.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 40 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-14: 5 of 5 operations (Tyler raised the cap to 5): master, plate, the stones scattered, the open grave, the filled grave (composed, errata 87 F)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/mercantile.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-14/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/boot-hill/proof.json"
+   ],
+   "note": "Panel D: the grave dug for Thad (T_OBITUARY)."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/boot-hill/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/boot-hill/doors/life.json",
+    "tests/room-14.test.ts"
+   ],
+   "note": "Out by the gate to the map and back, twice; the states in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-14/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-14-boot-hill.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-14/plate-02/frame.json"
+   ]
+  },
+  {
+   "subject": "the open grave",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/props/room-14-fresh-plot.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "tools/art/room14-props.py"
+   ],
+   "note": "Drawn from T_OBITUARY until T_FUNERAL_DONE."
+  },
+  {
+   "subject": "my own plot",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/props/room-14-own-plot.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "tools/art/room14-compose.py",
+    "tools/art/room14-props.py"
+   ],
+   "note": "Drawn once T_FUNERAL_DONE is set."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q157 · Room 14, Boot Hill: built, awaiting Tyler's playthrough; Sowerby's plate on the funeral day not built; names on the boards — **RULED 2026-11-05 (errata 87, delegated; Tyler raised room-14's cap to 5); BUILT, room-14 5 of 5 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q157 · Room 14, Boot Hill: built, awaiting Tyler's playthrough; Sowerby's plate on the funeral day not built; names on the boards — **RULED 2026-11-05 (errata 87, delegated; Tyler raised room-14's cap to 5); BUILT, room-14 5 of 5 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

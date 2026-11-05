@@ -274,6 +274,22 @@
     }
    ],
    "castingNote": "The undertaker has no approved image; his examine layer (doc 27) gives him fifties, a clean apron, a plane and a carpenter's hands (errata 86 B). Drawn in the composition master beside Thad, then on magenta against a side-by-side with Thad (doc 55 section 8)."
+  },
+  "room-14-boot-hill": {
+   "visualType": "exterior-night",
+   "comparable": {
+    "id": "room-01-stage-road",
+    "path": "art/backgrounds/room-01-stage-road.png",
+    "note": "D -- the approved night exterior: the hills, the dark, the carried light. Boot Hill is above the town, by moonlight and the town's lamps below (errata 87 A)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody living is staged on Boot Hill (doc 20); Thad is drawn in the composition master for scale only, and removed for the plate."
   }
  }
 }

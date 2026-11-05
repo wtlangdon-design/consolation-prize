@@ -1,0 +1,710 @@
+{
+  "schema": 1,
+  "id": "boot_hill",
+  "name": "BOOT HILL",
+  "materialIdentity": "Dry grass and wild oats over a hill, weathered boards and one white stone, by moonlight; the town's lamps below (errata 87 A)",
+  "note": "Room 14, doc 20. Reached by the map once the undertaker has said Pike is dead (errata 31b); THE GATE leads back to it. Nobody living is staged here (doc 20). The funeral is Room 31, its own room. Lines EXTRACTED from docs/05, 54 and 49 by tools/extract-examine.mjs and compiled by tools/compile-room.mjs. Do not edit: change the documents and re-run.",
+  "background": "art/backgrounds/room-14-boot-hill.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 250,
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-14.json",
+      "reference/room-14/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "floor_0",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        1693,
+        560,
+        187,
+        60
+      ]
+    },
+    {
+      "id": "floor_1",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        480,
+        620,
+        1400,
+        59
+      ]
+    },
+    {
+      "id": "floor_2",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        480,
+        679,
+        1400,
+        60
+      ]
+    },
+    {
+      "id": "floor_3",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        200,
+        739,
+        1680,
+        59
+      ]
+    },
+    {
+      "id": "floor_4",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        200,
+        798,
+        1680,
+        60
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      480,
+      575
+    ],
+    [
+      1880,
+      560
+    ],
+    [
+      1880,
+      858
+    ],
+    [
+      200,
+      858
+    ],
+    [
+      200,
+      735
+    ],
+    [
+      480,
+      700
+    ]
+  ],
+  "entrance": [
+    330,
+    790
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        330,
+        790
+      ],
+      "facing": "right",
+      "note": "In by the gate, at left: the map leads here."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "pike_s_marker",
+      "name": "PIKE'S MARKER",
+      "rect": [
+        1540,
+        160,
+        88,
+        145
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Ezra Pike. The man I was sent to find. Six years.",
+            "repeat": [
+              "A plain board, kept upright. The undertaker's work, and paid for, I would guess, by the undertaker.",
+              "I have his letter of introduction in my coat. It introduces me to this."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. I have come a very long way to hear it.",
+            "repeat": [
+              "Nothing, still. He was never going to answer, and I keep asking anyway.",
+              "Wind in the grass over him, and that is all the reply there is."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I read him my letter of introduction. It seemed only right. He took it as well as anything else I've said here.",
+        "USE": "It is in use. That is the entire and only thing a plot can be."
+      },
+      "walkTo": {
+        "x": 1584,
+        "y": 718,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "pike_s_neighbor",
+      "name": "PIKE'S NEIGHBOR",
+      "rect": [
+        1630,
+        165,
+        200,
+        190
+      ],
+      "when": {
+        "T_OBITUARY": true,
+        "T_FUNERAL_DONE": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A grave, open, waiting, with my name on the marker. Frame has spelled it wrong.",
+            "repeat": [
+              "The spade is still in the spoil heap, waiting for a decision that has already been made.",
+              "Frame's spelling is on the marker in paint. The undertaker has left room to correct it, and will not."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing, yet.",
+            "repeat": [
+              "A trickle of dirt into the bottom of it. Practice.",
+              "Nothing yet, for the second time. The yet is doing a great deal of work."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1730,
+        "y": 657,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "my_own_plot",
+      "name": "MY OWN PLOT",
+      "rect": [
+        1630,
+        165,
+        200,
+        190
+      ],
+      "when": {
+        "ACT": {
+          "atLeast": 3,
+          "atMost": 4
+        },
+        "T_FUNERAL_DONE": true
+      },
+      "act": "3-4",
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "My plot, my headboard, HE TUNED. I visit.",
+            "repeat": [
+              "The grass has started over it. I am the first man in Consolation to watch his own grave come in.",
+              "Someone has left a tuning peg on the headboard, a piano's. I know whose piano. I am not going to say."
+            ],
+            "then": [
+              "It is restful, in the way of problems that have been filed."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind in the oats. My grave is the only one here whose tenant can review the accommodations, and I give it high marks.",
+            "repeat": [
+              "Nothing. Not from me, and I would know.",
+              "The oats again, and somewhere down the hill, a piano, in tune."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1730,
+        "y": 657,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "mott_s_marker",
+      "name": "MOTT'S MARKER",
+      "rect": [
+        530,
+        510,
+        195,
+        290
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A marker for Obadiah Mott, erected by public subscription in the fifth year. Well kept.",
+            "repeat": [
+              "The flowers are wax. The undertaker's lilies, on loan for the look of the thing.",
+              "It is the best-kept grave on the hill, for a man nobody here ever buried."
+            ],
+            "then": [
+              "Flowers, even."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing under it.",
+            "repeat": [
+              "Nothing under it, still.",
+              "Wind across the stone. It has a lot of town to cover and it starts here."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 628,
+        "y": 858,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "nineteen",
+      "name": "THE NINETEEN",
+      "rect": [
+        630,
+        165,
+        905,
+        370
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "AMOS TREADWELL. BLACKSMITH. 1850.",
+            "repeat": [
+              "JOSIAH PENHALLOW. MINER, OF CORNWALL. 1851.",
+              "ELIAS CRANE. SURVEYOR. 1850.",
+              "RAFAEL SANDOVAL. MULETEER. 1852.",
+              "SILAS MARCHBANK. CLERK. 1851.",
+              "PATRICK KEANE. CARPENTER. 1853.",
+              "ABEL STROUD. GAMBLER. 1854.",
+              "ISAAC PELL. WHEELWRIGHT. 1855.",
+              "OWEN PROTHERO. COLLIER, OF GLAMORGAN. 1857.",
+              "The row ends. Nine names, nine trades, nine dates, and the same grass over all of them."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing.",
+              "Nothing.",
+              "Nothing.",
+              "Nothing.",
+              "Nothing.",
+              "Nothing.",
+              "Nothing.",
+              "Nothing."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1083,
+        "y": 718,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "the_gate",
+      "name": "THE GATE",
+      "rect": [
+        150,
+        240,
+        320,
+        450
+      ],
+      "colour": 0,
+      "to": "town_map",
+      "responses": {},
+      "overrides": {
+        "CLOSE": "It swings back. The latch is broken in the direction of welcome, which is not the direction you want a graveyard broken in."
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20 and errata 43: Boot Hill is reached by the map, and its gate leads back to it. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE GATE A LOOK OR LISTEN (doc 54: 'THE GATE is the room's exit'), so it is a stub exit as the records room's door is (errata 72 F, doc 36 Q157); the gate works, and its LOOK and LISTEN wait for lines.",
+      "stub": true,
+      "walkTo": {
+        "x": 300,
+        "y": 780,
+        "facing": "left"
+      }
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "floor_0",
+      "points": [
+        {
+          "x": 1693,
+          "y": 560
+        },
+        {
+          "x": 1880,
+          "y": 560
+        },
+        {
+          "x": 1880,
+          "y": 620
+        },
+        {
+          "x": 1693,
+          "y": 620
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_1"
+      ]
+    },
+    {
+      "id": "floor_1",
+      "points": [
+        {
+          "x": 770,
+          "y": 620
+        },
+        {
+          "x": 1880,
+          "y": 620
+        },
+        {
+          "x": 1880,
+          "y": 679
+        },
+        {
+          "x": 770,
+          "y": 679
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_0",
+        "floor_2"
+      ]
+    },
+    {
+      "id": "floor_2",
+      "points": [
+        {
+          "x": 770,
+          "y": 679
+        },
+        {
+          "x": 1880,
+          "y": 679
+        },
+        {
+          "x": 1880,
+          "y": 739
+        },
+        {
+          "x": 770,
+          "y": 739
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_1",
+        "floor_3_1"
+      ]
+    },
+    {
+      "id": "floor_3_0",
+      "points": [
+        {
+          "x": 200,
+          "y": 739
+        },
+        {
+          "x": 480,
+          "y": 739
+        },
+        {
+          "x": 480,
+          "y": 798
+        },
+        {
+          "x": 200,
+          "y": 798
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_4_0"
+      ]
+    },
+    {
+      "id": "floor_3_1",
+      "points": [
+        {
+          "x": 770,
+          "y": 739
+        },
+        {
+          "x": 1880,
+          "y": 739
+        },
+        {
+          "x": 1880,
+          "y": 798
+        },
+        {
+          "x": 770,
+          "y": 798
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_2",
+        "floor_4_1"
+      ]
+    },
+    {
+      "id": "floor_4_0",
+      "points": [
+        {
+          "x": 200,
+          "y": 798
+        },
+        {
+          "x": 480,
+          "y": 798
+        },
+        {
+          "x": 480,
+          "y": 858
+        },
+        {
+          "x": 200,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_3_0",
+        "floor_4_2"
+      ]
+    },
+    {
+      "id": "floor_4_1",
+      "points": [
+        {
+          "x": 770,
+          "y": 798
+        },
+        {
+          "x": 1880,
+          "y": 798
+        },
+        {
+          "x": 1880,
+          "y": 858
+        },
+        {
+          "x": 770,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_3_1",
+        "floor_4_2"
+      ]
+    },
+    {
+      "id": "floor_4_2",
+      "points": [
+        {
+          "x": 480,
+          "y": 800
+        },
+        {
+          "x": 770,
+          "y": 800
+        },
+        {
+          "x": 770,
+          "y": 858
+        },
+        {
+          "x": 480,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 575,
+        "farHeight": 285,
+        "nearY": 858,
+        "nearHeight": 305
+      },
+      "neighbours": [
+        "floor_4_0",
+        "floor_4_1"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "town_lights",
+      "at": [
+        90,
+        430
+      ],
+      "radius": 260,
+      "amount": 0.06,
+      "rate": 0.18,
+      "phase": 0.2,
+      "note": "The town's lamps below the hill, at the left. A slow, faint breath (invariant 9): nothing on the hill moves for a reason."
+    }
+  ],
+  "props": [
+    {
+      "id": "fresh_plot",
+      "sheet": "art/props/room-14-fresh-plot.png",
+      "x": 1694,
+      "y": 365,
+      "frame": [
+        0,
+        0,
+        377,
+        240
+      ],
+      "when": {
+        "T_OBITUARY": true,
+        "T_FUNERAL_DONE": false
+      },
+      "note": "Doc 05: the grave dug in Act III for Thad, open, the marker painted in Frame's spelling -- so from the obituary (E5) until the funeral. Room-14 operation 4's changed pixels (tools/art/room14-props.py)."
+    },
+    {
+      "id": "own_plot",
+      "sheet": "art/props/room-14-own-plot.png",
+      "x": 1662,
+      "y": 293,
+      "frame": [
+        0,
+        0,
+        215,
+        132
+      ],
+      "when": {
+        "T_FUNERAL_DONE": true
+      },
+      "note": "Doc 05 Part Two-B: after the funeral, the headboard, the grass starting over it, a tuning peg on top. Composed from operations 4 and 5 (tools/art/room14-compose.py, errata 87 F)."
+    }
+  ],
+  "onEnter": {
+    "sayWhen": {
+      "T_FUNERAL_DAY": true
+    },
+    "saySet": {
+      "T_FUNERAL_DAY": false
+    },
+    "note": "Doc 57 C3: 'Room 14, Boot Hill -- entering ends the day. The service is just over.' The line plays and the day clears; it can be held again (errata 87 C).",
+    "say": [
+      "The service is over. Mr. Pike has been remembered, six years late and very thoroughly. The town is coming back down the hill, Colonel Fanshawe in front, holding his hat."
+    ]
+  },
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "floor_0",
+    "floor_1",
+    "floor_2",
+    "floor_3",
+    "floor_4"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-14/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}
