@@ -3028,6 +3028,29 @@ function hobTree() {
       ...(opening.length ? { opening } : {}), options };
   }
   for (const want of ['HOB_A1', 'HOB_C1', 'HOB_C2']) if (!nodes[want]) throw new Error(`doc 04: ${want} was not extracted`);
+  // DOC 48 S4 AROUND HOB_C2 (doc 57 E10, errata 94 E). "Entering the shack
+  // after E9 plays doc 48 S4 beat 1, then HOB_C2's opening": beat 1's line is
+  // the opening's first. And beat 3, "after settle", is the conversation's end:
+  // its flags (`T_STRIKE_WAS_LIE` is doc 04's `T_NO_GOLD_EVER`, errata 75 K),
+  // Hob's line, and ACT 4, whose rise brings the Part Four card.
+  {
+    const s4 = read('docs/48-act-turn-beats.md');
+    const at = s4.indexOf('## S4 · THE CONFESSION');
+    if (at < 0) throw new Error('doc 48: no S4');
+    const section = s4.slice(at, s4.indexOf('\n## ', at + 5));
+    const beat = (n) => {
+      const m = new RegExp(`^\\| ${n} \\| (.+?) \\| [a-z]+ \\|$`, 'm').exec(section);
+      if (!m) throw new Error(`doc 48 S4: no beat ${n}`);
+      const lines = quoted(m[1]);
+      if (lines.length !== 1) throw new Error(`doc 48 S4 beat ${n}: ${lines.length} quoted lines, not 1`);
+      return lines[0];
+    };
+    nodes.HOB_C2.opening = [{ speaker: SPEAKER, line: said(beat(1), 'S4 beat 1') }, ...(nodes.HOB_C2.opening ?? [])];
+    const leave = nodes.HOB_C2.options.find((one) => one.tag === 'EXIT');
+    if (!leave) throw new Error('doc 04: HOB_C2 has no way out');
+    leave.say = said(beat(3), 'S4 beat 3');
+    leave.set = { T_HOB_IS_MOTT: true, T_NO_GOLD_EVER: true, ACT: 4 };
+  }
   const running = /^\*\*Running:\*\*/m.test(body);
   if (running) unplayed.push('the "Running" lines (every fourth night, unprompted) are ambient barks, not this tree -- carried by the ambient layer when Hob is placed');
   for (const note of unplayed) process.stderr.write(`  doc 04 HOB: ${note}\n`);
@@ -3453,12 +3476,13 @@ function fanshaweTree() {
 function actCards() {
   const d57 = read('docs/57-puzzle-completion.md');
   const cards = {};
-  for (const m of d57.matchAll(/the act card, \*\*(PART [A-Z]+ — [^*]+)\*\*, and `ACT` = (\d)/g)) cards[m[2]] = m[1];
-  if (!cards['2'] || !cards['3']) throw new Error('doc 57: the act cards for ACT 2 and 3 were not found');
+  // E10 writes its card as "then **PART FOUR -- ...**, and `ACT` = 4" (errata 94 E).
+  for (const m of d57.matchAll(/(?:the act card,|then) \*\*(PART [A-Z]+ — [^*]+)\*\*, and `ACT` = (\d)/g)) cards[m[2]] = m[1];
+  if (!cards['2'] || !cards['3'] || !cards['4']) throw new Error('doc 57: the act cards for ACT 2, 3 and 4 were not found');
   return write('content/act-cards.json', {
     schema: 1,
-    note: 'EXTRACTED from docs/57-puzzle-completion.md (A10, E0b) by tools/extract-content.mjs. The card shown when '
-      + 'ACT rises to the key in play. Act IV\'s turn (doc 48 S4) is not built.',
+    note: 'EXTRACTED from docs/57-puzzle-completion.md (A10, E0b, E10) by tools/extract-content.mjs. The card shown when '
+      + 'ACT rises to the key in play.',
     cards,
   });
 }

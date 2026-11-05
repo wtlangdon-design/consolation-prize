@@ -1,0 +1,13 @@
+{
+ "assetId": "room-21",
+ "subject": "room-21-watchmans-shack-dawn",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-21-watchmans-shack",
+ "promptFile": "reference/room-21/prompts/dawn-01.txt",
+ "out": "art/staging/room-21/dawn-01/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-21/plate-01/source.png"
+ ]
+}

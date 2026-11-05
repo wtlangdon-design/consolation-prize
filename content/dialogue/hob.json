@@ -220,6 +220,10 @@
       "prompt": "There isn't any, son. There never was. I made it up in a room in Boston to get three hundred dollars out of a man in a good coat, and I picked the spot off a map with my thumb.",
       "opening": [
         {
+          "speaker": "hob",
+          "line": "You'll have noticed I talk more at night."
+        },
+        {
           "speaker": "thad",
           "line": "Claim One is in your hand."
         },
@@ -299,7 +303,13 @@
           "tag": "EXIT",
           "text": "Thank you. This has been clarifying.",
           "universal": true,
-          "ends": true
+          "ends": true,
+          "say": "Twelve years I watched them look. You're the first that listened.",
+          "set": {
+            "T_HOB_IS_MOTT": true,
+            "T_NO_GOLD_EVER": true,
+            "ACT": 4
+          }
         }
       ]
     }

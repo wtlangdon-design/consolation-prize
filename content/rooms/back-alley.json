@@ -491,6 +491,28 @@
         "y": 720,
         "facing": "left"
       }
+    },
+    {
+      "id": "to_watchmans_shack",
+      "name": "THE WATCHMAN'S SHACK",
+      "stub": true,
+      "rect": [
+        1865,
+        560,
+        55,
+        300
+      ],
+      "colour": 0,
+      "to": "watchmans_shack",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: '20 · Back alley | ... | 21 · watchman's shack' -- the way on, at the alley's far end. NO DOCUMENT WRITES IT a LOOK or LISTEN. A stub exit (doc 36 Q164, errata 94 C).",
+      "walkTo": {
+        "x": 1885,
+        "y": 810,
+        "facing": "right"
+      }
     }
   ],
   "entrances": [
@@ -511,6 +533,15 @@
       ],
       "facing": "right",
       "note": "In through the gap from Main Street, at left."
+    },
+    {
+      "from": "watchmans_shack",
+      "at": [
+        1800,
+        810
+      ],
+      "facing": "left",
+      "note": "Back from the watchman's shack, at the alley's far end."
     }
   ],
   "size": [

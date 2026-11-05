@@ -1,0 +1,19 @@
+{
+ "schema": 1,
+ "room": "watchmans_shack",
+ "note": "ROOM 21's PROOF SPEC. The route is the back alley's, then on to the shack at its far end. The room's principal change is the confession's end (doc 48 S4 beat 3): dawn in the window. E10 itself is played in tests/room-21.test.ts.",
+ "route": "watchmans-shack",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "T_HOB_IS_MOTT. Visible consequence: 'Outside, dawn is starting' -- the window's dawn prop.",
+  "flags": {
+   "T_HOB_IS_MOTT": true
+  },
+  "actions": [
+   {
+    "do": "wait",
+    "seconds": 2
+   }
+  ]
+ }
+}

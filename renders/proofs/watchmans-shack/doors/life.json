@@ -1,0 +1,797 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "watchmans_shack",
+ "commit": "d64e7b39efa8594252d0250a8da670f52c762092",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "watchmans-shack",
+ "warped": false,
+ "lifeRoute": "watchmans-shack-doors",
+ "durationSeconds": 185.6,
+ "events": [
+  {
+   "t": 4.97,
+   "line": "entry route watchmans-shack: 38 action(s)"
+  },
+  {
+   "t": 164.79,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 164.79,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 164.79,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 164.79,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 164.79,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 164.79,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 164.79,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 164.79,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 164.79,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 164.79,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 164.79,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 164.79,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 164.79,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 164.79,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 164.79,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 164.79,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 164.79,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 164.79,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 164.79,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 164.79,
+   "line": "action 20 (wait): waited 7s"
+  },
+  {
+   "t": 164.79,
+   "line": "action 21 (click): clicked world 1900,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 164.79,
+   "line": "action 22 (wait): waited 1s"
+  },
+  {
+   "t": 164.79,
+   "line": "action 23 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 164.79,
+   "line": "action 24 (click): clicked world 1300,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 164.79,
+   "line": "action 25 (wait): waited 1s"
+  },
+  {
+   "t": 164.79,
+   "line": "action 26 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 164.79,
+   "line": "action 27 (click): clicked world 700,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 164.79,
+   "line": "action 28 (wait): waited 1s"
+  },
+  {
+   "t": 164.79,
+   "line": "action 29 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 164.79,
+   "line": "action 30 (click): clicked world 150,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 164.79,
+   "line": "action 31 (wait): waited 1s"
+  },
+  {
+   "t": 164.79,
+   "line": "action 32 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 164.79,
+   "line": "action 33 (click): clicked main_street/to_back_alley at world 29,510 -- THE BACK LOTS"
+  },
+  {
+   "t": 164.79,
+   "line": "action 34 (waitFor): reached {\"room\":\"back_alley\"} in room back_alley"
+  },
+  {
+   "t": 164.79,
+   "line": "action 35 (wait): waited 3s"
+  },
+  {
+   "t": 164.79,
+   "line": "action 36 (click): clicked back_alley/to_watchmans_shack at world 1893,710 -- the alley's far end, the shack"
+  },
+  {
+   "t": 164.79,
+   "line": "action 37 (waitFor): reached {\"room\":\"watchmans_shack\"} in room watchmans_shack"
+  },
+  {
+   "t": 164.79,
+   "line": "action 38 (wait): waited 3s"
+  },
+  {
+   "t": 164.87,
+   "line": "in watchmans_shack; life route: 17 action(s)"
+  },
+  {
+   "t": 165.6,
+   "line": "capture 00-arrived: room watchmans_shack, says null, options 0, control null"
+  },
+  {
+   "t": 166.07,
+   "line": "action 1 (click): clicked watchmans_shack/to_back_alley at world 118,435 -- THE DOOR -- out"
+  },
+  {
+   "t": 166.35,
+   "line": "action 1 (waitFor): reached {\"room\":\"back_alley\"} in room back_alley"
+  },
+  {
+   "t": 167.41,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1800,
+     810
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.36,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 168.43,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1800,
+     810
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169.06,
+   "line": "capture 01-out: room back_alley, says null, options 0, control null"
+  },
+  {
+   "t": 169.42,
+   "line": "action 1 (click): clicked back_alley/to_watchmans_shack at world 1893,710 -- and back in"
+  },
+  {
+   "t": 169.91,
+   "line": "action 1 (waitFor): reached {\"room\":\"watchmans_shack\"} in room watchmans_shack"
+  },
+  {
+   "t": 171.02,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 171.92,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 171.95,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.57,
+   "line": "capture 01-in: room watchmans_shack, says null, options 0, control null"
+  },
+  {
+   "t": 173.06,
+   "line": "action 1 (click): clicked watchmans_shack/to_back_alley at world 118,435 -- THE DOOR -- out"
+  },
+  {
+   "t": 173.38,
+   "line": "action 1 (waitFor): reached {\"room\":\"back_alley\"} in room back_alley"
+  },
+  {
+   "t": 174.41,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1800,
+     810
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 175.39,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 175.45,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1800,
+     810
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 176.09,
+   "line": "capture 02-out: room back_alley, says null, options 0, control null"
+  },
+  {
+   "t": 176.54,
+   "line": "action 1 (click): clicked back_alley/to_watchmans_shack at world 1893,710 -- and back in"
+  },
+  {
+   "t": 176.98,
+   "line": "action 1 (waitFor): reached {\"room\":\"watchmans_shack\"} in room watchmans_shack"
+  },
+  {
+   "t": 178.06,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 179.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179.68,
+   "line": "capture 02-in: room watchmans_shack, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "00-arrived",
+   "why": null,
+   "t": 165.58,
+   "file": "renders/proofs/watchmans-shack/doors/raw-captures-ignored/00-arrived.png",
+   "hash": "e660445aec8d24445ae9a542216b50f97b350a6640c9329e4d10aba847266685",
+   "room": "watchmans_shack",
+   "clock": 165.0418,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 476,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-00.png",
+     "bounds": [
+      53,
+      324,
+      494,
+      526
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:watchmans_shack",
+     "path": "art/backgrounds/room-21-watchmans-shack.png",
+     "drawn": "art/backgrounds/room-21-watchmans-shack.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8f4c60e454a6f4219e94488919286a586d792c482a0b79e1cda9fa7f2665bc14"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-out",
+   "why": null,
+   "t": 169.03,
+   "file": "renders/proofs/watchmans-shack/doors/raw-captures-ignored/01-out.png",
+   "hash": "0e1a6b95cc6230c048c24b12e41241c35a3f5c7556f22bda948bafeae0226a0c",
+   "room": "back_alley",
+   "clock": 168.5251,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1800,
+      810
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 329,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-02.png",
+     "bounds": [
+      1629,
+      481,
+      342,
+      363
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:back_alley",
+     "path": "art/backgrounds/room-20-back-alley.png",
+     "drawn": "art/backgrounds/room-20-back-alley.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "29233e98053600dd0a70afaac70ec54267180e250449581215565f77fd07481e"
+    },
+    {
+     "key": "art/actors/room-20-cat.png",
+     "path": "art/actors/room-20-cat.png",
+     "drawn": "art/actors/room-20-cat.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-in",
+   "why": null,
+   "t": 172.55,
+   "file": "renders/proofs/watchmans-shack/doors/raw-captures-ignored/01-in.png",
+   "hash": "62a43dcb1f8be5d517bb1694bbd3a142c6bae363e0e06111a6ffe71f38eba3b9",
+   "room": "watchmans_shack",
+   "clock": 172.00820000000002,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 476,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      53,
+      324,
+      494,
+      526
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:watchmans_shack",
+     "path": "art/backgrounds/room-21-watchmans-shack.png",
+     "drawn": "art/backgrounds/room-21-watchmans-shack.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8f4c60e454a6f4219e94488919286a586d792c482a0b79e1cda9fa7f2665bc14"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-out",
+   "why": null,
+   "t": 176.07,
+   "file": "renders/proofs/watchmans-shack/doors/raw-captures-ignored/02-out.png",
+   "hash": "164eb30a67e1793f6ae2b8668a8ff43d4a0330c88d8144f5cc6c3cc376b52a21",
+   "room": "back_alley",
+   "clock": 175.5248,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1800,
+      810
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 329,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-01.png",
+     "bounds": [
+      1629,
+      481,
+      342,
+      363
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:back_alley",
+     "path": "art/backgrounds/room-20-back-alley.png",
+     "drawn": "art/backgrounds/room-20-back-alley.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "29233e98053600dd0a70afaac70ec54267180e250449581215565f77fd07481e"
+    },
+    {
+     "key": "art/actors/room-20-cat.png",
+     "path": "art/actors/room-20-cat.png",
+     "drawn": "art/actors/room-20-cat.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-in",
+   "why": null,
+   "t": 179.66,
+   "file": "renders/proofs/watchmans-shack/doors/raw-captures-ignored/02-in.png",
+   "hash": "129a3dffc28fb23fa36a989759a9b274c053c7d8f55f7be1e9342ffaf945c9bf",
+   "room": "watchmans_shack",
+   "clock": 179.1414,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 476,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      53,
+      324,
+      494,
+      526
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:watchmans_shack",
+     "path": "art/backgrounds/room-21-watchmans-shack.png",
+     "drawn": "art/backgrounds/room-21-watchmans-shack.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8f4c60e454a6f4219e94488919286a586d792c482a0b79e1cda9fa7f2665bc14"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 185.6s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T09:05:49.624Z"
+}

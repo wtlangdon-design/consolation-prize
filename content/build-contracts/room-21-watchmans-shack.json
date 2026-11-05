@@ -1,0 +1,211 @@
+{
+ "schema": 1,
+ "id": "room-21-watchmans-shack",
+ "room": "watchmans_shack",
+ "docRoom": 21,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 21 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/04-dialogue-trees.md",
+  "docs/05-examine-layer.md",
+  "docs/48-act-turn-beats.md",
+  "docs/54-batch-c.md",
+  "docs/57-puzzle-completion.md",
+  "docs/49-wrong-answers.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-21.json",
+    "docs/00-errata.md::94 · ROOM 21 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Empty in Act I; Hob at home after E9 for the confession (E10); dawn after; night."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-21/graybox.json",
+    "docs/00-errata.md::94 · ROOM 21 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The plate, and two props from its companion: the cups (from E9) and the dawn window (after the confession)."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/room-21/hob/hob.json",
+    "docs/00-errata.md::94 · ROOM 21 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Hob is his approved Room 1 drawing, mirrored and scaled to the shack."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/watchmans-shack/life/life.json"
+   ],
+   "note": "The lamp breathes; Hob, when he is home, breathes, his lantern flickers and he turns."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-21/annotation.json"
+   ],
+   "note": "Hob stands on the floor beside the table; the walk band runs in front of the stove, table and cot."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-21/annotation.json"
+   ],
+   "note": "One lamp on the table, plate light and a runtime breath."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-21.test.ts",
+    "docs/00-errata.md::94 · ROOM 21 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "E10 plays on entering after E9; nothing in the room points at whose it is (doc 54)."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-21.json",
+    "content/rooms/watchmans-shack.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 37 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-21: 3 of 4 operations (master, plate, its companion after the confession)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/watchmans-shack.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-21/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/watchmans-shack/proof.json"
+   ],
+   "note": "Panel D: the confession over (T_HOB_IS_MOTT); dawn in the window."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/watchmans-shack/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/watchmans-shack/doors/life.json",
+    "tests/room-21.test.ts"
+   ],
+   "note": "Out by the door to the alley and back, twice; E10 in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-21/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-21-watchmans-shack.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-21/plate-01/frame.json"
+   ],
+   "note": "Promoted provisionally (errata 72 E)."
+  },
+  {
+   "subject": "the cups",
+   "class": "PROP",
+   "stage": "SHIPPING",
+   "path": "art/props/room-21-cups.png",
+   "evidence": [
+    "tools/art/room21-props.py"
+   ],
+   "note": "From operation 3."
+  },
+  {
+   "subject": "the dawn window",
+   "class": "PROP",
+   "stage": "SHIPPING",
+   "path": "art/props/room-21-dawn-window.png",
+   "evidence": [
+    "tools/art/room21-props.py"
+   ],
+   "note": "From operation 3."
+  },
+  {
+   "subject": "Hob",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-21-hob.png",
+   "evidence": [
+    "art/staging/room-21/hob/hob.json"
+   ],
+   "note": "His approved Room 1 frames, mirrored and scaled; no image operation."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q164 · Room 21, the watchman's shack: built, awaiting Tyler's playthrough; the confession plays here — **RULED 2026-11-05 (errata 94, delegated); BUILT, room-21 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q164 · Room 21, the watchman's shack: built, awaiting Tyler's playthrough; the confession plays here — **RULED 2026-11-05 (errata 94, delegated); BUILT, room-21 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

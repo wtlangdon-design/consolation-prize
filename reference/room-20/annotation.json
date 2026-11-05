@@ -77,6 +77,15 @@
    ],
    "facing": "right",
    "note": "In through the gap from Main Street, at left."
+  },
+  {
+   "from": "watchmans_shack",
+   "at": [
+    1800,
+    810
+   ],
+   "facing": "left",
+   "note": "Back from the watchman's shack, at the alley's far end."
   }
  ],
  "hotspots": {
@@ -159,6 +168,12 @@
    260,
    80,
    440
+  ],
+  "to_watchmans_shack": [
+   1865,
+   560,
+   55,
+   300
   ]
  },
  "exitWalkTo": {
@@ -166,6 +181,11 @@
    "x": 200,
    "y": 720,
    "facing": "left"
+  },
+  "to_watchmans_shack": {
+   "x": 1885,
+   "y": 810,
+   "facing": "right"
   }
  },
  "obstacles": [],

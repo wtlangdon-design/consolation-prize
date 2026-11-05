@@ -1,0 +1,117 @@
+{
+ "schema": 1,
+ "room": "watchmans_shack",
+ "note": "ROOM 21's LIFE ROUTE, ruling 47: about a minute and a half in the shack in Act I, starting inside it (the entry route is proofs/spec/watchmans-shack.json's). Nobody is home; the lamp breathes. THE TALLY MARKS, the window's LISTEN, THE COAT ON THE NAIL and doc 49's USE on the cot. The confession is played in tests/room-21.test.ts.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-arrived",
+   "why": "arrival by the door"
+  },
+  {
+   "do": "wait",
+   "seconds": 8,
+   "why": "the lamp breathes"
+  },
+  {
+   "do": "capture",
+   "name": "02-the-shack"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "tally_marks",
+   "why": "THE TALLY MARKS"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "03-look-tally",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "window",
+   "why": "the street, all of it"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "04-listen-window",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "coat_on_the_nail",
+   "why": "THE COAT ON THE NAIL"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "05-look-coat",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "USE"
+  },
+  {
+   "do": "click",
+   "on": "cot",
+   "why": "doc 49's USE on the cot"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "06-use-cot",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  }
+ ]
+}

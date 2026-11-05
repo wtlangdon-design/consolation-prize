@@ -1,0 +1,81 @@
+{
+ "sheet": "art/staging/room-21/hob/hob.png",
+ "frames": [
+  [
+   2,
+   2,
+   217,
+   469
+  ],
+  [
+   221,
+   2,
+   217,
+   469
+  ],
+  [
+   440,
+   2,
+   217,
+   469
+  ],
+  [
+   659,
+   2,
+   217,
+   469
+  ],
+  [
+   878,
+   2,
+   217,
+   469
+  ],
+  [
+   1097,
+   2,
+   217,
+   469
+  ],
+  [
+   1316,
+   2,
+   217,
+   469
+  ],
+  [
+   1535,
+   2,
+   217,
+   469
+  ],
+  [
+   1754,
+   2,
+   217,
+   469
+  ]
+ ],
+ "frameNames": [
+  "facing left, rest",
+  "breath",
+  "flicker",
+  "breath",
+  "flicker",
+  "breath",
+  "facing right, down the alley",
+  "breath",
+  "flicker"
+ ],
+ "height": 469,
+ "posture": "standing",
+ "anchor": {
+  "x": 1240,
+  "y": 790
+ },
+ "topLeft": {
+  "x": 1132,
+  "y": 321
+ },
+ "source": "art/actors/hob-idle-right (the approved Room 1 casting), mirrored; no image operation"
+}

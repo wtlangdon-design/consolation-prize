@@ -499,6 +499,26 @@
    "gauntlet": "tools/gauntlet/routes/back-alley.json",
    "blockers": [],
    "note": "Room 20, built 2026-11-05 under doc 55 (errata 72, 93). Acceptance is Tyler's, in the playthrough (Q163)."
+  },
+  {
+   "id": "room-21-watchmans-shack",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-21.json",
+    "docs/04-dialogue-trees.md",
+    "docs/48-act-turn-beats.md",
+    "docs/57-puzzle-completion.md",
+    "docs/20-room-map.md"
+   ],
+   "dependsOn": [
+    "room-20-back-alley"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-21-watchmans-shack.json",
+   "proof": "renders/proofs/watchmans-shack/proof.json",
+   "gauntlet": "tools/gauntlet/routes/watchmans-shack.json",
+   "blockers": [],
+   "note": "Room 21, built 2026-11-05 under doc 55 (errata 72, 94). Acceptance is Tyler's, in the playthrough (Q164)."
   }
  ],
  "blockerNote": "BLOCKERS ARE QUALIFIED REFERENCES: path.md::Exact Heading. A bare Q id is no longer accepted, because docs/36-issue-list.md carries two Q-number series -- Q11 through Q21 and Q37 each name two different issues -- and a row blocked on \"Q16\" could not say which one. Historical numbering in the document stays as it is; the fix is on the reference side. tools/lib/issueref.mjs resolves a reference to exactly one heading or fails.",

@@ -1342,7 +1342,16 @@ export interface RoomFile {
      * the same tree; this is how he finds Thad, not the only way in. "This
      * is the pattern for every character who accosts the player."
      */
-    accost?: { npc: string; when?: Condition; whenAny?: Condition[]; afterSeconds?: number; set?: FlagWrites; note?: string };
+    accost?: {
+      npc: string; when?: Condition; whenAny?: Condition[]; afterSeconds?: number; set?: FlagWrites; note?: string;
+      /**
+       * THE ACCOST IS THE ACTION THAT COMPLETES A PUZZLE (doc 57 E10, errata 94
+       * E): entering the shack after E9 IS the confession. It fires only while
+       * the puzzle is incomplete, completes it as a timeline's dialogue step
+       * does, and its tree's puzzle-gated entry performs its opening once.
+       */
+      completes?: string;
+    };
   };
   /** Destinations doc 20 names but whose appearance rule nobody has stated. */
   pendingLocations?: { room: number | null; name: string; doc: string; missing: string }[];
