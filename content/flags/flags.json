@@ -1011,6 +1011,15 @@
    "writtenBy": [],
    "note": "Doc 04 SHE_D1 option 1-prime: the Thursday ledger read (D4). Read by SOW_A1 option 7. Room 28, not built.",
    "pending": true
+  },
+  {
+   "id": "T_ROOM_GRANTED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:tuning_fork:hotel_lobby:parlor_piano"
+   ],
+   "note": "Doc 57 A2: the piano tuned with the clerk's leave -- 'Top of the stairs, second door.' The room is given and the stairs open (errata 91 E)."
   }
  ]
 }

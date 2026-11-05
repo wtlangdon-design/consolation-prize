@@ -338,6 +338,22 @@
     }
    ],
    "castingNote": "Sowerby is already drawn (Room 4, a judge with the pencil). The church draws him again at the pulpit, against Room 4's drawing so he is the same man (errata 90 B)."
+  },
+  "room-18-hotel-lobby": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-03-nugget",
+    "path": "art/backgrounds/room-03-nugget.png",
+    "note": "D -- the approved public interior at night. The lobby is papered walls, dark wainscot and brass under lamps (errata 91 A)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "The hotel clerk has no approved image and no written appearance; doc 27 gives his voice -- 'proprietorial about a building he does not own' (errata 91 B). Drawn in the composition master beside Thad, then on magenta against a side-by-side with Thad."
   }
  }
 }

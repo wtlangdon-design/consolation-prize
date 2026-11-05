@@ -1,0 +1,17 @@
+{
+ "assetId": "room-18",
+ "subject": "room-18-hotel-lobby",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-18-hotel-lobby",
+ "promptFile": "reference/room-18/prompts/composition-master-01.txt",
+ "out": "art/staging/room-18/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-18/layout-1536x1024.png",
+  "renders/room-01-in-engine-1920x1080.png",
+  "art/backgrounds/room-03-nugget.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

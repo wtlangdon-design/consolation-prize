@@ -1172,6 +1172,8 @@ const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name,
     ...(spec.note ? { note: spec.note } : {}),
     // A door no document gives a LOOK or LISTEN (errata 72 F; Room 14's gate).
     ...(spec.stub ? { stub: true } : {}),
+    // A way that opens later (Room 18's stairs, after A2).
+    ...(spec.when ? { when: spec.when } : {}),
     ...(ann.exitWalkTo?.[spec.id] ? { walkTo: ann.exitWalkTo[spec.id] } : {}) };
 }) : [];
 built.exits = [...subjectExits, ...(live.exits ?? []).filter((e) => !subjectExits.some((s) => s.id === e.id)).map((e) => {
@@ -1191,6 +1193,29 @@ built.exits = [...subjectExits, ...(live.exits ?? []).filter((e) => !subjectExit
     ...(ann.exitWalkTo?.[e.id] ? { walkTo: ann.exitWalkTo[e.id] } : {}),
   };
 })];
+// A WAY NOT YET OPEN (errata 91 E). An exit subject with `closed` is, while
+// `closed.when` holds, a hotspot in the exit's place: the subject's own LOOK and
+// LISTEN, and walking, USE and OPEN answered by the line the document writes
+// for it (Room 18's stairs before A2: the clerk's "The stairs come with a room").
+for (const [name, spec] of Object.entries(ann.exitSubjects ?? {})) {
+  if (!spec.closed) continue;
+  const [path, heading] = spec.closed.fromRef.split('::');
+  const text = read(path);
+  const at = text.indexOf(heading);
+  if (at < 0) fail(`exitSubjects ${name} closed: ${path} has no section "${heading}"`);
+  const body = text.slice(at, text.indexOf('\n## ', at + heading.length));
+  const line = body.split('\n').find((one) => one.startsWith(spec.closed.line));
+  const said = line && /"([^"]+)"/.exec(line.split('—').slice(1).join('—'))?.[1];
+  if (!said) fail(`exitSubjects ${name} closed: no line starting "${spec.closed.line}" in ${spec.closed.fromRef}`);
+  const exit = built.exits.find((one) => one.id === spec.id);
+  const answer = [{ ...(spec.closed.by ? { by: spec.closed.by } : {}), say: said }];
+  built.hotspots.push({
+    id: `${spec.id}_closed`, stateOf: spec.id, name, rect: exit.rect, colour: 0, when: spec.closed.when, defaultVerb: 'WALK_TO',
+    responses: { ...exit.responses, WALK_TO: answer, USE: answer, OPEN: answer },
+    ...(exit.walkTo ? { walkTo: exit.walkTo } : {}),
+    note: `Errata 91 E: ${name} before it opens -- ${spec.closed.fromRef}.`,
+  });
+}
 // DOC 54'S OVERRIDES FOR PEOPLE, by the ambient ids that draw them. A verb
 // written "(in a duel)" carries the annotation's `peopleWhen` for that phrase;
 // a qualifier the annotation does not define is a build failure, not a guess.

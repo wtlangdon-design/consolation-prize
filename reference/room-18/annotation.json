@@ -1,0 +1,264 @@
+{
+ "room": "hotel_lobby",
+ "plate": "art/backgrounds/room-18-hotel-lobby.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-18/plate-01/candidate-1920x864.png, room-18 attempt 2, a 20:9 crop from y 125 -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-18-hotel-lobby.png",
+ "plateShippingHash": "7e6ff465b585ebb64cfe5250",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   200,
+   690
+  ],
+  [
+   1700,
+   690
+  ],
+  [
+   1700,
+   858
+  ],
+  [
+   200,
+   858
+  ]
+ ],
+ "walkableNote": "THE PLANK FLOOR AND ITS RUNNER. The desk's foot is at y 650, the stove's at 660, the stairs' bottom step at 690. So the band runs y 690-858, from the street door to the foot of the stairs.",
+ "scaling": {
+  "far": {
+   "y": 690,
+   "height": 374
+  },
+  "near": {
+   "y": 858,
+   "height": 488
+  },
+  "note": "ROOM 18'S DEPTH, FROM THE DESK: its top at y 442 and its foot at 650 is about a metre, so a standing man at y 650 is about 347; along Room 5's slope (0.68 a row) that is 374 at the band's far edge and 488 at its near. The clerk stands behind the desk at 300 (tools/art/room18-clerk.py)."
+ },
+ "entrance": [
+  300,
+  770
+ ],
+ "entrances": [
+  {
+   "from": "main_street",
+   "at": [
+    300,
+    770
+   ],
+   "facing": "right",
+   "note": "In by the street door, at left, from Main Street."
+  },
+  {
+   "from": "default",
+   "at": [
+    300,
+    770
+   ],
+   "facing": "right",
+   "note": "In by the street door, at left, from Main Street."
+  },
+  {
+   "from": "thads_room",
+   "at": [
+    1640,
+    720
+   ],
+   "facing": "left",
+   "note": "Down the stairs from Room 19."
+  }
+ ],
+ "hotspots": {
+  "front_window": [
+   295,
+   125,
+   195,
+   320
+  ],
+  "settee": [
+   275,
+   450,
+   285,
+   190
+  ],
+  "spittoon": [
+   566,
+   520,
+   62,
+   72
+  ],
+  "painting": [
+   542,
+   198,
+   115,
+   125
+  ],
+  "engraving": [
+   845,
+   215,
+   120,
+   105
+  ],
+  "parlor_piano": [
+   675,
+   330,
+   230,
+   255
+  ],
+  "key_rack": [
+   1262,
+   210,
+   190,
+   120
+  ],
+  "clerk_s_bell": [
+   1372,
+   424,
+   50,
+   38
+  ],
+  "register": [
+   1145,
+   404,
+   132,
+   46
+  ],
+  "clock": [
+   1500,
+   150,
+   100,
+   220
+  ],
+  "stove": [
+   1540,
+   70,
+   165,
+   590
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE PARLOR PIANO is the upright in the corner under the fern (doc 54: 'the hotel calls this corner the parlor'). THE REGISTER is the open book on the desk, a plane in front of the clerk.",
+ "people": {},
+ "exitSubjects": {
+  "THE STREET DOOR": {
+   "id": "street_door",
+   "to": "main_street",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 26: THE STREET DOOR → Room 2, with its own LOOK and LISTEN."
+  },
+  "THE STAIRS": {
+   "id": "stairs",
+   "to": "thads_room",
+   "defaultVerb": "WALK_TO",
+   "when": {
+    "T_ROOM_GRANTED": true
+   },
+   "closed": {
+    "when": {
+     "T_ROOM_GRANTED": false
+    },
+    "by": "hotel_clerk",
+    "fromRef": "docs/57-puzzle-completion.md::## A2 ",
+    "line": "> **THE STAIRS**"
+   },
+   "note": "Doc 26: THE STAIRS → Room 19; 'OPEN and USE walk through.' Before A2 the clerk stops him (doc 57 A2): THE STAIRS answer with his line, and are not a way up."
+  }
+ },
+ "exits": {
+  "street_door": [
+   10,
+   165,
+   205,
+   480
+  ],
+  "stairs": [
+   1705,
+   75,
+   215,
+   620
+  ]
+ },
+ "exitWalkTo": {
+  "street_door": {
+   "x": 230,
+   "y": 770,
+   "facing": "left"
+  },
+  "stairs": {
+   "x": 1690,
+   "y": 720,
+   "facing": "right"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "door_lamp",
+   "at": [
+    258,
+    270
+   ],
+   "radius": 360,
+   "amount": 0.08,
+   "rate": 0.23,
+   "phase": 0.1,
+   "note": "The lamp by the door."
+  },
+  {
+   "id": "desk_lamp",
+   "at": [
+    1152,
+    270
+   ],
+   "radius": 420,
+   "amount": 0.08,
+   "rate": 0.27,
+   "phase": 0.6,
+   "note": "The lamp over the desk."
+  },
+  {
+   "id": "stove",
+   "at": [
+    1622,
+    545
+   ],
+   "radius": 300,
+   "amount": 0.1,
+   "rate": 0.31,
+   "phase": 0.4,
+   "note": "The stove's glow."
+  }
+ ],
+ "defaultVerbs": {
+  "front_window": "LOOK_AT",
+  "settee": "LOOK_AT",
+  "spittoon": "LOOK_AT",
+  "painting": "LOOK_AT",
+  "engraving": "LOOK_AT",
+  "parlor_piano": "LOOK_AT",
+  "key_rack": "LOOK_AT",
+  "clerk_s_bell": "LOOK_AT",
+  "register": "LOOK_AT",
+  "clock": "LOOK_AT",
+  "stove": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
+ "occlusion": {
+  "note": "ONE PLANE, HIS: the open register stands in front of the clerk (art/masks/room-18-plane-1.png, written by tools/art/room18-clerk.py), assigned by his ambient record's clipPlane. Thad's walk band is in front of everything, so his bands are plane 0.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": [
+   {
+    "level": 1,
+    "mask": "art/masks/room-18-plane-1.png",
+    "note": "The open register on the desk, the book's whole outline (tools/art/room18-clerk.py). Assigned to the clerk by his ambient record's clipPlane."
+   }
+  ]
+ }
+}

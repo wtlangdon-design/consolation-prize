@@ -1,0 +1,13 @@
+{
+ "assetId": "room-18",
+ "subject": "room-18-hotel-lobby",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-18-hotel-lobby",
+ "promptFile": "reference/room-18/prompts/plate-01.txt",
+ "out": "art/staging/room-18/plate-01/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-18/plate-01/input.png"
+ ]
+}

@@ -1,0 +1,88 @@
+{
+ "schema": 1,
+ "id": "hotel_clerk",
+ "name": "THE HOTEL CLERK",
+ "posture": "behind-counter",
+ "room": "hotel_lobby",
+ "x": 1209,
+ "y": 445,
+ "zone": 2,
+ "approachRadius": 40,
+ "clipPlane": 1,
+ "walkTo": {
+  "x": 1010,
+  "y": 760,
+  "facing": "right"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: on the floor before the desk's left end (errata 91 C).",
+ "tree": "HOTEL_CLERK",
+ "note": "THE HOTEL CLERK, behind his desk with the register open before him. No document describes him; doc 27 gives his voice, and he is drawn as a fussy desk clerk of the period (errata 91 B): five poses on magenta against Thad (room-18 operation 3), cut at the desk top by tools/art/room18-clerk.py, the register a plane in front of him. BEHIND THE DESK: `y` is the cut row. Present in every act.",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for the clerk.",
+ "sprite": {
+  "sheet": "art/actors/room-18-clerk.png",
+  "frames": [
+   [
+    2,
+    2,
+    121,
+    134
+   ],
+   [
+    125,
+    2,
+    121,
+    134
+   ],
+   [
+    248,
+    2,
+    121,
+    134
+   ],
+   [
+    371,
+    2,
+    121,
+    134
+   ],
+   [
+    494,
+    2,
+    121,
+    134
+   ]
+  ],
+  "rate": 0.24,
+  "phase": 0.45,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    0
+   ],
+   [
+    2,
+    2,
+    0,
+    4,
+    4,
+    0
+   ],
+   [
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "talkFrame": 3,
+  "frameNote": "0 rest, reading the register · 1 breath (derived) · 2 writing · 3 looking up over his spectacles · 4 turning the register round (doc 27 option 4). A break every `breakEvery` seconds (errata 77). He looks up as he talks.",
+  "provenance": "art/staging/room-18/clerk/clerk.json"
+ }
+}
