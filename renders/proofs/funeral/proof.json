@@ -1,0 +1,686 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "funeral",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "d7cbece68f61f43274e304151e561bff42af210a",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r31-a, then entered funeral by control -- NOT proof that a player can reach it",
+  "action 1 (verb): chose verb LOOK_AT -- ",
+  "action 2 (click): clicked funeral/grave at world 930,597 -- THE GRAVE, the second look",
+  "action 3 (waitFor): reached {\"says\":\"thad\"} in room funeral",
+  "action 4 (wait): waited 2s",
+  "action 5 (click): clicked screen 450,60 -- read on, to the watchman's",
+  "action 6 (waitFor): reached {\"says\":\"hob\"} in room funeral"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 741,
+    "xs": [
+     960,
+     720,
+     1200,
+     480,
+     1440,
+     240,
+     1680,
+     0,
+     1920
+    ],
+    "expect": 369,
+    "x": 960
+   },
+   "at": [
+    960,
+    741
+   ],
+   "reportedHeight": 369,
+   "expected": 369,
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "bounds": [
+    768,
+    372,
+    383,
+    407
+   ],
+   "order": 0,
+   "renderedHeight": 389,
+   "renderedBottom": 740,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     960,
+     720,
+     1200,
+     480,
+     1440,
+     240,
+     1680,
+     0,
+     1920
+    ],
+    "expect": 400,
+    "x": 960
+   },
+   "at": [
+    960,
+    857
+   ],
+   "reportedHeight": 400,
+   "expected": 400,
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "bounds": [
+    752,
+    457,
+    415,
+    442
+   ],
+   "order": 0,
+   "renderedHeight": 421,
+   "renderedBottom": 857,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "funeral_undertaker",
+   "feet": [
+    616,
+    611
+   ],
+   "sheet": "art/actors/room-31-undertaker.png",
+   "clipPlane": null,
+   "box": {
+    "x": 549,
+    "y": 275,
+    "width": 135,
+    "height": 338
+   },
+   "seen": {
+    "x": 549,
+    "y": 276,
+    "width": 123,
+    "height": 337,
+    "bottom": 612,
+    "right": 671,
+    "changed": 26650
+   },
+   "props": []
+  },
+  {
+   "kind": "ambient",
+   "id": "funeral_sowerby",
+   "feet": [
+    828,
+    502
+   ],
+   "sheet": "art/actors/room-31-sowerby.png",
+   "clipPlane": null,
+   "box": {
+    "x": 755,
+    "y": 188,
+    "width": 147,
+    "height": 316
+   },
+   "seen": {
+    "x": 767,
+    "y": 189,
+    "width": 123,
+    "height": 314,
+    "bottom": 502,
+    "right": 889,
+    "changed": 23682
+   },
+   "props": []
+  },
+  {
+   "kind": "ambient",
+   "id": "funeral_hob",
+   "feet": [
+    1832,
+    602
+   ],
+   "sheet": "art/actors/room-31-hob.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1758,
+    "y": 234,
+    "width": 149,
+    "height": 370
+   },
+   "seen": {
+    "x": 1773,
+    "y": 256,
+    "width": 119,
+    "height": 347,
+    "bottom": 602,
+    "right": 1891,
+    "changed": 24902
+   },
+   "props": []
+  },
+  {
+   "kind": "ambient",
+   "id": "funeral_grievance",
+   "feet": [
+    129,
+    700
+   ],
+   "sheet": "art/actors/room-31-grievance.png",
+   "clipPlane": null,
+   "box": {
+    "x": -9,
+    "y": 195,
+    "width": 276,
+    "height": 507
+   },
+   "seen": {
+    "x": 3,
+    "y": 196,
+    "width": 264,
+    "height": 506,
+    "bottom": 701,
+    "right": 266,
+    "changed": 89653
+   },
+   "props": []
+  },
+  {
+   "kind": "ambient",
+   "id": "funeral_mourners",
+   "feet": [
+    1493,
+    668
+   ],
+   "sheet": "art/actors/room-31-mourners.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1220,
+    "y": 296,
+    "width": 546,
+    "height": 374
+   },
+   "seen": {
+    "x": 1232,
+    "y": 297,
+    "width": 522,
+    "height": 372,
+    "bottom": 668,
+    "right": 1753,
+    "changed": 148757
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "funeral",
+   "clock": 9.366700000000002,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_DECEASED",
+    "T_OBITUARY",
+    "T_COFFIN_SIZED",
+    "T_SOWERBY_PRICE",
+    "T_FUNERAL_BOOKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 3,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "executor_form"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 385,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      100,
+      415,
+      399,
+      425
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:funeral",
+     "path": "art/backgrounds/room-31-funeral.png",
+     "drawn": "art/backgrounds/room-31-funeral.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c"
+    },
+    {
+     "key": "art/actors/room-31-grievance.png",
+     "path": "art/actors/room-31-grievance.png",
+     "drawn": "art/actors/room-31-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f87dcd603ebac81cf0b71cffceafaa8a2e4c0ce9acb274463f95aeb67005ac57"
+    },
+    {
+     "key": "art/actors/room-31-hob.png",
+     "path": "art/actors/room-31-hob.png",
+     "drawn": "art/actors/room-31-hob.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "92d89f9fe628863f077f63098eeb92e4de28c879838ac8ba4f018a2408a4aa8b"
+    },
+    {
+     "key": "art/actors/room-31-mourners.png",
+     "path": "art/actors/room-31-mourners.png",
+     "drawn": "art/actors/room-31-mourners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fbf6ab58be1c3014cc3fae0fbd7f964fa82c59408b81d68327ca0b6bf092298a"
+    },
+    {
+     "key": "art/actors/room-31-sowerby.png",
+     "path": "art/actors/room-31-sowerby.png",
+     "drawn": "art/actors/room-31-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "984f09ebd6d3321b856698380c24fa3e5199cdd1fff2b95b1901be105b60ad0a"
+    },
+    {
+     "key": "art/actors/room-31-undertaker.png",
+     "path": "art/actors/room-31-undertaker.png",
+     "drawn": "art/actors/room-31-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "392397c5f6e8db4e59983e8ed389902d3da6925b6ef00ee6d008b389ffd8ebc3"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(funeral)"
+   ],
+   "capturedAt": "2026-11-05T21:51:10.982Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "db69bc36676dbf64b9eca9f838e7d306d40ffe6df9d6927cbf9ddbaaa03802f4"
+  },
+  {
+   "panel": "A",
+   "room": "funeral",
+   "clock": 10.2667,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_DECEASED",
+    "T_OBITUARY",
+    "T_COFFIN_SIZED",
+    "T_SOWERBY_PRICE",
+    "T_FUNERAL_BOOKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 3,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "executor_form"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 385,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:funeral",
+     "path": "art/backgrounds/room-31-funeral.png",
+     "drawn": "art/backgrounds/room-31-funeral.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c"
+    },
+    {
+     "key": "art/actors/room-31-grievance.png",
+     "path": "art/actors/room-31-grievance.png",
+     "drawn": "art/actors/room-31-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f87dcd603ebac81cf0b71cffceafaa8a2e4c0ce9acb274463f95aeb67005ac57"
+    },
+    {
+     "key": "art/actors/room-31-hob.png",
+     "path": "art/actors/room-31-hob.png",
+     "drawn": "art/actors/room-31-hob.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "92d89f9fe628863f077f63098eeb92e4de28c879838ac8ba4f018a2408a4aa8b"
+    },
+    {
+     "key": "art/actors/room-31-mourners.png",
+     "path": "art/actors/room-31-mourners.png",
+     "drawn": "art/actors/room-31-mourners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fbf6ab58be1c3014cc3fae0fbd7f964fa82c59408b81d68327ca0b6bf092298a"
+    },
+    {
+     "key": "art/actors/room-31-sowerby.png",
+     "path": "art/actors/room-31-sowerby.png",
+     "drawn": "art/actors/room-31-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "984f09ebd6d3321b856698380c24fa3e5199cdd1fff2b95b1901be105b60ad0a"
+    },
+    {
+     "key": "art/actors/room-31-undertaker.png",
+     "path": "art/actors/room-31-undertaker.png",
+     "drawn": "art/actors/room-31-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "392397c5f6e8db4e59983e8ed389902d3da6925b6ef00ee6d008b389ffd8ebc3"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(funeral)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T21:51:11.880Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "4f3bedb5be35876f9ab587afaf35abd41a6459434a5a532529ab534a9d4d4e58"
+  },
+  {
+   "panel": "D",
+   "room": "funeral",
+   "clock": 19.549599999999998,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_DECEASED",
+    "T_OBITUARY",
+    "T_COFFIN_SIZED",
+    "T_SOWERBY_PRICE",
+    "T_FUNERAL_BOOKED",
+    "T_GRAVE_LOOKED",
+    "T_GOOD_TURNOUT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 3,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "executor_form"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      494,
+      857
+     ],
+     "facing": "left",
+     "clip": "walk",
+     "height": 400,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-left/walk-05.png",
+     "bounds": [
+      281,
+      457,
+      403,
+      429
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": "hob",
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:funeral",
+     "path": "art/backgrounds/room-31-funeral.png",
+     "drawn": "art/backgrounds/room-31-funeral.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c"
+    },
+    {
+     "key": "art/actors/room-31-grievance.png",
+     "path": "art/actors/room-31-grievance.png",
+     "drawn": "art/actors/room-31-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f87dcd603ebac81cf0b71cffceafaa8a2e4c0ce9acb274463f95aeb67005ac57"
+    },
+    {
+     "key": "art/actors/room-31-mourners.png",
+     "path": "art/actors/room-31-mourners.png",
+     "drawn": "art/actors/room-31-mourners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fbf6ab58be1c3014cc3fae0fbd7f964fa82c59408b81d68327ca0b6bf092298a"
+    },
+    {
+     "key": "art/actors/room-31-sowerby.png",
+     "path": "art/actors/room-31-sowerby.png",
+     "drawn": "art/actors/room-31-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "984f09ebd6d3321b856698380c24fa3e5199cdd1fff2b95b1901be105b60ad0a"
+    },
+    {
+     "key": "art/actors/room-31-undertaker.png",
+     "path": "art/actors/room-31-undertaker.png",
+     "drawn": "art/actors/room-31-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "392397c5f6e8db4e59983e8ed389902d3da6925b6ef00ee6d008b389ffd8ebc3"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(funeral)",
+    "cast(false)",
+    "cast(true)",
+    "stand(960,741)",
+    "cast(false)",
+    "cast(true)",
+    "stand(960,857)",
+    "cast(false)",
+    "cast(true)",
+    "flag T_GRAVE_LOOKED=true"
+   ],
+   "capturedAt": "2026-11-05T21:51:21.143Z",
+   "intent": "principal changed state: S2 BEAT 3 (doc 48; doc 54: 'S2's beat 3 fires on the second LOOK at the grave'). Prerequisite: the first LOOK, T_GRAVE_LOOKED, set by the flag control. Visible consequence: the grave's second line, then 'Good turnout.' from the back, and he walks.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "5b5a8a46398ebd3a2bc849b0276d2aa055e4718439abc9fffe5cc42154a71bcd",
+   "changedBy": "flags"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T21:51:21.143Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 689772,
+  "panels": 5,
+  "scale": 0.5
+ }
+}
