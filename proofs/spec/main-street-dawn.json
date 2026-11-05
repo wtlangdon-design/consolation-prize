@@ -1,0 +1,22 @@
+{
+ "schema": 1,
+ "room": "main_street_dawn",
+ "note": "ROOM 36's PROOF SPEC. Room 36 replaces Room 2 after F5 (doc 20), and F5 is not built, so the proof starts on the street at dawn from fixture r36-a and says so. The principal change is the close: the coach stop, Thad's last line and the letter over black.",
+ "fixture": "r36-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "DOC 48 S7 BEATS 3-4: the one exit, east. Visible consequence: 'Leave the mud.', then the Act IV letter over black; T_CLOSE_SAID.",
+  "actions": [
+   {
+    "do": "click",
+    "on": "to_coach_stop",
+    "why": "the coach stop, east"
+   },
+   {
+    "do": "waitFor",
+    "flag": "T_CLOSE_SAID",
+    "upTo": 90
+   }
+  ]
+ }
+}

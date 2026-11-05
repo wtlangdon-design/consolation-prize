@@ -4887,3 +4887,12 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 
 **Built.** Sixteen subjects and ninety-five lines; nobody, no puzzle. In through THE SAFE in Fanshawe's office from Act IV (`?fixture=r35-a`). Played in `tests/room-35.test.ts`. Proofs under `renders/proofs/company-vault/`.
 
+## Q176 · Room 36, Main Street at dawn: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 J, delegated); BUILT, room-36 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Room 2's street at first light, the nine dawn hotspots, the dog on his back in the road, and the close at the coach stop: 'Leave the mud.' and the Act IV letter over black (`?fixture=r36-a`). Played in `tests/room-36.test.ts`. Proofs under `renders/proofs/main-street-dawn/`.
+
+**For Tyler:**
+- **The way in is not built.** Room 36 follows F5, the filing, and F5 follows F4, the final duel; both live in built rooms (2 and 7) but neither is built (SUM_F1 is unextracted, doc 36 Q150). Until they are, the dawn is reached by `?fixture=r36-a`.
+- **Not staged:** beat 3's picture (the POP. sign repainted upward by a man on a ladder, who nods) and beat 5's credits (errata 55's launch-screen cluster). The close ends over black, with the menu still there.
+- **The dawn plate is a relight of Room 2's,** so where the morning's mountains and Room 2's disagree the ridge is a little ragged in places. Say if it wants a hand-drawn dawn instead.
+

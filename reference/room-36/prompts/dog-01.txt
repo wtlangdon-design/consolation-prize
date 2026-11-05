@@ -1,0 +1,13 @@
+Image 1 is the dog from my pixel-art adventure game, shown enlarged: a scruffy town dog lying asleep, drawn in big square pixels. Image 2 is the street he lives on, at first light.
+
+I need this SAME dog -- same colours, same markings, same scruffy coat, same big square pixels -- lying ON HIS BACK in the road, legs in the air, utterly content, as a sheet of three frames in one row:
+1. REST: on his back, all four legs folded up in the air, head tipped back, eyes closed.
+2. PAW: the same, one front paw stretched up a little further, as a sleeping dog does.
+3. TAIL: the same as frame 1, his tail flopped over to the other side.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No ground, no shadow, nothing else.
+- Every frame is one piece and does not touch any other frame; clear magenta space between them; all three the same size, his back on the same baseline.
+- Between frames ONLY the change described happens. Same dog everywhere.
+- Crisp pixel edges against the magenta. No soft glow or blur.
+- No text, labels, numbers or borders.

@@ -1284,6 +1284,15 @@
     "combination:pickaxe:listening_chamber:every_rock_surface"
    ],
    "note": "Doc 57 F3 (errata 69 A): the third swing broke through. Room 34 shows its second state; Room 33 its broken wall."
+  },
+  {
+   "id": "T_CLOSE_SAID",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:main_street_dawn:to_coach_stop:transitScene"
+   ],
+   "note": "Doc 48 S7 beats 3-4: Thad's last line at the coach stop and the Act IV letter over black have played; the stop is gone and the game is at its close (errata 99 J)."
   }
  ]
 }

@@ -1,0 +1,57 @@
+{
+ "schema": 1,
+ "id": "dawn_dog",
+ "name": "A DOG",
+ "posture": "animal",
+ "room": "main_street_dawn",
+ "note": "Doc 48 S7 beat 1: 'The dog is on his back in the road.' The same dog as Room 2's, drawn on his back against his own sprite (room-36 operation 2), cut by tools/art/cut-ambient-sheet.py. Examined through A DOG over him (errata 99 J).",
+ "x": 2628,
+ "y": 765,
+ "zone": 0,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "He does not speak.",
+ "sprite": {
+  "sheet": "art/actors/room-36-dog.png",
+  "frames": [
+   [
+    2,
+    2,
+    119,
+    88
+   ],
+   [
+    123,
+    2,
+    119,
+    88
+   ],
+   [
+    244,
+    2,
+    119,
+    88
+   ]
+  ],
+  "rate": 0.2,
+  "phase": 0.3,
+  "breaks": [
+   [
+    1,
+    1,
+    0
+   ],
+   [
+    2,
+    2,
+    2,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "talkFrame": 0,
+  "frameNote": "0 on his back, legs folded up, asleep · 1 a front paw stretched up · 2 his tail flopped over. A break every `breakEvery` seconds (errata 77).",
+  "provenance": "art/staging/room-36/dog-01/dog.json"
+ }
+}

@@ -1,0 +1,9 @@
+Image 1 is a finished background from my pixel-art adventure game, shown small in the middle of a grey canvas: the whole main street of a frontier gold town at NIGHT -- false-fronted wooden buildings left to right, a church steeple, a land company's sign, a saloon with lit windows, a water trough, a notice board, the muddy street with puddles, dark mountains behind and a starry sky.
+
+Paint the SAME street, from the SAME camera, at the moment of FIRST LIGHT on a clear morning, just after dawn:
+- The sky: no stars; pale gold and rose low along the mountains, clearing to a soft clean blue above.
+- The light: early, low sunlight from the RIGHT, warm on the building fronts and the boardwalks; the mountains and the shadows still cool blue-grey. Everything readable and fresh, not dark.
+- The windows: unlit -- no lamps burning anywhere, no orange glow.
+- The puddles in the mud reflect the pale morning sky.
+
+Keep EVERY building, sign, window, door, porch, trough, notice board, the steeple, the mountains and the street exactly where and how they are: only the light and the time of day change. Same camera, same pixel grid, same big square pixels, same proportions. Leave the grey above and below the picture flat grey. No people, no animals, no text added, no new objects.

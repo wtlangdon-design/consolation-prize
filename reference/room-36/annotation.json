@@ -1,0 +1,225 @@
+{
+ "room": "main_street_dawn",
+ "plate": "art/backgrounds/room-36-main-street-dawn.png",
+ "plateNote": "Room 2's plate under operation 1's light (tools/art/room36-dawn.py), so every rect is Room 2's, read off the same pixels; the dog's is where he lies on his back.",
+ "plateShipping": "art/backgrounds/room-36-main-street-dawn.png",
+ "plateShippingHash": "08bef467c275",
+ "plateSize": [
+  3700,
+  864
+ ],
+ "walkable": [
+  [
+   60,
+   622
+  ],
+  [
+   900,
+   614
+  ],
+  [
+   1750,
+   610
+  ],
+  [
+   2100,
+   600
+  ],
+  [
+   2600,
+   596
+  ],
+  [
+   3050,
+   606
+  ],
+  [
+   3330,
+   584
+  ],
+  [
+   3690,
+   612
+  ],
+  [
+   3690,
+   858
+  ],
+  [
+   60,
+   858
+  ]
+ ],
+ "walkableNote": "Room 2's street, unchanged.",
+ "scaling": {
+  "far": {
+   "y": 584,
+   "height": 105
+  },
+  "near": {
+   "y": 858,
+   "height": 206
+  },
+  "note": "ROOM 2 DECLARES ITS OWN DEPTH, from its own architecture. height = 0.369 x (y - 300), anchored on two measurements of the plate that agree to the pixel: the saloon porch deck is 40px for about 0.6m and its batwing doorway 134px for about 2.0m, and both imply a 1.75m man at 117px at the building line. Errata 54’s shared zones (222/240/263) belong to Room 1, whose street is shallower; applying them here puts a man at 1.66 times the height of the door he walks through. Doc 36 Q10."
+ },
+ "entrance": [
+  3660,
+  600
+ ],
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    3660,
+    600
+   ],
+   "facing": "left",
+   "note": "As Room 2: the street's east edge, facing down it."
+  },
+  {
+   "from": "claims_registrar",
+   "at": [
+    3660,
+    600
+   ],
+   "facing": "left",
+   "note": "Out of the filing (F5), onto the street at first light."
+  }
+ ],
+ "hotspots": {
+  "church_steeple": [
+   748,
+   22,
+   80,
+   205
+  ],
+  "posted_notices": [
+   1150,
+   478,
+   85,
+   105
+  ],
+  "dog": [
+   2560,
+   690,
+   140,
+   80
+  ],
+  "water_trough": [
+   1862,
+   543,
+   155,
+   62
+  ],
+  "boardwalk": [
+   95,
+   548,
+   1660,
+   70
+  ],
+  "false_fronts": [
+   60,
+   175,
+   3040,
+   290
+  ],
+  "hills": [
+   3180,
+   140,
+   520,
+   370
+  ],
+  "mud": [
+   60,
+   626,
+   3600,
+   232
+  ],
+  "improvement_company_sign": [
+   535,
+   268,
+   265,
+   80
+  ]
+ },
+ "hotspotsNote": "Room 2's rects: Room 36 is the same street (doc 20).",
+ "people": {},
+ "exitSubjects": {
+  "THE COACH STOP": {
+   "id": "to_coach_stop",
+   "to": "stage_road",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "when": {
+    "T_CLOSE_SAID": false
+   },
+   "transitScene": [
+    {
+     "ref": "docs/48-act-turn-beats.md::## S7 · MAIN STREET, DAWN (the close)",
+     "row": "3",
+     "speaker": "thad",
+     "set": {
+      "T_CLOSE_SAID": true
+     },
+     "stays": true,
+     "thenFrom": {
+      "file": "content/dialogue/letters-home.json",
+      "field": "actFour",
+      "overBlack": true
+     }
+    }
+   ],
+   "note": "Doc 48 S7: 'The one exit is the coach stop, east.' Beat 3, Thad's last spoken line, then beat 4, the Act IV letter over black (doc 04 Part Three's, as Room 19 reads it). No document writes the stop a LOOK or LISTEN: a stub (errata 72 F). Beat 3's picture -- the sign repainted upward by a man on a ladder -- and beat 5's credits are not built (doc 36 Q176)."
+  }
+ },
+ "exits": {
+  "to_coach_stop": [
+   3290,
+   372,
+   410,
+   190
+  ]
+ },
+ "exitWalkTo": {
+  "to_coach_stop": {
+   "x": 3477,
+   "y": 603,
+   "facing": "right"
+  }
+ },
+ "obstacles": [
+  {
+   "id": "water_trough",
+   "rect": [
+    1862,
+    543,
+    155,
+    62
+   ],
+   "note": "A thing on the ground he must walk around. Thad walked through the trough because the walk bands are full-width quads and nothing in them says otherwise. The rect is the trough’s own hotspot rect -- one truth, not two."
+  }
+ ],
+ "lamps": [],
+ "defaultVerbs": {
+  "church_steeple": "LOOK_AT",
+  "posted_notices": "LOOK_AT",
+  "dog": "LOOK_AT",
+  "water_trough": "LOOK_AT",
+  "boardwalk": "LOOK_AT",
+  "false_fronts": "LOOK_AT",
+  "hills": "LOOK_AT",
+  "mud": "WALK_TO",
+  "improvement_company_sign": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Everything on the street at dawn is looked at on a bare click, but the mud, which is walked on.",
+ "props": [],
+ "occlusion": {
+  "note": "None: Room 2's masks describe a street that no longer exists (doc 36 Q20).",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}
