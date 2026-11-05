@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "alley_cat",
+ "name": "THE CAT",
+ "posture": "animal",
+ "room": "back_alley",
+ "x": 462,
+ "y": 556,
+ "zone": 2,
+ "approachRadius": 40,
+ "note": "THE CAT (doc 05: 'A cat on a crate, in the one square of sun. It has arranged the alley around itself'). Five poses on magenta, generated against a side-by-side with Thad (room-20 operation 3), cut by tools/art/room20-cat.py and sat on the top crate's lid in the propped back door's light; `y` is the lid. Her examine lines and doc 49's PICK UP and TALK TO are THE CAT hotspot's.",
+ "barks": {},
+ "barksNote": "A cat; no barks.",
+ "sprite": {
+  "sheet": "art/actors/room-20-cat.png",
+  "frames": [
+   [
+    2,
+    2,
+    47,
+    56
+   ],
+   [
+    51,
+    2,
+    47,
+    56
+   ],
+   [
+    100,
+    2,
+    47,
+    56
+   ],
+   [
+    149,
+    2,
+    47,
+    56
+   ],
+   [
+    198,
+    2,
+    47,
+    56
+   ]
+  ],
+  "rate": 0.2,
+  "phase": 0.3,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    4,
+    4,
+    0
+   ],
+   [
+    3,
+    2,
+    2,
+    0
+   ]
+  ],
+  "breakEvery": 7,
+  "frameNote": "0 rest · 1 breath (derived) · 2 her tail lifted · 3 her head turned to look left · 4 a paw washed. A break every `breakEvery` seconds (errata 77).",
+  "provenance": "art/staging/room-20/cat/cat.json"
+ }
+}

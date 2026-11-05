@@ -1,0 +1,53 @@
+{
+ "sheet": "art/staging/room-20/cat/cat.png",
+ "frames": [
+  [
+   2,
+   2,
+   47,
+   56
+  ],
+  [
+   51,
+   2,
+   47,
+   56
+  ],
+  [
+   100,
+   2,
+   47,
+   56
+  ],
+  [
+   149,
+   2,
+   47,
+   56
+  ],
+  [
+   198,
+   2,
+   47,
+   56
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "tail",
+  "look",
+  "wash"
+ ],
+ "topLeft": {
+  "x": 439,
+  "y": 500
+ },
+ "anchor": {
+  "x": 462,
+  "y": 556
+ },
+ "height": 56,
+ "posture": "animal",
+ "source": "room-20 attempt 3 (art/staging/room-20/cat-01/sheet.png)"
+}

@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 
 import { ROOT } from './lib/content.mjs';
@@ -1244,6 +1244,53 @@ function combinations() {
       { case: 'not yet paid', when: { T_OZY_PAID: false }, ...spokenBy(a7.unpaid) },
     ],
   });
+  // DOC 57 E6: THE EXECUTOR'S FORM (errata 93 G). HOB_E6 option 1 gives it
+  // (doc 04); Sump accepts it once the death is recorded (`T_DECEASED`) and
+  // refuses it before. Anyone else asked is answered by the interest rule:
+  // Winnie and Frame here; Sheng's room is not built, so his line waits.
+  // A reply after **NAME:** alternates speaker at each " — " between quotes
+  // (theirs, then Thad's, then theirs); italic directions are staging.
+  {
+    const whole = read('docs/57-puzzle-completion.md');
+    const from = whole.indexOf('## E6 ');
+    if (from < 0) throw new Error('doc 57: no E6 section');
+    const body = whole.slice(from, whole.indexOf('\n## ', from + 5));
+    const esc = (v) => v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const caseOf = (who, label, speaker, tag) => {
+      const re = new RegExp(`^> \\*\\*${esc(who)}\\*\\* · USE THE EXECUTOR'S FORM${label ? `, \\*${esc(label)}\\*` : ''} — \\*\\*${tag}:\\*\\* (.+)$`, 'm');
+      const m = re.exec(body);
+      if (!m) throw new Error(`doc 57 E6: no case "${who} · USE THE EXECUTOR'S FORM${label ? `, ${label}` : ''}"`);
+      const cell = m[1].split('→')[0].replace(/\*\([^)]*\)\*/g, '');
+      const lines = [];
+      cell.split(/"\s+—\s+"/).forEach((turn, n) => {
+        for (const line of quoted(`"${turn.trim().replace(/^"|"$/g, '')}"`)) {
+          lines.push({ speaker: n % 2 === 0 ? speaker : 'thad', line: line.replace(/\*/g, '') });
+        }
+      });
+      if (!lines.length) throw new Error(`doc 57 E6: "${who}" has no line`);
+      return lines;
+    };
+    const said = ([first, ...rest]) => ({ by: first.speaker, say: first.line,
+      ...(rest.length ? { then: rest.map((one) => ({ speaker: one.speaker, line: one.line })) } : {}) });
+    const accepted = caseOf('REGISTRAR SUMP', 'with `T_DECEASED`', 'sump', 'SUMP');
+    const early = caseOf('REGISTRAR SUMP', 'before `T_DECEASED`', 'sump', 'SUMP');
+    rebuilt.push({
+      item: 'executor_form', room: 'claims_registrar', target: 'sump', puzzle: 'E6', say: accepted[0].line,
+      note: 'Doc 57 E6, step 2: the form Hob signed (HOB_E6 option 1), to Sump. The form is handed back; it is never consumed.',
+      rules: [
+        { case: 'with T_DECEASED', when: { T_DECEASED: true }, ...said(accepted), set: { T_EXECUTOR_NAMED: true }, completes: 'E6' },
+        { case: 'before T_DECEASED', when: { T_DECEASED: false }, ...said(early) },
+      ],
+    });
+    for (const [who, tag, speaker, room] of [['WINNIE', 'WINNIE', 'winnie', 'assay_office'], ['IGNATIUS FRAME', 'FRAME', 'frame', 'clarion']]) {
+      const lines = caseOf(who, null, speaker, tag);
+      rebuilt.push({
+        item: 'executor_form', room, target: speaker, puzzle: 'E6', say: lines[0].line,
+        note: `Doc 57 E6: asked to be executor, ${who.toLowerCase()} is answered by the interest rule. The form stays with Thad.`,
+        rules: [{ case: 'any time', ...said(lines) }],
+      });
+    }
+  }
   // DOC 57 C3, STEP 3: THE LETTER ON SOWERBY (errata 90 E), after SOW_A1
   // option 5. Thad's line, then every quote after **SOWERBY:** is his.
   const c3 = (() => {
@@ -2893,7 +2940,14 @@ function hobTree() {
   const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)]
     .map((m) => m[1]);
   if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
-  const PUZZLE_ENTRY = [{ puzzle: 'E9', node: 'HOB_C2' }, { puzzle: 'E8', node: 'HOB_C1' }];
+  // HOB_E6 (doc 04): "Open once `T_EXECUTOR_RULE` is set and until E6 is
+  // complete" -- E6 writes `T_EXECUTOR_NAMED` (doc 57 E6), which closes it.
+  const PUZZLE_ENTRY = [{ puzzle: 'E9', node: 'HOB_C2' }, { puzzle: 'E8', node: 'HOB_C1' },
+    { when: { T_EXECUTOR_RULE: true, T_EXECUTOR_NAMED: false }, node: 'HOB_E6' }];
+  // A STATE COLUMN (HOB_E6's fifth): "gives THE EXECUTOR'S FORM" names an item
+  // by its short name, read from the item files.
+  const ITEMS = new Map(readdirSync(resolve(ROOT, 'content/items')).filter((f) => f.endsWith('.json'))
+    .map((f) => JSON.parse(read(`content/items/${f}`))).map((item) => [item.short, item.id]));
   const unplayed = [];
   const nodes = {};
   let poolIndex = 0;
@@ -2924,7 +2978,18 @@ function hobTree() {
       const follows = afterIds(tagCell, SPEAKER);
       if (follows) option.after = follows;
       if (tagged[2]) option.afterUse = tagged[2];
-      const [spoken, ...after] = responseCell.split('→');
+      // HOB_E6's table has a fifth column, State: the response cell ends at
+      // its pipe, and what the state gives is read from it.
+      const [responseOnly, stateCell = ''] = responseCell.split(/[ \t]*\|[ \t]*/);
+      const gives = /^gives (THE [A-Z' ]+)$/.exec(plain(stateCell).trim());
+      if (gives) {
+        const item = ITEMS.get(gives[1]);
+        if (!item) throw new Error(`doc 04: ${where} gives "${gives[1]}", which no item is called`);
+        option.gives = [item];
+      } else if (stateCell.trim() && stateCell.trim() !== '—') {
+        throw new Error(`doc 04: ${where} has a state "${stateCell}" this reader does not know`);
+      }
+      const [spoken, ...after] = responseOnly.split('→');
       // Thad's aside: everything after `Thad:` is his.
       const [hobPart, thadPart] = spoken.split(/\bThad:/);
       const hobLines = quoted(hobPart.replace(/\*\([^)]*\)\*/g, '')).map((q) => said(q, where));

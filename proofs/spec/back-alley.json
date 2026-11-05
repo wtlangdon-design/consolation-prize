@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "back_alley",
+ "note": "ROOM 20's PROOF SPEC. The route is Main Street's, then along the street to its east end and through THE BACK LOTS. Room 20 has no principal changed state: one visual state (night, errata 64a), no puzzle sited in it (doc 02), nobody who speaks, and no act variant written for it (doc 05 Part Two-B), so panel D is declared absent rather than invented.",
+ "route": "back-alley",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "Room 20 has one visual state and nothing in it changes: no puzzle is sited here (doc 02), the cat is in every act, and Part Two-B wrote no act variant for the alley (doc 05). Errata 93."
+ }
+}

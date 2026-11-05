@@ -1,0 +1,17 @@
+{
+ "assetId": "room-20",
+ "subject": "room-20-back-alley",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-20-back-alley",
+ "promptFile": "reference/room-20/prompts/composition-master-01.txt",
+ "out": "art/staging/room-20/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-20/layout-1536x1024.png",
+  "renders/room-01-in-engine-1920x1080.png",
+  "art/backgrounds/room-02-main-street.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

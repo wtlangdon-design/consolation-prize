@@ -13,6 +13,13 @@
     {
       "puzzle": "E8",
       "node": "HOB_C1"
+    },
+    {
+      "when": {
+        "T_EXECUTOR_RULE": true,
+        "T_EXECUTOR_NAMED": false
+      },
+      "node": "HOB_E6"
     }
   ],
   "start": "HOB_A1",
@@ -105,6 +112,9 @@
           "tag": "PROGRESS",
           "text": "You'd be executor of my estate. It's forty feet of mud.",
           "afterUse": "remove",
+          "gives": [
+            "executor_form"
+          ],
           "say": "I know the mud."
         },
         {

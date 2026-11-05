@@ -477,6 +477,88 @@
       ]
     },
     {
+      "item": "executor_form",
+      "room": "claims_registrar",
+      "target": "sump",
+      "puzzle": "E6",
+      "say": "Hob.",
+      "note": "Doc 57 E6, step 2: the form Hob signed (HOB_E6 option 1), to Sump. The form is handed back; it is never consumed.",
+      "rules": [
+        {
+          "case": "with T_DECEASED",
+          "when": {
+            "T_DECEASED": true
+          },
+          "by": "sump",
+          "say": "Hob.",
+          "then": [
+            {
+              "speaker": "sump",
+              "line": "Surname."
+            },
+            {
+              "speaker": "thad",
+              "line": "He didn't give one."
+            },
+            {
+              "speaker": "sump",
+              "line": "The statute does not require one. It never imagined it would need to."
+            },
+            {
+              "speaker": "sump",
+              "line": "The night watchman. Holds no claim, owes nothing, is owed nothing, and has never filed so much as a complaint."
+            },
+            {
+              "speaker": "sump",
+              "line": "Accepted."
+            }
+          ],
+          "set": {
+            "T_EXECUTOR_NAMED": true
+          },
+          "completes": "E6"
+        },
+        {
+          "case": "before T_DECEASED",
+          "when": {
+            "T_DECEASED": false
+          },
+          "by": "sump",
+          "say": "The office appoints executors to estates, Mr. Grubb. You are not yet an estate."
+        }
+      ]
+    },
+    {
+      "item": "executor_form",
+      "room": "assay_office",
+      "target": "winnie",
+      "puzzle": "E6",
+      "say": "I certified your death. I can't also tidy up after it.",
+      "note": "Doc 57 E6: asked to be executor, winnie is answered by the interest rule. The form stays with Thad.",
+      "rules": [
+        {
+          "case": "any time",
+          "by": "winnie",
+          "say": "I certified your death. I can't also tidy up after it."
+        }
+      ]
+    },
+    {
+      "item": "executor_form",
+      "room": "clarion",
+      "target": "frame",
+      "puzzle": "E6",
+      "say": "Executor! Of the piano man! Can I print that I am?",
+      "note": "Doc 57 E6: asked to be executor, ignatius frame is answered by the interest rule. The form stays with Thad.",
+      "rules": [
+        {
+          "case": "any time",
+          "by": "frame",
+          "say": "Executor! Of the piano man! Can I print that I am?"
+        }
+      ]
+    },
+    {
       "item": "letter",
       "room": "church",
       "target": "sowerby",
