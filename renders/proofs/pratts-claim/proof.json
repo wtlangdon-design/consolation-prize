@@ -4,7 +4,7 @@
  "room": "pratts_claim",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "8b36f2cad851cc1c904976a5b389d51b6ca9cad2",
+ "commit": "dd39bc1153b2d38366311f587428739600ddd39a",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -45,7 +45,7 @@
    ],
    "reportedHeight": 278,
    "expected": 278,
-   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
    "bounds": [
     911,
     283,
@@ -82,7 +82,7 @@
    ],
    "reportedHeight": 479,
    "expected": 479,
-   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
    "bounds": [
     806,
     378,
@@ -113,13 +113,13 @@
     "height": 398
    },
    "seen": {
-    "x": 1272,
-    "y": 324,
-    "width": 178,
-    "height": 392,
+    "x": 1270,
+    "y": 323,
+    "width": 182,
+    "height": 393,
     "bottom": 715,
-    "right": 1449,
-    "changed": 28224
+    "right": 1451,
+    "changed": 31726
    },
    "props": []
   }
@@ -128,7 +128,7 @@
   {
    "panel": "B",
    "room": "pratts_claim",
-   "clock": 11.7913,
+   "clock": 9.2962,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -201,7 +201,7 @@
      "drawn": "art/backgrounds/room-25-pratts-claim.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dac7a2d50b612a60cc7f924d4b1b72f72a3f0a3b26b37b856833eb5a4b277374"
+     "hash": "e9054b4f0d03be6334e662767c98fa3b79d9770b9b37d3ee69bd1a7f3699abff"
     },
     {
      "key": "art/actors/room-25-pratt.png",
@@ -209,7 +209,7 @@
      "drawn": "art/actors/room-25-pratt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f131a62d0e0837eb8eef281ade28c43756aee33824caab851cce37737aab528a"
+     "hash": "6a11cc6207abbd1c33deb8a7f29beb8264590204b3e98b4e9ad8fae01b7d1741"
     }
    ],
    "stubs": [],
@@ -217,15 +217,15 @@
    "controlWrites": [
     "enter(pratts_claim)"
    ],
-   "capturedAt": "2026-11-05T17:36:42.599Z",
+   "capturedAt": "2026-11-05T18:36:18.599Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "39ad6c54ac557b49357cadf2f6e4d5bc1724be8a9ee06cd2ad99a67942c0103c"
+   "hash": "b249f264aef3534d2e206d728ccdc4e53fd49a980eaab2f8a6d385a127ada4f1"
   },
   {
    "panel": "A",
    "room": "pratts_claim",
-   "clock": 13.1245,
+   "clock": 10.1295,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -293,7 +293,7 @@
      "drawn": "art/backgrounds/room-25-pratts-claim.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dac7a2d50b612a60cc7f924d4b1b72f72a3f0a3b26b37b856833eb5a4b277374"
+     "hash": "e9054b4f0d03be6334e662767c98fa3b79d9770b9b37d3ee69bd1a7f3699abff"
     },
     {
      "key": "art/actors/room-25-pratt.png",
@@ -301,7 +301,7 @@
      "drawn": "art/actors/room-25-pratt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f131a62d0e0837eb8eef281ade28c43756aee33824caab851cce37737aab528a"
+     "hash": "6a11cc6207abbd1c33deb8a7f29beb8264590204b3e98b4e9ad8fae01b7d1741"
     }
    ],
    "stubs": [],
@@ -310,15 +310,15 @@
     "enter(pratts_claim)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T17:36:43.648Z",
+   "capturedAt": "2026-11-05T18:36:19.436Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "407481db025ea525715e07844d244b15c45af9b0ce5b781c7447acd0e8884049"
+   "hash": "35a4f0043ebf639910478baa5fe98e027c323d0c1fa0b474fd2552306864145a"
   },
   {
    "panel": "D",
    "room": "pratts_claim",
-   "clock": 29.1906,
+   "clock": 26.1455,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -367,11 +367,11 @@
       760
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 413,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-05.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
       986,
       347,
@@ -392,7 +392,7 @@
      "drawn": "art/backgrounds/room-25-pratts-claim.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dac7a2d50b612a60cc7f924d4b1b72f72a3f0a3b26b37b856833eb5a4b277374"
+     "hash": "e9054b4f0d03be6334e662767c98fa3b79d9770b9b37d3ee69bd1a7f3699abff"
     },
     {
      "key": "art/actors/room-25-pratt.png",
@@ -400,7 +400,7 @@
      "drawn": "art/actors/room-25-pratt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f131a62d0e0837eb8eef281ade28c43756aee33824caab851cce37737aab528a"
+     "hash": "6a11cc6207abbd1c33deb8a7f29beb8264590204b3e98b4e9ad8fae01b7d1741"
     }
    ],
    "stubs": [],
@@ -416,10 +416,10 @@
     "cast(false)",
     "cast(true)"
    ],
-   "capturedAt": "2026-11-05T17:36:59.720Z",
+   "capturedAt": "2026-11-05T18:36:35.474Z",
    "intent": "principal changed state: T_PRATT_BITTEN (doc 04 PRA_A1 option 1, A5's fourth way). Visible consequence: the bite, and 'How's the bite?' among his options after it.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "d1b4bd4d34ce9b66c5106f35a50ea49ddfdcf9faca765d81aa3021ee25374fc2",
+   "hash": "0e3849423efc646b0f87344371bf63e716457865b1414dc5bfb27ff67ae76e53",
    "changedBy": "flags"
   }
  ],
@@ -450,11 +450,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T17:36:59.720Z",
+ "at": "2026-11-05T18:36:35.475Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 446356,
+  "bytes": 439014,
   "panels": 5,
   "scale": 0.5
  }
