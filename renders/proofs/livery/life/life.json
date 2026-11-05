@@ -1,0 +1,2176 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "livery",
+ "commit": "6bca764f265033e2db29e5793a1b2566c02e13b9",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "livery",
+ "warped": false,
+ "lifeRoute": "livery-life",
+ "durationSeconds": 191.34,
+ "events": [
+  {
+   "t": 4.03,
+   "line": "entry route livery: 26 action(s)"
+  },
+  {
+   "t": 107.9,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 107.9,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 107.9,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 107.9,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 107.9,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 107.9,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 107.9,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 107.9,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 107.9,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 107.9,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 107.9,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 107.9,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 107.9,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 107.9,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 107.9,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 107.9,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 107.9,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 107.9,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 107.9,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 107.9,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 107.9,
+   "line": "action 21 (click): clicked screen 554,1052 -- the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)"
+  },
+  {
+   "t": 107.9,
+   "line": "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 107.9,
+   "line": "action 23 (wait): waited 1s"
+  },
+  {
+   "t": 107.9,
+   "line": "action 24 (click): clicked screen 810,472 -- the livery's place on the map (content/rooms/town-map.json loc_livery: seen from Main Street)"
+  },
+  {
+   "t": 107.9,
+   "line": "action 25 (waitFor): reached {\"room\":\"livery\"} in room livery"
+  },
+  {
+   "t": 107.9,
+   "line": "action 26 (wait): waited 3s"
+  },
+  {
+   "t": 107.91,
+   "line": "in livery; life route: 39 action(s)"
+  },
+  {
+   "t": 108.52,
+   "line": "capture 01-arrived: room livery, says null, options 0, control null"
+  },
+  {
+   "t": 109.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 110.54,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 111.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 112.59,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 113.56,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 114.54,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 115.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 116.52,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 116.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 117.09,
+   "line": "capture 02-the-stable: room livery, says null, options 0, control null"
+  },
+  {
+   "t": 118.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 119.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 120.1,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 121.1,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 122.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 123.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 124.11,
+   "line": "action 1 (wait): waited 7s"
+  },
+  {
+   "t": 124.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     320,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 124.69,
+   "line": "capture 03-the-stable-later: room livery, says null, options 0, control null"
+  },
+  {
+   "t": 124.84,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 125.13,
+   "line": "action 1 (click): clicked world 955,500 -- the livery man, tipped back in his chair"
+  },
+  {
+   "t": 126.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     685,
+     781
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 126.59,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room livery"
+  },
+  {
+   "t": 127.17,
+   "line": "capture 04-liv-a1: room livery, says null, options 7, control null"
+  },
+  {
+   "t": 127.5,
+   "line": "action 1 (option): chose option livery_man3 -- the comic option"
+  },
+  {
+   "t": 128.56,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 7,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 129.63,
+   "trace": {
+    "says": "livery_man",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 7,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 129.7,
+   "line": "action 1 (waitFor): reached {\"says\":\"livery_man\"} in room livery"
+  },
+  {
+   "t": 130.31,
+   "line": "capture 05-livery-man-speaks: room livery, says \"livery_man\", options 7, control null"
+  },
+  {
+   "t": 131.39,
+   "trace": {
+    "says": "livery_man",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 7,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 132.38,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 7,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 132.46,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room livery"
+  },
+  {
+   "t": 132.81,
+   "line": "action 1 (option): chose option livery_man2 -- Why 'Grievance'?"
+  },
+  {
+   "t": 133.83,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 7,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 134.82,
+   "trace": {
+    "says": "livery_man",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 7,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 135.85,
+   "trace": {
+    "says": "livery_man",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 7,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 136.9,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 7,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 137.01,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room livery"
+  },
+  {
+   "t": 137.32,
+   "line": "action 1 (option): chose option livery_manx -- leave"
+  },
+  {
+   "t": 138.33,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 7,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 139.35,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 7,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 140.33,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 140.35,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 7,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 140.46,
+   "line": "action 1 (click): clicked screen 960,430 -- read past the parting line, if one is still up"
+  },
+  {
+   "t": 141.52,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 142.51,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 143.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 144.47,
+   "line": "action 1 (wait): waited 4s"
+  },
+  {
+   "t": 144.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     785,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 144.6,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 144.95,
+   "line": "action 1 (click): clicked livery/grievance at world 1123,335 -- Grievance over her door"
+  },
+  {
+   "t": 146.01,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1117,
+     779
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 146.55,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room livery"
+  },
+  {
+   "t": 147.12,
+   "line": "capture 06-look-grievance: room livery, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 148.15,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1123,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 149.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1123,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 150.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1123,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 151.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1123,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 152.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1123,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 153.13,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1123,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 154.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1123,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 155.13,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 155.23,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 155.62,
+   "line": "action 1 (click): clicked livery/other_mules at world 595,440 -- the mules in the pen"
+  },
+  {
+   "t": 156.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     761,
+     857
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 157.33,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room livery"
+  },
+  {
+   "t": 157.89,
+   "line": "capture 07-listen-mules: room livery, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 158.93,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     595,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 159.93,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     595,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 160.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     595,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 161.92,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     595,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 162.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     595,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 163.95,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     595,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 164.96,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     595,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 165.89,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 165.96,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 166.29,
+   "line": "action 1 (click): clicked livery/board_of_names at world 1014,326 -- the board of names"
+  },
+  {
+   "t": 167.37,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     976,
+     857
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 167.8,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room livery"
+  },
+  {
+   "t": 168.39,
+   "line": "capture 08-look-board: room livery, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 169.42,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1014,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.42,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1014,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 171.42,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1014,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.42,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1014,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 173.43,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1014,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.45,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1014,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 175.43,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1014,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 176.4,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 176.46,
+   "line": "action 1 (verb): chose verb PICK_UP -- "
+  },
+  {
+   "t": 176.8,
+   "line": "action 1 (click): clicked livery/anvil at world 360,618 -- doc 49's PICK UP on the anvil"
+  },
+  {
+   "t": 177.82,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     652,
+     857
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 178.84,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     360,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.94,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room livery"
+  },
+  {
+   "t": 179.52,
+   "line": "capture 09-pickup-anvil: room livery, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 180.59,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     360,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 181.54,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     360,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 182.55,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     360,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 183.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     360,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 184.56,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     360,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 185.56,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     360,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 186.55,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     360,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 187.52,
+   "line": "action 1 (wait): waited 8s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "arrival from the map",
+   "t": 108.5,
+   "file": "renders/proofs/livery/life/raw-captures-ignored/01-arrived.png",
+   "hash": "29e68cd9709edd598a95178ec6bfaac6b4be5cc709169e4d7ef168a751b2326c",
+   "room": "livery",
+   "clock": 108.0107,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      320,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 426,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-00.png",
+     "bounds": [
+      99,
+      364,
+      442,
+      470
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:livery",
+     "path": "art/backgrounds/room-15-livery.png",
+     "drawn": "art/backgrounds/room-15-livery.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1b3580fe0ecff1c13b4ed6c0a3854f0743b6e78e822ac81f1ff9c8e5ec0b86e"
+    },
+    {
+     "key": "art/actors/room-15-grievance.png",
+     "path": "art/actors/room-15-grievance.png",
+     "drawn": "art/actors/room-15-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3736fc23ff317c86c9b0feb22905c0998d826517ce95b6096dd48978876f1302"
+    },
+    {
+     "key": "art/actors/room-15-livery-man.png",
+     "path": "art/actors/room-15-livery-man.png",
+     "drawn": "art/actors/room-15-livery-man.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f2f9ebb7cb80364e1be1a67cfe244bb8cbacd0c9dc5e104ceb0dc46dd4899fe"
+    },
+    {
+     "key": "art/actors/room-15-mules.png",
+     "path": "art/actors/room-15-mules.png",
+     "drawn": "art/actors/room-15-mules.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a2ee7643a7c52a095ee13f6384165082acb0879df01ccc6e6266acc506c3d2f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-the-stable",
+   "why": null,
+   "t": 117.07,
+   "file": "renders/proofs/livery/life/raw-captures-ignored/02-the-stable.png",
+   "hash": "f3a2ca6366179ab639a03d19ed32ad7ab72ce98ac25cfce31667aacfac0f96a1",
+   "room": "livery",
+   "clock": 116.61030000000001,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      320,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 426,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      99,
+      364,
+      442,
+      470
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:livery",
+     "path": "art/backgrounds/room-15-livery.png",
+     "drawn": "art/backgrounds/room-15-livery.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1b3580fe0ecff1c13b4ed6c0a3854f0743b6e78e822ac81f1ff9c8e5ec0b86e"
+    },
+    {
+     "key": "art/actors/room-15-grievance.png",
+     "path": "art/actors/room-15-grievance.png",
+     "drawn": "art/actors/room-15-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3736fc23ff317c86c9b0feb22905c0998d826517ce95b6096dd48978876f1302"
+    },
+    {
+     "key": "art/actors/room-15-livery-man.png",
+     "path": "art/actors/room-15-livery-man.png",
+     "drawn": "art/actors/room-15-livery-man.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f2f9ebb7cb80364e1be1a67cfe244bb8cbacd0c9dc5e104ceb0dc46dd4899fe"
+    },
+    {
+     "key": "art/actors/room-15-mules.png",
+     "path": "art/actors/room-15-mules.png",
+     "drawn": "art/actors/room-15-mules.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a2ee7643a7c52a095ee13f6384165082acb0879df01ccc6e6266acc506c3d2f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-the-stable-later",
+   "why": null,
+   "t": 124.67,
+   "file": "renders/proofs/livery/life/raw-captures-ignored/03-the-stable-later.png",
+   "hash": "4ed3589708650915d7e2a9ce29d844170924be79d1cf11f50f3985cafe469d78",
+   "room": "livery",
+   "clock": 124.2267,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      320,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 426,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      99,
+      364,
+      442,
+      470
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:livery",
+     "path": "art/backgrounds/room-15-livery.png",
+     "drawn": "art/backgrounds/room-15-livery.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1b3580fe0ecff1c13b4ed6c0a3854f0743b6e78e822ac81f1ff9c8e5ec0b86e"
+    },
+    {
+     "key": "art/actors/room-15-grievance.png",
+     "path": "art/actors/room-15-grievance.png",
+     "drawn": "art/actors/room-15-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3736fc23ff317c86c9b0feb22905c0998d826517ce95b6096dd48978876f1302"
+    },
+    {
+     "key": "art/actors/room-15-livery-man.png",
+     "path": "art/actors/room-15-livery-man.png",
+     "drawn": "art/actors/room-15-livery-man.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f2f9ebb7cb80364e1be1a67cfe244bb8cbacd0c9dc5e104ceb0dc46dd4899fe"
+    },
+    {
+     "key": "art/actors/room-15-mules.png",
+     "path": "art/actors/room-15-mules.png",
+     "drawn": "art/actors/room-15-mules.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a2ee7643a7c52a095ee13f6384165082acb0879df01ccc6e6266acc506c3d2f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-liv-a1",
+   "why": "LIV_A1's list, and Thad at his stand",
+   "t": 127.15,
+   "file": "renders/proofs/livery/life/raw-captures-ignored/04-liv-a1.png",
+   "hash": "b18014c21b673d5d5006fc2004c0e6161d651f1d4a601f1e8c202899d57be7bf",
+   "room": "livery",
+   "clock": 126.7266,
+   "control": null,
+   "says": null,
+   "options": 7,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      785,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 406,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      574,
+      354,
+      421,
+      448
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:livery",
+     "path": "art/backgrounds/room-15-livery.png",
+     "drawn": "art/backgrounds/room-15-livery.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1b3580fe0ecff1c13b4ed6c0a3854f0743b6e78e822ac81f1ff9c8e5ec0b86e"
+    },
+    {
+     "key": "art/actors/room-15-grievance.png",
+     "path": "art/actors/room-15-grievance.png",
+     "drawn": "art/actors/room-15-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3736fc23ff317c86c9b0feb22905c0998d826517ce95b6096dd48978876f1302"
+    },
+    {
+     "key": "art/actors/room-15-livery-man.png",
+     "path": "art/actors/room-15-livery-man.png",
+     "drawn": "art/actors/room-15-livery-man.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f2f9ebb7cb80364e1be1a67cfe244bb8cbacd0c9dc5e104ceb0dc46dd4899fe"
+    },
+    {
+     "key": "art/actors/room-15-mules.png",
+     "path": "art/actors/room-15-mules.png",
+     "drawn": "art/actors/room-15-mules.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a2ee7643a7c52a095ee13f6384165082acb0879df01ccc6e6266acc506c3d2f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-livery-man-speaks",
+   "why": "his line over his head",
+   "t": 130.29,
+   "file": "renders/proofs/livery/life/raw-captures-ignored/05-livery-man-speaks.png",
+   "hash": "5a8b13ff5a6bf5fc7a882815a4936ccf479558d57a8fba68dec8edbabea87fbf",
+   "room": "livery",
+   "clock": 129.8264,
+   "control": null,
+   "says": "livery_man",
+   "options": 7,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      785,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 406,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      574,
+      354,
+      421,
+      448
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:livery",
+     "path": "art/backgrounds/room-15-livery.png",
+     "drawn": "art/backgrounds/room-15-livery.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1b3580fe0ecff1c13b4ed6c0a3854f0743b6e78e822ac81f1ff9c8e5ec0b86e"
+    },
+    {
+     "key": "art/actors/room-15-grievance.png",
+     "path": "art/actors/room-15-grievance.png",
+     "drawn": "art/actors/room-15-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3736fc23ff317c86c9b0feb22905c0998d826517ce95b6096dd48978876f1302"
+    },
+    {
+     "key": "art/actors/room-15-livery-man.png",
+     "path": "art/actors/room-15-livery-man.png",
+     "drawn": "art/actors/room-15-livery-man.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f2f9ebb7cb80364e1be1a67cfe244bb8cbacd0c9dc5e104ceb0dc46dd4899fe"
+    },
+    {
+     "key": "art/actors/room-15-mules.png",
+     "path": "art/actors/room-15-mules.png",
+     "drawn": "art/actors/room-15-mules.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a2ee7643a7c52a095ee13f6384165082acb0879df01ccc6e6266acc506c3d2f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-look-grievance",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 147.1,
+   "file": "renders/proofs/livery/life/raw-captures-ignored/06-look-grievance.png",
+   "hash": "fdaec9564a4a27fbee6865cf358d09ed66ba12dfde6fdfd7371cd4621776abd9",
+   "room": "livery",
+   "clock": 146.6925,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1123,
+      857
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 471,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      844,
+      386,
+      558,
+      520
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:livery",
+     "path": "art/backgrounds/room-15-livery.png",
+     "drawn": "art/backgrounds/room-15-livery.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1b3580fe0ecff1c13b4ed6c0a3854f0743b6e78e822ac81f1ff9c8e5ec0b86e"
+    },
+    {
+     "key": "art/actors/room-15-grievance.png",
+     "path": "art/actors/room-15-grievance.png",
+     "drawn": "art/actors/room-15-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3736fc23ff317c86c9b0feb22905c0998d826517ce95b6096dd48978876f1302"
+    },
+    {
+     "key": "art/actors/room-15-livery-man.png",
+     "path": "art/actors/room-15-livery-man.png",
+     "drawn": "art/actors/room-15-livery-man.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f2f9ebb7cb80364e1be1a67cfe244bb8cbacd0c9dc5e104ceb0dc46dd4899fe"
+    },
+    {
+     "key": "art/actors/room-15-mules.png",
+     "path": "art/actors/room-15-mules.png",
+     "drawn": "art/actors/room-15-mules.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a2ee7643a7c52a095ee13f6384165082acb0879df01ccc6e6266acc506c3d2f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-listen-mules",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 157.87,
+   "file": "renders/proofs/livery/life/raw-captures-ignored/07-listen-mules.png",
+   "hash": "242cbc1ca12fa66027ccc1198d5469d1fbee4b0479596800499a902fe60c6dd0",
+   "room": "livery",
+   "clock": 157.4254,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      595,
+      857
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 471,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      316,
+      386,
+      558,
+      520
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:livery",
+     "path": "art/backgrounds/room-15-livery.png",
+     "drawn": "art/backgrounds/room-15-livery.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1b3580fe0ecff1c13b4ed6c0a3854f0743b6e78e822ac81f1ff9c8e5ec0b86e"
+    },
+    {
+     "key": "art/actors/room-15-grievance.png",
+     "path": "art/actors/room-15-grievance.png",
+     "drawn": "art/actors/room-15-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3736fc23ff317c86c9b0feb22905c0998d826517ce95b6096dd48978876f1302"
+    },
+    {
+     "key": "art/actors/room-15-livery-man.png",
+     "path": "art/actors/room-15-livery-man.png",
+     "drawn": "art/actors/room-15-livery-man.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f2f9ebb7cb80364e1be1a67cfe244bb8cbacd0c9dc5e104ceb0dc46dd4899fe"
+    },
+    {
+     "key": "art/actors/room-15-mules.png",
+     "path": "art/actors/room-15-mules.png",
+     "drawn": "art/actors/room-15-mules.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a2ee7643a7c52a095ee13f6384165082acb0879df01ccc6e6266acc506c3d2f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "08-look-board",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 168.37,
+   "file": "renders/proofs/livery/life/raw-captures-ignored/08-look-board.png",
+   "hash": "48546f315679b0c5bb5cbbbea80e14d1b702dbce198e5c5263c637cfbfbd4bca",
+   "room": "livery",
+   "clock": 167.9083,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1014,
+      857
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 471,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      735,
+      386,
+      558,
+      520
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:livery",
+     "path": "art/backgrounds/room-15-livery.png",
+     "drawn": "art/backgrounds/room-15-livery.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1b3580fe0ecff1c13b4ed6c0a3854f0743b6e78e822ac81f1ff9c8e5ec0b86e"
+    },
+    {
+     "key": "art/actors/room-15-grievance.png",
+     "path": "art/actors/room-15-grievance.png",
+     "drawn": "art/actors/room-15-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3736fc23ff317c86c9b0feb22905c0998d826517ce95b6096dd48978876f1302"
+    },
+    {
+     "key": "art/actors/room-15-livery-man.png",
+     "path": "art/actors/room-15-livery-man.png",
+     "drawn": "art/actors/room-15-livery-man.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f2f9ebb7cb80364e1be1a67cfe244bb8cbacd0c9dc5e104ceb0dc46dd4899fe"
+    },
+    {
+     "key": "art/actors/room-15-mules.png",
+     "path": "art/actors/room-15-mules.png",
+     "drawn": "art/actors/room-15-mules.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a2ee7643a7c52a095ee13f6384165082acb0879df01ccc6e6266acc506c3d2f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "09-pickup-anvil",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 179.5,
+   "file": "renders/proofs/livery/life/raw-captures-ignored/09-pickup-anvil.png",
+   "hash": "2d613d9c4ce7af562523245c4b09f907328949c3c143dfe8e2c5b7f2b1a98037",
+   "room": "livery",
+   "clock": 179.0578,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      360,
+      857
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 471,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      81,
+      386,
+      558,
+      520
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:livery",
+     "path": "art/backgrounds/room-15-livery.png",
+     "drawn": "art/backgrounds/room-15-livery.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1b3580fe0ecff1c13b4ed6c0a3854f0743b6e78e822ac81f1ff9c8e5ec0b86e"
+    },
+    {
+     "key": "art/actors/room-15-grievance.png",
+     "path": "art/actors/room-15-grievance.png",
+     "drawn": "art/actors/room-15-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3736fc23ff317c86c9b0feb22905c0998d826517ce95b6096dd48978876f1302"
+    },
+    {
+     "key": "art/actors/room-15-livery-man.png",
+     "path": "art/actors/room-15-livery-man.png",
+     "drawn": "art/actors/room-15-livery-man.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f2f9ebb7cb80364e1be1a67cfe244bb8cbacd0c9dc5e104ceb0dc46dd4899fe"
+    },
+    {
+     "key": "art/actors/room-15-mules.png",
+     "path": "art/actors/room-15-mules.png",
+     "drawn": "art/actors/room-15-mules.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a2ee7643a7c52a095ee13f6384165082acb0879df01ccc6e6266acc506c3d2f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 191.34s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T03:38:39.706Z"
+}
