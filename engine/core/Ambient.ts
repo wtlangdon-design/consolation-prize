@@ -123,6 +123,7 @@ export class AmbientLayer {
             sprite: placed.sprite ?? npc.sprite,
             posture: placed.posture ?? npc.posture,
             walkTo: placed.walkTo ?? npc.walkTo,
+            tree: placed.tree ?? npc.tree,
           }
           : npc;
       });

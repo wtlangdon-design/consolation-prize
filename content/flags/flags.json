@@ -510,7 +510,7 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "docs/03-liars-assay.md Tier 4, collected around town -- unbuilt"
+    "dialogue:SOWERBY:SOW_A1:sowerby8"
    ],
    "note": "Thad has learned pair 17 of docs/03-liars-assay.md -- knowledge, not an item, never lost (doc 02 item ledger). Learned from: Tier 4, around town. Read by the duel runner, which offers the right counter only once this is true (errata 73 C).",
    "pending": true
@@ -691,7 +691,8 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "docs/57-puzzle-completion.md C3, the letter on Sowerby; SOW_A1 7 (Room 17) -- unbuilt"
+    "combination:letter:church:sowerby",
+    "dialogue:SOWERBY:SOW_A1:sowerby7"
    ],
    "note": "Doc 57 C3: Sowerby books Pike's memorial. Read by FRA_A1 option 6.",
    "pending": true
@@ -910,8 +911,9 @@
    "id": "T_SOWERBY_PRICE",
    "type": "boolean",
    "initial": false,
-   "writtenBy": [],
-   "pending": true,
+   "writtenBy": [
+    "dialogue:SOWERBY:SOW_C1:sowerby_c3"
+   ],
    "note": "Doc 57 E3 step 1: SOW_C1 option 3, the Reverend's figure (Room 17, not built). Read by SHENG'S LOAN on the undertaker."
   },
   {
@@ -975,6 +977,40 @@
     "combination:filing_fee:ozymandias_tent:ozymandia"
    ],
    "note": "Doc 57 A7 step 3: the filing fee spent as a divining fee. Opens the map's divining."
+  },
+  {
+   "id": "T_SOW_FUNERAL_ASKED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:SOWERBY:SOW_A1:sowerby5"
+   ],
+   "note": "Doc 04 SOW_A1 option 5: Sowerby asks who speaks for the deceased; the letter answers it (doc 57 C3 step 3, errata 90 E)."
+  },
+  {
+   "id": "SOWERBY_ADJECTIVES",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "dialogue:SOWERBY:SOW_C1:sowerby_c1"
+   ],
+   "note": "Doc 04 SOW_C1: the adjectives in Thad's own eulogy, two dollars each (SOW_C1 option 1 adds four). The on-screen counter is not drawn (doc 36 Q160)."
+  },
+  {
+   "id": "T_SHENG_TASK",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [],
+   "note": "Doc 04 SHE_D1 option 1: Sheng's terms, the Reverend's linen debt (D3). Read by SOW_A1 option 6 and D4 at Boot Hill. Room 28, not built.",
+   "pending": true
+  },
+  {
+   "id": "T_PRATT_TRAIL",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [],
+   "note": "Doc 04 SHE_D1 option 1-prime: the Thursday ledger read (D4). Read by SOW_A1 option 7. Room 28, not built.",
+   "pending": true
   }
  ]
 }

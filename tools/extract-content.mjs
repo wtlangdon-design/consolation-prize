@@ -1214,6 +1214,30 @@ function combinations() {
       { case: 'not yet paid', when: { T_OZY_PAID: false }, ...spokenBy(a7.unpaid) },
     ],
   });
+  // DOC 57 C3, STEP 3: THE LETTER ON SOWERBY (errata 90 E), after SOW_A1
+  // option 5. Thad's line, then every quote after **SOWERBY:** is his.
+  const c3 = (() => {
+    const whole = read('docs/57-puzzle-completion.md');
+    const from = whole.indexOf('## C3 ');
+    if (from < 0) throw new Error('doc 57: no C3 section');
+    const body = whole.slice(from, whole.indexOf('\n## ', from + 5));
+    const m = /^> \*\*REVEREND SOWERBY\*\* · USE THE LETTER, \*after SOW_A1 option 5\* — (.+)$/m.exec(body);
+    if (!m) throw new Error('doc 57 C3: no letter case');
+    const cell = m[1].split('→')[0].replace(/\*\([^)]*\)\*/g, '');
+    const [before, after] = cell.split('**SOWERBY:**');
+    const thad = quoted(before);
+    const his = quoted(after ?? '');
+    if (thad.length !== 1 || !his.length) throw new Error('doc 57 C3: the letter case does not read');
+    return { thad: thad[0], his };
+  })();
+  rebuilt.push({
+    item: 'letter', room: 'church', target: 'sowerby', puzzle: 'C3', say: c3.thad,
+    note: 'Doc 57 C3, step 3: the letter of introduction is his standing to arrange the memorial; Sowerby gives it back.',
+    rules: [
+      { case: 'after SOW_A1 option 5', when: { T_SOW_FUNERAL_ASKED: true, T_MEMORIAL_BOOKED: false }, say: c3.thad,
+        then: c3.his.map((line) => ({ speaker: 'sowerby', line })), set: { T_MEMORIAL_BOOKED: true } },
+    ],
+  });
   rebuilt.push({
     item: 'tuning_fork', room: 'livery', target: 'grievance', puzzle: 'B3', say: b3.livery,
     note: 'Doc 57 B3 (with doc 54\'s lines): the fork on Grievance. With the hum and Vessel\'s whereabouts, the corrected tune, "Twelve years.", the ride over black, and Thad placed in the Nugget (errata 73 B).',
@@ -3527,8 +3551,88 @@ function ozymandiaTree() {
   });
 }
 
+/**
+ * DOC 04, REVEREND SOWERBY: Room 17's tree, SOW_A1 and SOW_C1 (errata 75, 90 E).
+ * Routing, as doc 57 writes it: SOW_A1 5 waits for `T_FANSHAWE_FUNERALS` and
+ * `T_PIKE_DEAD` and asks who speaks for the deceased (`T_SOW_FUNERAL_ASKED`,
+ * which the letter answers, C3); 6 waits for `T_SHENG_TASK`, not on a funeral
+ * day (D4); 7, another service, waits for the memorial and for C4 or D4 not
+ * done (`whenAny`); 8 is pair 17. SOW_C1, open once E2 is done
+ * (`T_NEED_TO_DIE`) until the price is set: option 1 adds four adjectives,
+ * option 3 sets `T_SOWERBY_PRICE` (E3 step 1). A universal exit from doc 04's
+ * pool closes each node. Every string is the document's.
+ */
+function sowerbyTree() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('# REVEREND SOWERBY');
+  const to = doc.indexOf('\n---', from);
+  if (from < 0 || to < 0) throw new Error('doc 04: no REVEREND SOWERBY section');
+  const whole = doc.slice(from, to);
+  const SPEAKER = 'sowerby';
+  const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
+  const ROUTE = {
+    'SOW_A1:5': { set: { T_SOW_FUNERAL_ASKED: true }, when: { T_FANSHAWE_FUNERALS: true, T_PIKE_DEAD: true } },
+    'SOW_A1:6': { when: { T_SHENG_TASK: true, T_FUNERAL_DAY: false } },
+    'SOW_A1:7': { when: { T_MEMORIAL_BOOKED: true, T_FUNERAL_DAY: false },
+      whenAny: [{ T_QUEUE_PADDED: false }, { T_PRATT_TRAIL: false }], set: { T_MEMORIAL_BOOKED: true } },
+    'SOW_A1:8': { set: { ASSAY_PAIR_17: true } },
+    'SOW_C1:1': { add: { SOWERBY_ADJECTIVES: 4 } },
+    'SOW_C1:3': { set: { T_SOWERBY_PRICE: true } },
+  };
+  const nodes = {};
+  for (const [index, id] of ['SOW_A1', 'SOW_C1'].entries()) {
+    const at = whole.indexOf(`## \`${id}\``);
+    if (at < 0) throw new Error(`doc 04: no ${id}`);
+    const next = whole.indexOf('\n## ', at + 5);
+    const body = whole.slice(at, next < 0 ? whole.length : next);
+    const opening = [...body.matchAll(/^> \*\*(SOWERBY|THAD):\*\* (.+)$/gm)].map((m) => ({
+      speaker: m[1] === 'THAD' ? 'thad' : SPEAKER, line: quoted(m[2].replace(/\*\([^)]*\)\*/g, '')).join(' ').replace(/\*/g, '') }));
+    const options = [];
+    for (const [, number, optionCell, tagCell, responseCell] of body.matchAll(/^\| (\d+) \| (.+?) \| (.+?) \| (.+?) \|$/gm)) {
+      const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
+      const text = quoted(optionCell)[0];
+      // "(second, softer)" / "(third, ...)": the counted repeats, as frameTree reads them
+      const pieces = responseCell.split(/\*\((second|third)[^)]*\)\*/);
+      const said = spokenIn(pieces[0].replace(/\*\([^)]*\)\*/g, ''), SPEAKER);
+      for (const d of spokenIn(responseCell, SPEAKER).staging) process.stderr.write(`  doc 04 ${id} option ${number} staging: ${d}\n`);
+      if (!tag || !text || !said.lines.length) throw new Error(`doc 04 ${id}: option ${number} does not read`);
+      const option = { id: `${SPEAKER}${index === 0 ? '' : '_c'}${number}`, tag: tag[1], ...(tag[2] ? { afterUse: tag[2] } : {}), text };
+      if (said.lines.length === 1 && said.lines[0].speaker === SPEAKER) option.say = said.lines[0].line;
+      else option.exchange = said.lines;
+      for (let k = 1; k < pieces.length; k += 2) {
+        const later = spokenIn((pieces[k + 1] ?? '').replace(/\*\([^)]*\)\*/g, ''), SPEAKER);
+        if (later.lines.length) (option.repeats ??= []).push({ selection: pieces[k] === 'second' ? 2 : 3, say: later.lines.map((l) => l.line).join(' ') });
+      }
+      const route = ROUTE[`${id}:${number}`] ?? {};
+      if (route.when) option.when = route.when;
+      if (route.whenAny) option.whenAny = route.whenAny;
+      if (route.set) option.set = route.set;
+      if (route.add) option.add = route.add;
+      options.push(option);
+    }
+    if (options.length < 3) throw new Error(`doc 04 ${id}: ${options.length} options`);
+    options.push({ id: `${SPEAKER}${index === 0 ? '' : '_c'}x`, tag: 'EXIT', text: POOL[(3 + index) % POOL.length], universal: true, ends: true });
+    const last = [...opening].reverse().find((u) => u.speaker === SPEAKER);
+    nodes[id] = { id, ...(last ? { prompt: last.line } : { noPrompt: true, exceptionReason: 'Doc 04 writes this node as a table only.' }),
+      ...(opening.length ? { opening } : {}), options };
+  }
+  return write('content/dialogue/sowerby.json', {
+    aftermathAuthored: true,
+    schema: 1,
+    id: 'SOWERBY',
+    speaker: SPEAKER,
+    name: 'REVEREND SOWERBY',
+    note: 'EXTRACTED from docs/04-dialogue-trees.md (REVEREND SOWERBY) by tools/extract-content.mjs. '
+      + 'Do not edit: change doc 04 and re-run. Plain quotes in a reply are his, italic quotes Thad\'s. '
+      + 'The universal exit line is doc 04 part one\'s pool.',
+    entries: [{ when: { T_NEED_TO_DIE: true, T_SOWERBY_PRICE: false }, node: 'SOW_C1' }],
+    start: 'SOW_A1',
+    nodes,
+  });
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

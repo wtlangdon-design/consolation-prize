@@ -1,0 +1,2173 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "church",
+ "commit": "fe5a24f71c9eaa9521341879bb504faa175c87a5",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "church",
+ "warped": false,
+ "lifeRoute": "church-life",
+ "durationSeconds": 197.91,
+ "events": [
+  {
+   "t": 3.97,
+   "line": "entry route church: 26 action(s)"
+  },
+  {
+   "t": 108.38,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 108.38,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 108.38,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 108.38,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 108.38,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 108.38,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 108.38,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 108.38,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 108.38,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 108.38,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 108.38,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 108.38,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 108.38,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 108.38,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 108.38,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 108.38,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 108.38,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 108.38,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 108.38,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 108.38,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 108.38,
+   "line": "action 21 (click): clicked screen 554,1052 -- the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)"
+  },
+  {
+   "t": 108.38,
+   "line": "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 108.38,
+   "line": "action 23 (wait): waited 1s"
+  },
+  {
+   "t": 108.38,
+   "line": "action 24 (click): clicked screen 600,350 -- the church's place on the map (content/rooms/town-map.json loc_church)"
+  },
+  {
+   "t": 108.38,
+   "line": "action 25 (waitFor): reached {\"room\":\"church\"} in room church"
+  },
+  {
+   "t": 108.38,
+   "line": "action 26 (wait): waited 3s"
+  },
+  {
+   "t": 108.42,
+   "line": "in church; life route: 39 action(s)"
+  },
+  {
+   "t": 109.01,
+   "line": "capture 01-arrived: room church, says null, options 0, control null"
+  },
+  {
+   "t": 110.1,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 111.04,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 112.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 113.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 114.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 115.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 116.04,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 117.03,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 117.04,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 117.64,
+   "line": "capture 02-the-church: room church, says null, options 0, control null"
+  },
+  {
+   "t": 118.69,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 119.72,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 120.68,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 121.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 122.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 123.71,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 124.65,
+   "line": "action 1 (wait): waited 7s"
+  },
+  {
+   "t": 125.24,
+   "line": "capture 03-the-church-later: room church, says null, options 0, control null"
+  },
+  {
+   "t": 125.35,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 125.62,
+   "line": "action 1 (click): clicked world 1509,200 -- Reverend Sowerby, at his pulpit"
+  },
+  {
+   "t": 126.69,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     654,
+     790
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 127.67,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     991,
+     790
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 128.79,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 129.7,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 130.66,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 131.72,
+   "trace": {
+    "says": "sowerby",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 132.67,
+   "trace": {
+    "says": "sowerby",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 132.99,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room church"
+  },
+  {
+   "t": 133.58,
+   "line": "capture 04-sow-a1: room church, says null, options 6, control null"
+  },
+  {
+   "t": 133.92,
+   "line": "action 1 (option): chose option sowerby4 -- the comic option"
+  },
+  {
+   "t": 134.95,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 135.99,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 136.21,
+   "line": "action 1 (waitFor): reached {\"says\":\"sowerby\"} in room church"
+  },
+  {
+   "t": 136.81,
+   "line": "capture 05-sowerby-speaks: room church, says \"sowerby\", options 6, control null"
+  },
+  {
+   "t": 137.83,
+   "trace": {
+    "says": "sowerby",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 138.88,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 6,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 138.99,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room church"
+  },
+  {
+   "t": 139.31,
+   "line": "action 1 (option): chose option sowerby2 -- What do your services cost?"
+  },
+  {
+   "t": 140.33,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 141.46,
+   "trace": {
+    "says": "sowerby",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 142.33,
+   "trace": {
+    "says": "sowerby",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 143.32,
+   "trace": {
+    "says": "sowerby",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 143.59,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room church"
+  },
+  {
+   "t": 143.91,
+   "line": "action 1 (option): chose option sowerbyx -- leave"
+  },
+  {
+   "t": 144.94,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 146,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 146.92,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 146.93,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 147.05,
+   "line": "action 1 (click): clicked screen 960,430 -- read past the parting line, if one is still up"
+  },
+  {
+   "t": 148.1,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 149.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 150.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 151.05,
+   "line": "action 1 (wait): waited 4s"
+  },
+  {
+   "t": 151.1,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1250,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 151.17,
+   "line": "action 1 (verb): chose verb PULL -- "
+  },
+  {
+   "t": 151.53,
+   "line": "action 1 (click): clicked church/bell_rope at world 515,343 -- doc 49's PULL on the bell rope"
+  },
+  {
+   "t": 152.54,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     927,
+     803
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 153.55,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     598,
+     816
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 154.35,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room church"
+  },
+  {
+   "t": 154.91,
+   "line": "capture 06-pull-bell-rope: room church, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 155.92,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     515,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 156.92,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     515,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 157.94,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     515,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 158.95,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     515,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 159.92,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     515,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 160.93,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     515,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 162.01,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     515,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 162.92,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 163.02,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 163.36,
+   "line": "action 1 (click): clicked church/notice_of_services at world 288,300 -- the board by the door"
+  },
+  {
+   "t": 164.34,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room church"
+  },
+  {
+   "t": 165.01,
+   "line": "capture 07-look-notice: room church, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 166.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     288,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 167.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     288,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.06,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     288,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169.08,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     288,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     288,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 171.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     288,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.04,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     288,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 173.02,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 173.1,
+   "line": "action 1 (verb): chose verb USE -- "
+  },
+  {
+   "t": 173.43,
+   "line": "action 1 (click): clicked church/hymnal at world 933,548 -- doc 49's USE on the hymnal"
+  },
+  {
+   "t": 174.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     661,
+     857
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 175.44,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     933,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 175.59,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room church"
+  },
+  {
+   "t": 176.17,
+   "line": "capture 08-use-hymnal: room church, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 177.21,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     933,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.22,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     933,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179.23,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     933,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 180.22,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     933,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 181.18,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     933,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 182.25,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     933,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 183.18,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     933,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 184.18,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 184.3,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 184.71,
+   "line": "action 1 (click): clicked church/window_glass at world 830,288 -- the windows"
+  },
+  {
+   "t": 185.42,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room church"
+  },
+  {
+   "t": 185.98,
+   "line": "capture 09-listen-window: room church, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 187.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     830,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 188.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     830,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.02,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     830,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 190.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     830,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 191.02,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     830,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 192.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     830,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 193.02,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     830,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 193.99,
+   "line": "action 1 (wait): waited 8s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "arrival from the map",
+   "t": 108.99,
+   "file": "renders/proofs/church/life/raw-captures-ignored/01-arrived.png",
+   "hash": "e5dfdfb38b64956ea076c2dd6487695c13eaacaf0fb9d09d3c33ef15e8a8737b",
+   "room": "church",
+   "clock": 108.5766,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 424,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      80,
+      366,
+      440,
+      468
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:church",
+     "path": "art/backgrounds/room-17-church.png",
+     "drawn": "art/backgrounds/room-17-church.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295"
+    },
+    {
+     "key": "art/masks/room-17-plane-1.png",
+     "path": "art/masks/room-17-plane-1.png",
+     "drawn": "art/masks/room-17-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "81bf4531c4003906a4b20e930a16d8e6e6d6b0802bab1f932b4c40d6dc0417af"
+    },
+    {
+     "key": "art/actors/room-17-sowerby.png",
+     "path": "art/actors/room-17-sowerby.png",
+     "drawn": "art/actors/room-17-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-the-church",
+   "why": null,
+   "t": 117.62,
+   "file": "renders/proofs/church/life/raw-captures-ignored/02-the-church.png",
+   "hash": "19a7a537d432a2be0247cda17be7b32e77a5f4bef7bb5ad612d756ff8dda5973",
+   "room": "church",
+   "clock": 117.1929,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 424,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-01.png",
+     "bounds": [
+      80,
+      366,
+      440,
+      468
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:church",
+     "path": "art/backgrounds/room-17-church.png",
+     "drawn": "art/backgrounds/room-17-church.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295"
+    },
+    {
+     "key": "art/masks/room-17-plane-1.png",
+     "path": "art/masks/room-17-plane-1.png",
+     "drawn": "art/masks/room-17-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "81bf4531c4003906a4b20e930a16d8e6e6d6b0802bab1f932b4c40d6dc0417af"
+    },
+    {
+     "key": "art/actors/room-17-sowerby.png",
+     "path": "art/actors/room-17-sowerby.png",
+     "drawn": "art/actors/room-17-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-the-church-later",
+   "why": null,
+   "t": 125.22,
+   "file": "renders/proofs/church/life/raw-captures-ignored/03-the-church-later.png",
+   "hash": "c387da331c7f6ce341ad0742ee257d9a04ff7257d14276a54d9f30d57a0bc7ec",
+   "room": "church",
+   "clock": 124.776,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 424,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      80,
+      366,
+      440,
+      468
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:church",
+     "path": "art/backgrounds/room-17-church.png",
+     "drawn": "art/backgrounds/room-17-church.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295"
+    },
+    {
+     "key": "art/masks/room-17-plane-1.png",
+     "path": "art/masks/room-17-plane-1.png",
+     "drawn": "art/masks/room-17-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "81bf4531c4003906a4b20e930a16d8e6e6d6b0802bab1f932b4c40d6dc0417af"
+    },
+    {
+     "key": "art/actors/room-17-sowerby.png",
+     "path": "art/actors/room-17-sowerby.png",
+     "drawn": "art/actors/room-17-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-sow-a1",
+   "why": "SOW_A1's list, and Thad at his stand",
+   "t": 133.56,
+   "file": "renders/proofs/church/life/raw-captures-ignored/04-sow-a1.png",
+   "hash": "4d617c3b5278ed27b31efe3a6dd2e67ca65cf2787bce38e1a40b1f5a7d166b81",
+   "room": "church",
+   "clock": 133.1422,
+   "control": null,
+   "says": null,
+   "options": 6,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1250,
+      790
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 424,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      999,
+      366,
+      502,
+      468
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:church",
+     "path": "art/backgrounds/room-17-church.png",
+     "drawn": "art/backgrounds/room-17-church.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295"
+    },
+    {
+     "key": "art/masks/room-17-plane-1.png",
+     "path": "art/masks/room-17-plane-1.png",
+     "drawn": "art/masks/room-17-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "81bf4531c4003906a4b20e930a16d8e6e6d6b0802bab1f932b4c40d6dc0417af"
+    },
+    {
+     "key": "art/actors/room-17-sowerby.png",
+     "path": "art/actors/room-17-sowerby.png",
+     "drawn": "art/actors/room-17-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-sowerby-speaks",
+   "why": "his line over his head",
+   "t": 136.79,
+   "file": "renders/proofs/church/life/raw-captures-ignored/05-sowerby-speaks.png",
+   "hash": "37ff68f4a181778c6fc51c5c2adbde7cc14f0806c5fe7fc884f6519c4dc5a9c9",
+   "room": "church",
+   "clock": 136.3755,
+   "control": null,
+   "says": "sowerby",
+   "options": 6,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1250,
+      790
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 424,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      999,
+      366,
+      502,
+      468
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:church",
+     "path": "art/backgrounds/room-17-church.png",
+     "drawn": "art/backgrounds/room-17-church.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295"
+    },
+    {
+     "key": "art/masks/room-17-plane-1.png",
+     "path": "art/masks/room-17-plane-1.png",
+     "drawn": "art/masks/room-17-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "81bf4531c4003906a4b20e930a16d8e6e6d6b0802bab1f932b4c40d6dc0417af"
+    },
+    {
+     "key": "art/actors/room-17-sowerby.png",
+     "path": "art/actors/room-17-sowerby.png",
+     "drawn": "art/actors/room-17-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-pull-bell-rope",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 154.89,
+   "file": "renders/proofs/church/life/raw-captures-ignored/06-pull-bell-rope.png",
+   "hash": "3afec89cf54735d8afa50f3712c94de484a176b9815923fa36ba2faf0f485ef9",
+   "room": "church",
+   "clock": 154.4748,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      515,
+      857
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 469,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      237,
+      388,
+      555,
+      518
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:church",
+     "path": "art/backgrounds/room-17-church.png",
+     "drawn": "art/backgrounds/room-17-church.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295"
+    },
+    {
+     "key": "art/masks/room-17-plane-1.png",
+     "path": "art/masks/room-17-plane-1.png",
+     "drawn": "art/masks/room-17-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "81bf4531c4003906a4b20e930a16d8e6e6d6b0802bab1f932b4c40d6dc0417af"
+    },
+    {
+     "key": "art/actors/room-17-sowerby.png",
+     "path": "art/actors/room-17-sowerby.png",
+     "drawn": "art/actors/room-17-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-look-notice",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 164.99,
+   "file": "renders/proofs/church/life/raw-captures-ignored/07-look-notice.png",
+   "hash": "37e3e437eabb086b1bc62866660ec05adc0018efe2ac73b2699009926989c374",
+   "room": "church",
+   "clock": 164.541,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      288,
+      857
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 469,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      10,
+      388,
+      555,
+      518
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:church",
+     "path": "art/backgrounds/room-17-church.png",
+     "drawn": "art/backgrounds/room-17-church.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295"
+    },
+    {
+     "key": "art/masks/room-17-plane-1.png",
+     "path": "art/masks/room-17-plane-1.png",
+     "drawn": "art/masks/room-17-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "81bf4531c4003906a4b20e930a16d8e6e6d6b0802bab1f932b4c40d6dc0417af"
+    },
+    {
+     "key": "art/actors/room-17-sowerby.png",
+     "path": "art/actors/room-17-sowerby.png",
+     "drawn": "art/actors/room-17-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "08-use-hymnal",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 176.15,
+   "file": "renders/proofs/church/life/raw-captures-ignored/08-use-hymnal.png",
+   "hash": "daeceebe19c7f7f4915f1ed16e62ad9840b234ae271737516e335624ff060fab",
+   "room": "church",
+   "clock": 175.7406,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      933,
+      857
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 469,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      655,
+      388,
+      555,
+      518
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:church",
+     "path": "art/backgrounds/room-17-church.png",
+     "drawn": "art/backgrounds/room-17-church.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295"
+    },
+    {
+     "key": "art/masks/room-17-plane-1.png",
+     "path": "art/masks/room-17-plane-1.png",
+     "drawn": "art/masks/room-17-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "81bf4531c4003906a4b20e930a16d8e6e6d6b0802bab1f932b4c40d6dc0417af"
+    },
+    {
+     "key": "art/actors/room-17-sowerby.png",
+     "path": "art/actors/room-17-sowerby.png",
+     "drawn": "art/actors/room-17-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "09-listen-window",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 185.96,
+   "file": "renders/proofs/church/life/raw-captures-ignored/09-listen-window.png",
+   "hash": "6c55867e8026795e4fc328aed5d3dbdd31d9fa02720dd5ed3dbc1aa5cad2d4c4",
+   "room": "church",
+   "clock": 185.5402,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      830,
+      857
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 469,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      552,
+      388,
+      555,
+      518
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:church",
+     "path": "art/backgrounds/room-17-church.png",
+     "drawn": "art/backgrounds/room-17-church.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295"
+    },
+    {
+     "key": "art/masks/room-17-plane-1.png",
+     "path": "art/masks/room-17-plane-1.png",
+     "drawn": "art/masks/room-17-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "81bf4531c4003906a4b20e930a16d8e6e6d6b0802bab1f932b4c40d6dc0417af"
+    },
+    {
+     "key": "art/actors/room-17-sowerby.png",
+     "path": "art/actors/room-17-sowerby.png",
+     "drawn": "art/actors/room-17-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 197.91s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T04:30:39.134Z"
+}

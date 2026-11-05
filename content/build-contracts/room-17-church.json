@@ -1,0 +1,200 @@
+{
+ "schema": 1,
+ "id": "room-17-church",
+ "room": "church",
+ "docRoom": 17,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 17 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/04-dialogue-trees.md",
+  "docs/05-examine-layer.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/57-puzzle-completion.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-17.json",
+    "docs/00-errata.md::90 · ROOM 17 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Sowerby at his pulpit except on the funeral day; C3's letter and E3's eulogy here; night."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-17/graybox.json",
+    "docs/00-errata.md::90 · ROOM 17 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Every subject is plate; Sowerby is the one figure, absent on the funeral day."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-17-sowerby-cut.png",
+    "docs/00-errata.md::90 · ROOM 17 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Sowerby generated against Thad and his Room 4 drawing, cut at the pulpit with the reading desk a plane in front of him."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/church/life/life.json"
+   ],
+   "note": "He preaches, counts adjectives and lays a hand on his heart; the lamps and the stove breathe."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-17-sowerby-cut.png"
+   ],
+   "note": "He stands behind the pulpit, cut at its top; the reading desk is a plane in front of him."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-17/annotation.json"
+   ],
+   "note": "Wall lamps, the pulpit lamp and the stove, plate light and a runtime breath each."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-17.test.ts",
+    "docs/00-errata.md::90 · ROOM 17 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "He asks who speaks for the deceased; the letter is the answer."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-17.json",
+    "content/rooms/mercantile.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 77 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-17: 3 of 4 operations (master, people-free plate, Sowerby's pulpit sheet)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/mercantile.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-17/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/church/proof.json"
+   ],
+   "note": "Panel D: the funeral day, the pulpit empty."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/church/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/church/doors/life.json",
+    "tests/room-17.test.ts"
+   ],
+   "note": "Out by the door to the map and back, twice; C3 and E3 in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-17/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-17-church.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-17/plate-01/frame.json"
+   ]
+  },
+  {
+   "subject": "Reverend Sowerby, in the church",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-17-sowerby.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-17/sowerby/sowerby.json"
+   ]
+  },
+  {
+   "subject": "the reading desk's plane",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/masks/room-17-plane-1.png",
+   "evidence": [
+    "tools/art/room17-sowerby.py"
+   ],
+   "note": "The reading desk in front of him."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q160 · Room 17, the church: built, awaiting Tyler's playthrough; SOW_C1's on-screen counter not built — **RULED 2026-11-05 (errata 90, delegated); BUILT, room-17 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q160 · Room 17, the church: built, awaiting Tyler's playthrough; SOW_C1's on-screen counter not built — **RULED 2026-11-05 (errata 90, delegated); BUILT, room-17 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

@@ -1,0 +1,229 @@
+{
+ "room": "church",
+ "plate": "art/backgrounds/room-17-church.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-17/plate-01/candidate-1920x864.png, room-17 attempt 2, the standard 20:9 crop -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-17-church.png",
+ "plateShippingHash": "7db243460b86c669410290b5",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   200,
+   740
+  ],
+  [
+   1460,
+   740
+  ],
+  [
+   1460,
+   858
+  ],
+  [
+   200,
+   858
+  ]
+ ],
+ "walkableNote": "THE PLANK FLOOR. The pews' feet are at y 715, the plate's stand at 640, the stove's at 620. The meeting table and its chairs stand forward of everything at the right, from x 1480 to the frame's foot, so the band stops short of them at x 1460: Thad never passes them, and nothing needs a plane.",
+ "scaling": {
+  "far": {
+   "y": 740,
+   "height": 390
+  },
+  "near": {
+   "y": 858,
+   "height": 470
+  },
+  "note": "ROOM 17'S DEPTH, FROM THE MAN THE MASTER PAINTED: about 315 tall with his feet at source y 770, which is 398 at y 758 in this plate's frame; along Room 5's slope (0.68 a row) that is 390 at the band's far edge and 470 at its near. Sowerby stands behind the pulpit on its platform at 330 (tools/art/room17-sowerby.py)."
+ },
+ "entrance": [
+  300,
+  790
+ ],
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    300,
+    790
+   ],
+   "facing": "right",
+   "note": "In by the door, at left: the map leads here."
+  }
+ ],
+ "hotspots": {
+  "notice_of_services": [
+   232,
+   200,
+   112,
+   200
+  ],
+  "subscription_list": [
+   372,
+   232,
+   108,
+   180
+  ],
+  "collection_plate": [
+   248,
+   418,
+   80,
+   44
+  ],
+  "bell": [
+   440,
+   0,
+   120,
+   62
+  ],
+  "bell_rope": [
+   495,
+   50,
+   40,
+   585
+  ],
+  "window_glass": [
+   655,
+   135,
+   350,
+   305
+  ],
+  "pews": [
+   598,
+   450,
+   520,
+   265
+  ],
+  "hymnal": [
+   885,
+   522,
+   95,
+   52
+  ],
+  "stove_church_sized": [
+   1085,
+   0,
+   215,
+   620
+  ],
+  "pulpit": [
+   1370,
+   260,
+   315,
+   300
+  ],
+  "meeting_table": [
+   1480,
+   480,
+   440,
+   384
+  ],
+  "floor": [
+   0,
+   640,
+   1480,
+   95
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE NOTICE OF SERVICES is the board of services and prices by the door ('The board is by the door', SOW_A1 option 2); THE BELL is seen through the belfry hatch; THE FLOOR is the strip of planks behind the walk band; THE MEETING TABLE stands in the foreground at the hall's end.",
+ "people": {
+  "REVEREND SOWERBY": [
+   "sowerby"
+  ]
+ },
+ "exitSubjects": {
+  "THE DOOR, ALWAYS UNLOCKED": {
+   "id": "door_always_unlocked",
+   "to": "town_map",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 20: the church is reached by the map, and its door leads back to it. Doc 05 and doc 54 write the door's LOOK and LISTEN."
+  }
+ },
+ "exits": {
+  "door_always_unlocked": [
+   40,
+   100,
+   140,
+   540
+  ]
+ },
+ "exitWalkTo": {
+  "door_always_unlocked": {
+   "x": 230,
+   "y": 780,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "door_lamp",
+   "at": [
+    212,
+    255
+   ],
+   "radius": 360,
+   "amount": 0.08,
+   "rate": 0.23,
+   "phase": 0.1,
+   "note": "The lamp by the door."
+  },
+  {
+   "id": "pulpit_lamp",
+   "at": [
+    1408,
+    275
+   ],
+   "radius": 420,
+   "amount": 0.08,
+   "rate": 0.27,
+   "phase": 0.6,
+   "note": "The lamp on the pulpit."
+  },
+  {
+   "id": "stove",
+   "at": [
+    1190,
+    485
+   ],
+   "radius": 300,
+   "amount": 0.1,
+   "rate": 0.31,
+   "phase": 0.4,
+   "note": "The stove's glow."
+  }
+ ],
+ "defaultVerbs": {
+  "notice_of_services": "LOOK_AT",
+  "subscription_list": "LOOK_AT",
+  "collection_plate": "LOOK_AT",
+  "bell": "LOOK_AT",
+  "bell_rope": "LOOK_AT",
+  "window_glass": "LOOK_AT",
+  "pews": "LOOK_AT",
+  "hymnal": "LOOK_AT",
+  "stove_church_sized": "LOOK_AT",
+  "pulpit": "LOOK_AT",
+  "meeting_table": "LOOK_AT",
+  "floor": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
+ "occlusion": {
+  "note": "ONE PLANE, HIS: the reading desk on the pulpit stands in front of him (art/masks/room-17-plane-1.png, written by tools/art/room17-sowerby.py), assigned by his church placement's clipPlane. Thad's walk band is in front of everything and stops short of the meeting table, so his bands are plane 0.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": [
+   {
+    "level": 1,
+    "mask": "art/masks/room-17-plane-1.png",
+    "note": "The reading desk on the pulpit, its dark wood against the pale wall (tools/art/room17-sowerby.py). Assigned to Sowerby by his church placement's clipPlane, not by any walk box."
+   }
+  ]
+ }
+}

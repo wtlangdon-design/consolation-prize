@@ -443,6 +443,7 @@ export class DialogueRunner {
     const out: PresentedOption[] = [];
     for (const authored of node.options) {
       if (!this.flags.test(authored.when)) continue;
+      if (authored.whenAny && !authored.whenAny.some((one) => this.flags.test(one))) continue;
       if (!this.carries(authored)) continue;
       if (!this.followsAsked(authored, treeId, nodeId)) continue;
       const taken = this.countOf(treeId, nodeId, authored.id);

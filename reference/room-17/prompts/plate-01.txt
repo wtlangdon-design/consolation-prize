@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: a frontier church and meeting hall at night, with two people in it: the man in the blue coat standing on the floor by the stove, and the minister behind the pulpit.
+
+Remove both of them. Paint what is behind each, exactly as the room would look with nobody in it: the stove, the end of the pew and the plank floor behind the man; the plank wall and the lamp behind the minister, down to the pulpit's reading desk.
+
+Change nothing else. Same framing, same camera, same pixel grid, same colours, same light, same objects in the same places: the door, the boards on the wall, the collection plate on its stand, the bell and its rope, the windows, the pews and the open book, the stove, the pulpit, the meeting table and its chairs, the lamps. The grey strips above and below stay grey. No people, no shadows of people, no text.

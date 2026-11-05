@@ -1,0 +1,22 @@
+Image 1 shows two figures from my pixel-art adventure game side by side at the same scale. On the left is Thad, the hero: he is the style standard. On the right is Reverend Sowerby, already in the game: this is exactly how he looks. Look at Thad's pixels: BIG square blocks. Thad is only about 80 pixels tall from hair to shoes; every pixel of him is a clear, chunky square; his face is a handful of blocks.
+
+Image 2 is the room he preaches in: a frontier church at night, with a wooden pulpit.
+
+I need REVEREND SOWERBY drawn on his own, as a sheet of five poses, in THAD'S PIXEL SIZE and EXACTLY as image 1 shows him: an elderly minister, grey hair, grey side whiskers, a long black frock coat, a black waistcoat, a white collar, black trousers and shoes. Same face, same clothes, same colours as in image 1. A man of enormous feeling, deployed sincerely, for money.
+
+THE SHEET -- one image, five poses of this same man, side by side, left to right, each FULL LENGTH from head to shoes, standing, facing the viewer:
+1. REST: both hands resting together in front of him at waist height, as if on a reading desk, looking out with great warmth.
+2. BREATH: identical to pose 1 except his shoulders very slightly raised. Nothing else changes.
+3. PREACHING: one hand raised high, forefinger pointing up, eyes lifted, mouth open in a sermon.
+4. COUNTING: as pose 1, but one hand held up in front of his chest counting off adjectives on its fingers, a businesslike look.
+5. FEELING: as pose 1, but one hand pressed to his heart, eyes closed, deeply moved.
+
+STYLE: every pose about 80 big pixels tall from head to shoes, exactly as coarse as Thad; every pixel a large, crisp square block the size of Thad's; simple shapes and flat colour areas; the face as simple as Thad's -- a few blocks, dark blocks for the eyes.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no pulpit, nothing else in the picture.
+- All five poses the same size, shoes on the same baseline, each about two-thirds the height of the picture.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same face everywhere else.
+- Crisp pixel edges against the magenta. No soft glow or blur around him.
+- No text, labels, numbers or borders.

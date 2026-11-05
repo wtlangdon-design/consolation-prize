@@ -33,7 +33,8 @@
   "content/rooms/coffin.json",
   "content/rooms/boot-hill.json",
   "content/rooms/livery.json",
-  "content/rooms/ozymandias-tent.json"
+  "content/rooms/ozymandias-tent.json",
+  "content/rooms/church.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -52,7 +53,8 @@
   "content/dialogue/frame.json",
   "content/dialogue/fanshawe.json",
   "content/dialogue/livery-man.json",
-  "content/dialogue/ozymandia.json"
+  "content/dialogue/ozymandia.json",
+  "content/dialogue/sowerby.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -70,7 +72,8 @@
   "content/fixtures/room-13.json",
   "content/fixtures/room-14.json",
   "content/fixtures/room-15.json",
-  "content/fixtures/room-16.json"
+  "content/fixtures/room-16.json",
+  "content/fixtures/room-17.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",

@@ -193,7 +193,10 @@ async function main() {
           if (!holds) continue;
           const sheet = frame.assets.find((a) => a.path === declared?.sheet);
           if (!sheet?.loaded) failures.push(`capture ${action.name}: ${npcId}'s sheet ${declared?.sheet ?? '(none declared)'} is not loaded -- she is absent`);
-          for (const prop of npc.sprite?.props ?? []) {
+          // The props of the sheet drawn HERE, as for the sheet: Room 17's
+          // Sowerby is drawn from his church sheet, which carries no judge's
+          // pencil, so Room 4's pencil cover is not his prop in the church.
+          for (const prop of declared?.props ?? []) {
             const propSheet = frame.assets.find((a) => a.path === prop.sheet);
             if (!propSheet?.loaded) failures.push(`capture ${action.name}: ${npcId}'s prop ${prop.sheet} is not loaded`);
           }

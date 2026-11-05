@@ -1,0 +1,91 @@
+{
+ "schema": 1,
+ "room": "church",
+ "note": "DOC 46 4.13's GAMEPLAY PASS for Room 17: in by the map (the spec's entry route), then out by the door, which opens the map, and back by the map, twice. Each capture asserts the room it should be in.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "00-arrived"
+  },
+  {
+   "do": "click",
+   "on": "door_always_unlocked",
+   "why": "THE DOOR, ALWAYS UNLOCKED -- out, to the map"
+  },
+  {
+   "do": "waitFor",
+   "room": "town_map",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "capture",
+   "name": "01-out",
+   "room": "town_map"
+  },
+  {
+   "do": "click",
+   "at": [
+    600,
+    350
+   ],
+   "why": "the church's marker"
+  },
+  {
+   "do": "waitFor",
+   "room": "church",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "01-in"
+  },
+  {
+   "do": "click",
+   "on": "door_always_unlocked",
+   "why": "THE DOOR, ALWAYS UNLOCKED -- out, to the map"
+  },
+  {
+   "do": "waitFor",
+   "room": "town_map",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "capture",
+   "name": "02-out",
+   "room": "town_map"
+  },
+  {
+   "do": "click",
+   "at": [
+    600,
+    350
+   ],
+   "why": "the church's marker"
+  },
+  {
+   "do": "waitFor",
+   "room": "church",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "02-in"
+  }
+ ]
+}

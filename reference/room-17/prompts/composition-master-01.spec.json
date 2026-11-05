@@ -1,0 +1,18 @@
+{
+ "assetId": "room-17",
+ "subject": "room-17-church",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-17-church",
+ "promptFile": "reference/room-17/prompts/composition-master-01.txt",
+ "out": "art/staging/room-17/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-17/layout-1536x1024.png",
+  "renders/room-01-in-engine-1920x1080.png",
+  "art/backgrounds/room-03-nugget.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png",
+  "art/actors/room-04-sowerby.png"
+ ]
+}

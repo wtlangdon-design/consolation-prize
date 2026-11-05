@@ -505,6 +505,12 @@ export interface AmbientFile {
      * pieces of art -- the same reason the position is per room.
      */
     sprite?: AmbientFile['sprite'];
+    /**
+     * The tree TALK TO opens IN THIS ROOM. Room 17: Sowerby judges in Room 4's
+     * back room with no tree of his own there, and is talked to in his church
+     * (doc 04 SOW_A1, SOW_C1).
+     */
+    tree?: string;
   }>;
   barks: Record<string, string>;
   /**
@@ -1527,6 +1533,11 @@ export interface DialogueOption {
   text: string;
   tag: OptionTag;
   when?: Condition;
+  /**
+   * At least one of these must hold as well (doc 04 SOW_A1 option 7: "req C3
+   * complete and C4 or D4 not" -- the "or" a single condition cannot say).
+   */
+  whenAny?: Condition[];
   say?: string;
   /**
    * A response with more than one speaker in it, in order.

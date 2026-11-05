@@ -4786,3 +4786,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Eighteen subjects and 107 lines; Madame Ozymandia behind her table and her tree, OZY_A1; A7 -- her price, the filing fee, the map divined into THE SURVEY -- played in `tests/room-16.test.ts` (`?fixture=r16-a`). Reached by the map; its flap leads back to it. Proofs under `renders/proofs/ozymandias-tent/`.
 
 **Open, for Tyler:** (a) No document describes her; she is drawn as an 1850s spiritualist medium, after the master drew a caricature the builder's brief invited (errata 89 B). Look at her. (b) The filing fee used on her before she has named a price answers from the item's pool; no case is written for it.
+
+## Q160 · Room 17, the church: built, awaiting Tyler's playthrough; SOW_C1's on-screen counter not built — **RULED 2026-11-05 (errata 90, delegated); BUILT, room-17 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Thirteen subjects and seventy-seven lines; Reverend Sowerby at his pulpit (his Room 4 drawing's church sheet) and his tree, SOW_A1 and SOW_C1; C3's letter (`?fixture=r17-a`) and E3's eulogy (`?fixture=r17-b`) played in `tests/room-17.test.ts`. Reached by the map; its door leads back to it. Proofs under `renders/proofs/church/`.
+
+**Open, for Tyler:** (a) Doc 04's live price counter during SOW_C1 ("ADJECTIVES and the price", errata 75) is not drawn: the count is kept (`SOWERBY_ADJECTIVES`) and his lines say it ("Four adjectives, eight dollars"), but the counter's words and layout are not written. (b) SOW_A1 option 7 reads "C3 complete" as the memorial booked and not the funeral day.
