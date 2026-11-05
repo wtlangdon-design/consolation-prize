@@ -57,9 +57,10 @@
   "lighting": {
    "status": "PASS",
    "evidence": [
-    "reference/room-23/annotation.json"
+    "reference/room-23/annotation.json",
+    "tools/check-night-exposure.mjs"
    ],
-   "note": "Night, the town's hour (Tyler, 2026-11-05; errata 98); the figures graded into it."
+   "note": "Night, the town's hour, lifted to the approved night rooms' level (Tyler, 2026-11-05; errata 98)."
   },
   "cluePerceptibility": {
    "status": "PASS",
@@ -149,7 +150,7 @@
     "art/staging/ledger.json",
     "art/staging/room-23/plate-night/frame.json"
    ],
-   "note": "Attempt 4, relit to night; promoted provisionally (errata 72 E)."
+   "note": "Attempt 4, lifted by 1.25; promoted provisionally (errata 72 E)."
   },
   {
    "subject": "the raccoon",

@@ -58,9 +58,10 @@
   "lighting": {
    "status": "PASS",
    "evidence": [
-    "reference/room-25/annotation.json"
+    "reference/room-25/annotation.json",
+    "tools/check-night-exposure.mjs"
    ],
-   "note": "Night, the town's hour (Tyler, 2026-11-05; errata 98); the figures graded into it."
+   "note": "Night, the town's hour, lifted to the approved night rooms' level (Tyler, 2026-11-05; errata 98), with the coffee fire's embers its one warm light."
   },
   "cluePerceptibility": {
    "status": "PASS",
@@ -84,7 +85,7 @@
     "art/staging/caps.json",
     "art/staging/ledger.json"
    ],
-   "note": "room-25: 5 of 5 operations, the last the relight to night (errata 98)."
+   "note": "room-25: 6 of 6 operations, the last two the relight to night and the embers (errata 98)."
   }
  },
  "liveGates": {
@@ -148,9 +149,9 @@
    "path": "art/backgrounds/room-25-pratts-claim.png",
    "evidence": [
     "art/staging/ledger.json",
-    "art/staging/room-25/plate-night/frame.json"
+    "art/staging/room-25/plate-embers/frame.json"
    ],
-   "note": "Attempt 5, relit to night; promoted provisionally (errata 72 E)."
+   "note": "Attempt 6, lifted by 1.45; promoted provisionally (errata 72 E)."
   },
   {
    "subject": "Pratt, on his claim",

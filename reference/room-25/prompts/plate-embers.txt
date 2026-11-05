@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: a tidy gold claim on a hillside at night. In the middle there is a folding camp chair and, beside it, a coffee pot sitting on a small ring of stones.
+
+Make exactly ONE change: there is a small fire under the coffee pot, burned down to embers. Inside the ring of stones, under the pot, paint a low bed of glowing orange-red embers, no flames. Its warm light falls softly on the stones of the ring, the coffee pot, the near side of the camp chair, the foot of the nearer post and the ground within a few feet around it, fading quickly into the blue night. Images 2 and 3 show how warm light from a lamp sits in a night scene in this game.
+
+Change nothing else. Same camera, same framing, same pixel grid, same big square pixels, every object exactly where it is and the same shape and size; the rest of the picture keeps its blue night light. No people, no animals, no text, no numerals. No border, no frame.

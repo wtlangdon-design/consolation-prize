@@ -6,7 +6,7 @@
   "width": 1520,
   "height": 684
  },
- "out": "art/staging/room-23/plate-night/candidate-1920x864.png",
+ "out": "art/staging/room-23/plate-night/candidate-lifted-1920x864.png",
  "derivation": {
   "transform": "errata-63-fixed-room-source-acquisition",
   "provisional": true,
@@ -59,6 +59,17 @@
    "bytes": 2657425,
    "colourType": 2
   }
+ },
+ "lift": {
+  "gain": 1.25,
+  "groundBefore": [
+   27.2,
+   43.2
+  ],
+  "groundAfter": [
+   33.9,
+   54.2
+  ]
  },
  "why": "Room 23 takes a 20:9 crop from y 200: the master painted the whole canvas (tools/art/room23-plate.mjs)."
 }
