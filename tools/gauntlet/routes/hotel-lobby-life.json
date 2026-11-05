@@ -113,9 +113,13 @@
    "seconds": 8
   },
   {
+   "do": "verb",
+   "verb": "USE"
+  },
+  {
    "do": "click",
    "on": "stairs_closed",
-   "why": "the stairs before the room: a bare click walks (their default verb), and the clerk answers"
+   "why": "USE on the stairs before the room (doc 57 A2: 'USE or walk up'); the clerk answers"
   },
   {
    "do": "waitFor",

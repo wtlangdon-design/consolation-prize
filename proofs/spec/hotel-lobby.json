@@ -15,5 +15,14 @@
     "seconds": 2
    }
   ]
+ },
+ "ambientContact": {
+  "hotel_clerk": {
+   "lowestDrawnRowWithin": [
+    438,
+    450
+   ],
+   "why": "his hands rest on the desk top's back edge (plate y 442); the register is a plane in front of him, the desk top below the cut"
+  }
  }
 }
