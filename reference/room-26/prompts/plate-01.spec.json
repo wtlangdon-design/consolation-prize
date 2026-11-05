@@ -1,0 +1,13 @@
+{
+ "assetId": "room-26",
+ "subject": "room-26-creek",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-26-creek",
+ "promptFile": "reference/room-26/prompts/plate-01.txt",
+ "out": "art/staging/room-26/plate-01/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-26/plate-01/input.png"
+ ]
+}

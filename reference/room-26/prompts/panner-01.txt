@@ -1,0 +1,23 @@
+Image 1 shows two figures from my pixel-art adventure game side by side at the same scale. On the left is Thad, the hero: he is the style standard. On the right, roughly cut out, is a gold miner crouched at a creek with a pan, cut from image 2. Look at Thad's pixels: BIG square blocks. Thad is only about 80 pixels tall from hair to shoes; every pixel of him is a clear, chunky square; his clothes are a few flat tones with no fine texture.
+
+Image 2 is a frame from the game: a creek in the diggings at night. The crouching miner at the water's edge on the right is the one I need, drawn on his own in THAD'S PIXEL SIZE, as a sheet of eight frames in two rows.
+
+THE CHARACTER -- a worn-out gold miner of the 1850s, crouched on his heels at the water's edge, seen from the side and a little behind, FACING LEFT: battered slouch hat, brown coat, dark trousers, boots, both hands on a shallow gold pan dipped in the water in front of him. Patient past the point of hope. He does not look up at anyone.
+
+TOP ROW -- four poses, crouched, each showing him WHOLE, hat to boots, with his pan:
+1. REST: crouched, the pan held low and level in front of him, as in image 2.
+2. BREATH: identical to pose 1 except his back very slightly higher. Nothing else changes.
+3. PEER: as pose 1, but the pan lifted close to his face, tilted toward him, peering into it.
+4. TIP: as pose 1, but the pan tipped forward, emptying it out in front of him.
+
+BOTTOM ROW -- four frames of him SWIRLING the pan, crouched as in pose 1: the pan tilted left, level, tilted right, level -- his arms and the pan move, nothing else.
+
+STYLE: crouched, about 45 big pixels tall from hat to boots, exactly as coarse as Thad; every pixel a large, crisp square block the size of Thad's; simple shapes and flat colour areas; muted browns.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No water, no ground, no shadow, nothing else in the picture.
+- Every frame is one piece -- the man and his pan -- and does not touch any other frame.
+- All frames the same size, boots on the same baseline within each row; clear magenta space between frames and between the rows.
+- Between frames, ONLY the change described happens. Same man, same colours everywhere else.
+- Crisp pixel edges against the magenta. No soft glow or blur.
+- No text, labels, numbers or borders.

@@ -1,0 +1,179 @@
+{
+ "room": "creek",
+ "plate": "art/backgrounds/room-26-creek.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-26/plate-01/candidate-lifted-1920x864.png, room-26 attempt 2, the band of the master, lifted by 1.45 toward the approved night rooms -- frame.json).",
+ "plateShipping": "art/backgrounds/room-26-creek.png",
+ "plateShippingHash": "2423285fa118",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   190,
+   690
+  ],
+  [
+   1900,
+   690
+  ],
+  [
+   1900,
+   858
+  ],
+  [
+   190,
+   858
+  ]
+ ],
+ "walkableNote": "THE NEAR BANK, below the water's edge (y 620-660); the willow's roots bound it at the left.",
+ "scaling": {
+  "far": {
+   "y": 690,
+   "height": 281
+  },
+  "near": {
+   "y": 858,
+   "height": 395
+  },
+  "note": "ROOM 26'S DEPTH, FROM THE MASTER: Thad stood with his feet at y 760 and was drawn about 328 tall; along Room 5's slope (0.68 a row) that is 281 at the band's far edge and 395 at its near."
+ },
+ "entrance": [
+  260,
+  790
+ ],
+ "entrances": [
+  {
+   "from": "claims_road",
+   "at": [
+    260,
+    790
+   ],
+   "facing": "right",
+   "note": "Down from the road, at left."
+  },
+  {
+   "from": "default",
+   "at": [
+    260,
+    790
+   ],
+   "facing": "right",
+   "note": "As from the road."
+  },
+  {
+   "from": "town_map",
+   "at": [
+    260,
+    790
+   ],
+   "facing": "right",
+   "note": "From the map, as from the road."
+  }
+ ],
+ "hotspots": {
+  "mercury_flask": [
+   470,
+   370,
+   60,
+   70
+  ],
+  "discarded_pan": [
+   315,
+   228,
+   110,
+   75
+  ],
+  "riffles": [
+   470,
+   300,
+   280,
+   70
+  ],
+  "man_panning": [
+   1340,
+   500,
+   280,
+   145
+  ],
+  "headgate": [
+   1630,
+   195,
+   270,
+   320
+  ],
+  "far_side": [
+   660,
+   110,
+   940,
+   150
+  ],
+  "willow": [
+   0,
+   0,
+   560,
+   420
+  ],
+  "sluice": [
+   470,
+   260,
+   1170,
+   180
+  ],
+  "creek": [
+   150,
+   470,
+   1770,
+   160
+  ],
+  "boot_prints": [
+   0,
+   640,
+   1920,
+   224
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE MAN PANNING is over the figure at the water (content/ambient/man-panning.json). THE BOOT PRINTS is the near bank, walked on by a bare click.",
+ "people": {},
+ "exits": {
+  "to_claims_road": [
+   0,
+   560,
+   110,
+   304
+  ]
+ },
+ "exitWalkTo": {
+  "to_claims_road": {
+   "x": 200,
+   "y": 790,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [],
+ "defaultVerbs": {
+  "mercury_flask": "LOOK_AT",
+  "discarded_pan": "LOOK_AT",
+  "riffles": "LOOK_AT",
+  "man_panning": "LOOK_AT",
+  "headgate": "LOOK_AT",
+  "far_side": "LOOK_AT",
+  "willow": "LOOK_AT",
+  "sluice": "LOOK_AT",
+  "creek": "LOOK_AT",
+  "boot_prints": "WALK_TO"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click, except THE BOOT PRINTS, the bank, which is walked on.",
+ "props": [],
+ "occlusion": {
+  "note": "No plane: the walk band is the near bank, in front of everything; the man panning crouches at the water behind it.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}

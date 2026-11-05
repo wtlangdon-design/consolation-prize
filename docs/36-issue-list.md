@@ -4834,3 +4834,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Eleven subjects and seventy lines; Pratt raking, and his five trees with the offer that ends every conversation; A5's fourth way (`?fixture=r25-a`); D2 on Prosperity in Act II (`?fixture=r25-c`, walk up the road's way) and at his claim, and D5's turn (`?fixture=r25-b`); next door from Prosperity and on the map with the map. Played in `tests/room-25.test.ts`. Proofs under `renders/proofs/pratts-claim/`, started from fixture r25-a.
 
 **Ruled:** (a) dusk, as next door (Tyler, 2026-11-05; errata 97 A), room-25's fourth operation. **Open, for Tyler:** (b) D6's counter scene in Room 7 waits to be staged (`T_PRATT_SWEARS`). (c) Pratt's sparring (pairs 10-15) waits for the sparring runtime, as Winnie's does. (d) `T_PRATT_TRAIL` is Sheng's (D4, Room 28, not built); fixture r25-b sets it.
+
+## Q168 · Room 26, the creek & sluice: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99, delegated); BUILT, room-26 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Ten subjects and sixty-five lines; THE MAN PANNING crouched at the water, swirling; at night. On the map once Thad has walked the road to the claims (`?fixture=r26-a`, or `?room=creek`). Played in `tests/room-26.test.ts`; doc 02 sites no puzzle here. Proofs under `renders/proofs/creek/`, started from fixture r26-a.
+
+**Open, for Tyler:** (a) The sluice is on the far bank, across the water -- its subjects are looked at from this side. (b) How the diggings are reached (errata 99 A) applies to all five of Rooms 26-30.

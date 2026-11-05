@@ -1,0 +1,633 @@
+{
+  "schema": 1,
+  "id": "creek",
+  "name": "THE CREEK & SLUICE",
+  "materialIdentity": "The creek in the diggings, the community sluice on its far bank, one willow; night, the town's hour (errata 98, 99)",
+  "note": "Room 26, doc 20: the creek and the community sluice, below the road to the claims (errata 99 A).",
+  "background": "art/backgrounds/room-26-creek.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "hotspots": [
+    {
+      "id": "mercury_flask",
+      "name": "THE MERCURY FLASK",
+      "rect": [
+        470,
+        370,
+        60,
+        70
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Quicksilver in an iron flask, chained to the sluice like the judges' pencil, and for the same reason.",
+            "repeat": [
+              "The chain is newer than the flask. Somebody learned something.",
+              "It is heavier than it looks. It is the only thing out here that is."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A heavy, offended slosh.",
+            "repeat": [
+              "A shift inside, slow and heavy, like something turning over in bed.",
+              "Nothing, until the chain moves, and then the slosh again, offended on principle."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "Chained, stoppered, and right. Quicksilver in this town would end up in the whiskey inside a week, as medicine."
+      },
+      "walkTo": {
+        "x": 500,
+        "y": 786,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "discarded_pan",
+      "name": "THE DISCARDED PAN",
+      "rect": [
+        315,
+        228,
+        110,
+        75
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A gold pan, in the willows, thrown. Not dropped. Thrown.",
+            "repeat": [
+              "The bottom is worn bright from swirling. Whoever threw it had used it a long time first.",
+              "Nobody has picked it up. Out here a thrown pan is a kind of grave."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Water ticking against its rim in the shallows.",
+              "Nothing. It has been let go."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 370,
+        "y": 786,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "riffles",
+      "name": "THE RIFFLES",
+      "rect": [
+        470,
+        300,
+        280,
+        70
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The cross-bars that are supposed to catch the gold. They catch sand, mercury beads, buttons, and once — the story goes — a wedding ring nobody would afterward claim.",
+            "repeat": [
+              "Cleats to catch the heavy material. There is a great deal of heavy material and none of it is gold.",
+              "A brass button is caught on the third bar, with an anchor on it. A sailor came a very long way to lose it here."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Grit, ticking along the bars. The sound of almost.",
+            "repeat": [
+              "Nothing.",
+              "Grit, then nothing, then grit. It is catching its breath."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 610,
+        "y": 786,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "man_panning",
+      "name": "THE MAN PANNING",
+      "rect": [
+        1340,
+        500,
+        280,
+        145
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A man, crouched, doing the same motion he was doing when I passed this morning.",
+            "repeat": [
+              "Swirl, tip, look, sigh, scoop. He has done it so long his shoulders have learned it without him.",
+              "He looked up at me once. He did not seem to see a person, only something that was not gold."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water, and breathing, and nothing else at all. He has not spoken in nine hours.",
+            "repeat": [
+              "The pan's rim on stone, over and over, in perfect time. He would make a decent metronome.",
+              "Something very small under his breath: a tune with no middle to it, the same eight notes again."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1480,
+        "y": 786,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "headgate",
+      "name": "THE HEADGATE",
+      "rect": [
+        1630,
+        195,
+        270,
+        320
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The gate that feeds the sluice. Opening it is a privilege rotated weekly by a schedule everyone disputes and everyone obeys.",
+            "repeat": [
+              "The schedule is nailed to the post beside it and amended in five hands. Two of the amendments are threats.",
+              "It leaks at the bottom. The creek gets through a little every day, on nobody's schedule."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The creek, leaning on the boards. It would like to come through now, please.",
+            "repeat": [
+              "Water pressing, polite and enormous.",
+              "A trickle at the bottom boards. The creek is not waiting for its week."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "It is not my week. The schedule is disputed hourly and enforced absolutely."
+      },
+      "walkTo": {
+        "x": 1765,
+        "y": 786,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "far_side",
+      "name": "THE FAR SIDE",
+      "rect": [
+        660,
+        110,
+        940,
+        150
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The far bank, close enough to hit with a stone and claimed by a different set of men, who look exactly like this set.",
+            "repeat": [
+              "They are working the same water a few feet over. A different claim and the same creek; that is the whole law of the district.",
+              "A man on the far side raised his hat to me. I raised mine. We have now met, and neither of us will mention it again."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The same water, telling them the same thing.",
+            "repeat": [
+              "Picks on the far side, a beat behind ours, like an echo with ambitions.",
+              "Someone over there laughing. It carries well across water, and it sounds expensive."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1130,
+        "y": 786,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "sluice",
+      "name": "THE SLUICE",
+      "rect": [
+        470,
+        260,
+        1170,
+        180
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A community sluice, forty feet of graded boxes, patched by every man who ever cursed it.",
+            "repeat": [
+              "Every patch is a different wood, and one patch is a door, with its number still on it.",
+              "The boxes are graded, the top ones wide and the bottom ones fine, so that what one man misses the next man misses more carefully."
+            ],
+            "then": [
+              "It belongs to everyone, which means the repairs belong to no one."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water working through the riffles. A wooden argument, well rehearsed.",
+            "repeat": [
+              "Water, through wood, forty times over. It's almost a chord. It is not quite a chord.",
+              "One box knocks out of time with the others. I could find which in a minute. Nobody has asked me."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "Forty feet of communal grievance, and every patch in it is somebody's signature. It does not move for one man. That is nearly the town motto."
+      },
+      "walkTo": {
+        "x": 1055,
+        "y": 786,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "willow",
+      "name": "THE WILLOW",
+      "rect": [
+        0,
+        0,
+        560,
+        420
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "One willow, spared by every axe because it holds the bank together.",
+            "repeat": [
+              "Twenty or thirty sets of initials are cut into the trunk, and not one of them inside a heart. Out here people commit to nothing but their names.",
+              "It leans over the water as though it were panning too, and having about the same luck."
+            ],
+            "then": [
+              "The only resident of the diggings with guaranteed tenure."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Leaves. The single softest sound for a mile.",
+            "repeat": [
+              "Leaves again. Softer than the water, softer than the men. The willow wins.",
+              "A bird somewhere inside it, saying one note and stopping, like a man who has thought better of it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "The one resident with tenure. I paid my respects. It rustled: noted."
+      },
+      "walkTo": {
+        "x": 280,
+        "y": 786,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "creek",
+      "name": "THE CREEK",
+      "rect": [
+        150,
+        470,
+        1770,
+        160
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The creek that talked a thousand men into staying.",
+            "repeat": [
+              "Six feet across and eight inches deep, and the reason two thousand people live here.",
+              "I followed it a little way upstream. It goes on being the same creek, which is more than most things here manage."
+            ],
+            "then": [
+              "It carries just enough color to be cruel."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water over stone, saying the same encouraging thing it has said for twelve years.",
+            "repeat": [
+              "Water. It is the only thing in this territory that is doing exactly what it appears to be doing.",
+              "Water, and under it the clink of a pan on stone a long way down."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I panned twice. Color both times — four flakes, a day's wage in encouragement, a cent in gold. The creek's whole business model, in one pan."
+      },
+      "walkTo": {
+        "x": 1035,
+        "y": 786,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "boot_prints",
+      "name": "THE BOOT PRINTS",
+      "rect": [
+        0,
+        640,
+        1920,
+        224
+      ],
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The bank is a plaster cast of every boot in the district, refreshed daily.",
+            "repeat": [
+              "Hobnailed, patched, and one barefoot. That man has my sympathy and my attention.",
+              "Mine are among them now. I have been counted."
+            ],
+            "then": [
+              "The territory's most complete census."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Mud, drying. The morning shift, set in relief.",
+            "repeat": [
+              "Water seeping into the newest prints, filling them one at a time.",
+              "Nothing. Tomorrow's shift will print over today's, and nobody will be counted twice."
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_claims_road",
+      "name": "THE ROAD",
+      "stub": true,
+      "rect": [
+        0,
+        560,
+        110,
+        304
+      ],
+      "colour": 0,
+      "to": "claims_road",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: the creek is reached through the road to the claims; this is the way back up to it. NO DOCUMENT WRITES IT a LOOK or LISTEN: a stub exit (errata 99 A).",
+      "walkTo": {
+        "x": 200,
+        "y": 790,
+        "facing": "left"
+      }
+    }
+  ],
+  "ambient": [
+    "man_panning"
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-26.json",
+      "reference/room-26/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        190,
+        690,
+        1710,
+        56
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        190,
+        746,
+        1710,
+        56
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        190,
+        802,
+        1710,
+        56
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      190,
+      690
+    ],
+    [
+      1900,
+      690
+    ],
+    [
+      1900,
+      858
+    ],
+    [
+      190,
+      858
+    ]
+  ],
+  "entrance": [
+    260,
+    790
+  ],
+  "entrances": [
+    {
+      "from": "claims_road",
+      "at": [
+        260,
+        790
+      ],
+      "facing": "right",
+      "note": "Down from the road, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        260,
+        790
+      ],
+      "facing": "right",
+      "note": "As from the road."
+    },
+    {
+      "from": "town_map",
+      "at": [
+        260,
+        790
+      ],
+      "facing": "right",
+      "note": "From the map, as from the road."
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 190,
+          "y": 690
+        },
+        {
+          "x": 1900,
+          "y": 690
+        },
+        {
+          "x": 1900,
+          "y": 746
+        },
+        {
+          "x": 190,
+          "y": 746
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 281,
+        "nearY": 858,
+        "nearHeight": 395
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 190,
+          "y": 746
+        },
+        {
+          "x": 1900,
+          "y": 746
+        },
+        {
+          "x": 1900,
+          "y": 802
+        },
+        {
+          "x": 190,
+          "y": 802
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 281,
+        "nearY": 858,
+        "nearHeight": 395
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 190,
+          "y": 802
+        },
+        {
+          "x": 1900,
+          "y": 802
+        },
+        {
+          "x": 1900,
+          "y": 858
+        },
+        {
+          "x": 190,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 281,
+        "nearY": 858,
+        "nearHeight": 395
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [],
+  "props": [],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-26/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}
