@@ -1,0 +1,300 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "high_ridge",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "45df7f1e668fa926153bd22f6b675063c06ed12d",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r29-a, then entered high_ridge by control -- NOT proof that a player can reach it"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 561,
+    "xs": [
+     1090,
+     893,
+     1288,
+     695,
+     1485,
+     498,
+     1683,
+     300,
+     1880
+    ],
+    "expect": 284,
+    "x": 1090
+   },
+   "at": [
+    1090,
+    561
+   ],
+   "reportedHeight": 284,
+   "expected": 284,
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "bounds": [
+    943,
+    277,
+    294,
+    314
+   ],
+   "order": 0,
+   "renderedHeight": 285,
+   "renderedBottom": 561,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     1090,
+     893,
+     1288,
+     695,
+     1485,
+     498,
+     1683,
+     300,
+     1880
+    ],
+    "expect": 484,
+    "x": 1090
+   },
+   "at": [
+    1090,
+    857
+   ],
+   "reportedHeight": 484,
+   "expected": 484,
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
+   "bounds": [
+    839,
+    373,
+    502,
+    534
+   ],
+   "order": 0,
+   "renderedHeight": 484,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "high_ridge",
+   "clock": 9.1895,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 446,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      69,
+      354,
+      462,
+      492
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:high_ridge",
+     "path": "art/backgrounds/room-29-high-ridge.png",
+     "drawn": "art/backgrounds/room-29-high-ridge.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "168ad519237544c89ecdec7b39db5ad0f5dbc230b3799bfdbb49b270ee987462"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(high_ridge)"
+   ],
+   "capturedAt": "2026-11-05T20:36:51.093Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "0cadc7e452b05fd11e1de3e7e3090dee9de9b9a0f202797c70a32116481a03dc"
+  },
+  {
+   "panel": "A",
+   "room": "high_ridge",
+   "clock": 10.0561,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 446,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:high_ridge",
+     "path": "art/backgrounds/room-29-high-ridge.png",
+     "drawn": "art/backgrounds/room-29-high-ridge.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "168ad519237544c89ecdec7b39db5ad0f5dbc230b3799bfdbb49b270ee987462"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(high_ridge)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T20:36:51.995Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "ab49abc04cd45fae0ebe6d037434359150a85322097e3bf482254123fac32899"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T20:36:56.270Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 345142,
+  "panels": 4,
+  "scale": 0.5
+ }
+}
