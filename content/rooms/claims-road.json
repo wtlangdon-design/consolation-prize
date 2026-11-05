@@ -1,0 +1,595 @@
+{
+  "schema": 1,
+  "id": "claims_road",
+  "name": "THE ROAD TO THE CLAIMS",
+  "materialIdentity": "A dirt road rutted a foot deep, sage and greasewood, the diggings' scars on the hills, the town's first lamps below; dusk (errata 95 A)",
+  "note": "Room 22, doc 20: the junction between the town and the diggings, built new at errata 54's size (the stub is retired). Main Street's THE ROAD TO THE CLAIMS leads here. Doc 10's two crowds walk the road (content/ambient/miners-*.json, errata 95 E). Doc 57 A4: the way up to the claims is offered only while Thad holds the map. Lines EXTRACTED from the documents by tools/extract-examine.mjs and compiled by tools/compile-room.mjs. Do not edit: change the docs and re-run.",
+  "background": "art/backgrounds/room-22-claims-road.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        160,
+        715,
+        1740,
+        48
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        160,
+        763,
+        1740,
+        47
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        160,
+        810,
+        1740,
+        48
+      ]
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "boot",
+      "name": "THE BOOT",
+      "rect": [
+        545,
+        625,
+        60,
+        80
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "One boot, upright, beside the road, weathered to stone. Everyone knows it.",
+            "repeat": [
+              "It is laced. Whoever left it took the time to lace it first.",
+              "Somebody has put a wildflower in it, and somebody else has taken it out. The boot is a matter of local controversy."
+            ],
+            "then": [
+              "Nobody moves it. It is the district's smallest monument."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It has said its piece.",
+            "repeat": [
+              "Wind across its mouth, a low note, a little flat.",
+              "Nothing. Whatever it saw, it is not telling."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "You do not move the boot. I knew that before anyone told me. Some monuments explain themselves.",
+        "TALK_TO": "I asked it whose it was. The wind went through the eyelets. Take from that what you will; the district does."
+      },
+      "walkTo": {
+        "x": 575,
+        "y": 810,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "mile_post",
+      "name": "THE MILE POST",
+      "rect": [
+        385,
+        390,
+        250,
+        320
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A post with distances: THE CLAIMS 1 MI. TOWN 1 MI.",
+            "repeat": [
+              "The paint is fresh on the CLAIMS side and peeling on the TOWN side. The post knows which way the money walks.",
+              "Somebody has carved an arrow under TOWN pointing at the claims, and somebody else an arrow under CLAIMS pointing at town. The argument continues in pocketknife."
+            ],
+            "then": [
+              "Both sides written by men certain the other direction was the mistake."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "It knocks in the wind. A slow, patient count.",
+            "repeat": [
+              "Nothing.",
+              "The knock, slower than yesterday. The wind is tired, or the post is."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "It leans toward town today. Yesterday, the diggings. The post is the district's mood, on a stick."
+      },
+      "walkTo": {
+        "x": 510,
+        "y": 813,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "view_back_at_town",
+      "name": "THE VIEW BACK AT TOWN",
+      "rect": [
+        0,
+        200,
+        640,
+        200
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "From here Consolation is a shelf of painted fronts under a church spire, like crockery that argues.",
+            "repeat": [
+              "From this distance you cannot see that the fronts are false. It is the distance the town was built to be seen from.",
+              "A thread of smoke from the Nugget's chimney, straight up. Even the smoke goes there first."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The town, reduced to its bell and its hammering.",
+            "repeat": [
+              "The bell, and a hammer that keeps a little behind it.",
+              "A dog, very small with distance, objecting to something on principle."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 320,
+        "y": 810,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "to_prosperity_closed",
+      "stateOf": "to_prosperity",
+      "name": "THE WAY UP TO THE CLAIMS",
+      "rect": [
+        1660,
+        180,
+        260,
+        520
+      ],
+      "colour": 0,
+      "holding": {
+        "company_map": false
+      },
+      "stub": true,
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "WALK_TO": [
+          {
+            "say": "Forty feet of ground, somewhere up one of these. The deed says 'from the stake, thereabouts', and the whole hillside is stakes."
+          }
+        ],
+        "USE": [
+          {
+            "say": "Forty feet of ground, somewhere up one of these. The deed says 'from the stake, thereabouts', and the whole hillside is stakes."
+          }
+        ],
+        "OPEN": [
+          {
+            "say": "Forty feet of ground, somewhere up one of these. The deed says 'from the stake, thereabouts', and the whole hillside is stakes."
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1790,
+        "y": 810,
+        "facing": "back"
+      },
+      "note": "Errata 91 E: THE WAY UP TO THE CLAIMS before it opens -- docs/57-puzzle-completion.md::## A4 ."
+    },
+    {
+      "id": "men_going_out",
+      "name": "THE MEN GOING OUT",
+      "rect": [
+        1350,
+        150,
+        570,
+        250
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Men walking out with tools over their shoulders, at six in the morning.",
+            "repeat": [
+              "Every one of them is carrying something he bought at the Mercantile. The Mercantile is the only claim in the district that pays.",
+              "They walk fast. Optimism has a pace, and it is brisk."
+            ],
+            "then": [
+              "They are talking. Several of them are talking at once."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Talk. A great deal of it, all at the same volume, none of it listened to. It's cheerful.",
+            "repeat": [
+              "Plans, mostly. Each man is explaining to the man beside him what he will do with it.",
+              "A whistle somewhere in the middle, out of tune and cheerful about it."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1635,
+        "y": 810,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "men_coming_back",
+      "name": "THE MEN COMING BACK",
+      "rect": [
+        800,
+        330,
+        600,
+        280
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The same men, walking in, at seven at night. Same tools. Same road.",
+            "repeat": [
+              "Nobody is carrying anything he did not take out.",
+              "They walk slower than they walked out, and all at the same pace, without anyone having agreed to it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Two dozen men on a road and not one of them is saying anything.",
+            "repeat": [
+              "Boots. Only boots. Nobody even swears.",
+              "Nothing. Tomorrow they will talk again on the way out. This is the part nobody talks about."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1100,
+        "y": 810,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "scrub",
+      "name": "THE SCRUB",
+      "rect": [
+        0,
+        420,
+        380,
+        444
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Sage and greasewood, gray-green and low, holding the hillside together out of habit.",
+            "repeat": [
+              "Something lives in it. I have seen it move with nobody near.",
+              "It was here before the road and will be here after. It has never needed the gold, or anything else."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Dry leaves, rattling like a gourd.",
+            "repeat": [
+              "A rustle, then stillness. Whatever it is, it heard me first.",
+              "Wind through it, a long hiss. The hillside, breathing out."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "view_ahead",
+      "name": "THE VIEW AHEAD",
+      "rect": [
+        880,
+        60,
+        1040,
+        250
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The hills, opened up in a hundred places, brown wounds in green hide.",
+            "repeat": [
+              "From here every claim looks promising. Distance is an optimist.",
+              "Above it all, a bare ridge. Nobody digs up there. Nobody has a reason to."
+            ],
+            "then": [
+              "Somewhere in that is everyone's fortune, still playing hard to get."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Picks. Always, somewhere, picks.",
+            "repeat": [
+              "Picks, and between the picks a man swearing in a steady, careful rhythm, like a hymn.",
+              "Picks, still. Somebody up there is always certain it is the next swing."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1400,
+        "y": 810,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "road",
+      "name": "THE ROAD",
+      "rect": [
+        640,
+        330,
+        1280,
+        534
+      ],
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Rutted a foot deep by everything the diggings ever needed.",
+            "repeat": [
+              "Worn a foot deep in twelve years. This much dirt was moved by boots, not by digging, and it is more than anybody has moved on purpose.",
+              "I have walked it enough times now to have a favorite rut. It is the one that does not fill with water."
+            ],
+            "then": [
+              "The town pours up this road each morning and drains back each night."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind in the ruts. The road hums when it's empty, like a bottle.",
+            "repeat": [
+              "Boots far up the road, coming or going. From here you cannot tell which, and often neither can they.",
+              "The hum again, low. The road sounds best when nobody is on it."
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_main_street",
+      "name": "MAIN STREET",
+      "stub": true,
+      "rect": [
+        0,
+        640,
+        140,
+        224
+      ],
+      "colour": 0,
+      "to": "main_street",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: the road back down to Main Street. NO DOCUMENT WRITES THIS WAY from the road (doc 14 writes Main Street's side). A stub exit (doc 36 Q165).",
+      "walkTo": {
+        "x": 170,
+        "y": 790,
+        "facing": "left"
+      }
+    }
+  ],
+  "entrances": [
+    {
+      "from": "main_street",
+      "at": [
+        240,
+        790
+      ],
+      "facing": "right",
+      "note": "Up from Main Street, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        240,
+        790
+      ],
+      "facing": "right",
+      "note": "Up from the town, at left."
+    }
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-22.json",
+      "reference/room-22/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkableOutline": [
+    [
+      160,
+      715
+    ],
+    [
+      1900,
+      715
+    ],
+    [
+      1900,
+      858
+    ],
+    [
+      160,
+      858
+    ]
+  ],
+  "entrance": [
+    240,
+    790
+  ],
+  "ambient": [
+    "miners_back",
+    "miners_out"
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 160,
+          "y": 715
+        },
+        {
+          "x": 1900,
+          "y": 715
+        },
+        {
+          "x": 1900,
+          "y": 763
+        },
+        {
+          "x": 160,
+          "y": 763
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 715,
+        "farHeight": 278,
+        "nearY": 858,
+        "nearHeight": 375
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 160,
+          "y": 763
+        },
+        {
+          "x": 1900,
+          "y": 763
+        },
+        {
+          "x": 1900,
+          "y": 810
+        },
+        {
+          "x": 160,
+          "y": 810
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 715,
+        "farHeight": 278,
+        "nearY": 858,
+        "nearHeight": 375
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 160,
+          "y": 810
+        },
+        {
+          "x": 1900,
+          "y": 810
+        },
+        {
+          "x": 1900,
+          "y": 858
+        },
+        {
+          "x": 160,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 715,
+        "farHeight": 278,
+        "nearY": 858,
+        "nearHeight": 375
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "town_lights",
+      "at": [
+        220,
+        300
+      ],
+      "radius": 420,
+      "amount": 0.06,
+      "rate": 0.2,
+      "phase": 0.3,
+      "note": "The town's first lamps, below."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-22/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

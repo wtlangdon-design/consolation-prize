@@ -22,7 +22,7 @@
   "content/rooms/fanshawe-office.json",
   "content/rooms/mercantile.json",
   "content/rooms/clarion.json",
-  "content/rooms/stub-claims-road.json",
+  "content/rooms/claims-road.json",
   "content/rooms/harness-a.json",
   "content/rooms/harness-b.json",
   "content/rooms/hotel-lobby.json",
@@ -80,7 +80,8 @@
   "content/fixtures/room-18.json",
   "content/fixtures/room-19.json",
   "content/fixtures/room-20.json",
-  "content/fixtures/room-21.json"
+  "content/fixtures/room-21.json",
+  "content/fixtures/room-22.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -139,6 +140,8 @@
   "content/ambient/grievance.json",
   "content/ambient/alley-cat.json",
   "content/ambient/hob.json",
+  "content/ambient/miners-out.json",
+  "content/ambient/miners-back.json",
   "content/ambient/other-mules.json",
   "content/ambient/ozymandia.json",
   "content/ambient/hotel-clerk.json"

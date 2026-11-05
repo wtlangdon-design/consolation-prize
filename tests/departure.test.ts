@@ -19,7 +19,8 @@ const walk: AmbientExit = {
 };
 
 test('he walks the path at its speed, leg by leg, and is done only at its end', () => {
-  assert.deepEqual(departureAt(walk, 0), { x: 100, y: 100, heading: -1, frame: 0, done: false });
+  // `leg` and `along` say where on the path he is (a loop's heights read them).
+  assert.deepEqual(departureAt(walk, 0), { x: 100, y: 100, heading: -1, frame: 0, done: false, leg: 1, along: 0 });
   const mid = departureAt(walk, 1);
   assert.equal(mid.x, 50);
   assert.equal(mid.heading, -1, 'walking left along the first leg');

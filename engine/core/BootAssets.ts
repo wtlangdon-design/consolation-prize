@@ -255,6 +255,9 @@ export function planBoot(bundle: ContentBundle): BootPlan {
     // at the deal's last line and gone the next frame, the thing the walk exists to
     // prevent, because his walk sheet had never been asked for.
     if (npc.exit) required.set(npc.exit.sheet, { key: npc.exit.sheet, path: npc.exit.sheet });
+    // AND HIS LOOP (AmbientFile.loop): a walker is drawn walking from the first
+    // frame in his room, so his walk sheet is wanted as the figure's is.
+    if (npc.loop) required.set(npc.loop.sheet, { key: npc.loop.sheet, path: npc.loop.sheet });
   }
   for (const overlay of bundle.overlays.values()) {
     for (const state of Object.values(overlay.states)) {

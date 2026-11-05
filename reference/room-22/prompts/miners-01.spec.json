@@ -1,0 +1,14 @@
+{
+ "assetId": "room-22",
+ "subject": "miners",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-22-claims-road",
+ "promptFile": "reference/room-22/prompts/miners-01.txt",
+ "out": "art/staging/room-22/miners-01/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-22/miners-01/vs-thad.png",
+  "art/staging/room-22/composition-master-01.png"
+ ]
+}

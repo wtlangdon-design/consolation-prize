@@ -402,6 +402,22 @@
     }
    ],
    "castingNote": "Hob, only for the confession (doc 48 S4): his approved Room 1 drawing. Thad is drawn in the master for scale."
+  },
+  "room-22-claims-road": {
+   "visualType": "exterior-night",
+   "comparable": {
+    "id": "room-01-stage-road",
+    "path": "art/backgrounds/room-01-stage-road.png",
+    "note": "D -- the approved exterior road: the hills, the dark coming on, the town lights. The road to the claims at dusk, the town below (errata 95 A)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Two small groups of miners on the road (doc 10), drawn in the master and then on magenta against Thad."
   }
  }
 }

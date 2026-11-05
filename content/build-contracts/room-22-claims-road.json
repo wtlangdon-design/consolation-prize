@@ -1,0 +1,191 @@
+{
+ "schema": 1,
+ "id": "room-22-claims-road",
+ "room": "claims_road",
+ "docRoom": 22,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 22 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/10-examine-batch-3.md",
+  "docs/54-batch-c.md",
+  "docs/57-puzzle-completion.md",
+  "docs/49-wrong-answers.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-22.json",
+    "docs/00-errata.md::95 · ROOM 22 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The road in every act; A4's way up only with the map; dusk."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-22/graybox.json",
+    "docs/00-errata.md::95 · ROOM 22 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Every subject is plate but the two crowds, which walk."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-22-miners.png",
+    "docs/00-errata.md::95 · ROOM 22 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The miners drawn on magenta against Thad as a walk cycle, out and back."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/claims-road/life/life.json"
+   ],
+   "note": "The men walk out and back along the road; the town's lamps breathe."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-22/annotation.json"
+   ],
+   "note": "The walkers keep to the road and are drawn at its depth."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-22/annotation.json"
+   ],
+   "note": "Dusk, the town's lamps below."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-22.test.ts",
+    "docs/00-errata.md::95 · ROOM 22 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Without the map the way up says why: the deed says 'thereabouts'."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-22.json",
+    "content/rooms/claims-road.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 54 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-22: 3 of 4 operations (master, plate, the miners' walk sheet)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/claims-road.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-22/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/claims-road/proof.json"
+   ],
+   "note": "No principal change in the picture (principalChange none): A4 changes the way up, not what is drawn."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/claims-road/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/claims-road/doors/life.json",
+    "tests/room-22.test.ts"
+   ],
+   "note": "Back down to Main Street and out again, twice; A4 in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-22/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-22-claims-road.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-22/plate-01/frame.json"
+   ],
+   "note": "Promoted provisionally (errata 72 E)."
+  },
+  {
+   "subject": "the miners",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-22-miners.png",
+   "evidence": [
+    "art/staging/room-22/miners/miners.json"
+   ],
+   "note": "From operation 3; loop walkers."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q165 · Room 22, the road to the claims: built, awaiting Tyler's playthrough; the crowds walk the road — **RULED 2026-11-05 (errata 95, delegated; the crowds Tyler's); BUILT, room-22 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q165 · Room 22, the road to the claims: built, awaiting Tyler's playthrough; the crowds walk the road — **RULED 2026-11-05 (errata 95, delegated; the crowds Tyler's); BUILT, room-22 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

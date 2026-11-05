@@ -165,3 +165,23 @@ test('the movement check fails a crawling idle and a rare action (review on #100
   assert.ok(schedule(rare, actions).longestWithout > ACTION_EVERY,
     'an action in one pool of four, every 40 s, leaves more than 30 s between actions');
 });
+
+// A FIGURE THAT WALKS A LOOP (AmbientFile.loop, errata 95 E) moves by walking,
+// and is never seen to appear or vanish: it has a walk cycle and a speed, and
+// both ends of its path lie off the frame, so it walks on and walks off.
+for (const path of manifest.ambient) {
+  const npc = read(path);
+  if (!npc.loop) continue;
+  test(`${npc.id} walks its loop on and off the frame (errata 95 E)`, () => {
+    const walk = npc.loop;
+    assert.ok((walk.frames ?? []).length >= 2, `${path}: a walk cycle needs at least two frames`);
+    assert.ok(walk.speed > 0, `${path}: a walk needs a speed`);
+    const room = read(manifest.rooms.find((file) => read(file).id === npc.room));
+    const width = room.size?.[0] ?? 1920;
+    const height = room.size?.[1] ?? 864;
+    const off = ([x, y]) => x < 0 || x > width || y > height;
+    assert.ok(off(walk.path[0]), `${path}: the walk starts at ${walk.path[0]}, on the frame -- it would pop in`);
+    assert.ok(off(walk.path[walk.path.length - 1]), `${path}: the walk ends on the frame -- it would vanish`);
+    if (walk.heights) assert.equal(walk.heights.length, walk.path.length, `${path}: one height per path point`);
+  });
+}

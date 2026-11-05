@@ -19,6 +19,9 @@ export interface DeparturePose {
   /** Index into the exit's walk frames. */
   frame: number;
   done: boolean;
+  /** The path leg he is on (1-based: the leg from point index-1 to index) and how far along it, 0-1. */
+  leg?: number;
+  along?: number;
 }
 
 export function departureAt(walk: AmbientExit, elapsed: number): DeparturePose {
@@ -39,6 +42,8 @@ export function departureAt(walk: AmbientExit, elapsed: number): DeparturePose {
         heading,
         frame,
         done: travelled >= length && index === path.length - 1,
+        leg: index,
+        along: t,
       };
     }
     travelled -= length;

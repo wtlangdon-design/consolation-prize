@@ -1,0 +1,19 @@
+Image 1 shows figures from my pixel-art adventure game side by side at the same scale. On the left is Thad, the hero: he is the style standard. Next to him are miners cut from image 2, walking on the road. Look at Thad's pixels: BIG square blocks. Every pixel of him is a clear, chunky square; his clothes are a few flat tones with no fine texture.
+
+Image 2 is a frame from the game: the road to the diggings at dusk. I need the miners drawn on their own as a WALK CYCLE, in THAD'S PIXEL SIZE.
+
+THE FIGURES -- a group of five gold miners of the 1850s, walking close together in a loose single file, seen from the side: slouch hats and caps, shirts and braces, dark trousers, boots, beards on some.
+
+THE SHEET -- one image, two rows, four frames in each row, every frame showing the WHOLE GROUP of five, head to boots:
+- TOP ROW, "going out": the group walking to the RIGHT of the picture, brisk and upright, picks and shovels carried over their shoulders, two of them talking. Four frames of one walk cycle: legs apart, legs passing, the other legs apart, legs passing -- each man's legs in a different phase from his neighbour's.
+- BOTTOM ROW, "coming back": the SAME five men walking to the LEFT of the picture, slow and tired, tools hanging down in their hands, heads a little low, nobody talking. Four frames of the same kind of walk cycle.
+
+STYLE: each man about 70 big pixels tall from hat to boots, exactly as coarse as Thad; every pixel a large, crisp square block the size of Thad's; simple shapes and flat colour areas; dusk-muted browns, greys and faded blues.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No road, no ground, no shadow, nothing else in the picture.
+- In every frame the group is one piece: the five men overlap a little, but the group does not touch any other frame.
+- All frames the same size, boots on the same baseline within each row; clear magenta space between frames and between the two rows.
+- Between frames, ONLY the legs and arms of the walk change. Same men, same colours, same order.
+- Crisp pixel edges against the magenta. No soft glow or blur.
+- No text, labels, numbers or borders.

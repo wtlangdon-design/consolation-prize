@@ -2265,6 +2265,8 @@ export class GameScene extends Phaser.Scene {
     // could pass with her sheet missing and nothing drawn where she stands.
     for (const npc of this.ambient.present) {
       add(npc.sprite?.sheet ?? '', npc.sprite?.sheet);
+      // A walker on a loop (AmbientFile.loop) is drawn from its walk sheet.
+      if (npc.loop) add(npc.loop.sheet, npc.loop.sheet);
       // And her props' sheets: the ink stand is drawn from its own file.
       for (const prop of npc.sprite?.props ?? []) add(prop.sheet, prop.sheet);
     }

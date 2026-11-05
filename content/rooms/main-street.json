@@ -651,7 +651,7 @@
         190
       ],
       "colour": 12,
-      "to": "stub_claims_road",
+      "to": "claims_road",
       "responses": {
         "LOOK_AT": [
           {
@@ -1218,7 +1218,7 @@
       "note": "Out of assay_office’s door, facing the street."
     },
     {
-      "from": "stub_claims_road",
+      "from": "claims_road",
       "at": [
         3477,
         603
