@@ -2,65 +2,198 @@
   "schema": 1,
   "id": "thads_room",
   "name": "THAD'S ROOM",
-  "note": "Room 19, doc 20, directly above the lobby. Warm-neutral against the hotel's cool, per errata 30d -- neutral beside cool reads as nothing, so the drab here is warm drab. THE COAT IS ON THE DOOR: doc 26 names the hotspot THE COAT ON THE DOOR and it was drawn over a chair, which was a guess made before the writing landed. THE WALL is doc 26 note 1, and it is drawn exactly as written -- faint marks, no brighter than the boards, nothing pointing at them. Nothing in the game refers to them, no flag observes them, and no cycling, highlight or sting may ever be added. A player who finds the number finds it by reading a wall, or does not find it. Invariant 10 covers the letters on the desk in the same terms: they are never counted, never referenced, and the bundle drawn on the desk is not the act number. Lines EXTRACTED from docs/26-batch-a.md by tools/extract-content.mjs. Do not edit: change doc 26 and re-run.",
-  "materialIdentity": "Neutral drab: bare pine, unbleached calico, a tin basin. Warm-neutral so it separates by hue from the hotel's blue directly below it",
-  "paletteScript": {
-    "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
-    "dominant": "dust 0.55",
-    "shadow": "dust 0.28",
-    "secondary": "bone 0.8",
-    "accent": "grey 0.6"
-  },
+  "materialIdentity": "Faded paper over plank, bare boards, a tin basin and an iron bed under one lamp on the desk, night (errata 92 A)",
+  "note": "Room 19, doc 20, directly above the lobby, rebuilt at errata 54's size (the 320x144 room is retired). THE DOOR leads down to the lobby. THE WALL is doc 26 note 1, drawn exactly as written: nothing in the game refers to its number, no flag observes it, and no cycling, highlight or sting may ever be added. THE LETTERS HOME are doc 04 Part Three's: USE on the letter opens the act's three versions, and in Act IV the only one; nothing tracks the choice and nothing refers to it (invariant 10, errata 92 E). Lines EXTRACTED from the documents by tools/extract-examine.mjs and compiled by tools/compile-room.mjs. Do not edit: change the docs and re-run.",
+  "background": "art/backgrounds/room-19-thads-room.png",
   "colours": {
     "sky": 0,
     "ground": 6
   },
-  "horizon": 360,
-  "background": "art/backgrounds/room-19-thads-room.png",
-  "foreground": "art/foregrounds/room-19-thads-room.png",
+  "horizon": 120,
   "walkable": [
     {
-      "id": "floor_far",
+      "id": "floor_0",
       "zone": 2,
+      "surface": "mud",
       "rect": [
-        516,
-        528,
-        144,
-        72
+        210,
+        760,
+        1170,
+        14
       ]
     },
     {
-      "id": "floor_mid",
+      "id": "floor_1",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        210,
+        774,
+        1170,
+        14
+      ]
+    },
+    {
+      "id": "floor_2",
       "zone": 1,
+      "surface": "mud",
       "rect": [
-        384,
-        600,
-        492,
-        96
+        210,
+        788,
+        1170,
+        14
       ]
     },
     {
-      "id": "floor_near",
-      "zone": 0,
+      "id": "floor_3",
+      "zone": 1,
+      "surface": "mud",
       "rect": [
-        240,
-        696,
-        960,
-        120
+        210,
+        802,
+        1170,
+        14
+      ]
+    },
+    {
+      "id": "floor_4",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        210,
+        816,
+        1170,
+        14
+      ]
+    },
+    {
+      "id": "floor_5",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        210,
+        830,
+        1650,
+        14
+      ]
+    },
+    {
+      "id": "floor_6",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        210,
+        844,
+        1650,
+        14
       ]
     }
   ],
   "hotspots": [
     {
-      "id": "mothers_letters",
+      "id": "tuning_fork_case",
+      "name": "THE TUNING FORK CASE",
+      "rect": [
+        906,
+        466,
+        48,
+        32
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Velvet-lined, and worth more than the fork. My father's idea of a sensible investment.",
+            "repeat": [
+              "Velvet-lined, and worth more than the fork it was made for.",
+              "It is the most cared-for object I own and it is a box."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing, closed. It is a very good case.",
+            "repeat": [
+              "Nothing, closed.",
+              "Nothing."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 930,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "letters_home",
+      "name": "THE LETTERS HOME",
+      "rect": [
+        824,
+        460,
+        84,
+        40
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "My letters, in draft. True in the way maps are true — accurate about everything except how it feels to stand here.",
+            "repeat": [
+              "A sheet, begun. 'Dear Mother —' and then a space where the rest of it should be.",
+              "I have started it four times. The four beginnings are identical.",
+              "It goes out Thursday, with whatever is on it by Thursday."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper. It holds whatever you tell it. That is the entire trouble with paper.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. It has not been written yet and it is being quiet about that too."
+            ]
+          }
+        ],
+        "USE": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 1,
+                "atMost": 3
+              }
+            },
+            "dialogue": "LETTERS_HOME"
+          },
+          {
+            "when": {
+              "ACT": 4
+            },
+            "say": "Dear Mother.",
+            "then": [
+              "I was robbed, and it was the making of me.",
+              "The gold is real. The story is better. I will tell you both in the spring.",
+              "— Your Thaddeus."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 866,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "his_mother_s_letters",
       "name": "HIS MOTHER'S LETTERS",
       "rect": [
-        894,
-        534,
-        90,
-        48
+        960,
+        434,
+        96,
+        66
       ],
-      "colour": 34,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -84,157 +217,73 @@
       },
       "overrides": {
         "PICK_UP": "I have them. I have had them since Sacramento."
+      },
+      "walkTo": {
+        "x": 1008,
+        "y": 857,
+        "facing": "back"
       }
     },
     {
-      "id": "outgoing_letter",
-      "name": "THE OUTGOING LETTER",
+      "id": "lamp",
+      "name": "THE LAMP",
       "rect": [
-        984,
-        522,
-        84,
-        60
+        752,
+        352,
+        58,
+        140
       ],
-      "colour": 38,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LISTEN_TO": [
-          {
-            "say": "Nothing.",
-            "repeat": [
-              "Nothing.",
-              "Nothing. It has not been written yet and it is being quiet about that too."
-            ]
-          }
-        ],
-        "LOOK_AT": [
-          {
-            "say": "A sheet, begun. 'Dear Mother —' and then a space where the rest of it should be.",
-            "repeat": [
-              "I have started it four times. The four beginnings are identical.",
-              "It goes out Thursday, with whatever is on it by Thursday."
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "fork_case",
-      "name": "THE TUNING FORK CASE",
-      "rect": [
-        1062,
-        522,
-        156,
-        60
-      ],
-      "colour": 42,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Velvet-lined, and worth more than the fork. My father's idea of a sensible investment.",
+            "say": "Trimmed low by management. Light is billed separately in spirit, if not on paper.",
             "repeat": [
-              "Velvet-lined, and worth more than the fork it was made for.",
-              "It is the most cared-for object I own and it is a box."
+              "A notice is tacked beside it: GUESTS WILL KINDLY NOT TURN UP THE WICK. Kindly is underlined.",
+              "I turned it up a quarter inch. Nobody came. I turned it back down anyway."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing, closed. It is a very good case.",
+            "say": "The flame eats quietly. Good manners, in a fire.",
             "repeat": [
-              "Nothing, closed.",
-              "Nothing."
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "desk",
-      "name": "THE DESK",
-      "rect": [
-        888,
-        576,
-        324,
-        204
-      ],
-      "colour": 46,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A desk, a chair, and a window facing an alley. For four dollars a week, I had expected a slightly worse alley.",
-            "repeat": [
-              "A desk, a chair, and a window facing an alley. For four dollars a week I had expected a slightly worse alley.",
-              "The chair does not match the desk. Neither matches the room."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing. It is the only place in Consolation where nobody is talking.",
-            "repeat": [
-              "Nothing.",
-              "Nothing. It is the only place in Consolation where nobody is talking at me."
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "washstand",
-      "name": "THE WASHSTAND",
-      "rect": [
-        624,
-        384,
-        216,
-        288
-      ],
-      "colour": 50,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A washstand, a jug, a basin, and a piece of mirror the size of my hand.",
-            "repeat": [
-              "The water is brought up cold at six and is cold at six.",
-              "I have shaved in a piece of mirror the size of my hand every day for eleven weeks and I am beginning to take a view about it."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing. Water, when I move it.",
-            "repeat": [
-              "Nothing.",
-              "Nothing."
+              "A small flutter when the door opens. It does not like visitors either.",
+              "Nothing. It burns at the volume management prefers."
             ]
           }
         ]
       },
       "overrides": {
-        "USE": "I have washed. It made less difference than I hoped."
+        "TALK_TO": "I bade it goodnight. Management's wick allowance ended the conversation on its side."
+      },
+      "walkTo": {
+        "x": 781,
+        "y": 857,
+        "facing": "back"
       }
     },
     {
-      "id": "coat",
+      "id": "coat_on_the_door",
       "name": "THE COAT ON THE DOOR",
       "rect": [
-        486,
-        252,
-        96,
-        204
+        82,
+        226,
+        88,
+        274
       ],
-      "colour": 54,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "My good coat. The only thing I own that suggests I was once somebody's son with prospects.",
+            "say": "My good coat.",
             "repeat": [
+              "My good coat. The only thing I own that suggests I was once somebody's son with prospects.",
               "It has mud to the knee and I have stopped attending to it.",
               "Providence made this coat for a man walking to an office."
+            ],
+            "then": [
+              "It is the only thing I own that suggests I was once somebody's son with prospects."
             ]
           }
         ],
@@ -250,50 +299,61 @@
       },
       "overrides": {
         "PICK_UP": "I am wearing the other one, which is this one."
+      },
+      "walkTo": {
+        "x": 210,
+        "y": 857,
+        "facing": "back"
       }
     },
     {
-      "id": "window",
-      "name": "THE WINDOW",
+      "id": "floorboards",
+      "name": "THE FLOORBOARDS",
       "rect": [
-        996,
-        192,
-        180,
-        204
+        500,
+        700,
+        880,
+        58
       ],
-      "colour": 58,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The alley. A cat, some barrels, and a view of the back of the Improvement Company.",
+            "say": "Gaps generous enough to bank coins in, which I would consider if I had coins to a degree worth hiding.",
             "repeat": [
-              "The alley. A cat, some barrels, and the back of the Improvement Company.",
-              "One story, from here. From the street it is three. I have checked from both."
+              "One board is newer than the others, and nailed down harder.",
+              "At night the lobby lamp shines up through the gaps, and the floor glows in stripes, like a cell, or a keyboard."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Somebody unloading, two streets over. It goes on all night. I have stopped minding it, which worries me.",
+            "say": "The lobby, in outline. Mostly the bell.",
             "repeat": [
-              "The cat is on the barrels again. She gets up there and then reconsiders.",
-              "Nothing. Whoever was unloading has stopped, and the quiet is worse."
+              "The clerk below, turning a page.",
+              "Somebody crossing the lobby slowly and stopping at the foot of the stairs. Then going on."
             ]
           }
         ]
+      },
+      "overrides": {
+        "PULL": "The gap by the window lifts. Beneath: dust, a button, and one playing card. The eight of diamonds. Some other tenant's whole story, in three items."
+      },
+      "walkTo": {
+        "x": 940,
+        "y": 856,
+        "facing": "back"
       }
     },
     {
       "id": "wall",
       "name": "THE WALL",
       "rect": [
-        1176,
-        192,
-        108,
-        144
+        1750,
+        0,
+        170,
+        510
       ],
-      "colour": 62,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -307,43 +367,221 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Two men next door, discussing where Mott's strike is. They are very sure, and sure in completely different directions.",
+            "say": "Two men, next door, discussing where Mott's strike is. They are very sure.",
             "repeat": [
+              "Two men next door, discussing where Mott's strike is. They are very sure, and sure in completely different directions.",
               "Still sure. Still different.",
               "One of them has gone to sleep mid-sentence. The other has not noticed."
+            ],
+            "then": [
+              "They are sure in completely different directions."
             ]
           }
         ]
       },
       "overrides": {
         "PUSH": "It gives. I am going to stop pushing it."
+      },
+      "walkTo": {
+        "x": 1835,
+        "y": 858,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "window",
+      "name": "THE WINDOW",
+      "rect": [
+        768,
+        62,
+        238,
+        366
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The alley.",
+            "repeat": [
+              "The alley. A cat, some barrels, and the back of the Improvement Company.",
+              "One story, from here. From the street it is three. I have checked from both."
+            ],
+            "then": [
+              "A cat, some barrels, and a view of the back of the Improvement Company."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The town. All of it. The wall between us is a formality.",
+            "repeat": [
+              "Somebody unloading, two streets over. It goes on all night. I have stopped minding it, which worries me.",
+              "The cat is on the barrels again. She gets up there and then reconsiders.",
+              "Nothing. Whoever was unloading has stopped, and the quiet is worse."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 887,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "washstand",
+      "name": "THE WASHSTAND",
+      "rect": [
+        1108,
+        200,
+        184,
+        490
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A basin, a pitcher, and a bar of soap worn to a wafer.",
+            "repeat": [
+              "A washstand, a jug, a basin, and a piece of mirror the size of my hand.",
+              "The water is brought up cold at six and is cold at six.",
+              "I have shaved in a piece of mirror the size of my hand every day for eleven weeks and I am beginning to take a view about it."
+            ],
+            "then": [
+              "Washing in the territory is devotional: brief, and mostly symbolic."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A drip that keeps no rhythm. I have tried tuning it. It resists.",
+            "repeat": [
+              "Nothing. Water, when I move it.",
+              "Nothing.",
+              "Nothing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I muffled it with a sock. It transposed. The drip has range."
+      },
+      "walkTo": {
+        "x": 1200,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "desk",
+      "name": "THE DESK",
+      "rect": [
+        698,
+        458,
+        364,
+        254
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "One short leg, corrected with a folded claim notice.",
+            "repeat": [
+              "A desk, a chair, and a window facing an alley. For five dollars a week, I had expected a slightly worse alley.",
+              "The chair does not match the desk. Neither matches the room."
+            ],
+            "then": [
+              "The most useful work a claim notice has done all year."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. The drama is all in what gets written at it.",
+            "repeat": [
+              "Nothing. It is the only place in Consolation where nobody is talking.",
+              "Nothing."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 880,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "wardrobe",
+      "name": "THE WARDROBE",
+      "rect": [
+        236,
+        132,
+        264,
+        540
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A wardrobe for a man with wardrobe ambitions.",
+            "repeat": [
+              "The bottom drawer sticks. I have nothing to put in it, so we have come to an accommodation.",
+              "Somebody left a single glove on the top shelf. Nobody in Consolation owns gloves, so it was a visitor, and he lost the other one too."
+            ],
+            "then": [
+              "My second shirt hangs in it with room to spread out."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Empty hangers, touching. A small cold applause.",
+            "repeat": [
+              "The door drifting on its hinge, a long, thin creak.",
+              "Nothing. My second shirt has nothing to say for itself."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "CLOSE": "The door drifts open again in the night, at the same slow speed each time, like it's checking on me."
+      },
+      "walkTo": {
+        "x": 368,
+        "y": 857,
+        "facing": "back"
       }
     },
     {
       "id": "bed",
       "name": "THE BED",
       "rect": [
-        1200,
-        336,
-        684,
-        348
+        1374,
+        368,
+        482,
+        448
       ],
-      "colour": 66,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A bed, made, narrow, and the sheets are clean. I had not expected the sheets to be clean.",
+            "say": "A bed with a valley in it, shaped by predecessors.",
             "repeat": [
+              "A bed, made, narrow, and the sheets are clean. I had not expected the sheets to be clean.",
               "It is the only thing in Consolation that has exceeded my expectations.",
               "Five dollars a week. I have decided the sheets are most of it."
+            ],
+            "then": [
+              "I sleep on one slope or the other."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "Springs. They report every intention before I have finished forming it.",
             "repeat": [
+              "Nothing.",
               "Nothing.",
               "Nothing. It is a bed and it is waiting, which is what they do."
             ]
@@ -351,28 +589,34 @@
         ]
       },
       "overrides": {
-        "USE": "It is nine in the morning."
+        "USE": "It is nine in the morning.",
+        "PUSH": "I moved it off the valley. I woke in the valley. The bed and the floor have seniority."
+      },
+      "walkTo": {
+        "x": 1615,
+        "y": 858,
+        "facing": "back"
       }
     }
   ],
   "exits": [
     {
-      "id": "down_to_lobby",
+      "id": "door",
       "name": "THE DOOR",
       "rect": [
-        588,
-        228,
-        72,
-        288
+        18,
+        500,
+        184,
+        335
       ],
-      "colour": 90,
+      "colour": 0,
       "to": "hotel_lobby",
-      "defaultVerb": "WALK_TO",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The door down to the lobby. Number nineteen, in brass, hung slightly crooked.",
+            "say": "The lock takes the key, considers it, and admits anyone regardless. It is ceremonial, like most security.",
             "repeat": [
+              "The door down to the lobby. Number nineteen, in brass, hung slightly crooked.",
               "Nineteen. The nine has been on and off more than once.",
               "It locks. It is the only door I have ever had that locks and I do not lock it."
             ]
@@ -380,13 +624,22 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "The lobby. A clock, and somebody on the landing.",
+            "say": "The hallway. A man passes twice an hour, slower each time.",
             "repeat": [
+              "The lobby. A clock, and somebody on the landing.",
               "Still the clock.",
               "Nothing."
             ]
           }
         ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 26: THE DOOR → Room 18, with its own LOOK and LISTEN; doc 05's THE DOOR is the same door (errata 69 C).",
+      "walkTo": {
+        "x": 230,
+        "y": 790,
+        "facing": "left"
       }
     }
   ],
@@ -394,11 +647,325 @@
     {
       "from": "hotel_lobby",
       "at": [
-        624,
-        696
+        300,
+        790
       ],
-      "facing": "front",
-      "note": "In at the door on the back wall, with the desk under the window to the right and the bed beyond it."
+      "facing": "right",
+      "note": "In by the door, at left, from the stairs up from the lobby."
+    },
+    {
+      "from": "default",
+      "at": [
+        300,
+        790
+      ],
+      "facing": "right",
+      "note": "In by the door, at left."
     }
-  ]
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-19.json",
+      "reference/room-19/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkableOutline": [
+    [
+      210,
+      760
+    ],
+    [
+      1380,
+      760
+    ],
+    [
+      1380,
+      820
+    ],
+    [
+      1860,
+      820
+    ],
+    [
+      1860,
+      858
+    ],
+    [
+      210,
+      858
+    ]
+  ],
+  "entrance": [
+    300,
+    790
+  ],
+  "walkBoxes": [
+    {
+      "id": "floor_0",
+      "points": [
+        {
+          "x": 210,
+          "y": 760
+        },
+        {
+          "x": 1380,
+          "y": 760
+        },
+        {
+          "x": 1380,
+          "y": 774
+        },
+        {
+          "x": 210,
+          "y": 774
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 760,
+        "farHeight": 450,
+        "nearY": 858,
+        "nearHeight": 517
+      },
+      "neighbours": [
+        "floor_1"
+      ]
+    },
+    {
+      "id": "floor_1",
+      "points": [
+        {
+          "x": 210,
+          "y": 774
+        },
+        {
+          "x": 1380,
+          "y": 774
+        },
+        {
+          "x": 1380,
+          "y": 788
+        },
+        {
+          "x": 210,
+          "y": 788
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 760,
+        "farHeight": 450,
+        "nearY": 858,
+        "nearHeight": 517
+      },
+      "neighbours": [
+        "floor_0",
+        "floor_2"
+      ]
+    },
+    {
+      "id": "floor_2",
+      "points": [
+        {
+          "x": 210,
+          "y": 788
+        },
+        {
+          "x": 1380,
+          "y": 788
+        },
+        {
+          "x": 1380,
+          "y": 802
+        },
+        {
+          "x": 210,
+          "y": 802
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 760,
+        "farHeight": 450,
+        "nearY": 858,
+        "nearHeight": 517
+      },
+      "neighbours": [
+        "floor_1",
+        "floor_3"
+      ]
+    },
+    {
+      "id": "floor_3",
+      "points": [
+        {
+          "x": 210,
+          "y": 802
+        },
+        {
+          "x": 1380,
+          "y": 802
+        },
+        {
+          "x": 1380,
+          "y": 816
+        },
+        {
+          "x": 210,
+          "y": 816
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 760,
+        "farHeight": 450,
+        "nearY": 858,
+        "nearHeight": 517
+      },
+      "neighbours": [
+        "floor_2",
+        "floor_4"
+      ]
+    },
+    {
+      "id": "floor_4",
+      "points": [
+        {
+          "x": 210,
+          "y": 816
+        },
+        {
+          "x": 1380,
+          "y": 816
+        },
+        {
+          "x": 1380,
+          "y": 830
+        },
+        {
+          "x": 210,
+          "y": 830
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 760,
+        "farHeight": 450,
+        "nearY": 858,
+        "nearHeight": 517
+      },
+      "neighbours": [
+        "floor_3",
+        "floor_5"
+      ]
+    },
+    {
+      "id": "floor_5",
+      "points": [
+        {
+          "x": 210,
+          "y": 830
+        },
+        {
+          "x": 1860,
+          "y": 830
+        },
+        {
+          "x": 1860,
+          "y": 844
+        },
+        {
+          "x": 210,
+          "y": 844
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 760,
+        "farHeight": 450,
+        "nearY": 858,
+        "nearHeight": 517
+      },
+      "neighbours": [
+        "floor_4",
+        "floor_6"
+      ]
+    },
+    {
+      "id": "floor_6",
+      "points": [
+        {
+          "x": 210,
+          "y": 844
+        },
+        {
+          "x": 1860,
+          "y": 844
+        },
+        {
+          "x": 1860,
+          "y": 858
+        },
+        {
+          "x": 210,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 760,
+        "farHeight": 450,
+        "nearY": 858,
+        "nearHeight": 517
+      },
+      "neighbours": [
+        "floor_5"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "desk_lamp",
+      "at": [
+        783,
+        425
+      ],
+      "radius": 520,
+      "amount": 0.1,
+      "rate": 0.27,
+      "phase": 0.3,
+      "note": "The lamp on the desk, the room's one light."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "floor_0",
+    "floor_1",
+    "floor_2",
+    "floor_3",
+    "floor_4",
+    "floor_5",
+    "floor_6"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-19/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
 }

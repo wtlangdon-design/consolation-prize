@@ -354,6 +354,22 @@
     }
    ],
    "castingNote": "The hotel clerk has no approved image and no written appearance; doc 27 gives his voice -- 'proprietorial about a building he does not own' (errata 91 B). Drawn in the composition master beside Thad, then on magenta against a side-by-side with Thad."
+  },
+  "room-19-thads-room": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-03-nugget",
+    "path": "art/backgrounds/room-03-nugget.png",
+    "note": "D -- the approved interior at night. Thad's room is papered plank and bare boards under one lamp on the desk (errata 92 A)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody but Thad is in this room."
   }
  }
 }

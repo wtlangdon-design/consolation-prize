@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "room": "thads_room",
+ "note": "DOC 46 4.13's GAMEPLAY PASS for Room 19: up the lobby's stairs (the spec's entry route), then down by the door to the lobby and back up, twice. Each capture asserts the room it should be in.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "00-arrived"
+  },
+  {
+   "do": "click",
+   "on": "door",
+   "why": "THE DOOR -- down"
+  },
+  {
+   "do": "waitFor",
+   "room": "hotel_lobby",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "01-out",
+   "room": "hotel_lobby"
+  },
+  {
+   "do": "click",
+   "on": "stairs",
+   "why": "and back up the stairs"
+  },
+  {
+   "do": "waitFor",
+   "room": "thads_room",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "01-in"
+  },
+  {
+   "do": "click",
+   "on": "door",
+   "why": "THE DOOR -- down"
+  },
+  {
+   "do": "waitFor",
+   "room": "hotel_lobby",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "02-out",
+   "room": "hotel_lobby"
+  },
+  {
+   "do": "click",
+   "on": "stairs",
+   "why": "and back up the stairs"
+  },
+  {
+   "do": "waitFor",
+   "room": "thads_room",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "02-in"
+  }
+ ]
+}

@@ -54,7 +54,8 @@
   "content/dialogue/fanshawe.json",
   "content/dialogue/livery-man.json",
   "content/dialogue/ozymandia.json",
-  "content/dialogue/sowerby.json"
+  "content/dialogue/sowerby.json",
+  "content/dialogue/letters-home.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -74,7 +75,8 @@
   "content/fixtures/room-15.json",
   "content/fixtures/room-16.json",
   "content/fixtures/room-17.json",
-  "content/fixtures/room-18.json"
+  "content/fixtures/room-18.json",
+  "content/fixtures/room-19.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",

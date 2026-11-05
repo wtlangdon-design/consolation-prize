@@ -1,0 +1,138 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "LETTERS_HOME",
+  "speaker": "thad",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (PART THREE, the letters, written) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Act IV is not a node: \"the only version offered. Four lines, entirely true\".",
+  "actFour": [
+    "Dear Mother.",
+    "I was robbed, and it was the making of me.",
+    "The gold is real. The story is better. I will tell you both in the spring.",
+    "— Your Thaddeus."
+  ],
+  "entries": [
+    {
+      "when": {
+        "ACT": 1
+      },
+      "node": "LETTERS_1"
+    },
+    {
+      "when": {
+        "ACT": 2
+      },
+      "node": "LETTERS_2"
+    },
+    {
+      "when": {
+        "ACT": 3
+      },
+      "node": "LETTERS_3"
+    }
+  ],
+  "start": "LETTERS_1",
+  "nodes": {
+    "LETTERS_1": {
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 Part Three: a parallel choice system, three versions of one letter, not a conversation. Nobody is spoken to.",
+      "noComic": true,
+      "noComicReason": "Doc 04 Part Three: the three versions are the choice; none is a joke option.",
+      "noReply": true,
+      "noReplyReason": "Doc 04 Part Three: the letter is the whole of it, written in his voice; nobody answers a letter here.",
+      "options": [
+        {
+          "id": "letter1_1",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "honest",
+          "echo": "Dear Mother — I have arrived. Consolation is smaller than its advertisements and deeper in mud. I have bought forty feet of the territory with nearly everything I had, and I am told this was foolish, chiefly by the people who sold it to me. I have my fork, my ear, and four dollars. — Your Thaddeus.",
+          "ends": true
+        },
+        {
+          "id": "letter1_2",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "flattering",
+          "echo": "Dear Mother — I have arrived safely in Consolation, a rising town of two thousand souls and considerable prospects. I have already acquired property and made the acquaintance of the leading men of the district. The air is very healthful. — Your Thaddeus.",
+          "ends": true
+        },
+        {
+          "id": "letter1_3",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "flattering, with a number in it",
+          "echo": "Dear Mother — Consolation prospers, and I with it. My holding adjoins the richest ground in the district, and men of experience assess my prospects at no less than $40,000. The air is very healthful. — Your Thaddeus.",
+          "ends": true
+        }
+      ]
+    },
+    "LETTERS_2": {
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 Part Three: a parallel choice system, three versions of one letter, not a conversation. Nobody is spoken to.",
+      "noComic": true,
+      "noComicReason": "Doc 04 Part Three: the three versions are the choice; none is a joke option.",
+      "noReply": true,
+      "noReplyReason": "Doc 04 Part Three: the letter is the whole of it, written in his voice; nobody answers a letter here.",
+      "options": [
+        {
+          "id": "letter2_1",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "honest",
+          "echo": "Dear Mother — I must correct my last. The property was worthless and was sold to me as a joke I did not hear in time. I tune pianos to eat, there being one piano. I am well, which surprises everyone, including the mud. — Your Thaddeus.",
+          "ends": true
+        },
+        {
+          "id": "letter2_2",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "flattering",
+          "echo": "Dear Mother — My affairs advance on several fronts, chiefly of paper. I am much in demand at the registrar's, the assay office, and the newspaper, where my name appears with remarkable frequency. The air remains healthful. — Your Thaddeus.",
+          "ends": true
+        },
+        {
+          "id": "letter2_3",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "flattering, with a number in it",
+          "echo": "Dear Mother — I am engaged upon a matter of documents which, when concluded, will interest parties to the extent of $12,000. My standing grows daily; I was only yesterday the subject of the Clarion's front page. — Your Thaddeus.",
+          "ends": true
+        }
+      ]
+    },
+    "LETTERS_3": {
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 Part Three: a parallel choice system, three versions of one letter, not a conversation. Nobody is spoken to.",
+      "noComic": true,
+      "noComicReason": "Doc 04 Part Three: the three versions are the choice; none is a joke option.",
+      "noReply": true,
+      "noReplyReason": "Doc 04 Part Three: the letter is the whole of it, written in his voice; nobody answers a letter here.",
+      "options": [
+        {
+          "id": "letter3_1",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "honest",
+          "echo": "Dear Mother — There has been a development which I am not, in the strictest legal sense, in a position to describe. Do not believe everything you may read of me — or, ideally, anything. I am in good health. This is truer than the town knows. — Your Thaddeus.",
+          "ends": true
+        },
+        {
+          "id": "letter3_2",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "flattering",
+          "echo": "Dear Mother — I write in haste; my affairs have taken a most exclusive turn, and I move now in circles so elevated I am scarcely seen in town at all. I am widely mour— ADMIRED. Widely admired. The air is healthful. — Your Thaddeus.",
+          "ends": true
+        },
+        {
+          "id": "letter3_3",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "flattering, with a number in it",
+          "echo": "Dear Mother — My estate — my SITUATION — is valued by knowledgeable men at $30,000 or better, and the whole town turned out on Tuesday to honor me. I could not be more warmly regarded if I were dead. — Your Thaddeus.",
+          "ends": true
+        }
+      ]
+    }
+  }
+}

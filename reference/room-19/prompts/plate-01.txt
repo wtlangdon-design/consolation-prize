@@ -1,0 +1,8 @@
+Image 1 is a finished background from my pixel-art adventure game: a cheap hotel room at night, with one person in it -- the man in the blue coat standing on the floor by the desk.
+
+Make exactly these changes:
+1. Remove the man. Paint what is behind him, exactly as the room would look with nobody in it: the papered wall, the skirting and the plank floor, and the edge of the chair and desk beside him.
+2. Make the mirror over the washstand much smaller: a plain piece of mirror no bigger than a man's hand, hung on a nail on the wall where the big one is now. Paint the wall where the rest of the big mirror was.
+3. In the window, take out the hills and stars. Through the glass, close across a narrow alley, paint the dark plank back wall of another building at night, with the tops of two barrels at the bottom of the glass.
+
+Change nothing else. Same camera, same pixel grid, same colours, same light, same objects in the same places: the door with the coat on its hook, the wardrobe with its door ajar, the window, the desk with its lamp, papers and the bundle of letters, the chair, the washstand with its jug and basin, the iron bed, the plank wall at the right. The light grey margins at the very top and bottom stay light grey. No people, no shadows of people, no animals, no text, no numerals.

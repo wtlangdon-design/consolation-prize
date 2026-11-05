@@ -1538,6 +1538,13 @@ export interface DialogueOption {
    * complete and C4 or D4 not" -- the "or" a single condition cannot say).
    */
   whenAny?: Condition[];
+  /**
+   * WHAT THAD SAYS FOR THIS CHOICE, when it is not the option's wording. Doc
+   * 30 section 6.2: "enqueue a Thad utterance using option.echo when present,
+   * otherwise option.text." The letters home (doc 04 Part Three) list each
+   * version by its name and speak the letter itself.
+   */
+  echo?: string;
   say?: string;
   /**
    * A response with more than one speaker in it, in order.

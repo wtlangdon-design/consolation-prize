@@ -37,7 +37,7 @@ export function collectStrings(content) {
   }
   for (const { treeId, nodeId, option } of allDialogueOptions(content)) {
     const where = `${treeId}/${nodeId}/${option.id}`;
-    for (const [field, text] of Object.entries({ text: option.text, say: option.say, repeat: option.repeat })) {
+    for (const [field, text] of Object.entries({ text: option.text, echo: option.echo, say: option.say, repeat: option.repeat })) {
       if (text) strings.push({ text, where: `${where} (${field})` });
     }
     (option.exchange ?? []).forEach((spoken, index) => {

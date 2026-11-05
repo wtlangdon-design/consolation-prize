@@ -300,14 +300,16 @@ export class VerbSystem {
     const matched = index >= 0 ? rules?.[index] : undefined;
 
     if (matched) {
+      // FIRST SELECTION ONLY. Read BEFORE `nextLine`, which advances the
+      // cursor: read after it, as this once was, zero was never seen and a
+      // hotspot's `then` lines were never spoken -- Room 19's Act IV letter
+      // arrived as its first line alone (tests/room-19.test.ts). A punchline
+      // does not want re-delivering every time the player clicks; the repeat
+      // variants are what the second look is for.
+      const first = (this.repeatCursor.get(`${scope}/${target.id}#${index}:${verbId}`) ?? 0) === 0;
       return {
         say: this.nextLine(`${scope}/${target.id}#${index}`, verbId, matched),
-        // FIRST SELECTION ONLY. The cursor has not advanced yet when resolve
-        // runs, so zero means this is the first look. A punchline does not
-        // want re-delivering every time the player clicks; the repeat
-        // variants are what the second look is for.
-        then: (this.repeatCursor.get(`${scope}/${target.id}#${index}:${verbId}`) ?? 0) === 0
-          ? matched.then : undefined,
+        then: first ? matched.then : undefined,
         ...(matched.by ? { by: matched.by } : {}),
         dialogue: matched.dialogue ?? null,
         goto: matched.goto ?? null,
