@@ -16,7 +16,7 @@ import { DialoguePerformance, readingHold, type HoldTiming } from '../core/Dialo
 import { liveCycling, mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
 import { BitmapFont, GLYPH_SCALE, type Face } from '../render/BitmapFont.ts';
 import { appliedCandidates, askedCandidates, resolveAssetPath } from '../dev/CandidateArt.ts';
-import { askedFixture } from '../dev/Fixture.ts';
+import { askedFixture, idFromQuery } from '../dev/Fixture.ts';
 import { askedObjectStates } from '../dev/ObjectStates.ts';
 import { askedFont, PreviewFont } from '../render/PreviewFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
@@ -1802,7 +1802,9 @@ export class GameScene extends Phaser.Scene {
    * import.meta.env.DEV, or the first act is optional.
    */
   private warpRoom(): string | null {
-    const asked = new URLSearchParams(window.location.search).get('room');
+    // The leading id, as `?fixture=` takes it: a link from prose may carry the
+    // next character with it (engine/dev/Fixture.ts idFromQuery).
+    const asked = idFromQuery(window.location.search, 'room');
     if (!asked) return null;
     if (!this.state.content.rooms.has(asked)) {
       console.warn(`?room=${asked} is not a room. Known: `
