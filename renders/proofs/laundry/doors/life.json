@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "laundry",
- "commit": "a99d82735b2f09f78186f920a53d5211343d38fc",
+ "commit": "c6daca7cb45567e04501fa5b30c333ec5e6cbe11",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -13,30 +13,30 @@
  "fixture": "r28-a",
  "warped": false,
  "lifeRoute": "laundry-doors",
- "durationSeconds": 23.85,
+ "durationSeconds": 24,
  "events": [
   {
-   "t": 2.62,
+   "t": 2.66,
    "line": "started from fixture r28-a, no entry route"
   },
   {
-   "t": 5.78,
+   "t": 5.89,
    "line": "in laundry; life route: 23 action(s)"
   },
   {
-   "t": 6.7,
+   "t": 6.85,
    "line": "capture 00-arrived: room laundry, says null, options 0, control null"
   },
   {
-   "t": 7.16,
+   "t": 7.32,
    "line": "action 1 (click): clicked laundry/to_claims_road at world 88,400 -- out to the road"
   },
   {
-   "t": 7.5,
+   "t": 7.66,
    "line": "action 1 (waitFor): reached {\"room\":\"claims_road\"} in room claims_road"
   },
   {
-   "t": 8.52,
+   "t": 8.69,
    "trace": {
     "says": null,
     "control": null,
@@ -51,7 +51,7 @@
    }
   },
   {
-   "t": 9.53,
+   "t": 9.71,
    "trace": {
     "says": null,
     "control": null,
@@ -66,38 +66,27 @@
    }
   },
   {
-   "t": 10.51,
+   "t": 10.67,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 10.52,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     700,
-     800
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 10.97,
+   "t": 11.15,
    "line": "capture 01-out: room claims_road, says null, options 0, control null"
   },
   {
-   "t": 11.07,
+   "t": 11.25,
    "line": "action 1 (click): clicked screen 540,1052 -- the MAP button"
   },
   {
-   "t": 11.12,
+   "t": 11.3,
    "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
   },
   {
-   "t": 12.13,
+   "t": 12.31,
+   "line": "action 1 (wait): waited 1s"
+  },
+  {
+   "t": 12.32,
    "trace": {
     "says": null,
     "control": null,
@@ -112,19 +101,15 @@
    }
   },
   {
-   "t": 12.13,
-   "line": "action 1 (wait): waited 1s"
-  },
-  {
-   "t": 12.21,
+   "t": 12.38,
    "line": "action 1 (click): clicked screen 1560,340 -- the laundry's marker"
   },
   {
-   "t": 12.25,
+   "t": 12.41,
    "line": "action 1 (waitFor): reached {\"room\":\"laundry\"} in room laundry"
   },
   {
-   "t": 13.27,
+   "t": 13.45,
    "trace": {
     "says": null,
     "control": null,
@@ -139,23 +124,38 @@
    }
   },
   {
-   "t": 14.25,
+   "t": 14.42,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 14.72,
+   "t": 14.43,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 14.91,
    "line": "capture 01-in: room laundry, says null, options 0, control null"
   },
   {
-   "t": 14.88,
+   "t": 15.05,
    "line": "action 1 (click): clicked laundry/to_claims_road at world 88,400 -- out to the road"
   },
   {
-   "t": 15.18,
+   "t": 15.35,
    "line": "action 1 (waitFor): reached {\"room\":\"claims_road\"} in room claims_road"
   },
   {
-   "t": 16.21,
+   "t": 16.39,
    "trace": {
     "says": null,
     "control": null,
@@ -170,7 +170,7 @@
    }
   },
   {
-   "t": 17.21,
+   "t": 17.37,
    "trace": {
     "says": null,
     "control": null,
@@ -185,11 +185,11 @@
    }
   },
   {
-   "t": 18.19,
+   "t": 18.36,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 18.2,
+   "t": 18.36,
    "trace": {
     "says": null,
     "control": null,
@@ -204,23 +204,23 @@
    }
   },
   {
-   "t": 18.66,
+   "t": 18.82,
    "line": "capture 02-out: room claims_road, says null, options 0, control null"
   },
   {
-   "t": 18.77,
+   "t": 18.95,
    "line": "action 1 (click): clicked screen 540,1052 -- the MAP button"
   },
   {
-   "t": 18.81,
+   "t": 18.99,
    "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
   },
   {
-   "t": 19.81,
+   "t": 19.99,
    "line": "action 1 (wait): waited 1s"
   },
   {
-   "t": 19.83,
+   "t": 20,
    "trace": {
     "says": null,
     "control": null,
@@ -235,15 +235,15 @@
    }
   },
   {
-   "t": 19.88,
+   "t": 20.05,
    "line": "action 1 (click): clicked screen 1560,340 -- the laundry's marker"
   },
   {
-   "t": 19.92,
+   "t": 20.09,
    "line": "action 1 (waitFor): reached {\"room\":\"laundry\"} in room laundry"
   },
   {
-   "t": 20.93,
+   "t": 21.11,
    "trace": {
     "says": null,
     "control": null,
@@ -258,11 +258,11 @@
    }
   },
   {
-   "t": 21.93,
+   "t": 22.09,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 21.95,
+   "t": 22.11,
    "trace": {
     "says": null,
     "control": null,
@@ -277,7 +277,7 @@
    }
   },
   {
-   "t": 22.4,
+   "t": 22.56,
    "line": "capture 02-in: room laundry, says null, options 0, control null"
   }
  ],
@@ -285,11 +285,11 @@
   {
    "name": "00-arrived",
    "why": null,
-   "t": 6.7,
+   "t": 6.85,
    "file": "renders/proofs/laundry/doors/raw-captures-ignored/00-arrived.png",
-   "hash": "2ce4f651c1702207452f15e2386ee77f40db892cf2ac76e1075630a0a1ea3bbb",
+   "hash": "85c8e5226390be9270b8e4008b364d1841eb798ca13bd13bf1dfa84e7ed538e8",
    "room": "laundry",
-   "clock": 6.3542,
+   "clock": 6.4989,
    "control": null,
    "says": null,
    "options": 0,
@@ -380,11 +380,11 @@
   {
    "name": "01-out",
    "why": null,
-   "t": 10.97,
+   "t": 11.14,
    "file": "renders/proofs/laundry/doors/raw-captures-ignored/01-out.png",
-   "hash": "6b2ac0c4c9254f0b06bc6606a14d7abb95e9bdd04b042552fee6de5887b1c757",
+   "hash": "4cb0d165d6c0e7ce99cc938d0834a5870f32cfc5fed5f41b87b31806dc603b2b",
    "room": "claims_road",
-   "clock": 10.704,
+   "clock": 10.848799999999999,
    "control": null,
    "says": null,
    "options": 0,
@@ -432,7 +432,7 @@
      "height": 336,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
+     "from": "art/actors/thad-idle-right/idle-02.png",
      "bounds": [
       526,
       464,
@@ -483,11 +483,11 @@
   {
    "name": "01-in",
    "why": null,
-   "t": 14.72,
+   "t": 14.91,
    "file": "renders/proofs/laundry/doors/raw-captures-ignored/01-in.png",
    "hash": "428b980ecd0874388a27b0211dcada492ea40756028a06b66da065c5272510b1",
    "room": "laundry",
-   "clock": 14.4538,
+   "clock": 14.732,
    "control": null,
    "says": null,
    "options": 0,
@@ -578,11 +578,11 @@
   {
    "name": "02-out",
    "why": null,
-   "t": 18.65,
+   "t": 18.82,
    "file": "renders/proofs/laundry/doors/raw-captures-ignored/02-out.png",
-   "hash": "6977dffe05705d2a3054c0e80713d994f02601ca4dedd87d2be82ecc70c6f701",
+   "hash": "549aa7351a4c22d0a589a6701675922d1a213d6a1091583d95f4f6f71aac4c61",
    "room": "claims_road",
-   "clock": 18.3703,
+   "clock": 18.5318,
    "control": null,
    "says": null,
    "options": 0,
@@ -681,11 +681,11 @@
   {
    "name": "02-in",
    "why": null,
-   "t": 22.39,
+   "t": 22.56,
    "file": "renders/proofs/laundry/doors/raw-captures-ignored/02-in.png",
    "hash": "428b980ecd0874388a27b0211dcada492ea40756028a06b66da065c5272510b1",
    "room": "laundry",
-   "clock": 22.1202,
+   "clock": 22.281599999999997,
    "control": null,
    "says": null,
    "options": 0,
@@ -786,7 +786,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 23.85s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 24s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -801,5 +801,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T20:23:21.888Z"
+ "at": "2026-11-05T20:40:08.790Z"
 }
