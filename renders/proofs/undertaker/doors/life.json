@@ -1,0 +1,722 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "undertaker",
+ "commit": "321f511ef31a6eddee4a749bfe0855fd019e2ffa",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "undertaker",
+ "warped": false,
+ "lifeRoute": "undertaker-doors",
+ "durationSeconds": 123.27,
+ "events": [
+  {
+   "t": 3.57,
+   "line": "entry route undertaker: 26 action(s)"
+  },
+  {
+   "t": 107.26,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 107.26,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 107.26,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 107.26,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 107.26,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 107.26,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 107.26,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 107.26,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 107.26,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 107.26,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 107.26,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 107.26,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 107.26,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 107.26,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 107.26,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 107.26,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 107.26,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 107.26,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 107.26,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 107.26,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 107.26,
+   "line": "action 21 (click): clicked screen 554,1052 -- the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)"
+  },
+  {
+   "t": 107.26,
+   "line": "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 107.26,
+   "line": "action 23 (wait): waited 1s"
+  },
+  {
+   "t": 107.26,
+   "line": "action 24 (click): clicked screen 330,345 -- the undertaker's place on the map (content/rooms/town-map.json loc_undertaker: the driver named him)"
+  },
+  {
+   "t": 107.26,
+   "line": "action 25 (waitFor): reached {\"room\":\"undertaker\"} in room undertaker"
+  },
+  {
+   "t": 107.26,
+   "line": "action 26 (wait): waited 3s"
+  },
+  {
+   "t": 107.29,
+   "line": "in undertaker; life route: 17 action(s)"
+  },
+  {
+   "t": 107.9,
+   "line": "capture 00-arrived: room undertaker, says null, options 0, control null"
+  },
+  {
+   "t": 108.2,
+   "line": "action 1 (click): clicked undertaker/back_to_street at world 125,420 -- THE STREET DOOR -- out, to the map"
+  },
+  {
+   "t": 108.57,
+   "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 109.58,
+   "line": "action 1 (wait): waited 1s"
+  },
+  {
+   "t": 109.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     250,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 110.41,
+   "line": "capture 01-out: room town_map, says null, options 0, control null"
+  },
+  {
+   "t": 110.53,
+   "line": "action 1 (click): clicked screen 330,345 -- the undertaker's marker"
+  },
+  {
+   "t": 110.59,
+   "line": "action 1 (waitFor): reached {\"room\":\"undertaker\"} in room undertaker"
+  },
+  {
+   "t": 111.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     250,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 112.6,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 112.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     250,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 113.39,
+   "line": "capture 01-in: room undertaker, says null, options 0, control null"
+  },
+  {
+   "t": 113.71,
+   "line": "action 1 (click): clicked undertaker/back_to_street at world 125,420 -- THE STREET DOOR -- out, to the map"
+  },
+  {
+   "t": 113.77,
+   "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 114.78,
+   "line": "action 1 (wait): waited 1s"
+  },
+  {
+   "t": 114.81,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     250,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 115.5,
+   "line": "capture 02-out: room town_map, says null, options 0, control null"
+  },
+  {
+   "t": 115.63,
+   "line": "action 1 (click): clicked screen 330,345 -- the undertaker's marker"
+  },
+  {
+   "t": 115.68,
+   "line": "action 1 (waitFor): reached {\"room\":\"undertaker\"} in room undertaker"
+  },
+  {
+   "t": 116.73,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     250,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 117.69,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 117.72,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     250,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 118.33,
+   "line": "capture 02-in: room undertaker, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "00-arrived",
+   "why": null,
+   "t": 107.88,
+   "file": "renders/proofs/undertaker/doors/raw-captures-ignored/00-arrived.png",
+   "hash": "41a211ad95cc23520382d635481c8a4a2bf4795444dab121ae42d2e983a3795f",
+   "room": "undertaker",
+   "clock": 107.4438,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 493,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      44,
+      297,
+      511,
+      544
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:undertaker",
+     "path": "art/backgrounds/room-13-undertakers.png",
+     "drawn": "art/backgrounds/room-13-undertakers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+    },
+    {
+     "key": "art/actors/room-13-undertaker.png",
+     "path": "art/actors/room-13-undertaker.png",
+     "drawn": "art/actors/room-13-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-out",
+   "why": null,
+   "t": 110.39,
+   "file": "renders/proofs/undertaker/doors/raw-captures-ignored/01-out.png",
+   "hash": "d3fdc7aedacc3469c1ef5744155831d0b98896094fbbee1d33deb747f7628999",
+   "room": "town_map",
+   "clock": 110.1104,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      250,
+      780
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 486,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-01.png",
+     "bounds": [
+      -3,
+      294,
+      505,
+      537
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:town_map",
+     "path": "art/backgrounds/room-00-town-map.png",
+     "drawn": "art/backgrounds/room-00-town-map.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24e197c0b72e97e46c7183345f6d3e008cf7177841aca98aa55fb20d483f2c4f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-in",
+   "why": null,
+   "t": 113.36,
+   "file": "renders/proofs/undertaker/doors/raw-captures-ignored/01-in.png",
+   "hash": "1de991c50751c986f17a4e646bcfef64bad198f725ac88277bfb8339e536eb9c",
+   "room": "undertaker",
+   "clock": 113.0937,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      250,
+      780
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 486,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-01.png",
+     "bounds": [
+      -3,
+      294,
+      505,
+      537
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:undertaker",
+     "path": "art/backgrounds/room-13-undertakers.png",
+     "drawn": "art/backgrounds/room-13-undertakers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+    },
+    {
+     "key": "art/actors/room-13-undertaker.png",
+     "path": "art/actors/room-13-undertaker.png",
+     "drawn": "art/actors/room-13-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-out",
+   "why": null,
+   "t": 115.48,
+   "file": "renders/proofs/undertaker/doors/raw-captures-ignored/02-out.png",
+   "hash": "d3fdc7aedacc3469c1ef5744155831d0b98896094fbbee1d33deb747f7628999",
+   "room": "town_map",
+   "clock": 114.9436,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      250,
+      780
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 486,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-02.png",
+     "bounds": [
+      -3,
+      294,
+      505,
+      537
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:town_map",
+     "path": "art/backgrounds/room-00-town-map.png",
+     "drawn": "art/backgrounds/room-00-town-map.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24e197c0b72e97e46c7183345f6d3e008cf7177841aca98aa55fb20d483f2c4f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-in",
+   "why": null,
+   "t": 118.31,
+   "file": "renders/proofs/undertaker/doors/raw-captures-ignored/02-in.png",
+   "hash": "5169b69722a98d763ba29e656d0e89121a64636a863613cf2b93be826926e84d",
+   "room": "undertaker",
+   "clock": 117.8601,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      250,
+      780
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 486,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-00.png",
+     "bounds": [
+      -3,
+      294,
+      505,
+      537
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:undertaker",
+     "path": "art/backgrounds/room-13-undertakers.png",
+     "drawn": "art/backgrounds/room-13-undertakers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+    },
+    {
+     "key": "art/actors/room-13-undertaker.png",
+     "path": "art/actors/room-13-undertaker.png",
+     "drawn": "art/actors/room-13-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 123.27s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T02:23:29.952Z"
+}

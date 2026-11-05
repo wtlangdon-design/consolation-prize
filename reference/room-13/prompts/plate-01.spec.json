@@ -1,0 +1,13 @@
+{
+ "assetId": "room-13",
+ "subject": "room-13-undertakers",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-13-undertakers",
+ "promptFile": "reference/room-13/prompts/plate-01.txt",
+ "out": "art/staging/room-13/plate-01/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-13/composition-master-01.png"
+ ]
+}

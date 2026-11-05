@@ -1,0 +1,190 @@
+{
+ "schema": 1,
+ "id": "room-13-undertakers",
+ "room": "undertaker",
+ "docRoom": 13,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 13 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/26-batch-a.md",
+  "docs/27-minor-trees.md",
+  "docs/49-wrong-answers.md",
+  "docs/57-puzzle-completion.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-13.json",
+    "docs/00-errata.md::86 · ROOM 13 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The undertaker at his table in every act; A1's news and E3's arrangements; night; one visual state."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-13/graybox.json",
+    "docs/00-errata.md::86 · ROOM 13 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Every subject is plate; the undertaker is the one figure, and nothing in the picture changes."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-13-undertaker-cut.png",
+    "docs/00-errata.md::86 · ROOM 13 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The undertaker drawn in the master beside Thad, then alone on magenta in five poses generated against a side-by-side with Thad, cut at the table top."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/undertaker/life/life.json"
+   ],
+   "note": "The undertaker planes and looks up on his own beats; the table lamp breathes."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-13-undertaker-cut.png"
+   ],
+   "note": "The undertaker stands behind the viewing table, cut at its top."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-13/annotation.json"
+   ],
+   "note": "The lamp over the viewing table, plate light and a runtime breath."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-13.test.ts",
+    "docs/00-errata.md::86 · ROOM 13 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "A1 is a line he says; E3's refusals say what is missing, in his words."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-13.json",
+    "content/rooms/mercantile.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 91 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-13: 3 of 4 operations (master, people-free plate, the undertaker's five-pose sheet against Thad)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/mercantile.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-13/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/undertaker/proof.json"
+   ],
+   "note": "Panel D: UND_C1 on T_NEED_TO_DIE."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/undertaker/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/undertaker/doors/life.json",
+    "tests/room-13.test.ts"
+   ],
+   "note": "Out by the street door to the map and back, twice; A1 and E3 in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-13/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-13-undertakers.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-13/plate-01/frame.json"
+   ]
+  },
+  {
+   "subject": "the undertaker",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-13-undertaker.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-13/undertaker/undertaker.json"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q156 · Room 13, the undertaker's: built, awaiting Tyler's playthrough; two lines for THE COFFINS' USE — **RULED 2026-11-05 (errata 86, delegated; doc 26's line plays, doc 49's is reported); BUILT, room-13 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q156 · Room 13, the undertaker's: built, awaiting Tyler's playthrough; two lines for THE COFFINS' USE — **RULED 2026-11-05 (errata 86, delegated; doc 26's line plays, doc 49's is reported); BUILT, room-13 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

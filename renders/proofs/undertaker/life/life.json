@@ -1,0 +1,2237 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "undertaker",
+ "commit": "c72d2e76083bd715294050b585e823dd466875e5",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "undertaker",
+ "warped": false,
+ "lifeRoute": "undertaker-life",
+ "durationSeconds": 201.93,
+ "events": [
+  {
+   "t": 4.24,
+   "line": "entry route undertaker: 26 action(s)"
+  },
+  {
+   "t": 108.29,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 108.29,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 108.29,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 108.29,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 108.29,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 108.29,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 108.29,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 108.29,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 108.29,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 108.29,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 108.29,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 108.29,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 108.29,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 108.29,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 108.29,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 108.29,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 108.29,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 108.29,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 108.29,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 108.29,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 108.29,
+   "line": "action 21 (click): clicked screen 554,1052 -- the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)"
+  },
+  {
+   "t": 108.29,
+   "line": "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 108.29,
+   "line": "action 23 (wait): waited 1s"
+  },
+  {
+   "t": 108.29,
+   "line": "action 24 (click): clicked screen 330,345 -- the undertaker's place on the map (content/rooms/town-map.json loc_undertaker: the driver named him)"
+  },
+  {
+   "t": 108.29,
+   "line": "action 25 (waitFor): reached {\"room\":\"undertaker\"} in room undertaker"
+  },
+  {
+   "t": 108.29,
+   "line": "action 26 (wait): waited 3s"
+  },
+  {
+   "t": 108.3,
+   "line": "in undertaker; life route: 42 action(s)"
+  },
+  {
+   "t": 109,
+   "line": "capture 01-arrived: room undertaker, says null, options 0, control null"
+  },
+  {
+   "t": 110.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 111.02,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 112.02,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 113.04,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 114.06,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 115.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 116.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 117.02,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 117.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 117.66,
+   "line": "capture 02-undertaker-at-work: room undertaker, says null, options 0, control null"
+  },
+  {
+   "t": 118.66,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 119.71,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 120.69,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 121.69,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 122.69,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 123.72,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 124.67,
+   "line": "action 1 (wait): waited 7s"
+  },
+  {
+   "t": 124.7,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 125.3,
+   "line": "capture 03-undertaker-later: room undertaker, says null, options 0, control null"
+  },
+  {
+   "t": 125.42,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 125.64,
+   "line": "action 1 (click): clicked world 1542,420 -- the undertaker, at the viewing table"
+  },
+  {
+   "t": 126.66,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     698,
+     790
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 127.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1077,
+     790
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 128.51,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room undertaker"
+  },
+  {
+   "t": 129.08,
+   "line": "capture 04-root: room undertaker, says null, options 3, control null"
+  },
+  {
+   "t": 129.38,
+   "line": "action 1 (option): chose option undertaker5 -- the comic option"
+  },
+  {
+   "t": 130.4,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 131.5,
+   "trace": {
+    "says": "undertaker",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 131.57,
+   "line": "action 1 (waitFor): reached {\"says\":\"undertaker\"} in room undertaker"
+  },
+  {
+   "t": 132.21,
+   "line": "capture 05-undertaker-speaks: room undertaker, says \"undertaker\", options 3, control null"
+  },
+  {
+   "t": 133.22,
+   "trace": {
+    "says": "undertaker",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 134.32,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 3,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 134.39,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room undertaker"
+  },
+  {
+   "t": 134.7,
+   "line": "action 1 (option): chose option undertaker1 -- Pike"
+  },
+  {
+   "t": 135.7,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 136.72,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 137.7,
+   "trace": {
+    "says": "undertaker",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 138.79,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 139.72,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 140.76,
+   "trace": {
+    "says": "undertaker",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 141.73,
+   "trace": {
+    "says": "undertaker",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 142.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 6,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 142.75,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room undertaker"
+  },
+  {
+   "t": 143.43,
+   "line": "capture 06-after-pike: room undertaker, says null, options 6, control null"
+  },
+  {
+   "t": 143.71,
+   "line": "action 1 (option): chose option undertaker2 -- Up the hill? -- A1"
+  },
+  {
+   "t": 144.73,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 145.76,
+   "trace": {
+    "says": "undertaker",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 146.73,
+   "trace": {
+    "says": "undertaker",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 147.72,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room undertaker"
+  },
+  {
+   "t": 147.72,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 6,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 148.04,
+   "line": "action 1 (option): chose option undertaker6 -- leave the conversation"
+  },
+  {
+   "t": 149.06,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 150.06,
+   "trace": {
+    "says": "undertaker",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 150.13,
+   "line": "action 1 (waitFor): reached {\"says\":\"undertaker\"} in room undertaker"
+  },
+  {
+   "t": 150.31,
+   "line": "action 1 (click): clicked screen 960,430 -- read past his \"Mm.\" -- a line under conversationWaitsForClick holds until clicked, and the next click would be spent on it"
+  },
+  {
+   "t": 151.37,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 152.36,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 153.38,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 154.32,
+   "line": "action 1 (wait): waited 4s"
+  },
+  {
+   "t": 154.35,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 154.42,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 154.71,
+   "line": "action 1 (click): clicked undertaker/coffins at world 1115,395 -- LOOK at the coffins"
+  },
+  {
+   "t": 155.74,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 155.98,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room undertaker"
+  },
+  {
+   "t": 156.64,
+   "line": "capture 07-look-coffins: room undertaker, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 157.72,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 158.72,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 159.66,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 160.71,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 161.66,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 162.68,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 163.68,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 164.65,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 164.74,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 165.04,
+   "line": "action 1 (click): clicked undertaker/measuring_wall at world 785,375 -- LISTEN to the measuring wall"
+  },
+  {
+   "t": 166.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     785,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 166.26,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room undertaker"
+  },
+  {
+   "t": 166.97,
+   "line": "capture 08-listen-wall: room undertaker, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 167.99,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     785,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     785,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     785,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 171.02,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     785,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.01,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     785,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 173.01,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     785,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.04,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     785,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.98,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 175.08,
+   "line": "action 1 (verb): chose verb USE -- "
+  },
+  {
+   "t": 175.41,
+   "line": "action 1 (click): clicked undertaker/coffins at world 1115,395 -- doc 26's fixed USE: \"Not yet.\""
+  },
+  {
+   "t": 176.42,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 176.59,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room undertaker"
+  },
+  {
+   "t": 177.24,
+   "line": "capture 09-use-coffins: room undertaker, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 178.29,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179.3,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 180.25,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 181.3,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 182.3,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 183.31,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 184.29,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1115,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 185.25,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 185.34,
+   "line": "action 1 (verb): chose verb PICK_UP -- "
+  },
+  {
+   "t": 185.62,
+   "line": "action 1 (click): clicked undertaker/teeth at world 1405,230 -- doc 49's authored PICK UP"
+  },
+  {
+   "t": 186.63,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room undertaker"
+  },
+  {
+   "t": 186.63,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1405,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 187.33,
+   "line": "capture 10-pickup-teeth: room undertaker, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 188.36,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1405,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.36,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1405,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 190.35,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1405,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 191.44,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1405,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 192.35,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1405,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 193.35,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1405,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 194.35,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1405,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 195.34,
+   "line": "action 1 (wait): waited 8s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "arrival from the map",
+   "t": 108.97,
+   "file": "renders/proofs/undertaker/life/raw-captures-ignored/01-arrived.png",
+   "hash": "a4fab30eef77ef71e44bb562f7be3458f12856c2b02dc4f610b776924c28c2e8",
+   "room": "undertaker",
+   "clock": 108.43310000000001,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 493,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      44,
+      297,
+      511,
+      544
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:undertaker",
+     "path": "art/backgrounds/room-13-undertakers.png",
+     "drawn": "art/backgrounds/room-13-undertakers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+    },
+    {
+     "key": "art/actors/room-13-undertaker.png",
+     "path": "art/actors/room-13-undertaker.png",
+     "drawn": "art/actors/room-13-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-undertaker-at-work",
+   "why": null,
+   "t": 117.64,
+   "file": "renders/proofs/undertaker/life/raw-captures-ignored/02-undertaker-at-work.png",
+   "hash": "d47dd486a28edc82877b0d2f3806f4f64cf624b152e31e0f397683445cfd44ba",
+   "room": "undertaker",
+   "clock": 117.3495,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 493,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      44,
+      297,
+      511,
+      544
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:undertaker",
+     "path": "art/backgrounds/room-13-undertakers.png",
+     "drawn": "art/backgrounds/room-13-undertakers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+    },
+    {
+     "key": "art/actors/room-13-undertaker.png",
+     "path": "art/actors/room-13-undertaker.png",
+     "drawn": "art/actors/room-13-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-undertaker-later",
+   "why": null,
+   "t": 125.27,
+   "file": "renders/proofs/undertaker/life/raw-captures-ignored/03-undertaker-later.png",
+   "hash": "0c9879d04b818ddd793afeeb60371f6f5e3795150cc890ff209d2e561e621553",
+   "room": "undertaker",
+   "clock": 124.9658,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 493,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-04.png",
+     "bounds": [
+      44,
+      297,
+      511,
+      544
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:undertaker",
+     "path": "art/backgrounds/room-13-undertakers.png",
+     "drawn": "art/backgrounds/room-13-undertakers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+    },
+    {
+     "key": "art/actors/room-13-undertaker.png",
+     "path": "art/actors/room-13-undertaker.png",
+     "drawn": "art/actors/room-13-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-root",
+   "why": "the root list, and Thad at his stand",
+   "t": 129.06,
+   "file": "renders/proofs/undertaker/life/raw-captures-ignored/04-root.png",
+   "hash": "3f1b6a976283b3739534a77a494960b4b65e429954d7e797bdf51e9ff33a3e6c",
+   "room": "undertaker",
+   "clock": 128.6156,
+   "control": null,
+   "says": null,
+   "options": 3,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1330,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 493,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      1074,
+      297,
+      511,
+      544
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:undertaker",
+     "path": "art/backgrounds/room-13-undertakers.png",
+     "drawn": "art/backgrounds/room-13-undertakers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+    },
+    {
+     "key": "art/actors/room-13-undertaker.png",
+     "path": "art/actors/room-13-undertaker.png",
+     "drawn": "art/actors/room-13-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-undertaker-speaks",
+   "why": "his line over his head",
+   "t": 132.19,
+   "file": "renders/proofs/undertaker/life/raw-captures-ignored/05-undertaker-speaks.png",
+   "hash": "59ffaef139d126837ca29a49aa6f426327b2c5de677517197f90a1dc2f93c559",
+   "room": "undertaker",
+   "clock": 131.68220000000002,
+   "control": null,
+   "says": "undertaker",
+   "options": 3,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1330,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 493,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      1074,
+      297,
+      511,
+      544
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:undertaker",
+     "path": "art/backgrounds/room-13-undertakers.png",
+     "drawn": "art/backgrounds/room-13-undertakers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+    },
+    {
+     "key": "art/actors/room-13-undertaker.png",
+     "path": "art/actors/room-13-undertaker.png",
+     "drawn": "art/actors/room-13-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-after-pike",
+   "why": "the follow-ups are offered now",
+   "t": 143.41,
+   "file": "renders/proofs/undertaker/life/raw-captures-ignored/06-after-pike.png",
+   "hash": "ed18f652e451dc8090c6f0fb0e63aab65e0ba380932631ad6c7a26fcb10127d0",
+   "room": "undertaker",
+   "clock": 142.8818,
+   "control": null,
+   "says": null,
+   "options": 6,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1330,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 493,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-10.png",
+     "bounds": [
+      1074,
+      297,
+      511,
+      544
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:undertaker",
+     "path": "art/backgrounds/room-13-undertakers.png",
+     "drawn": "art/backgrounds/room-13-undertakers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+    },
+    {
+     "key": "art/actors/room-13-undertaker.png",
+     "path": "art/actors/room-13-undertaker.png",
+     "drawn": "art/actors/room-13-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-look-coffins",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 156.63,
+   "file": "renders/proofs/undertaker/life/raw-captures-ignored/07-look-coffins.png",
+   "hash": "f0ea5def3535375a0cc72d826a60cd3840d01670bf18c0d2787421005dacd35c",
+   "room": "undertaker",
+   "clock": 156.34779999999998,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1115,
+      854
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 537,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      797,
+      317,
+      636,
+      593
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:undertaker",
+     "path": "art/backgrounds/room-13-undertakers.png",
+     "drawn": "art/backgrounds/room-13-undertakers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+    },
+    {
+     "key": "art/actors/room-13-undertaker.png",
+     "path": "art/actors/room-13-undertaker.png",
+     "drawn": "art/actors/room-13-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "08-listen-wall",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 166.95,
+   "file": "renders/proofs/undertaker/life/raw-captures-ignored/08-listen-wall.png",
+   "hash": "bad07208fc2d128b01e54ef9610793a72444c91d370c442130d8c3b64e6b6fbc",
+   "room": "undertaker",
+   "clock": 166.6474,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      785,
+      854
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 537,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      467,
+      317,
+      636,
+      593
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:undertaker",
+     "path": "art/backgrounds/room-13-undertakers.png",
+     "drawn": "art/backgrounds/room-13-undertakers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+    },
+    {
+     "key": "art/actors/room-13-undertaker.png",
+     "path": "art/actors/room-13-undertaker.png",
+     "drawn": "art/actors/room-13-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "09-use-coffins",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 177.22,
+   "file": "renders/proofs/undertaker/life/raw-captures-ignored/09-use-coffins.png",
+   "hash": "2f2efa98c39c17d0f895ccb2ab67eba363c111f1bbabfe98b2ce3254496e307a",
+   "room": "undertaker",
+   "clock": 176.9471,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1115,
+      854
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 537,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      797,
+      317,
+      636,
+      593
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:undertaker",
+     "path": "art/backgrounds/room-13-undertakers.png",
+     "drawn": "art/backgrounds/room-13-undertakers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+    },
+    {
+     "key": "art/actors/room-13-undertaker.png",
+     "path": "art/actors/room-13-undertaker.png",
+     "drawn": "art/actors/room-13-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "10-pickup-teeth",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 187.31,
+   "file": "renders/proofs/undertaker/life/raw-captures-ignored/10-pickup-teeth.png",
+   "hash": "cfc7cd36df39d6ecf7c8b5006d14dae6bf76c3fe34478cebc3ac9f1f890b8464",
+   "room": "undertaker",
+   "clock": 186.9966,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1405,
+      854
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 537,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      1087,
+      317,
+      636,
+      593
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:undertaker",
+     "path": "art/backgrounds/room-13-undertakers.png",
+     "drawn": "art/backgrounds/room-13-undertakers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+    },
+    {
+     "key": "art/actors/room-13-undertaker.png",
+     "path": "art/actors/room-13-undertaker.png",
+     "drawn": "art/actors/room-13-undertaker.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 201.93s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T02:36:41.683Z"
+}

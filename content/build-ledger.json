@@ -342,6 +342,26 @@
    "blockers": [],
    "note": "RULED BY TYLER, errata 62: the existing bitmap face is retained at GLYPH_SCALE 6 in the play area and PANEL_GLYPH_SCALE 4 in the panel. The answer to the decision sheet's question was none of the four candidates. The sheet, the four faces and PreviewFont are retained as diagnostics and are not a shipping path.",
    "ruling": "docs/00-errata.md::62 · THE EXISTING BITMAP FACE IS THE SHIPPING FACE"
+  },
+  {
+   "id": "room-13-undertakers",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-13.json",
+    "docs/26-batch-a.md",
+    "docs/27-minor-trees.md",
+    "docs/57-puzzle-completion.md",
+    "docs/20-room-map.md"
+   ],
+   "dependsOn": [
+    "room-02-main-street"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-13-undertakers.json",
+   "proof": "renders/proofs/undertaker/proof.json",
+   "gauntlet": "tools/gauntlet/routes/undertaker.json",
+   "blockers": [],
+   "note": "Room 13, built 2026-11-05 under doc 55 (errata 72, 86). Acceptance is Tyler's, in the playthrough (Q156)."
   }
  ],
  "blockerNote": "BLOCKERS ARE QUALIFIED REFERENCES: path.md::Exact Heading. A bare Q id is no longer accepted, because docs/36-issue-list.md carries two Q-number series -- Q11 through Q21 and Q37 each name two different issues -- and a row blocked on \"Q16\" could not say which one. Historical numbering in the document stays as it is; the fix is on the reference side. tools/lib/issueref.mjs resolves a reference to exactly one heading or fails.",

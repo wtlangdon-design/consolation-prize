@@ -896,6 +896,32 @@
     "room:mercantile:pickaxes:PICK_UP"
    ],
    "note": "Doc 54 (errata 68 A, 75): the first PICK UP on THE PICKAXES puts it on Thad's account and gives it; the next answers 'again' where doc 54 writes one (errata 85 D)."
+  },
+  {
+   "id": "T_COFFIN_SIZED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:UNDERTAKER:UND_C1:undertaker_c1"
+   ],
+   "note": "Doc 57 E3 step 3: UND_C1 option 1 sizes the coffin. Read by SHENG'S LOAN on the undertaker."
+  },
+  {
+   "id": "T_SOWERBY_PRICE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [],
+   "pending": true,
+   "note": "Doc 57 E3 step 1: SOW_C1 option 3, the Reverend's figure (Room 17, not built). Read by SHENG'S LOAN on the undertaker."
+  },
+  {
+   "id": "T_FUNERAL_BOOKED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:loan:undertaker:undertaker"
+   ],
+   "note": "Doc 57 E3: the loan spent at the undertaker's; Thad's own funeral is booked. WIN_C1 (E4) waits on it."
   }
  ]
 }

@@ -258,6 +258,22 @@
     }
    ],
    "castingNote": "Nobody is drawn in the Mercantile: the proprietor is in the back room (doc 49). Thad alone."
+  },
+  "room-13-undertakers": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-03-nugget",
+    "path": "art/backgrounds/room-03-nugget.png",
+    "note": "D -- the approved public interior at night. The undertaker's is scrubbed bone-white and pine, near-monochrome on purpose (errata 17b, 23), so a comparable for the hand and the night, not a palette."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "The undertaker has no approved image; his examine layer (doc 27) gives him fifties, a clean apron, a plane and a carpenter's hands (errata 86 B). Drawn in the composition master beside Thad, then on magenta against a side-by-side with Thad (doc 55 section 8)."
   }
  }
 }

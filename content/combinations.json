@@ -311,6 +311,55 @@
           "say": "The deed first. The order is in the statute."
         }
       ]
+    },
+    {
+      "item": "loan",
+      "room": "undertaker",
+      "target": "undertaker",
+      "puzzle": "E3",
+      "say": "Pine. Handles. Plate. The hole. The Reverend's four words.",
+      "note": "Doc 57 E3 (not doc 24): SHENG'S LOAN on the undertaker -- paid once the Reverend's figure and the sizing are in.",
+      "rules": [
+        {
+          "case": "with T_SOWERBY_PRICE and T_COFFIN_SIZED",
+          "when": {
+            "T_SOWERBY_PRICE": true,
+            "T_COFFIN_SIZED": true,
+            "T_FUNERAL_BOOKED": false
+          },
+          "by": "undertaker",
+          "say": "Pine. Handles. Plate. The hole. The Reverend's four words.",
+          "then": [
+            {
+              "speaker": "undertaker",
+              "line": "Paid."
+            }
+          ],
+          "takes": [
+            "loan"
+          ],
+          "set": {
+            "T_FUNERAL_BOOKED": true
+          },
+          "completes": "E3"
+        },
+        {
+          "case": "before the Reverend's figure",
+          "when": {
+            "T_SOWERBY_PRICE": false
+          },
+          "by": "undertaker",
+          "say": "The Reverend hasn't sent his figure. I don't bury on estimates."
+        },
+        {
+          "case": "before the sizing",
+          "when": {
+            "T_COFFIN_SIZED": false
+          },
+          "by": "undertaker",
+          "say": "Stand straight first. Sizing's free."
+        }
+      ]
     }
   ],
   "itemPools": {

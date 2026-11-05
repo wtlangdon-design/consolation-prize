@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game, with two people in it: the man in the blue coat standing on the floor in the middle, and the undertaker in the white apron planing a board at the long table.
+
+Remove both of them, and the plane and the board he is working. Paint what is behind each, exactly as the room would look with nobody in it: the stacked coffins, the doorway and the floorboards and the lamplight on them; the bare scrubbed tabletop, the wall behind the table and the floor at the table's far end.
+
+Change nothing else. Same framing, same camera, same pixel grid, same colours, same light, same objects in the same places: the door, the window, the bench, the price board, the suits on their pegs, the pencil-marked doorway, the coffins, the table and its hanging lamp, the shelf with the lilies and the jar, the harness, the tools, the ledger on its stand. The grey strips above and below stay grey. No people, no shadows of people, no text.

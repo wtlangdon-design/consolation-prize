@@ -2,136 +2,125 @@
   "schema": 1,
   "id": "undertaker",
   "name": "THE UNDERTAKER'S",
-  "note": "Room 13, doc 20. ERRATA 23's named exception to the palette proportions: near-monochrome on purpose, and scrubbed rather than dim. Reached from a map drawn in achromatic pencil grey precisely so a bone map into a bone room is not the adjacency 17b forbids -- step 0 caught it before either existed. DOC 26 gives this room ONE working surface, so the coffin that stood on trestles in front of the table is gone: two large pale horizontals where the writing describes one meant a player clicking the nearer of them got the table's line about a coffin. THE COFFINS' USE override is 'Not yet.' and IT HAS NO VARIANT AND MUST NEVER BE GIVEN ONE -- it is the same line in Act III when Thad is arranging his own funeral in this room, and a second version explains the joke. check-fixed-lines fails the build on a variant being added to it. Lines EXTRACTED from docs/26-batch-a.md by tools/extract-content.mjs. Do not edit: change doc 26 and re-run.",
-  "materialIdentity": "Scrubbed bone-white and pine, near-monochrome, deliberately (17b) -- errata 23's named exception to the palette proportions",
-  "paletteScript": {
-    "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
-    "dominant": "bone 0.85",
-    "shadow": "dust 0.45",
-    "secondary": "pine_fresh 0.8",
-    "accent": "bone 0.6"
-  },
+  "materialIdentity": "Scrubbed bone-white and pine, near-monochrome, deliberately (17b) -- errata 23's named exception to the palette proportions; rebuilt at errata 54's size, night, the lamp over the table (errata 86 A)",
+  "note": "Room 13, doc 20, rebuilt at errata 54's size (errata 72 A). The undertaker at his table (doc 27's tree, doc 04's UND_C1); A1's news and E3's arrangements are his (doc 57). THE COFFINS' USE line is doc 26's fixed 'Not yet.' -- IT HAS NO VARIANT AND MUST NEVER BE GIVEN ONE (check-fixed-lines). Compiled by tools/compile-room.mjs from content/examine/room-13.json and reference/room-13/annotation.json",
+  "background": "art/backgrounds/room-13-undertakers.png",
   "colours": {
     "sky": 0,
     "ground": 6
   },
-  "horizon": 360,
-  "background": "art/backgrounds/room-13-undertakers.png",
-  "foreground": "art/foregrounds/room-13-undertakers.png",
-  "walkable": [
-    {
-      "id": "floor_far",
-      "zone": 2,
-      "rect": [
-        660,
-        504,
-        420,
-        60
-      ]
-    },
-    {
-      "id": "floor_mid",
-      "zone": 1,
-      "rect": [
-        240,
-        672,
-        1320,
-        72
-      ]
-    },
-    {
-      "id": "floor_near",
-      "zone": 0,
-      "rect": [
-        168,
-        744,
-        1584,
-        84
-      ]
-    }
-  ],
+  "horizon": 320,
   "hotspots": [
     {
-      "id": "the_undertaker",
-      "name": "THE UNDERTAKER",
+      "id": "teeth",
+      "name": "THE TEETH",
       "rect": [
-        858,
-        396,
-        90,
-        216
+        1375,
+        195,
+        60,
+        70
       ],
-      "colour": 30,
-      "stub": true,
-      "defaultVerb": "TALK_TO",
-      "note": "Doc 27 note 2: he is never named, and THE UNDERTAKER is the whole of it -- the only person in Consolation whose function is entirely sufficient. Doc 27 gives this character a tree and no examine layer. The hotspot is marked stub for the reason the word already means in this repo: the thing exists so the interaction works and its LOOK and LISTEN lines are honestly absent rather than invented. Three characters x two verbs x three variants is eighteen lines nobody has written, and check-examine-lines names them on every run until somebody does.",
-      "responses": {
-        "TALK_TO": [
-          {
-            "dialogue": "UNDERTAKER"
-          }
-        ]
-      }
-    },
-    {
-      "id": "good_suit",
-      "name": "THE GOOD SUIT",
-      "rect": [
-        444,
-        180,
-        132,
-        204
-      ],
-      "colour": 34,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "One good suit, in three sizes, rented for viewings and returned afterwards. Half the men in Boot Hill were buried in their own clothes and viewed in this.",
+            "say": "A jar of teeth. I asked whose. He said, and I am quoting, 'various.'",
             "repeat": [
-              "Three sizes, on one hanger, and all three have been let out at the waist.",
-              "Half the men on Boot Hill were viewed in this and buried in their own clothes."
+              "A jar of teeth. He sells them on to the barber, who fits them to the living. Nothing in this establishment is wasted.",
+              "Still there. I have decided to think of it as inventory.",
+              "There are more than there were on Tuesday. I am not going to develop this thought."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "They shift when the floor does. I wish they would not.",
             "repeat": [
+              "Nothing. Obviously nothing. I checked, and I regret it.",
               "Nothing.",
-              "Nothing."
+              "Nothing. I have satisfied myself and I should like that to be the end of it."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "It is rented, and I am not the size."
+        "PICK_UP": "No.",
+        "USE": "I have teeth. It is among my few unencumbered assets."
+      },
+      "walkTo": {
+        "x": 1405,
+        "y": 854,
+        "facing": "back"
       }
     },
     {
-      "id": "price_list",
-      "name": "THE PRICE LIST",
+      "id": "flowers_waxed",
+      "name": "THE FLOWERS, WAXED",
       "rect": [
-        996,
-        168,
-        132,
-        168
+        1290,
+        150,
+        80,
+        110
       ],
-      "colour": 38,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Plain, Respectable, and Handsome. The Handsome is four times the Plain and the difference is a handle.",
+            "say": "Wax lilies, used at every service and dusted between them.",
             "repeat": [
-              "There is a fourth line, scratched out, that began with the word Gratis.",
-              "Nobody has ever asked me which I would want, and I have decided that is a courtesy."
+              "Dusted so often the wax has worn thin at the tips. Even the permanent arrangements are wearing out.",
+              "Somebody has painted a dewdrop on one petal. It is the only tear the arrangement has ever shed, and it is paint."
+            ],
+            "then": [
+              "Real flowers die, which is considered to be in poor taste here."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "Nothing. They are beyond all that.",
             "repeat": [
+              "A faint click when the vase is touched. Wax petals, settling against each other.",
+              "Nothing. No bee has been fooled, and no bee has tried."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1330,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "price_board",
+      "name": "THE PRICE BOARD",
+      "rect": [
+        500,
+        145,
+        110,
+        125
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Prices, chalked: the suit, the plate, the words said over you at three grades of sincerity.",
+            "repeat": [
+              "Plain, Respectable, and Handsome. The Handsome is four times the Plain and the difference is a handle.",
+              "There is a fourth line, scratched out, that began with the word Gratis.",
+              "Nobody has ever asked me which I would want, and I have decided that is a courtesy."
+            ],
+            "then": [
+              "The top grade is surprisingly reasonable."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Chalk dust. Commerce, at its most certain.",
+            "repeat": [
+              "Nothing.",
               "Nothing.",
               "Nothing."
             ]
@@ -140,53 +129,177 @@
       },
       "overrides": {
         "PICK_UP": "It is nailed up, and I would rather not be seen taking it."
+      },
+      "walkTo": {
+        "x": 555,
+        "y": 854,
+        "facing": "back"
       }
     },
     {
-      "id": "jar_of_teeth",
-      "name": "THE JAR OF TEETH",
+      "id": "hearse_harness",
+      "name": "THE HEARSE HARNESS",
       "rect": [
-        1536,
-        444,
-        132,
-        156
+        1620,
+        130,
+        110,
+        250
       ],
-      "colour": 42,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A jar of teeth. He sells them on to the barber, who fits them to the living. Nothing in this establishment is wasted.",
+            "say": "Black harness on a peg, kept supple. The undertaker has no horse of his own; he borrows Grievance, who wears black well and knows the route.",
             "repeat": [
-              "Still there. I have decided to think of it as inventory.",
-              "There are more than there were on Tuesday. I am not going to develop this thought."
+              "The brass fittings are blacked over. Even the buckles are in mourning.",
+              "It is cut for Grievance and nobody else. She knows the road to Boot Hill, he says, and does not stop at the gate unless asked."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. Obviously nothing. I checked, and I regret it.",
+            "say": "Leather, easing on the peg. Working clothes between shifts.",
+            "repeat": [
+              "A buckle ticking against the wall, patient as a mule.",
+              "Nothing. It is not a working day, and the harness can tell."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1675,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "tools",
+      "name": "THE TOOLS",
+      "rect": [
+        1760,
+        160,
+        150,
+        230
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A saw, a plane, a brace, and a mallet, hung level and clean.",
+            "repeat": [
+              "The plane has been used this morning. There are shavings and they are pale.",
+              "He makes them himself. I had assumed they came from somewhere."
+            ],
+            "then": [
+              "This is a carpenter's shop that has specialized."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
             "repeat": [
               "Nothing.",
-              "Nothing. I have satisfied myself and I should like that to be the end of it."
+              "Nothing. He is not working while I am standing here."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "No."
+        "PICK_UP": "They are hung level. I am not the man who unhangs them."
+      }
+    },
+    {
+      "id": "good_suit",
+      "name": "THE GOOD SUIT",
+      "rect": [
+        495,
+        290,
+        165,
+        300
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "One good suit, in three sizes, rented for viewings and returned after.",
+            "repeat": [
+              "Three sizes, on one hanger, and all three have been let out at the waist.",
+              "It hangs better than most of the men who wore it. The suit, at least, has kept its shape."
+            ],
+            "then": [
+              "Half the men in Boot Hill were photographed in it. It has more friends than I do."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wool, on a hanger, at rest. It has heard every eulogy in town and improved none of them.",
+            "repeat": [
+              "Nothing.",
+              "Nothing.",
+              "Nothing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It is rented, and I am not the size.",
+        "USE": "Renting it while alive is, I'm told, 'irregular but not unprecedented.' I did not ask about the precedent."
+      },
+      "walkTo": {
+        "x": 578,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "ledger_of_accounts",
+      "name": "THE LEDGER OF ACCOUNTS",
+      "rect": [
+        1710,
+        420,
+        180,
+        280
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Burials on credit. The undertaker is owed by more of Boot Hill than the bank is, and he collects with more patience.",
+            "repeat": [
+              "Every burial in Consolation. Eleven pages. Two thousand people have lived here for twelve years and it is eleven pages, which means most of them left.",
+              "Eleven pages in twelve years, in a town of two thousand.",
+              "Which means most of them left. I have been telling myself that all morning."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A page lifts and lies back down. Somebody's balance.",
+            "repeat": [
+              "Nothing.",
+              "Nothing.",
+              "Nothing."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1670,
+        "y": 854,
+        "facing": "back"
       }
     },
     {
       "id": "window",
       "name": "THE WINDOW",
       "rect": [
-        1116,
-        144,
-        252,
-        252
+        260,
+        135,
+        200,
+        310
       ],
-      "colour": 46,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -207,121 +320,22 @@
             ]
           }
         ]
-      }
-    },
-    {
-      "id": "tools",
-      "name": "THE TOOLS",
-      "rect": [
-        1056,
-        372,
-        492,
-        144
-      ],
-      "colour": 50,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A saw, a plane, a brace, and a mallet, hung level and clean. This is a carpenter's shop that has specialized.",
-            "repeat": [
-              "The plane has been used this morning. There are shavings and they are pale.",
-              "He makes them himself. I had assumed they came from somewhere."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing.",
-            "repeat": [
-              "Nothing.",
-              "Nothing. He is not working while I am standing here."
-            ]
-          }
-        ]
       },
-      "overrides": {
-        "PICK_UP": "They are hung level. I am not the man who unhangs them."
-      }
-    },
-    {
-      "id": "ledger",
-      "name": "THE LEDGER",
-      "rect": [
-        624,
-        492,
-        180,
-        240
-      ],
-      "colour": 54,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Every burial in Consolation. Eleven pages. Two thousand people have lived here for twelve years and it is eleven pages, which means most of them left.",
-            "repeat": [
-              "Eleven pages in twelve years, in a town of two thousand.",
-              "Which means most of them left. I have been telling myself that all morning."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing.",
-            "repeat": [
-              "Nothing.",
-              "Nothing."
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "coffins",
-      "name": "THE COFFINS",
-      "rect": [
-        528,
-        132,
-        516,
-        360
-      ],
-      "colour": 58,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Coffins, stacked by size. There are a great many in the smallest size, which I have decided to attribute to storage efficiency.",
-            "repeat": [
-              "Stacked by size, and there are a great many in the smallest.",
-              "Six months of work, standing ready. He is not expecting a quiet year."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing. Naturally nothing. I don't know what I expected.",
-            "repeat": [
-              "Nothing.",
-              "Nothing. Naturally nothing."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "USE": "Not yet.",
-        "OPEN": "There is nothing in it. I have checked, which I regret."
+      "walkTo": {
+        "x": 360,
+        "y": 854,
+        "facing": "back"
       }
     },
     {
       "id": "waiting_bench",
       "name": "THE WAITING BENCH",
       "rect": [
-        192,
-        576,
-        432,
-        216
+        250,
+        465,
+        310,
+        230
       ],
-      "colour": 62,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -345,38 +359,134 @@
       },
       "overrides": {
         "USE": "I have sat down. It is a very good cushion and that is somehow the worst part."
+      },
+      "walkTo": {
+        "x": 405,
+        "y": 854,
+        "facing": "back"
       }
     },
     {
-      "id": "table",
-      "name": "THE TABLE",
+      "id": "measuring_wall",
+      "name": "THE MEASURING WALL",
       "rect": [
-        1116,
-        516,
-        648,
-        240
+        680,
+        115,
+        210,
+        520
       ],
-      "colour": 66,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Scrubbed to the grain. It is the cleanest surface in the territory.",
+            "say": "Heights penciled on the door frame, like a family kitchen, except for what the measurements are for. I am between two men I never met.",
             "repeat": [
-              "Scrubbed to the grain, and scrubbed again since.",
-              "It is the cleanest surface in the territory and I would rather look at the ceiling."
+              "Each mark has a name and a date beside it. The dates are all endings.",
+              "The tallest mark is a foot above my head and reads BIG SWEDE. He stooped through that door for years, and then he did not have to."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "Nothing. The wall takes your measure and keeps it.",
             "repeat": [
+              "Nothing. Pencil does not carry.",
+              "Nothing. It learns one thing about each man, and it is in no hurry to learn mine."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I congratulated the wall on its discretion. It has the measure of everyone and repeats nothing."
+      },
+      "walkTo": {
+        "x": 785,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "viewing_table",
+      "name": "THE VIEWING TABLE",
+      "rect": [
+        1135,
+        475,
+        575,
+        270
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Scrubbed oak, scrubbed often.",
+            "repeat": [
+              "Scrubbed to the grain, and scrubbed again since.",
+              "There is a block at one end for the head. It is padded. Somebody thought of that, and I am grateful to him on behalf of strangers."
+            ],
+            "then": [
+              "The cleanest surface in the territory, for the least demanding clients."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing at all. Not even the wind bothers.",
+            "repeat": [
+              "Nothing.",
               "Nothing.",
               "Nothing."
             ]
           }
         ]
+      },
+      "walkTo": {
+        "x": 1423,
+        "y": 852,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "coffins",
+      "name": "THE COFFINS",
+      "rect": [
+        900,
+        160,
+        430,
+        470
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Three on trestles: pine, pine with handles, and pine with handles and a name plate.",
+            "repeat": [
+              "Coffins, stacked by size. There are a great many in the smallest size, which I have decided to attribute to storage efficiency.",
+              "Six months of work, standing ready. He is not expecting a quiet year."
+            ],
+            "then": [
+              "The tiers of Consolation, laid out plainly for once."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Empty wood. A patient sound.",
+            "repeat": [
+              "Nothing. Naturally nothing. I don't know what I expected.",
+              "Nothing.",
+              "Nothing. Naturally nothing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "Not yet.",
+        "OPEN": "There is nothing in it. I have checked, which I regret."
+      },
+      "walkTo": {
+        "x": 1115,
+        "y": 854,
+        "facing": "back"
       }
     }
   ],
@@ -385,14 +495,13 @@
       "id": "back_to_street",
       "name": "THE STREET DOOR",
       "rect": [
-        36,
-        240,
-        144,
-        312
+        30,
+        140,
+        190,
+        560
       ],
-      "colour": 90,
+      "colour": 0,
       "to": "town_map",
-      "defaultVerb": "WALK_TO",
       "responses": {
         "LOOK_AT": [
           {
@@ -412,29 +521,221 @@
             ]
           }
         ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: the undertaker's is reached by the map, and its door leads back to it. Doc 54 writes this door's lines.",
+      "walkTo": {
+        "x": 250,
+        "y": 780,
+        "facing": "left"
       }
     }
   ],
-  "entrances": [
-    {
-      "from": "town_map",
-      "at": [
-        276,
-        768
-      ],
-      "facing": "right",
-      "note": "Doc 20: reached from the map, and doc 26 gives the room a street door back out to it -- it opens onto a lane rather than Main Street."
-    }
+  "ambient": [
+    "undertaker"
   ],
-  "lightSources": [
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-13.json",
+      "reference/room-13/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
     {
-      "note": "The window: north light, and the 33b exemption is DECLARED here rather than inferred from brightness, per the correction to that ruling. The blind is half down and left that way so a visitor can see Boot Hill before he has to say it.",
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
       "rect": [
-        1116,
-        144,
-        252,
-        252
+        230,
+        745,
+        1470,
+        37
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        230,
+        782,
+        1470,
+        36
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        230,
+        818,
+        1470,
+        37
       ]
     }
-  ]
+  ],
+  "walkableOutline": [
+    [
+      230,
+      745
+    ],
+    [
+      1700,
+      745
+    ],
+    [
+      1700,
+      855
+    ],
+    [
+      230,
+      855
+    ]
+  ],
+  "entrance": [
+    300,
+    790
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        300,
+        790
+      ],
+      "facing": "right",
+      "note": "In by the street door, at left: the map leads here."
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 230,
+          "y": 745
+        },
+        {
+          "x": 1700,
+          "y": 745
+        },
+        {
+          "x": 1700,
+          "y": 782
+        },
+        {
+          "x": 230,
+          "y": 782
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 745,
+        "farHeight": 462,
+        "nearY": 855,
+        "nearHeight": 538
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 230,
+          "y": 782
+        },
+        {
+          "x": 1700,
+          "y": 782
+        },
+        {
+          "x": 1700,
+          "y": 818
+        },
+        {
+          "x": 230,
+          "y": 818
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 745,
+        "farHeight": 462,
+        "nearY": 855,
+        "nearHeight": 538
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 230,
+          "y": 818
+        },
+        {
+          "x": 1700,
+          "y": 818
+        },
+        {
+          "x": 1700,
+          "y": 855
+        },
+        {
+          "x": 230,
+          "y": 855
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 745,
+        "farHeight": 462,
+        "nearY": 855,
+        "nearHeight": 538
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "table_lamp",
+      "at": [
+        1490,
+        230
+      ],
+      "radius": 520,
+      "amount": 0.1,
+      "rate": 0.24,
+      "phase": 0.4,
+      "note": "The oil lamp hung over the viewing table. A slow, low breath (invariant 9)."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-13/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
 }

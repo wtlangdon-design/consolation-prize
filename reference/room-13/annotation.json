@@ -1,0 +1,200 @@
+{
+ "room": "undertaker",
+ "plate": "art/backgrounds/room-13-undertakers.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-13/plate-01/candidate-1920x864.png, room-13 attempt 2, the standard 20:9 crop -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-13-undertakers.png",
+ "plateShippingHash": "d95cb39df5c5594b3ee21b39",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   230,
+   745
+  ],
+  [
+   1700,
+   745
+  ],
+  [
+   1700,
+   855
+  ],
+  [
+   230,
+   855
+  ]
+ ],
+ "walkableNote": "THE SCRUBBED FLOOR. The bench's feet are at y 695, the coffins' at 630 and the table's front legs at 740; the ledger's stand reaches 695. So the band runs y 745-855, from the door's step to the stand.",
+ "scaling": {
+  "far": {
+   "y": 745,
+   "height": 462
+  },
+  "near": {
+   "y": 855,
+   "height": 538
+  },
+  "note": "ROOM 13'S DEPTH, FROM THE MAN THE MASTER PAINTED. The composition master drew Thad about 375 tall with his feet at source y 770, which is 474 at y 758 in this plate's frame; along Room 5's slope (0.69 per row) that is 462 at the band's far edge and 538 at its near. The undertaker stands behind the table at 425 (tools/art/room13-undertaker.py)."
+ },
+ "entrance": [
+  300,
+  790
+ ],
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    300,
+    790
+   ],
+   "facing": "right",
+   "note": "In by the street door, at left: the map leads here."
+  }
+ ],
+ "hotspots": {
+  "window": [
+   260,
+   135,
+   200,
+   310
+  ],
+  "waiting_bench": [
+   250,
+   465,
+   310,
+   230
+  ],
+  "price_board": [
+   500,
+   145,
+   110,
+   125
+  ],
+  "good_suit": [
+   495,
+   290,
+   165,
+   300
+  ],
+  "measuring_wall": [
+   680,
+   115,
+   210,
+   520
+  ],
+  "coffins": [
+   900,
+   160,
+   430,
+   470
+  ],
+  "viewing_table": [
+   1135,
+   475,
+   575,
+   270
+  ],
+  "flowers_waxed": [
+   1290,
+   150,
+   80,
+   110
+  ],
+  "teeth": [
+   1375,
+   195,
+   60,
+   70
+  ],
+  "hearse_harness": [
+   1620,
+   130,
+   110,
+   250
+  ],
+  "tools": [
+   1760,
+   160,
+   150,
+   230
+  ],
+  "ledger_of_accounts": [
+   1710,
+   420,
+   180,
+   280
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE MEASURING WALL is the pencil-marked frame of the doorway to the back room (doc 05: 'heights penciled on the door frame'). THE TEETH is the jar on the shelf by the lilies. THE UNDERTAKER stands behind the table's right end; a TALK TO on him reaches him.",
+ "exitSubjects": {
+  "THE STREET DOOR": {
+   "id": "back_to_street",
+   "to": "town_map",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 20: the undertaker's is reached by the map, and its door leads back to it. Doc 54 writes this door's lines."
+  }
+ },
+ "exits": {
+  "back_to_street": [
+   30,
+   140,
+   190,
+   560
+  ]
+ },
+ "exitWalkTo": {
+  "back_to_street": {
+   "x": 250,
+   "y": 780,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "table_lamp",
+   "at": [
+    1490,
+    230
+   ],
+   "radius": 520,
+   "amount": 0.1,
+   "rate": 0.24,
+   "phase": 0.4,
+   "note": "The oil lamp hung over the viewing table. A slow, low breath (invariant 9)."
+  }
+ ],
+ "defaultVerbs": {
+  "window": "LOOK_AT",
+  "waiting_bench": "LOOK_AT",
+  "price_board": "LOOK_AT",
+  "good_suit": "LOOK_AT",
+  "measuring_wall": "LOOK_AT",
+  "coffins": "LOOK_AT",
+  "viewing_table": "LOOK_AT",
+  "flowers_waxed": "LOOK_AT",
+  "teeth": "LOOK_AT",
+  "hearse_harness": "LOOK_AT",
+  "tools": "LOOK_AT",
+  "ledger_of_accounts": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
+ "occlusion": {
+  "note": "NO PLANE MASKS THAT CAN REACH HIM: the walk band is in front of every piece of furniture; the undertaker is cut at the table top by his own posture.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ },
+ "overrideFrom": {
+  "coffins": {
+   "USE": "docs/26-batch-a.md::# ROOM 13 · THE UNDERTAKER'S"
+  }
+ },
+ "overrideFromNote": "Doc 26 writes THE COFFINS · USE as 'Not yet.' and forbids a variant; doc 49 writes another line for the same verb. Doc 26's is the one the game has always shipped and check-fixed-lines holds; doc 49's is reported (doc 36 Q156, errata 86 C)."
+}
