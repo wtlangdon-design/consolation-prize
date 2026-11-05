@@ -1480,7 +1480,8 @@ export class GameScene extends Phaser.Scene {
     // `whenAny`: he opens on Thad in any of several states (errata 84 F --
     // Fanshawe at the dinner and at the offer); the tree's entries say which node.
     const holds = () => Boolean(accost) && this.state.flags.test(accost!.when)
-      && (!accost!.whenAny || accost!.whenAny.some((when) => this.state.flags.test(when)));
+      && (!accost!.whenAny || accost!.whenAny.some((when) => this.state.flags.test(when)))
+      && !(accost!.completes && this.state.puzzleComplete(accost!.completes));
     if (!accost || resumed || !holds()) return;
     const room = this.state.roomId;
     this.accostTimer = this.time.delayedCall((accost.afterSeconds ?? 0) * 1000, () => {
@@ -1490,8 +1491,12 @@ export class GameScene extends Phaser.Scene {
       const npc = this.ambient.present.find((each) => each.id === accost.npc);
       if (!npc?.tree) return;
       for (const [id, value] of Object.entries(accost.set ?? {})) this.state.flags.set(id, value);
+      // An accost that completes a puzzle is that puzzle's action: the puzzle
+      // completes here, and the opening its entry gates is performed once.
+      if (accost.completes) this.state.completeByTimeline(accost.completes);
       this.actor.faceToward(npc.x, npc.y);
-      this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y }, greeted: false, npc: npc.id };
+      this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y }, greeted: false, npc: npc.id,
+        ...(accost.completes ? { viaAction: true } : {}) };
       this.markDirty();
     });
   }

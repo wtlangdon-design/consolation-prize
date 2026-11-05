@@ -103,5 +103,106 @@
   "talkFrame": 0,
   "frameNote": "0-5 facing left toward the gap, breathing, his lantern flickering · 6-8 turned to look down the alley the other way. A break every `breakEvery` seconds (errata 77).",
   "provenance": "art/staging/room-20/hob/hob.json"
- }
+ },
+ "placements": {
+  "watchmans_shack": {
+   "x": 1240,
+   "y": 790,
+   "zone": 1,
+   "when": {
+    "T_SAME_HAND": true,
+    "T_HOB_IS_MOTT": false
+   },
+   "posture": "standing",
+   "walkTo": {
+    "x": 930,
+    "y": 800,
+    "facing": "right"
+   },
+   "tree": "HOB",
+   "sprite": {
+    "sheet": "art/actors/room-21-hob.png",
+    "frames": [
+     [
+      2,
+      2,
+      217,
+      469
+     ],
+     [
+      221,
+      2,
+      217,
+      469
+     ],
+     [
+      440,
+      2,
+      217,
+      469
+     ],
+     [
+      659,
+      2,
+      217,
+      469
+     ],
+     [
+      878,
+      2,
+      217,
+      469
+     ],
+     [
+      1097,
+      2,
+      217,
+      469
+     ],
+     [
+      1316,
+      2,
+      217,
+      469
+     ],
+     [
+      1535,
+      2,
+      217,
+      469
+     ],
+     [
+      1754,
+      2,
+      217,
+      469
+     ]
+    ],
+    "rate": 0.3,
+    "phase": 0.5,
+    "breaks": [
+     [
+      6,
+      7,
+      8,
+      7,
+      6,
+      0
+     ],
+     [
+      6,
+      6,
+      8,
+      6,
+      0
+     ]
+    ],
+    "breakEvery": 8,
+    "talkFrame": 0,
+    "frameNote": "0-5 facing left toward the door and the table, breathing, his lantern flickering · 6-8 turned toward the cot and the wall. A break every `breakEvery` seconds (errata 77).",
+    "provenance": "art/staging/room-21/hob/hob.json"
+   }
+  }
+ },
+ "placementsNote": "WATCHMAN'S SHACK (Room 21, errata 94 B): at home for the confession, doc 48 S4 -- from E9 (T_SAME_HAND, the night Thad has seen the same hand) until it is over (T_HOB_IS_MOTT); who is present is decided as Thad arrives, so he stays through the visit it ends in. Doc 54: 'Hob is in this room only in doc 48's S4.' His wrong verbs here are doc 54's Room 21 Overrides."
 }

@@ -1,0 +1,92 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 21, the watchman's shack. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r21-a",
+   "label": "R21-A Act III, the same hand seen (E9): the confession (E10)",
+   "room": "watchmans_shack",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "T_NINETY_DAYS": true,
+    "ACT": 3,
+    "T_ASSAY_QUEUE": true,
+    "T_NEED_TO_DIE": true,
+    "T_EXECUTOR_RULE": true,
+    "T_PIKE_DEAD": true,
+    "T_EXECUTOR_NAMED": true,
+    "T_DECEASED": true,
+    "T_SAME_HAND": true,
+    "T_HOB_HANDWRITING": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "D1": "complete",
+    "E1": "complete",
+    "E2": "complete",
+    "E6": "complete",
+    "E9": "complete"
+   },
+   "derivedFrom": [
+    "docs/48-act-turn-beats.md::S4 · THE CONFESSION (HOB_C2 — the Act III climax)",
+    "docs/57-puzzle-completion.md::E10 · The confession — the Act III turn"
+   ],
+   "note": "On entering: Hob, the two cups, and HOB_C2 -- the confession; E10. Leave the conversation: dawn in the window, his last line, PART FOUR."
+  },
+  {
+   "id": "r21-b",
+   "label": "R21-B Act I, Hob out on his rounds: the empty shack",
+   "room": "watchmans_shack",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "four_dollars",
+    "watch"
+   ],
+   "derivedFrom": [
+    "docs/05-examine-layer.md::ROOM 21 — THE WATCHMAN'S SHACK"
+   ],
+   "note": "Enterable in Act I (doc 05): six subjects, five silent LISTENs; nobody home."
+  }
+ ]
+}

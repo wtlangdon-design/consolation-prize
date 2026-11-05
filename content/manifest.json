@@ -28,6 +28,7 @@
   "content/rooms/hotel-lobby.json",
   "content/rooms/thads-room.json",
   "content/rooms/back-alley.json",
+  "content/rooms/watchmans-shack.json",
   "content/rooms/undertaker.json",
   "content/rooms/main-street-candidate.json",
   "content/rooms/nugget-candidate.json",
@@ -78,7 +79,8 @@
   "content/fixtures/room-17.json",
   "content/fixtures/room-18.json",
   "content/fixtures/room-19.json",
-  "content/fixtures/room-20.json"
+  "content/fixtures/room-20.json",
+  "content/fixtures/room-21.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",

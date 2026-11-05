@@ -1,0 +1,549 @@
+{
+  "schema": 1,
+  "id": "watchmans_shack",
+  "name": "THE WATCHMAN'S SHACK",
+  "materialIdentity": "Bare plank, swept boards, one lamp; very clean and very bare, night (errata 94 A)",
+  "note": "Room 21, doc 20: Hob's shack, off the back alley. Enterable in Act I, when he is out on his rounds. The confession (doc 48 S4, doc 57 E10) plays here after E9: Hob, the two cups, HOB_C2, and dawn in the window after. THE TALLY MARKS and five silent LISTENs are doc 05's; nothing points at whose room this is. Lines EXTRACTED from the documents by tools/extract-examine.mjs and compiled by tools/compile-room.mjs. Do not edit: change the docs and re-run.",
+  "background": "art/backgrounds/room-21-watchmans-shack.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        220,
+        765,
+        1680,
+        31
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        220,
+        796,
+        1680,
+        31
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        220,
+        827,
+        1680,
+        31
+      ]
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "lamp",
+      "name": "THE LAMP",
+      "rect": [
+        915,
+        405,
+        75,
+        125
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Trimmed, filled, and ready.",
+            "repeat": [
+              "The wick is trimmed square, and the glass is polished on the inside, which is the side that matters and the side nobody checks.",
+              "The brass is worn bright in one place, where a hand lifts it the same way every evening."
+            ],
+            "then": [
+              "It is the only well-maintained object I have seen in Consolation."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing yet.",
+            "repeat": [
+              "Nothing. It is waiting for dark, and it is good at waiting.",
+              "Not a sound. It is the only thing in this room that expects to be needed tonight."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 953,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "coat_on_the_nail",
+      "name": "THE COAT ON THE NAIL",
+      "rect": [
+        250,
+        210,
+        125,
+        395
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A coat. Eastern cut, twelve or thirteen years out of fashion, and far too good for a night watchman.",
+            "repeat": [
+              "The lining is silk, worn through at one pocket, where something heavy was carried for a long time.",
+              "It has been brushed recently and not worn in years. Somebody looks after it for no reason I can see."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Good wool keeps quiet on principle.",
+              "Nothing. It hangs exactly straight. Even the draft has been asked to leave it alone."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 313,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "window",
+      "name": "THE WINDOW",
+      "rect": [
+        750,
+        120,
+        285,
+        260
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "It faces Main Street. It faces the Improvement Company.",
+            "repeat": [
+              "The glass has been cleaned in one square only, at the height of a man on a stool. The rest of the window may do as it likes.",
+              "From here you can see every door on Main Street, and the Company's twice. I do not know what you would be watching for. I suspect he does."
+            ],
+            "then": [
+              "Whoever put this window in wanted to see one particular building."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The street. All of it.",
+            "repeat": [
+              "Main Street, at the distance a watchman would choose: near enough to hear a door, far enough not to be asked anything.",
+              "The Company's door, opening and closing. From in here it is the loudest thing in town."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 893,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "stove",
+      "name": "THE STOVE",
+      "rect": [
+        420,
+        50,
+        200,
+        650
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Cold. It has not been lit this season.",
+            "repeat": [
+              "Swept out, and the ash bucket empty. A cold stove that someone still cleans.",
+              "There is kindling laid in it, dry, and from the dust on it, laid a long time ago."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Iron, at the temperature of the room, which is the temperature of outside.",
+              "Nothing. A stove that has given up on this season and possibly the next."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 520,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "cot",
+      "name": "THE COT",
+      "rect": [
+        1270,
+        525,
+        650,
+        240
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A cot. It has never been slept in.",
+            "repeat": [
+              "The blanket is folded square, with corners you could rule a ledger by. Somebody learned that a long way from here.",
+              "There is no dent in the pillow. A man who works nights must sleep days, and he does not do it here."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Not a rope under it has been asked to take a weight in years.",
+              "Nothing. A cot that has never been slept in has never learned to creak."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "It has been made, military-fashion, every day for years, and slept in — by the look of it — almost never."
+      },
+      "walkTo": {
+        "x": 1595,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "tally_marks",
+      "name": "THE TALLY MARKS",
+      "rect": [
+        1280,
+        110,
+        640,
+        380
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Marks cut into the wall. Thousands of them.",
+            "repeat": [
+              "In fives, the fifth stroke always across. Every group is finished except the last, which is today's.",
+              "The oldest are at the height of a standing man's eye and gone soft with handling. The newest are down by the floor. He has run out of wall."
+            ],
+            "then": [
+              "Someone has been counting something here for a very long time and has not stopped."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Somebody did this quietly.",
+            "repeat": [
+              "Nothing. The knife that made these is not here, and neither is the man.",
+              "I put my ear to the boards. Wood, and the street beyond it. Nobody is counting out loud."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1600,
+        "y": 855,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_back_alley",
+      "name": "THE DOOR",
+      "rect": [
+        15,
+        100,
+        205,
+        670
+      ],
+      "colour": 0,
+      "to": "back_alley",
+      "responses": {},
+      "overrides": {
+        "CLOSE": "It doesn't latch from outside. A watchman's door. Nothing of his was ever protected but the town."
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: the shack's one way out, to the back alley. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE DOOR a LOOK or LISTEN, so it is a stub exit as Boot Hill's gate is (doc 36 Q164); the door works, and its LOOK and LISTEN wait for lines.",
+      "stub": true,
+      "walkTo": {
+        "x": 240,
+        "y": 800,
+        "facing": "left"
+      }
+    }
+  ],
+  "entrances": [
+    {
+      "from": "back_alley",
+      "at": [
+        300,
+        800
+      ],
+      "facing": "right",
+      "note": "In by the door, at left, from the alley."
+    },
+    {
+      "from": "default",
+      "at": [
+        300,
+        800
+      ],
+      "facing": "right",
+      "note": "In by the door, at left."
+    }
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-21.json",
+      "reference/room-21/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkableOutline": [
+    [
+      220,
+      765
+    ],
+    [
+      1900,
+      765
+    ],
+    [
+      1900,
+      858
+    ],
+    [
+      220,
+      858
+    ]
+  ],
+  "entrance": [
+    300,
+    800
+  ],
+  "ambient": [
+    "hob"
+  ],
+  "peopleResponses": {
+    "hob": {
+      "PICK_UP": [
+        {
+          "say": "No. Some men you leave exactly where they have chosen to stand."
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "He has stood in one place for twelve years. I am not going to be the one who moves him."
+        }
+      ],
+      "USE": [
+        {
+          "say": "No. Everybody in this town has had some use of him, and none of them noticed. I will not make one more."
+        }
+      ]
+    }
+  },
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 220,
+          "y": 765
+        },
+        {
+          "x": 1900,
+          "y": 765
+        },
+        {
+          "x": 1900,
+          "y": 796
+        },
+        {
+          "x": 220,
+          "y": 796
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 765,
+        "farHeight": 452,
+        "nearY": 858,
+        "nearHeight": 515
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 220,
+          "y": 796
+        },
+        {
+          "x": 1900,
+          "y": 796
+        },
+        {
+          "x": 1900,
+          "y": 827
+        },
+        {
+          "x": 220,
+          "y": 827
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 765,
+        "farHeight": 452,
+        "nearY": 858,
+        "nearHeight": 515
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 220,
+          "y": 827
+        },
+        {
+          "x": 1900,
+          "y": 827
+        },
+        {
+          "x": 1900,
+          "y": 858
+        },
+        {
+          "x": 220,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 765,
+        "farHeight": 452,
+        "nearY": 858,
+        "nearHeight": 515
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "table_lamp",
+      "at": [
+        952,
+        470
+      ],
+      "radius": 620,
+      "amount": 0.1,
+      "rate": 0.25,
+      "phase": 0.4,
+      "note": "The lamp on the table, the room's one light."
+    }
+  ],
+  "props": [
+    {
+      "id": "cups",
+      "sheet": "art/props/room-21-cups.png",
+      "x": 938,
+      "y": 532,
+      "frame": [
+        0,
+        0,
+        285,
+        35
+      ],
+      "when": {
+        "T_SAME_HAND": true
+      },
+      "note": "Doc 48 S4 beat 1: 'Hob sets two cups.' From the night of the confession (E9, T_SAME_HAND) on. Room-21 operation 3's pixels that differ from the plate (tools/art/room21-props.py)."
+    },
+    {
+      "id": "dawn_window",
+      "sheet": "art/props/room-21-dawn-window.png",
+      "x": 896,
+      "y": 373,
+      "frame": [
+        0,
+        0,
+        286,
+        256
+      ],
+      "when": {
+        "T_HOB_IS_MOTT": true
+      },
+      "note": "Doc 48 S4 beat 3: 'Outside, dawn is starting.' After the confession. Room-21 operation 3's window, whole (tools/art/room21-props.py)."
+    }
+  ],
+  "onEnter": {
+    "accost": {
+      "npc": "hob",
+      "when": {
+        "T_SAME_HAND": true
+      },
+      "completes": "E10",
+      "afterSeconds": 1.5,
+      "note": "Doc 57 E10: 'Entering the shack after E9 plays doc 48 S4 beat 1, then HOB_C2's opening -- the confession -- and E10 completes'. HOB_C2's opening starts with S4 beat 1's line (tools/extract-content.mjs). Once only: it fires while E10 is incomplete."
+    }
+  },
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-21/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

@@ -25,6 +25,12 @@
    "date": "2026-11-05",
    "kind": "loosened",
    "why": "Room 18 built: a hotspot that declares `stateOf: <id>` now counts as the same owner as that id when lines are compared for duplicates. The stairs are an exit after A2 and, before it, a stand-in in the same place answering in the clerk's words (doc 57 A2); both carry THE STAIRS' own lines because they are one object in two states, never live together. Not a misfire of the check: a structural case it had no way to state."
+  },
+  {
+   "check": "tools/check-examine-lines.mjs",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "'Nothing yet.' declared doctrine in content/ui/duplicate-allowlist.json: doc 05 (Room 21's lamp), doc 09 and doc 10 each write it for a different object as the null answer (errata 94)."
   }
  ]
 }

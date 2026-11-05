@@ -1,0 +1,210 @@
+{
+ "room": "watchmans_shack",
+ "plate": "art/backgrounds/room-21-watchmans-shack.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-21/plate-01/candidate-1920x864.png, room-21 attempt 2, a 1500x675 crop from (18, 174) -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-21-watchmans-shack.png",
+ "plateShippingHash": "8f4c60e454a6",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   220,
+   765
+  ],
+  [
+   1900,
+   765
+  ],
+  [
+   1900,
+   858
+  ],
+  [
+   220,
+   858
+  ]
+ ],
+ "walkableNote": "THE SWEPT BOARDS. The stove's feet are at y 700, the table's and the chairs' at 740, the cot's at 760. So the band runs y 765-858 from the door to the cot's foot.",
+ "scaling": {
+  "far": {
+   "y": 765,
+   "height": 452
+  },
+  "near": {
+   "y": 858,
+   "height": 515
+  },
+  "note": "ROOM 21'S DEPTH, FROM THE MASTER: Thad stood with his feet at y 788 and was drawn about 467 tall; along Room 5's slope (0.68 a row) that is 452 at the band's far edge and 515 at its near."
+ },
+ "entrance": [
+  300,
+  800
+ ],
+ "entrances": [
+  {
+   "from": "back_alley",
+   "at": [
+    300,
+    800
+   ],
+   "facing": "right",
+   "note": "In by the door, at left, from the alley."
+  },
+  {
+   "from": "default",
+   "at": [
+    300,
+    800
+   ],
+   "facing": "right",
+   "note": "In by the door, at left."
+  }
+ ],
+ "hotspots": {
+  "lamp": [
+   915,
+   405,
+   75,
+   125
+  ],
+  "window": [
+   750,
+   120,
+   285,
+   260
+  ],
+  "coat_on_the_nail": [
+   250,
+   210,
+   125,
+   395
+  ],
+  "stove": [
+   420,
+   50,
+   200,
+   650
+  ],
+  "cot": [
+   1270,
+   525,
+   650,
+   240
+  ],
+  "tally_marks": [
+   1280,
+   110,
+   640,
+   380
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE TALLY MARKS are the wall above and beside the cot; THE STOVE takes its pipe. The table and the two chairs are doc 48 S4's staging and no subject of doc 05's.",
+ "people": {
+  "HOB": [
+   "hob"
+  ]
+ },
+ "exits": {
+  "to_back_alley": [
+   15,
+   100,
+   205,
+   670
+  ]
+ },
+ "exitWalkTo": {
+  "to_back_alley": {
+   "x": 240,
+   "y": 800,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "table_lamp",
+   "at": [
+    952,
+    470
+   ],
+   "radius": 620,
+   "amount": 0.1,
+   "rate": 0.25,
+   "phase": 0.4,
+   "note": "The lamp on the table, the room's one light."
+  }
+ ],
+ "defaultVerbs": {
+  "lamp": "LOOK_AT",
+  "window": "LOOK_AT",
+  "coat_on_the_nail": "LOOK_AT",
+  "stove": "LOOK_AT",
+  "cot": "LOOK_AT",
+  "tally_marks": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
+ "onEnterAccost": {
+  "npc": "hob",
+  "when": {
+   "T_SAME_HAND": true
+  },
+  "completes": "E10",
+  "afterSeconds": 1.5,
+  "note": "Doc 57 E10: 'Entering the shack after E9 plays doc 48 S4 beat 1, then HOB_C2's opening -- the confession -- and E10 completes'. HOB_C2's opening starts with S4 beat 1's line (tools/extract-content.mjs). Once only: it fires while E10 is incomplete."
+ },
+ "props": [
+  {
+   "id": "cups",
+   "sheet": "art/props/room-21-cups.png",
+   "x": 938,
+   "y": 532,
+   "frame": [
+    0,
+    0,
+    285,
+    35
+   ],
+   "when": {
+    "T_SAME_HAND": true
+   },
+   "note": "Doc 48 S4 beat 1: 'Hob sets two cups.' From the night of the confession (E9, T_SAME_HAND) on. Room-21 operation 3's pixels that differ from the plate (tools/art/room21-props.py)."
+  },
+  {
+   "id": "dawn_window",
+   "sheet": "art/props/room-21-dawn-window.png",
+   "x": 896,
+   "y": 373,
+   "frame": [
+    0,
+    0,
+    286,
+    256
+   ],
+   "when": {
+    "T_HOB_IS_MOTT": true
+   },
+   "note": "Doc 48 S4 beat 3: 'Outside, dawn is starting.' After the confession. Room-21 operation 3's window, whole (tools/art/room21-props.py)."
+  }
+ ],
+ "occlusion": {
+  "note": "No plane: nothing stands nearer the camera than the walk band, which runs in front of the stove, the table and the cot.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ },
+ "exitSubjects": {
+  "THE DOOR": {
+   "id": "to_back_alley",
+   "to": "back_alley",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "note": "Doc 20: the shack's one way out, to the back alley. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE DOOR a LOOK or LISTEN, so it is a stub exit as Boot Hill's gate is (doc 36 Q164); the door works, and its LOOK and LISTEN wait for lines."
+  }
+ }
+}

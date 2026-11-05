@@ -222,7 +222,8 @@
    "initial": 1,
    "writtenBy": [
     "room:fanshawe_office:to_lobby:transit (doc 57 A10 beat 4, sets 2)",
-    "dialogue:FANSHAWE:FAN_C1:fanshawe1 (E0b, sets 3)"
+    "dialogue:FANSHAWE:FAN_C1:fanshawe1 (E0b, sets 3)",
+    "dialogue:HOB:HOB_C2:hobx (doc 48 S4 beat 3, sets 4)"
    ],
    "note": "ERRATA 60: ACT is a numeric counter written at exactly four places, the act turns in docs/48-act-turn-beats.md (S1 sets 2, S2 sets 3, S4 sets 4). None of those scripts is built yet, so writtenBy is honestly empty: the flag is READ by act-gated content (Room 5 queue bench, acts 2-4) and written today only by the proof harness. Declared now because Room 5 is the first room whose authored state variation depends on it; Main Street's act-gated sign depended on it too and could not be proven for want of it. ERRATA 84: Room 11 writes 2 (the dinner's beat 4 at the door) and 3 (E0b); S4's 4 is unbuilt, so the flag stays pending. Each rise in play shows its card (content/act-cards.json).",
    "pending": true
@@ -1020,6 +1021,24 @@
     "combination:tuning_fork:hotel_lobby:parlor_piano"
    ],
    "note": "Doc 57 A2: the piano tuned with the clerk's leave -- 'Top of the stairs, second door.' The room is given and the stairs open (errata 91 E)."
+  },
+  {
+   "id": "T_HOB_IS_MOTT",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:HOB:HOB_C2:hobx"
+   ],
+   "note": "Doc 48 S4 beat 3: after the confession, Hob is Obadiah Mott. Written at HOB_C2's end (errata 94 E). Read by the shack's dawn window."
+  },
+  {
+   "id": "T_NO_GOLD_EVER",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:HOB:HOB_C2:hobx"
+   ],
+   "note": "Doc 04's name for doc 48 S4's T_STRIKE_WAS_LIE (errata 75 K): there was never any gold. Written at HOB_C2's end (errata 94 E)."
   }
  ]
 }

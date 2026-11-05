@@ -1,0 +1,64 @@
+{
+ "source": "art/staging/room-21/plate-01/source.png",
+ "crop": {
+  "x": 18,
+  "y": 174,
+  "width": 1500,
+  "height": 675
+ },
+ "out": "art/staging/room-21/plate-01/candidate-1920x864.png",
+ "derivation": {
+  "transform": "errata-63-fixed-room-source-acquisition",
+  "provisional": true,
+  "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+  "source": {
+   "path": "art/staging/room-21/plate-01/source.png",
+   "hash": "5504987ee265e07b9d2fbf7423135f68df226b5a2902d2b3591bf0be95e2eeb7",
+   "width": 1536,
+   "height": 1024,
+   "bytes": 1628608,
+   "kept": true
+  },
+  "crop": {
+   "x": 18,
+   "y": 174,
+   "width": 1500,
+   "height": 675,
+   "aspect": "20:9"
+  },
+  "resample": {
+   "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+   "lobes": 3,
+   "from": [
+    1500,
+    675
+   ],
+   "to": [
+    1920,
+    864
+   ],
+   "factor": 1.28,
+   "normalisedWeights": true,
+   "premultiplied": true,
+   "rounding": "half-away-from-zero, clamped to 0..255",
+   "forbidden": [
+    "nearest-neighbour",
+    "ai-upscale",
+    "sharpen",
+    "denoise",
+    "recolour",
+    "contrast-enhancement",
+    "generative-second-pass"
+   ]
+  },
+  "derived": {
+   "path": "art/staging/room-21/plate-01/candidate-1920x864.png",
+   "hash": "8f4c60e454a6f4219e94488919286a586d792c482a0b79e1cda9fa7f2665bc14",
+   "width": 1920,
+   "height": 864,
+   "bytes": 2462744,
+   "colourType": 2
+  }
+ },
+ "why": "Room 21 takes a 20:9 crop 1500x675 from (18, 174): the band was painted short of 684 rows (tools/art/room21-plate.mjs)."
+}
