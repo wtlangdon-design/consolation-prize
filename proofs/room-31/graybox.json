@@ -1,0 +1,249 @@
+{
+ "room": 31,
+ "note": "Ruling 22 steps 1-6 for the funeral, written by tools/room31-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 99).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 690,
+   "height": 292
+  },
+  "near": {
+   "y": 855,
+   "height": 404
+  },
+  "from": "Room 5's slope, a little smaller than Room 13's"
+ },
+ "walkable": [
+  180,
+  690,
+  1600,
+  165
+ ],
+ "exit": {
+  "hotspot": "BOOT HILL, BEYOND",
+  "to": "boot_hill",
+  "rect": [
+   0,
+   180,
+   1920,
+   200
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 300,
+   "y": 790,
+   "facing": "right"
+  },
+  "coffin": {
+   "x": 690,
+   "y": 760,
+   "facing": "up"
+  },
+  "grave": {
+   "x": 1020,
+   "y": 760,
+   "facing": "up"
+  }
+ },
+ "objects": [
+  {
+   "name": "BOOT HILL, BEYOND",
+   "rect": [
+    0,
+    180,
+    1920,
+    200
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "GRIEVANCE, IN BLACK",
+   "rect": [
+    60,
+    360,
+    420,
+    260
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE COFFIN",
+   "rect": [
+    560,
+    520,
+    260,
+    110
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE NAME PLATE",
+   "rect": [
+    650,
+    545,
+    70,
+    22
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE GRAVE",
+   "rect": [
+    860,
+    590,
+    320,
+    80
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE HEADBOARD",
+   "rect": [
+    1000,
+    420,
+    70,
+    170
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE FLOWERS, WAXED",
+   "rect": [
+    1080,
+    520,
+    90,
+    70
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE DIRT PILE",
+   "rect": [
+    1200,
+    500,
+    230,
+    130
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MOURNERS",
+   "rect": [
+    1300,
+    400,
+    470,
+    250
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE ONE WHO KNOWS",
+   "rect": [
+    1790,
+    380,
+    110,
+    220
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the service is gathered behind it, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "the hill behind",
+   "p10": 58.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 25.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "the grass of the service",
+   "p10": 58.0,
+   "p90": 72.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 49.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "the grass in front",
+   "p10": 88.0,
+   "p90": 88.0,
+   "darkAnchorMargin": 62.5,
+   "lightAnchorMargin": 33.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "GRIEVANCE, IN BLACK",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 63.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE COFFIN",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE GRAVE",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE HEADBOARD",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 78.5,
+   "lightAnchorMargin": 17.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE FLOWERS, WAXED",
+   "p10": 100.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 74.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE DIRT PILE",
+   "p10": 62.0,
+   "p90": 80.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 41.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE MOURNERS",
+   "p10": 62.0,
+   "p90": 62.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 59.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE ONE WHO KNOWS",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 63.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

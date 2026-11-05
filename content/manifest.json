@@ -43,7 +43,8 @@
   "content/rooms/boot-hill.json",
   "content/rooms/livery.json",
   "content/rooms/ozymandias-tent.json",
-  "content/rooms/church.json"
+  "content/rooms/church.json",
+  "content/rooms/funeral.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -99,7 +100,8 @@
   "content/fixtures/room-27.json",
   "content/fixtures/room-28.json",
   "content/fixtures/room-29.json",
-  "content/fixtures/room-30.json"
+  "content/fixtures/room-30.json",
+  "content/fixtures/room-31.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -169,7 +171,12 @@
   "content/ambient/sheng.json",
   "content/ambient/other-mules.json",
   "content/ambient/ozymandia.json",
-  "content/ambient/hotel-clerk.json"
+  "content/ambient/hotel-clerk.json",
+  "content/ambient/funeral-undertaker.json",
+  "content/ambient/funeral-sowerby.json",
+  "content/ambient/funeral-hob.json",
+  "content/ambient/funeral-grievance.json",
+  "content/ambient/funeral-mourners.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",

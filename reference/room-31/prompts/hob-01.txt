@@ -1,0 +1,20 @@
+Image 1 shows two figures from my pixel-art adventure game side by side. On the left is Thad, the hero: he is the style standard. On the right is Hob, the night watchman, cut from image 2 as he stands at the back of a funeral, his hat in his hand. Look at Thad's pixels: BIG square blocks; his face is a handful of blocks; his clothes are a few flat tones with no fine texture.
+
+Image 2 is a frame from the game: a funeral on a graveyard hill on a bright day. Hob is the tall man in the dark long coat at the far right, a little apart, his hat in his hand. I need him drawn on his own in THAD'S PIXEL SIZE, as a sheet of five frames in two rows.
+
+THE CHARACTER -- Hob as image 1 shows him: tall, spare, a dark long coat buttoned up, dark trousers, black boots, a moustache, dark hair; his dark brimmed hat held in his right hand, down at his side. Quiet, deliberate, unhurried. No lantern.
+
+TOP ROW -- one pose, three-quarter view FACING LEFT, showing him WHOLE, hair to boots:
+1. REST: standing still, his hat in his hand at his side, exactly as in image 1.
+
+BOTTOM ROW -- four frames of him WALKING to the RIGHT of the picture, seen from the side, unhurried, his hat in his right hand, not looking back: a walk cycle (left foot forward; legs passing; right foot forward; legs passing).
+
+STYLE: every frame the same height as the rest pose, exactly as coarse as Thad; every pixel a large, crisp square block the size of Thad's; simple shapes and flat colour areas; the face as simple as Thad's -- a few blocks, dark blocks for the eyes. Daylight colours, as in image 2.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No ground, no shadow, nothing else in the picture.
+- Every frame is one piece -- the man and his hat -- and does not touch any other frame.
+- All walking frames the same size, boots on the same baseline; clear magenta space between frames and between the rows.
+- Same man, same colours, same clothes in every frame.
+- Crisp pixel edges against the magenta. No soft glow or blur.
+- No text, labels, numbers or borders.

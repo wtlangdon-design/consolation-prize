@@ -1,0 +1,92 @@
+{
+ "schema": 1,
+ "id": "funeral_sowerby",
+ "name": "REVEREND SOWERBY",
+ "posture": "standing",
+ "room": "funeral",
+ "when": {
+  "T_LAID_IN": false
+ },
+ "note": "SOWERBY OFFICIATING (doc 48 S2 beat 2: 'Sowerby's eulogy loops as ambient bark'). Behind the grave, a finger raised; cut from room-31's composition master by tools/art/room31-cast.py. Examined through REVEREND SOWERBY, OFFICIATING over him; TALK TO is that hotspot's (doc 54: 'He is mid-adjective'). His bark is the eulogy, written into this file by tools/compile-room.mjs from doc 48 (errata 99 G).",
+ "x": 828,
+ "y": 502,
+ "zone": 2,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {
+  "R_NOBODY": "…a man of music, taken flat…",
+  "R_SWINDLED": "…a man of music, taken flat…",
+  "R_RACCOON": "…a man of music, taken flat…",
+  "R_SURVEYED": "…a man of music, taken flat…",
+  "R_BORDERS_MOTT": "…a man of music, taken flat…",
+  "R_LOST_DUEL": "…a man of music, taken flat…",
+  "R_WON_DUEL": "…a man of music, taken flat…",
+  "R_DEAD": "…a man of music, taken flat…",
+  "R_TRUTH": "…a man of music, taken flat…"
+ },
+ "barksNote": "Read by tools/compile-room.mjs from docs/48-act-turn-beats.md::## S2 · THE FUNERAL (Act III opening), beat 2: the same words in every state.",
+ "sprite": {
+  "sheet": "art/actors/room-31-sowerby.png",
+  "frames": [
+   [
+    2,
+    2,
+    147,
+    314
+   ],
+   [
+    151,
+    2,
+    147,
+    314
+   ],
+   [
+    300,
+    2,
+    147,
+    314
+   ],
+   [
+    449,
+    2,
+    147,
+    314
+   ],
+   [
+    598,
+    2,
+    147,
+    314
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.1,
+  "breaks": [
+   [
+    2,
+    2,
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    0
+   ],
+   [
+    2,
+    3,
+    2,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "talkFrame": 0,
+  "frameNote": "0 rest, a finger raised · 1 breath · 2 rocks forward with the sermon · 3 rocks back · 4 a nod. A break every `breakEvery` seconds (errata 77).",
+  "provenance": "art/staging/room-31/cast/cast.json",
+  "breaksThatSpeak": [
+   0
+  ]
+ }
+}

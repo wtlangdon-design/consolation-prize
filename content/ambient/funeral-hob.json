@@ -1,0 +1,113 @@
+{
+ "schema": 1,
+ "id": "funeral_hob",
+ "name": "THE ONE WHO KNOWS",
+ "posture": "standing",
+ "room": "funeral",
+ "when": {
+  "T_GOOD_TURNOUT": false,
+  "T_LAID_IN": false
+ },
+ "note": "HOB AT THE BACK (doc 05: 'At the back, not singing: Hob, hat in hand'). Cut from room-31's composition master by tools/art/room31-cast.py; examined through THE ONE WHO KNOWS over him. After doc 48 S2 beat 3 -- 'Good turnout.' Beat. 'Better than mine.' -- and he walks': off the hill to the right, on room-31 operation 3's walk (errata 99 G).",
+ "x": 1832,
+ "y": 602,
+ "zone": 2,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "Hob's lines here are beat 3's, spoken through the room (doc 48 S2).",
+ "exit": {
+  "path": [
+   [
+    1892,
+    602
+   ],
+   [
+    2080,
+    602
+   ]
+  ],
+  "speed": 70,
+  "sheet": "art/actors/room-31-hob-walk.png",
+  "frames": [
+   [
+    2,
+    2,
+    226,
+    368
+   ],
+   [
+    230,
+    2,
+    226,
+    368
+   ],
+   [
+    458,
+    2,
+    226,
+    368
+   ],
+   [
+    686,
+    2,
+    226,
+    368
+   ]
+  ],
+  "fps": 6,
+  "drawnFacing": "right",
+  "figureHeight": 368,
+  "note": "Doc 48 S2 beat 3: 'and he walks.' Off the hill at the right, unhurried, his hat in his hand (room-31 operation 3, cut by tools/art/cut-walk-sheet.py)."
+ },
+ "sprite": {
+  "sheet": "art/actors/room-31-hob.png",
+  "frames": [
+   [
+    2,
+    2,
+    149,
+    368
+   ],
+   [
+    153,
+    2,
+    149,
+    368
+   ],
+   [
+    304,
+    2,
+    149,
+    368
+   ],
+   [
+    455,
+    2,
+    149,
+    368
+   ]
+  ],
+  "rate": 0.3,
+  "phase": 0.5,
+  "breaks": [
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 8,
+  "talkFrame": 0,
+  "frameNote": "0 rest, hat in hand · 1 breath · 2 his weight shifts · 3 his head goes down. A break every `breakEvery` seconds (errata 77).",
+  "provenance": "art/staging/room-31/cast/cast.json",
+  "figureHeight": 368,
+  "stature": 1.04,
+  "statureNote": "Tall (the master drew him a head over the mourners, 368 where the curve's man is 334); held to 1.04, inside the 5% a standing man is allowed (tests/scale.test.ts), so he is drawn 6% under the master."
+ }
+}

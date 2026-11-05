@@ -430,6 +430,21 @@ export class GameScene extends Phaser.Scene {
       this.enterRoomPerformance();
       this.markDirty();
     }
+    // A TIMELINE ROOM THAT IS OVER HANDS ON (RoomFile.afterTimeline). Room 32:
+    // the lid has opened, HOB_C1 has been talked through, and Thad is out on
+    // the hill (doc 57 E8). Nothing is cut short: no line is up, nothing waits
+    // to be said or chosen.
+    const after = this.state.room.afterTimeline;
+    if (after && this.state.room.timeline?.length && !this.timeline.isRunning
+      && !this.state.dialogue.isActive && !this.pendingTree && this.performance === null
+      && this.sayingActor === null && this.pendingSay.length === 0 && this.travelAfterSay === null
+      && this.state.flags.test(after.when)) {
+      this.state.enterRoom(after.goto);
+      this.hovered = null;
+      this.hoveredName = null;
+      this.enterRoomPerformance();
+      this.markDirty();
+    }
     this.watchActTurn(now);
     this.view.setClock(now);
     if (this.cycleChanged()) this.markDirty();
@@ -674,6 +689,12 @@ export class GameScene extends Phaser.Scene {
       const plateKey = `plate:${roomId}:${this.plate}`;
       if (this.textures.exists(plateKey)) return this.textures.get(plateKey).getSourceImage() as CanvasImageSource;
     }
+    // A PLATE CHOSEN BY STATE (RoomFile.plateWhen): Room 31's hill at night.
+    const byState = room.plateWhen?.find((entry) => this.state.flags.test(entry.when));
+    if (byState) {
+      const stateKey = `plate:${roomId}:${byState.plate}`;
+      if (this.textures.exists(stateKey)) return this.textures.get(stateKey).getSourceImage() as CanvasImageSource;
+    }
     // WHOLE-PLATE FRAMES, if the room declares them. Frame zero is
     // `background` itself, so a room with no extra frames is unchanged.
     let key = `bg:${roomId}`;
@@ -748,7 +769,10 @@ export class GameScene extends Phaser.Scene {
     // A FIGURE WHO CANNOT TALK, UNDER A HOTSPOT THAT ANSWERS TALK TO, IS THAT
     // HOTSPOT (errata 96 E): the raccoon is spoken to through THE RACCOON,
     // which opens his naming and then carries his name.
-    if (object && verb === 'TALK_TO' && !npc.tree && object.responses?.TALK_TO?.length) return undefined;
+    // Its TALK TO may be an override (doc 49's THE MOURNERS · TALK_TO), which
+    // answers as surely as a rule does.
+    if (object && verb === 'TALK_TO' && !npc.tree
+      && (object.responses?.TALK_TO?.length || object.overrides?.TALK_TO)) return undefined;
     if (!object || verb === 'TALK_TO') return npc;
     if (!npc.tree) return undefined;
     const [, , ow, oh] = this.state.presentation(object)?.bounds ?? object.rect;

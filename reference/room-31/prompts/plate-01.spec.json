@@ -1,0 +1,13 @@
+{
+ "assetId": "room-31",
+ "subject": "room-31-funeral",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-31-funeral",
+ "promptFile": "reference/room-31/prompts/plate-01.txt",
+ "out": "art/staging/room-31/plate-01/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-31/plate-01/input.png"
+ ]
+}

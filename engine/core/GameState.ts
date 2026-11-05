@@ -719,7 +719,7 @@ export class GameState {
           say: scene.say ?? null,
           ...(scene.by ? { by: scene.by } : {}),
           then: scene.then,
-          goesTo: transit,
+          ...(scene.stays ? {} : { goesTo: transit }),
           effects,
         };
       }

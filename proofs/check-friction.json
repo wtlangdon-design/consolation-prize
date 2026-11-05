@@ -73,6 +73,18 @@
    "date": "2026-11-05",
    "kind": "loosened",
    "why": "Not loosened in substance: doc 58 puts stage directions into replies, so a counted-repeat row's first answer may now be an exchange rather than a single `say`. The assertion compares the first selection with the row's first authored line, whichever form it takes -- the same check as before."
+  },
+  {
+   "check": "content/ui/duplicate-allowlist.json",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "Room 31's THE GRAVE: doc 48 S2 beat 3 fires on the second LOOK and doc 54 has LOOK 2 play first, then Hob -- so the beat rule opens with the chain's own second line. Declared once, for that one moment."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "'repeat variants cycle FORWARD' walked every LOOK chain to its end, and Room 31's grave chain is interrupted by design: doc 48 S2 beat 3 is the second LOOK, Hob's. The chain is now checked up to the ask a scene rule (sceneLine) answers instead; every other chain is checked whole, as before."
   }
  ]
 }

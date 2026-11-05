@@ -530,6 +530,27 @@
     }
    ],
    "castingNote": "Nobody: 'the pilgrims are in the lines, not the room'. Thad alone, for scale."
+  },
+  "room-31-funeral": {
+   "visualType": "exterior-street",
+   "comparable": {
+    "id": "room-14-boot-hill",
+    "path": "art/backgrounds/room-14-boot-hill.png",
+    "note": "D -- Boot Hill itself, the same graveyard; the funeral is at the end plot of its third row (errata 87 D), by day: doc 54's THE SKY, 'Clear, very high and very blue' (errata 99 G)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    },
+    {
+     "who": "the cast already drawn: Sowerby (Room 17), the undertaker (Room 13), Grievance (Room 15), Hob (Room 21)",
+     "path": "reference/room-31/cast-board.png",
+     "note": "Identity only: the same four people, at the funeral."
+    }
+   ],
+   "castingNote": "The town at Thad's funeral (doc 48 S2): Sowerby officiating, the undertaker at the coffin, Grievance in the hearse harness, nine mourners with their hats, Hob at the back. Thad for scale."
   }
  }
 }

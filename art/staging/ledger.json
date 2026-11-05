@@ -18123,6 +18123,527 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-05T20:42:24.727Z"
+  },
+  {
+   "attempt": 1,
+   "role": "composition-master",
+   "assetId": "room-31",
+   "subject": "room-31-funeral",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-31/prompts/composition-master-01.txt",
+   "promptHash": "f8fa43f2d8379a382e82583a836f5bc1ad3926cf58a503d42195b3b368475d5b",
+   "references": [
+    {
+     "path": "reference/room-31/layout-1536x1024.png",
+     "hash": "a177fcb8070db4168b23c3ba9e5be43a38ced91df2695647309307182bc8844e",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "reference/room-31/cast-board.png",
+     "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-31-funeral",
+    "purpose": "composition-master",
+    "visualType": "exterior-street",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-14-boot-hill)",
+      "path": "art/backgrounds/room-14-boot-hill.png",
+      "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the cast already drawn: Sowerby (Room 17), the undertaker (Room 13), Grievance (Room 15), Hob (Room 21))",
+      "path": "reference/room-31/cast-board.png",
+      "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "a177fcb8070db4168b23c3ba9e5be43a38ced91df2695647309307182bc8844e",
+   "sourcePath": "reference/room-31/layout-1536x1024.png",
+   "out": "art/staging/room-31/composition-master-01.png",
+   "outputHash": "f30696ae128e7fffae5a40c507410cd73b0273375421465f4f670abe0994ef91",
+   "bytes": 2694844,
+   "usage": {
+    "input_tokens": 9917,
+    "input_tokens_details": {
+     "image_tokens": 9296,
+     "text_tokens": 621
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 11468
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-05T21:18:27.028Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-05T21:18:27.032Z"
+  },
+  {
+   "attempt": 2,
+   "role": "plate",
+   "assetId": "room-31",
+   "subject": "room-31-funeral",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-31/prompts/plate-01.txt",
+   "promptHash": "13e6c8fea7fc55ad430c32a3903025cf649c0cd04a6b83f12eeb6fb3225c1ff3",
+   "references": [
+    {
+     "path": "art/staging/room-31/plate-01/input.png",
+     "hash": "f30696ae128e7fffae5a40c507410cd73b0273375421465f4f670abe0994ef91",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "reference/room-31/cast-board.png",
+     "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-31-funeral",
+    "purpose": "room-art",
+    "visualType": "exterior-street",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-14-boot-hill)",
+      "path": "art/backgrounds/room-14-boot-hill.png",
+      "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the cast already drawn: Sowerby (Room 17), the undertaker (Room 13), Grievance (Room 15), Hob (Room 21))",
+      "path": "reference/room-31/cast-board.png",
+      "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "f30696ae128e7fffae5a40c507410cd73b0273375421465f4f670abe0994ef91",
+   "sourcePath": "art/staging/room-31/plate-01/input.png",
+   "out": "art/staging/room-31/plate-01/source.png",
+   "outputHash": "2127a5ae67a8f202700bfb1d601cbda4aec417df18ab78eea7ac6a61a33f1717",
+   "bytes": 2716637,
+   "usage": {
+    "input_tokens": 9595,
+    "input_tokens_details": {
+     "image_tokens": 9296,
+     "text_tokens": 299
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 11146
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-05T21:19:37.203Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-05T21:19:37.206Z"
+  },
+  {
+   "attempt": 3,
+   "role": "canonical-design",
+   "assetId": "room-31",
+   "subject": "hob-funeral",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-31/prompts/hob-01.txt",
+   "promptHash": "9b15933e73aa07c85da468092b978f852c86995925fe26af40f8c0e2240f0901",
+   "references": [
+    {
+     "path": "art/staging/room-31/hob-01/vs-thad.png",
+     "hash": "f32fa06097f198fcc94c7931b628f3dd9ba495e3569488019d86f9bd35abf011",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-31/composition-master-01.png",
+     "hash": "f30696ae128e7fffae5a40c507410cd73b0273375421465f4f670abe0994ef91",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "reference/room-31/cast-board.png",
+     "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-31-funeral",
+    "purpose": "room-art",
+    "visualType": "exterior-street",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-14-boot-hill)",
+      "path": "art/backgrounds/room-14-boot-hill.png",
+      "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the cast already drawn: Sowerby (Room 17), the undertaker (Room 13), Grievance (Room 15), Hob (Room 21))",
+      "path": "reference/room-31/cast-board.png",
+      "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "f32fa06097f198fcc94c7931b628f3dd9ba495e3569488019d86f9bd35abf011",
+   "sourcePath": "art/staging/room-31/hob-01/vs-thad.png",
+   "out": "art/staging/room-31/hob-01/sheet.png",
+   "outputHash": "025c8b2e9d51a011e402475a58989a18078760037925abaceaabad301c0e1bd4",
+   "bytes": 1382645,
+   "usage": {
+    "input_tokens": 10467,
+    "input_tokens_details": {
+     "image_tokens": 9940,
+     "text_tokens": 527
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 10900
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-05T21:23:16.232Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-05T21:23:16.236Z"
+  },
+  {
+   "attempt": 4,
+   "role": "plate",
+   "assetId": "room-31",
+   "subject": "room-31-funeral",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-31/prompts/plate-night.txt",
+   "promptHash": "5b2ee4419d018f092b5f733d2ebdff22fc73fd74b9835aad53a9748da8e2abae",
+   "references": [
+    {
+     "path": "art/staging/room-31/plate-night/input.png",
+     "hash": "2127a5ae67a8f202700bfb1d601cbda4aec417df18ab78eea7ac6a61a33f1717",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "reference/room-31/cast-board.png",
+     "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-31-funeral",
+    "purpose": "room-art",
+    "visualType": "exterior-street",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-14-boot-hill)",
+      "path": "art/backgrounds/room-14-boot-hill.png",
+      "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the cast already drawn: Sowerby (Room 17), the undertaker (Room 13), Grievance (Room 15), Hob (Room 21))",
+      "path": "reference/room-31/cast-board.png",
+      "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "2127a5ae67a8f202700bfb1d601cbda4aec417df18ab78eea7ac6a61a33f1717",
+   "sourcePath": "art/staging/room-31/plate-night/input.png",
+   "out": "art/staging/room-31/plate-night/source.png",
+   "outputHash": "211a33eed5698ee5b73ebb39041108e013673a72f4d39eb9c2eb6e1146c3538b",
+   "bytes": 2631082,
+   "usage": {
+    "input_tokens": 9556,
+    "input_tokens_details": {
+     "image_tokens": 9296,
+     "text_tokens": 260
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 11107
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-05T21:24:05.399Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-05T21:24:05.403Z"
   }
  ],
  "promotions": [
@@ -19876,6 +20397,44 @@
    "acceptedBy": null,
    "by": "claude, Room 30 builder (doc 55 section 3, errata 72 E)",
    "at": "2026-11-05T20:43:12.126Z"
+  },
+  {
+   "assetId": "room-31",
+   "attempt": 4,
+   "from": "art/staging/room-31/plate-night/candidate-1920x864.png",
+   "derivedFrom": "art/staging/room-31/plate-night/source.png",
+   "provenance": "art/staging/room-31/plate-night/frame.json",
+   "to": "art/backgrounds/room-31-funeral-night.png",
+   "hash": "fcfbf905d81d92fe637eba65db7e51db8b8328f293c9856be2b44979955b6431",
+   "sourceHash": "211a33eed5698ee5b73ebb39041108e013673a72f4d39eb9c2eb6e1146c3538b",
+   "replacedHash": null,
+   "gates": {
+    "passed": true,
+    "kind": "plate"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 31 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-05T21:32:09.218Z"
+  },
+  {
+   "assetId": "room-31",
+   "attempt": 2,
+   "from": "art/staging/room-31/plate-01/candidate-lifted-1920x864.png",
+   "derivedFrom": "art/staging/room-31/plate-01/source.png",
+   "provenance": "art/staging/room-31/plate-01/frame.json",
+   "to": "art/backgrounds/room-31-funeral.png",
+   "hash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c",
+   "sourceHash": "2127a5ae67a8f202700bfb1d601cbda4aec417df18ab78eea7ac6a61a33f1717",
+   "replacedHash": null,
+   "gates": {
+    "passed": true,
+    "kind": "plate"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 31 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-05T21:32:09.296Z"
   }
  ],
  "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."

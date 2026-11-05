@@ -1,0 +1,8 @@
+Image 1 is a finished background from my pixel-art adventure game: a funeral on a graveyard hill on a bright blue day -- a mule and a black hearse at the left, a pine coffin on trestles, a man in an apron, a preacher with his finger raised, an open grave with a plank across it, a headboard and lilies, a dirt heap with a shovel, a group of mourners, a tall man in a dark coat at the right, and a man in a long blue coat standing in front.
+
+Make exactly these changes:
+1. Remove EVERY person: the man in the blue coat, the man in the apron, the preacher, all the mourners and the tall man at the right. Paint the grass, the hill and the grave boards behind them.
+2. Remove the mule and the black hearse wagon. Paint the hillside, the far blue hills and the sky behind them.
+3. Remove the pine coffin, its lid and its two trestles. Paint the grass behind them.
+
+Keep exactly as they are: the open grave and the plank across it, the headboard, the lilies, the dirt heap and its shovel, every grave board on the hill, the sky and its cloud, the far hills. Same camera, same pixel grid, same big square pixels, same colours, same bright daylight. No people, no animals, no shadows of people, no text, no numerals.

@@ -5,10 +5,10 @@
   "entrances": [
     {
       "from": "funeral",
-      "note": "Room 31: the lid closes at the end of doc 48 S2 (E7). Not built yet; until it is, ?room=coffin."
+      "note": "Room 31: THE COFFIN · USE after S2 beat 3 (doc 57 E7) lies him down; the lid closes and the nail is the first sound."
     }
   ],
-  "note": "Room 32 (E7). Doc 05: 'Special case. Zero hotspots. No verb panel.' Invariant 2. Its timeline is errata 70 B's, restated as the room's staging in docs/54-batch-c.md (ROOM 32 \u00b7 INSIDE THE COFFIN); the sounds are tools/audio/render-coffin-sfx.py's and the plates tools/art/render-coffin-plates.py's, and both await Tyler's audition. Reached only by ?room=coffin until Room 31 (the funeral) is built to lead here. The lid opens at 241 s -- four minutes sealed, three of them before Hob starts to dig (errata 71 A) -- straight into HOB_C1. Pointer intent reveals MENU and SKIP SCENE (errata 71 B). After HOB_C1 the panel's MAP is the way out until Room 31 is built to take him back up (doc 36 Q145).",
+  "note": "Room 32 (E7). Doc 05: 'Special case. Zero hotspots. No verb panel.' Invariant 2. Its timeline is errata 70 B's, restated as the room's staging in docs/54-batch-c.md (ROOM 32 · INSIDE THE COFFIN); the sounds are tools/audio/render-coffin-sfx.py's and the plates tools/art/render-coffin-plates.py's, and both await Tyler's audition. Reached from Room 31, THE COFFIN · USE (doc 57 E7). The lid opens at 241 s -- four minutes sealed, three of them before Hob starts to dig (errata 71 A) -- straight into HOB_C1. Pointer intent reveals MENU and SKIP SCENE (errata 71 B). After HOB_C1 the room hands him back to Room 31, at night (afterTimeline, doc 57 E8).",
   "interface": "none",
   "actor": "hidden",
   "music": "suspend",
@@ -336,5 +336,18 @@
       "checkpoint": true,
       "note": "Straight into HOB_C1 (doc 48 S3 beat 3). The lid opening is the action that completes E8 (doc 02: Hob digs him out), so HOB's E8 entry performs HOB_C1's opening once (errata 71 C). WATCH and SKIP SCENE both land here."
     }
-  ]
+  ],
+  "onEnter": {
+    "set": {
+      "T_LAID_IN": true
+    },
+    "note": "Doc 57 E7-E8: from here Room 31 is the hill at night, the service over (errata 99 G)."
+  },
+  "afterTimeline": {
+    "goto": "funeral",
+    "when": {
+      "T_FUNERAL_DONE": false
+    },
+    "note": "Doc 57 E8: 'When HOB_C1 ends, Thad is in Room 31 at night beside the open grave; Hob has gone.' Once the lid has opened and HOB_C1 is over, the room hands him back up (doc 36 Q145's climb out, errata 99 G)."
+  }
 }

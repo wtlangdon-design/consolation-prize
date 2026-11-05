@@ -1,0 +1,47 @@
+{
+ "schema": 1,
+ "room": "funeral",
+ "note": "ROOM 31's PROOF SPEC. The funeral is reached from Boot Hill once the executor is named (doc 20, E6); the proof starts at the service from fixture r31-a and says so. The principal change is doc 48 S2 beat 3: the second LOOK at the grave, and the watchman's two lines.",
+ "fixture": "r31-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "S2 BEAT 3 (doc 48; doc 54: 'S2's beat 3 fires on the second LOOK at the grave'). Prerequisite: the first LOOK, T_GRAVE_LOOKED, set by the flag control. Visible consequence: the grave's second line, then 'Good turnout.' from the back, and he walks.",
+  "flags": {
+   "T_GRAVE_LOOKED": true
+  },
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "LOOK_AT"
+   },
+   {
+    "do": "click",
+    "on": "grave",
+    "why": "THE GRAVE, the second look"
+   },
+   {
+    "do": "waitFor",
+    "says": "thad",
+    "upTo": 30,
+    "why": "the grave's second line"
+   },
+   {
+    "do": "wait",
+    "seconds": 2
+   },
+   {
+    "do": "click",
+    "at": [
+     450,
+     60
+    ],
+    "why": "read on, to the watchman's"
+   },
+   {
+    "do": "waitFor",
+    "says": "hob",
+    "upTo": 60
+   }
+  ]
+ }
+}
