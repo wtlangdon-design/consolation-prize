@@ -4829,8 +4829,8 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 
 **Open, for Tyler:** (a) Sending Pratt (PRA_A1) is A5's fourth attempt and lives in Room 25 (next). (b) Thad's retreat "as far as the claim marker" when the tonic fumes is not staged. (c) "Room 34 opens below the hole" waits for Room 34. (d) The raccoon walks off at once; doc 54's "one look of complete contempt" before he goes is not a separate beat.
 
-## Q167 · Room 25, Pratt's claim: built, awaiting Tyler's playthrough; D2 and D5 play — **RULED 2026-11-05 (errata 97, delegated); BUILT, room-25 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+## Q167 · Room 25, Pratt's claim: built, awaiting Tyler's playthrough; D2 and D5 play — **RULED 2026-11-05 (errata 97, delegated); BUILT, room-25 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
 
 **Built.** Eleven subjects and seventy lines; Pratt raking, and his five trees with the offer that ends every conversation; A5's fourth way (`?fixture=r25-a`); D2 on Prosperity in Act II (`?fixture=r25-c`, walk up the road's way) and at his claim, and D5's turn (`?fixture=r25-b`); next door from Prosperity and on the map with the map. Played in `tests/room-25.test.ts`. Proofs under `renders/proofs/pratts-claim/`, started from fixture r25-a.
 
-**Open, for Tyler:** (a) **The first daylit exterior** -- the documents put it in the morning; Prosperity next door stays at dusk. (b) D6's counter scene in Room 7 waits to be staged (`T_PRATT_SWEARS`). (c) Pratt's sparring (pairs 10-15) waits for the sparring runtime, as Winnie's does. (d) `T_PRATT_TRAIL` is Sheng's (D4, Room 28, not built); fixture r25-b sets it.
+**Ruled:** (a) dusk, as next door (Tyler, 2026-11-05; errata 97 A), room-25's fourth operation. **Open, for Tyler:** (b) D6's counter scene in Room 7 waits to be staged (`T_PRATT_SWEARS`). (c) Pratt's sparring (pairs 10-15) waits for the sparring runtime, as Winnie's does. (d) `T_PRATT_TRAIL` is Sheng's (D4, Room 28, not built); fixture r25-b sets it.

@@ -3,7 +3,7 @@
 ON HIS CLAIM (doc 04 PRA_A1: "Pratt on his own claim, beside Prosperity,
 raking"): rest, breath, his head tipped back to check the sky ("He looks up
 at the sky, checking"), and raking -- the deliberate action errata 77 asks
-for. Drawn in the morning light of Room 25's plate.
+for. Graded into Room 25's dusk, the hour next door (Tyler, 2026-11-05).
 
 ON PROSPERITY (doc 57 D2: "Pratt is on it, pulling up the stake"; doc 04
 PRA_D2: "with a stake and a mallet, mid-jump"): the mallet at rest, breath,
@@ -177,7 +177,7 @@ def main():
     mask = ndi.binary_opening(key < KEY, iterations=1)
     rake, walk, mallet = cells(src, mask)
     k = HOME_H / rake[0].shape[0]
-    home = sheet([[scaled(f, k) for f in rake]], 'pratt', {
+    home = sheet([[tint(scaled(f, k), DUSK) for f in rake]], 'pratt', {
         'height': HOME_H, 'frameNames': ['rest', 'breath', 'sky', 'rake'], 'anchor': {'x': HOME[0], 'y': HOME[1]},
         'source': 'room-25 attempt 3 (art/staging/room-25/pratt-01/sheet.png), the top row'})
     j = JUMP_H / mallet[0].shape[0]
