@@ -1,0 +1,1626 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "back_alley",
+ "commit": "90229227a6497b31e57ec348a113b3aae6a5f77d",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "back-alley",
+ "warped": false,
+ "lifeRoute": "back-alley-life",
+ "durationSeconds": 219.15,
+ "events": [
+  {
+   "t": 4.84,
+   "line": "entry route back-alley: 35 action(s)"
+  },
+  {
+   "t": 152.71,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 152.71,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 152.71,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 152.71,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 152.71,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 152.71,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 152.71,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 152.71,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 152.71,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 152.71,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 152.71,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 152.71,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 152.71,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 152.71,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 152.71,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 152.71,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 152.71,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 152.71,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 152.71,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 152.71,
+   "line": "action 20 (wait): waited 7s"
+  },
+  {
+   "t": 152.71,
+   "line": "action 21 (click): clicked world 1900,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 152.71,
+   "line": "action 22 (wait): waited 1s"
+  },
+  {
+   "t": 152.71,
+   "line": "action 23 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 152.71,
+   "line": "action 24 (click): clicked world 1300,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 152.71,
+   "line": "action 25 (wait): waited 1s"
+  },
+  {
+   "t": 152.71,
+   "line": "action 26 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 152.71,
+   "line": "action 27 (click): clicked world 700,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 152.71,
+   "line": "action 28 (wait): waited 1s"
+  },
+  {
+   "t": 152.71,
+   "line": "action 29 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 152.71,
+   "line": "action 30 (click): clicked world 150,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 152.71,
+   "line": "action 31 (wait): waited 1s"
+  },
+  {
+   "t": 152.71,
+   "line": "action 32 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 152.71,
+   "line": "action 33 (click): clicked main_street/to_back_alley at world 29,510 -- THE BACK LOTS"
+  },
+  {
+   "t": 152.71,
+   "line": "action 34 (waitFor): reached {\"room\":\"back_alley\"} in room back_alley"
+  },
+  {
+   "t": 152.71,
+   "line": "action 35 (wait): waited 3s"
+  },
+  {
+   "t": 152.76,
+   "line": "in back_alley; life route: 25 action(s)"
+  },
+  {
+   "t": 153.45,
+   "line": "capture 01-arrived: room back_alley, says null, options 0, control null"
+  },
+  {
+   "t": 154.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 155.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 156.47,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 157.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 158.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 159.54,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 160.48,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 161.46,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 162.12,
+   "line": "capture 02-the-alley: room back_alley, says null, options 0, control null"
+  },
+  {
+   "t": 163.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 164.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 165.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 166.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 167.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169.14,
+   "line": "action 1 (wait): waited 7s"
+  },
+  {
+   "t": 169.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169.74,
+   "line": "capture 03-the-alley-later: room back_alley, says null, options 0, control null"
+  },
+  {
+   "t": 169.87,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 170.22,
+   "line": "action 1 (click): clicked back_alley/cat at world 463,527 -- THE CAT"
+  },
+  {
+   "t": 171.27,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     776
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 171.84,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room back_alley"
+  },
+  {
+   "t": 172.42,
+   "line": "capture 04-look-cat: room back_alley, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 173.47,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.46,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 175.44,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 176.47,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 177.46,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179.51,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 180.43,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 180.47,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 180.55,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 180.98,
+   "line": "action 1 (click): clicked back_alley/cat at world 463,527 -- doc 49's TALK TO on the cat"
+  },
+  {
+   "t": 181.07,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room back_alley"
+  },
+  {
+   "t": 181.71,
+   "line": "capture 05-talk-cat: room back_alley, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 182.77,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 183.82,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 184.79,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 185.73,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 186.75,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 187.81,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 188.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     463,
+     793
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.72,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 189.87,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 190.28,
+   "line": "action 1 (click): clicked back_alley/back_of_the_improvement_company at world 1418,350 -- one story from here"
+  },
+  {
+   "t": 191.35,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     712,
+     797
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 192.3,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     968,
+     801
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 193.35,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1243,
+     805
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 194.33,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1418,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 194.58,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room back_alley"
+  },
+  {
+   "t": 195.18,
+   "line": "capture 06-look-company: room back_alley, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 196.23,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1418,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 197.23,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1418,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 198.27,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1418,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 199.24,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1418,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 200.26,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1418,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 201.26,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1418,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 202.23,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1418,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 203.19,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 203.32,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 203.68,
+   "line": "action 1 (click): clicked back_alley/barrels at world 1635,578 -- forty empty barrels"
+  },
+  {
+   "t": 204.69,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1635,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 204.87,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room back_alley"
+  },
+  {
+   "t": 205.57,
+   "line": "capture 07-listen-barrels: room back_alley, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 206.65,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1635,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 207.64,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1635,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 208.66,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1635,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 209.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1635,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 210.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1635,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 211.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1635,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 212.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1635,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 213.59,
+   "line": "action 1 (wait): waited 8s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "arrival through the gap",
+   "t": 153.43,
+   "file": "renders/proofs/back-alley/life/raw-captures-ignored/01-arrived.png",
+   "hash": "cd98ca25a12626fc8c08c82aa8e4d057d86ae4a2733d5a39ade093e0dcf70b80",
+   "room": "back_alley",
+   "clock": 153.1084,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      740
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 282,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      114,
+      458,
+      292,
+      311
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:back_alley",
+     "path": "art/backgrounds/room-20-back-alley.png",
+     "drawn": "art/backgrounds/room-20-back-alley.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "29233e98053600dd0a70afaac70ec54267180e250449581215565f77fd07481e"
+    },
+    {
+     "key": "art/actors/room-20-cat.png",
+     "path": "art/actors/room-20-cat.png",
+     "drawn": "art/actors/room-20-cat.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-the-alley",
+   "why": null,
+   "t": 162.1,
+   "file": "renders/proofs/back-alley/life/raw-captures-ignored/02-the-alley.png",
+   "hash": "571e7a424ed2c86e79f06df072b515a1e4f03bcc47ae42021befe474b3f3a98d",
+   "room": "back_alley",
+   "clock": 161.62470000000002,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      740
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 282,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      114,
+      458,
+      292,
+      311
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:back_alley",
+     "path": "art/backgrounds/room-20-back-alley.png",
+     "drawn": "art/backgrounds/room-20-back-alley.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "29233e98053600dd0a70afaac70ec54267180e250449581215565f77fd07481e"
+    },
+    {
+     "key": "art/actors/room-20-cat.png",
+     "path": "art/actors/room-20-cat.png",
+     "drawn": "art/actors/room-20-cat.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-the-alley-later",
+   "why": null,
+   "t": 169.72,
+   "file": "renders/proofs/back-alley/life/raw-captures-ignored/03-the-alley-later.png",
+   "hash": "4a7b51f27923d00c2fb7103ea81373b9f5ca3f606c7d33d35caeabf9b16d64d9",
+   "room": "back_alley",
+   "clock": 169.27429999999998,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      740
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 282,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-08.png",
+     "bounds": [
+      114,
+      458,
+      292,
+      311
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:back_alley",
+     "path": "art/backgrounds/room-20-back-alley.png",
+     "drawn": "art/backgrounds/room-20-back-alley.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "29233e98053600dd0a70afaac70ec54267180e250449581215565f77fd07481e"
+    },
+    {
+     "key": "art/actors/room-20-cat.png",
+     "path": "art/actors/room-20-cat.png",
+     "drawn": "art/actors/room-20-cat.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-look-cat",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 172.4,
+   "file": "renders/proofs/back-alley/life/raw-captures-ignored/04-look-cat.png",
+   "hash": "a09f709b5a0e5ba0b546b753744993de4ff0e423ede13078fe463c7f6942ae1c",
+   "room": "back_alley",
+   "clock": 171.9243,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      463,
+      793
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 318,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      274,
+      475,
+      377,
+      351
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:back_alley",
+     "path": "art/backgrounds/room-20-back-alley.png",
+     "drawn": "art/backgrounds/room-20-back-alley.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "29233e98053600dd0a70afaac70ec54267180e250449581215565f77fd07481e"
+    },
+    {
+     "key": "art/actors/room-20-cat.png",
+     "path": "art/actors/room-20-cat.png",
+     "drawn": "art/actors/room-20-cat.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-talk-cat",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 181.68,
+   "file": "renders/proofs/back-alley/life/raw-captures-ignored/05-talk-cat.png",
+   "hash": "9dda2dd73c08b6967fc28d0b8eed42637c67a976c4ed13b83eb867a932221436",
+   "room": "back_alley",
+   "clock": 181.15720000000002,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      463,
+      793
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 318,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      274,
+      475,
+      377,
+      351
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:back_alley",
+     "path": "art/backgrounds/room-20-back-alley.png",
+     "drawn": "art/backgrounds/room-20-back-alley.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "29233e98053600dd0a70afaac70ec54267180e250449581215565f77fd07481e"
+    },
+    {
+     "key": "art/actors/room-20-cat.png",
+     "path": "art/actors/room-20-cat.png",
+     "drawn": "art/actors/room-20-cat.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-look-company",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 195.17,
+   "file": "renders/proofs/back-alley/life/raw-captures-ignored/06-look-company.png",
+   "hash": "826a0480cf0d57db1a3d0c12fa31f2d673e749bba908f8997abf2d14701f37d5",
+   "room": "back_alley",
+   "clock": 194.69,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1418,
+      856
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 361,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      1204,
+      495,
+      427,
+      399
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:back_alley",
+     "path": "art/backgrounds/room-20-back-alley.png",
+     "drawn": "art/backgrounds/room-20-back-alley.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "29233e98053600dd0a70afaac70ec54267180e250449581215565f77fd07481e"
+    },
+    {
+     "key": "art/actors/room-20-cat.png",
+     "path": "art/actors/room-20-cat.png",
+     "drawn": "art/actors/room-20-cat.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-listen-barrels",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 205.55,
+   "file": "renders/proofs/back-alley/life/raw-captures-ignored/07-listen-barrels.png",
+   "hash": "fd0852257f37b4f48ac746f0dda6429d8d9069df2276a04e705446f972f7a2d7",
+   "room": "back_alley",
+   "clock": 205.0062,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1635,
+      858
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 362,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      1420,
+      496,
+      429,
+      400
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:back_alley",
+     "path": "art/backgrounds/room-20-back-alley.png",
+     "drawn": "art/backgrounds/room-20-back-alley.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "29233e98053600dd0a70afaac70ec54267180e250449581215565f77fd07481e"
+    },
+    {
+     "key": "art/actors/room-20-cat.png",
+     "path": "art/actors/room-20-cat.png",
+     "drawn": "art/actors/room-20-cat.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 219.15s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T08:31:00.326Z"
+}
