@@ -1,0 +1,228 @@
+{
+ "room": 22,
+ "note": "Ruling 22 steps 1-6 for the road to the claims, written by tools/room22-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 95).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 715,
+   "height": 300
+  },
+  "near": {
+   "y": 855,
+   "height": 400
+  },
+  "from": "Room 5's slope, a little smaller than Room 13's"
+ },
+ "walkable": [
+  160,
+  715,
+  1700,
+  140
+ ],
+ "exit": {
+  "hotspot": "THE WAY BACK TO TOWN",
+  "to": "main_street",
+  "rect": [
+   0,
+   520,
+   140,
+   300
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 220,
+   "y": 790,
+   "facing": "right"
+  },
+  "by_the_post": {
+   "x": 760,
+   "y": 780,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE WAY BACK TO TOWN",
+   "rect": [
+    0,
+    520,
+    140,
+    300
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE VIEW BACK AT TOWN",
+   "rect": [
+    40,
+    300,
+    520,
+    260
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE ROAD",
+   "rect": [
+    140,
+    560,
+    1640,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MILE POST",
+   "rect": [
+    700,
+    470,
+    50,
+    230
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BOOT",
+   "rect": [
+    790,
+    650,
+    50,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SCRUB",
+   "rect": [
+    560,
+    420,
+    760,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE VIEW AHEAD",
+   "rect": [
+    1300,
+    240,
+    620,
+    320
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MEN GOING OUT",
+   "rect": [
+    1420,
+    540,
+    200,
+    70
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MEN COMING BACK",
+   "rect": [
+    420,
+    590,
+    240,
+    90
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WAY UP TO THE CLAIMS",
+   "rect": [
+    1780,
+    480,
+    140,
+    260
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the post, the boot and the scrub are behind it, and the two groups of men walk the far road, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "hills and slopes",
+   "p10": 64.0,
+   "p90": 98.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 23.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "the road and the verge",
+   "p10": 95.0,
+   "p90": 98.0,
+   "darkAnchorMargin": 69.5,
+   "lightAnchorMargin": 23.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE WAY BACK TO TOWN",
+   "p10": 66.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE VIEW BACK AT TOWN",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE ROAD",
+   "p10": 56.0,
+   "p90": 98.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 23.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE MILE POST",
+   "p10": 58.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SCRUB",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE VIEW AHEAD",
+   "p10": 70.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE WAY UP TO THE CLAIMS",
+   "p10": 100.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 74.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

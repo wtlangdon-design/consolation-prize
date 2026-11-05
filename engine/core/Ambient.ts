@@ -154,14 +154,19 @@ export class AmbientLayer {
     }
     this.seen = present;
     this.departures = this.departures.filter((one) => !departureAt(one.exit, now - one.startedAt).done);
-    return this.departures.length > 0;
+    return this.departures.length > 0 || this.present.some((npc) => npc.loop);
   }
 
-  /** Everyone walking out this frame, and where. */
+  /** Everyone walking out this frame, and everyone walking a loop, and where. */
   get departing(): Departing[] {
-    return this.departures.map(({ npc, exit, startedAt }) => ({
+    const out: Departing[] = this.departures.map(({ npc, exit, startedAt }) => ({
       npc, exit, pose: departureAt(exit, this.clock - startedAt),
     }));
+    for (const npc of this.present) {
+      const pose = loopPose(npc, this.clock);
+      if (pose && npc.loop) out.push({ npc, exit: npc.loop, pose });
+    }
+    return out;
   }
 
   get reputationState(): string {
@@ -211,7 +216,8 @@ export class AmbientLayer {
     // overlap. The Nugget's named regulars are identities laid over men the
     // patron bands draw, and the cast list is sorted by id -- so without this,
     // which one a click found depended on the alphabet.
-    const hits = this.present.filter((npc) => {
+    // A walker on a loop is examined through the hotspot over its road.
+    const hits = this.present.filter((npc) => !npc.loop).filter((npc) => {
       // THE SPRITE'S OWN HEIGHT WHEN IT HAS ONE, the zone's when it does not.
       // The zone heights are the game's three fixed drawn sizes; a figure
       // whose sheet is 440 rows tall behind a counter has a head 200 rows
@@ -232,4 +238,26 @@ export class AmbientLayer {
     this.fired.clear();
     for (const key of keys) this.fired.add(key);
   }
+}
+
+/**
+ * WHERE A LOOPING WALKER IS (AmbientFile.loop), or null while it is off the
+ * frame between walks. Pure in the clock, as a departure is.
+ */
+export function loopPose(npc: AmbientFile, clock: number): DeparturePose | null {
+  const walk = npc.loop;
+  if (!walk || walk.speed <= 0) return null;
+  let length = 0;
+  for (let index = 1; index < walk.path.length; index += 1) {
+    const [ax, ay] = walk.path[index - 1]!;
+    const [bx, by] = walk.path[index]!;
+    length += Math.hypot(bx - ax, by - ay);
+  }
+  const walking = length / walk.speed;
+  const cycle = walking + Math.max(0, walk.pause ?? 0);
+  if (cycle <= 0) return null;
+  const t = (((clock + (walk.offset ?? 0)) % cycle) + cycle) % cycle;
+  if (t >= walking) return null;
+  const pose = departureAt(walk, t);
+  return pose.done ? null : pose;
 }

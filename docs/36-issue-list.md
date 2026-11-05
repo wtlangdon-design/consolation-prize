@@ -4816,3 +4816,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Six subjects and thirty-seven lines; nobody home in Act I (`?fixture=r21-b`). After E9, Hob at home and the two cups, and the confession on entering -- HOB_C2 behind S4 beat 1's line; E10; his last line, dawn in the window and PART FOUR on leaving it (`?fixture=r21-a`), played in `tests/room-21.test.ts`. The alley's far end leads here; the door leads back. Proofs under `renders/proofs/watchmans-shack/`.
 
 **Open, for Tyler:** (a) THE DOOR has doc 49's CLOSE and no LOOK or LISTEN; the alley's way here has neither: both stub exits. (b) Act IV's opening, Room 19 in the morning with the case packed on the bed and Thad's line (doc 57 E10), is not built yet. (c) The two cups stay on the table and the dawn stays in the window after the confession, every later visit.
+
+## Q165 · Room 22, the road to the claims: built, awaiting Tyler's playthrough; the crowds walk the road — **RULED 2026-11-05 (errata 95, delegated; the crowds Tyler's); BUILT, room-22 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Eight subjects and fifty-four lines; the two crowds walking out and back along the road (loop walkers, new). Main Street's THE ROAD TO THE CLAIMS leads here; the way back leads down to it. A4's way up refuses in doc 57's words without the map (`?fixture=r22-a`) and is gone with it (`?fixture=r22-b`), played in `tests/room-22.test.ts`. Proofs under `renders/proofs/claims-road/`.
+
+**Open, for Tyler:** (a) Doc 10 times the crowds six in the morning and seven at night; the road is at dusk and both walk it. (b) The way back to town has no LOOK or LISTEN written: a stub exit. (c) With the map, the way up to Prosperity arrives with Room 23 (next).

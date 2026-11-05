@@ -362,7 +362,8 @@ export class GameState {
       // An object the actor owns is not in the room. Doc 22 item 9: taking
       // something is an ownership change, so it leaves the room the same way
       // a gated hotspot does -- filtered out entirely, not drawn dim.
-      (target) => this.flags.test(target.when) && !this.taken.has(this.key(target.id)),
+      (target) => this.flags.test(target.when) && !this.taken.has(this.key(target.id))
+        && Object.entries(target.holding ?? {}).every(([item, held]) => this.carried.includes(item) === held),
     );
   }
 

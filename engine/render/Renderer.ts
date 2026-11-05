@@ -1114,8 +1114,9 @@ export class Renderer {
     // the dark he is looking at) draws everyone but him.
     const playerHidden = this.state.room.actor === 'hidden';
     const props = (this.state.room.props ?? []).filter((prop) => this.state.flags.test(prop.when));
-    for (const figure of depthOrder(roomFigures(this.ambient.present, this.actors.all(), props,
-      this.ambient.departing))) {
+    // A figure on a loop is drawn where its walk has reached, not standing.
+    for (const figure of depthOrder(roomFigures(this.ambient.present.filter((npc) => !npc.loop),
+      this.actors.all(), props, this.ambient.departing))) {
       if (playerHidden && figure.mover?.id === this.state.content.actor.id) continue;
       if (figure.walker) {
         this.drawWalker(figure.walker);
@@ -1181,7 +1182,12 @@ export class Renderer {
       return;
     }
     const [sx, sy, width, height] = exit.frames[pose.frame % exit.frames.length]!;
-    const man = this.state.stagedHeightAt(pose.x, pose.y) ?? exit.figureHeight;
+    // A loop that leaves the walk band carries its own heights (AmbientFile.loop).
+    const heights = (exit as { heights?: number[] }).heights;
+    const leg = pose.leg ?? 0;
+    const man = heights && leg > 0 && heights[leg] !== undefined && heights[leg - 1] !== undefined
+      ? heights[leg - 1]! + (heights[leg]! - heights[leg - 1]!) * (pose.along ?? 0)
+      : this.state.stagedHeightAt(pose.x, pose.y) ?? exit.figureHeight;
     const scale = (man * (npc.sprite?.stature ?? 1)) / exit.figureHeight;
     const drawW = Math.max(1, Math.round(width * scale));
     const drawH = Math.max(1, Math.round(height * scale));

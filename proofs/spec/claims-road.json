@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "claims_road",
+ "note": "ROOM 22's PROOF SPEC. The route is Main Street's, then THE ROAD TO THE CLAIMS. Room 22 has no principal changed picture: A4 changes what the way up does (the map in hand), not what is drawn, and is played in tests/room-22.test.ts; the crowds walk in every state.",
+ "route": "claims-road",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "Room 22 draws the same in every state: the map in hand (doc 57 A4) changes the way up, not the picture, and Part Two-B wrote no act variant for the road (doc 05). Errata 95."
+ }
+}

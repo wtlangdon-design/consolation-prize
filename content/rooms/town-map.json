@@ -30,7 +30,7 @@
   },
   {
    "id": "loc_claims_road",
-   "room": "stub_claims_road",
+   "room": "claims_road",
    "at": [
     1225,
     445

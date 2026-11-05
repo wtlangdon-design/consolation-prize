@@ -1,0 +1,64 @@
+{
+ "sheet": "art/staging/room-22/miners/miners.png",
+ "going_out": {
+  "frames": [
+   [
+    2,
+    2,
+    378,
+    248
+   ],
+   [
+    382,
+    2,
+    378,
+    248
+   ],
+   [
+    762,
+    2,
+    378,
+    248
+   ],
+   [
+    1142,
+    2,
+    378,
+    248
+   ]
+  ],
+  "figureHeight": 248,
+  "drawnFacing": "right"
+ },
+ "coming_back": {
+  "frames": [
+   [
+    1522,
+    9,
+    327,
+    241
+   ],
+   [
+    1902,
+    9,
+    327,
+    241
+   ],
+   [
+    2282,
+    9,
+    327,
+    241
+   ],
+   [
+    2662,
+    9,
+    327,
+    241
+   ]
+  ],
+  "figureHeight": 241,
+  "drawnFacing": "left"
+ },
+ "source": "room-22 attempt 3 (art/staging/room-22/miners-01/sheet.png)"
+}

@@ -148,6 +148,12 @@ export interface Interactable {
   rect: [number, number, number, number];
   colour: number;
   /**
+   * WHAT THAT TARGET NEEDS IN HAND to be there at all, by item id: true, held;
+   * false, not held. Doc 57 A4: "Room 22 offers the way to it, only while Thad
+   * holds the map" (errata 95 F). Absent means either.
+   */
+  holding?: Record<string, boolean>;
+  /**
    * When this target exists at all. An absent condition means always.
    *
    * Errata ruling 19a: an object whose state changes during a scene carries a
@@ -446,6 +452,26 @@ export interface AmbientFile {
    * simply absent; with it he walks the path and is gone at its end.
    */
   exit?: AmbientExit;
+  /**
+   * WALKING, NOT STANDING (errata 95 E; Tyler, 2026-11-05: the road's two
+   * crowds "walk the road"). The figure walks `path` again and again, drawn on
+   * the room's curve like a departure, and between walks is off the frame for
+   * `pause` seconds. Both ends of the path are off the frame, so it is never
+   * seen to appear or vanish (tests/movement.test.mjs). `offset` shifts it in
+   * its cycle so two walkers do not start together. A walking figure is
+   * examined through the hotspot over its road, not by clicking it.
+   */
+  loop?: AmbientExit & {
+    pause?: number;
+    offset?: number;
+    /**
+     * The drawn height of a man at each point of `path`, interpolated along
+     * the walk. A road that climbs into the distance leaves the room's depth
+     * curve, which holds only across the walk band; without these a man far up
+     * the road would be drawn at the band's far-edge size.
+     */
+    heights?: number[];
+  };
   /** The dialogue tree TALK TO opens. Empty for a person who has none. */
   tree: string;
   /**

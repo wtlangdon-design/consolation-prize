@@ -1,0 +1,67 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 22, the road to the claims. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r22-a",
+   "label": "R22-A Act I, no map yet: the road, and no way up",
+   "room": "claims_road",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "four_dollars",
+    "watch"
+   ],
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::A4 · Find the claim",
+    "docs/54-batch-c.md::ROOM 22 · THE ROAD TO THE CLAIMS"
+   ],
+   "note": "Walk up the road toward the claims: doc 57 A4's line -- the deed says 'thereabouts'. The men walk out and back along the road."
+  },
+  {
+   "id": "r22-b",
+   "label": "R22-B Act I, the Company's map in hand (A4)",
+   "room": "claims_road",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "four_dollars",
+    "watch",
+    "deed",
+    "company_map"
+   ],
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::A4 · Find the claim"
+   ],
+   "note": "With the map the closed way is gone; the way up itself comes with Room 23 (errata 95 F)."
+  }
+ ]
+}

@@ -1,0 +1,94 @@
+{
+ "schema": 1,
+ "id": "miners_out",
+ "name": "THE MEN GOING OUT",
+ "posture": "walking",
+ "room": "claims_road",
+ "x": 0,
+ "y": 0,
+ "zone": 1,
+ "approachRadius": 0,
+ "note": "Doc 10: 'Men walking out with tools over their shoulders... They are talking.' The top row of room-22 operation 3's sheet: up the road from the near edge to the diggings, off the frame at both ends. A loop walker (errata 95 E; Tyler, 2026-11-05: 'Walk the road'): drawn walking its path, then off the frame between walks. Examined through the hotspot of the same name.",
+ "barks": {},
+ "barksNote": "A crowd on the road; their talk is doc 10's LISTEN lines.",
+ "loop": {
+  "path": [
+   [
+    700,
+    1000
+   ],
+   [
+    950,
+    830
+   ],
+   [
+    1300,
+    600
+   ],
+   [
+    1500,
+    430
+   ],
+   [
+    1620,
+    320
+   ],
+   [
+    1700,
+    240
+   ],
+   [
+    1790,
+    190
+   ],
+   [
+    1990,
+    150
+   ]
+  ],
+  "speed": 55,
+  "sheet": "art/actors/room-22-miners.png",
+  "frames": [
+   [
+    2,
+    2,
+    378,
+    248
+   ],
+   [
+    382,
+    2,
+    378,
+    248
+   ],
+   [
+    762,
+    2,
+    378,
+    248
+   ],
+   [
+    1142,
+    2,
+    378,
+    248
+   ]
+  ],
+  "fps": 5,
+  "drawnFacing": "right",
+  "figureHeight": 248,
+  "heights": [
+   440,
+   360,
+   215,
+   120,
+   75,
+   52,
+   42,
+   36
+  ],
+  "pause": 14,
+  "offset": 0,
+  "note": "Heights per point: the road climbs out of the walk band into the distance (errata 95 E)."
+ }
+}

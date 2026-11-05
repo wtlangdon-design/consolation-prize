@@ -1,0 +1,199 @@
+{
+ "room": "claims_road",
+ "plate": "art/backgrounds/room-22-claims-road.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-22/plate-01/candidate-1920x864.png, room-22 attempt 2, a 20:9 crop from y 200 -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-22-claims-road.png",
+ "plateShippingHash": "2fa7d921a4f1",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   160,
+   715
+  ],
+  [
+   1900,
+   715
+  ],
+  [
+   1900,
+   858
+  ],
+  [
+   160,
+   858
+  ]
+ ],
+ "walkableNote": "THE ROAD, near. The mile post's foot is at y 700; the band runs y 715-858 across the road's near width, from the way back to town at the left to the road's turn up the hill at the right.",
+ "scaling": {
+  "far": {
+   "y": 715,
+   "height": 278
+  },
+  "near": {
+   "y": 858,
+   "height": 375
+  },
+  "note": "ROOM 22'S DEPTH, FROM THE MASTER: Thad stood with his feet at y 789 and was drawn about 328 tall; along Room 5's slope (0.68 a row) that is 278 at the band's far edge and 375 at its near. The road climbs out of the band into the distance; the walkers carry their own heights up it."
+ },
+ "entrance": [
+  240,
+  790
+ ],
+ "entrances": [
+  {
+   "from": "main_street",
+   "at": [
+    240,
+    790
+   ],
+   "facing": "right",
+   "note": "Up from Main Street, at left."
+  },
+  {
+   "from": "default",
+   "at": [
+    240,
+    790
+   ],
+   "facing": "right",
+   "note": "Up from the town, at left."
+  }
+ ],
+ "hotspots": {
+  "boot": [
+   545,
+   625,
+   60,
+   80
+  ],
+  "mile_post": [
+   385,
+   390,
+   250,
+   320
+  ],
+  "view_back_at_town": [
+   0,
+   200,
+   640,
+   200
+  ],
+  "men_going_out": [
+   1350,
+   150,
+   570,
+   250
+  ],
+  "men_coming_back": [
+   800,
+   330,
+   600,
+   280
+  ],
+  "scrub": [
+   0,
+   420,
+   380,
+   444
+  ],
+  "view_ahead": [
+   880,
+   60,
+   1040,
+   250
+  ],
+  "road": [
+   640,
+   330,
+   1280,
+   534
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE MEN GOING OUT are on the far road, THE MEN COMING BACK on its middle, where each group is mostly seen walking (they are loop walkers, content/ambient/miners-*.json). THE ROAD is walked on by a bare click; everything else is looked at.",
+ "people": {},
+ "exitSubjects": {
+  "THE WAY UP TO THE CLAIMS": {
+   "id": "to_prosperity",
+   "to": "prosperity",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "pending": true,
+   "holding": {
+    "company_map": true
+   },
+   "closed": {
+    "holding": {
+     "company_map": false
+    },
+    "fromRef": "docs/57-puzzle-completion.md::## A4 ",
+    "line": "> **Room 22's way up to the claims**"
+   },
+   "note": "Doc 57 A4: 'Room 22 offers the way to it, only while Thad holds the map.' Without the map, walking up answers with doc 57's line. The way itself leads to Room 23 and comes with it (errata 95 F)."
+  }
+ },
+ "exits": {
+  "to_main_street": [
+   0,
+   640,
+   140,
+   224
+  ],
+  "to_prosperity": [
+   1660,
+   180,
+   260,
+   520
+  ]
+ },
+ "exitWalkTo": {
+  "to_main_street": {
+   "x": 170,
+   "y": 790,
+   "facing": "left"
+  },
+  "to_prosperity": {
+   "x": 1880,
+   "y": 735,
+   "facing": "right"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "town_lights",
+   "at": [
+    220,
+    300
+   ],
+   "radius": 420,
+   "amount": 0.06,
+   "rate": 0.2,
+   "phase": 0.3,
+   "note": "The town's first lamps, below."
+  }
+ ],
+ "defaultVerbs": {
+  "boot": "LOOK_AT",
+  "mile_post": "LOOK_AT",
+  "view_back_at_town": "LOOK_AT",
+  "men_going_out": "LOOK_AT",
+  "men_coming_back": "LOOK_AT",
+  "scrub": "LOOK_AT",
+  "view_ahead": "LOOK_AT",
+  "road": "WALK_TO"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click, except THE ROAD, which is walked on, as Main Street's mud is.",
+ "occlusion": {
+  "note": "No plane: the walk band is the road's near width, in front of everything; the walkers pass in depth order.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}

@@ -596,7 +596,7 @@
         240
       ],
       "colour": 12,
-      "to": "stub_claims_road",
+      "to": "claims_road",
       "responses": {
         "LOOK_AT": [
           {

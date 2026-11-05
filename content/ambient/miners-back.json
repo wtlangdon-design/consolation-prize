@@ -1,0 +1,94 @@
+{
+ "schema": 1,
+ "id": "miners_back",
+ "name": "THE MEN COMING BACK",
+ "posture": "walking",
+ "room": "claims_road",
+ "x": 0,
+ "y": 0,
+ "zone": 1,
+ "approachRadius": 0,
+ "note": "Doc 10: 'The same men, walking in... Same tools. Same road.' The bottom row of room-22 operation 3's sheet: down the road from the diggings to the near edge, off the frame at both ends. A loop walker (errata 95 E; Tyler, 2026-11-05: 'Walk the road'): drawn walking its path, then off the frame between walks. Examined through the hotspot of the same name.",
+ "barks": {},
+ "barksNote": "A crowd on the road; their talk is doc 10's LISTEN lines.",
+ "loop": {
+  "path": [
+   [
+    1990,
+    150
+   ],
+   [
+    1790,
+    190
+   ],
+   [
+    1700,
+    240
+   ],
+   [
+    1620,
+    320
+   ],
+   [
+    1500,
+    430
+   ],
+   [
+    1300,
+    600
+   ],
+   [
+    950,
+    830
+   ],
+   [
+    700,
+    1000
+   ]
+  ],
+  "speed": 55,
+  "sheet": "art/actors/room-22-miners.png",
+  "frames": [
+   [
+    1522,
+    9,
+    327,
+    241
+   ],
+   [
+    1902,
+    9,
+    327,
+    241
+   ],
+   [
+    2282,
+    9,
+    327,
+    241
+   ],
+   [
+    2662,
+    9,
+    327,
+    241
+   ]
+  ],
+  "fps": 5,
+  "drawnFacing": "left",
+  "figureHeight": 241,
+  "heights": [
+   36,
+   42,
+   52,
+   75,
+   120,
+   215,
+   360,
+   440
+  ],
+  "pause": 14,
+  "offset": 21,
+  "note": "Heights per point: the road climbs out of the walk band into the distance (errata 95 E)."
+ }
+}

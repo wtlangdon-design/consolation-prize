@@ -1,44 +1,45 @@
 {
  "schema": 1,
  "room": 22,
- "id": "room-22",
+ "id": "room-22-claims-road",
  "name": "THE ROAD TO THE CLAIMS",
  "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54) from docs 02, 05, 10, 20 and 54.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 22 \u2014 THE ROAD TO THE CLAIMS",
+  "primary": "docs/05-examine-layer.md::ROOM 22 — THE ROAD TO THE CLAIMS",
   "batch": [
-   "docs/10-examine-batch-3.md::ROOM 22 \u2014 THE ROAD TO THE CLAIMS"
+   "docs/10-examine-batch-3.md::ROOM 22 — THE ROAD TO THE CLAIMS"
   ],
   "merged": [
-   "docs/10-examine-batch-3.md::ROOM 22 \u2014 THE ROAD TO THE CLAIMS"
+   "docs/10-examine-batch-3.md::ROOM 22 — THE ROAD TO THE CLAIMS"
   ],
   "completions": [
-   "docs/54-batch-c.md::ROOM 22 \u00b7 THE ROAD TO THE CLAIMS"
+   "docs/54-batch-c.md::ROOM 22 · THE ROAD TO THE CLAIMS"
   ],
   "actVariantsNone": {
-   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
    "why": "Part Two-B wrote no variant for the road; it is a junction traversed in every act."
   }
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 22 \u2014 THE ROAD TO THE CLAIMS",
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 22 — THE ROAD TO THE CLAIMS",
  "dialogue": {
   "characters": [],
   "trees": [],
   "none": {
-   "source": "docs/20-room-map.md::From the map \u2014 the diggings",
+   "source": "docs/20-room-map.md::From the map — the diggings",
    "why": "An exterior reached from the map; nobody is staged here to speak (doc 10's crowds are examine subjects)."
   }
  },
  "puzzles": {
-  "ids": [],
-  "none": {
-   "source": "docs/02-puzzle-graph.md::Puzzle Dependency Graph \u2014 v1",
-   "why": "Doc 02 sites none of the 45 here."
-  }
+  "ids": [
+   "A4"
+  ],
+  "source": "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*"
  },
  "staging": {
   "required": false,
   "why": "No doc 48 script is sited here."
  },
- "connectivity": "docs/20-room-map.md"
+ "connectivity": "docs/20-room-map.md",
+ "roomFile": "content/rooms/claims-road.json",
+ "plate": "art/backgrounds/room-22-claims-road.png"
 }

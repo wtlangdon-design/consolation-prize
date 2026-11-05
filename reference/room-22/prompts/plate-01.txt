@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game: the road out of a gold-rush town at dusk, with people on it -- the man in the blue coat standing by the mile post, a group of miners walking up the middle of the road, and a few more far up the road on the right.
+
+Make exactly these changes:
+1. Remove the man in the blue coat. Paint the road and the scrub behind him.
+2. Remove every miner, the near group and the far ones. Paint the empty road where they were, its ruts continuing, and the scrub beside it.
+
+Change nothing else. Same camera, same pixel grid, same colours, same light, same objects in the same places: the town and its lamps and spire, the mile post and the boot at its foot, the scrub, the road, the hills with the diggings and their little timber frames, the sky. No people, no shadows of people, no animals, no text, no numerals.

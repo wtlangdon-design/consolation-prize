@@ -1,0 +1,64 @@
+{
+ "source": "art/staging/room-22/plate-01/source.png",
+ "crop": {
+  "x": 8,
+  "y": 200,
+  "width": 1520,
+  "height": 684
+ },
+ "out": "art/staging/room-22/plate-01/candidate-1920x864.png",
+ "derivation": {
+  "transform": "errata-63-fixed-room-source-acquisition",
+  "provisional": true,
+  "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+  "source": {
+   "path": "art/staging/room-22/plate-01/source.png",
+   "hash": "092fb1abd891be0ac3ead69be11bf134ea37423e80b1bf5389057259b0429600",
+   "width": 1536,
+   "height": 1024,
+   "bytes": 2144737,
+   "kept": true
+  },
+  "crop": {
+   "x": 8,
+   "y": 200,
+   "width": 1520,
+   "height": 684,
+   "aspect": "20:9"
+  },
+  "resample": {
+   "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+   "lobes": 3,
+   "from": [
+    1520,
+    684
+   ],
+   "to": [
+    1920,
+    864
+   ],
+   "factor": 1.263157894736842,
+   "normalisedWeights": true,
+   "premultiplied": true,
+   "rounding": "half-away-from-zero, clamped to 0..255",
+   "forbidden": [
+    "nearest-neighbour",
+    "ai-upscale",
+    "sharpen",
+    "denoise",
+    "recolour",
+    "contrast-enhancement",
+    "generative-second-pass"
+   ]
+  },
+  "derived": {
+   "path": "art/staging/room-22/plate-01/candidate-1920x864.png",
+   "hash": "2fa7d921a4f119b8ab0e66fc31c8c6d19e92b8422cf983f63c4b9492ed631439",
+   "width": 1920,
+   "height": 864,
+   "bytes": 3175497,
+   "colourType": 2
+  }
+ },
+ "why": "Room 22 takes a 20:9 crop from y 200: the master painted the whole canvas (tools/art/room22-plate.mjs)."
+}

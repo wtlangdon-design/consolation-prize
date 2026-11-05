@@ -1180,7 +1180,10 @@ const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name,
   // An exit with no LOOK or LISTEN of its own and only doc 49's refusal is
   // filed under `exitsAndUnplaced` (Room 14's THE GATE, errata 87 E).
   const subject = MERGED.subjects.find((s) => s.name === name)
-    ?? (MERGED.exitsAndUnplaced?.[name] ? { name, overrides: MERGED.exitsAndUnplaced[name] } : undefined);
+    ?? (MERGED.exitsAndUnplaced?.[name] ? { name, overrides: MERGED.exitsAndUnplaced[name] } : undefined)
+    // A way no examine pass writes, whose only words are a puzzle's (doc 57
+    // A4's "Room 22's way up to the claims"): a stub, by its declared name.
+    ?? (spec.stub || spec.pending ? { name } : undefined);
   if (!subject) fail(`exitSubjects names "${name}", which ${MERGED_PATH} does not write`);
   const responses = {};
   for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
@@ -1198,9 +1201,15 @@ const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name,
     ...(spec.stub ? { stub: true } : {}),
     // A way that opens later (Room 18's stairs, after A2).
     ...(spec.when ? { when: spec.when } : {}),
+    // A way open only with something in hand (doc 57 A4: the map).
+    ...(spec.holding ? { holding: spec.holding } : {}),
     ...(ann.exitWalkTo?.[spec.id] ? { walkTo: ann.exitWalkTo[spec.id] } : {}) };
 }) : [];
-built.exits = [...subjectExits, ...(live.exits ?? []).filter((e) => !subjectExits.some((s) => s.id === e.id)).map((e) => {
+// A WAY WHOSE DESTINATION IS NOT BUILT YET (errata 95 F): only its closed
+// stand-in is built, below; the exit itself comes with the room it leads to.
+const pendingExits = subjectExits.filter((exit) => Object.values(ann.exitSubjects ?? {}).some((spec) => spec.id === exit.id && spec.pending));
+const openExits = subjectExits.filter((exit) => !pendingExits.includes(exit));
+built.exits = [...openExits, ...(live.exits ?? []).filter((e) => !subjectExits.some((s) => s.id === e.id)).map((e) => {
   const { walkTo, ...rest } = e;
   if (walkTo) oldWalkTo.set(e.id, walkTo);
   // ITS LINES FROM THE ROOM DOC, where the doc writes them (PART FOUR). An
@@ -1231,15 +1240,24 @@ for (const [name, spec] of Object.entries(ann.exitSubjects ?? {})) {
   const line = body.split('\n').find((one) => one.startsWith(spec.closed.line));
   const said = line && /"([^"]+)"/.exec(line.split('—').slice(1).join('—'))?.[1];
   if (!said) fail(`exitSubjects ${name} closed: no line starting "${spec.closed.line}" in ${spec.closed.fromRef}`);
-  const exit = built.exits.find((one) => one.id === spec.id);
+  const exit = built.exits.find((one) => one.id === spec.id) ?? pendingExits.find((one) => one.id === spec.id);
   const answer = [{ ...(spec.closed.by ? { by: spec.closed.by } : {}), say: said }];
   built.hotspots.push({
-    id: `${spec.id}_closed`, stateOf: spec.id, name, rect: exit.rect, colour: 0, when: spec.closed.when, defaultVerb: 'WALK_TO',
+    id: `${spec.id}_closed`, stateOf: spec.id, name, rect: exit.rect, colour: 0,
+    ...(spec.closed.when ? { when: spec.closed.when } : {}),
+    ...(spec.closed.holding ? { holding: spec.closed.holding } : {}),
+    // A way no examine pass writes is a stub in its closed state too: its
+    // only words are the line it refuses with.
+    ...(exit.stub ? { stub: true } : {}),
+    defaultVerb: 'WALK_TO',
     responses: { ...exit.responses, WALK_TO: answer, USE: answer, OPEN: answer },
     ...(exit.walkTo ? { walkTo: exit.walkTo } : {}),
     note: `Errata 91 E: ${name} before it opens -- ${spec.closed.fromRef}.`,
   });
 }
+// SMALLEST FIRST AGAIN, now the stand-ins are in (ruling 32): a way's closed
+// stand-in at the edge of a road must not sit under the road's own rect.
+built.hotspots.sort((a, b) => (a.rect[2] * a.rect[3]) - (b.rect[2] * b.rect[3]));
 // DOC 54'S OVERRIDES FOR PEOPLE, by the ambient ids that draw them. A verb
 // written "(in a duel)" carries the annotation's `peopleWhen` for that phrase;
 // a qualifier the annotation does not define is a build failure, not a guess.

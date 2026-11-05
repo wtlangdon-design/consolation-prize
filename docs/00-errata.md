@@ -2624,3 +2624,21 @@ What Tyler still decides: acceptance of the art (errata 72 E, at the full playth
 **D · The art: 3 of room-21's 4 operations.** A composition master; the shack with nobody in it and the table bare; and its companion after the confession -- dawn starting in the window and the two cups set -- cut into two props (`tools/art/room21-props.py`): THE CUPS from `T_SAME_HAND` (S4 beat 1, "Hob sets two cups"), THE DAWN WINDOW from `T_HOB_IS_MOTT` (S4 beat 3, "Outside, dawn is starting"). The plate's crop is 1500x675 from (18, 174): the band was painted short of 684 rows. One operation is left.
 
 **E · The confession (doc 48 S4, doc 57 E10).** Entering after E9 is the action that completes E10: the room's accost may now carry `completes`, firing only while the puzzle is incomplete, completing it, and performing its tree's puzzle-gated opening once. HOB_C2's opening begins with S4 beat 1's line. Its way out is S4 beat 3: Hob's line, `T_HOB_IS_MOTT`, `T_NO_GOLD_EVER` (doc 04's name; S4's `T_STRIKE_WAS_LIE`, errata 75 K) and `ACT` = 4, whose rise brings the card -- **PART FOUR — THE QUIETEST PART OF THE GAME**, now extracted from doc 57 E10. **Not built:** Act IV's opening in Room 19 ("Packed. It took four minutes...", doc 57) -- the case packed on the bed is a Room 19 state for Act IV, and comes with the Act IV rooms (doc 36 Q164).
+
+# 95 · ROOM 22 BUILT — THE BUILDER'S DECISIONS (2026-11-05)
+
+*Made by the Room 22 builder under doc 55 section 5's standing delegation. No line was written. Every ruling below can be struck or changed by its letter.*
+
+**A · Dusk, built new.** The road out to the diggings, at dusk: the men coming back "at seven at night" (doc 10), the town's first lamps lit below and its chimney smoke straight up (doc 54). The stub room is retired; the room's id is `claims_road`, and Main Street's way, the map's entry and Main Street's arrival follow it. **Identity (17b):** a dirt road rutted a foot deep, sage and greasewood, the diggings' scars on the hills.
+
+**B · Staging.** The town below at the left and the way back down to it; the road rising across the frame; THE MILE POST with two arms and THE BOOT upright at its foot (doc 05); THE SCRUB on the slopes; THE VIEW AHEAD, the hills opened up by the diggings, and the road turning up into them at the right.
+
+**C · The plate.** Operation 1 painted the whole canvas; the 20:9 crop from y 200 keeps the town, the hills and the road in front of the post. Operation 2 took Thad and both crowds out.
+
+**D · The ways.** Back down to Main Street at the left: a stub exit (doc 14 writes Main Street's side). Up to the claims at the right: see F.
+
+**E · The two crowds walk the road (Tyler, 2026-11-05: "Walk the road").** Doc 10: "The two crowd hotspots are the whole room." Operation 3 drew four miners as one group on magenta against Thad, four frames walking out with their tools on their shoulders and four walking back with them hanging (`tools/art/room22-miners.py`). Each group is a **loop walker**, new in the engine (`AmbientFile.loop`): it walks its path on the road -- out from the near edge up into the diggings, or back down -- drawn at the height its path declares, then is off the frame for a pause and walks again. Both ends of every loop are off the frame, so nobody is seen to appear or vanish (`tests/movement.test.mjs`). They are examined through THE MEN GOING OUT and THE MEN COMING BACK, over the far road and the middle road. Doc 10 times them six in the morning and seven at night; at dusk both are on the road.
+
+**F · A4: the way up only with the map.** Doc 57: "Room 22 offers the way to it, only while Thad holds the map", and without it, walking up answers "Forty feet of ground, somewhere up one of these..." A target may now need something in hand (`holding`), and an exit subject whose room is not built yet may be `pending`: only its closed stand-in is built. Without the map the way up answers with doc 57's line; with it the stand-in is gone, and the way itself -- to Room 23 -- comes with Room 23.
+
+**G · The art: 3 of room-22's 4 operations.** A composition master; the road with nobody on it; the miners' walk sheet. Promoted provisionally (errata 72 E). One operation is left.
