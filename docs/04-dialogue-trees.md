@@ -288,11 +288,13 @@ He does not deny it, does not explain it, and does not become hostile. It is far
 |---|---|---|---|---|
 | 1 | "I'd be glad of a partner in it." | `[TOPIC · retain]` | "Partners! Then we are partners. We'll do the paper when we're sober. I never do paper in drink. It's the only rule I keep." | sells half; deferred |
 | 2 | "You're welcome to the working of it while I learn the trade." | `[TOPIC · retain]` | "A lease! How modern of you. I'll have Sump draw something up." *(He will not. Sump is never asked.)* | leases it; deferred |
-| 3 | "Whatever's in it, I'd sooner it went to someone who'd use it." | `[TOPIC · retain]` | "Then we agree entirely, and that is the best foundation for anything. More wine?" *(The subject has gone wherever subjects go at his table.)* | gives it away; deferred |
-| 4 | "Put it down as a kindness, and I'll owe you." | `[TOPIC · retain]` | "You owe me nothing at all, Mr. Grubb." *(warmly)* "Yet." | mortgages it; deferred |
-| 5 | "I'd sign anything that came with a wine like this." | `[TOPIC · retain]` | "Then you shall sign nothing tonight. I would never take advantage of a man at his dinner." *(He means it. It is the most dangerous thing he says all evening.)* | signs it away; deferred |
-| 6 | "I mean to work it myself." | `[PROGRESS · remove]` | "Of course you do." *(He is delighted. He refills Thad's glass. He has learned the only thing he wanted to know.)* → A10, doc 48 S1 beat 3 | receives: dinner, wine, warmth. gives up: that he will work the claim |
+| 3 | "Whatever's in it, I'd sooner it went to someone who'd use it." | `[TOPIC · retain]` · after 1 | "Then we agree entirely, and that is the best foundation for anything. More wine?" *(The subject has gone wherever subjects go at his table.)* | gives it away; deferred |
+| 4 | "Put it down as a kindness, and I'll owe you." | `[TOPIC · retain]` · after 2 | "You owe me nothing at all, Mr. Grubb." *(warmly)* "Yet." | mortgages it; deferred |
+| 5 | "I'd sign anything that came with a wine like this." | `[TOPIC · retain]` · after 3 | "Then you shall sign nothing tonight. I would never take advantage of a man at his dinner." *(He means it. It is the most dangerous thing he says all evening.)* | signs it away; deferred |
+| 6 | "I mean to work it myself." | `[PROGRESS · remove]` · after 2 | "Of course you do." *(He is delighted. He refills Thad's glass. He has learned the only thing he wanted to know.)* → A10, doc 48 S1 beat 3 | receives: dinner, wine, warmth. gives up: that he will work the claim |
 | 7 | "This is very good wine." | `[COMIC · retain]` | "Isn't it! I have no idea what it is. I buy whatever costs most and let it explain itself." | — |
+
+**Staged** *(Tyler, 2026-11-05: "You decide" -- the seven at once were too many)*: the dinner opens on 1, 2 and 7; each pitch Fanshawe defers brings the next (3 after 1, 4 after 2, 5 after 3), and the honest answer, 6, arrives once two pitches have been deferred (after 2). Rule 7; no line changed.
 
 **Doc 48 S1 and doc 02 disagree**, and this node is written so either reading builds: doc 02 makes A10 a puzzle (find the one option that does not sell); S1 beat 3 says "whichever option" ends the dinner. Under doc 02, options 1–5 retain and grey and only 6 advances; under S1, every option advances. Reported for Tyler in doc 36 Q143.
 

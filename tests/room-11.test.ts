@@ -75,6 +75,15 @@ test('A10: holding the invitation, the table is laid and the dinner opens; optio
   assert.ok(accost?.whenAny?.some((when) => state.flags.test(when)), 'he opens on him as he comes in');
   state.dialogue.start(hostOf(state).tree as string);
   assert.equal(state.dialogue.positionSnapshot().node, 'FAN_A2');
+  // STAGED (doc 04 FAN_A2, Tyler 2026-11-05): it opens on two pitches and the
+  // wine; each deferred pitch brings the next, and the honest answer arrives
+  // once two pitches have been deferred.
+  const shown = () => state.dialogue.presentOptions().map((one) => one.option.id);
+  assert.deepEqual(shown(), ['1', '2', '7', 'x'].map((suffix) => opt(state, suffix)), 'the dinner opens short');
+  state.dialogue.select(opt(state, '1'));
+  assert.ok(shown().includes(opt(state, '3')) && !shown().includes(opt(state, '6')), 'the first pitch brings the next, not the answer');
+  state.dialogue.select(opt(state, '2'));
+  assert.ok(shown().includes(opt(state, '4')) && shown().includes(opt(state, '6')), 'two deferred pitches bring the honest answer');
   // The five that sell it are retained and change nothing.
   const before = [...state.carried];
   for (const suffix of ['1', '2', '3', '4', '5', '7']) state.dialogue.select(opt(state, suffix));
@@ -104,6 +113,7 @@ test('A10: leaving the table early is his line, and the dinner waits for the nex
 test('A10 beat 4: the first way out after the dinner is the porch -- his two lines, then ACT 2 and its card', async () => {
   const state = await inState('r11-b');
   state.dialogue.start(hostOf(state).tree as string);
+  state.dialogue.select(opt(state, '2'));
   state.dialogue.select(opt(state, '6'));
   const door = target(state, 'to_lobby') as Interactable & { transitScene?: { say?: string; then?: unknown[] }[] };
   const scene = door.transitScene?.[0];

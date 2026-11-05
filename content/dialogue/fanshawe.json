@@ -185,6 +185,9 @@
           "tag": "TOPIC",
           "text": "Whatever's in it, I'd sooner it went to someone who'd use it.",
           "afterUse": "retain",
+          "after": [
+            "fanshawe1"
+          ],
           "say": "Then we agree entirely, and that is the best foundation for anything. More wine?"
         },
         {
@@ -192,6 +195,9 @@
           "tag": "TOPIC",
           "text": "Put it down as a kindness, and I'll owe you.",
           "afterUse": "retain",
+          "after": [
+            "fanshawe2"
+          ],
           "exchange": [
             {
               "speaker": "fanshawe",
@@ -208,6 +214,9 @@
           "tag": "TOPIC",
           "text": "I'd sign anything that came with a wine like this.",
           "afterUse": "retain",
+          "after": [
+            "fanshawe3"
+          ],
           "say": "Then you shall sign nothing tonight. I would never take advantage of a man at his dinner."
         },
         {
@@ -215,6 +224,9 @@
           "tag": "PROGRESS",
           "text": "I mean to work it myself.",
           "afterUse": "remove",
+          "after": [
+            "fanshawe2"
+          ],
           "exchange": [
             {
               "speaker": "fanshawe",
