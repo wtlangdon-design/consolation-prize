@@ -180,8 +180,12 @@ def main():
     mask = np.zeros((864, 1920, 4), np.uint8)
     dx0, dy0, dx1, dy1 = DESK
     region = plate_px[dy0:dy1, dx0:dx1]
-    wood = region.mean(2) < 95          # the desk's dark wood against the pale wall behind it
-    mask[dy0:dy1, dx0:dx1][ndi.binary_closing(wood, iterations=2)] = 255
+    # The desk's wood is saturated (blue under 0.3 of red); the wall behind it is
+    # a greyer brown (blue about half of red), even where it is in shadow. A
+    # brightness test took the wall too, and drew it over his waist.
+    wood = region[..., 2] < 0.3 * region[..., 0]
+    wood = ndi.binary_opening(ndi.binary_closing(wood, iterations=1), iterations=1)
+    mask[dy0:dy1, dx0:dx1][wood] = 255
     os.makedirs(os.path.join(ROOT, 'art/masks'), exist_ok=True)
     Image.fromarray(mask).save(os.path.join(ROOT, 'art/masks/room-17-plane-1.png'))
     print(json.dumps({k: record[k] for k in ('frames', 'topLeft', 'anchor', 'feetRow')}))

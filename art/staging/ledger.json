@@ -14893,6 +14893,25 @@
    "acceptedBy": null,
    "by": "claude, Room 17 builder (doc 55 section 3, errata 72 E)",
    "at": "2026-11-05T04:15:46.309Z"
+  },
+  {
+   "assetId": "room-17",
+   "attempt": 3,
+   "from": "art/staging/room-17/sowerby/sowerby.png",
+   "derivedFrom": "art/staging/room-17/sowerby-01/sheet.png",
+   "provenance": "art/staging/room-17/sowerby/sowerby.json",
+   "to": "art/actors/room-17-sowerby.png",
+   "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b",
+   "sourceHash": "b9e1cb65f355457f9b1e2557f38784df80afb07c063519a3665d75ff776bb434",
+   "replacedHash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 17 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-05T04:18:57.266Z"
   }
  ],
  "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."
