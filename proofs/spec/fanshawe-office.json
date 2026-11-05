@@ -29,6 +29,16 @@
    },
    {
     "do": "option",
+    "option": "fanshawe2",
+    "why": "You're welcome to the working of it -- a pitch, deferred; the honest answer follows it"
+   },
+   {
+    "do": "waitFor",
+    "dialogue": true,
+    "upTo": 60
+   },
+   {
+    "do": "option",
     "option": "fanshawe6",
     "why": "I mean to work it myself."
    },
