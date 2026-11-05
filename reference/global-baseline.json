@@ -482,6 +482,22 @@
     }
    ],
    "castingNote": "Nobody: 'Nobody comes up here' (doc 08). Thad alone, for scale."
+  },
+  "room-28-laundry": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-03-nugget",
+    "path": "art/backgrounds/room-03-nugget.png",
+    "note": "D -- the approved interior; Sheng's laundry at night, lit by its coppers' fires and a lamp (errata 98, 99 D)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Ah-Lam Sheng, drawn in the master and then on magenta against Thad."
   }
  }
 }

@@ -1,0 +1,192 @@
+{
+ "schema": 1,
+ "id": "room-28-laundry",
+ "room": "laundry",
+ "docRoom": 28,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 28 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/04-dialogue-trees.md",
+  "docs/05-examine-layer.md",
+  "docs/10-examine-batch-3.md",
+  "docs/54-batch-c.md",
+  "docs/57-puzzle-completion.md",
+  "docs/49-wrong-answers.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-28.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "One picture; Sheng's tree by state (the paper while its business is open); night."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-28/graybox.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Every subject is plate; Sheng and his board are one figure."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-28-sheng.png",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Sheng drawn with his board on magenta against Thad."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/laundry/life/life.json"
+   ],
+   "note": "Sheng breathes, irons, folds, checks the iron."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-28-sheng.png"
+   ],
+   "note": "He stands behind his board on the floor before the stove."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-28/annotation.json"
+   ],
+   "note": "Night, lit by the coppers' fires; Sheng graded warm."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-28.test.ts",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The progress is in Sheng's tree; nothing is a clue by look or sound."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-28.json",
+    "content/rooms/laundry.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 107 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-28: 3 of 4 operations (master, plate, Sheng and his board)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/laundry.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-28/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/laundry/proof.json"
+   ],
+   "note": "Panel D: the paper opens -- SHE_D1. Started from fixture r28-a."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/laundry/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/laundry/doors/life.json",
+    "tests/room-28.test.ts"
+   ],
+   "note": "Up to the road and back by the map, twice; D3 and the ledger in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-28/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-28-laundry.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-28/plate-01/frame.json"
+   ],
+   "note": "Attempt 2; promoted provisionally (errata 72 E)."
+  },
+  {
+   "subject": "Sheng and his board",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-28-sheng.png",
+   "evidence": [
+    "art/staging/room-28/sheng/sheng.json"
+   ],
+   "note": "From operation 3."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q170 · Room 28, Sheng's laundry: built, awaiting Tyler's playthrough; D3 plays, D4's laundry half plays — **RULED 2026-11-05 (errata 99, delegated); BUILT, room-28 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q170 · Room 28, Sheng's laundry: built, awaiting Tyler's playthrough; D3 plays, D4's laundry half plays — **RULED 2026-11-05 (errata 99, delegated); BUILT, room-28 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

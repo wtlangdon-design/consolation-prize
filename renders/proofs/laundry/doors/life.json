@@ -1,0 +1,805 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "laundry",
+ "commit": "a99d82735b2f09f78186f920a53d5211343d38fc",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": null,
+ "fixture": "r28-a",
+ "warped": false,
+ "lifeRoute": "laundry-doors",
+ "durationSeconds": 23.85,
+ "events": [
+  {
+   "t": 2.62,
+   "line": "started from fixture r28-a, no entry route"
+  },
+  {
+   "t": 5.78,
+   "line": "in laundry; life route: 23 action(s)"
+  },
+  {
+   "t": 6.7,
+   "line": "capture 00-arrived: room laundry, says null, options 0, control null"
+  },
+  {
+   "t": 7.16,
+   "line": "action 1 (click): clicked laundry/to_claims_road at world 88,400 -- out to the road"
+  },
+  {
+   "t": 7.5,
+   "line": "action 1 (waitFor): reached {\"room\":\"claims_road\"} in room claims_road"
+  },
+  {
+   "t": 8.52,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 9.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.51,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 10.52,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.97,
+   "line": "capture 01-out: room claims_road, says null, options 0, control null"
+  },
+  {
+   "t": 11.07,
+   "line": "action 1 (click): clicked screen 540,1052 -- the MAP button"
+  },
+  {
+   "t": 11.12,
+   "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 12.13,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.13,
+   "line": "action 1 (wait): waited 1s"
+  },
+  {
+   "t": 12.21,
+   "line": "action 1 (click): clicked screen 1560,340 -- the laundry's marker"
+  },
+  {
+   "t": 12.25,
+   "line": "action 1 (waitFor): reached {\"room\":\"laundry\"} in room laundry"
+  },
+  {
+   "t": 13.27,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 14.25,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 14.72,
+   "line": "capture 01-in: room laundry, says null, options 0, control null"
+  },
+  {
+   "t": 14.88,
+   "line": "action 1 (click): clicked laundry/to_claims_road at world 88,400 -- out to the road"
+  },
+  {
+   "t": 15.18,
+   "line": "action 1 (waitFor): reached {\"room\":\"claims_road\"} in room claims_road"
+  },
+  {
+   "t": 16.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 17.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.19,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 18.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.66,
+   "line": "capture 02-out: room claims_road, says null, options 0, control null"
+  },
+  {
+   "t": 18.77,
+   "line": "action 1 (click): clicked screen 540,1052 -- the MAP button"
+  },
+  {
+   "t": 18.81,
+   "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 19.81,
+   "line": "action 1 (wait): waited 1s"
+  },
+  {
+   "t": 19.83,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 19.88,
+   "line": "action 1 (click): clicked screen 1560,340 -- the laundry's marker"
+  },
+  {
+   "t": 19.92,
+   "line": "action 1 (waitFor): reached {\"room\":\"laundry\"} in room laundry"
+  },
+  {
+   "t": 20.93,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 21.93,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 21.95,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 22.4,
+   "line": "capture 02-in: room laundry, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "00-arrived",
+   "why": null,
+   "t": 6.7,
+   "file": "renders/proofs/laundry/doors/raw-captures-ignored/00-arrived.png",
+   "hash": "2ce4f651c1702207452f15e2386ee77f40db892cf2ac76e1075630a0a1ea3bbb",
+   "room": "laundry",
+   "clock": 6.3542,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED",
+    "T_NINETY_DAYS",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_PAID",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 391,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      57,
+      399,
+      405,
+      432
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:laundry",
+     "path": "art/backgrounds/room-28-laundry.png",
+     "drawn": "art/backgrounds/room-28-laundry.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
+    },
+    {
+     "key": "art/actors/room-28-sheng.png",
+     "path": "art/actors/room-28-sheng.png",
+     "drawn": "art/actors/room-28-sheng.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-out",
+   "why": null,
+   "t": 10.97,
+   "file": "renders/proofs/laundry/doors/raw-captures-ignored/01-out.png",
+   "hash": "6b2ac0c4c9254f0b06bc6606a14d7abb95e9bdd04b042552fee6de5887b1c757",
+   "room": "claims_road",
+   "clock": 10.704,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED",
+    "T_NINETY_DAYS",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_PAID",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      700,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 336,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      526,
+      464,
+      348,
+      371
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_road",
+     "path": "art/backgrounds/room-22-claims-road.png",
+     "drawn": "art/backgrounds/room-22-claims-road.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "88a5f4efd234d1e364a8669304ff72ec20f2d2e3051d9dd87dcab89f14942ba0"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-in",
+   "why": null,
+   "t": 14.72,
+   "file": "renders/proofs/laundry/doors/raw-captures-ignored/01-in.png",
+   "hash": "428b980ecd0874388a27b0211dcada492ea40756028a06b66da065c5272510b1",
+   "room": "laundry",
+   "clock": 14.4538,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED",
+    "T_NINETY_DAYS",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_PAID",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 391,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      -3,
+      399,
+      405,
+      432
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:laundry",
+     "path": "art/backgrounds/room-28-laundry.png",
+     "drawn": "art/backgrounds/room-28-laundry.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
+    },
+    {
+     "key": "art/actors/room-28-sheng.png",
+     "path": "art/actors/room-28-sheng.png",
+     "drawn": "art/actors/room-28-sheng.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-out",
+   "why": null,
+   "t": 18.65,
+   "file": "renders/proofs/laundry/doors/raw-captures-ignored/02-out.png",
+   "hash": "6977dffe05705d2a3054c0e80713d994f02601ca4dedd87d2be82ecc70c6f701",
+   "room": "claims_road",
+   "clock": 18.3703,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED",
+    "T_NINETY_DAYS",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_PAID",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      700,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 336,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      526,
+      464,
+      348,
+      371
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_road",
+     "path": "art/backgrounds/room-22-claims-road.png",
+     "drawn": "art/backgrounds/room-22-claims-road.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "88a5f4efd234d1e364a8669304ff72ec20f2d2e3051d9dd87dcab89f14942ba0"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-in",
+   "why": null,
+   "t": 22.39,
+   "file": "renders/proofs/laundry/doors/raw-captures-ignored/02-in.png",
+   "hash": "428b980ecd0874388a27b0211dcada492ea40756028a06b66da065c5272510b1",
+   "room": "laundry",
+   "clock": 22.1202,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED",
+    "T_NINETY_DAYS",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_PAID",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 391,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      -3,
+      399,
+      405,
+      432
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:laundry",
+     "path": "art/backgrounds/room-28-laundry.png",
+     "drawn": "art/backgrounds/room-28-laundry.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
+    },
+    {
+     "key": "art/actors/room-28-sheng.png",
+     "path": "art/actors/room-28-sheng.png",
+     "drawn": "art/actors/room-28-sheng.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 23.85s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T20:23:21.888Z"
+}

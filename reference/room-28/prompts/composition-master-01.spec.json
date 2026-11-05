@@ -1,0 +1,16 @@
+{
+ "assetId": "room-28",
+ "subject": "room-28-laundry",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-28-laundry",
+ "promptFile": "reference/room-28/prompts/composition-master-01.txt",
+ "out": "art/staging/room-28/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-28/layout-1536x1024.png",
+  "art/backgrounds/room-21-watchmans-shack.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

@@ -33,6 +33,7 @@
   "content/rooms/pratts-claim.json",
   "content/rooms/creek.json",
   "content/rooms/claim-row.json",
+  "content/rooms/laundry.json",
   "content/rooms/undertaker.json",
   "content/rooms/main-street-candidate.json",
   "content/rooms/nugget-candidate.json",
@@ -64,7 +65,8 @@
   "content/dialogue/letters-home.json",
   "content/dialogue/raccoon.json",
   "content/dialogue/pratt.json",
-  "content/dialogue/pratt-jump.json"
+  "content/dialogue/pratt-jump.json",
+  "content/dialogue/sheng.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -92,7 +94,8 @@
   "content/fixtures/room-23.json",
   "content/fixtures/room-25.json",
   "content/fixtures/room-26.json",
-  "content/fixtures/room-27.json"
+  "content/fixtures/room-27.json",
+  "content/fixtures/room-28.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -118,7 +121,8 @@
   "content/items/eggs.json",
   "content/items/tonic.json",
   "content/items/loan.json",
-  "content/items/blanket.json"
+  "content/items/blanket.json",
+  "content/items/linen-money.json"
  ],
  "scaling": "content/actors/scaling.json",
  "ambient": [
@@ -158,6 +162,7 @@
   "content/ambient/pratt.json",
   "content/ambient/pratt-jump.json",
   "content/ambient/man-panning.json",
+  "content/ambient/sheng.json",
   "content/ambient/other-mules.json",
   "content/ambient/ozymandia.json",
   "content/ambient/hotel-clerk.json"

@@ -3977,6 +3977,93 @@ function prattTree() {
   ];
 }
 
+/**
+ * DOC 04, AH-LAM SHENG: Room 28's tree (errata 99 D).
+ *
+ * SHE_A1 is his root; SHE_D1, "the paper", opens on the business it is for and
+ * only while that business is open, so A1's options -- pair 18 among them --
+ * are never lost: from holding the paper (A1 option 1) until the Thursday
+ * ledger is read (D4), and in Act III until the loan is taken (E3). Doc 57 D3
+ * and D4 route it: D1 option 1 is Sheng's terms (D3, T_SHENG_TASK); 1-prime
+ * needs THE LINEN MONEY and reads the ledger (D4, T_PRATT_TRAIL); option 2,
+ * after it and once Thad needs to die, gives SHENG'S LOAN. A1 option 4 counts
+ * a war contradiction; 5 is counted-repeat, its (second) and (third) the
+ * repeats; 6 is pair 18. Plain quotes are his; staging is logged, not drawn.
+ */
+function shengTree() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('# AH-LAM SHENG');
+  const to = doc.indexOf('\n# ', from + 5);
+  if (from < 0 || to < 0) throw new Error('doc 04: no AH-LAM SHENG section');
+  const body = doc.slice(from, to);
+  const SPEAKER = 'sheng';
+  const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
+  const section = (head) => {
+    const at = body.indexOf(head);
+    if (at < 0) throw new Error(`doc 04 SHENG: no "${head}"`);
+    const end = body.indexOf('\n## ', at + 5);
+    return body.slice(at, end < 0 ? undefined : end);
+  };
+  const ROUTE = {
+    'SHE_A1 1': { set: { T_SHENG_HOLDS_PAPER: true }, goto: 'SHE_D1' },
+    'SHE_A1 4': { add: { WAR_CONTRADICTIONS: 1 } },
+    'SHE_A1 6': { set: { ASSAY_PAIR_18: true } },
+    'SHE_D1 1': { set: { T_SHENG_TASK: true }, puzzle: { D3: 'complete' } },
+    "SHE_D1 1′": { holds: ['linen_money'], when: { T_SHENG_TASK: true }, set: { T_PRATT_TRAIL: true }, puzzle: { D4: 'complete' } },
+    'SHE_D1 2': { when: { T_NEED_TO_DIE: true, T_PRATT_TRAIL: true }, gives: ['loan'], set: { T_SHENG_LOAN: true } },
+  };
+  const script = (text) => [...text.matchAll(/^> \*\*([A-Z]+):\*\* (.+)$/gm)].map((m) => ({
+    speaker: m[1] === 'THAD' ? 'thad' : SPEAKER, line: quoted(m[2].replace(/\*\([^)]*\)\*/g, ''))[0] }));
+  const node = (id, head, exitIndex) => {
+    const text = section(head);
+    const options = [];
+    for (const m of text.matchAll(/^\| (\d+′?) \| (.+?) \| (.+?) \| (.+?) \|(?: (.+?) \|)?$/gm)) {
+      const [, number, optionCell, tagCell, responseCell] = m;
+      const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
+      const optionText = quoted(optionCell)[0];
+      for (const d of spokenIn(responseCell, SPEAKER).staging) process.stderr.write(`  doc 04 ${id} option ${number} staging: ${d}\n`);
+      const route = ROUTE[`${id} ${number}`] ?? {};
+      const optId = `${SPEAKER}${number.replace('′', 'a')}`;
+      const option = { id: optId, tag: tag[1], ...(tag[2] ? { afterUse: tag[2] } : {}), text: plain(optionText) };
+      let said = spokenIn(responseCell.replace(/\*\([^)]*\)\*/g, '').split('→')[0], SPEAKER).lines;
+      if (tag[2] === 'counted-repeat') {
+        const parts = responseCell.split(/\*\((?:second|third)\)\*/);
+        option.say = quoted(parts[0])[0];
+        option.repeats = parts.slice(1).map((part, i) => ({ selection: i + 2, say: quoted(part)[0] }));
+      } else if (said.length === 1 && said[0].speaker === SPEAKER) option.say = said[0].line;
+      else option.exchange = said;
+      if (!tag || !optionText || !(option.say || option.exchange?.length)) throw new Error(`doc 04 ${id}: option ${number} does not read`);
+      const reqs = [...responseCell.matchAll(/req `([A-Z_0-9]+)`/g)].map((r) => r[1]);
+      const when = { ...Object.fromEntries(reqs.map((flag) => [flag, true])), ...(route.when ?? {}) };
+      if (Object.keys(when).length) option.when = when;
+      if (route.set) option.set = route.set;
+      if (route.add) option.add = route.add;
+      if (route.holds) option.holds = route.holds;
+      if (route.after) option.after = route.after;
+      if (route.gives) option.gives = route.gives;
+      if (route.puzzle) option.puzzle = route.puzzle;
+      if (route.goto) option.goto = route.goto;
+      options.push(option);
+    }
+    options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[exitIndex % POOL.length], universal: true, ends: true });
+    const opening = script(text.split('\n| #')[0]);
+    return { id, noPrompt: true, exceptionReason: `Doc 04 writes ${id} as a table only.`, ...(opening.length ? { opening, openingOnce: 'T_SHENG_PAPER_HEARD' } : {}), options };
+  };
+  const A1 = node('SHE_A1', '## Root: `SHE_A1`', 2);
+  const D1 = node('SHE_D1', '## `SHE_D1`', 2);
+  if (A1.options.length !== 7 || D1.options.length !== 7) throw new Error(`doc 04 SHENG: ${A1.options.length} and ${D1.options.length} options`);
+  return write('content/dialogue/sheng.json', {
+    aftermathAuthored: true, schema: 1, id: 'SHENG', speaker: SPEAKER, name: 'AH-LAM SHENG',
+    note: 'EXTRACTED from docs/04-dialogue-trees.md (AH-LAM SHENG) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. '
+      + 'SHE_D1 opens only while its business is open, so SHE_A1\'s options are never lost (errata 99 D).',
+    entries: [
+      { when: { T_SHENG_HOLDS_PAPER: true, T_PRATT_TRAIL: false }, node: 'SHE_D1' },
+      { when: { T_NEED_TO_DIE: true, T_PRATT_TRAIL: true, T_SHENG_LOAN: false }, node: 'SHE_D1' },
+    ],
+    start: 'SHE_A1', nodes: { SHE_A1: A1, SHE_D1: D1 },
+  });
+}
+
 function sowerbyTree() {
   const doc = read('docs/04-dialogue-trees.md');
   const from = doc.indexOf('# REVEREND SOWERBY');
@@ -4047,7 +4134,7 @@ function sowerbyTree() {
 }
 
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

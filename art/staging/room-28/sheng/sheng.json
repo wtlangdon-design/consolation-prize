@@ -1,0 +1,69 @@
+{
+ "sheet": "art/staging/room-28/sheng/sheng.png",
+ "frames": [
+  [
+   2,
+   2,
+   292,
+   307
+  ],
+  [
+   296,
+   2,
+   292,
+   307
+  ],
+  [
+   590,
+   2,
+   292,
+   307
+  ],
+  [
+   884,
+   2,
+   292,
+   307
+  ],
+  [
+   1178,
+   2,
+   292,
+   307
+  ],
+  [
+   1472,
+   2,
+   292,
+   307
+  ],
+  [
+   1766,
+   2,
+   292,
+   307
+  ],
+  [
+   2060,
+   2,
+   292,
+   307
+  ]
+ ],
+ "height": 307,
+ "frameNames": [
+  "rest",
+  "breath",
+  "look",
+  "stroke",
+  "return",
+  "inspect",
+  "fold",
+  "talk"
+ ],
+ "anchor": {
+  "x": 1177,
+  "y": 690
+ },
+ "source": "room-28 attempt 3 (art/staging/room-28/sheng-01/sheet.png)"
+}

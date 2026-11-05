@@ -55,6 +55,12 @@
    "date": "2026-11-05",
    "kind": "loosened",
    "why": "The drawn-whole test counted gaps a held rake closes off as holes -- the ground between its handle, its head and Pratt's boots, the air between his arm and his body, the spaces between its tines (up to 5% of the figure; Room 25). Thin parts (a handle, a strap, tines, up to about 14 px) are now opened away before a gap is judged enclosed; a coat keyed out with the wall is walled in by the body and is still counted (proved by keying a 30 px patch out of his shirt: counted in full)."
+  },
+  {
+   "check": "proofs/played-pending.json",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "D4's sites (Rooms 17, 14, 28) are all built with Room 28, and its laundry half plays in tests/room-28.test.ts; its first half -- the Reverend paying out of the collection plate on the funeral day at the foot of Boot Hill -- is not staged, Sowerby having no place there yet (doc 36 Q170). Recorded as waiting, with its reason, as D6 is."
   }
  ]
 }

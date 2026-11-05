@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game: a laundry at night, lit by the boilers' fires, with a man in a long blue coat standing on the floor at the left and a laundryman ironing a white shirt at an ironing board in the middle.
+
+Make exactly these changes:
+1. Remove the man in the blue coat. Paint the plank floor and the boilers behind him.
+2. Remove the laundryman, AND his ironing board, the white shirt and the flat iron in his hand. Paint the plank floor, the stove and the back wall behind them.
+
+Change nothing else. Same camera, same pixel grid, same big square pixels, same colours, same firelight; the boilers, the starch crock, the mangle, the stove and its irons, the ticket rail, the curtained doorway, the counter with the ledger, the book, the scales and the tin, the hanging collars, the chair and its cup, the basket, both doorways and what is outside them, exactly as they are. Leave the dark strips above and below the picture exactly as they are. No people, no shadows of people, no text, no numerals.

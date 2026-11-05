@@ -1,0 +1,1514 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "laundry",
+ "commit": "6e8000bf49e39000adcb1d50569c284219c8e2f9",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": null,
+ "fixture": "r28-a",
+ "warped": false,
+ "lifeRoute": "laundry-life",
+ "durationSeconds": 68.35,
+ "events": [
+  {
+   "t": 2.59,
+   "line": "started from fixture r28-a, no entry route"
+  },
+  {
+   "t": 5.66,
+   "line": "in laundry; life route: 23 action(s)"
+  },
+  {
+   "t": 6.55,
+   "line": "capture 01-arrived: room laundry, says null, options 0, control null"
+  },
+  {
+   "t": 7.58,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 8.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 9.56,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.58,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 11.58,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 13.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 14.56,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 14.58,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 15.04,
+   "line": "capture 02-the-laundry: room laundry, says null, options 0, control null"
+  },
+  {
+   "t": 16.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 17.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 19.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 20.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 21.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 22.04,
+   "line": "action 1 (wait): waited 7s"
+  },
+  {
+   "t": 22.09,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 22.27,
+   "line": "action 1 (click): clicked laundry/coppers at world 384,458 -- THE COPPERS"
+  },
+  {
+   "t": 23.14,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room laundry"
+  },
+  {
+   "t": 23.59,
+   "line": "capture 03-look-coppers: room laundry, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 23.62,
+   "line": "action 1 (waitFor): reached {} in room laundry"
+  },
+  {
+   "t": 24.64,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     384,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 25.65,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     384,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 26.63,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 26.64,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     384,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 26.69,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 26.85,
+   "line": "action 1 (click): clicked laundry/mangle at world 811,461 -- THE MANGLE"
+  },
+  {
+   "t": 26.89,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room laundry"
+  },
+  {
+   "t": 27.37,
+   "line": "capture 04-listen-mangle: room laundry, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 27.41,
+   "line": "action 1 (waitFor): reached {} in room laundry"
+  },
+  {
+   "t": 28.43,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     811,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 29.41,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     811,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 30.41,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 30.41,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     811,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 30.47,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 30.6,
+   "line": "action 1 (click): clicked laundry/thursday_book at world 1427,290 -- THE THURSDAY BOOK"
+  },
+  {
+   "t": 30.64,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room laundry"
+  },
+  {
+   "t": 31.12,
+   "line": "capture 05-look-book: room laundry, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 32.15,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1294,
+     812
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 33.15,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 34.15,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 35.14,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 36.14,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 37.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 38.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 39.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 40.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 41.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 42.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 43.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 44.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 45.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 46.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 47.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 48.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 49.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 50.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 51.13,
+   "line": "action 1 (wait): waited 20s"
+  },
+  {
+   "t": 51.59,
+   "line": "capture 06-still-ironing: room laundry, says null, options 0, control null"
+  },
+  {
+   "t": 52.61,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 53.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 54.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 55.61,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 56.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 57.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 58.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 59.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 60.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 61.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 62.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 63.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 64.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 65.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1427,
+     812
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 66.6,
+   "line": "action 1 (wait): waited 15s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "the laundry, Sheng ironing",
+   "t": 6.55,
+   "file": "renders/proofs/laundry/life/raw-captures-ignored/01-arrived.png",
+   "hash": "2ce4f651c1702207452f15e2386ee77f40db892cf2ac76e1075630a0a1ea3bbb",
+   "room": "laundry",
+   "clock": 6.2293,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED",
+    "T_NINETY_DAYS",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_PAID",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 391,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      57,
+      399,
+      405,
+      432
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:laundry",
+     "path": "art/backgrounds/room-28-laundry.png",
+     "drawn": "art/backgrounds/room-28-laundry.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
+    },
+    {
+     "key": "art/actors/room-28-sheng.png",
+     "path": "art/actors/room-28-sheng.png",
+     "drawn": "art/actors/room-28-sheng.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-the-laundry",
+   "why": null,
+   "t": 15.03,
+   "file": "renders/proofs/laundry/life/raw-captures-ignored/02-the-laundry.png",
+   "hash": "aea8fce9bd28df7f2aa7bbf56d92e25947af13630372a34dd5a7c706fcfee09b",
+   "room": "laundry",
+   "clock": 14.7622,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED",
+    "T_NINETY_DAYS",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_PAID",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 391,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      57,
+      399,
+      405,
+      432
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:laundry",
+     "path": "art/backgrounds/room-28-laundry.png",
+     "drawn": "art/backgrounds/room-28-laundry.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
+    },
+    {
+     "key": "art/actors/room-28-sheng.png",
+     "path": "art/actors/room-28-sheng.png",
+     "drawn": "art/actors/room-28-sheng.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-look-coppers",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 23.59,
+   "file": "renders/proofs/laundry/life/raw-captures-ignored/03-look-coppers.png",
+   "hash": "736c3b86764bc4b7af01a515e9d312bc7a7e920e137b3fd73fc28156661be419",
+   "room": "laundry",
+   "clock": 23.328599999999998,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED",
+    "T_NINETY_DAYS",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_PAID",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      384,
+      812
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 407,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      143,
+      405,
+      482,
+      449
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:laundry",
+     "path": "art/backgrounds/room-28-laundry.png",
+     "drawn": "art/backgrounds/room-28-laundry.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
+    },
+    {
+     "key": "art/actors/room-28-sheng.png",
+     "path": "art/actors/room-28-sheng.png",
+     "drawn": "art/actors/room-28-sheng.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-listen-mangle",
+   "why": null,
+   "t": 27.37,
+   "file": "renders/proofs/laundry/life/raw-captures-ignored/04-listen-mangle.png",
+   "hash": "0339f736a72297fa8bb99ec94a8835a7a5e5fa34e0ad49519ae930907a3e2ba7",
+   "room": "laundry",
+   "clock": 27.1118,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED",
+    "T_NINETY_DAYS",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_PAID",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      510,
+      812
+     ],
+     "facing": "right",
+     "clip": "walk",
+     "height": 407,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-right/walk-00.png",
+     "bounds": [
+      316,
+      405,
+      410,
+      437
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:laundry",
+     "path": "art/backgrounds/room-28-laundry.png",
+     "drawn": "art/backgrounds/room-28-laundry.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
+    },
+    {
+     "key": "art/actors/room-28-sheng.png",
+     "path": "art/actors/room-28-sheng.png",
+     "drawn": "art/actors/room-28-sheng.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-look-book",
+   "why": null,
+   "t": 31.11,
+   "file": "renders/proofs/laundry/life/raw-captures-ignored/05-look-book.png",
+   "hash": "7fc42f8f78c8c099b5a3a7c7b17b2dd87bc53b2d5a3fe8ccd0cfe58317bb01e9",
+   "room": "laundry",
+   "clock": 30.8283,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED",
+    "T_NINETY_DAYS",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_PAID",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      926,
+      812
+     ],
+     "facing": "right",
+     "clip": "walk",
+     "height": 407,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-right/walk-04.png",
+     "bounds": [
+      732,
+      405,
+      410,
+      437
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:laundry",
+     "path": "art/backgrounds/room-28-laundry.png",
+     "drawn": "art/backgrounds/room-28-laundry.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
+    },
+    {
+     "key": "art/actors/room-28-sheng.png",
+     "path": "art/actors/room-28-sheng.png",
+     "drawn": "art/actors/room-28-sheng.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-still-ironing",
+   "why": null,
+   "t": 51.58,
+   "file": "renders/proofs/laundry/life/raw-captures-ignored/06-still-ironing.png",
+   "hash": "b0d74eba001e8a1f046b7c4aff0b9fdee6702dbf311f1f30687155b203efc909",
+   "room": "laundry",
+   "clock": 51.3108,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED",
+    "T_NINETY_DAYS",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_PAID",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1427,
+      812
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 407,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      1186,
+      405,
+      482,
+      449
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:laundry",
+     "path": "art/backgrounds/room-28-laundry.png",
+     "drawn": "art/backgrounds/room-28-laundry.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
+    },
+    {
+     "key": "art/actors/room-28-sheng.png",
+     "path": "art/actors/room-28-sheng.png",
+     "drawn": "art/actors/room-28-sheng.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 68.35s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T20:22:57.275Z"
+}

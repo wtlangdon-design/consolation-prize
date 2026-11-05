@@ -1,0 +1,13 @@
+{
+ "assetId": "room-28",
+ "subject": "room-28-laundry",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-28-laundry",
+ "promptFile": "reference/room-28/prompts/plate-01.txt",
+ "out": "art/staging/room-28/plate-01/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-28/plate-01/input.png"
+ ]
+}

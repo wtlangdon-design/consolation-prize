@@ -1,0 +1,232 @@
+{
+ "room": "laundry",
+ "plate": "art/backgrounds/room-28-laundry.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-28/plate-01/candidate-lifted-1920x864.png, room-28 attempt 2, the master's band -- frame.json). Every rect was read off the master: x and y less the crop, times 1.263.",
+ "plateShipping": "art/backgrounds/room-28-laundry.png",
+ "plateShippingHash": "f93951ca14b4",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   180,
+   700
+  ],
+  [
+   1720,
+   700
+  ],
+  [
+   1720,
+   858
+  ],
+  [
+   180,
+   858
+  ]
+ ],
+ "walkableNote": "THE FLOOR, before the coppers, the mangle, the board and the counter; the doorways bound it.",
+ "scaling": {
+  "far": {
+   "y": 690,
+   "height": 323
+  },
+  "near": {
+   "y": 858,
+   "height": 438
+  },
+  "note": "ROOM 28'S DEPTH, FROM THE MASTER: Thad stood with his feet at y 760 and was drawn about 371 tall; along Room 5's slope (0.68 a row) that is 323 at the band's far edge and 438 at its near."
+ },
+ "entrance": [
+  260,
+  790
+ ],
+ "entrances": [
+  {
+   "from": "claims_road",
+   "at": [
+    260,
+    790
+   ],
+   "facing": "right",
+   "note": "In from the road, by the left doorway."
+  },
+  {
+   "from": "default",
+   "at": [
+    260,
+    790
+   ],
+   "facing": "right",
+   "note": "As from the road."
+  },
+  {
+   "from": "town_map",
+   "at": [
+    260,
+    790
+   ],
+   "facing": "right",
+   "note": "From the map, as from the road."
+  }
+ ],
+ "hotspots": {
+  "window": [
+   205,
+   95,
+   158,
+   152
+  ],
+  "coppers": [
+   179,
+   290,
+   410,
+   335
+  ],
+  "starch_crock": [
+   577,
+   467,
+   76,
+   126
+  ],
+  "mangle": [
+   684,
+   322,
+   253,
+   278
+  ],
+  "ticket_rail": [
+   594,
+   170,
+   451,
+   82
+  ],
+  "stove": [
+   943,
+   297,
+   152,
+   297
+  ],
+  "back_room": [
+   1089,
+   133,
+   208,
+   435
+  ],
+  "collars": [
+   1310,
+   114,
+   265,
+   126
+  ],
+  "thursday_book": [
+   1335,
+   262,
+   183,
+   56
+  ],
+  "ledger": [
+   1297,
+   379,
+   145,
+   63
+  ],
+  "scale": [
+   1436,
+   328,
+   120,
+   114
+  ],
+  "payment_tin": [
+   1556,
+   385,
+   82,
+   57
+  ],
+  "chair": [
+   1568,
+   448,
+   171,
+   247
+  ],
+  "mending_basket": [
+   1695,
+   625,
+   133,
+   95
+  ],
+  "drying_lines": [
+   1745,
+   140,
+   175,
+   150
+  ],
+  "high_ridge_path": [
+   1745,
+   290,
+   175,
+   430
+  ],
+  "collar_advertisement": [
+   1712,
+   250,
+   40,
+   140
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE HIGH RIDGE PATH is the open door at the right, THE DRYING LINES outside it; it becomes the way up to Room 29 when Room 29 is built (errata 99 D). THE COLLAR ADVERTISEMENT is 'pinned inside the door'. Sheng is his own figure (content/ambient/sheng.json).",
+ "people": {
+  "AH-LAM SHENG": [
+   "sheng"
+  ]
+ },
+ "exits": {
+  "to_claims_road": [
+   0,
+   100,
+   175,
+   600
+  ]
+ },
+ "exitWalkTo": {
+  "to_claims_road": {
+   "x": 200,
+   "y": 790,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [],
+ "defaultVerbs": {
+  "window": "LOOK_AT",
+  "coppers": "LOOK_AT",
+  "starch_crock": "LOOK_AT",
+  "mangle": "LOOK_AT",
+  "ticket_rail": "LOOK_AT",
+  "stove": "LOOK_AT",
+  "back_room": "LOOK_AT",
+  "collars": "LOOK_AT",
+  "thursday_book": "LOOK_AT",
+  "ledger": "LOOK_AT",
+  "scale": "LOOK_AT",
+  "payment_tin": "LOOK_AT",
+  "chair": "LOOK_AT",
+  "mending_basket": "LOOK_AT",
+  "drying_lines": "LOOK_AT",
+  "high_ridge_path": "LOOK_AT",
+  "collar_advertisement": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
+ "props": [],
+ "occlusion": {
+  "note": "No plane: the walk band is the floor before everything; Sheng's board stands behind it.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}
