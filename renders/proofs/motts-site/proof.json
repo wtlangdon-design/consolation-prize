@@ -1,0 +1,400 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "motts_site",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "ca51ead5a1e082509b7eb33196fba28036d2e788",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r30-a, then entered motts_site by control -- NOT proof that a player can reach it",
+  "action 1 (wait): waited 8s",
+  "action 2 (verb): chose verb LOOK_AT -- ",
+  "action 3 (click): clicked motts_site/site at world 960,742 -- THE SITE, underfoot",
+  "action 4 (waitFor): reached {\"says\":\"thad\"} in room motts_site"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 701,
+    "xs": [
+     980,
+     860,
+     1100,
+     740,
+     1220,
+     620,
+     1340,
+     500,
+     1460
+    ],
+    "expect": 272,
+    "x": 980
+   },
+   "at": [
+    980,
+    701
+   ],
+   "reportedHeight": 272,
+   "expected": 272,
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "bounds": [
+    839,
+    429,
+    282,
+    300
+   ],
+   "order": 0,
+   "renderedHeight": 272,
+   "renderedBottom": 700,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     980,
+     860,
+     1100,
+     740,
+     1220,
+     620,
+     1340,
+     500,
+     1460
+    ],
+    "expect": 378,
+    "x": 980
+   },
+   "at": [
+    980,
+    857
+   ],
+   "reportedHeight": 378,
+   "expected": 378,
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
+   "bounds": [
+    784,
+    479,
+    392,
+    417
+   ],
+   "order": 0,
+   "renderedHeight": 378,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "motts_site",
+   "clock": 9.4831,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      560,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 339,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      384,
+      461,
+      351,
+      374
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:motts_site",
+     "path": "art/backgrounds/room-30-motts-site.png",
+     "drawn": "art/backgrounds/room-30-motts-site.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "86f0d64c781d33cfe520f56097f26414ad60e1b59d02e87f6a032674ccfb12c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(motts_site)"
+   ],
+   "capturedAt": "2026-11-05T21:00:30.296Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "85d7d08aee4c56ad50e7b9d2caa27da06c70bad878921bd502064bee10a6cad9"
+  },
+  {
+   "panel": "A",
+   "room": "motts_site",
+   "clock": 10.3497,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      560,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 339,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:motts_site",
+     "path": "art/backgrounds/room-30-motts-site.png",
+     "drawn": "art/backgrounds/room-30-motts-site.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "86f0d64c781d33cfe520f56097f26414ad60e1b59d02e87f6a032674ccfb12c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(motts_site)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T21:00:31.166Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "a9e2678b359e873682bcce77e749fb1953cbc184111c9254f9581dfe08ea5e77"
+  },
+  {
+   "panel": "D",
+   "room": "motts_site",
+   "clock": 24.2491,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      980,
+      857
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 378,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      756,
+      479,
+      448,
+      417
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": "thad",
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:motts_site",
+     "path": "art/backgrounds/room-30-motts-site.png",
+     "drawn": "art/backgrounds/room-30-motts-site.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "86f0d64c781d33cfe520f56097f26414ad60e1b59d02e87f6a032674ccfb12c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(motts_site)",
+    "cast(false)",
+    "cast(true)",
+    "stand(980,701)",
+    "cast(false)",
+    "cast(true)",
+    "stand(980,857)",
+    "cast(false)",
+    "cast(true)",
+    "flag ACT=4"
+   ],
+   "capturedAt": "2026-11-05T21:00:45.079Z",
+   "intent": "principal changed state: ACT 4 (doc 05 Part Two-B, THE SITE ENTIRE). Visible consequence: LOOK at the site gives the Act IV line.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "7eb905f8e537a2441c41c0d4124d9557e6d38cd96cff54ede61a1cc7d6dd881a",
+   "changedBy": "counters"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T21:00:45.080Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 446120,
+  "panels": 5,
+  "scale": 0.5
+ }
+}
