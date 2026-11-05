@@ -1606,7 +1606,7 @@ export interface DialogueOption {
    * on screen as one man saying all of it and loses the joke's timing. An
    * option has either `say` or `exchange`, never both.
    */
-  exchange?: { speaker: string; line: string }[];
+  exchange?: { speaker: string; line: string; direction?: boolean }[];
   /**
    * Shown instead of `say` once the option has already been taken. The
    * pre-W1 shape: one string, the second selection's line, kept for the
@@ -1707,7 +1707,7 @@ export type AfterUse = 'retain' | 'remove' | 'counted-repeat' | 'rephrase' | 're
 export interface DialogueRepeat {
   selection: number;
   say?: string;
-  exchange?: { speaker: string; line: string }[];
+  exchange?: { speaker: string; line: string; direction?: boolean }[];
 }
 
 export interface DialogueNode {

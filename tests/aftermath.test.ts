@@ -86,7 +86,7 @@ test('counted-repeat: selections advance through the authored answers and clamp 
     assert.equal(shown.selections, n - 1);
     answers.push(state.dialogue.select(counted.id).say);
   }
-  assert.equal(answers[0], counted.say, 'first: the authored exchange');
+  assert.equal(answers[0], counted.say ?? counted.exchange![0]!.line, 'first: the authored exchange');
   for (const entry of counted.repeats!) {
     assert.equal(answers[entry.selection - 1], entry.say ?? entry.exchange![0]!.line, `selection ${entry.selection}: its authored answer`);
   }

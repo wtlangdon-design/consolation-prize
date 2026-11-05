@@ -37,6 +37,7 @@ const CHECKING = process.argv.includes('--check');
 const stale = [];
 
 function write(relative, data) {
+  if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = performDirections(data);
   const path = resolve(ROOT, relative);
   const wanted = `${JSON.stringify(data, null, 2)}\n`;
   if (CHECKING) {
@@ -52,6 +53,110 @@ function write(relative, data) {
   mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, wanted);
   return relative;
+}
+
+// ---------------------------------------------------------------------------
+// STAGE DIRECTIONS ON SCREEN (doc 58; Tyler, 2026-11-05). Every tree's reply
+// that carries a performed direction plays it, in the document's order, as a
+// quieter line over the character. Applied to every content/dialogue file as
+// it is written, so all twelve tree extractors share one rule.
+
+const NOTE_PATTERN = /\berrata\b|\breq\s|\bsets\s|\bdoc \d|\bpairs?\b|\bRULED\b|\bSuperseded\b|\bTyler,|→|\bthe player\b|^(second|third|fourth|fifth)\b/i;
+let directionRules = null;
+function directionRule() {
+  if (directionRules) return directionRules;
+  const doc = read('docs/58-stage-directions.md');
+  const hidden = new Set();
+  const section = doc.split(/^## Hidden by name$/m)[1]?.split(/^## /m)[0] ?? '';
+  for (const line of section.split('\n')) {
+    const item = /^- (.+)$/.exec(line.trim());
+    if (item) hidden.add(item[1].trim());
+  }
+  if (!hidden.size) throw new Error('doc 58: no "Hidden by name" list');
+  directionRules = { hidden };
+  return directionRules;
+}
+
+/** One direction's fate: null (a note, hidden), '…' (a bare pause), or its words. */
+function performedDirection(text) {
+  const words = text.trim();
+  if (NOTE_PATTERN.test(words) || directionRule().hidden.has(words)) return null;
+  if (/^(beat|pause|long pause)$/i.test(words)) return { line: '…', direction: false };
+  return { line: words, direction: true };
+}
+
+/** Docs 04 and 27, indexed: `${node or tree id}::${option text}` to the reply cell. */
+let replyIndex = null;
+function replyCells() {
+  if (replyIndex) return replyIndex;
+  replyIndex = new Map();
+  const add = (keys, text, cell) => { for (const key of keys) if (!replyIndex.has(`${key}::${text}`)) replyIndex.set(`${key}::${text}`, cell); };
+  for (const [file, treeHeading] of [['docs/04-dialogue-trees.md', false], ['docs/27-minor-trees.md', true]]) {
+    let keys = [];
+    for (const line of read(file).split('\n')) {
+      const heading = /^(#+)\s+(.+)$/.exec(line);
+      if (heading) {
+        const ids = [...heading[2].matchAll(/`([A-Z]{2,4}_[A-Z0-9]+)`/g)].map((m) => m[1]);
+        if (ids.length) keys = ids;
+        else if (treeHeading && heading[1] === '#') {
+          const title = heading[2].split('·')[0].trim();
+          keys = [`${title.replace(/[^A-Z ]/g, '').trim().replace(/\s+/g, '_')}/root`];
+        }
+        continue;
+      }
+      const row = /^\|\s*\d+\s*\|(.*)$/.exec(line);
+      if (!row || !keys.length) continue;
+      const cells = row[1].split('|').map((cell) => cell.trim());
+      const text = /"([^"]+)"/.exec(cells[0] ?? '')?.[1];
+      if (text && cells[2] !== undefined) add(keys, text, cells[2]);
+    }
+  }
+  return replyIndex;
+}
+
+/** A reply cell, in order: speech and performed directions. */
+function performedSequence(cell, npc) {
+  const first = cell.split(/\*\((?:second|third|fourth|fifth)\)\*/)[0].split('→')[0];
+  const out = [];
+  for (const span of first.matchAll(/\*\(([^)]+)\)\*|\*\*"([^"]+)"\*\*|\*"([^"]+)"\*|"([^"]+)"/g)) {
+    const [, direction, bold, italic, plainSpan] = span;
+    if (direction !== undefined) {
+      const shown = performedDirection(direction);
+      if (shown) out.push({ speaker: npc, line: shown.line, ...(shown.direction ? { direction: true } : {}), staged: true });
+    } else if (italic !== undefined) out.push({ speaker: 'thad', line: italic });
+    else out.push({ speaker: npc, line: bold ?? plainSpan });
+  }
+  return out;
+}
+
+const directionReport = [];
+function performDirections(tree) {
+  const index = replyCells();
+  for (const [nodeId, node] of Object.entries(tree.nodes ?? {})) {
+    for (const option of node.options ?? []) {
+      if (!option.text || option.beat || option.rephrase) continue;
+      const cell = index.get(`${nodeId}::${option.text}`) ?? index.get(`${tree.id}/${nodeId}::${option.text}`);
+      if (!cell) continue;
+      const npc = tree.speaker ?? '';
+      const sequence = performedSequence(cell, npc);
+      if (!sequence.some((one) => one.staged)) continue;
+      const existing = option.exchange ?? (option.say ? [{ speaker: npc, line: option.say }] : []);
+      const spoken = sequence.filter((one) => !one.staged);
+      const agrees = spoken.length === existing.length && spoken.every((one, at) => one.line === existing[at].line);
+      if (!agrees) {
+        directionReport.push(`${tree.id}/${nodeId}/${option.id}: its extractor reads the reply differently; directions left off`);
+        continue;
+      }
+      let at = 0;
+      const merged = sequence.map((one) => {
+        if (one.staged) { const { staged, ...line } = one; return line; }
+        return existing[at++];
+      });
+      delete option.say;
+      option.exchange = merged;
+    }
+  }
+  return tree;
 }
 
 /** Strips markdown emphasis, leaving the words and their punctuation. */
@@ -4137,6 +4242,9 @@ const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room0
   ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
+  // Doc 58 rule 5: a reply whose spoken lines this pass reads differently is
+  // left as it was, and named here so the gap is never silent.
+  for (const line of directionReport) process.stderr.write(`doc 58: ${line}\n`);
 } else {
   for (const path of stale) process.stdout.write(`stale: ${path}\n`);
   process.stdout.write(`${written.length} extracted file(s) checked, ${stale.length} stale\n`);

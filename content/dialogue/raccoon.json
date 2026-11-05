@@ -22,14 +22,24 @@
           "id": "raccoon1",
           "tag": "PROGRESS",
           "text": "Absalom Crispin Thrupp.",
-          "say": "Absalom. He looks like a man who owns a bank and has never been inside it.",
           "afterUse": "remove",
           "set": {
             "T_RACCOON_NAMED": true,
             "RACCOON_NAME": 1
           },
           "ends": true,
-          "displayName": "ABSALOM"
+          "displayName": "ABSALOM",
+          "exchange": [
+            {
+              "speaker": "thad",
+              "line": "The raccoon regards him.",
+              "direction": true
+            },
+            {
+              "speaker": "thad",
+              "line": "Absalom. He looks like a man who owns a bank and has never been inside it."
+            }
+          ]
         },
         {
           "id": "raccoon2",
@@ -61,8 +71,18 @@
           "id": "raccoon4",
           "tag": "COMIC",
           "text": "On reflection, he can name himself.",
-          "say": "He declines. It is the first thing we have agreed on.",
-          "afterUse": "retain"
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "thad",
+              "line": "The raccoon does not.",
+              "direction": true
+            },
+            {
+              "speaker": "thad",
+              "line": "He declines. It is the first thing we have agreed on."
+            }
+          ]
         },
         {
           "id": "raccoonx",
