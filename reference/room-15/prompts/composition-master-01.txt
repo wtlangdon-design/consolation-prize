@@ -1,0 +1,21 @@
+Image 1 is the layout for one room of my pixel-art adventure game: grey blocks for walls and furniture, and the hero (the man in the long coat) standing on the floor. Paint this room as a finished game background with people and animals in it, keeping the camera, the layout and every block where image 1 puts it. Paint the room ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched. The whole room, from the hay loft to the floor in front of the hero, fits inside that band.
+
+THE ROOM: the livery stable of a gold-rush town, 1850s, at night. Weathered plank walls, packed earth and straw on the floor, a hay loft above; well kept, everything hung in order.
+- Far left: big double stable doors, wide enough for a coach, opened only to a narrow gap showing the dark street.
+- Left: a tack wall of harness, bridles and collars hung by size, one collar enormous; in front of it on the floor, a blacksmith's anvil on a stump.
+- Top, across the room: the hay loft, hay spilling over its edge; a ladder up to it, its rungs worn bright.
+- Left of middle: a low open pen holding FOUR ordinary brown mules, side by side, standing side-on and turned toward the right, looking across at the stall in the middle.
+- Middle: a post with a paper board of names pinned to it; against the wall beside it, a kitchen chair tipped back on two legs with the livery man in it.
+- Right of middle: a stall with a half door, a name burned into its post, and the mule GRIEVANCE in it, looking out over the half door; a lantern hangs on the post beside it. Beside her stall a wooden feed bin with a striped wool blanket folded neatly on its lid.
+- Right: more stalls, empty of animals: one with hay, one with a broken one-seat sulky, one stacked with folding chairs.
+- Light: the lantern by Grievance's stall, warm; the corners darker.
+
+THE PEOPLE AND ANIMALS (this picture is a reference painting, so they are allowed in it):
+- The hero from image 4, standing where image 1 puts him, at exactly that size, facing right.
+- THE LIVERY MAN, tipped back in his chair against the wall, facing right toward Grievance's stall: an old, lean stableman, weathered face, grey stubble, a battered hat, a faded work shirt with the sleeves rolled, braces, old boots; at ease, unhurried, a man who has seen everything once.
+- GRIEVANCE, a mule the colour of a wet saddle, dark brown, long ears, looking out over her half door with an expression of settled disapproval.
+- The four other mules: ordinary, contented, a little lighter brown.
+
+THE LOOK: the same pixel-art style as images 2, 3 and 6, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero -- every person and animal drawn on exactly the hero's coarse pixel grid, no finer -- flat, soft shading, very little texture, simple shapes. Warm browns and straw golds, leather, lantern light. Nothing near black where the hero stands.
+
+RULES: no readable text, letters or numbers anywhere -- the board of names and the name on the post carry marks, never words. No border, no frame around the picture, no caption.

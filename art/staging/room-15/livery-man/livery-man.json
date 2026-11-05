@@ -1,0 +1,53 @@
+{
+ "sheet": "art/staging/room-15/livery-man/livery-man.png",
+ "frames": [
+  [
+   2,
+   2,
+   162,
+   235
+  ],
+  [
+   166,
+   2,
+   162,
+   235
+  ],
+  [
+   330,
+   2,
+   162,
+   235
+  ],
+  [
+   494,
+   2,
+   162,
+   235
+  ],
+  [
+   658,
+   2,
+   162,
+   235
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "humming",
+  "talking",
+  "hat"
+ ],
+ "topLeft": {
+  "x": 874,
+  "y": 387
+ },
+ "anchor": {
+  "x": 955,
+  "y": 622
+ },
+ "height": 235,
+ "posture": "seated",
+ "source": "room-15 attempt 3 (art/staging/room-15/livery-man-01/sheet.png)"
+}

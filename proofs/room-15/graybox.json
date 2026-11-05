@@ -1,0 +1,291 @@
+{
+ "room": 15,
+ "note": "Ruling 22 steps 1-6 for the livery stable, written by tools/room15-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 88).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 740,
+   "height": 420
+  },
+  "near": {
+   "y": 855,
+   "height": 500
+  },
+  "from": "Room 5's slope, a little smaller than Room 13's"
+ },
+ "walkable": [
+  200,
+  740,
+  1680,
+  115
+ ],
+ "exit": {
+  "hotspot": "THE STABLE DOORS",
+  "to": "town_map",
+  "rect": [
+   20,
+   140,
+   280,
+   565
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 300,
+   "y": 790,
+   "facing": "right"
+  },
+  "talk_livery_man": {
+   "x": 900,
+   "y": 790,
+   "facing": "right"
+  },
+  "before_grievance": {
+   "x": 1290,
+   "y": 790,
+   "facing": "back"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE STABLE DOORS",
+   "rect": [
+    20,
+    140,
+    280,
+    565
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TACK WALL",
+   "rect": [
+    320,
+    170,
+    240,
+    300
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE ANVIL",
+   "rect": [
+    380,
+    590,
+    140,
+    115
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE HAY LOFT",
+   "rect": [
+    560,
+    0,
+    1360,
+    160
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LOFT LADDER",
+   "rect": [
+    580,
+    60,
+    60,
+    640
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE OTHER MULES (pen)",
+   "rect": [
+    660,
+    330,
+    330,
+    370
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BOARD OF NAMES",
+   "rect": [
+    1010,
+    220,
+    110,
+    140
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LIVERY MAN'S CHAIR",
+   "rect": [
+    1000,
+    430,
+    120,
+    275
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LIVERY MAN (seated)",
+   "rect": [
+    1000,
+    360,
+    140,
+    330
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "GRIEVANCE'S STALL",
+   "rect": [
+    1150,
+    170,
+    270,
+    535
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "GRIEVANCE (over her door)",
+   "rect": [
+    1180,
+    250,
+    220,
+    270
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "GRIEVANCE'S FEED BIN",
+   "rect": [
+    1430,
+    565,
+    110,
+    140
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "GRIEVANCE'S BLANKET",
+   "rect": [
+    1430,
+    525,
+    110,
+    40
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STALLS",
+   "rect": [
+    1560,
+    170,
+    350,
+    535
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LANTERN",
+   "rect": [
+    1130,
+    200,
+    30,
+    50
+   ],
+   "where": "light"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: every stall, the chair, the anvil and the pen are behind it, and Grievance is cut at her half door, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "walls, weathered plank",
+   "p10": 56.0,
+   "p90": 80.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 41.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "floor, packed earth and straw",
+   "p10": 92.0,
+   "p90": 101.0,
+   "darkAnchorMargin": 66.5,
+   "lightAnchorMargin": 20.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE STABLE DOORS",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 63.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TACK WALL",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE ANVIL",
+   "p10": 54.0,
+   "p90": 54.0,
+   "darkAnchorMargin": 28.5,
+   "lightAnchorMargin": 67.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE LOFT LADDER",
+   "p10": 72.0,
+   "p90": 72.0,
+   "darkAnchorMargin": 46.5,
+   "lightAnchorMargin": 49.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE LIVERY MAN'S CHAIR",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "GRIEVANCE'S STALL",
+   "p10": 52.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 26.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "GRIEVANCE'S FEED BIN",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE STALLS",
+   "p10": 68.0,
+   "p90": 68.0,
+   "darkAnchorMargin": 42.5,
+   "lightAnchorMargin": 53.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

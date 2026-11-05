@@ -1,0 +1,9 @@
+Image 1 is a finished background from my pixel-art adventure game: a livery stable at night, with people and animals in it.
+
+Remove all of them, and paint what is behind each, exactly as the stable would look with nobody in it:
+- the man in the blue coat standing on the floor: paint the straw floor, the pen rails and the wall behind him;
+- the old man in the hat tipped back in the chair: leave the empty wooden kitchen chair exactly where it is, tipped back against the wall, and paint the wall behind him;
+- the mule looking out over the half door of the middle stall: paint the empty dark inside of the stall above the half door;
+- the four mules in the pen at the left: paint the empty pen -- the back wall and the straw behind the rails -- keeping the pen's rails exactly as they are.
+
+Change nothing else. Same framing, same camera, same pixel grid, same colours, same light, same objects in the same places: the stable doors, the tack wall, the anvil, the ladder and the loft, the pen rails, the board of names, the chair, the stall and its half door, the lantern, the feed bin and the folded striped blanket on it, the other stalls with the hay, the sulky and the chairs. The grey strips above and below stay grey. No people, no animals, no shadows of them, no text.

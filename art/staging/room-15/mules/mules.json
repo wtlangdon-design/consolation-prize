@@ -1,0 +1,67 @@
+{
+ "sheet": "art/staging/room-15/mules/mules.png",
+ "frames": [
+  [
+   2,
+   2,
+   262,
+   226
+  ],
+  [
+   266,
+   2,
+   262,
+   226
+  ],
+  [
+   530,
+   2,
+   262,
+   226
+  ],
+  [
+   794,
+   2,
+   262,
+   226
+  ],
+  [
+   1058,
+   2,
+   262,
+   226
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "two eat and swish",
+  "ears back",
+  "head up"
+ ],
+ "topLeft": {
+  "x": 462,
+  "y": 390
+ },
+ "anchor": {
+  "x": 593,
+  "y": 616
+ },
+ "height": 225,
+ "posture": "animal",
+ "rails": [
+  [
+   465,
+   487
+  ],
+  [
+   513,
+   535
+  ],
+  [
+   561,
+   583
+  ]
+ ],
+ "source": "room-15 attempt 5 (art/staging/room-15/mules-01/sheet.png)"
+}

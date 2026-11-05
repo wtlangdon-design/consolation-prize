@@ -1,0 +1,64 @@
+{
+ "source": "art/staging/room-15/plate-01/source.png",
+ "crop": {
+  "x": 8,
+  "y": 170,
+  "width": 1520,
+  "height": 684
+ },
+ "out": "art/staging/room-15/plate-01/candidate-1920x864.png",
+ "derivation": {
+  "transform": "errata-63-fixed-room-source-acquisition",
+  "provisional": true,
+  "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+  "source": {
+   "path": "art/staging/room-15/plate-01/source.png",
+   "hash": "5c3a88765e8d3d406c1770014e0ac5ebd5b494ec4429ba1a37703b5dde02b2ed",
+   "width": 1536,
+   "height": 1024,
+   "bytes": 1760493,
+   "kept": true
+  },
+  "crop": {
+   "x": 8,
+   "y": 170,
+   "width": 1520,
+   "height": 684,
+   "aspect": "20:9"
+  },
+  "resample": {
+   "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+   "lobes": 3,
+   "from": [
+    1520,
+    684
+   ],
+   "to": [
+    1920,
+    864
+   ],
+   "factor": 1.263157894736842,
+   "normalisedWeights": true,
+   "premultiplied": true,
+   "rounding": "half-away-from-zero, clamped to 0..255",
+   "forbidden": [
+    "nearest-neighbour",
+    "ai-upscale",
+    "sharpen",
+    "denoise",
+    "recolour",
+    "contrast-enhancement",
+    "generative-second-pass"
+   ]
+  },
+  "derived": {
+   "path": "art/staging/room-15/plate-01/candidate-1920x864.png",
+   "hash": "f1b3580fe0ecff1c13b4ed6c0a3854f0743b6e78e822ac81f1ff9c8e5ec0b86e",
+   "width": 1920,
+   "height": 864,
+   "bytes": 3036418,
+   "colourType": 2
+  }
+ },
+ "why": "Room 15 takes the standard 20:9 crop: the master and plate kept the band (tools/art/room15-plate.mjs)."
+}
