@@ -1,0 +1,784 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "motts_site",
+ "commit": "6c2ead7ef348e7d512dcbd40db66776ce227e351",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": null,
+ "fixture": "r30-a",
+ "warped": false,
+ "lifeRoute": "motts-site-life",
+ "durationSeconds": 33.69,
+ "events": [
+  {
+   "t": 2.75,
+   "line": "started from fixture r30-a, no entry route"
+  },
+  {
+   "t": 5.78,
+   "line": "in motts_site; life route: 19 action(s)"
+  },
+  {
+   "t": 6.38,
+   "line": "capture 01-arrived: room motts_site, says null, options 0, control null"
+  },
+  {
+   "t": 7.45,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     560,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 8.4,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     560,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 9.39,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     560,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.38,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     560,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 11.41,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     560,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.38,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 12.43,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 12.6,
+   "line": "action 1 (click): clicked motts_site/offerings at world 957,470 -- THE OFFERINGS"
+  },
+  {
+   "t": 13.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     828,
+     795
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 14.4,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room motts_site"
+  },
+  {
+   "t": 14.93,
+   "line": "capture 02-look-offerings: room motts_site, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 14.96,
+   "line": "action 1 (waitFor): reached {} in room motts_site"
+  },
+  {
+   "t": 15.99,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     957,
+     792
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 16.97,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     957,
+     792
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 17.97,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 17.98,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     957,
+     792
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.01,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 18.19,
+   "line": "action 1 (click): clicked motts_site/old_windlass at world 1278,382 -- THE OLD WINDLASS"
+  },
+  {
+   "t": 18.24,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room motts_site"
+  },
+  {
+   "t": 18.72,
+   "line": "capture 03-listen-windlass: room motts_site, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 18.77,
+   "line": "action 1 (waitFor): reached {} in room motts_site"
+  },
+  {
+   "t": 19.78,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1278,
+     792
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 20.8,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1278,
+     792
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 21.77,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 21.8,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1278,
+     792
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 21.83,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 21.99,
+   "line": "action 1 (click): clicked motts_site/marker_stone at world 1556,720 -- THE MARKER STONE"
+  },
+  {
+   "t": 22.04,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room motts_site"
+  },
+  {
+   "t": 22.5,
+   "line": "capture 04-look-stone: room motts_site, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 23.51,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1453,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 24.52,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1453,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 25.55,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1453,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 26.52,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1453,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 27.53,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1453,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 28.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1453,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 29.52,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1453,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 30.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1453,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 31.54,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1453,
+     856
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 32.5,
+   "line": "action 1 (wait): waited 10s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "the site",
+   "t": 6.37,
+   "file": "renders/proofs/motts-site/life/raw-captures-ignored/01-arrived.png",
+   "hash": "ebc5da980b8072f87d81208938cdfa1c964cda0ab9bc8b4e54e32ccdd0cf75f3",
+   "room": "motts_site",
+   "clock": 6.155600000000001,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      560,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 339,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      384,
+      461,
+      351,
+      374
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:motts_site",
+     "path": "art/backgrounds/room-30-motts-site.png",
+     "drawn": "art/backgrounds/room-30-motts-site.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "86f0d64c781d33cfe520f56097f26414ad60e1b59d02e87f6a032674ccfb12c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-look-offerings",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 14.93,
+   "file": "renders/proofs/motts-site/life/raw-captures-ignored/02-look-offerings.png",
+   "hash": "2c58b1e46893de4d0896496819a66765936cde01693d4ff9d80fd52d6f269178",
+   "room": "motts_site",
+   "clock": 14.7386,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      957,
+      792
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 334,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      759,
+      458,
+      395,
+      369
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:motts_site",
+     "path": "art/backgrounds/room-30-motts-site.png",
+     "drawn": "art/backgrounds/room-30-motts-site.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "86f0d64c781d33cfe520f56097f26414ad60e1b59d02e87f6a032674ccfb12c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-listen-windlass",
+   "why": null,
+   "t": 18.71,
+   "file": "renders/proofs/motts-site/life/raw-captures-ignored/03-listen-windlass.png",
+   "hash": "a3ff726696280b2601a3d30100f4825aa4869779e9a3a6790b12d927082eacce",
+   "room": "motts_site",
+   "clock": 18.421799999999998,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1056,
+      792
+     ],
+     "facing": "right",
+     "clip": "walk",
+     "height": 334,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-right/walk-03.png",
+     "bounds": [
+      897,
+      458,
+      337,
+      358
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:motts_site",
+     "path": "art/backgrounds/room-30-motts-site.png",
+     "drawn": "art/backgrounds/room-30-motts-site.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "86f0d64c781d33cfe520f56097f26414ad60e1b59d02e87f6a032674ccfb12c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-look-stone",
+   "why": null,
+   "t": 22.5,
+   "file": "renders/proofs/motts-site/life/raw-captures-ignored/04-look-stone.png",
+   "hash": "e4bcce53314193cf321db3cea00d9e1ba6c5a1ddeb80248a1dfe77e85672a57b",
+   "room": "motts_site",
+   "clock": 22.221700000000002,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1377,
+      799
+     ],
+     "facing": "right",
+     "clip": "walk",
+     "height": 339,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-right/walk-00.png",
+     "bounds": [
+      1215,
+      460,
+      342,
+      364
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:motts_site",
+     "path": "art/backgrounds/room-30-motts-site.png",
+     "drawn": "art/backgrounds/room-30-motts-site.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "86f0d64c781d33cfe520f56097f26414ad60e1b59d02e87f6a032674ccfb12c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 33.69s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T21:01:20.996Z"
+}
