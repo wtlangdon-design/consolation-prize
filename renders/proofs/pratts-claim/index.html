@@ -5,7 +5,7 @@
  h1{font-size:17px;margin:0 0 4px}
  p.lede{color:#9a9aae;margin:0 0 8px;max-width:64em}
  .verdict{font:13px ui-monospace,monospace;padding:8px 10px;border-radius:5px;margin:12px 0;
-   background:#3a1620;border:1px solid #7a2c3c}
+   background:#12331e;border:1px solid #2c6b40}
  figure{margin:0 0 22px}
  img{width:100%;display:block;border-radius:5px;border:1px solid #2c2c38}
  figcaption{padding:7px 2px;font-size:13px}
@@ -17,7 +17,7 @@
 </style>
 <h1>pratts_claim — four-panel live-runtime proof</h1>
 <p class="lede">Every frame below is the full play area as the renderer drew it, in the running
-game, at <code>a5f09e64</code> on <code>ccr-347d40c6-71r9f9</code>.
+game, at <code>8c21e0a0</code> on <code>ccr-347d40c6-71r9f9</code>.
 No crop, isolated sprite or source image appears here: those are for diagnosing what a full
 frame has already shown.</p>
 <p class="lede"><b>These panels establish technical admissibility only.</b> Nothing here says the
@@ -29,9 +29,7 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     downscaled, never cropped. The full-resolution captures are reproducible test artifacts
     and are not in git; their hashes are below.</span></figcaption>
 </figure>
-<div class="verdict">FAIL — 2 failure(s):
-  gate 8B: his feet are authoritatively at y561 and the drawn silhouette bottoms out at y609 -- 48px of float. Q34 shipped 175px of exactly this.
-  panel D: after the principal change ran, not one flag, counter or inventory item differs from panel B. The change went nowhere, and this is panel B twice under another filename.</div>
+<div class="verdict">PASS — technically admissible</div>
 
   <figure>
     <img src="raw-captures-ignored/panel-b-populated.png" alt="" onerror="this.replaceWith(Object.assign(
@@ -59,18 +57,18 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     <img src="raw-captures-ignored/panel-d-changed.png" alt="" onerror="this.replaceWith(Object.assign(
       document.createElement('p'), { className: 'gone', textContent:
       'raw capture not committed -- regenerate with: npm run proof ' + "pratts_claim" }))">
-    <figcaption><b>PANEL D &mdash; principal changed state: PRATT_OFFERS (doc 04: 'Every single conversation, regardless of topic, ends with Pratt making an offer'). Visible consequence: TALK TO him and leave, and he names his price.</b>
+    <figcaption><b>PANEL D &mdash; principal changed state: T_PRATT_BITTEN (doc 04 PRA_A1 option 1, A5's fourth way). Visible consequence: the bite, and 'How's the bite?' among his options after it.</b>
       <span>room pratts_claim &middot; camera 0 &middot;
-        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_SWINDLED T_CASE_DOWN T_CASE_TAKEN T_EGGS_ON_ACCOUNT T_TONIC_ON_ACCOUNT T_BLANKET_BORROWED &middot;
+        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_SWINDLED T_CASE_DOWN T_CASE_TAKEN T_EGGS_ON_ACCOUNT T_TONIC_ON_ACCOUNT T_BLANKET_BORROWED T_PRATT_BITTEN &middot;
         inventory tuning_fork letter deed company_map eggs tonic blanket</span>
-      <span>thad @930,760 413px sprite</span>
+      <span>thad @1200,760 413px sprite</span>
     </figcaption>
   </figure>
   <figure>
     <img src="raw-captures-ignored/panel-c-mud_far-far.png" alt="">
     <figcaption><b>PANEL C &mdash; mud_far far, authored y561</b>
       <span>expected 278px &middot; runtime 278px &middot;
-        silhouette 327px, bottom y609</span>
+        silhouette 279px, bottom y561</span>
       <span>art/actors/thad-idle-right/idle-02.png</span>
     </figcaption>
   </figure>
@@ -78,7 +76,7 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     <img src="raw-captures-ignored/panel-c-mud_near-near.png" alt="">
     <figcaption><b>PANEL C &mdash; mud_near near, authored y857</b>
       <span>expected 479px &middot; runtime 479px &middot;
-        silhouette 499px, bottom y856</span>
-      <span>art/actors/thad-idle-right/idle-00.png</span>
+        silhouette 479px, bottom y856</span>
+      <span>art/actors/thad-idle-right/idle-01.png</span>
     </figcaption>
   </figure>
