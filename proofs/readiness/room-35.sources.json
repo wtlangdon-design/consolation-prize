@@ -5,22 +5,22 @@
  "name": "THE COMPANY VAULT",
  "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54).",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 35 \u2014 THE COMPANY VAULT",
+  "primary": "docs/05-examine-layer.md::ROOM 35 — THE COMPANY VAULT",
   "batch": [
-   "docs/10-examine-batch-3.md::ROOM 35 \u2014 THE COMPANY VAULT"
+   "docs/10-examine-batch-3.md::ROOM 35 — THE COMPANY VAULT"
   ],
   "merged": [
-   "docs/10-examine-batch-3.md::ROOM 35 \u2014 THE COMPANY VAULT"
+   "docs/10-examine-batch-3.md::ROOM 35 — THE COMPANY VAULT"
   ],
   "completions": [
-   "docs/54-batch-c.md::ROOM 35 \u00b7 THE COMPANY VAULT"
+   "docs/54-batch-c.md::ROOM 35 · THE COMPANY VAULT"
   ],
   "actVariantsNone": {
-   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
    "why": "The vault opens only in Act IV (doc 20); it has no other act."
   }
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 35 \u2014 THE COMPANY VAULT",
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 35 — THE COMPANY VAULT",
  "dialogue": {
   "characters": [],
   "trees": [],
@@ -32,7 +32,7 @@
  "puzzles": {
   "ids": [],
   "none": {
-   "source": "docs/02-puzzle-graph.md::Puzzle Dependency Graph \u2014 v1",
+   "source": "docs/02-puzzle-graph.md::Puzzle Dependency Graph — v1",
    "why": "Doc 02 sites none of the 45 in the vault; it is an Act IV room to look at, gated by act (doc 20)."
   }
  },
@@ -40,5 +40,7 @@
   "required": false,
   "why": "No doc 48 script is sited here."
  },
- "connectivity": "docs/20-room-map.md"
+ "connectivity": "docs/20-room-map.md",
+ "roomFile": "content/rooms/company-vault.json",
+ "plate": "art/backgrounds/room-35-company-vault.png"
 }

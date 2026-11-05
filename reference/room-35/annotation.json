@@ -1,0 +1,247 @@
+{
+ "room": "company_vault",
+ "plate": "art/backgrounds/room-35-company-vault.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-35/plate-01/candidate-lifted-1920x864.png, room-35 attempt 2 with the book and the deeds put back from the master by tools/art/room35-patch.py, the standard 20:9 crop -- frame.json), with a grid over it.",
+ "plateShipping": "art/backgrounds/room-35-company-vault.png",
+ "plateShippingHash": "afa28d776735",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   380,
+   700
+  ],
+  [
+   1600,
+   700
+  ],
+  [
+   1600,
+   858
+  ],
+  [
+   380,
+   858
+  ]
+ ],
+ "walkableNote": "THE IRON FLOOR in front of the shelves, from the door's edge to the card file's cabinet. The visitor's chair and the oil lamp stand on it, and he walks round them.",
+ "obstacles": [
+  {
+   "id": "the_chair",
+   "rect": [
+    1290,
+    690,
+    310,
+    160
+   ],
+   "note": "THE VISITOR'S CHAIR and the whisky glass beside it, on the floor."
+  },
+  {
+   "id": "the_oil_lamp",
+   "rect": [
+    1180,
+    730,
+    95,
+    100
+   ],
+   "note": "The oil lamp under the gas lamp's place, standing on the floor."
+  }
+ ],
+ "scaling": {
+  "far": {
+   "y": 700,
+   "height": 363
+  },
+  "near": {
+   "y": 858,
+   "height": 404
+  },
+  "note": "ROOM 35'S DEPTH, FROM THE MASTER: Thad stood with his feet at about y 751 and was drawn about 376 tall; along 0.26 a row, 363 at the band's far edge and 404 at its near."
+ },
+ "entrance": [
+  460,
+  790
+ ],
+ "entrances": [
+  {
+   "from": "fanshawe_office",
+   "at": [
+    460,
+    790
+   ],
+   "facing": "right",
+   "note": "In through the great door, at left."
+  },
+  {
+   "from": "default",
+   "at": [
+    460,
+    790
+   ],
+   "facing": "right",
+   "note": "As through the door."
+  }
+ ],
+ "hotspots": {
+  "unsold_deeds": [
+   767,
+   504,
+   107,
+   53
+  ],
+  "champagne": [
+   1611,
+   167,
+   49,
+   147
+  ],
+  "share_certificates": [
+   1600,
+   393,
+   91,
+   67
+  ],
+  "gas_lamp_fixed": [
+   720,
+   100,
+   67,
+   153
+  ],
+  "search_fund": [
+   540,
+   387,
+   233,
+   120
+  ],
+  "stock_portrait_boxes": [
+   953,
+   140,
+   147,
+   240
+  ],
+  "maps": [
+   1117,
+   133,
+   150,
+   247
+  ],
+  "strongbox": [
+   1003,
+   483,
+   177,
+   173
+  ],
+  "fanshawe_s_private_drawer": [
+   1193,
+   447,
+   156,
+   207
+  ],
+  "original_subscription": [
+   1727,
+   107,
+   153,
+   227
+  ],
+  "correspondence_file": [
+   1653,
+   400,
+   227,
+   173
+  ],
+  "deed_boxes": [
+   673,
+   200,
+   267,
+   180
+  ],
+  "map_private": [
+   1296,
+   133,
+   284,
+   287
+  ],
+  "visitor_s_chair": [
+   1300,
+   493,
+   287,
+   340
+  ],
+  "ledger_shelf": [
+   349,
+   87,
+   298,
+   586
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first.",
+ "people": {},
+ "exitSubjects": {
+  "THE VAULT DOOR": {
+   "id": "to_fanshawe_office",
+   "to": "fanshawe_office",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 54: the great door, standing open -- the way back into Fanshawe's office (doc 20)."
+  }
+ },
+ "exits": {
+  "to_fanshawe_office": [
+   0,
+   80,
+   350,
+   720
+  ]
+ },
+ "exitWalkTo": {
+  "to_fanshawe_office": {
+   "x": 420,
+   "y": 780,
+   "facing": "left"
+  }
+ },
+ "lamps": [
+  {
+   "id": "the_oil_lamp",
+   "at": [
+    1226,
+    700
+   ],
+   "radius": 260,
+   "amount": 0.07,
+   "rate": 0.6,
+   "phase": 0.3,
+   "note": "The oil lamp on the floor, the only light: a slow flame (invariant 9)."
+  }
+ ],
+ "defaultVerbs": {
+  "unsold_deeds": "LOOK_AT",
+  "champagne": "LOOK_AT",
+  "share_certificates": "LOOK_AT",
+  "gas_lamp_fixed": "LOOK_AT",
+  "search_fund": "LOOK_AT",
+  "stock_portrait_boxes": "LOOK_AT",
+  "maps": "LOOK_AT",
+  "strongbox": "LOOK_AT",
+  "fanshawe_s_private_drawer": "LOOK_AT",
+  "original_subscription": "LOOK_AT",
+  "correspondence_file": "LOOK_AT",
+  "deed_boxes": "LOOK_AT",
+  "map_private": "LOOK_AT",
+  "visitor_s_chair": "LOOK_AT",
+  "ledger_shelf": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Everything in the vault is looked at on a bare click.",
+ "props": [],
+ "occlusion": {
+  "note": "No plane: the chair and the lamp are obstacles he walks round.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}

@@ -577,6 +577,31 @@
         "y": 780,
         "facing": "left"
       }
+    },
+    {
+      "id": "to_company_vault",
+      "name": "THE VAULT DOOR",
+      "stub": true,
+      "rect": [
+        1700,
+        250,
+        170,
+        350
+      ],
+      "colour": 0,
+      "to": "company_vault",
+      "when": {
+        "T_HOB_IS_MOTT": true
+      },
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: 'Room 35, the Company vault, opens off Fanshawe's office (11) and is gated to Act IV.' Doc 05's THE SAFE is 'a safe the size of a small cabin': from Act IV -- the confession, doc 48 S4 beat 3, which writes T_HOB_IS_MOTT and ACT 4 together -- its door is the way into the vault, a small exit inside THE SAFE, whose own lines stay its own. Room 35 writes THE VAULT DOOR; from this side it is a stub (errata 72 F, 99 I).",
+      "walkTo": {
+        "x": 1615,
+        "y": 852,
+        "facing": "back"
+      }
     }
   ],
   "ambient": [
@@ -669,6 +694,15 @@
       ],
       "facing": "right",
       "note": "Anything else arrives by the door."
+    },
+    {
+      "from": "company_vault",
+      "at": [
+        1615,
+        840
+      ],
+      "facing": "left",
+      "note": "Out of the vault, by the safe (errata 99 I)."
     }
   ],
   "peopleResponses": {

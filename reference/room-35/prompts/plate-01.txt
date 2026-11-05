@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game: a land company's iron vault, its great round door open at the left, shelves of ledgers, deed boxes, portrait boxes, rolled maps, a pinned wall map, a lectern, a strongbox, a cabinet, a chair, an oil lamp on the floor, and a man in a long blue coat standing on the floor.
+
+Make exactly these changes:
+1. Remove the man in the blue coat. Paint the floor, the lectern's table and the wall behind him.
+2. The brass gas lamp on the back wall, upper left of centre: make it UNLIT -- a clean white mantle in clear glass, no glow, no flame, no light around it. The oil lamp on the floor stays lit.
+
+Change nothing else. Same camera, same pixel grid, same big square pixels, same colours, same lamplight from the oil lamp on the floor; every object exactly as it is. Leave the light grey strips above and below the picture exactly as they are. No people, no shadows of people, no text, no numerals.

@@ -1,0 +1,75 @@
+{
+ "source": "art/staging/room-35/plate-01/patched.png",
+ "crop": {
+  "x": 8,
+  "y": 170,
+  "width": 1520,
+  "height": 684
+ },
+ "out": "art/staging/room-35/plate-01/candidate-lifted-1920x864.png",
+ "derivation": {
+  "transform": "errata-63-fixed-room-source-acquisition",
+  "provisional": true,
+  "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+  "source": {
+   "path": "art/staging/room-35/plate-01/patched.png",
+   "hash": "fa66c36e2b07e8351c53105f81fcc06915717958b98705ee077b067c1e520074",
+   "width": 1536,
+   "height": 1024,
+   "bytes": 1747947,
+   "kept": true
+  },
+  "crop": {
+   "x": 8,
+   "y": 170,
+   "width": 1520,
+   "height": 684,
+   "aspect": "20:9"
+  },
+  "resample": {
+   "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+   "lobes": 3,
+   "from": [
+    1520,
+    684
+   ],
+   "to": [
+    1920,
+    864
+   ],
+   "factor": 1.263157894736842,
+   "normalisedWeights": true,
+   "premultiplied": true,
+   "rounding": "half-away-from-zero, clamped to 0..255",
+   "forbidden": [
+    "nearest-neighbour",
+    "ai-upscale",
+    "sharpen",
+    "denoise",
+    "recolour",
+    "contrast-enhancement",
+    "generative-second-pass"
+   ]
+  },
+  "derived": {
+   "path": "art/staging/room-35/plate-01/candidate-1920x864.png",
+   "hash": "a5eeb846e6cd99ce7a384a792764c143a3151d3a6779aeee0ccf4be2ff5f273f",
+   "width": 1920,
+   "height": 864,
+   "bytes": 2978200,
+   "colourType": 2
+  }
+ },
+ "lift": {
+  "gain": 1,
+  "groundBefore": [
+   29.3,
+   53.6
+  ],
+  "groundAfter": [
+   29.3,
+   53.6
+  ]
+ },
+ "why": "Room 35 takes the standard 20:9 crop from y 170 of the patched plate (tools/art/room35-patch.py, tools/art/room35-plate.mjs)."
+}

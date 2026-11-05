@@ -46,7 +46,8 @@
   "content/rooms/church.json",
   "content/rooms/funeral.json",
   "content/rooms/under-prosperity.json",
-  "content/rooms/listening-chamber.json"
+  "content/rooms/listening-chamber.json",
+  "content/rooms/company-vault.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -105,7 +106,8 @@
   "content/fixtures/room-30.json",
   "content/fixtures/room-31.json",
   "content/fixtures/room-33.json",
-  "content/fixtures/room-34.json"
+  "content/fixtures/room-34.json",
+  "content/fixtures/room-35.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",

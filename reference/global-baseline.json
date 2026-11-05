@@ -583,6 +583,22 @@
     }
    ],
    "castingNote": "Nobody: Thad is alone in the dark (doc 48 S5). Thad for scale."
+  },
+  "room-35-company-vault": {
+   "visualType": "interior-institutional",
+   "comparable": {
+    "id": "room-11-fanshawe-office",
+    "path": "art/backgrounds/room-11-fanshawe-office.png",
+    "note": "D -- the office the vault opens off: the Company's money, gilt and leather, now behind iron (doc 20, errata 99 I)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody: 'The vault is empty of people'. Thad for scale."
   }
  }
 }

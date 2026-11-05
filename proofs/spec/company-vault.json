@@ -1,0 +1,20 @@
+{
+ "schema": 1,
+ "room": "company_vault",
+ "note": "ROOM 35's PROOF SPEC. The vault opens off Fanshawe's office in Act IV (doc 20); the proof starts inside from fixture r35-a and says so. No puzzle is sited here; the principal change is the strongbox looked into -- doc 54's line, and a flag the look writes nowhere, so the change is the look itself, declared as an action.",
+ "fixture": "r35-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "No state changes in the vault (doc 02 sites no puzzle here). The change is the room's act gate: set back before the confession (ACT 3, T_HOB_IS_MOTT false) by the flag control, the way in from Fanshawe's office is shut; this proves the gate, not a picture.",
+  "flags": {
+   "ACT": 3,
+   "T_HOB_IS_MOTT": false
+  },
+  "actions": [
+   {
+    "do": "wait",
+    "seconds": 2
+   }
+  ]
+ }
+}
