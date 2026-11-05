@@ -1,0 +1,181 @@
+{
+ "schema": 1,
+ "id": "room-29-high-ridge",
+ "room": "high_ridge",
+ "docRoom": 29,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 29 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/10-examine-batch-3.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/20-room-map.md",
+  "docs/17-opening-sequence.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-29.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "One state; no act variant (doc 05 Part Two-B); night; up from the laundry and on the map after the road."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-29/graybox.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Every subject is plate."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-29.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Nobody."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/high-ridge/life/life.json"
+   ],
+   "note": "Nobody up here; the town's lamps below are the plate's."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/high-ridge/proof.json"
+   ],
+   "note": "Thad stands on the bare rock."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-29/annotation.json",
+    "tools/check-night-exposure.mjs"
+   ],
+   "note": "Night, lifted to the approved night rooms' level."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-29.test.ts",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "No puzzle is sited here."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-29.json",
+    "content/rooms/high-ridge.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 52 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-29: 2 of 4 operations (master, plate)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/high-ridge.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-29/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/high-ridge/proof.json"
+   ],
+   "note": "Panel D: none -- one state. Started from fixture r29-a."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/high-ridge/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/high-ridge/doors/life.json",
+    "tests/room-29.test.ts"
+   ],
+   "note": "Down to the laundry and back up its door, twice."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-29/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-29-high-ridge.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-29/plate-01/frame.json"
+   ],
+   "note": "Attempt 2, lifted by 1.35; replaces the retired 320x144 plate; promoted provisionally (errata 72 E)."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q171 · Room 29, the high ridge: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99, delegated); BUILT, room-29 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q171 · Room 29, the high ridge: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99, delegated); BUILT, room-29 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

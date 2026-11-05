@@ -4852,3 +4852,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Seventeen subjects and 107 lines; Sheng ironing, and his two trees: who pays Pratt, the paper, the terms (D3, `?fixture=r28-a`); the ledger read with the linen money in hand (D4's laundry half, `?fixture=r28-b`); the loan in Act III. Played in `tests/room-28.test.ts`. Proofs under `renders/proofs/laundry/`.
 
 **Open, for Tyler:** (a) **D4's first half is not staged**: the Reverend paying Sheng's linen debt out of the collection plate on the funeral day, at the foot of Boot Hill (doc 57 D4) -- Sowerby is not yet placed there with the plate; fixture r28-b puts the money in hand. (b) Sheng's tree opens on SHE_D1 only while its business is open, so his root's options are never lost (errata 99 D).
+
+## Q171 · Room 29, the high ridge: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99, delegated); BUILT, room-29 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Eight subjects and fifty-two lines; Consolation's lamps far below; nobody. Up the path from Sheng's door, and on the map after the road (`?room=high_ridge`). Played in `tests/room-29.test.ts`; doc 02 sites no puzzle here. Proofs under `renders/proofs/high-ridge/`.
+
+**Open, for Tyler:** (a) The new plate is also the one `content/ui/title.json` names for the title screen (Q59, not built), as doc 17 puts the title over the ridge at night.

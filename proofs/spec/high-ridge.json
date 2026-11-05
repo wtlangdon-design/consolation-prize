@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "high_ridge",
+ "note": "ROOM 29's PROOF SPEC. The ridge is up the path from Sheng's door, and on the map after the road (errata 99 A, E); the proof starts from fixture r29-a and says so, and the doors pass walks down to the laundry and back up.",
+ "fixture": "r29-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "Room 29 draws the same in every state: doc 02 sites no puzzle here and Part Two-B wrote no act variant for the ridge (doc 05). Errata 99 E."
+ }
+}

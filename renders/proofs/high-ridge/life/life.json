@@ -1,0 +1,814 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "high_ridge",
+ "commit": "0286278d99d1cf13bdef289272dc797a1f69b916",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": null,
+ "fixture": "r29-a",
+ "warped": false,
+ "lifeRoute": "high-ridge-life",
+ "durationSeconds": 33.86,
+ "events": [
+  {
+   "t": 2.91,
+   "line": "started from fixture r29-a, no entry route"
+  },
+  {
+   "t": 5.98,
+   "line": "in high_ridge; life route: 19 action(s)"
+  },
+  {
+   "t": 6.87,
+   "line": "capture 01-arrived: room high_ridge, says null, options 0, control null"
+  },
+  {
+   "t": 7.88,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 8.89,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 9.88,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.89,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 11.9,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.88,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 12.89,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.96,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 13.12,
+   "line": "action 1 (click): clicked high_ridge/foundations at world 654,379 -- THE FOUNDATIONS, the town"
+  },
+  {
+   "t": 14.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     647,
+     760
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 14.63,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room high_ridge"
+  },
+  {
+   "t": 15.08,
+   "line": "capture 02-look-town: room high_ridge, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 15.12,
+   "line": "action 1 (waitFor): reached {} in room high_ridge"
+  },
+  {
+   "t": 16.13,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     654,
+     656
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 17.14,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     654,
+     656
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.13,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 18.15,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     654,
+     656
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.17,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 18.33,
+   "line": "action 1 (click): clicked high_ridge/road_east at world 1780,350 -- THE ROAD EAST"
+  },
+  {
+   "t": 18.38,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room high_ridge"
+  },
+  {
+   "t": 18.86,
+   "line": "capture 03-listen-road: room high_ridge, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 18.89,
+   "line": "action 1 (waitFor): reached {} in room high_ridge"
+  },
+  {
+   "t": 19.92,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1076,
+     656
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 20.89,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1348,
+     656
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 21.89,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 21.94,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1643,
+     656
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 21.98,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 22.2,
+   "line": "action 1 (click): clicked high_ridge/cairn at world 306,347 -- THE CAIRN"
+  },
+  {
+   "t": 22.25,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room high_ridge"
+  },
+  {
+   "t": 22.71,
+   "line": "capture 04-look-cairn: room high_ridge, says null, options 0, control null"
+  },
+  {
+   "t": 23.74,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1301,
+     656
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 24.74,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1024,
+     656
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 25.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     738,
+     656
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 26.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     457,
+     656
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 27.74,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     306,
+     656
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 28.74,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     306,
+     656
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 29.74,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     306,
+     656
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 30.74,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     306,
+     656
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 31.72,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     306,
+     656
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 32.73,
+   "line": "action 1 (wait): waited 10s"
+  },
+  {
+   "t": 32.75,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     306,
+     656
+    ],
+    "moving": false
+   }
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "the ridge, the town below",
+   "t": 6.86,
+   "file": "renders/proofs/high-ridge/life/raw-captures-ignored/01-arrived.png",
+   "hash": "0cadc7e452b05fd11e1de3e7e3090dee9de9b9a0f202797c70a32116481a03dc",
+   "room": "high_ridge",
+   "clock": 6.4736,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 446,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      69,
+      354,
+      462,
+      492
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:high_ridge",
+     "path": "art/backgrounds/room-29-high-ridge.png",
+     "drawn": "art/backgrounds/room-29-high-ridge.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "168ad519237544c89ecdec7b39db5ad0f5dbc230b3799bfdbb49b270ee987462"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-look-town",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 15.07,
+   "file": "renders/proofs/high-ridge/life/raw-captures-ignored/02-look-town.png",
+   "hash": "6a7ba42754f7e1d1ab09ca2802a473a400aa51c09f10093e6546ed6a556dc899",
+   "room": "high_ridge",
+   "clock": 14.7899,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      654,
+      656
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 348,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      448,
+      308,
+      412,
+      384
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:high_ridge",
+     "path": "art/backgrounds/room-29-high-ridge.png",
+     "drawn": "art/backgrounds/room-29-high-ridge.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "168ad519237544c89ecdec7b39db5ad0f5dbc230b3799bfdbb49b270ee987462"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-listen-road",
+   "why": null,
+   "t": 18.85,
+   "file": "renders/proofs/high-ridge/life/raw-captures-ignored/03-listen-road.png",
+   "hash": "201cfd7d3d37f9ab8edb7091c86da47602103f0fbaf338d4161cd68f702fca94",
+   "room": "high_ridge",
+   "clock": 18.5398,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      757,
+      656
+     ],
+     "facing": "right",
+     "clip": "walk",
+     "height": 348,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-right/walk-02.png",
+     "bounds": [
+      591,
+      308,
+      351,
+      373
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:high_ridge",
+     "path": "art/backgrounds/room-29-high-ridge.png",
+     "drawn": "art/backgrounds/room-29-high-ridge.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "168ad519237544c89ecdec7b39db5ad0f5dbc230b3799bfdbb49b270ee987462"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-look-cairn",
+   "why": null,
+   "t": 22.71,
+   "file": "renders/proofs/high-ridge/life/raw-captures-ignored/04-look-cairn.png",
+   "hash": "2a80021117597cf3a8fa30253743dc8200b33eca0eb5245fd375ee17883b5568",
+   "room": "high_ridge",
+   "clock": 22.422900000000002,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1615,
+      656
+     ],
+     "facing": "left",
+     "clip": "walk",
+     "height": 348,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-left/walk-03.png",
+     "bounds": [
+      1429,
+      308,
+      351,
+      373
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:high_ridge",
+     "path": "art/backgrounds/room-29-high-ridge.png",
+     "drawn": "art/backgrounds/room-29-high-ridge.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "168ad519237544c89ecdec7b39db5ad0f5dbc230b3799bfdbb49b270ee987462"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 33.86s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T20:37:32.506Z"
+}

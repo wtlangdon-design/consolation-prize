@@ -70,6 +70,15 @@
    ],
    "facing": "right",
    "note": "From the map, as from the road."
+  },
+  {
+   "from": "high_ridge",
+   "at": [
+    1650,
+    790
+   ],
+   "facing": "left",
+   "note": "Down the path, in at the door (errata 99 E)."
   }
  ],
  "hotspots": {
@@ -163,12 +172,6 @@
    175,
    150
   ],
-  "high_ridge_path": [
-   1745,
-   290,
-   175,
-   430
-  ],
   "collar_advertisement": [
    1712,
    250,
@@ -176,7 +179,7 @@
    140
   ]
  },
- "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE HIGH RIDGE PATH is the open door at the right, THE DRYING LINES outside it; it becomes the way up to Room 29 when Room 29 is built (errata 99 D). THE COLLAR ADVERTISEMENT is 'pinned inside the door'. Sheng is his own figure (content/ambient/sheng.json).",
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE HIGH RIDGE PATH is the open door at the right, the way up to the high ridge (Room 29); THE DRYING LINES outside it (errata 99 D, E). THE COLLAR ADVERTISEMENT is 'pinned inside the door'. Sheng is his own figure (content/ambient/sheng.json).",
  "people": {
   "AH-LAM SHENG": [
    "sheng"
@@ -188,6 +191,12 @@
    100,
    175,
    600
+  ],
+  "to_high_ridge": [
+   1745,
+   290,
+   175,
+   430
   ]
  },
  "exitWalkTo": {
@@ -195,6 +204,11 @@
    "x": 200,
    "y": 790,
    "facing": "left"
+  },
+  "to_high_ridge": {
+   "x": 1700,
+   "y": 780,
+   "facing": "right"
   }
  },
  "obstacles": [],
@@ -215,7 +229,6 @@
   "chair": "LOOK_AT",
   "mending_basket": "LOOK_AT",
   "drying_lines": "LOOK_AT",
-  "high_ridge_path": "LOOK_AT",
   "collar_advertisement": "LOOK_AT"
  },
  "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
@@ -228,5 +241,13 @@
    "mud_near": 0
   },
   "planes": []
+ },
+ "exitSubjects": {
+  "THE HIGH RIDGE PATH": {
+   "id": "to_high_ridge",
+   "to": "high_ridge",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 05: 'The path up the ridge starts at the door.' Up to the high ridge, Room 29 (errata 99 E)."
+  }
  }
 }

@@ -1,0 +1,16 @@
+{
+ "assetId": "room-29",
+ "subject": "room-29-high-ridge",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-29-high-ridge",
+ "promptFile": "reference/room-29/prompts/composition-master-01.txt",
+ "out": "art/staging/room-29/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-29/layout-1536x1024.png",
+  "art/backgrounds/room-22-claims-road.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}
