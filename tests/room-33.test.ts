@@ -8,6 +8,8 @@
  * the score's ninety seconds (errata 71 E). F3 is three swings of the pickaxe,
  * the head flying off twice (doc 54), into Room 34's second state.
  */
+// PLAYS: F2
+// PLAYS: F3
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
@@ -56,6 +58,17 @@ test('a tap nearer the void rings longer, the void answers from the first tap, a
   assert.ok(listening.taps.length >= 12, 'a fine gradient');
   assert.ok(listening.found.say && docs.includes(listening.found.say), 'its one line is written');
   assert.ok(!state.targets.some((one) => /void/i.test(one.id) || /VOID/.test(one.name)), 'no target is the void');
+});
+
+test('F2: the void\'s answer, made as the scene makes it, says its line, writes the find and completes F2', async () => {
+  const state = await inState(SEARCHING);
+  const listening = state.room.listening!;
+  const surface = rock(state);
+  const answer = state.interact({ id: `${surface.id}#void`, name: surface.name, rect: surface.rect, colour: 0,
+    distant: true, responses: { LISTEN_TO: [listening.found] } } as typeof surface, 'LISTEN_TO');
+  assert.equal(answer.say, listening.found.say);
+  assert.ok(state.flags.test({ [listening.foundFlag]: true }));
+  assert.ok(state.puzzleComplete('F2'));
 });
 
 test('the ninety seconds tune the score from -35 cents to 0 and no faster', async () => {

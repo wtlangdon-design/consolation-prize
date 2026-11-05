@@ -1,5 +1,5 @@
 /**
- * ROOM 34, UNDER PROSPERITY, from the room's own fixtures (content/fixtures/room-34.json).
+ * ROOM 34, THE TUNNEL UNDER THE CLAIM, from the room's own fixtures (content/fixtures/room-34.json).
  *
  * Doc 57 F1: the pickaxe on the hole is three days and forty feet, and Room 34
  * opens below it. One room in two states (errata 69 A): before F3 the way down,
@@ -55,8 +55,10 @@ test('after F3 the seam, the old lantern and the footprints appear, and the plat
 
 test('the pickaxe on the hole after F1 leads down, and the hole is the way down from then on', async () => {
   const state = await inState(BEFORE);
+  // The claim above: the room the rope goes up to.
+  const above = state.room.exits.find((one) => one.to !== 'listening_chamber')!.to;
   state.flags.set('T_DUG_DOWN', false);
-  state.enterRoom('prosperity');
+  state.enterRoom(above);
   assert.ok(!state.targets.some((one) => (one as { to?: string }).to === ROOM), 'no way down before the digging');
   const hole = state.findTarget('hole')!;
   state.holdItem(null);
@@ -65,7 +67,7 @@ test('the pickaxe on the hole after F1 leads down, and the hole is the way down 
   assert.ok(dug.say && docs.includes(dug.say), 'three days, forty feet');
   assert.ok(state.flags.test({ T_DUG_DOWN: true }));
   assert.equal(dug.goesTo, ROOM, 'and once it is read he is at the bottom of it');
-  state.enterRoom('prosperity');
+  state.enterRoom(above);
   assert.ok(state.targets.some((one) => (one as { to?: string }).to === ROOM), 'the hole leads down');
 });
 
