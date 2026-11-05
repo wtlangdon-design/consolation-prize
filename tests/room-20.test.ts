@@ -116,7 +116,7 @@ test('a wrong verb on Hob in the alley is doc 54\'s line for it', async () => {
   const lines = state.room.peopleResponses?.hob;
   assert.ok(lines, 'his refusals are the room\'s');
   for (const verb of ['PICK_UP', 'PUSH', 'USE']) {
-    const said = lines[verb]?.[0]?.say;
+    const said: string | undefined = lines[verb]?.[0]?.say;
     assert.ok(said && doc54.includes(`"${said}"`), `${verb}: doc 54's line`);
   }
 });
