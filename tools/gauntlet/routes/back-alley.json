@@ -107,8 +107,8 @@
   },
   {
    "do": "wait",
-   "seconds": 2,
-   "why": "let the arrival settle"
+   "seconds": 7,
+   "why": "the arrival under the title takes no clicks until it is done"
   },
   {
    "do": "click",
