@@ -569,6 +569,11 @@ async function main() {
       // control is legitimate evidence about the room and is NOT evidence that
       // the room is reachable; conflating those is how a room nobody can walk
       // to gets photographed and signed off.
+      // THE SCENE FIRST: a page started from a fixture is still restoring it
+      // when the first evaluate lands, and the control has no state to use.
+      await page.waitForFunction(() => {
+        try { return Boolean(window.__gauntlet?.probe()?.room); } catch { return false; }
+      }, null, { timeout: 30000 });
       const answer = await page.evaluate((id) => window.__gauntlet?.controls.enter(id),
         roomId);
       if (!answer?.ok) throw new Error(`could not enter ${roomId}: ${answer?.why}`);
