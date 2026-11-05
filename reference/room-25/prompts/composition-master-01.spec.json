@@ -1,0 +1,17 @@
+{
+ "assetId": "room-25",
+ "subject": "room-25-pratts-claim",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-25-pratts-claim",
+ "promptFile": "reference/room-25/prompts/composition-master-01.txt",
+ "out": "art/staging/room-25/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-25/layout-1536x1024.png",
+  "renders/room-01-in-engine-1920x1080.png",
+  "art/backgrounds/room-01-stage-road.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

@@ -53,6 +53,21 @@
    "note": "Doc 57 A4: 'Room 23 appears on the town map ... only while Thad holds the map' (errata 96 C). Beside the road to the claims, up the hill."
   },
   {
+   "id": "loc_pratts_claim",
+   "room": "pratts_claim",
+   "at": [
+    1440,
+    380
+   ],
+   "when": {
+    "T_SEEN_MAIN_STREET": true
+   },
+   "holding": {
+    "company_map": true
+   },
+   "note": "Doc 20: Pratt's claim, via the road. With the Company's map, as Prosperity is: the map is what finds the claims (doc 57 A4; errata 97 C). Next door to Prosperity, up the hill."
+  },
+  {
    "id": "loc_undertaker",
    "room": "undertaker",
    "at": [

@@ -1,0 +1,461 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "pratts_claim",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "8c21e0a076cc4a3edaf6f5ea3f4778d78efee6fb",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r25-a, then entered pratts_claim by control -- NOT proof that a player can reach it",
+  "action 1 (verb): chose verb TALK_TO -- ",
+  "action 2 (click): clicked world 1450,560 -- Pratt, on his rake",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room pratts_claim",
+  "action 4 (option): chose option pratt1 -- There's a raccoon in my hole",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room pratts_claim"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 561,
+    "xs": [
+     1055,
+     844,
+     1266,
+     633,
+     1478,
+     421,
+     1689,
+     210,
+     1900
+    ],
+    "expect": 278,
+    "x": 1055
+   },
+   "at": [
+    1055,
+    561
+   ],
+   "reportedHeight": 278,
+   "expected": 278,
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "bounds": [
+    911,
+    283,
+    288,
+    307
+   ],
+   "order": 0,
+   "renderedHeight": 279,
+   "renderedBottom": 561,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     1055,
+     844,
+     1266,
+     633,
+     1478,
+     421,
+     1689,
+     210,
+     1900
+    ],
+    "expect": 479,
+    "x": 1055
+   },
+   "at": [
+    1055,
+    857
+   ],
+   "reportedHeight": 479,
+   "expected": 479,
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
+   "bounds": [
+    806,
+    378,
+    497,
+    529
+   ],
+   "order": 0,
+   "renderedHeight": 479,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "pratt",
+   "feet": [
+    1450,
+    716
+   ],
+   "sheet": "art/actors/room-25-pratt.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1269,
+    "y": 320,
+    "width": 363,
+    "height": 398
+   },
+   "seen": {
+    "x": 1270,
+    "y": 323,
+    "width": 182,
+    "height": 393,
+    "bottom": 715,
+    "right": 1451,
+    "changed": 32822
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "pratts_claim",
+   "clock": 9.3831,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed",
+    "company_map",
+    "eggs",
+    "tonic",
+    "blanket"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 427,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      38,
+      353,
+      443,
+      471
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:pratts_claim",
+     "path": "art/backgrounds/room-25-pratts-claim.png",
+     "drawn": "art/backgrounds/room-25-pratts-claim.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
+    },
+    {
+     "key": "art/actors/room-25-pratt.png",
+     "path": "art/actors/room-25-pratt.png",
+     "drawn": "art/actors/room-25-pratt.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(pratts_claim)"
+   ],
+   "capturedAt": "2026-11-05T17:03:55.802Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "dcf5381b1820e33611a2d8f35cded9235f4c39c269a9eed2fb5e4958297b70ab"
+  },
+  {
+   "panel": "A",
+   "room": "pratts_claim",
+   "clock": 10.249799999999999,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed",
+    "company_map",
+    "eggs",
+    "tonic",
+    "blanket"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 427,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:pratts_claim",
+     "path": "art/backgrounds/room-25-pratts-claim.png",
+     "drawn": "art/backgrounds/room-25-pratts-claim.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
+    },
+    {
+     "key": "art/actors/room-25-pratt.png",
+     "path": "art/actors/room-25-pratt.png",
+     "drawn": "art/actors/room-25-pratt.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(pratts_claim)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T17:03:56.710Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "35fcfd4dcfffb6abceb4f4a2e71b144ca896024c58d830c27869b039302379a1"
+  },
+  {
+   "panel": "D",
+   "room": "pratts_claim",
+   "clock": 26.199099999999998,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_BITTEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed",
+    "company_map",
+    "eggs",
+    "tonic",
+    "blanket"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      1200,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 413,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-02.png",
+     "bounds": [
+      986,
+      347,
+      428,
+      456
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 4,
+   "assets": [
+    {
+     "key": "bg:pratts_claim",
+     "path": "art/backgrounds/room-25-pratts-claim.png",
+     "drawn": "art/backgrounds/room-25-pratts-claim.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
+    },
+    {
+     "key": "art/actors/room-25-pratt.png",
+     "path": "art/actors/room-25-pratt.png",
+     "drawn": "art/actors/room-25-pratt.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(pratts_claim)",
+    "cast(false)",
+    "cast(true)",
+    "stand(1055,561)",
+    "cast(false)",
+    "cast(true)",
+    "stand(1055,857)",
+    "cast(false)",
+    "cast(true)"
+   ],
+   "capturedAt": "2026-11-05T17:04:12.633Z",
+   "intent": "principal changed state: T_PRATT_BITTEN (doc 04 PRA_A1 option 1, A5's fourth way). Visible consequence: the bite, and 'How's the bite?' among his options after it.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "4a002197de4e3df8a3cafef375c4492cb35d6553b935b9bb488f1f6800276842",
+   "changedBy": "flags"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T17:04:12.634Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 654912,
+  "panels": 5,
+  "scale": 0.5
+ }
+}

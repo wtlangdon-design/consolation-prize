@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "room": "pratts_claim",
+ "note": "ROOM 25's LIFE ROUTE, ruling 47: about a minute and a half on Pratt's claim in Act I with the map, starting there (proofs/spec/pratts-claim.json's fixture r25-a). Pratt rakes, checks the sky and breathes. LOOK at the sign, LISTEN to the coffee pot, LOOK at the tally post. D2 and D5 are played in tests/room-25.test.ts.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-arrived",
+   "why": "the claim, Pratt raking"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "02-the-claim"
+  },
+  {
+   "do": "wait",
+   "seconds": 7
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "sign",
+   "why": "THE SIGN: NO COLOR YET"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "03-look-sign",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "coffee_pot",
+   "why": "THE COFFEE POT"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "04-listen-pot"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "tally_post",
+   "why": "THE TALLY POST"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "05-look-tally"
+  },
+  {
+   "do": "wait",
+   "seconds": 20
+  },
+  {
+   "do": "capture",
+   "name": "06-still-raking"
+  },
+  {
+   "do": "wait",
+   "seconds": 15
+  }
+ ]
+}

@@ -1,0 +1,202 @@
+{
+ "schema": 1,
+ "id": "room-25-pratts-claim",
+ "room": "pratts_claim",
+ "docRoom": 25,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 25 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/04-dialogue-trees.md",
+  "docs/05-examine-layer.md",
+  "docs/10-examine-batch-3.md",
+  "docs/54-batch-c.md",
+  "docs/57-puzzle-completion.md",
+  "docs/49-wrong-answers.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-25.json",
+    "docs/00-errata.md::97 · ROOM 25 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Pratt raking in every act; his tree by act and by D5; reached next door and with the map; morning."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-25/graybox.json",
+    "docs/00-errata.md::97 · ROOM 25 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Every subject is plate; Pratt is a figure; the sign's words are a prop in the shipping face."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-25-pratt.png",
+    "docs/00-errata.md::97 · ROOM 25 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Pratt drawn on magenta against Thad, on his claim and on Prosperity."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/pratts-claim/life/life.json"
+   ],
+   "note": "Pratt breathes, checks the sky and rakes."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-25-pratt.png"
+   ],
+   "note": "He stands on the swept ground with his rake on it; on Prosperity his mallet lands on his stake."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-25/annotation.json"
+   ],
+   "note": "Early morning; on Prosperity he is graded into its dusk."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-25.test.ts",
+    "docs/00-errata.md::97 · ROOM 25 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Nothing here is a clue by look or sound; the progress is all in his trees."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-25.json",
+    "content/rooms/pratts-claim.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 70 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-25: 3 of 4 operations (master, plate, Pratt's sheet)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/pratts-claim.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-25/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/pratts-claim/proof.json"
+   ],
+   "note": "Panel D: his offer, after a conversation. Started from fixture r25-a."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/pratts-claim/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/pratts-claim/doors/life.json",
+    "tests/room-25.test.ts"
+   ],
+   "note": "Next door to Prosperity and back, twice; D2 and D5 in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-25/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-25-pratts-claim.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-25/plate-01/frame.json"
+   ],
+   "note": "Promoted provisionally (errata 72 E)."
+  },
+  {
+   "subject": "Pratt, on his claim",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-25-pratt.png",
+   "evidence": [
+    "art/staging/room-25/pratt/pratt.json"
+   ],
+   "note": "From operation 3."
+  },
+  {
+   "subject": "Pratt, on Prosperity",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-25-pratt-jump.png",
+   "evidence": [
+    "art/staging/room-25/pratt/pratt-jump.json"
+   ],
+   "note": "From operation 3, graded into Room 23's dusk; the stake cut out as a prop."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q167 · Room 25, Pratt's claim: built, awaiting Tyler's playthrough; D2 and D5 play — **RULED 2026-11-05 (errata 97, delegated); BUILT, room-25 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q167 · Room 25, Pratt's claim: built, awaiting Tyler's playthrough; D2 and D5 play — **RULED 2026-11-05 (errata 97, delegated); BUILT, room-25 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

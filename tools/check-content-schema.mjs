@@ -44,6 +44,14 @@ export function check() {
   for (const { path, data } of content.rooms) {
     if (seenRoomIds.has(data.id)) report.fail(`${path}: duplicate room id "${data.id}"`);
     seenRoomIds.add(data.id);
+    // EVERY ROOM CAN BE DRAWN BEFORE ITS PLATE ARRIVES. Plates load deferred,
+    // and until one does the renderer fills the frame from `colours` and
+    // `horizon`; a room without them threw on its first frame and stopped the
+    // loop, so its plate and its people never arrived (Room 25, 2026-11-05).
+    if (typeof data.horizon !== 'number' || typeof data.colours?.sky !== 'number'
+      || typeof data.colours?.ground !== 'number') {
+      report.fail(`${path}: no colours.sky, colours.ground and horizon -- the frame drawn before the plate arrives`);
+    }
 
     const localIds = new Set();
     for (const target of [...(data.hotspots ?? []), ...(data.exits ?? [])]) {

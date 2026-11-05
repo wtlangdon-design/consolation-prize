@@ -3872,6 +3872,111 @@ function raccoonTree() {
   });
 }
 
+/**
+ * DOC 04, NICKEL PRATT: Room 25's tree and Room 23's encounter (errata 97).
+ *
+ * Two files, one man. `pratt.json` is his own claim: PRA_A1 in Act I ("next
+ * door", the first meeting, A5's "send Pratt"), PRA_B1 from Act II, PRA_D6
+ * once he has turned. PRA_D5 is the turn itself -- no options, "arithmetic,
+ * done out loud, slowly" -- so it is the exchange PRA_B1 option 7 plays, and
+ * the conversation goes on to PRA_D6 (doc 57 D5: "PRA_D6 follows").
+ * `pratt-jump.json` is PRA_D2, played as Thad arrives on Prosperity in Act II
+ * (doc 57 D2). Both close on doc 04's offer run: "Every single conversation,
+ * regardless of topic, ends with Pratt making an offer. It never stops."
+ *
+ * Routing that doc 04 states in prose rather than a backticked flag is the
+ * table below, each row citing the line it reads: A1 1 is offered only while
+ * the raccoon is in the hole (errata 75); D2 1 "D2 opens"; B1 7 sets
+ * T_PRATT_TURNED and completes D5 (doc 57 D5); D6 5 sets the attestation in
+ * motion for Room 7 (doc 57 D6). Plain quotes are his, italic quotes Thad's;
+ * the italic stage directions are logged and not drawn, as in every tree.
+ */
+function prattTree() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('# NICKEL PRATT');
+  const to = doc.indexOf('\n# ', from + 5);
+  if (from < 0 || to < 0) throw new Error('doc 04: no NICKEL PRATT section');
+  const body = doc.slice(from, to);
+  const SPEAKER = 'pratt';
+  const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
+  const offerLine = body.slice(body.indexOf('## The offer')).split('\n').find((line) => line.startsWith('> "'));
+  if (!offerLine) throw new Error('doc 04 PRATT: no offer run');
+  const offers = offerLine.slice(2).split(' · ').map((one) => quoted(one));
+  if (offers.length !== 6 || offers.some((one) => !one.length)) throw new Error(`doc 04 PRATT: ${offers.length} offers, not 6`);
+  const closing = { lines: offers, counter: 'PRATT_OFFERS' };
+  const section = (head) => {
+    const at = body.indexOf(head);
+    if (at < 0) throw new Error(`doc 04 PRATT: no "${head}"`);
+    return body.slice(at, body.indexOf('\n## ', at + 5) < 0 ? undefined : body.indexOf('\n## ', at + 5));
+  };
+  const speakerOf = (name) => (name === 'THAD' ? 'thad' : SPEAKER);
+  const script = (text) => [...text.matchAll(/^> \*\*([A-Z]+):\*\* (.+)$/gm)].map((m) => {
+    const said = quoted(m[2].replace(/\*\([^)]*\)\*/g, ''));
+    if (said.length !== 1) throw new Error(`doc 04 PRATT: "${m[2]}" is not one line`);
+    return { speaker: speakerOf(m[1]), line: said[0] };
+  });
+  const ROUTE = {
+    'PRA_A1 1': { when: { T_WARM_HOLE: false } },
+    'PRA_D2 1': { set: { T_PRATT_STAKE: true }, puzzle: { D2: 'pending' } },
+    'PRA_B1 6': { puzzle: { D2: 'complete' } },
+    'PRA_B1 7': { set: { T_PRATT_TURNED: true }, puzzle: { D5: 'complete' }, goto: 'PRA_D6', script: '## `PRA_D5`' },
+    'PRA_D6 5': { set: { T_PRATT_SWEARS: true } },
+  };
+  const node = (id, head, exitIndex) => {
+    const text = section(head);
+    const options = [];
+    for (const [, number, optionCell, tagCell, responseCell] of text.matchAll(/^\| (\d+) \| (.+?) \| (.+?) \| (.+?) \|$/gm)) {
+      const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
+      const optionText = quoted(optionCell)[0];
+      for (const d of spokenIn(responseCell, SPEAKER).staging) process.stderr.write(`  doc 04 ${id} option ${number} staging: ${d}\n`);
+      const bare = responseCell.replace(/\*\([^)]*\)\*/g, '');
+      const [reply, ...rest] = bare.split('→');
+      let said = spokenIn(reply, SPEAKER).lines;
+      if (!said.length) said = spokenIn(rest.join('→'), SPEAKER).lines.slice(0, 1);
+      const route = ROUTE[`${id} ${number}`] ?? {};
+      if (route.script) said = script(section(route.script).split('He signs.')[0]).concat(script(section(route.script).split('He signs.')[1] ?? ''));
+      if (!tag || !optionText || !said.length) throw new Error(`doc 04 ${id}: option ${number} does not read`);
+      const option = { id: `${SPEAKER}${number}`, tag: tag[1], ...(tag[2] ? { afterUse: tag[2] } : {}), text: plain(optionText) };
+      if (said.length === 1 && said[0].speaker === SPEAKER) option.say = said[0].line;
+      else option.exchange = said;
+      const after = afterIds(tagCell, SPEAKER);
+      if (after) option.after = after;
+      const reqs = [...responseCell.matchAll(/req `([A-Z_0-9]+)`/g)].map((m) => m[1]);
+      const sets = [...rest.join('→').matchAll(/`([A-Z_0-9]+)`/g)].map((m) => m[1]).filter((flag) => !reqs.includes(flag));
+      const when = { ...Object.fromEntries(reqs.map((flag) => [flag, true])), ...(route.when ?? {}) };
+      if (Object.keys(when).length) option.when = when;
+      const set = { ...Object.fromEntries(sets.map((flag) => [flag, true])), ...(route.set ?? {}) };
+      if (Object.keys(set).length) option.set = set;
+      if (route.puzzle) option.puzzle = route.puzzle;
+      if (route.goto) option.goto = route.goto;
+      options.push(option);
+    }
+    if (!options.length) throw new Error(`doc 04 ${id}: no options`);
+    options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[exitIndex % POOL.length], universal: true, ends: true });
+    const opening = script(text.split('\n| #')[0]);
+    return { id, noPrompt: true, exceptionReason: `Doc 04 writes ${id} as a table only.`, ...(opening.length ? { opening } : {}), options };
+  };
+  const A1 = node('PRA_A1', '## `PRA_A1`', 4);
+  const B1 = node('PRA_B1', '## Root: `PRA_B1`', 4);
+  const D6 = node('PRA_D6', '## `PRA_D6`', 4);
+  const D2 = { ...node('PRA_D2', '## `PRA_D2`', 4), openingOnce: 'T_PRATT_JUMP_HEARD' };
+  const counts = { PRA_A1: A1.options.length, PRA_B1: B1.options.length, PRA_D6: D6.options.length, PRA_D2: D2.options.length };
+  if (counts.PRA_A1 !== 5 || counts.PRA_B1 !== 8 || counts.PRA_D6 !== 6 || counts.PRA_D2 !== 4) throw new Error(`doc 04 PRATT: option counts ${JSON.stringify(counts)}`);
+  const note = 'EXTRACTED from docs/04-dialogue-trees.md (NICKEL PRATT) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. '
+    + 'Plain quotes in a reply are his, italic quotes Thad\'s. `closing` is doc 04\'s offer run, "It never stops" (errata 97).';
+  return [
+    write('content/dialogue/pratt.json', {
+      aftermathAuthored: true, schema: 1, id: 'PRATT', speaker: SPEAKER, name: 'NICKEL PRATT', note,
+      entries: [{ when: { T_PRATT_TURNED: true }, node: 'PRA_D6' }, { when: { ACT: { atLeast: 2 } }, node: 'PRA_B1' }],
+      start: 'PRA_A1', closing, nodes: { PRA_A1: A1, PRA_B1: B1, PRA_D6: D6 },
+    }),
+    write('content/dialogue/pratt-jump.json', {
+      aftermathAuthored: true, schema: 1, id: 'PRATT_JUMP', speaker: SPEAKER, name: 'NICKEL PRATT', note,
+      start: 'PRA_D2', closing, nodes: { PRA_D2: D2 },
+    }),
+  ];
+}
+
 function sowerbyTree() {
   const doc = read('docs/04-dialogue-trees.md');
   const from = doc.indexOf('# REVEREND SOWERBY');
@@ -3942,7 +4047,7 @@ function sowerbyTree() {
 }
 
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

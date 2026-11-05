@@ -1011,7 +1011,7 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [],
-   "note": "Doc 04 SHE_D1 option 1-prime: the Thursday ledger read (D4). Read by SOW_A1 option 7. Room 28, not built.",
+   "note": "Doc 04 SHE_D1 option 1-prime: the Thursday ledger read (D4). Read by SOW_A1 option 7. Room 28, not built. Read by PRA_B1 option 7, the turn (D5, Room 25).",
    "pending": true
   },
   {
@@ -1089,6 +1089,80 @@
     "room:prosperity:hole:LOOK_AT (doc 57 F1, Act IV)"
    ],
    "note": "Doc 57 F1: the hole is warm because air moves through the rock. Read by the pickaxe on the hole."
+  },
+  {
+   "id": "PRATT_OFFERS",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "dialogue:PRATT closing (adds 1)",
+    "dialogue:PRATT_JUMP closing (adds 1)"
+   ],
+   "note": "Doc 04, Nickel Pratt: 'Every single conversation, regardless of topic, ends with Pratt making an offer. It never stops.' How many offers he has made: the next is doc 04's run at this count, held at the last (DialogueFile.closing; errata 97 B)."
+  },
+  {
+   "id": "T_PRATT_BITTEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:PRATT:PRA_A1:pratt1"
+   ],
+   "note": "Doc 04 PRA_A1 option 1: Pratt reaches into the hole for Thad (A5's fourth way). Read by PRA_A1 option 4, 'How's the bite?'."
+  },
+  {
+   "id": "T_PRATT_PAID",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:PRATT:PRA_B1:pratt1"
+   ],
+   "note": "Doc 04 PRA_B1 option 1: 'Told to.' Somebody pays him to jump Prosperity (doc 57 D2)."
+  },
+  {
+   "id": "T_PRATT_TURNED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:PRATT:PRA_B1:pratt7"
+   ],
+   "note": "Doc 57 D5: 'He signs' -- the quitclaim; Pratt gives up jumping Prosperity. Opens PRA_D6 (errata 97 B)."
+  },
+  {
+   "id": "T_PRATT_STAKE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:PRATT_JUMP:PRA_D2:pratt1"
+   ],
+   "note": "Doc 04 PRA_D2 option 1: 'That's my stake you're pulling up' -- D2 opens, and Pratt goes back next door (errata 97 D)."
+  },
+  {
+   "id": "T_PRATT_JUMP_SEEN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:prosperity:onEnter:accost"
+   ],
+   "note": "Doc 57 D2: PRA_D2 plays as Thad arrives on Prosperity in Act II, once (errata 97 D)."
+  },
+  {
+   "id": "T_PRATT_JUMP_HEARD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:PRATT_JUMP:PRA_D2 openingOnce"
+   ],
+   "note": "PRA_D2's opening -- 'You're standing on my claim.' 'Yep.' -- is said once; TALK TO after opens the options."
+  },
+  {
+   "id": "T_PRATT_SWEARS",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:PRATT:PRA_D6:pratt5"
+   ],
+   "note": "Doc 04 PRA_D6 option 5: 'Yep. Sump closes at four.' Doc 57 D6: the next time Thad enters the Registrar's, Pratt is at the counter. That scene is Room 7's and is not staged yet (doc 36 Q167).",
+   "pending": true
   }
  ]
 }

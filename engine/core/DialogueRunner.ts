@@ -580,6 +580,21 @@ export class DialogueRunner {
     // EXIT, or an option whose document says the conversation is over (doc 27
     // `ends`: Vessel takes the money and leaves, doc 57 A3).
     const ends = option.tag === EXIT_TAG || option.ends === true;
+    // EVERY CONVERSATION ENDS WITH HIS OFFER (DialogueFile.closing; doc 04,
+    // Nickel Pratt: "It never stops"). The next in the run, held at the last.
+    const closing = ends ? this.activeTree.closing : undefined;
+    let closingAdd: Record<string, number> | undefined;
+    if (closing && closing.lines.length) {
+      const said = Number(this.flags.get(closing.counter) ?? 0);
+      const offer = closing.lines[Math.min(Math.max(0, said), closing.lines.length - 1)]!;
+      const speaker = this.activeTree.speaker ?? '';
+      const spoken = offer.map((line) => ({ speaker, line }));
+      if (say === null && spoken.length) {
+        say = spoken[0]!.line; sayer = speaker; direction = false;
+        rest = [...rest, ...spoken.slice(1)];
+      } else rest = [...rest, ...spoken];
+      closingAdd = { [closing.counter]: 1 };
+    }
     const goto = !ends && option.goto ? option.goto : null;
     if (goto && !this.activeTree.nodes[goto]) {
       throw new Error(`Unknown goto target: ${goto}`);
@@ -591,6 +606,7 @@ export class DialogueRunner {
     const effects: DurableEffect[] = [
       { id: `${prefix}#taken`, kind: 'dialogueTaken', tree: treeId, node: nodeId, option: option.id },
       ...flagEffects(prefix, option.set, option.add),
+      ...(closingAdd ? flagEffects(`${prefix}#closing`, undefined, closingAdd) : []),
       // PUZZLE PROGRESS A ROW WRITES (doc 53): reserved with the rest, landed
       // after the exchange drains.
       ...Object.entries(option.puzzle ?? {}).map(([puzzle, status]) => ({
