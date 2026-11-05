@@ -1,0 +1,1522 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "creek",
+ "commit": "3ee4c9ab4d5d50bfe23c8d64b76f22fb596e339f",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": null,
+ "fixture": "r26-a",
+ "warped": false,
+ "lifeRoute": "creek-life",
+ "durationSeconds": 88.08,
+ "events": [
+  {
+   "t": 2.45,
+   "line": "started from fixture r26-a, no entry route"
+  },
+  {
+   "t": 5.48,
+   "line": "in creek; life route: 23 action(s)"
+  },
+  {
+   "t": 6.17,
+   "line": "capture 01-arrived: room creek, says null, options 0, control null"
+  },
+  {
+   "t": 7.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 8.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 9.18,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 11.18,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.18,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 13.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 14.17,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 14.67,
+   "line": "capture 02-the-creek: room creek, says null, options 0, control null"
+  },
+  {
+   "t": 15.7,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 16.7,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 17.7,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.7,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 19.7,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 20.7,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 21.68,
+   "line": "action 1 (wait): waited 7s"
+  },
+  {
+   "t": 21.74,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 21.91,
+   "line": "action 1 (click): clicked creek/man_panning at world 1480,573 -- THE MAN PANNING"
+  },
+  {
+   "t": 22.92,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     537,
+     789
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 23.93,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     823,
+     788
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 24.93,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1104,
+     787
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 25.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1384,
+     786
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 26.49,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room creek"
+  },
+  {
+   "t": 27,
+   "line": "capture 03-look-man: room creek, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 28.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1480,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 29.01,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1480,
+     786
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 30.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1196,
+     786
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 31.01,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 32.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 33.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 34.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 35.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 36.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 37.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 38.01,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 39.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 40.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 41.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 42.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 43.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 44.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 45.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 46.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 47.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 48.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 49.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 50.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 51.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 52.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 53.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 54.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 55.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 56.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 57.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 58.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 59.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 60.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 61.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 62.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 63.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 64.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 65.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 66.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 67.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 68.08,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 69.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 70.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 71.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 72.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 73.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 74.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 75.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 76.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 77.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 78.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 79.06,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 80.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 81.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 82.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 83.06,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 84.06,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 85.07,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 86.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 87.07,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1055,
+     786
+    ],
+    "moving": false
+   }
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "the creek, the man panning",
+   "t": 6.16,
+   "file": "renders/proofs/creek/life/raw-captures-ignored/01-arrived.png",
+   "hash": "0d7e029c04fb83d563ea65a520d602418a21d6804d5e7405114d308e76ee05d2",
+   "room": "creek",
+   "clock": 5.8571,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 349,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      79,
+      441,
+      362,
+      385
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:creek",
+     "path": "art/backgrounds/room-26-creek.png",
+     "drawn": "art/backgrounds/room-26-creek.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2423285fa11828740e609778ccecc461c5bd5fdf22b0a1a0c0937a0714ea32ad"
+    },
+    {
+     "key": "art/actors/room-26-panner.png",
+     "path": "art/actors/room-26-panner.png",
+     "drawn": "art/actors/room-26-panner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f1edd94c21cace4efcd367a83e81f2a7c512a240b67bbf4d3ff426371142109"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-the-creek",
+   "why": null,
+   "t": 14.67,
+   "file": "renders/proofs/creek/life/raw-captures-ignored/02-the-creek.png",
+   "hash": "5185559cbb18dac75ae1b707d81dad0943224ae3db7b746856a8421ae4bc026a",
+   "room": "creek",
+   "clock": 14.5068,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 349,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      79,
+      441,
+      362,
+      385
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:creek",
+     "path": "art/backgrounds/room-26-creek.png",
+     "drawn": "art/backgrounds/room-26-creek.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2423285fa11828740e609778ccecc461c5bd5fdf22b0a1a0c0937a0714ea32ad"
+    },
+    {
+     "key": "art/actors/room-26-panner.png",
+     "path": "art/actors/room-26-panner.png",
+     "drawn": "art/actors/room-26-panner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f1edd94c21cace4efcd367a83e81f2a7c512a240b67bbf4d3ff426371142109"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-look-man",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 27,
+   "file": "renders/proofs/creek/life/raw-captures-ignored/03-look-man.png",
+   "hash": "81a328a6bed991f1a0de5771d56e5183fe28dda9b2e7c1a8c3fdf709541ada93",
+   "room": "creek",
+   "clock": 26.839599999999997,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1480,
+      786
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 346,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      1275,
+      440,
+      410,
+      382
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:creek",
+     "path": "art/backgrounds/room-26-creek.png",
+     "drawn": "art/backgrounds/room-26-creek.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2423285fa11828740e609778ccecc461c5bd5fdf22b0a1a0c0937a0714ea32ad"
+    },
+    {
+     "key": "art/actors/room-26-panner.png",
+     "path": "art/actors/room-26-panner.png",
+     "drawn": "art/actors/room-26-panner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f1edd94c21cace4efcd367a83e81f2a7c512a240b67bbf4d3ff426371142109"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [
+  "life action 9 (waitFor): route: waitFor {\"do\":\"waitFor\",\"idle\":true,\"upTo\":60} timed out after 60s. It saw: room creek, control null, beat -, 0 option(s), handedOver true"
+ ],
+ "passed": false,
+ "judgement": {
+  "machine": {
+   "passed": false,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 88.08s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T19:35:51.743Z"
+}
