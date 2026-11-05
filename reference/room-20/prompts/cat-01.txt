@@ -1,0 +1,22 @@
+Image 1 shows two figures from my pixel-art adventure game side by side at the same scale. On the left is Thad, the hero: he is the style standard. On the right is the alley cat, cut from image 2 as she sits on the top crate. Look at Thad's pixels: BIG square blocks. Every pixel of him is a clear, chunky square; his clothes are a few flat tones with no fine texture.
+
+Image 2 is a frame from the game: the back alley at night. The small cat sitting on the top crate in the lamplight from the open door is the one I need. I need her drawn on her own, WHOLE, as a sheet of five poses, in THAD'S PIXEL SIZE.
+
+THE CHARACTER -- the alley cat, as image 2 shows her: a small grey-brown tabby, thin and self-possessed, sitting upright, entirely uninterested in anything. She sits FACING THE VIEWER, seen from the front and a little from her left, as she does on the crate in image 2.
+
+THE SHEET -- one image, five poses of this same cat, side by side, left to right, each showing her WHOLE, ears to tail:
+1. REST: sitting upright, facing the viewer, front paws together, tail curled round her paws, eyes half closed.
+2. BREATH: identical to pose 1 except her chest very slightly raised and her eyes a little more closed. Nothing else changes.
+3. TAIL: as pose 1, but her tail lifted off her paws and curled up in the air beside her.
+4. LOOK: as pose 1, but her whole head turned to look to the LEFT of the picture, ears forward.
+5. WASH: still sitting, one front paw raised to her face, her head bent to lick it.
+
+STYLE: each pose about 30 big pixels tall from ear tips to paws, exactly as coarse as Thad; every pixel a large, crisp square block the size of Thad's; simple shapes and flat colour areas; her stripes a few darker blocks; her eyes a few blocks.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No crate, no floor, no shadow, nothing else in the picture.
+- All five poses the same size, paws on the same baseline, each about a third of the height of the picture.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens. Same colours, same markings everywhere else.
+- Crisp pixel edges against the magenta. No soft glow or blur around her.
+- No text, labels, numbers or borders.

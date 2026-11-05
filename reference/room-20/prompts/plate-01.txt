@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game: a back alley at night, with a man in a blue coat standing in it and a cat sitting on the top crate.
+
+Make exactly these changes:
+1. Remove the man. Paint what is behind him, exactly as the alley would look with nobody in it: the back wall of the building, its door, and the mud.
+2. Remove the cat. The top crate stays exactly where it is, with the lamplight from the open door falling on its lid, and nothing on it.
+
+Change nothing else. Same camera, same pixel grid, same colours, same light, same objects in the same places: the gap to the lit street at the far left, the row of back doors and the open one with the brick, the crates, the wash line with the shirt and the long underwear, the downspout and the rain barrel, the long building with its bracing against the sky, its side door, the ash heap, the stacked barrels, the night sky. The light grey margins at the very top and bottom stay light grey. No people, no shadows of people, no animals, no text, no numerals.

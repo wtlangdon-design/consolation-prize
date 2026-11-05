@@ -160,6 +160,12 @@
    400,
    270,
    165
+  ],
+  "to_back_alley": [
+   0,
+   300,
+   58,
+   420
   ]
  },
  "exitWalkTo": {
@@ -197,6 +203,11 @@
    "x": 260,
    "y": 640,
    "facing": "back"
+  },
+  "to_back_alley": {
+   "x": 66,
+   "y": 700,
+   "facing": "left"
   }
  },
  "arrivalBySource": {
@@ -338,6 +349,15 @@
    ],
    "facing": "front",
    "note": "Out of the Mercantile's door, on its steps, facing the street."
+  },
+  {
+   "from": "back_alley",
+   "at": [
+    110,
+    700
+   ],
+   "facing": "right",
+   "note": "Back from the alley, at the street's east end past the mercantile (doc 20: 'East, the back lots')."
   }
  ],
  "onEnterSay": {

@@ -1,0 +1,724 @@
+{
+  "schema": 1,
+  "id": "back_alley",
+  "name": "THE BACK ALLEY",
+  "materialIdentity": "Bare boards and posts, the backs of the false fronts, alley mud, night; one back door propped open and the street's glow through a gap (errata 93 A)",
+  "note": "Room 20, doc 20: behind Main Street, reached from its east end. Built new at errata 54's size. THE CAT is a figure (content/ambient/alley-cat.json) on the top crate, and THE CAT hotspot over her holds her lines. Lines EXTRACTED from the documents by tools/extract-examine.mjs and compiled by tools/compile-room.mjs. Do not edit: change the docs and re-run.",
+  "background": "art/backgrounds/room-20-back-alley.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        170,
+        705,
+        790,
+        51
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        170,
+        756,
+        1220,
+        51
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        170,
+        807,
+        1730,
+        51
+      ]
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "cat",
+      "name": "THE CAT",
+      "rect": [
+        432,
+        494,
+        62,
+        66
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A cat on a crate, in the one square of sun. It has arranged the alley around itself.",
+            "repeat": [
+              "A cat, in an alley, entirely uninterested in the gold rush.",
+              "She has moved six inches to the left, after the sun. It is the only progress anyone has made in this alley today."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Purring, at the frequency of ownership.",
+            "repeat": [
+              "Nothing. She has heard everything that has ever been said back here and has drawn no conclusions.",
+              "Purring, briefly, then silence. She has decided I am furniture."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "The cat has a firm policy, administered through claws.",
+        "TALK_TO": "I explained my circumstances. The cat found them ordinary. It was, strange to say, the most comforting response I have collected."
+      },
+      "walkTo": {
+        "x": 463,
+        "y": 793,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "rain_barrel",
+      "name": "THE RAIN BARREL",
+      "rect": [
+        885,
+        540,
+        115,
+        160
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A barrel under a downspout, holding last month's weather.",
+            "repeat": [
+              "A skin of dust on the water and a single leaf on the dust. Last month's weather, with a bookmark.",
+              "Something is looking up at me from the bottom. I am choosing to believe it is my reflection."
+            ],
+            "then": [
+              "Something has drunk from it recently; something else lives in it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A drip above, a ripple below. A small economy.",
+            "repeat": [
+              "The drip, slower now. The economy is contracting.",
+              "A small plop from below. Whatever lives in there has made its position known."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "Whatever lives in it surfaced to watch me reconsider."
+      },
+      "walkTo": {
+        "x": 943,
+        "y": 796,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "ash_pile",
+      "name": "THE ASH PILE",
+      "rect": [
+        990,
+        620,
+        260,
+        105
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Ash from the Colonel's stove, swept out weekly.",
+            "repeat": [
+              "Most of it is ordinary ash. The paper in it was good paper, the heavy kind, with a watermark.",
+              "I have left the corner that says BOSTON where it lies. It is not mine, and in this town that is not a small distinction."
+            ],
+            "then": [
+              "Some of it is paper that did not entirely burn. One corner reads BOSTON."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Ash has finished saying things.",
+              "A dry whisper when the wind lifts the scraps."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1120,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "crates",
+      "name": "THE CRATES",
+      "rect": [
+        410,
+        540,
+        165,
+        170
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Empty crates stacked into a geography.",
+            "repeat": [
+              "One reads FRAGILE in three languages. The crate under it has been crushed flat.",
+              "Somebody has carved a checkerboard into the top one. The game on it has been in progress for some time."
+            ],
+            "then": [
+              "Stenciled from cities that would not recognize where they ended up."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Hollow wood. A knock would echo, if anyone were knocking.",
+            "repeat": [
+              "A scrabbling in the lowest crate, then a silence that is trying very hard.",
+              "Nothing. The crates have given up on being shipped anywhere."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "The stack is load-bearing for at least one wall and possibly one business."
+      },
+      "walkTo": {
+        "x": 493,
+        "y": 809,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "side_door",
+      "name": "THE SIDE DOOR",
+      "rect": [
+        1170,
+        380,
+        200,
+        310
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A door in the back of the Improvement Company that does not appear on the front of it.",
+            "repeat": [
+              "No handle on this side. A keyhole, oiled.",
+              "Somebody uses this door. The step is worn, and Main Street does not know it exists."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. It is a very well-fitted door, for a back alley.",
+              "Nothing. If anyone is behind it, they are better at waiting than I am."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1270,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "wash_line",
+      "name": "THE WASH LINE",
+      "rect": [
+        140,
+        185,
+        760,
+        175
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A line strung wall to wall, flying one shirt and a set of long underwear at half mast.",
+            "repeat": [
+              "The shirt has been mended at both elbows by someone who cared, and at the collar by someone who did not.",
+              "It has been dry for a day and nobody has taken it in. It is waiting for its owner, like most things in this alley."
+            ],
+            "then": [
+              "Somebody's whole wardrobe, publicly drying."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Cloth, snapping small. The underwear applauds the wind.",
+            "repeat": [
+              "A clothes-peg creaking, holding on.",
+              "The underwear again, flapping. It has found its audience."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "The long underwear waved. I waved back before I could stop myself."
+      },
+      "walkTo": {
+        "x": 520,
+        "y": 793,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "barrels",
+      "name": "THE BARRELS",
+      "rect": [
+        1400,
+        400,
+        470,
+        355
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Empty barrels, stenciled for flour, stacked behind a company that does not sell flour.",
+            "repeat": [
+              "Stacked in a pyramid, true and square. Whoever did it took pride in a pile of nothing.",
+              "I have stopped asking what things are for in this town. I have not stopped noticing."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Empty. All of them. Somebody has stacked forty empty barrels very carefully.",
+            "repeat": [
+              "I knocked on one. Empty, and it said so at length.",
+              "Nothing. Forty empty barrels and not one rattle."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1635,
+        "y": 858,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "back_doors",
+      "name": "THE BACK DOORS",
+      "rect": [
+        0,
+        330,
+        900,
+        345
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Every establishment's second mouth. Deliveries, debts, and departures use these.",
+            "repeat": [
+              "Each one has a different lock and the same scuff at boot height. Everybody leaves the same way.",
+              "The Nugget's back door is propped open with a brick. It is the only frank door in the row."
+            ],
+            "then": [
+              "The fronts are for arriving."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Bolts, in their brackets. The town, latched.",
+            "repeat": [
+              "A bolt shot home somewhere along the row. Someone has decided against visitors.",
+              "Nothing. Every door in the row is listening for the same thing I am."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 450,
+        "y": 793,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "mud",
+      "name": "THE MUD",
+      "rect": [
+        0,
+        700,
+        1920,
+        164
+      ],
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Alley mud, which is Main Street's mud without the audience.",
+            "repeat": [
+              "Footprints both ways, mostly to and from the Nugget's back door, and the ones coming back are less straight.",
+              "It is the same mud as the street. I find that reassuring, which tells you how my week has gone."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wet, and in no hurry.",
+            "repeat": [
+              "Drips from the eaves, landing in it one at a time.",
+              "Nothing. Even the mud keeps its voice down back here."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "back_of_the_improvement_company",
+      "name": "THE BACK OF THE IMPROVEMENT COMPANY",
+      "rect": [
+        915,
+        0,
+        1005,
+        700
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "One story. From Main Street it is three. I have walked around it twice to be sure.",
+            "repeat": [
+              "From here you can see the bracing that holds up the two stories that are not there. It is very good bracing. Somebody spent real money on the part nobody sees.",
+              "No windows on this side at all. A building that faces only one way."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It is the quietest building in Consolation from every side.",
+            "repeat": [
+              "Nothing. Whatever goes on inside, the walls were built thick enough to keep it there.",
+              "Nothing still. I have stood here long enough to be noticed, and nobody has noticed."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1418,
+        "y": 856,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "alley_itself",
+      "name": "THE ALLEY ITSELF",
+      "rect": [
+        0,
+        0,
+        1920,
+        700
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The space behind Main Street, where the false fronts stop pretending.",
+            "repeat": [
+              "From back here you can see which buildings are brick and which are paint. They are all paint.",
+              "Somebody has swept a path down the middle. The rest has been left to its own devices, and its devices are mostly mud."
+            ],
+            "then": [
+              "Bare boards, bare posts, and the backs of promises."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The street, through two walls. All of the noise and none of the words.",
+            "repeat": [
+              "A door somewhere, opened and shut quickly. The alley is where the town comes to do what it would rather not do on the street.",
+              "The street noise, cut into slices by the gaps between the buildings."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 960,
+        "y": 796,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_main_street",
+      "name": "MAIN STREET",
+      "stub": true,
+      "rect": [
+        150,
+        260,
+        80,
+        440
+      ],
+      "colour": 0,
+      "to": "main_street",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: the one way back, to Main Street's east end. NO DOCUMENT WRITES THIS WAY OUT from the alley. A stub exit, as Rooms 6, 8, 9 and 10's are (doc 36 Q163).",
+      "walkTo": {
+        "x": 200,
+        "y": 720,
+        "facing": "left"
+      }
+    }
+  ],
+  "entrances": [
+    {
+      "from": "main_street",
+      "at": [
+        260,
+        740
+      ],
+      "facing": "right",
+      "note": "In through the gap from Main Street's east end, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        260,
+        740
+      ],
+      "facing": "right",
+      "note": "In through the gap from Main Street, at left."
+    }
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-20.json",
+      "reference/room-20/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkableOutline": [
+    [
+      170,
+      705
+    ],
+    [
+      960,
+      705
+    ],
+    [
+      960,
+      725
+    ],
+    [
+      1390,
+      725
+    ],
+    [
+      1390,
+      762
+    ],
+    [
+      1900,
+      762
+    ],
+    [
+      1900,
+      858
+    ],
+    [
+      170,
+      858
+    ]
+  ],
+  "entrance": [
+    260,
+    740
+  ],
+  "ambient": [
+    "alley_cat",
+    "hob"
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 170,
+          "y": 705
+        },
+        {
+          "x": 960,
+          "y": 705
+        },
+        {
+          "x": 960,
+          "y": 756
+        },
+        {
+          "x": 170,
+          "y": 756
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 705,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 170,
+          "y": 756
+        },
+        {
+          "x": 1390,
+          "y": 756
+        },
+        {
+          "x": 1390,
+          "y": 807
+        },
+        {
+          "x": 170,
+          "y": 807
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 705,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 170,
+          "y": 807
+        },
+        {
+          "x": 1900,
+          "y": 807
+        },
+        {
+          "x": 1900,
+          "y": 858
+        },
+        {
+          "x": 170,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 705,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "back_door",
+      "at": [
+        400,
+        520
+      ],
+      "radius": 420,
+      "amount": 0.1,
+      "rate": 0.29,
+      "phase": 0.2,
+      "note": "The propped back door's lamplight."
+    },
+    {
+      "id": "street_gap",
+      "at": [
+        190,
+        470
+      ],
+      "radius": 260,
+      "amount": 0.08,
+      "rate": 0.23,
+      "phase": 0.7,
+      "note": "Main Street's lamp, through the gap."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-20/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
+  "peopleResponses": {
+    "hob": {
+      "PICK_UP": [
+        {
+          "say": "I am not going to pick up the night watchman. He has somewhere to be, and it is every door in this alley, in order."
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "I am not going to push a man carrying a lit lantern down an alley full of dry crates."
+        }
+      ],
+      "USE": [
+        {
+          "say": "He is holding a lantern and a great deal of patience. I am not going to put either of them to work."
+        }
+      ]
+    }
+  }
+}

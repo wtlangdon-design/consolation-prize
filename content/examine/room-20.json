@@ -165,5 +165,12 @@
         "Nothing. If anyone is behind it, they are better at waiting than I am."
       ]
     }
-  ]
+  ],
+  "exitsAndUnplaced": {
+    "HOB": {
+      "PICK_UP": "I am not going to pick up the night watchman. He has somewhere to be, and it is every door in this alley, in order.",
+      "PUSH": "I am not going to push a man carrying a lit lantern down an alley full of dry crates.",
+      "USE": "He is holding a lantern and a great deal of patience. I am not going to put either of them to work."
+    }
+  }
 }

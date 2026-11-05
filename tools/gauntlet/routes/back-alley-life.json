@@ -1,0 +1,121 @@
+{
+ "schema": 1,
+ "room": "back_alley",
+ "note": "ROOM 20's LIFE ROUTE, ruling 47: about a minute and a half in the alley, starting inside it (the entry route is proofs/spec/back-alley.json's). The cat breathes, lifts her tail, looks round and washes; the lamps breathe. LOOK at the cat, doc 49's TALK TO her, the Company's back, the barrels' LISTEN.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-arrived",
+   "why": "arrival through the gap"
+  },
+  {
+   "do": "wait",
+   "seconds": 8,
+   "why": "the cat on her own beats"
+  },
+  {
+   "do": "capture",
+   "name": "02-the-alley"
+  },
+  {
+   "do": "wait",
+   "seconds": 7
+  },
+  {
+   "do": "capture",
+   "name": "03-the-alley-later"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "cat",
+   "why": "THE CAT"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "04-look-cat",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "cat",
+   "why": "doc 49's TALK TO on the cat"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "05-talk-cat",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "back_of_the_improvement_company",
+   "why": "one story from here"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "06-look-company",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "barrels",
+   "why": "forty empty barrels"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "07-listen-barrels",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  }
+ ]
+}

@@ -114,9 +114,7 @@
    ],
    "when": {
     "T_SEEN_MAIN_STREET": true
-   },
-   "label": "THE BACK ALLEY",
-   "unbuilt": true
+   }
   },
   {
    "id": "loc_barber",

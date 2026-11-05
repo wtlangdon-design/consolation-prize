@@ -1,0 +1,244 @@
+{
+ "room": 20,
+ "note": "Ruling 22 steps 1-6 for the back alley, written by tools/room20-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 93).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 720,
+   "height": 400
+  },
+  "near": {
+   "y": 850,
+   "height": 480
+  },
+  "from": "Room 5's slope, a little smaller than Room 13's"
+ },
+ "walkable": [
+  160,
+  720,
+  1700,
+  130
+ ],
+ "exit": {
+  "hotspot": "MAIN STREET",
+  "to": "main_street",
+  "rect": [
+   0,
+   220,
+   150,
+   470
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 220,
+   "y": 780,
+   "facing": "right"
+  },
+  "by_the_crates": {
+   "x": 700,
+   "y": 760,
+   "facing": "left"
+  }
+ },
+ "objects": [
+  {
+   "name": "MAIN STREET",
+   "rect": [
+    0,
+    220,
+    150,
+    470
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BACK DOORS",
+   "rect": [
+    170,
+    330,
+    520,
+    350
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CRATES",
+   "rect": [
+    560,
+    520,
+    200,
+    170
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CAT",
+   "rect": [
+    620,
+    470,
+    70,
+    55
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE RAIN BARREL",
+   "rect": [
+    800,
+    560,
+    90,
+    130
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WASH LINE",
+   "rect": [
+    300,
+    230,
+    640,
+    120
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BACK OF THE IMPROVEMENT COMPANY",
+   "rect": [
+    960,
+    120,
+    720,
+    560
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SIDE DOOR",
+   "rect": [
+    1250,
+    420,
+    110,
+    260
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE ASH PILE",
+   "rect": [
+    1090,
+    610,
+    130,
+    70
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BARRELS",
+   "rect": [
+    1440,
+    470,
+    230,
+    210
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the crates, the barrel, the ash and the barrels are behind it, and the cat sits on the crates, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "backs of the buildings",
+   "p10": 62.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "the mud",
+   "p10": 92.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 66.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "MAIN STREET",
+   "p10": 100.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 74.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE BACK DOORS",
+   "p10": 64.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CRATES",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE RAIN BARREL",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WASH LINE",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 78.5,
+   "lightAnchorMargin": 17.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE BACK OF THE IMPROVEMENT COMPANY",
+   "p10": 52.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 26.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SIDE DOOR",
+   "p10": 52.0,
+   "p90": 52.0,
+   "darkAnchorMargin": 26.5,
+   "lightAnchorMargin": 69.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE ASH PILE",
+   "p10": 100.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 74.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE BARRELS",
+   "p10": 62.0,
+   "p90": 62.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 59.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

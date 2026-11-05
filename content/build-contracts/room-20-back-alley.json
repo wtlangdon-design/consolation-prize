@@ -1,0 +1,201 @@
+{
+ "schema": 1,
+ "id": "room-20-back-alley",
+ "room": "back_alley",
+ "docRoom": 20,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 20 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/09-examine-batch-2.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-20.json",
+    "docs/00-errata.md::93 · ROOM 20 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The alley in every act; Hob on his rounds from T_EXECUTOR_RULE until E6 (HOB_E6); night."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-20/graybox.json",
+    "docs/00-errata.md::93 · ROOM 20 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Every subject is plate but the cat; nothing in the picture changes with state."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-20-cat.png",
+    "docs/00-errata.md::93 · ROOM 20 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The cat generated on magenta against Thad and sat on the crate's lid; Hob is his approved Room 1 drawing, mirrored and scaled to the alley."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/back-alley/life/life.json"
+   ],
+   "note": "The cat breathes, lifts her tail, looks round and washes; the lamps breathe."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-20-cat.png"
+   ],
+   "note": "She sits on the top crate's lid; the walk band stays in front of the ash and the barrels."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-20/annotation.json"
+   ],
+   "note": "The open back door and the street's lamp through the gap, plate light and a runtime breath each."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-20.test.ts",
+    "docs/00-errata.md::93 · ROOM 20 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "E6: Hob is in the alley only while he is wanted, with his lantern, and TALK TO opens HOB_E6."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-20.json",
+    "content/rooms/back-alley.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 71 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-20: 3 of 4 operations (master, plate, the cat's sheet)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/back-alley.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-20/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/back-alley/proof.json"
+   ],
+   "note": "Panel D: Section nineteen said aloud (T_EXECUTOR_RULE); Hob on his rounds."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/back-alley/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/back-alley/doors/life.json",
+    "tests/room-20.test.ts"
+   ],
+   "note": "Out by the gap to Main Street and back by THE BACK LOTS, twice; the cat's lines in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-20/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-20-back-alley.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-20/plate-01/frame.json"
+   ],
+   "note": "Promoted provisionally (errata 72 E)."
+  },
+  {
+   "subject": "the cat",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-20-cat.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-20/cat/cat.json"
+   ],
+   "note": "Promoted provisionally (errata 72 E)."
+  },
+  {
+   "subject": "Hob",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-20-hob.png",
+   "evidence": [
+    "art/staging/room-20/hob/hob.json"
+   ],
+   "note": "His approved Room 1 frames, mirrored and scaled; no image operation."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q163 · Room 20, the back alley: built, awaiting Tyler's playthrough; the cat sits in lamplight where the lines say sun — **RULED 2026-11-05 (errata 93, delegated); BUILT, room-20 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q163 · Room 20, the back alley: built, awaiting Tyler's playthrough; the cat sits in lamplight where the lines say sun — **RULED 2026-11-05 (errata 93, delegated); BUILT, room-20 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

@@ -783,6 +783,28 @@
         "y": 640,
         "facing": "back"
       }
+    },
+    {
+      "id": "to_back_alley",
+      "name": "THE BACK LOTS",
+      "stub": true,
+      "rect": [
+        0,
+        300,
+        58,
+        420
+      ],
+      "colour": 0,
+      "to": "back_alley",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: 'East, the back lots | 20 · back alley' -- the street's east end, past the mercantile. NO DOCUMENT WRITES THIS WAY a LOOK or LISTEN. A stub exit (doc 36 Q163, errata 93 C).",
+      "walkTo": {
+        "x": 66,
+        "y": 700,
+        "facing": "left"
+      }
     }
   ],
   "walkBoxes": [
@@ -1212,6 +1234,15 @@
       ],
       "facing": "front",
       "note": "Out of the Mercantile's door, on its steps, facing the street."
+    },
+    {
+      "from": "back_alley",
+      "at": [
+        110,
+        700
+      ],
+      "facing": "right",
+      "note": "Back from the alley, at the street's east end past the mercantile (doc 20: 'East, the back lots')."
     }
   ],
   "lamps": [

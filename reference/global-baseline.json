@@ -370,6 +370,22 @@
     }
    ],
    "castingNote": "Nobody but Thad is in this room."
+  },
+  "room-20-back-alley": {
+   "visualType": "exterior-street-night",
+   "comparable": {
+    "id": "room-02-main-street",
+    "path": "art/backgrounds/room-02-main-street.png",
+    "note": "D -- the approved street at night. The alley is the backs of the same buildings: bare boards and posts, mud, the street's lamplight through the gaps (errata 93 A)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody speaks here (doc 20). The cat is drawn in the composition master and then on magenta against Thad."
   }
  }
 }

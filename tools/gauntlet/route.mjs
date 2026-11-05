@@ -144,6 +144,9 @@ async function waitFor(page, want, upTo, why) {
   const deadline = Date.now() + upTo * 1000;
   let last = null;
   let lineSince = Date.now();
+  const began = Date.now();
+  let lastAt = null;
+  let stillSince = Date.now();
   for (;;) {
     last = await probe(page);
     // WAITING PAST A CONVERSATION IS WAITING FOR ITS LINES TO BE READ. Under
@@ -175,6 +178,20 @@ async function waitFor(page, want, upTo, why) {
       // this instead of guessing seconds, which the first life route did and
       // missed the hold twice.
       if (want.says !== undefined && last.says === want.says) return last;
+      // A MOVER HAS STOPPED WALKING. Main Street is 3,700 pixels: a fixed wait
+      // for the walk to its east end was a guess the camera lost, and a click
+      // on a target the camera had not reached yet landed off the canvas
+      // (Room 20's route, twice). `still: "<mover>"` waits for the walk itself.
+      // Read from where he stands and what he is playing, not the probe's
+      // `moving`, which is a sequence's. A headless page renders a few frames
+      // a second, so two readings can agree mid-walk: he has stopped when he is
+      // not playing his walk and has stood in one place for a second.
+      if (want.still !== undefined) {
+        const mover = last.movers?.[want.still];
+        const at = JSON.stringify(mover?.at ?? null);
+        if (at !== lastAt) { lastAt = at; stillSince = Date.now(); }
+        if (mover && mover.clip !== 'walk' && Date.now() - stillSince >= 1000 && Date.now() - began >= 1000) return last;
+      }
     }
     if (Date.now() > deadline) {
       const saw = last
