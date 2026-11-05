@@ -1,0 +1,549 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "livery",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "b49775006519de2f5abaebffb18a222f62057ef7",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": "livery",
+ "routeLog": [
+  "action 1 (wait): waited 2.5s",
+  "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up",
+  "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit",
+  "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED",
+  "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road",
+  "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever.",
+  "action 13 (wait): waited 3s",
+  "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road",
+  "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it",
+  "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it",
+  "action 17 (wait): waited 6s",
+  "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger",
+  "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street",
+  "action 20 (wait): waited 2s",
+  "action 21 (click): clicked screen 554,1052 -- the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)",
+  "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map",
+  "action 23 (wait): waited 1s",
+  "action 24 (click): clicked screen 810,472 -- the livery's place on the map (content/rooms/town-map.json loc_livery: seen from Main Street)",
+  "action 25 (waitFor): reached {\"room\":\"livery\"} in room livery",
+  "action 26 (wait): waited 3s",
+  "action 1 (wait): waited 2s"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 741,
+    "xs": [
+     1055,
+     849,
+     1261,
+     643,
+     1468,
+     436,
+     1674,
+     230,
+     1880
+    ],
+    "expect": 393,
+    "x": 1055
+   },
+   "at": [
+    1055,
+    741
+   ],
+   "reportedHeight": 393,
+   "expected": 393,
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-00.png",
+   "bounds": [
+    851,
+    348,
+    407,
+    434
+   ],
+   "order": 0,
+   "renderedHeight": 413,
+   "renderedBottom": 740,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     1055,
+     849,
+     1261,
+     643,
+     1468,
+     436,
+     1674,
+     230,
+     1880
+    ],
+    "expect": 471,
+    "x": 1055
+   },
+   "at": [
+    1055,
+    857
+   ],
+   "reportedHeight": 471,
+   "expected": 471,
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-03.png",
+   "bounds": [
+    811,
+    386,
+    488,
+    520
+   ],
+   "order": 0,
+   "renderedHeight": 491,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "livery_man",
+   "feet": [
+    955,
+    622
+   ],
+   "sheet": "art/actors/room-15-livery-man.png",
+   "clipPlane": null,
+   "box": {
+    "x": 874,
+    "y": 387,
+    "width": 162,
+    "height": 237
+   },
+   "seen": {
+    "x": 876,
+    "y": 388,
+    "width": 160,
+    "height": 235,
+    "bottom": 622,
+    "right": 1035,
+    "changed": 11911
+   },
+   "props": []
+  },
+  {
+   "kind": "ambient",
+   "id": "grievance",
+   "feet": [
+    1103,
+    430
+   ],
+   "sheet": "art/actors/room-15-grievance.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1034,
+    "y": 246,
+    "width": 138,
+    "height": 186
+   },
+   "seen": {
+    "x": 1034,
+    "y": 251,
+    "width": 138,
+    "height": 180,
+    "bottom": 430,
+    "right": 1171,
+    "changed": 11633
+   },
+   "props": []
+  },
+  {
+   "kind": "ambient",
+   "id": "other_mules",
+   "feet": [
+    613,
+    616
+   ],
+   "sheet": "art/actors/room-15-mules.png",
+   "clipPlane": null,
+   "box": {
+    "x": 500,
+    "y": 272,
+    "width": 227,
+    "height": 346
+   },
+   "seen": {
+    "x": 500,
+    "y": 273,
+    "width": 227,
+    "height": 344,
+    "bottom": 616,
+    "right": 726,
+    "changed": 25818
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "livery",
+   "clock": 111.41560000000001,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      320,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 426,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      99,
+      364,
+      442,
+      470
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:livery",
+     "path": "art/backgrounds/room-15-livery.png",
+     "drawn": "art/backgrounds/room-15-livery.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1b3580fe0ecff1c13b4ed6c0a3854f0743b6e78e822ac81f1ff9c8e5ec0b86e"
+    },
+    {
+     "key": "art/actors/room-15-grievance.png",
+     "path": "art/actors/room-15-grievance.png",
+     "drawn": "art/actors/room-15-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3736fc23ff317c86c9b0feb22905c0998d826517ce95b6096dd48978876f1302"
+    },
+    {
+     "key": "art/actors/room-15-livery-man.png",
+     "path": "art/actors/room-15-livery-man.png",
+     "drawn": "art/actors/room-15-livery-man.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f2f9ebb7cb80364e1be1a67cfe244bb8cbacd0c9dc5e104ceb0dc46dd4899fe"
+    },
+    {
+     "key": "art/actors/room-15-mules.png",
+     "path": "art/actors/room-15-mules.png",
+     "drawn": "art/actors/room-15-mules.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a2ee7643a7c52a095ee13f6384165082acb0879df01ccc6e6266acc506c3d2f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [],
+   "capturedAt": "2026-11-05T03:35:15.054Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "ee297c1f3d2c893f5612fa9315410513096d58c257639331493f4cf8917816fc"
+  },
+  {
+   "panel": "A",
+   "room": "livery",
+   "clock": 112.23219999999999,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      320,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 426,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:livery",
+     "path": "art/backgrounds/room-15-livery.png",
+     "drawn": "art/backgrounds/room-15-livery.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1b3580fe0ecff1c13b4ed6c0a3854f0743b6e78e822ac81f1ff9c8e5ec0b86e"
+    },
+    {
+     "key": "art/actors/room-15-grievance.png",
+     "path": "art/actors/room-15-grievance.png",
+     "drawn": "art/actors/room-15-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3736fc23ff317c86c9b0feb22905c0998d826517ce95b6096dd48978876f1302"
+    },
+    {
+     "key": "art/actors/room-15-livery-man.png",
+     "path": "art/actors/room-15-livery-man.png",
+     "drawn": "art/actors/room-15-livery-man.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f2f9ebb7cb80364e1be1a67cfe244bb8cbacd0c9dc5e104ceb0dc46dd4899fe"
+    },
+    {
+     "key": "art/actors/room-15-mules.png",
+     "path": "art/actors/room-15-mules.png",
+     "drawn": "art/actors/room-15-mules.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a2ee7643a7c52a095ee13f6384165082acb0879df01ccc6e6266acc506c3d2f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T03:35:16.044Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "2654efcc1faaa0e4d8c5cc7aa2b3a771979b0519505411f3fe1a05519c9e1054"
+  },
+  {
+   "panel": "D",
+   "room": "livery",
+   "clock": 120.9652,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BLANKET_BORROWED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      1055,
+      857
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 471,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      811,
+      386,
+      488,
+      520
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:livery",
+     "path": "art/backgrounds/room-15-livery.png",
+     "drawn": "art/backgrounds/room-15-livery.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f1b3580fe0ecff1c13b4ed6c0a3854f0743b6e78e822ac81f1ff9c8e5ec0b86e"
+    },
+    {
+     "key": "art/actors/room-15-grievance.png",
+     "path": "art/actors/room-15-grievance.png",
+     "drawn": "art/actors/room-15-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3736fc23ff317c86c9b0feb22905c0998d826517ce95b6096dd48978876f1302"
+    },
+    {
+     "key": "art/actors/room-15-livery-man.png",
+     "path": "art/actors/room-15-livery-man.png",
+     "drawn": "art/actors/room-15-livery-man.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f2f9ebb7cb80364e1be1a67cfe244bb8cbacd0c9dc5e104ceb0dc46dd4899fe"
+    },
+    {
+     "key": "art/actors/room-15-mules.png",
+     "path": "art/actors/room-15-mules.png",
+     "drawn": "art/actors/room-15-mules.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a2ee7643a7c52a095ee13f6384165082acb0879df01ccc6e6266acc506c3d2f"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)",
+    "cast(true)",
+    "stand(1055,741)",
+    "cast(false)",
+    "cast(true)",
+    "stand(1055,857)",
+    "cast(false)",
+    "cast(true)",
+    "flag T_BLANKET_BORROWED=true"
+   ],
+   "capturedAt": "2026-11-05T03:35:24.642Z",
+   "intent": "principal changed state: T_BLANKET_BORROWED (LIV_A1 option 5). Visible consequence: the feed bin bare.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "ab46ca30a0e08d370ad4362c79f84fe130cfe868c6d83d40b116e5243df3b810",
+   "changedBy": "flags"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T03:35:24.642Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 460862,
+  "panels": 5,
+  "scale": 0.5
+ }
+}
