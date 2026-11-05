@@ -14,12 +14,30 @@
  */
 export function askedFixture(): string | null {
   if (typeof window === 'undefined') return null;
-  const value = new URLSearchParams(window.location.search).get('fixture');
-  if (value === null) return null;
-  if (!/^[a-z][a-z0-9_-]{0,31}$/.test(value)) {
-    throw new Error(`?fixture= must be a short lower-case id and this reads "${value}"`);
+  return idFromQuery(window.location.search, 'fixture');
+}
+
+/**
+ * A SHORT LOWER-CASE ID FROM THE QUERY, FORGIVING OF WHAT A LINK PICKS UP.
+ *
+ * It used to throw on anything else, and the throw came out of the scene's
+ * `create`, so the game never drew a frame: Tyler opened Room 11's dinner
+ * from a chat message whose link ran on into the em dash after it
+ * (`?fixture=r11-b—`) and got a black screen that never cleared (2026-11-05).
+ * A link pasted from prose often carries the next character with it. So the
+ * leading id is taken and the rest is reported; a value with no id at its
+ * start is reported and ignored. A bad link now starts the game, never stops it.
+ */
+export function idFromQuery(search: string, key: string): string | null {
+  const value = new URLSearchParams(search).get(key);
+  if (value === null || value === '') return null;
+  const id = /^[a-z][a-z0-9_-]{0,31}/.exec(value)?.[0] ?? null;
+  if (id === null) {
+    console.warn(`?${key}= must start with a short lower-case id and this reads "${value}"; ignored`);
+  } else if (id !== value) {
+    console.warn(`?${key}= reads "${value}"; using "${id}" and ignoring the rest`);
   }
-  return value;
+  return id;
 }
 
 /** The save key a fixture session uses, apart from the real game's. */
