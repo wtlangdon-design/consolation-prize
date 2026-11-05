@@ -120,8 +120,14 @@
   },
   {
    "do": "wait",
-   "seconds": 30,
-   "why": "the street is 3,400 pixels long: until he and the camera are at its east end"
+   "seconds": 2,
+   "why": "he sets off"
+  },
+  {
+   "do": "waitFor",
+   "still": "thad",
+   "upTo": 90,
+   "why": "the street is 3,700 pixels long: until he and the camera are at its east end"
   },
   {
    "do": "click",

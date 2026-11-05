@@ -175,6 +175,11 @@ async function waitFor(page, want, upTo, why) {
       // this instead of guessing seconds, which the first life route did and
       // missed the hold twice.
       if (want.says !== undefined && last.says === want.says) return last;
+      // A MOVER HAS STOPPED WALKING. Main Street is 3,700 pixels: a fixed wait
+      // for the walk to its east end was a guess the camera lost, and a click
+      // on a target the camera had not reached yet landed off the canvas
+      // (Room 20's route, twice). `still: "<mover>"` waits for the walk itself.
+      if (want.still !== undefined && last.movers?.[want.still] && !last.movers[want.still].moving) return last;
     }
     if (Date.now() > deadline) {
       const saw = last
