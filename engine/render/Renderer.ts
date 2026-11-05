@@ -36,6 +36,16 @@ import {
 } from './Screen.ts';
 
 export interface Frame {
+  /**
+   * ROOM 33's RIPPLES (doc 45 R33-RIPPLE): each tap drawn where it landed,
+   * `age` 0 to 1 over exactly its audible tail. The sound, drawn.
+   */
+  ripples?: { x: number; y: number; age: number; tail: number }[];
+  /**
+   * HOW STILL THE ROOM'S LAMPS ARE, 0 to 1 (invariant 8): Room 33's lamp slows
+   * to stillness on the score's ninety seconds. 0 everywhere else.
+   */
+  lampStill?: number;
   hoveredTarget: Interactable | null;
   hoveredTargetName: string | null;
   sayLines: string[];
@@ -671,7 +681,9 @@ export class Renderer {
     // AFTER THE PLATE, BEFORE THE PEOPLE. A lamp lights the room it hangs in;
     // the figures are lit by match-local at cut time, which is a different
     // job done once rather than every frame.
+    this.lampStill = frame.lampStill ?? 0;
     this.drawLamps();
+    this.drawRipples(frame.ripples ?? []);
     this.idles.draw(this.state.room, this.idleSheet(this.state.room.id), this.clock);
     // After the idles as well as the plate: the ambient background motion is
     // on the ground too, and a pool that lit the mud but not the things on it
@@ -875,6 +887,31 @@ export class Renderer {
    * breathe on different rates and phases so the flicker never pulses in
    * unison, which is what would read as a fault rather than as fire.
    */
+  /** 0 to 1: see Frame.lampStill. */
+  private lampStill = 0;
+
+  /**
+   * DOC 45 R33-RIPPLE: a ring from the tap, widening and fading to nothing at
+   * the moment the sound's tail does. The same information as the sound and
+   * no more: a long tail is a long ripple, and nothing marks where the void is.
+   */
+  private drawRipples(ripples: { x: number; y: number; age: number; tail: number }[]): void {
+    if (!ripples.length) return;
+    const ctx = this.screen.context;
+    ctx.save();
+    for (const ripple of ripples) {
+      const radius = 18 + ripple.age * (40 + 120 * Math.min(1, ripple.tail / 2.5));
+      const alpha = 0.55 * (1 - ripple.age);
+      if (alpha <= 0.01) continue;
+      ctx.strokeStyle = ['rgba(240,214,160,', alpha.toFixed(3), ')'].join('');
+      ctx.lineWidth = 6;
+      ctx.beginPath();
+      ctx.ellipse(ripple.x, ripple.y, radius, radius * 0.6, 0, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
   private drawLamps(): void {
     const lamps = this.state.room.lamps;
     if (!lamps?.length) return;
@@ -886,7 +923,9 @@ export class Renderer {
       if (!this.lampLive(lamp)) continue;
       const t = this.clock * lamp.rate + (lamp.phase ?? 0);
       // Two sines of different periods, so the flicker does not tick.
-      const wave = 0.5 + 0.35 * Math.sin(t * Math.PI * 2) + 0.15 * Math.sin(t * Math.PI * 5.3);
+      // INVARIANT 8: Room 33's lamp slows to stillness with the score -- the
+      // flicker narrows to a steady glow, and nothing announces it.
+      const wave = 0.5 + (0.35 * Math.sin(t * Math.PI * 2) + 0.15 * Math.sin(t * Math.PI * 5.3)) * (1 - this.lampStill);
       // Its amount under the room's authored visual state, when one is named
       // and the lamp declares one for it; otherwise the plain amount.
       const state = askedState();

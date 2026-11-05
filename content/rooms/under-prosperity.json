@@ -1,0 +1,792 @@
+{
+  "schema": 1,
+  "id": "under_prosperity",
+  "name": "UNDER PROSPERITY",
+  "materialIdentity": "Forty feet of Thad's own tunnel under the worthless claim, lit by the one lamp he borrowed from his room: pick marks, packed clay, old pegged timbering somebody else left, the rock face and the gap beyond; after F3 the seam, the tended lantern and the even footprints (errata 69 A, 99 H)",
+  "note": "Room 34, doc 20: under Prosperity, through the hole (24) by Thad's own tunnel (doc 57 F1). One room in two states (errata 69 A): T_BROKE_THROUGH shows the old working the way down reaches. THE GAP is the way into Room 33 (doc 57 F1); THE WAY BACK UP is the rope to the hole (errata 99 H).",
+  "background": "art/backgrounds/room-34-under-prosperity.png",
+  "plates": {
+    "after": "art/backgrounds/room-34-under-prosperity-after.png"
+  },
+  "plateWhen": [
+    {
+      "when": {
+        "T_BROKE_THROUGH": true
+      },
+      "plate": "after"
+    }
+  ],
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "exits": [
+    {
+      "id": "to_prosperity",
+      "name": "THE WAY BACK UP",
+      "rect": [
+        125,
+        0,
+        200,
+        495
+      ],
+      "colour": 0,
+      "to": "prosperity",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The rope to the surface, and the coin of gray light at the top of it. Up there this is still the worthless claim. I am in no hurry to correct anyone.",
+            "repeat": [
+              "Daylight, a long way up, the size of a coin.",
+              "The coin of light has moved. It is later up there than I thought."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The surface, at a great distance: wind, and the suggestion of a town.",
+            "repeat": [
+              "The town. Very faint. Somebody is arguing about a boundary.",
+              "Somebody up there laughing, very far off. They do not know yet."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I called up that I was all right. The gray coin of daylight did not answer, which is how daylight is."
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 05: 'The rope to the surface, and the coin of gray light at the top of it.' Up to the hole (Room 23/24).",
+      "walkTo": {
+        "x": 260,
+        "y": 760,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "to_listening_chamber",
+      "name": "THE GAP",
+      "rect": [
+        1518,
+        467,
+        126,
+        202
+      ],
+      "colour": 0,
+      "to": "listening_chamber",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Where my tunnel broke into a hollow in the rock. The warm air comes out of it.",
+            "repeat": [
+              "Wide enough for a man who has stopped minding his coat.",
+              "Dark beyond. Not the dark of a tunnel. The dark of a room."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A long, low hum, very faint. The rock is listening back.",
+            "repeat": [
+              "The hum again. It does not change when I do.",
+              "Nothing I can name. I am going in to name it."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 57 F1: 'Room 34 to Room 33 is THE GAP, where the tunnel broke into a hollow.' Its lines are doc 57's.",
+      "walkTo": {
+        "x": 1580,
+        "y": 760,
+        "facing": "right"
+      }
+    }
+  ],
+  "ambient": [],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-34.json",
+      "reference/room-34/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        150,
+        700,
+        1510,
+        53
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        150,
+        753,
+        1510,
+        52
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        150,
+        805,
+        1510,
+        53
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      150,
+      700
+    ],
+    [
+      1660,
+      700
+    ],
+    [
+      1660,
+      858
+    ],
+    [
+      150,
+      858
+    ]
+  ],
+  "entrance": [
+    300,
+    780
+  ],
+  "entrances": [
+    {
+      "from": "prosperity",
+      "at": [
+        300,
+        780
+      ],
+      "facing": "right",
+      "note": "Down the rope from the hole, at the foot of the shaft."
+    },
+    {
+      "from": "listening_chamber",
+      "at": [
+        1560,
+        780
+      ],
+      "facing": "left",
+      "note": "Back through the gap."
+    },
+    {
+      "from": "default",
+      "at": [
+        300,
+        780
+      ],
+      "facing": "right",
+      "note": "As from the hole."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "tuning_fork",
+      "name": "THE TUNING FORK",
+      "rect": [
+        608,
+        549,
+        52,
+        38
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "My father thought this was a sensible investment. He was, on the evidence, the only person in my family who has ever been right about anything.",
+            "repeat": [
+              "The tines are worn bright at the ends, where I have struck it on ten thousand boot heels.",
+              "It is the only thing I own that is exactly what it claims to be."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A. Four hundred and forty. It is still the only correct thing within a hundred miles.",
+            "repeat": [
+              "I struck it. A, held, ringing down to nothing.",
+              "A. The same A it gave in my father's shop. Some things do not move."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 634,
+        "y": 834,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "lamp",
+      "name": "THE LAMP",
+      "rect": [
+        533,
+        442,
+        64,
+        120
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "One lamp, and about four hours of oil in it.",
+            "repeat": [
+              "Three hours of oil now. I am doing the arithmetic more often than I would like.",
+              "It throws my shadow up the wall, three times my size and twice as confident."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Burning.",
+            "repeat": [
+              "A soft hiss as the wick drinks.",
+              "Burning, still. The most reassuring word in the language."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 565,
+        "y": 834,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "old_lantern",
+      "name": "THE OLD LANTERN",
+      "rect": [
+        655,
+        105,
+        62,
+        150
+      ],
+      "when": {
+        "T_BROKE_THROUGH": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A lantern, not mine, hung on a spike and burned dry — years dry. Its glass is clean.",
+            "repeat": [
+              "The wick has been trimmed square, the way a careful man trims one.",
+              "It hangs where it would light the way back up, not the way in. Whoever kept it always meant to leave."
+            ],
+            "then": [
+              "Someone tended it, once, regularly."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Long finished. But kept, not abandoned.",
+            "repeat": [
+              "Nothing. Its tin cooled a long time ago.",
+              "Nothing. It is waiting for its keeper, and its keeper is not coming down tonight."
+            ],
+            "then": [
+              "There is a difference and you can hear it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "Not mine to light. Its keeper knows where it hangs, and I find I want him to find it as he left it."
+      },
+      "walkTo": {
+        "x": 686,
+        "y": 834,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "air",
+      "name": "THE AIR",
+      "rect": [
+        480,
+        250,
+        190,
+        190
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "You cannot see it, and down here that is the most interesting thing about it: the flame leans. The air is going somewhere.",
+            "repeat": [
+              "Nothing to look at. There has never been anything to look at.",
+              "There is nothing to see. I keep looking anyway, like a man rereading a letter he knows by heart."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Moving. Warmer than the day.",
+            "repeat": [
+              "Warmer. It has been warmer every foot.",
+              "Moving, and warmer. I have stopped being surprised by it and started paying attention."
+            ],
+            "then": [
+              "I have heard this before, at the top of a hole, and used it to evict a raccoon."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 575,
+        "y": 834,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "footprints",
+      "name": "THE FOOTPRINTS",
+      "rect": [
+        748,
+        700,
+        785,
+        100
+      ],
+      "when": {
+        "T_BROKE_THROUGH": true
+      },
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Boot prints in the clay, preserved like the creek bank's, but one pair, many visits, all the same stride. Even. He was counting.",
+            "repeat": [
+              "The stride never shortens, coming or going. Whoever made these was never in a hurry and never tired.",
+              "Mine cross his now, clumsier and in a hurry. He would not have approved."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. But the silence here is worn smooth, like a path.",
+            "repeat": [
+              "Nothing. The clay has kept every step and repeats none of them.",
+              "Nothing. A path nobody walks any more makes exactly this sound."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1141,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "dark",
+      "name": "THE DARK",
+      "rect": [
+        1790,
+        0,
+        130,
+        700
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Dark with a texture to it.",
+            "repeat": [
+              "I turned the lamp down once, to see what the dark was like on its own. I turned it back up.",
+              "It is not empty. It is only unlit."
+            ],
+            "then": [
+              "The lamp makes a room the size of the lamp, and the rest of the underworld waits its turn."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "My own ears, ringing faintly. Underground, silence has a pitch. I could tune to it.",
+            "repeat": [
+              "The ringing in my ears, settling on a note. A little flat. Of course it is.",
+              "My own heartbeat, which I have not heard in some years, keeping better time than the town."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "seam",
+      "name": "THE SEAM",
+      "rect": [
+        1367,
+        13,
+        215,
+        505
+      ],
+      "when": {
+        "T_BROKE_THROUGH": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The seam, where the lamp stops being casual. I have seen color in a pan, in a bottle, on a scale. I have never seen it at home before. It is different at home.",
+            "repeat": [
+              "It runs at a slant into the dark, wider than my hand and further than the lamp.",
+              "I have looked at it for a long time. It does not do anything. It does not need to."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It has been keeping this quiet for longer than there have been ears.",
+            "repeat": [
+              "Nothing. Gold has never had to raise its voice.",
+              "Nothing. Twelve years of a town, built on top of a silence."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "Not with my hands. This one goes through the window, into the book, past Winnie's scales — the whole liturgy. Some gold you take; this gold I intend to file."
+      },
+      "walkTo": {
+        "x": 1475,
+        "y": 834,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "tunnel",
+      "name": "THE TUNNEL",
+      "rect": [
+        0,
+        380,
+        420,
+        320
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Forty feet of my own digging.",
+            "repeat": [
+              "There is a bend in it where I lost my nerve and a straight stretch after where I found it again.",
+              "My pick marks are everywhere and none of them in a line. It is the most honest piece of work I have ever done."
+            ],
+            "then": [
+              "It is not square and it is not swept and Nickel Pratt would weep."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Air. Still moving. Still going somewhere.",
+            "repeat": [
+              "My own breathing, loud in here. The tunnel keeps nothing to itself.",
+              "A trickle of loose dirt from the roof, then quiet: the tunnel, settling into being a tunnel."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 210,
+        "y": 842,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "walls",
+      "name": "THE WALLS",
+      "rect": [
+        760,
+        230,
+        450,
+        460
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Clay, then rock, then a seam of something the lamp takes an interest in.",
+            "repeat": [
+              "Rock.",
+              "Rock, mostly."
+            ],
+            "then": [
+              "I am declining to be excited. The territory has trained me thoroughly."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water, somewhere inside the stone, going about its business.",
+            "repeat": [
+              "Water inside the stone again, going about its business.",
+              "Nothing I can name yet. I am listening anyway. It is what I am for."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 985,
+        "y": 834,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "rock_face",
+      "name": "THE ROCK FACE",
+      "rect": [
+        1330,
+        140,
+        460,
+        560
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Rock.",
+            "repeat": [
+              "Rock. I have looked at it enough to know it is rock.",
+              "Still rock."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "…Different. Not by much.",
+            "repeat": [
+              "The same small difference. It has not gone away.",
+              "Not much. Not nothing."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1560,
+        "y": 842,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "floor",
+      "name": "THE FLOOR",
+      "rect": [
+        0,
+        700,
+        1920,
+        164
+      ],
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Clay, packed hard by somebody's boots long before mine.",
+            "repeat": [
+              "My own prints, and the drag marks of my pick behind them.",
+              "It is level, more or less, which down here counts as hospitality."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "My boots, thudding, close and flat.",
+            "repeat": [
+              "Grit under my heel, very loud in all this quiet.",
+              "Nothing, when I stand still. I stand still a while longer, just to hear it."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "timbering",
+      "name": "THE TIMBERING",
+      "rect": [
+        640,
+        0,
+        720,
+        700
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Old timbering, not mine, not recent. Someone was down here before the town was up there, and shored it like they meant to come back.",
+            "repeat": [
+              "The joints are pegged, not nailed, by somebody who had more time than nails.",
+              "It has held a town on top of it for twelve years without a word of complaint. I know men who could learn from it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The wood takes the mountain's weight and says so, once in a while, quietly.",
+            "repeat": [
+              "A long creak overhead, and then the mountain settles back.",
+              "Nothing for a while. Then one small tick, like a clock deciding not to strike."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "The timber holds the mountain. I hold my curiosity. Everyone keeps their post."
+      },
+      "walkTo": {
+        "x": 1000,
+        "y": 842,
+        "facing": "back"
+      }
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 150,
+          "y": 700
+        },
+        {
+          "x": 1660,
+          "y": 700
+        },
+        {
+          "x": 1660,
+          "y": 753
+        },
+        {
+          "x": 150,
+          "y": 753
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 393,
+        "nearY": 858,
+        "nearHeight": 434
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 150,
+          "y": 753
+        },
+        {
+          "x": 1660,
+          "y": 753
+        },
+        {
+          "x": 1660,
+          "y": 805
+        },
+        {
+          "x": 150,
+          "y": 805
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 393,
+        "nearY": 858,
+        "nearHeight": 434
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 150,
+          "y": 805
+        },
+        {
+          "x": 1660,
+          "y": 805
+        },
+        {
+          "x": 1660,
+          "y": 858
+        },
+        {
+          "x": 150,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 393,
+        "nearY": 858,
+        "nearHeight": 434
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "the_lamp",
+      "at": [
+        565,
+        470
+      ],
+      "radius": 240,
+      "amount": 0.08,
+      "rate": 0.7,
+      "phase": 0.1,
+      "note": "Thad's lamp on the stump: a slow flame, nothing more (invariant 9)."
+    }
+  ],
+  "props": [],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-34/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

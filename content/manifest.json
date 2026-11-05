@@ -44,7 +44,9 @@
   "content/rooms/livery.json",
   "content/rooms/ozymandias-tent.json",
   "content/rooms/church.json",
-  "content/rooms/funeral.json"
+  "content/rooms/funeral.json",
+  "content/rooms/under-prosperity.json",
+  "content/rooms/listening-chamber.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -101,7 +103,9 @@
   "content/fixtures/room-28.json",
   "content/fixtures/room-29.json",
   "content/fixtures/room-30.json",
-  "content/fixtures/room-31.json"
+  "content/fixtures/room-31.json",
+  "content/fixtures/room-33.json",
+  "content/fixtures/room-34.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -128,7 +132,8 @@
   "content/items/tonic.json",
   "content/items/loan.json",
   "content/items/blanket.json",
-  "content/items/linen-money.json"
+  "content/items/linen-money.json",
+  "content/items/sample.json"
  ],
  "scaling": "content/actors/scaling.json",
  "ambient": [
@@ -215,7 +220,8 @@
     "src": "audio/thaddeus-room-01.wav",
     "gain": 0.7
    }
-  }
+  },
+  "tunedFlag": "T_IN_TUNE"
  },
  "musicNote": "DOC 45'S BEDS. `title` is O-01-M -- CONSOLATION, the title mix. `stage_road` is O-02-M -- THADDEUS, Room 1, four bars of 3/4 solo and unaccompanied. Both are named here and rendered by tools/render-music.mjs from the proof's own synthesis, which is errata 49 item 1.\n\nTHE FILES DO NOT EXIST UNTIL SOMEBODY RUNS THE RENDERER, and it has never been run: it needs Chromium and it was written where none could be installed. Music.ts treats a missing file as silence rather than an error, so the game runs exactly as it does today and the moment the stems are committed it plays. Nothing else has to change.\n\nWAV rather than OGG because the renderer writes PCM directly and encoding to Ogg needs a codec the repo does not carry. Converting later is one ffmpeg pass and one edit here; shipping a wrong extension that nothing can decode is worse.\n\nGAINS: the title is the loudest thing in the game and Room 1 is a man alone at night, so the bed sits under him. Both are look decisions and both are one number in a content file."
 }

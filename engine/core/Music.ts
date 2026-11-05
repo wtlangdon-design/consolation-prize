@@ -41,6 +41,8 @@ export interface MusicTrack {
 
 type Voice = { element: HTMLAudioElement; gain: number };
 
+import { rateForTune } from './Listening.ts';
+
 export class Music {
   private ctx: AudioContext | null = null;
   private playing: Voice | null = null;
@@ -52,7 +54,26 @@ export class Music {
   /** A bed stopped dead by `suspend`, and where it was. */
   private suspended: { element: HTMLAudioElement | null; gain: number; position: number } | null = null;
 
+  /** How far into tune the score is: 0 is the -35 cents it is rendered at, 1 is in tune. */
+  private tune = 0;
+
   constructor(private readonly enabled: () => boolean) {}
+
+  /**
+   * INVARIANT 5: the score is detuned by -35 cents for the whole game and, in
+   * Room 33, comes into tune over ninety seconds (doc 45 R33-TUNE). The beds
+   * are rendered at -35, so in tune is a playback rate of +35 cents with the
+   * pitch carried by the rate. The rate is the one parameter.
+   */
+  setTune(fraction: number): void {
+    this.tune = Math.max(0, Math.min(1, fraction));
+    if (this.playing) this.applyTune(this.playing.element);
+  }
+
+  private applyTune(element: HTMLAudioElement): void {
+    (element as HTMLAudioElement & { preservesPitch?: boolean }).preservesPitch = false;
+    element.playbackRate = rateForTune(this.tune);
+  }
 
   /**
    * Call from any real user gesture. Harmless to call repeatedly.
@@ -87,6 +108,7 @@ export class Music {
     this.fadeOut();
     element.loop = true;
     element.volume = 0;
+    this.applyTune(element);
     const target = track.gain ?? 1;
     void element.play().then(() => this.fadeIn(element, target)).catch(() => {
       // Autoplay refused, or the file is not there. Either way: silence, and

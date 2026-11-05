@@ -1,0 +1,16 @@
+{
+ "assetId": "room-34",
+ "subject": "room-34-under-prosperity",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-34-under-prosperity",
+ "promptFile": "reference/room-34/prompts/composition-master-01.txt",
+ "out": "art/staging/room-34/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-34/layout-1536x1024.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "art/backgrounds/room-21-watchmans-shack.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

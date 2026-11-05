@@ -776,6 +776,9 @@ for (const [name, entry] of hotspots) {
   // An exit that is ALSO the thing itself (Room 14's open plot: looked at
   // until the funeral is arranged, then the way to it) stays a hotspot too.
   if (MERGED && ann.exitSubjects?.[name] && !ann.exitSubjects[name].alsoHotspot) continue;
+  // ROOM 33's VOID IS NEVER A HOTSPOT: a hotspot is named on hover, and the
+  // void is found by ear alone (doc 54). Its line goes to the room's listening.
+  if (ann.listening?.voidSubject === name) continue;
   byId.set(liveIdByName.get(name) ?? slug(name), { ...entry, docName: name });
 }
 
@@ -1128,6 +1131,28 @@ for (const spec of ann.sceneLines ?? []) {
   (hotspot.responses[spec.verb] ??= []).unshift(rule);
 }
 
+// ROOM 33's LISTENING (doc 28 Part Five, doc 45; errata 70, 71 E). The void's
+// position, radius and reach are the annotation's tuning (doc 57 F2: "tuning
+// for the builder, judged by Tyler's ear"); the taps are the rendered files and
+// their measured tails; the void's one line is read from the documents, never
+// carried in the annotation.
+if (ann.listening) {
+  const spec = ann.listening;
+  const voidSubject = MERGED?.subjects.find((one) => one.name === spec.voidSubject);
+  const line = voidSubject?.LISTEN_TO?.[0];
+  if (!line) fail(`listening: ${MERGED_PATH} writes no LISTEN for "${spec.voidSubject}"`);
+  if (!built.hotspots.some((one) => one.id === spec.surface)) fail(`listening: no hotspot "${spec.surface}" in this room`);
+  const taps = JSON.parse(read(spec.tapsFrom));
+  built.listening = {
+    surface: spec.surface, void: spec.void, taps: taps.taps, voidSound: taps.void,
+    found: { say: line, set: { [spec.foundFlag]: true, ...(spec.foundSet ?? {}) },
+      ...(spec.completes ? { completes: spec.completes } : {}) },
+    foundFlag: spec.foundFlag, tune: spec.tune,
+    ...(spec.fork ? { fork: { src: taps.fork.src, onceFlag: spec.fork.onceFlag } } : {}),
+    note: spec.note,
+  };
+}
+
 // A BEAT ON A REPEATED LOOK (doc 48 S2 beat 3, doc 54: "S2's beat 3 fires
 // on the second LOOK at the grave, so THE GRAVE's LOOK 2 below plays and then
 // Hob speaks"). The subject's ordinary rule records the first look
@@ -1338,10 +1363,27 @@ function sectionBody(ref, what) {
   return rest.slice(0, (/\n## |\n---\n/.exec(rest) ?? { index: rest.length }).index);
 }
 
+// A WAY WHOSE WORDS ARE IN A PUZZLE'S SECTION, not an examine pass (doc 57 F1:
+// `> **THE GAP** — LOOK 1 "..." · 2 "..." · 3 "..." | LISTEN 1 "..." · ...`).
+function linesFrom(ref, name) {
+  const body = sectionBody(ref, `exitSubjects ${name}`);
+  const esc = (v) => v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const m = new RegExp(`^> \\*\\*${esc(name)}\\*\\* — (.+)$`, 'm').exec(body);
+  if (!m) fail(`exitSubjects ${name}: ${ref} writes no "> **${name}** — LOOK ... | LISTEN ..." line`);
+  const out = { name };
+  for (const half of m[1].split(' | ')) {
+    const verb = /^LOOK\b/.test(half) ? 'LOOK_AT' : /^LISTEN\b/.test(half) ? 'LISTEN_TO' : null;
+    if (!verb) fail(`exitSubjects ${name}: "${half.slice(0, 20)}" is neither LOOK nor LISTEN`);
+    out[verb] = [...half.matchAll(/"([^"]+)"/g)].map((q) => q[1]);
+  }
+  return out;
+}
+
 const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name, spec]) => {
   // An exit with no LOOK or LISTEN of its own and only doc 49's refusal is
   // filed under `exitsAndUnplaced` (Room 14's THE GATE, errata 87 E).
-  const subject = MERGED.subjects.find((s) => s.name === name)
+  const subject = (spec.linesFrom ? linesFrom(spec.linesFrom, name) : undefined)
+    ?? MERGED.subjects.find((s) => s.name === name)
     ?? (MERGED.exitsAndUnplaced?.[name] ? { name, overrides: MERGED.exitsAndUnplaced[name] } : undefined)
     // A way no examine pass writes, whose only words are a puzzle's (doc 57
     // A4's "Room 22's way up to the claims"): a stub, by its declared name.

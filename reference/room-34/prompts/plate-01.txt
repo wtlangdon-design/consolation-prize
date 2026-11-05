@@ -1,0 +1,6 @@
+Image 1 is a finished background from my pixel-art adventure game: the end of a hand-dug tunnel underground, lit by one oil lamp on a stump, a tuning fork beside it, old wooden timbering, a shaft with a rope and daylight at the top left, a dark gap in the rock at the right, and a man in a long blue coat standing on the clay floor.
+
+Make exactly this change:
+1. Remove the man in the blue coat. Paint the clay floor, the timbering and the rock behind him.
+
+Change nothing else. Same camera, same pixel grid, same big square pixels, same colours, same lamplight; the lamp, the fork, the timbering, the shaft and rope, the gap and the darkness exactly as they are. Leave the light grey strips above and below the picture exactly as they are. No people, no shadows of people, no text, no numerals.

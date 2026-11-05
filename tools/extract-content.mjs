@@ -1105,7 +1105,7 @@ function combinations() {
   }
 
   // Pairs a later block adds (doc 57's, doc 54 A5's bait and smoke) are not doc 24's.
-  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the /.test(pair.note ?? '')).length;
+  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the |^Doc 54 Room 33 /.test(pair.note ?? '')).length;
   if (rebuilt.length - opening.length !== spoken) {
     throw new Error(`doc 24: ${rebuilt.length - opening.length} spoken pairs extracted, ${spoken} on file`);
   }
@@ -1458,10 +1458,44 @@ function combinations() {
     };
     rebuilt.push({
       item: 'pickaxe', room: 'prosperity', target: 'hole', puzzle: 'F1', say: pick('after F1'),
-      note: 'Doc 57 F1: the pickaxe on the hole, after the draught is understood: three days, forty feet. "Room 34 opens below the hole" -- Room 34 is not built (doc 36 Q166).',
+      note: 'Doc 57 F1: the pickaxe on the hole, after the draught is understood: three days, forty feet. "Room 34 opens below the hole": the line is read and he is in Room 34, and the hole is the way down from then on (T_DUG_DOWN, errata 99 H).',
       rules: [
-        { case: 'after F1', when: { T_DRAUGHT: true }, say: pick('after F1') },
+        { case: 'after F1', when: { T_DRAUGHT: true }, say: pick('after F1'), set: { T_DUG_DOWN: true }, goto: 'under_prosperity' },
         { case: 'before F1', when: { T_DRAUGHT: false }, say: pick('before F1') },
+      ],
+    });
+    // DOC 54 ROOM 33's F3 (errata 70 E): the pickaxe on the rock, before the
+    // void; on the void, three swings, the head flying off twice. Each case's
+    // directions and words are read in the order the document writes them --
+    // a direction performed as one (doc 58), a quote as Thad's line -- and the
+    // third, which is all direction, carries doc 57 F3's too: the piece of
+    // wall that is THE SAMPLE. The void is known from the ninety seconds on
+    // (T_IN_TUNE): before it, the rock's case answers wherever he swings.
+    const r33 = d54.slice(d54.indexOf('# ROOM 33 · THE LISTENING CHAMBER'));
+    const f3Body = r33.slice(r33.indexOf('## F3'), r33.indexOf('\n## ', r33.indexOf('## F3') + 5));
+    const performed = (text) => [...text.matchAll(/\*\(([^)]*)\)\*|"([^"]+)"/g)]
+      .map((m) => (m[1] !== undefined ? { speaker: 'thad', line: m[1], direction: true } : m[2]));
+    const swing = (subject, label) => {
+      const m = new RegExp(`^> \\*\\*${subject}\\*\\* · USE THE PICKAXE, \\*${label}\\* — (.+)$`, 'm').exec(f3Body);
+      if (!m) throw new Error(`doc 54 Room 33: no "${subject} · USE THE PICKAXE, ${label}"`);
+      return performed(m[1].split('→')[0]);
+    };
+    const asRule = ([first, ...rest]) => ({
+      ...(typeof first === 'string' ? { say: first } : { say: first.line, direction: true }),
+      ...(rest.length ? { then: rest } : {}),
+    });
+    const f3 = d57.slice(d57.indexOf('## F3 '), d57.indexOf('\n## ', d57.indexOf('## F3 ') + 5));
+    const piece = performed(/^> (\*\(.+?\)\*) →/m.exec(f3)?.[1] ?? '');
+    if (!piece.length) throw new Error('doc 57 F3: no direction for the piece of wall');
+    rebuilt.push({
+      item: 'pickaxe', room: 'listening_chamber', target: 'every_rock_surface', puzzle: 'F3', say: swing('THE ROCK', 'before the void is found')[0],
+      note: 'Doc 54 Room 33 (errata 70 E): the pickaxe on the rock before the void is found; on the void, three swings, then F3 -- THE SAMPLE, T_BROKE_THROUGH, T_STRIKE_FOUND -- and Room 34\'s second state (errata 69 A, 99 H).',
+      rules: [
+        { case: 'before the void is found', when: { T_IN_TUNE: false }, ...asRule(swing('THE ROCK', 'before the void is found')) },
+        { case: 'first', when: { T_IN_TUNE: true, T_BROKE_THROUGH: false, PICK_SWINGS: 0 }, ...asRule(swing('THE VOID', 'first')), add: { PICK_SWINGS: 1 } },
+        { case: 'second', when: { T_IN_TUNE: true, T_BROKE_THROUGH: false, PICK_SWINGS: 1 }, ...asRule(swing('THE VOID', 'second')), add: { PICK_SWINGS: 1 } },
+        { case: 'third', when: { T_IN_TUNE: true, T_BROKE_THROUGH: false, PICK_SWINGS: 2 }, ...asRule([...swing('THE VOID', 'third'), ...piece]),
+          items: ['sample'], set: { T_BROKE_THROUGH: true, T_STRIKE_FOUND: true }, completes: 'F3', goto: 'under_prosperity' },
       ],
     });
   }

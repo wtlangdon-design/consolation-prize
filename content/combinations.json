@@ -660,14 +660,18 @@
       "target": "hole",
       "puzzle": "F1",
       "say": "Three days. Forty feet. The head came off once, forwards, which I took as encouragement. I have borrowed the lamp from my room, and I will return it, which is the second time I have promised that to something in this territory. The draught got warmer the whole way down.",
-      "note": "Doc 57 F1: the pickaxe on the hole, after the draught is understood: three days, forty feet. \"Room 34 opens below the hole\" -- Room 34 is not built (doc 36 Q166).",
+      "note": "Doc 57 F1: the pickaxe on the hole, after the draught is understood: three days, forty feet. \"Room 34 opens below the hole\": the line is read and he is in Room 34, and the hole is the way down from then on (T_DUG_DOWN, errata 99 H).",
       "rules": [
         {
           "case": "after F1",
           "when": {
             "T_DRAUGHT": true
           },
-          "say": "Three days. Forty feet. The head came off once, forwards, which I took as encouragement. I have borrowed the lamp from my room, and I will return it, which is the second time I have promised that to something in this territory. The draught got warmer the whole way down."
+          "say": "Three days. Forty feet. The head came off once, forwards, which I took as encouragement. I have borrowed the lamp from my room, and I will return it, which is the second time I have promised that to something in this territory. The draught got warmer the whole way down.",
+          "set": {
+            "T_DUG_DOWN": true
+          },
+          "goto": "under_prosperity"
         },
         {
           "case": "before F1",
@@ -675,6 +679,91 @@
             "T_DRAUGHT": false
           },
           "say": "Dig where? I have been digging at this town for weeks and it has not moved."
+        }
+      ]
+    },
+    {
+      "item": "pickaxe",
+      "room": "listening_chamber",
+      "target": "every_rock_surface",
+      "puzzle": "F3",
+      "say": "I have dug enough holes in this territory on faith.",
+      "note": "Doc 54 Room 33 (errata 70 E): the pickaxe on the rock before the void is found; on the void, three swings, then F3 -- THE SAMPLE, T_BROKE_THROUGH, T_STRIKE_FOUND -- and Room 34's second state (errata 69 A, 99 H).",
+      "rules": [
+        {
+          "case": "before the void is found",
+          "when": {
+            "T_IN_TUNE": false
+          },
+          "say": "I have dug enough holes in this territory on faith."
+        },
+        {
+          "case": "first",
+          "when": {
+            "T_IN_TUNE": true,
+            "T_BROKE_THROUGH": false,
+            "PICK_SWINGS": 0
+          },
+          "say": "Thad swings. The head flies off into the dark and lands somewhere he cannot see.",
+          "direction": true,
+          "then": [
+            "The Mercantile's pickaxe, performing to its price.",
+            {
+              "speaker": "thad",
+              "line": "He finds it and fits it back.",
+              "direction": true
+            }
+          ],
+          "add": {
+            "PICK_SWINGS": 1
+          }
+        },
+        {
+          "case": "second",
+          "when": {
+            "T_IN_TUNE": true,
+            "T_BROKE_THROUGH": false,
+            "PICK_SWINGS": 1
+          },
+          "say": "The head comes off again, gently, as if apologizing.",
+          "direction": true,
+          "then": [
+            "Twice. It is consistent. Down here I have come to value that.",
+            {
+              "speaker": "thad",
+              "line": "He fits it back.",
+              "direction": true
+            }
+          ],
+          "add": {
+            "PICK_SWINGS": 1
+          }
+        },
+        {
+          "case": "third",
+          "when": {
+            "T_IN_TUNE": true,
+            "T_BROKE_THROUGH": false,
+            "PICK_SWINGS": 2
+          },
+          "say": "Thad holds the head on with one hand and swings with the other. The rock gives. Warm air comes through, and behind it a dark that goes a long way down.",
+          "direction": true,
+          "then": [
+            {
+              "speaker": "thad",
+              "line": "A piece of the wall comes away in his hand. It is much heavier than a piece of wall should be.",
+              "direction": true
+            }
+          ],
+          "items": [
+            "sample"
+          ],
+          "set": {
+            "T_BROKE_THROUGH": true,
+            "T_STRIKE_FOUND": true
+          },
+          "completes": "F3",
+          "goto": "under_prosperity"
         }
       ]
     },

@@ -1,0 +1,192 @@
+{
+ "schema": 1,
+ "id": "room-33-listening-chamber",
+ "room": "listening_chamber",
+ "docRoom": 33,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 33 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/10-examine-batch-3.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/57-puzzle-completion.md",
+  "docs/45-audio-cue-sheet.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-33.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "One chamber; after F3 its wall broken through. LISTEN is the interface (doc 05)."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-33/graybox.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The broken wall is its own plate (plateWhen T_BROKE_THROUGH)."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-33.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Nobody: Thad alone underground."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/listening-chamber/life/life.json"
+   ],
+   "note": "The lamp, which stills with the score (invariant 8); taps and ripples."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/listening-chamber/proof.json"
+   ],
+   "note": "Thad stands on the floor in front of the rock."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-33/annotation.json"
+   ],
+   "note": "Lamplit; no lift; the lamp's flicker narrows to stillness on the ninety seconds."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-33.test.ts",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "F2 by ear and ripple only (doc 28 Part Five); F3 by the pickaxe."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-33.json",
+    "content/rooms/listening-chamber.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 8 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-33: 3 of 4 operations (master, plate, the broken wall)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/listening-chamber.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-33/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/listening-chamber/proof.json"
+   ],
+   "note": "Started from fixture r33-a."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/listening-chamber/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/listening-chamber/doors/life.json",
+    "tests/room-33.test.ts"
+   ],
+   "note": "Out through THE GAP and in again, twice."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-33/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-33-listening-chamber.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-33/plate-01/frame.json"
+   ],
+   "note": "Attempt 2; promoted provisionally (errata 72 E)."
+  },
+  {
+   "subject": "the second state",
+   "class": "STATEFUL",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-33-listening-chamber-after.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-33/plate-after/frame.json"
+   ],
+   "note": "Attempt 3, after F3; promoted provisionally (errata 72 E)."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q174 · Rooms 34 and 33, under Prosperity and the listening chamber: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 H, delegated); BUILT, room-34 3 of 4 and room-33 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plates -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q174 · Rooms 34 and 33, under Prosperity and the listening chamber: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 H, delegated); BUILT, room-34 3 of 4 and room-33 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

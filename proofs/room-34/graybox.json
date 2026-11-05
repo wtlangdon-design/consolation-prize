@@ -1,0 +1,228 @@
+{
+ "room": 34,
+ "note": "Ruling 22 steps 1-6 for under Prosperity, written by tools/room34-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 99).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 705,
+   "height": 300
+  },
+  "near": {
+   "y": 855,
+   "height": 400
+  },
+  "from": "Room 5's slope, a little smaller than Room 13's"
+ },
+ "walkable": [
+  200,
+  700,
+  1560,
+  158
+ ],
+ "exit": {
+  "hotspot": "THE WAY BACK UP",
+  "to": "prosperity",
+  "rect": [
+   110,
+   0,
+   230,
+   560
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 360,
+   "y": 790,
+   "facing": "right"
+  },
+  "gap": {
+   "x": 1640,
+   "y": 780,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE WAY BACK UP",
+   "rect": [
+    110,
+    0,
+    230,
+    560
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TUNNEL",
+   "rect": [
+    0,
+    200,
+    560,
+    460
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WALLS",
+   "rect": [
+    560,
+    40,
+    900,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TIMBERING",
+   "rect": [
+    880,
+    170,
+    360,
+    480
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE ROCK FACE",
+   "rect": [
+    1260,
+    230,
+    300,
+    420
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE GAP",
+   "rect": [
+    1580,
+    360,
+    200,
+    290
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE DARK",
+   "rect": [
+    1780,
+    60,
+    140,
+    600
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LAMP",
+   "rect": [
+    640,
+    470,
+    90,
+    100
+   ],
+   "where": "light"
+  },
+  {
+   "name": "THE TUNING FORK",
+   "rect": [
+    740,
+    540,
+    60,
+    30
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE AIR",
+   "rect": [
+    600,
+    300,
+    220,
+    160
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the clay floor.",
+ "surfaces": [
+  {
+   "surface": "the tunnel walls",
+   "p10": 56.0,
+   "p90": 74.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 47.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "the clay floor",
+   "p10": 84.0,
+   "p90": 84.0,
+   "darkAnchorMargin": 58.5,
+   "lightAnchorMargin": 37.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WAY BACK UP",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TUNNEL",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TIMBERING",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE ROCK FACE",
+   "p10": 74.0,
+   "p90": 74.0,
+   "darkAnchorMargin": 48.5,
+   "lightAnchorMargin": 47.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE GAP",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE DARK",
+   "p10": 54.0,
+   "p90": 54.0,
+   "darkAnchorMargin": 28.5,
+   "lightAnchorMargin": 67.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE AIR",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

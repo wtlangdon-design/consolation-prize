@@ -576,6 +576,8 @@ test('every authored line still answers, resolved rather than written', async ()
       if (isStub) continue;
       for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
         if (isExit && state.verbs.isTransit(verb)) continue;
+        // Room 33's rock answers LISTEN with a tap in the scene (Listening.ts).
+        if (verb === 'LISTEN_TO' && room.listening?.surface === target.id) continue;
         const resolution = state.resolveInteraction(target, verb);
         assert.ok(
           resolution.say !== null || resolution.dialogue !== null,

@@ -32,7 +32,7 @@ export function check() {
     content.rooms.filter(({ data }) => data.fixture).map(({ data }) => data.id),
   );
 
-  for (const { roomId, target } of allInteractables(content)) {
+  for (const { roomId, target, room } of allInteractables(content)) {
     // Engine test fixtures are not shipped content and are not held to doc
     // 05's standard -- they exist to exercise code paths, not to be read.
     if (target.stub || fixtureRooms.has(roomId)) continue;
@@ -57,8 +57,11 @@ export function check() {
 
     // A verb is covered by a written response, an object-specific override,
     // an object pool, or the global pool for that verb -- in that order.
+    // Room 33's rock answers LISTEN with a tap (doc 05, doc 45 R33-TAP).
+    const tapped = room?.listening?.surface === target.id ? ['LISTEN_TO'] : [];
     const silent = verbIds.filter(
       (verb) =>
+        !tapped.includes(verb) &&
         !(target.responses ?? {})[verb] &&
         !(target.overrides ?? {})[verb] &&
         (target.fallback ?? []).length === 0 &&

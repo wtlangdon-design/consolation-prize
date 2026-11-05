@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "note": "Room 33's taps, rendered by tools/audio/render-r33-sfx.py: step 0 is solid rock, step 15 the void's edge; `tail` is each one's audible length in seconds, which the ripple lasts (doc 45 R33-RIPPLE).",
+ "taps": [
+  {
+   "src": "audio/sfx/r33-tap-00.wav",
+   "tail": 0.166
+  },
+  {
+   "src": "audio/sfx/r33-tap-01.wav",
+   "tail": 0.198
+  },
+  {
+   "src": "audio/sfx/r33-tap-02.wav",
+   "tail": 0.236
+  },
+  {
+   "src": "audio/sfx/r33-tap-03.wav",
+   "tail": 0.281
+  },
+  {
+   "src": "audio/sfx/r33-tap-04.wav",
+   "tail": 0.335
+  },
+  {
+   "src": "audio/sfx/r33-tap-05.wav",
+   "tail": 0.4
+  },
+  {
+   "src": "audio/sfx/r33-tap-06.wav",
+   "tail": 0.476
+  },
+  {
+   "src": "audio/sfx/r33-tap-07.wav",
+   "tail": 0.568
+  },
+  {
+   "src": "audio/sfx/r33-tap-08.wav",
+   "tail": 0.677
+  },
+  {
+   "src": "audio/sfx/r33-tap-09.wav",
+   "tail": 0.808
+  },
+  {
+   "src": "audio/sfx/r33-tap-10.wav",
+   "tail": 0.963
+  },
+  {
+   "src": "audio/sfx/r33-tap-11.wav",
+   "tail": 1.148
+  },
+  {
+   "src": "audio/sfx/r33-tap-12.wav",
+   "tail": 1.369
+  },
+  {
+   "src": "audio/sfx/r33-tap-13.wav",
+   "tail": 1.633
+  },
+  {
+   "src": "audio/sfx/r33-tap-14.wav",
+   "tail": 1.947
+  },
+  {
+   "src": "audio/sfx/r33-tap-15.wav",
+   "tail": 2.321
+  }
+ ],
+ "void": {
+  "src": "audio/sfx/r33-void.wav",
+  "tail": 4.145
+ },
+ "fork": {
+  "src": "audio/sfx/r33-fork.wav",
+  "tail": 5.0
+ }
+}

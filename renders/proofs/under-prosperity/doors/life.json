@@ -1,0 +1,939 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "under_prosperity",
+ "commit": "95dbe3b14ca0f2eebc41f6a08be42a3bc50cd858",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": null,
+ "fixture": "r34-a",
+ "warped": false,
+ "lifeRoute": "under-prosperity-doors",
+ "durationSeconds": 32.15,
+ "events": [
+  {
+   "t": 2.64,
+   "line": "started from fixture r34-a, no entry route"
+  },
+  {
+   "t": 5.7,
+   "line": "in under_prosperity; life route: 17 action(s)"
+  },
+  {
+   "t": 6.18,
+   "line": "capture 00-arrived: room under_prosperity, says null, options 0, control null"
+  },
+  {
+   "t": 6.71,
+   "line": "action 1 (click): clicked under_prosperity/to_listening_chamber at world 1581,568 -- through the gap"
+  },
+  {
+   "t": 7.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     617,
+     775
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 8.73,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     944,
+     770
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 9.73,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1276,
+     765
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 10.73,
+   "line": "action 1 (waitFor): reached {\"room\":\"listening_chamber\"} in room listening_chamber"
+  },
+  {
+   "t": 10.74,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     340,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 11.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     340,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     340,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 13.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     340,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 14.74,
+   "line": "action 1 (wait): waited 4s"
+  },
+  {
+   "t": 14.77,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     340,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 15.17,
+   "line": "capture 01-chamber: room listening_chamber, says null, options 0, control null"
+  },
+  {
+   "t": 15.32,
+   "line": "action 1 (click): clicked listening_chamber/to_under_prosperity at world 196,449 -- back through the gap"
+  },
+  {
+   "t": 15.61,
+   "line": "action 1 (waitFor): reached {\"room\":\"under_prosperity\"} in room under_prosperity"
+  },
+  {
+   "t": 16.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1560,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 17.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1560,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.62,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 18.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1560,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 19.07,
+   "line": "capture 02-back: room under_prosperity, says null, options 0, control null"
+  },
+  {
+   "t": 19.23,
+   "line": "action 1 (click): clicked under_prosperity/to_prosperity at world 225,248 -- up the rope"
+  },
+  {
+   "t": 20.27,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1226,
+     775
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 21.25,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     899,
+     770
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 22.25,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     562,
+     765
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 23.27,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 23.44,
+   "line": "action 1 (waitFor): reached {\"room\":\"prosperity\"} in room prosperity"
+  },
+  {
+   "t": 24.47,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1170,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 25.46,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1170,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 26.45,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 26.47,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1170,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 26.91,
+   "line": "capture 03-up: room prosperity, says null, options 0, control null"
+  },
+  {
+   "t": 27.07,
+   "line": "action 1 (click): clicked prosperity/down_the_hole at world 1170,360 -- down the hole again"
+  },
+  {
+   "t": 27.39,
+   "line": "action 1 (waitFor): reached {\"room\":\"under_prosperity\"} in room under_prosperity"
+  },
+  {
+   "t": 28.4,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 29.41,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 30.39,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 30.81,
+   "line": "capture 04-down: room under_prosperity, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "00-arrived",
+   "why": null,
+   "t": 6.17,
+   "file": "renders/proofs/under-prosperity/doors/raw-captures-ignored/00-arrived.png",
+   "hash": "40bae5bdb93c63ae64138023173f567c83cfd3fb97e8c99da1a11863e386fe78",
+   "room": "under_prosperity",
+   "clock": 5.8696,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 414,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      85,
+      366,
+      429,
+      457
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:under_prosperity",
+     "path": "art/backgrounds/room-34-under-prosperity.png",
+     "drawn": "art/backgrounds/room-34-under-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8ce696757d9a181118f636f6b773a507a0c17c7362c5eac1d4e268c42a203a97"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-chamber",
+   "why": null,
+   "t": 15.17,
+   "file": "renders/proofs/under-prosperity/doors/raw-captures-ignored/01-chamber.png",
+   "hash": "9891216dbee68691169a1e14505f42013ecad3f1b16ae214a4aa2693f49ffa84",
+   "room": "listening_chamber",
+   "clock": 14.9026,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      340,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 363,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      152,
+      417,
+      376,
+      401
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:listening_chamber",
+     "path": "art/backgrounds/room-33-listening-chamber.png",
+     "drawn": "art/backgrounds/room-33-listening-chamber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "77c9a9a4eeba8070dcaccc37282ac2de57e989c9e26d204b2b837e32c6381632"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-back",
+   "why": null,
+   "t": 19.06,
+   "file": "renders/proofs/under-prosperity/doors/raw-captures-ignored/02-back.png",
+   "hash": "6ca556785ad382d296fca72b4755badc553c25d5adfed2ad7e5b28b9ec2d6ac7",
+   "room": "under_prosperity",
+   "clock": 18.8025,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1560,
+      780
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 414,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-03.png",
+     "bounds": [
+      1344,
+      366,
+      431,
+      457
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:under_prosperity",
+     "path": "art/backgrounds/room-34-under-prosperity.png",
+     "drawn": "art/backgrounds/room-34-under-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8ce696757d9a181118f636f6b773a507a0c17c7362c5eac1d4e268c42a203a97"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-up",
+   "why": null,
+   "t": 26.9,
+   "file": "renders/proofs/under-prosperity/doors/raw-captures-ignored/03-up.png",
+   "hash": "4642288d024f3bf7f27c0d593f90a2cef6556d66fab7e10e9da7206ce04afd61",
+   "room": "prosperity",
+   "clock": 26.6188,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1170,
+      840
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 452,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-01.png",
+     "bounds": [
+      902,
+      388,
+      536,
+      499
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:prosperity",
+     "path": "art/backgrounds/room-23-prosperity.png",
+     "drawn": "art/backgrounds/room-23-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a00c9435bdb5b8eb5bac6f32e3ffb9091db8958fcbd094a2e4536ffed57629f1"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-down",
+   "why": null,
+   "t": 30.81,
+   "file": "renders/proofs/under-prosperity/doors/raw-captures-ignored/04-down.png",
+   "hash": "90aae847a4554280c1858f7e898f0bbde9069ca2fffd899581dd71905f8f472c",
+   "room": "under_prosperity",
+   "clock": 30.552,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 414,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      85,
+      366,
+      429,
+      457
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:under_prosperity",
+     "path": "art/backgrounds/room-34-under-prosperity.png",
+     "drawn": "art/backgrounds/room-34-under-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8ce696757d9a181118f636f6b773a507a0c17c7362c5eac1d4e268c42a203a97"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 32.15s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T22:49:19.405Z"
+}

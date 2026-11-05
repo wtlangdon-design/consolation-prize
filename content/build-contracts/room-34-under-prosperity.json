@@ -1,0 +1,192 @@
+{
+ "schema": 1,
+ "id": "room-34-under-prosperity",
+ "room": "under_prosperity",
+ "docRoom": 34,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 34 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/10-examine-batch-3.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/57-puzzle-completion.md",
+  "docs/45-audio-cue-sheet.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-34.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Two states (errata 69 A): the way down, and after F3 the old working. Reached by the pickaxe on the hole after F1."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-34/graybox.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The second state is its own plate (plateWhen T_BROKE_THROUGH)."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-34.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Nobody: Thad alone underground."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/under-prosperity/life/life.json"
+   ],
+   "note": "The lamp on the stump; nobody."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/under-prosperity/proof.json"
+   ],
+   "note": "Thad stands on the floor in front of the rock."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-34/annotation.json"
+   ],
+   "note": "Lamplit; no lift."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-34.test.ts",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "F1's pickaxe leads here; F3's state is shown here; nothing here points at the void (doc 54)."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-34.json",
+    "content/rooms/under-prosperity.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 75 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-34: 3 of 4 operations (master, plate, the second state)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/under-prosperity.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-34/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/under-prosperity/proof.json"
+   ],
+   "note": "Started from fixture r34-a."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/under-prosperity/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/under-prosperity/doors/life.json",
+    "tests/room-34.test.ts"
+   ],
+   "note": "Through THE GAP and back, up the rope and down the hole."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-34/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-34-under-prosperity.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-34/plate-01/frame.json"
+   ],
+   "note": "Attempt 2; promoted provisionally (errata 72 E)."
+  },
+  {
+   "subject": "the second state",
+   "class": "STATEFUL",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-34-under-prosperity-after.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-34/plate-after/frame.json"
+   ],
+   "note": "Attempt 3, after F3; promoted provisionally (errata 72 E)."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q174 · Rooms 34 and 33, under Prosperity and the listening chamber: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 H, delegated); BUILT, room-34 3 of 4 and room-33 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plates -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q174 · Rooms 34 and 33, under Prosperity and the listening chamber: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 H, delegated); BUILT, room-34 3 of 4 and room-33 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

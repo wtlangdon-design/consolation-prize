@@ -1,0 +1,464 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "under_prosperity",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "bfe6feffcb5d0e463a025e89528b54253295f80e",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r34-a, then entered under_prosperity by control -- NOT proof that a player can reach it",
+  "action 1 (wait): waited 2s",
+  "action 2 (verb): chose verb LOOK_AT -- ",
+  "action 3 (click): clicked under_prosperity/seam at world 1475,266 -- THE SEAM",
+  "action 4 (waitFor): reached {\"says\":\"thad\"} in room under_prosperity"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 701,
+    "xs": [
+     905,
+     716,
+     1094,
+     528,
+     1283,
+     339,
+     1471,
+     150,
+     1660
+    ],
+    "expect": 393,
+    "x": 905
+   },
+   "at": [
+    905,
+    701
+   ],
+   "reportedHeight": 393,
+   "expected": 393,
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "bounds": [
+    701,
+    308,
+    407,
+    434
+   ],
+   "order": 0,
+   "renderedHeight": 393,
+   "renderedBottom": 700,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     905,
+     716,
+     1094,
+     528,
+     1283,
+     339,
+     1471,
+     150,
+     1660
+    ],
+    "expect": 434,
+    "x": 905
+   },
+   "at": [
+    905,
+    857
+   ],
+   "reportedHeight": 434,
+   "expected": 434,
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
+   "bounds": [
+    680,
+    423,
+    450,
+    479
+   ],
+   "order": 0,
+   "renderedHeight": 434,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "under_prosperity",
+   "clock": 9.105799999999999,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "blanket",
+    "pickaxe"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 414,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      85,
+      366,
+      429,
+      457
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:under_prosperity",
+     "path": "art/backgrounds/room-34-under-prosperity.png",
+     "drawn": "art/backgrounds/room-34-under-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8ce696757d9a181118f636f6b773a507a0c17c7362c5eac1d4e268c42a203a97"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(under_prosperity)"
+   ],
+   "capturedAt": "2026-11-05T22:47:59.918Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "541698c79c02ebb574bf6498f13f4b3e62e4e0901226963b02b7a5eb839ce34c"
+  },
+  {
+   "panel": "A",
+   "room": "under_prosperity",
+   "clock": 9.9558,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "blanket",
+    "pickaxe"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 414,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:under_prosperity",
+     "path": "art/backgrounds/room-34-under-prosperity.png",
+     "drawn": "art/backgrounds/room-34-under-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8ce696757d9a181118f636f6b773a507a0c17c7362c5eac1d4e268c42a203a97"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(under_prosperity)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T22:48:00.769Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "c42be1d3b80ca2b27c51fc73c83a45d793b6afe882ed5cdcc2609a758b114e21"
+  },
+  {
+   "panel": "D",
+   "room": "under_prosperity",
+   "clock": 19.5721,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_BROKE_THROUGH"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "blanket",
+    "pickaxe"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      1475,
+      834
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 428,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      1221,
+      406,
+      507,
+      473
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": "thad",
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:under_prosperity",
+     "path": "art/backgrounds/room-34-under-prosperity.png",
+     "drawn": "art/backgrounds/room-34-under-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8ce696757d9a181118f636f6b773a507a0c17c7362c5eac1d4e268c42a203a97"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(under_prosperity)",
+    "cast(false)",
+    "cast(true)",
+    "stand(905,701)",
+    "cast(false)",
+    "cast(true)",
+    "stand(905,857)",
+    "cast(false)",
+    "cast(true)",
+    "flag T_BROKE_THROUGH=true"
+   ],
+   "capturedAt": "2026-11-05T22:48:10.357Z",
+   "intent": "principal changed state: F3's STATE (errata 69 A): set by the flag control, as Room 33's third swing sets it. Visible consequence: the second plate -- the seam, the old lantern, the footprints -- and THE SEAM answers LOOK.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "5636eadfd7545fb9546f286ab3be4cc161d589642398b509a1de72870447e732",
+   "changedBy": "flags"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T22:48:10.357Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 317896,
+  "panels": 5,
+  "scale": 0.5
+ }
+}

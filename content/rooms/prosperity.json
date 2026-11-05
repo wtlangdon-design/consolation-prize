@@ -619,6 +619,31 @@
         "y": 790,
         "facing": "right"
       }
+    },
+    {
+      "id": "down_the_hole",
+      "name": "THE TUNNEL",
+      "stub": true,
+      "rect": [
+        1110,
+        300,
+        120,
+        120
+      ],
+      "colour": 0,
+      "to": "under_prosperity",
+      "when": {
+        "T_DUG_DOWN": true
+      },
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 57 F1: 'Room 34 opens below the hole.' Once the three days' digging is done (T_DUG_DOWN), the hole's mouth is the way down: a small exit inside THE HOLE, whose own lines stay its own (invariant 3: its LISTEN is never marked). Room 34 writes THE TUNNEL; from up here it is a stub (errata 72 F, 99 H).",
+      "walkTo": {
+        "x": 1170,
+        "y": 840,
+        "facing": "back"
+      }
     }
   ],
   "entrances": [
@@ -657,6 +682,15 @@
       ],
       "facing": "left",
       "note": "Back from next door, at right (errata 97 C)."
+    },
+    {
+      "from": "under_prosperity",
+      "at": [
+        1170,
+        840
+      ],
+      "facing": "front",
+      "note": "Up the rope and out of the hole (errata 99 H)."
     }
   ],
   "size": [

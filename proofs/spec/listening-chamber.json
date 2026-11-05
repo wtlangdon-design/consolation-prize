@@ -1,0 +1,29 @@
+{
+ "schema": 1,
+ "room": "listening_chamber",
+ "note": "ROOM 33's PROOF SPEC. Reached through THE GAP from Room 34; the proof starts in the chamber from fixture r33-a and says so. The principal change is F2: the void found by LISTEN, its one line.",
+ "fixture": "r33-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "F2 (doc 05, doc 45 R33-VOID; errata 71 E): LISTEN on the void answers from the first tap with its line, and the ninety seconds begin. Visible consequence: the void's line, and T_VOID_FOUND.",
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "LISTEN_TO"
+   },
+   {
+    "do": "click",
+    "world": [
+     1395,
+     335
+    ],
+    "why": "the void, where room-33 operation 3 broke the wall"
+   },
+   {
+    "do": "waitFor",
+    "says": "thad",
+    "upTo": 60
+   }
+  ]
+ }
+}

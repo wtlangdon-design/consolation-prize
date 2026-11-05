@@ -1,0 +1,8 @@
+Image 1 is a finished background from my pixel-art adventure game: the end of a hand-dug tunnel underground, lit by one oil lamp on a stump, old wooden timbering in the middle, a shaft with a rope at the top left, a dark gap in the rock at the right.
+
+Make exactly these three changes, and only these:
+1. In the dark grey rock face at the right, above the gap: a SEAM of gold running at a slant into the dark, wider than a hand, catching the lamplight -- the only bright, warm metal in the picture.
+2. On the left-hand post of the old timbering, at head height: an old tin lantern hanging on an iron spike, unlit, its glass clean.
+3. On the clay floor, from the timbering toward the gap: one line of old boot prints, evenly spaced, all the same stride.
+
+Change nothing else. Same camera, same pixel grid, same big square pixels, same colours, same lamplight; the lamp, the fork, the timbering, the shaft and rope, the gap and the darkness exactly as they are. Leave the light grey strips above and below the picture exactly as they are. No people, no text, no numerals.

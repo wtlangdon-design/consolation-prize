@@ -66,6 +66,9 @@ test('all nine verbs are selectable, and every written examine line answers', as
       const isStub = (target as { stub?: boolean }).stub === true;
       const isExit = (target as { to?: string }).to !== undefined;
       for (const verb of content.verbs.verbs) {
+        // ROOM 33's ROCK: LISTEN is a tap the scene plays (doc 05: "LISTEN
+        // returns pitch, not prose"; engine/core/Listening.ts), never a line.
+        if (verb.id === 'LISTEN_TO' && room.listening?.surface === target.id) continue;
         state.verbs.selectVerb(verb.id);
         const result = state.interact(target, verb.id);
         const producedSomething = result.say !== null || result.enteredDialogue || result.changedRoom;

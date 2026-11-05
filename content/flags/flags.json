@@ -252,7 +252,9 @@
    "id": "T_STRIKE_FOUND",
    "type": "boolean",
    "initial": false,
-   "writtenBy": [],
+   "writtenBy": [
+    "combination:pickaxe:listening_chamber:every_rock_surface"
+   ],
    "note": "Doc 04: WIN_F1 opens after T_STRIKE_FOUND (F3). Written by Act IV, not built yet. EXTRACTED for Room 5 from docs/04-dialogue-trees.md::WINNIE LEDGER; the name is the document's."
   },
   {
@@ -1228,6 +1230,60 @@
     "dialogue:SHENG:SHE_D1 openingOnce"
    ],
    "note": "SHE_D1's opening -- 'You want money.' -- is said once."
+  },
+  {
+   "id": "T_DUG_DOWN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:pickaxe:prosperity:hole"
+   ],
+   "note": "Doc 57 F1: the three days' digging is done and the hole goes down to Room 34; from here the hole's mouth is the way down (errata 99 H)."
+  },
+  {
+   "id": "T_FORK_STRUCK",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:listening_chamber:enter"
+   ],
+   "note": "Doc 48 S5 beat 1: the fork struck once, unbidden, on the first entry to Room 33 (errata 99 H)."
+  },
+  {
+   "id": "T_VOID_FOUND",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:listening_chamber:listening"
+   ],
+   "note": "F2: the void answered and its line was said; the score's ninety seconds begin (errata 71 E, 99 H)."
+  },
+  {
+   "id": "T_IN_TUNE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:listening_chamber:listening"
+   ],
+   "note": "Invariant 5: the ninety seconds are over and the score is at 0 cents for the rest of the game (doc 45 R33-TUNE). The manifest's music.tunedFlag. The pickaxe on the void waits for it (errata 99 H)."
+  },
+  {
+   "id": "PICK_SWINGS",
+   "type": "integer",
+   "initial": 0,
+   "writtenBy": [
+    "combination:pickaxe:listening_chamber:every_rock_surface"
+   ],
+   "note": "Doc 54 Room 33 F3: swings at the void so far; the head comes off on the first two, the third breaks through (errata 99 H)."
+  },
+  {
+   "id": "T_BROKE_THROUGH",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:pickaxe:listening_chamber:every_rock_surface"
+   ],
+   "note": "Doc 57 F3 (errata 69 A): the third swing broke through. Room 34 shows its second state; Room 33 its broken wall."
   }
  ]
 }

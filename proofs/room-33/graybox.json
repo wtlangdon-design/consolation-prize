@@ -1,0 +1,100 @@
+{
+ "room": 33,
+ "note": "Ruling 22 steps 1-6 for the listening chamber, written by tools/room33-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 99).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 705,
+   "height": 300
+  },
+  "near": {
+   "y": 855,
+   "height": 400
+  },
+  "from": "Room 5's slope, a little smaller than Room 13's"
+ },
+ "walkable": [
+  200,
+  700,
+  1560,
+  158
+ ],
+ "exit": {
+  "hotspot": "THE GAP",
+  "to": "under_prosperity",
+  "rect": [
+   0,
+   330,
+   210,
+   360
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 300,
+   "y": 790,
+   "facing": "right"
+  },
+  "middle": {
+   "x": 1000,
+   "y": 780,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE GAP",
+   "rect": [
+    0,
+    330,
+    210,
+    360
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LAMP",
+   "rect": [
+    820,
+    600,
+    80,
+    90
+   ],
+   "where": "light"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the floor.",
+ "surfaces": [
+  {
+   "surface": "the walls of rock",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "the floor",
+   "p10": 84.0,
+   "p90": 84.0,
+   "darkAnchorMargin": 58.5,
+   "lightAnchorMargin": 37.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE GAP",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

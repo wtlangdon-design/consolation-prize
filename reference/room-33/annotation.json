@@ -1,0 +1,164 @@
+{
+ "room": "listening_chamber",
+ "plate": "art/backgrounds/room-33-listening-chamber.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-33/plate-01/candidate-lifted-1920x864.png, room-33 attempt 2, the standard 20:9 crop -- frame.json); the broken wall (attempt 3) shares the frame, and the void is where it broke.",
+ "plateShipping": "art/backgrounds/room-33-listening-chamber.png",
+ "plateShippingHash": "77c9a9a4eeba",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   260,
+   700
+  ],
+  [
+   1700,
+   700
+  ],
+  [
+   1700,
+   858
+  ],
+  [
+   260,
+   858
+  ]
+ ],
+ "walkableNote": "The chamber's floor, in front of the walls.",
+ "scaling": {
+  "far": {
+   "y": 700,
+   "height": 342
+  },
+  "near": {
+   "y": 858,
+   "height": 383
+  },
+  "note": "ROOM 33'S DEPTH, FROM THE MASTER: Thad stood with his feet at y 793 and was drawn 366 tall; along 0.26 a row, 342 at the band's far edge and 383 at its near."
+ },
+ "entrance": [
+  340,
+  780
+ ],
+ "entrances": [
+  {
+   "from": "under_prosperity",
+   "at": [
+    340,
+    780
+   ],
+   "facing": "right",
+   "note": "In through the gap, at left."
+  },
+  {
+   "from": "default",
+   "at": [
+    340,
+    780
+   ],
+   "facing": "right",
+   "note": "As through the gap."
+  }
+ ],
+ "hotspots": {
+  "every_rock_surface": [
+   0,
+   0,
+   1920,
+   700
+  ]
+ },
+ "hotspotsNote": "EVERY ROCK SURFACE is the whole chamber above the floor: doc 05's 'every rock surface', and doc 54's THE WALLS is the same rock. A LISTEN on it is a tap, placed where the click lands. THE VOID is never a hotspot (doc 54: 'No line here says where the void is').",
+ "people": {},
+ "exitSubjects": {
+  "THE GAP": {
+   "id": "to_under_prosperity",
+   "to": "under_prosperity",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "note": "Back through the gap to Room 34's tunnel. Doc 57 writes THE GAP from Room 34's side only, so from here it is a stub (errata 72 F)."
+  }
+ },
+ "exits": {
+  "to_under_prosperity": [
+   114,
+   240,
+   164,
+   417
+  ]
+ },
+ "exitWalkTo": {
+  "to_under_prosperity": {
+   "x": 300,
+   "y": 770,
+   "facing": "left"
+  }
+ },
+ "obstacles": [
+  {
+   "id": "the_lamp",
+   "rect": [
+    680,
+    690,
+    140,
+    90
+   ],
+   "note": "Thad's lamp, set down on the floor: he walks round it, never over it."
+  }
+ ],
+ "lamps": [
+  {
+   "id": "the_lamp",
+   "at": [
+    760,
+    770
+   ],
+   "radius": 200,
+   "amount": 0.09,
+   "rate": 0.7,
+   "phase": 0.4,
+   "note": "Thad's lamp on the floor. It slows to stillness across the score's ninety seconds (invariant 8); otherwise it is only a flame (invariant 9)."
+  }
+ ],
+ "defaultVerbs": {
+  "every_rock_surface": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. A bare click on the rock is LOOK, and LOOK is the joke that empties out (errata 70 F).",
+ "listening": {
+  "surface": "every_rock_surface",
+  "voidSubject": "THE VOID",
+  "tapsFrom": "content/audio/r33-taps.json",
+  "void": {
+   "at": [
+    1395,
+    335
+   ],
+   "radius": 60,
+   "reach": 700,
+   "note": "Where room-33 operation 3 broke the wall (art/staging/room-33/plate-after): tuning, judged by Tyler's ear (doc 57 F2)."
+  },
+  "foundFlag": "T_VOID_FOUND",
+  "completes": "F2",
+  "tune": {
+   "seconds": 90,
+   "doneFlag": "T_IN_TUNE"
+  },
+  "fork": {
+   "onceFlag": "T_FORK_STRUCK"
+  },
+  "note": "Doc 28 Part Five and doc 45; errata 70 C-F and 71 E (errata 99 H)."
+ },
+ "props": [],
+ "occlusion": {
+  "note": "No plane.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}

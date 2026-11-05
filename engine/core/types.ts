@@ -88,6 +88,12 @@ export interface ResponseRule {
   then?: SpokenLine[];
   /** Who speaks `say`, when it is not Thad (doc 57 E9's archive door: Sump). */
   by?: string;
+  /**
+   * `say` IS A STAGE DIRECTION, not speech (doc 58, errata 100 D): performed in
+   * parentheses in the quieter ink. Doc 54's third swing at Room 33's void is
+   * all direction -- "(Thad holds the head on with one hand ...)" -- and no word.
+   */
+  direction?: boolean;
   /** The canonical puzzle this response completes (doc 57 E9: THE MOTT FILE, LOOK). */
   completes?: string;
   /**
@@ -931,7 +937,7 @@ export interface CombinationPair {
  * A spoken line: a bare string is Thad's. `overBlack` plays it over a black
  * screen, which stays until the room changes (doc 57 B3's ride, "over black").
  */
-export type SpokenLine = string | { speaker: string; line: string; overBlack?: boolean };
+export type SpokenLine = string | { speaker: string; line: string; overBlack?: boolean; direction?: boolean };
 
 /** One circumstance of a pair. See CombinationPair.rules. */
 export interface PairRule {
@@ -947,6 +953,8 @@ export interface PairRule {
    * in the statute."), and the speaker is the document's, carried as an id.
    */
   by?: string;
+  /** `say` is a stage direction (doc 58): see ResponseRule.direction. */
+  direction?: boolean;
   /**
    * The rest of the exchange, in order: a bare string is Thad's line, an
    * object names its speaker (doc 57 A9's read-back: Sump, Thad, Sump).
@@ -1440,6 +1448,8 @@ export interface RoomFile {
    * is up, the room changes to `goto` -- while `when` holds, if it is given.
    */
   afterTimeline?: { goto: string; when?: Condition; note?: string };
+  /** Room 33's listening (F2). See ListeningRoom and engine/core/Listening.ts. */
+  listening?: ListeningRoom;
   colours: { sky: number; ground: number };
   horizon: number;
   hotspots: Interactable[];
@@ -2028,6 +2038,12 @@ export interface ManifestFile {
   music?: {
     title?: { src: string; gain?: number };
     rooms?: Record<string, { src: string; gain?: number }>;
+    /**
+     * THE FLAG THAT SAYS THE SCORE IS IN TUNE (invariant 5, doc 45 R33-TUNE):
+     * every bed is rendered at -35 cents, and once this is set they play at 0
+     * "for the rest of the game". Room 33's ninety seconds write it.
+     */
+    tunedFlag?: string;
   };
   musicNote?: string;
 }
@@ -2611,4 +2627,30 @@ export interface ActCardsFile {
   schema: number;
   note?: string;
   cards: Record<string, string>;
+}
+
+/**
+ * ROOM 33, THE LISTENING (doc 28 Part Five, doc 45 R33-TAP/RIPPLE/VOID/TUNE,
+ * errata 70 C-F and 71 E). A LISTEN on `surface` is a tap: where it lands
+ * picks the sound and the ripple, and on the void the void's line is said once
+ * and the score's ninety seconds begin, with control away (doc 48 S5 beat 3)
+ * and the room's lamps slowing to stillness on the same clock (invariant 8).
+ */
+export interface ListeningRoom {
+  /** The hotspot every tap is made on: EVERY ROCK SURFACE. */
+  surface: string;
+  /** Where the void is, never drawn; inside `radius` a tap is the void, out to `reach` the tail falls away. */
+  void: { at: [number, number]; radius: number; reach: number; note?: string };
+  /** Rendered taps, far rock first, each with its audible tail in seconds. */
+  taps: { src: string; tail: number }[];
+  voidSound: { src: string; tail: number };
+  /** The void's line and what finding it writes. Said the first time only. */
+  found: ResponseRule;
+  /** Set by `found`: the void has been found. */
+  foundFlag: string;
+  /** R33-TUNE: its length, and the flag written when it is over (the manifest's music.tunedFlag). */
+  tune: { seconds: number; doneFlag: string };
+  /** Doc 48 S5 beat 1: the fork, struck once on the first entry. */
+  fork?: { src: string; onceFlag: string };
+  note?: string;
 }
