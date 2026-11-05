@@ -64,6 +64,9 @@
           "say": "Boot Hill. Third row, second from the end. He's got a marker.",
           "set": {
             "T_PIKE_DEAD": true
+          },
+          "puzzle": {
+            "A1": "complete"
           }
         },
         {
@@ -97,7 +100,53 @@
           "say": "Mm."
         }
       ]
+    },
+    "UND_C1": {
+      "id": "UND_C1",
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 writes UND_C1 as a table only.",
+      "options": [
+        {
+          "id": "undertaker_c1",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "I'll need your best pine, handles, plate.",
+          "say": "Sizing's free. It's the only thing that is. Stand straight.",
+          "set": {
+            "T_COFFIN_SIZED": true
+          }
+        },
+        {
+          "id": "undertaker_c2",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "You haven't asked who it's for.",
+          "say": "It's for whoever fits."
+        },
+        {
+          "id": "undertaker_c3",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "Could you make it roomy?",
+          "say": "Everybody asks for roomy. Nobody's ever come back to complain."
+        },
+        {
+          "id": "undertaker_cx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
     }
   },
+  "entries": [
+    {
+      "when": {
+        "T_NEED_TO_DIE": true
+      },
+      "node": "UND_C1"
+    }
+  ],
   "start": "root"
 }

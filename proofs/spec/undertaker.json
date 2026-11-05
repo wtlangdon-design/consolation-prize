@@ -1,0 +1,34 @@
+{
+ "schema": 1,
+ "room": "undertaker",
+ "note": "ROOM 13's PROOF SPEC. The route is Main Street's, then the map. The room has one visual state (errata 86 A); its principal change is the act's turn: with T_NEED_TO_DIE (E1, Act III) the undertaker opens on UND_C1. E3's loan needs the Reverend's figure (Room 17) and Sheng's loan (Room 28), both unbuilt, and is played in tests/room-13.test.ts from fixture r13-b.",
+ "route": "undertaker",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "ACT 3 and T_NEED_TO_DIE (errata 75 H: written in rooms not built, so the flag control sets them). Visible consequence: TALK TO the undertaker opens on UND_C1.",
+  "flags": {
+   "ACT": 3,
+   "T_NEED_TO_DIE": true
+  },
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "TALK_TO"
+   },
+   {
+    "do": "click",
+    "world": [
+     1542,
+     420
+    ],
+    "why": "the undertaker"
+   },
+   {
+    "do": "waitFor",
+    "dialogue": true,
+    "upTo": 60,
+    "why": "UND_C1's list"
+   }
+  ]
+ }
+}

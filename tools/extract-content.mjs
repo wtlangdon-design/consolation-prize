@@ -1095,6 +1095,44 @@ function combinations() {
     ],
   });
 
+  // DOC 57 E3, STEP 3: SHENG'S LOAN ON THE UNDERTAKER (errata 86 E). Three
+  // cases, his words read from the section's `> **THE UNDERTAKER** · USE
+  // SHENG'S LOAN, *case* -- **UNDERTAKER:** ...` lines; which flags each case
+  // tests is routing, authored here as A8_CASES is. With the Reverend's figure
+  // and the sizing, the loan is spent, the funeral booked (`T_FUNERAL_BOOKED`)
+  // and E3 complete.
+  const e3 = (() => {
+    const whole = read('docs/57-puzzle-completion.md');
+    const from = whole.indexOf('## E3 ');
+    if (from < 0) throw new Error('doc 57: no E3 section');
+    const body = whole.slice(from, whole.indexOf('\n## ', from + 5));
+    const line = (label) => {
+      const re = new RegExp(`^> \\*\\*THE UNDERTAKER\\*\\* · USE SHENG'S LOAN, \\*${label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\* — \\*\\*UNDERTAKER:\\*\\* (.+)$`, 'm');
+      const m = re.exec(body);
+      if (!m) throw new Error(`doc 57 E3: no case "${label}"`);
+      const words = quoted(m[1].split('→')[0].replace(/\*\([^)]*\)\*/g, ''));
+      if (!words.length) throw new Error(`doc 57 E3: "${label}" has no line`);
+      return words;
+    };
+    return {
+      paid: line('with `T_SOWERBY_PRICE` and `T_COFFIN_SIZED`'),
+      noFigure: line('before the Reverend\'s figure'),
+      noSizing: line('before the sizing'),
+    };
+  })();
+  const undertakerSays = ([first, ...rest]) => ({ by: 'undertaker', say: first,
+    ...(rest.length ? { then: rest.map((one) => ({ speaker: 'undertaker', line: one })) } : {}) });
+  rebuilt.push({
+    item: 'loan', room: 'undertaker', target: 'undertaker', puzzle: 'E3', say: e3.paid[0],
+    note: 'Doc 57 E3 (not doc 24): SHENG\'S LOAN on the undertaker -- paid once the Reverend\'s figure and the sizing are in.',
+    rules: [
+      { case: 'with T_SOWERBY_PRICE and T_COFFIN_SIZED', when: { T_SOWERBY_PRICE: true, T_COFFIN_SIZED: true, T_FUNERAL_BOOKED: false },
+        ...undertakerSays(e3.paid), takes: ['loan'], set: { T_FUNERAL_BOOKED: true }, completes: 'E3' },
+      { case: 'before the Reverend\'s figure', when: { T_SOWERBY_PRICE: false }, ...undertakerSays(e3.noFigure) },
+      { case: 'before the sizing', when: { T_COFFIN_SIZED: false }, ...undertakerSays(e3.noSizing) },
+    ],
+  });
+
 
   const pools = {};
   let current = null;
@@ -1298,6 +1336,10 @@ function roomsBatchA() {
   for (let index = 0; index < sections.length; index += 2) {
     const number = Number(sections[index]);
     const body = sections[index + 1];
+    // ROOM 13 IS COMPILED NOW (errata 86): tools/compile-room.mjs builds it
+    // from content/examine/room-13.json, which carries doc 26's lines merged
+    // with docs 05, 09 and 54. This pass would rewrite a file it no longer owns.
+    if (number === 13) continue;
     const path = FILE[number];
     if (!path) throw new Error(`doc 26: no room file for room ${number}`);
     const room = JSON.parse(read(path));
@@ -1639,12 +1681,18 @@ function minorTrees() {
           + `also routed to ${routed} -- one of the two is now wrong`);
       }
       if (named || routed) option.set = { [named ? named[1] : routed]: true };
+      // A1 IS THE NEWS (doc 02: "the Undertaker finally states Pike died six
+      // years ago"; doc 57 A1). The option that writes T_PIKE_DEAD completes it
+      // (errata 86 D) -- routing, as A8_CASES is.
+      if (option.set?.T_PIKE_DEAD) option.puzzle = { A1: 'complete' };
       options.push(option);
     }
 
     if (options.length < 3) throw new Error(`doc 27: ${title} has ${options.length} options`);
     // Vessel's Act II root is doc 04's, merged here so he is one tree.
     const actTwo = who.tree === 'DEKE_VESSEL' ? vesselActTwo() : null;
+    // The undertaker's Act III node is doc 04's, merged here so he is one tree.
+    const actThree = who.tree === 'UNDERTAKER' ? undertakerActThree() : null;
 
     written.push(write(`content/dialogue/${who.tree.toLowerCase().replace(/_/g, '-')}.json`, {
       schema: 1,
@@ -1679,8 +1727,10 @@ function minorTrees() {
           options,
         },
         ...(actTwo ? { VES_B1: actTwo.node } : {}),
+        ...(actThree ? { UND_C1: actThree.node } : {}),
       },
       ...(actTwo ? { entries: actTwo.entries } : {}),
+      ...(actThree ? { entries: actThree.entries } : {}),
       start: 'root',
     }));
   }
@@ -3234,6 +3284,38 @@ function storeItems() {
     }));
   }
   return out;
+}
+
+/**
+ * DOC 04, THE UNDERTAKER'S ACT III NODE, UND_C1 (errata 86 D): the coffin
+ * fitting, "grown to a node in Batch C". Doc 57 E3 routes it: open once E2 is
+ * done (`T_NEED_TO_DIE`), and option 1 sizes the coffin (`T_COFFIN_SIZED`).
+ * Doc 04 writes the node as a table only, so it has no prompt; a universal
+ * exit from doc 04's pool closes it. Every string is the document's.
+ */
+function undertakerActThree() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('## THE UNDERTAKER — two nodes');
+  const to = doc.indexOf('\n---', from);
+  if (from < 0 || to < 0) throw new Error('doc 04: no UNDERTAKER section');
+  const body = doc.slice(doc.indexOf('**`UND_C1`', from), to);
+  const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
+  const options = [];
+  for (const [, number, optionCell, tagCell, responseCell] of body.matchAll(/^\| (\d+) \| (.+?) \| (.+?) \| (.+?) \|$/gm)) {
+    const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
+    const text = quoted(optionCell)[0];
+    const said = spokenIn(responseCell, 'undertaker');
+    if (!tag || !text || said.lines.length !== 1) throw new Error(`doc 04 UND_C1: option ${number} does not read`);
+    for (const d of said.staging) process.stderr.write(`  doc 04 UND_C1 option ${number} staging: ${d}\n`);
+    options.push({ id: `undertaker_c${number}`, tag: tag[1], ...(tag[2] ? { afterUse: tag[2] } : {}), text,
+      say: said.lines[0].line, ...(number === '1' ? { set: { T_COFFIN_SIZED: true } } : {}) });
+  }
+  if (options.length !== 3) throw new Error(`doc 04 UND_C1: ${options.length} options, not 3`);
+  options.push({ id: 'undertaker_cx', tag: 'EXIT', text: POOL[0], universal: true, ends: true });
+  return {
+    node: { id: 'UND_C1', noPrompt: true, exceptionReason: 'Doc 04 writes UND_C1 as a table only.', options },
+    entries: [{ when: { T_NEED_TO_DIE: true }, node: 'UND_C1' }],
+  };
 }
 
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),

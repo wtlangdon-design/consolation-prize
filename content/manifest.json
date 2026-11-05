@@ -61,7 +61,8 @@
   "content/fixtures/room-09.json",
   "content/fixtures/room-10.json",
   "content/fixtures/room-11.json",
-  "content/fixtures/room-12.json"
+  "content/fixtures/room-12.json",
+  "content/fixtures/room-13.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -86,7 +87,8 @@
   "content/items/handkerchief.json",
   "content/items/photograph.json",
   "content/items/eggs.json",
-  "content/items/tonic.json"
+  "content/items/tonic.json",
+  "content/items/loan.json"
  ],
  "scaling": "content/actors/scaling.json",
  "ambient": [
@@ -113,7 +115,8 @@
   "content/ambient/sump.json",
   "content/ambient/frame.json",
   "content/ambient/lobby-clerk.json",
-  "content/ambient/fanshawe.json"
+  "content/ambient/fanshawe.json",
+  "content/ambient/undertaker.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",

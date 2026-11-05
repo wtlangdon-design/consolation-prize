@@ -1,0 +1,99 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 13, the undertaker's. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r13-a",
+   "label": "R13-A Act I, sent by the driver: the Pike news (A1)",
+   "room": "undertaker",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "four_dollars",
+    "watch"
+   ],
+   "derivedFrom": [
+    "docs/27-minor-trees.md::THE UNDERTAKER · Room 13",
+    "docs/57-puzzle-completion.md::A1 · Deliver the letter to Ezra Pike"
+   ],
+   "expect": {
+    "tree": "UNDERTAKER",
+    "opensOn": "root"
+   },
+   "note": "Fresh from the stage: TALK TO the undertaker, ask after Pike, then 'Up the hill?' -- T_PIKE_DEAD and A1."
+  },
+  {
+   "id": "r13-b",
+   "label": "R13-B Act III, after the loophole: the arrangements (E3)",
+   "room": "undertaker",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "T_NINETY_DAYS": true,
+    "ACT": 3,
+    "T_ASSAY_QUEUE": true,
+    "T_NEED_TO_DIE": true,
+    "T_EXECUTOR_RULE": true,
+    "T_SOWERBY_PRICE": true,
+    "T_PIKE_DEAD": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "loan"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "D1": "complete",
+    "E1": "complete",
+    "E2": "complete"
+   },
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::E3 · The eulogy, and paying for one's own funeral"
+   ],
+   "notBuilt": [
+    "SOW_C1 (Room 17) writes T_SOWERBY_PRICE and SHE_D1 (Room 28) gives SHENG'S LOAN: both are set here as their outcomes"
+   ],
+   "expect": {
+    "tree": "UNDERTAKER",
+    "opensOn": "UND_C1"
+   },
+   "note": "The Reverend's figure in and the loan in hand: UND_C1 option 1 sizes the coffin; USE SHENG'S LOAN on the undertaker pays, and E3."
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+Image 1 is the layout for one room of my pixel-art adventure game: grey blocks for walls and furniture, and the hero (the man in the long coat) standing on the floor. Paint this room as a finished game background with two people in it, keeping the camera, the layout and every block where image 1 puts it. Paint the room ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched. The whole room, from the ceiling to the floor in front of the hero, fits inside that band.
+
+THE ROOM: the undertaker's shop in a gold-rush town, 1850s, at night. Scrubbed bone-white and pale pine, near-monochrome on purpose; clean, plain, patient; nothing wasted. Image 5 is a saloon in the same town at the same hour, for the world and the night light only.
+- Far left: a plain street door with no bell. Beside it a small window onto the dark lane; under it a plain pine waiting bench.
+- Left of middle: a small painted price board on the wall; below it one good black suit hanging on a peg, with two more in other sizes behind it.
+- Middle: a doorway to the back room whose frame is marked with pencil heights, like a family kitchen; then pine coffins stacked by size against the wall, from big to very many small ones.
+- Right of middle: a long scrubbed oak table, the room's one working surface, with an oil lamp hanging over it. On a shelf above it, a vase of wax lilies and a glass jar of teeth.
+- Right: a black hearse harness hanging on a peg; a wall rack of carpenter's tools; a small stand with an open ledger of accounts.
+- Floor: scrubbed pine boards.
+- Light: the lamp over the table, warm but pale; the corners dimmer. No daylight.
+
+THE PEOPLE (this picture is a reference painting, so people are allowed in it):
+- The hero from image 4, standing where image 1 puts him, at exactly that size, facing right toward the table.
+- THE UNDERTAKER, standing behind the oak table, seen from the waist up over it, planing a pine board with a carpenter's plane, not looking up: a man in his fifties, lean, clean-shaven, grey hair cut short, shirt sleeves rolled, a clean white apron, a carpenter's hands. Calm and completely unbothered. The size of a standing man at that depth.
+
+THE LOOK: the same pixel-art style as images 2, 3 and 6, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero -- the undertaker drawn on exactly the hero's coarse pixel grid, no finer -- flat, soft shading, very little texture, simple shapes. This room has its own colours: bone-white, pale pine, a little black; warm pale lamplight. Nothing near black where the hero stands.
+
+RULES: no readable text, letters or numbers anywhere -- the price board and the ledger carry marks, never words. No border, no frame around the picture, no caption.

@@ -350,7 +350,21 @@ def tonic(canvas: IndexedCanvas, palette: Palette) -> None:
     canvas.rect(13, 10, 5, 5, palette.family("bone").frac(0.80))
 
 
+def loan(canvas: IndexedCanvas, palette: Palette) -> None:
+    """SHENG'S LOAN: two silver dollars and some small coin wrapped in a twist
+    of laundry paper (doc 23: two dollars and sixty cents, the exact price).
+    Coins on a white paper fold -- unlike FOUR DOLLARS' loose gold."""
+    bone = palette.family("bone")
+    canvas.rect(7, 9, 16, 9, bone.frac(0.90))
+    canvas.line(7, 9, 22, 17, bone.frac(0.70))
+    grey = palette.family("grey")
+    canvas.rect(10, 6, 5, 5, grey.frac(0.80))
+    canvas.rect(15, 5, 5, 5, grey.frac(0.70))
+    canvas.rect(13, 11, 3, 3, grey.frac(0.60))
+
+
 ICONS = {
+    "loan": loan,
     "eggs": eggs,
     "tonic": tonic,
     "handkerchief": handkerchief,

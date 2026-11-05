@@ -1,0 +1,292 @@
+{
+ "room": 13,
+ "note": "Ruling 22 steps 1-6 for the undertaker's, written by tools/room13-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 86).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 740,
+   "height": 497
+  },
+  "near": {
+   "y": 850,
+   "height": 573
+  },
+  "from": "Room 5's interior numbers (reference/room-05/annotation.json)"
+ },
+ "walkable": [
+  220,
+  740,
+  1600,
+  110
+ ],
+ "exit": {
+  "hotspot": "THE STREET DOOR",
+  "to": "town_map",
+  "rect": [
+   30,
+   150,
+   180,
+   540
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 300,
+   "y": 790,
+   "facing": "right"
+  },
+  "talk_undertaker": {
+   "x": 1180,
+   "y": 790,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE STREET DOOR",
+   "rect": [
+    30,
+    150,
+    180,
+    540
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WINDOW",
+   "rect": [
+    240,
+    100,
+    200,
+    280
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WAITING BENCH",
+   "rect": [
+    230,
+    520,
+    260,
+    170
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PRICE BOARD",
+   "rect": [
+    500,
+    90,
+    160,
+    190
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE GOOD SUIT",
+   "rect": [
+    520,
+    300,
+    150,
+    390
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MEASURING WALL",
+   "rect": [
+    720,
+    80,
+    150,
+    610
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE COFFINS",
+   "rect": [
+    900,
+    150,
+    300,
+    540
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE VIEWING TABLE",
+   "rect": [
+    1260,
+    470,
+    360,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE FLOWERS, WAXED",
+   "rect": [
+    1240,
+    300,
+    100,
+    130
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TEETH",
+   "rect": [
+    1360,
+    320,
+    70,
+    90
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LEDGER OF ACCOUNTS",
+   "rect": [
+    1660,
+    430,
+    170,
+    120
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE HEARSE HARNESS",
+   "rect": [
+    1460,
+    100,
+    130,
+    200
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TOOLS",
+   "rect": [
+    1640,
+    110,
+    240,
+    230
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE UNDERTAKER (at the table)",
+   "rect": [
+    1390,
+    250,
+    120,
+    220
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: every piece of furniture is behind it, and the undertaker is cut at his table by his own posture, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "walls, limewashed plank",
+   "p10": 60.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 29.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "floor, scrubbed pine",
+   "p10": 88.0,
+   "p90": 97.0,
+   "darkAnchorMargin": 62.5,
+   "lightAnchorMargin": 24.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE STREET DOOR",
+   "p10": 62.0,
+   "p90": 62.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 59.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WINDOW",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WAITING BENCH",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE GOOD SUIT",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE MEASURING WALL",
+   "p10": 76.0,
+   "p90": 76.0,
+   "darkAnchorMargin": 50.5,
+   "lightAnchorMargin": 45.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE COFFINS",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE VIEWING TABLE",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE FLOWERS, WAXED",
+   "p10": 90.0,
+   "p90": 90.0,
+   "darkAnchorMargin": 64.5,
+   "lightAnchorMargin": 31.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE LEDGER OF ACCOUNTS",
+   "p10": 86.0,
+   "p90": 86.0,
+   "darkAnchorMargin": 60.5,
+   "lightAnchorMargin": 35.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TOOLS",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

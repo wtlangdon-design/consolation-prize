@@ -1,0 +1,56 @@
+{
+ "sheet": "art/staging/room-13/undertaker/undertaker.png",
+ "frames": [
+  [
+   2,
+   2,
+   167,
+   227
+  ],
+  [
+   171,
+   2,
+   167,
+   227
+  ],
+  [
+   340,
+   2,
+   167,
+   227
+  ],
+  [
+   509,
+   2,
+   167,
+   227
+  ],
+  [
+   678,
+   2,
+   167,
+   227
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "planing",
+  "putting it down",
+  "waiting"
+ ],
+ "topLeft": {
+  "x": 1459,
+  "y": 299
+ },
+ "anchor": {
+  "x": 1542,
+  "y": 526
+ },
+ "height": 425,
+ "feetRow": 724.5,
+ "cut": 522,
+ "handsTo": 526,
+ "key": 90,
+ "source": "room-13 attempt 3 (art/staging/room-13/undertaker-01/sheet.png)"
+}

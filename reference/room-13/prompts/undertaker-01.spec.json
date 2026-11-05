@@ -1,0 +1,11 @@
+{
+ "assetId": "room-13",
+ "subject": "undertaker",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-13-undertakers",
+ "promptFile": "reference/room-13/prompts/undertaker-01.txt",
+ "out": "art/staging/room-13/undertaker-01/sheet.png",
+ "size": "1536x1024",
+ "images": ["art/staging/room-13/undertaker-01/vs-thad.png", "art/staging/room-13/composition-master-01.png"]
+}

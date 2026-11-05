@@ -921,6 +921,25 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
     if (!read) fail(`${id}: override "${key}" is a case, not a verb, and no sceneLines entry plays it`);
     delete objectOverrides[key];
   }
+  // A DOCUMENT THAT FIXES AN OVERRIDE (errata 86 C). Doc 26 writes THE
+  // COFFINS · USE as "Not yet." and forbids a variant; doc 49 writes another
+  // line for the same verb. The annotation's `overrideFrom.<id>.<VERB>` names
+  // the section whose `> **NAME** · VERB — "..."` line wins, and the words are
+  // read from it; the line it replaces is reported, never dropped in silence.
+  for (const [verb, ref] of Object.entries(ann.overrideFrom?.[id] ?? {})) {
+    const [path, heading] = ref.split('::');
+    const text = read(path);
+    const at = text.indexOf(heading);
+    if (at < 0) fail(`overrideFrom: ${path} has no section "${heading}"`);
+    const esc = (v) => v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const spoken = verb.replace('_', ' ');
+    const m = new RegExp(`^> \\*\\*${esc(entry.docName)}\\*\\* · ${esc(spoken)} — "([^"]+)"`, 'm').exec(text.slice(at));
+    if (!m) fail(`overrideFrom: ${ref} writes no "${entry.docName} · ${spoken}" line`);
+    if (objectOverrides[verb] && objectOverrides[verb] !== m[1]) {
+      console.log(`  ${id} ${verb}: ${ref} wins over "${objectOverrides[verb].slice(0, 60)}..."`);
+    }
+    objectOverrides[verb] = m[1];
+  }
   const old = (live.hotspots ?? []).find((h) => h.id === id);
   // THE DEFAULT VERB CARRIES OVER, FOR THE SAME REASON THE ID DOES. It is not
   // in doc 05 and it is not in the annotation -- errata 28b makes it the verb

@@ -4762,3 +4762,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Twenty-four subjects and 160 lines (content/examine/room-12.json, doc 49's six refusals); nobody drawn; THE PICKAXE, THE PICKLED EGGS and DR. PURVIS'S TONIC on account, played in `tests/room-12.test.ts` (fixtures `r12-a`, `r12-b`). Main Street's sixth door now leads here. Proofs under `renders/proofs/mercantile/`.
 
 **Open:** neither side of the store's door has a LOOK or LISTEN in any document. DR. PURVIS'S TONIC has no written "again": asked again, it repeats its pickup line and gives nothing. **For Tyler:** the catalogue as five slips in an open book (errata 85 C); the painted LAMP OIL.
+
+## Q156 · Room 13, the undertaker's: built, awaiting Tyler's playthrough; two lines for THE COFFINS' USE — **RULED 2026-11-05 (errata 86, delegated; doc 26's line plays, doc 49's is reported); BUILT, room-13 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Twelve subjects; the undertaker behind his table, planing; A1 ("Up the hill?") and E3's third step (UND_C1, the loan) played in `tests/room-13.test.ts` (fixtures `r13-a`, `r13-b`). Reached by the map; its door leads back to it. Proofs under `renders/proofs/undertaker/`.
+
+**Open, for Tyler:** (a) THE COFFINS · USE has two written lines: doc 26's "Not yet." (with "Do not add a variant") plays; doc 49's "Trying one for size is free…" does not. Say if doc 49's should replace it. (b) E3's "Frame's notice goes up: FUNERAL THURSDAY: THE PIANO MAN" is not drawn: no board in a built room carries it yet. (c) The undertaker's look (errata 86 B), the first figure generated against Thad from its first image.
