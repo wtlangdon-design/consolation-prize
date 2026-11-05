@@ -1,0 +1,8 @@
+Image 1 is a finished background from my pixel-art adventure game: a graveyard on a hill at night, with one person in it, the man in the blue coat standing on the grass in the middle.
+
+Make exactly these three changes and nothing else:
+1. Remove the man in the blue coat. Paint the moonlit grass that is behind him, exactly as the hill would look with nobody on it.
+2. The BACK row of wooden grave boards: remove the right-hand END board, the tall plain one at the far right of that row, and paint plain grass where it stood, so that spot is an empty plot with nothing on it. The board second from the right-hand end becomes the last board in the row; leave it exactly as it is.
+3. The MIDDLE row of wooden grave boards (the row nearer to us): add ONE more board at its right-hand end, just like the others in that row, evenly spaced after the last one, so the middle row has nine boards.
+
+Change nothing else. Same framing, same camera, same pixel grid, same colours, same moonlight, same objects in the same places: the moon, the stars, the town's lights below on the left, the gate and its fence, the white stone obelisk and its jar of lilies, every other board in both rows. No people, no shadows of people, no text.

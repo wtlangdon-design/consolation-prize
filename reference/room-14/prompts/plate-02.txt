@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game: a graveyard on a hill at night, with nobody in it.
+
+The wooden grave boards stand in two neat, evenly spaced rows. Make them SCATTERED instead, the way an old frontier boot hill grows: boards at irregular spacing, some a little forward and some a little back, some leaning slightly one way or the other, in loose uneven clusters with gaps of grass between them, spread over the hillside behind the white obelisk -- not in lines. Keep the same number of boards (seventeen) and the same plain weathered wooden kind and size.
+
+Two things stay together and exactly as they are, at the far right of the back of the hill: the last board of the back row (the one furthest right), and the empty grassy spot just to its right, which must stay an empty plot of plain grass with nothing on it.
+
+Change nothing else. Same framing, same camera, same pixel grid, same colours, same moonlight, and the same moon, stars, town lights, gate and fence, white stone obelisk and its jar of lilies, in the same places. Keep the open grass in the front half of the picture clear of boards. No people, no text.

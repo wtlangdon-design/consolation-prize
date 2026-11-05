@@ -30,7 +30,8 @@
   "content/rooms/undertaker.json",
   "content/rooms/main-street-candidate.json",
   "content/rooms/nugget-candidate.json",
-  "content/rooms/coffin.json"
+  "content/rooms/coffin.json",
+  "content/rooms/boot-hill.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -62,7 +63,8 @@
   "content/fixtures/room-10.json",
   "content/fixtures/room-11.json",
   "content/fixtures/room-12.json",
-  "content/fixtures/room-13.json"
+  "content/fixtures/room-13.json",
+  "content/fixtures/room-14.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",

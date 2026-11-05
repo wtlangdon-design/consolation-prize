@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: a graveyard on a hill at night, with nobody in it.
+
+Make exactly this one change: at the back of the hill on the far right, the empty grassy spot just to the right of the right-most wooden board (the one nearest the moon), becomes a FILLED GRAVE, a few weeks old: a low rounded mound of earth with thin new grass just starting over it, and at its head a plain wooden headboard, the same height as the board beside it, painted with a few marks, never readable words. A small piano tuning peg rests on top of the headboard, catching the moonlight.
+
+Change nothing else. Same framing, same camera, same pixel grid, same colours, same moonlight, same objects in the same places: the moon, the stars, the town's lights, the gate and fence, the white stone obelisk and its lilies, every other board where it stands, the grass everywhere else. No people, no text.
