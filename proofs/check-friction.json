@@ -33,16 +33,16 @@
    "why": "'Nothing yet.' declared doctrine in content/ui/duplicate-allowlist.json: doc 05 (Room 21's lamp), doc 09 and doc 10 each write it for a different object as the null answer (errata 94)."
   },
   {
-   "check": "content/ui/duplicate-allowlist.json",
-   "date": "2026-11-05",
-   "kind": "loosened",
-   "why": "THE HOLE's LISTEN, which doc 54 writes as doc 05's line three times and orders declared in content as a deliberate repetition (errata 96 B)."
-  },
-  {
    "check": "tests/departure.test.ts",
    "date": "2026-11-05",
    "kind": "loosened",
    "why": "Not loosened in substance: a departure pose now also says which leg of the path it is on and how far along (`leg`, `along`), which a loop walker's per-point heights read (errata 95); the exact-equality assertion gained the two new fields and checks the same position, heading, frame and done as before."
+  },
+  {
+   "check": "content/ui/duplicate-allowlist.json",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "THE HOLE's LISTEN, which doc 54 writes as doc 05's line three times and orders declared in content as a deliberate repetition (errata 96 B)."
   },
   {
    "check": "content/ui/duplicate-allowlist.json",
