@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "claims_road",
- "commit": "317ea12713a84cf25e9893da5476d12735b942cc",
+ "commit": "eb10e0ef10efac8fc3ceb3a6cb14bad4d53d23ea",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -12,114 +12,114 @@
  "entryRoute": "claims-road",
  "warped": false,
  "lifeRoute": "claims-road-life",
- "durationSeconds": 182.55,
+ "durationSeconds": 181.29,
  "events": [
   {
-   "t": 2.75,
+   "t": 2.67,
    "line": "entry route claims-road: 23 action(s)"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 1 (wait): waited 2.5s"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 13 (wait): waited 3s"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 17 (wait): waited 6s"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 20 (wait): waited 7s"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 21 (click): clicked main_street/to_claims_road at world 3450,467 -- THE ROAD TO THE CLAIMS"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 22 (waitFor): reached {\"room\":\"claims_road\"} in room claims_road"
   },
   {
-   "t": 110.31,
+   "t": 109.65,
    "line": "action 23 (wait): waited 3s"
   },
   {
-   "t": 110.32,
+   "t": 109.68,
    "line": "in claims_road; life route: 25 action(s)"
   },
   {
-   "t": 110.85,
+   "t": 110.17,
    "line": "capture 01-arrived: room claims_road, says null, options 0, control null"
   },
   {
-   "t": 111.88,
+   "t": 111.2,
    "trace": {
     "says": null,
     "control": null,
@@ -134,7 +134,7 @@
    }
   },
   {
-   "t": 112.87,
+   "t": 112.18,
    "trace": {
     "says": null,
     "control": null,
@@ -149,7 +149,7 @@
    }
   },
   {
-   "t": 113.86,
+   "t": 113.19,
    "trace": {
     "says": null,
     "control": null,
@@ -164,7 +164,7 @@
    }
   },
   {
-   "t": 114.87,
+   "t": 114.18,
    "trace": {
     "says": null,
     "control": null,
@@ -179,7 +179,7 @@
    }
   },
   {
-   "t": 115.89,
+   "t": 115.2,
    "trace": {
     "says": null,
     "control": null,
@@ -194,7 +194,7 @@
    }
   },
   {
-   "t": 116.88,
+   "t": 116.21,
    "trace": {
     "says": null,
     "control": null,
@@ -209,7 +209,7 @@
    }
   },
   {
-   "t": 117.89,
+   "t": 117.21,
    "trace": {
     "says": null,
     "control": null,
@@ -224,7 +224,7 @@
    }
   },
   {
-   "t": 118.89,
+   "t": 118.2,
    "trace": {
     "says": null,
     "control": null,
@@ -239,15 +239,15 @@
    }
   },
   {
-   "t": 119.85,
+   "t": 119.17,
    "line": "action 1 (wait): waited 9s"
   },
   {
-   "t": 120.41,
+   "t": 119.7,
    "line": "capture 02-the-road: room claims_road, says null, options 0, control null"
   },
   {
-   "t": 121.44,
+   "t": 120.74,
    "trace": {
     "says": null,
     "control": null,
@@ -262,7 +262,7 @@
    }
   },
   {
-   "t": 122.42,
+   "t": 121.72,
    "trace": {
     "says": null,
     "control": null,
@@ -277,7 +277,7 @@
    }
   },
   {
-   "t": 123.42,
+   "t": 122.73,
    "trace": {
     "says": null,
     "control": null,
@@ -292,7 +292,7 @@
    }
   },
   {
-   "t": 124.43,
+   "t": 123.73,
    "trace": {
     "says": null,
     "control": null,
@@ -307,7 +307,7 @@
    }
   },
   {
-   "t": 125.43,
+   "t": 124.71,
    "trace": {
     "says": null,
     "control": null,
@@ -322,7 +322,7 @@
    }
   },
   {
-   "t": 126.44,
+   "t": 125.72,
    "trace": {
     "says": null,
     "control": null,
@@ -337,7 +337,7 @@
    }
   },
   {
-   "t": 127.43,
+   "t": 126.73,
    "trace": {
     "says": null,
     "control": null,
@@ -352,7 +352,7 @@
    }
   },
   {
-   "t": 128.44,
+   "t": 127.75,
    "trace": {
     "says": null,
     "control": null,
@@ -367,23 +367,38 @@
    }
   },
   {
-   "t": 129.41,
+   "t": 128.71,
    "line": "action 1 (wait): waited 9s"
   },
   {
-   "t": 129.99,
+   "t": 128.72,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     240,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 129.23,
    "line": "capture 03-the-road-later: room claims_road, says null, options 0, control null"
   },
   {
-   "t": 130.09,
+   "t": 129.31,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 130.27,
+   "t": 129.48,
    "line": "action 1 (click): clicked claims_road/men_going_out at world 1635,275 -- THE MEN GOING OUT"
   },
   {
-   "t": 131.3,
+   "t": 130.51,
    "trace": {
     "says": null,
     "control": null,
@@ -398,7 +413,7 @@
    }
   },
   {
-   "t": 132.28,
+   "t": 131.52,
    "trace": {
     "says": null,
     "control": null,
@@ -406,14 +421,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     767,
+     776,
      798
     ],
     "moving": true
    }
   },
   {
-   "t": 133.28,
+   "t": 132.5,
    "trace": {
     "says": null,
     "control": null,
@@ -428,7 +443,7 @@
    }
   },
   {
-   "t": 134.29,
+   "t": 133.51,
    "trace": {
     "says": null,
     "control": null,
@@ -443,7 +458,7 @@
    }
   },
   {
-   "t": 135.28,
+   "t": 134.52,
    "trace": {
     "says": null,
     "control": null,
@@ -451,22 +466,22 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1586,
+     1595,
      809
     ],
     "moving": true
    }
   },
   {
-   "t": 135.78,
+   "t": 135.05,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room claims_road"
   },
   {
-   "t": 136.37,
+   "t": 135.61,
    "line": "capture 04-look-going-out: room claims_road, says \"thad\", options 0, control null"
   },
   {
-   "t": 137.39,
+   "t": 136.63,
    "trace": {
     "says": "thad",
     "control": null,
@@ -481,7 +496,7 @@
    }
   },
   {
-   "t": 138.38,
+   "t": 137.65,
    "trace": {
     "says": "thad",
     "control": null,
@@ -496,7 +511,7 @@
    }
   },
   {
-   "t": 139.41,
+   "t": 138.64,
    "trace": {
     "says": "thad",
     "control": null,
@@ -511,7 +526,7 @@
    }
   },
   {
-   "t": 140.38,
+   "t": 139.63,
    "trace": {
     "says": null,
     "control": null,
@@ -526,7 +541,7 @@
    }
   },
   {
-   "t": 141.39,
+   "t": 140.63,
    "trace": {
     "says": null,
     "control": null,
@@ -541,7 +556,7 @@
    }
   },
   {
-   "t": 142.41,
+   "t": 141.63,
    "trace": {
     "says": null,
     "control": null,
@@ -556,7 +571,7 @@
    }
   },
   {
-   "t": 143.38,
+   "t": 142.64,
    "trace": {
     "says": null,
     "control": null,
@@ -571,27 +586,27 @@
    }
   },
   {
-   "t": 144.37,
+   "t": 143.62,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 144.43,
+   "t": 143.67,
    "line": "action 1 (verb): chose verb LISTEN_TO -- "
   },
   {
-   "t": 144.65,
+   "t": 143.86,
    "line": "action 1 (click): clicked claims_road/men_coming_back at world 1100,470 -- THE MEN COMING BACK"
   },
   {
-   "t": 144.69,
+   "t": 143.9,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room claims_road"
   },
   {
-   "t": 145.22,
+   "t": 144.39,
    "line": "capture 05-listen-coming-back: room claims_road, says \"thad\", options 0, control null"
   },
   {
-   "t": 146.26,
+   "t": 145.42,
    "trace": {
     "says": "thad",
     "control": null,
@@ -599,14 +614,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1207,
+     1234,
      810
     ],
     "moving": true
    }
   },
   {
-   "t": 147.23,
+   "t": 146.41,
    "trace": {
     "says": "thad",
     "control": null,
@@ -621,7 +636,7 @@
    }
   },
   {
-   "t": 148.25,
+   "t": 147.42,
    "trace": {
     "says": "thad",
     "control": null,
@@ -636,7 +651,7 @@
    }
   },
   {
-   "t": 149.25,
+   "t": 148.41,
    "trace": {
     "says": "thad",
     "control": null,
@@ -651,7 +666,7 @@
    }
   },
   {
-   "t": 150.25,
+   "t": 149.41,
    "trace": {
     "says": "thad",
     "control": null,
@@ -666,7 +681,7 @@
    }
   },
   {
-   "t": 151.24,
+   "t": 150.43,
    "trace": {
     "says": null,
     "control": null,
@@ -681,7 +696,7 @@
    }
   },
   {
-   "t": 152.24,
+   "t": 151.43,
    "trace": {
     "says": null,
     "control": null,
@@ -696,11 +711,11 @@
    }
   },
   {
-   "t": 153.23,
+   "t": 152.4,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 153.26,
+   "t": 152.43,
    "trace": {
     "says": null,
     "control": null,
@@ -715,15 +730,15 @@
    }
   },
   {
-   "t": 153.29,
+   "t": 152.46,
    "line": "action 1 (verb): chose verb USE -- "
   },
   {
-   "t": 153.46,
+   "t": 152.63,
    "line": "action 1 (click): clicked claims_road/to_prosperity_closed at world 1790,440 -- the way up, without the map (doc 57 A4)"
   },
   {
-   "t": 154.49,
+   "t": 153.65,
    "trace": {
     "says": null,
     "control": null,
@@ -731,14 +746,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1376,
+     1372,
      810
     ],
     "moving": true
    }
   },
   {
-   "t": 155.49,
+   "t": 154.63,
    "trace": {
     "says": null,
     "control": null,
@@ -746,22 +761,22 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1653,
+     1644,
      810
     ],
     "moving": true
    }
   },
   {
-   "t": 156.31,
+   "t": 155.46,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room claims_road"
   },
   {
-   "t": 156.78,
+   "t": 155.97,
    "line": "capture 06-way-up-closed: room claims_road, says \"thad\", options 0, control null"
   },
   {
-   "t": 157.82,
+   "t": 156.98,
    "trace": {
     "says": "thad",
     "control": null,
@@ -776,7 +791,7 @@
    }
   },
   {
-   "t": 158.8,
+   "t": 158,
    "trace": {
     "says": "thad",
     "control": null,
@@ -791,7 +806,7 @@
    }
   },
   {
-   "t": 159.79,
+   "t": 159,
    "trace": {
     "says": "thad",
     "control": null,
@@ -806,7 +821,7 @@
    }
   },
   {
-   "t": 160.79,
+   "t": 159.99,
    "trace": {
     "says": "thad",
     "control": null,
@@ -821,7 +836,7 @@
    }
   },
   {
-   "t": 161.8,
+   "t": 160.99,
    "trace": {
     "says": "thad",
     "control": null,
@@ -836,7 +851,7 @@
    }
   },
   {
-   "t": 162.82,
+   "t": 162,
    "trace": {
     "says": "thad",
     "control": null,
@@ -851,7 +866,7 @@
    }
   },
   {
-   "t": 163.81,
+   "t": 163.01,
    "trace": {
     "says": null,
     "control": null,
@@ -866,19 +881,19 @@
    }
   },
   {
-   "t": 164.78,
+   "t": 163.97,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 164.83,
+   "t": 164.01,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 165.01,
+   "t": 164.16,
    "line": "action 1 (click): clicked claims_road/mile_post at world 510,550 -- THE MILE POST"
   },
   {
-   "t": 166.02,
+   "t": 165.19,
    "trace": {
     "says": null,
     "control": null,
@@ -893,7 +908,7 @@
    }
   },
   {
-   "t": 167.02,
+   "t": 166.2,
    "trace": {
     "says": null,
     "control": null,
@@ -901,14 +916,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1242,
+     1237,
      810
     ],
     "moving": true
    }
   },
   {
-   "t": 168.03,
+   "t": 167.18,
    "trace": {
     "says": null,
     "control": null,
@@ -916,14 +931,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     961,
+     965,
      810
     ],
     "moving": true
    }
   },
   {
-   "t": 169.02,
+   "t": 168.19,
    "trace": {
     "says": null,
     "control": null,
@@ -938,11 +953,15 @@
    }
   },
   {
-   "t": 170.03,
+   "t": 169.14,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room claims_road"
   },
   {
-   "t": 170.03,
+   "t": 169.62,
+   "line": "capture 07-look-mile-post: room claims_road, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 170.62,
    "trace": {
     "says": "thad",
     "control": null,
@@ -955,10 +974,6 @@
     ],
     "moving": false
    }
-  },
-  {
-   "t": 170.59,
-   "line": "capture 07-look-mile-post: room claims_road, says \"thad\", options 0, control null"
   },
   {
    "t": 171.62,
@@ -976,22 +991,7 @@
    }
   },
   {
-   "t": 172.6,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     510,
-     813
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 173.6,
+   "t": 172.63,
    "trace": {
     "says": null,
     "control": null,
@@ -1006,7 +1006,7 @@
    }
   },
   {
-   "t": 174.61,
+   "t": 173.65,
    "trace": {
     "says": null,
     "control": null,
@@ -1021,7 +1021,7 @@
    }
   },
   {
-   "t": 175.61,
+   "t": 174.64,
    "trace": {
     "says": null,
     "control": null,
@@ -1036,7 +1036,7 @@
    }
   },
   {
-   "t": 176.62,
+   "t": 175.64,
    "trace": {
     "says": null,
     "control": null,
@@ -1051,7 +1051,7 @@
    }
   },
   {
-   "t": 177.61,
+   "t": 176.65,
    "trace": {
     "says": null,
     "control": null,
@@ -1066,7 +1066,7 @@
    }
   },
   {
-   "t": 178.59,
+   "t": 177.63,
    "line": "action 1 (wait): waited 8s"
   }
  ],
@@ -1074,165 +1074,11 @@
   {
    "name": "01-arrived",
    "why": "arrival from the town",
-   "t": 110.84,
+   "t": 110.16,
    "file": "renders/proofs/claims-road/life/raw-captures-ignored/01-arrived.png",
-   "hash": "f7be17f96c0d42234d15af7557e638f121e3333f4ac6635ecb4368c236c32154",
+   "hash": "164013fc92515f54a9ae01d3c9753c232800ad8f69d35aea24e774428f39c9c7",
    "room": "claims_road",
-   "clock": 110.5735,
-   "control": null,
-   "says": null,
-   "options": 0,
-   "flags": [
-    "T_OPENING_SAID",
-    "T_COACH_DEPARTED",
-    "T_UNDERTAKER_NAMED",
-    "T_HOB_CROSSING",
-    "T_THAD_LEAVING",
-    "T_HOB_SPOKEN",
-    "T_HOB_GONE",
-    "T_OPENING_DONE",
-    "T_SEEN_MAIN_STREET",
-    "T_CASE_DOWN",
-    "T_CASE_TAKEN"
-   ],
-   "counters": {
-    "HARNESS_PUSH_COUNT": 0,
-    "T_DRIVER_ASKED": 3,
-    "ACT": 1,
-    "T_NUGGET_PIANO_PAID": 0,
-    "MISSPELLINGS_SEEN": 0,
-    "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
-   },
-   "camera": 0,
-   "movers": {
-    "thad": {
-     "at": [
-      240,
-      790
-     ],
-     "facing": "right",
-     "clip": "idle",
-     "height": 329,
-     "moving": false,
-     "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
-     "bounds": [
-      69,
-      461,
-      341,
-      363
-     ],
-     "order": 0,
-     "clipLevel": 0,
-     "fallback": false
-    }
-   },
-   "states": {},
-   "cues": {
-    "last": null,
-    "count": 0
-   },
-   "steps": {},
-   "caption": false,
-   "assets": [
-    {
-     "key": "bg:claims_road",
-     "path": "art/backgrounds/room-22-claims-road.png",
-     "drawn": "art/backgrounds/room-22-claims-road.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "2fa7d921a4f119b8ab0e66fc31c8c6d19e92b8422cf983f63c4b9492ed631439"
-    }
-   ],
-   "stubs": [],
-   "missingAssets": []
-  },
-  {
-   "name": "02-the-road",
-   "why": null,
-   "t": 120.4,
-   "file": "renders/proofs/claims-road/life/raw-captures-ignored/02-the-road.png",
-   "hash": "6a35c0781a8820a016682718b1aef42e3132b102e0575b4eb6e66f2c2e94cc23",
-   "room": "claims_road",
-   "clock": 120.1399,
-   "control": null,
-   "says": null,
-   "options": 0,
-   "flags": [
-    "T_OPENING_SAID",
-    "T_COACH_DEPARTED",
-    "T_UNDERTAKER_NAMED",
-    "T_HOB_CROSSING",
-    "T_THAD_LEAVING",
-    "T_HOB_SPOKEN",
-    "T_HOB_GONE",
-    "T_OPENING_DONE",
-    "T_SEEN_MAIN_STREET",
-    "T_CASE_DOWN",
-    "T_CASE_TAKEN"
-   ],
-   "counters": {
-    "HARNESS_PUSH_COUNT": 0,
-    "T_DRIVER_ASKED": 3,
-    "ACT": 1,
-    "T_NUGGET_PIANO_PAID": 0,
-    "MISSPELLINGS_SEEN": 0,
-    "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
-   },
-   "camera": 0,
-   "movers": {
-    "thad": {
-     "at": [
-      240,
-      790
-     ],
-     "facing": "right",
-     "clip": "idle",
-     "height": 329,
-     "moving": false,
-     "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-00.png",
-     "bounds": [
-      69,
-      461,
-      341,
-      363
-     ],
-     "order": 0,
-     "clipLevel": 0,
-     "fallback": false
-    }
-   },
-   "states": {},
-   "cues": {
-    "last": null,
-    "count": 0
-   },
-   "steps": {},
-   "caption": false,
-   "assets": [
-    {
-     "key": "bg:claims_road",
-     "path": "art/backgrounds/room-22-claims-road.png",
-     "drawn": "art/backgrounds/room-22-claims-road.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "2fa7d921a4f119b8ab0e66fc31c8c6d19e92b8422cf983f63c4b9492ed631439"
-    }
-   ],
-   "stubs": [],
-   "missingAssets": []
-  },
-  {
-   "name": "03-the-road-later",
-   "why": null,
-   "t": 129.98,
-   "file": "renders/proofs/claims-road/life/raw-captures-ignored/03-the-road-later.png",
-   "hash": "abaca3768b8831f08748dc915afc690143102354193f9a23aa2e57a75d95fad5",
-   "room": "claims_road",
-   "clock": 129.7062,
+   "clock": 109.8405,
    "control": null,
    "says": null,
    "options": 0,
@@ -1303,13 +1149,167 @@
    "missingAssets": []
   },
   {
+   "name": "02-the-road",
+   "why": null,
+   "t": 119.7,
+   "file": "renders/proofs/claims-road/life/raw-captures-ignored/02-the-road.png",
+   "hash": "fb189fdf16879865ea51fe50fb40948f1962dfefc90ecef98e5c5440b64e128e",
+   "room": "claims_road",
+   "clock": 119.49010000000001,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      240,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 329,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      69,
+      461,
+      341,
+      363
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_road",
+     "path": "art/backgrounds/room-22-claims-road.png",
+     "drawn": "art/backgrounds/room-22-claims-road.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2fa7d921a4f119b8ab0e66fc31c8c6d19e92b8422cf983f63c4b9492ed631439"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-the-road-later",
+   "why": null,
+   "t": 129.22,
+   "file": "renders/proofs/claims-road/life/raw-captures-ignored/03-the-road-later.png",
+   "hash": "9fc0e1fb3377a77297a8f1974c2f4c5c5ab632a13ad63edb99e9b27c78da3692",
+   "room": "claims_road",
+   "clock": 129.0231,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      240,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 329,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      69,
+      461,
+      341,
+      363
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_road",
+     "path": "art/backgrounds/room-22-claims-road.png",
+     "drawn": "art/backgrounds/room-22-claims-road.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2fa7d921a4f119b8ab0e66fc31c8c6d19e92b8422cf983f63c4b9492ed631439"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
    "name": "04-look-going-out",
    "why": "where the words land (doc 55 section 8)",
-   "t": 136.36,
+   "t": 135.61,
    "file": "renders/proofs/claims-road/life/raw-captures-ignored/04-look-going-out.png",
-   "hash": "ad67eb0f5066c53f169dd77a9b1b776b9cec8ec5cbbb8a44d1fd2c1f03d3f327",
+   "hash": "7c270c3e36b286c9e8bf7006ce2a48eb0ab1101cd08e4dff266dd19921f8b20b",
    "room": "claims_road",
-   "clock": 136.1059,
+   "clock": 135.2061,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1347,7 +1347,7 @@
      "height": 342,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-02.png",
+     "from": "art/actors/thad-idle-back/idle-00.png",
      "bounds": [
       1432,
       468,
@@ -1382,11 +1382,11 @@
   {
    "name": "05-listen-coming-back",
    "why": "where the words land (doc 55 section 8)",
-   "t": 145.21,
+   "t": 144.39,
    "file": "renders/proofs/claims-road/life/raw-captures-ignored/05-listen-coming-back.png",
-   "hash": "932173ae7be7affe9dd6de0d89215b0f021af2fb446d0a7fb5f76467ccfc40f9",
+   "hash": "59a6a806fad93c99e768d0a852641eabb16e0ab63c0435118dd7c160df480ae9",
    "room": "claims_road",
-   "clock": 144.9556,
+   "clock": 144.0725,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1416,7 +1416,7 @@
    "movers": {
     "thad": {
      "at": [
-      1501,
+      1538,
       810
      ],
      "facing": "left",
@@ -1424,9 +1424,9 @@
      "height": 342,
      "moving": true,
      "drawn": "sprite",
-     "from": "art/actors/thad-walk-left/walk-04.png",
+     "from": "art/actors/thad-walk-left/walk-03.png",
      "bounds": [
-      1318,
+      1355,
       468,
       345,
       367
@@ -1459,11 +1459,11 @@
   {
    "name": "06-way-up-closed",
    "why": "where the words land (doc 55 section 8)",
-   "t": 156.77,
+   "t": 155.96,
    "file": "renders/proofs/claims-road/life/raw-captures-ignored/06-way-up-closed.png",
-   "hash": "299166fd0cf897383195eb22d39c7801da9def565cf2a6ed5d59a3529cd2be37",
+   "hash": "49e228226ec1ea11e63600d390d7bf6e958a3017d50e6e49f245f4fd528e90d9",
    "room": "claims_road",
-   "clock": 156.42170000000002,
+   "clock": 155.75529999999998,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1501,7 +1501,7 @@
      "height": 342,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-03.png",
+     "from": "art/actors/thad-idle-back/idle-01.png",
      "bounds": [
       1587,
       468,
@@ -1536,11 +1536,11 @@
   {
    "name": "07-look-mile-post",
    "why": "where the words land (doc 55 section 8)",
-   "t": 170.58,
+   "t": 169.61,
    "file": "renders/proofs/claims-road/life/raw-captures-ignored/07-look-mile-post.png",
-   "hash": "400499ec09f4c943a750b7c0b6a18e00770c1c0c9d87351249f540f6872e38ee",
+   "hash": "f4c5734980120e15a219f132b78c4ace5d00eaa26d8ba9bb990e1547953cdf58",
    "room": "claims_road",
-   "clock": 170.3379,
+   "clock": 169.28810000000001,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1578,7 +1578,7 @@
      "height": 344,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-00.png",
+     "from": "art/actors/thad-idle-back/idle-04.png",
      "bounds": [
       306,
       469,
@@ -1612,20 +1612,20 @@
   }
  ],
  "failures": [
-  "capture 01-arrived: miners_back's sheet (none declared) is not loaded -- she is absent",
-  "capture 01-arrived: miners_out's sheet (none declared) is not loaded -- she is absent",
-  "capture 02-the-road: miners_back's sheet (none declared) is not loaded -- she is absent",
-  "capture 02-the-road: miners_out's sheet (none declared) is not loaded -- she is absent",
-  "capture 03-the-road-later: miners_back's sheet (none declared) is not loaded -- she is absent",
-  "capture 03-the-road-later: miners_out's sheet (none declared) is not loaded -- she is absent",
-  "capture 04-look-going-out: miners_back's sheet (none declared) is not loaded -- she is absent",
-  "capture 04-look-going-out: miners_out's sheet (none declared) is not loaded -- she is absent",
-  "capture 05-listen-coming-back: miners_back's sheet (none declared) is not loaded -- she is absent",
-  "capture 05-listen-coming-back: miners_out's sheet (none declared) is not loaded -- she is absent",
-  "capture 06-way-up-closed: miners_back's sheet (none declared) is not loaded -- she is absent",
-  "capture 06-way-up-closed: miners_out's sheet (none declared) is not loaded -- she is absent",
-  "capture 07-look-mile-post: miners_back's sheet (none declared) is not loaded -- she is absent",
-  "capture 07-look-mile-post: miners_out's sheet (none declared) is not loaded -- she is absent"
+  "capture 01-arrived: miners_back's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 01-arrived: miners_out's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 02-the-road: miners_back's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 02-the-road: miners_out's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 03-the-road-later: miners_back's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 03-the-road-later: miners_out's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 04-look-going-out: miners_back's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 04-look-going-out: miners_out's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 05-listen-coming-back: miners_back's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 05-listen-coming-back: miners_out's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 06-way-up-closed: miners_back's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 06-way-up-closed: miners_out's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 07-look-mile-post: miners_back's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 07-look-mile-post: miners_out's sheet art/actors/room-22-miners.png is not loaded -- she is absent"
  ],
  "passed": false,
  "judgement": {
@@ -1638,7 +1638,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 182.55s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 181.29s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -1653,5 +1653,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T15:39:31.947Z"
+ "at": "2026-11-05T15:47:23.125Z"
 }
