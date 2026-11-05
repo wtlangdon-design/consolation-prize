@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "church",
- "commit": "dd6a8ce5457000c06022f6542889a5f969b202a6",
+ "commit": "f8d6352dcbcccd65d72751a4c8a948b42bd04e89",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -12,138 +12,138 @@
  "entryRoute": "church",
  "warped": false,
  "lifeRoute": "church-doors",
- "durationSeconds": 120.91,
+ "durationSeconds": 122.92,
  "events": [
   {
-   "t": 3.62,
+   "t": 4.39,
    "line": "entry route church: 26 action(s)"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 1 (wait): waited 2.5s"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 13 (wait): waited 3s"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 17 (wait): waited 6s"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 20 (wait): waited 2s"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 21 (click): clicked screen 554,1052 -- the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 23 (wait): waited 1s"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 24 (click): clicked screen 600,350 -- the church's place on the map (content/rooms/town-map.json loc_church)"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 25 (waitFor): reached {\"room\":\"church\"} in room church"
   },
   {
-   "t": 107.81,
+   "t": 109.61,
    "line": "action 26 (wait): waited 3s"
   },
   {
-   "t": 107.84,
+   "t": 109.63,
    "line": "in church; life route: 17 action(s)"
   },
   {
-   "t": 108.46,
+   "t": 110.22,
    "line": "capture 00-arrived: room church, says null, options 0, control null"
   },
   {
-   "t": 108.8,
+   "t": 110.53,
    "line": "action 1 (click): clicked church/door_always_unlocked at world 110,370 -- THE DOOR, ALWAYS UNLOCKED -- out, to the map"
   },
   {
-   "t": 109.21,
+   "t": 110.91,
    "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
   },
   {
-   "t": 110.22,
+   "t": 111.92,
    "line": "action 1 (wait): waited 1s"
   },
   {
-   "t": 110.23,
+   "t": 111.94,
    "trace": {
     "says": null,
     "control": null,
@@ -158,19 +158,19 @@
    }
   },
   {
-   "t": 110.9,
+   "t": 112.63,
    "line": "capture 01-out: room town_map, says null, options 0, control null"
   },
   {
-   "t": 111.04,
+   "t": 112.79,
    "line": "action 1 (click): clicked screen 600,350 -- the church's marker"
   },
   {
-   "t": 111.13,
+   "t": 112.86,
    "line": "action 1 (waitFor): reached {\"room\":\"church\"} in room church"
   },
   {
-   "t": 112.19,
+   "t": 113.93,
    "trace": {
     "says": null,
     "control": null,
@@ -185,11 +185,11 @@
    }
   },
   {
-   "t": 113.14,
+   "t": 114.87,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 113.22,
+   "t": 114.89,
    "trace": {
     "says": null,
     "control": null,
@@ -204,23 +204,23 @@
    }
   },
   {
-   "t": 113.77,
+   "t": 115.46,
    "line": "capture 01-in: room church, says null, options 0, control null"
   },
   {
-   "t": 114.12,
+   "t": 115.88,
    "line": "action 1 (click): clicked church/door_always_unlocked at world 110,370 -- THE DOOR, ALWAYS UNLOCKED -- out, to the map"
   },
   {
-   "t": 114.18,
+   "t": 115.95,
    "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
   },
   {
-   "t": 115.19,
+   "t": 116.96,
    "line": "action 1 (wait): waited 1s"
   },
   {
-   "t": 115.22,
+   "t": 117,
    "trace": {
     "says": null,
     "control": null,
@@ -235,19 +235,19 @@
    }
   },
   {
-   "t": 115.84,
+   "t": 117.69,
    "line": "capture 02-out: room town_map, says null, options 0, control null"
   },
   {
-   "t": 115.96,
+   "t": 117.82,
    "line": "action 1 (click): clicked screen 600,350 -- the church's marker"
   },
   {
-   "t": 116.04,
+   "t": 117.9,
    "line": "action 1 (waitFor): reached {\"room\":\"church\"} in room church"
   },
   {
-   "t": 117.06,
+   "t": 118.98,
    "trace": {
     "says": null,
     "control": null,
@@ -262,11 +262,11 @@
    }
   },
   {
-   "t": 118.05,
+   "t": 119.9,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 118.1,
+   "t": 119.97,
    "trace": {
     "says": null,
     "control": null,
@@ -281,7 +281,7 @@
    }
   },
   {
-   "t": 118.65,
+   "t": 120.55,
    "line": "capture 02-in: room church, says null, options 0, control null"
   }
  ],
@@ -289,11 +289,11 @@
   {
    "name": "00-arrived",
    "why": null,
-   "t": 108.44,
+   "t": 110.2,
    "file": "renders/proofs/church/doors/raw-captures-ignored/00-arrived.png",
-   "hash": "544434e29de0b2fef036e70e0f1495e75641ff2b9f9215d1b16a5c2faa862fc6",
+   "hash": "4565d20c1a40c308dc4736bc3bd8c6dc2394cd6ed8c2f58bef5378f4d9ebbece",
    "room": "church",
-   "clock": 108.0336,
+   "clock": 109.71560000000001,
    "control": null,
    "says": null,
    "options": 0,
@@ -331,7 +331,7 @@
      "height": 424,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
       80,
       366,
@@ -382,11 +382,11 @@
   {
    "name": "01-out",
    "why": null,
-   "t": 110.88,
+   "t": 112.58,
    "file": "renders/proofs/church/doors/raw-captures-ignored/01-out.png",
    "hash": "eba89b18d4dc991c7c1889333ceeee7700c54a1e4e8583af688e100f3c617ef3",
    "room": "town_map",
-   "clock": 110.6502,
+   "clock": 112.0488,
    "control": null,
    "says": null,
    "options": 0,
@@ -426,10 +426,10 @@
      "drawn": "sprite",
      "from": "art/actors/thad-walk-left/walk-02.png",
      "bounds": [
-      21,
+      26,
       364,
-      421,
-      449
+      422,
+      450
      ],
      "order": 0,
      "clipLevel": 0,
@@ -459,11 +459,104 @@
   {
    "name": "01-in",
    "why": null,
-   "t": 113.75,
+   "t": 115.44,
    "file": "renders/proofs/church/doors/raw-captures-ignored/01-in.png",
-   "hash": "5fab1870ae5a10bf1f7942416b9ad4e4b2dcf6aba065fad8957121af5b6a45a3",
+   "hash": "00171da86a735a65569fff7c1d476c44e6dee21a75cd904b1b2553808a98c774",
    "room": "church",
-   "clock": 113.3834,
+   "clock": 114.982,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      230,
+      780
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 417,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-05.png",
+     "bounds": [
+      13,
+      363,
+      434,
+      460
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:church",
+     "path": "art/backgrounds/room-17-church.png",
+     "drawn": "art/backgrounds/room-17-church.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295"
+    },
+    {
+     "key": "art/masks/room-17-plane-1.png",
+     "path": "art/masks/room-17-plane-1.png",
+     "drawn": "art/masks/room-17-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "81bf4531c4003906a4b20e930a16d8e6e6d6b0802bab1f932b4c40d6dc0417af"
+    },
+    {
+     "key": "art/actors/room-17-sowerby.png",
+     "path": "art/actors/room-17-sowerby.png",
+     "drawn": "art/actors/room-17-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-out",
+   "why": null,
+   "t": 117.66,
+   "file": "renders/proofs/church/doors/raw-captures-ignored/02-out.png",
+   "hash": "eba89b18d4dc991c7c1889333ceeee7700c54a1e4e8583af688e100f3c617ef3",
+   "room": "town_map",
+   "clock": 117.3486,
    "control": null,
    "says": null,
    "options": 0,
@@ -522,41 +615,25 @@
    "caption": false,
    "assets": [
     {
-     "key": "bg:church",
-     "path": "art/backgrounds/room-17-church.png",
-     "drawn": "art/backgrounds/room-17-church.png",
+     "key": "bg:town_map",
+     "path": "art/backgrounds/room-00-town-map.png",
+     "drawn": "art/backgrounds/room-00-town-map.png",
      "candidate": false,
      "loaded": true,
-     "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295"
-    },
-    {
-     "key": "art/masks/room-17-plane-1.png",
-     "path": "art/masks/room-17-plane-1.png",
-     "drawn": "art/masks/room-17-plane-1.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "81bf4531c4003906a4b20e930a16d8e6e6d6b0802bab1f932b4c40d6dc0417af"
-    },
-    {
-     "key": "art/actors/room-17-sowerby.png",
-     "path": "art/actors/room-17-sowerby.png",
-     "drawn": "art/actors/room-17-sowerby.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b"
+     "hash": "24e197c0b72e97e46c7183345f6d3e008cf7177841aca98aa55fb20d483f2c4f"
     }
    ],
    "stubs": [],
    "missingAssets": []
   },
   {
-   "name": "02-out",
+   "name": "02-in",
    "why": null,
-   "t": 115.82,
-   "file": "renders/proofs/church/doors/raw-captures-ignored/02-out.png",
-   "hash": "eba89b18d4dc991c7c1889333ceeee7700c54a1e4e8583af688e100f3c617ef3",
-   "room": "town_map",
-   "clock": 115.6,
+   "t": 120.53,
+   "file": "renders/proofs/church/doors/raw-captures-ignored/02-in.png",
+   "hash": "74294e3209338a04e298c2547d1b7f36de4b5dfbec1a707a5f8d405850dd69c8",
+   "room": "church",
+   "clock": 120.0152,
    "control": null,
    "says": null,
    "options": 0,
@@ -594,84 +671,7 @@
      "height": 417,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-03.png",
-     "bounds": [
-      13,
-      363,
-      434,
-      460
-     ],
-     "order": 0,
-     "clipLevel": 0,
-     "fallback": false
-    }
-   },
-   "states": {},
-   "cues": {
-    "last": null,
-    "count": 0
-   },
-   "steps": {},
-   "caption": false,
-   "assets": [
-    {
-     "key": "bg:town_map",
-     "path": "art/backgrounds/room-00-town-map.png",
-     "drawn": "art/backgrounds/room-00-town-map.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "24e197c0b72e97e46c7183345f6d3e008cf7177841aca98aa55fb20d483f2c4f"
-    }
-   ],
-   "stubs": [],
-   "missingAssets": []
-  },
-  {
-   "name": "02-in",
-   "why": null,
-   "t": 118.63,
-   "file": "renders/proofs/church/doors/raw-captures-ignored/02-in.png",
-   "hash": "e224c9bfd2f73c12d09b8c28bcb962ee63bc25a60286c5242953925b394b3c82",
-   "room": "church",
-   "clock": 118.2499,
-   "control": null,
-   "says": null,
-   "options": 0,
-   "flags": [
-    "T_OPENING_SAID",
-    "T_COACH_DEPARTED",
-    "T_UNDERTAKER_NAMED",
-    "T_HOB_CROSSING",
-    "T_THAD_LEAVING",
-    "T_HOB_SPOKEN",
-    "T_HOB_GONE",
-    "T_OPENING_DONE",
-    "T_SEEN_MAIN_STREET",
-    "T_CASE_DOWN",
-    "T_CASE_TAKEN"
-   ],
-   "counters": {
-    "HARNESS_PUSH_COUNT": 0,
-    "T_DRIVER_ASKED": 3,
-    "ACT": 1,
-    "T_NUGGET_PIANO_PAID": 0,
-    "MISSPELLINGS_SEEN": 0,
-    "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
-   },
-   "camera": 0,
-   "movers": {
-    "thad": {
-     "at": [
-      230,
-      780
-     ],
-     "facing": "left",
-     "clip": "idle-break",
-     "height": 417,
-     "moving": false,
-     "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-left/idle-break-00.png",
+     "from": "art/actors/thad-idle-left/idle-00.png",
      "bounds": [
       13,
       363,
@@ -720,15 +720,11 @@
    "missingAssets": []
   }
  ],
- "failures": [
-  "capture 00-arrived: sowerby's prop art/objects/room-04/pencil-cover.png is not loaded",
-  "capture 01-in: sowerby's prop art/objects/room-04/pencil-cover.png is not loaded",
-  "capture 02-in: sowerby's prop art/objects/room-04/pencil-cover.png is not loaded"
- ],
- "passed": false,
+ "failures": [],
+ "passed": true,
  "judgement": {
   "machine": {
-   "passed": false,
+   "passed": true,
    "establishes": [
     "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
     "every asset the room declares loaded; no stub, graybox or fallback was drawn",
@@ -736,7 +732,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 120.91s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 122.92s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -751,5 +747,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T04:26:48.827Z"
+ "at": "2026-11-05T04:32:43.332Z"
 }
