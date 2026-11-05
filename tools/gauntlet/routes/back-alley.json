@@ -114,9 +114,9 @@
    "do": "click",
    "world": [
     1900,
-    700
+    830
    ],
-   "why": "down the street, a leg inside the camera's view: the camera centres on him, so a leg reaches only as far as its left edge (about 640 short of him)"
+   "why": "down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
   },
   {
    "do": "wait",
@@ -132,9 +132,9 @@
    "do": "click",
    "world": [
     1300,
-    700
+    830
    ],
-   "why": "down the street, a leg inside the camera's view: the camera centres on him, so a leg reaches only as far as its left edge (about 640 short of him)"
+   "why": "down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
   },
   {
    "do": "wait",
@@ -150,9 +150,9 @@
    "do": "click",
    "world": [
     700,
-    700
+    830
    ],
-   "why": "down the street, a leg inside the camera's view: the camera centres on him, so a leg reaches only as far as its left edge (about 640 short of him)"
+   "why": "down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
   },
   {
    "do": "wait",
@@ -168,9 +168,9 @@
    "do": "click",
    "world": [
     150,
-    700
+    830
    ],
-   "why": "down the street, a leg inside the camera's view: the camera centres on him, so a leg reaches only as far as its left edge (about 640 short of him)"
+   "why": "down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
   },
   {
    "do": "wait",
