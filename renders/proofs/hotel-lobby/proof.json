@@ -4,7 +4,7 @@
  "room": "hotel_lobby",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "ba7f0f245c48be7498ad805791447cd1189130cb",
+ "commit": "1b0806fb5c2b0e2a451beec979878dcb53d0a0a0",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -65,7 +65,7 @@
    ],
    "reportedHeight": 375,
    "expected": 375,
-   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
    "bounds": [
     755,
     316,
@@ -73,7 +73,7 @@
     414
    ],
    "order": 0,
-   "renderedHeight": 375,
+   "renderedHeight": 395,
    "renderedBottom": 690,
    "file": "raw-captures-ignored/panel-c-mud_far-far.png"
   },
@@ -102,7 +102,7 @@
    ],
    "reportedHeight": 487,
    "expected": 487,
-   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
    "bounds": [
     697,
     370,
@@ -139,16 +139,23 @@
     "height": 128,
     "bottom": 445,
     "right": 1269,
-    "changed": 7508
+    "changed": 7432
    },
-   "props": []
+   "props": [],
+   "contact": {
+    "expected": [
+     438,
+     450
+    ],
+    "lowestDrawnRow": 445
+   }
   }
  ],
  "panels": [
   {
    "panel": "B",
    "room": "hotel_lobby",
-   "clock": 121.3047,
+   "clock": 120.4726,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -191,7 +198,7 @@
      "height": 428,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-03.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
       78,
       342,
@@ -234,15 +241,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-05T04:56:44.690Z",
+   "capturedAt": "2026-11-05T05:05:25.121Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "78da0d2963cbebc69d576a94b945da9d45e446bfe409ae696b1d9500788672fb"
+   "hash": "067e0214e4ff0078d93b51d4622906523898d15f8a2316bf1e9da6320d79fa55"
   },
   {
    "panel": "A",
    "room": "hotel_lobby",
-   "clock": 122.57130000000001,
+   "clock": 121.6893,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -325,15 +332,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T04:56:45.794Z",
+   "capturedAt": "2026-11-05T05:05:26.173Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "9325c5d775b2b6a9f45a3031dda0e3484a588bb570c6e1f74cbdb06143139372"
+   "hash": "87e45f4ecd3f0cb16992d41cd78fe381064de40dd0e95157d1f3f0bb84dd9c33"
   },
   {
    "panel": "D",
    "room": "hotel_lobby",
-   "clock": 130.9043,
+   "clock": 130.1223,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -377,7 +384,7 @@
      "height": 487,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-04.png",
+     "from": "art/actors/thad-idlebreak-right/idle-break-07.png",
      "bounds": [
       697,
       370,
@@ -430,22 +437,20 @@
     "cast(true)",
     "flag T_ROOM_GRANTED=true"
    ],
-   "capturedAt": "2026-11-05T04:56:54.256Z",
+   "capturedAt": "2026-11-05T05:05:34.767Z",
    "intent": "principal changed state: T_ROOM_GRANTED (A2, the fork on the piano with the clerk's leave). Visible consequence: none in the picture -- the stairs become a way up; the frame is taken to show the room unchanged.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "07c7b01009244ff0c6f98d57e6a70ead1924db076533c7cecba69e87094930d5",
+   "hash": "dd7ea2e4d2b803f779002a27d74fd8f5a48cf5b86508e207ea480fa47e6876c5",
    "changedBy": "flags"
   }
  ],
- "failures": [
-  "ambient hotel_clerk: declares clipPlane 1 and is drawn to y445, 0px from its feet at y445. The plane did not mask it: the counter is behind her, not in front."
- ],
- "passed": false,
+ "failures": [],
+ "passed": true,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
  "judgement": {
   "machine": {
-   "passed": false,
+   "passed": true,
    "establishes": [
     "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
     "every asset the room declares loaded; no stub, graybox or fallback was drawn",
@@ -466,11 +471,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T04:56:54.257Z",
+ "at": "2026-11-05T05:05:34.768Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 377140,
+  "bytes": 376884,
   "panels": 5,
   "scale": 0.5
  }
