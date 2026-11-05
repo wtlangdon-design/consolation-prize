@@ -1,38 +1,38 @@
 {
  "schema": 1,
  "room": 27,
- "id": "room-27",
+ "id": "room-27-claim-row",
  "name": "ABANDONED CLAIM ROW",
  "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54); the markers are doc 05's by errata 68 G.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 27 \u2014 ABANDONED CLAIM ROW",
+  "primary": "docs/05-examine-layer.md::ROOM 27 — ABANDONED CLAIM ROW",
   "batch": [
-   "docs/08-examine-batch-1.md::ROOM 27 \u2014 ABANDONED CLAIM ROW"
+   "docs/08-examine-batch-1.md::ROOM 27 — ABANDONED CLAIM ROW"
   ],
   "merged": [
-   "docs/08-examine-batch-1.md::ROOM 27 \u2014 ABANDONED CLAIM ROW"
+   "docs/08-examine-batch-1.md::ROOM 27 — ABANDONED CLAIM ROW"
   ],
   "completions": [
-   "docs/54-batch-c.md::ROOM 27 \u00b7 ABANDONED CLAIM ROW"
+   "docs/54-batch-c.md::ROOM 27 · ABANDONED CLAIM ROW"
   ],
   "actVariantsNone": {
-   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
    "why": "Part Two-B wrote no variant for the row."
   }
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 27 \u2014 ABANDONED CLAIM ROW",
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 27 — ABANDONED CLAIM ROW",
  "dialogue": {
   "characters": [],
   "trees": [],
   "none": {
-   "source": "docs/20-room-map.md::From the map \u2014 the diggings",
+   "source": "docs/20-room-map.md::From the map — the diggings",
    "why": "Nobody is up here; doc 08: 'Nobody comes up here.'"
   }
  },
  "puzzles": {
   "ids": [],
   "none": {
-   "source": "docs/02-puzzle-graph.md::Puzzle Dependency Graph \u2014 v1",
+   "source": "docs/02-puzzle-graph.md::Puzzle Dependency Graph — v1",
    "why": "Doc 02 sites none of the 45 here."
   }
  },
@@ -40,5 +40,7 @@
   "required": false,
   "why": "No doc 48 script is sited here."
  },
- "connectivity": "docs/20-room-map.md"
+ "connectivity": "docs/20-room-map.md",
+ "roomFile": "content/rooms/claim-row.json",
+ "plate": "art/backgrounds/room-27-claim-row.png"
 }

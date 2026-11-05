@@ -1,0 +1,16 @@
+Image 1 is the layout for one place in my pixel-art adventure game: grey blocks for the land and the things on it, and the hero (the man in the long coat) standing on the ground. Paint this place as a finished game background with the hero in it, keeping the camera, the layout and every block where image 1 puts it. Paint ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched. The whole scene, from the sky to the path in front of the hero, fits inside that band.
+
+THE PLACE: a row of abandoned gold claims on a worked hillside in the diggings, 1850s, at NIGHT -- the same night, the same light and the same blue moonlight as image 2, which is the road to the diggings nearby. Nobody has worked here for years.
+- Along the middle of the picture, left to right: ELEVEN old claim markers in a row, each a weathered wooden post with a painted board, each standing in front of its own abandoned hole dug into the hillside. The boards are all different -- one wide one made of two boards, one small and neat -- and the very last one at the right has a bare, blank board.
+- The holes behind them: some shallow, some deep and dark, spoil heaps beside them.
+- Behind the row at the right: the bare frames of old sluices, their boards long gone.
+- In front of the row, running left to right across the picture: a path worn deep into the ground.
+- On the path, near the middle: one old boot, lying on its side.
+- At the far left edge: the path leading back down toward the road.
+
+THE PERSON:
+- The hero from image 3, standing where image 1 puts him, at exactly that size. Nobody else.
+
+THE LOOK: the same pixel-art style as images 2 and 4, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero, flat, soft shading, very little texture, simple shapes. Night blues and mud browns; moonlight, no lamps. The path where the hero stands is readable, not black.
+
+RULES: no readable text, letters or numbers anywhere -- the boards carry rough painted marks, never letters. No border, no frame around the picture, no caption.

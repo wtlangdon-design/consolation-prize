@@ -79,6 +79,15 @@
    ],
    "facing": "right",
    "note": "Back up from the creek, by the mile post (errata 99 A)."
+  },
+  {
+   "from": "claim_row",
+   "at": [
+    700,
+    800
+   ],
+   "facing": "right",
+   "note": "Back from the claim row, by the mile post (errata 99 A)."
   }
  ],
  "hotspots": {

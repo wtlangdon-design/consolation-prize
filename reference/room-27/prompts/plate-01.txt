@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game: a row of abandoned gold claims on a hillside at night, ten old claim markers in a row in front of their holes, a worn path in front, a boot on the path, and a man in a long blue coat standing on the path.
+
+Make exactly these changes:
+1. Remove the man in the blue coat. Paint the worn path and the hillside behind him.
+2. At the far RIGHT end of the row, just past the last marker, add ONE more claim marker of the same kind -- a weathered wooden post in front of its own shallow hole -- standing a little further back, so the row has ELEVEN. Its board is bare, weathered wood with nothing painted on it at all.
+
+Change nothing else. Same camera, same pixel grid, same big square pixels, same colours, same night light, the other ten markers, the holes, the sluice frames, the path and the boot exactly as they are. Leave the light grey strips above and below the picture exactly as they are. No people, no shadows of people, no text, no numerals.

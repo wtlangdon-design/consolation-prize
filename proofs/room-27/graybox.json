@@ -1,0 +1,426 @@
+{
+ "room": 27,
+ "note": "Ruling 22 steps 1-6 for the claim row, written by tools/room27-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 99).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 705,
+   "height": 300
+  },
+  "near": {
+   "y": 855,
+   "height": 400
+  },
+  "from": "Room 5's slope, a little smaller than Room 13's"
+ },
+ "walkable": [
+  150,
+  690,
+  1740,
+  165
+ ],
+ "exit": {
+  "hotspot": "THE WAY BACK TO THE ROAD",
+  "to": "claims_road",
+  "rect": [
+   0,
+   520,
+   140,
+   330
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 220,
+   "y": 790,
+   "facing": "right"
+  },
+  "mid": {
+   "x": 960,
+   "y": 780,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE WAY BACK TO THE ROAD",
+   "rect": [
+    0,
+    520,
+    140,
+    330
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SLUICE FRAMES",
+   "rect": [
+    1300,
+    300,
+    500,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "MARKER 1",
+   "rect": [
+    150,
+    470,
+    46,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "HOLE 1",
+   "rect": [
+    120,
+    560,
+    110,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "MARKER 2",
+   "rect": [
+    308,
+    470,
+    46,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "HOLE 2",
+   "rect": [
+    278,
+    560,
+    110,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "MARKER 3",
+   "rect": [
+    466,
+    470,
+    46,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "HOLE 3",
+   "rect": [
+    436,
+    560,
+    110,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "MARKER 4",
+   "rect": [
+    624,
+    470,
+    46,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "HOLE 4",
+   "rect": [
+    594,
+    560,
+    110,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "MARKER 5",
+   "rect": [
+    782,
+    470,
+    46,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "HOLE 5",
+   "rect": [
+    752,
+    560,
+    110,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "MARKER 6",
+   "rect": [
+    940,
+    470,
+    46,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "HOLE 6",
+   "rect": [
+    910,
+    560,
+    110,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "MARKER 7",
+   "rect": [
+    1098,
+    470,
+    46,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "HOLE 7",
+   "rect": [
+    1068,
+    560,
+    110,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "MARKER 8",
+   "rect": [
+    1256,
+    470,
+    46,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "HOLE 8",
+   "rect": [
+    1226,
+    560,
+    110,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "MARKER 9",
+   "rect": [
+    1414,
+    470,
+    46,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "HOLE 9",
+   "rect": [
+    1384,
+    560,
+    110,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "MARKER 10",
+   "rect": [
+    1572,
+    470,
+    46,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "HOLE 10",
+   "rect": [
+    1542,
+    560,
+    110,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "MARKER 11",
+   "rect": [
+    1730,
+    470,
+    46,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "HOLE 11",
+   "rect": [
+    1700,
+    560,
+    110,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "A BOOT",
+   "rect": [
+    980,
+    770,
+    50,
+    34
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the markers and their holes are behind the path, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "the worked hillside",
+   "p10": 56.0,
+   "p90": 76.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 45.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "the path",
+   "p10": 92.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 66.5,
+   "lightAnchorMargin": 29.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WAY BACK TO THE ROAD",
+   "p10": 100.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 74.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE SLUICE FRAMES",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "MARKER 1",
+   "p10": 56.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "MARKER 2",
+   "p10": 56.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "MARKER 3",
+   "p10": 56.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "MARKER 4",
+   "p10": 56.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "MARKER 5",
+   "p10": 56.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "MARKER 6",
+   "p10": 56.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "MARKER 7",
+   "p10": 56.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "MARKER 8",
+   "p10": 56.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "MARKER 9",
+   "p10": 56.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "MARKER 10",
+   "p10": 56.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "MARKER 11",
+   "p10": 56.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

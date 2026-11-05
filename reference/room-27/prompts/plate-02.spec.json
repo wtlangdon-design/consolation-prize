@@ -1,0 +1,14 @@
+{
+ "assetId": "room-27",
+ "subject": "room-27-claim-row",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-27-claim-row",
+ "promptFile": "reference/room-27/prompts/plate-02.txt",
+ "out": "art/staging/room-27/plate-02/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-27/plate-02/input.png"
+ ],
+ "derivedFrom": "art/staging/room-27/plate-01/source.png"
+}

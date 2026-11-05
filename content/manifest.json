@@ -32,6 +32,7 @@
   "content/rooms/prosperity.json",
   "content/rooms/pratts-claim.json",
   "content/rooms/creek.json",
+  "content/rooms/claim-row.json",
   "content/rooms/undertaker.json",
   "content/rooms/main-street-candidate.json",
   "content/rooms/nugget-candidate.json",
@@ -90,7 +91,8 @@
   "content/fixtures/room-22.json",
   "content/fixtures/room-23.json",
   "content/fixtures/room-25.json",
-  "content/fixtures/room-26.json"
+  "content/fixtures/room-26.json",
+  "content/fixtures/room-27.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
