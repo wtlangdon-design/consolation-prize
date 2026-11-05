@@ -67,6 +67,12 @@
    "date": "2026-11-05",
    "kind": "loosened",
    "why": "Room 29's THE ROAD EAST LISTEN is 'Nothing coming.' three times, as Room 1's is: doc 54 decides 'five uses, deliberately ... doc 17's rule is that the line does not vary'. Declared, as the stage road's are."
+  },
+  {
+   "check": "tests/aftermath.test.ts",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "Not loosened in substance: doc 58 puts stage directions into replies, so a counted-repeat row's first answer may now be an exchange rather than a single `say`. The assertion compares the first selection with the row's first authored line, whichever form it takes -- the same check as before."
   }
  ]
 }
