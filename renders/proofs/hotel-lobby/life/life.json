@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "hotel_lobby",
- "commit": "f8e3af179b302decc4b2865dd1abf1017580da73",
+ "commit": "725657e7a4b0f20028a8711dbd75d52050fa6cec",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -12,122 +12,122 @@
  "entryRoute": "hotel-lobby",
  "warped": false,
  "lifeRoute": "hotel-lobby-life",
- "durationSeconds": 163.64,
+ "durationSeconds": 194.65,
  "events": [
   {
-   "t": 4.01,
+   "t": 4.16,
    "line": "entry route hotel-lobby: 25 action(s)"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 1 (wait): waited 2.5s"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 13 (wait): waited 3s"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 17 (wait): waited 6s"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 20 (wait): waited 2s"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 21 (click): clicked world 2950,790 -- west along the street toward the hotel"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 22 (wait): waited 5s"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 23 (click): clicked main_street/to_hotel at world 2707,474 -- the hotel's door, Main Street's"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 24 (waitFor): reached {\"room\":\"hotel_lobby\"} in room hotel_lobby"
   },
   {
-   "t": 116.98,
+   "t": 117.95,
    "line": "action 25 (wait): waited 3s"
   },
   {
-   "t": 117.02,
-   "line": "in hotel_lobby; life route: 37 action(s)"
+   "t": 118.03,
+   "line": "in hotel_lobby; life route: 36 action(s)"
   },
   {
-   "t": 117.7,
+   "t": 118.64,
    "line": "capture 01-arrived: room hotel_lobby, says null, options 0, control null"
   },
   {
-   "t": 118.75,
+   "t": 119.72,
    "trace": {
     "says": null,
     "control": null,
@@ -142,7 +142,7 @@
    }
   },
   {
-   "t": 119.76,
+   "t": 120.69,
    "trace": {
     "says": null,
     "control": null,
@@ -157,7 +157,7 @@
    }
   },
   {
-   "t": 120.73,
+   "t": 121.66,
    "trace": {
     "says": null,
     "control": null,
@@ -172,7 +172,7 @@
    }
   },
   {
-   "t": 121.72,
+   "t": 122.66,
    "trace": {
     "says": null,
     "control": null,
@@ -187,7 +187,7 @@
    }
   },
   {
-   "t": 122.78,
+   "t": 123.68,
    "trace": {
     "says": null,
     "control": null,
@@ -202,7 +202,7 @@
    }
   },
   {
-   "t": 123.72,
+   "t": 124.66,
    "trace": {
     "says": null,
     "control": null,
@@ -217,7 +217,7 @@
    }
   },
   {
-   "t": 124.78,
+   "t": 125.67,
    "trace": {
     "says": null,
     "control": null,
@@ -232,15 +232,30 @@
    }
   },
   {
-   "t": 125.71,
+   "t": 126.65,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 126.32,
+   "t": 126.68,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 127.27,
    "line": "capture 02-the-lobby: room hotel_lobby, says null, options 0, control null"
   },
   {
-   "t": 127.38,
+   "t": 128.34,
    "trace": {
     "says": null,
     "control": null,
@@ -255,7 +270,7 @@
    }
   },
   {
-   "t": 128.4,
+   "t": 129.32,
    "trace": {
     "says": null,
     "control": null,
@@ -270,7 +285,7 @@
    }
   },
   {
-   "t": 129.33,
+   "t": 130.35,
    "trace": {
     "says": null,
     "control": null,
@@ -285,7 +300,7 @@
    }
   },
   {
-   "t": 130.33,
+   "t": 131.35,
    "trace": {
     "says": null,
     "control": null,
@@ -300,22 +315,7 @@
    }
   },
   {
-   "t": 131.4,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     300,
-     770
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 132.37,
+   "t": 132.32,
    "trace": {
     "says": null,
     "control": null,
@@ -331,10 +331,6 @@
   },
   {
    "t": 133.33,
-   "line": "action 1 (wait): waited 7s"
-  },
-  {
-   "t": 133.4,
    "trace": {
     "says": null,
     "control": null,
@@ -349,19 +345,11 @@
    }
   },
   {
-   "t": 133.88,
-   "line": "capture 03-the-lobby-later: room hotel_lobby, says null, options 0, control null"
+   "t": 134.28,
+   "line": "action 1 (wait): waited 7s"
   },
   {
-   "t": 134,
-   "line": "action 1 (verb): chose verb TALK_TO -- "
-  },
-  {
-   "t": 134.23,
-   "line": "action 1 (click): clicked world 1209,370 -- the clerk, behind his desk"
-  },
-  {
-   "t": 135.31,
+   "t": 134.36,
    "trace": {
     "says": null,
     "control": null,
@@ -369,14 +357,41 @@
     "performing": false,
     "options": 0,
     "thad": [
-     662,
+     300,
+     770
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 134.88,
+   "line": "capture 03-the-lobby-later: room hotel_lobby, says null, options 0, control null"
+  },
+  {
+   "t": 135.01,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 135.29,
+   "line": "action 1 (click): clicked world 1209,370 -- the clerk, behind his desk"
+  },
+  {
+   "t": 136.35,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     656,
      765
     ],
     "moving": true
    }
   },
   {
-   "t": 136.25,
+   "t": 137.3,
    "trace": {
     "says": null,
     "control": null,
@@ -391,19 +406,19 @@
    }
   },
   {
-   "t": 136.7,
+   "t": 137.77,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room hotel_lobby"
   },
   {
-   "t": 137.28,
+   "t": 138.33,
    "line": "capture 04-root: room hotel_lobby, says null, options 3, control null"
   },
   {
-   "t": 137.6,
+   "t": 138.68,
    "line": "action 1 (option): chose option hotel_clerk1 -- It's Grubb."
   },
   {
-   "t": 138.66,
+   "t": 139.72,
    "trace": {
     "says": "thad",
     "control": null,
@@ -418,9 +433,9 @@
    }
   },
   {
-   "t": 139.69,
+   "t": 140.69,
    "trace": {
-    "says": "hotel_clerk",
+    "says": "thad",
     "control": null,
     "beat": null,
     "performing": true,
@@ -433,15 +448,15 @@
    }
   },
   {
-   "t": 139.78,
+   "t": 140.96,
    "line": "action 1 (waitFor): reached {\"says\":\"hotel_clerk\"} in room hotel_lobby"
   },
   {
-   "t": 140.43,
+   "t": 141.58,
    "line": "capture 05-clerk-speaks: room hotel_lobby, says \"hotel_clerk\", options 3, control null"
   },
   {
-   "t": 141.48,
+   "t": 142.63,
    "trace": {
     "says": "hotel_clerk",
     "control": null,
@@ -456,7 +471,7 @@
    }
   },
   {
-   "t": 142.57,
+   "t": 143.7,
    "trace": {
     "says": null,
     "control": null,
@@ -471,15 +486,15 @@
    }
   },
   {
-   "t": 142.67,
+   "t": 143.77,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room hotel_lobby"
   },
   {
-   "t": 143.06,
+   "t": 144.06,
    "line": "action 1 (option): chose option hotel_clerk6 -- leave"
   },
   {
-   "t": 144.09,
+   "t": 145.11,
    "trace": {
     "says": "thad",
     "control": null,
@@ -494,7 +509,7 @@
    }
   },
   {
-   "t": 145.1,
+   "t": 146.15,
    "trace": {
     "says": "thad",
     "control": null,
@@ -509,11 +524,11 @@
    }
   },
   {
-   "t": 146.07,
+   "t": 147.07,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 146.09,
+   "t": 147.12,
    "trace": {
     "says": "thad",
     "control": null,
@@ -526,13 +541,13 @@
     ],
     "moving": false
    }
-  },
-  {
-   "t": 146.22,
-   "line": "action 1 (click): clicked screen 960,430 -- read past the parting line, if one is still up"
   },
   {
    "t": 147.23,
+   "line": "action 1 (click): clicked screen 960,430 -- read past the parting line, if one is still up"
+  },
+  {
+   "t": 148.26,
    "trace": {
     "says": "hotel_clerk",
     "control": null,
@@ -547,7 +562,7 @@
    }
   },
   {
-   "t": 148.3,
+   "t": 149.28,
    "trace": {
     "says": "hotel_clerk",
     "control": null,
@@ -562,7 +577,7 @@
    }
   },
   {
-   "t": 149.24,
+   "t": 150.26,
    "trace": {
     "says": "hotel_clerk",
     "control": null,
@@ -577,11 +592,11 @@
    }
   },
   {
-   "t": 150.22,
+   "t": 151.23,
    "line": "action 1 (wait): waited 4s"
   },
   {
-   "t": 150.23,
+   "t": 151.26,
    "trace": {
     "says": "hotel_clerk",
     "control": null,
@@ -596,15 +611,15 @@
    }
   },
   {
-   "t": 150.4,
+   "t": 151.34,
    "line": "action 1 (verb): chose verb LISTEN_TO -- "
   },
   {
-   "t": 150.82,
+   "t": 151.66,
    "line": "action 1 (click): clicked hotel_lobby/parlor_piano at world 790,458 -- the piano's LISTEN, the line A2 teaches the verb with"
   },
   {
-   "t": 151.84,
+   "t": 152.71,
    "trace": {
     "says": null,
     "control": null,
@@ -619,15 +634,15 @@
    }
   },
   {
-   "t": 152.22,
+   "t": 153.06,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room hotel_lobby"
   },
   {
-   "t": 152.8,
+   "t": 153.66,
    "line": "capture 06-listen-piano: room hotel_lobby, says \"thad\", options 0, control null"
   },
   {
-   "t": 153.88,
+   "t": 154.7,
    "trace": {
     "says": "thad",
     "control": null,
@@ -642,7 +657,7 @@
    }
   },
   {
-   "t": 154.83,
+   "t": 155.7,
    "trace": {
     "says": "thad",
     "control": null,
@@ -657,7 +672,7 @@
    }
   },
   {
-   "t": 155.83,
+   "t": 156.68,
    "trace": {
     "says": "thad",
     "control": null,
@@ -672,7 +687,7 @@
    }
   },
   {
-   "t": 156.83,
+   "t": 157.74,
    "trace": {
     "says": "thad",
     "control": null,
@@ -687,7 +702,7 @@
    }
   },
   {
-   "t": 157.89,
+   "t": 158.72,
    "trace": {
     "says": "thad",
     "control": null,
@@ -702,7 +717,7 @@
    }
   },
   {
-   "t": 158.83,
+   "t": 159.74,
    "trace": {
     "says": "thad",
     "control": null,
@@ -717,7 +732,7 @@
    }
   },
   {
-   "t": 159.83,
+   "t": 160.71,
    "trace": {
     "says": null,
     "control": null,
@@ -732,19 +747,473 @@
    }
   },
   {
-   "t": 160.81,
+   "t": 161.66,
    "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 162.07,
+   "line": "action 1 (click): clicked hotel_lobby/stairs_closed at world 1813,385 -- the stairs before the room: a bare click walks (their default verb), and the clerk answers"
+  },
+  {
+   "t": 163.13,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1191,
+     810
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 164.1,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1552,
+     804
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 165.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 166.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 167.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 171.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 173.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 175.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 176.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 177.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 180.1,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 181.13,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 182.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 183.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 184.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 185.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 186.18,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 187.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 188.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 190.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 191.13,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 192.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1700,
+     690
+    ],
+    "moving": false
+   }
   }
  ],
  "captures": [
   {
    "name": "01-arrived",
    "why": "arrival by the street door",
-   "t": 117.69,
+   "t": 118.62,
    "file": "renders/proofs/hotel-lobby/life/raw-captures-ignored/01-arrived.png",
-   "hash": "16a416b5d4ce832cf3b554c26435aa6e9289dab9b98c3ccf61f6bac85e7d254b",
+   "hash": "e35b2f2cc7885032393946525df151a721a1db443da5e9d1807a069a638b76d5",
    "room": "hotel_lobby",
-   "clock": 117.3908,
+   "clock": 118.1197,
    "control": null,
    "says": null,
    "options": 0,
@@ -782,7 +1251,7 @@
      "height": 428,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
       78,
       342,
@@ -824,7 +1293,7 @@
      "drawn": "art/actors/room-18-clerk.png",
      "candidate": false,
      "loaded": true,
-     "hash": "37c1b61e732f827dad1ad7dd2716c592bce980959ecd0be2feb7de866427999c"
+     "hash": "2efdcbec46790b714f1ad2811a1e8c7ea1e9682d61ee380c9f4d7d6c4e8fb10a"
     }
    ],
    "stubs": [],
@@ -833,11 +1302,104 @@
   {
    "name": "02-the-lobby",
    "why": null,
-   "t": 126.3,
+   "t": 127.25,
    "file": "renders/proofs/hotel-lobby/life/raw-captures-ignored/02-the-lobby.png",
-   "hash": "fd628418c0eff55218317d8fa87ac0c7b6d3f1b04547a1b9aa8a42a3c3bb79d1",
+   "hash": "fbb082454baf45daad2ea6b5ddde9232ea5ad682cc82b14cac5cffa11d0e2608",
    "room": "hotel_lobby",
-   "clock": 125.8571,
+   "clock": 126.76939999999999,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      770
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 428,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      78,
+      342,
+      444,
+      473
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:hotel_lobby",
+     "path": "art/backgrounds/room-18-hotel-lobby.png",
+     "drawn": "art/backgrounds/room-18-hotel-lobby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7e6ff465b585ebb64cfe5250b169151c5227eb2e32a293456238b99b04cda611"
+    },
+    {
+     "key": "art/masks/room-18-plane-1.png",
+     "path": "art/masks/room-18-plane-1.png",
+     "drawn": "art/masks/room-18-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f53b990f561f73477584455858de999708251f28486bfd3f26d8ab347bcfb1a7"
+    },
+    {
+     "key": "art/actors/room-18-clerk.png",
+     "path": "art/actors/room-18-clerk.png",
+     "drawn": "art/actors/room-18-clerk.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2efdcbec46790b714f1ad2811a1e8c7ea1e9682d61ee380c9f4d7d6c4e8fb10a"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-the-lobby-later",
+   "why": null,
+   "t": 134.86,
+   "file": "renders/proofs/hotel-lobby/life/raw-captures-ignored/03-the-lobby-later.png",
+   "hash": "1036fa18d29cb374bbce0ae38e05d87f29f1a83ced84623a946970c46639d1c4",
+   "room": "hotel_lobby",
+   "clock": 134.3857,
    "control": null,
    "says": null,
    "options": 0,
@@ -875,7 +1437,7 @@
      "height": 428,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-09.png",
+     "from": "art/actors/thad-idlebreak-right/idle-break-04.png",
      "bounds": [
       78,
       342,
@@ -917,100 +1479,7 @@
      "drawn": "art/actors/room-18-clerk.png",
      "candidate": false,
      "loaded": true,
-     "hash": "37c1b61e732f827dad1ad7dd2716c592bce980959ecd0be2feb7de866427999c"
-    }
-   ],
-   "stubs": [],
-   "missingAssets": []
-  },
-  {
-   "name": "03-the-lobby-later",
-   "why": null,
-   "t": 133.87,
-   "file": "renders/proofs/hotel-lobby/life/raw-captures-ignored/03-the-lobby-later.png",
-   "hash": "fe8b870db9b3db5cfb6a765f5972c4191eaded1f42f4e78ce24fe24cb546bbc7",
-   "room": "hotel_lobby",
-   "clock": 133.4734,
-   "control": null,
-   "says": null,
-   "options": 0,
-   "flags": [
-    "T_OPENING_SAID",
-    "T_COACH_DEPARTED",
-    "T_UNDERTAKER_NAMED",
-    "T_HOB_CROSSING",
-    "T_THAD_LEAVING",
-    "T_HOB_SPOKEN",
-    "T_HOB_GONE",
-    "T_OPENING_DONE",
-    "T_SEEN_MAIN_STREET",
-    "T_CASE_DOWN",
-    "T_CASE_TAKEN"
-   ],
-   "counters": {
-    "HARNESS_PUSH_COUNT": 0,
-    "T_DRIVER_ASKED": 3,
-    "ACT": 1,
-    "T_NUGGET_PIANO_PAID": 0,
-    "MISSPELLINGS_SEEN": 0,
-    "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
-   },
-   "camera": 0,
-   "movers": {
-    "thad": {
-     "at": [
-      300,
-      770
-     ],
-     "facing": "right",
-     "clip": "idle",
-     "height": 428,
-     "moving": false,
-     "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-02.png",
-     "bounds": [
-      78,
-      342,
-      444,
-      473
-     ],
-     "order": 0,
-     "clipLevel": 0,
-     "fallback": false
-    }
-   },
-   "states": {},
-   "cues": {
-    "last": null,
-    "count": 0
-   },
-   "steps": {},
-   "caption": false,
-   "assets": [
-    {
-     "key": "bg:hotel_lobby",
-     "path": "art/backgrounds/room-18-hotel-lobby.png",
-     "drawn": "art/backgrounds/room-18-hotel-lobby.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "7e6ff465b585ebb64cfe5250b169151c5227eb2e32a293456238b99b04cda611"
-    },
-    {
-     "key": "art/masks/room-18-plane-1.png",
-     "path": "art/masks/room-18-plane-1.png",
-     "drawn": "art/masks/room-18-plane-1.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "f53b990f561f73477584455858de999708251f28486bfd3f26d8ab347bcfb1a7"
-    },
-    {
-     "key": "art/actors/room-18-clerk.png",
-     "path": "art/actors/room-18-clerk.png",
-     "drawn": "art/actors/room-18-clerk.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "37c1b61e732f827dad1ad7dd2716c592bce980959ecd0be2feb7de866427999c"
+     "hash": "2efdcbec46790b714f1ad2811a1e8c7ea1e9682d61ee380c9f4d7d6c4e8fb10a"
     }
    ],
    "stubs": [],
@@ -1019,11 +1488,11 @@
   {
    "name": "04-root",
    "why": "the root's list, and Thad at his stand",
-   "t": 137.25,
+   "t": 138.31,
    "file": "renders/proofs/hotel-lobby/life/raw-captures-ignored/04-root.png",
-   "hash": "8263b8191855cf44ff9d6d893c740bfacb503464dab1198710d077501e0f85d2",
+   "hash": "22af47a99d998af55cb783658dfb6b3a6c01619d0f612ce9df431b424525be4c",
    "room": "hotel_lobby",
-   "clock": 136.84,
+   "clock": 137.8689,
    "control": null,
    "says": null,
    "options": 3,
@@ -1061,7 +1530,7 @@
      "height": 422,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-04.png",
+     "from": "art/actors/thad-idle-back/idle-00.png",
      "bounds": [
       760,
       338,
@@ -1103,7 +1572,7 @@
      "drawn": "art/actors/room-18-clerk.png",
      "candidate": false,
      "loaded": true,
-     "hash": "37c1b61e732f827dad1ad7dd2716c592bce980959ecd0be2feb7de866427999c"
+     "hash": "2efdcbec46790b714f1ad2811a1e8c7ea1e9682d61ee380c9f4d7d6c4e8fb10a"
     }
    ],
    "stubs": [],
@@ -1112,11 +1581,11 @@
   {
    "name": "05-clerk-speaks",
    "why": "his line over his head",
-   "t": 140.41,
+   "t": 141.56,
    "file": "renders/proofs/hotel-lobby/life/raw-captures-ignored/05-clerk-speaks.png",
-   "hash": "062e5e3477dcf2ab6c4030c8af0381c0dc6ea38c4c71a826d44403cb36d90a15",
+   "hash": "8d05d3ef19d8439795f5a7191c32baec58b0c18c2e72994b2090e31e027ad1cf",
    "room": "hotel_lobby",
-   "clock": 139.97320000000002,
+   "clock": 141.1021,
    "control": null,
    "says": "hotel_clerk",
    "options": 3,
@@ -1154,7 +1623,7 @@
      "height": 422,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-05.png",
+     "from": "art/actors/thad-idle-back/idle-02.png",
      "bounds": [
       760,
       338,
@@ -1196,7 +1665,7 @@
      "drawn": "art/actors/room-18-clerk.png",
      "candidate": false,
      "loaded": true,
-     "hash": "37c1b61e732f827dad1ad7dd2716c592bce980959ecd0be2feb7de866427999c"
+     "hash": "2efdcbec46790b714f1ad2811a1e8c7ea1e9682d61ee380c9f4d7d6c4e8fb10a"
     }
    ],
    "stubs": [],
@@ -1205,11 +1674,11 @@
   {
    "name": "06-listen-piano",
    "why": "where the words land (doc 55 section 8)",
-   "t": 152.78,
+   "t": 153.63,
    "file": "renders/proofs/hotel-lobby/life/raw-captures-ignored/06-listen-piano.png",
-   "hash": "652ece0c09201d13a442b60bd9b289d2e3a42ad57b49e207a123e38981d3b7e6",
+   "hash": "0acb9d11fb163b0a3006f5dc4fb348312ea111c35861554110f313e835bb4933",
    "room": "hotel_lobby",
-   "clock": 152.33939999999998,
+   "clock": 153.185,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1247,7 +1716,7 @@
      "height": 460,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-05.png",
+     "from": "art/actors/thad-idle-back/idle-01.png",
      "bounds": [
       517,
       357,
@@ -1289,7 +1758,7 @@
      "drawn": "art/actors/room-18-clerk.png",
      "candidate": false,
      "loaded": true,
-     "hash": "37c1b61e732f827dad1ad7dd2716c592bce980959ecd0be2feb7de866427999c"
+     "hash": "2efdcbec46790b714f1ad2811a1e8c7ea1e9682d61ee380c9f4d7d6c4e8fb10a"
     }
    ],
    "stubs": [],
@@ -1297,7 +1766,7 @@
   }
  ],
  "failures": [
-  "life action 23 (verb): route: no verb \"WALK_TO\". Declared: LOOK_AT, PICK_UP, TALK_TO, OPEN, CLOSE, USE, PUSH, PULL, LISTEN_TO"
+  "life action 24 (waitFor): route: waitFor {\"do\":\"waitFor\",\"says\":\"hotel_clerk\",\"upTo\":30} timed out after 30s. It saw: room hotel_lobby, control null, beat -, 0 option(s), handedOver true"
  ],
  "passed": false,
  "judgement": {
@@ -1310,7 +1779,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 163.64s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 194.65s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -1325,5 +1794,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T04:51:50.850Z"
+ "at": "2026-11-05T05:00:13.399Z"
 }
