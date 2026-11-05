@@ -4,7 +4,7 @@
  "room": "hotel_lobby",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "e8affd93ecf70141149fde741a3d247a44f9f6a3",
+ "commit": "ba7f0f245c48be7498ad805791447cd1189130cb",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -65,7 +65,7 @@
    ],
    "reportedHeight": 375,
    "expected": 375,
-   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
    "bounds": [
     755,
     316,
@@ -102,7 +102,7 @@
    ],
    "reportedHeight": 487,
    "expected": 487,
-   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
    "bounds": [
     697,
     370,
@@ -122,7 +122,7 @@
    "id": "hotel_clerk",
    "feet": [
     1209,
-    449
+    445
    ],
    "sheet": "art/actors/room-18-clerk.png",
    "clipPlane": 1,
@@ -130,16 +130,16 @@
     "x": 1149,
     "y": 311,
     "width": 121,
-    "height": 140
+    "height": 136
    },
    "seen": {
     "x": 1152,
     "y": 318,
     "width": 118,
-    "height": 132,
-    "bottom": 449,
+    "height": 128,
+    "bottom": 445,
     "right": 1269,
-    "changed": 7716
+    "changed": 7508
    },
    "props": []
   }
@@ -148,7 +148,7 @@
   {
    "panel": "B",
    "room": "hotel_lobby",
-   "clock": 122.17660000000001,
+   "clock": 121.3047,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -191,7 +191,7 @@
      "height": 428,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
       78,
       342,
@@ -228,21 +228,21 @@
      "drawn": "art/actors/room-18-clerk.png",
      "candidate": false,
      "loaded": true,
-     "hash": "37c1b61e732f827dad1ad7dd2716c592bce980959ecd0be2feb7de866427999c"
+     "hash": "2efdcbec46790b714f1ad2811a1e8c7ea1e9682d61ee380c9f4d7d6c4e8fb10a"
     }
    ],
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-05T04:48:53.727Z",
+   "capturedAt": "2026-11-05T04:56:44.690Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "d5e990a03f7e7634564c5db70329c35e7d6df6e2b7f8df9db237237c7e65538f"
+   "hash": "78da0d2963cbebc69d576a94b945da9d45e446bfe409ae696b1d9500788672fb"
   },
   {
    "panel": "A",
    "room": "hotel_lobby",
-   "clock": 123.0266,
+   "clock": 122.57130000000001,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -317,7 +317,7 @@
      "drawn": "art/actors/room-18-clerk.png",
      "candidate": false,
      "loaded": true,
-     "hash": "37c1b61e732f827dad1ad7dd2716c592bce980959ecd0be2feb7de866427999c"
+     "hash": "2efdcbec46790b714f1ad2811a1e8c7ea1e9682d61ee380c9f4d7d6c4e8fb10a"
     }
    ],
    "stubs": [],
@@ -325,15 +325,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T04:48:54.749Z",
+   "capturedAt": "2026-11-05T04:56:45.794Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "03ece553d7c4292cc205f7a6a970353b0479f18435216649a99ba2262514453d"
+   "hash": "9325c5d775b2b6a9f45a3031dda0e3484a588bb570c6e1f74cbdb06143139372"
   },
   {
    "panel": "D",
    "room": "hotel_lobby",
-   "clock": 131.7095,
+   "clock": 130.9043,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -373,11 +373,11 @@
       857
      ],
      "facing": "right",
-     "clip": "idle",
+     "clip": "idle-break",
      "height": 487,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idlebreak-right/idle-break-04.png",
      "bounds": [
       697,
       370,
@@ -414,7 +414,7 @@
      "drawn": "art/actors/room-18-clerk.png",
      "candidate": false,
      "loaded": true,
-     "hash": "37c1b61e732f827dad1ad7dd2716c592bce980959ecd0be2feb7de866427999c"
+     "hash": "2efdcbec46790b714f1ad2811a1e8c7ea1e9682d61ee380c9f4d7d6c4e8fb10a"
     }
    ],
    "stubs": [],
@@ -430,15 +430,15 @@
     "cast(true)",
     "flag T_ROOM_GRANTED=true"
    ],
-   "capturedAt": "2026-11-05T04:49:03.431Z",
+   "capturedAt": "2026-11-05T04:56:54.256Z",
    "intent": "principal changed state: T_ROOM_GRANTED (A2, the fork on the piano with the clerk's leave). Visible consequence: none in the picture -- the stairs become a way up; the frame is taken to show the room unchanged.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "415c6219cc5c88386765b567027eb8de53ee825ce3b0a0f03bb4c33d469abe9a",
+   "hash": "07c7b01009244ff0c6f98d57e6a70ead1924db076533c7cecba69e87094930d5",
    "changedBy": "flags"
   }
  ],
  "failures": [
-  "ambient hotel_clerk: declares clipPlane 1 and is drawn to y449, 0px from its feet at y449. The plane did not mask it: the counter is behind her, not in front."
+  "ambient hotel_clerk: declares clipPlane 1 and is drawn to y445, 0px from its feet at y445. The plane did not mask it: the counter is behind her, not in front."
  ],
  "passed": false,
  "visual_accepted": false,
@@ -466,11 +466,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T04:49:03.431Z",
+ "at": "2026-11-05T04:56:54.257Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 378694,
+  "bytes": 377140,
   "panels": 5,
   "scale": 0.5
  }
