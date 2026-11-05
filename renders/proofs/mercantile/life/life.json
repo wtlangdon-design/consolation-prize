@@ -1,0 +1,1802 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "mercantile",
+ "commit": "98822bc314b5532358f6ca609616a6d3d9f8ff0e",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "mercantile",
+ "warped": false,
+ "lifeRoute": "mercantile-life",
+ "durationSeconds": 242.31,
+ "events": [
+  {
+   "t": 3.73,
+   "line": "entry route mercantile: 37 action(s)"
+  },
+  {
+   "t": 161.11,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 161.11,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 161.11,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 161.11,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 161.11,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 161.11,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 161.11,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 161.11,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 161.11,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 161.11,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 161.11,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 161.11,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 161.11,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 161.11,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 161.11,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 161.11,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 161.11,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 161.11,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 161.11,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 161.11,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 161.11,
+   "line": "action 21 (click): clicked world 1950,760 -- walk west along the street from the east end"
+  },
+  {
+   "t": 161.11,
+   "line": "action 22 (wait): waited 20s"
+  },
+  {
+   "t": 161.11,
+   "line": "action 23 (click): clicked world 1700,770 -- west again: a click west of the camera's left edge does not register, so in short legs the camera follows"
+  },
+  {
+   "t": 161.11,
+   "line": "action 24 (wait): waited 5s"
+  },
+  {
+   "t": 161.11,
+   "line": "action 25 (click): clicked world 1450,780 -- "
+  },
+  {
+   "t": 161.11,
+   "line": "action 26 (wait): waited 5s"
+  },
+  {
+   "t": 161.11,
+   "line": "action 27 (click): clicked world 1200,790 -- "
+  },
+  {
+   "t": 161.11,
+   "line": "action 28 (wait): waited 5s"
+  },
+  {
+   "t": 161.11,
+   "line": "action 29 (click): clicked world 950,790 -- west again, in short legs"
+  },
+  {
+   "t": 161.11,
+   "line": "action 30 (wait): waited 5s"
+  },
+  {
+   "t": 161.11,
+   "line": "action 31 (click): clicked world 750,790 -- "
+  },
+  {
+   "t": 161.11,
+   "line": "action 32 (wait): waited 5s"
+  },
+  {
+   "t": 161.11,
+   "line": "action 33 (click): clicked world 550,790 -- west again, past the Company"
+  },
+  {
+   "t": 161.11,
+   "line": "action 34 (wait): waited 5s"
+  },
+  {
+   "t": 161.11,
+   "line": "action 35 (click): clicked main_street/to_mercantile at world 305,483 -- the Mercantile's door, Main Street's sixth façade"
+  },
+  {
+   "t": 161.11,
+   "line": "action 36 (waitFor): reached {\"room\":\"mercantile\"} in room mercantile"
+  },
+  {
+   "t": 161.11,
+   "line": "action 37 (wait): waited 3s"
+  },
+  {
+   "t": 161.16,
+   "line": "in mercantile; life route: 33 action(s)"
+  },
+  {
+   "t": 161.79,
+   "line": "capture 01-arrived: room mercantile, says null, options 0, control null"
+  },
+  {
+   "t": 162.83,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 163.81,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 164.81,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 165.83,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 166.83,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 167.8,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.83,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169.8,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 169.82,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.48,
+   "line": "capture 02-the-store: room mercantile, says null, options 0, control null"
+  },
+  {
+   "t": 170.59,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 170.87,
+   "line": "action 1 (click): clicked mercantile/catalogue_firearms at world 1359,403 -- a slip: FIREARMS"
+  },
+  {
+   "t": 171.87,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     660,
+     797
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 172.9,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1050,
+     804
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 173.9,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1359,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.29,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room mercantile"
+  },
+  {
+   "t": 174.98,
+   "line": "capture 03-look-firearms: room mercantile, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 176,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1359,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 177.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1359,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1359,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179.01,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1359,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179.99,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1359,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 181.01,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1359,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 182.06,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1359,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 182.98,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 183.09,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 183.39,
+   "line": "action 1 (click): clicked mercantile/catalogue_order_form at world 1660,525 -- the order form"
+  },
+  {
+   "t": 184.29,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room mercantile"
+  },
+  {
+   "t": 184.95,
+   "line": "capture 04-listen-order-form: room mercantile, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 186,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1560,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 186.98,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1560,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 187.98,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1560,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1560,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.97,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1560,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 190.99,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1560,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 192,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1560,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 192.96,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 193.03,
+   "line": "action 1 (verb): chose verb USE -- "
+  },
+  {
+   "t": 193.33,
+   "line": "action 1 (click): clicked mercantile/scales at world 1205,373 -- doc 49's authored USE"
+  },
+  {
+   "t": 194.34,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1205,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 194.46,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room mercantile"
+  },
+  {
+   "t": 195.15,
+   "line": "capture 05-use-scales: room mercantile, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 196.2,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1205,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 197.17,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1205,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 198.17,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1205,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 199.17,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1205,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 200.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1205,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 201.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1205,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 202.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1205,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 203.16,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 203.28,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 203.61,
+   "line": "action 1 (click): clicked mercantile/stove at world 700,435 -- doc 49's authored TALK TO"
+  },
+  {
+   "t": 204.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     819,
+     854
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 205.29,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room mercantile"
+  },
+  {
+   "t": 205.99,
+   "line": "capture 06-talk-stove: room mercantile, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 207.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 208,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 209.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 210.02,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 211.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 212.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 213.06,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 214,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 214.13,
+   "line": "action 1 (verb): chose verb PICK_UP -- "
+  },
+  {
+   "t": 214.39,
+   "line": "action 1 (click): clicked mercantile/pickle_jar at world 1815,468 -- the pickled eggs, on account"
+  },
+  {
+   "t": 215.42,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1094,
+     833
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 216.41,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1482,
+     811
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 217.19,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room mercantile"
+  },
+  {
+   "t": 218.07,
+   "line": "capture 07-pickup-eggs: room mercantile, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 219.08,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1509,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 220.1,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1509,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 221.13,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1509,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 222.1,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1509,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 223.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1509,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 224.1,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1509,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 225.13,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1509,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 226.08,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 226.15,
+   "line": "action 1 (verb): chose verb PICK_UP -- "
+  },
+  {
+   "t": 226.43,
+   "line": "action 1 (click): clicked mercantile/dr_purvis_s_tonic at world 1605,205 -- the tonic, on account"
+  },
+  {
+   "t": 227.42,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room mercantile"
+  },
+  {
+   "t": 228.17,
+   "line": "capture 08-pickup-tonic: room mercantile, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 229.18,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1420,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 230.18,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1420,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 231.21,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1420,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 232.2,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1420,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 233.22,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1420,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 234.18,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1420,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 235.22,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1420,
+     854
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 236.17,
+   "line": "action 1 (wait): waited 8s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": null,
+   "t": 161.77,
+   "file": "renders/proofs/mercantile/life/raw-captures-ignored/01-arrived.png",
+   "hash": "d8d4b3cc675944467602d47fb7727ac5227d0810ef308b06e0f173f233b4fb11",
+   "room": "mercantile",
+   "clock": 161.3209,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 467,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      58,
+      323,
+      484,
+      516
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:mercantile",
+     "path": "art/backgrounds/room-12-mercantile.png",
+     "drawn": "art/backgrounds/room-12-mercantile.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "314c4a547802c2e0f1cb6266da39d47264732b06ec773441ada68cfed14565a1"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-the-store",
+   "why": null,
+   "t": 170.46,
+   "file": "renders/proofs/mercantile/life/raw-captures-ignored/02-the-store.png",
+   "hash": "ed97b3539b2e2b324a4c62f36a9f5f0797a3a8ee05611cfc4b77403714932e04",
+   "room": "mercantile",
+   "clock": 170.1705,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 467,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-00.png",
+     "bounds": [
+      58,
+      323,
+      484,
+      516
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:mercantile",
+     "path": "art/backgrounds/room-12-mercantile.png",
+     "drawn": "art/backgrounds/room-12-mercantile.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "314c4a547802c2e0f1cb6266da39d47264732b06ec773441ada68cfed14565a1"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-look-firearms",
+   "why": "where the words land",
+   "t": 174.96,
+   "file": "renders/proofs/mercantile/life/raw-captures-ignored/03-look-firearms.png",
+   "hash": "1f01bc0e62a3837d1d195111036213575c19082b34a26a7e89b69a8ae7bf99c7",
+   "room": "mercantile",
+   "clock": 174.43710000000002,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1359,
+      854
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 511,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      1056,
+      343,
+      605,
+      564
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:mercantile",
+     "path": "art/backgrounds/room-12-mercantile.png",
+     "drawn": "art/backgrounds/room-12-mercantile.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "314c4a547802c2e0f1cb6266da39d47264732b06ec773441ada68cfed14565a1"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-listen-order-form",
+   "why": "where the words land",
+   "t": 184.93,
+   "file": "renders/proofs/mercantile/life/raw-captures-ignored/04-listen-order-form.png",
+   "hash": "f5cd80a85e8dab0ecfb6a62511fc36eb2de00a611675417a605cc03b82c0e243",
+   "room": "mercantile",
+   "clock": 184.6533,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1560,
+      854
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 511,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      1257,
+      343,
+      605,
+      564
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:mercantile",
+     "path": "art/backgrounds/room-12-mercantile.png",
+     "drawn": "art/backgrounds/room-12-mercantile.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "314c4a547802c2e0f1cb6266da39d47264732b06ec773441ada68cfed14565a1"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-use-scales",
+   "why": "where the words land",
+   "t": 195.13,
+   "file": "renders/proofs/mercantile/life/raw-captures-ignored/05-use-scales.png",
+   "hash": "ff12915b8144b25bbbfdab52fdca234a4dc290f7cffe39c9268d08b915596d13",
+   "room": "mercantile",
+   "clock": 194.83620000000002,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1205,
+      854
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 511,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      902,
+      343,
+      605,
+      564
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:mercantile",
+     "path": "art/backgrounds/room-12-mercantile.png",
+     "drawn": "art/backgrounds/room-12-mercantile.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "314c4a547802c2e0f1cb6266da39d47264732b06ec773441ada68cfed14565a1"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-talk-stove",
+   "why": "where the words land",
+   "t": 205.97,
+   "file": "renders/proofs/mercantile/life/raw-captures-ignored/06-talk-stove.png",
+   "hash": "8e1c4e75716701801995986cd4a09e09e02865c7395bb0a8aa90803762df8d55",
+   "room": "mercantile",
+   "clock": 205.68570000000003,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      700,
+      854
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 511,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      397,
+      343,
+      605,
+      564
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:mercantile",
+     "path": "art/backgrounds/room-12-mercantile.png",
+     "drawn": "art/backgrounds/room-12-mercantile.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "314c4a547802c2e0f1cb6266da39d47264732b06ec773441ada68cfed14565a1"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-pickup-eggs",
+   "why": "where the words land",
+   "t": 218.05,
+   "file": "renders/proofs/mercantile/life/raw-captures-ignored/07-pickup-eggs.png",
+   "hash": "f285e6a0b4e02ec3d527c2171106a2c4bae4335a6ca4bc99f0b5386c535d01c7",
+   "room": "mercantile",
+   "clock": 217.7353,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1509,
+      720
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 419,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-00.png",
+     "bounds": [
+      1292,
+      301,
+      434,
+      463
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:mercantile",
+     "path": "art/backgrounds/room-12-mercantile.png",
+     "drawn": "art/backgrounds/room-12-mercantile.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "314c4a547802c2e0f1cb6266da39d47264732b06ec773441ada68cfed14565a1"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "08-pickup-tonic",
+   "why": "where the words land",
+   "t": 228.15,
+   "file": "renders/proofs/mercantile/life/raw-captures-ignored/08-pickup-tonic.png",
+   "hash": "f9d639c79131ce4e2c2390feb939657660c8a7e6c862bc34b8898247935bb222",
+   "room": "mercantile",
+   "clock": 227.85160000000002,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1420,
+      854
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 511,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      1117,
+      343,
+      605,
+      564
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:mercantile",
+     "path": "art/backgrounds/room-12-mercantile.png",
+     "drawn": "art/backgrounds/room-12-mercantile.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "314c4a547802c2e0f1cb6266da39d47264732b06ec773441ada68cfed14565a1"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 242.31s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T01:48:12.411Z"
+}
