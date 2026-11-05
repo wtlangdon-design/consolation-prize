@@ -63,6 +63,7 @@ import { check as fixtures } from './check-fixtures.mjs';
 import { check as afterUse } from './check-dialogue-afteruse.mjs';
 import { check as stateImages } from './check-state-images.mjs';
 import { check as buildContracts } from './check-build-contracts.mjs';
+import { check as nightExposure } from './check-night-exposure.mjs';
 import { check as fontCandidates } from './font/check-candidates.mjs';
 
 /**
@@ -97,6 +98,7 @@ import { check as fontCandidates } from './font/check-candidates.mjs';
 const CHECKS = [
   stateImages,
   buildContracts,
+  nightExposure,
   fixtures,
   afterUse,
   bandsTile,

@@ -4,7 +4,7 @@
  "room": "prosperity",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "734a4cb8243ebececd19a553e35e6413b95a34f5",
+ "commit": "18732d38d7a8a0318a13e4716c262c9af5537300",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -41,7 +41,7 @@
    ],
    "reportedHeight": 368,
    "expected": 368,
-   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
    "bounds": [
     839,
     348,
@@ -115,7 +115,7 @@
     "height": 80,
     "bottom": 482,
     "right": 1217,
-    "changed": 3230
+    "changed": 3266
    },
    "props": []
   }
@@ -124,7 +124,7 @@
   {
    "panel": "B",
    "room": "prosperity",
-   "clock": 9.2871,
+   "clock": 11.3369,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -176,7 +176,7 @@
      "height": 418,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
       23,
       372,
@@ -197,7 +197,7 @@
      "drawn": "art/backgrounds/room-23-prosperity.png",
      "candidate": false,
      "loaded": true,
-     "hash": "cd47d1784cc93ce84ac772e0eb38fadbf297c8b6d1c758d3cb5efeada272b2ab"
+     "hash": "a00c9435bdb5b8eb5bac6f32e3ffb9091db8958fcbd094a2e4536ffed57629f1"
     },
     {
      "key": "art/actors/room-23-raccoon.png",
@@ -213,15 +213,15 @@
    "controlWrites": [
     "enter(prosperity)"
    ],
-   "capturedAt": "2026-11-05T18:34:22.714Z",
+   "capturedAt": "2026-11-05T18:57:27.718Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "87025d0695d2a2e5e881c424c0f605b27321cde57f8d07c2e98c0a17e815c30e"
+   "hash": "5b05d95a2c197cfe725476641514384c720b57118d333bf8093896213a84f836"
   },
   {
    "panel": "A",
    "room": "prosperity",
-   "clock": 10.1204,
+   "clock": 12.920200000000001,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -289,7 +289,7 @@
      "drawn": "art/backgrounds/room-23-prosperity.png",
      "candidate": false,
      "loaded": true,
-     "hash": "cd47d1784cc93ce84ac772e0eb38fadbf297c8b6d1c758d3cb5efeada272b2ab"
+     "hash": "a00c9435bdb5b8eb5bac6f32e3ffb9091db8958fcbd094a2e4536ffed57629f1"
     },
     {
      "key": "art/actors/room-23-raccoon.png",
@@ -306,15 +306,15 @@
     "enter(prosperity)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T18:34:23.538Z",
+   "capturedAt": "2026-11-05T18:57:28.948Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "0c3cc0212d91ad4f4996021a651ce07ea405600af01a29456a577e5b6cac3e9a"
+   "hash": "4f297c1a91ccd0636a4623f4a9ed743fabd016f181deca5185b26178a5fc4a1c"
   },
   {
    "panel": "D",
    "room": "prosperity",
-   "clock": 24.7198,
+   "clock": 27.6696,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -367,7 +367,7 @@
      "height": 463,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
       790,
       394,
@@ -388,7 +388,7 @@
      "drawn": "art/backgrounds/room-23-prosperity.png",
      "candidate": false,
      "loaded": true,
-     "hash": "cd47d1784cc93ce84ac772e0eb38fadbf297c8b6d1c758d3cb5efeada272b2ab"
+     "hash": "a00c9435bdb5b8eb5bac6f32e3ffb9091db8958fcbd094a2e4536ffed57629f1"
     },
     {
      "key": "art/actors/room-23-raccoon.png",
@@ -413,10 +413,10 @@
     "cast(true)",
     "flag T_RACCOON_MEETING=true"
    ],
-   "capturedAt": "2026-11-05T18:34:38.145Z",
+   "capturedAt": "2026-11-05T18:57:43.692Z",
    "intent": "principal changed state: T_RACCOON_MEETING (doc 54 A5, the bait). Visible consequence: three more raccoons walk in along the slope and settle in around the first.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "1eff6dc9a75a88ea54abcd5b12a4e4f64d7b19db8bbf8537d0d3371dba260132",
+   "hash": "4261d7705391abbb180789dbb46033afb896537d043c6d2d2ed3222d1e575db6",
    "changedBy": "flags"
   }
  ],
@@ -447,11 +447,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T18:34:38.145Z",
+ "at": "2026-11-05T18:57:43.692Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 359230,
+  "bytes": 404712,
   "panels": 5,
   "scale": 0.5
  }

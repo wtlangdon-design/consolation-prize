@@ -101,8 +101,14 @@
    "why": "where the words land (doc 55 section 8)"
   },
   {
+   "do": "waitFor",
+   "idle": true,
+   "upTo": 60,
+   "why": "his naming read through: the next click is for the room, not the line"
+  },
+  {
    "do": "wait",
-   "seconds": 8
+   "seconds": 3
   },
   {
    "do": "verb",
