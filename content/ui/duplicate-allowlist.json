@@ -56,6 +56,11 @@
    "line": "Air. Moving. It's warmer than the day.",
    "where": "prosperity/hole/LISTEN_TO",
    "reason": "Doc 54, Room 23 & 24: its repeats are doc 05's line again, word for word -- 'Declare both as deliberate repetitions in content; never as anything else.'"
+  },
+  {
+   "line": "Nothing coming.",
+   "where": "high_ridge/road_east/LISTEN_TO",
+   "reason": "Doc 54, Room 29: \"'Nothing coming.' Decided: five uses, deliberately. The ridge is the same road seen from above; doc 17's rule is that the line does not vary.\" Doc 17 note 3: 'Do not vary them.'"
   }
  ]
 }

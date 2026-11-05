@@ -552,42 +552,6 @@
       }
     },
     {
-      "id": "high_ridge_path",
-      "name": "THE HIGH RIDGE PATH",
-      "rect": [
-        1745,
-        290,
-        175,
-        430
-      ],
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "The path up the ridge starts at the door, which is why the laundry gets the wind and the wind gets the shirts. It climbs like it means it.",
-            "repeat": [
-              "The first stretch is stepped with flat stones, carefully set. Past the laundry, nobody bothered.",
-              "It climbs to the only place in the district with a view, and it starts at the only place in town that works."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Wind, arriving from a long way off with nothing in its pockets.",
-            "repeat": [
-              "Boots coming down it, slowly. Someone who went up to decide something.",
-              "The wind coming down the path, and the shirts turning to meet it."
-            ]
-          }
-        ]
-      },
-      "walkTo": {
-        "x": 1705,
-        "y": 847,
-        "facing": "back"
-      }
-    },
-    {
       "id": "back_room",
       "name": "THE BACK ROOM",
       "rect": [
@@ -664,6 +628,46 @@
     }
   ],
   "exits": [
+    {
+      "id": "to_high_ridge",
+      "name": "THE HIGH RIDGE PATH",
+      "rect": [
+        1745,
+        290,
+        175,
+        430
+      ],
+      "colour": 0,
+      "to": "high_ridge",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The path up the ridge starts at the door, which is why the laundry gets the wind and the wind gets the shirts. It climbs like it means it.",
+            "repeat": [
+              "The first stretch is stepped with flat stones, carefully set. Past the laundry, nobody bothered.",
+              "It climbs to the only place in the district with a view, and it starts at the only place in town that works."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind, arriving from a long way off with nothing in its pockets.",
+            "repeat": [
+              "Boots coming down it, slowly. Someone who went up to decide something.",
+              "The wind coming down the path, and the shirts turning to meet it."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 05: 'The path up the ridge starts at the door.' Up to the high ridge, Room 29 (errata 99 E).",
+      "walkTo": {
+        "x": 1700,
+        "y": 780,
+        "facing": "right"
+      }
+    },
     {
       "id": "to_claims_road",
       "name": "THE ROAD",
@@ -786,6 +790,15 @@
       ],
       "facing": "right",
       "note": "From the map, as from the road."
+    },
+    {
+      "from": "high_ridge",
+      "at": [
+        1650,
+        790
+      ],
+      "facing": "left",
+      "note": "Down the path, in at the door (errata 99 E)."
     }
   ],
   "peopleResponses": {

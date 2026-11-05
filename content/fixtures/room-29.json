@@ -1,0 +1,40 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 29, the high ridge. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r29-a",
+   "label": "R29-A Act I, on the high ridge: the view over Consolation by night",
+   "room": "high_ridge",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_EGGS_ON_ACCOUNT": true,
+    "T_TONIC_ON_ACCOUNT": true,
+    "T_BLANKET_BORROWED": true,
+    "T_SEEN_CLAIMS_ROAD": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed"
+   ],
+   "derivedFrom": [
+    "docs/05-examine-layer.md::ROOM 29 — THE HIGH RIDGE",
+    "docs/54-batch-c.md::ROOM 29 · THE HIGH RIDGE"
+   ],
+   "note": "No puzzle is sited here (doc 02). LOOK and LISTEN at the eight subjects; down the path to the laundry."
+  }
+ ]
+}

@@ -498,6 +498,22 @@
     }
    ],
    "castingNote": "Ah-Lam Sheng, drawn in the master and then on magenta against Thad."
+  },
+  "room-29-high-ridge": {
+   "visualType": "exterior-night",
+   "comparable": {
+    "id": "room-22-claims-road",
+    "path": "art/backgrounds/room-22-claims-road.png",
+    "note": "D -- the road to the claims at night, the town's lamps below; the ridge above it all at the town's hour (errata 98, 99 E)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody. Thad alone, for scale."
   }
  }
 }

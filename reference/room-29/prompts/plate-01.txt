@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: the top of a ridge at night above a lamp-lit town, with a man in a long blue coat standing on the rock looking out.
+
+Make exactly ONE change: remove the man. Paint the rocky ridge top behind him, and the valley and the distant hills behind him, as they are around him.
+
+Change nothing else. Same camera, same pixel grid, same big square pixels, same colours, same night light; the cairn, the path, the town's lamps, the diggings, the road, the rock seat, the little brass pin in the rock, the stars, exactly as they are. No people, no shadows of people, no text, no numerals.

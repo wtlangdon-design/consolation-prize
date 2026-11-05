@@ -1,0 +1,165 @@
+{
+ "room": "high_ridge",
+ "plate": "art/backgrounds/room-29-high-ridge.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-29/plate-01/candidate-lifted-1920x864.png, room-29 attempt 2, a 20:9 crop from y 300, lifted by 1.35 toward the approved night rooms -- frame.json). Every rect was read off the master: x and y less the crop, times 1.263.",
+ "plateShipping": "art/backgrounds/room-29-high-ridge.png",
+ "plateShippingHash": "168ad5192375",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   300,
+   560
+  ],
+  [
+   1880,
+   560
+  ],
+  [
+   1880,
+   858
+  ],
+  [
+   300,
+   858
+  ]
+ ],
+ "walkableNote": "THE RIDGE TOP, bare rock between the cairn and the seat; the path down at the left.",
+ "scaling": {
+  "far": {
+   "y": 560,
+   "height": 283
+  },
+  "near": {
+   "y": 858,
+   "height": 485
+  },
+  "note": "ROOM 29'S DEPTH, FROM THE MASTER: Thad stood with his feet at y 581 and was drawn about 297 tall; along Room 5's slope (0.68 a row) that is 283 at the band's far edge and 485 at its near."
+ },
+ "entrance": [
+  300,
+  800
+ ],
+ "entrances": [
+  {
+   "from": "laundry",
+   "at": [
+    300,
+    800
+   ],
+   "facing": "right",
+   "note": "Up the path from Sheng's door, at left."
+  },
+  {
+   "from": "default",
+   "at": [
+    300,
+    800
+   ],
+   "facing": "right",
+   "note": "As from the path."
+  },
+  {
+   "from": "town_map",
+   "at": [
+    300,
+    800
+   ],
+   "facing": "right",
+   "note": "From the map, as from the path."
+  }
+ ],
+ "hotspots": {
+  "survey_mark": [
+   1095,
+   585,
+   60,
+   40
+  ],
+  "foundations": [
+   407,
+   328,
+   493,
+   101
+  ],
+  "cairn": [
+   167,
+   189,
+   278,
+   316
+  ],
+  "rock_seat": [
+   1392,
+   524,
+   442,
+   152
+  ],
+  "claims": [
+   1063,
+   265,
+   568,
+   164
+  ],
+  "road_east": [
+   1640,
+   200,
+   280,
+   300
+  ],
+  "view": [
+   0,
+   140,
+   1920,
+   330
+  ],
+  "wind": [
+   0,
+   0,
+   1920,
+   140
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE VIEW is the valley; THE FOUNDATIONS, the town in it; THE CLAIMS, the diggings beyond; THE ROAD EAST, the pale road at the right; THE WIND, the sky.",
+ "people": {},
+ "exits": {
+  "to_laundry": [
+   0,
+   480,
+   170,
+   384
+  ]
+ },
+ "exitWalkTo": {
+  "to_laundry": {
+   "x": 310,
+   "y": 820,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [],
+ "defaultVerbs": {
+  "survey_mark": "LOOK_AT",
+  "foundations": "LOOK_AT",
+  "cairn": "LOOK_AT",
+  "rock_seat": "LOOK_AT",
+  "claims": "LOOK_AT",
+  "road_east": "LOOK_AT",
+  "view": "LOOK_AT",
+  "wind": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Everything up here is looked at on a bare click; the bare rock is walked on.",
+ "props": [],
+ "occlusion": {
+  "note": "No plane: the walk band is the ridge top; the cairn and the seat stand at its edges.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}

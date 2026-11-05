@@ -104,6 +104,18 @@
    "note": "Doc 20: Sheng's laundry, 'via 22', at the foot of the high ridge path. On the map once Thad has walked the road to the claims (errata 99 A)."
   },
   {
+   "id": "loc_high_ridge",
+   "room": "high_ridge",
+   "at": [
+    1690,
+    130
+   ],
+   "when": {
+    "T_SEEN_CLAIMS_ROAD": true
+   },
+   "note": "Doc 20: the high ridge, 'via 22', up the path from Sheng's door. On the map once Thad has walked the road to the claims (errata 99 A, E)."
+  },
+  {
    "id": "loc_undertaker",
    "room": "undertaker",
    "at": [
