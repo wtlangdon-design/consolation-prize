@@ -1,0 +1,277 @@
+{
+ "room": 25,
+ "note": "Ruling 22 steps 1-6 for Pratt's claim, written by tools/room25-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 97).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 705,
+   "height": 300
+  },
+  "near": {
+   "y": 855,
+   "height": 400
+  },
+  "from": "Room 5's slope, a little smaller than Room 13's"
+ },
+ "walkable": [
+  150,
+  705,
+  1740,
+  150
+ ],
+ "exit": {
+  "hotspot": "THE WAY NEXT DOOR",
+  "to": "prosperity",
+  "rect": [
+   0,
+   520,
+   140,
+   330
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 220,
+   "y": 790,
+   "facing": "right"
+  },
+  "pratt": {
+   "x": 1530,
+   "y": 765,
+   "facing": "left"
+  },
+  "stand": {
+   "x": 1250,
+   "y": 790,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE WAY NEXT DOOR",
+   "rect": [
+    0,
+    520,
+    140,
+    330
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BORDER STONES",
+   "rect": [
+    150,
+    600,
+    110,
+    250
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LEAN-TO",
+   "rect": [
+    300,
+    330,
+    380,
+    330
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TOOL RACK",
+   "rect": [
+    690,
+    420,
+    150,
+    240
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SIGN: NO COLOR YET",
+   "rect": [
+    880,
+    390,
+    180,
+    270
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CAMP CHAIR",
+   "rect": [
+    1080,
+    570,
+    90,
+    100
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE COFFEE POT",
+   "rect": [
+    1190,
+    620,
+    50,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TALLY POST",
+   "rect": [
+    1270,
+    390,
+    70,
+    290
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SLUICE",
+   "rect": [
+    1360,
+    330,
+    480,
+    110
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE DIGGINGS, SUCH AS THEY ARE",
+   "rect": [
+    1360,
+    560,
+    320,
+    120
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TAILINGS PILE",
+   "rect": [
+    1700,
+    500,
+    220,
+    180
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "NICKEL PRATT",
+   "rect": [
+    1470,
+    400,
+    120,
+    360
+   ],
+   "where": "figure"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: every object is behind it, and the border stones are a hand high, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "the hillside",
+   "p10": 66.0,
+   "p90": 102.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 19.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "the swept ground",
+   "p10": 98.0,
+   "p90": 98.0,
+   "darkAnchorMargin": 72.5,
+   "lightAnchorMargin": 23.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE WAY NEXT DOOR",
+   "p10": 94.0,
+   "p90": 94.0,
+   "darkAnchorMargin": 68.5,
+   "lightAnchorMargin": 27.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE BORDER STONES",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 78.5,
+   "lightAnchorMargin": 17.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE LEAN-TO",
+   "p10": 84.0,
+   "p90": 84.0,
+   "darkAnchorMargin": 58.5,
+   "lightAnchorMargin": 37.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TOOL RACK",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SIGN: NO COLOR YET",
+   "p10": 102.0,
+   "p90": 102.0,
+   "darkAnchorMargin": 76.5,
+   "lightAnchorMargin": 19.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE CAMP CHAIR",
+   "p10": 92.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 66.5,
+   "lightAnchorMargin": 29.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TALLY POST",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SLUICE",
+   "p10": 76.0,
+   "p90": 76.0,
+   "darkAnchorMargin": 50.5,
+   "lightAnchorMargin": 45.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE DIGGINGS, SUCH AS THEY ARE",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TAILINGS PILE",
+   "p10": 100.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 74.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

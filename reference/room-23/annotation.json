@@ -70,6 +70,15 @@
    ],
    "facing": "right",
    "note": "From the map, as from the road."
+  },
+  {
+   "from": "pratts_claim",
+   "at": [
+    1760,
+    790
+   ],
+   "facing": "left",
+   "note": "Back from next door, at right (errata 97 C)."
   }
  ],
  "hotspots": {
@@ -132,6 +141,12 @@
    560,
    160,
    304
+  ],
+  "to_pratts_claim": [
+   1820,
+   560,
+   100,
+   304
   ]
  },
  "exitWalkTo": {
@@ -139,6 +154,11 @@
    "x": 170,
    "y": 790,
    "facing": "left"
+  },
+  "to_pratts_claim": {
+   "x": 1860,
+   "y": 790,
+   "facing": "right"
   }
  },
  "obstacles": [],
@@ -231,7 +251,27 @@
    }
   }
  },
- "props": [],
+ "props": [
+  {
+   "id": "pratt_stake",
+   "sheet": "art/props/room-23-pratt-stake.png",
+   "x": 411,
+   "y": 724,
+   "frame": [
+    0,
+    0,
+    30,
+    68
+   ],
+   "when": {
+    "ACT": {
+     "atLeast": 2
+    },
+    "T_PRATT_TURNED": false
+   },
+   "note": "Pratt's new stake (doc 04 PRA_D2: 'The new stake'), where his mallet comes down. Cut from room-25 operation 3 by tools/art/room25-pratt.py: a talking figure is drawn in one piece, so the stake stands on its own. It stays when he goes home after D2, and is gone once he has signed the quitclaim (D5, at his own claim) (errata 97 D)."
+  }
+ ],
  "occlusion": {
   "note": "No plane: the walk band is the claim's foot, in front of everything; the raccoon sits in the hole up the slope.",
   "clipPlane": {
@@ -240,5 +280,20 @@
    "mud_near": 0
   },
   "planes": []
+ },
+ "onEnterAccost": {
+  "npc": "pratt_jump",
+  "when": {
+   "ACT": {
+    "atLeast": 2
+   },
+   "T_PRATT_STAKE": false,
+   "T_PRATT_JUMP_SEEN": false
+  },
+  "set": {
+   "T_PRATT_JUMP_SEEN": true
+  },
+  "afterSeconds": 1.0,
+  "note": "Doc 57 D2: 'The first time Thad comes to Prosperity in Act II, Pratt is on it, pulling up the stake: PRA_D2 plays as he arrives.' Once: T_PRATT_JUMP_SEEN. TALK TO reaches him after, until PRA_D2 option 1 sends him home (errata 97 D)."
  }
 }

@@ -1,0 +1,71 @@
+{
+ "sheet": "art/staging/room-25/pratt/pratt-jump.png",
+ "frames": [
+  [
+   2,
+   2,
+   324,
+   447
+  ],
+  [
+   328,
+   2,
+   324,
+   447
+  ],
+  [
+   654,
+   2,
+   324,
+   447
+  ],
+  [
+   980,
+   2,
+   324,
+   447
+  ],
+  [
+   1306,
+   52,
+   219,
+   397
+  ],
+  [
+   1527,
+   52,
+   219,
+   397
+  ],
+  [
+   1748,
+   52,
+   219,
+   397
+  ],
+  [
+   1969,
+   52,
+   219,
+   397
+  ]
+ ],
+ "height": 409,
+ "walkHeight": 397,
+ "frameNames": [
+  "mallet rest",
+  "mallet breath",
+  "mallet up",
+  "mallet down",
+  "walk 1",
+  "walk 2",
+  "walk 3",
+  "walk 4"
+ ],
+ "drawnFacing": "left",
+ "anchor": {
+  "x": 560,
+  "y": 762
+ },
+ "source": "room-25 attempt 3, the bottom and middle rows, graded into Room 23's dusk"
+}

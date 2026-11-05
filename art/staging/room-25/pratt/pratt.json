@@ -1,0 +1,41 @@
+{
+ "sheet": "art/staging/room-25/pratt/pratt.png",
+ "frames": [
+  [
+   2,
+   2,
+   363,
+   396
+  ],
+  [
+   367,
+   2,
+   363,
+   396
+  ],
+  [
+   732,
+   2,
+   363,
+   396
+  ],
+  [
+   1097,
+   2,
+   363,
+   396
+  ]
+ ],
+ "height": 395,
+ "frameNames": [
+  "rest",
+  "breath",
+  "sky",
+  "rake"
+ ],
+ "anchor": {
+  "x": 1180,
+  "y": 716
+ },
+ "source": "room-25 attempt 3 (art/staging/room-25/pratt-01/sheet.png), the top row"
+}

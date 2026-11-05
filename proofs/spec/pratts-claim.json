@@ -1,0 +1,39 @@
+{
+ "schema": 1,
+ "room": "pratts_claim",
+ "note": "ROOM 25's PROOF SPEC. Pratt's claim is reached only with the Company's map in hand -- next door from Prosperity, or on the map (errata 97 C) -- which no route can give, so the proof starts from fixture r25-a (Act I, the map in hand) and says so; the doors pass walks the way next door. The principal change is his offer: every conversation ends with one (doc 04).",
+ "fixture": "r25-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "PRATT_OFFERS (doc 04: 'Every single conversation, regardless of topic, ends with Pratt making an offer'). Visible consequence: TALK TO him and leave, and he names his price.",
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "TALK_TO"
+   },
+   {
+    "do": "click",
+    "world": [
+     1180,
+     560
+    ],
+    "why": "Pratt, on his rake"
+   },
+   {
+    "do": "waitFor",
+    "dialogue": true,
+    "upTo": 60
+   },
+   {
+    "do": "option",
+    "option": "prattx",
+    "why": "the universal exit"
+   },
+   {
+    "do": "waitFor",
+    "says": "pratt",
+    "upTo": 60
+   }
+  ]
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "schema": 1,
+ "id": "pratt",
+ "name": "NICKEL PRATT",
+ "posture": "standing",
+ "room": "pratts_claim",
+ "note": "NICKEL PRATT on his own claim (doc 04 PRA_A1: 'Pratt on his own claim, beside Prosperity, raking'). No document describes his looks; he is drawn as room-25's composition master drew him -- big, slow, a battered hat, a rake -- then on magenta against Thad (room-25 operation 3), cut by tools/art/room25-pratt.py. His tree opens PRA_A1 in Act I, PRA_B1 from Act II, PRA_D6 once he has turned; every conversation ends with his offer (errata 97).",
+ "x": 1180,
+ "y": 716,
+ "zone": 1,
+ "approachRadius": 40,
+ "walkTo": {
+  "x": 930,
+  "y": 760,
+  "facing": "right"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: on the swept ground to his left, clear of the rake, facing him.",
+ "tree": "PRATT",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for Pratt.",
+ "sprite": {
+  "sheet": "art/actors/room-25-pratt.png",
+  "frames": [
+   [
+    2,
+    2,
+    363,
+    396
+   ],
+   [
+    367,
+    2,
+    363,
+    396
+   ],
+   [
+    732,
+    2,
+    363,
+    396
+   ],
+   [
+    1097,
+    2,
+    363,
+    396
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.3,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    3,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 8,
+  "frameNote": "0 rest on the rake · 1 breath · 2 checking the sky · 3 raking. Breathing on 0 and 1; every `breakEvery` seconds one break -- the sky, or a stroke of the rake (errata 77: a deliberate action at least every 30 s).",
+  "provenance": "art/staging/room-25/pratt/pratt.json",
+  "figureHeight": 395,
+  "stature": 1.03,
+  "statureNote": "The bigger man: room-25's master drew him 1.05 of Thad; 1.03 keeps him inside the 5% a standing man is held to (tests/scale.test.ts)."
+ }
+}

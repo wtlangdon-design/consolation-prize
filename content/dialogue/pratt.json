@@ -1,0 +1,348 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "PRATT",
+  "speaker": "pratt",
+  "name": "NICKEL PRATT",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (NICKEL PRATT) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a reply are his, italic quotes Thad's. `closing` is doc 04's offer run, \"It never stops\" (errata 97).",
+  "entries": [
+    {
+      "when": {
+        "T_PRATT_TURNED": true
+      },
+      "node": "PRA_D6"
+    },
+    {
+      "when": {
+        "ACT": {
+          "atLeast": 2
+        }
+      },
+      "node": "PRA_B1"
+    }
+  ],
+  "start": "PRA_A1",
+  "closing": {
+    "lines": [
+      [
+        "Nine dollars."
+      ],
+      [
+        "Nine dollars and a hen."
+      ],
+      [
+        "Eleven dollars, and I'll take the raccoon."
+      ],
+      [
+        "Fourteen dollars, and you keep the raccoon."
+      ],
+      [
+        "Twenty dollars.",
+        "That's my number. I've thought about it."
+      ],
+      [
+        "Twenty dollars and the hen. The hen is back in."
+      ]
+    ],
+    "counter": "PRATT_OFFERS"
+  },
+  "nodes": {
+    "PRA_A1": {
+      "id": "PRA_A1",
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 writes PRA_A1 as a table only.",
+      "opening": [
+        {
+          "speaker": "pratt",
+          "line": "Nine dollars."
+        }
+      ],
+      "options": [
+        {
+          "id": "pratt1",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "There's a raccoon in my hole. Would you get him out?",
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Raccoon."
+            },
+            {
+              "speaker": "pratt",
+              "line": "All right."
+            },
+            {
+              "speaker": "pratt",
+              "line": "He's in there."
+            }
+          ],
+          "when": {
+            "T_WARM_HOLE": false
+          },
+          "set": {
+            "T_PRATT_BITTEN": true
+          }
+        },
+        {
+          "id": "pratt2",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Nine dollars for what?",
+          "say": "Your claim."
+        },
+        {
+          "id": "pratt3",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "Lovely morning.",
+          "say": "Yep."
+        },
+        {
+          "id": "pratt4",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "How's the bite?",
+          "say": "Healing wrong.",
+          "when": {
+            "T_PRATT_BITTEN": true
+          }
+        },
+        {
+          "id": "prattx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "PRA_B1": {
+      "id": "PRA_B1",
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 writes PRA_B1 as a table only.",
+      "options": [
+        {
+          "id": "pratt1",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Why do you want my claim?",
+          "say": "Told to.",
+          "set": {
+            "T_PRATT_PAID": true
+          }
+        },
+        {
+          "id": "pratt2",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Told by whom?",
+          "say": "Fella.",
+          "after": [
+            "pratt1"
+          ]
+        },
+        {
+          "id": "pratt3",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Which fella?",
+          "say": "Didn't say. Paid, though. Regular.",
+          "after": [
+            "pratt2"
+          ]
+        },
+        {
+          "id": "pratt4",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "How much are they paying you?",
+          "say": "Two dollars a week.",
+          "after": [
+            "pratt3"
+          ]
+        },
+        {
+          "id": "pratt5",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "How's the bite?",
+          "say": "Healing wrong."
+        },
+        {
+          "id": "pratt6",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Would you swear I've lived on my claim ninety days?",
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Nope."
+            },
+            {
+              "speaker": "pratt",
+              "line": "Told not to."
+            },
+            {
+              "speaker": "pratt",
+              "line": "Nine dollars."
+            }
+          ],
+          "when": {
+            "T_NINETY_DAYS": true
+          },
+          "puzzle": {
+            "D2": "complete"
+          }
+        },
+        {
+          "id": "pratt7",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Do you know what the Company thinks my claim is worth?",
+          "exchange": [
+            {
+              "speaker": "thad",
+              "line": "The Company has my claim on its books at eleven thousand dollars."
+            },
+            {
+              "speaker": "pratt",
+              "line": "For the mud."
+            },
+            {
+              "speaker": "thad",
+              "line": "For the mud."
+            },
+            {
+              "speaker": "pratt",
+              "line": "…"
+            },
+            {
+              "speaker": "thad",
+              "line": "…"
+            },
+            {
+              "speaker": "pratt",
+              "line": "Two dollars a week is a hundred and four dollars a year."
+            },
+            {
+              "speaker": "thad",
+              "line": "It is."
+            },
+            {
+              "speaker": "pratt",
+              "line": "That ain't the same number."
+            },
+            {
+              "speaker": "pratt",
+              "line": "Grubb."
+            },
+            {
+              "speaker": "thad",
+              "line": "Yes?"
+            },
+            {
+              "speaker": "pratt",
+              "line": "Eleven dollars for the claim."
+            },
+            {
+              "speaker": "thad",
+              "line": "…Still?"
+            },
+            {
+              "speaker": "pratt",
+              "line": "I like the claim."
+            }
+          ],
+          "when": {
+            "T_PRATT_TRAIL": true
+          },
+          "set": {
+            "T_PRATT_TURNED": true
+          },
+          "puzzle": {
+            "D5": "complete"
+          },
+          "goto": "PRA_D6"
+        },
+        {
+          "id": "prattx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "PRA_D6": {
+      "id": "PRA_D6",
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 writes PRA_D6 as a table only.",
+      "options": [
+        {
+          "id": "pratt1",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Who was the second man who paid you?",
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Never saw him. Money came under the laundry door."
+            },
+            {
+              "speaker": "pratt",
+              "line": "Sheng's door. Thursdays."
+            }
+          ]
+        },
+        {
+          "id": "pratt2",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "What will you do now?",
+          "say": "Keep the claim next to yours tidy."
+        },
+        {
+          "id": "pratt3",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "Twenty dollars and the hen.",
+          "say": "…You're learning the market."
+        },
+        {
+          "id": "pratt4",
+          "tag": "ASSAY",
+          "afterUse": "remove",
+          "text": "Will you help me practice for the Assay?",
+          "say": "Try me."
+        },
+        {
+          "id": "pratt5",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Will you swear to the ninety days now?",
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Yep."
+            },
+            {
+              "speaker": "pratt",
+              "line": "Sump closes at four."
+            }
+          ],
+          "set": {
+            "T_PRATT_SWEARS": true
+          }
+        },
+        {
+          "id": "prattx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game: a tidy gold claim on a hillside in early morning, with two men standing on it -- one in a long blue coat, one holding a rake.
+
+Make exactly these changes:
+1. Remove the man in the blue coat. Paint the swept ground behind him.
+2. Remove the man with the rake, and his rake. Paint the swept ground behind him.
+
+Change nothing else. Same camera, same pixel grid, same colours, same light, same objects in the same places: the line of white stones, the lean-to, the tool rack, the blank board on its post, the camp chair, the coffee pot on its stones, the two posts, the sluice, the trench with its little roof, the three sorted heaps, the hills, the sky. No people, no shadows of people, no text, no numerals; the board stays blank.

@@ -1,0 +1,22 @@
+Image 1 is the layout for one place in my pixel-art adventure game: grey blocks for the land and the things on it, the hero (the man in the long coat) standing on the ground, and a second man as a plain grey shape. Paint this place as a finished game background with both men in it, keeping the camera, the layout and every block where image 1 puts it. Paint ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched. The whole scene, from the sky to the ground in front of the hero, fits inside that band.
+
+THE PLACE: the best-kept small gold claim in the district, on a bare hillside, 1850s, in early morning -- low clear light, a pale sky, long soft shadows. It has produced nothing in nine years and is immaculate.
+- Far left: the ground running on next door to a rougher, wilder claim.
+- Left: a straight line of whitewashed stones the size of loaves, set a hand apart, marking the boundary.
+- Back left: a tidy lean-to shelter of planks with a bed, a small stove with its pipe, a level shelf, a shaving mirror on the post, a second camp chair folded against it.
+- Beside the lean-to: a tool rack -- pick, shovel, pan and bar hung in order of length, each tool's outline painted on the board behind it.
+- Middle: a small planed board on a post, neatly ruled for lettering but BLANK -- no letters on it at all.
+- In front of it: a folding canvas camp chair facing the trench, and beside it a blackened coffee pot on a small ring of stones.
+- Right of the chair: a post covered in tally marks cut in fives, and a second, clean post beside it.
+- Behind, up the slope: a short wooden sluice on trestles, perfectly level, a little water running through.
+- Right: a neat square trench with straight walls and a small plank roof over its deepest end.
+- Far right: waste rock sorted into three neat graded heaps, from coarse to fine, and an empty patch of ground beside them.
+- Underfoot: swept, raked ground, not a weed on it.
+
+THE PEOPLE:
+- The hero from image 4, standing where image 1 puts him, at exactly that size.
+- Where the grey shape stands, at that size: Nickel Pratt, a big, slow, broad-shouldered miner in plain faded work clothes, a battered hat, boots, holding a rake, facing left towards the hero. Unhurried. Drawn exactly as coarsely as the hero.
+
+THE LOOK: the same pixel-art style as images 2, 3 and 5, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero, flat, soft shading, very little texture, simple shapes. Early-morning blues and warm earth browns, soft and muted. Nothing near black where the men stand.
+
+RULES: no readable text, letters or numbers anywhere -- the board is blank, the tally post carries cut marks only. No border, no frame around the picture, no caption.

@@ -1,0 +1,96 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "PRATT_JUMP",
+  "speaker": "pratt",
+  "name": "NICKEL PRATT",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (NICKEL PRATT) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a reply are his, italic quotes Thad's. `closing` is doc 04's offer run, \"It never stops\" (errata 97).",
+  "start": "PRA_D2",
+  "closing": {
+    "lines": [
+      [
+        "Nine dollars."
+      ],
+      [
+        "Nine dollars and a hen."
+      ],
+      [
+        "Eleven dollars, and I'll take the raccoon."
+      ],
+      [
+        "Fourteen dollars, and you keep the raccoon."
+      ],
+      [
+        "Twenty dollars.",
+        "That's my number. I've thought about it."
+      ],
+      [
+        "Twenty dollars and the hen. The hen is back in."
+      ]
+    ],
+    "counter": "PRATT_OFFERS"
+  },
+  "nodes": {
+    "PRA_D2": {
+      "id": "PRA_D2",
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 writes PRA_D2 as a table only.",
+      "opening": [
+        {
+          "speaker": "thad",
+          "line": "You're standing on my claim."
+        },
+        {
+          "speaker": "pratt",
+          "line": "Yep."
+        }
+      ],
+      "options": [
+        {
+          "id": "pratt1",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "That's my stake you're pulling up.",
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Was in the way."
+            },
+            {
+              "speaker": "pratt",
+              "line": "The new stake."
+            }
+          ],
+          "set": {
+            "T_PRATT_STAKE": true
+          },
+          "puzzle": {
+            "D2": "pending"
+          }
+        },
+        {
+          "id": "pratt2",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "I'll fetch the law.",
+          "say": "Sump closes at four."
+        },
+        {
+          "id": "pratt3",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "We got off on the wrong foot.",
+          "say": "Nope."
+        },
+        {
+          "id": "prattx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ],
+      "openingOnce": "T_PRATT_JUMP_HEARD"
+    }
+  }
+}

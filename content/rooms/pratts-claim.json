@@ -1,0 +1,695 @@
+{
+  "schema": 1,
+  "id": "pratts_claim",
+  "name": "PRATT'S CLAIM",
+  "materialIdentity": "The best-kept claim in the district: swept ground, a whitewashed boundary, a level lean-to, sorted tailings, a square trench; early morning (errata 97 A)",
+  "note": "Room 25, doc 20: Nickel Pratt's claim, next door to Prosperity, reached from Prosperity's side and on the map with the Company's map (errata 97 C).",
+  "background": "art/backgrounds/room-25-pratts-claim.png",
+  "hotspots": [
+    {
+      "id": "coffee_pot",
+      "name": "THE COFFEE POT",
+      "rect": [
+        810,
+        425,
+        150,
+        112
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "On its own flat stone by a fire ring swept between uses.",
+            "repeat": [
+              "Blackened outside and spotless in. Pratt has his own idea of which side shows.",
+              "There is one cup. He has never been asked to share and has never had to refuse."
+            ],
+            "then": [
+              "Pratt's coffee is famously terrible and famously punctual."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Tin, ticking in the sun. Ten o'clock is coming.",
+            "repeat": [
+              "A faint ping as the tin warms. Ten o'clock is nearer.",
+              "Not yet. At ten it will boil, and the diggings will set their watches by the smell."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 885,
+        "y": 654,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "tally_post",
+      "name": "THE TALLY POST",
+      "rect": [
+        975,
+        270,
+        115,
+        250
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Days worked, cut into the post in fives. I have counted them twice. Two thousand and six.",
+            "repeat": [
+              "Every fifth stroke is cut a little deeper, as though he leaned on that day.",
+              "The post is nearly full. A second post stands beside it, already planed, waiting for the next two thousand."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. A count kept in wood makes no sound adding up.",
+              "Nothing. Tomorrow there will be one more mark, made quietly."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1033,
+        "y": 654,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "camp_chair",
+      "name": "THE CAMP CHAIR",
+      "rect": [
+        634,
+        350,
+        165,
+        175
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A folding chair, canvas, facing the trench at the angle of a man reviewing troops.",
+            "repeat": [
+              "The canvas is patched in two places, both neatly, both square.",
+              "A second chair stands folded against the lean-to. It has never been unfolded."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Canvas easing on the frame. At attention, at rest.",
+            "repeat": [
+              "Nothing. It does not creak. He would not permit it.",
+              "Canvas ticking in the wind, like a flag that has been told to be quiet."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I sat in it. The trench looked back, square-cornered, patient. For one minute I understood him completely, and it was restful."
+      },
+      "walkTo": {
+        "x": 717,
+        "y": 654,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "sign",
+      "name": "THE SIGN: NO COLOR YET",
+      "rect": [
+        745,
+        160,
+        145,
+        240
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A small board, neatly lettered: NO COLOR YET. The YET has been repainted more times than the rest. It is the most honest sign in the district and the most stubborn word in it.",
+            "repeat": [
+              "N. PRATT. No claim name. Every other man out here named his. He has just put his name on it, which on reflection is the only accurate sign in the district.",
+              "The board is planed and the letters are ruled. He has taken more care over NO than most men take over YES."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. The sign says everything it hears.",
+            "repeat": [
+              "The board ticks against its post in the wind. Not yet, not yet.",
+              "Nothing. The sign is waiting, along with the rest of him."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "'Any day now,' I told it. The YET gleamed. Somebody repaints that word the way other men pray."
+      },
+      "walkTo": {
+        "x": 818,
+        "y": 654,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "sluice",
+      "name": "THE SLUICE",
+      "rect": [
+        925,
+        95,
+        350,
+        135
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A short sluice, built to plan and level to the bubble.",
+            "repeat": [
+              "The riffles are cleaned after every run. There is never anything to clean out of them. He cleans them anyway.",
+              "It is the only sluice in the district that does not leak. It also finds nothing, which puts it in good company."
+            ],
+            "then": [
+              "Water goes through it exactly as intended and leaves exactly as it came."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water through it, even and polite. No knocking, no splash.",
+            "repeat": [
+              "A trickle at the bottom, and then nothing. He shuts it off at noon.",
+              "Nothing. Dry boards, waiting for tomorrow's water."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1100,
+        "y": 654,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "tool_rack",
+      "name": "THE TOOL RACK",
+      "rect": [
+        555,
+        60,
+        190,
+        265
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Pick, shovel, pan, and bar, hung in size order, oiled. They look forward to Monday.",
+            "repeat": [
+              "Tools, hung, oiled, in order of length. Mine are in a pile and one of them is a raccoon's now.",
+              "Each tool's outline is painted on the board behind it, so an empty hook would be noticed. None is empty."
+            ],
+            "then": [
+              "I have never seen tools look forward to anything."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The pan swings a little. A single soft gong, on the hour, when the wind is right.",
+            "repeat": [
+              "Nothing.",
+              "The pan again, one soft note. Pratt's clock, and it keeps better time than the Company's."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "Borrowing from Pratt is simple: you ask, he says yes, and then you are a man who borrowed from Pratt, and the tools come back cleaner than they left. I am not ready for the standard."
+      },
+      "walkTo": {
+        "x": 650,
+        "y": 654,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "border_stones",
+      "name": "THE BORDER STONES",
+      "rect": [
+        90,
+        240,
+        110,
+        620
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "His boundary, marked in whitewashed stones set a hand-width apart.",
+            "repeat": [
+              "Each stone is the size of a loaf and the size of all the others. He went looking for them.",
+              "The whitewash is fresh on the side facing out. He knows where his claim ends. He wants everyone else reminded."
+            ],
+            "then": [
+              "The claim next door is a wilderness by comparison, and by comparison is the point."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Stones with a job.",
+            "repeat": [
+              "Nothing. Stones agreeing with each other.",
+              "A lizard ticking across one and off again. It has respected the boundary."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "I nudged one a hand-width. When I passed at dusk it was back, and the whitewash was fresh. We have not discussed it. We will never discuss it."
+      }
+    },
+    {
+      "id": "tailings_pile",
+      "name": "THE TAILINGS PILE",
+      "rect": [
+        1590,
+        200,
+        300,
+        370
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Even his refuse is graded — coarse to the left, fines to the right. It is the tidiest failure in the territory and he knows it, and that is the whole of what he has, and he keeps it swept.",
+            "repeat": [
+              "The heaps have small wooden labels: COARSE, FINE, FINER. A fourth label stands beside an empty patch of ground. It says GOLD.",
+              "The coarse pile has a shovel stuck upright in it, and the fine pile a brush. He keeps a separate tool for each kind of nothing."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Gravel, settling by size. Even the discard sorts itself here.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. It has been sorted, and it has nothing more to say."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1740,
+        "y": 676,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "diggings",
+      "name": "THE DIGGINGS, SUCH AS THEY ARE",
+      "rect": [
+        1145,
+        255,
+        445,
+        250
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "His workings: a neat trench, square-cornered, deepening a careful inch a week.",
+            "repeat": [
+              "He has put a little roof over the deepest part, against rain. The nothing at the bottom is kept dry.",
+              "The walls are cut so straight you could hang a picture on them. Nobody is going to."
+            ],
+            "then": [
+              "He is not digging for gold. He is digging correctly."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Loose earth trickling back in, politely refilling.",
+            "repeat": [
+              "Nothing. It is very well made and there is nothing in it.",
+              "A pebble falls from the side and lands exactly where you would expect. Even the gravity here is tidy."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1368,
+        "y": 654,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "lean_to",
+      "name": "THE LEAN-TO",
+      "rect": [
+        140,
+        0,
+        410,
+        392
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "He sleeps out here. There is a bed, a stove, a cup, and a shelf, and the shelf is level.",
+            "repeat": [
+              "The blanket on the bed is folded stripe-out. I have never before met a man with a position on the stripe.",
+              "A shaving mirror hangs on the post at exactly his height. He is not a man for stooping, or for compromise."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "The stove pipe pinging as it cools.",
+              "Nothing. A man who lives this tidily makes no noise at home."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 345,
+        "y": 654,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim",
+      "name": "THE CLAIM ENTIRE",
+      "rect": [
+        200,
+        500,
+        1720,
+        364
+      ],
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Nickel Pratt's forty feet, raked, edged, and swept.",
+            "repeat": [
+              "There is not a weed on it. The weeds have heard about him.",
+              "If effort were gold this would be the richest forty feet in the territory, and he would sweep it anyway."
+            ],
+            "then": [
+              "It has produced nothing in nine years and has never once looked like it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Order. It has a sound. It is this.",
+            "repeat": [
+              "A rake somewhere near, at a steady pace. He is never far from his ground.",
+              "Nothing out of place. Even the silence is in rows."
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_prosperity",
+      "name": "PROSPERITY",
+      "stub": true,
+      "rect": [
+        0,
+        380,
+        90,
+        484
+      ],
+      "colour": 0,
+      "to": "prosperity",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: Pratt's claim is next door to Prosperity (doc 04 PRA_A1: 'beside Prosperity'); the way back over the border stones. NO DOCUMENT WRITES IT a LOOK or LISTEN: a stub exit (errata 97 C).",
+      "walkTo": {
+        "x": 230,
+        "y": 760,
+        "facing": "left"
+      }
+    }
+  ],
+  "ambient": [
+    "pratt"
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-25.json",
+      "reference/room-25/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        210,
+        560,
+        1690,
+        99
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        210,
+        659,
+        1690,
+        100
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        210,
+        759,
+        1690,
+        99
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      210,
+      560
+    ],
+    [
+      1900,
+      560
+    ],
+    [
+      1900,
+      858
+    ],
+    [
+      210,
+      858
+    ]
+  ],
+  "entrance": [
+    260,
+    780
+  ],
+  "entrances": [
+    {
+      "from": "prosperity",
+      "at": [
+        260,
+        780
+      ],
+      "facing": "right",
+      "note": "Over the border stones from next door."
+    },
+    {
+      "from": "default",
+      "at": [
+        260,
+        780
+      ],
+      "facing": "right",
+      "note": "As from next door."
+    },
+    {
+      "from": "town_map",
+      "at": [
+        260,
+        780
+      ],
+      "facing": "right",
+      "note": "From the map, as from next door."
+    }
+  ],
+  "peopleResponses": {
+    "pratt": {
+      "PICK_UP": [
+        {
+          "say": "He would put up with it exactly once, and remember it exactly forever."
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "He has not moved off his line in nine years. I do not intend to be the exception."
+        }
+      ],
+      "USE": [
+        {
+          "say": "He has a use already. It is this claim, and he is busy with it."
+        }
+      ]
+    }
+  },
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 210,
+          "y": 560
+        },
+        {
+          "x": 1900,
+          "y": 560
+        },
+        {
+          "x": 1900,
+          "y": 659
+        },
+        {
+          "x": 210,
+          "y": 659
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 560,
+        "farHeight": 277,
+        "nearY": 858,
+        "nearHeight": 480
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 210,
+          "y": 659
+        },
+        {
+          "x": 1900,
+          "y": 659
+        },
+        {
+          "x": 1900,
+          "y": 759
+        },
+        {
+          "x": 210,
+          "y": 759
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 560,
+        "farHeight": 277,
+        "nearY": 858,
+        "nearHeight": 480
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 210,
+          "y": 759
+        },
+        {
+          "x": 1900,
+          "y": 759
+        },
+        {
+          "x": 1900,
+          "y": 858
+        },
+        {
+          "x": 210,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 560,
+        "farHeight": 277,
+        "nearY": 858,
+        "nearHeight": 480
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [],
+  "props": [
+    {
+      "id": "sign_lettering",
+      "sheet": "art/props/room-25-sign.png",
+      "x": 817,
+      "y": 259,
+      "frame": [
+        0,
+        0,
+        92,
+        54
+      ],
+      "note": "THE SIGN's words in the shipping face, from the documents (tools/art/room25-sign.py): the generator draws the board blank."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-25/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

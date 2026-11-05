@@ -1,0 +1,132 @@
+{
+ "schema": 1,
+ "id": "pratt_jump",
+ "name": "NICKEL PRATT",
+ "posture": "standing",
+ "room": "prosperity",
+ "when": {
+  "ACT": {
+   "atLeast": 2
+  },
+  "T_PRATT_STAKE": false
+ },
+ "note": "PRATT ON PROSPERITY (doc 57 D2: 'The first time Thad comes to Prosperity in Act II, Pratt is on it, pulling up the stake: PRA_D2 plays as he arrives'; doc 04 PRA_D2: 'with a stake and a mallet, mid-jump, unhurried about it'). Beside the claim marker with his mallet and a new stake of his own. Once Thad has had it out with him (PRA_D2 option 1) he goes back next door at a walk, mallet in hand (errata 97 D).",
+ "x": 560,
+ "y": 762,
+ "zone": 1,
+ "approachRadius": 40,
+ "walkTo": {
+  "x": 330,
+  "y": 800,
+  "facing": "right"
+ },
+ "walkToNote": "Between the claim marker and Pratt, facing him.",
+ "tree": "PRATT_JUMP",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for Pratt.",
+ "sprite": {
+  "sheet": "art/actors/room-25-pratt-jump.png",
+  "frames": [
+   [
+    2,
+    2,
+    324,
+    447
+   ],
+   [
+    328,
+    2,
+    324,
+    447
+   ],
+   [
+    654,
+    2,
+    324,
+    447
+   ],
+   [
+    980,
+    2,
+    324,
+    447
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.1,
+  "breaks": [
+   [
+    2,
+    3,
+    2,
+    3,
+    0
+   ],
+   [
+    2,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 7,
+  "frameNote": "0 mallet rest · 1 breath · 2 mallet up · 3 mallet down on the new stake. Breathing on 0 and 1; every `breakEvery` seconds he drives the stake (errata 77).",
+  "provenance": "art/staging/room-25/pratt/pratt-jump.json",
+  "figureHeight": 409,
+  "stature": 1.03,
+  "statureNote": "The bigger man: room-25's master drew him 1.05 of Thad; 1.03 keeps him inside the 5% a standing man is held to (tests/scale.test.ts)."
+ },
+ "exit": {
+  "path": [
+   [
+    900,
+    790
+   ],
+   [
+    1400,
+    800
+   ],
+   [
+    2060,
+    790
+   ]
+  ],
+  "speed": 80,
+  "sheet": "art/actors/room-25-pratt-jump.png",
+  "frames": [
+   [
+    1306,
+    52,
+    219,
+    397
+   ],
+   [
+    1527,
+    52,
+    219,
+    397
+   ],
+   [
+    1748,
+    52,
+    219,
+    397
+   ],
+   [
+    1969,
+    52,
+    219,
+    397
+   ]
+  ],
+  "fps": 6,
+  "drawnFacing": "left",
+  "figureHeight": 397,
+  "heights": [
+   397,
+   397,
+   397,
+   397
+  ],
+  "note": "Doc 57 D2 sends him back to his own claim; Pratt's claim is next door, past the creek at the right (errata 97 C)."
+ }
+}

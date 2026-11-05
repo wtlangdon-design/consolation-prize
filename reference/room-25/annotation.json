@@ -1,0 +1,204 @@
+{
+ "room": "pratts_claim",
+ "plate": "art/backgrounds/room-25-pratts-claim.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-25/plate-01/candidate-1920x864.png, room-25 attempt 2, a 20:9 crop from y 290 -- frame.json). Every rect below was read off that picture: the master's x and y less the crop, times 1.263.",
+ "plateShipping": "art/backgrounds/room-25-pratts-claim.png",
+ "plateShippingHash": "911b216427bf",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   210,
+   560
+  ],
+  [
+   1900,
+   560
+  ],
+  [
+   1900,
+   858
+  ],
+  [
+   210,
+   858
+  ]
+ ],
+ "walkableNote": "THE CLAIM, swept: the band runs from in front of the chair, the coffee ring and the posts (their feet at y 520-540) to the foot of the frame; the border stones bound it at the left.",
+ "scaling": {
+  "far": {
+   "y": 560,
+   "height": 277
+  },
+  "near": {
+   "y": 858,
+   "height": 480
+  },
+  "note": "ROOM 25'S DEPTH, FROM THE MASTER: Thad stood with his feet at y 682 and was drawn about 360 tall; along Room 5's slope (0.68 a row) that is 277 at the band's far edge and 480 at its near."
+ },
+ "entrance": [
+  260,
+  780
+ ],
+ "entrances": [
+  {
+   "from": "prosperity",
+   "at": [
+    260,
+    780
+   ],
+   "facing": "right",
+   "note": "Over the border stones from next door."
+  },
+  {
+   "from": "default",
+   "at": [
+    260,
+    780
+   ],
+   "facing": "right",
+   "note": "As from next door."
+  },
+  {
+   "from": "town_map",
+   "at": [
+    260,
+    780
+   ],
+   "facing": "right",
+   "note": "From the map, as from next door."
+  }
+ ],
+ "hotspots": {
+  "coffee_pot": [
+   810,
+   425,
+   150,
+   112
+  ],
+  "camp_chair": [
+   634,
+   350,
+   165,
+   175
+  ],
+  "tally_post": [
+   975,
+   270,
+   115,
+   250
+  ],
+  "sign": [
+   745,
+   160,
+   145,
+   240
+  ],
+  "tool_rack": [
+   555,
+   60,
+   190,
+   265
+  ],
+  "sluice": [
+   925,
+   95,
+   350,
+   135
+  ],
+  "border_stones": [
+   90,
+   240,
+   110,
+   620
+  ],
+  "lean_to": [
+   140,
+   0,
+   410,
+   392
+  ],
+  "diggings": [
+   1145,
+   255,
+   445,
+   250
+  ],
+  "tailings_pile": [
+   1590,
+   200,
+   300,
+   370
+  ],
+  "claim": [
+   200,
+   500,
+   1720,
+   364
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE CLAIM ENTIRE is the swept ground, walked on by a bare click. Pratt is his own figure (content/ambient/pratt.json), not a hotspot.",
+ "people": {
+  "NICKEL PRATT": [
+   "pratt"
+  ]
+ },
+ "exits": {
+  "to_prosperity": [
+   0,
+   380,
+   90,
+   484
+  ]
+ },
+ "exitWalkTo": {
+  "to_prosperity": {
+   "x": 230,
+   "y": 760,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [],
+ "defaultVerbs": {
+  "coffee_pot": "LOOK_AT",
+  "camp_chair": "LOOK_AT",
+  "tally_post": "LOOK_AT",
+  "sign": "LOOK_AT",
+  "tool_rack": "LOOK_AT",
+  "sluice": "LOOK_AT",
+  "border_stones": "LOOK_AT",
+  "lean_to": "LOOK_AT",
+  "diggings": "LOOK_AT",
+  "tailings_pile": "LOOK_AT",
+  "claim": "WALK_TO"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click, except THE CLAIM ENTIRE, which is walked on.",
+ "props": [
+  {
+   "id": "sign_lettering",
+   "sheet": "art/props/room-25-sign.png",
+   "x": 817,
+   "y": 259,
+   "frame": [
+    0,
+    0,
+    92,
+    54
+   ],
+   "note": "THE SIGN's words in the shipping face, from the documents (tools/art/room25-sign.py): the generator draws the board blank."
+  }
+ ],
+ "occlusion": {
+  "note": "No plane: the walk band is in front of everything; the border stones are a hand high.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}

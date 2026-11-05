@@ -1,0 +1,115 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 25, Pratt's claim, and Pratt's jump on Prosperity (Room 23). ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r25-a",
+   "label": "R25-A Act I, next door: Pratt raking, the raccoon still in the hole (A5's fourth way)",
+   "room": "pratts_claim",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_EGGS_ON_ACCOUNT": true,
+    "T_TONIC_ON_ACCOUNT": true,
+    "T_BLANKET_BORROWED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed",
+    "company_map",
+    "eggs",
+    "tonic",
+    "blanket"
+   ],
+   "derivedFrom": [
+    "docs/04-dialogue-trees.md::`PRA_A1` — next door, Act I *(Batch C, doc 54; errata 68 A)*"
+   ],
+   "note": "TALK TO Pratt: PRA_A1. 'There's a raccoon in my hole' is offered while the raccoon is in it; the bite, and 'How's the bite?' after. Every conversation ends with his offer, one higher each time."
+  },
+  {
+   "id": "r25-b",
+   "label": "R25-B Act II, the ninety-day rule known and the Company's books from Sheng: D2, D5 and D6's first half",
+   "room": "pratts_claim",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_EGGS_ON_ACCOUNT": true,
+    "T_TONIC_ON_ACCOUNT": true,
+    "T_BLANKET_BORROWED": true,
+    "ACT": 2,
+    "T_SURVEY_NEEDED": true,
+    "T_NINETY_DAYS": true,
+    "T_PRATT_TRAIL": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map"
+   ],
+   "derivedFrom": [
+    "docs/04-dialogue-trees.md::Root: `PRA_B1`",
+    "docs/57-puzzle-completion.md::## D5 · Turn Pratt"
+   ],
+   "note": "TALK TO Pratt: PRA_B1. Options 1-4, who pays him; 6, the refusal to attest (D2); 7, the turn (D5) and PRA_D6 after it. T_PRATT_TRAIL is Sheng's (D4, Room 28, not built) and is set here."
+  },
+  {
+   "id": "r25-c",
+   "label": "R25-C Act II, the first visit to Prosperity: Pratt on it with his mallet (D2)",
+   "room": "claims_road",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_EGGS_ON_ACCOUNT": true,
+    "T_TONIC_ON_ACCOUNT": true,
+    "T_BLANKET_BORROWED": true,
+    "ACT": 2,
+    "T_SURVEY_NEEDED": true,
+    "T_NINETY_DAYS": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map"
+   ],
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::## D2 · The only neighbor is Nickel Pratt",
+    "docs/04-dialogue-trees.md::`PRA_D2` — the first encounter *(W1 growth)*"
+   ],
+   "note": "Walk up the road's way to Prosperity: Pratt is on it, and PRA_D2 opens as Thad arrives. 'That's my stake you're pulling up' opens D2 and sends him home at a walk."
+  }
+ ]
+}

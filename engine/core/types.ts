@@ -1789,6 +1789,14 @@ export interface DialogueFile {
    * without replaying it (errata 66 C, doc 36 Q113).
    */
   entries?: { when?: Condition; puzzle?: string; node: string }[];
+  /**
+   * WHAT EVERY CONVERSATION ENDS WITH. Doc 04, Nickel Pratt: "Every single
+   * conversation, regardless of topic, ends with Pratt making an offer. It
+   * never stops." The owner says offer `lines[n]` (one or more lines) as any
+   * ending option closes the conversation, where n is the numeric flag
+   * `counter`, which then rises by one; past the last offer, the last again.
+   */
+  closing?: { lines: string[][]; counter: string };
   nodes: Record<string, DialogueNode>;
 }
 
