@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "pratts_claim",
- "commit": "bb3e45483cc37eb8c675489974967234252a85a5",
+ "commit": "57b4364d46ace1a29fe539e6fc7be3c284ec9294",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -13,26 +13,91 @@
  "fixture": "r25-a",
  "warped": false,
  "lifeRoute": "pratts-claim-doors",
- "durationSeconds": 66.14,
+ "durationSeconds": 23.32,
  "events": [
   {
-   "t": 2.62,
+   "t": 2.82,
    "line": "started from fixture r25-a, no entry route"
   },
   {
-   "t": 5.63,
+   "t": 5.88,
    "line": "in pratts_claim; life route: 17 action(s)"
   },
   {
-   "t": 5.96,
+   "t": 6.66,
    "line": "capture 00-arrived: room pratts_claim, says null, options 0, control null"
   },
   {
-   "t": 5.99,
+   "t": 7.29,
    "line": "action 1 (click): clicked pratts_claim/to_prosperity at world 45,622 -- next door, over the border stones"
   },
   {
-   "t": 6.99,
+   "t": 7.61,
+   "line": "action 1 (waitFor): reached {\"room\":\"prosperity\"} in room prosperity"
+  },
+  {
+   "t": 8.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1760,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 9.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1760,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.62,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 10.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1760,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 11.06,
+   "line": "capture 01-out: room prosperity, says null, options 0, control null"
+  },
+  {
+   "t": 11.25,
+   "line": "action 1 (click): clicked prosperity/to_pratts_claim at world 1870,712 -- and back, past the creek"
+  },
+  {
+   "t": 11.59,
+   "line": "action 1 (waitFor): reached {\"room\":\"pratts_claim\"} in room pratts_claim"
+  },
+  {
+   "t": 12.6,
    "trace": {
     "says": null,
     "control": null,
@@ -47,7 +112,11 @@
    }
   },
   {
-   "t": 7.99,
+   "t": 13.6,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 13.6,
    "trace": {
     "says": null,
     "control": null,
@@ -62,7 +131,80 @@
    }
   },
   {
-   "t": 8.99,
+   "t": 14.13,
+   "line": "capture 01-in: room pratts_claim, says null, options 0, control null"
+  },
+  {
+   "t": 14.29,
+   "line": "action 1 (click): clicked pratts_claim/to_prosperity at world 45,622 -- next door, over the border stones"
+  },
+  {
+   "t": 14.63,
+   "line": "action 1 (waitFor): reached {\"room\":\"prosperity\"} in room prosperity"
+  },
+  {
+   "t": 15.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1760,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 16.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1760,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 17.63,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 17.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1760,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.08,
+   "line": "capture 02-out: room prosperity, says null, options 0, control null"
+  },
+  {
+   "t": 18.22,
+   "line": "action 1 (click): clicked prosperity/to_pratts_claim at world 1870,712 -- and back, past the creek"
+  },
+  {
+   "t": 18.65,
+   "line": "action 1 (waitFor): reached {\"room\":\"pratts_claim\"} in room pratts_claim"
+  },
+  {
+   "t": 19.66,
    "trace": {
     "says": null,
     "control": null,
@@ -77,7 +219,11 @@
    }
   },
   {
-   "t": 9.99,
+   "t": 20.65,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 20.68,
    "trace": {
     "says": null,
     "control": null,
@@ -92,855 +238,19 @@
    }
   },
   {
-   "t": 10.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 11.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 12.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 13.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 14.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 15.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 16.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 17.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 18.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 19.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 20.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 21.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 22.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 23.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 24.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 25.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 26.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 27.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 28.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 29.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 30.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 31.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 32.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 33.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 34.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 35.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 36.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 37.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 38.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 39.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 40.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 41.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 42.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 43.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 44.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 45.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 46.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 47.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 48.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 49.99,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 51,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 52,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 53,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 54,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 55,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 56,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 57,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 58,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 59,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 60,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 61,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 62,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 63,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 64,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 65,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 66,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
+   "t": 21.18,
+   "line": "capture 02-in: room pratts_claim, says null, options 0, control null"
   }
  ],
  "captures": [
   {
    "name": "00-arrived",
    "why": null,
-   "t": 5.96,
+   "t": 6.65,
    "file": "renders/proofs/pratts-claim/doors/raw-captures-ignored/00-arrived.png",
-   "hash": "0a58ad77ac2dad2e1c967ea40da70fdaca47e778811243489efaed1a4394e228",
+   "hash": "fe8452f77bdc881e351b18c58d0551f3b169a72596586d8af33267becd2612a5",
    "room": "pratts_claim",
-   "clock": 2.3943000000000003,
+   "clock": 6.4002,
    "control": null,
    "says": null,
    "options": 0,
@@ -983,10 +293,15 @@
      "clip": "idle",
      "height": 427,
      "moving": false,
-     "drawn": "not-drawn",
-     "from": null,
-     "bounds": null,
-     "order": -1,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      38,
+      353,
+      443,
+      471
+     ],
+     "order": 0,
      "clipLevel": 0,
      "fallback": false
     }
@@ -1004,7 +319,7 @@
      "path": "art/backgrounds/room-25-pratts-claim.png",
      "drawn": "art/backgrounds/room-25-pratts-claim.png",
      "candidate": false,
-     "loaded": false,
+     "loaded": true,
      "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
     },
     {
@@ -1016,24 +331,379 @@
      "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
     }
    ],
-   "stubs": [
-    "thad:not-drawn"
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-out",
+   "why": null,
+   "t": 11.06,
+   "file": "renders/proofs/pratts-claim/doors/raw-captures-ignored/01-out.png",
+   "hash": "36b009f40a9c1056c9a46161ac17aa036a0a892e9c5ec0bdc06d88d25c9066ad",
+   "room": "prosperity",
+   "clock": 10.7834,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED"
    ],
-   "missingAssets": [
-    "art/backgrounds/room-25-pratts-claim.png"
-   ]
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1760,
+      790
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 418,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-04.png",
+     "bounds": [
+      1542,
+      372,
+      435,
+      462
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:prosperity",
+     "path": "art/backgrounds/room-23-prosperity.png",
+     "drawn": "art/backgrounds/room-23-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "62990833d1a3af0d698f7cbade7ed4592bfb933648bd93be85cbb7e232e0a7f0"
+    },
+    {
+     "key": "art/actors/room-23-raccoon.png",
+     "path": "art/actors/room-23-raccoon.png",
+     "drawn": "art/actors/room-23-raccoon.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "319b03e86a798a733f42fcad99bfc53d65924a3942af0d80bed0c6ae774e21e1"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-in",
+   "why": null,
+   "t": 14.12,
+   "file": "renders/proofs/pratts-claim/doors/raw-captures-ignored/01-in.png",
+   "hash": "a6171e3ca6d43d7c220e1d349f5d8c49e64a2f206c8938fc3a4c5112658aa6d7",
+   "room": "pratts_claim",
+   "clock": 13.9333,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 427,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      38,
+      353,
+      443,
+      471
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:pratts_claim",
+     "path": "art/backgrounds/room-25-pratts-claim.png",
+     "drawn": "art/backgrounds/room-25-pratts-claim.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
+    },
+    {
+     "key": "art/actors/room-25-pratt.png",
+     "path": "art/actors/room-25-pratt.png",
+     "drawn": "art/actors/room-25-pratt.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-out",
+   "why": null,
+   "t": 18.08,
+   "file": "renders/proofs/pratts-claim/doors/raw-captures-ignored/02-out.png",
+   "hash": "ee736aa1dde3d1f7e6d939dd46fd0660366070629eb71636bee0972691d8cbad",
+   "room": "prosperity",
+   "clock": 17.799799999999998,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1760,
+      790
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 418,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-05.png",
+     "bounds": [
+      1542,
+      372,
+      435,
+      462
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:prosperity",
+     "path": "art/backgrounds/room-23-prosperity.png",
+     "drawn": "art/backgrounds/room-23-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "62990833d1a3af0d698f7cbade7ed4592bfb933648bd93be85cbb7e232e0a7f0"
+    },
+    {
+     "key": "art/actors/room-23-raccoon.png",
+     "path": "art/actors/room-23-raccoon.png",
+     "drawn": "art/actors/room-23-raccoon.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "319b03e86a798a733f42fcad99bfc53d65924a3942af0d80bed0c6ae774e21e1"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-in",
+   "why": null,
+   "t": 21.18,
+   "file": "renders/proofs/pratts-claim/doors/raw-captures-ignored/02-in.png",
+   "hash": "d67252221be6a613ab688e54f47e57ca5c4ccb4d31688a5a5538bb3da4774aa9",
+   "room": "pratts_claim",
+   "clock": 20.9829,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 427,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      38,
+      353,
+      443,
+      471
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:pratts_claim",
+     "path": "art/backgrounds/room-25-pratts-claim.png",
+     "drawn": "art/backgrounds/room-25-pratts-claim.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
+    },
+    {
+     "key": "art/actors/room-25-pratt.png",
+     "path": "art/actors/room-25-pratt.png",
+     "drawn": "art/actors/room-25-pratt.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
   }
  ],
- "failures": [
-  "capture 00-arrived: stub or fallback drew -- thad:not-drawn",
-  "capture 00-arrived: asset(s) never loaded -- art/backgrounds/room-25-pratts-claim.png",
-  "life action 3 (waitFor): route: waitFor {\"do\":\"waitFor\",\"room\":\"prosperity\",\"upTo\":60} timed out after 60s. It saw: room pratts_claim, control null, beat -, 0 option(s), handedOver true",
-  "page error: Cannot read properties of undefined (reading 'sky')"
- ],
- "passed": false,
+ "failures": [],
+ "passed": true,
  "judgement": {
   "machine": {
-   "passed": false,
+   "passed": true,
    "establishes": [
     "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
     "every asset the room declares loaded; no stub, graybox or fallback was drawn",
@@ -1041,7 +711,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 66.14s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 23.32s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -1056,5 +726,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T16:59:11.564Z"
+ "at": "2026-11-05T17:02:54.679Z"
 }
