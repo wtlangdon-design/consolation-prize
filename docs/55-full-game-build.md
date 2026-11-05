@@ -125,7 +125,7 @@ Stop the room, not the build, and say so in doc 36 and to Tyler, when:
 | 23/24, 25 | 2026-11-05 | #131 | room-25 6 of 6 (the embers) | Prosperity and Pratt's claim lifted to the approved night rooms' level; the coffee fire's embers on Pratt's claim, its one warm light (errata 98 D) |
 | 26 | 2026-11-05 | #132 | 3 of 4 (master, plate, the man panning) | The creek and the community sluice at night: ten subjects, the man panning at the water; on the map once the road to the claims has been walked. `?room=creek`. No puzzle sited (doc 36 Q168, errata 99) |
 | 27 | 2026-11-05 | #133 | 4 of 4 (master, plate, two asks for the eleventh marker) | The abandoned claim row at night: fifteen subjects, eleven markers (the last a prop cut from the tenth), nobody. `?room=claim_row`. No puzzle sited (doc 36 Q169, errata 99 C) |
-| 28 | 2026-11-05 | PR_PENDING | 3 of 4 (master, plate, Sheng and his board) | Sheng's laundry at night: seventeen subjects, Sheng ironing, his two trees -- D3, and D4's laundry half with the linen money in hand (`?fixture=r28-a`, `r28-b`); the loan in Act III. `?room=laundry`. The Reverend's funeral-day collection waits (doc 36 Q170, errata 99 D) |
+| 28 | 2026-11-05 | #134 | 3 of 4 (master, plate, Sheng and his board) | Sheng's laundry at night: seventeen subjects, Sheng ironing, his two trees -- D3, and D4's laundry half with the linen money in hand (`?fixture=r28-a`, `r28-b`); the loan in Act III. `?room=laundry`. The Reverend's funeral-day collection waits (doc 36 Q170, errata 99 D) |
 
 ## 8 · What playing found — held by a script where a script can hold it
 
