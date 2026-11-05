@@ -144,6 +144,9 @@ async function waitFor(page, want, upTo, why) {
   const deadline = Date.now() + upTo * 1000;
   let last = null;
   let lineSince = Date.now();
+  const began = Date.now();
+  let lastAt = null;
+  let moved = false;
   for (;;) {
     last = await probe(page);
     // WAITING PAST A CONVERSATION IS WAITING FOR ITS LINES TO BE READ. Under
@@ -179,7 +182,16 @@ async function waitFor(page, want, upTo, why) {
       // for the walk to its east end was a guess the camera lost, and a click
       // on a target the camera had not reached yet landed off the canvas
       // (Room 20's route, twice). `still: "<mover>"` waits for the walk itself.
-      if (want.still !== undefined && last.movers?.[want.still] && !last.movers[want.still].moving) return last;
+      // Read from where he stands, not the probe's `moving`, which is a
+      // sequence's: he has stopped when two readings agree after he moved (or
+      // after three seconds, if he never had anywhere to go).
+      if (want.still !== undefined) {
+        const at = JSON.stringify(last.movers?.[want.still]?.at ?? null);
+        if (lastAt !== null && at !== lastAt) moved = true;
+        const settled = lastAt !== null && at === lastAt && (moved || Date.now() - began > 3000);
+        lastAt = at;
+        if (settled) return last;
+      }
     }
     if (Date.now() > deadline) {
       const saw = last
