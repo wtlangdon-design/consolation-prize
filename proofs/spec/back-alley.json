@@ -5,11 +5,35 @@
  "route": "back-alley",
  "settleMs": 4000,
  "principalChange": {
-  "note": "T_EXECUTOR_RULE. Visible consequence: Hob, with his lantern, before the Company's side door.",
+  "note": "T_EXECUTOR_RULE. Visible consequence: Hob, with his lantern, before the Company's side door. Who is in a room is decided as Thad arrives, so the panel steps out to the street and back in.",
   "flags": {
    "T_EXECUTOR_RULE": true
   },
   "actions": [
+   {
+    "do": "click",
+    "on": "to_main_street",
+    "why": "out, so the alley is arrived at again with the flag set"
+   },
+   {
+    "do": "waitFor",
+    "room": "main_street",
+    "upTo": 60
+   },
+   {
+    "do": "wait",
+    "seconds": 2
+   },
+   {
+    "do": "click",
+    "on": "to_back_alley",
+    "why": "and back in: Hob is on his rounds"
+   },
+   {
+    "do": "waitFor",
+    "room": "back_alley",
+    "upTo": 60
+   },
    {
     "do": "wait",
     "seconds": 3
