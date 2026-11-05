@@ -116,7 +116,7 @@
     1900,
     700
    ],
-   "why": "down the street, a leg inside the camera's view: a world point off the canvas is no click at all"
+   "why": "down the street, a leg inside the camera's view: the camera centres on him, so a leg reaches only as far as its left edge (about 640 short of him)"
   },
   {
    "do": "wait",
@@ -131,10 +131,10 @@
   {
    "do": "click",
    "world": [
-    1000,
+    1300,
     700
    ],
-   "why": "down the street, a leg inside the camera's view: a world point off the canvas is no click at all"
+   "why": "down the street, a leg inside the camera's view: the camera centres on him, so a leg reaches only as far as its left edge (about 640 short of him)"
   },
   {
    "do": "wait",
@@ -149,10 +149,28 @@
   {
    "do": "click",
    "world": [
-    300,
+    700,
     700
    ],
-   "why": "down the street, a leg inside the camera's view: a world point off the canvas is no click at all"
+   "why": "down the street, a leg inside the camera's view: the camera centres on him, so a leg reaches only as far as its left edge (about 640 short of him)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "waitFor",
+   "still": "thad",
+   "upTo": 60,
+   "why": "until he stops, and the camera with him"
+  },
+  {
+   "do": "click",
+   "world": [
+    150,
+    700
+   ],
+   "why": "down the street, a leg inside the camera's view: the camera centres on him, so a leg reaches only as far as its left edge (about 640 short of him)"
   },
   {
    "do": "wait",
