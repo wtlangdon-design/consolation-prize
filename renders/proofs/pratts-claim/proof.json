@@ -4,7 +4,7 @@
  "room": "pratts_claim",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "dd39bc1153b2d38366311f587428739600ddd39a",
+ "commit": "d1f1fdd48cb130b94f0e2ef6fd5524192893917c",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -119,7 +119,7 @@
     "height": 393,
     "bottom": 715,
     "right": 1451,
-    "changed": 31726
+    "changed": 29975
    },
    "props": []
   }
@@ -128,7 +128,7 @@
   {
    "panel": "B",
    "room": "pratts_claim",
-   "clock": 9.2962,
+   "clock": 9.289399999999999,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -201,7 +201,7 @@
      "drawn": "art/backgrounds/room-25-pratts-claim.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e9054b4f0d03be6334e662767c98fa3b79d9770b9b37d3ee69bd1a7f3699abff"
+     "hash": "c4ded92c16cc3c03d7be8c57c88180bf31db087ac290223b5ada3604c1344913"
     },
     {
      "key": "art/actors/room-25-pratt.png",
@@ -217,15 +217,15 @@
    "controlWrites": [
     "enter(pratts_claim)"
    ],
-   "capturedAt": "2026-11-05T18:36:18.599Z",
+   "capturedAt": "2026-11-05T18:59:47.561Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "b249f264aef3534d2e206d728ccdc4e53fd49a980eaab2f8a6d385a127ada4f1"
+   "hash": "dfc3fed036be1416f0fd462d69d549fee686002ff7e39c811d6bbbed29e0da99"
   },
   {
    "panel": "A",
    "room": "pratts_claim",
-   "clock": 10.1295,
+   "clock": 10.206,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -293,7 +293,7 @@
      "drawn": "art/backgrounds/room-25-pratts-claim.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e9054b4f0d03be6334e662767c98fa3b79d9770b9b37d3ee69bd1a7f3699abff"
+     "hash": "c4ded92c16cc3c03d7be8c57c88180bf31db087ac290223b5ada3604c1344913"
     },
     {
      "key": "art/actors/room-25-pratt.png",
@@ -310,15 +310,15 @@
     "enter(pratts_claim)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T18:36:19.436Z",
+   "capturedAt": "2026-11-05T18:59:48.460Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "35a4f0043ebf639910478baa5fe98e027c323d0c1fa0b474fd2552306864145a"
+   "hash": "dbaff7e25cdfacd70e5037f14cefc19bf7ff7e712b24982f8293cf29c2e2bba4"
   },
   {
    "panel": "D",
    "room": "pratts_claim",
-   "clock": 26.1455,
+   "clock": 26.0721,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -367,11 +367,11 @@
       760
      ],
      "facing": "right",
-     "clip": "idle",
+     "clip": "idle-break",
      "height": 413,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idlebreak-right/idle-break-02.png",
      "bounds": [
       986,
       347,
@@ -392,7 +392,7 @@
      "drawn": "art/backgrounds/room-25-pratts-claim.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e9054b4f0d03be6334e662767c98fa3b79d9770b9b37d3ee69bd1a7f3699abff"
+     "hash": "c4ded92c16cc3c03d7be8c57c88180bf31db087ac290223b5ada3604c1344913"
     },
     {
      "key": "art/actors/room-25-pratt.png",
@@ -416,10 +416,10 @@
     "cast(false)",
     "cast(true)"
    ],
-   "capturedAt": "2026-11-05T18:36:35.474Z",
+   "capturedAt": "2026-11-05T19:00:04.328Z",
    "intent": "principal changed state: T_PRATT_BITTEN (doc 04 PRA_A1 option 1, A5's fourth way). Visible consequence: the bite, and 'How's the bite?' among his options after it.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "0e3849423efc646b0f87344371bf63e716457865b1414dc5bfb27ff67ae76e53",
+   "hash": "58f79a6554eab752fefa5b28845bde4e21bd00a720001b992f58edb0efe5cc49",
    "changedBy": "flags"
   }
  ],
@@ -450,11 +450,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T18:36:35.475Z",
+ "at": "2026-11-05T19:00:04.328Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 439014,
+  "bytes": 592892,
   "panels": 5,
   "scale": 0.5
  }
