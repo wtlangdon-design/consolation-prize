@@ -1,0 +1,2262 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "boot_hill",
+ "commit": "719f4569908c75a027e90ef18bf15e2e1e5520cb",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "boot-hill",
+ "warped": false,
+ "lifeRoute": "boot-hill-life",
+ "durationSeconds": 236.31,
+ "events": [
+  {
+   "t": 4.01,
+   "line": "entry route boot-hill: 44 action(s)"
+  },
+  {
+   "t": 134.74,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 134.74,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 134.74,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 134.74,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 134.74,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 134.74,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 134.74,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 134.74,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 134.74,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 134.74,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 134.74,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 134.74,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 134.74,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 134.74,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 134.74,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 134.74,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 134.74,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 134.74,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 134.74,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 134.74,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 134.74,
+   "line": "action 21 (click): clicked screen 554,1052 -- the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)"
+  },
+  {
+   "t": 134.74,
+   "line": "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 134.74,
+   "line": "action 23 (wait): waited 1s"
+  },
+  {
+   "t": 134.74,
+   "line": "action 24 (click): clicked screen 330,345 -- the undertaker's place on the map (content/rooms/town-map.json loc_undertaker: the driver named him)"
+  },
+  {
+   "t": 134.74,
+   "line": "action 25 (waitFor): reached {\"room\":\"undertaker\"} in room undertaker"
+  },
+  {
+   "t": 134.74,
+   "line": "action 26 (wait): waited 3s"
+  },
+  {
+   "t": 134.74,
+   "line": "action 27 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 134.74,
+   "line": "action 28 (click): clicked world 1542,420 -- the undertaker, at the viewing table"
+  },
+  {
+   "t": 134.74,
+   "line": "action 29 (waitFor): reached {\"dialogue\":true} in room undertaker"
+  },
+  {
+   "t": 134.74,
+   "line": "action 30 (option): chose option undertaker1 -- I'm looking for a man named Ezra Pike."
+  },
+  {
+   "t": 134.74,
+   "line": "action 31 (waitFor): reached {\"dialogue\":true} in room undertaker"
+  },
+  {
+   "t": 134.74,
+   "line": "action 32 (option): chose option undertaker2 -- Up the hill? -- T_PIKE_DEAD, and Boot Hill on the map (errata 31b)"
+  },
+  {
+   "t": 134.74,
+   "line": "action 33 (waitFor): reached {\"flag\":\"T_PIKE_DEAD\"} in room undertaker"
+  },
+  {
+   "t": 134.74,
+   "line": "action 34 (waitFor): reached {\"dialogue\":true} in room undertaker"
+  },
+  {
+   "t": 134.74,
+   "line": "action 35 (option): chose option undertaker6 -- leave"
+  },
+  {
+   "t": 134.74,
+   "line": "action 36 (waitFor): reached {\"says\":\"undertaker\"} in room undertaker"
+  },
+  {
+   "t": 134.74,
+   "line": "action 37 (click): clicked screen 960,430 -- read past his \"Mm.\""
+  },
+  {
+   "t": 134.74,
+   "line": "action 38 (wait): waited 3s"
+  },
+  {
+   "t": 134.74,
+   "line": "action 39 (click): clicked screen 554,1052 -- the panel's MAP button"
+  },
+  {
+   "t": 134.74,
+   "line": "action 40 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 134.74,
+   "line": "action 41 (wait): waited 1s"
+  },
+  {
+   "t": 134.74,
+   "line": "action 42 (click): clicked screen 1370,95 -- Boot Hill's place on the map (content/rooms/town-map.json loc_boot_hill)"
+  },
+  {
+   "t": 134.74,
+   "line": "action 43 (waitFor): reached {\"room\":\"boot_hill\"} in room boot_hill"
+  },
+  {
+   "t": 134.74,
+   "line": "action 44 (wait): waited 3s"
+  },
+  {
+   "t": 134.75,
+   "line": "in boot_hill; life route: 38 action(s)"
+  },
+  {
+   "t": 135.34,
+   "line": "capture 01-arrived: room boot_hill, says null, options 0, control null"
+  },
+  {
+   "t": 136.42,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 137.35,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 138.41,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 139.4,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 140.42,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 141.42,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 142.36,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 143.36,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 143.37,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 144.02,
+   "line": "capture 02-the-hill: room boot_hill, says null, options 0, control null"
+  },
+  {
+   "t": 144.13,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 144.45,
+   "line": "action 1 (click): clicked boot_hill/nineteen at world 1083,350 -- the first of the nine, read along the row"
+  },
+  {
+   "t": 145.47,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     537,
+     800
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 146.48,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     770,
+     800
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 147.55,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1029,
+     798
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 148.31,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room boot_hill"
+  },
+  {
+   "t": 149.04,
+   "line": "capture 03-look-nineteen-1: room boot_hill, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 150.07,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 151.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 152.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 153.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 154.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 155.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 156.1,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 157.04,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 157.16,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 157.45,
+   "line": "action 1 (click): clicked boot_hill/nineteen at world 1083,350 -- the second"
+  },
+  {
+   "t": 157.52,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room boot_hill"
+  },
+  {
+   "t": 158.19,
+   "line": "capture 04-look-nineteen-2: room boot_hill, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 159.2,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 160.2,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 161.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 162.22,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 163.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 164.25,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 165.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 166.21,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 166.26,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1083,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 166.32,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 166.67,
+   "line": "action 1 (click): clicked boot_hill/pike_s_marker at world 1584,233 -- Pike, at last"
+  },
+  {
+   "t": 167.72,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1321,
+     718
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 168.71,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1560,
+     718
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 169.07,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room boot_hill"
+  },
+  {
+   "t": 169.69,
+   "line": "capture 05-look-pike: room boot_hill, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 170.72,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 171.73,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.74,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 173.7,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 175.74,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 176.73,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 177.7,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 177.81,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 178.09,
+   "line": "action 1 (click): clicked boot_hill/pike_s_marker at world 1584,233 -- Nothing."
+  },
+  {
+   "t": 178.15,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room boot_hill"
+  },
+  {
+   "t": 178.74,
+   "line": "capture 06-listen-pike: room boot_hill, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 179.78,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 180.74,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 181.81,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 182.77,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 183.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 184.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 185.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 186.74,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 186.83,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 187.13,
+   "line": "action 1 (click): clicked boot_hill/mott_s_marker at world 628,655 -- Mott's stone"
+  },
+  {
+   "t": 188.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1357,
+     724
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 189.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1118,
+     730
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 190.23,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     887,
+     736
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 191.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     770,
+     843
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 192.18,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room boot_hill"
+  },
+  {
+   "t": 192.19,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 192.82,
+   "line": "capture 07-look-mott: room boot_hill, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 193.84,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 194.83,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 195.84,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 196.88,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 197.84,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 198.86,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 199.84,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     858
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 200.82,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 200.92,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 201.27,
+   "line": "action 1 (click): clicked boot_hill/pike_s_marker at world 1584,233 -- doc 49's TALK TO on his headboard"
+  },
+  {
+   "t": 202.28,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     835,
+     800
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 203.31,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1074,
+     799
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 204.3,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1317,
+     799
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 205.28,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1561,
+     798
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 205.93,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room boot_hill"
+  },
+  {
+   "t": 206.54,
+   "line": "capture 08-talk-pike: room boot_hill, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 207.62,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 208.62,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 209.56,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 210.61,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 211.57,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 212.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 213.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 214.56,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 214.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1584,
+     718
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 214.63,
+   "line": "action 1 (verb): chose verb CLOSE -- "
+  },
+  {
+   "t": 214.94,
+   "line": "action 1 (click): clicked boot_hill/the_gate at world 310,465 -- doc 49's CLOSE on the gate"
+  },
+  {
+   "t": 215.97,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1358,
+     724
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 216.97,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1118,
+     730
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 218,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     871,
+     736
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 219,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     721,
+     800
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 219.97,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     490,
+     800
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 221.06,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 221.35,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room boot_hill"
+  },
+  {
+   "t": 221.95,
+   "line": "capture 09-close-gate: room boot_hill, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 222.96,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 224,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 225,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 226,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 227.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 228.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 229.04,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 229.96,
+   "line": "action 1 (wait): waited 8s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "arrival from the map",
+   "t": 135.32,
+   "file": "renders/proofs/boot-hill/life/raw-captures-ignored/01-arrived.png",
+   "hash": "d4483e9c7a6b598daefa8c1440d4d2ac44088fd68bbc7b2245e267f369b8bb0d",
+   "room": "boot_hill",
+   "clock": 134.87210000000002,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      330,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 300,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      174,
+      490,
+      311,
+      331
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:boot_hill",
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "drawn": "art/backgrounds/room-14-boot-hill.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-the-hill",
+   "why": null,
+   "t": 144,
+   "file": "renders/proofs/boot-hill/life/raw-captures-ignored/02-the-hill.png",
+   "hash": "4bc1b825052abab32b9c30e1ace8cd1516396757fb1bae8fe506334ee1537209",
+   "room": "boot_hill",
+   "clock": 143.6718,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      330,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 300,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-10.png",
+     "bounds": [
+      174,
+      490,
+      311,
+      331
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:boot_hill",
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "drawn": "art/backgrounds/room-14-boot-hill.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-look-nineteen-1",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 149.02,
+   "file": "renders/proofs/boot-hill/life/raw-captures-ignored/03-look-nineteen-1.png",
+   "hash": "7a5a4f2db99d16405ba63c1826585d75782e8e8ee21263a2f4a6d950febe06e9",
+   "room": "boot_hill",
+   "clock": 148.4216,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1083,
+      718
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 295,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      908,
+      423,
+      349,
+      326
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:boot_hill",
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "drawn": "art/backgrounds/room-14-boot-hill.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-look-nineteen-2",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 158.16,
+   "file": "renders/proofs/boot-hill/life/raw-captures-ignored/04-look-nineteen-2.png",
+   "hash": "47736fe238b472c0a8509436790148d9937f570e46c9fd21e5486f5d74d071d9",
+   "room": "boot_hill",
+   "clock": 157.62120000000002,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1083,
+      718
+     ],
+     "facing": "back",
+     "clip": "idle-break",
+     "height": 295,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-back/idle-break-02.png",
+     "bounds": [
+      908,
+      423,
+      349,
+      326
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:boot_hill",
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "drawn": "art/backgrounds/room-14-boot-hill.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-look-pike",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 169.67,
+   "file": "renders/proofs/boot-hill/life/raw-captures-ignored/05-look-pike.png",
+   "hash": "6a19ab85ef510a090bb62400ab272dcef4d4c184549a17d76ceb086105e31af5",
+   "room": "boot_hill",
+   "clock": 169.1875,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1584,
+      718
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 295,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      1409,
+      423,
+      349,
+      326
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:boot_hill",
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "drawn": "art/backgrounds/room-14-boot-hill.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-listen-pike",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 178.72,
+   "file": "renders/proofs/boot-hill/life/raw-captures-ignored/06-listen-pike.png",
+   "hash": "5ad351e8a90fc60c3d482d422fbf4043e28cf0f1c4d5ee850c189c48d7f8cbef",
+   "room": "boot_hill",
+   "clock": 178.2704,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1584,
+      718
+     ],
+     "facing": "back",
+     "clip": "idle-break",
+     "height": 295,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-back/idle-break-04.png",
+     "bounds": [
+      1409,
+      423,
+      349,
+      326
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:boot_hill",
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "drawn": "art/backgrounds/room-14-boot-hill.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-look-mott",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 192.8,
+   "file": "renders/proofs/boot-hill/life/raw-captures-ignored/07-look-mott.png",
+   "hash": "a0c563d88b38dde70af5ed7800f1938641a4f95b0e78da92bbc812c5df83c415",
+   "room": "boot_hill",
+   "clock": 192.4865,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      628,
+      858
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 305,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      447,
+      553,
+      361,
+      337
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:boot_hill",
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "drawn": "art/backgrounds/room-14-boot-hill.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "08-talk-pike",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 206.52,
+   "file": "renders/proofs/boot-hill/life/raw-captures-ignored/08-talk-pike.png",
+   "hash": "d9b82e189bc449c0374d093043eba6df09eda1509b808d1416705312cbe8eaac",
+   "room": "boot_hill",
+   "clock": 206.036,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1584,
+      718
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 295,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      1409,
+      423,
+      349,
+      326
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:boot_hill",
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "drawn": "art/backgrounds/room-14-boot-hill.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "09-close-gate",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 221.93,
+   "file": "renders/proofs/boot-hill/life/raw-captures-ignored/09-close-gate.png",
+   "hash": "bafc63dfe8ab48fb0355820c0a0db161b3221ff0f61f351fbf0a19644efd5b7a",
+   "room": "boot_hill",
+   "clock": 221.4354,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      780
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 299,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-03.png",
+     "bounds": [
+      144,
+      481,
+      311,
+      330
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:boot_hill",
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "drawn": "art/backgrounds/room-14-boot-hill.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 236.31s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T03:01:59.968Z"
+}
