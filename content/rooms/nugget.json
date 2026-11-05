@@ -103,29 +103,29 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A hand of cards, face up, abandoned. It is a very good hand.",
+            "say": "A hand of cards, face up, abandoned. A very good hand.",
             "repeat": [
-              "Still there. Nobody has claimed it and nobody has cleared it.",
-              "I have decided he is coming back. I have decided this several times."
+              "Still there. Nobody's claimed it. Nobody's cleared it. Nobody's even looked at it, except me, a lot.",
+              "I have decided he is coming back. I have decided this several times, each time more firmly."
             ],
             "then": [
-              "Somebody left a very good hand on a table and went outside."
+              "Somebody walked away from it and went outside. I'd have stayed for a much worse one."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "Quiet. Cards don't say much when nobody's holding them.",
             "repeat": [
-              "Nothing.",
-              "Nothing. Whoever he was, he is not in the building."
+              "Not a whisper.",
+              "Nothing. Whoever he was, he isn't in the building."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "It is not my hand.",
-        "USE": "I do not play. My father was very clear about it, and he was wrong about most things."
+        "PICK_UP": "It isn't my hand. If it were, I'd be a lot more cheerful.",
+        "USE": "I don't play. My father was very clear about that, and he was wrong about most things, so I've been meaning to start."
       },
       "walkTo": {
         "x": 873,
@@ -147,10 +147,10 @@
       "responses": {
         "LISTEN_TO": [
           {
-            "say": "Paper. It has been on this wall a long time. It has stopped being read.",
+            "say": "Paper. It's been on this wall so long it's stopped being read.",
             "repeat": [
-              "Paper. Still not being read.",
-              "Nothing. It has outlasted everyone who nailed it up."
+              "Paper, lifting a little in the draught from the door. Still unread.",
+              "Silence. It has outlasted everyone who nailed it up."
             ]
           }
         ],
@@ -158,14 +158,14 @@
           {
             "say": "RULES OF THE ASSAY. One: a man may not be interrupted in his account. Two: a man's account may be doubted only by a better one. Three: truth is admissible but has never been raised. Four: the judges' decision is final and may be appealed to the same judges. Five: no firearms, no knives, no arithmetic.",
             "repeat": [
-              "I have read it twice. Rule five forbids arithmetic, which I assume has a history.",
-              "Rule four permits an appeal to the same judges who made the decision. Somebody thought about that and wrote it down anyway."
+              "Rule five forbids arithmetic. There's a story behind that, and I'd pay good money to hear it, if I could count it out.",
+              "Rule four: you may appeal the judges' decision to the same judges. Somebody thought that through, and nailed it up anyway."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "It has been nailed on. Thoroughly. Somebody wanted the rules to stay up."
+        "PICK_UP": "It's nailed on. Thoroughly. Somebody wanted the rules to stay up a great deal more than they wanted them read."
       },
       "walkTo": {
         "x": 343,
@@ -187,10 +187,10 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A spittoon, positioned optimistically far from anyone sitting down.",
+            "say": "A spittoon, placed optimistically far from anyone sitting down.",
             "repeat": [
-              "The floor around it tells the story of a town that has tried.",
-              "Brass. Somebody polished this once, as a joke or as a duty."
+              "The floor around it tells the story of a town that has tried, and tried, and missed.",
+              "Brass. Somebody polished this once. I'd like to know what they'd done to deserve it."
             ]
           }
         ],
@@ -198,8 +198,8 @@
           {
             "say": "Regrettably, yes.",
             "repeat": [
-              "Still yes.",
-              "I have stopped."
+              "Yes. Again. There's a man at the bar with tremendous range and no aim.",
+              "I've stopped listening to the spittoon. Best decision I've made in the territory."
             ]
           }
         ]
@@ -227,22 +227,22 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A portrait of a man in a good collar, hung crooked, above a saloon.",
+            "say": "A portrait of a man in a good collar, hung crooked. Nobody in here knows who he is.",
             "repeat": [
-              "The three answers were a governor, a founder, and 'that's Bill's uncle.'",
-              "It is the same photograph the Clarion prints as Obadiah Mott. I am fairly sure. I am not going to raise it."
+              "A governor, a founder, and 'that's Bill's uncle.' Bill was not available to confirm.",
+              "It's the same photograph the Clarion prints as Obadiah Mott. I'm almost sure. I'm keeping that to myself until I'm sure."
             ],
             "then": [
-              "Nobody in here knows who he is. I have asked three people and had three answers."
+              "I asked three people and got three answers."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. He has been silent about it for years.",
+            "say": "Silent. He's kept quiet about who he is for years.",
             "repeat": [
-              "Nothing.",
-              "Nothing. He is a man in Ohio and nobody is asking him."
+              "Not a word. Not even a crooked one.",
+              "Nothing. He's a man in Ohio, and nobody here is asking him."
             ]
           }
         ]
@@ -267,29 +267,26 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A cast iron stove, lit, in July.",
+            "say": "A cast-iron stove, lit, in July. Nobody's said anything. I'm not going to be the first.",
             "repeat": [
-              "Still lit. There is a man beside it who has not taken his coat off since I arrived in this territory.",
-              "The warmest thing in Consolation, wasted on a room full of men who are already drinking."
-            ],
-            "then": [
-              "Nobody has raised it and I am not going to be the first."
+              "Still lit. The man beside it hasn't taken his coat off since I arrived in the territory. I'm beginning to think he can't.",
+              "The warmest thing in Consolation, wasted on a room full of men who've already warmed themselves the other way."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "It ticks. It is the only object in this room doing honest work.",
+            "say": "It ticks. The one thing in this room doing honest work.",
             "repeat": [
-              "Ticking. Working.",
-              "Nothing. It has gone out and nobody has noticed."
+              "Tick. Tick. Still working. Still the only one.",
+              "Nothing. It's gone out, and nobody has noticed."
             ]
           }
         ]
       },
       "overrides": {
-        "OPEN": "It is lit. I am not opening a lit stove in a wooden building full of drunk men.",
-        "PULL": "Every man in the room is suddenly watching. The pipe stays. The reputation nearly went."
+        "OPEN": "It's lit. I'm not opening a lit stove in a wooden building full of drunk men. I've read how that story ends. Everyone has.",
+        "PULL": "Every man in the room is suddenly watching. The pipe stays. My reputation very nearly didn't."
       },
       "walkTo": {
         "x": 1065,
@@ -317,7 +314,7 @@
                 "atMost": 2
               }
             },
-            "say": "I tune it Thursdays now. It is the only thing in Consolation that is more honest when I finish with it."
+            "say": "I tune it Thursdays now. It's the only thing in Consolation that comes out more honest after I've been at it."
           },
           {
             "when": {
@@ -326,13 +323,16 @@
                 "atMost": 4
               }
             },
-            "say": "Tuned, and staying tuned. The room plays it differently now — softer, like the instrument earned something."
+            "say": "Tuned, and staying tuned. The room plays it softer now, like it knows what it cost."
           },
           {
-            "say": "An upright, hauled four hundred miles by mule, at a cost exceeding its value by an order of magnitude. Nobody here can play it.",
+            "say": "An upright, hauled four hundred miles by mule at ten times what it's worth.",
             "repeat": [
-              "Nobody has touched it since I arrived. I check.",
-              "There is a bottle ring on the lid. Several. It is being used as furniture."
+              "Nobody's touched it since I came in. I check. I check more than is healthy.",
+              "Bottle rings on the lid. Several. They are using a piano as a table, and I am being very calm about it."
+            ],
+            "then": [
+              "Nobody here can play it. I could make it worth playing. I'd only need asking."
             ]
           }
         ],
@@ -344,24 +344,24 @@
                 "atMost": 4
               }
             },
-            "say": "A. Four hundred and forty. In this town, at last, that is not a foreign language."
+            "say": "A. Four hundred and forty. In this town, at last, that's not a foreign language."
           },
           {
-            "say": "C-sharp is a semitone flat and has been for years. Nobody has noticed.",
+            "say": "C-sharp is a semitone flat, and has been for years. Nobody's noticed.",
             "repeat": [
-              "Still C-sharp. Still flat. Still nobody.",
-              "I could put it right in four minutes, and I have begun to think about it during other activities."
+              "C-sharp. Still flat. It's like a stone in my shoe, if my shoe were across the room.",
+              "I could put it right in four minutes. I've started thinking about it at mealtimes."
             ],
             "then": [
-              "I have made a note of it. I have made several notes of it."
+              "I've noticed. I've noticed several times."
             ]
           }
         ]
       },
       "overrides": {
-        "USE": "I could tune it. Nobody has asked me, and I have decided that asking to be asked is beneath me.",
-        "OPEN": "The lid comes up. Inside is a piano, which is what I expected and somehow still a disappointment.",
-        "PUSH": "It has not been moved since it arrived, and the floor has grown around it like a tree around a nail.",
+        "USE": "I could tune it. Nobody's asked. I'm not going to ask to be asked. I'm going to stand near it until somebody has the idea.",
+        "OPEN": "The lid comes up. Inside: a piano. Exactly what I expected, and somehow still a letdown.",
+        "PUSH": "I lean on it. It doesn't budge. It hasn't moved since it arrived, and the floor has grown round it like a tree round a nail.",
         "TALK_TO": "Soon. We'll talk properly soon. Not in front of everyone."
       },
       "walkTo": {
@@ -384,19 +384,19 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A window onto Main Street, and the cleanest thing in the building, because it is the only thing anyone in here looks at.",
+            "say": "A window onto Main Street. The cleanest thing in the building, because it's the only thing in here anybody looks at.",
             "repeat": [
-              "From in here the street looks better. That is what a window is for.",
-              "Somebody has scratched a name into the pane. It is not a name I know."
+              "From in here the street looks almost respectable. That's what windows are for.",
+              "Somebody's scratched a name into the pane. Not one I know. I checked it for mine anyway, out of habit."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "The street. Muffled. Somebody arguing about a boundary.",
+            "say": "The street, muffled. Two men arguing about a boundary.",
             "repeat": [
-              "Still the boundary. Still arguing.",
-              "The stage has come in. Four days from Sacramento and eleven new men who think they are early."
+              "The boundary again. Neither of them has given an inch.",
+              "The stage is in. Four days from Sacramento, and eleven new men who think they're early."
             ]
           }
         ]
@@ -421,10 +421,10 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A chandelier. Below it, a dirt floor. The two have never been introduced.",
+            "say": "A chandelier. Underneath it, a dirt floor. The two have never been introduced.",
             "repeat": [
-              "Brass, crystal, and a dirt floor. Somebody made a decision about priorities and I should like to meet them.",
-              "It is not lit. It has never been lit while I have been in this room."
+              "Brass, crystal, and a dirt floor. Somebody made a decision about priorities. I'd like to shake his hand, and then check my pockets.",
+              "It isn't lit. It's never been lit while I've been in here. I think they're saving it for something."
             ]
           }
         ],
@@ -432,17 +432,17 @@
           {
             "say": "It ticks as it cools.",
             "repeat": [
-              "Ticking as it cools. Still hanging over mud.",
-              "Nothing. It is the most expensive object in the territory and it has nothing to say for itself."
+              "Ticking, cooling, hanging over mud.",
+              "Nothing. All that money, and it has nothing to say for itself."
             ],
             "then": [
-              "It is the most expensive object in the territory and it is hanging over mud."
+              "The most expensive object in the territory, and it's hanging over mud."
             ]
           }
         ]
       },
       "overrides": {
-        "PULL": "It is nine feet up and it weighs more than I do. I shall admire it from here."
+        "PULL": "It's nine feet up and heavier than I am. I'll admire it from down here, like everyone else."
       },
       "walkTo": {
         "x": 918,
@@ -464,10 +464,10 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Stairs, up to rooms I have not been invited to. There is a man on the landing.",
+            "say": "Stairs, up to rooms I haven't been invited to. There's a man on the landing.",
             "repeat": [
-              "He has not moved. I have begun to suspect he is not waiting for anything.",
-              "Eleven steps. I have counted them from down here, which is as far as I have got."
+              "He hasn't moved. I'm starting to think he isn't waiting for anything. He came with the stairs.",
+              "Eleven steps. I've counted them from down here, which is as far up as I've got."
             ],
             "then": [
               "There is always a man on the landing."
@@ -476,16 +476,16 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Boards, above. Somebody pacing a room about the size of mine.",
+            "say": "Boards, overhead. Somebody pacing a room about the size of mine.",
             "repeat": [
-              "Still pacing.",
-              "He has stopped. That is somehow worse."
+              "Four steps, turn. Four steps, turn. Definitely the size of mine.",
+              "He's stopped. Somehow that's worse."
             ]
           }
         ]
       },
       "overrides": {
-        "USE": "I have not been invited up and I am not going to invite myself."
+        "USE": "I haven't been invited up, and I'm not going to invite myself. I have been practising looking like someone who might be."
       },
       "walkTo": {
         "x": 1248,
@@ -507,25 +507,25 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Nine men drinking after dark, all of whom were at their claims by seven this morning and will be again by seven tomorrow. This is the part in between.",
+            "say": "Nine men drinking after dark. Every one of them was at his claim by seven this morning, and will be again by seven tomorrow. This is the bit in between.",
             "repeat": [
-              "The same nine. I have started to be able to tell them apart, which I regard as a poor sign.",
-              "Nobody in here is talking about anything but where the gold is. They have been having this conversation for twelve years and it has not advanced."
+              "The same nine. I can tell them apart now. I don't think that's good news for me.",
+              "They're talking about where the gold is. They've been talking about where the gold is for twelve years. Nobody has gone and got it."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Talk. A great deal of it, all at the same volume, none of it listened to.",
+            "say": "Talk. Lots of it, all at the same volume, none of it listened to.",
             "repeat": [
-              "Somebody in the corner has told the same story four times and it has grown twice.",
-              "The word 'Mott' comes up about once a minute. I have counted. It is once a minute."
+              "A man in the corner has told the same story four times. It's grown twice. There's a bear in it now.",
+              "The word 'Mott' comes up about once a minute. I've timed it. It's once a minute."
             ]
           }
         ]
       },
       "overrides": {
-        "TALK_TO": "I have tried. They are very friendly, and they want to know what I know, and I know nothing, and this disappoints them each time."
+        "TALK_TO": "I've tried. They're very friendly. They want to know what I know. I know nothing, and it disappoints them fresh every time."
       },
       "walkTo": {
         "x": 873,
@@ -549,16 +549,16 @@
           {
             "say": "I look like a man who has recently been robbed and is being brave about it.",
             "repeat": [
-              "Still me. I had hoped for some improvement.",
-              "Eleven weeks, and I have started to look like I belong here, which was not the plan."
+              "Still me. I'd hoped for some improvement. The coat is doing its best.",
+              "Eleven weeks, and I'm starting to look like I belong here. That was never the plan."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. Mirrors are silent, which is the only restraint they show.",
+            "say": "Quiet. Mirrors never say anything. It's the only restraint they show.",
             "repeat": [
-              "Still nothing.",
+              "Still quiet. I keep expecting it to say something about the coat.",
               "Nothing. I keep checking. It keeps not."
             ]
           }
@@ -590,13 +590,16 @@
                 "atMost": 3
               }
             },
-            "say": "They drank to my memory on Tuesday. I attended. I am told I was well spoken of, briefly, between rounds."
+            "say": "They drank to my memory on Tuesday. I was there. I'm told I was spoken of very warmly, briefly, between rounds."
           },
           {
-            "say": "Mahogany. Genuinely. Somebody spent real money on the one surface everyone leans on.",
+            "say": "Mahogany. Genuine mahogany.",
             "repeat": [
-              "Mahogany. Four hundred miles from a tree that could have produced it.",
-              "The only maintained surface in Consolation, and it is a bar."
+              "Mahogany, four hundred miles from the nearest tree that could have grown it. I'd like to meet the mule.",
+              "The best-kept surface in town, and it's a bar. I don't think that's an accident."
+            ],
+            "then": [
+              "Somebody spent real money on the one surface everybody leans on."
             ]
           }
         ],
@@ -608,23 +611,23 @@
                 "atMost": 3
               }
             },
-            "say": "My name — one of its spellings — in a toast. It is a strange vintage, hearing yourself remembered at cost price."
+            "say": "My name — one of its spellings — in a toast. It's a strange vintage, being remembered at cost price."
           },
           {
             "say": "Glasses. Talk.",
             "repeat": [
-              "Glasses. Talk. The same story, larger.",
-              "Somebody is being served ahead of somebody else and it is being noticed."
+              "Glasses. Talk. The bear is now eleven feet tall and has a grievance.",
+              "Somebody's being served ahead of somebody else, and it's being noticed."
             ],
             "then": [
-              "Somebody in the corner has told the same story four times and it has grown twice."
+              "The story in the corner is on its fifth telling, and the bear has a name now."
             ]
           }
         ]
       },
       "overrides": {
         "USE": "That would cost money.",
-        "PUSH": "It does not move. It is the only thing in Consolation built to stay.",
+        "PUSH": "It doesn't move. It's the only thing in town built to stay.",
         "OPEN": "The barman watches me consider it. We both put the idea down gently."
       },
       "walkTo": {
@@ -649,10 +652,10 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Batwing doors, from the inside. They swing both ways, which from in here reads as a warning rather than a convenience.",
+            "say": "Batwing doors, from the inside. They swing both ways. From in here, that reads as a warning.",
             "repeat": [
-              "The street past them. It is always a surprise.",
-              "Six inches of boardwalk and then the mud. I know exactly how far it is now."
+              "The street, past them. Somehow it's a surprise every time.",
+              "Six inches of boardwalk and then the mud. I know exactly how far now. My boots know it better."
             ]
           }
         ],
@@ -660,8 +663,8 @@
           {
             "say": "The street. It sounds busier from in here than it is.",
             "repeat": [
-              "Boots on the boardwalk. Somebody deciding whether to come in.",
-              "Nothing. Everyone who is coming in is in."
+              "Boots on the boardwalk. Somebody deciding whether to come in. Deciding no.",
+              "Nothing. Everyone who's coming in is in."
             ]
           }
         ]
@@ -682,10 +685,10 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A door behind the bar, shut. There is a room back there and things are settled in it.",
+            "say": "A door behind the bar, shut. There's a room back there where things get settled.",
             "repeat": [
-              "Shut. It has been shut every time I have looked, which is not the same as locked.",
-              "A door behind the bar. Shut, and shut in a way that has been decided rather than just closed."
+              "Shut. It's been shut every time I've looked. That isn't the same as locked, and I've thought about the difference a lot.",
+              "Shut in a way that's been decided, not just closed. I didn't know doors could do that. This one can."
             ]
           }
         ],
@@ -694,7 +697,7 @@
             "say": "Nothing. Whatever happens back there happens quietly, and then everyone agrees about it.",
             "repeat": [
               "A pencil. Somebody is writing something down.",
-              "Two men going in. A little later, two men coming out, and one of the two is pleased."
+              "Two men going in. A while later, two men coming out, and one of them pleased."
             ]
           }
         ]

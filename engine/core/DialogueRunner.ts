@@ -38,7 +38,7 @@ export interface SelectionResult {
    * option carries an exchange rather than a single line. `say` is the first
    * of them; these are shown one at a time after it.
    */
-  rest: { speaker: string; line: string }[];
+  rest: { speaker: string; line: string; direction?: boolean }[];
   /**
    * Who says `say`.
    *
@@ -527,20 +527,24 @@ export class DialogueRunner {
     const repeat = selection > 1 ? repeatFor(option, selection) : null;
     let say: string | null;
     let sayer: string | null = null;
-    let rest: { speaker: string; line: string }[] = [];
+    let rest: { speaker: string; line: string; direction?: boolean }[] = [];
     let direction = false;
     if (rephrased) {
       say = rephrased.say;
     } else if (repeat?.exchange?.length) {
       say = repeat.exchange[0]!.line;
       sayer = repeat.exchange[0]!.speaker;
+      direction = repeat.exchange[0]!.direction === true;
       rest = repeat.exchange.slice(1);
     } else if (repeat?.say) {
       say = repeat.say;
     } else if ((option.exchange ?? []).length > 0) {
-      const exchange = option.exchange as { speaker: string; line: string }[];
+      // A STAGE DIRECTION IN AN EXCHANGE (doc 58) is performed in its place,
+      // in the beat's quieter ink, and carries that through `rest`.
+      const exchange = option.exchange as { speaker: string; line: string; direction?: boolean }[];
       say = exchange[0]!.line;
       sayer = exchange[0]!.speaker;
+      direction = exchange[0]!.direction === true;
       rest = exchange.slice(1);
     } else {
       say = option.say ?? null;

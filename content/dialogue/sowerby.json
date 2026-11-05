@@ -80,6 +80,11 @@
           "exchange": [
             {
               "speaker": "sowerby",
+              "line": "He brightens, and then remembers to be grave.",
+              "direction": true
+            },
+            {
+              "speaker": "sowerby",
               "line": "A funeral. For whom?"
             },
             {
@@ -89,6 +94,10 @@
             {
               "speaker": "sowerby",
               "line": "Pike! Six years in the ground and never sung over. The undertaker did him on credit and nobody came."
+            },
+            {
+              "speaker": "sowerby",
+              "line": "…"
             },
             {
               "speaker": "sowerby",
@@ -148,6 +157,10 @@
             },
             {
               "speaker": "sowerby",
+              "line": "…"
+            },
+            {
+              "speaker": "sowerby",
               "line": "The whole hill applauded. It was a very successful funeral."
             }
           ],
@@ -193,24 +206,59 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "He was a man.",
-          "say": "That is not a eulogy, that is a census."
+          "exchange": [
+            {
+              "speaker": "sowerby",
+              "line": "wounded",
+              "direction": true
+            },
+            {
+              "speaker": "sowerby",
+              "line": "That is not a eulogy, that is a census."
+            }
+          ]
         },
         {
           "id": "sowerby_c3",
           "tag": "PROGRESS",
           "afterUse": "remove",
           "text": "He was present.",
-          "say": "…Present. Three words, and one of them is 'was'. I shall add an 'amen' at no charge; I cannot send a man into the ground on three.",
           "set": {
             "T_SOWERBY_PRICE": true
-          }
+          },
+          "exchange": [
+            {
+              "speaker": "sowerby",
+              "line": "A long, painful pause. He writes it down.",
+              "direction": true
+            },
+            {
+              "speaker": "sowerby",
+              "line": "…Present. Three words, and one of them is 'was'. I shall add an 'amen' at no charge; I cannot send a man into the ground on three."
+            }
+          ]
         },
         {
           "id": "sowerby_c4",
           "tag": "COMIC",
           "afterUse": "retain",
           "text": "He tuned pianos.",
-          "say": "He tuned pianos. He brought order to the very instruments of praise, and asked nothing, and was paid less—"
+          "exchange": [
+            {
+              "speaker": "sowerby",
+              "line": "His eyes fill.",
+              "direction": true
+            },
+            {
+              "speaker": "sowerby",
+              "line": "He tuned pianos. He brought order to the very instruments of praise, and asked nothing, and was paid less—"
+            },
+            {
+              "speaker": "sowerby",
+              "line": "He goes on. He is still going when Thad looks back from the door.",
+              "direction": true
+            }
+          ]
         },
         {
           "id": "sowerby_cx",

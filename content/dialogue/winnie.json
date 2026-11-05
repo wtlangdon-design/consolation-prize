@@ -63,7 +63,6 @@
           "tag": "COMIC",
           "text": "I tune pianos.",
           "afterUse": "counted-repeat",
-          "say": "Congratulations.",
           "when": {
             "T_TUNES_PIANOS": true
           },
@@ -75,6 +74,16 @@
             {
               "selection": 3,
               "say": "Mr. Grubb, I have congratulated you twice. There is no third congratulation."
+            }
+          ],
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "…"
+            },
+            {
+              "speaker": "winnie",
+              "line": "Congratulations."
             }
           ]
         },
@@ -192,7 +201,17 @@
           "tag": "PROGRESS",
           "text": "Has anyone ever brought in Mott gold?",
           "afterUse": "remove",
-          "say": "Ask me that again when you've got something to trade."
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "She stops writing. It is the first time she has stopped writing.",
+              "direction": true
+            },
+            {
+              "speaker": "winnie",
+              "line": "Ask me that again when you've got something to trade."
+            }
+          ]
         },
         {
           "id": "winnie4",

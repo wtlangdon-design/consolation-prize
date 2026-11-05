@@ -53,7 +53,17 @@
           "tag": "TOPIC",
           "afterUse": "remove",
           "text": "Do you ever hear anything?",
-          "say": "…Hear?"
+          "exchange": [
+            {
+              "speaker": "ozymandia",
+              "line": "genuinely puzzled",
+              "direction": true
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "…Hear?"
+            }
+          ]
         },
         {
           "id": "ozymandia5",
@@ -67,7 +77,17 @@
             },
             {
               "speaker": "ozymandia",
+              "line": "she closes her eyes",
+              "direction": true
+            },
+            {
+              "speaker": "ozymandia",
               "line": "'You have never seen breakfast.'"
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "She opens them.",
+              "direction": true
             },
             {
               "speaker": "ozymandia",

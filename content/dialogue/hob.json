@@ -36,6 +36,11 @@
           "afterUse": "retain",
           "exchange": [
             {
+              "speaker": "hob",
+              "line": "nothing",
+              "direction": true
+            },
+            {
               "speaker": "thad",
               "line": "He is walking. I will consider that an evening."
             }
@@ -53,7 +58,22 @@
           "tag": "TOPIC",
           "text": "Did you know Obadiah Mott?",
           "afterUse": "retain",
-          "say": "No."
+          "exchange": [
+            {
+              "speaker": "hob",
+              "line": "He stops. Then:",
+              "direction": true
+            },
+            {
+              "speaker": "hob",
+              "line": "No."
+            },
+            {
+              "speaker": "hob",
+              "line": "He does not walk on for four seconds.",
+              "direction": true
+            }
+          ]
         },
         {
           "id": "hob4",
@@ -115,7 +135,17 @@
           "gives": [
             "executor_form"
           ],
-          "say": "I know the mud."
+          "exchange": [
+            {
+              "speaker": "hob",
+              "line": "I know the mud."
+            },
+            {
+              "speaker": "hob",
+              "line": "He signs Form 31-E against the lamp post, and hands it back.",
+              "direction": true
+            }
+          ]
         },
         {
           "id": "hob2",
@@ -201,10 +231,20 @@
           "tag": "COMIC",
           "text": "You have very neat handwriting.",
           "afterUse": "retain",
-          "say": "…Yes.",
           "set": {
             "T_HOB_HANDWRITING": true
-          }
+          },
+          "exchange": [
+            {
+              "speaker": "hob",
+              "line": "He looks at Thad for a long time.",
+              "direction": true
+            },
+            {
+              "speaker": "hob",
+              "line": "…Yes."
+            }
+          ]
         },
         {
           "id": "hobx",

@@ -51,7 +51,7 @@ Rotating pool available at every node:
 
 > "I should go."
 > "I've taken enough of your time. I'll be taking more later."
-> "I am going to leave now, in a dignified manner." *(Thad walks into the doorframe. Every time. It is never acknowledged.)*
+> "I am going to leave now, in a dignified manner." *(Thad walks into the doorframe.)* *(Every time. It is never acknowledged.)*
 > "Thank you. This has been clarifying." *(Available only when it has not been.)*
 
 ---
@@ -195,7 +195,7 @@ Then:
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "Run it." | `[PROGRESS · remove]` | *(She runs it herself, at the window, in front of him — the first assay the player ever watches happen. It is very good gold.)* "Twenty-two hundred dollars to the ton." *(beat)* "Nine years I've waited to write down a number I believed." *(She writes it down.)* "File it. I'll be at the Registrar's when you do." *(sets `T_ASSAY_RUN`; errata 75)* |
+| 1 | "Run it." | `[PROGRESS · remove]` | *(She runs it herself, at the window, in front of him. It is very good gold.)* *(The first assay the player ever watches happen.)* "Twenty-two hundred dollars to the ton." *(beat)* "Nine years I've waited to write down a number I believed." *(She writes it down.)* "File it. I'll be at the Registrar's when you do." *(sets `T_ASSAY_RUN`; errata 75)* |
 | 2 | "You knew the nineteen names meant something." | `[TOPIC · retain]` | "I knew they meant something. Knowing what is your department. Mine is the book." |
 | 3 | "Aren't you going to congratulate me?" | `[COMIC · counted-repeat]` | "No." *(second)* "I congratulated you about the pianos. Consult your records." |
 
@@ -336,7 +336,7 @@ The scripted exchange above ("You were never a colonel."). One node, no other op
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "May I read the contract?" | `[PROGRESS · remove] ✓` | "Of course! Read every word. I *want* you to read every word." *(Clause 9: the holder shall not excavate, sink shaft, tunnel, or otherwise disturb the subsurface.)* → sets `T_EXCAVATION_CLAUSE` |
-| 2 | "Yes." | `[PROGRESS · retain]` | "Splendid!" *(He hands Thad the pen. The pen has no ink.)* "Ink! The one thing this office never has. Forgive me — I'll send for some." *(He does not send for any. Not an ending. **Fanshawe will never actually let Thad sell — because a sale would transfer a claim someone might dig.** The player cannot fail here and will not understand why until Act III.)* |
+| 2 | "Yes." | `[PROGRESS · retain]` | "Splendid!" *(He hands Thad the pen. The pen has no ink.)* "Ink! The one thing this office never has. Forgive me — I'll send for some." *(He does not send for any.)* *(Not an ending. **Fanshawe will never actually let Thad sell — because a sale would transfer a claim someone might dig.** The player cannot fail here and will not understand why until Act III.)* |
 | 3 | "No." | `[PROGRESS · counted-repeat]` | "Twelve thousand." *(second)* "Thirteen. I'm enjoying this." *(third)* "Fourteen, and you drive a very hard bargain for a man who isn't bargaining." |
 | 4 | "Why does a worthless claim cost eleven thousand dollars?" | `[TOPIC · retain]` | "Because you'd like it to be worth more, and I'd like you to be happy." |
 | 5 | "I've named a raccoon after you." | `[COMIC · retain]` | *(genuine delight)* "Have you! What a splendid animal it must be." *(It is not.)* |
@@ -703,7 +703,7 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 | 1 | "He was a beloved and industrious young man of rare promise." | `[TOPIC · retain]` | "Beloved! Industrious! Young! *Rare!* Four adjectives, eight dollars, and every one of them deserved." *(+4 adjectives, $8)* |
 | 2 | "He was a man." | `[TOPIC · retain]` | *(wounded)* "That is not a eulogy, that is a census." *(+0)* |
 | 3 | "He was present." | `[PROGRESS · remove]` | *(A long, painful pause. He writes it down.)* "…Present. Three words, and one of them is 'was'. I shall add an 'amen' at no charge; I cannot send a man into the ground on three." *(Four words, fifty cents. The counter stops. Sets `T_SOWERBY_PRICE`.)* |
-| 4 | "He tuned pianos." | `[COMIC · retain]` | *(His eyes fill.)* "He tuned pianos. He brought order to the very instruments of praise, and asked nothing, and was paid less—" *(He goes on. He is still going when Thad looks back from the door. +0, free, unprompted.)* |
+| 4 | "He tuned pianos." | `[COMIC · retain]` | *(His eyes fill.)* "He tuned pianos. He brought order to the very instruments of praise, and asked nothing, and was paid less—" *(He goes on. He is still going when Thad looks back from the door.)* *(+0, free, unprompted.)* |
 
 **Correct solution:** "He was present." The cheapest possible funeral in the history of the territory, and the sole reason Thad can afford to die. *(The money is Sheng's loan, paid at the undertaker's, who bills for the Reverend: doc 57 E3.)*
 

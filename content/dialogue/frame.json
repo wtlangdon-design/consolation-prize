@@ -53,7 +53,15 @@
             },
             {
               "speaker": "frame",
+              "line": "…"
+            },
+            {
+              "speaker": "frame",
               "line": "Some of it was told to me."
+            },
+            {
+              "speaker": "frame",
+              "line": "…"
             },
             {
               "speaker": "frame",
@@ -123,6 +131,11 @@
             },
             {
               "speaker": "frame",
+              "line": "He has the type set before Thad has finished the name.",
+              "direction": true
+            },
+            {
+              "speaker": "frame",
               "line": "'MEMORIAL FOR E. PIKE, LATE. ALL WELCOME. REFRESHMENTS.' I've added refreshments. It doubles the turnout."
             }
           ],
@@ -145,6 +158,11 @@
             {
               "speaker": "frame",
               "line": "Once! Fellow told me he'd found a nugget shaped exactly like the President, and I said—"
+            },
+            {
+              "speaker": "frame",
+              "line": "he savors it",
+              "direction": true
             },
             {
               "speaker": "frame",
@@ -301,6 +319,10 @@
             },
             {
               "speaker": "frame",
+              "line": "…"
+            },
+            {
+              "speaker": "frame",
               "line": "I invented better. He never complained. That was the quote, probably."
             }
           ]
@@ -310,7 +332,17 @@
           "tag": "COMIC",
           "text": "Spell it right.",
           "afterUse": "remove",
-          "say": "…I always meant to."
+          "exchange": [
+            {
+              "speaker": "frame",
+              "line": "He looks up. He looks at the stranger for a long moment.",
+              "direction": true
+            },
+            {
+              "speaker": "frame",
+              "line": "…I always meant to."
+            }
+          ]
         },
         {
           "id": "framex",

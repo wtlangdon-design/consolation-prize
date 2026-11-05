@@ -58,6 +58,11 @@
             },
             {
               "speaker": "pratt",
+              "line": "Of what?",
+              "direction": true
+            },
+            {
+              "speaker": "pratt",
               "line": "The new stake."
             }
           ],
@@ -73,14 +78,34 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "I'll fetch the law.",
-          "say": "Sump closes at four."
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Sump closes at four."
+            },
+            {
+              "speaker": "pratt",
+              "line": "This is true, and it is the entire legal system.",
+              "direction": true
+            }
+          ]
         },
         {
           "id": "pratt3",
           "tag": "COMIC",
           "afterUse": "retain",
           "text": "We got off on the wrong foot.",
-          "say": "Nope."
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "He looks at his feet, checking.",
+              "direction": true
+            },
+            {
+              "speaker": "pratt",
+              "line": "Nope."
+            }
+          ]
         },
         {
           "id": "prattx",
