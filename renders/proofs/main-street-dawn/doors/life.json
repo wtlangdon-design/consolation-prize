@@ -1,0 +1,387 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "main_street_dawn",
+ "commit": "6b560e11f146ac93619e44f2c20b9524c3b8e388",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": null,
+ "fixture": "r36-a",
+ "warped": false,
+ "lifeRoute": "main-street-dawn-doors",
+ "durationSeconds": 13.62,
+ "events": [
+  {
+   "t": 2.71,
+   "line": "started from fixture r36-a, no entry route"
+  },
+  {
+   "t": 5.82,
+   "line": "in main_street_dawn; life route: 5 action(s)"
+  },
+  {
+   "t": 6.37,
+   "line": "capture 00-arrived: room main_street_dawn, says null, options 0, control null"
+  },
+  {
+   "t": 6.9,
+   "line": "action 1 (click): clicked main_street_dawn/to_coach_stop at world 3495,467 -- the coach stop, east"
+  },
+  {
+   "t": 7.91,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3579,
+     601
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 8.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3487,
+     603
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 9.31,
+   "line": "action 1 (waitFor): reached {\"flag\":\"T_CLOSE_SAID\"} in room main_street_dawn"
+  },
+  {
+   "t": 10.34,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3477,
+     603
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 11.33,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3477,
+     603
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.32,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 12.33,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3477,
+     603
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.84,
+   "line": "capture 01-the-close: room main_street_dawn, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "00-arrived",
+   "why": null,
+   "t": 6.36,
+   "file": "renders/proofs/main-street-dawn/doors/raw-captures-ignored/00-arrived.png",
+   "hash": "bd956ce14e4888e9ba4d57a0667b306726b94750fa4b8fbb2f7bb581de1acbd1",
+   "room": "main_street_dawn",
+   "clock": 6.0417,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2
+   },
+   "camera": 1780,
+   "movers": {
+    "thad": {
+     "at": [
+      3660,
+      600
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 111,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-02.png",
+     "bounds": [
+      3602,
+      489,
+      115,
+      123
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street_dawn",
+     "path": "art/backgrounds/room-36-main-street-dawn.png",
+     "drawn": "art/backgrounds/room-36-main-street-dawn.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "08bef467c2750c5af85af4534883c5151ba14f0e2ce860802650b5392fd4a217"
+    },
+    {
+     "key": "art/actors/room-36-dog.png",
+     "path": "art/actors/room-36-dog.png",
+     "drawn": "art/actors/room-36-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f9e2672b11220940b0c46aee037979a4a807de8dc833bd5b28acce97323e7850"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-the-close",
+   "why": null,
+   "t": 12.83,
+   "file": "renders/proofs/main-street-dawn/doors/raw-captures-ignored/01-the-close.png",
+   "hash": "5ae04791e970dba72ca7242ecf88678c05bab6b288c4244be4f4f8a3b05de01e",
+   "room": "main_street_dawn",
+   "clock": 12.6748,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH",
+    "T_CLOSE_SAID"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2
+   },
+   "camera": 1780,
+   "movers": {
+    "thad": {
+     "at": [
+      3477,
+      603
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 112,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      3419,
+      491,
+      116,
+      124
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street_dawn",
+     "path": "art/backgrounds/room-36-main-street-dawn.png",
+     "drawn": "art/backgrounds/room-36-main-street-dawn.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "08bef467c2750c5af85af4534883c5151ba14f0e2ce860802650b5392fd4a217"
+    },
+    {
+     "key": "art/actors/room-36-dog.png",
+     "path": "art/actors/room-36-dog.png",
+     "drawn": "art/actors/room-36-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f9e2672b11220940b0c46aee037979a4a807de8dc833bd5b28acce97323e7850"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 13.62s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T23:55:20.537Z"
+}
