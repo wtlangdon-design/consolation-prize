@@ -1,0 +1,18 @@
+Image 1 is the layout for one place in my pixel-art adventure game: grey blocks for the land and the things on it, and the hero (the man in the long coat) standing on the ground. Paint this place as a finished game background with the hero in it, keeping the camera, the layout and every block where image 1 puts it. Paint ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched. The whole scene, from the sky to the mud in front of the hero, fits inside that band.
+
+THE PLACE: a worthless gold claim on a bare hillside above the diggings, 1850s, at dusk -- the sky deep blue going dark, the last orange low.
+- Left: a narrow path coming up from the road below.
+- Near the path: a wooden claim stake with a number painted on it, leaning a little.
+- The ground: forty feet of mud, rock and something unidentifiable, churned and wet.
+- Middle: in the hillside, a dark round hole into the rock, about the height of a crouching man, with old smooth edges -- and sitting in its mouth, a fat raccoon, looking out with great contempt.
+- Right of the hole, further up: an older, darker boundary stake, sunk deeper.
+- Above: a bare ridge against the sky.
+- Lower right: a small low brown creek running past the foot of the claim.
+- Light: dusk, cool and dim; the hole is the darkest thing on the hill.
+
+THE PERSON:
+- The hero from image 4, standing where image 1 puts him, at exactly that size.
+
+THE LOOK: the same pixel-art style as images 2, 3 and 5, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero, flat, soft shading, very little texture, simple shapes. Dusk blues and mud browns. Nothing near black where the hero stands.
+
+RULES: no readable text, letters or numbers anywhere -- the stake carries marks, never digits. No border, no frame around the picture, no caption.

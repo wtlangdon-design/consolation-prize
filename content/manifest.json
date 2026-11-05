@@ -29,6 +29,7 @@
   "content/rooms/thads-room.json",
   "content/rooms/back-alley.json",
   "content/rooms/watchmans-shack.json",
+  "content/rooms/prosperity.json",
   "content/rooms/undertaker.json",
   "content/rooms/main-street-candidate.json",
   "content/rooms/nugget-candidate.json",
@@ -57,7 +58,8 @@
   "content/dialogue/livery-man.json",
   "content/dialogue/ozymandia.json",
   "content/dialogue/sowerby.json",
-  "content/dialogue/letters-home.json"
+  "content/dialogue/letters-home.json",
+  "content/dialogue/raccoon.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -81,7 +83,8 @@
   "content/fixtures/room-19.json",
   "content/fixtures/room-20.json",
   "content/fixtures/room-21.json",
-  "content/fixtures/room-22.json"
+  "content/fixtures/room-22.json",
+  "content/fixtures/room-23.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -142,6 +145,8 @@
   "content/ambient/hob.json",
   "content/ambient/miners-out.json",
   "content/ambient/miners-back.json",
+  "content/ambient/raccoon.json",
+  "content/ambient/raccoon-meeting.json",
   "content/ambient/other-mules.json",
   "content/ambient/ozymandia.json",
   "content/ambient/hotel-clerk.json"

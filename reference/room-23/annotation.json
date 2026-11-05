@@ -1,0 +1,244 @@
+{
+ "room": "prosperity",
+ "plate": "art/backgrounds/room-23-prosperity.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-23/plate-01/candidate-1920x864.png, room-23 attempt 2, a 20:9 crop from y 200 -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-23-prosperity.png",
+ "plateShippingHash": "62990833d1a3",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   160,
+   715
+  ],
+  [
+   1900,
+   715
+  ],
+  [
+   1900,
+   858
+  ],
+  [
+   160,
+   858
+  ]
+ ],
+ "walkableNote": "THE MUD, near. The stake's foot is at y 760, at the band's left; the band runs y 715-858 across the claim's foot, the hole and the boundary stake well up the slope behind it.",
+ "scaling": {
+  "far": {
+   "y": 715,
+   "height": 367
+  },
+  "near": {
+   "y": 858,
+   "height": 464
+  },
+  "note": "ROOM 23'S DEPTH, FROM THE MASTER: Thad stood with his feet at y 733 and was drawn about 379 tall; along Room 5's slope (0.68 a row) that is 367 at the band's far edge and 464 at its near."
+ },
+ "entrance": [
+  240,
+  790
+ ],
+ "entrances": [
+  {
+   "from": "claims_road",
+   "at": [
+    240,
+    790
+   ],
+   "facing": "right",
+   "note": "Up from the road, at left."
+  },
+  {
+   "from": "default",
+   "at": [
+    240,
+    790
+   ],
+   "facing": "right",
+   "note": "Up from the road, at left."
+  },
+  {
+   "from": "town_map",
+   "at": [
+    240,
+    790
+   ],
+   "facing": "right",
+   "note": "From the map, as from the road."
+  }
+ ],
+ "hotspots": {
+  "raccoon": [
+   1130,
+   395,
+   100,
+   95
+  ],
+  "claim_one_s_boundary": [
+   1530,
+   150,
+   90,
+   260
+  ],
+  "creek": [
+   1500,
+   620,
+   420,
+   95
+  ],
+  "hole": [
+   990,
+   225,
+   360,
+   270
+  ],
+  "ridge": [
+   600,
+   40,
+   1320,
+   120
+  ],
+  "mud": [
+   0,
+   500,
+   1920,
+   364
+  ],
+  "claim_marker": [
+   220,
+   450,
+   95,
+   315
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE RACCOON is over the figure in the hole's mouth (content/ambient/raccoon.json), while he is there. CLAIM ONE'S BOUNDARY is the older stake up the slope, after A9. THE MUD is walked on by a bare click.",
+ "hotspotWhen": {
+  "raccoon": {
+   "T_WARM_HOLE": false
+  },
+  "claim_one_s_boundary": {
+   "T_BORDERS_MOTT": true
+  }
+ },
+ "people": {},
+ "exits": {
+  "to_claims_road": [
+   0,
+   560,
+   160,
+   304
+  ]
+ },
+ "exitWalkTo": {
+  "to_claims_road": {
+   "x": 170,
+   "y": 790,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [],
+ "defaultVerbs": {
+  "raccoon": "LOOK_AT",
+  "claim_one_s_boundary": "LOOK_AT",
+  "creek": "LOOK_AT",
+  "hole": "LOOK_AT",
+  "ridge": "LOOK_AT",
+  "mud": "WALK_TO",
+  "claim_marker": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click, except THE MUD, which is walked on.",
+ "sceneLines": [
+  {
+   "hotspot": "hole",
+   "verb": "LOOK_AT",
+   "ref": "docs/57-puzzle-completion.md::## F1 · One last look at Prosperity",
+   "subject": "THE HOLE",
+   "verbText": "LOOK",
+   "case": "Act IV",
+   "when": {
+    "ACT": 4,
+    "T_WARM_HOLE": true,
+    "T_DRAUGHT": false
+   },
+   "set": {
+    "T_DRAUGHT": true
+   },
+   "completes": "F1"
+  }
+ ],
+ "verbRules": [
+  {
+   "hotspot": "hole",
+   "verbs": "ALL",
+   "when": {
+    "T_FUMES": true
+   },
+   "ref": "docs/54-batch-c.md::## A5 — the raccoon",
+   "startsWith": "> While the fumes last",
+   "note": "Doc 54 A5: while the fumes last, any verb on THE HOLE."
+  },
+  {
+   "hotspot": "raccoon",
+   "verbs": "ALL",
+   "when": {
+    "T_FUMES": true
+   },
+   "ref": "docs/54-batch-c.md::## A5 — the raccoon",
+   "startsWith": "> While the fumes last",
+   "note": "...or THE RACCOON."
+  },
+  {
+   "hotspot": "raccoon",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "when": {
+    "T_RACCOON_NAMED": false
+   },
+   "dialogue": "RACCOON",
+   "note": "Doc 04 RAC_A1: 'Opened by the first TALK TO the raccoon.'"
+  },
+  {
+   "hotspot": "raccoon",
+   "verbs": [
+    "TALK_TO"
+   ],
+   "when": {
+    "T_RACCOON_NAMED": true
+   },
+   "ref": "docs/57-puzzle-completion.md::## A5 · The raccoon",
+   "startsWith": "> **THE RACCOON** · TALK TO, *named*",
+   "note": "Doc 57 A5: talking to the raccoon after naming him, three times."
+  }
+ ],
+ "namesFrom": [
+  {
+   "hotspot": "raccoon",
+   "tree": "content/dialogue/raccoon.json",
+   "counter": "RACCOON_NAME"
+  }
+ ],
+ "overrideWhen": {
+  "hole": {
+   "OPEN": {
+    "T_WARM_HOLE": true
+   }
+  }
+ },
+ "props": [],
+ "occlusion": {
+  "note": "No plane: the walk band is the claim's foot, in front of everything; the raccoon sits in the hole up the slope.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}

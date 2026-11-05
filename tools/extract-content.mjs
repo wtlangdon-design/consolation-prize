@@ -931,6 +931,12 @@ function combinations() {
     if (!direction) throw new Error(`doc 24: the pair "${key}" names no tree to open`);
     opening.push({ ...routed, opensNode: direction[1] });
   }
+  // A PAIR A LATER DOCUMENT REWROTE keeps its routing here, because the file
+  // on disk now holds the rewrite and no longer carries doc 24's line to find
+  // it by. The rewrite replaces the pair further down (doc 54 A5's blanket).
+  const SUPERSEDED_PAIRS = {
+    'A5|HORSE BLANKET|the hole': { item: 'blanket', room: 'prosperity', target: 'hole', puzzle: 'A5' },
+  };
   const nulls = [];
   let inNulls = false;
   for (const line of doc.split('\n')) {
@@ -946,7 +952,7 @@ function combinations() {
   // pair this cannot place, it says so rather than guessing.
   const placed = new Map(existing.pairs.map((pair) => [pair.say, pair]));
   const rebuilt = [...[...pairs, ...nulls].map((pair) => {
-    const routed = placed.get(pair.say);
+    const routed = placed.get(pair.say) ?? SUPERSEDED_PAIRS[`${pair.puzzle}|${pair.item}|${pair.target}`];
     if (!routed) throw new Error(`doc 24: no routing on file for "${pair.say.slice(0, 40)}..."`);
     return { ...routed, say: pair.say };
   }), ...opening];
@@ -993,7 +999,8 @@ function combinations() {
     }
   }
 
-  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 /.test(pair.note ?? '')).length;
+  // Pairs a later block adds (doc 57's, doc 54 A5's bait and smoke) are not doc 24's.
+  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 |^Doc 54 A5, the /.test(pair.note ?? '')).length;
   if (rebuilt.length - opening.length !== spoken) {
     throw new Error(`doc 24: ${rebuilt.length - opening.length} spoken pairs extracted, ${spoken} on file`);
   }
@@ -1290,6 +1297,68 @@ function combinations() {
         rules: [{ case: 'any time', ...said(lines) }],
       });
     }
+  }
+  // DOC 54 A5 AND DOC 57 F1 ON THE HOLE (errata 68 A, errata 96 F). The bait,
+  // the smoke and the blanket are doc 54's lines, each Thad's, the italic
+  // brackets staging; while the fumes last, any verb on the hole is doc 54's
+  // fumes line. The blanket's success is doc 54's (doc 24's row is superseded:
+  // "doc 54's success line governs"); the hole is `hole` in Room 23/24,
+  // `prosperity`. F1's pickaxe is doc 57's two cases; Room 34 is not built.
+  {
+    const d54 = read('docs/54-batch-c.md');
+    const at = d54.indexOf('## A5 — the raccoon');
+    if (at < 0) throw new Error('doc 54: no A5 section');
+    const body = d54.slice(at, d54.indexOf('\n---', at));
+    const attempt = (head) => {
+      const line = body.split('\n').find((one) => one.startsWith(head));
+      if (!line) throw new Error(`doc 54 A5: no line starting "${head}"`);
+      const words = quoted(line.split(' — ').slice(1).join(' — ').split('→')[0].replace(/\*\([^)]*\)\*/g, ''));
+      if (!words.length) throw new Error(`doc 54 A5: "${head}" has no line`);
+      return words;
+    };
+    const bait = attempt('**The bait**');
+    const smoke = attempt('**The smoke**');
+    const fumes = attempt('> While the fumes last')[0];
+    const blanket = attempt('**The blanket**');
+    const after = attempt('> USE THE LIVERY BLANKET on THE HOLE, after')[0];
+    const say = ([first, ...rest]) => ({ say: first, ...(rest.length ? { then: rest } : {}) });
+    const inFumes = { case: 'while the fumes last', when: { T_FUMES: true }, say: fumes };
+    const old = rebuilt.findIndex((one) => one.item === 'blanket' && one.room === 'prosperity');
+    if (old < 0) throw new Error('doc 24: no blanket pair for the hole');
+    rebuilt.splice(old, 1, {
+      item: 'blanket', room: 'prosperity', target: 'hole', puzzle: 'A5', say: blanket[0],
+      note: 'Doc 54 A5 (errata 68 A): the blanket over the hole turns it cold and the raccoon leaves at a walk; Thad takes the blanket back. Doc 54\'s success line governs doc 24\'s.',
+      rules: [
+        inFumes,
+        { case: 'after', when: { T_WARM_HOLE: true }, say: after },
+        { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...say(blanket), set: { T_WARM_HOLE: true }, completes: 'A5' },
+      ],
+    });
+    rebuilt.push({
+      item: 'eggs', room: 'prosperity', target: 'hole', puzzle: 'A5', say: bait[0],
+      note: 'Doc 54 A5, the bait: three more raccoons arrive and settle in around the first; the eggs are spent; the three are gone the next time Thad enters (T_RACCOON_MEETING, cleared on leaving).',
+      rules: [inFumes, { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...say(bait), takes: ['eggs'], set: { T_RACCOON_MEETING: true } }],
+    });
+    rebuilt.push({
+      item: 'tonic', room: 'prosperity', target: 'hole', puzzle: 'A5', say: smoke[0],
+      note: 'Doc 54 A5, the smoke: it fumes; the tonic is spent; the hole and the raccoon refuse every verb until Thad leaves and returns (T_FUMES, cleared on leaving).',
+      rules: [inFumes, { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...say(smoke), takes: ['tonic'], set: { T_FUMES: true } }],
+    });
+    const d57 = read('docs/57-puzzle-completion.md');
+    const f1 = d57.slice(d57.indexOf('## F1 '), d57.indexOf('\n## ', d57.indexOf('## F1 ') + 5));
+    const pick = (label) => {
+      const m = new RegExp(`^> \\*\\*THE HOLE\\*\\* · USE THE PICKAXE, \\*${label}\\* — (.+)$`, 'm').exec(f1);
+      if (!m) throw new Error(`doc 57 F1: no pickaxe case "${label}"`);
+      return quoted(m[1].split('→')[0])[0];
+    };
+    rebuilt.push({
+      item: 'pickaxe', room: 'prosperity', target: 'hole', puzzle: 'F1', say: pick('after F1'),
+      note: 'Doc 57 F1: the pickaxe on the hole, after the draught is understood: three days, forty feet. "Room 34 opens below the hole" -- Room 34 is not built (doc 36 Q166).',
+      rules: [
+        { case: 'after F1', when: { T_DRAUGHT: true }, say: pick('after F1') },
+        { case: 'before F1', when: { T_DRAUGHT: false }, say: pick('before F1') },
+      ],
+    });
   }
   // DOC 57 C3, STEP 3: THE LETTER ON SOWERBY (errata 90 E), after SOW_A1
   // option 5. Thad's line, then every quote after **SOWERBY:** is his.
@@ -3749,6 +3818,60 @@ function lettersHome() {
   });
 }
 
+/**
+ * DOC 04's RAC_A1: the raccoon's naming (errata 68 A, errata 96 E). "Opened by
+ * the first TALK TO the raccoon. The raccoon does not speak; every response is
+ * Thad's." Options 1-3 name him -- `T_RACCOON_NAMED`, and `RACCOON_NAME` 1-3,
+ * which the hotspot and the figure read for the display name the row gives --
+ * and close the node; option 4 is the [COMIC] refusal. An italic bracket
+ * before a line is a beat, not spoken. Doc 04's universal exit pool gives the
+ * way out, as Hob's tree does.
+ */
+function raccoonTree() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const at = doc.indexOf('## `RAC_A1`');
+  if (at < 0) throw new Error('doc 04: no RAC_A1');
+  const body = doc.slice(at, doc.indexOf('\n# ', at));
+  const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)]
+    .map((m) => m[1]);
+  const opening = [...body.matchAll(/^> \*\*THAD:\*\* (.+)$/gm)].map((m) => ({ speaker: 'thad', line: quoted(m[1])[0] }));
+  if (opening.length !== 1 || !opening[0].line) throw new Error('doc 04 RAC_A1: no opening line');
+  const ROW = /^\| (\d+) \| (.+?) \| (.+?) \| (.+?) \|$/gm;
+  const options = [];
+  for (const [, number, optionCell, tagCell, responseCell] of body.matchAll(ROW)) {
+    const tagged = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
+    if (!tagged) throw new Error(`doc 04 RAC_A1 option ${number}: no tag`);
+    const [spoken, state = ''] = responseCell.split('→');
+    const lines = quoted(spoken.replace(/\*\([^)]*\)\*/g, '')).map((line) => plain(line));
+    if (lines.length !== 1) throw new Error(`doc 04 RAC_A1 option ${number}: ${lines.length} lines`);
+    const option = { id: `raccoon${number}`, tag: tagged[1], text: plain(quoted(optionCell)[0]), say: lines[0] };
+    if (tagged[2]) option.afterUse = tagged[2];
+    const named = /`T_RACCOON_NAMED`, display name ([A-Z]+)/.exec(state);
+    if (named) {
+      option.set = { T_RACCOON_NAMED: true, RACCOON_NAME: Number(number) };
+      option.ends = true;
+      option.displayName = named[1];
+    }
+    options.push(option);
+  }
+  if (options.length !== 4) throw new Error(`doc 04 RAC_A1: ${options.length} options`);
+  options.push({ id: 'raccoonx', tag: 'EXIT', text: POOL[3 % POOL.length], universal: true, ends: true });
+  return write('content/dialogue/raccoon.json', {
+    aftermathAuthored: true,
+    schema: 1,
+    id: 'RACCOON',
+    speaker: 'thad',
+    name: 'THE RACCOON',
+    note: 'EXTRACTED from docs/04-dialogue-trees.md (RAC_A1) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. '
+      + 'The raccoon does not speak: every line is Thad\'s. `displayName` on a naming option is the row\'s display name, '
+      + 'read by the room (errata 96 E).',
+    start: 'RAC_A1',
+    nodes: { RAC_A1: { id: 'RAC_A1', noPrompt: true,
+      exceptionReason: 'Doc 04 RAC_A1: the raccoon does not speak, and the opening is Thad\'s own line.',
+      opening, options } },
+  });
+}
+
 function sowerbyTree() {
   const doc = read('docs/04-dialogue-trees.md');
   const from = doc.indexOf('# REVEREND SOWERBY');
@@ -3819,7 +3942,7 @@ function sowerbyTree() {
 }
 
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

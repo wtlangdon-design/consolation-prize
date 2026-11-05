@@ -80,10 +80,18 @@ export function check() {
       // stand-in (`stateOf: "stairs"`) carrying the stairs' own lines, never
       // live at the same time as the stairs (errata 91 E).
       const where = `${roomId}/${target.stateOf ?? target.id}`;
+      // ONE MOMENT ANSWERED ON SEVERAL TARGETS is one owner: a scene line
+      // (written once, for one state) that the room gives to more than one
+      // subject in the same state -- doc 54 A5's fumes, "any verb on THE HOLE
+      // or THE RACCOON" -- is one answer, not two (errata 96 F; the friction
+      // review of the allowlist, 2026-11-05).
+      const moment = new Map((rules ?? [])
+        .filter((rule) => rule.sceneLine && rule.when && typeof rule.say === 'string')
+        .map((rule) => [rule.say, `${roomId}/scene ${JSON.stringify(rule.when)}`]));
       for (const [index, line] of lines.entries()) {
         if (!seen[verb].has(line)) seen[verb].set(line, []);
         seen[verb].get(line).push({
-          where,
+          where: moment.get(line) ?? where,
           allowed: doctrine.has(line) || allowlist.has(`${where}/${verb}|${line}`),
           repeatOfOwnVariant: lines.indexOf(line) !== index,
         });

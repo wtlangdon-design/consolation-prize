@@ -86,9 +86,15 @@ function overlap(a, b) {
 }
 
 /** True if any flag assignment satisfies both gates at once. */
-function bothCanBeLive(one = {}, two = {}) {
+function bothCanBeLive(one = {}, two = {}, held = [{}, {}]) {
   for (const [flag, value] of Object.entries(one)) {
     if (flag in two && two[flag] !== value) return false;
+  }
+  // WHAT THAD HOLDS separates two targets as a flag does (errata 96 C): the
+  // way up with the map and its stand-in without it are never both live.
+  const [a = {}, b = {}] = held;
+  for (const [item, value] of Object.entries(a)) {
+    if (item in b && b[item] !== value) return false;
   }
   return true;
 }
@@ -130,7 +136,7 @@ export function check() {
 
     order.forEach((target, index) => {
       const earlier = order.slice(0, index)
-        .filter((other) => bothCanBeLive(target.when, other.when))
+        .filter((other) => bothCanBeLive(target.when, other.when, [target.holding, other.holding]))
         .map(alwaysOccupies)
         .filter(Boolean);
 
@@ -149,7 +155,7 @@ export function check() {
         departures += 1;
         for (const other of order) {
           if (other === exit) continue;
-          if (!bothCanBeLive(exit.when, other.when)) continue;
+          if (!bothCanBeLive(exit.when, other.when, [exit.holding, other.holding])) continue;
           const hit = overlap(exit.rect, other.rect);
           if (!hit) continue;
           report.fail(`${room.id}: exit "${exit.id}" declares travelWhenTold and overlaps `

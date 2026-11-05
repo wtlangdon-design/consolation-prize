@@ -474,7 +474,11 @@ async function main() {
         const timer = setInterval(() => { if (install()) clearInterval(timer); }, 4);
       }
     });
+    // A SPEC MAY START FROM A FIXTURE (errata 96 H): a room no route can walk
+    // into without something in hand (Prosperity needs the Company's map) is
+    // started in the fixture's state and room, and the manifest says so.
     const query = [
+      ...(spec.fixture ? [`fixture=${encodeURIComponent(spec.fixture)}`] : []),
       ...candidates.map((entry) => `candidate=${encodeURIComponent(`${entry.from}=${entry.to}`)}`),
       ...(visualState ? [`state=${encodeURIComponent(visualState)}`] : []),
     ].join('&');
@@ -565,10 +569,16 @@ async function main() {
       // control is legitimate evidence about the room and is NOT evidence that
       // the room is reachable; conflating those is how a room nobody can walk
       // to gets photographed and signed off.
+      // THE SCENE FIRST: a page started from a fixture is still restoring it
+      // when the first evaluate lands, and the control has no state to use.
+      await page.waitForFunction(() => {
+        try { return Boolean(window.__gauntlet?.probe()?.room); } catch { return false; }
+      }, null, { timeout: 30000 });
       const answer = await page.evaluate((id) => window.__gauntlet?.controls.enter(id),
         roomId);
       if (!answer?.ok) throw new Error(`could not enter ${roomId}: ${answer?.why}`);
-      routeLog = [`entered ${roomId} by control -- NOT proof that a player can reach it`];
+      routeLog = [spec.fixture ? `started from fixture ${spec.fixture}, then entered ${roomId} by control -- NOT proof that a player can reach it`
+        : `entered ${roomId} by control -- NOT proof that a player can reach it`];
       await page.waitForTimeout(2500);
     }
     // Let deferred sheets arrive: a proof of a room whose people have not

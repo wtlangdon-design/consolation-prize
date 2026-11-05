@@ -2642,3 +2642,23 @@ What Tyler still decides: acceptance of the art (errata 72 E, at the full playth
 **F · A4: the way up only with the map.** Doc 57: "Room 22 offers the way to it, only while Thad holds the map", and without it, walking up answers "Forty feet of ground, somewhere up one of these..." A target may now need something in hand (`holding`), and an exit subject whose room is not built yet may be `pending`: only its closed stand-in is built. Without the map the way up answers with doc 57's line; with it the stand-in is gone, and the way itself -- to Room 23 -- comes with Room 23.
 
 **G · The art: 3 of room-22's 4 operations.** A composition master; the road with nobody on it; the miners' walk sheet. Promoted provisionally (errata 72 E). One operation is left.
+
+# 96 · ROOMS 23/24 BUILT — THE BUILDER'S DECISIONS (2026-11-05)
+
+*Made by the Rooms 23/24 builder under doc 55 section 5's standing delegation. No line was written. Every ruling below can be struck or changed by its letter.*
+
+**A · Dusk, built new.** Prosperity and its hole are one room (CLAUDE.md, `prosperity`), at the road's hour: dusk. **Identity (17b):** a bare hillside claim -- mud, rock and something unidentified -- a leaning numbered stake, a dark old hole, an older boundary stake up the slope, a bare ridge, a low creek at the claim's foot.
+
+**B · The subjects.** Doc 05's seven and doc 54's merge. THE CLAIM MARKER (MINE) "is this stake" (doc 54): the compiler now folds a merged alias's act lines into its subject instead of making a second stake. CLAIM ONE'S BOUNDARY is there after A9 (`T_BORDERS_MOTT`). THE HOLE's LISTEN is doc 05's line three times, declared a deliberate repetition as doc 54 asks, and compiled like every other line (invariant 3). Doc 49's THE RACCOON'S FORMER RESIDENCE · OPEN is THE HOLE after A5 (errata 68 E): an override may now hold only in a state (`overrideWhen`).
+
+**C · The ways (doc 57 A4).** "Room 23 appears on the town map, and Room 22 offers the way to it, only while Thad holds the map." The map's location may now need something in hand (`holding`); Room 22's way up is an exit to Prosperity with the map and doc 57's line without it. The way back down is a stub exit; leaving clears the meeting and the fumes.
+
+**D · The art: 3 of room-23's 4 operations.** A composition master; the claim with nobody on it; the raccoon's sheet on magenta against Thad -- four sitting poses and four walking. The meeting is three more of him from that sheet, each a shade apart (`tools/art/room23-raccoon.py`). One operation is left.
+
+**E · The raccoon and his name.** He sits in the hole's mouth while the hole is warm. Doc 04 RAC_A1 (extracted) is opened by the first TALK TO through THE RACCOON hotspot over him; a naming option sets `T_RACCOON_NAMED` and `RACCOON_NAME` 1-3, and the hotspot is called by the row's display name after (`names`; the compiler's `namesFrom`). A figure with no tree under a hotspot that answers TALK TO is spoken to through the hotspot. After naming, TALK TO is doc 57's three lines.
+
+**F · A5's three attempts (doc 54).** The bait: three more raccoons **walk in** -- an engine addition: a figure whose condition starts holding while Thad watches walks its `arrive` path instead of appearing -- and settle around the first; the eggs are spent; they are gone the next time he enters. The smoke: the tonic is spent and, while the fumes last, every verb on THE HOLE or THE RACCOON is doc 54's one line (the compiler's `verbRules`; one line written for one state, so a scene line, and one answer on both subjects: the duplicate check now counts a scene line shared in one state as one owner, which retired four allowlist entries -- the friction review of 2026-11-05). Thad's retreat "as far as the claim marker" is not staged. The blanket: the hole goes cold, A5, `T_WARM_HOLE`; the raccoon walks off up the slope (his exit), and the meeting with him if it is there; the blanket comes back; again, doc 54's "after".
+
+**G · F1 (doc 57).** In Act IV, after A5, LOOK at the hole is the draught -- `T_DRAUGHT`, F1. The pickaxe answers before and after it; "Room 34 opens below the hole" waits for Room 34.
+
+**H · The proof starts from a fixture.** No route can put the Company's map in Thad's hand, so a proof spec may now start from a fixture (`fixture`), and the manifest records it; the doors pass walks the road's way up with the map.

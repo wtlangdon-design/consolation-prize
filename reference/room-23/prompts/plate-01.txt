@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game: a bare hillside claim at dusk, with a man in a blue coat standing on it and a raccoon sitting in the mouth of the hole in the hill.
+
+Make exactly these changes:
+1. Remove the man. Paint the muddy hillside behind him.
+2. Remove the raccoon. The mouth of the hole is empty and dark, its old smooth edges exactly as they are.
+
+Change nothing else. Same camera, same pixel grid, same colours, same light, same objects in the same places: the path at the left, the numbered stake, the rocks and the mud, the hole, the older stake to the right of it, the ridge, the creek, the sky. No people, no animals, no shadows of either, no text, no numerals.

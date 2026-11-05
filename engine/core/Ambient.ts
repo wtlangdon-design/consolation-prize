@@ -51,6 +51,8 @@ export class AmbientLayer {
   private seen = new Map<string, AmbientFile>();
   private seenRoom: string | null = null;
   private departures: { npc: AmbientFile; exit: AmbientExit; startedAt: number }[] = [];
+  /** Figures walking IN (AmbientFile.arrive), latched as present when they arrive. */
+  private arrivals: { npc: AmbientFile; exit: AmbientExit; startedAt: number }[] = [];
   private clock = 0;
 
   /** Who was in the room when Thad arrived in it. See `present`. */
@@ -142,7 +144,18 @@ export class AmbientLayer {
     if (room !== this.seenRoom) {
       this.seenRoom = room;
       this.departures = [];
+      this.arrivals = [];
     } else {
+      // ONE WHO COMES IN WHILE THAD WATCHES walks in (AmbientFile.arrive),
+      // and is latched present when he reaches his place.
+      for (const npc of this.live) {
+        if (!npc.arrive || present.has(npc.id) || this.arrivals.some((one) => one.npc.id === npc.id)) continue;
+        this.arrivals.push({ npc, exit: { ...npc.arrive, path: [...npc.arrive.path, [npc.x, npc.y]] }, startedAt: now });
+      }
+      for (const one of this.arrivals) {
+        if (departureAt(one.exit, now - one.startedAt).done && this.latched) this.latched.set(one.npc.id, one.npc);
+      }
+      this.arrivals = this.arrivals.filter((one) => !departureAt(one.exit, now - one.startedAt).done);
       for (const [id, npc] of this.seen) {
         const exit = npc.exit;
         if (!present.has(id) && exit && !this.departures.some((one) => one.npc.id === id)) {
@@ -154,12 +167,12 @@ export class AmbientLayer {
     }
     this.seen = present;
     this.departures = this.departures.filter((one) => !departureAt(one.exit, now - one.startedAt).done);
-    return this.departures.length > 0 || this.present.some((npc) => npc.loop);
+    return this.departures.length > 0 || this.arrivals.length > 0 || this.present.some((npc) => npc.loop);
   }
 
   /** Everyone walking out this frame, and everyone walking a loop, and where. */
   get departing(): Departing[] {
-    const out: Departing[] = this.departures.map(({ npc, exit, startedAt }) => ({
+    const out: Departing[] = [...this.departures, ...this.arrivals].map(({ npc, exit, startedAt }) => ({
       npc, exit, pose: departureAt(exit, this.clock - startedAt),
     }));
     for (const npc of this.present) {

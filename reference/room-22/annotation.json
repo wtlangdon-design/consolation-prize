@@ -61,6 +61,15 @@
    ],
    "facing": "right",
    "note": "Up from the town, at left."
+  },
+  {
+   "from": "prosperity",
+   "at": [
+    1800,
+    760
+   ],
+   "facing": "left",
+   "note": "Back down from Prosperity, at the road's turn up the hill."
   }
  ],
  "hotspots": {
@@ -121,7 +130,6 @@
    "to": "prosperity",
    "defaultVerb": "WALK_TO",
    "stub": true,
-   "pending": true,
    "holding": {
     "company_map": true
    },
@@ -132,7 +140,7 @@
     "fromRef": "docs/57-puzzle-completion.md::## A4 ",
     "line": "> **Room 22's way up to the claims**"
    },
-   "note": "Doc 57 A4: 'Room 22 offers the way to it, only while Thad holds the map.' Without the map, walking up answers with doc 57's line. The way itself leads to Room 23 and comes with it (errata 95 F)."
+   "note": "Doc 57 A4: 'Room 22 offers the way to it, only while Thad holds the map.' With the map, the way up to Prosperity (Room 23); without it, doc 57's line (errata 95 F, 96 C)."
   }
  },
  "exits": {

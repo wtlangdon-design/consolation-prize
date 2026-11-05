@@ -154,6 +154,12 @@ export interface Interactable {
    */
   holding?: Record<string, boolean>;
   /**
+   * WHAT IT IS CALLED, when that depends on the state (errata 96 E): the first
+   * entry whose condition holds names it; otherwise `name`. Doc 04 RAC_A1:
+   * "display name ABSALOM".
+   */
+  names?: { when: Condition; name: string }[];
+  /**
    * When this target exists at all. An absent condition means always.
    *
    * Errata ruling 19a: an object whose state changes during a scene carries a
@@ -461,6 +467,14 @@ export interface AmbientFile {
    * its cycle so two walkers do not start together. A walking figure is
    * examined through the hotspot over its road, not by clicking it.
    */
+  /** What the figure is called, by state (Interactable.names). */
+  names?: { when: Condition; name: string }[];
+  /**
+   * HOW HE COMES IN, when `when` starts holding while Thad is in the room
+   * (errata 96 G): the path from off the frame to where he stands, walked, so
+   * he is never seen to pop in. Doc 54 A5: "Three more raccoons arrive."
+   */
+  arrive?: AmbientExit;
   loop?: AmbientExit & {
     pause?: number;
     offset?: number;
@@ -1200,6 +1214,8 @@ export interface MapLocation {
   label?: string;
   unbuilt?: boolean;
   when?: Condition;
+  /** What must be in hand for it to be on the map (Interactable.holding; doc 57 A4). */
+  holding?: Record<string, boolean>;
   note?: string;
 }
 

@@ -62,7 +62,8 @@ async function main() {
   // mistakes the run for one that arrived by the game's own doors.
   const warp = process.argv.includes('--warp');
   const spec = warp ? { route: null } : readJson(`proofs/spec/${slug}.json`);
-  const entry = warp ? { actions: [] } : readJson(`tools/gauntlet/routes/${spec.route}.json`);
+  // A spec that starts from a fixture (proof.mjs, errata 96 H) has no entry route.
+  const entry = warp || !spec.route ? { actions: [] } : readJson(`tools/gauntlet/routes/${spec.route}.json`);
   const life = readJson(`tools/gauntlet/routes/${routeName}.json`);
   const room = readJson('content/manifest.json').rooms.map((p) => readJson(p)).find((r) => r.id === roomId);
   const commit = git('rev-parse', 'HEAD');
@@ -90,6 +91,7 @@ async function main() {
     const objects = flag('--objects');   // `?objects=stove=out`, doc 36 Q117
     const pace = flag('--pace');
     const query = [...(warp ? [`room=${encodeURIComponent(roomId)}`] : []),
+      ...(spec.fixture ? [`fixture=${encodeURIComponent(spec.fixture)}`] : []),
       ...candidates.map((c) => `candidate=${encodeURIComponent(`${c.from}=${c.to}`)}`),
       ...(visualState ? [`state=${encodeURIComponent(visualState)}`] : []),
       ...(objects ? [`objects=${encodeURIComponent(objects)}`] : []),
@@ -98,7 +100,10 @@ async function main() {
     await page.waitForFunction(() => Boolean(window.__gauntlet?.probe?.()), { timeout: 60_000 });
     await page.evaluate(() => window.__gauntlet?.arm?.({}));
 
-    log(warp ? `warped straight into ${roomId} (?room=), no entry route` : `entry route ${spec.route}: ${entry.actions.length} action(s)`);
+    log(warp ? `warped straight into ${roomId} (?room=), no entry route`
+      : spec.fixture ? `started from fixture ${spec.fixture}, no entry route`
+        : `entry route ${spec.route}: ${entry.actions.length} action(s)`);
+    if (spec.fixture) await page.waitForTimeout(3000);
     for (const line of await runRoute(page, entry)) events.push({ t: stamp(), line });
     const arrived = await page.evaluate(() => window.__gauntlet?.probe?.());
     if (arrived?.room !== roomId) failures.push(`entry route ended in ${arrived?.room}, not ${roomId}`);
@@ -253,7 +258,7 @@ async function main() {
       note: 'ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.',
       room: roomId, commit, workingTreeClean: dirty === '', dirtyAllowed: allowDirty, visualState: visualState ?? null, objectStates: objects ?? null, pace: pace ? Number(pace) : 1,
       candidates: candidates.map((c) => ({ declared: c.from, rendered: c.to, hash: c.hash })),
-      entryRoute: spec.route, warped: warp, lifeRoute: routeName, durationSeconds: stamp(),
+      entryRoute: spec.route ?? null, ...(spec.fixture ? { fixture: spec.fixture } : {}), warped: warp, lifeRoute: routeName, durationSeconds: stamp(),
       events, captures: captures.map(({ url, ...rest }) => rest), failures, passed: failures.length === 0,
       judgement: proofJudgement(failures, {
         establishes: [`the room stayed coherent for ${stamp()}s of a deterministic route: every capture in the room it names, every asserted state met`],
