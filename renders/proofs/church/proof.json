@@ -1,0 +1,476 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "church",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "c7f05e599d6ad4aca20333dfd5510fa8c92b3f75",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": "church",
+ "routeLog": [
+  "action 1 (wait): waited 2.5s",
+  "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up",
+  "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit",
+  "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED",
+  "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road",
+  "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever.",
+  "action 13 (wait): waited 3s",
+  "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road",
+  "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it",
+  "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it",
+  "action 17 (wait): waited 6s",
+  "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger",
+  "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street",
+  "action 20 (wait): waited 2s",
+  "action 21 (click): clicked screen 554,1052 -- the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)",
+  "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map",
+  "action 23 (wait): waited 1s",
+  "action 24 (click): clicked screen 600,350 -- the church's place on the map (content/rooms/town-map.json loc_church)",
+  "action 25 (waitFor): reached {\"room\":\"church\"} in room church",
+  "action 26 (wait): waited 3s",
+  "action 1 (wait): waited 2s"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 741,
+    "xs": [
+     830,
+     673,
+     988,
+     515,
+     1145,
+     358,
+     1303,
+     200,
+     1460
+    ],
+    "expect": 391,
+    "x": 830
+   },
+   "at": [
+    830,
+    741
+   ],
+   "reportedHeight": 391,
+   "expected": 391,
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "bounds": [
+    627,
+    350,
+    405,
+    432
+   ],
+   "order": 0,
+   "renderedHeight": 391,
+   "renderedBottom": 740,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     830,
+     673,
+     988,
+     515,
+     1145,
+     358,
+     1303,
+     200,
+     1460
+    ],
+    "expect": 469,
+    "x": 830
+   },
+   "at": [
+    830,
+    857
+   ],
+   "reportedHeight": 469,
+   "expected": 469,
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "bounds": [
+    587,
+    388,
+    486,
+    518
+   ],
+   "order": 0,
+   "renderedHeight": 469,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "sowerby",
+   "feet": [
+    1509,
+    305
+   ],
+   "sheet": "art/actors/room-17-sowerby.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1450,
+    "y": 85,
+    "width": 119,
+    "height": 222
+   },
+   "seen": {
+    "x": 1450,
+    "y": 118,
+    "width": 112,
+    "height": 189,
+    "bottom": 306,
+    "right": 1561,
+    "changed": 13071
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "church",
+   "clock": 112.0167,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 424,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      80,
+      366,
+      440,
+      468
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:church",
+     "path": "art/backgrounds/room-17-church.png",
+     "drawn": "art/backgrounds/room-17-church.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295"
+    },
+    {
+     "key": "art/masks/room-17-plane-1.png",
+     "path": "art/masks/room-17-plane-1.png",
+     "drawn": "art/masks/room-17-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "81bf4531c4003906a4b20e930a16d8e6e6d6b0802bab1f932b4c40d6dc0417af"
+    },
+    {
+     "key": "art/actors/room-17-sowerby.png",
+     "path": "art/actors/room-17-sowerby.png",
+     "drawn": "art/actors/room-17-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [],
+   "capturedAt": "2026-11-05T04:21:16.344Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "aec4ee98c8b0b99b2fa2d835a34fe49d122094dd0aee2aebe46d1c2e5b36802d"
+  },
+  {
+   "panel": "A",
+   "room": "church",
+   "clock": 113.31660000000001,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 424,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:church",
+     "path": "art/backgrounds/room-17-church.png",
+     "drawn": "art/backgrounds/room-17-church.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295"
+    },
+    {
+     "key": "art/masks/room-17-plane-1.png",
+     "path": "art/masks/room-17-plane-1.png",
+     "drawn": "art/masks/room-17-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "81bf4531c4003906a4b20e930a16d8e6e6d6b0802bab1f932b4c40d6dc0417af"
+    },
+    {
+     "key": "art/actors/room-17-sowerby.png",
+     "path": "art/actors/room-17-sowerby.png",
+     "drawn": "art/actors/room-17-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T04:21:17.452Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "796eabe3b2de0b2ba2f19cf9f5fa6c6d2725bce73ca182bf414db9b275c195ad"
+  },
+  {
+   "panel": "D",
+   "room": "church",
+   "clock": 121.6497,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_FUNERAL_DAY"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      830,
+      857
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 469,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-05.png",
+     "bounds": [
+      587,
+      388,
+      486,
+      518
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:church",
+     "path": "art/backgrounds/room-17-church.png",
+     "drawn": "art/backgrounds/room-17-church.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295"
+    },
+    {
+     "key": "art/masks/room-17-plane-1.png",
+     "path": "art/masks/room-17-plane-1.png",
+     "drawn": "art/masks/room-17-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "81bf4531c4003906a4b20e930a16d8e6e6d6b0802bab1f932b4c40d6dc0417af"
+    },
+    {
+     "key": "art/actors/room-17-sowerby.png",
+     "path": "art/actors/room-17-sowerby.png",
+     "drawn": "art/actors/room-17-sowerby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)",
+    "cast(true)",
+    "stand(830,741)",
+    "cast(false)",
+    "cast(true)",
+    "stand(830,857)",
+    "cast(false)",
+    "cast(true)",
+    "flag T_FUNERAL_DAY=true"
+   ],
+   "capturedAt": "2026-11-05T04:21:25.951Z",
+   "intent": "principal changed state: T_FUNERAL_DAY (FRA_A1 option 6, Room 9; its route runs through rooms not built, so the flag control sets it). Visible consequence: the pulpit empty.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "14b9b7a16a2885c6aa56b97dc67e1ad758358c4dc0b327b3d38954e0d361ae8d",
+   "changedBy": "flags"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T04:21:25.952Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 344624,
+  "panels": 5,
+  "scale": 0.5
+ }
+}
