@@ -113,21 +113,56 @@
   {
    "do": "click",
    "world": [
-    300,
+    1900,
     700
    ],
-   "why": "down the street to its east end, past the mercantile"
+   "why": "down the street, a leg inside the camera's view: a world point off the canvas is no click at all"
   },
   {
    "do": "wait",
-   "seconds": 2,
-   "why": "he sets off"
+   "seconds": 1
   },
   {
    "do": "waitFor",
    "still": "thad",
-   "upTo": 90,
-   "why": "the street is 3,700 pixels long: until he and the camera are at its east end"
+   "upTo": 60,
+   "why": "until he stops, and the camera with him"
+  },
+  {
+   "do": "click",
+   "world": [
+    1000,
+    700
+   ],
+   "why": "down the street, a leg inside the camera's view: a world point off the canvas is no click at all"
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "waitFor",
+   "still": "thad",
+   "upTo": 60,
+   "why": "until he stops, and the camera with him"
+  },
+  {
+   "do": "click",
+   "world": [
+    300,
+    700
+   ],
+   "why": "down the street, a leg inside the camera's view: a world point off the canvas is no click at all"
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "waitFor",
+   "still": "thad",
+   "upTo": 60,
+   "why": "until he stops, and the camera with him"
   },
   {
    "do": "click",
