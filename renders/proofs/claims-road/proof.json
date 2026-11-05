@@ -4,7 +4,7 @@
  "room": "claims_road",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "d699f86d75173e81228c310f204332ef78a32d0e",
+ "commit": "0970dac73c0cdcab63b776bd454eefe4be7f9b61",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -62,7 +62,7 @@
    ],
    "reportedHeight": 279,
    "expected": 279,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-03.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
    "bounds": [
     885,
     437,
@@ -70,7 +70,7 @@
     308
    ],
    "order": 0,
-   "renderedHeight": 300,
+   "renderedHeight": 280,
    "renderedBottom": 716,
    "file": "raw-captures-ignored/panel-c-mud_far-far.png"
   },
@@ -99,7 +99,7 @@
    ],
    "reportedHeight": 374,
    "expected": 374,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-07.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
    "bounds": [
     836,
     483,
@@ -107,7 +107,7 @@
     413
    ],
    "order": 0,
-   "renderedHeight": 394,
+   "renderedHeight": 374,
    "renderedBottom": 856,
    "file": "raw-captures-ignored/panel-c-mud_near-near.png"
   }
@@ -118,7 +118,7 @@
   {
    "panel": "B",
    "room": "claims_road",
-   "clock": 119.2111,
+   "clock": 114.0383,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -161,7 +161,7 @@
      "height": 329,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
       69,
       461,
@@ -188,15 +188,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-05T15:36:20.180Z",
+   "capturedAt": "2026-11-05T15:44:13.261Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "6f99894f31b101d71504e5efc214d7ce8d2a87304211ad7ea3771dbf40270651"
+   "hash": "019872c8c977faaa784237ccd4fa7d985d23cec6aa0c22623bf09b9865d839ee"
   },
   {
    "panel": "A",
    "room": "claims_road",
-   "clock": 120.12769999999999,
+   "clock": 114.9383,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -235,7 +235,7 @@
       790
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 329,
      "moving": false,
      "drawn": "sprite",
@@ -263,10 +263,10 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T15:36:21.121Z",
+   "capturedAt": "2026-11-05T15:44:14.160Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "9fcfbc6328189249ad0b8d9cd291bc4e350888596ab3b0ea2a583a89cc055490"
+   "hash": "d06cbff7c2ab01f3ab5f2946f51bd2319ba5d8da94b9b314ef9fdf5ec3aca3d4"
   }
  ],
  "failures": [],
@@ -296,11 +296,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T15:36:25.732Z",
+ "at": "2026-11-05T15:44:18.648Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 394104,
+  "bytes": 386654,
   "panels": 4,
   "scale": 0.5
  }
