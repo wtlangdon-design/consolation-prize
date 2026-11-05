@@ -49,6 +49,12 @@
    "date": "2026-11-05",
    "kind": "reviewed",
    "why": "TUNED. Of the three recent loosenings, two (Room 8's timesheet LISTEN, Room 23's hole LISTEN) are the declarations doc 54 orders -- 'Declare both as deliberate repetitions in content' -- so the allowlist is doing its job there, not misfiring. The misfire was the third kind: one scene line, written once for one state, answered on more than one subject (doc 54 A5's fumes on THE HOLE and THE RACCOON) needed an entry per subject and verb. tools/check-examine-lines.mjs now counts such a line as one owner (same room, same state), and the four fumes entries are gone. Not for retirement: it still holds every other duplicate game-wide."
+  },
+  {
+   "check": "tests/lessons.test.ts",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "The drawn-whole test counted gaps a held rake closes off as holes -- the ground between its handle, its head and Pratt's boots, the air between his arm and his body, the spaces between its tines (up to 5% of the figure; Room 25). Thin parts (a handle, a strap, tines, up to about 14 px) are now opened away before a gap is judged enclosed; a coat keyed out with the wall is walled in by the body and is still counted (proved by keying a 30 px patch out of his shirt: counted in full)."
   }
  ]
 }

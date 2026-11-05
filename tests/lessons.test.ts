@@ -162,8 +162,44 @@ test('every talking character in a built room is drawn whole: one piece, no hole
           outside[y! * w + x!] = 1;
           stack.push([x! + 1, y!], [x! - 1, y!], [x!, y! + 1], [x!, y! - 1]);
         }
+        // A GAP CLOSED OFF ONLY BY SOMETHING THIN IS NOT A HOLE. A rake held
+        // against him closes off the ground between its handle, its head and
+        // his boots, and the air between his arm and his body (Room 25,
+        // Pratt). Thin parts -- a handle, a strap, tines, up to about 14 px --
+        // are opened away, and a gap that then reaches the outside was seen
+        // through a held thing. A coat keyed out with the wall is walled in by
+        // the body itself and is still counted (a 30 px patch keyed out of
+        // Pratt's shirt counts in full).
+        const THIN = 7;
+        let thick = new Uint8Array(w * h);
+        for (let i = 0; i < w * h; i += 1) thick[i] = on(i % w, Math.floor(i / w)) ? 1 : 0;
+        const step = (from: Uint8Array, grow: boolean) => {
+          const to = new Uint8Array(w * h);
+          for (let y = 0; y < h; y += 1) for (let x = 0; x < w; x += 1) {
+            const i = y * w + x;
+            const near = [x > 0 ? from[i - 1]! : 0, x < w - 1 ? from[i + 1]! : 0, y > 0 ? from[i - w]! : 0, y < h - 1 ? from[i + w]! : 0];
+            to[i] = grow ? (from[i] || near.some(Boolean) ? 1 : 0) : (from[i] && near.every(Boolean) ? 1 : 0);
+          }
+          return to;
+        };
+        for (let n = 0; n < THIN; n += 1) thick = step(thick, false);
+        for (let n = 0; n < THIN; n += 1) thick = step(thick, true);
+        const open = new Uint8Array(w * h);
+        const fill: number[] = [];
+        for (let x = 0; x < w; x += 1) fill.push(x, (h - 1) * w + x);
+        for (let y = 0; y < h; y += 1) fill.push(y * w, y * w + w - 1);
+        while (fill.length) {
+          const i = fill.pop()!;
+          if (open[i] || thick[i]) continue;
+          open[i] = 1;
+          const x = i % w;
+          if (x > 0) fill.push(i - 1);
+          if (x < w - 1) fill.push(i + 1);
+          if (i >= w) fill.push(i - w);
+          if (i < w * (h - 1)) fill.push(i + w);
+        }
         let holes = 0;
-        for (let i = 0; i < w * h; i += 1) if (!outside[i] && !on(i % w, Math.floor(i / w))) holes += 1;
+        for (let i = 0; i < w * h; i += 1) if (!outside[i] && !on(i % w, Math.floor(i / w)) && !open[i]) holes += 1;
         if (largest < total * 0.97) faults.push(`${npc.id} in ${room}, frame ${index}: in pieces (${((1 - largest / total) * 100).toFixed(1)}% apart from the body)`);
         // An arm raised to a hat encloses a little floor (Vessel's frame 3: 0.6%);
         // a coat that keyed out with the wall behind it is several percent.
