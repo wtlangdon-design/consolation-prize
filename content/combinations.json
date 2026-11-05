@@ -444,6 +444,37 @@
       ]
     },
     {
+      "item": "letter",
+      "room": "church",
+      "target": "sowerby",
+      "puzzle": "C3",
+      "say": "A letter of introduction to Mr. Pike, from my father. Sealed. I have carried it eleven hundred miles.",
+      "note": "Doc 57 C3, step 3: the letter of introduction is his standing to arrange the memorial; Sowerby gives it back.",
+      "rules": [
+        {
+          "case": "after SOW_A1 option 5",
+          "when": {
+            "T_SOW_FUNERAL_ASKED": true,
+            "T_MEMORIAL_BOOKED": false
+          },
+          "say": "A letter of introduction to Mr. Pike, from my father. Sealed. I have carried it eleven hundred miles.",
+          "then": [
+            {
+              "speaker": "sowerby",
+              "line": "Then you are practically family, Mr. Grubb. The estate will be billed. Mr. Pike's estate is six years behind with the undertaker, so I shall be paid after him, which is to say in spirit."
+            },
+            {
+              "speaker": "sowerby",
+              "line": "Have it printed. Nobody comes to a funeral he hasn't read about."
+            }
+          ],
+          "set": {
+            "T_MEMORIAL_BOOKED": true
+          }
+        }
+      ]
+    },
+    {
       "item": "tuning_fork",
       "room": "livery",
       "target": "grievance",

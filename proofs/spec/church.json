@@ -1,0 +1,19 @@
+{
+ "schema": 1,
+ "room": "church",
+ "note": "ROOM 17's PROOF SPEC. The route is Main Street's, then the map. The room's principal change is the funeral day: the Reverend is up the hill (doc 57 C3). C3 and E3 are played in tests/room-17.test.ts.",
+ "route": "church",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "T_FUNERAL_DAY (FRA_A1 option 6, Room 9; its route runs through rooms not built, so the flag control sets it). Visible consequence: the pulpit empty.",
+  "flags": {
+   "T_FUNERAL_DAY": true
+  },
+  "actions": [
+   {
+    "do": "wait",
+    "seconds": 2
+   }
+  ]
+ }
+}

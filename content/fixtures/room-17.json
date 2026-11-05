@@ -1,0 +1,95 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 17, the church and meeting hall. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r17-a",
+   "label": "R17-A Act I, Pike dead and Fanshawe's funerals heard of: the memorial booked with the letter (C3)",
+   "room": "church",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_PIKE_DEAD": true,
+    "T_FANSHAWE_FUNERALS": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "four_dollars",
+    "watch"
+   ],
+   "puzzles": {
+    "A1": "complete"
+   },
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::C3 · Manufacture a funeral",
+    "docs/04-dialogue-trees.md::REVEREND SOWERBY"
+   ],
+   "notBuilt": [
+    "FRA_A1 option 5 (Room 9) writes T_FANSHAWE_FUNERALS; set here as its outcome"
+   ],
+   "note": "TALK TO the Reverend: arrange a funeral (option 5, who speaks for the deceased?); USE THE LETTER on him: the memorial is booked."
+  },
+  {
+   "id": "r17-b",
+   "label": "R17-B Act III, after the loophole: negotiating one's own funeral (E3 step 1)",
+   "room": "church",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "T_NINETY_DAYS": true,
+    "ACT": 3,
+    "T_ASSAY_QUEUE": true,
+    "T_NEED_TO_DIE": true,
+    "T_EXECUTOR_RULE": true,
+    "T_PIKE_DEAD": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "D1": "complete",
+    "E1": "complete",
+    "E2": "complete"
+   },
+   "derivedFrom": [
+    "docs/04-dialogue-trees.md::`SOW_C1` — negotiating one's own funeral",
+    "docs/57-puzzle-completion.md::E3 · The eulogy, and paying for one's own funeral"
+   ],
+   "note": "TALK TO the Reverend: SOW_C1. 'He was present.' -- four words, fifty cents."
+  }
+ ]
+}

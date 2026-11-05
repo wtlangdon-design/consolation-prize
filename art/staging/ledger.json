@@ -13197,6 +13197,367 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-05T03:50:55.965Z"
+  },
+  {
+   "attempt": 1,
+   "role": "composition-master",
+   "assetId": "room-17",
+   "subject": "room-17-church",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-17/prompts/composition-master-01.txt",
+   "promptHash": "f60dc1df378934887383cb9f8a91b7ed3ab77e3083105fe5951c89755c7429ab",
+   "references": [
+    {
+     "path": "reference/room-17/layout-1536x1024.png",
+     "hash": "52ed8e854bfd778f8d4cc5a9ee3c73f28d9c624dccdad5330d68e7cf0f4474fa",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/room-04-sowerby.png",
+     "hash": "f20b44e5636734c99433597ecfd97fe4d8c440715e94d1bc5a6d578959b51344",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-17-church",
+    "purpose": "composition-master",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Reverend Sowerby as Room 4 draws him)",
+      "path": "art/actors/room-04-sowerby.png",
+      "hash": "f20b44e5636734c99433597ecfd97fe4d8c440715e94d1bc5a6d578959b51344",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "52ed8e854bfd778f8d4cc5a9ee3c73f28d9c624dccdad5330d68e7cf0f4474fa",
+   "sourcePath": "reference/room-17/layout-1536x1024.png",
+   "out": "art/staging/room-17/composition-master-01.png",
+   "outputHash": "c2254246f50c1f35c44d231c559f6c89a268a01c6b37c16eee6cf28c9b4b57ee",
+   "bytes": 1672133,
+   "usage": {
+    "input_tokens": 10127,
+    "input_tokens_details": {
+     "image_tokens": 9500,
+     "text_tokens": 627
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 11678
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-05T04:09:29.752Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-05T04:09:29.757Z"
+  },
+  {
+   "attempt": 2,
+   "role": "plate",
+   "assetId": "room-17",
+   "subject": "room-17-church",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-17/prompts/plate-01.txt",
+   "promptHash": "f53e80d1da708644149672ee360e2dcab29264120b8526b81c5d7a30027b2fb8",
+   "references": [
+    {
+     "path": "art/staging/room-17/composition-master-01.png",
+     "hash": "c2254246f50c1f35c44d231c559f6c89a268a01c6b37c16eee6cf28c9b4b57ee",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/room-04-sowerby.png",
+     "hash": "f20b44e5636734c99433597ecfd97fe4d8c440715e94d1bc5a6d578959b51344",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-17-church",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Reverend Sowerby as Room 4 draws him)",
+      "path": "art/actors/room-04-sowerby.png",
+      "hash": "f20b44e5636734c99433597ecfd97fe4d8c440715e94d1bc5a6d578959b51344",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "c2254246f50c1f35c44d231c559f6c89a268a01c6b37c16eee6cf28c9b4b57ee",
+   "sourcePath": "art/staging/room-17/composition-master-01.png",
+   "out": "art/staging/room-17/plate-01/source.png",
+   "outputHash": "79342eec89d81c1d70f28e226b8453cf097a752550b3ae5ad499314f655055e7",
+   "bytes": 1830604,
+   "usage": {
+    "input_tokens": 8203,
+    "input_tokens_details": {
+     "image_tokens": 7992,
+     "text_tokens": 211
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 9754
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-05T04:10:14.250Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-05T04:10:14.255Z"
+  },
+  {
+   "attempt": 3,
+   "role": "canonical-design",
+   "assetId": "room-17",
+   "subject": "sowerby_church",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-17/prompts/sowerby-01.txt",
+   "promptHash": "6cd25ee9e88edaf84dd216ef1c93835bf206ba26167bae9e0b2c38d8fb002b54",
+   "references": [
+    {
+     "path": "art/staging/room-17/sowerby-01/vs-thad.png",
+     "hash": "ed40d2bce386d51902a4f2ed3ddce17fb192bc61c897cf9efd75ef7419d4ee50",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-17/plate-01/source.png",
+     "hash": "79342eec89d81c1d70f28e226b8453cf097a752550b3ae5ad499314f655055e7",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/room-04-sowerby.png",
+     "hash": "f20b44e5636734c99433597ecfd97fe4d8c440715e94d1bc5a6d578959b51344",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-17-church",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Reverend Sowerby as Room 4 draws him)",
+      "path": "art/actors/room-04-sowerby.png",
+      "hash": "f20b44e5636734c99433597ecfd97fe4d8c440715e94d1bc5a6d578959b51344",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "ed40d2bce386d51902a4f2ed3ddce17fb192bc61c897cf9efd75ef7419d4ee50",
+   "sourcePath": "art/staging/room-17/sowerby-01/vs-thad.png",
+   "out": "art/staging/room-17/sowerby-01/sheet.png",
+   "outputHash": "b9e1cb65f355457f9b1e2557f38784df80afb07c063519a3665d75ff776bb434",
+   "bytes": 1360511,
+   "usage": {
+    "input_tokens": 10113,
+    "input_tokens_details": {
+     "image_tokens": 9528,
+     "text_tokens": 585
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 10546
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-05T04:10:50.869Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-05T04:10:50.873Z"
   }
  ],
  "promotions": [
@@ -14475,6 +14836,63 @@
    "acceptedBy": null,
    "by": "claude, Room 16 builder (doc 55 section 3, errata 72 E)",
    "at": "2026-11-05T03:54:46.470Z"
+  },
+  {
+   "assetId": "room-17",
+   "attempt": 2,
+   "from": "art/staging/room-17/plate-01/candidate-1920x864.png",
+   "derivedFrom": "art/staging/room-17/plate-01/source.png",
+   "provenance": "art/staging/room-17/plate-01/frame.json",
+   "to": "art/backgrounds/room-17-church.png",
+   "hash": "7db243460b86c669410290b58d11abbd739efabb1a816a688bcfab74c7acc295",
+   "sourceHash": "79342eec89d81c1d70f28e226b8453cf097a752550b3ae5ad499314f655055e7",
+   "replacedHash": null,
+   "gates": {
+    "passed": true,
+    "kind": "plate"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 17 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-05T04:10:32.603Z"
+  },
+  {
+   "assetId": "room-17",
+   "attempt": 3,
+   "from": "art/staging/room-17/sowerby/sowerby.png",
+   "derivedFrom": "art/staging/room-17/sowerby-01/sheet.png",
+   "provenance": "art/staging/room-17/sowerby/sowerby.json",
+   "to": "art/actors/room-17-sowerby.png",
+   "hash": "d37ebb45c372da228fdf02eb955ad331bae7057dd0526d4f524795429fc1e402",
+   "sourceHash": "b9e1cb65f355457f9b1e2557f38784df80afb07c063519a3665d75ff776bb434",
+   "replacedHash": null,
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 17 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-05T04:13:18.076Z"
+  },
+  {
+   "assetId": "room-17",
+   "attempt": 3,
+   "from": "art/staging/room-17/sowerby/sowerby.png",
+   "derivedFrom": "art/staging/room-17/sowerby-01/sheet.png",
+   "provenance": "art/staging/room-17/sowerby/sowerby.json",
+   "to": "art/actors/room-17-sowerby.png",
+   "hash": "7dfd84b9b12fb22996f7439db0830970b157db5d7fc8ac9ae7a1a70d94b53d2b",
+   "sourceHash": "b9e1cb65f355457f9b1e2557f38784df80afb07c063519a3665d75ff776bb434",
+   "replacedHash": "d37ebb45c372da228fdf02eb955ad331bae7057dd0526d4f524795429fc1e402",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 17 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-05T04:15:46.309Z"
   }
  ],
  "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."

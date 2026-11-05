@@ -103,9 +103,7 @@
    ],
    "when": {
     "T_SEEN_MAIN_STREET": true
-   },
-   "label": "THE CHURCH",
-   "unbuilt": true
+   }
   },
   {
    "id": "loc_back_alley",

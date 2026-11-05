@@ -134,5 +134,90 @@
    ]
   ],
   "breakEvery": 4.0
- }
+ },
+ "placements": {
+  "church": {
+   "x": 1509,
+   "y": 305,
+   "zone": 2,
+   "when": {
+    "T_FUNERAL_DAY": false
+   },
+   "posture": "behind-counter",
+   "walkTo": {
+    "x": 1250,
+    "y": 790,
+    "facing": "right"
+   },
+   "tree": "SOWERBY",
+   "sprite": {
+    "sheet": "art/actors/room-17-sowerby.png",
+    "frames": [
+     [
+      2,
+      2,
+      119,
+      220
+     ],
+     [
+      123,
+      2,
+      119,
+      220
+     ],
+     [
+      244,
+      2,
+      119,
+      220
+     ],
+     [
+      365,
+      2,
+      119,
+      220
+     ],
+     [
+      486,
+      2,
+      119,
+      220
+     ]
+    ],
+    "rate": 0.22,
+    "phase": 0.15,
+    "breaks": [
+     [
+      2,
+      2,
+      2,
+      0
+     ],
+     [
+      3,
+      3,
+      0
+     ],
+     [
+      4,
+      4,
+      0
+     ],
+     [
+      2,
+      2,
+      0,
+      3,
+      0
+     ]
+    ],
+    "breakEvery": 6,
+    "talkFrame": 2,
+    "frameNote": "0 rest, hands on the reading desk · 1 breath (derived) · 2 preaching, a finger raised · 3 counting adjectives on his fingers · 4 a hand on his heart. A break every `breakEvery` seconds (errata 77). He preaches as he talks.",
+    "provenance": "art/staging/room-17/sowerby/sowerby.json"
+   },
+   "clipPlane": 1
+  }
+ },
+ "placementsNote": "CHURCH (Room 17, errata 90 B): at his pulpit, his own church sheet (drawn against Room 4's), and his tree, SOWERBY; not there on the funeral day -- 'Sowerby is not there. He is up the hill.' (doc 57 C3)."
 }

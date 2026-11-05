@@ -1,0 +1,56 @@
+{
+ "sheet": "art/staging/room-17/sowerby/sowerby.png",
+ "frames": [
+  [
+   2,
+   2,
+   119,
+   220
+  ],
+  [
+   123,
+   2,
+   119,
+   220
+  ],
+  [
+   244,
+   2,
+   119,
+   220
+  ],
+  [
+   365,
+   2,
+   119,
+   220
+  ],
+  [
+   486,
+   2,
+   119,
+   220
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "preaching",
+  "counting",
+  "feeling"
+ ],
+ "topLeft": {
+  "x": 1450,
+  "y": 85
+ },
+ "anchor": {
+  "x": 1509,
+  "y": 305
+ },
+ "height": 330,
+ "feetRow": 446.9,
+ "cut": 305,
+ "handsTo": 305,
+ "key": 90,
+ "source": "room-17 attempt 3 (art/staging/room-17/sowerby-01/sheet.png)"
+}

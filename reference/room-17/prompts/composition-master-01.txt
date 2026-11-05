@@ -1,0 +1,21 @@
+Image 1 is the layout for one room of my pixel-art adventure game: grey blocks for the walls and furniture, and the hero (the man in the long coat) standing on the floor. Paint this room as a finished game background with two people in it, keeping the camera, the layout and every block where image 1 puts it. Paint the room ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched. The whole room, from the rafters to the floor in front of the hero, fits inside that band.
+
+THE ROOM: the church and meeting hall of a gold-rush town, 1850s, at night. One plain room of whitewashed planks under open rafters, serving as both: pews and a pulpit at one end, a meeting table at the other. Plain, sincere, a little vain.
+- Far left: the plain front door, standing slightly open, never locked.
+- Beside the door: a painted board of services and prices; below it a small stand with a brass collection plate on it.
+- Left: a paper subscription list pinned to the wall.
+- Above the door end: a square hatch in the ceiling up into the belfry, the underside of a bell visible through it; a long bell rope hanging down from it.
+- Back wall, middle: two tall plain windows of ordinary glass, dark night outside.
+- Middle: rows of plain wooden pews; a hymnal lying open on the end of one.
+- Right of middle: a big iron stove, too big for the room, glowing.
+- Right: a raised wooden pulpit with a reading desk.
+- Far right: the meeting end, a long plain table with chairs.
+- Light: oil lamps on the walls and the stove; warm, the corners dim.
+
+THE PEOPLE (this picture is a reference painting, so people are allowed in it):
+- The hero from image 4, standing where image 1 puts him, at exactly that size, facing right toward the pulpit.
+- REVEREND SOWERBY behind the pulpit, seen from the waist up over it, one hand raised mid-sermon: the man in image 6 -- an elderly minister with grey hair and grey side whiskers, a long black frock coat, a white collar and a black waistcoat. The size of a standing man at that depth.
+
+THE LOOK: the same pixel-art style as images 2, 3 and 5, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero -- the Reverend drawn on exactly the hero's coarse pixel grid, no finer -- flat, soft shading, very little texture, simple shapes. Warm whitewash, honey wood and lamplight. Nothing near black where the hero stands.
+
+RULES: no readable text, letters or numbers anywhere -- the boards and the list carry marks, never words. No border, no frame around the picture, no caption.

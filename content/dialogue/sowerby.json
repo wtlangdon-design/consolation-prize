@@ -1,0 +1,225 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "SOWERBY",
+  "speaker": "sowerby",
+  "name": "REVEREND SOWERBY",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (REVEREND SOWERBY) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a reply are his, italic quotes Thad's. The universal exit line is doc 04 part one's pool.",
+  "entries": [
+    {
+      "when": {
+        "T_NEED_TO_DIE": true,
+        "T_SOWERBY_PRICE": false
+      },
+      "node": "SOW_C1"
+    }
+  ],
+  "start": "SOW_A1",
+  "nodes": {
+    "SOW_A1": {
+      "id": "SOW_A1",
+      "prompt": "…How wonderful, how wonderful for you.",
+      "opening": [
+        {
+          "speaker": "sowerby",
+          "line": "My deepest— are you well?"
+        },
+        {
+          "speaker": "thad",
+          "line": "Quite well."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "…How wonderful, how wonderful for you."
+        }
+      ],
+      "options": [
+        {
+          "id": "sowerby1",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Tell me about the bell.",
+          "say": "A half-step flat since the day it was hung, and I have struck it every morning for six years, and I will tell you a secret, Mr. Grubb: I have stopped hearing it."
+        },
+        {
+          "id": "sowerby2",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "What do your services cost?",
+          "say": "Feeling is free. Articulated feeling is priced by the adjective. The board is by the door."
+        },
+        {
+          "id": "sowerby3",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Do you believe in Mott's gold?",
+          "say": "I believe in what fills my pews, and Mr. Mott fills them better than I do. I try not to examine the arrangement."
+        },
+        {
+          "id": "sowerby4",
+          "tag": "COMIC",
+          "afterUse": "counted-repeat",
+          "text": "You have a fine speaking voice.",
+          "say": "I KNOW.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "I know."
+            },
+            {
+              "selection": 3,
+              "say": "…thank you."
+            }
+          ]
+        },
+        {
+          "id": "sowerby5",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "I'd like to arrange a funeral.",
+          "exchange": [
+            {
+              "speaker": "sowerby",
+              "line": "A funeral. For whom?"
+            },
+            {
+              "speaker": "thad",
+              "line": "Ezra Pike."
+            },
+            {
+              "speaker": "sowerby",
+              "line": "Pike! Six years in the ground and never sung over. The undertaker did him on credit and nobody came."
+            },
+            {
+              "speaker": "sowerby",
+              "line": "Who speaks for the deceased?"
+            }
+          ],
+          "when": {
+            "T_FANSHAWE_FUNERALS": true,
+            "T_PIKE_DEAD": true
+          },
+          "set": {
+            "T_SOW_FUNERAL_ASKED": true
+          }
+        },
+        {
+          "id": "sowerby6",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Mr. Sheng says you owe him for linens.",
+          "say": "I do, and I shall pay him on the next occasion of grief. I carry no money on ordinary days, Mr. Grubb. It would only come between me and the poor.",
+          "when": {
+            "T_SHENG_TASK": true,
+            "T_FUNERAL_DAY": false
+          }
+        },
+        {
+          "id": "sowerby7",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Could Mr. Pike have another service?",
+          "say": "An anniversary! Grief keeps whatever calendar it likes. Have Frame print it.",
+          "when": {
+            "T_MEMORIAL_BOOKED": true,
+            "T_FUNERAL_DAY": false
+          },
+          "whenAny": [
+            {
+              "T_QUEUE_PADDED": false
+            },
+            {
+              "T_PRATT_TRAIL": false
+            }
+          ],
+          "set": {
+            "T_MEMORIAL_BOOKED": true
+          }
+        },
+        {
+          "id": "sowerby8",
+          "tag": "ASSAY",
+          "afterUse": "remove",
+          "text": "Have you ever won an Assay, Reverend?",
+          "exchange": [
+            {
+              "speaker": "sowerby",
+              "line": "Once, God forgive me. A mourner told me at the graveside, 'My father died rich,' and I said, 'Your father died owing me two dollars, and I have chosen to regard it as a legacy.'"
+            },
+            {
+              "speaker": "sowerby",
+              "line": "The whole hill applauded. It was a very successful funeral."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_17": true
+          }
+        },
+        {
+          "id": "sowerbyx",
+          "tag": "EXIT",
+          "text": "Thank you. This has been clarifying.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "SOW_C1": {
+      "id": "SOW_C1",
+      "prompt": "And how shall we remember the departed?",
+      "opening": [
+        {
+          "speaker": "sowerby",
+          "line": "And how shall we remember the departed?"
+        },
+        {
+          "speaker": "thad",
+          "line": "Cheaply."
+        }
+      ],
+      "options": [
+        {
+          "id": "sowerby_c1",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "He was a beloved and industrious young man of rare promise.",
+          "say": "Beloved! Industrious! Young! Rare! Four adjectives, eight dollars, and every one of them deserved.",
+          "add": {
+            "SOWERBY_ADJECTIVES": 4
+          }
+        },
+        {
+          "id": "sowerby_c2",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "He was a man.",
+          "say": "That is not a eulogy, that is a census."
+        },
+        {
+          "id": "sowerby_c3",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "He was present.",
+          "say": "…Present. Three words, and one of them is 'was'. I shall add an 'amen' at no charge; I cannot send a man into the ground on three.",
+          "set": {
+            "T_SOWERBY_PRICE": true
+          }
+        },
+        {
+          "id": "sowerby_c4",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "He tuned pianos.",
+          "say": "He tuned pianos. He brought order to the very instruments of praise, and asked nothing, and was paid less—"
+        },
+        {
+          "id": "sowerby_cx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

@@ -1,33 +1,33 @@
 {
  "schema": 1,
  "room": 17,
- "id": "room-17",
+ "id": "room-17-church",
  "name": "CHURCH & MEETING HALL",
  "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54).",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 17 \u2014 CHURCH & MEETING HALL",
+  "primary": "docs/05-examine-layer.md::ROOM 17 — CHURCH & MEETING HALL",
   "batch": [
-   "docs/09-examine-batch-2.md::ROOM 17 \u2014 CHURCH & MEETING HALL"
+   "docs/09-examine-batch-2.md::ROOM 17 — CHURCH & MEETING HALL"
   ],
   "merged": [
-   "docs/09-examine-batch-2.md::ROOM 17 \u2014 CHURCH & MEETING HALL"
+   "docs/09-examine-batch-2.md::ROOM 17 — CHURCH & MEETING HALL"
   ],
   "completions": [
-   "docs/54-batch-c.md::ROOM 17 \u00b7 CHURCH & MEETING HALL"
+   "docs/54-batch-c.md::ROOM 17 · CHURCH & MEETING HALL"
   ],
   "actVariantsNone": {
-   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
    "why": "Part Two-B wrote no variant for the church."
   }
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 17 \u2014 CHURCH & MEETING HALL",
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 17 — CHURCH & MEETING HALL",
  "dialogue": {
   "characters": [
    "Reverend Sowerby"
   ],
   "trees": [
-   "docs/04-dialogue-trees.md::`SOW_A1` \u2014 the root *(W1 growth)*",
-   "docs/04-dialogue-trees.md::`SOW_C1` \u2014 negotiating one's own funeral"
+   "docs/04-dialogue-trees.md::`SOW_A1` — the root *(W1 growth)*",
+   "docs/04-dialogue-trees.md::`SOW_C1` — negotiating one's own funeral"
   ]
  },
  "puzzles": {
@@ -36,8 +36,8 @@
    "E3"
   ],
   "source": [
-   "docs/02-puzzle-graph.md::TRIAL THREE \u2014 Proof of Continuous Occupancy (Document D)",
-   "docs/02-puzzle-graph.md::ACT III \u2014 *Thaddeus Grubb Is Legally Dead*"
+   "docs/02-puzzle-graph.md::TRIAL THREE — Proof of Continuous Occupancy (Document D)",
+   "docs/02-puzzle-graph.md::ACT III — *Thaddeus Grubb Is Legally Dead*"
   ]
  },
  "staging": {
@@ -45,5 +45,7 @@
   "why": "E3 is SOW_C1, a dialogue puzzle with its own price counter; D4 is collected in conversation. No doc 48 script is sited in the church."
  },
  "connectivity": "docs/20-room-map.md",
- "exits": "docs/54-batch-c.md::ROOM 17 \u00b7 CHURCH & MEETING HALL"
+ "exits": "docs/54-batch-c.md::ROOM 17 · CHURCH & MEETING HALL",
+ "roomFile": "content/rooms/church.json",
+ "plate": "art/backgrounds/room-17-church.png"
 }
