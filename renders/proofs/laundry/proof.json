@@ -4,7 +4,7 @@
  "room": "laundry",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "2f9e79793653b0e432d5cec2430a32dec6b3f976",
+ "commit": "a515b4ce440d379240ab69beb62e33ef509dac9a",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -113,13 +113,13 @@
     "height": 309
    },
    "seen": {
-    "x": 1034,
+    "x": 1031,
     "y": 383,
-    "width": 276,
+    "width": 279,
     "height": 307,
     "bottom": 689,
     "right": 1309,
-    "changed": 28178
+    "changed": 28192
    },
    "props": []
   }
@@ -128,7 +128,7 @@
   {
    "panel": "B",
    "room": "laundry",
-   "clock": 9.271,
+   "clock": 9.2214,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -217,15 +217,15 @@
    "controlWrites": [
     "enter(laundry)"
    ],
-   "capturedAt": "2026-11-05T20:21:35.512Z",
+   "capturedAt": "2026-11-05T20:38:21.861Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "5cd46b0f8ba9a846dc925a9236e8763fb0cc826aacf37eac9bef9ef3a5dffe8d"
+   "hash": "4ca591d53da57e22e609ae5ccaa67faadf27761ef0b17c5232e1782184b68402"
   },
   {
    "panel": "A",
    "room": "laundry",
-   "clock": 10.2043,
+   "clock": 10.071299999999999,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -310,7 +310,7 @@
     "enter(laundry)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T20:21:36.335Z",
+   "capturedAt": "2026-11-05T20:38:22.705Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "bf2233e370d7e114a93c1cd415fc57a7d9ea35da8a353bb7abbca25371ddde8f"
@@ -318,7 +318,7 @@
   {
    "panel": "D",
    "room": "laundry",
-   "clock": 20.4705,
+   "clock": 20.304299999999998,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -416,7 +416,7 @@
     "cast(false)",
     "cast(true)"
    ],
-   "capturedAt": "2026-11-05T20:21:46.626Z",
+   "capturedAt": "2026-11-05T20:38:32.921Z",
    "intent": "principal changed state: T_SHENG_HOLDS_PAPER (doc 04 SHE_A1 option 1). Visible consequence: SHE_D1's options -- the ledger, the loan's question, his three topics.",
    "file": "raw-captures-ignored/panel-d-changed.png",
    "hash": "7efb399d338a9154a7e07667490fe8b5e6efad48cc8978a828272450f3346ebd",
@@ -450,11 +450,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T20:21:46.626Z",
+ "at": "2026-11-05T20:38:32.921Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 359094,
+  "bytes": 359326,
   "panels": 5,
   "scale": 0.5
  }
