@@ -1,0 +1,19 @@
+{
+ "schema": 1,
+ "room": "livery",
+ "note": "ROOM 15's PROOF SPEC. The route is Main Street's, then the map. The room's principal change is the blanket on loan (LIV_A1 option 5): the bin drawn bare and the blanket no subject. B2 and B3 are played in tests/room-15.test.ts.",
+ "route": "livery",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "T_BLANKET_BORROWED (LIV_A1 option 5). Visible consequence: the feed bin bare.",
+  "flags": {
+   "T_BLANKET_BORROWED": true
+  },
+  "actions": [
+   {
+    "do": "wait",
+    "seconds": 2
+   }
+  ]
+ }
+}

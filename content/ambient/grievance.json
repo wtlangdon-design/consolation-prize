@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "id": "grievance",
+ "name": "GRIEVANCE",
+ "posture": "animal",
+ "room": "livery",
+ "x": 1103,
+ "y": 430,
+ "zone": 2,
+ "approachRadius": 40,
+ "note": "GRIEVANCE, a mule 'the color of a wet saddle' (doc 54), looking out over her half door. Five whole-mule poses on magenta, generated against a side-by-side with Thad (room-15 operation 4), cut at the door's top by tools/art/room15-figures.py, so `y` is the cut row, not her hooves. Her examine lines and the fork (B3) are the GRIEVANCE hotspot's. Doc 54's 'Her ears follow me round the stable' is frames 2 and 3.",
+ "barks": {},
+ "barksNote": "A mule; no barks.",
+ "sprite": {
+  "sheet": "art/actors/room-15-grievance.png",
+  "frames": [
+   [
+    2,
+    2,
+    138,
+    184
+   ],
+   [
+    142,
+    2,
+    138,
+    184
+   ],
+   [
+    282,
+    2,
+    138,
+    184
+   ],
+   [
+    422,
+    2,
+    138,
+    184
+   ],
+   [
+    562,
+    2,
+    138,
+    184
+   ]
+  ],
+  "rate": 0.22,
+  "phase": 0.6,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    2,
+    3,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "frameNote": "0 rest · 1 breath (derived) · 2 ears round to the left · 3 her head turned to look left · 4 a snort. A break every `breakEvery` seconds (errata 77).",
+  "provenance": "art/staging/room-15/grievance/grievance.json"
+ }
+}

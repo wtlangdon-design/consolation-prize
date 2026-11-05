@@ -377,7 +377,7 @@ ICONS = {
     "four_dollars": four_dollars,
     "deed": deed,
     "company_map": company_map,
-    "horse_blanket": horse_blanket,
+    "blanket": horse_blanket,      # THE LIVERY BLANKET (doc 23): the one blanket, errata 75
     "pickaxe": pickaxe,
     "filing_fee": filing_fee,
     "survey": survey,

@@ -1,0 +1,195 @@
+{
+ "schema": 1,
+ "room": "livery",
+ "note": "ROOM 15's LIFE ROUTE, ruling 47: about a minute and a half in the stable, starting inside it (the entry route is proofs/spec/livery.json's). The livery man hums and tips his hat; Grievance turns her ears and head; the two mules in the pen move out of step; the lantern breathes. A conversation (his comic option, then Grievance's name, then the exit); a LOOK, a LISTEN and doc 49's PICK UP on the anvil. B2, the blanket and B3 are played in tests/room-15.test.ts.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-arrived",
+   "why": "arrival from the map"
+  },
+  {
+   "do": "wait",
+   "seconds": 8,
+   "why": "the livery man hums or tips his hat; Grievance and the mules turn on their own beats"
+  },
+  {
+   "do": "capture",
+   "name": "02-the-stable"
+  },
+  {
+   "do": "wait",
+   "seconds": 7
+  },
+  {
+   "do": "capture",
+   "name": "03-the-stable-later"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "world": [
+    955,
+    500
+   ],
+   "why": "the livery man, tipped back in his chair"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60,
+   "why": "Thad walks to his stand and LIV_A1 opens"
+  },
+  {
+   "do": "capture",
+   "name": "04-liv-a1",
+   "why": "LIV_A1's list, and Thad at his stand"
+  },
+  {
+   "do": "option",
+   "option": "livery_man3",
+   "why": "the comic option"
+  },
+  {
+   "do": "waitFor",
+   "says": "livery_man",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "05-livery-man-speaks",
+   "why": "his line over his head"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "option",
+   "option": "livery_man2",
+   "why": "Why 'Grievance'?"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "option",
+   "option": "livery_manx",
+   "why": "leave"
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    430
+   ],
+   "why": "read past the parting line, if one is still up"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "grievance",
+   "why": "Grievance over her door"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "06-look-grievance",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "other_mules",
+   "why": "the mules in the pen"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "07-listen-mules",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "board_of_names",
+   "why": "the board of names"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "08-look-board",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "PICK_UP"
+  },
+  {
+   "do": "click",
+   "on": "anvil",
+   "why": "doc 49's PICK UP on the anvil"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "09-pickup-anvil",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  }
+ ]
+}

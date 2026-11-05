@@ -46,9 +46,8 @@ KEY = 90
 # Placement, read off the plate with a grid over it.
 LIVERY = {'height': 235, 'bottom': 622, 'centre': 990}      # his chair over the plate's, x 875-1010
 GRIEVANCE = {'height': 360, 'bottom': 606, 'centre': 1125, 'cut': 430}   # half door x 1050-1200, top y 428
-# Each mule's right end (its head), depth scale and lift; drawn back to front.
-MULES = {'height': 225, 'bottom': 616, 'right': [724, 604, 668, 548], 'depth': [1.0, 0.9, 0.86, 0.94],
-         'lift': [0, 24, 32, 10], 'draw': [2, 1, 3, 0]}
+# Two mules facing out of the pen at Grievance's scale: their left edges, the hoof line, a tint each.
+MULES = {'height': 340, 'bottom': 616, 'left': [500, 600], 'tints': [[1.15, 1.1, 0.95], [0.85, 0.85, 0.9]]}
 RAILS = [(465, 487), (513, 535), (561, 583)]                 # the pen's three rails, plate rows
 PEN = (462, 726)                                             # inside the pen's two posts
 
@@ -207,51 +206,42 @@ def main():
     shown.append(write('grievance', placed, box, ['rest', 'breath', 'ears', 'look', 'snort'],
                        {'height': GRIEVANCE['height'], 'cut': GRIEVANCE['cut'], 'posture': 'animal',
                         'source': 'room-15 attempt 4 (art/staging/room-15/grievance-01/sheet.png)'}))
-    # THE OTHER MULES (room-15 operation 5): four side-on mules, each with an
-    # action pose, crowded in the narrow pen, heads toward Grievance's stall.
-    src = np.asarray(Image.open(f'{S}/mules-01/sheet.png').convert('RGB')).astype(int)
-    figs = key_figures(src)
-    if len(figs) != 8:
-        raise SystemExit(f'mules-01: expected eight mules, found {len(figs)}')
-    # two rows: sort by row, then by column
-    cuts = [cut(src, m) for m in figs]
-    tops = [np.where(m)[0].min() for m in figs]
-    order_rc = sorted(range(8), key=lambda i: (tops[i] > src.shape[0] // 2, np.where(figs[i])[1].min()))
-    rest_cuts = [cuts[i] for i in order_rc[:4]]
-    act_cuts = [cuts[i] for i in order_rc[4:]]
-    each = []
-    for k in range(4):
-        h0 = rest_cuts[k][0].shape[0]
-        sc = MULES['height'] * MULES['depth'][k] / h0
-        rest = scaled(rest_cuts[k][0], sc)
-        act = scaled(act_cuts[k][0], sc)
-        each.append({'rest': (rest, rest.shape[1] - rest.shape[1] / 2),
-                     'breath': None, 'act': (act, act.shape[1] / 2), 'r': (rest, rest.shape[1] / 2)})
-    for k in range(4):
-        each[k]['breath'] = (breath(each[k]['r'][0], 'mules'), each[k]['r'][1])
-    # which mules act in each frame, so they never move in step
-    WEAR = [[0, 0, 0, 0], [1, 1, 1, 1], [2, 0, 0, 2], [0, 2, 0, 0], [0, 0, 2, 0]]
+    # THE OTHER MULES: two, facing out of the pen at true scale (Tyler's choice,
+    # errata 88 F), from Grievance's sheet, each its own colour; the darker one
+    # looks across at her stall. Every pixel on a rail row is dropped.
+    src = np.asarray(Image.open(f'{S}/grievance-01/sheet.png').convert('RGB')).astype(int)
+    cuts = [cut(src, m) for m in key_figures(src)]
+    def mule(index, tint, mirror):
+        f = scaled(cuts[index][0], MULES['height'] / cuts[0][0].shape[0])
+        if mirror:
+            f = f[:, ::-1].copy()
+        f[..., :3] = np.clip(f[..., :3].astype(float) * np.array(tint), 0, 255).astype(np.uint8)
+        return f
+    a_tint, b_tint = MULES['tints']
+    A = {k: mule(k, a_tint, False) for k in (0, 2, 4)}
+    A[1] = breath(A[0], 'mules')
+    B = {k: mule(k, b_tint, True) for k in (0, 2, 3)}
+    B['look breath'] = breath(B[3], 'mules')
+    # each frame: (mule A's pose, mule B's pose) -- never in step
+    WEAR = [(0, 3), (1, 'look breath'), (2, 3), (0, 0), (4, 2)]
     rows = np.zeros(1000, bool)
     for a0, b0 in RAILS:
         rows[a0:b0 + 1] = True
     box = (PEN[0], 200, PEN[1] + 1, MULES['bottom'] + 1)
     placed = []
-    for wear in WEAR:
+    for wa, wb in WEAR:
         canvas = np.zeros((box[3] - box[1], box[2] - box[0], 4), np.uint8)
-        for k in MULES['draw']:      # the back ones first
-            f, cx = (each[k]['r'], each[k]['breath'], each[k]['act'])[wear[k]]
-            # rest and action share the hoof line and the rump end
-            layer = lay([(f, f.shape[1] / 2)], MULES['bottom'] - MULES['lift'][k],
-                        MULES['right'][k] - each[k]['r'][0].shape[1] / 2, box)[0]
+        for f, left, bottom in ((B[wb], MULES['left'][1], MULES['bottom']), (A[wa], MULES['left'][0], MULES['bottom'] - 4)):
+            layer = lay([(f, 0)], bottom, left, box)[0]
             on = layer[..., 3] > 0
             canvas[on] = layer[on]
         ys = np.arange(canvas.shape[0]) + box[1]
         canvas[rows[ys]] = 0
         placed.append(canvas)
     placed = graded(placed, box)
-    shown.append(write('mules', placed, box, ['rest', 'breath', 'two eat and swish', 'ears back', 'head up'],
+    shown.append(write('mules', placed, box, ['rest', 'breath', 'ears', 'both face out', 'snort and ears'],
                        {'height': MULES['height'], 'posture': 'animal', 'rails': RAILS,
-                        'source': 'room-15 attempt 5 (art/staging/room-15/mules-01/sheet.png)'}))
+                        'source': 'room-15 attempt 4 (art/staging/room-15/grievance-01/sheet.png), recoloured; attempt 5 not used (errata 88 F)'}))
     plate = Image.open(PLATE).convert('RGBA')
     views = []
     for i in range(5):

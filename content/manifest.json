@@ -31,7 +31,8 @@
   "content/rooms/main-street-candidate.json",
   "content/rooms/nugget-candidate.json",
   "content/rooms/coffin.json",
-  "content/rooms/boot-hill.json"
+  "content/rooms/boot-hill.json",
+  "content/rooms/livery.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -48,7 +49,8 @@
   "content/dialogue/amb-one-strike-man.json",
   "content/dialogue/sump.json",
   "content/dialogue/frame.json",
-  "content/dialogue/fanshawe.json"
+  "content/dialogue/fanshawe.json",
+  "content/dialogue/livery-man.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -64,7 +66,8 @@
   "content/fixtures/room-11.json",
   "content/fixtures/room-12.json",
   "content/fixtures/room-13.json",
-  "content/fixtures/room-14.json"
+  "content/fixtures/room-14.json",
+  "content/fixtures/room-15.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -75,7 +78,6 @@
   "content/items/four-dollars.json",
   "content/items/deed.json",
   "content/items/company-map.json",
-  "content/items/horse-blanket.json",
   "content/items/pickaxe.json",
   "content/items/filing-fee.json",
   "content/items/harness-token.json",
@@ -90,7 +92,8 @@
   "content/items/photograph.json",
   "content/items/eggs.json",
   "content/items/tonic.json",
-  "content/items/loan.json"
+  "content/items/loan.json",
+  "content/items/blanket.json"
  ],
  "scaling": "content/actors/scaling.json",
  "ambient": [
@@ -118,7 +121,10 @@
   "content/ambient/frame.json",
   "content/ambient/lobby-clerk.json",
   "content/ambient/fanshawe.json",
-  "content/ambient/undertaker.json"
+  "content/ambient/undertaker.json",
+  "content/ambient/livery-man.json",
+  "content/ambient/grievance.json",
+  "content/ambient/other-mules.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",

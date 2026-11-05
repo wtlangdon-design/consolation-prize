@@ -1133,6 +1133,51 @@ function combinations() {
     ],
   });
 
+  // DOC 54 AND DOC 57 B3: THE TUNING FORK ON GRIEVANCE (errata 68 F, 88 E).
+  // Four cases, every line the documents': doc 54's refusal before the hum,
+  // doc 57's before Thad knows where Vessel is, the success with both -- the
+  // livery man's "Twelve years.", then the ride, over black, and the Nugget --
+  // and doc 54's line after B3. Which flags each case tests is routing.
+  const b3 = (() => {
+    const caseIn = (path, heading, label) => {
+      const whole = read(path);
+      const from = whole.indexOf(heading);
+      if (from < 0) throw new Error(`${path}: no section "${heading}"`);
+      const body = whole.slice(from, whole.indexOf('\n## ', from + heading.length));
+      const re = new RegExp(`^> \\*\\*GRIEVANCE\\*\\* · USE THE TUNING FORK, \\*${label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\* — (.+)$`, 'm');
+      const m = re.exec(body);
+      if (!m) throw new Error(`${path} B3: no case "${label}"`);
+      return m[1];
+    };
+    const only = (cell) => {
+      const words = quoted(cell.split('→')[0].replace(/\*\([^)]*\)\*/g, ''));
+      if (words.length !== 1) throw new Error(`B3: expected one line in "${cell.slice(0, 60)}"`);
+      return words[0];
+    };
+    const success = caseIn('docs/54-batch-c.md', '## B3 — the Grievance puzzle', 'after `T_HUM_HEARD`');
+    const livery = /\*\*LIVERY MAN:\*\* "([^"]+)"/.exec(success)?.[1];
+    const both = caseIn('docs/57-puzzle-completion.md', '## B3 ', 'with both');
+    const ride = /over black: "([^"]+)"/.exec(both)?.[1];
+    if (!livery || !ride) throw new Error('B3: the success line or the ride is missing');
+    return {
+      before: only(caseIn('docs/54-batch-c.md', '## B3 — the Grievance puzzle', 'before the livery man has hummed')),
+      after: only(caseIn('docs/54-batch-c.md', '## B3 — the Grievance puzzle', 'after B3')),
+      vague: only(caseIn('docs/57-puzzle-completion.md', '## B3 ', 'after `T_HUM_HEARD`, without `T_VESSEL_LOCATION`')),
+      livery, ride,
+    };
+  })();
+  rebuilt.push({
+    item: 'tuning_fork', room: 'livery', target: 'grievance', puzzle: 'B3', say: b3.livery,
+    note: 'Doc 57 B3 (with doc 54\'s lines): the fork on Grievance. With the hum and Vessel\'s whereabouts, the corrected tune, "Twelve years.", the ride over black, and Thad placed in the Nugget (errata 73 B).',
+    rules: [
+      { case: 'after B3', when: { T_VESSEL_FOUND: true }, say: b3.after },
+      { case: 'with both', when: { T_HUM_HEARD: true, T_VESSEL_LOCATION: true }, by: 'livery_man', say: b3.livery,
+        then: [{ speaker: 'thad', line: b3.ride, overBlack: true }], set: { T_VESSEL_FOUND: true }, completes: 'B3', goto: 'nugget' },
+      { case: 'after T_HUM_HEARD, without T_VESSEL_LOCATION', when: { T_HUM_HEARD: true }, say: b3.vague },
+      { case: 'before the livery man has hummed', when: { T_HUM_HEARD: false }, say: b3.before },
+    ],
+  });
+
 
   const pools = {};
   let current = null;
@@ -1164,8 +1209,11 @@ function combinations() {
   const itemIds = new Set(JSON.parse(read('content/manifest.json')).items
     .map((path) => JSON.parse(read(path)).id));
   const itemPools = {};
+  // DOC 57 A5: "doc 24's A5 row and blanket pool now name THE LIVERY BLANKET"
+  // -- the one blanket (errata 75); doc 24 still heads it HORSE BLANKET.
+  const RENAMED = { horse_blanket: 'blanket' };
   for (const [name, lines] of Object.entries(pools)) {
-    const id = slug(name);
+    const id = RENAMED[slug(name)] ?? slug(name);
     if (!itemIds.has(id)) throw new Error(`doc 24: no item "${id}" for the pool headed "${name}"`);
     itemPools[id] = lines;
   }
@@ -3258,7 +3306,7 @@ function storeItems() {
   const doc = read('docs/23-inventory-act1.md');
   const body = doc.slice(0, doc.indexOf('## Act II items'));
   const out = [];
-  for (const want of ['eggs', 'tonic']) {
+  for (const want of ['eggs', 'tonic', 'blanket']) {
     const row = new RegExp(`^\\| ${want} \\| (.+?) \\| (.+?) \\|$`, 'm').exec(body);
     if (!row) throw new Error(`doc 23: no table row for ${want}`);
     const [, fullName, display] = row;
@@ -3318,8 +3366,69 @@ function undertakerActThree() {
   };
 }
 
+/**
+ * DOC 04, THE LIVERY MAN: Room 15's tree, LIV_A1 (errata 75, 88 E). One node,
+ * a table only. Routing, as doc 57 writes it: option 1 is Grievance's refusal
+ * (B2 begins); 6, the man she moved for, sets `T_GRIEVANCE_MOTT` and is B2;
+ * 4, the tune, waits for it ("req") and sets `T_HUM_HEARD`; 5 lends THE LIVERY
+ * BLANKET (doc 23) and marks it borrowed (`T_BLANKET_BORROWED`, so the bin is
+ * drawn without it until A5 brings it back); 7 is pair 20. A universal exit
+ * from doc 04's pool closes it. Every string is the document's.
+ */
+function liveryTree() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('## THE LIVERY MAN');
+  const to = doc.indexOf('\n## ', from + 5);
+  if (from < 0 || to < 0) throw new Error('doc 04: no LIVERY MAN section');
+  const body = doc.slice(from, to);
+  const SPEAKER = 'livery_man';
+  const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
+  const ROUTE = {
+    5: { gives: ['blanket'], set: { T_BLANKET_BORROWED: true } },
+    6: { puzzle: { B2: 'complete' } },
+    7: { set: { ASSAY_PAIR_20: true } },
+  };
+  const options = [];
+  for (const [, number, optionCell, tagCell, responseCell] of body.matchAll(/^\| (\d+) \| (.+?) \| (.+?) \| (.+?) \|$/gm)) {
+    const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
+    const text = quoted(optionCell)[0];
+    const [reply, ...rest] = responseCell.split('→');
+    const said = spokenIn(reply.replace(/\*\([^)]*\)\*/g, ''), SPEAKER);
+    for (const d of spokenIn(responseCell, SPEAKER).staging) process.stderr.write(`  doc 04 LIV_A1 option ${number} staging: ${d}\n`);
+    if (!tag || !text || !said.lines.length) throw new Error(`doc 04 LIV_A1: option ${number} does not read`);
+    const state = rest.join(' ');
+    const option = { id: `${SPEAKER}${number}`, tag: tag[1], ...(tag[2] ? { afterUse: tag[2] } : {}), text };
+    if (said.lines.length === 1 && said.lines[0].speaker === SPEAKER) option.say = said.lines[0].line;
+    else option.exchange = said.lines;
+    const flags = [...state.matchAll(/`([A-Z_0-9]+)`/g)].map((m) => m[1]).filter((f) => !/req `/.test(state) || !state.includes(`req \`${f}\``));
+    const req = /req `([A-Z_0-9]+)`/.exec(state);
+    const route = ROUTE[number] ?? {};
+    const set = { ...Object.fromEntries(flags.map((f) => [f, true])), ...(route.set ?? {}) };
+    if (Object.keys(set).length) option.set = set;
+    if (req) option.when = { [req[1]]: true };
+    if (route.gives) option.gives = route.gives;
+    if (route.puzzle) option.puzzle = route.puzzle;
+    options.push(option);
+  }
+  if (options.length !== 7) throw new Error(`doc 04 LIV_A1: ${options.length} options, not 7`);
+  options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[1 % POOL.length], universal: true, ends: true });
+  return write('content/dialogue/livery-man.json', {
+    aftermathAuthored: true,
+    schema: 1,
+    id: 'LIVERY_MAN',
+    speaker: SPEAKER,
+    name: 'THE LIVERY MAN',
+    note: 'EXTRACTED from docs/04-dialogue-trees.md (THE LIVERY MAN) by tools/extract-content.mjs. '
+      + 'Do not edit: change doc 04 and re-run. Plain quotes in a reply are his, italic quotes Thad\'s. '
+      + 'The universal exit line is doc 04 part one\'s pool.',
+    entries: [],
+    start: 'LIV_A1',
+    nodes: { LIV_A1: { id: 'LIV_A1', noPrompt: true, exceptionReason: 'Doc 04 writes LIV_A1 as a table only.', options } },
+  });
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

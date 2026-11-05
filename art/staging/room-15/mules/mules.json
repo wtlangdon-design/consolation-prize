@@ -4,50 +4,50 @@
   [
    2,
    2,
-   262,
-   226
+   227,
+   344
   ],
   [
-   266,
+   231,
    2,
-   262,
-   226
+   227,
+   344
   ],
   [
-   530,
+   460,
    2,
-   262,
-   226
+   227,
+   344
   ],
   [
-   794,
+   689,
    2,
-   262,
-   226
+   227,
+   344
   ],
   [
-   1058,
+   918,
    2,
-   262,
-   226
+   227,
+   344
   ]
  ],
  "frameNames": [
   "rest",
   "breath",
-  "two eat and swish",
-  "ears back",
-  "head up"
+  "ears",
+  "both face out",
+  "snort and ears"
  ],
  "topLeft": {
-  "x": 462,
-  "y": 390
+  "x": 500,
+  "y": 272
  },
  "anchor": {
-  "x": 593,
+  "x": 613,
   "y": 616
  },
- "height": 225,
+ "height": 340,
  "posture": "animal",
  "rails": [
   [
@@ -63,5 +63,5 @@
    583
   ]
  ],
- "source": "room-15 attempt 5 (art/staging/room-15/mules-01/sheet.png)"
+ "source": "room-15 attempt 4 (art/staging/room-15/grievance-01/sheet.png), recoloured; attempt 5 not used (errata 88 F)"
 }

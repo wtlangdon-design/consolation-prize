@@ -51,6 +51,8 @@ export interface Frame {
   captionAt: { x: number; y: number } | null;
   /** Doc 17 beat 7, over the view of the town. Null the rest of the time. */
   actCard?: string | null;
+  /** The play area black under the spoken line (doc 57 B3's ride). */
+  overBlack?: boolean;
   /**
    * Doc 17 beat 8: "Control. Verb panel appears." Before that beat there is
    * no panel, because there is nothing the player may do with it.
@@ -678,6 +680,7 @@ export class Renderer {
     this.drawPeople();
     this.drawForeground();
     this.screen.context.restore();
+    if (frame.overBlack) this.screen.fill(0, 0, NATIVE_WIDTH, PLAY_HEIGHT, this.screen.role('overlayBg'));
     // The response to an option is drawn above the option list, not instead
     // of it -- otherwise picking an option appears to do nothing.
     this.drawSay(frame.sayLines);

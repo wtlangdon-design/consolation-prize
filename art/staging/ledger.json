@@ -14024,6 +14024,63 @@
    "acceptedBy": null,
    "by": "claude, Room 15 builder (doc 55 section 3, errata 72 E)",
    "at": "2026-11-05T03:19:43.041Z"
+  },
+  {
+   "assetId": "room-15",
+   "attempt": 3,
+   "from": "art/staging/room-15/livery-man/livery-man.png",
+   "derivedFrom": "art/staging/room-15/livery-man-01/sheet.png",
+   "provenance": "art/staging/room-15/livery-man/livery-man.json",
+   "to": "art/actors/room-15-livery-man.png",
+   "hash": "9f2f9ebb7cb80364e1be1a67cfe244bb8cbacd0c9dc5e104ceb0dc46dd4899fe",
+   "sourceHash": "2fb1579419ae0713f46cdac875c6b0e9ab821b28554cbd93c8d616d12dfed137",
+   "replacedHash": "9f2f9ebb7cb80364e1be1a67cfe244bb8cbacd0c9dc5e104ceb0dc46dd4899fe",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 15 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-05T03:25:18.370Z"
+  },
+  {
+   "assetId": "room-15",
+   "attempt": 4,
+   "from": "art/staging/room-15/grievance/grievance.png",
+   "derivedFrom": "art/staging/room-15/grievance-01/sheet.png",
+   "provenance": "art/staging/room-15/grievance/grievance.json",
+   "to": "art/actors/room-15-grievance.png",
+   "hash": "3736fc23ff317c86c9b0feb22905c0998d826517ce95b6096dd48978876f1302",
+   "sourceHash": "ed8195c8949e58ffa5fe3f812f682ec990920cc26b35dacbc1ec4da898176a04",
+   "replacedHash": "3736fc23ff317c86c9b0feb22905c0998d826517ce95b6096dd48978876f1302",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 15 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-05T03:25:18.396Z"
+  },
+  {
+   "assetId": "room-15",
+   "attempt": 5,
+   "from": "art/staging/room-15/mules/mules.png",
+   "derivedFrom": "art/staging/room-15/mules-01/sheet.png",
+   "provenance": "art/staging/room-15/mules/mules.json",
+   "to": "art/actors/room-15-mules.png",
+   "hash": "9a2ee7643a7c52a095ee13f6384165082acb0879df01ccc6e6266acc506c3d2f",
+   "sourceHash": "749da1866e1730daee5ef7ad655c562af625e33797af059e6cf2ebc93ea76342",
+   "replacedHash": "94130e4e3418b0d3a57aa5104801adb66323623edcbb06a4500e941989208b0d",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 15 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-05T03:25:18.434Z"
   }
  ],
  "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."

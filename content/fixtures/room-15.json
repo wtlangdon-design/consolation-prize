@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 15, the livery stable. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r15-a",
+   "label": "R15-A Act I, the stable as found: the livery man, Grievance, the blanket (B2)",
+   "room": "livery",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "four_dollars",
+    "watch"
+   ],
+   "derivedFrom": [
+    "docs/04-dialogue-trees.md::THE LIVERY MAN — one node",
+    "docs/57-puzzle-completion.md::B2 · Get two days out of town"
+   ],
+   "note": "TALK TO the livery man: Grievance's refusal, the man she moved for (B2), then the tune; borrow the blanket."
+  },
+  {
+   "id": "r15-b",
+   "label": "R15-B Act II, the tune heard and Vessel's whereabouts known: the fork on Grievance (B3)",
+   "room": "livery",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_PIKE_DEAD": true,
+    "T_SWINDLED": true,
+    "ACT": 2,
+    "T_GRIEVANCE_MOTT": true,
+    "T_HUM_HEARD": true,
+    "T_VESSEL_LOCATION": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed"
+   ],
+   "puzzles": {
+    "A1": "complete",
+    "A3": "complete",
+    "B1": "complete",
+    "B2": "complete"
+   },
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::B3 · The Grievance puzzle",
+    "docs/54-batch-c.md::B3 — the Grievance puzzle"
+   ],
+   "notBuilt": [
+    "T_SWINDLED and T_VESSEL_LOCATION are written in built rooms (3, 9); set here as their outcomes so the room starts ready"
+   ],
+   "note": "USE THE TUNING FORK on Grievance: the corrected tune, 'Twelve years.', the ride over black, and the Nugget."
+  }
+ ]
+}
