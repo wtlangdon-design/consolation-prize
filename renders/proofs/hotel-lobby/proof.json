@@ -1,0 +1,477 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "hotel_lobby",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "e8affd93ecf70141149fde741a3d247a44f9f6a3",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": "hotel-lobby",
+ "routeLog": [
+  "action 1 (wait): waited 2.5s",
+  "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up",
+  "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit",
+  "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED",
+  "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road",
+  "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever.",
+  "action 13 (wait): waited 3s",
+  "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road",
+  "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it",
+  "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it",
+  "action 17 (wait): waited 6s",
+  "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger",
+  "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street",
+  "action 20 (wait): waited 2s",
+  "action 21 (click): clicked world 2950,790 -- west along the street toward the hotel",
+  "action 22 (wait): waited 5s",
+  "action 23 (click): clicked main_street/to_hotel at world 2707,474 -- the hotel's door, Main Street's",
+  "action 24 (waitFor): reached {\"room\":\"hotel_lobby\"} in room hotel_lobby",
+  "action 25 (wait): waited 3s",
+  "action 1 (wait): waited 2s"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 691,
+    "xs": [
+     950,
+     763,
+     1138,
+     575,
+     1325,
+     388,
+     1513,
+     200,
+     1700
+    ],
+    "expect": 375,
+    "x": 950
+   },
+   "at": [
+    950,
+    691
+   ],
+   "reportedHeight": 375,
+   "expected": 375,
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "bounds": [
+    755,
+    316,
+    389,
+    414
+   ],
+   "order": 0,
+   "renderedHeight": 375,
+   "renderedBottom": 690,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     950,
+     763,
+     1138,
+     575,
+     1325,
+     388,
+     1513,
+     200,
+     1700
+    ],
+    "expect": 487,
+    "x": 950
+   },
+   "at": [
+    950,
+    857
+   ],
+   "reportedHeight": 487,
+   "expected": 487,
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "bounds": [
+    697,
+    370,
+    505,
+    538
+   ],
+   "order": 0,
+   "renderedHeight": 508,
+   "renderedBottom": 857,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "hotel_clerk",
+   "feet": [
+    1209,
+    449
+   ],
+   "sheet": "art/actors/room-18-clerk.png",
+   "clipPlane": 1,
+   "box": {
+    "x": 1149,
+    "y": 311,
+    "width": 121,
+    "height": 140
+   },
+   "seen": {
+    "x": 1152,
+    "y": 318,
+    "width": 118,
+    "height": 132,
+    "bottom": 449,
+    "right": 1269,
+    "changed": 7716
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "hotel_lobby",
+   "clock": 122.17660000000001,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      770
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 428,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      78,
+      342,
+      444,
+      473
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:hotel_lobby",
+     "path": "art/backgrounds/room-18-hotel-lobby.png",
+     "drawn": "art/backgrounds/room-18-hotel-lobby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7e6ff465b585ebb64cfe5250b169151c5227eb2e32a293456238b99b04cda611"
+    },
+    {
+     "key": "art/masks/room-18-plane-1.png",
+     "path": "art/masks/room-18-plane-1.png",
+     "drawn": "art/masks/room-18-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f53b990f561f73477584455858de999708251f28486bfd3f26d8ab347bcfb1a7"
+    },
+    {
+     "key": "art/actors/room-18-clerk.png",
+     "path": "art/actors/room-18-clerk.png",
+     "drawn": "art/actors/room-18-clerk.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "37c1b61e732f827dad1ad7dd2716c592bce980959ecd0be2feb7de866427999c"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [],
+   "capturedAt": "2026-11-05T04:48:53.727Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "d5e990a03f7e7634564c5db70329c35e7d6df6e2b7f8df9db237237c7e65538f"
+  },
+  {
+   "panel": "A",
+   "room": "hotel_lobby",
+   "clock": 123.0266,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      770
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 428,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:hotel_lobby",
+     "path": "art/backgrounds/room-18-hotel-lobby.png",
+     "drawn": "art/backgrounds/room-18-hotel-lobby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7e6ff465b585ebb64cfe5250b169151c5227eb2e32a293456238b99b04cda611"
+    },
+    {
+     "key": "art/masks/room-18-plane-1.png",
+     "path": "art/masks/room-18-plane-1.png",
+     "drawn": "art/masks/room-18-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f53b990f561f73477584455858de999708251f28486bfd3f26d8ab347bcfb1a7"
+    },
+    {
+     "key": "art/actors/room-18-clerk.png",
+     "path": "art/actors/room-18-clerk.png",
+     "drawn": "art/actors/room-18-clerk.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "37c1b61e732f827dad1ad7dd2716c592bce980959ecd0be2feb7de866427999c"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T04:48:54.749Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "03ece553d7c4292cc205f7a6a970353b0479f18435216649a99ba2262514453d"
+  },
+  {
+   "panel": "D",
+   "room": "hotel_lobby",
+   "clock": 131.7095,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_ROOM_GRANTED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      950,
+      857
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 487,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      697,
+      370,
+      505,
+      538
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:hotel_lobby",
+     "path": "art/backgrounds/room-18-hotel-lobby.png",
+     "drawn": "art/backgrounds/room-18-hotel-lobby.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7e6ff465b585ebb64cfe5250b169151c5227eb2e32a293456238b99b04cda611"
+    },
+    {
+     "key": "art/masks/room-18-plane-1.png",
+     "path": "art/masks/room-18-plane-1.png",
+     "drawn": "art/masks/room-18-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f53b990f561f73477584455858de999708251f28486bfd3f26d8ab347bcfb1a7"
+    },
+    {
+     "key": "art/actors/room-18-clerk.png",
+     "path": "art/actors/room-18-clerk.png",
+     "drawn": "art/actors/room-18-clerk.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "37c1b61e732f827dad1ad7dd2716c592bce980959ecd0be2feb7de866427999c"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)",
+    "cast(true)",
+    "stand(950,691)",
+    "cast(false)",
+    "cast(true)",
+    "stand(950,857)",
+    "cast(false)",
+    "cast(true)",
+    "flag T_ROOM_GRANTED=true"
+   ],
+   "capturedAt": "2026-11-05T04:49:03.431Z",
+   "intent": "principal changed state: T_ROOM_GRANTED (A2, the fork on the piano with the clerk's leave). Visible consequence: none in the picture -- the stairs become a way up; the frame is taken to show the room unchanged.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "415c6219cc5c88386765b567027eb8de53ee825ce3b0a0f03bb4c33d469abe9a",
+   "changedBy": "flags"
+  }
+ ],
+ "failures": [
+  "ambient hotel_clerk: declares clipPlane 1 and is drawn to y449, 0px from its feet at y449. The plane did not mask it: the counter is behind her, not in front."
+ ],
+ "passed": false,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": false,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T04:49:03.431Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 378694,
+  "panels": 5,
+  "scale": 0.5
+ }
+}
