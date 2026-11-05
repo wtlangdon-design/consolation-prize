@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: a row of abandoned gold claims on a hillside at night. Count the claim markers along the row: there are TEN wooden posts with boards, from the left edge to near the right edge.
+
+Make exactly ONE change: add an ELEVENTH claim marker, so the row has eleven. Put it at the far right end of the row, in the space between the tenth marker and the right edge of the picture, at the same height on the hillside as the others and the same size -- a weathered wooden post with a board, standing in front of its own shallow, dark hole with a small heap of spoil beside it, exactly like its neighbours. Its board is BARE: plain weathered wood with nothing painted on it at all, no marks.
+
+Change nothing else. Same camera, same pixel grid, same big square pixels, same colours, same night light; the ten markers, the holes, the sluice frames, the path and the boot exactly as they are. Leave the light grey strips above and below the picture exactly as they are. No people, no text, no numerals.

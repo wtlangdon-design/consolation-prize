@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "claim_row",
+ "note": "ROOM 27's PROOF SPEC. The row is on the map once Thad has walked the road to the claims (errata 99 A); the proof starts from fixture r27-a and says so, and the doors pass walks up to the road and back by the map.",
+ "fixture": "r27-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "Room 27 draws the same in every state: doc 02 sites no puzzle here and Part Two-B wrote no act variant for the row (doc 05). Errata 99 C."
+ }
+}

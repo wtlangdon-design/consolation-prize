@@ -4840,3 +4840,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Ten subjects and sixty-five lines; THE MAN PANNING crouched at the water, swirling; at night. On the map once Thad has walked the road to the claims (`?fixture=r26-a`, or `?room=creek`). Played in `tests/room-26.test.ts`; doc 02 sites no puzzle here. Proofs under `renders/proofs/creek/`, started from fixture r26-a.
 
 **Open, for Tyler:** (a) The sluice is on the far bank, across the water -- its subjects are looked at from this side. (b) How the diggings are reached (errata 99 A) applies to all five of Rooms 26-30.
+
+## Q169 · Room 27, the abandoned claim row: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99, delegated); BUILT, room-27 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Fifteen subjects and ninety-three lines; eleven markers, the last a prop; at night; nobody. On the map once Thad has walked the road to the claims (`?room=claim_row`). Played in `tests/room-27.test.ts`; doc 02 sites no puzzle here. Proofs under `renders/proofs/claim-row/`, started from fixture r27-a.
+
+**Open, for Tyler:** (a) THE BLANK ONE is cut from the tenth marker and stands nearer, at the path's end, because the generator would not draw an eleventh in the row. (b) The markers carry marks, not their names; the names are in the hover labels.

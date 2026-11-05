@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: a row of abandoned gold claims on a hillside at night, wooden claim markers in a row in front of their holes. At the far right end of the row there is a plain GREY placeholder shape -- a post with a board on it -- and a dark hole behind it. It stands where the eleventh marker of the row goes.
+
+Make exactly ONE change: paint the grey placeholder as a real claim marker, exactly like its neighbours to the left -- a weathered wooden post with a board, in the same night light, standing in front of its own shallow dark hole with a small heap of spoil beside it. Its board is BARE: plain weathered wood with nothing painted on it at all, no marks. No grey left anywhere.
+
+Change nothing else. Same camera, same pixel grid, same big square pixels, same colours, same night light; every other marker, the holes, the sluice frames, the path and the boot exactly as they are. Leave the light grey strips above and below the picture exactly as they are. No people, no text, no numerals.

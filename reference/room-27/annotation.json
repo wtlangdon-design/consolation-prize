@@ -1,0 +1,228 @@
+{
+ "room": "claim_row",
+ "plate": "art/backgrounds/room-27-claim-row.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-27/plate-01/candidate-lifted-1920x864.png, room-27 attempt 2, a 20:9 crop from y 190, lifted by 1.3 toward the approved night rooms -- frame.json). The eleventh marker is a prop (art/props/room-27-blank-marker.png, tools/art/room27-marker.py).",
+ "plateShipping": "art/backgrounds/room-27-claim-row.png",
+ "plateShippingHash": "239199d6d52a",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   150,
+   600
+  ],
+  [
+   1900,
+   600
+  ],
+  [
+   1900,
+   858
+  ],
+  [
+   150,
+   858
+  ]
+ ],
+ "walkableNote": "THE PATH, worn deep, in front of the row.",
+ "scaling": {
+  "far": {
+   "y": 600,
+   "height": 240
+  },
+  "near": {
+   "y": 858,
+   "height": 416
+  },
+  "note": "ROOM 27'S DEPTH, FROM THE MASTER: Thad stood with his feet at y 701 and was drawn about 309 tall; along Room 5's slope (0.68 a row) that is 240 at the band's far edge and 416 at its near."
+ },
+ "entrance": [
+  260,
+  790
+ ],
+ "entrances": [
+  {
+   "from": "claims_road",
+   "at": [
+    260,
+    790
+   ],
+   "facing": "right",
+   "note": "Up from the road, at left."
+  },
+  {
+   "from": "default",
+   "at": [
+    260,
+    790
+   ],
+   "facing": "right",
+   "note": "As from the road."
+  },
+  {
+   "from": "town_map",
+   "at": [
+    260,
+    790
+   ],
+   "facing": "right",
+   "note": "From the map, as from the road."
+  }
+ ],
+ "hotspots": {
+  "claim_marker_eureka": [
+   83,
+   255,
+   124,
+   232
+  ],
+  "claim_marker_the_motherlode": [
+   318,
+   255,
+   124,
+   232
+  ],
+  "claim_marker_providence": [
+   528,
+   255,
+   124,
+   232
+  ],
+  "claim_marker_the_sure_thing": [
+   706,
+   255,
+   124,
+   232
+  ],
+  "claim_marker_patience": [
+   874,
+   255,
+   124,
+   232
+  ],
+  "claim_marker_lucky_dan_s": [
+   1046,
+   255,
+   124,
+   232
+  ],
+  "claim_marker_bonanza": [
+   1218,
+   255,
+   124,
+   232
+  ],
+  "claim_marker_glory_hole": [
+   1378,
+   255,
+   124,
+   232
+  ],
+  "claim_marker_the_widow_s_mite": [
+   1550,
+   255,
+   124,
+   232
+  ],
+  "claim_marker_new_canaan": [
+   1733,
+   255,
+   124,
+   232
+  ],
+  "claim_marker_the_blank_one": [
+   1795,
+   410,
+   125,
+   245
+  ],
+  "boot": [
+   1195,
+   690,
+   110,
+   55
+  ],
+  "workings": [
+   0,
+   360,
+   1720,
+   170
+  ],
+  "sluice_frames": [
+   1090,
+   30,
+   760,
+   190
+  ],
+  "path": [
+   0,
+   560,
+   1920,
+   304
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. The markers take doc 05's names left to right: EUREKA is 'the first marker in the row'; THE MOTHERLODE, 'in letters that used up two boards', the other two-board marker; the rest in doc 05's order; THE BLANK ONE, 'the last marker', the prop at the path's end (errata 99 C). THE PATH is walked on by a bare click.",
+ "people": {},
+ "exits": {
+  "to_claims_road": [
+   0,
+   560,
+   110,
+   304
+  ]
+ },
+ "exitWalkTo": {
+  "to_claims_road": {
+   "x": 200,
+   "y": 790,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [],
+ "defaultVerbs": {
+  "claim_marker_eureka": "LOOK_AT",
+  "claim_marker_the_motherlode": "LOOK_AT",
+  "claim_marker_providence": "LOOK_AT",
+  "claim_marker_the_sure_thing": "LOOK_AT",
+  "claim_marker_patience": "LOOK_AT",
+  "claim_marker_lucky_dan_s": "LOOK_AT",
+  "claim_marker_bonanza": "LOOK_AT",
+  "claim_marker_glory_hole": "LOOK_AT",
+  "claim_marker_the_widow_s_mite": "LOOK_AT",
+  "claim_marker_new_canaan": "LOOK_AT",
+  "claim_marker_the_blank_one": "LOOK_AT",
+  "boot": "LOOK_AT",
+  "workings": "LOOK_AT",
+  "sluice_frames": "LOOK_AT",
+  "path": "WALK_TO"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click, except THE PATH, which is walked on.",
+ "props": [
+  {
+   "id": "blank_marker",
+   "sheet": "art/props/room-27-blank-marker.png",
+   "x": 1855,
+   "y": 650,
+   "frame": [
+    0,
+    0,
+    114,
+    237
+   ],
+   "note": "The eleventh marker, THE BLANK ONE (errata 99 C): cut from the plate's tenth, its board cleared bare (tools/art/room27-marker.py)."
+  }
+ ],
+ "occlusion": {
+  "note": "No plane: the walk band is the path, in front of the row.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}

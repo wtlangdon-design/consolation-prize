@@ -1,0 +1,190 @@
+{
+ "schema": 1,
+ "id": "room-27-claim-row",
+ "room": "claim_row",
+ "docRoom": 27,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 27 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/08-examine-batch-1.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-27.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "One state; no act variant (doc 05 Part Two-B); night; on the map after the road."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-27/graybox.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Every subject is plate but the eleventh marker, a prop."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-27.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Nobody: 'Nobody comes up here' (doc 08)."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/claim-row/life/life.json"
+   ],
+   "note": "Nobody up here; the row is still, as doc 08 writes it."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-27-blank-marker.png"
+   ],
+   "note": "The eleventh marker stands on the path's end."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-27/annotation.json",
+    "tools/check-night-exposure.mjs"
+   ],
+   "note": "Night, lifted to the approved night rooms' level."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-27.test.ts",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "No puzzle is sited here."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-27.json",
+    "content/rooms/claim-row.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 93 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-27: 4 of 4 operations (master, plate, two asks for the eleventh marker)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/claim-row.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-27/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/claim-row/proof.json"
+   ],
+   "note": "Panel D: none -- one state. Started from fixture r27-a."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/claim-row/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/claim-row/doors/life.json",
+    "tests/room-27.test.ts"
+   ],
+   "note": "Up to the road and back by the map, twice."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-27/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-27-claim-row.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-27/plate-01/frame.json"
+   ],
+   "note": "Attempt 2, lifted by 1.3; promoted provisionally (errata 72 E)."
+  },
+  {
+   "subject": "the eleventh marker",
+   "class": "PROP",
+   "stage": "SHIPPING",
+   "path": "art/props/room-27-blank-marker.png",
+   "evidence": [
+    "tools/art/room27-marker.py"
+   ],
+   "note": "Cut from the plate's tenth marker, its board cleared bare (errata 99 C)."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q169 · Room 27, the abandoned claim row: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99, delegated); BUILT, room-27 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q169 · Room 27, the abandoned claim row: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99, delegated); BUILT, room-27 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

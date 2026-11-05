@@ -1,0 +1,840 @@
+{
+  "schema": 1,
+  "id": "claim_row",
+  "name": "ABANDONED CLAIM ROW",
+  "materialIdentity": "Eleven abandoned claims in a row on a worked hillside, their markers before their holes, a path worn deep in front; night, the town's hour (errata 98, 99)",
+  "note": "Room 27, doc 20: the abandoned claim row, in the diggings below the road to the claims (errata 99 A, C). 'Nobody comes up here' (doc 08).",
+  "background": "art/backgrounds/room-27-claim-row.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "hotspots": [
+    {
+      "id": "boot",
+      "name": "A BOOT",
+      "rect": [
+        1195,
+        690,
+        110,
+        55
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "One boot. Good quality, once. It is not paired with anything.",
+            "repeat": [
+              "A left boot. I looked at the other markers for a right one. There isn't one.",
+              "Good stitching, gone gray. Somebody paid a month's wages for this boot and walked out of it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Wind across the top of it, a hollow little hoot.",
+              "Nothing. It is waiting for the other one, and so, a little, am I."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1250,
+        "y": 858,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim_marker_eureka",
+      "name": "CLAIM MARKER — \"EUREKA\"",
+      "rect": [
+        83,
+        255,
+        124,
+        232
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The first marker in the row. EUREKA, it says, dated the spring of the rush.",
+            "repeat": [
+              "Dated the spring of the rush. He was among the first, and the first to be wrong.",
+              "Someone has scratched a small question mark after it. Not the same hand. A later, sadder hand."
+            ],
+            "then": [
+              "He found the name and nothing else."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind on split wood. The exclamation has weathered off.",
+            "repeat": [
+              "The board ticks in the sun. It has dried out, like the word.",
+              "Nothing. Eureka is a word you only get to say once."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 247,
+        "y": 682,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim_marker_providence",
+      "name": "CLAIM MARKER — \"PROVIDENCE\"",
+      "rect": [
+        528,
+        255,
+        124,
+        232
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "PROVIDENCE. A Rhode Island man, then.",
+            "repeat": [
+              "The lettering is careful, the hand schooled. Somebody's mother taught him that hand, in the same town as mine.",
+              "I find I have stood here longer than at the others. I am not going to examine why."
+            ],
+            "then": [
+              "We are eleven hundred miles from the reference and it did not help him either."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Providence has moved on.",
+            "repeat": [
+              "Wind across the face of it. It sounds like a Sunday afternoon a long way off.",
+              "Nothing. The reference is lost on the territory."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 590,
+        "y": 682,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim_marker_the_sure_thing",
+      "name": "CLAIM MARKER — \"THE SURE THING\"",
+      "rect": [
+        706,
+        255,
+        124,
+        232
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "THE SURE THING. The paint outlasted the certainty.",
+            "repeat": [
+              "Beneath the name, smaller, a date, and smaller still, a second date. On the second, he was sure of something else.",
+              "It is the best-made marker in the row. He was sure of the carpentry, at least."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A loose nail, ringing faintly. The one sure thing on the claim.",
+            "repeat": [
+              "The nail again, ringing when the wind leans.",
+              "The nail, and then nothing. Even the one sure thing is working loose."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 768,
+        "y": 682,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim_marker_patience",
+      "name": "CLAIM MARKER — \"PATIENCE\"",
+      "rect": [
+        874,
+        255,
+        124,
+        232
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "PATIENCE. Abandoned second in the row, the register says.",
+            "repeat": [
+              "The paint is thick and careful, laid on in three coats. He had time for that, at the beginning.",
+              "Nobody has filed on it since. The town learned something here and will not say what."
+            ],
+            "then": [
+              "There is a lesson and nobody wants it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing at all. It ran out.",
+            "repeat": [
+              "Nothing. Not even the wind waits here long.",
+              "Nothing. It was very patient, and then it was not."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 936,
+        "y": 682,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim_marker_the_motherlode",
+      "name": "CLAIM MARKER — \"THE MOTHERLODE\"",
+      "rect": [
+        318,
+        255,
+        124,
+        232
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "THE MOTHERLODE, in letters that used up two boards. Ambition at marker scale.",
+            "repeat": [
+              "He painted the O's as nuggets. He had the whole thing planned, except the gold.",
+              "Knee deep. I measured it against my own knee. The hole never came up to the name."
+            ],
+            "then": [
+              "The hole behind it is knee deep."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Both boards knock in the wind, out of time with each other.",
+            "repeat": [
+              "The two boards knocking, one for MOTHER and one for LODE, and they have never agreed.",
+              "A slow double knock, like someone at a door who does not expect an answer."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "Both boards knocked, out of time. Even leaning on it, you can hear the argument the name lost."
+      },
+      "walkTo": {
+        "x": 380,
+        "y": 682,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim_marker_lucky_dan_s",
+      "name": "CLAIM MARKER — \"LUCKY DAN'S\"",
+      "rect": [
+        1046,
+        255,
+        124,
+        232
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "LUCKY DAN'S. Dan, the story goes, left the territory with money — from selling this marker's claim to the next optimist. The luck was real. It was just all in the leaving.",
+            "repeat": [
+              "DAN'S is in bigger letters than LUCKY. He knew which part he could count on.",
+              "Three men bought this claim from each other after Dan. None of them changed the marker. It was the only thing on it with any value."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A creak with a rhythm to it. Almost a chuckle.",
+            "repeat": [
+              "The creak again, with its rhythm. Dan, laughing all the way to Sacramento.",
+              "Nothing. The joke has been told, and Dan has gone with the punchline."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "I considered taking the marker as a lesson. But the lesson is load-bearing where it stands."
+      },
+      "walkTo": {
+        "x": 1108,
+        "y": 682,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim_marker_bonanza",
+      "name": "CLAIM MARKER — \"BONANZA\"",
+      "rect": [
+        1218,
+        255,
+        124,
+        232
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "BONANZA, misspelled BONANSA, corrected, the correction misspelled.",
+            "repeat": [
+              "The last attempt is the smallest, squeezed in at the edge. He ran out of board and patience together.",
+              "Somebody has since corrected it a fourth time, in chalk, and got it right. Too late to matter to anyone."
+            ],
+            "then": [
+              "He fought that word to a draw and the ground beat him."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. The argument is over.",
+            "repeat": [
+              "Nothing. Neither side is talking.",
+              "Wind in the letters. Even it cannot decide on the Z."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1280,
+        "y": 682,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim_marker_glory_hole",
+      "name": "CLAIM MARKER — \"GLORY HOLE\"",
+      "rect": [
+        1378,
+        255,
+        124,
+        232
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "GLORY HOLE. A mining term, I am assured. The hole is there. The glory is on back order.",
+            "repeat": [
+              "The shaft goes deeper than any other on the row. He was the most certain or the most stubborn, and out here they look the same.",
+              "His initials are cut into the lip of the shaft, at the height of a man sitting on the edge. By the wear, he sat there a long time."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind across the shaft mouth below. A low note, held.",
+            "repeat": [
+              "The low note again, held as long as the wind holds it.",
+              "The note, falling away. The shaft lets it go, the way it let everything go."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1440,
+        "y": 682,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim_marker_the_widow_s_mite",
+      "name": "CLAIM MARKER — \"THE WIDOW'S MITE\"",
+      "rect": [
+        1550,
+        255,
+        124,
+        232
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "THE WIDOW'S MITE. Small letters, careful hand.",
+            "repeat": [
+              "The workings are no wider than her shoulders. She dug them to fit herself, exactly.",
+              "Somebody keeps the marker upright. Not straightened — kept. A stone has been set at its foot, and replaced."
+            ],
+            "then": [
+              "Whoever she was, she dug it herself; the workings are narrow and exact."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The quietest marker in the row. Even the wind lowers its voice.",
+            "repeat": [
+              "Very quiet. The wind goes round it.",
+              "Nothing, and a different nothing from the others. It sounds attended to."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1612,
+        "y": 682,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim_marker_new_canaan",
+      "name": "CLAIM MARKER — \"NEW CANAAN\"",
+      "rect": [
+        1733,
+        255,
+        124,
+        232
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "NEW CANAAN. The promised land, claimed and quit inside one summer.",
+            "repeat": [
+              "On the back, under AND THE LORD, the ghost of more words, gone too pale to follow.",
+              "Claimed and quit in one summer. The promised land took less time to leave than to reach."
+            ],
+            "then": [
+              "The scripture on the reverse has weathered down to 'AND THE LORD.'"
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Split wood, breathing with the heat. The sermon continues at a whisper.",
+            "repeat": [
+              "Split wood, ticking. The sermon has reached a pause.",
+              "Nothing. The congregation has gone home."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1795,
+        "y": 682,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim_marker_the_blank_one",
+      "name": "CLAIM MARKER — THE BLANK ONE",
+      "rect": [
+        1795,
+        410,
+        125,
+        245
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The last marker has no name at all. Either he never chose one or he took it with him.",
+            "repeat": [
+              "Not weathered off. Never painted. The wood is as clean as the day it was set.",
+              "The workings behind it are the deepest on the row. Whoever he was, he did not need a name to dig."
+            ],
+            "then": [
+              "Of the eleven, this is the one I think about."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Not a thing. It never said, and it isn't starting now.",
+            "repeat": [
+              "Nothing.",
+              "Nothing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I asked its name. The wind declined on its behalf. Of the eleven, it is still the one I think about."
+      },
+      "walkTo": {
+        "x": 1858,
+        "y": 759,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "sluice_frames",
+      "name": "THE SLUICE FRAMES",
+      "rect": [
+        1090,
+        30,
+        760,
+        190
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The frames of old sluices, their boards long since borrowed for something else.",
+            "repeat": [
+              "One still has its riffles, nailed in hope and left in place.",
+              "The water they were built for went somewhere else a season later. Even the creek left the row."
+            ],
+            "then": [
+              "The skeleton of an idea about water."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind through the frames, a dry rattle where water should be.",
+            "repeat": [
+              "A loose board tapping, as if asking to be used.",
+              "Nothing. They have been dry long enough to forget."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1470,
+        "y": 682,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "workings",
+      "name": "THE WORKINGS",
+      "rect": [
+        0,
+        360,
+        1720,
+        170
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Eleven holes. Some of them are forty feet deep. Somebody dug forty feet by hand and then stopped and walked away, and I would like to know on which day he decided.",
+            "repeat": [
+              "Every hole on the row is a different depth, and every depth is a different day somebody gave up.",
+              "Some were filled back in, neatly. Most were not. You can tell the tidy men from here."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind, in the holes. It's a low sound.",
+            "repeat": [
+              "Wind in the holes, eleven notes, none of them in tune with another.",
+              "Nothing, in a lull. Eleven holes, holding their breath."
+            ],
+            "then": [
+              "It is almost the same sound as my hole and it is not the same sound at all."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 860,
+        "y": 682,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "path",
+      "name": "THE PATH",
+      "rect": [
+        0,
+        560,
+        1920,
+        304
+      ],
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A path, worn deep, between eleven claims that produced nothing.",
+            "repeat": [
+              "Worn down past the topsoil to the hardpan. A great many days went into this path.",
+              "It is the one thing on the row that was finished."
+            ],
+            "then": [
+              "Somebody walked this every day for a long time."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Nobody comes up here.",
+            "repeat": [
+              "My own boots on it, and nobody else's.",
+              "Nothing. The path has outlasted every reason to walk it."
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_claims_road",
+      "name": "THE ROAD",
+      "stub": true,
+      "rect": [
+        0,
+        560,
+        110,
+        304
+      ],
+      "colour": 0,
+      "to": "claims_road",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: the row is reached through the road to the claims; this is the way back to it. NO DOCUMENT WRITES IT a LOOK or LISTEN: a stub exit (errata 99 A).",
+      "walkTo": {
+        "x": 200,
+        "y": 790,
+        "facing": "left"
+      }
+    }
+  ],
+  "ambient": [],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-27.json",
+      "reference/room-27/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        150,
+        600,
+        1750,
+        86
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        150,
+        686,
+        1750,
+        86
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        150,
+        772,
+        1750,
+        86
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      150,
+      600
+    ],
+    [
+      1900,
+      600
+    ],
+    [
+      1900,
+      858
+    ],
+    [
+      150,
+      858
+    ]
+  ],
+  "entrance": [
+    260,
+    790
+  ],
+  "entrances": [
+    {
+      "from": "claims_road",
+      "at": [
+        260,
+        790
+      ],
+      "facing": "right",
+      "note": "Up from the road, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        260,
+        790
+      ],
+      "facing": "right",
+      "note": "As from the road."
+    },
+    {
+      "from": "town_map",
+      "at": [
+        260,
+        790
+      ],
+      "facing": "right",
+      "note": "From the map, as from the road."
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 150,
+          "y": 600
+        },
+        {
+          "x": 1900,
+          "y": 600
+        },
+        {
+          "x": 1900,
+          "y": 686
+        },
+        {
+          "x": 150,
+          "y": 686
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 240,
+        "nearY": 858,
+        "nearHeight": 416
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 150,
+          "y": 686
+        },
+        {
+          "x": 1900,
+          "y": 686
+        },
+        {
+          "x": 1900,
+          "y": 772
+        },
+        {
+          "x": 150,
+          "y": 772
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 240,
+        "nearY": 858,
+        "nearHeight": 416
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 150,
+          "y": 772
+        },
+        {
+          "x": 1900,
+          "y": 772
+        },
+        {
+          "x": 1900,
+          "y": 858
+        },
+        {
+          "x": 150,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 240,
+        "nearY": 858,
+        "nearHeight": 416
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [],
+  "props": [
+    {
+      "id": "blank_marker",
+      "sheet": "art/props/room-27-blank-marker.png",
+      "x": 1855,
+      "y": 650,
+      "frame": [
+        0,
+        0,
+        114,
+        237
+      ],
+      "note": "The eleventh marker, THE BLANK ONE (errata 99 C): cut from the plate's tenth, its board cleared bare (tools/art/room27-marker.py)."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-27/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}
