@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "claims_road",
- "commit": "cc39cdff15908fb65233460caae95a8b59e7c15e",
+ "commit": "996a74bd110136ba94ceb4ca84cf7898243a093c",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -12,10 +12,10 @@
  "entryRoute": "claims-road",
  "warped": false,
  "lifeRoute": "claims-road-doors",
- "durationSeconds": 127.88,
+ "durationSeconds": 127.59,
  "events": [
   {
-   "t": 2.66,
+   "t": 2.67,
    "line": "entry route claims-road: 23 action(s)"
   },
   {
@@ -111,23 +111,23 @@
    "line": "action 23 (wait): waited 3s"
   },
   {
-   "t": 109.92,
+   "t": 109.95,
    "line": "in claims_road; life route: 17 action(s)"
   },
   {
-   "t": 110.4,
+   "t": 110.44,
    "line": "capture 00-arrived: room claims_road, says null, options 0, control null"
   },
   {
-   "t": 110.56,
+   "t": 110.63,
    "line": "action 1 (click): clicked claims_road/to_main_street at world 70,752 -- back down to town"
   },
   {
-   "t": 110.99,
+   "t": 110.95,
    "line": "action 1 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
   },
   {
-   "t": 112,
+   "t": 111.97,
    "trace": {
     "says": null,
     "control": null,
@@ -142,7 +142,7 @@
    }
   },
   {
-   "t": 113,
+   "t": 112.98,
    "trace": {
     "says": null,
     "control": null,
@@ -157,11 +157,11 @@
    }
   },
   {
-   "t": 114,
+   "t": 113.95,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 114,
+   "t": 113.97,
    "trace": {
     "says": null,
     "control": null,
@@ -176,19 +176,19 @@
    }
   },
   {
-   "t": 114.57,
+   "t": 114.48,
    "line": "capture 01-out: room main_street, says null, options 0, control null"
   },
   {
-   "t": 114.72,
+   "t": 114.66,
    "line": "action 1 (click): clicked main_street/to_claims_road at world 3450,467 -- and out again by THE ROAD TO THE CLAIMS"
   },
   {
-   "t": 115.01,
+   "t": 114.98,
    "line": "action 1 (waitFor): reached {\"room\":\"claims_road\"} in room claims_road"
   },
   {
-   "t": 116.05,
+   "t": 116.01,
    "trace": {
     "says": null,
     "control": null,
@@ -203,11 +203,11 @@
    }
   },
   {
-   "t": 117.02,
+   "t": 116.98,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 117.05,
+   "t": 117,
    "trace": {
     "says": null,
     "control": null,
@@ -222,19 +222,19 @@
    }
   },
   {
-   "t": 117.57,
+   "t": 117.45,
    "line": "capture 01-in: room claims_road, says null, options 0, control null"
   },
   {
-   "t": 117.72,
+   "t": 117.65,
    "line": "action 1 (click): clicked claims_road/to_main_street at world 70,752 -- back down to town"
   },
   {
-   "t": 118.02,
+   "t": 117.99,
    "line": "action 1 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
   },
   {
-   "t": 119.03,
+   "t": 118.99,
    "trace": {
     "says": null,
     "control": null,
@@ -249,7 +249,7 @@
    }
   },
   {
-   "t": 120.03,
+   "t": 120,
    "trace": {
     "says": null,
     "control": null,
@@ -264,11 +264,11 @@
    }
   },
   {
-   "t": 121.02,
+   "t": 120.99,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 121.04,
+   "t": 121.01,
    "trace": {
     "says": null,
     "control": null,
@@ -283,19 +283,19 @@
    }
   },
   {
-   "t": 121.66,
+   "t": 121.53,
    "line": "capture 02-out: room main_street, says null, options 0, control null"
   },
   {
-   "t": 121.79,
+   "t": 121.67,
    "line": "action 1 (click): clicked main_street/to_claims_road at world 3450,467 -- and out again by THE ROAD TO THE CLAIMS"
   },
   {
-   "t": 122.11,
+   "t": 122,
    "line": "action 1 (waitFor): reached {\"room\":\"claims_road\"} in room claims_road"
   },
   {
-   "t": 123.12,
+   "t": 123.04,
    "trace": {
     "says": null,
     "control": null,
@@ -310,11 +310,11 @@
    }
   },
   {
-   "t": 124.11,
+   "t": 124,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 124.14,
+   "t": 124.01,
    "trace": {
     "says": null,
     "control": null,
@@ -329,7 +329,7 @@
    }
   },
   {
-   "t": 124.71,
+   "t": 124.48,
    "line": "capture 02-in: room claims_road, says null, options 0, control null"
   }
  ],
@@ -337,11 +337,11 @@
   {
    "name": "00-arrived",
    "why": null,
-   "t": 110.4,
+   "t": 110.43,
    "file": "renders/proofs/claims-road/doors/raw-captures-ignored/00-arrived.png",
-   "hash": "370657f78517db1d3d718d0f2d26890f942dd90b521d068f84d782a92c03070c",
+   "hash": "640b6c9a907c91beaba0bff448c0a8f9979f0a65ea25944ceb7b11094c80fd94",
    "room": "claims_road",
-   "clock": 110.1173,
+   "clock": 110.1318,
    "control": null,
    "says": null,
    "options": 0,
@@ -414,11 +414,11 @@
   {
    "name": "01-out",
    "why": null,
-   "t": 114.56,
+   "t": 114.47,
    "file": "renders/proofs/claims-road/doors/raw-captures-ignored/01-out.png",
-   "hash": "925fe381e622c3f6eec7956a4916d14d8b658959a5a718bfbe9390bbf28a3ec4",
+   "hash": "0717b48609d081e8fafdf4d69601c5dd16156e151aa85b4cb19b5e82c77e8e23",
    "room": "main_street",
-   "clock": 114.36710000000001,
+   "clock": 114.11489999999999,
    "control": null,
    "says": null,
    "options": 0,
@@ -456,7 +456,7 @@
      "height": 112,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-front/idle-04.png",
+     "from": "art/actors/thad-idle-front/idle-03.png",
      "bounds": [
       3410,
       491,
@@ -559,11 +559,11 @@
   {
    "name": "01-in",
    "why": null,
-   "t": 117.56,
+   "t": 117.44,
    "file": "renders/proofs/claims-road/doors/raw-captures-ignored/01-in.png",
-   "hash": "28e727d870ff9473f1e623cd57496f83a8ad59d632f256b6cdbb224fe038b94d",
+   "hash": "c6d61626dafc9bcaff34d1d6e6c4a812f2e49bf286ee8b69a1f56da724c844e5",
    "room": "claims_road",
-   "clock": 117.38369999999999,
+   "clock": 117.1315,
    "control": null,
    "says": null,
    "options": 0,
@@ -636,11 +636,11 @@
   {
    "name": "02-out",
    "why": null,
-   "t": 121.66,
+   "t": 121.52,
    "file": "renders/proofs/claims-road/doors/raw-captures-ignored/02-out.png",
-   "hash": "8bb31c1d60f4a55c31dc4a9c5b88a96f12a4a21b6e067625863775e0b19c3047",
+   "hash": "4e374a070108ecc6daf6b2bfd7a391b8b25f46f11743cf67421640b4bf4dc1b8",
    "room": "main_street",
-   "clock": 121.4502,
+   "clock": 121.31460000000001,
    "control": null,
    "says": null,
    "options": 0,
@@ -781,11 +781,11 @@
   {
    "name": "02-in",
    "why": null,
-   "t": 124.7,
+   "t": 124.47,
    "file": "renders/proofs/claims-road/doors/raw-captures-ignored/02-in.png",
-   "hash": "de6c0d03f2d4f10eccf620af0d2c3a3d017a63f81f0fd94b2f5b998aee1c4a4a",
+   "hash": "eca3eaeb754d3034e4f08d4acc1da3d4488094d0c8d371f0d87449010398f1e6",
    "room": "claims_road",
-   "clock": 124.5334,
+   "clock": 124.16460000000001,
    "control": null,
    "says": null,
    "options": 0,
@@ -823,7 +823,7 @@
      "height": 329,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
       69,
       461,
@@ -857,12 +857,12 @@
   }
  ],
  "failures": [
-  "capture 00-arrived: miners_back's sheet (none declared) is not loaded -- she is absent",
-  "capture 00-arrived: miners_out's sheet (none declared) is not loaded -- she is absent",
-  "capture 01-in: miners_back's sheet (none declared) is not loaded -- she is absent",
-  "capture 01-in: miners_out's sheet (none declared) is not loaded -- she is absent",
-  "capture 02-in: miners_back's sheet (none declared) is not loaded -- she is absent",
-  "capture 02-in: miners_out's sheet (none declared) is not loaded -- she is absent"
+  "capture 00-arrived: miners_back's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 00-arrived: miners_out's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 01-in: miners_back's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 01-in: miners_out's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 02-in: miners_back's sheet art/actors/room-22-miners.png is not loaded -- she is absent",
+  "capture 02-in: miners_out's sheet art/actors/room-22-miners.png is not loaded -- she is absent"
  ],
  "passed": false,
  "judgement": {
@@ -875,7 +875,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 127.88s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 127.59s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -890,5 +890,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T15:41:40.828Z"
+ "at": "2026-11-05T15:49:31.678Z"
 }
