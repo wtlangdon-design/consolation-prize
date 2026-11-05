@@ -1,0 +1,88 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 28, Sheng's laundry. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r28-a",
+   "label": "R28-A Act II, Pratt told to: who pays him, Sheng's paper, Sheng's terms (D3)",
+   "room": "laundry",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_EGGS_ON_ACCOUNT": true,
+    "T_TONIC_ON_ACCOUNT": true,
+    "T_BLANKET_BORROWED": true,
+    "ACT": 2,
+    "T_SURVEY_NEEDED": true,
+    "T_NINETY_DAYS": true,
+    "T_SEEN_CLAIMS_ROAD": true,
+    "T_PRATT_PAID": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map"
+   ],
+   "derivedFrom": [
+    "docs/04-dialogue-trees.md::AH-LAM SHENG",
+    "docs/57-puzzle-completion.md::## D3 · Follow the money"
+   ],
+   "note": "TALK TO Sheng: SHE_A1. 'Who's paying Nickel Pratt?' opens SHE_D1; 'Show me the Thursday ledger.' is Sheng's terms (D3)."
+  },
+  {
+   "id": "r28-b",
+   "label": "R28-B Act II, the Reverend's linen money in hand: the Thursday ledger read (D4, Sheng's half)",
+   "room": "laundry",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_EGGS_ON_ACCOUNT": true,
+    "T_TONIC_ON_ACCOUNT": true,
+    "T_BLANKET_BORROWED": true,
+    "ACT": 2,
+    "T_SURVEY_NEEDED": true,
+    "T_NINETY_DAYS": true,
+    "T_SEEN_CLAIMS_ROAD": true,
+    "T_PRATT_PAID": true,
+    "T_SHENG_HOLDS_PAPER": true,
+    "T_SHENG_TASK": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "linen_money"
+   ],
+   "puzzles": {
+    "D3": "complete"
+   },
+   "derivedFrom": [
+    "docs/04-dialogue-trees.md::`SHE_D1` — the paper *(W1 growth: D3, D4)*",
+    "docs/57-puzzle-completion.md::## D4 · Sheng's task"
+   ],
+   "note": "TALK TO Sheng: SHE_D1. 'I have the Reverend's money.' reads the ledger (D4, T_PRATT_TRAIL). THE LINEN MONEY is the Reverend's, collected on the funeral day at the foot of Boot Hill -- not staged yet (doc 36 Q170), so it is in hand here."
+  }
+ ]
+}

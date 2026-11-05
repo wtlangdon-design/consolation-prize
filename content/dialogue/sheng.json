@@ -1,0 +1,224 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "SHENG",
+  "speaker": "sheng",
+  "name": "AH-LAM SHENG",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (AH-LAM SHENG) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. SHE_D1 opens only while its business is open, so SHE_A1's options are never lost (errata 99 D).",
+  "entries": [
+    {
+      "when": {
+        "T_SHENG_HOLDS_PAPER": true,
+        "T_PRATT_TRAIL": false
+      },
+      "node": "SHE_D1"
+    },
+    {
+      "when": {
+        "T_NEED_TO_DIE": true,
+        "T_PRATT_TRAIL": true,
+        "T_SHENG_LOAN": false
+      },
+      "node": "SHE_D1"
+    }
+  ],
+  "start": "SHE_A1",
+  "nodes": {
+    "SHE_A1": {
+      "id": "SHE_A1",
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 writes SHE_A1 as a table only.",
+      "options": [
+        {
+          "id": "sheng1",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Who's paying Nickel Pratt?",
+          "say": "A man who pays through a second man, so that he has paid nobody. It is a common arrangement here. I hold paper on both of them.",
+          "when": {
+            "T_PRATT_PAID": true
+          },
+          "set": {
+            "T_SHENG_HOLDS_PAPER": true
+          },
+          "goto": "SHE_D1"
+        },
+        {
+          "id": "sheng2",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "You hold paper on the Improvement Company?",
+          "say": "On rather a lot of it. They come in on Thursdays. They are very warm to me on Thursdays."
+        },
+        {
+          "id": "sheng3",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Why does nobody know this?",
+          "say": "Because I do laundry."
+        },
+        {
+          "id": "sheng4",
+          "tag": "TOPIC",
+          "afterUse": "remove",
+          "text": "Was the Colonel in the Eleventh Ohio Mounted?",
+          "say": "There is no Eleventh Ohio Mounted. There is a Ninth. My brother was in it.",
+          "add": {
+            "WAR_CONTRADICTIONS": 1
+          }
+        },
+        {
+          "id": "sheng5",
+          "tag": "COMIC",
+          "afterUse": "counted-repeat",
+          "text": "I have four dollars.",
+          "say": "You have two dollars and forty cents. I have watched you spend the rest. You are not a careful man, Mr. Grubb, but you are an entertaining one.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "You do not. I would have heard."
+            },
+            {
+              "selection": 3,
+              "say": "Mr. Grubb, I keep your accounts better than you do, and I do not keep your accounts."
+            }
+          ]
+        },
+        {
+          "id": "sheng6",
+          "tag": "ASSAY",
+          "afterUse": "remove",
+          "text": "Have you ever been in the Liar's Assay?",
+          "exchange": [
+            {
+              "speaker": "sheng",
+              "line": "Once. A Company man told me, 'The Improvement Company came to me on their knees.' I said, 'The Company comes to everyone on their knees. It is how they get under the door.'"
+            },
+            {
+              "speaker": "sheng",
+              "line": "He paid his account the next morning. In full."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_18": true
+          }
+        },
+        {
+          "id": "shengx",
+          "tag": "EXIT",
+          "text": "I am going to leave now, in a dignified manner.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "SHE_D1": {
+      "id": "SHE_D1",
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 writes SHE_D1 as a table only.",
+      "opening": [
+        {
+          "speaker": "sheng",
+          "line": "You want money."
+        },
+        {
+          "speaker": "thad",
+          "line": "I want information."
+        },
+        {
+          "speaker": "sheng",
+          "line": "Information is money that has learned to read. Sit down."
+        }
+      ],
+      "openingOnce": "T_SHENG_PAPER_HEARD",
+      "options": [
+        {
+          "id": "sheng1",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Show me the Thursday ledger.",
+          "say": "I will read it to you, when you have done me a service. Reverend Sowerby owes me for nine funerals' linens. He pays only on funeral days, because only on funeral days does he have money. Collect it.",
+          "set": {
+            "T_SHENG_TASK": true
+          },
+          "puzzle": {
+            "D3": "complete"
+          }
+        },
+        {
+          "id": "sheng1a",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "I have the Reverend's money.",
+          "exchange": [
+            {
+              "speaker": "sheng",
+              "line": "Then I will read. A ledger leaves this room, my customers leave town."
+            },
+            {
+              "speaker": "sheng",
+              "line": "And on the Company's own books, a line you will want: Claim Two, contingent, eleven thousand dollars."
+            }
+          ],
+          "when": {
+            "T_SHENG_TASK": true
+          },
+          "set": {
+            "T_PRATT_TRAIL": true
+          },
+          "holds": [
+            "linen_money"
+          ],
+          "puzzle": {
+            "D4": "complete"
+          }
+        },
+        {
+          "id": "sheng2",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "I need four dollars.",
+          "say": "You need two dollars and sixty cents, and you will have it at ten per cent, and you will pay it back, because I have watched you and you are honest in the one way that matters: absently.",
+          "when": {
+            "T_NEED_TO_DIE": true,
+            "T_PRATT_TRAIL": true
+          },
+          "set": {
+            "T_SHENG_LOAN": true
+          },
+          "gives": [
+            "loan"
+          ]
+        },
+        {
+          "id": "sheng3",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Why help me?",
+          "say": "You are the first customer in nine years whose collar and whose story got dirty in the same place. It suggests the story is true."
+        },
+        {
+          "id": "sheng4",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "What do you think is under Claim One?",
+          "say": "Nothing. What is under a story? More story."
+        },
+        {
+          "id": "sheng5",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "Do you ever take a day off?",
+          "say": "On Sundays I do no laundry. I do only banking. It is very restful."
+        },
+        {
+          "id": "shengx",
+          "tag": "EXIT",
+          "text": "I am going to leave now, in a dignified manner.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

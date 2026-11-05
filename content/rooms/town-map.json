@@ -92,6 +92,18 @@
    "note": "Doc 20: the abandoned claim row, 'via 22'. On the map once Thad has walked the road to the claims (errata 99 A)."
   },
   {
+   "id": "loc_laundry",
+   "room": "laundry",
+   "at": [
+    1560,
+    340
+   ],
+   "when": {
+    "T_SEEN_CLAIMS_ROAD": true
+   },
+   "note": "Doc 20: Sheng's laundry, 'via 22', at the foot of the high ridge path. On the map once Thad has walked the road to the claims (errata 99 A)."
+  },
+  {
    "id": "loc_undertaker",
    "room": "undertaker",
    "at": [

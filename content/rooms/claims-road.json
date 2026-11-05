@@ -481,6 +481,15 @@
       ],
       "facing": "right",
       "note": "Back from the claim row, by the mile post (errata 99 A)."
+    },
+    {
+      "from": "laundry",
+      "at": [
+        700,
+        800
+      ],
+      "facing": "right",
+      "note": "Back from the laundry, by the mile post (errata 99 A)."
     }
   ],
   "size": [

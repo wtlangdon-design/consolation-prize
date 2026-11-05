@@ -1,0 +1,39 @@
+{
+ "schema": 1,
+ "room": "laundry",
+ "note": "ROOM 28's PROOF SPEC. The laundry is on the map once Thad has walked the road to the claims (errata 99 A); the proof starts from fixture r28-a (Act II, Pratt told to) and says so. The principal change is the paper: asked who pays Pratt, Sheng opens SHE_D1.",
+ "fixture": "r28-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "T_SHENG_HOLDS_PAPER (doc 04 SHE_A1 option 1). Visible consequence: SHE_D1's options -- the ledger, the loan's question, his three topics.",
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "TALK_TO"
+   },
+   {
+    "do": "click",
+    "world": [
+     1177,
+     520
+    ],
+    "why": "Sheng, at his board"
+   },
+   {
+    "do": "waitFor",
+    "dialogue": true,
+    "upTo": 60
+   },
+   {
+    "do": "option",
+    "option": "sheng1",
+    "why": "Who's paying Nickel Pratt?"
+   },
+   {
+    "do": "waitFor",
+    "dialogue": true,
+    "upTo": 90
+   }
+  ]
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "schema": 1,
+ "id": "sheng",
+ "name": "AH-LAM SHENG",
+ "posture": "standing",
+ "room": "laundry",
+ "note": "AH-LAM SHENG (doc 04: 'Laundry; and, in practice, the bank'), at his ironing board ('He is ironing', doc 54). No document describes his looks; he is drawn as room-28's composition master drew him, then on magenta against Thad with his board, shirt and iron (room-28 operation 3), cut by tools/art/room28-sheng.py. His tree opens SHE_A1, and SHE_D1 while its business is open (errata 99 D).",
+ "x": 1177,
+ "y": 690,
+ "zone": 2,
+ "approachRadius": 40,
+ "walkTo": {
+  "x": 930,
+  "y": 770,
+  "facing": "right"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: on the floor before the mangle, clear of the board, facing him.",
+ "tree": "SHENG",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for Sheng.",
+ "sprite": {
+  "sheet": "art/actors/room-28-sheng.png",
+  "frames": [
+   [
+    2,
+    2,
+    292,
+    307
+   ],
+   [
+    296,
+    2,
+    292,
+    307
+   ],
+   [
+    590,
+    2,
+    292,
+    307
+   ],
+   [
+    884,
+    2,
+    292,
+    307
+   ],
+   [
+    1178,
+    2,
+    292,
+    307
+   ],
+   [
+    1472,
+    2,
+    292,
+    307
+   ],
+   [
+    1766,
+    2,
+    292,
+    307
+   ],
+   [
+    2060,
+    2,
+    292,
+    307
+   ]
+  ],
+  "figureHeight": 307,
+  "stature": 0.95,
+  "statureNote": "Slight (doc 04 gives no build; the master drew him a little under Thad).",
+  "rate": 0.25,
+  "phase": 0.2,
+  "breaks": [
+   [
+    3,
+    4,
+    3,
+    4,
+    0
+   ],
+   [
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    5,
+    5,
+    0
+   ],
+   [
+    6,
+    6,
+    6,
+    0
+   ]
+  ],
+  "breakEvery": 7,
+  "talkFrame": 7,
+  "frameNote": "0 rest, ironing · 1 breath · 2 a look up · 3 the stroke · 4 the return · 5 the iron to his face · 6 folding · 7 a dry point, his talk frame. Breathing on 0 and 1; every `breakEvery` seconds one break -- strokes, a look, the heat, the fold (errata 77).",
+  "provenance": "art/staging/room-28/sheng/sheng.json"
+ }
+}

@@ -4846,3 +4846,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Fifteen subjects and ninety-three lines; eleven markers, the last a prop; at night; nobody. On the map once Thad has walked the road to the claims (`?room=claim_row`). Played in `tests/room-27.test.ts`; doc 02 sites no puzzle here. Proofs under `renders/proofs/claim-row/`, started from fixture r27-a.
 
 **Open, for Tyler:** (a) THE BLANK ONE is cut from the tenth marker and stands nearer, at the path's end, because the generator would not draw an eleventh in the row. (b) The markers carry marks, not their names; the names are in the hover labels.
+
+## Q170 · Room 28, Sheng's laundry: built, awaiting Tyler's playthrough; D3 plays, D4's laundry half plays — **RULED 2026-11-05 (errata 99, delegated); BUILT, room-28 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Seventeen subjects and 107 lines; Sheng ironing, and his two trees: who pays Pratt, the paper, the terms (D3, `?fixture=r28-a`); the ledger read with the linen money in hand (D4's laundry half, `?fixture=r28-b`); the loan in Act III. Played in `tests/room-28.test.ts`. Proofs under `renders/proofs/laundry/`.
+
+**Open, for Tyler:** (a) **D4's first half is not staged**: the Reverend paying Sheng's linen debt out of the collection plate on the funeral day, at the foot of Boot Hill (doc 57 D4) -- Sowerby is not yet placed there with the plate; fixture r28-b puts the money in hand. (b) Sheng's tree opens on SHE_D1 only while its business is open, so his root's options are never lost (errata 99 D).

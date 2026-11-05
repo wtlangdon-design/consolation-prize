@@ -363,7 +363,26 @@ def loan(canvas: IndexedCanvas, palette: Palette) -> None:
     canvas.rect(13, 11, 3, 3, grey.frac(0.60))
 
 
+def linen_money(canvas: IndexedCanvas, palette: Palette) -> None:
+    """THE LINEN MONEY: small coin out of the collection plate, and one button
+    (doc 23: "Small coin, and one button somebody gave in good faith"). Copper
+    and dull silver, loose, and a bone button with its two holes -- not FOUR
+    DOLLARS' gold, not SHENG'S LOAN's paper."""
+    rust = palette.family("accent_rust")
+    grey = palette.family("grey")
+    void = palette.family("void")
+    for cx, cy, fam, tone in ((7, 9, rust, 0.55), (12, 12, grey, 0.62), (16, 8, rust, 0.45), (11, 5, grey, 0.50)):
+        canvas.rect(cx, cy, 4, 4, fam.frac(tone))
+        canvas.outline(cx - 1, cy - 1, 6, 6, void.at(0))
+    bone = palette.family("bone")
+    canvas.rect(20, 11, 5, 5, bone.frac(0.85))
+    canvas.outline(19, 10, 7, 7, void.at(0))
+    canvas.put(21, 13, bone.frac(0.35))
+    canvas.put(23, 13, bone.frac(0.35))
+
+
 ICONS = {
+    "linen_money": linen_money,
     "loan": loan,
     "eggs": eggs,
     "tonic": tonic,

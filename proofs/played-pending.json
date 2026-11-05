@@ -9,6 +9,7 @@
   "F4": "Act IV: the final duel on Main Street. Its prerequisites F1-F3 are in unbuilt rooms.",
   "D6": "Doc 57 D6: PRA_D6 option 5 ('Will you swear to the ninety days now?') now plays in Room 25 and sets T_PRATT_SWEARS (tests/room-25.test.ts); the attestation itself -- 'the next time Thad enters the Registrar's, Pratt is at the counter' -- is Room 7's counter scene, with Pratt standing there, and is not staged yet (doc 36 Q167, errata 97 F).",
   "E0": "SUM_B1 option 1''' issues the Certificate of Contiguity on Documents A, B and D; B (C6) and D (D6) come from rooms not built, so the option waits unextracted (doc 36 Q150).",
-  "F5": "Act IV's filing (doc 48 S6): SUM_F1 and the documents laid on the counter need F1-F4, in rooms not built; SUM_F1 waits unextracted (doc 36 Q150)."
+  "F5": "Act IV's filing (doc 48 S6): SUM_F1 and the documents laid on the counter need F1-F4, in rooms not built; SUM_F1 waits unextracted (doc 36 Q150).",
+  "D4": "Doc 57 D4's laundry half -- SHE_D1 option 1-prime, the Thursday ledger read with THE LINEN MONEY -- plays in tests/room-28.test.ts. Its first half, the Reverend paying out of the collection plate on the funeral day at the foot of Boot Hill, is not staged: Sowerby is not placed there with the plate (doc 36 Q170, errata 99 D)."
  }
 }

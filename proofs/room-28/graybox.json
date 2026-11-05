@@ -1,0 +1,324 @@
+{
+ "room": 28,
+ "note": "Ruling 22 steps 1-6 for the laundry, written by tools/room28-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 99).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 690,
+   "height": 300
+  },
+  "near": {
+   "y": 855,
+   "height": 410
+  },
+  "from": "Room 5's slope, a little smaller than Room 13's"
+ },
+ "walkable": [
+  120,
+  690,
+  1780,
+  165
+ ],
+ "exit": {
+  "hotspot": "THE WAY BACK TO THE ROAD",
+  "to": "claims_road",
+  "rect": [
+   0,
+   520,
+   110,
+   330
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 220,
+   "y": 790,
+   "facing": "right"
+  },
+  "to_sheng": {
+   "x": 760,
+   "y": 770,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE WAY BACK TO THE ROAD",
+   "rect": [
+    0,
+    520,
+    110,
+    330
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WINDOW, STEAMED",
+   "rect": [
+    130,
+    120,
+    260,
+    200
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE COPPERS",
+   "rect": [
+    40,
+    340,
+    520,
+    240
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STARCH CROCK",
+   "rect": [
+    580,
+    470,
+    70,
+    110
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MANGLE",
+   "rect": [
+    680,
+    380,
+    200,
+    200
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TICKET RAIL",
+   "rect": [
+    640,
+    110,
+    420,
+    70
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STOVE & IRONS",
+   "rect": [
+    900,
+    330,
+    160,
+    250
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BACK ROOM",
+   "rect": [
+    1080,
+    190,
+    180,
+    390
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE COLLARS",
+   "rect": [
+    1300,
+    140,
+    220,
+    80
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE COUNTER",
+   "rect": [
+    1280,
+    400,
+    300,
+    180
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LEDGER",
+   "rect": [
+    1300,
+    370,
+    90,
+    30
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE THURSDAY BOOK",
+   "rect": [
+    1300,
+    250,
+    120,
+    60
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SCALE",
+   "rect": [
+    1410,
+    330,
+    80,
+    70
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PAYMENT TIN",
+   "rect": [
+    1510,
+    360,
+    60,
+    40
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "SHENG'S CHAIR",
+   "rect": [
+    1600,
+    470,
+    100,
+    120
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MENDING BASKET",
+   "rect": [
+    1560,
+    530,
+    60,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE DOOR AND THE HIGH RIDGE PATH",
+   "rect": [
+    1720,
+    100,
+    200,
+    480
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "AH-LAM SHENG",
+   "rect": [
+    930,
+    380,
+    120,
+    300
+   ],
+   "where": "figure"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the coppers, the mangle, the counter and Sheng at his board are all behind it, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "the back wall",
+   "p10": 58.0,
+   "p90": 84.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 37.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "the floor",
+   "p10": 92.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 66.5,
+   "lightAnchorMargin": 29.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WAY BACK TO THE ROAD",
+   "p10": 66.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE COPPERS",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE STARCH CROCK",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 63.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE MANGLE",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE STOVE & IRONS",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 63.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE BACK ROOM",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE COUNTER",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "SHENG'S CHAIR",
+   "p10": 62.0,
+   "p90": 62.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 59.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE DOOR AND THE HIGH RIDGE PATH",
+   "p10": 84.0,
+   "p90": 84.0,
+   "darkAnchorMargin": 58.5,
+   "lightAnchorMargin": 37.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

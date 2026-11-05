@@ -1,0 +1,921 @@
+{
+  "schema": 1,
+  "id": "laundry",
+  "name": "SHENG'S LAUNDRY",
+  "materialIdentity": "A plank laundry, three copper boilers on their fires, a mangle, a counter that is also a bank; the high ridge path from the door; night, lit by the coppers (errata 98, 99 D)",
+  "note": "Room 28, doc 20: Ah-Lam Sheng's laundry, at the foot of the high ridge path, in the diggings below the road to the claims (errata 99 A, D).",
+  "background": "art/backgrounds/room-28-laundry.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "hotspots": [
+    {
+      "id": "payment_tin",
+      "name": "THE PAYMENT TIN",
+      "rect": [
+        1556,
+        385,
+        82,
+        57
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Coins in a tin, exact change encouraged by a sign in two languages and one universal tone.",
+            "repeat": [
+              "The sign says EXACT CHANGE, and underneath, in English only, PLEASE. The please is for the English.",
+              "He has never once counted it in front of a customer. He does not need to."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Honest weight. It does not rattle; it is past rattling.",
+            "repeat": [
+              "Nothing. Sheng's money does not discuss itself.",
+              "A coin settling as the shelf takes my elbow. One clean note, and done."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "It does not rattle and it does not open for customers. Sheng's bank has one teller and no robberies. The Company should take the tour."
+      },
+      "walkTo": {
+        "x": 1597,
+        "y": 812,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "collar_advertisement",
+      "name": "THE COLLAR ADVERTISEMENT",
+      "rect": [
+        1712,
+        250,
+        40,
+        140
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A printed advertisement for detachable collars, pinned inside the door. The gentleman modeling them is square-jawed, confident, and — I am increasingly sure — the same man as in every printed image in this town.",
+            "repeat": [
+              "A portrait of a gentleman in an excellent collar, advertising the excellence of the collar. I have seen this man before. He is on the front page of the Clarion once a month and his name there is Obadiah Mott.",
+              "Up close, the printing is very fine. He has a dimple. I had not noticed the dimple in the Clarion."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper on a nail. The gentleman keeps his own counsel.",
+            "repeat": [
+              "Nothing.",
+              "The paper lifting at one corner when the door opens, and lying flat again."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I asked the gentleman who he really was. He kept his jaw square and his counsel. He is the most consistent man in Consolation and he does not exist."
+      },
+      "walkTo": {
+        "x": 1672,
+        "y": 812,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "ledger",
+      "name": "THE LEDGER",
+      "rect": [
+        1297,
+        379,
+        145,
+        63
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Laundry accounts. And, in the same book, in the same hand, in a column headed nothing at all, rather larger numbers.",
+            "repeat": [
+              "The laundry columns total to the cent. The other column totals to a great deal more than laundry.",
+              "He saw me reading it and did not close it. In this town that is a kind of respect."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Figures that balance make no noise.",
+              "The page lifting in the steam and settling again, heavy with damp and arithmetic."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1370,
+        "y": 812,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "starch_crock",
+      "name": "THE STARCH CROCK",
+      "rect": [
+        577,
+        467,
+        76,
+        126
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Starch, mixed stiff.",
+            "repeat": [
+              "There is a paddle standing upright in it, unsupported. That is how stiff it is.",
+              "He mixes it by eye and is never wrong. I tune by ear. We have a professional understanding."
+            ],
+            "then": [
+              "Consolation's collars stand up straight even when their owners cannot."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A thick, patient bubble. Rigidity, brewing.",
+            "repeat": [
+              "A slow bubble breaking the surface, considering.",
+              "Nothing. Even the starch here stands to attention."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 615,
+        "y": 812,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "thursday_book",
+      "name": "THE THURSDAY BOOK",
+      "rect": [
+        1335,
+        262,
+        183,
+        56
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A separate book for Thursdays. Thursdays appear to be different.",
+            "repeat": [
+              "The entries are short: a date, a name, a sum. Every date is a Thursday.",
+              "It is shelved a hand's width from the laundry book. A hand's width is the distance between washing and banking in this town."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Thursdays are kept quiet.",
+              "The spine creaking as I lean near it. It is not used to visitors on a Monday."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1427,
+        "y": 812,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "mending_basket",
+      "name": "THE MENDING BASKET",
+      "rect": [
+        1695,
+        625,
+        133,
+        95
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Torn shirts awaiting needles. The territory is hard on elbows.",
+            "repeat": [
+              "One shirt has been mended so often it is mostly mending. The original shirt is a rumor.",
+              "The needles are stuck in a pincushion shaped like a strawberry. It is the only frivolous object in the building."
+            ],
+            "then": [
+              "Half the mending is the same three men's."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Damage, at rest.",
+            "repeat": [
+              "Nothing. Torn cloth, waiting its turn.",
+              "Nothing. The damage has been sorted by owner."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1655,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "scale",
+      "name": "THE SCALE",
+      "rect": [
+        1436,
+        328,
+        120,
+        114
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A brass scale for weighing laundry by the pound.",
+            "repeat": [
+              "The weights are stamped and checked. A man who weighs collars this honestly would weigh anything honestly.",
+              "I put my hat on it. Eleven ounces. Sheng did not charge me."
+            ],
+            "then": [
+              "It is as accurate as the one at the assay office, and it weighs shirts."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A small tick as the pan settles level.",
+            "repeat": [
+              "Nothing. It is perfectly balanced, and has nothing to add.",
+              "The beam rocking once when the door goes, and finding level again without help."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1496,
+        "y": 812,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "window",
+      "name": "THE WINDOW, STEAMED",
+      "rect": [
+        205,
+        95,
+        158,
+        152
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The one window, permanently fogged from inside.",
+            "repeat": [
+              "A small clear circle is wiped in the fog at the height of a seated man. He watches the street through it.",
+              "Through the clear spot, Main Street, very small and very sharp, like a picture in a locket."
+            ],
+            "then": [
+              "The town appears through it as coloured weather, which flatters it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A drop of condensation running. The window keeps time in its own way.",
+            "repeat": [
+              "Steam ticking against the glass, then running.",
+              "The street, muffled to almost nothing. The coppers win."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 284,
+        "y": 812,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "drying_lines",
+      "name": "THE DRYING LINES",
+      "rect": [
+        1745,
+        140,
+        175,
+        150
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Lines of shirts drying in ridge wind, whiter than anything else for a hundred miles. From the diggings it looks like the hillside is surrendering.",
+            "repeat": [
+              "Every shirt is pegged by the tail, shoulders down, so the collar dries straight. There is a method to all of it.",
+              "My own shirt is up there, the better one. It looks more respectable on the line than it has ever looked on me."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Cloth, filling and luffing. The hill wearing sails.",
+            "repeat": [
+              "A peg snapping shut on a corner as the wind takes it.",
+              "A long gust that fills every shirt at once. A whole congregation, breathing in."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1705,
+        "y": 812,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "collars",
+      "name": "THE COLLARS",
+      "rect": [
+        1310,
+        114,
+        265,
+        126
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Two hundred collars, boxed, by name. Every important man in Consolation is in this box.",
+            "repeat": [
+              "Each box is labeled with a name. The Colonel has six. The Reverend has one, very clean.",
+              "There is a box with my name on it. It holds one collar, which is the right number."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Starch is silent.",
+            "repeat": [
+              "Nothing. Starch keeps a straight face.",
+              "A box lid settling. Somebody's dignity, put away for the week."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1443,
+        "y": 812,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "ticket_rail",
+      "name": "THE TICKET RAIL",
+      "rect": [
+        594,
+        170,
+        451,
+        82
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Claim tickets on a wire, numbered in two scripts. Sheng's numbering has never once been disputed, which makes it the district's most trusted ledger.",
+            "repeat": [
+              "Each ticket is torn in half. He keeps one half and you keep the other, and the two halves have never once failed to meet.",
+              "My own ticket is on the wire: one shirt, one collar. My entire wardrobe, in Sheng's custody."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper tags, ticking along the wire. A small abacus of shirts.",
+            "repeat": [
+              "The tags sliding as he moves a shirt along the rail.",
+              "Nothing, for a moment. The wire waiting for the next number."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "The district's one uncorrupted ledger, on a wire. I withdrew my hand with the reverence it was owed."
+      },
+      "walkTo": {
+        "x": 820,
+        "y": 812,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "chair",
+      "name": "SHENG'S CHAIR",
+      "rect": [
+        1568,
+        448,
+        171,
+        247
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A chair by the door, angled at the ridge, for the ten minutes a day the boilers allow.",
+            "repeat": [
+              "A chair by the door, facing out, worn smooth. He sits here and watches the street and everyone assumes he is resting.",
+              "A cup of tea on the floor beside it, gone cold. The ten minutes were interrupted."
+            ],
+            "then": [
+              "The view is the wage."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The chair is still warm-sounding, if that is a thing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. The chair is empty, and he is at work, which is where he usually is."
+            ],
+            "then": [
+              "The ten minutes were recent."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1654,
+        "y": 816,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "stove",
+      "name": "THE STOVE & IRONS",
+      "rect": [
+        943,
+        297,
+        152,
+        297
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Flat irons in ranks on the stove top, rotated by weight and heat in an order I could not learn in a year.",
+            "repeat": [
+              "Each handle is wrapped in rag of a different color, so he knows which iron is which without looking.",
+              "One iron is smaller than the rest. It is for collars, and it has done more for this town's dignity than the church."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Iron on iron, set down and taken up. A steady percussion.",
+            "repeat": [
+              "A hiss as he tests an iron with a wet finger.",
+              "Iron set down, iron taken up. Still the steadiest time in town."
+            ],
+            "then": [
+              "It is the closest thing this town has to a metronome, and I would know."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1019,
+        "y": 812,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "mangle",
+      "name": "THE MANGLE",
+      "rect": [
+        684,
+        322,
+        253,
+        278
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A hand-cranked mangle, the single most reliable machine in the territory.",
+            "repeat": [
+              "The rollers are wood, worn so smooth they shine. Ten thousand shirts have gone through them and come out flatter and better.",
+              "A brass plate on the frame gives a maker and a city. It is the only thing in Consolation that came from somewhere and still works."
+            ],
+            "then": [
+              "It has never broken. Nobody else can say that about anything they own."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Rollers, waiting. A machine that keeps its promises keeps them quietly.",
+            "repeat": [
+              "A slow creak as the crank settles back a quarter turn.",
+              "Nothing. It is resting, and it has earned it more than anyone in town."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "He let me turn the crank once. It was the most useful thing I have done in the territory and we both knew it."
+      },
+      "walkTo": {
+        "x": 811,
+        "y": 812,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "high_ridge_path",
+      "name": "THE HIGH RIDGE PATH",
+      "rect": [
+        1745,
+        290,
+        175,
+        430
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The path up the ridge starts at the door, which is why the laundry gets the wind and the wind gets the shirts. It climbs like it means it.",
+            "repeat": [
+              "The first stretch is stepped with flat stones, carefully set. Past the laundry, nobody bothered.",
+              "It climbs to the only place in the district with a view, and it starts at the only place in town that works."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind, arriving from a long way off with nothing in its pockets.",
+            "repeat": [
+              "Boots coming down it, slowly. Someone who went up to decide something.",
+              "The wind coming down the path, and the shirts turning to meet it."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1705,
+        "y": 847,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "back_room",
+      "name": "THE BACK ROOM",
+      "rect": [
+        1089,
+        133,
+        208,
+        435
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A curtain across a doorway, and behind it a room I am not invited into.",
+            "repeat": [
+              "The curtain is clean. Everything here is clean, including, I suspect, the business behind it.",
+              "Once the curtain moved, and I saw a desk and a lamp and a great many papers in very good order. Then it moved back."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing behind the curtain, or nothing I am meant to hear.",
+            "repeat": [
+              "A pen, somewhere back there, adding.",
+              "Nothing. Sheng's back room is where the town's noise goes to be counted."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1193,
+        "y": 812,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "coppers",
+      "name": "THE COPPERS",
+      "rect": [
+        179,
+        290,
+        410,
+        335
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Three copper boilers at a rolling steam. Ah-Lam Sheng runs the only business in the district with repeat customers and clean margins, and the town has decided not to notice.",
+            "repeat": [
+              "Each copper has its own fire and its own temper, and he knows both.",
+              "The water in the last copper is the clearest in Consolation. It has been boiled into honesty."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water at the boil, cloth turning in it. Industry, actually happening.",
+            "repeat": [
+              "Water, and a rhythm to it. Somebody has worked out the fastest way to do this and has been doing it that way for years.",
+              "The lid on the middle copper lifting and settling, like a man about to object and deciding it is not worth it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "Steam took my hat's shape briefly. Sheng did not look up: 'Collars are extra.'"
+      },
+      "walkTo": {
+        "x": 384,
+        "y": 812,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_claims_road",
+      "name": "THE ROAD",
+      "stub": true,
+      "rect": [
+        0,
+        100,
+        175,
+        600
+      ],
+      "colour": 0,
+      "to": "claims_road",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: the laundry is reached through the road to the claims; this is the way back to it. NO DOCUMENT WRITES IT a LOOK or LISTEN: a stub exit (errata 99 A).",
+      "walkTo": {
+        "x": 200,
+        "y": 790,
+        "facing": "left"
+      }
+    }
+  ],
+  "ambient": [
+    "sheng"
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-28.json",
+      "reference/room-28/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        180,
+        700,
+        1540,
+        53
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        180,
+        753,
+        1540,
+        52
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        180,
+        805,
+        1540,
+        53
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      180,
+      700
+    ],
+    [
+      1720,
+      700
+    ],
+    [
+      1720,
+      858
+    ],
+    [
+      180,
+      858
+    ]
+  ],
+  "entrance": [
+    260,
+    790
+  ],
+  "entrances": [
+    {
+      "from": "claims_road",
+      "at": [
+        260,
+        790
+      ],
+      "facing": "right",
+      "note": "In from the road, by the left doorway."
+    },
+    {
+      "from": "default",
+      "at": [
+        260,
+        790
+      ],
+      "facing": "right",
+      "note": "As from the road."
+    },
+    {
+      "from": "town_map",
+      "at": [
+        260,
+        790
+      ],
+      "facing": "right",
+      "note": "From the map, as from the road."
+    }
+  ],
+  "peopleResponses": {
+    "sheng": {
+      "PICK_UP": [
+        {
+          "say": "He would tell me my weight to the ounce, and what I owe him for the information."
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "He is ironing. I value my hand."
+        }
+      ],
+      "USE": [
+        {
+          "say": "Everybody in town uses Sheng. He keeps a book of it."
+        }
+      ]
+    }
+  },
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 180,
+          "y": 700
+        },
+        {
+          "x": 1720,
+          "y": 700
+        },
+        {
+          "x": 1720,
+          "y": 753
+        },
+        {
+          "x": 180,
+          "y": 753
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 323,
+        "nearY": 858,
+        "nearHeight": 438
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 180,
+          "y": 753
+        },
+        {
+          "x": 1720,
+          "y": 753
+        },
+        {
+          "x": 1720,
+          "y": 805
+        },
+        {
+          "x": 180,
+          "y": 805
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 323,
+        "nearY": 858,
+        "nearHeight": 438
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 180,
+          "y": 805
+        },
+        {
+          "x": 1720,
+          "y": 805
+        },
+        {
+          "x": 1720,
+          "y": 858
+        },
+        {
+          "x": 180,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 323,
+        "nearY": 858,
+        "nearHeight": 438
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [],
+  "props": [],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-28/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}
