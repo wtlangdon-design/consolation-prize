@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "pratts_claim",
- "commit": "0da710b59f0ef9ac8851382a6c78620451072b27",
+ "commit": "9e72ecff35b5289e83284938754ea439406e991d",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -13,22 +13,22 @@
  "fixture": "r25-a",
  "warped": false,
  "lifeRoute": "pratts-claim-life",
- "durationSeconds": 51.46,
+ "durationSeconds": 82.19,
  "events": [
   {
-   "t": 2.6,
+   "t": 2.76,
    "line": "started from fixture r25-a, no entry route"
   },
   {
-   "t": 5.62,
+   "t": 5.87,
    "line": "in pratts_claim; life route: 21 action(s)"
   },
   {
-   "t": 5.94,
+   "t": 6.56,
    "line": "capture 01-arrived: room pratts_claim, says null, options 0, control null"
   },
   {
-   "t": 6.95,
+   "t": 7.59,
    "trace": {
     "says": null,
     "control": null,
@@ -43,7 +43,7 @@
    }
   },
   {
-   "t": 7.95,
+   "t": 8.58,
    "trace": {
     "says": null,
     "control": null,
@@ -58,7 +58,7 @@
    }
   },
   {
-   "t": 8.95,
+   "t": 9.58,
    "trace": {
     "says": null,
     "control": null,
@@ -73,7 +73,7 @@
    }
   },
   {
-   "t": 9.95,
+   "t": 10.59,
    "trace": {
     "says": null,
     "control": null,
@@ -88,7 +88,7 @@
    }
   },
   {
-   "t": 10.95,
+   "t": 11.58,
    "trace": {
     "says": null,
     "control": null,
@@ -103,7 +103,7 @@
    }
   },
   {
-   "t": 11.95,
+   "t": 12.58,
    "trace": {
     "says": null,
     "control": null,
@@ -118,7 +118,7 @@
    }
   },
   {
-   "t": 12.95,
+   "t": 13.58,
    "trace": {
     "says": null,
     "control": null,
@@ -133,15 +133,15 @@
    }
   },
   {
-   "t": 13.95,
+   "t": 14.56,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 14.27,
+   "t": 15.08,
    "line": "capture 02-the-claim: room pratts_claim, says null, options 0, control null"
   },
   {
-   "t": 15.28,
+   "t": 16.11,
    "trace": {
     "says": null,
     "control": null,
@@ -156,7 +156,7 @@
    }
   },
   {
-   "t": 16.28,
+   "t": 17.11,
    "trace": {
     "says": null,
     "control": null,
@@ -171,7 +171,7 @@
    }
   },
   {
-   "t": 17.28,
+   "t": 18.11,
    "trace": {
     "says": null,
     "control": null,
@@ -186,7 +186,7 @@
    }
   },
   {
-   "t": 18.28,
+   "t": 19.12,
    "trace": {
     "says": null,
     "control": null,
@@ -201,7 +201,7 @@
    }
   },
   {
-   "t": 19.28,
+   "t": 20.11,
    "trace": {
     "says": null,
     "control": null,
@@ -216,7 +216,7 @@
    }
   },
   {
-   "t": 20.29,
+   "t": 21.1,
    "trace": {
     "says": null,
     "control": null,
@@ -231,31 +231,16 @@
    }
   },
   {
-   "t": 21.28,
+   "t": 22.09,
    "line": "action 1 (wait): waited 7s"
   },
   {
-   "t": 21.29,
+   "t": 22.13,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 21.32,
+   "t": 22.29,
    "line": "action 1 (click): clicked pratts_claim/sign at world 818,280 -- THE SIGN: NO COLOR YET"
-  },
-  {
-   "t": 22.32,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     780
-    ],
-    "moving": false
-   }
   },
   {
    "t": 23.32,
@@ -266,10 +251,10 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     596,
+     767
     ],
-    "moving": false
+    "moving": true
    }
   },
   {
@@ -281,14 +266,177 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     818,
+     659
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 24.36,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room pratts_claim"
+  },
+  {
+   "t": 24.88,
+   "line": "capture 03-look-sign: room pratts_claim, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 25.9,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     818,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 25.32,
+   "t": 26.9,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     818,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 27.91,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     818,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 28.9,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     818,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 29.9,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     818,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 30.9,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     818,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 31.92,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     818,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 32.89,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 32.94,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 33.11,
+   "line": "action 1 (click): clicked pratts_claim/coffee_pot at world 885,481 -- THE COFFEE POT"
+  },
+  {
+   "t": 33.7,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room pratts_claim"
+  },
+  {
+   "t": 34.22,
+   "line": "capture 04-listen-pot: room pratts_claim, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 35.24,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     885,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 36.24,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     885,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 37.25,
    "trace": {
     "says": null,
     "control": null,
@@ -296,14 +444,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     885,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 26.32,
+   "t": 38.24,
    "trace": {
     "says": null,
     "control": null,
@@ -311,14 +459,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     885,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 27.32,
+   "t": 39.25,
    "trace": {
     "says": null,
     "control": null,
@@ -326,14 +474,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     885,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 28.32,
+   "t": 40.25,
    "trace": {
     "says": null,
     "control": null,
@@ -341,14 +489,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     885,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 29.32,
+   "t": 41.25,
    "trace": {
     "says": null,
     "control": null,
@@ -356,14 +504,94 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     885,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 30.32,
+   "t": 42.23,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 42.27,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 42.41,
+   "line": "action 1 (click): clicked pratts_claim/tally_post at world 1033,395 -- THE TALLY POST"
+  },
+  {
+   "t": 43.25,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room pratts_claim"
+  },
+  {
+   "t": 43.75,
+   "line": "capture 05-look-tally: room pratts_claim, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 44.77,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1033,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 45.78,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1033,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 46.76,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1033,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 47.76,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1033,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 48.76,
    "trace": {
     "says": null,
     "control": null,
@@ -371,14 +599,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 31.32,
+   "t": 49.78,
    "trace": {
     "says": null,
     "control": null,
@@ -386,14 +614,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 32.32,
+   "t": 50.78,
    "trace": {
     "says": null,
     "control": null,
@@ -401,14 +629,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 33.33,
+   "t": 51.78,
    "trace": {
     "says": null,
     "control": null,
@@ -416,14 +644,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 34.33,
+   "t": 52.76,
    "trace": {
     "says": null,
     "control": null,
@@ -431,14 +659,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 35.33,
+   "t": 53.79,
    "trace": {
     "says": null,
     "control": null,
@@ -446,14 +674,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 36.33,
+   "t": 54.78,
    "trace": {
     "says": null,
     "control": null,
@@ -461,14 +689,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 37.33,
+   "t": 55.77,
    "trace": {
     "says": null,
     "control": null,
@@ -476,14 +704,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 38.33,
+   "t": 56.78,
    "trace": {
     "says": null,
     "control": null,
@@ -491,14 +719,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 39.33,
+   "t": 57.78,
    "trace": {
     "says": null,
     "control": null,
@@ -506,14 +734,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 40.33,
+   "t": 58.79,
    "trace": {
     "says": null,
     "control": null,
@@ -521,14 +749,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 41.33,
+   "t": 59.79,
    "trace": {
     "says": null,
     "control": null,
@@ -536,14 +764,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 42.33,
+   "t": 60.79,
    "trace": {
     "says": null,
     "control": null,
@@ -551,14 +779,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 43.33,
+   "t": 61.79,
    "trace": {
     "says": null,
     "control": null,
@@ -566,14 +794,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 44.33,
+   "t": 62.81,
    "trace": {
     "says": null,
     "control": null,
@@ -581,14 +809,22 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 45.33,
+   "t": 63.76,
+   "line": "action 1 (wait): waited 20s"
+  },
+  {
+   "t": 64.28,
+   "line": "capture 06-still-raking: room pratts_claim, says null, options 0, control null"
+  },
+  {
+   "t": 65.31,
    "trace": {
     "says": null,
     "control": null,
@@ -596,14 +832,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 46.33,
+   "t": 66.3,
    "trace": {
     "says": null,
     "control": null,
@@ -611,14 +847,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 47.33,
+   "t": 67.31,
    "trace": {
     "says": null,
     "control": null,
@@ -626,14 +862,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 48.33,
+   "t": 68.32,
    "trace": {
     "says": null,
     "control": null,
@@ -641,14 +877,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 49.33,
+   "t": 69.31,
    "trace": {
     "says": null,
     "control": null,
@@ -656,14 +892,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 50.33,
+   "t": 70.3,
    "trace": {
     "says": null,
     "control": null,
@@ -671,14 +907,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
   },
   {
-   "t": 51.33,
+   "t": 71.3,
    "trace": {
     "says": null,
     "control": null,
@@ -686,22 +922,131 @@
     "performing": false,
     "options": 0,
     "thad": [
-     260,
-     780
+     1033,
+     654
     ],
     "moving": false
    }
+  },
+  {
+   "t": 72.31,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1033,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 73.33,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1033,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 74.33,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1033,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 75.33,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1033,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 76.33,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1033,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 77.34,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1033,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 78.32,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1033,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 79.3,
+   "line": "action 1 (wait): waited 15s"
   }
  ],
  "captures": [
   {
    "name": "01-arrived",
    "why": "the claim, Pratt raking",
-   "t": 5.94,
+   "t": 6.55,
    "file": "renders/proofs/pratts-claim/life/raw-captures-ignored/01-arrived.png",
-   "hash": "0a58ad77ac2dad2e1c967ea40da70fdaca47e778811243489efaed1a4394e228",
+   "hash": "fe8452f77bdc881e351b18c58d0551f3b169a72596586d8af33267becd2612a5",
    "room": "pratts_claim",
-   "clock": 2.3134,
+   "clock": 6.1812,
    "control": null,
    "says": null,
    "options": 0,
@@ -744,10 +1089,15 @@
      "clip": "idle",
      "height": 427,
      "moving": false,
-     "drawn": "not-drawn",
-     "from": null,
-     "bounds": null,
-     "order": -1,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      38,
+      353,
+      443,
+      471
+     ],
+     "order": 0,
      "clipLevel": 0,
      "fallback": false
     }
@@ -765,7 +1115,7 @@
      "path": "art/backgrounds/room-25-pratts-claim.png",
      "drawn": "art/backgrounds/room-25-pratts-claim.png",
      "candidate": false,
-     "loaded": false,
+     "loaded": true,
      "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
     },
     {
@@ -777,21 +1127,17 @@
      "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
     }
    ],
-   "stubs": [
-    "thad:not-drawn"
-   ],
-   "missingAssets": [
-    "art/backgrounds/room-25-pratts-claim.png"
-   ]
+   "stubs": [],
+   "missingAssets": []
   },
   {
    "name": "02-the-claim",
    "why": null,
-   "t": 14.27,
+   "t": 15.08,
    "file": "renders/proofs/pratts-claim/life/raw-captures-ignored/02-the-claim.png",
-   "hash": "0a58ad77ac2dad2e1c967ea40da70fdaca47e778811243489efaed1a4394e228",
+   "hash": "313c98618eb7bf8b2795c54429f02a42e8f10755f8b93e80000a12c715802ea3",
    "room": "pratts_claim",
-   "clock": 2.3134,
+   "clock": 14.8975,
    "control": null,
    "says": null,
    "options": 0,
@@ -831,13 +1177,18 @@
       780
      ],
      "facing": "right",
-     "clip": "idle",
+     "clip": "idle-break",
      "height": 427,
      "moving": false,
-     "drawn": "not-drawn",
-     "from": null,
-     "bounds": null,
-     "order": -1,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-00.png",
+     "bounds": [
+      38,
+      353,
+      443,
+      471
+     ],
+     "order": 0,
      "clipLevel": 0,
      "fallback": false
     }
@@ -855,7 +1206,7 @@
      "path": "art/backgrounds/room-25-pratts-claim.png",
      "drawn": "art/backgrounds/room-25-pratts-claim.png",
      "candidate": false,
-     "loaded": false,
+     "loaded": true,
      "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
     },
     {
@@ -867,26 +1218,379 @@
      "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
     }
    ],
-   "stubs": [
-    "thad:not-drawn"
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-look-sign",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 24.88,
+   "file": "renders/proofs/pratts-claim/life/raw-captures-ignored/03-look-sign.png",
+   "hash": "89c9db52d86755a953b8dfd540174a9ae9557d40a6d8b903ce5c179704091b0d",
+   "room": "pratts_claim",
+   "clock": 24.6971,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED"
    ],
-   "missingAssets": [
-    "art/backgrounds/room-25-pratts-claim.png"
-   ]
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      818,
+      654
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 341,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      616,
+      313,
+      404,
+      376
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:pratts_claim",
+     "path": "art/backgrounds/room-25-pratts-claim.png",
+     "drawn": "art/backgrounds/room-25-pratts-claim.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
+    },
+    {
+     "key": "art/actors/room-25-pratt.png",
+     "path": "art/actors/room-25-pratt.png",
+     "drawn": "art/actors/room-25-pratt.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-listen-pot",
+   "why": null,
+   "t": 34.22,
+   "file": "renders/proofs/pratts-claim/life/raw-captures-ignored/04-listen-pot.png",
+   "hash": "625171c9c4172a1b07bec584f66d28cb4a2684fee9d0587fe60c31d44089d7ff",
+   "room": "pratts_claim",
+   "clock": 34.046699999999994,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      885,
+      654
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 341,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      683,
+      313,
+      404,
+      376
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:pratts_claim",
+     "path": "art/backgrounds/room-25-pratts-claim.png",
+     "drawn": "art/backgrounds/room-25-pratts-claim.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
+    },
+    {
+     "key": "art/actors/room-25-pratt.png",
+     "path": "art/actors/room-25-pratt.png",
+     "drawn": "art/actors/room-25-pratt.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-look-tally",
+   "why": null,
+   "t": 43.74,
+   "file": "renders/proofs/pratts-claim/life/raw-captures-ignored/05-look-tally.png",
+   "hash": "d8c031531192eae4f3a4ac75d454c6dcf9737e42bded1a8921361f2c3bbc36ef",
+   "room": "pratts_claim",
+   "clock": 43.563,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1033,
+      654
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 341,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      831,
+      313,
+      404,
+      376
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:pratts_claim",
+     "path": "art/backgrounds/room-25-pratts-claim.png",
+     "drawn": "art/backgrounds/room-25-pratts-claim.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
+    },
+    {
+     "key": "art/actors/room-25-pratt.png",
+     "path": "art/actors/room-25-pratt.png",
+     "drawn": "art/actors/room-25-pratt.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-still-raking",
+   "why": null,
+   "t": 64.28,
+   "file": "renders/proofs/pratts-claim/life/raw-captures-ignored/06-still-raking.png",
+   "hash": "7a67dac97da44a8c9c97991b206267611c3c906df71c187727a152b74c6b18c5",
+   "room": "pratts_claim",
+   "clock": 64.0955,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1033,
+      654
+     ],
+     "facing": "back",
+     "clip": "idle-break",
+     "height": 341,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-back/idle-break-08.png",
+     "bounds": [
+      831,
+      313,
+      404,
+      376
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:pratts_claim",
+     "path": "art/backgrounds/room-25-pratts-claim.png",
+     "drawn": "art/backgrounds/room-25-pratts-claim.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "911b216427bfec8808bf61359885bbff3bbad396474f838e886771d55544f0aa"
+    },
+    {
+     "key": "art/actors/room-25-pratt.png",
+     "path": "art/actors/room-25-pratt.png",
+     "drawn": "art/actors/room-25-pratt.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c2c114bab7742a0f0a054acc1d3bcabbda6fa1033717916aee5e9266e01ca959"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
   }
  ],
- "failures": [
-  "capture 01-arrived: stub or fallback drew -- thad:not-drawn",
-  "capture 01-arrived: asset(s) never loaded -- art/backgrounds/room-25-pratts-claim.png",
-  "capture 02-the-claim: stub or fallback drew -- thad:not-drawn",
-  "capture 02-the-claim: asset(s) never loaded -- art/backgrounds/room-25-pratts-claim.png",
-  "life action 7 (waitFor): route: waitFor {\"do\":\"waitFor\",\"says\":\"thad\",\"upTo\":30} timed out after 30s. It saw: room pratts_claim, control null, beat -, 0 option(s), handedOver true",
-  "page error: Cannot read properties of undefined (reading 'sky')"
- ],
- "passed": false,
+ "failures": [],
+ "passed": true,
  "judgement": {
   "machine": {
-   "passed": false,
+   "passed": true,
    "establishes": [
     "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
     "every asset the room declares loaded; no stub, graybox or fallback was drawn",
@@ -894,7 +1598,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 51.46s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 82.19s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -909,5 +1613,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T16:58:04.738Z"
+ "at": "2026-11-05T17:02:30.570Z"
 }
