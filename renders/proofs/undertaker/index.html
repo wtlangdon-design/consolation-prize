@@ -5,7 +5,7 @@
  h1{font-size:17px;margin:0 0 4px}
  p.lede{color:#9a9aae;margin:0 0 8px;max-width:64em}
  .verdict{font:13px ui-monospace,monospace;padding:8px 10px;border-radius:5px;margin:12px 0;
-   background:#3a1620;border:1px solid #7a2c3c}
+   background:#12331e;border:1px solid #2c6b40}
  figure{margin:0 0 22px}
  img{width:100%;display:block;border-radius:5px;border:1px solid #2c2c38}
  figcaption{padding:7px 2px;font-size:13px}
@@ -17,7 +17,7 @@
 </style>
 <h1>undertaker — four-panel live-runtime proof</h1>
 <p class="lede">Every frame below is the full play area as the renderer drew it, in the running
-game, at <code>288d48eb</code> on <code>ccr-347d40c6-71r9f9</code>.
+game, at <code>03dbea83</code> on <code>ccr-347d40c6-71r9f9</code>.
 No crop, isolated sprite or source image appears here: those are for diagnosing what a full
 frame has already shown.</p>
 <p class="lede"><b>These panels establish technical admissibility only.</b> Nothing here says the
@@ -29,8 +29,7 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     downscaled, never cropped. The full-resolution captures are reproducible test artifacts
     and are not in git; their hashes are below.</span></figcaption>
 </figure>
-<div class="verdict">FAIL — 1 failure(s):
-  panel D: reaching the changed state failed -- route: waitFor {"do":"waitFor","dialogue":true,"upTo":60,"why":"UND_C1's list"} timed out after 60s (UND_C1's list). It saw: room undertaker, control null, beat -, 0 option(s), handedOver true</div>
+<div class="verdict">PASS — technically admissible</div>
 
   <figure>
     <img src="raw-captures-ignored/panel-b-populated.png" alt="" onerror="this.replaceWith(Object.assign(
@@ -62,7 +61,7 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
       <span>room undertaker &middot; camera 0 &middot;
         flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN T_NEED_TO_DIE &middot;
         inventory letter tuning_fork four_dollars watch</span>
-      <span>thad @965,854 537px sprite</span>
+      <span>thad @1330,790 493px sprite</span>
     </figcaption>
   </figure>
   <figure>
@@ -70,7 +69,7 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     <figcaption><b>PANEL C &mdash; mud_far far, authored y746</b>
       <span>expected 463px &middot; runtime 463px &middot;
         silhouette 463px, bottom y745</span>
-      <span>art/actors/thad-idlebreak-right/idle-break-08.png</span>
+      <span>art/actors/thad-idle-right/idle-04.png</span>
     </figcaption>
   </figure>
   <figure>
@@ -78,6 +77,6 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     <figcaption><b>PANEL C &mdash; mud_near near, authored y854</b>
       <span>expected 537px &middot; runtime 537px &middot;
         silhouette 538px, bottom y854</span>
-      <span>art/actors/thad-idle-right/idle-00.png</span>
+      <span>art/actors/thad-idle-right/idle-04.png</span>
     </figcaption>
   </figure>

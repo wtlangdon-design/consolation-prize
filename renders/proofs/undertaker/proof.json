@@ -4,7 +4,7 @@
  "room": "undertaker",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "288d48ebe268230bb9b89ffda485ce4ab652f8ef",
+ "commit": "03dbea8372b6f4e8e8e102451264e6e5a7fdefbe",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -37,7 +37,11 @@
   "action 23 (wait): waited 1s",
   "action 24 (click): clicked screen 330,345 -- the undertaker's place on the map (content/rooms/town-map.json loc_undertaker: the driver named him)",
   "action 25 (waitFor): reached {\"room\":\"undertaker\"} in room undertaker",
-  "action 26 (wait): waited 3s"
+  "action 26 (wait): waited 3s",
+  "action 1 (wait): waited 8s",
+  "action 2 (verb): chose verb TALK_TO -- ",
+  "action 3 (click): clicked world 1542,420 -- the undertaker",
+  "action 4 (waitFor): reached {\"dialogue\":true} in room undertaker"
  ],
  "depthMarks": [
   {
@@ -65,7 +69,7 @@
    ],
    "reportedHeight": 463,
    "expected": 463,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-08.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
    "bounds": [
     725,
     283,
@@ -102,7 +106,7 @@
    ],
    "reportedHeight": 537,
    "expected": 537,
-   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
    "bounds": [
     686,
     317,
@@ -139,7 +143,7 @@
     "height": 227,
     "bottom": 526,
     "right": 1619,
-    "changed": 20247
+    "changed": 20259
    },
    "props": []
   }
@@ -148,7 +152,7 @@
   {
    "panel": "B",
    "room": "undertaker",
-   "clock": 115.2319,
+   "clock": 111.9387,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -186,11 +190,11 @@
       790
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 493,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-03.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
       44,
       297,
@@ -225,15 +229,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-05T02:17:01.231Z",
+   "capturedAt": "2026-11-05T02:32:55.409Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "a24e00eef2cb750a0c6ee49a5533d135c825bf65473ed1bb59522559e29efe2a"
+   "hash": "f6d1b7eb84863d302a9d2c0885f664cd3f3f9873d48e753f000b05db3d682c27"
   },
   {
    "panel": "A",
    "room": "undertaker",
-   "clock": 116.4652,
+   "clock": 113.0386,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -271,7 +275,7 @@
       790
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 493,
      "moving": false,
      "drawn": "sprite",
@@ -307,15 +311,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T02:17:02.446Z",
+   "capturedAt": "2026-11-05T02:32:56.523Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "18616a734b4de746c84b45c4162eb3c44f2c0f9058bd58bc9552fb84f5156fb3"
+   "hash": "567f157b5114a09d1d3a70450935987c1bd08a8e487e8a8131187075e1114a8f"
   },
   {
    "panel": "D",
    "room": "undertaker",
-   "clock": 183.8625,
+   "clock": 129.68789999999998,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -350,20 +354,20 @@
    "movers": {
     "thad": {
      "at": [
-      965,
-      854
+      1330,
+      790
      ],
      "facing": "right",
-     "clip": "idle-break",
-     "height": 537,
+     "clip": "idle",
+     "height": 493,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-05.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
-      686,
-      317,
-      557,
-      593
+      1074,
+      297,
+      511,
+      544
      ],
      "order": 0,
      "clipLevel": 0,
@@ -371,7 +375,7 @@
     }
    },
    "says": null,
-   "options": 0,
+   "options": 4,
    "assets": [
     {
      "key": "bg:undertaker",
@@ -404,22 +408,20 @@
     "flag ACT=3",
     "flag T_NEED_TO_DIE=true"
    ],
-   "capturedAt": "2026-11-05T02:18:09.853Z",
+   "capturedAt": "2026-11-05T02:33:13.186Z",
    "intent": "principal changed state: ACT 3 and T_NEED_TO_DIE (errata 75 H: written in rooms not built, so the flag control sets them). Visible consequence: TALK TO the undertaker opens on UND_C1.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "cade8c91a63dc87e406e74aad30681b6a1b52dc84c6348e4ea4cd6c629de8bc1",
+   "hash": "f6399b8b4a41e08431142148d2ce9fd5c315ef5cea48c7541fad204fbc733794",
    "changedBy": "flags, counters"
   }
  ],
- "failures": [
-  "panel D: reaching the changed state failed -- route: waitFor {\"do\":\"waitFor\",\"dialogue\":true,\"upTo\":60,\"why\":\"UND_C1's list\"} timed out after 60s (UND_C1's list). It saw: room undertaker, control null, beat -, 0 option(s), handedOver true"
- ],
- "passed": false,
+ "failures": [],
+ "passed": true,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
  "judgement": {
   "machine": {
-   "passed": false,
+   "passed": true,
    "establishes": [
     "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
     "every asset the room declares loaded; no stub, graybox or fallback was drawn",
@@ -440,11 +442,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T02:18:09.853Z",
+ "at": "2026-11-05T02:33:13.187Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 386176,
+  "bytes": 386740,
   "panels": 5,
   "scale": 0.5
  }
