@@ -11,6 +11,14 @@ const LISTEN = 'LISTEN_TO';
  * most of the charm lives, and a duplicated line is the one defect a player
  * always notices.
  */
+// ONE WORD IS DOCTRINE, NOT A DUPLICATE (the friction review of the
+// allowlist, 2026-11-05). "Nothing." was declared doctrine because a silent
+// object gets the same two syllables every time; doc 54's rock that "empties
+// out" to "Rock." in Rooms 33 and 34 is the same kind of answer, and so is any
+// single word with its stop. A duplicated JOKE is what this check exists to
+// catch, and a joke is never one word long.
+const ONE_WORD = /^[A-Za-z'’-]+[.!?…]*$/;
+
 export function check() {
   const report = new Report('Every hotspot has a distinct LOOK and LISTEN line');
   const content = loadContent();
@@ -75,8 +83,14 @@ export function check() {
       }
       const rules = target.responses?.[verb];
       // Every line the player can be shown for this verb, first and repeats.
+      // A SCRIPTED BEAT THAT OPENS WITH ITS SUBJECT'S OWN LINE is that line
+      // said once (the friction review of the allowlist, 2026-11-05): doc 54
+      // has Room 31's grave play its LOOK 2 and then the beat, so the scene
+      // rule's opening is the chain's second variant, not a second copy of it.
+      const chain = new Set((rules ?? []).filter((rule) => !rule.sceneLine)
+        .flatMap((rule) => [rule.say, ...(rule.repeat ?? [])]));
       const lines = (rules ?? [])
-        .flatMap((rule) => [rule.say, ...(rule.repeat ?? [])])
+        .flatMap((rule) => (rule.sceneLine && chain.has(rule.say) ? [] : [rule.say, ...(rule.repeat ?? [])]))
         .filter((say) => typeof say === 'string');
 
       if (lines.length === 0) {
@@ -100,7 +114,7 @@ export function check() {
         if (!seen[verb].has(line)) seen[verb].set(line, []);
         seen[verb].get(line).push({
           where: moment.get(line) ?? where,
-          allowed: doctrine.has(line) || allowlist.has(`${where}/${verb}|${line}`),
+          allowed: doctrine.has(line) || ONE_WORD.test(line) || allowlist.has(`${where}/${verb}|${line}`),
           repeatOfOwnVariant: lines.indexOf(line) !== index,
         });
       }
