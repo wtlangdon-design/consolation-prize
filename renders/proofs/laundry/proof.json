@@ -1,0 +1,461 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "laundry",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "23015313f68f3cc758e9ed4c6a17ab541a6b831a",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r28-a, then entered laundry by control -- NOT proof that a player can reach it",
+  "action 1 (verb): chose verb TALK_TO -- ",
+  "action 2 (click): clicked world 1177,520 -- Sheng, at his board",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room laundry",
+  "action 4 (option): chose option sheng1 -- Who's paying Nickel Pratt?",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room laundry"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 701,
+    "xs": [
+     950,
+     758,
+     1143,
+     565,
+     1335,
+     373,
+     1528,
+     180,
+     1720
+    ],
+    "expect": 331,
+    "x": 950
+   },
+   "at": [
+    950,
+    701
+   ],
+   "reportedHeight": 331,
+   "expected": 331,
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "bounds": [
+    778,
+    370,
+    343,
+    365
+   ],
+   "order": 0,
+   "renderedHeight": 331,
+   "renderedBottom": 700,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     950,
+     758,
+     1143,
+     565,
+     1335,
+     373,
+     1528,
+     180,
+     1720
+    ],
+    "expect": 437,
+    "x": 950
+   },
+   "at": [
+    950,
+    857
+   ],
+   "reportedHeight": 437,
+   "expected": 437,
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
+   "bounds": [
+    723,
+    420,
+    453,
+    482
+   ],
+   "order": 0,
+   "renderedHeight": 457,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "sheng",
+   "feet": [
+    1177,
+    690
+   ],
+   "sheet": "art/actors/room-28-sheng.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1031,
+    "y": 383,
+    "width": 292,
+    "height": 309
+   },
+   "seen": {
+    "x": 1032,
+    "y": 385,
+    "width": 276,
+    "height": 305,
+    "bottom": 689,
+    "right": 1307,
+    "changed": 27705
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "laundry",
+   "clock": 8.9762,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED",
+    "T_NINETY_DAYS",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_PAID",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 391,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      57,
+      399,
+      405,
+      432
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:laundry",
+     "path": "art/backgrounds/room-28-laundry.png",
+     "drawn": "art/backgrounds/room-28-laundry.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
+    },
+    {
+     "key": "art/actors/room-28-sheng.png",
+     "path": "art/actors/room-28-sheng.png",
+     "drawn": "art/actors/room-28-sheng.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(laundry)"
+   ],
+   "capturedAt": "2026-11-05T20:18:42.328Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "0e38d9171476297c8af0d3128ebb18615c0d4664ed5339b52a4a73dbc1098130"
+  },
+  {
+   "panel": "A",
+   "room": "laundry",
+   "clock": 9.9595,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED",
+    "T_NINETY_DAYS",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_PAID",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 391,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:laundry",
+     "path": "art/backgrounds/room-28-laundry.png",
+     "drawn": "art/backgrounds/room-28-laundry.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
+    },
+    {
+     "key": "art/actors/room-28-sheng.png",
+     "path": "art/actors/room-28-sheng.png",
+     "drawn": "art/actors/room-28-sheng.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(laundry)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T20:18:43.193Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "bf2233e370d7e114a93c1cd415fc57a7d9ea35da8a353bb7abbca25371ddde8f"
+  },
+  {
+   "panel": "D",
+   "room": "laundry",
+   "clock": 20.192400000000003,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED",
+    "T_NINETY_DAYS",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_PRATT_PAID",
+    "T_SEEN_CLAIMS_ROAD",
+    "T_SHENG_HOLDS_PAPER"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      770
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 378,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      734,
+      392,
+      392,
+      417
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 5,
+   "assets": [
+    {
+     "key": "bg:laundry",
+     "path": "art/backgrounds/room-28-laundry.png",
+     "drawn": "art/backgrounds/room-28-laundry.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
+    },
+    {
+     "key": "art/actors/room-28-sheng.png",
+     "path": "art/actors/room-28-sheng.png",
+     "drawn": "art/actors/room-28-sheng.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(laundry)",
+    "cast(false)",
+    "cast(true)",
+    "stand(950,701)",
+    "cast(false)",
+    "cast(true)",
+    "stand(950,857)",
+    "cast(false)",
+    "cast(true)"
+   ],
+   "capturedAt": "2026-11-05T20:18:53.550Z",
+   "intent": "principal changed state: T_SHENG_HOLDS_PAPER (doc 04 SHE_A1 option 1). Visible consequence: SHE_D1's options -- the ledger, the loan's question, his three topics.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "ac33a02879e051d9239ac507b288cdb3e4ee11670f562b5f580f1f46909f81ad",
+   "changedBy": "flags"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T20:18:53.550Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 359284,
+  "panels": 5,
+  "scale": 0.5
+ }
+}
