@@ -5,12 +5,12 @@
  "posture": "standing",
  "room": "pratts_claim",
  "note": "NICKEL PRATT on his own claim (doc 04 PRA_A1: 'Pratt on his own claim, beside Prosperity, raking'). No document describes his looks; he is drawn as room-25's composition master drew him -- big, slow, a battered hat, a rake -- then on magenta against Thad (room-25 operation 3), cut by tools/art/room25-pratt.py. His tree opens PRA_A1 in Act I, PRA_B1 from Act II, PRA_D6 once he has turned; every conversation ends with his offer (errata 97).",
- "x": 1180,
+ "x": 1450,
  "y": 716,
  "zone": 1,
  "approachRadius": 40,
  "walkTo": {
-  "x": 930,
+  "x": 1200,
   "y": 760,
   "facing": "right"
  },
