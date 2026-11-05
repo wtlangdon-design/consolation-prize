@@ -120,7 +120,8 @@
   },
   {
    "do": "wait",
-   "seconds": 12
+   "seconds": 30,
+   "why": "the street is 3,400 pixels long: until he and the camera are at its east end"
   },
   {
    "do": "click",
