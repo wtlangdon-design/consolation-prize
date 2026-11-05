@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game: a hotel lobby at night, with two people in it -- the man in the blue coat standing on the floor, and the clerk behind the desk -- and two flat dark grey strips, one above the painting and one below it.
+
+Make exactly these changes:
+1. Remove both people. Paint what is behind each, exactly as the lobby would look with nobody in it: the floor, the runner and the piano stool's surroundings behind the man; the papered wall, the wainscot and the key rack behind the clerk, down to the desk top. The open register and the bell stay on the desk exactly as they are.
+2. Paint the two dark grey strips as more of the same room, continuing it seamlessly: above, more of the papered wall up to a plain ceiling with a dark cornice; below, more of the plank floor and the runner, toward the viewer. Nothing new in them -- no furniture, no people.
+
+Change nothing else. Same camera, same pixel grid, same colours, same light, same objects in the same places: the street door, the window, the settee, the spittoon, the two pictures, the piano and its fern and stool, the desk, the key rack, the wall clock, the stove, the staircase, the lamps. The light grey margins at the very top and bottom stay light grey. No people, no shadows of people, no text, no numerals.

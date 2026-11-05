@@ -5,11 +5,44 @@
   "pairs": [
     {
       "item": "tuning_fork",
-      "room": "hotel_parlour",
-      "target": "piano",
+      "room": "hotel_lobby",
+      "target": "parlor_piano",
       "puzzle": "A2",
       "say": "Four minutes. It is the first honest work done in this building in some time.",
-      "targetPending": "Doc 02 A2. Room 18 is not built."
+      "targetPending": "Doc 02 A2. Room 18 is not built.",
+      "rules": [
+        {
+          "case": "after A2",
+          "when": {
+            "T_ROOM_GRANTED": true
+          },
+          "say": "In tune. I keep checking. It keeps being."
+        },
+        {
+          "case": "after T_TUNES_PIANOS",
+          "when": {
+            "T_TUNES_PIANOS": true
+          },
+          "say": "Four minutes. It is the first honest work done in this building in some time.",
+          "then": [
+            {
+              "speaker": "hotel_clerk",
+              "line": "Top of the stairs, second door. The key sticks. You have to want it."
+            }
+          ],
+          "set": {
+            "T_ROOM_GRANTED": true
+          },
+          "completes": "A2"
+        },
+        {
+          "case": "before T_TUNES_PIANOS",
+          "when": {
+            "T_TUNES_PIANOS": false
+          },
+          "say": "Tuning a hotel's piano without being asked is how a man ends up in the street, holding a fork and an explanation."
+        }
+      ]
     },
     {
       "item": "blanket",

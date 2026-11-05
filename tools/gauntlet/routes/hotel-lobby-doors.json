@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "room": "hotel_lobby",
+ "note": "DOC 46 4.13's GAMEPLAY PASS for Room 18: in by Main Street's hotel door (the spec's entry route), then out by the street door to Main Street and back in, twice. The stairs open only after A2, so they are played in the suite. Each capture asserts the room it should be in.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "00-arrived"
+  },
+  {
+   "do": "click",
+   "on": "street_door",
+   "why": "THE STREET DOOR -- out"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "01-out",
+   "room": "main_street"
+  },
+  {
+   "do": "click",
+   "on": "to_hotel",
+   "why": "and back in by the hotel's door"
+  },
+  {
+   "do": "waitFor",
+   "room": "hotel_lobby",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "01-in"
+  },
+  {
+   "do": "click",
+   "on": "street_door",
+   "why": "THE STREET DOOR -- out"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "02-out",
+   "room": "main_street"
+  },
+  {
+   "do": "click",
+   "on": "to_hotel",
+   "why": "and back in by the hotel's door"
+  },
+  {
+   "do": "waitFor",
+   "room": "hotel_lobby",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "02-in"
+  }
+ ]
+}

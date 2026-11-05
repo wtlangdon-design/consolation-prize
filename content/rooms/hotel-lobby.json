@@ -1,102 +1,234 @@
 {
   "schema": 1,
   "id": "hotel_lobby",
-  "name": "THE HOTEL LOBBY",
-  "note": "Room 18, doc 20. ERRATA 34's asymmetry, and the room that sets the pattern: the back wall sits left of centre, the right-hand wall runs much longer, and the stair climbs it. THE FURNITURE IS DOC 26's, not the composition's -- a piano, two armchairs and a low table stood here before the writing landed, none of them was ever written, and a drawn object nobody wrote is a click with no answer. They came out; the settee, the stove, the spittoon and the clock went in. THE STAIRS is one object that is both a hotspot and the way upstairs, which is why its lines are on the exit rather than on a twin hotspot standing in the same place. Lines EXTRACTED from docs/26-batch-a.md by tools/extract-content.mjs. Do not edit: change doc 26 and re-run.",
-  "materialIdentity": "Worn blue-grey plush and tarnished brass (30d) -- the only interior in Act I with a BLUE cast. The assay office is achromatic cold; nothing else in Act I may go blue",
-  "paletteScript": {
-    "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
-    "dominant": "sky 0.45",
-    "shadow": "accent_indigo 0.3",
-    "secondary": "ochre 0.4",
-    "accent": "accent_gold 0.72"
-  },
+  "name": "HOTEL LOBBY",
+  "materialIdentity": "Papered walls over dark wainscot, a worn runner, brass and lamps, night (errata 91 A)",
+  "note": "Room 18, doc 20, rebuilt at errata 54's size (the 320x144 room is retired). THE STREET DOOR leads to Main Street; THE STAIRS to Room 19, once the room is given (A2). Lines EXTRACTED from docs/05, 09, 26, 54 and 49 by tools/extract-examine.mjs and compiled by tools/compile-room.mjs. Do not edit: change the documents and re-run.",
+  "background": "art/backgrounds/room-18-hotel-lobby.png",
   "colours": {
     "sky": 0,
     "ground": 6
   },
-  "horizon": 360,
-  "background": "art/backgrounds/room-18-hotel-lobby.png",
-  "foreground": "art/foregrounds/room-18-hotel-lobby.png",
+  "horizon": 120,
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-18.json",
+      "reference/room-18/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
   "walkable": [
     {
-      "id": "floor_far",
+      "id": "mud_far",
       "zone": 2,
+      "surface": "mud",
       "rect": [
-        336,
-        528,
-        264,
-        72
-      ]
-    },
-    {
-      "id": "floor_mid",
-      "zone": 1,
-      "rect": [
-        240,
-        636,
-        1200,
-        72
-      ]
-    },
-    {
-      "id": "floor_near",
-      "zone": 0,
-      "rect": [
-        144,
-        708,
+        200,
+        690,
         1500,
-        120
+        56
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        200,
+        746,
+        1500,
+        56
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        200,
+        802,
+        1500,
+        56
       ]
     }
   ],
+  "walkableOutline": [
+    [
+      200,
+      690
+    ],
+    [
+      1700,
+      690
+    ],
+    [
+      1700,
+      858
+    ],
+    [
+      200,
+      858
+    ]
+  ],
+  "entrance": [
+    300,
+    770
+  ],
+  "entrances": [
+    {
+      "from": "main_street",
+      "at": [
+        300,
+        770
+      ],
+      "facing": "right",
+      "note": "In by the street door, at left, from Main Street."
+    },
+    {
+      "from": "default",
+      "at": [
+        300,
+        770
+      ],
+      "facing": "right",
+      "note": "In by the street door, at left, from Main Street."
+    },
+    {
+      "from": "thads_room",
+      "at": [
+        1640,
+        720
+      ],
+      "facing": "left",
+      "note": "Down the stairs from Room 19."
+    }
+  ],
+  "ambient": [
+    "hotel_clerk"
+  ],
   "hotspots": [
     {
-      "id": "the_clerk",
-      "name": "THE HOTEL CLERK",
+      "id": "clerk_s_bell",
+      "name": "THE CLERK'S BELL",
       "rect": [
-        384,
-        372,
-        72,
-        108
+        1372,
+        424,
+        50,
+        38
       ],
-      "colour": 30,
-      "stub": true,
-      "defaultVerb": "TALK_TO",
-      "note": "He stands BEHIND the counter and is drawn before it, so the counter cuts him off at the chest. The rect covers only what clears the counter -- a hotspot over his hidden half would be a click on a man who is not visibly there. Doc 27 gives this character a tree and no examine layer. The hotspot is marked stub for the reason the word already means in this repo: the thing exists so the interaction works and its LOOK and LISTEN lines are honestly absent rather than invented. Three characters x two verbs x three variants is eighteen lines nobody has written, and check-examine-lines names them on every run until somebody does.",
+      "defaultVerb": "LOOK_AT",
       "responses": {
-        "TALK_TO": [
+        "LOOK_AT": [
           {
-            "dialogue": "HOTEL_CLERK"
+            "say": "A bell for summoning the clerk.",
+            "repeat": [
+              "A card beside it reads RING FOR SERVICE, in the same hand as the card that reads NO CREDIT.",
+              "I have looked at this bell three times now. A lesser man would have rung it. So would a braver one."
+            ],
+            "then": [
+              "The handle is worn to bare brass, which tells you how often the clerk is elsewhere."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "It wants ringing. I decline.",
+            "repeat": [
+              "Nothing. It is waiting me out.",
+              "Still nothing. The bell and I have reached an understanding, and the understanding is silence."
+            ]
           }
         ]
+      },
+      "overrides": {
+        "USE": "I rang it. The clerk arrived from a direction the building does not have."
+      },
+      "walkTo": {
+        "x": 1397,
+        "y": 817,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "spittoon",
+      "name": "THE SPITTOON",
+      "rect": [
+        566,
+        520,
+        62,
+        72
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "I will not be examining the spittoon closely. Some economies are false.",
+            "repeat": [
+              "Brass, and emptied. In a hotel lobby this counts as gentility.",
+              "It has been moved twice since this morning and it is still in the wrong place.",
+              "There is a ring on the carpet where it used to be and a ring where it is."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "No.",
+            "repeat": [
+              "Nothing, mercifully.",
+              "Nothing.",
+              "Nothing. We have both been spared."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 597,
+        "y": 817,
+        "facing": "back"
       }
     },
     {
       "id": "register",
       "name": "THE REGISTER",
       "rect": [
-        312,
-        516,
-        144,
-        72
+        1145,
+        404,
+        132,
+        46
       ],
-      "colour": 34,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "My name, spelled in a way it has never previously been spelled, in a hand of tremendous confidence.",
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "My line is ruled through, respectfully. The clerk did it with a straightedge. In this town even the erasures are filed."
+          },
+          {
+            "say": "There I am.",
             "repeat": [
               "Forty-one names. I have read all of them and I do not know one.",
               "Mine is the last, and it is spelled in a way I have not previously encountered."
+            ],
+            "then": [
+              "'Thadeus Grub.' The hotel has removed exactly the letters it considers extravagant."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "Pages settling. Mine has already been turned.",
             "repeat": [
+              "Nothing.",
               "Nothing.",
               "Nothing. It is a list of people who are elsewhere."
             ]
@@ -104,54 +236,24 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "It is the register. It stays on the desk and the desk stays where it is."
-      }
-    },
-    {
-      "id": "key_rack",
-      "name": "THE KEY RACK",
-      "rect": [
-        180,
-        336,
-        204,
-        108
-      ],
-      "colour": 38,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Forty keys. Four of them are out. The hotel is one-tenth occupied and charges as though it were not.",
-            "repeat": [
-              "Four out of forty. The four are not near each other.",
-              "Number nineteen is mine. I have looked at it more than a man should look at a key."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing.",
-            "repeat": [
-              "Nothing.",
-              "Brass on wood, faintly, when the door goes."
-            ]
-          }
-        ]
+        "PICK_UP": "It is the register. It stays on the desk and the desk stays where it is.",
+        "USE": "I corrected my name in it. The next morning it was wrong again, differently. The register is alive, or the clerk is loyal to some principle I lack."
       },
-      "overrides": {
-        "PICK_UP": "One of those is mine and the other thirty-nine are a matter for the management."
+      "walkTo": {
+        "x": 1211,
+        "y": 817,
+        "facing": "back"
       }
     },
     {
       "id": "engraving",
       "name": "THE ENGRAVING",
       "rect": [
-        432,
-        180,
-        156,
-        120
+        845,
+        215,
+        120,
+        105
       ],
-      "colour": 42,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -175,18 +277,64 @@
       },
       "overrides": {
         "PICK_UP": "It is hung too high for a man who has not been invited to touch it."
+      },
+      "walkTo": {
+        "x": 905,
+        "y": 817,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "painting",
+      "name": "THE PAINTING",
+      "rect": [
+        542,
+        198,
+        115,
+        125
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A mountain scene, signed.",
+            "repeat": [
+              "There is a goat on the nearest peak, looking out of the picture as though it was promised a better frame.",
+              "The signature is larger than the mountain. That, at least, is an honest account of the painter's priorities."
+            ],
+            "then": [
+              "It is not one of our mountains; the painter never came west of the frame shop."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Canvas, ticking in a draft. The draft is real, at least.",
+            "repeat": [
+              "The frame creaks. It is the most western thing about it.",
+              "Nothing. A painting of a mountain is quieter than a mountain, and that is the only improvement on offer."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "Behind it: wall. I do not know what I expected. More wall, perhaps, but honest about it."
+      },
+      "walkTo": {
+        "x": 600,
+        "y": 817,
+        "facing": "back"
       }
     },
     {
       "id": "clock",
       "name": "THE CLOCK",
       "rect": [
-        456,
-        300,
-        120,
-        144
+        1500,
+        150,
+        100,
+        220
       ],
-      "colour": 46,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -210,58 +358,197 @@
       },
       "overrides": {
         "USE": "I have been asked not to."
+      },
+      "walkTo": {
+        "x": 1550,
+        "y": 817,
+        "facing": "back"
       }
     },
     {
-      "id": "spittoon",
-      "name": "THE SPITTOON",
+      "id": "key_rack",
+      "name": "THE KEY RACK",
       "rect": [
-        1128,
-        612,
-        108,
-        84
+        1262,
+        210,
+        190,
+        120
       ],
-      "colour": 50,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Brass, and emptied. In a hotel lobby this counts as gentility.",
+            "say": "Forty keys. Four of them are out.",
             "repeat": [
-              "It has been moved twice since this morning and it is still in the wrong place.",
-              "There is a ring on the carpet where it used to be and a ring where it is."
+              "Four out of forty. The four are not near each other.",
+              "Number nineteen is mine. I have looked at it more than a man should look at a key."
+            ],
+            "then": [
+              "The hotel is one-tenth occupied and charges as though it were not."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing, mercifully.",
+            "say": "Nothing. A key only speaks when dropped.",
             "repeat": [
               "Nothing.",
-              "Nothing. We have both been spared."
+              "Nothing.",
+              "Brass on wood, faintly, when the door goes."
             ]
           }
         ]
+      },
+      "overrides": {
+        "PICK_UP": "Three keys, and mine is one, and the other two belong to men I have never seen. The hotel is fuller of mystery than of guests."
+      },
+      "walkTo": {
+        "x": 1357,
+        "y": 817,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "settee",
+      "name": "THE SETTEE",
+      "rect": [
+        275,
+        450,
+        285,
+        190
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A settee in a color that was once a decision.",
+            "repeat": [
+              "A settee in worn blue plush, gone shiny at both arms and nowhere in the middle.",
+              "Two men have sat at either end of this for years and neither has moved to the center.",
+              "It is the only comfortable thing I have seen since the coach, and the coach was not comfortable."
+            ],
+            "then": [
+              "Someone has slept on it recently, and at length."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Horsehair, resettling. It sighs longer than furniture should.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. Nobody is sitting on it and nobody is going to."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I have sat on it. That is what happened next."
+      },
+      "walkTo": {
+        "x": 418,
+        "y": 817,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "parlor_piano",
+      "name": "THE PARLOR PIANO",
+      "rect": [
+        675,
+        330,
+        230,
+        255
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An upright piano in the corner of the lobby, under a fern that is doing better than it is. The hotel calls this corner the parlor.",
+            "repeat": [
+              "Walnut, with a brass plate: DONATED BY THE CONSOLATION IMPROVEMENT COMPANY. There is no plate saying who has played it since.",
+              "The clerk dusts it every morning, around the keys. He does not touch the keys. Neither does anyone else."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing, until a cart goes by.",
+            "repeat": [
+              "Still wrong. The A is the worst. The A is always the worst.",
+              "Four minutes' work, and a room for the night. I have done the arithmetic, which I gather is frowned on here."
+            ],
+            "then": [
+              "Then every string answers, and every one of them is wrong in its own direction."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 790,
+        "y": 817,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "front_window",
+      "name": "THE FRONT WINDOW",
+      "rect": [
+        295,
+        125,
+        195,
+        320
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Main Street through glass with a wave in it.",
+            "repeat": [
+              "A man outside has been about to cross the street for the whole of my stay. The glass makes him reconsider in waves.",
+              "My own reflection, rippling. Even the window has not decided whether I have arrived."
+            ],
+            "then": [
+              "The town ripples, like it has not set yet."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The street, muffled. The glass keeps out the words and lets the arguing through.",
+            "repeat": [
+              "A wagon, a dog, a man insisting. The glass lets the insisting through.",
+              "Somebody laughing on the boardwalk. Through the window it sounds like an opinion."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 393,
+        "y": 817,
+        "facing": "back"
       }
     },
     {
       "id": "stove",
       "name": "THE STOVE",
       "rect": [
-        984,
-        408,
-        168,
-        216
+        1540,
+        70,
+        165,
+        590
       ],
-      "colour": 54,
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A parlor stove with a nickel rail, polished. It is the only thing in this building anyone has spent an afternoon on.",
+            "say": "A parlor stove with a nickel rail, polished.",
             "repeat": [
               "Unlit. It has been unlit since I arrived, in a lobby with a rail for drying gloves.",
               "The rail is for drying gloves. Nobody in Consolation owns gloves."
+            ],
+            "then": [
+              "It is the only thing in this building anyone has spent an afternoon on."
             ]
           }
         ],
@@ -277,57 +564,88 @@
       },
       "overrides": {
         "OPEN": "Cold, and empty, and it has been both for some time."
+      },
+      "walkTo": {
+        "x": 1623,
+        "y": 817,
+        "facing": "back"
       }
     },
     {
-      "id": "settee",
-      "name": "THE SETTEE",
+      "id": "stairs_closed",
+      "stateOf": "stairs",
+      "name": "THE STAIRS",
       "rect": [
-        600,
-        432,
-        384,
-        204
+        1705,
+        75,
+        215,
+        620
       ],
-      "colour": 58,
-      "defaultVerb": "LOOK_AT",
+      "colour": 0,
+      "when": {
+        "T_ROOM_GRANTED": false
+      },
+      "defaultVerb": "WALK_TO",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A settee in worn blue plush, gone shiny at both arms and nowhere in the middle.",
+            "say": "Worn in the middle by men going up hopeful and coming down otherwise.",
             "repeat": [
-              "Two men have sat at either end of this for years and neither has moved to the center.",
-              "It is the only comfortable thing I have seen since the coach, and the coach was not comfortable."
+              "Stairs to the rooms, carpeted for the first four treads and bare above that. The carpet ran out.",
+              "Somebody measured wrong, or somebody ran out of money on the fifth tread.",
+              "The bare treads are worn more than the carpeted ones. Everyone is going up."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. Horsehair, settling.",
+            "say": "The fourth step confesses under any weight at all.",
             "repeat": [
-              "Nothing.",
-              "Nothing. Nobody is sitting on it and nobody is going to."
+              "Somebody on the landing, not moving. There is always somebody on the landing not moving.",
+              "Still there.",
+              "Boards. Two rooms, both occupied, neither talking."
             ]
+          }
+        ],
+        "WALK_TO": [
+          {
+            "by": "hotel_clerk",
+            "say": "The stairs come with a room, sir. They are not sold separately."
+          }
+        ],
+        "USE": [
+          {
+            "by": "hotel_clerk",
+            "say": "The stairs come with a room, sir. They are not sold separately."
+          }
+        ],
+        "OPEN": [
+          {
+            "by": "hotel_clerk",
+            "say": "The stairs come with a room, sir. They are not sold separately."
           }
         ]
       },
-      "overrides": {
-        "USE": "I have sat on it. That is what happened next."
-      }
+      "walkTo": {
+        "x": 1665,
+        "y": 833,
+        "facing": "back"
+      },
+      "note": "Errata 91 E: THE STAIRS before it opens -- docs/57-puzzle-completion.md::## A2 ."
     }
   ],
   "exits": [
     {
-      "id": "back_to_street",
+      "id": "street_door",
       "name": "THE STREET DOOR",
       "rect": [
-        24,
-        276,
-        132,
-        264
+        10,
+        165,
+        205,
+        480
       ],
-      "colour": 90,
+      "colour": 0,
       "to": "main_street",
-      "defaultVerb": "WALK_TO",
       "responses": {
         "LOOK_AT": [
           {
@@ -347,25 +665,33 @@
             ]
           }
         ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 26: THE STREET DOOR → Room 2, with its own LOOK and LISTEN.",
+      "walkTo": {
+        "x": 230,
+        "y": 770,
+        "facing": "left"
       }
     },
     {
-      "id": "up_to_room",
+      "id": "stairs",
       "name": "THE STAIRS",
       "rect": [
-        1284,
-        180,
-        600,
-        360
+        1705,
+        75,
+        215,
+        620
       ],
-      "colour": 90,
+      "colour": 0,
       "to": "thads_room",
-      "defaultVerb": "WALK_TO",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Stairs to the rooms, carpeted for the first four treads and bare above that. The carpet ran out.",
+            "say": "Worn in the middle by men going up hopeful and coming down otherwise.",
             "repeat": [
+              "Stairs to the rooms, carpeted for the first four treads and bare above that. The carpet ran out.",
               "Somebody measured wrong, or somebody ran out of money on the fifth tread.",
               "The bare treads are worn more than the carpeted ones. Everyone is going up."
             ]
@@ -373,45 +699,182 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Somebody on the landing, not moving. There is always somebody on the landing not moving.",
+            "say": "The fourth step confesses under any weight at all.",
             "repeat": [
+              "Somebody on the landing, not moving. There is always somebody on the landing not moving.",
               "Still there.",
               "Boards. Two rooms, both occupied, neither talking."
             ]
           }
         ]
+      },
+      "overrides": {
+        "PUSH": "The fourth step and I have an arrangement: I skip it, and it tells no one my hours."
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 26: THE STAIRS → Room 19; 'OPEN and USE walk through.' Before A2 the clerk stops him (doc 57 A2): THE STAIRS answer with his line, and are not a way up.",
+      "when": {
+        "T_ROOM_GRANTED": true
+      },
+      "walkTo": {
+        "x": 1690,
+        "y": 720,
+        "facing": "right"
       }
     }
   ],
-  "entrances": [
+  "walkBoxes": [
     {
-      "from": "main_street",
-      "at": [
-        240,
-        732
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 200,
+          "y": 690
+        },
+        {
+          "x": 1700,
+          "y": 690
+        },
+        {
+          "x": 1700,
+          "y": 746
+        },
+        {
+          "x": 200,
+          "y": 746
+        }
       ],
-      "facing": "right",
-      "note": "In off the street, at the near end of the lobby with the desk ahead."
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 374,
+        "nearY": 858,
+        "nearHeight": 488
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
     },
     {
-      "from": "thads_room",
-      "at": [
-        1284,
-        720
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 200,
+          "y": 746
+        },
+        {
+          "x": 1700,
+          "y": 746
+        },
+        {
+          "x": 1700,
+          "y": 802
+        },
+        {
+          "x": 200,
+          "y": 802
+        }
       ],
-      "facing": "front",
-      "note": "Down the stair, which climbs the long right-hand wall."
-    }
-  ],
-  "lightSources": [
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 374,
+        "nearY": 858,
+        "nearHeight": 488
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
     {
-      "note": "The desk lamp. One oil lamp against a cool field, per errata 30d, with 33a's dark collar around it.",
-      "rect": [
-        156,
-        444,
-        216,
-        192
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 200,
+          "y": 802
+        },
+        {
+          "x": 1700,
+          "y": 802
+        },
+        {
+          "x": 1700,
+          "y": 858
+        },
+        {
+          "x": 200,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 690,
+        "farHeight": 374,
+        "nearY": 858,
+        "nearHeight": 488
+      },
+      "neighbours": [
+        "mud_mid"
       ]
     }
-  ]
+  ],
+  "lamps": [
+    {
+      "id": "door_lamp",
+      "at": [
+        258,
+        270
+      ],
+      "radius": 360,
+      "amount": 0.08,
+      "rate": 0.23,
+      "phase": 0.1,
+      "note": "The lamp by the door."
+    },
+    {
+      "id": "desk_lamp",
+      "at": [
+        1152,
+        270
+      ],
+      "radius": 420,
+      "amount": 0.08,
+      "rate": 0.27,
+      "phase": 0.6,
+      "note": "The lamp over the desk."
+    },
+    {
+      "id": "stove",
+      "at": [
+        1622,
+        545
+      ],
+      "radius": 300,
+      "amount": 0.1,
+      "rate": 0.31,
+      "phase": 0.4,
+      "note": "The stove's glow."
+    }
+  ],
+  "occlusionPlanes": [
+    {
+      "level": 1,
+      "mask": "art/masks/room-18-plane-1.png",
+      "note": "The open register on the desk, the book's whole outline (tools/art/room18-clerk.py). Assigned to the clerk by his ambient record's clipPlane."
+    }
+  ],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-18/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
 }

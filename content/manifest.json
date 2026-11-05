@@ -73,7 +73,8 @@
   "content/fixtures/room-14.json",
   "content/fixtures/room-15.json",
   "content/fixtures/room-16.json",
-  "content/fixtures/room-17.json"
+  "content/fixtures/room-17.json",
+  "content/fixtures/room-18.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -131,7 +132,8 @@
   "content/ambient/livery-man.json",
   "content/ambient/grievance.json",
   "content/ambient/other-mules.json",
-  "content/ambient/ozymandia.json"
+  "content/ambient/ozymandia.json",
+  "content/ambient/hotel-clerk.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",

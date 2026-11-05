@@ -1,0 +1,201 @@
+{
+ "schema": 1,
+ "id": "room-18-hotel-lobby",
+ "room": "hotel_lobby",
+ "docRoom": 18,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 18 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/27-minor-trees.md",
+  "docs/05-examine-layer.md",
+  "docs/26-batch-a.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/57-puzzle-completion.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-18.json",
+    "docs/00-errata.md::91 · ROOM 18 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The clerk at his desk in every act; A2 here; the stairs open with the room; night."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-18/graybox.json",
+    "docs/00-errata.md::91 · ROOM 18 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Every subject is plate; the clerk is the one figure; the stairs' opening is not a picture change."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-18-clerk-cut.png",
+    "docs/00-errata.md::91 · ROOM 18 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The clerk generated on magenta against Thad, cut at the desk top, the register a plane in front of him."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/hotel-lobby/life/life.json"
+   ],
+   "note": "The clerk reads, writes, looks up and turns the register; the lamps and the stove breathe."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-18-clerk-cut.png"
+   ],
+   "note": "He stands behind the desk, cut at its top; the open register is a plane in front of him."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-18/annotation.json"
+   ],
+   "note": "Wall lamps and the stove, plate light and a runtime breath each."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-18.test.ts",
+    "docs/00-errata.md::91 · ROOM 18 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The piano's refusal says leave is wanted; the stairs say a room is."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-18.json",
+    "content/rooms/mercantile.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 92 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-18: 3 of 4 operations (master, the plate re-framed with the people out, the clerk's sheet)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/mercantile.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-18/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/hotel-lobby/proof.json"
+   ],
+   "note": "Panel D: the room given (T_ROOM_GRANTED); the picture does not change."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/hotel-lobby/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/hotel-lobby/doors/life.json",
+    "tests/room-18.test.ts"
+   ],
+   "note": "Out by the street door to Main Street and back by the hotel's door, twice; A2 and the stairs in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-18/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-18-hotel-lobby.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-18/plate-01/frame.json"
+   ]
+  },
+  {
+   "subject": "the hotel clerk",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-18-clerk.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-18/clerk/clerk.json"
+   ]
+  },
+  {
+   "subject": "the register's plane",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/masks/room-18-plane-1.png",
+   "evidence": [
+    "tools/art/room18-clerk.py"
+   ],
+   "note": "The open register in front of him."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q161 · Room 18, the hotel lobby: rebuilt, awaiting Tyler's playthrough; the clerk's look is the builder's — **RULED 2026-11-05 (errata 91, delegated); BUILT, room-18 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q161 · Room 18, the hotel lobby: rebuilt, awaiting Tyler's playthrough; the clerk's look is the builder's — **RULED 2026-11-05 (errata 91, delegated); BUILT, room-18 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

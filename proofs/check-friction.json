@@ -19,6 +19,12 @@
    "date": "2026-11-02",
    "kind": "loosened",
    "why": "Room 11 built: the test held that the build declares no T_QUEUE_PADDED flag, standing for 'no topic flag stands in for C5'. Doc 57 C4 names T_QUEUE_PADDED as the log's pickup in the empty office, so it is now declared; the test now holds the same intent -- nothing at Winnie's window writes it. Not a misfire."
+  },
+  {
+   "check": "tools/check-examine-lines.mjs",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "Room 18 built: a hotspot that declares `stateOf: <id>` now counts as the same owner as that id when lines are compared for duplicates. The stairs are an exit after A2 and, before it, a stand-in in the same place answering in the clerk's words (doc 57 A2); both carry THE STAIRS' own lines because they are one object in two states, never live together. Not a misfire of the check: a structural case it had no way to state."
   }
  ]
 }

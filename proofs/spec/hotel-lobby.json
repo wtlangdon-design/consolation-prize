@@ -1,0 +1,19 @@
+{
+ "schema": 1,
+ "room": "hotel_lobby",
+ "note": "ROOM 18's PROOF SPEC. The route is Main Street's, then along the street to the hotel's door. The room's principal change is A2's room: the stairs open. A2 itself is played in tests/room-18.test.ts.",
+ "route": "hotel-lobby",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "T_ROOM_GRANTED (A2, the fork on the piano with the clerk's leave). Visible consequence: none in the picture -- the stairs become a way up; the frame is taken to show the room unchanged.",
+  "flags": {
+   "T_ROOM_GRANTED": true
+  },
+  "actions": [
+   {
+    "do": "wait",
+    "seconds": 2
+   }
+  ]
+ }
+}

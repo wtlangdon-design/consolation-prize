@@ -76,7 +76,10 @@ export function check() {
         continue;
       }
 
-      const where = `${roomId}/${target.id}`;
+      // ONE OBJECT IN TWO STATES is one owner: Room 18's stairs before A2 are a
+      // stand-in (`stateOf: "stairs"`) carrying the stairs' own lines, never
+      // live at the same time as the stairs (errata 91 E).
+      const where = `${roomId}/${target.stateOf ?? target.id}`;
       for (const [index, line] of lines.entries()) {
         if (!seen[verb].has(line)) seen[verb].set(line, []);
         seen[verb].get(line).push({

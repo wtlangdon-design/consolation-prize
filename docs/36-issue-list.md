@@ -4792,3 +4792,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Thirteen subjects and seventy-seven lines; Reverend Sowerby at his pulpit (his Room 4 drawing's church sheet) and his tree, SOW_A1 and SOW_C1; C3's letter (`?fixture=r17-a`) and E3's eulogy (`?fixture=r17-b`) played in `tests/room-17.test.ts`. Reached by the map; its door leads back to it. Proofs under `renders/proofs/church/`.
 
 **Open, for Tyler:** (a) Doc 04's live price counter during SOW_C1 ("ADJECTIVES and the price", errata 75) is not drawn: the count is kept (`SOWERBY_ADJECTIVES`) and his lines say it ("Four adjectives, eight dollars"), but the counter's words and layout are not written. (b) SOW_A1 option 7 reads "C3 complete" as the memorial booked and not the funeral day.
+
+## Q161 · Room 18, the hotel lobby: rebuilt, awaiting Tyler's playthrough; the clerk's look is the builder's — **RULED 2026-11-05 (errata 91, delegated); BUILT, room-18 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Thirteen subjects and ninety-two lines; the clerk behind his desk and his tree (doc 27); A2 -- his leave, the fork on the parlor piano, the room -- played in `tests/room-18.test.ts` (`?fixture=r18-a`); the stairs refuse in the clerk's words until then. Main Street's hotel door leads here; the stairs lead to Room 19. Proofs under `renders/proofs/hotel-lobby/`.
+
+**Open, for Tyler:** (a) No document describes the clerk; he is drawn as a fussy period desk clerk (errata 91 B). (b) Room 19 behind the stairs is still the retired 320x144 room until it is rebuilt (next).

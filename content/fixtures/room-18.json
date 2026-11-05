@@ -1,0 +1,36 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 18, the hotel lobby. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r18-a",
+   "label": "R18-A Act I, four dollars and no room: the piano for a room (A2)",
+   "room": "hotel_lobby",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "four_dollars",
+    "watch"
+   ],
+   "derivedFrom": [
+    "docs/27-minor-trees.md::THE HOTEL CLERK · Room 18",
+    "docs/57-puzzle-completion.md::A2 · Get a room with four dollars when the room costs five"
+   ],
+   "note": "TALK TO the clerk: a room (2), four dollars (3), the piano (4); LISTEN TO the piano; USE THE TUNING FORK on it: the room, and the stairs."
+  }
+ ]
+}

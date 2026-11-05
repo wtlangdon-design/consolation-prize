@@ -1166,6 +1166,36 @@ function combinations() {
       livery, ride,
     };
   })();
+  // DOC 57 A2: THE PARLOR PIANO ANSWERS BY CIRCUMSTANCE (errata 91 E). Doc 24's
+  // line stays the success's first; doc 57 writes the clerk's after it, the
+  // refusal before he has agreed, and the line after A2. `T_ROOM_GRANTED` is
+  // the room given, which opens the stairs.
+  {
+    const whole = read('docs/57-puzzle-completion.md');
+    const from = whole.indexOf('## A2 ');
+    if (from < 0) throw new Error('doc 57: no A2 section');
+    const body = whole.slice(from, whole.indexOf('\n## ', from + 5));
+    const caseOf = (label) => {
+      const re = new RegExp(`^> \\*\\*THE PARLOR PIANO\\*\\* · USE THE TUNING FORK, \\*${label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\* — (.+)$`, 'm');
+      const m = re.exec(body);
+      if (!m) throw new Error(`doc 57 A2: no case "${label}"`);
+      return m[1].split('→')[0];
+    };
+    const before = quoted(caseOf('before `T_TUNES_PIANOS`'))[0];
+    const success = caseOf('after `T_TUNES_PIANOS`');
+    const clerk = /\*\*CLERK:\*\* "([^"]+)"/.exec(success)?.[1];
+    const after = quoted(caseOf('after A2'))[0];
+    const pair = rebuilt.find((one) => one.item === 'tuning_fork' && one.room === 'hotel_lobby' && one.target === 'parlor_piano');
+    if (!pair || !before || !clerk || !after) throw new Error('doc 57 A2: the piano\'s cases do not read');
+    if (!success.includes(pair.say)) throw new Error('doc 57 A2: the success is not doc 24\'s line');
+    pair.puzzle = 'A2';
+    pair.rules = [
+      { case: 'after A2', when: { T_ROOM_GRANTED: true }, say: after },
+      { case: 'after T_TUNES_PIANOS', when: { T_TUNES_PIANOS: true }, say: pair.say,
+        then: [{ speaker: 'hotel_clerk', line: clerk }], set: { T_ROOM_GRANTED: true }, completes: 'A2' },
+      { case: 'before T_TUNES_PIANOS', when: { T_TUNES_PIANOS: false }, say: before },
+    ];
+  }
   // DOC 57 A7: MADAME OZYMANDIA'S FEE AND THE MAP (errata 89 E). Three cases,
   // the words read from the section; a reply after **OZYMANDIA:** alternates
   // speaker at each " — " between quotes (hers, then Thad's, then hers).
@@ -1459,7 +1489,7 @@ function roomsBatchA() {
     // ROOM 13 IS COMPILED NOW (errata 86): tools/compile-room.mjs builds it
     // from content/examine/room-13.json, which carries doc 26's lines merged
     // with docs 05, 09 and 54. This pass would rewrite a file it no longer owns.
-    if (number === 13) continue;
+    if (number === 13 || number === 18) continue;   // compiled by compile-room from annotations (errata 86, 91)
     const path = FILE[number];
     if (!path) throw new Error(`doc 26: no room file for room ${number}`);
     const room = JSON.parse(read(path));

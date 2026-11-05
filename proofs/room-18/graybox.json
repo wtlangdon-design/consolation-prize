@@ -1,0 +1,314 @@
+{
+ "room": 18,
+ "note": "Ruling 22 steps 1-6 for the hotel lobby, written by tools/room18-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 91).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 745,
+   "height": 440
+  },
+  "near": {
+   "y": 855,
+   "height": 516
+  },
+  "from": "Room 5's slope, a little smaller than Room 13's"
+ },
+ "walkable": [
+  220,
+  745,
+  1660,
+  110
+ ],
+ "exit": {
+  "hotspot": "THE STREET DOOR",
+  "to": "main_street",
+  "rect": [
+   20,
+   150,
+   200,
+   550
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 300,
+   "y": 790,
+   "facing": "right"
+  },
+  "talk_clerk": {
+   "x": 1120,
+   "y": 790,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE STREET DOOR",
+   "rect": [
+    20,
+    150,
+    200,
+    550
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE FRONT WINDOW",
+   "rect": [
+    240,
+    160,
+    200,
+    320
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SETTEE",
+   "rect": [
+    260,
+    520,
+    260,
+    180
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SPITTOON",
+   "rect": [
+    540,
+    640,
+    60,
+    60
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PAINTING",
+   "rect": [
+    560,
+    200,
+    160,
+    120
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE ENGRAVING",
+   "rect": [
+    740,
+    210,
+    120,
+    100
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PARLOR PIANO",
+   "rect": [
+    880,
+    420,
+    220,
+    280
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE FERN",
+   "rect": [
+    900,
+    330,
+    100,
+    90
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE KEY RACK",
+   "rect": [
+    1200,
+    220,
+    250,
+    160
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CLERK (behind the desk)",
+   "rect": [
+    1270,
+    290,
+    110,
+    210
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE DESK",
+   "rect": [
+    1150,
+    480,
+    350,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE REGISTER",
+   "rect": [
+    1250,
+    470,
+    90,
+    30
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CLERK'S BELL",
+   "rect": [
+    1380,
+    465,
+    30,
+    30
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CLOCK",
+   "rect": [
+    1510,
+    180,
+    60,
+    140
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STOVE",
+   "rect": [
+    1580,
+    450,
+    100,
+    250
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STAIRS",
+   "rect": [
+    1700,
+    100,
+    220,
+    600
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "A LAMP",
+   "rect": [
+    1120,
+    200,
+    40,
+    50
+   ],
+   "where": "light"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the settee, the piano, the desk and the stove are behind it, and the clerk is cut at his desk, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "walls, papered",
+   "p10": 50.0,
+   "p90": 84.0,
+   "darkAnchorMargin": 24.5,
+   "lightAnchorMargin": 37.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "floor, plank",
+   "p10": 92.0,
+   "p90": 99.0,
+   "darkAnchorMargin": 66.5,
+   "lightAnchorMargin": 22.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE STREET DOOR",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 63.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE FRONT WINDOW",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SETTEE",
+   "p10": 62.0,
+   "p90": 62.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 59.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PARLOR PIANO",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 24.5,
+   "lightAnchorMargin": 71.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE FERN",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE KEY RACK",
+   "p10": 56.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE DESK",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE STOVE",
+   "p10": 46.0,
+   "p90": 46.0,
+   "darkAnchorMargin": 20.5,
+   "lightAnchorMargin": 75.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE STAIRS",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

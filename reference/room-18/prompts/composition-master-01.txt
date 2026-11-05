@@ -1,0 +1,19 @@
+Image 1 is the layout for one room of my pixel-art adventure game: grey blocks for the walls and furniture, and the hero (the man in the long coat) standing on the floor. Paint this room as a finished game background with two people in it, keeping the camera, the layout and every block where image 1 puts it. Paint the room ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched. The whole room, from the ceiling to the floor in front of the hero, fits inside that band.
+
+THE ROOM: the lobby of the one hotel in a gold-rush town, 1850s, at night. Papered walls over dark wainscot, a plank floor with a worn runner; respectable on the cheap.
+- Far left: the street door, closed.
+- Left: the front window onto the dark street; under it a horsehair settee; beside it a brass spittoon.
+- Left of middle, on the wall: a small oil painting of a mountain scene, and beside it an engraving of a bay with a smoking volcano.
+- Middle: an upright piano in the corner under a potted fern -- the lobby's "parlor".
+- Right of middle: the clerk's desk, with a big open register and a small brass bell on it; behind it on the wall a rack of key hooks, nearly all keys hanging; beside the rack a tall wall clock.
+- Right: an iron stove.
+- Far right: a staircase going up to the rooms, carpeted on its first four treads and bare above.
+- Light: oil lamps on the walls and the stove; warm, the corners dim.
+
+THE PEOPLE (this picture is a reference painting, so people are allowed in it):
+- The hero from image 4, standing where image 1 puts him, at exactly that size, facing right toward the desk.
+- THE HOTEL CLERK, behind the desk, seen from the waist up over it, reading the register: a neat, fussy man of about forty, hair parted in the centre and oiled flat, small round spectacles, a white shirt with black sleeve garters, a buttoned waistcoat, a bow tie; proprietorial and unhurried. The size of a standing man at that depth.
+
+THE LOOK: the same pixel-art style as images 2, 3 and 5, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero -- the clerk drawn on exactly the hero's coarse pixel grid, no finer -- flat, soft shading, very little texture, simple shapes. Warm browns, faded green paper, brass and lamplight. Nothing near black where the hero stands.
+
+RULES: no readable text, letters or numbers anywhere -- the register and the clock carry marks, never words or numerals. No border, no frame around the picture, no caption.

@@ -1,0 +1,56 @@
+{
+ "sheet": "art/staging/room-18/clerk/clerk.png",
+ "frames": [
+  [
+   2,
+   2,
+   121,
+   138
+  ],
+  [
+   125,
+   2,
+   121,
+   138
+  ],
+  [
+   248,
+   2,
+   121,
+   138
+  ],
+  [
+   371,
+   2,
+   121,
+   138
+  ],
+  [
+   494,
+   2,
+   121,
+   138
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "writing",
+  "looking up",
+  "turning the book"
+ ],
+ "topLeft": {
+  "x": 1149,
+  "y": 311
+ },
+ "anchor": {
+  "x": 1209,
+  "y": 449
+ },
+ "height": 300,
+ "feetRow": 616.7,
+ "cut": 445,
+ "handsTo": 449,
+ "key": 90,
+ "source": "room-18 attempt 3 (art/staging/room-18/clerk-01/sheet.png)"
+}
