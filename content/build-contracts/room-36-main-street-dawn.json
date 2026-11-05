@@ -26,10 +26,10 @@
   "staticVsStatefulArt": {
    "status": "PASS",
    "evidence": [
-    "proofs/room-36/graybox.json",
+    "reference/room-36/annotation.json",
     "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
    ],
-   "note": "Room 2's plate relit; every subject is plate."
+   "note": "Room 2's plate relit, on Room 2's geometry (its graybox is Room 2's); every subject is plate."
   },
   "cast": {
    "status": "PASS",

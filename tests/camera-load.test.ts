@@ -30,7 +30,7 @@ test('every fixture in a room wider than the window opens with the view on him, 
     wide += 1;
     const state = new GameState(content, new MemoryStorage());
     assert.ok(state.applyFixture(fixture));
-    const at = room.entrances?.find((one) => one.from === 'default')?.at?.[0] ?? room.entrance?.[0] ?? roomWidth(room.size) / 2;
+    const at = room.entrances?.find((one) => one.from === 'default')?.at?.[0] ?? (room as { entrance?: [number, number] }).entrance?.[0] ?? roomWidth(room.size) / 2;
     assert.equal(state.cameraX, cameraAt(at, roomWidth(room.size)), `${fixture.id}: the view starts where he stands`);
     assert.equal(state.cameraFollowing, content.actor.id, `${fixture.id}: and follows him`);
   }
