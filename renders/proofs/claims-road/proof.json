@@ -4,7 +4,7 @@
  "room": "claims_road",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "d996e981dcabe988733eb9365cdb323d0f327fc6",
+ "commit": "4ad0b6e2ff359f73c4d9c25290b216d401364307",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -62,7 +62,7 @@
    ],
    "reportedHeight": 279,
    "expected": 279,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-02.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
    "bounds": [
     885,
     437,
@@ -99,7 +99,7 @@
    ],
    "reportedHeight": 374,
    "expected": 374,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-06.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
    "bounds": [
     836,
     483,
@@ -118,7 +118,7 @@
   {
    "panel": "B",
    "room": "claims_road",
-   "clock": 114.18060000000001,
+   "clock": 114.27560000000001,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -183,20 +183,36 @@
      "candidate": false,
      "loaded": true,
      "hash": "2fa7d921a4f119b8ab0e66fc31c8c6d19e92b8422cf983f63c4b9492ed631439"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "1c6e94cf8614e4cd0d745b6ad4fea96318e4ec526652f5d37b2a33ba984638cf"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "1c6e94cf8614e4cd0d745b6ad4fea96318e4ec526652f5d37b2a33ba984638cf"
     }
    ],
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-05T15:51:53.536Z",
+   "capturedAt": "2026-11-05T15:59:27.430Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "78a805c8540647f0b93fe983ee6a941b344fde05cc89f3668e96a6208219d45d"
+   "hash": "1c0e7ea040bd49733cf5b18f2a5bdb3257f6891682b2bd4dbe7f0393ed7bf5db"
   },
   {
    "panel": "A",
    "room": "claims_road",
-   "clock": 115.0973,
+   "clock": 115.15889999999999,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -235,7 +251,7 @@
       790
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 329,
      "moving": false,
      "drawn": "sprite",
@@ -256,6 +272,22 @@
      "candidate": false,
      "loaded": true,
      "hash": "2fa7d921a4f119b8ab0e66fc31c8c6d19e92b8422cf983f63c4b9492ed631439"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "1c6e94cf8614e4cd0d745b6ad4fea96318e4ec526652f5d37b2a33ba984638cf"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "1c6e94cf8614e4cd0d745b6ad4fea96318e4ec526652f5d37b2a33ba984638cf"
     }
    ],
    "stubs": [],
@@ -263,10 +295,10 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T15:51:54.467Z",
+   "capturedAt": "2026-11-05T15:59:28.330Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "d06cbff7c2ab01f3ab5f2946f51bd2319ba5d8da94b9b314ef9fdf5ec3aca3d4"
+   "hash": "37cd823d412ba880e32679e2767c2a5faabc3858f09fed48aa89add11fe05a5b"
   }
  ],
  "failures": [],
@@ -296,11 +328,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T15:51:58.887Z",
+ "at": "2026-11-05T15:59:32.572Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 386762,
+  "bytes": 382408,
   "panels": 4,
   "scale": 0.5
  }
