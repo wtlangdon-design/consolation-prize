@@ -4,7 +4,7 @@
  "room": "laundry",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "23015313f68f3cc758e9ed4c6a17ab541a6b831a",
+ "commit": "2f9e79793653b0e432d5cec2430a32dec6b3f976",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -113,13 +113,13 @@
     "height": 309
    },
    "seen": {
-    "x": 1032,
-    "y": 385,
+    "x": 1034,
+    "y": 383,
     "width": 276,
-    "height": 305,
+    "height": 307,
     "bottom": 689,
-    "right": 1307,
-    "changed": 27705
+    "right": 1309,
+    "changed": 28178
    },
    "props": []
   }
@@ -128,7 +128,7 @@
   {
    "panel": "B",
    "room": "laundry",
-   "clock": 8.9762,
+   "clock": 9.271,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -180,7 +180,7 @@
      "height": 391,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
       57,
       399,
@@ -217,15 +217,15 @@
    "controlWrites": [
     "enter(laundry)"
    ],
-   "capturedAt": "2026-11-05T20:18:42.328Z",
+   "capturedAt": "2026-11-05T20:21:35.512Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "0e38d9171476297c8af0d3128ebb18615c0d4664ed5339b52a4a73dbc1098130"
+   "hash": "5cd46b0f8ba9a846dc925a9236e8763fb0cc826aacf37eac9bef9ef3a5dffe8d"
   },
   {
    "panel": "A",
    "room": "laundry",
-   "clock": 9.9595,
+   "clock": 10.2043,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -310,7 +310,7 @@
     "enter(laundry)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T20:18:43.193Z",
+   "capturedAt": "2026-11-05T20:21:36.335Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "bf2233e370d7e114a93c1cd415fc57a7d9ea35da8a353bb7abbca25371ddde8f"
@@ -318,7 +318,7 @@
   {
    "panel": "D",
    "room": "laundry",
-   "clock": 20.192400000000003,
+   "clock": 20.4705,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -416,10 +416,10 @@
     "cast(false)",
     "cast(true)"
    ],
-   "capturedAt": "2026-11-05T20:18:53.550Z",
+   "capturedAt": "2026-11-05T20:21:46.626Z",
    "intent": "principal changed state: T_SHENG_HOLDS_PAPER (doc 04 SHE_A1 option 1). Visible consequence: SHE_D1's options -- the ledger, the loan's question, his three topics.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "ac33a02879e051d9239ac507b288cdb3e4ee11670f562b5f580f1f46909f81ad",
+   "hash": "7efb399d338a9154a7e07667490fe8b5e6efad48cc8978a828272450f3346ebd",
    "changedBy": "flags"
   }
  ],
@@ -450,11 +450,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T20:18:53.550Z",
+ "at": "2026-11-05T20:21:46.626Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 359284,
+  "bytes": 359094,
   "panels": 5,
   "scale": 0.5
  }
