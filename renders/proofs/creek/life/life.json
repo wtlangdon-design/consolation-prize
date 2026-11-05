@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "creek",
- "commit": "3ee4c9ab4d5d50bfe23c8d64b76f22fb596e339f",
+ "commit": "2be7aceff715fa0ddd065abeec81dd809c934019",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -13,22 +13,22 @@
  "fixture": "r26-a",
  "warped": false,
  "lifeRoute": "creek-life",
- "durationSeconds": 88.08,
+ "durationSeconds": 72.26,
  "events": [
   {
-   "t": 2.45,
+   "t": 2.67,
    "line": "started from fixture r26-a, no entry route"
   },
   {
-   "t": 5.48,
+   "t": 5.76,
    "line": "in creek; life route: 23 action(s)"
   },
   {
-   "t": 6.17,
+   "t": 6.53,
    "line": "capture 01-arrived: room creek, says null, options 0, control null"
   },
   {
-   "t": 7.19,
+   "t": 7.53,
    "trace": {
     "says": null,
     "control": null,
@@ -43,7 +43,7 @@
    }
   },
   {
-   "t": 8.19,
+   "t": 8.55,
    "trace": {
     "says": null,
     "control": null,
@@ -58,7 +58,7 @@
    }
   },
   {
-   "t": 9.18,
+   "t": 9.54,
    "trace": {
     "says": null,
     "control": null,
@@ -73,7 +73,7 @@
    }
   },
   {
-   "t": 10.2,
+   "t": 10.54,
    "trace": {
     "says": null,
     "control": null,
@@ -88,7 +88,7 @@
    }
   },
   {
-   "t": 11.18,
+   "t": 11.54,
    "trace": {
     "says": null,
     "control": null,
@@ -103,7 +103,7 @@
    }
   },
   {
-   "t": 12.18,
+   "t": 12.54,
    "trace": {
     "says": null,
     "control": null,
@@ -118,7 +118,7 @@
    }
   },
   {
-   "t": 13.2,
+   "t": 13.57,
    "trace": {
     "says": null,
     "control": null,
@@ -133,15 +133,30 @@
    }
   },
   {
-   "t": 14.17,
+   "t": 14.54,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 14.67,
+   "t": 14.55,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 15.04,
    "line": "capture 02-the-creek: room creek, says null, options 0, control null"
   },
   {
-   "t": 15.7,
+   "t": 16.04,
    "trace": {
     "says": null,
     "control": null,
@@ -156,7 +171,7 @@
    }
   },
   {
-   "t": 16.7,
+   "t": 17.05,
    "trace": {
     "says": null,
     "control": null,
@@ -171,7 +186,7 @@
    }
   },
   {
-   "t": 17.7,
+   "t": 18.07,
    "trace": {
     "says": null,
     "control": null,
@@ -186,7 +201,7 @@
    }
   },
   {
-   "t": 18.7,
+   "t": 19.07,
    "trace": {
     "says": null,
     "control": null,
@@ -201,7 +216,7 @@
    }
   },
   {
-   "t": 19.7,
+   "t": 20.06,
    "trace": {
     "says": null,
     "control": null,
@@ -216,7 +231,7 @@
    }
   },
   {
-   "t": 20.7,
+   "t": 21.06,
    "trace": {
     "says": null,
     "control": null,
@@ -231,19 +246,19 @@
    }
   },
   {
-   "t": 21.68,
+   "t": 22.04,
    "line": "action 1 (wait): waited 7s"
   },
   {
-   "t": 21.74,
+   "t": 22.11,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 21.91,
+   "t": 22.27,
    "line": "action 1 (click): clicked creek/man_panning at world 1480,573 -- THE MAN PANNING"
   },
   {
-   "t": 22.92,
+   "t": 23.29,
    "trace": {
     "says": null,
     "control": null,
@@ -258,7 +273,7 @@
    }
   },
   {
-   "t": 23.93,
+   "t": 24.3,
    "trace": {
     "says": null,
     "control": null,
@@ -266,14 +281,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     823,
+     818,
      788
     ],
     "moving": true
    }
   },
   {
-   "t": 24.93,
+   "t": 25.29,
    "trace": {
     "says": null,
     "control": null,
@@ -281,14 +296,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1104,
+     1099,
      787
     ],
     "moving": true
    }
   },
   {
-   "t": 25.94,
+   "t": 26.28,
    "trace": {
     "says": null,
     "control": null,
@@ -296,22 +311,26 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1384,
+     1375,
      786
     ],
     "moving": true
    }
   },
   {
-   "t": 26.49,
+   "t": 26.91,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room creek"
   },
   {
-   "t": 27,
+   "t": 27.44,
    "line": "capture 03-look-man: room creek, says \"thad\", options 0, control null"
   },
   {
-   "t": 28.03,
+   "t": 27.46,
+   "line": "action 1 (waitFor): reached {} in room creek"
+  },
+  {
+   "t": 28.48,
    "trace": {
     "says": "thad",
     "control": null,
@@ -326,7 +345,7 @@
    }
   },
   {
-   "t": 29.01,
+   "t": 29.49,
    "trace": {
     "says": "thad",
     "control": null,
@@ -337,11 +356,65 @@
      1480,
      786
     ],
+    "moving": false
+   }
+  },
+  {
+   "t": 30.47,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 30.48,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1480,
+     786
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 30.52,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 30.66,
+   "line": "action 1 (click): clicked creek/creek at world 1035,550 -- THE CREEK"
+  },
+  {
+   "t": 30.7,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room creek"
+  },
+  {
+   "t": 31.19,
+   "line": "capture 04-listen-creek: room creek, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 31.22,
+   "line": "action 1 (waitFor): reached {} in room creek"
+  },
+  {
+   "t": 32.23,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1065,
+     786
+    ],
     "moving": true
    }
   },
   {
-   "t": 30.03,
+   "t": 33.24,
    "trace": {
     "says": "thad",
     "control": null,
@@ -349,14 +422,34 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1196,
+     1035,
      786
     ],
-    "moving": true
+    "moving": false
    }
   },
   {
-   "t": 31.01,
+   "t": 34.22,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 34.26,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 34.41,
+   "line": "action 1 (click): clicked creek/sluice at world 1055,350 -- THE SLUICE"
+  },
+  {
+   "t": 34.45,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room creek"
+  },
+  {
+   "t": 34.91,
+   "line": "capture 05-look-sluice: room creek, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 35.92,
    "trace": {
     "says": "thad",
     "control": null,
@@ -371,7 +464,7 @@
    }
   },
   {
-   "t": 32.03,
+   "t": 36.94,
    "trace": {
     "says": "thad",
     "control": null,
@@ -386,7 +479,7 @@
    }
   },
   {
-   "t": 33.02,
+   "t": 37.95,
    "trace": {
     "says": "thad",
     "control": null,
@@ -401,7 +494,7 @@
    }
   },
   {
-   "t": 34.02,
+   "t": 38.93,
    "trace": {
     "says": "thad",
     "control": null,
@@ -416,7 +509,7 @@
    }
   },
   {
-   "t": 35.02,
+   "t": 39.93,
    "trace": {
     "says": "thad",
     "control": null,
@@ -431,9 +524,9 @@
    }
   },
   {
-   "t": 36.03,
+   "t": 40.95,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -446,9 +539,9 @@
    }
   },
   {
-   "t": 37.03,
+   "t": 41.93,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -461,9 +554,9 @@
    }
   },
   {
-   "t": 38.01,
+   "t": 42.94,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -476,9 +569,9 @@
    }
   },
   {
-   "t": 39.02,
+   "t": 43.94,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -491,9 +584,9 @@
    }
   },
   {
-   "t": 40.02,
+   "t": 44.95,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -506,9 +599,9 @@
    }
   },
   {
-   "t": 41.02,
+   "t": 45.95,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -521,9 +614,9 @@
    }
   },
   {
-   "t": 42.03,
+   "t": 46.94,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -536,9 +629,9 @@
    }
   },
   {
-   "t": 43.04,
+   "t": 47.95,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -551,9 +644,9 @@
    }
   },
   {
-   "t": 44.04,
+   "t": 48.96,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -566,9 +659,9 @@
    }
   },
   {
-   "t": 45.03,
+   "t": 49.95,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -581,9 +674,9 @@
    }
   },
   {
-   "t": 46.04,
+   "t": 50.95,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -596,9 +689,9 @@
    }
   },
   {
-   "t": 47.03,
+   "t": 51.94,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -611,9 +704,9 @@
    }
   },
   {
-   "t": 48.03,
+   "t": 52.96,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -626,9 +719,9 @@
    }
   },
   {
-   "t": 49.03,
+   "t": 53.95,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -641,9 +734,17 @@
    }
   },
   {
-   "t": 50.02,
+   "t": 54.92,
+   "line": "action 1 (wait): waited 20s"
+  },
+  {
+   "t": 55.41,
+   "line": "capture 06-still-panning: room creek, says null, options 0, control null"
+  },
+  {
+   "t": 56.42,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -656,9 +757,9 @@
    }
   },
   {
-   "t": 51.03,
+   "t": 57.42,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -671,9 +772,9 @@
    }
   },
   {
-   "t": 52.03,
+   "t": 58.42,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -686,9 +787,9 @@
    }
   },
   {
-   "t": 53.03,
+   "t": 59.43,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -701,9 +802,9 @@
    }
   },
   {
-   "t": 54.03,
+   "t": 60.42,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -716,9 +817,9 @@
    }
   },
   {
-   "t": 55.03,
+   "t": 61.44,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -731,9 +832,9 @@
    }
   },
   {
-   "t": 56.02,
+   "t": 62.42,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -746,9 +847,9 @@
    }
   },
   {
-   "t": 57.05,
+   "t": 63.45,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -761,9 +862,9 @@
    }
   },
   {
-   "t": 58.04,
+   "t": 64.45,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -776,9 +877,9 @@
    }
   },
   {
-   "t": 59.03,
+   "t": 65.45,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -791,9 +892,9 @@
    }
   },
   {
-   "t": 60.03,
+   "t": 66.45,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -806,9 +907,9 @@
    }
   },
   {
-   "t": 61.04,
+   "t": 67.45,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -821,9 +922,9 @@
    }
   },
   {
-   "t": 62.03,
+   "t": 68.43,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -836,9 +937,9 @@
    }
   },
   {
-   "t": 63.03,
+   "t": 69.45,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -851,375 +952,19 @@
    }
   },
   {
-   "t": 64.04,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 65.03,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 66.05,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 67.04,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 68.08,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 69.03,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 70.04,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 71.04,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 72.05,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 73.05,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 74.04,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 75.05,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 76.04,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 77.04,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 78.04,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 79.06,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 80.04,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 81.04,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 82.05,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 83.06,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 84.06,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 85.07,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 86.05,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 87.07,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1055,
-     786
-    ],
-    "moving": false
-   }
+   "t": 70.41,
+   "line": "action 1 (wait): waited 15s"
   }
  ],
  "captures": [
   {
    "name": "01-arrived",
    "why": "the creek, the man panning",
-   "t": 6.16,
+   "t": 6.52,
    "file": "renders/proofs/creek/life/raw-captures-ignored/01-arrived.png",
-   "hash": "0d7e029c04fb83d563ea65a520d602418a21d6804d5e7405114d308e76ee05d2",
+   "hash": "d0c94f8aab93beed2896040977efec8c85f8d3ff80757bd6294de73df2d0b0da",
    "room": "creek",
-   "clock": 5.8571,
+   "clock": 6.1533999999999995,
    "control": null,
    "says": null,
    "options": 0,
@@ -1307,11 +1052,11 @@
   {
    "name": "02-the-creek",
    "why": null,
-   "t": 14.67,
+   "t": 15.03,
    "file": "renders/proofs/creek/life/raw-captures-ignored/02-the-creek.png",
    "hash": "5185559cbb18dac75ae1b707d81dad0943224ae3db7b746856a8421ae4bc026a",
    "room": "creek",
-   "clock": 14.5068,
+   "clock": 14.8531,
    "control": null,
    "says": null,
    "options": 0,
@@ -1399,11 +1144,11 @@
   {
    "name": "03-look-man",
    "why": "where the words land (doc 55 section 8)",
-   "t": 27,
+   "t": 27.43,
    "file": "renders/proofs/creek/life/raw-captures-ignored/03-look-man.png",
-   "hash": "81a328a6bed991f1a0de5771d56e5183fe28dda9b2e7c1a8c3fdf709541ada93",
+   "hash": "2a0a309ab94573e3ed95bfabcab73491f98e70efe5321ae210561e88df35c2dd",
    "room": "creek",
-   "clock": 26.839599999999997,
+   "clock": 27.2525,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1448,7 +1193,7 @@
      "height": 346,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-03.png",
+     "from": "art/actors/thad-idle-back/idle-04.png",
      "bounds": [
       1275,
       440,
@@ -1487,15 +1232,289 @@
    ],
    "stubs": [],
    "missingAssets": []
+  },
+  {
+   "name": "04-listen-creek",
+   "why": null,
+   "t": 31.18,
+   "file": "renders/proofs/creek/life/raw-captures-ignored/04-listen-creek.png",
+   "hash": "024589f26b5e4ae7b381ce2088d3269014953854ea166ba9d9aa259de603dbec",
+   "room": "creek",
+   "clock": 30.8857,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1377,
+      786
+     ],
+     "facing": "left",
+     "clip": "walk",
+     "height": 346,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-left/walk-02.png",
+     "bounds": [
+      1192,
+      440,
+      349,
+      371
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:creek",
+     "path": "art/backgrounds/room-26-creek.png",
+     "drawn": "art/backgrounds/room-26-creek.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2423285fa11828740e609778ccecc461c5bd5fdf22b0a1a0c0937a0714ea32ad"
+    },
+    {
+     "key": "art/actors/room-26-panner.png",
+     "path": "art/actors/room-26-panner.png",
+     "drawn": "art/actors/room-26-panner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f1edd94c21cace4efcd367a83e81f2a7c512a240b67bbf4d3ff426371142109"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-look-sluice",
+   "why": null,
+   "t": 34.91,
+   "file": "renders/proofs/creek/life/raw-captures-ignored/05-look-sluice.png",
+   "hash": "2f1970c8170eeecb0459ee01b1fed5adb17d9b4239e4b7423c774c48d6dea84b",
+   "room": "creek",
+   "clock": 34.6355,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1055,
+      786
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 346,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      850,
+      440,
+      410,
+      382
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:creek",
+     "path": "art/backgrounds/room-26-creek.png",
+     "drawn": "art/backgrounds/room-26-creek.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2423285fa11828740e609778ccecc461c5bd5fdf22b0a1a0c0937a0714ea32ad"
+    },
+    {
+     "key": "art/actors/room-26-panner.png",
+     "path": "art/actors/room-26-panner.png",
+     "drawn": "art/actors/room-26-panner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f1edd94c21cace4efcd367a83e81f2a7c512a240b67bbf4d3ff426371142109"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-still-panning",
+   "why": null,
+   "t": 55.4,
+   "file": "renders/proofs/creek/life/raw-captures-ignored/06-still-panning.png",
+   "hash": "699d45c04f652dec9b87a3aa90778f30e989589993517a58d1d004252f25fc43",
+   "room": "creek",
+   "clock": 55.2348,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1055,
+      786
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 346,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      850,
+      440,
+      410,
+      382
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:creek",
+     "path": "art/backgrounds/room-26-creek.png",
+     "drawn": "art/backgrounds/room-26-creek.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2423285fa11828740e609778ccecc461c5bd5fdf22b0a1a0c0937a0714ea32ad"
+    },
+    {
+     "key": "art/actors/room-26-panner.png",
+     "path": "art/actors/room-26-panner.png",
+     "drawn": "art/actors/room-26-panner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f1edd94c21cace4efcd367a83e81f2a7c512a240b67bbf4d3ff426371142109"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
   }
  ],
- "failures": [
-  "life action 9 (waitFor): route: waitFor {\"do\":\"waitFor\",\"idle\":true,\"upTo\":60} timed out after 60s. It saw: room creek, control null, beat -, 0 option(s), handedOver true"
- ],
- "passed": false,
+ "failures": [],
+ "passed": true,
  "judgement": {
   "machine": {
-   "passed": false,
+   "passed": true,
    "establishes": [
     "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
     "every asset the room declares loaded; no stub, graybox or fallback was drawn",
@@ -1503,7 +1522,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 88.08s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 72.26s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -1518,5 +1537,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T19:35:51.743Z"
+ "at": "2026-11-05T19:37:55.608Z"
 }
