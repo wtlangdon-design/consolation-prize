@@ -1,0 +1,77 @@
+{
+ "schema": 1,
+ "id": "other_mules",
+ "name": "THE OTHER MULES",
+ "posture": "animal",
+ "room": "livery",
+ "x": 613,
+ "y": 616,
+ "zone": 2,
+ "approachRadius": 40,
+ "note": "THE OTHER MULES (doc 09), two in the pen, facing out, behind its rails (every rail row dropped), drawn from Grievance's sheet in their own colours; the darker looks across at her stall. Tyler's choice (errata 88 F): the pen holds two at true scale, where doc 09 writes four. Their lines are THE OTHER MULES hotspot's.",
+ "barks": {},
+ "barksNote": "Mules; no barks.",
+ "sprite": {
+  "sheet": "art/actors/room-15-mules.png",
+  "frames": [
+   [
+    2,
+    2,
+    227,
+    344
+   ],
+   [
+    231,
+    2,
+    227,
+    344
+   ],
+   [
+    460,
+    2,
+    227,
+    344
+   ],
+   [
+    689,
+    2,
+    227,
+    344
+   ],
+   [
+    918,
+    2,
+    227,
+    344
+   ]
+  ],
+  "rate": 0.2,
+  "phase": 0.35,
+  "breaks": [
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    2,
+    0,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "frameNote": "0 rest (the darker looking at Grievance) · 1 breath · 2 ears · 3 both face out · 4 a snort and ears. Never in step (errata 77).",
+  "provenance": "art/staging/room-15/mules/mules.json"
+ }
+}

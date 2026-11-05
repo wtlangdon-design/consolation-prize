@@ -1,0 +1,215 @@
+{
+ "room": "livery",
+ "plate": "art/backgrounds/room-15-livery.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-15/plate-01/candidate-1920x864.png, room-15 attempt 2, the standard 20:9 crop -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-15-livery.png",
+ "plateShippingHash": "f1b3580fe0ecff1c13b4ed6c",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   230,
+   740
+  ],
+  [
+   1880,
+   740
+  ],
+  [
+   1880,
+   858
+  ],
+  [
+   230,
+   858
+  ]
+ ],
+ "walkableNote": "THE STRAW FLOOR. The anvil's stump stands to y 690, the pen's posts and the stalls' doors to y 640-655, the bin to 655. So the band runs y 740-858, from the doors to the last stall.",
+ "scaling": {
+  "far": {
+   "y": 740,
+   "height": 392
+  },
+  "near": {
+   "y": 858,
+   "height": 472
+  },
+  "note": "ROOM 15'S DEPTH, FROM THE MAN THE MASTER PAINTED: about 310 tall with his feet at source y 755, which is 392 at y 739 in this plate's frame; along Room 5's slope (0.68 a row) that is 472 at the band's near edge. Grievance (360 whole, cut at her door) and the pen's mules (340) are on the same curve at the stalls' floor."
+ },
+ "entrance": [
+  320,
+  790
+ ],
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    320,
+    790
+   ],
+   "facing": "right",
+   "note": "In by the stable doors, at left: the map leads here."
+  }
+ ],
+ "hotspots": {
+  "grievance": [
+   1040,
+   240,
+   165,
+   190
+  ],
+  "grievance_s_blanket": [
+   1238,
+   488,
+   180,
+   58
+  ],
+  "grievance_s_feed_bin": [
+   1225,
+   546,
+   185,
+   110
+  ],
+  "stalls": [
+   1420,
+   165,
+   490,
+   490
+  ],
+  "tack_wall": [
+   300,
+   160,
+   280,
+   380
+  ],
+  "anvil": [
+   280,
+   545,
+   160,
+   145
+  ],
+  "hay_loft": [
+   520,
+   0,
+   1400,
+   160
+  ],
+  "grievance_s_stall": [
+   1045,
+   432,
+   160,
+   180
+  ],
+  "other_mules": [
+   462,
+   262,
+   265,
+   355
+  ],
+  "livery_man_s_chair": [
+   872,
+   585,
+   70,
+   40
+  ],
+  "board_of_names": [
+   983,
+   282,
+   62,
+   88
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). GRIEVANCE is her head and neck over the half door; GRIEVANCE'S STALL is the half door below her and its posts. THE LIVERY MAN'S CHAIR shows only at its feet, under the man; the man himself answers through his tree and doc 54's overrides. GRIEVANCE'S BLANKET is the folded blanket on the feed bin, not a subject while it is on loan.",
+ "hotspotWhen": {
+  "grievance_s_blanket": {
+   "T_BLANKET_BORROWED": false
+  }
+ },
+ "people": {
+  "THE LIVERY MAN": [
+   "livery_man"
+  ]
+ },
+ "exitSubjects": {
+  "THE STABLE DOORS": {
+   "id": "stable_doors",
+   "to": "town_map",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 20: the livery is reached by the map, and its doors lead back to it. Doc 05 and doc 54 write the doors' LOOK and LISTEN."
+  }
+ },
+ "exits": {
+  "stable_doors": [
+   0,
+   80,
+   285,
+   620
+  ]
+ },
+ "exitWalkTo": {
+  "stable_doors": {
+   "x": 260,
+   "y": 770,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "stall_lantern",
+   "at": [
+    1235,
+    300
+   ],
+   "radius": 560,
+   "amount": 0.1,
+   "rate": 0.26,
+   "phase": 0.5,
+   "note": "The lantern on the post by Grievance's stall. A slow, low breath (invariant 9)."
+  }
+ ],
+ "defaultVerbs": {
+  "grievance": "LOOK_AT",
+  "grievance_s_blanket": "LOOK_AT",
+  "grievance_s_feed_bin": "LOOK_AT",
+  "stalls": "LOOK_AT",
+  "tack_wall": "LOOK_AT",
+  "anvil": "LOOK_AT",
+  "hay_loft": "LOOK_AT",
+  "grievance_s_stall": "LOOK_AT",
+  "other_mules": "LOOK_AT",
+  "livery_man_s_chair": "LOOK_AT",
+  "board_of_names": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
+ "occlusion": {
+  "note": "NO PLANE: the walk band is in front of every stall, the chair, the anvil and the pen; Grievance is cut at her half door and the mules at the pen's rails by their own drawings.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ },
+ "props": [
+  {
+   "id": "bin_bare",
+   "sheet": "art/props/room-15-bin-bare.png",
+   "x": 1328,
+   "y": 542,
+   "frame": [
+    0,
+    0,
+    178,
+    53
+   ],
+   "when": {
+    "T_BLANKET_BORROWED": true
+   },
+   "note": "Doc 04 LIV_A1 option 5 and doc 23: while THE LIVERY BLANKET is on loan the bin is bare. The plate's own panel laid over the blanket (tools/art/room15-props.py)."
+  }
+ ]
+}

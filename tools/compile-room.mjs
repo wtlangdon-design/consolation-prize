@@ -925,8 +925,13 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
   // reads it, and is a build failure otherwise.
   for (const key of Object.keys(objectOverrides)) {
     if (/^[A-Z_]+$/.test(key)) continue;
-    const read = (ann.sceneLines ?? []).some((spec) => spec.hotspot === id && key.includes(spec.case));
-    if (!read) fail(`${id}: override "${key}" is a case, not a verb, and no sceneLines entry plays it`);
+    // ...or a combination pair on this hotspot plays it, by the same case label
+    // (doc 54's GRIEVANCE · USE THE TUNING FORK cases are B3's pair, errata 88 E).
+    const pairs = JSON.parse(read('content/combinations.json')).pairs ?? [];
+    const read_ = (ann.sceneLines ?? []).some((spec) => spec.hotspot === id && key.includes(spec.case))
+      || pairs.some((pair) => pair.room === ann.room && pair.target === id
+        && (pair.rules ?? []).some((rule) => rule.case && key.includes(rule.case)));
+    if (!read_) fail(`${id}: override "${key}" is a case, not a verb, and no sceneLines entry or combination pair plays it`);
     delete objectOverrides[key];
   }
   // A DOCUMENT THAT FIXES AN OVERRIDE (errata 86 C). Doc 26 writes THE

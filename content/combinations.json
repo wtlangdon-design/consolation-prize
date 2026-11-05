@@ -12,7 +12,7 @@
       "targetPending": "Doc 02 A2. Room 18 is not built."
     },
     {
-      "item": "horse_blanket",
+      "item": "blanket",
       "room": "prosperity",
       "target": "the_hole",
       "puzzle": "A5",
@@ -236,7 +236,7 @@
       "say": "Gilt over pine. It sounds like pine."
     },
     {
-      "item": "horse_blanket",
+      "item": "blanket",
       "room": "main_street",
       "target": "dog",
       "say": "He is warmer than I am."
@@ -360,6 +360,58 @@
           "say": "Stand straight first. Sizing's free."
         }
       ]
+    },
+    {
+      "item": "tuning_fork",
+      "room": "livery",
+      "target": "grievance",
+      "puzzle": "B3",
+      "say": "Twelve years.",
+      "note": "Doc 57 B3 (with doc 54's lines): the fork on Grievance. With the hum and Vessel's whereabouts, the corrected tune, \"Twelve years.\", the ride over black, and Thad placed in the Nugget (errata 73 B).",
+      "rules": [
+        {
+          "case": "after B3",
+          "when": {
+            "T_VESSEL_FOUND": true
+          },
+          "say": "She has heard it. She does not need to hear it twice."
+        },
+        {
+          "case": "with both",
+          "when": {
+            "T_HUM_HEARD": true,
+            "T_VESSEL_LOCATION": true
+          },
+          "by": "livery_man",
+          "say": "Twelve years.",
+          "then": [
+            {
+              "speaker": "thad",
+              "line": "Fiddler's Gulch, two days out. Deke Vessel was delighted to see me, which was the worst part. He has agreed to settle the matter the local way, and the local way has a room.",
+              "overBlack": true
+            }
+          ],
+          "set": {
+            "T_VESSEL_FOUND": true
+          },
+          "completes": "B3",
+          "goto": "nugget"
+        },
+        {
+          "case": "after T_HUM_HEARD, without T_VESSEL_LOCATION",
+          "when": {
+            "T_HUM_HEARD": true
+          },
+          "say": "She would go, I think. I do not yet know where to, and she does not strike me as an animal who enjoys a vague errand."
+        },
+        {
+          "case": "before the livery man has hummed",
+          "when": {
+            "T_HUM_HEARD": false
+          },
+          "say": "I could give her an A. I do not think an A is what she is waiting for."
+        }
+      ]
     }
   ],
   "itemPools": {
@@ -370,7 +422,7 @@
       "A. Four hundred and forty. Everything else remains as it was.",
       "Nothing. I am beginning to think the fault is not with the fork."
     ],
-    "horse_blanket": [
+    "blanket": [
       "It is a blanket. It goes over things, or under them, and that is the whole of its range.",
       "I have put a blanket on it. Nothing has improved.",
       "No."

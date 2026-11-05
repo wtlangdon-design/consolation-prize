@@ -198,7 +198,7 @@ export class VerbSystem {
         ...(rule.by ? { by: rule.by } : {}),
         ...(rule.then?.length ? { then: rule.then } : {}),
         dialogue: null,
-        goto: null,
+        goto: rule.goto ?? null,
         ...(rule.items?.length ? { grants: rule.items } : {}),
         effects: [
           ...(rule.takes ?? []).map((item, n) => ({ id: `${prefix}#takes${n}:${item}`,

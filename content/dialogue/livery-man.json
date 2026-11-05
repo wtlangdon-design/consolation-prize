@@ -1,0 +1,132 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "LIVERY_MAN",
+  "speaker": "livery_man",
+  "name": "THE LIVERY MAN",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (THE LIVERY MAN) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a reply are his, italic quotes Thad's. The universal exit line is doc 04 part one's pool.",
+  "entries": [],
+  "start": "LIV_A1",
+  "nodes": {
+    "LIV_A1": {
+      "id": "LIV_A1",
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 writes LIV_A1 as a table only.",
+      "options": [
+        {
+          "id": "livery_man1",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "I need the mule for the diggings road.",
+          "exchange": [
+            {
+              "speaker": "livery_man",
+              "line": "You don't hire Grievance. You apply. She'll look at you. Then we'll know."
+            },
+            {
+              "speaker": "livery_man",
+              "line": "…Well. Now we know."
+            }
+          ]
+        },
+        {
+          "id": "livery_man2",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Why 'Grievance'?",
+          "say": "Had a partner once. She took his side."
+        },
+        {
+          "id": "livery_man3",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "Is the mule all right?",
+          "say": "She's fine. She's just got a view."
+        },
+        {
+          "id": "livery_man4",
+          "tag": "TOPIC",
+          "afterUse": "remove",
+          "text": "What's that tune?",
+          "say": "That's what the fella whistled. Twelve years I've been getting it wrong.",
+          "set": {
+            "T_HUM_HEARD": true
+          },
+          "when": {
+            "T_GRIEVANCE_MOTT": true
+          }
+        },
+        {
+          "id": "livery_man5",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Could I borrow a blanket?",
+          "exchange": [
+            {
+              "speaker": "livery_man",
+              "line": "Hers?"
+            },
+            {
+              "speaker": "livery_man",
+              "line": "She's not using it. Bring it back before she notices."
+            }
+          ],
+          "set": {
+            "T_BLANKET_BORROWED": true
+          },
+          "gives": [
+            "blanket"
+          ]
+        },
+        {
+          "id": "livery_man6",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "Has she ever moved for anybody?",
+          "exchange": [
+            {
+              "speaker": "livery_man",
+              "line": "Once. Twelve years back. Fella came in at night, whistled at her, and she walked out after him like she'd been waiting."
+            },
+            {
+              "speaker": "livery_man",
+              "line": "Never saw him again. Never saw her move again, either."
+            }
+          ],
+          "set": {
+            "T_GRIEVANCE_MOTT": true
+          },
+          "puzzle": {
+            "B2": "complete"
+          }
+        },
+        {
+          "id": "livery_man7",
+          "tag": "ASSAY",
+          "afterUse": "remove",
+          "text": "Have you ever been in the Liar's Assay?",
+          "exchange": [
+            {
+              "speaker": "livery_man",
+              "line": "Once. Fella told me, 'I once bought a saloon with a single nugget.' I said, 'I have been in it. You overpaid.'"
+            },
+            {
+              "speaker": "livery_man",
+              "line": "He's never forgiven me. Still owns the saloon."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_20": true
+          }
+        },
+        {
+          "id": "livery_manx",
+          "tag": "EXIT",
+          "text": "I've taken enough of your time. I'll be taking more later.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

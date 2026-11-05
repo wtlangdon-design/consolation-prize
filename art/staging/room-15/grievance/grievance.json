@@ -1,0 +1,54 @@
+{
+ "sheet": "art/staging/room-15/grievance/grievance.png",
+ "frames": [
+  [
+   2,
+   2,
+   138,
+   184
+  ],
+  [
+   142,
+   2,
+   138,
+   184
+  ],
+  [
+   282,
+   2,
+   138,
+   184
+  ],
+  [
+   422,
+   2,
+   138,
+   184
+  ],
+  [
+   562,
+   2,
+   138,
+   184
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "ears",
+  "look",
+  "snort"
+ ],
+ "topLeft": {
+  "x": 1034,
+  "y": 246
+ },
+ "anchor": {
+  "x": 1103,
+  "y": 430
+ },
+ "height": 360,
+ "cut": 430,
+ "posture": "animal",
+ "source": "room-15 attempt 4 (art/staging/room-15/grievance-01/sheet.png)"
+}

@@ -1,0 +1,221 @@
+{
+ "schema": 1,
+ "id": "room-15-livery",
+ "room": "livery",
+ "docRoom": 15,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 15 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/04-dialogue-trees.md",
+  "docs/05-examine-layer.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/57-puzzle-completion.md",
+  "docs/23-inventory-act1.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-15.json",
+    "docs/00-errata.md::88 · ROOM 15 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The livery man, Grievance and two mules in every act; B2 and B3 here; the blanket on loan; night."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-15/graybox.json",
+    "docs/00-errata.md::88 · ROOM 15 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The stable is plate; the bare bin is a prop on T_BLANKET_BORROWED; the three figures are sprites."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-15-figures.png",
+    "docs/00-errata.md::88 · ROOM 15 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The livery man and Grievance generated on magenta against a side-by-side with Thad; the pen's two mules from Grievance's sheet (Tyler's choice, errata 88 F)."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/livery/life/life.json"
+   ],
+   "note": "The livery man hums and tips his hat; Grievance turns her ears and head; the mules move out of step; the lantern breathes."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-15-figures.png"
+   ],
+   "note": "He sits in his chair over the plate's; Grievance is cut at her half door; the mules stand behind the pen's rails."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-15/annotation.json"
+   ],
+   "note": "The lantern by Grievance's stall, plate light and a runtime breath; the figures graded toward the plate around them."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-15.test.ts",
+    "docs/00-errata.md::88 · ROOM 15 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "B3's refusals say what is missing: the hum, then where Vessel is."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-15.json",
+    "content/rooms/mercantile.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 71 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-15: 5 of 5 operations (Tyler raised the cap to 5): master, plate, the livery man, Grievance, four side-on mules (not shipped)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/mercantile.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-15/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/livery/proof.json"
+   ],
+   "note": "Panel D: the blanket on loan, the bin bare."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/livery/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/livery/doors/life.json",
+    "tests/room-15.test.ts"
+   ],
+   "note": "Out by the stable doors to the map and back, twice; B2 and B3 in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-15/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-15-livery.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-15/plate-01/frame.json"
+   ]
+  },
+  {
+   "subject": "the livery man",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-15-livery-man.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-15/livery-man/livery-man.json"
+   ]
+  },
+  {
+   "subject": "Grievance",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-15-grievance.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-15/grievance/grievance.json"
+   ]
+  },
+  {
+   "subject": "the other mules",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-15-mules.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-15/mules/mules.json"
+   ]
+  },
+  {
+   "subject": "the bare bin",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/props/room-15-bin-bare.png",
+   "evidence": [
+    "tools/art/room15-props.py"
+   ],
+   "note": "Drawn while T_BLANKET_BORROWED."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q158 · Room 15, the livery stable: built, awaiting Tyler's playthrough; two mules where the lines say four — **RULED 2026-11-05 (errata 88, delegated; Tyler raised room-15's cap to 5 and chose two mules in the pen); BUILT, room-15 5 of 5 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q158 · Room 15, the livery stable: built, awaiting Tyler's playthrough; two mules where the lines say four — **RULED 2026-11-05 (errata 88, delegated; Tyler raised room-15's cap to 5 and chose two mules in the pen); BUILT, room-15 5 of 5 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

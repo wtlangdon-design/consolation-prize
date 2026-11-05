@@ -290,6 +290,22 @@
     }
    ],
    "castingNote": "Nobody living is staged on Boot Hill (doc 20); Thad is drawn in the composition master for scale only, and removed for the plate."
+  },
+  "room-15-livery": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-03-nugget",
+    "path": "art/backgrounds/room-03-nugget.png",
+    "note": "D -- the approved public interior at night. The stable is weathered plank, straw and leather under one lantern (errata 88 A)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "The livery man and Grievance have no approved image. No document describes the livery man's looks; Grievance is a mule 'the color of a wet saddle' (doc 54). Both drawn in the composition master beside Thad, then on magenta against a side-by-side with Thad (doc 55 section 8)."
   }
  }
 }

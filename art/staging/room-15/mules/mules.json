@@ -1,0 +1,67 @@
+{
+ "sheet": "art/staging/room-15/mules/mules.png",
+ "frames": [
+  [
+   2,
+   2,
+   227,
+   344
+  ],
+  [
+   231,
+   2,
+   227,
+   344
+  ],
+  [
+   460,
+   2,
+   227,
+   344
+  ],
+  [
+   689,
+   2,
+   227,
+   344
+  ],
+  [
+   918,
+   2,
+   227,
+   344
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "ears",
+  "both face out",
+  "snort and ears"
+ ],
+ "topLeft": {
+  "x": 500,
+  "y": 272
+ },
+ "anchor": {
+  "x": 613,
+  "y": 616
+ },
+ "height": 340,
+ "posture": "animal",
+ "rails": [
+  [
+   465,
+   487
+  ],
+  [
+   513,
+   535
+  ],
+  [
+   561,
+   583
+  ]
+ ],
+ "source": "room-15 attempt 4 (art/staging/room-15/grievance-01/sheet.png), recoloured; attempt 5 not used (errata 88 F)"
+}

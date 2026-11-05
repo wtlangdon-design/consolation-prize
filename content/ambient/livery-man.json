@@ -1,0 +1,88 @@
+{
+ "schema": 1,
+ "id": "livery_man",
+ "name": "THE LIVERY MAN",
+ "posture": "seated",
+ "room": "livery",
+ "x": 955,
+ "y": 622,
+ "zone": 2,
+ "approachRadius": 40,
+ "walkTo": {
+  "x": 785,
+  "y": 760,
+  "facing": "right"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: on the floor just right of the pen, clear of the mules, facing him (errata 88 C).",
+ "tree": "LIVERY_MAN",
+ "note": "THE LIVERY MAN, never named. No document describes his looks; he is drawn as room-15's composition master drew him -- old, lean, a battered hat, braces -- tipped back in a kitchen chair against the wall, facing Grievance's stall (doc 54: the chair 'faces Grievance's stall'; 'He is tipped back on two chair legs'). Five poses in his chair on magenta, generated against a side-by-side with Thad (room-15 operation 3), cut by tools/art/room15-figures.py and drawn over the plate's empty chair. Present in every act.",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for the livery man.",
+ "sprite": {
+  "sheet": "art/actors/room-15-livery-man.png",
+  "frames": [
+   [
+    2,
+    2,
+    162,
+    235
+   ],
+   [
+    166,
+    2,
+    162,
+    235
+   ],
+   [
+    330,
+    2,
+    162,
+    235
+   ],
+   [
+    494,
+    2,
+    162,
+    235
+   ],
+   [
+    658,
+    2,
+    162,
+    235
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.1,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    4,
+    4,
+    0
+   ],
+   [
+    2,
+    2,
+    0,
+    2,
+    2,
+    0
+   ],
+   [
+    4,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "talkFrame": 3,
+  "frameNote": "0 rest, tipped back · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 humming, eyes shut · 3 talking · 4 the hat brim pulled down. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool -- humming or the hat (errata 35 and 77: a deliberate action at least every 30 s). He talks on 3.",
+  "provenance": "art/staging/room-15/livery-man/livery-man.json"
+ }
+}

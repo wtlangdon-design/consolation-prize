@@ -1,0 +1,20 @@
+Image 1 shows, side by side, Thad, the hero of my pixel-art adventure game (left: the style standard), and Grievance, a mule from the game, as she looks out over her stall door (right). Look at Thad's pixels: BIG square blocks, every pixel a clear chunky square, a few flat tones, no fine texture. Grievance is drawn in the same hand.
+
+Image 2 is the livery stable at night, where four ordinary working mules stand in a low wooden pen at the left.
+
+I need those FOUR OTHER MULES drawn on their own, as a sheet, in THAD'S PIXEL SIZE and the same hand as Grievance.
+
+THE MULES: four ordinary, contented working mules, each a little different from the others and from Grievance -- one darker brown, one lighter sandy brown, one grey-brown, one reddish brown, one with a pale blaze. Long ears, plain manes, no tack. Each is drawn WHOLE, head to hooves, SIDE-ON, standing, its body facing the RIGHT of the picture and its head turned a little toward the viewer, the way a mule stands in a pen looking across the stable.
+
+THE SHEET -- one image, two rows:
+- TOP ROW, left to right: the four mules, each standing at rest, side-on facing right, ears up.
+- BOTTOM ROW, left to right: the same four mules in the same order, each in ONE small different action: the first with its head lowered as if to eat; the second with its ears swivelled back; the third with its head lifted, looking right; the fourth swishing its tail with one hind hoof cocked.
+
+STYLE: each mule about 50 big pixels tall from ear tips to hooves and about 60 long, exactly as coarse as Thad and Grievance; flat colour areas, simple shapes, eyes a few dark blocks.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no fence, nothing else in the picture.
+- All eight mules the same size, hooves on their row's baseline, clear magenta space between every mule; no mule touches or overlaps another.
+- In the bottom row, each mule is the same animal as the one above it: same colours, same markings, only the action changes.
+- Crisp pixel edges against the magenta. No soft glow or blur.
+- No text, labels, numbers or borders.

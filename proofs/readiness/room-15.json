@@ -48,7 +48,7 @@
    "question": "Dialogue used by this room complete?",
    "answer": "YES",
    "evidence": [
-    "docs/04-dialogue-trees.md::THE LIVERY MAN — two nodes"
+    "docs/04-dialogue-trees.md::THE LIVERY MAN — one node *(the second never existed; errata 75)*"
    ],
    "why": "1 node(s) resolve for The Livery Man"
   },
@@ -58,9 +58,10 @@
    "answer": "YES",
    "evidence": [
     "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*",
-    "docs/02-puzzle-graph.md::TRIAL ONE — Affidavit of Original Sale (Document A)"
+    "docs/02-puzzle-graph.md::TRIAL ONE — Affidavit of Original Sale (Document A)",
+    "proofs/readiness/puzzles.json"
    ],
-   "why": "A5, B2, B3 are all specified in that section"
+   "why": "A5, B2, B3 are specified, and every piece of their content is written"
   },
   {
    "id": "items",
@@ -96,7 +97,7 @@
    "question": "Character behaviour sufficiently authored?",
    "answer": "YES",
    "evidence": [
-    "docs/04-dialogue-trees.md::THE LIVERY MAN — two nodes",
+    "docs/04-dialogue-trees.md::THE LIVERY MAN — one node *(the second never existed; errata 75)*",
     "docs/54-batch-c.md::ROOM 15 · THE LIVERY STABLE"
    ],
    "why": "The Livery Man has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
@@ -121,7 +122,7 @@
     "docs/05-examine-layer.md::ROOM 15 — THE LIVERY STABLE",
     "docs/54-batch-c.md::ROOM 15 · THE LIVERY STABLE",
     "docs/49-wrong-answers.md::ROOM 15 — THE LIVERY STABLE",
-    "docs/04-dialogue-trees.md::THE LIVERY MAN — two nodes"
+    "docs/04-dialogue-trees.md::THE LIVERY MAN — one node *(the second never existed; errata 75)*"
    ],
    "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
   },
@@ -131,7 +132,8 @@
    "answer": "YES",
    "evidence": [
     "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*",
-    "docs/02-puzzle-graph.md::TRIAL ONE — Affidavit of Original Sale (Document A)"
+    "docs/02-puzzle-graph.md::TRIAL ONE — Affidavit of Original Sale (Document A)",
+    "proofs/readiness/puzzles.json"
    ],
    "why": "the puzzles sited here, the items they need and issue, and the flags they set"
   },
@@ -149,7 +151,7 @@
    "question": "Character behaviour",
    "answer": "YES",
    "evidence": [
-    "docs/04-dialogue-trees.md::THE LIVERY MAN — two nodes",
+    "docs/04-dialogue-trees.md::THE LIVERY MAN — one node *(the second never existed; errata 75)*",
     "docs/54-batch-c.md::ROOM 15 · THE LIVERY STABLE"
    ],
    "why": "The Livery Man has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
@@ -221,5 +223,5 @@
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
  "geometryReady": "NO",
- "at": "2026-11-01T05:09:21.364Z"
+ "at": "2026-11-05T03:05:54.629Z"
 }

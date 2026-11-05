@@ -131,7 +131,9 @@ export class GameScene extends Phaser.Scene {
   /** When the line on screen has been up long enough. Null while none is. */
   private sayUntil: number | null = null;
   /** Lines still to come in a multi-speaker response, in order. */
-  private pendingSay: { speaker: string | null; line: string }[] = [];
+  private pendingSay: { speaker: string | null; line: string; overBlack?: boolean }[] = [];
+  /** A line `overBlack` has blacked out the play area until the room changes (doc 57 B3). */
+  private overBlack = false;
   /** A scene's destination, travelled to once its lines have been read (GameState.resolveInteraction). */
   private travelAfterSay: string | null = null;
   /**
@@ -605,6 +607,7 @@ export class GameScene extends Phaser.Scene {
       captionLines: this.captionLines,
       captionAt: this.captionAt,
       actCard: this.actCard,
+      overBlack: this.overBlack,
       // Doc 17 beat 8: the panel appears when control does, and not before.
       // DOC 30 SECTION 88: "Replace the verbs/inventory area while choosing."
       // REPLACE, and the engine was drawing both. DIALOGUE_BOTTOM is 1062 and
@@ -1296,7 +1299,7 @@ export class GameScene extends Phaser.Scene {
       const who = this.state.content.actor.id;
       // A bare line is his; a line with a speaker is theirs (doc 57 A9's read-back).
       this.pendingSay.push(...result.then.map((line) => (typeof line === 'string'
-        ? { speaker: who, line } : { speaker: line.speaker, line: line.line })));
+        ? { speaker: who, line } : { speaker: line.speaker, line: line.line, ...(line.overBlack ? { overBlack: true } : {}) })));
     }
     if (result.changedRoom) {
       this.hovered = null;
@@ -1413,6 +1416,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private enterRoomPerformance(from: string | null = this.state.previousRoomId): void {
+    this.overBlack = false;
     // Who is in the room is decided now, as he arrives (AmbientLayer.present).
     this.ambient.arrived();
     this.musicResumed = false;
@@ -1986,6 +1990,7 @@ export class GameScene extends Phaser.Scene {
   private advanceSay(): boolean {
     const next = this.pendingSay.shift();
     if (next === undefined) return false;
+    if (next.overBlack) this.overBlack = true;
     this.setSay(next.line, next.speaker);
     this.markDirty();
     return true;

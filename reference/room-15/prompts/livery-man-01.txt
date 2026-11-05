@@ -1,0 +1,22 @@
+Image 1 shows two figures from my pixel-art adventure game side by side at the same scale. On the left is Thad, the hero: he is the style standard. On the right is the livery man, cut from image 2 at Thad's size. Look at Thad's pixels: BIG square blocks. Thad is only about 80 pixels tall from hair to shoes; every pixel of him is a clear, chunky square; his face is a handful of blocks; his clothes are a few flat tones with no fine texture.
+
+Image 2 is a frame from the game: the livery stable at night. The old man in the hat tipped back in the kitchen chair is the livery man. I need him drawn on his own, IN HIS CHAIR, as a sheet of five poses, in THAD'S PIXEL SIZE.
+
+THE CHARACTER -- the livery man, as image 2 shows him: an old, lean stableman, weathered face, grey stubble and a grey moustache, a battered brown hat, a faded striped work shirt with the sleeves rolled, braces, worn grey trousers, old boots. At ease, unhurried, a man who has seen everything once. He sits in a plain wooden kitchen chair TIPPED BACK on its two back legs, its front legs off the floor, as if leaning against a wall behind him; he faces to the RIGHT of the picture, seen side-on to three-quarter, as in image 2.
+
+THE SHEET -- one image, five poses of this same man in this same chair, side by side, left to right, each showing the whole man AND the whole chair:
+1. REST: tipped back, hands folded on his belly, looking right, eyes half open.
+2. BREATH: identical to pose 1 except his chest and shoulders very slightly raised. Nothing else changes.
+3. HUMMING: as pose 1, but his head tilted back a little, eyes closed, mouth a little open, humming a tune to himself.
+4. TALKING: as pose 1, but his head turned toward the viewer and one hand lifted off his belly, palm up, saying something dry.
+5. HAT: as pose 1, but one hand pulling the brim of his hat down over his eyes.
+
+STYLE: each pose about 60 big pixels tall from hat to chair feet, exactly as coarse as Thad; every pixel a large, crisp square block the size of Thad's; simple shapes and flat colour areas; the face as simple as Thad's -- a few blocks, dark blocks for the eyes.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no wall, nothing else in the picture.
+- All five poses the same size, the chair's back legs on the same baseline, each about half the height of the picture.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same chair, same face everywhere else.
+- Crisp pixel edges against the magenta. No soft glow or blur around him.
+- No text, labels, numbers or borders.

@@ -874,7 +874,11 @@ export interface CombinationPair {
 }
 
 /** A line in an exchange: Thad's as a bare string, anyone else's with their speaker id. */
-export type SpokenLine = string | { speaker: string; line: string };
+/**
+ * A spoken line: a bare string is Thad's. `overBlack` plays it over a black
+ * screen, which stays until the room changes (doc 57 B3's ride, "over black").
+ */
+export type SpokenLine = string | { speaker: string; line: string; overBlack?: boolean };
 
 /** One circumstance of a pair. See CombinationPair.rules. */
 export interface PairRule {
@@ -907,6 +911,11 @@ export interface PairRule {
   add?: FlagAdds;
   /** The canonical puzzle this case completes. */
   completes?: string;
+  /**
+   * A room this case ends in, once its lines are read (doc 57 B3: after the
+   * ride, Thad is placed in the Nugget, errata 73 B).
+   */
+  goto?: string;
 }
 
 /** content/combinations.json -- doc 06's table, written by doc 24. */

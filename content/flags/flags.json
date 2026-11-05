@@ -317,11 +317,10 @@
    "id": "T_VESSEL_FOUND",
    "type": "boolean",
    "initial": false,
-   "pending": true,
    "writtenBy": [
-    "docs/02-puzzle-graph.md B3, the Grievance puzzle (Room 15) -- unbuilt"
+    "combination:tuning_fork:livery:grievance"
    ],
-   "note": "Errata 73 B: from B3's completion, Vessel is in Room 4. Gates his Act II root (VES_B1) and his and the judges' presence in the back room. B1-B3 are not built, so a fixture or the ?flags= control sets it."
+   "note": "Errata 73 B: from B3's completion (the fork on Grievance, Room 15), Vessel is in Room 4. Gates his Act II root (VES_B1) and his and the judges' presence in the back room."
   },
   {
    "id": "T_DUEL_ONE_LOST",
@@ -931,6 +930,33 @@
    "writtenBy": [],
    "pending": true,
    "note": "Doc 57 E8: set when HOB_C1 ends, Thad dug out (Room 32, not built). Read by Boot Hill: MY OWN PLOT replaces the open grave (errata 87 D)."
+  },
+  {
+   "id": "T_HUM_HEARD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:LIVERY_MAN:LIV_A1:livery_man4"
+   ],
+   "note": "Doc 04 LIV_A1 option 4: the livery man hums the tune, badly (errata 68 F). B3 needs it."
+  },
+  {
+   "id": "T_GRIEVANCE_MOTT",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:LIVERY_MAN:LIV_A1:livery_man6"
+   ],
+   "note": "Doc 04 LIV_A1 option 6: she moved once, twelve years back, for the man who whistled (B2, errata 75). Opens option 4."
+  },
+  {
+   "id": "T_BLANKET_BORROWED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:LIVERY_MAN:LIV_A1:livery_man5"
+   ],
+   "note": "Doc 04 LIV_A1 option 5: THE LIVERY BLANKET on loan (errata 88 D). While set the bin is drawn bare and GRIEVANCE'S BLANKET is not a subject; A5 (Rooms 23/24, not built) clears it when the blanket comes back (doc 23)."
   }
  ]
 }
