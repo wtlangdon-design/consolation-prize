@@ -1,0 +1,413 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "watchmans_shack",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "7251fd764b39f714915fef6a3febc8b7116abd59",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": "watchmans-shack",
+ "routeLog": [
+  "action 1 (wait): waited 2.5s",
+  "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up",
+  "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit",
+  "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED",
+  "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road",
+  "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever.",
+  "action 13 (wait): waited 3s",
+  "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road",
+  "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it",
+  "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it",
+  "action 17 (wait): waited 6s",
+  "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger",
+  "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street",
+  "action 20 (wait): waited 7s",
+  "action 21 (click): clicked world 1900,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge",
+  "action 22 (wait): waited 1s",
+  "action 23 (waitFor): reached {} in room main_street",
+  "action 24 (click): clicked world 1300,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge",
+  "action 25 (wait): waited 1s",
+  "action 26 (waitFor): reached {} in room main_street",
+  "action 27 (click): clicked world 700,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge",
+  "action 28 (wait): waited 1s",
+  "action 29 (waitFor): reached {} in room main_street",
+  "action 30 (click): clicked world 150,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge",
+  "action 31 (wait): waited 1s",
+  "action 32 (waitFor): reached {} in room main_street",
+  "action 33 (click): clicked main_street/to_back_alley at world 29,510 -- THE BACK LOTS",
+  "action 34 (waitFor): reached {\"room\":\"back_alley\"} in room back_alley",
+  "action 35 (wait): waited 3s",
+  "action 36 (click): clicked back_alley/to_watchmans_shack at world 1893,710 -- the alley's far end, the shack",
+  "action 37 (waitFor): reached {\"room\":\"watchmans_shack\"} in room watchmans_shack",
+  "action 38 (wait): waited 3s",
+  "action 1 (wait): waited 2s"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 766,
+    "xs": [
+     1060,
+     850,
+     1270,
+     640,
+     1480,
+     430,
+     1690,
+     220,
+     1900
+    ],
+    "expect": 453,
+    "x": 1060
+   },
+   "at": [
+    1060,
+    766
+   ],
+   "reportedHeight": 453,
+   "expected": 453,
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-05.png",
+   "bounds": [
+    825,
+    313,
+    470,
+    500
+   ],
+   "order": 0,
+   "renderedHeight": 453,
+   "renderedBottom": 765,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     1060,
+     850,
+     1270,
+     640,
+     1480,
+     430,
+     1690,
+     220,
+     1900
+    ],
+    "expect": 514,
+    "x": 1060
+   },
+   "at": [
+    1060,
+    857
+   ],
+   "reportedHeight": 514,
+   "expected": 514,
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-09.png",
+   "bounds": [
+    793,
+    343,
+    533,
+    567
+   ],
+   "order": 0,
+   "renderedHeight": 514,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "watchmans_shack",
+   "clock": 166.6057,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 476,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-00.png",
+     "bounds": [
+      53,
+      324,
+      494,
+      526
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:watchmans_shack",
+     "path": "art/backgrounds/room-21-watchmans-shack.png",
+     "drawn": "art/backgrounds/room-21-watchmans-shack.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8f4c60e454a6f4219e94488919286a586d792c482a0b79e1cda9fa7f2665bc14"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [],
+   "capturedAt": "2026-11-05T08:58:37.513Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "1dc03b8d040fde5180b48c742ed026366f1f2407807aac93e84033ade4c4611e"
+  },
+  {
+   "panel": "A",
+   "room": "watchmans_shack",
+   "clock": 167.42229999999998,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 476,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:watchmans_shack",
+     "path": "art/backgrounds/room-21-watchmans-shack.png",
+     "drawn": "art/backgrounds/room-21-watchmans-shack.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8f4c60e454a6f4219e94488919286a586d792c482a0b79e1cda9fa7f2665bc14"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T08:58:38.509Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "bb463f581b4e085cd8f844c4b4464e299a57054acf563c96d56a2a0aa0509fca"
+  },
+  {
+   "panel": "D",
+   "room": "watchmans_shack",
+   "clock": 176.8886,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_HOB_IS_MOTT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      1060,
+      857
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 514,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      793,
+      343,
+      533,
+      567
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:watchmans_shack",
+     "path": "art/backgrounds/room-21-watchmans-shack.png",
+     "drawn": "art/backgrounds/room-21-watchmans-shack.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8f4c60e454a6f4219e94488919286a586d792c482a0b79e1cda9fa7f2665bc14"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)",
+    "cast(true)",
+    "stand(1060,766)",
+    "cast(false)",
+    "cast(true)",
+    "stand(1060,857)",
+    "cast(false)",
+    "cast(true)",
+    "flag T_HOB_IS_MOTT=true"
+   ],
+   "capturedAt": "2026-11-05T08:58:47.853Z",
+   "intent": "principal changed state: T_HOB_IS_MOTT. Visible consequence: 'Outside, dawn is starting' -- the window's dawn prop.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "2d71a7847e8f556f2a79123b6e84af5814687189e7b94fdfa0e146262816c5b3",
+   "changedBy": "flags"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T08:58:47.853Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 312894,
+  "panels": 5,
+  "scale": 0.5
+ }
+}
