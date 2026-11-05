@@ -181,7 +181,8 @@ async function main() {
           // original art, so the room's sheet lives on the placement. Checking
           // the file's own sheet would pass while the room stood empty --
           // which is precisely the failure this line exists to catch.
-          const declared = npc.placements?.[room.id]?.sprite ?? npc.sprite;
+          // A WALKER ON A LOOP (AmbientFile.loop) is drawn from its walk sheet.
+          const declared = npc.placements?.[room.id]?.sprite ?? npc.sprite ?? npc.loop;
           // ABSENT BY HER OWN CONDITION IS NOT ABSENT BY FAULT. A person whose
           // `when` does not hold in this frame's state is not in the room
           // (Room 4's Vessel and judges before B3, errata 73 B), so her sheet
