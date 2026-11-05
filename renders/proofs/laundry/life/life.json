@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "laundry",
- "commit": "60c724bd01e57c437c9b4ed18b41233a8d469900",
+ "commit": "6e8000bf49e39000adcb1d50569c284219c8e2f9",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -13,22 +13,22 @@
  "fixture": "r28-a",
  "warped": false,
  "lifeRoute": "laundry-life",
- "durationSeconds": 68.53,
+ "durationSeconds": 68.35,
  "events": [
   {
-   "t": 2.98,
+   "t": 2.59,
    "line": "started from fixture r28-a, no entry route"
   },
   {
-   "t": 6.03,
+   "t": 5.66,
    "line": "in laundry; life route: 23 action(s)"
   },
   {
-   "t": 6.63,
+   "t": 6.55,
    "line": "capture 01-arrived: room laundry, says null, options 0, control null"
   },
   {
-   "t": 7.7,
+   "t": 7.58,
    "trace": {
     "says": null,
     "control": null,
@@ -43,7 +43,7 @@
    }
   },
   {
-   "t": 8.65,
+   "t": 8.57,
    "trace": {
     "says": null,
     "control": null,
@@ -58,7 +58,7 @@
    }
   },
   {
-   "t": 9.65,
+   "t": 9.56,
    "trace": {
     "says": null,
     "control": null,
@@ -73,7 +73,7 @@
    }
   },
   {
-   "t": 10.65,
+   "t": 10.58,
    "trace": {
     "says": null,
     "control": null,
@@ -88,7 +88,7 @@
    }
   },
   {
-   "t": 11.65,
+   "t": 11.58,
    "trace": {
     "says": null,
     "control": null,
@@ -103,7 +103,7 @@
    }
   },
   {
-   "t": 12.66,
+   "t": 12.57,
    "trace": {
     "says": null,
     "control": null,
@@ -118,7 +118,7 @@
    }
   },
   {
-   "t": 13.65,
+   "t": 13.57,
    "trace": {
     "says": null,
     "control": null,
@@ -133,11 +133,11 @@
    }
   },
   {
-   "t": 14.64,
+   "t": 14.56,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 14.66,
+   "t": 14.58,
    "trace": {
     "says": null,
     "control": null,
@@ -152,11 +152,11 @@
    }
   },
   {
-   "t": 15.11,
+   "t": 15.04,
    "line": "capture 02-the-laundry: room laundry, says null, options 0, control null"
   },
   {
-   "t": 16.12,
+   "t": 16.05,
    "trace": {
     "says": null,
     "control": null,
@@ -171,7 +171,7 @@
    }
   },
   {
-   "t": 17.12,
+   "t": 17.05,
    "trace": {
     "says": null,
     "control": null,
@@ -186,7 +186,7 @@
    }
   },
   {
-   "t": 18.13,
+   "t": 18.07,
    "trace": {
     "says": null,
     "control": null,
@@ -201,7 +201,7 @@
    }
   },
   {
-   "t": 19.14,
+   "t": 19.05,
    "trace": {
     "says": null,
     "control": null,
@@ -216,7 +216,7 @@
    }
   },
   {
-   "t": 20.13,
+   "t": 20.05,
    "trace": {
     "says": null,
     "control": null,
@@ -231,7 +231,7 @@
    }
   },
   {
-   "t": 21.13,
+   "t": 21.07,
    "trace": {
     "says": null,
     "control": null,
@@ -246,46 +246,31 @@
    }
   },
   {
-   "t": 22.12,
+   "t": 22.04,
    "line": "action 1 (wait): waited 7s"
   },
   {
-   "t": 22.15,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     790
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 22.18,
+   "t": 22.09,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 22.31,
+   "t": 22.27,
    "line": "action 1 (click): clicked laundry/coppers at world 384,458 -- THE COPPERS"
   },
   {
-   "t": 23.24,
+   "t": 23.14,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room laundry"
   },
   {
-   "t": 23.72,
+   "t": 23.59,
    "line": "capture 03-look-coppers: room laundry, says \"thad\", options 0, control null"
   },
   {
-   "t": 23.75,
+   "t": 23.62,
    "line": "action 1 (waitFor): reached {} in room laundry"
   },
   {
-   "t": 24.77,
+   "t": 24.64,
    "trace": {
     "says": "thad",
     "control": null,
@@ -300,7 +285,7 @@
    }
   },
   {
-   "t": 25.77,
+   "t": 25.65,
    "trace": {
     "says": "thad",
     "control": null,
@@ -315,11 +300,11 @@
    }
   },
   {
-   "t": 26.75,
+   "t": 26.63,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 26.76,
+   "t": 26.64,
    "trace": {
     "says": "thad",
     "control": null,
@@ -334,27 +319,27 @@
    }
   },
   {
-   "t": 26.79,
+   "t": 26.69,
    "line": "action 1 (verb): chose verb LISTEN_TO -- "
   },
   {
-   "t": 26.96,
+   "t": 26.85,
    "line": "action 1 (click): clicked laundry/mangle at world 811,461 -- THE MANGLE"
   },
   {
-   "t": 27,
+   "t": 26.89,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room laundry"
   },
   {
-   "t": 27.46,
+   "t": 27.37,
    "line": "capture 04-listen-mangle: room laundry, says \"thad\", options 0, control null"
   },
   {
-   "t": 27.52,
+   "t": 27.41,
    "line": "action 1 (waitFor): reached {} in room laundry"
   },
   {
-   "t": 28.55,
+   "t": 28.43,
    "trace": {
     "says": "thad",
     "control": null,
@@ -369,7 +354,7 @@
    }
   },
   {
-   "t": 29.53,
+   "t": 29.41,
    "trace": {
     "says": "thad",
     "control": null,
@@ -384,11 +369,11 @@
    }
   },
   {
-   "t": 30.52,
+   "t": 30.41,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 30.53,
+   "t": 30.41,
    "trace": {
     "says": "thad",
     "control": null,
@@ -403,23 +388,23 @@
    }
   },
   {
-   "t": 30.59,
+   "t": 30.47,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 30.74,
+   "t": 30.6,
    "line": "action 1 (click): clicked laundry/thursday_book at world 1427,290 -- THE THURSDAY BOOK"
   },
   {
-   "t": 30.78,
+   "t": 30.64,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room laundry"
   },
   {
-   "t": 31.24,
+   "t": 31.12,
    "line": "capture 05-look-book: room laundry, says \"thad\", options 0, control null"
   },
   {
-   "t": 32.26,
+   "t": 32.15,
    "trace": {
     "says": "thad",
     "control": null,
@@ -427,14 +412,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1288,
+     1294,
      812
     ],
     "moving": true
    }
   },
   {
-   "t": 33.26,
+   "t": 33.15,
    "trace": {
     "says": "thad",
     "control": null,
@@ -449,7 +434,7 @@
    }
   },
   {
-   "t": 34.25,
+   "t": 34.15,
    "trace": {
     "says": "thad",
     "control": null,
@@ -464,7 +449,7 @@
    }
   },
   {
-   "t": 35.27,
+   "t": 35.14,
    "trace": {
     "says": "thad",
     "control": null,
@@ -479,7 +464,7 @@
    }
   },
   {
-   "t": 36.26,
+   "t": 36.14,
    "trace": {
     "says": "thad",
     "control": null,
@@ -494,7 +479,7 @@
    }
   },
   {
-   "t": 37.26,
+   "t": 37.15,
    "trace": {
     "says": null,
     "control": null,
@@ -509,7 +494,7 @@
    }
   },
   {
-   "t": 38.26,
+   "t": 38.14,
    "trace": {
     "says": null,
     "control": null,
@@ -524,7 +509,7 @@
    }
   },
   {
-   "t": 39.27,
+   "t": 39.14,
    "trace": {
     "says": null,
     "control": null,
@@ -539,7 +524,7 @@
    }
   },
   {
-   "t": 40.26,
+   "t": 40.15,
    "trace": {
     "says": null,
     "control": null,
@@ -554,7 +539,7 @@
    }
   },
   {
-   "t": 41.27,
+   "t": 41.15,
    "trace": {
     "says": null,
     "control": null,
@@ -569,7 +554,7 @@
    }
   },
   {
-   "t": 42.27,
+   "t": 42.15,
    "trace": {
     "says": null,
     "control": null,
@@ -584,7 +569,7 @@
    }
   },
   {
-   "t": 43.28,
+   "t": 43.15,
    "trace": {
     "says": null,
     "control": null,
@@ -599,7 +584,7 @@
    }
   },
   {
-   "t": 44.27,
+   "t": 44.16,
    "trace": {
     "says": null,
     "control": null,
@@ -614,7 +599,7 @@
    }
   },
   {
-   "t": 45.29,
+   "t": 45.16,
    "trace": {
     "says": null,
     "control": null,
@@ -629,7 +614,7 @@
    }
   },
   {
-   "t": 46.29,
+   "t": 46.15,
    "trace": {
     "says": null,
     "control": null,
@@ -644,7 +629,7 @@
    }
   },
   {
-   "t": 47.3,
+   "t": 47.15,
    "trace": {
     "says": null,
     "control": null,
@@ -659,7 +644,7 @@
    }
   },
   {
-   "t": 48.27,
+   "t": 48.16,
    "trace": {
     "says": null,
     "control": null,
@@ -674,7 +659,7 @@
    }
   },
   {
-   "t": 49.28,
+   "t": 49.16,
    "trace": {
     "says": null,
     "control": null,
@@ -689,7 +674,7 @@
    }
   },
   {
-   "t": 50.28,
+   "t": 50.17,
    "trace": {
     "says": null,
     "control": null,
@@ -704,15 +689,15 @@
    }
   },
   {
-   "t": 51.26,
+   "t": 51.13,
    "line": "action 1 (wait): waited 20s"
   },
   {
-   "t": 51.78,
+   "t": 51.59,
    "line": "capture 06-still-ironing: room laundry, says null, options 0, control null"
   },
   {
-   "t": 52.81,
+   "t": 52.61,
    "trace": {
     "says": null,
     "control": null,
@@ -727,7 +712,7 @@
    }
   },
   {
-   "t": 53.8,
+   "t": 53.6,
    "trace": {
     "says": null,
     "control": null,
@@ -742,7 +727,7 @@
    }
   },
   {
-   "t": 54.82,
+   "t": 54.6,
    "trace": {
     "says": null,
     "control": null,
@@ -757,7 +742,7 @@
    }
   },
   {
-   "t": 55.79,
+   "t": 55.61,
    "trace": {
     "says": null,
     "control": null,
@@ -772,7 +757,7 @@
    }
   },
   {
-   "t": 56.8,
+   "t": 56.62,
    "trace": {
     "says": null,
     "control": null,
@@ -787,7 +772,7 @@
    }
   },
   {
-   "t": 57.81,
+   "t": 57.62,
    "trace": {
     "says": null,
     "control": null,
@@ -802,7 +787,7 @@
    }
   },
   {
-   "t": 58.8,
+   "t": 58.6,
    "trace": {
     "says": null,
     "control": null,
@@ -817,7 +802,7 @@
    }
   },
   {
-   "t": 59.8,
+   "t": 59.63,
    "trace": {
     "says": null,
     "control": null,
@@ -832,7 +817,7 @@
    }
   },
   {
-   "t": 60.82,
+   "t": 60.6,
    "trace": {
     "says": null,
     "control": null,
@@ -847,7 +832,7 @@
    }
   },
   {
-   "t": 61.81,
+   "t": 61.65,
    "trace": {
     "says": null,
     "control": null,
@@ -862,7 +847,7 @@
    }
   },
   {
-   "t": 62.79,
+   "t": 62.64,
    "trace": {
     "says": null,
     "control": null,
@@ -877,7 +862,7 @@
    }
   },
   {
-   "t": 63.79,
+   "t": 63.63,
    "trace": {
     "says": null,
     "control": null,
@@ -892,7 +877,7 @@
    }
   },
   {
-   "t": 64.82,
+   "t": 64.63,
    "trace": {
     "says": null,
     "control": null,
@@ -907,7 +892,7 @@
    }
   },
   {
-   "t": 65.81,
+   "t": 65.62,
    "trace": {
     "says": null,
     "control": null,
@@ -922,7 +907,7 @@
    }
   },
   {
-   "t": 66.78,
+   "t": 66.6,
    "line": "action 1 (wait): waited 15s"
   }
  ],
@@ -930,11 +915,11 @@
   {
    "name": "01-arrived",
    "why": "the laundry, Sheng ironing",
-   "t": 6.62,
+   "t": 6.55,
    "file": "renders/proofs/laundry/life/raw-captures-ignored/01-arrived.png",
-   "hash": "91b6d2d0c2a663e9e5b7066fe54ff015a17f40cc8b708eaa32b1dc986ea27c5b",
+   "hash": "2ce4f651c1702207452f15e2386ee77f40db892cf2ac76e1075630a0a1ea3bbb",
    "room": "laundry",
-   "clock": 6.4182,
+   "clock": 6.2293,
    "control": null,
    "says": null,
    "options": 0,
@@ -1025,11 +1010,11 @@
   {
    "name": "02-the-laundry",
    "why": null,
-   "t": 15.11,
+   "t": 15.03,
    "file": "renders/proofs/laundry/life/raw-captures-ignored/02-the-laundry.png",
-   "hash": "da7edc146437237f4722e9d21763a7abea2954baaaca5367575a52efb1eafd37",
+   "hash": "aea8fce9bd28df7f2aa7bbf56d92e25947af13630372a34dd5a7c706fcfee09b",
    "room": "laundry",
-   "clock": 14.8512,
+   "clock": 14.7622,
    "control": null,
    "says": null,
    "options": 0,
@@ -1120,11 +1105,11 @@
   {
    "name": "03-look-coppers",
    "why": "where the words land (doc 55 section 8)",
-   "t": 23.71,
+   "t": 23.59,
    "file": "renders/proofs/laundry/life/raw-captures-ignored/03-look-coppers.png",
-   "hash": "50728156a9a0181f65edaa3af2b05c0c6a8d2c0fb145a8c7d25c2748c5540a80",
+   "hash": "736c3b86764bc4b7af01a515e9d312bc7a7e920e137b3fd73fc28156661be419",
    "room": "laundry",
-   "clock": 23.5508,
+   "clock": 23.328599999999998,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1215,11 +1200,11 @@
   {
    "name": "04-listen-mangle",
    "why": null,
-   "t": 27.46,
+   "t": 27.37,
    "file": "renders/proofs/laundry/life/raw-captures-ignored/04-listen-mangle.png",
-   "hash": "a4820ce544c75c4d964508a3967276a39ed7c76d64a77441dcb1b7ae28728ed0",
+   "hash": "0339f736a72297fa8bb99ec94a8835a7a5e5fa34e0ad49519ae930907a3e2ba7",
    "room": "laundry",
-   "clock": 27.2007,
+   "clock": 27.1118,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1259,7 +1244,7 @@
    "movers": {
     "thad": {
      "at": [
-      505,
+      510,
       812
      ],
      "facing": "right",
@@ -1269,7 +1254,7 @@
      "drawn": "sprite",
      "from": "art/actors/thad-walk-right/walk-00.png",
      "bounds": [
-      311,
+      316,
       405,
       410,
       437
@@ -1310,11 +1295,11 @@
   {
    "name": "05-look-book",
    "why": null,
-   "t": 31.24,
+   "t": 31.11,
    "file": "renders/proofs/laundry/life/raw-captures-ignored/05-look-book.png",
-   "hash": "385d43973429f5e63dc7444e318d149e6c776b914ffb546b7434dae38d3497f7",
+   "hash": "7fc42f8f78c8c099b5a3a7c7b17b2dd87bc53b2d5a3fe8ccd0cfe58317bb01e9",
    "room": "laundry",
-   "clock": 30.9838,
+   "clock": 30.8283,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1405,11 +1390,11 @@
   {
    "name": "06-still-ironing",
    "why": null,
-   "t": 51.77,
+   "t": 51.58,
    "file": "renders/proofs/laundry/life/raw-captures-ignored/06-still-ironing.png",
-   "hash": "44f46a3280ec506ebf526826ef6c2d75db5760df78868f412fe90c358e9d6552",
+   "hash": "b0d74eba001e8a1f046b7c4aff0b9fdee6702dbf311f1f30687155b203efc909",
    "room": "laundry",
-   "clock": 51.5997,
+   "clock": 51.3108,
    "control": null,
    "says": null,
    "options": 0,
@@ -1453,11 +1438,11 @@
       812
      ],
      "facing": "back",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 407,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-back/idle-break-05.png",
+     "from": "art/actors/thad-idle-back/idle-02.png",
      "bounds": [
       1186,
       405,
@@ -1510,7 +1495,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 68.53s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 68.35s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -1525,5 +1510,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T20:20:04.762Z"
+ "at": "2026-11-05T20:22:57.275Z"
 }
