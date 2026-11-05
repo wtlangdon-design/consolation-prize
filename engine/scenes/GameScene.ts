@@ -37,6 +37,7 @@ import { Sfx } from '../core/Sfx.ts';
 import {
   actCardOf, playfieldClick, segmentsOf, stepsFor, writesOf, type Segment,
 } from '../core/Opening.ts';
+import { tapAt, tuneAt } from '../core/Listening.ts';
 import {
   CYCLING_OPTION,
   MUSIC_OPTION,
@@ -131,11 +132,17 @@ export class GameScene extends Phaser.Scene {
   /** When the line on screen has been up long enough. Null while none is. */
   private sayUntil: number | null = null;
   /** Lines still to come in a multi-speaker response, in order. */
-  private pendingSay: { speaker: string | null; line: string; overBlack?: boolean }[] = [];
+  private pendingSay: { speaker: string | null; line: string; overBlack?: boolean; direction?: boolean }[] = [];
   /** A line `overBlack` has blacked out the play area until the room changes (doc 57 B3). */
   private overBlack = false;
   /** A scene's destination, travelled to once its lines have been read (GameState.resolveInteraction). */
   private travelAfterSay: string | null = null;
+  /** Where the last click in the room landed, in world pixels: Room 33's taps are placed by it. */
+  private lastClick: { x: number; y: number } | null = null;
+  /** Room 33's ripples, each from its tap to the end of its tail (scene ms). */
+  private ripples: { x: number; y: number; start: number; end: number; tail: number }[] = [];
+  /** Scene ms at Room 33's confirmed void: the score's ninety seconds run from here, control away. */
+  private tuneStart: number | null = null;
   /**
    * THE ACT CARDS AFTER THE OPENING (errata 84 C). ACT is the one fact; when it
    * rises in play, that act's card (content/act-cards.json, from doc 57) is
@@ -445,6 +452,7 @@ export class GameScene extends Phaser.Scene {
       this.enterRoomPerformance();
       this.markDirty();
     }
+    this.tickListening();
     this.watchActTurn(now);
     this.view.setClock(now);
     if (this.cycleChanged()) this.markDirty();
@@ -637,6 +645,9 @@ export class GameScene extends Phaser.Scene {
       // underneath was still visible and invited the click.
       showPanel: this.opening === null && !this.choicesShowing() && !this.panelHidden,
       hoveredLocation: this.hoveredLocation,
+      ripples: this.ripples.map((one) => ({ x: one.x, y: one.y, tail: one.tail,
+        age: Math.max(0, Math.min(1, (this.time.now - one.start) / Math.max(1, one.end - one.start))) })),
+      lampStill: this.lampStillness(),
       // Doc 44: the beat travels with the frame so a violation recorded
       // while it is drawn can name it. Undefined outside a performance.
       beat: this.playingBeat(),
@@ -866,6 +877,10 @@ export class GameScene extends Phaser.Scene {
     this.applyMusic();
     const { x, y } = this.nativePoint(pointer);
     const secondary = pointer.rightButtonDown();
+
+    // DOC 48 S5 BEAT 3: the ninety seconds are not his. He sits in the dark
+    // and listens; no click moves him, opens the panel or cuts it short.
+    if (this.tuneStart !== null) return;
 
     // An act card holds the screen for its time; a click does not cut it.
     if (this.actCardUntil !== null) return;
@@ -1161,6 +1176,7 @@ export class GameScene extends Phaser.Scene {
     //
     // Double-click is gone entirely, along with the click tracker it needed.
     const target = this.state.targetAt(wx, y);
+    this.lastClick = { x: wx, y };
     const verb = this.state.verbs.verbFor(target, secondary);
 
     // A doorway asked for with a transit verb is walked through -- checked
@@ -1283,6 +1299,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private applyInteraction(target: Interactable, verb: string): void {
+    if (this.listenAt(target, verb)) return;
     const result = this.state.interact(target, verb);
     // ERRATA 28b AS AMENDED (Q74): A VERB CLEARS ON USE.
     //
@@ -1318,7 +1335,11 @@ export class GameScene extends Phaser.Scene {
     // A PAIR RULE NAMES ITS SPEAKER (doc 57 A9: Sump's refusals); every other
     // verb line is his, as before. Two branches rather than a fallback: a line
     // with no speaker is Thad's by definition, not by default.
-    if (result.by) this.setSay(result.say, result.by);
+    // A RULE THAT IS ALL DIRECTION (doc 58: Room 33's third swing) is
+    // performed as one, in parentheses, in the quieter ink.
+    if (result.direction && result.say && result.by) this.setSay(GameScene.asDirection(result.say), result.by, true);
+    else if (result.direction && result.say) this.setSay(GameScene.asDirection(result.say), this.state.content.actor.id, true);
+    else if (result.by) this.setSay(result.say, result.by);
     else this.setSay(result.say, this.state.content.actor.id);
     // DOC 30 §5's SPLIT UTTERANCES. The setup goes up now and the rest queue
     // behind it on their own reading holds, which is the 1990 rhythm the
@@ -1327,7 +1348,8 @@ export class GameScene extends Phaser.Scene {
       const who = this.state.content.actor.id;
       // A bare line is his; a line with a speaker is theirs (doc 57 A9's read-back).
       this.pendingSay.push(...result.then.map((line) => (typeof line === 'string'
-        ? { speaker: who, line } : { speaker: line.speaker, line: line.line, ...(line.overBlack ? { overBlack: true } : {}) })));
+        ? { speaker: who, line } : { speaker: line.speaker, line: line.line, ...(line.overBlack ? { overBlack: true } : {}),
+          ...(line.direction ? { direction: true } : {}) })));
     }
     if (result.changedRoom) {
       this.hovered = null;
@@ -1441,6 +1463,62 @@ export class GameScene extends Phaser.Scene {
     if (!declared) return;
     const room = declared.rooms?.[this.state.room.id];
     this.music.play(room ?? declared.title ?? null);
+    // INVARIANT 5: -35 cents until Room 33's ninety seconds, 0 after them.
+    if (this.tuneStart === null) {
+      this.music.setTune(declared.tunedFlag && this.state.flags.test({ [declared.tunedFlag]: true }) ? 1 : 0);
+    }
+  }
+
+  /**
+   * ROOM 33: A LISTEN ON THE ROCK IS A TAP (doc 28 Part Five; doc 45 R33-TAP,
+   * R33-RIPPLE, R33-VOID). Where the click landed picks the knock and its
+   * ripple, and no line is said; on the void its line is said once, and the
+   * score's ninety seconds begin (errata 71 E). Returns true when it answered.
+   */
+  private listenAt(target: Interactable, verb: string): boolean {
+    const listening = this.state.room.listening;
+    if (!listening || target.id !== listening.surface || verb !== 'LISTEN_TO' || !this.lastClick) return false;
+    const at = this.lastClick;
+    const tap = tapAt(listening, at.x, at.y);
+    this.sfx.play(tap.src);
+    const now = this.time.now;
+    this.ripples.push({ x: at.x, y: at.y, start: now, end: now + tap.tail * 1000, tail: tap.tail });
+    this.state.verbs.resetToDefault();
+    if (tap.void && !this.state.flags.test({ [listening.foundFlag]: true })) {
+      // The void's one line, through the ordinary path so it is said, set and
+      // completed as any rule is -- under its own name, never the hotspot's.
+      this.applyInteraction({ id: `${listening.surface}#void`, name: target.name, rect: target.rect, colour: 0,
+        distant: true, responses: { LISTEN_TO: [listening.found] } } as Interactable, verb);
+      this.tuneStart = now;
+    }
+    this.markDirty();
+    return true;
+  }
+
+  /** Room 33's clock: ripples run out, and the ninety seconds tune the score and still the lamp. */
+  private tickListening(): void {
+    const now = this.time.now;
+    if (this.ripples.length) {
+      this.ripples = this.ripples.filter((one) => now < one.end);
+      this.markDirty();
+    }
+    const listening = this.state.room.listening;
+    if (this.tuneStart === null || !listening) return;
+    const fraction = tuneAt(listening, now - this.tuneStart);
+    this.music.setTune(fraction);
+    this.markDirty();
+    if (fraction >= 1) {
+      this.tuneStart = null;
+      this.state.flags.applyWrites({ [listening.tune.doneFlag]: true });
+    }
+  }
+
+  /** How still the room's lamps are: Room 33's, on the score's clock (invariant 8). */
+  private lampStillness(): number {
+    const listening = this.state.room.listening;
+    if (!listening) return 0;
+    if (this.tuneStart !== null) return tuneAt(listening, this.time.now - this.tuneStart);
+    return this.state.flags.test({ [listening.tune.doneFlag]: true }) ? 1 : 0;
   }
 
   private enterRoomPerformance(from: string | null = this.state.previousRoomId): void {
@@ -1478,6 +1556,22 @@ export class GameScene extends Phaser.Scene {
     if (resume) this.actor.placeAt(resume[0], resume[1]);
     else this.actor.placeIn(this.state.roomId, from);
     this.armSteps();
+    this.ripples = [];
+    this.tuneStart = null;
+    const listening = this.state.room.listening;
+    if (listening) {
+      // A save made inside the ninety seconds loads with them over: the
+      // tuning is not replayed and never snaps back (errata 70 C3).
+      if (this.state.flags.test({ [listening.foundFlag]: true })
+        && !this.state.flags.test({ [listening.tune.doneFlag]: true })) {
+        this.state.flags.applyWrites({ [listening.tune.doneFlag]: true });
+      }
+      // DOC 48 S5 BEAT 1: the fork, unbidden, once. A, 440.
+      if (listening.fork && !this.state.flags.test({ [listening.fork.onceFlag]: true })) {
+        this.sfx.play(listening.fork.src);
+        this.state.flags.applyWrites({ [listening.fork.onceFlag]: true });
+      }
+    }
     // HERE, BECAUSE EVERY WAY INTO A ROOM COMES THROUGH THIS. The arrival
     // routine was called from inside the scripted-travel callback only, so a
     // room entered by walking through an exit, by warping, or by loading got
@@ -2030,7 +2124,7 @@ export class GameScene extends Phaser.Scene {
     const next = this.pendingSay.shift();
     if (next === undefined) return false;
     if (next.overBlack) this.overBlack = true;
-    this.setSay(next.line, next.speaker);
+    this.setSay(next.direction ? GameScene.asDirection(next.line) : next.line, next.speaker, next.direction === true);
     this.markDirty();
     return true;
   }

@@ -1,0 +1,501 @@
+{
+  "schema": 1,
+  "id": "listening_chamber",
+  "name": "THE LISTENING CHAMBER",
+  "materialIdentity": "A natural hollow in solid rock under Prosperity, nobody's work: the same rock everywhere, lit by Thad's one lamp on the floor; after F3 the wall broken through into a dark that goes a long way down (errata 70, 99 H)",
+  "note": "Room 33 (doc 05: 'Special case. LOOK is deliberately useless. LISTEN is the interface.'). Through THE GAP from Room 34. A LISTEN on the rock is a tap (engine/core/Listening.ts): its knock and ripple say how near the void is, and nothing else does; the void's line is said once and the score's ninety seconds begin (doc 48 S5, errata 70 C-F, 71 E). F3 is the pickaxe, three swings, into Room 34's second state.",
+  "background": "art/backgrounds/room-33-listening-chamber.png",
+  "plates": {
+    "after": "art/backgrounds/room-33-listening-chamber-after.png"
+  },
+  "plateWhen": [
+    {
+      "when": {
+        "T_BROKE_THROUGH": true
+      },
+      "plate": "after"
+    }
+  ],
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "exits": [
+    {
+      "id": "to_under_prosperity",
+      "name": "THE GAP",
+      "rect": [
+        114,
+        240,
+        164,
+        417
+      ],
+      "colour": 0,
+      "to": "under_prosperity",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Back through the gap to Room 34's tunnel. Doc 57 writes THE GAP from Room 34's side only, so from here it is a stub (errata 72 F).",
+      "stub": true,
+      "walkTo": {
+        "x": 300,
+        "y": 770,
+        "facing": "left"
+      }
+    }
+  ],
+  "ambient": [],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-33.json",
+      "reference/room-33/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        260,
+        700,
+        1440,
+        53
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        260,
+        753,
+        1440,
+        52
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        260,
+        805,
+        1440,
+        53
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      260,
+      700
+    ],
+    [
+      1700,
+      700
+    ],
+    [
+      1700,
+      858
+    ],
+    [
+      260,
+      858
+    ]
+  ],
+  "entrance": [
+    340,
+    780
+  ],
+  "entrances": [
+    {
+      "from": "under_prosperity",
+      "at": [
+        340,
+        780
+      ],
+      "facing": "right",
+      "note": "In through the gap, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        340,
+        780
+      ],
+      "facing": "right",
+      "note": "As through the gap."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "every_rock_surface",
+      "name": "EVERY ROCK SURFACE",
+      "rect": [
+        0,
+        0,
+        1920,
+        700
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Rock.",
+            "repeat": [
+              "Rock. Identical to the last rock.",
+              "This is the same rock. I am confident it is the same rock.",
+              "Rock. I have stopped drawing distinctions.",
+              "Rock, a little to the left of the last rock.",
+              "More rock. It is being very consistent.",
+              "Rock, in the dark, where I left it.",
+              "Rock."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 960,
+        "y": 825,
+        "facing": "back"
+      }
+    }
+  ],
+  "listening": {
+    "surface": "every_rock_surface",
+    "void": {
+      "at": [
+        1395,
+        335
+      ],
+      "radius": 60,
+      "reach": 700,
+      "note": "Where room-33 operation 3 broke the wall (art/staging/room-33/plate-after): tuning, judged by Tyler's ear (doc 57 F2)."
+    },
+    "taps": [
+      {
+        "src": "audio/sfx/r33-tap-00.wav",
+        "tail": 0.166
+      },
+      {
+        "src": "audio/sfx/r33-tap-01.wav",
+        "tail": 0.198
+      },
+      {
+        "src": "audio/sfx/r33-tap-02.wav",
+        "tail": 0.236
+      },
+      {
+        "src": "audio/sfx/r33-tap-03.wav",
+        "tail": 0.281
+      },
+      {
+        "src": "audio/sfx/r33-tap-04.wav",
+        "tail": 0.335
+      },
+      {
+        "src": "audio/sfx/r33-tap-05.wav",
+        "tail": 0.4
+      },
+      {
+        "src": "audio/sfx/r33-tap-06.wav",
+        "tail": 0.476
+      },
+      {
+        "src": "audio/sfx/r33-tap-07.wav",
+        "tail": 0.568
+      },
+      {
+        "src": "audio/sfx/r33-tap-08.wav",
+        "tail": 0.677
+      },
+      {
+        "src": "audio/sfx/r33-tap-09.wav",
+        "tail": 0.808
+      },
+      {
+        "src": "audio/sfx/r33-tap-10.wav",
+        "tail": 0.963
+      },
+      {
+        "src": "audio/sfx/r33-tap-11.wav",
+        "tail": 1.148
+      },
+      {
+        "src": "audio/sfx/r33-tap-12.wav",
+        "tail": 1.369
+      },
+      {
+        "src": "audio/sfx/r33-tap-13.wav",
+        "tail": 1.633
+      },
+      {
+        "src": "audio/sfx/r33-tap-14.wav",
+        "tail": 1.947
+      },
+      {
+        "src": "audio/sfx/r33-tap-15.wav",
+        "tail": 2.321
+      }
+    ],
+    "voidSound": {
+      "src": "audio/sfx/r33-void.wav",
+      "tail": 4.145
+    },
+    "found": {
+      "say": "…There's a room down there.",
+      "set": {
+        "T_VOID_FOUND": true
+      },
+      "completes": "F2"
+    },
+    "foundFlag": "T_VOID_FOUND",
+    "tune": {
+      "seconds": 90,
+      "doneFlag": "T_IN_TUNE"
+    },
+    "fork": {
+      "src": "audio/sfx/r33-fork.wav",
+      "onceFlag": "T_FORK_STRUCK"
+    },
+    "note": "Doc 28 Part Five and doc 45; errata 70 C-F and 71 E (errata 99 H)."
+  },
+  "walkBoxes": [
+    {
+      "id": "mud_far_0",
+      "points": [
+        {
+          "x": 260,
+          "y": 700
+        },
+        {
+          "x": 680,
+          "y": 700
+        },
+        {
+          "x": 680,
+          "y": 753
+        },
+        {
+          "x": 260,
+          "y": 753
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 342,
+        "nearY": 858,
+        "nearHeight": 383
+      },
+      "neighbours": [
+        "mud_mid_0"
+      ]
+    },
+    {
+      "id": "mud_far_1",
+      "points": [
+        {
+          "x": 820,
+          "y": 700
+        },
+        {
+          "x": 1700,
+          "y": 700
+        },
+        {
+          "x": 1700,
+          "y": 753
+        },
+        {
+          "x": 820,
+          "y": 753
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 342,
+        "nearY": 858,
+        "nearHeight": 383
+      },
+      "neighbours": [
+        "mud_mid_1"
+      ]
+    },
+    {
+      "id": "mud_mid_0",
+      "points": [
+        {
+          "x": 260,
+          "y": 753
+        },
+        {
+          "x": 680,
+          "y": 753
+        },
+        {
+          "x": 680,
+          "y": 805
+        },
+        {
+          "x": 260,
+          "y": 805
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 342,
+        "nearY": 858,
+        "nearHeight": 383
+      },
+      "neighbours": [
+        "mud_far_0",
+        "mud_mid_2",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_mid_1",
+      "points": [
+        {
+          "x": 820,
+          "y": 753
+        },
+        {
+          "x": 1700,
+          "y": 753
+        },
+        {
+          "x": 1700,
+          "y": 805
+        },
+        {
+          "x": 820,
+          "y": 805
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 342,
+        "nearY": 858,
+        "nearHeight": 383
+      },
+      "neighbours": [
+        "mud_far_1",
+        "mud_mid_2",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_mid_2",
+      "points": [
+        {
+          "x": 680,
+          "y": 780
+        },
+        {
+          "x": 820,
+          "y": 780
+        },
+        {
+          "x": 820,
+          "y": 805
+        },
+        {
+          "x": 680,
+          "y": 805
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 342,
+        "nearY": 858,
+        "nearHeight": 383
+      },
+      "neighbours": [
+        "mud_mid_0",
+        "mud_mid_1",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 260,
+          "y": 805
+        },
+        {
+          "x": 1700,
+          "y": 805
+        },
+        {
+          "x": 1700,
+          "y": 858
+        },
+        {
+          "x": 260,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 342,
+        "nearY": 858,
+        "nearHeight": 383
+      },
+      "neighbours": [
+        "mud_mid_0",
+        "mud_mid_1",
+        "mud_mid_2"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "the_lamp",
+      "at": [
+        760,
+        770
+      ],
+      "radius": 200,
+      "amount": 0.09,
+      "rate": 0.7,
+      "phase": 0.4,
+      "note": "Thad's lamp on the floor. It slows to stillness across the score's ninety seconds (invariant 8); otherwise it is only a flame (invariant 9)."
+    }
+  ],
+  "props": [],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-33/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

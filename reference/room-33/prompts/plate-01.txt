@@ -1,0 +1,6 @@
+Image 1 is a finished background from my pixel-art adventure game: a dark natural rock chamber deep underground, one oil lamp on the floor, a dark gap in the wall at the far left, and a man in a long blue coat standing on the floor.
+
+Make exactly this change:
+1. Remove the man in the blue coat. Paint the rock wall and the floor behind him.
+
+Change nothing else. Same camera, same pixel grid, same big square pixels, same colours, same lamplight; the lamp, the gap and every part of the rock exactly as they are. No people, no shadows of people, no text, no numerals.

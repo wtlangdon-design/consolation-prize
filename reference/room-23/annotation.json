@@ -79,6 +79,15 @@
    ],
    "facing": "left",
    "note": "Back from next door, at right (errata 97 C)."
+  },
+  {
+   "from": "under_prosperity",
+   "at": [
+    1170,
+    840
+   ],
+   "facing": "front",
+   "note": "Up the rope and out of the hole (errata 99 H)."
   }
  ],
  "hotspots": {
@@ -147,6 +156,12 @@
    560,
    100,
    304
+  ],
+  "down_the_hole": [
+   1110,
+   300,
+   120,
+   120
   ]
  },
  "exitWalkTo": {
@@ -159,6 +174,11 @@
    "x": 1860,
    "y": 790,
    "facing": "right"
+  },
+  "down_the_hole": {
+   "x": 1170,
+   "y": 840,
+   "facing": "back"
   }
  },
  "obstacles": [],

@@ -1,0 +1,6 @@
+Image 1 is a finished background from my pixel-art adventure game: a dark natural rock chamber deep underground, one oil lamp on the floor, a dark gap in the wall at the far left.
+
+Make exactly this change:
+1. In the rock wall on the RIGHT side of the picture, about halfway up, a little right of the middle of that wall: a ragged hole broken through the rock by a pickaxe, about as wide as a man's shoulders, with broken rock fallen on the floor below it, and behind the hole a black dark that goes a long way down.
+
+Change nothing else. Same camera, same pixel grid, same big square pixels, same colours, same lamplight; the lamp, the gap at the left and the rest of the rock exactly as they are. No people, no text, no numerals.

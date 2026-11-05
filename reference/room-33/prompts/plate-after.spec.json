@@ -1,0 +1,13 @@
+{
+ "assetId": "room-33",
+ "subject": "room-33-listening-chamber",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-33-listening-chamber",
+ "promptFile": "reference/room-33/prompts/plate-after.txt",
+ "out": "art/staging/room-33/plate-after/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-33/plate-after/input.png"
+ ]
+}

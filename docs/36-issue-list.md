@@ -4873,3 +4873,13 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 - **Day after night.** The funeral is written by day (doc 54's THE SKY), and Boot Hill is drawn at night, so walking up the plot goes from night to a blue sky. Say if the funeral should be another time, or Boot Hill should have a day.
 - **Seven mourners, not nine.** Doc 54 writes "Nine hats, held still"; the master drew seven people with their hats. The room's four operations are spent.
 - **Not staged:** beat 1's procession (the town walking in behind the coffin) -- the service is already gathered when Thad arrives; and the watchman "at Thad's shoulder" -- he speaks from the back, where he stands, and walks off as he says it.
+
+## Q174 · Rooms 34 and 33, under Prosperity and the listening chamber: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 H, delegated); BUILT, room-34 3 of 4 and room-33 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Room 34: the tunnel and its second state after F3; down by the pickaxe on the hole after F1, then by the hole (`?fixture=r34-a`, after F3 `r34-b`). Room 33: the LOOK ladder, the taps and their ripples, the void, the ninety seconds and the lamp, and F3's three swings (`?fixture=r33-a`; void found `r33-b`). Played in `tests/room-34.test.ts` and `tests/room-33.test.ts`. Proofs under `renders/proofs/under-prosperity/` and `renders/proofs/listening-chamber/`.
+
+**For Tyler:**
+- **Listen to it.** The tap curve, the void's place and its size are tuning "judged by Tyler's ear" (doc 57 F2). The taps are rendered files (tools/audio/render-r33-sfx.py) by an agent that cannot hear them.
+- **The ninety seconds have no music.** `R33-M` is THADDEUS complete, and it does not exist: the only THADDEUS is the four-bar placeholder, written to stop on the third. Finishing it is composing, which is yours or a composer's (doc 28 Part Seven). The tuning, the lamp and the lock all run; until the bed exists they run over silence.
+- **Thad stands, not sits,** for the ninety seconds (doc 48 S5 beat 3): there is no seated Thad to draw him with.
+

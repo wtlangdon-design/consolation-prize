@@ -551,6 +551,38 @@
     }
    ],
    "castingNote": "The town at Thad's funeral (doc 48 S2): Sowerby officiating, the undertaker at the coffin, Grievance in the hearse harness, nine mourners with their hats, Hob at the back. Thad for scale."
+  },
+  "room-34-under-prosperity": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-21-watchmans-shack",
+    "path": "art/backgrounds/room-21-watchmans-shack.png",
+    "note": "D -- a small room lit by one lamp, the nearest the game has to forty feet of tunnel by lamplight (errata 99 H)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody: Thad is alone underground (doc 10: 'LISTEN is beginning to take over'). Thad for scale."
+  },
+  "room-33-listening-chamber": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-34-under-prosperity",
+    "path": "art/staging/room-34/plate-01/source.png",
+    "note": "D -- the tunnel it opens off, the same rock and the same lamp (errata 99 H)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody: Thad is alone in the dark (doc 48 S5). Thad for scale."
   }
  }
 }

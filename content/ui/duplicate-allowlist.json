@@ -66,6 +66,21 @@
    "line": "Six feet, measured. I am two inches shorter than the hole, which is the first time this town has given me room.",
    "where": "funeral/grave/LOOK_AT",
    "reason": "Doc 54, Room 31: \"S2's beat 3 fires on the second LOOK at the grave, so THE GRAVE's LOOK 2 below plays and then Hob speaks.\" The beat is LOOK 2 followed by Hob's lines, so LOOK 2 is written once in the chain and once at the head of the beat; the player hears it once."
+  },
+  {
+   "line": "Rock.",
+   "where": "listening_chamber/every_rock_surface/LOOK_AT",
+   "reason": "Doc 54, Rooms 33 and 34: the rock's LOOK empties out -- Room 33's ladder ends on line 8, 'Rock.', which is also its line 1 (errata 70 F: 'From the eighth LOOK on, every LOOK is line 8'), and Room 34's walls and rock face say it 'as doc 10 asks of this room and doc 05 asks of Room 33's rock.' Deliberate, word for word."
+  },
+  {
+   "line": "Rock.",
+   "where": "under_prosperity/walls/LOOK_AT",
+   "reason": "Doc 54, Rooms 33 and 34: the rock's LOOK empties out -- Room 33's ladder ends on line 8, 'Rock.', which is also its line 1 (errata 70 F: 'From the eighth LOOK on, every LOOK is line 8'), and Room 34's walls and rock face say it 'as doc 10 asks of this room and doc 05 asks of Room 33's rock.' Deliberate, word for word."
+  },
+  {
+   "line": "Rock.",
+   "where": "under_prosperity/rock_face/LOOK_AT",
+   "reason": "Doc 54, Rooms 33 and 34: the rock's LOOK empties out -- Room 33's ladder ends on line 8, 'Rock.', which is also its line 1 (errata 70 F: 'From the eighth LOOK on, every LOOK is line 8'), and Room 34's walls and rock face say it 'as doc 10 asks of this room and doc 05 asks of Room 33's rock.' Deliberate, word for word."
   }
  ]
 }

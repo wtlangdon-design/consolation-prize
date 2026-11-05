@@ -5,22 +5,22 @@
  "name": "THE LISTENING CHAMBER *(F2)*",
  "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31; errata 70 C to F.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 33 \u2014 THE LISTENING CHAMBER *(F2)*",
+  "primary": "docs/05-examine-layer.md::ROOM 33 — THE LISTENING CHAMBER *(F2)*",
   "special": {
-   "source": "docs/54-batch-c.md::ROOM 33 \u00b7 THE LISTENING CHAMBER",
+   "source": "docs/54-batch-c.md::ROOM 33 · THE LISTENING CHAMBER",
    "why": "LOOK is the emptied ladder and LISTEN answers in pitch, with one prose line at the void (errata 70 D, F)"
   },
   "actVariantsNone": {
-   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
    "why": "The chamber exists only in Act IV."
   }
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 33 \u2014 THE LISTENING CHAMBER",
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 33 — THE LISTENING CHAMBER",
  "dialogue": {
   "characters": [],
   "trees": [],
   "none": {
-   "source": "docs/48-act-turn-beats.md::S5 \u00b7 THE LISTENING (F2)",
+   "source": "docs/48-act-turn-beats.md::S5 · THE LISTENING (F2)",
    "why": "Thad is alone; S5 has no lines but the void's."
   }
  },
@@ -29,12 +29,14 @@
    "F2",
    "F3"
   ],
-  "source": "docs/02-puzzle-graph.md::ACT IV \u2014 *The Quietest Part of the Game*"
+  "source": "docs/02-puzzle-graph.md::ACT IV — *The Quietest Part of the Game*"
  },
  "staging": {
   "required": true,
-  "source": "docs/54-batch-c.md::ROOM 33 \u00b7 THE LISTENING CHAMBER"
+  "source": "docs/54-batch-c.md::ROOM 33 · THE LISTENING CHAMBER"
  },
  "connectivity": "docs/20-room-map.md",
- "exits": "docs/54-batch-c.md::ROOM 33 \u00b7 THE LISTENING CHAMBER"
+ "exits": "docs/54-batch-c.md::ROOM 33 · THE LISTENING CHAMBER",
+ "roomFile": "content/rooms/listening-chamber.json",
+ "plate": "art/backgrounds/room-33-listening-chamber.png"
 }

@@ -381,7 +381,25 @@ def linen_money(canvas: IndexedCanvas, palette: Palette) -> None:
     canvas.put(23, 13, bone.frac(0.35))
 
 
+def sample(canvas: IndexedCanvas, palette: Palette) -> None:
+    """THE SAMPLE: a piece of the rock from under Prosperity (doc 23: "about
+    the size of a bishop's fist ... Yellow, where the lamp catches it"). A dark
+    lump of grey rock with a slanting vein of gold through it -- rock first, the
+    gold a seam in it, so it reads as ore and not as FOUR DOLLARS' coin."""
+    grey = palette.family("grey")
+    gold = palette.family("accent_gold")
+    void = palette.family("void")
+    rows = ((8, 10, 12), (7, 12, 13), (6, 14, 14), (6, 15, 15), (6, 16, 16), (7, 16, 17), (8, 14, 18), (10, 11, 19))
+    for x, w, y in rows:
+        canvas.rect(x, y, w, 1, grey.frac(0.35 + 0.04 * (y - 12)))
+    canvas.outline(5, 11, 18, 10, void.at(0))
+    for i, (x, y) in enumerate(((9, 18), (11, 17), (13, 16), (15, 15), (17, 14), (19, 13))):
+        canvas.rect(x, y, 2, 1, gold.frac(0.75 if i % 2 else 0.9))
+    canvas.put(14, 15, gold.frac(0.95))
+
+
 ICONS = {
+    "sample": sample,
     "linen_money": linen_money,
     "loan": loan,
     "eggs": eggs,

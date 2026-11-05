@@ -85,6 +85,36 @@
    "date": "2026-11-05",
    "kind": "loosened",
    "why": "'repeat variants cycle FORWARD' walked every LOOK chain to its end, and Room 31's grave chain is interrupted by design: doc 48 S2 beat 3 is the second LOOK, Hob's. The chain is now checked up to the ask a scene rule (sceneLine) answers instead; every other chain is checked whole, as before."
+  },
+  {
+   "check": "tools/check-examine-lines.mjs",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "Room 33's rock answers LISTEN with a tap, not a line (doc 05: 'LISTEN returns pitch, not prose'; doc 45 R33-TAP). The surface the room's listening names is counted and reported, never failed for silence; every other hotspot still needs a LISTEN line."
+  },
+  {
+   "check": "tools/check-written-content.mjs",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "The same: Room 33's listening surface answers LISTEN with a tap, so that one verb on that one hotspot is covered by the room's listening, not by a pool."
+  },
+  {
+   "check": "content/ui/duplicate-allowlist.json",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "'Rock.' in Rooms 33 and 34: doc 54 and errata 70 F write the LOOK ladder to end on it and Room 34's walls and rock face to say it as Room 33's rock does. Declared for the three places it is written."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "Room 33's rock answers LISTEN with a tap the scene plays (doc 05: 'LISTEN returns pitch, not prose'; doc 45 R33-TAP; engine/core/Listening.ts), not with a line GameState resolves. The surface the room's listening names is skipped for LISTEN only; tests/room-33.test.ts plays the taps and the void."
+  },
+  {
+   "check": "tests/resolution.test.ts",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "Room 33's rock answers LISTEN with a tap the scene plays (doc 05: 'LISTEN returns pitch, not prose'; doc 45 R33-TAP; engine/core/Listening.ts), not with a line GameState resolves. The surface the room's listening names is skipped for LISTEN only; tests/room-33.test.ts plays the taps and the void."
   }
  ]
 }

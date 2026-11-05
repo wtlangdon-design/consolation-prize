@@ -56,7 +56,8 @@ export function check() {
   // and the check reported a uniqueness guarantee it was not making.
   const stubs = [];
   let allowedHits = 0;
-  for (const { roomId, target } of targets) {
+  const taps = [];
+  for (const { roomId, target, room } of targets) {
     // A stub is a destination that exists so the exit works, with its examine
     // layer honestly absent rather than invented. Counted, not skipped
     // silently.
@@ -65,6 +66,13 @@ export function check() {
       continue;
     }
     for (const verb of [LOOK, LISTEN]) {
+      // ROOM 33's ROCK ANSWERS LISTEN WITH A TAP, NOT A LINE (doc 05: "LISTEN
+      // returns pitch, not prose"; doc 45 R33-TAP). The room's listening says
+      // so; the surface it names is counted here, never failed for silence.
+      if (verb === LISTEN && room?.listening?.surface === target.id) {
+        taps.push(`${roomId}/${target.id}`);
+        continue;
+      }
       const rules = target.responses?.[verb];
       // Every line the player can be shown for this verb, first and repeats.
       const lines = (rules ?? [])
@@ -152,6 +160,7 @@ export function check() {
 
   if (allowedHits > 0) {
     report.note(`${allowedHits} deliberate duplicate(s) whitelisted, not deduped`);
+  if (taps.length) report.note(`${taps.length} listening surface(s) answer LISTEN with a tap, not a line: ${taps.join(', ')}`);
   }
   // NAMED, not counted. A stub is skipped by every check in this file, so a
   // number is a promise that somebody will remember what is behind it. Two

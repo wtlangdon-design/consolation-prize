@@ -22,6 +22,8 @@ export interface InteractionResult {
   then?: SpokenLine[];
   /** Who speaks `say`, when it is not the actor. */
   by?: string;
+  /** `say` is a stage direction (doc 58). */
+  direction?: boolean;
   /** Where the scene leads once its lines have been read; the room has not changed yet. */
   goesTo?: string;
   enteredDialogue: boolean;
@@ -51,6 +53,8 @@ export interface InteractionResolution {
   readonly dialogue: string | null;
   readonly say: string | null;
   readonly by?: string;
+  /** `say` is a stage direction (doc 58). */
+  readonly direction?: boolean;
   readonly then?: SpokenLine[];
   /** Where the scene leads once its lines have been read (see resolveInteraction). */
   readonly goesTo?: string;
@@ -130,6 +134,7 @@ export class Interaction {
     return {
       say: this.resolution.say,
       ...(this.resolution.by ? { by: this.resolution.by } : {}),
+      ...(this.resolution.direction ? { direction: true } : {}),
       then: this.resolution.then,
       ...(this.resolution.goesTo ? { goesTo: this.resolution.goesTo } : {}),
       enteredDialogue: this.resolution.dialogue !== null,
@@ -814,6 +819,7 @@ export class GameState {
       dialogue: action.dialogue,
       say: action.say,
       ...(action.by ? { by: action.by } : {}),
+      ...(action.direction ? { direction: true } : {}),
       then: action.then,
       ...(goesTo ? { goesTo } : {}),
       effects,

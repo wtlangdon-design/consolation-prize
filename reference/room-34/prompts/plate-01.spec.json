@@ -1,0 +1,13 @@
+{
+ "assetId": "room-34",
+ "subject": "room-34-under-prosperity",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-34-under-prosperity",
+ "promptFile": "reference/room-34/prompts/plate-01.txt",
+ "out": "art/staging/room-34/plate-01/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-34/plate-01/input.png"
+ ]
+}

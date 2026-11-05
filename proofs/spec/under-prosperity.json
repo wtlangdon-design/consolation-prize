@@ -1,0 +1,33 @@
+{
+ "schema": 1,
+ "room": "under_prosperity",
+ "note": "ROOM 34's PROOF SPEC. Reached by the pickaxe on the hole after F1 (doc 57); the proof starts at the bottom of the tunnel from fixture r34-a and says so. The principal change is errata 69 A's second state: T_BROKE_THROUGH, and the seam answers.",
+ "fixture": "r34-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "F3's STATE (errata 69 A): set by the flag control, as Room 33's third swing sets it. Visible consequence: the second plate -- the seam, the old lantern, the footprints -- and THE SEAM answers LOOK.",
+  "flags": {
+   "T_BROKE_THROUGH": true
+  },
+  "actions": [
+   {
+    "do": "wait",
+    "seconds": 2
+   },
+   {
+    "do": "verb",
+    "verb": "LOOK_AT"
+   },
+   {
+    "do": "click",
+    "on": "seam",
+    "why": "THE SEAM"
+   },
+   {
+    "do": "waitFor",
+    "says": "thad",
+    "upTo": 60
+   }
+  ]
+ }
+}

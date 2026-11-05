@@ -16,6 +16,8 @@ export interface ResolvedAction {
   then?: SpokenLine[];
   /** Who speaks `say`, when it is not the actor (a pair rule's `by`). */
   by?: string;
+  /** `say` is a stage direction (doc 58). */
+  direction?: boolean;
   dialogue: string | null;
   goto: string | null;
   /** Doc 22 item 9: the state this response moves the object to. */
@@ -196,6 +198,7 @@ export class VerbSystem {
       return {
         say: rule.say,
         ...(rule.by ? { by: rule.by } : {}),
+        ...(rule.direction ? { direction: true } : {}),
         ...(rule.then?.length ? { then: rule.then } : {}),
         dialogue: null,
         goto: rule.goto ?? null,
@@ -311,6 +314,7 @@ export class VerbSystem {
         say: this.nextLine(`${scope}/${target.id}#${index}`, verbId, matched),
         then: first ? matched.then : undefined,
         ...(matched.by ? { by: matched.by } : {}),
+        ...(matched.direction ? { direction: true } : {}),
         dialogue: matched.dialogue ?? null,
         goto: matched.goto ?? null,
         state: matched.setState,

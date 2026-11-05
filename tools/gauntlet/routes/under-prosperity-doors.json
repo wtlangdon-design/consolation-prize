@@ -1,0 +1,87 @@
+{
+ "schema": 1,
+ "room": "under_prosperity",
+ "note": "DOC 46 4.13's GAMEPLAY PASS for Room 34: through THE GAP into Room 33 and back, up the rope to the hole, and down the hole again (T_DUG_DOWN). Each capture asserts the room it should be in.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "00-arrived"
+  },
+  {
+   "do": "click",
+   "on": "to_listening_chamber",
+   "why": "through the gap"
+  },
+  {
+   "do": "waitFor",
+   "room": "listening_chamber",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "01-chamber",
+   "room": "listening_chamber"
+  },
+  {
+   "do": "click",
+   "on": "to_under_prosperity",
+   "why": "back through the gap"
+  },
+  {
+   "do": "waitFor",
+   "room": "under_prosperity",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "02-back",
+   "room": "under_prosperity"
+  },
+  {
+   "do": "click",
+   "on": "to_prosperity",
+   "why": "up the rope"
+  },
+  {
+   "do": "waitFor",
+   "room": "prosperity",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "03-up",
+   "room": "prosperity"
+  },
+  {
+   "do": "click",
+   "on": "down_the_hole",
+   "why": "down the hole again"
+  },
+  {
+   "do": "waitFor",
+   "room": "under_prosperity",
+   "upTo": 90
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "04-down",
+   "room": "under_prosperity"
+  }
+ ]
+}

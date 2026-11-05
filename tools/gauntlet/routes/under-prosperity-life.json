@@ -1,0 +1,101 @@
+{
+ "schema": 1,
+ "room": "under_prosperity",
+ "note": "ROOM 34's LIFE ROUTE, ruling 47: about a minute at the bottom of the tunnel (fixture r34-a). Nobody here; the lamp is the only moving thing. LOOK at the lamp, LISTEN to the air, LOOK at the timbering.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-arrived",
+   "why": "the tunnel"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "lamp",
+   "why": "THE LAMP"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "02-look-lamp"
+  },
+  {
+   "do": "waitFor",
+   "idle": true,
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "air",
+   "why": "THE AIR"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "03-listen-air"
+  },
+  {
+   "do": "waitFor",
+   "idle": true,
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "timbering",
+   "why": "THE TIMBERING"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "04-look-timbering"
+  },
+  {
+   "do": "waitFor",
+   "idle": true,
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  }
+ ]
+}
