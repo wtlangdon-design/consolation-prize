@@ -86,7 +86,10 @@ export function check() {
       // the whole of where it can be clicked; it is never treated as one that
       // hides something else.
       const occluders = targets.slice(0, index).filter(
-        (other) => other.when === undefined && other.states === undefined,
+        // A target that needs something in hand (`holding`) is there only
+        // sometimes, as a gated one is: Room 22's way up and its closed
+        // stand-in share a rect, the map deciding which (errata 96 C).
+        (other) => other.when === undefined && other.states === undefined && other.holding === undefined,
       );
       let reachable = false;
       for (let py = y; py < y + h && !reachable; py += 1) {

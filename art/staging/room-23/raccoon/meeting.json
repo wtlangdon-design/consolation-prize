@@ -1,0 +1,75 @@
+{
+ "sheet": "art/staging/room-23/raccoon/meeting.png",
+ "frames": [
+  [
+   2,
+   2,
+   440,
+   100
+  ],
+  [
+   444,
+   2,
+   440,
+   100
+  ],
+  [
+   886,
+   2,
+   440,
+   100
+  ],
+  [
+   1328,
+   2,
+   440,
+   100
+  ],
+  [
+   1770,
+   2,
+   440,
+   100
+  ],
+  [
+   2212,
+   22,
+   440,
+   80
+  ],
+  [
+   2654,
+   22,
+   440,
+   80
+  ],
+  [
+   3096,
+   22,
+   440,
+   80
+  ],
+  [
+   3538,
+   22,
+   440,
+   80
+  ]
+ ],
+ "frameNames": [
+  "sitting 1",
+  "sitting 2",
+  "sitting 3",
+  "sitting 4",
+  "sitting 5",
+  "walking 1",
+  "walking 2",
+  "walking 3",
+  "walking 4"
+ ],
+ "anchor": {
+  "x": 1180,
+  "y": 488
+ },
+ "source": "room-23 attempt 3, tinted and grouped"
+}

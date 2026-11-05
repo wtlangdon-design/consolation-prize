@@ -1,0 +1,181 @@
+{
+ "schema": 1,
+ "id": "raccoon_meeting",
+ "name": "THE RACCOONS",
+ "posture": "animal",
+ "room": "prosperity",
+ "when": {
+  "T_RACCOON_MEETING": true,
+  "T_WARM_HOLE": false
+ },
+ "note": "THE MEETING (doc 54 A5, the bait: 'Three more raccoons arrive from nowhere in particular and settle in around the first'). Three more of him, from his sheet, each a shade apart (tools/art/room23-raccoon.py). They walk in along the slope (arrive), sit around the hole's mouth, and are gone the next time Thad enters (the road exit clears T_RACCOON_MEETING). If the blanket turns the hole cold while they are here, they walk off with him.",
+ "x": 1180,
+ "y": 488,
+ "zone": 2,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "Raccoons; no barks.",
+ "sprite": {
+  "sheet": "art/actors/room-23-meeting.png",
+  "frames": [
+   [
+    2,
+    2,
+    440,
+    100
+   ],
+   [
+    444,
+    2,
+    440,
+    100
+   ],
+   [
+    886,
+    2,
+    440,
+    100
+   ],
+   [
+    1328,
+    2,
+    440,
+    100
+   ],
+   [
+    1770,
+    2,
+    440,
+    100
+   ]
+  ],
+  "rate": 0.3,
+  "phase": 0.6,
+  "breaks": [
+   [
+    2,
+    3,
+    2,
+    0
+   ],
+   [
+    4,
+    4,
+    0
+   ],
+   [
+    3,
+    2,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "frameNote": "0-4 the three sitting either side of the hole, turning and settling, never in step. A break every `breakEvery` seconds (errata 77).",
+  "provenance": "art/staging/room-23/raccoon/meeting.json"
+ },
+ "arrive": {
+  "path": [
+   [
+    2050,
+    440
+   ],
+   [
+    1640,
+    460
+   ]
+  ],
+  "speed": 80,
+  "sheet": "art/actors/room-23-meeting.png",
+  "frames": [
+   [
+    2212,
+    22,
+    440,
+    80
+   ],
+   [
+    2654,
+    22,
+    440,
+    80
+   ],
+   [
+    3096,
+    22,
+    440,
+    80
+   ],
+   [
+    3538,
+    22,
+    440,
+    80
+   ]
+  ],
+  "fps": 6,
+  "drawnFacing": "right",
+  "figureHeight": 80,
+  "heights": [
+   80,
+   80,
+   80
+  ],
+  "note": "In from off the frame at the right, along the slope to the hole."
+ },
+ "exit": {
+  "path": [
+   [
+    1440,
+    470
+   ],
+   [
+    1720,
+    445
+   ],
+   [
+    2050,
+    420
+   ]
+  ],
+  "speed": 75,
+  "sheet": "art/actors/room-23-meeting.png",
+  "frames": [
+   [
+    2212,
+    22,
+    440,
+    80
+   ],
+   [
+    2654,
+    22,
+    440,
+    80
+   ],
+   [
+    3096,
+    22,
+    440,
+    80
+   ],
+   [
+    3538,
+    22,
+    440,
+    80
+   ]
+  ],
+  "fps": 6,
+  "drawnFacing": "right",
+  "figureHeight": 80,
+  "heights": [
+   80,
+   80,
+   80,
+   80
+  ],
+  "note": "Off with the first, if the hole turns cold while they are here."
+ }
+}

@@ -563,6 +563,9 @@ for (const block of actSections) {
     const writtenWhole = Object.values(written.get(name) ?? {}).some((variants) => variants?.first);
     // Already read from its act block, repeats and all (actOnlyLines).
     if (hotspots.get(name)?.fromActs) continue;
+    // A NAME DOC 54 MERGED INTO ANOTHER (errata 96 B): THE CLAIM MARKER (MINE)
+    // "is this stake"; the merged subject carries its act's lines already.
+    if (MERGED?.subjects.some((one) => (one.aliases ?? []).includes(name))) continue;
     if (hotspots.has(name) || writtenWhole) {
       // ONE ENTRY PER OCCURRENCE, NOT PER NAME. THE PIANO appears twice in
       // Room 3's block (acts 2 and 4); read by name, the second's lines
@@ -1107,6 +1110,64 @@ for (const [id, spec] of Object.entries(ann.opensTree ?? {})) {
     rules.push({ when: { ACT: spec.lastLetter.act }, say: lines[0], ...(lines.length > 1 ? { then: lines.slice(1) } : {}) });
   }
   hotspot.responses[spec.verb] = [...rules, ...(hotspot.responses[spec.verb] ?? [])];
+}
+
+// RULES THAT ANSWER A VERB IN A STATE (errata 96 F). The annotation's
+// `verbRules` lists them in the order they are tried, each ahead of the
+// subject's ordinary lines: a `dialogue` to open (RAC_A1, on the first TALK
+// TO), or words read from a document line -- `ref` and `startsWith` find the
+// line; its first quoted segment is the line and the rest are its repeats
+// (doc 57 A5's "TALK TO, *named*", three times). `verbs: "ALL"` is every verb
+// (doc 54's fumes: "any verb on THE HOLE or THE RACCOON").
+const ALL_VERBS = JSON.parse(read('content/ui/verbs.json')).verbs.map((verb) => verb.id).filter((id) => id !== 'WALK_TO');
+for (const spec of [...(ann.verbRules ?? [])].reverse()) {
+  const hotspot = built.hotspots.find((one) => one.id === spec.hotspot);
+  if (!hotspot) fail(`verbRules: no hotspot "${spec.hotspot}" in this room`);
+  let rule;
+  if (spec.dialogue) {
+    rule = { when: spec.when, dialogue: spec.dialogue };
+  } else {
+    const [path, heading] = spec.ref.split('::');
+    const text = read(path);
+    const at = text.indexOf(heading);
+    if (at < 0) fail(`verbRules: ${path} has no section "${heading}"`);
+    const line = text.slice(at).split('\n').find((one) => one.startsWith(spec.startsWith));
+    if (!line) fail(`verbRules: no line starting "${spec.startsWith}" in ${spec.ref}`);
+    const words = [...line.split(' — ').slice(1).join(' — ').replace(/\*\([^)]*\)\*/g, '').matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+    if (!words.length) fail(`verbRules: "${spec.startsWith}" has no quoted line`);
+    // ONE LINE WRITTEN FOR ONE STATE is a scene line, as doc 57's are: the
+    // three-variant rule is the subject's ordinary chain's, which follows it.
+    rule = { when: spec.when, say: words[0], ...(words.length > 1 ? { repeat: words.slice(1) } : { sceneLine: true }) };
+  }
+  const verbs = spec.verbs === 'ALL' ? ALL_VERBS : spec.verbs;
+  for (const verb of verbs) (hotspot.responses[verb] ??= []).unshift({ ...rule });
+}
+// AN OVERRIDE THAT HOLDS ONLY IN A STATE (errata 96 F). Errata 68 E: doc 49's
+// THE RACCOON'S FORMER RESIDENCE · OPEN "is THE HOLE after A5". The
+// annotation's `overrideWhen.<id>.<VERB>` moves that override into a rule
+// with its condition; before it, the verb's ordinary refusal answers.
+for (const [id, verbs] of Object.entries(ann.overrideWhen ?? {})) {
+  const hotspot = built.hotspots.find((one) => one.id === id);
+  if (!hotspot) fail(`overrideWhen: no hotspot "${id}" in this room`);
+  for (const [verb, when] of Object.entries(verbs)) {
+    const line = hotspot.overrides?.[verb];
+    if (!line) fail(`overrideWhen: ${id} has no ${verb} override to gate`);
+    delete hotspot.overrides[verb];
+    (hotspot.responses[verb] ??= []).unshift({ when, say: line });
+  }
+  if (hotspot.overrides && !Object.keys(hotspot.overrides).length) delete hotspot.overrides;
+}
+// WHAT A SUBJECT IS CALLED, BY STATE (errata 96 E): `namesFrom` reads a tree's
+// naming options (`displayName`) and the counter they set.
+for (const spec of ann.namesFrom ?? []) {
+  const hotspot = built.hotspots.find((one) => one.id === spec.hotspot);
+  if (!hotspot) fail(`namesFrom: no hotspot "${spec.hotspot}" in this room`);
+  const tree = JSON.parse(read(spec.tree));
+  const names = Object.values(tree.nodes).flatMap((node) => node.options)
+    .filter((option) => option.displayName && option.set?.[spec.counter] !== undefined)
+    .map((option) => ({ when: { [spec.counter]: option.set[spec.counter] }, name: option.displayName }));
+  if (!names.length) fail(`namesFrom: ${spec.tree} names nothing by ${spec.counter}`);
+  hotspot.names = names;
 }
 
 // DOC 57'S RUNNING GAG ON A ROOM'S BOARD. "After each event below, its next

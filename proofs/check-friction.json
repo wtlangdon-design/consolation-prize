@@ -33,10 +33,22 @@
    "why": "'Nothing yet.' declared doctrine in content/ui/duplicate-allowlist.json: doc 05 (Room 21's lamp), doc 09 and doc 10 each write it for a different object as the null answer (errata 94)."
   },
   {
+   "check": "content/ui/duplicate-allowlist.json",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "THE HOLE's LISTEN, which doc 54 writes as doc 05's line three times and orders declared in content as a deliberate repetition (errata 96 B)."
+  },
+  {
    "check": "tests/departure.test.ts",
    "date": "2026-11-05",
    "kind": "loosened",
    "why": "Not loosened in substance: a departure pose now also says which leg of the path it is on and how far along (`leg`, `along`), which a loop walker's per-point heights read (errata 95); the exact-equality assertion gained the two new fields and checks the same position, heading, frame and done as before."
+  },
+  {
+   "check": "content/ui/duplicate-allowlist.json",
+   "date": "2026-11-05",
+   "kind": "reviewed",
+   "why": "TUNED. Of the three recent loosenings, two (Room 8's timesheet LISTEN, Room 23's hole LISTEN) are the declarations doc 54 orders -- 'Declare both as deliberate repetitions in content' -- so the allowlist is doing its job there, not misfiring. The misfire was the third kind: one scene line, written once for one state, answered on more than one subject (doc 54 A5's fumes on THE HOLE and THE RACCOON) needed an entry per subject and verb. tools/check-examine-lines.mjs now counts such a line as one owner (same room, same state), and the four fumes entries are gone. Not for retirement: it still holds every other duplicate game-wide."
   }
  ]
 }

@@ -1,0 +1,127 @@
+{
+ "schema": 1,
+ "id": "raccoon",
+ "name": "THE RACCOON",
+ "posture": "animal",
+ "room": "prosperity",
+ "when": {
+  "T_WARM_HOLE": false
+ },
+ "note": "THE RACCOON (doc 05: 'He is in my hole. He was in my hole before it was my hole, which he clearly regards as decisive'). Room-23 operation 3's sheet, cut by tools/art/room23-raccoon.py, sitting in the mouth of the hole. No tree of his own: THE RACCOON hotspot over him opens RAC_A1 on the first TALK TO and carries his name after it (errata 96 E). When the blanket turns the hole cold he 'leaves at a walk' (doc 54 A5): his exit.",
+ "x": 1180,
+ "y": 482,
+ "zone": 2,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "A raccoon; no barks.",
+ "sprite": {
+  "sheet": "art/actors/room-23-raccoon.png",
+  "frames": [
+   [
+    7,
+    2,
+    75,
+    80
+   ],
+   [
+    95,
+    2,
+    76,
+    80
+   ],
+   [
+    184,
+    2,
+    74,
+    80
+   ],
+   [
+    273,
+    3,
+    72,
+    79
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.2,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    3,
+    0
+   ],
+   [
+    2,
+    3,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 7,
+  "frameNote": "0 rest · 1 breath · 2 his head turned to look left · 3 eating. A break every `breakEvery` seconds (errata 77).",
+  "provenance": "art/staging/room-23/raccoon/raccoon.json"
+ },
+ "exit": {
+  "path": [
+   [
+    1440,
+    470
+   ],
+   [
+    1720,
+    445
+   ],
+   [
+    2050,
+    420
+   ]
+  ],
+  "speed": 70,
+  "sheet": "art/actors/room-23-raccoon.png",
+  "frames": [
+   [
+    354,
+    33,
+    86,
+    49
+   ],
+   [
+    442,
+    34,
+    86,
+    48
+   ],
+   [
+    530,
+    35,
+    85,
+    47
+   ],
+   [
+    618,
+    34,
+    86,
+    48
+   ]
+  ],
+  "fps": 6,
+  "drawnFacing": "right",
+  "figureHeight": 49,
+  "heights": [
+   49,
+   49,
+   49,
+   49
+  ],
+  "note": "Doc 54 A5: 'The raccoon emerges, gives Thad one look of complete contempt, and leaves at a walk' -- along the slope and off the frame at the right."
+ }
+}

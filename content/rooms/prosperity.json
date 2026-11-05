@@ -1,0 +1,767 @@
+{
+  "schema": 1,
+  "id": "prosperity",
+  "name": "PROSPERITY",
+  "materialIdentity": "A bare hillside claim: mud, rock and something unidentified, a leaning stake, a dark old hole; dusk (errata 96 A)",
+  "note": "Rooms 23 and 24, doc 20: Thad's claim and its hole (one room, CLAUDE.md), above the road to the claims. Reached by the road's way up and by the map, only while Thad holds the Company's map (doc 57 A4). THE HOLE's LISTEN is one of the three lines that must never be marked (invariant 3, doc 05): it is compiled like every other line. A5, the raccoon, plays here (doc 54); F1 in Act IV. Lines EXTRACTED from the documents by tools/extract-examine.mjs and compiled by tools/compile-room.mjs. Do not edit: change the docs and re-run.",
+  "background": "art/backgrounds/room-23-prosperity.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        160,
+        715,
+        1740,
+        48
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        160,
+        763,
+        1740,
+        47
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        160,
+        810,
+        1740,
+        48
+      ]
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "raccoon",
+      "name": "THE RACCOON",
+      "rect": [
+        1130,
+        395,
+        100,
+        95
+      ],
+      "when": {
+        "T_WARM_HOLE": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          },
+          {
+            "say": "He is in my hole.",
+            "repeat": [
+              "He has arranged the hole to his satisfaction. There is a pine cone positioned with real intent.",
+              "We have looked at each other for some time. He is winning, in the sense that he is comfortable."
+            ],
+            "then": [
+              "He was in my hole before it was my hole, which he clearly regards as decisive."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          },
+          {
+            "say": "Breathing. Slowly. In a way I would describe as editorial.",
+            "repeat": [
+              "A small, contented grinding. He is eating something, and it was mine.",
+              "He is breathing at me again. I have been reviewed and found tenantable."
+            ]
+          }
+        ],
+        "TALK_TO": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          },
+          {
+            "when": {
+              "T_RACCOON_NAMED": false
+            },
+            "dialogue": "RACCOON"
+          },
+          {
+            "when": {
+              "T_RACCOON_NAMED": true
+            },
+            "say": "He has heard me. He has decided against it.",
+            "repeat": [
+              "I asked after his health. He ate something I had not known was edible.",
+              "We have reached an understanding. He understands it and I do not."
+            ]
+          }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ],
+        "OPEN": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ],
+        "CLOSE": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ],
+        "USE": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ],
+        "PUSH": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ],
+        "PULL": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "No. He is in residence, and I am not his landlord in any sense he recognizes.",
+        "PUSH": "I am not going to push a raccoon further into a hole he already likes. That is encouragement.",
+        "USE": "He is not a tool. He is barely a tenant."
+      },
+      "names": [
+        {
+          "when": {
+            "RACCOON_NAME": 1
+          },
+          "name": "ABSALOM"
+        },
+        {
+          "when": {
+            "RACCOON_NAME": 2
+          },
+          "name": "EBENEZER"
+        },
+        {
+          "when": {
+            "RACCOON_NAME": 3
+          },
+          "name": "BARTHOLOMEW"
+        }
+      ],
+      "walkTo": {
+        "x": 1180,
+        "y": 840,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim_one_s_boundary",
+      "name": "CLAIM ONE'S BOUNDARY",
+      "rect": [
+        1530,
+        150,
+        90,
+        260
+      ],
+      "when": {
+        "T_BORDERS_MOTT": true
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Somewhere past that stake is the most famous piece of ground in the territory.",
+            "repeat": [
+              "A boundary stake, older than mine and sunk deeper. Someone meant it.",
+              "On that side, the most valuable ground in the territory. On this side, mine. The raccoon cannot tell the difference, and has not tried."
+            ],
+            "then": [
+              "It looks exactly like this piece of ground."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The same. Exactly the same.",
+            "repeat": [
+              "Wind, crossing from his land to mine without a survey.",
+              "Exactly the same. I have listened for the difference twice now, and the difference is the price."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1575,
+        "y": 840,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "claim_marker",
+      "name": "THE CLAIM MARKER",
+      "rect": [
+        220,
+        450,
+        95,
+        315
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A stake with a number on it.",
+            "repeat": [
+              "The number is painted on with confidence and very little paint.",
+              "It leans. I have straightened it twice and it has gone back to leaning, which I respect as a position."
+            ],
+            "then": [
+              "Beyond it, forty feet of land that is legally, indisputably mine."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind. It is not impressed either.",
+            "repeat": [
+              "The stake creaks in the wind like a man trying to remember something.",
+              "Wind again. It comes through here on its way to somewhere better."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "Mine now, lean and all. I have decided the lean is jaunty.",
+        "TALK_TO": "'Prosperity,' I told it, 'you and I are going to be the punchline of something.' I was righter than I knew."
+      },
+      "walkTo": {
+        "x": 268,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "creek",
+      "name": "THE CREEK",
+      "rect": [
+        1500,
+        620,
+        420,
+        95
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A creek, low and brown, running past the foot of my claim and declining to stop.",
+            "repeat": [
+              "Men upstream pan it every day. By the time it reaches me it has been thoroughly searched.",
+              "It is the only thing on my property that is going anywhere."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water over stones, talking to itself the way water does, cheerfully and without content.",
+            "repeat": [
+              "The same water. It has said nothing new since I arrived, which makes it the most reliable voice in the district.",
+              "A pan scraping, far upstream. Somebody hoping. The creek carries that down too."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1710,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "hole",
+      "name": "THE HOLE",
+      "rect": [
+        990,
+        225,
+        360,
+        270
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          },
+          {
+            "when": {
+              "ACT": 4,
+              "T_WARM_HOLE": true,
+              "T_DRAUGHT": false
+            },
+            "say": "The hole is warm. It has been warm since the day I bought it: warm air, out of solid rock, all autumn.",
+            "then": [
+              "Air does not come out of rock. It comes through it."
+            ],
+            "set": {
+              "T_DRAUGHT": true
+            },
+            "completes": "F1",
+            "sceneLine": "docs/57-puzzle-completion.md::## F1 · One last look at Prosperity · Act IV"
+          },
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "The hole. The warm air. I evicted a raccoon from the front door of a fortune and apologized to neither of us."
+          },
+          {
+            "say": "A hole. Forty feet of my property goes down into it and does not come back.",
+            "repeat": [
+              "The edges are old and smooth. Whatever dug this was in no hurry.",
+              "Forty feet of my land, and this is the only part of it that has shown any initiative."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          },
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Air. Moving. Warmer than the day. The same words as always; I am only now hearing what they were saying."
+          },
+          {
+            "say": "Air. Moving. It's warmer than the day.",
+            "repeat": [
+              "Air. Moving. It's warmer than the day.",
+              "Air. Moving. It's warmer than the day."
+            ]
+          }
+        ],
+        "PICK_UP": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ],
+        "TALK_TO": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ],
+        "OPEN": [
+          {
+            "when": {
+              "T_WARM_HOLE": true
+            },
+            "say": "Vacant, per the eviction. The warm air keeps it aired. Best-ventilated address I own."
+          },
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ],
+        "CLOSE": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ],
+        "USE": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ],
+        "PUSH": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ],
+        "PULL": [
+          {
+            "when": {
+              "T_FUMES": true
+            },
+            "say": "Not until the air clears. Possibly not until the season does.",
+            "sceneLine": true
+          }
+        ]
+      },
+      "overrides": {
+        "CLOSE": "You cannot close a hole. You can only fill it, and I have nothing to spare, including — on some mornings — the inclination.",
+        "TALK_TO": "I said good morning down it. The echo said it back warmer than the town does."
+      },
+      "walkTo": {
+        "x": 1170,
+        "y": 840,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "ridge",
+      "name": "THE RIDGE",
+      "rect": [
+        600,
+        40,
+        1320,
+        120
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The ridge above the claims, bare to the sky.",
+            "repeat": [
+              "There is a path up it, worn by men going to look at what they cannot have.",
+              "It was here before the town and expects to be here after. It has the patience of a creditor."
+            ],
+            "then": [
+              "From up there, I am told, you can see the whole district and none of its prospects."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind along the top, steady as a held note.",
+            "repeat": [
+              "The wind again, a little sharp. Somebody should see to that.",
+              "Nothing coming down from it. Whatever is up there is keeping it to itself."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1260,
+        "y": 840,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "mud",
+      "name": "THE MUD",
+      "rect": [
+        0,
+        500,
+        1920,
+        364
+      ],
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Approximately forty percent mud, thirty percent rock, and thirty percent a substance I have not yet identified.",
+            "repeat": [
+              "Having stood in it, I can report on the unidentified thirty percent. It is cold, and it is personal.",
+              "This is the mud I own. I keep expecting to feel differently about it than about other mud. I do not."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wet. Working at it.",
+            "repeat": [
+              "It sucks at my boot as I lift it. Possessive, for something I bought.",
+              "A slow settling. It has nowhere else to be, and neither, it turns out, do I."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I did use it. I filed it. It is the most administrated mud in the territory."
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_claims_road",
+      "name": "THE ROAD",
+      "stub": true,
+      "rect": [
+        0,
+        560,
+        160,
+        304
+      ],
+      "colour": 0,
+      "to": "claims_road",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "setOnTransit": {
+        "T_RACCOON_MEETING": false,
+        "T_FUMES": false
+      },
+      "note": "Doc 20: the way back down to the road. NO DOCUMENT WRITES IT a LOOK or LISTEN: a stub exit (doc 36 Q166). Leaving ends the raccoons' meeting and the fumes (doc 54 A5: 'gone the next time Thad enters'; 'until he leaves and returns').",
+      "walkTo": {
+        "x": 170,
+        "y": 790,
+        "facing": "left"
+      }
+    }
+  ],
+  "entrances": [
+    {
+      "from": "claims_road",
+      "at": [
+        240,
+        790
+      ],
+      "facing": "right",
+      "note": "Up from the road, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        240,
+        790
+      ],
+      "facing": "right",
+      "note": "Up from the road, at left."
+    },
+    {
+      "from": "town_map",
+      "at": [
+        240,
+        790
+      ],
+      "facing": "right",
+      "note": "From the map, as from the road."
+    }
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-23.json",
+      "reference/room-23/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkableOutline": [
+    [
+      160,
+      715
+    ],
+    [
+      1900,
+      715
+    ],
+    [
+      1900,
+      858
+    ],
+    [
+      160,
+      858
+    ]
+  ],
+  "entrance": [
+    240,
+    790
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 160,
+          "y": 715
+        },
+        {
+          "x": 1900,
+          "y": 715
+        },
+        {
+          "x": 1900,
+          "y": 763
+        },
+        {
+          "x": 160,
+          "y": 763
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 715,
+        "farHeight": 367,
+        "nearY": 858,
+        "nearHeight": 464
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 160,
+          "y": 763
+        },
+        {
+          "x": 1900,
+          "y": 763
+        },
+        {
+          "x": 1900,
+          "y": 810
+        },
+        {
+          "x": 160,
+          "y": 810
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 715,
+        "farHeight": 367,
+        "nearY": 858,
+        "nearHeight": 464
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 160,
+          "y": 810
+        },
+        {
+          "x": 1900,
+          "y": 810
+        },
+        {
+          "x": 1900,
+          "y": 858
+        },
+        {
+          "x": 160,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 715,
+        "farHeight": 367,
+        "nearY": 858,
+        "nearHeight": 464
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [],
+  "props": [],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-23/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
+  "ambient": [
+    "raccoon",
+    "raccoon_meeting"
+  ]
+}

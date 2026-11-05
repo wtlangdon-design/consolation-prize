@@ -389,6 +389,31 @@
   ],
   "exits": [
     {
+      "id": "to_prosperity",
+      "name": "THE WAY UP TO THE CLAIMS",
+      "rect": [
+        1660,
+        180,
+        260,
+        520
+      ],
+      "colour": 0,
+      "to": "prosperity",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 57 A4: 'Room 22 offers the way to it, only while Thad holds the map.' With the map, the way up to Prosperity (Room 23); without it, doc 57's line (errata 95 F, 96 C).",
+      "stub": true,
+      "holding": {
+        "company_map": true
+      },
+      "walkTo": {
+        "x": 1880,
+        "y": 735,
+        "facing": "right"
+      }
+    },
+    {
       "id": "to_main_street",
       "name": "MAIN STREET",
       "stub": true,
@@ -429,6 +454,15 @@
       ],
       "facing": "right",
       "note": "Up from the town, at left."
+    },
+    {
+      "from": "prosperity",
+      "at": [
+        1800,
+        760
+      ],
+      "facing": "left",
+      "note": "Back down from Prosperity, at the road's turn up the hill."
     }
   ],
   "size": [

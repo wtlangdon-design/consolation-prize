@@ -242,10 +242,11 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "docs/02-puzzle-graph.md A5, The Raccoon -- the player names it; Act II, unbuilt"
+    "dialogue:RACCOON:RAC_A1:raccoon1",
+    "dialogue:RACCOON:RAC_A1:raccoon2",
+    "dialogue:RACCOON:RAC_A1:raccoon3"
    ],
-   "note": "Doc 04: WIN_B1 option 5 requires it. Written elsewhere (the raccoon), not built yet. EXTRACTED for Room 5 from docs/04-dialogue-trees.md::WINNIE LEDGER; the name is the document's.",
-   "pending": true
+   "note": "Doc 04 RAC_A1: the raccoon has a name. Read by WIN_B1 option 5 and by Room 23/24's raccoon (errata 96 E)."
   },
   {
    "id": "T_STRIKE_FOUND",
@@ -1039,6 +1040,55 @@
     "dialogue:HOB:HOB_C2:hobx"
    ],
    "note": "Doc 04's name for doc 48 S4's T_STRIKE_WAS_LIE (errata 75 K): there was never any gold. Written at HOB_C2's end (errata 94 E)."
+  },
+  {
+   "id": "RACCOON_NAME",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "dialogue:RACCOON:RAC_A1:raccoon1 (sets 1)",
+    "dialogue:RACCOON:RAC_A1:raccoon2 (sets 2)",
+    "dialogue:RACCOON:RAC_A1:raccoon3 (sets 3)"
+   ],
+   "note": "Doc 04 RAC_A1: which name -- 1 ABSALOM, 2 EBENEZER, 3 BARTHOLOMEW, the rows' display names. Read by the raccoon's hotspot and figure for the name shown (errata 96 E)."
+  },
+  {
+   "id": "T_WARM_HOLE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:blanket:prosperity:hole"
+   ],
+   "note": "Doc 54 A5: the blanket over the hole -- the hole has gone cold and the raccoon has left. The blanket comes back; the hole's LISTEN never changes (errata 68 A)."
+  },
+  {
+   "id": "T_RACCOON_MEETING",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:eggs:prosperity:hole",
+    "room:prosperity:to_claims_road:transit (clears)"
+   ],
+   "note": "Doc 54 A5, the bait: three more raccoons have arrived. Cleared on leaving: 'The three are gone the next time Thad enters.'"
+  },
+  {
+   "id": "T_FUMES",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:tonic:prosperity:hole",
+    "room:prosperity:to_claims_road:transit (clears)"
+   ],
+   "note": "Doc 54 A5, the smoke: the hole and the raccoon refuse every verb until Thad leaves and returns."
+  },
+  {
+   "id": "T_DRAUGHT",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:prosperity:hole:LOOK_AT (doc 57 F1, Act IV)"
+   ],
+   "note": "Doc 57 F1: the hole is warm because air moves through the rock. Read by the pickaxe on the hole."
   }
  ]
 }

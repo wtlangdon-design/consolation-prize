@@ -1,0 +1,131 @@
+{
+ "schema": 1,
+ "room": "prosperity",
+ "note": "ROOMS 23/24's LIFE ROUTE, ruling 47: about a minute and a half on the claim in Act I with the map, starting there (proofs/spec/prosperity.json's fixture r23-a). The raccoon sits in the hole, breathing, looking round and eating. LOOK at him, LISTEN to the hole, TALK TO him (RAC_A1: a name), and LOOK at the stake. A5 is played in tests/room-23.test.ts.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-arrived",
+   "why": "the claim, the raccoon in the hole"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "02-the-claim"
+  },
+  {
+   "do": "wait",
+   "seconds": 7
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "raccoon",
+   "why": "THE RACCOON"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "03-look-raccoon",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "hole",
+   "why": "THE HOLE"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "04-listen-hole",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "raccoon",
+   "why": "RAC_A1, the first TALK TO"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "capture",
+   "name": "05-naming",
+   "why": "three names and a refusal"
+  },
+  {
+   "do": "option",
+   "option": "raccoon1",
+   "why": "Absalom Crispin Thrupp."
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "06-named",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "claim_marker",
+   "why": "THE CLAIM MARKER"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "07-look-marker",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  }
+ ]
+}

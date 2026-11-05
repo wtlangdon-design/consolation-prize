@@ -745,6 +745,10 @@ export class GameScene extends Phaser.Scene {
     const npc = this.ambient.npcAt(wx, y);
     if (!npc) return undefined;
     const object = this.state.targetAt(wx, y);
+    // A FIGURE WHO CANNOT TALK, UNDER A HOTSPOT THAT ANSWERS TALK TO, IS THAT
+    // HOTSPOT (errata 96 E): the raccoon is spoken to through THE RACCOON,
+    // which opens his naming and then carries his name.
+    if (object && verb === 'TALK_TO' && !npc.tree && object.responses?.TALK_TO?.length) return undefined;
     if (!object || verb === 'TALK_TO') return npc;
     if (!npc.tree) return undefined;
     const [, , ow, oh] = this.state.presentation(object)?.bounds ?? object.rect;
@@ -817,14 +821,14 @@ export class GameScene extends Phaser.Scene {
     // LEDGER" for a click that picked up her pen.
     const npc = y < PLAY_HEIGHT ? this.personAt(wx, y, this.state.verbs.selectedVerb) : undefined;
     const found = npc
-      ? { id: npc.id, name: npc.name,
+      ? { id: npc.id, name: this.state.nameOf(npc),
           defaultVerb: this.state.content.verbs.npcVerb }
       : y < PLAY_HEIGHT
         ? (this.state.targetAt(wx, y) ?? null)
         : null;
     const changed = (found?.id ?? null) !== (this.hovered?.id ?? null);
     if (changed) {
-      this.hoveredName = found?.name ?? null;
+      this.hoveredName = found ? this.state.nameOf(found) : null;
       this.hovered = (found as Interactable | null) ?? null;
       this.markDirty();
     }

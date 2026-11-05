@@ -51,6 +51,11 @@
    "line": "Nothing yet.",
    "where": "*",
    "reason": "DOCTRINE, like 'Nothing.' and 'Nothing at all.': the null answer for an object that will have something to say later. Doc 05 (Room 21's lamp), doc 09 and doc 10 each write it, word for word, for different objects; varying it would turn a silence into a joke. Found building Room 21 (errata 94)."
+  },
+  {
+   "line": "Air. Moving. It's warmer than the day.",
+   "where": "prosperity/hole/LISTEN_TO",
+   "reason": "Doc 54, Room 23 & 24: its repeats are doc 05's line again, word for word -- 'Declare both as deliberate repetitions in content; never as anything else.'"
   }
  ]
 }

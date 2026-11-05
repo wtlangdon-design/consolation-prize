@@ -47,10 +47,40 @@
     {
       "item": "blanket",
       "room": "prosperity",
-      "target": "the_hole",
+      "target": "hole",
       "puzzle": "A5",
-      "say": "I have stopped the draft with a horse blanket. The hole has gone cold. We shall see what the raccoon makes of that.",
-      "targetPending": "Doc 02 A5. Prosperity is not built."
+      "say": "The blanket, over the mouth of the hole.",
+      "note": "Doc 54 A5 (errata 68 A): the blanket over the hole turns it cold and the raccoon leaves at a walk; Thad takes the blanket back. Doc 54's success line governs doc 24's.",
+      "rules": [
+        {
+          "case": "while the fumes last",
+          "when": {
+            "T_FUMES": true
+          },
+          "say": "Not until the air clears. Possibly not until the season does."
+        },
+        {
+          "case": "after",
+          "when": {
+            "T_WARM_HOLE": true
+          },
+          "say": "It has done its work. I will not insult the hole twice."
+        },
+        {
+          "case": "with the raccoon in",
+          "when": {
+            "T_WARM_HOLE": false
+          },
+          "say": "The blanket, over the mouth of the hole.",
+          "then": [
+            "The hole has gone cold, and he has gone with it. I appear to have evicted him by weather."
+          ],
+          "set": {
+            "T_WARM_HOLE": true
+          },
+          "completes": "A5"
+        }
+      ]
     },
     {
       "item": "tuning_fork",
@@ -555,6 +585,96 @@
           "case": "any time",
           "by": "frame",
           "say": "Executor! Of the piano man! Can I print that I am?"
+        }
+      ]
+    },
+    {
+      "item": "eggs",
+      "room": "prosperity",
+      "target": "hole",
+      "puzzle": "A5",
+      "say": "An egg at the entrance, as an inducement.",
+      "note": "Doc 54 A5, the bait: three more raccoons arrive and settle in around the first; the eggs are spent; the three are gone the next time Thad enters (T_RACCOON_MEETING, cleared on leaving).",
+      "rules": [
+        {
+          "case": "while the fumes last",
+          "when": {
+            "T_FUMES": true
+          },
+          "say": "Not until the air clears. Possibly not until the season does."
+        },
+        {
+          "case": "with the raccoon in",
+          "when": {
+            "T_WARM_HOLE": false
+          },
+          "say": "An egg at the entrance, as an inducement.",
+          "then": [
+            "He has called a meeting."
+          ],
+          "takes": [
+            "eggs"
+          ],
+          "set": {
+            "T_RACCOON_MEETING": true
+          }
+        }
+      ]
+    },
+    {
+      "item": "tonic",
+      "room": "prosperity",
+      "target": "hole",
+      "puzzle": "A5",
+      "say": "Dr. Purvis's Restorative Bile Tonic, applied where it might do some good.",
+      "note": "Doc 54 A5, the smoke: it fumes; the tonic is spent; the hole and the raccoon refuse every verb until Thad leaves and returns (T_FUMES, cleared on leaving).",
+      "rules": [
+        {
+          "case": "while the fumes last",
+          "when": {
+            "T_FUMES": true
+          },
+          "say": "Not until the air clears. Possibly not until the season does."
+        },
+        {
+          "case": "with the raccoon in",
+          "when": {
+            "T_WARM_HOLE": false
+          },
+          "say": "Dr. Purvis's Restorative Bile Tonic, applied where it might do some good.",
+          "then": [
+            "He is unbothered. I, on the other hand, cannot now go within ten feet of my own hole. We are both locked out, which is a kind of fairness."
+          ],
+          "takes": [
+            "tonic"
+          ],
+          "set": {
+            "T_FUMES": true
+          }
+        }
+      ]
+    },
+    {
+      "item": "pickaxe",
+      "room": "prosperity",
+      "target": "hole",
+      "puzzle": "F1",
+      "say": "Three days. Forty feet. The head came off once, forwards, which I took as encouragement. I have borrowed the lamp from my room, and I will return it, which is the second time I have promised that to something in this territory. The draught got warmer the whole way down.",
+      "note": "Doc 57 F1: the pickaxe on the hole, after the draught is understood: three days, forty feet. \"Room 34 opens below the hole\" -- Room 34 is not built (doc 36 Q166).",
+      "rules": [
+        {
+          "case": "after F1",
+          "when": {
+            "T_DRAUGHT": true
+          },
+          "say": "Three days. Forty feet. The head came off once, forwards, which I took as encouragement. I have borrowed the lamp from my room, and I will return it, which is the second time I have promised that to something in this territory. The draught got warmer the whole way down."
+        },
+        {
+          "case": "before F1",
+          "when": {
+            "T_DRAUGHT": false
+          },
+          "say": "Dig where? I have been digging at this town for weeks and it has not moved."
         }
       ]
     },

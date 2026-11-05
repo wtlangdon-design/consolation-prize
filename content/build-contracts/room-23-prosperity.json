@@ -1,0 +1,201 @@
+{
+ "schema": 1,
+ "id": "room-23-prosperity",
+ "room": "prosperity",
+ "docRoom": 23,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Rooms 23/24 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/04-dialogue-trees.md",
+  "docs/05-examine-layer.md",
+  "docs/54-batch-c.md",
+  "docs/57-puzzle-completion.md",
+  "docs/49-wrong-answers.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-23.json",
+    "docs/00-errata.md::96 · ROOMS 23/24 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The raccoon in the hole until A5; F1 in Act IV; reached only with the map; dusk."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-23/graybox.json",
+    "docs/00-errata.md::96 · ROOMS 23/24 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Every subject is plate; the raccoon and the meeting are figures who walk in and off."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-23-raccoons.png",
+    "docs/00-errata.md::96 · ROOMS 23/24 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The raccoon drawn on magenta against Thad; the meeting from his sheet."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/prosperity/life/life.json"
+   ],
+   "note": "The raccoon breathes, looks round and eats."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-23-raccoons.png"
+   ],
+   "note": "He sits on the floor of the hole's mouth; the meeting either side."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-23/annotation.json"
+   ],
+   "note": "Dusk; the raccoons graded into it."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-23.test.ts",
+    "docs/00-errata.md::96 · ROOMS 23/24 BUILT — THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The hole's LISTEN is doc 05's, unmarked, repeated as written (invariant 3)."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-23.json",
+    "content/rooms/prosperity.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 76 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-23: 3 of 4 operations (master, plate, the raccoon's sheet)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/prosperity.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-23/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/prosperity/proof.json"
+   ],
+   "note": "Panel D: the bait -- three more raccoons walk in. Started from fixture r23-a."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/prosperity/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/prosperity/doors/life.json",
+    "tests/room-23.test.ts"
+   ],
+   "note": "Down to the road and back up its way with the map, twice; A5 and F1 in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-23/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-23-prosperity.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-23/plate-01/frame.json"
+   ],
+   "note": "Promoted provisionally (errata 72 E)."
+  },
+  {
+   "subject": "the raccoon",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-23-raccoon.png",
+   "evidence": [
+    "art/staging/room-23/raccoon/raccoon.json"
+   ],
+   "note": "From operation 3."
+  },
+  {
+   "subject": "the meeting",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-23-meeting.png",
+   "evidence": [
+    "art/staging/room-23/raccoon/meeting.json"
+   ],
+   "note": "From operation 3, tinted and grouped."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q166 · Rooms 23/24, Prosperity and the hole: built, awaiting Tyler's playthrough; A5 plays — **RULED 2026-11-05 (errata 96, delegated); BUILT, room-23 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q166 · Rooms 23/24, Prosperity and the hole: built, awaiting Tyler's playthrough; A5 plays — **RULED 2026-11-05 (errata 96, delegated); BUILT, room-23 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

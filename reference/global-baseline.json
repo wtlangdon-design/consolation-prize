@@ -418,6 +418,22 @@
     }
    ],
    "castingNote": "Two small groups of miners on the road (doc 10), drawn in the master and then on magenta against Thad."
+  },
+  "room-23-prosperity": {
+   "visualType": "exterior-night",
+   "comparable": {
+    "id": "room-01-stage-road",
+    "path": "art/backgrounds/room-01-stage-road.png",
+    "note": "D -- the approved exterior: hills, dusk going to dark. Prosperity is a worthless claim on the hillside above the road, at the same hour (errata 96 A)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "The raccoon, drawn in the master and then on magenta against Thad."
   }
  }
 }

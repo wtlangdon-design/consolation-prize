@@ -1,0 +1,77 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "RACCOON",
+  "speaker": "thad",
+  "name": "THE RACCOON",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (RAC_A1) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. The raccoon does not speak: every line is Thad's. `displayName` on a naming option is the row's display name, read by the room (errata 96 E).",
+  "start": "RAC_A1",
+  "nodes": {
+    "RAC_A1": {
+      "id": "RAC_A1",
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 RAC_A1: the raccoon does not speak, and the opening is Thad's own line.",
+      "opening": [
+        {
+          "speaker": "thad",
+          "line": "If we are going to be neighbors, you will need a name."
+        }
+      ],
+      "options": [
+        {
+          "id": "raccoon1",
+          "tag": "PROGRESS",
+          "text": "Absalom Crispin Thrupp.",
+          "say": "Absalom. He looks like a man who owns a bank and has never been inside it.",
+          "afterUse": "remove",
+          "set": {
+            "T_RACCOON_NAMED": true,
+            "RACCOON_NAME": 1
+          },
+          "ends": true,
+          "displayName": "ABSALOM"
+        },
+        {
+          "id": "raccoon2",
+          "tag": "PROGRESS",
+          "text": "Ebenezer Augustine Vole.",
+          "say": "Ebenezer. He has accepted it the way he accepts weather: without comment, and with some resentment.",
+          "afterUse": "remove",
+          "set": {
+            "T_RACCOON_NAMED": true,
+            "RACCOON_NAME": 2
+          },
+          "ends": true,
+          "displayName": "EBENEZER"
+        },
+        {
+          "id": "raccoon3",
+          "tag": "PROGRESS",
+          "text": "Bartholomew Euphrates Dodd.",
+          "say": "Bartholomew. It is too much name for him, and he will grow into none of it.",
+          "afterUse": "remove",
+          "set": {
+            "T_RACCOON_NAMED": true,
+            "RACCOON_NAME": 3
+          },
+          "ends": true,
+          "displayName": "BARTHOLOMEW"
+        },
+        {
+          "id": "raccoon4",
+          "tag": "COMIC",
+          "text": "On reflection, he can name himself.",
+          "say": "He declines. It is the first thing we have agreed on.",
+          "afterUse": "retain"
+        },
+        {
+          "id": "raccoonx",
+          "tag": "EXIT",
+          "text": "Thank you. This has been clarifying.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

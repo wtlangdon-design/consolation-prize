@@ -4822,3 +4822,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Eight subjects and fifty-four lines; the two crowds walking out and back along the road (loop walkers, new). Main Street's THE ROAD TO THE CLAIMS leads here; the way back leads down to it. A4's way up refuses in doc 57's words without the map (`?fixture=r22-a`) and is gone with it (`?fixture=r22-b`), played in `tests/room-22.test.ts`. Proofs under `renders/proofs/claims-road/`.
 
 **Open, for Tyler:** (a) Doc 10 times the crowds six in the morning and seven at night; the road is at dusk and both walk it. (b) The way back to town has no LOOK or LISTEN written: a stub exit. (c) With the map, the way up to Prosperity arrives with Room 23 (next).
+
+## Q166 · Rooms 23/24, Prosperity and the hole: built, awaiting Tyler's playthrough; A5 plays — **RULED 2026-11-05 (errata 96, delegated); BUILT, room-23 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Seven subjects and seventy-six lines; the raccoon in the hole and his naming (RAC_A1); A5's bait (three more walk in), smoke (the fumes) and blanket (he walks off) (`?fixture=r23-a`); F1 in Act IV (`?fixture=r23-b`); the claim on the map and the road's way up only with the map. Played in `tests/room-23.test.ts`. Proofs under `renders/proofs/prosperity/`, started from fixture r23-a.
+
+**Open, for Tyler:** (a) Sending Pratt (PRA_A1) is A5's fourth attempt and lives in Room 25 (next). (b) Thad's retreat "as far as the claim marker" when the tonic fumes is not staged. (c) "Room 34 opens below the hole" waits for Room 34. (d) The raccoon walks off at once; doc 54's "one look of complete contempt" before he goes is not a separate beat.

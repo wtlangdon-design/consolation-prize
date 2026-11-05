@@ -1,0 +1,19 @@
+{
+ "schema": 1,
+ "room": "prosperity",
+ "note": "ROOMS 23/24's PROOF SPEC. Prosperity is reached only with the Company's map in hand (doc 57 A4), which no route can give, so the proof starts from fixture r23-a (Act I, the map in hand) and says so; the road's way up with the map is played in tests/room-22.test.ts and tests/room-23.test.ts, and the doors pass walks it. The principal change is the bait's: three more raccoons walk in and settle around the first (doc 54 A5).",
+ "fixture": "r23-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "T_RACCOON_MEETING (doc 54 A5, the bait). Visible consequence: three more raccoons walk in along the slope and settle in around the first.",
+  "flags": {
+   "T_RACCOON_MEETING": true
+  },
+  "actions": [
+   {
+    "do": "wait",
+    "seconds": 9
+   }
+  ]
+ }
+}

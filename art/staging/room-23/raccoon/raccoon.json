@@ -1,0 +1,70 @@
+{
+ "sheet": "art/staging/room-23/raccoon/raccoon.png",
+ "frames": [
+  [
+   7,
+   2,
+   75,
+   80
+  ],
+  [
+   95,
+   2,
+   76,
+   80
+  ],
+  [
+   184,
+   2,
+   74,
+   80
+  ],
+  [
+   273,
+   3,
+   72,
+   79
+  ],
+  [
+   354,
+   33,
+   86,
+   49
+  ],
+  [
+   442,
+   34,
+   86,
+   48
+  ],
+  [
+   530,
+   35,
+   85,
+   47
+  ],
+  [
+   618,
+   34,
+   86,
+   48
+  ]
+ ],
+ "sitHeight": 80,
+ "walkHeight": 49,
+ "frameNames": [
+  "rest",
+  "breath",
+  "look",
+  "eat",
+  "walk 1",
+  "walk 2",
+  "walk 3",
+  "walk 4"
+ ],
+ "anchor": {
+  "x": 1180,
+  "y": 482
+ },
+ "source": "room-23 attempt 3 (art/staging/room-23/raccoon-01/sheet.png)"
+}

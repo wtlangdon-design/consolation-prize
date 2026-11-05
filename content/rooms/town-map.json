@@ -38,6 +38,21 @@
    "note": "ERRATA 30c, first state: seeing counts, and he can see it from the street. This is the amendment to doc 20 rule 3 -- a player who takes the driver's EXIT option immediately hears nothing, and an empty map on first opening is a broken screen."
   },
   {
+   "id": "loc_prosperity",
+   "room": "prosperity",
+   "at": [
+    1330,
+    395
+   ],
+   "when": {
+    "T_SEEN_MAIN_STREET": true
+   },
+   "holding": {
+    "company_map": true
+   },
+   "note": "Doc 57 A4: 'Room 23 appears on the town map ... only while Thad holds the map' (errata 96 C). Beside the road to the claims, up the hill."
+  },
+  {
    "id": "loc_undertaker",
    "room": "undertaker",
    "at": [

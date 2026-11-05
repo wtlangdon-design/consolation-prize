@@ -1,4 +1,4 @@
-import type {
+import type { Condition,
   ContentBundle, Entrance, Exit, Interactable, MapLocation, Point, RoomFile, WalkableRegion, PlaytestFixture, PuzzleStatus, CombinationPair,
   SpokenLine,
 } from './types.ts';
@@ -442,6 +442,11 @@ export class GameState {
     return this.targets.filter((target) => this.presentation(target)?.image);
   }
 
+  /** What a target or a figure is called right now (Interactable.names). */
+  nameOf(target: { name: string; names?: { when: Condition; name: string }[] }): string {
+    return target.names?.find((one) => this.flags.test(one.when))?.name ?? target.name;
+  }
+
   findTarget(id: string): Interactable | undefined {
     return this.targets.find((target) => target.id === id);
   }
@@ -568,7 +573,8 @@ export class GameState {
    */
   get mapLocations(): { location: MapLocation; label: string; built: boolean }[] {
     return (this.room.locations ?? [])
-      .filter((location) => this.flags.test(location.when))
+      .filter((location) => this.flags.test(location.when)
+        && Object.entries(location.holding ?? {}).every(([item, held]) => this.carried.includes(item) === held))
       .map((location) => {
         const room = this.content.rooms.get(location.room);
         return {

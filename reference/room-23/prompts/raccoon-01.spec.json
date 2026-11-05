@@ -1,0 +1,14 @@
+{
+ "assetId": "room-23",
+ "subject": "raccoon",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-23-prosperity",
+ "promptFile": "reference/room-23/prompts/raccoon-01.txt",
+ "out": "art/staging/room-23/raccoon-01/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-23/raccoon-01/vs-thad.png",
+  "art/staging/room-23/composition-master-01.png"
+ ]
+}
