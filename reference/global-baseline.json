@@ -514,6 +514,22 @@
     }
    ],
    "castingNote": "Nobody. Thad alone, for scale."
+  },
+  "room-30-motts-site": {
+   "visualType": "exterior-night",
+   "comparable": {
+    "id": "room-22-claims-road",
+    "path": "art/backgrounds/room-22-claims-road.png",
+    "note": "D -- the road to the claims at night, the junction below the site (doc 20); the diggings at the town's hour (errata 98, 99 F)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody: 'the pilgrims are in the lines, not the room'. Thad alone, for scale."
   }
  }
 }

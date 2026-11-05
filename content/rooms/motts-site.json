@@ -1,0 +1,745 @@
+{
+  "schema": 1,
+  "id": "motts_site",
+  "name": "MOTT'S SUPPOSED SITE",
+  "materialIdentity": "The most famous forty feet in the territory, dug to bedrock by twelve years of certainty: a bowl of overlapping pits, a windlass, spoil heaps like hills; night (errata 98, 99 F)",
+  "note": "Room 30, doc 20: Mott's supposed strike site -- the fake one (doc 01) -- in the diggings below the road to the claims (errata 99 A, F).",
+  "background": "art/backgrounds/room-30-motts-site.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "hotspots": [
+    {
+      "id": "offerings",
+      "name": "THE OFFERINGS",
+      "rect": [
+        849,
+        448,
+        215,
+        44
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Coins, pressed into the dirt at the center. Men have been leaving money here.",
+            "repeat": [
+              "Pennies, mostly. A dime. A brass button. A gold tooth, which I regard as a serious commitment.",
+              "Nobody takes them. In a town that would pick a nail out of the road, nobody takes them."
+            ],
+            "then": [
+              "I do not know what for and I do not think they do."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "A coin settling as the dirt dries around it.",
+              "Nothing. Whatever they paid for has not been delivered."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 957,
+        "y": 792,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "survey_stake",
+      "name": "THE SURVEY STAKE, ORIGINAL",
+      "rect": [
+        1626,
+        474,
+        44,
+        284
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The original stake from Mott's filing, or the fourth replica of it — the first three were stolen by admirers. The town cannot agree which this is, and guards it either way.",
+            "repeat": [
+              "It is painted, which no survey stake is. Admirers paint it every spring.",
+              "A small brass plaque at its foot reads ORIGINAL. The plaque has been replaced twice."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "It hums when the wind crosses the shaft. The site's one note, played on a lie.",
+            "repeat": [
+              "The hum again, over the shaft: one note, a little sharp, held for as long as there is wind.",
+              "Nothing, in the lull. A lie at rest sounds exactly like the truth at rest."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "Whichever replica it is, taking it would make me the fourth thief of a fake of a lie. There are depths, and I have a claim in them already."
+      }
+    },
+    {
+      "id": "initials",
+      "name": "THE INITIALS",
+      "rect": [
+        186,
+        341,
+        57,
+        328
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Carved into the one standing post: initials, dozens deep, overwritten into a texture.",
+            "repeat": [
+              "Dates too. The oldest are eleven years old and the newest is this week. Proof, it turns out, needs constant renewal.",
+              "There is no room left to carve, and somebody has started on the back of the post."
+            ],
+            "then": [
+              "Every man who ever proved the site empty signed the proof."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. The names have said their piece.",
+            "repeat": [
+              "Nothing. Dozens of men, all done talking.",
+              "Wood ticking in the sun. The post is drying out, one name at a time."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "There is no room left to carve. The proof is fully subscribed."
+      }
+    },
+    {
+      "id": "marker_stone",
+      "name": "THE MARKER STONE",
+      "rect": [
+        1493,
+        644,
+        126,
+        152
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A stone, with MOTT cut into it by somebody who cared. It is not a claim marker.",
+            "repeat": [
+              "The letters are cut deep and straight. Whoever did it had time, a good chisel and no particular reason.",
+              "There are dried flowers at its foot. Somebody comes here to remember a man nobody can describe."
+            ],
+            "then": [
+              "It is not anything. Somebody carved it because there was nothing here to look at."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Stone, with a name in it, keeping it.",
+              "Wind across the letters, a faint whistle in the M."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1453,
+        "y": 856,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "old_windlass",
+      "name": "THE OLD WINDLASS",
+      "rect": [
+        1196,
+        290,
+        164,
+        183
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A windlass over the deepest shaft, rope long gone.",
+            "repeat": [
+              "The crank is worn to the shape of a hand. Several hands. The same shape.",
+              "The shaft below it is boarded over. Somebody fell in once, I am told, and found nothing there either."
+            ],
+            "then": [
+              "It lowered a decade of hope down a hole and hauled up gravel."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The frame moans in the wind. It has earned it.",
+            "repeat": [
+              "A slow creak as the wind turns the drum half an inch and lets it go.",
+              "The moan again, longer. The frame and the wind have been at this for years."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1278,
+        "y": 792,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "new_digging",
+      "name": "A NEW DIGGING",
+      "rect": [
+        1303,
+        461,
+        290,
+        107
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Fresh. Somebody was here this week, and dug, in ground that has been dug four hundred times, and went home.",
+            "repeat": [
+              "Neat work, square corners. He took care, digging in ground he must have known was empty.",
+              "The spoil is heaped on the side facing town, so nobody would see him from there."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. He has gone home.",
+              "Dirt crumbling at the edge. The ground is filling it back in, patiently, as it does."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1448,
+        "y": 792,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "view_back_to_town",
+      "name": "THE VIEW BACK TO TOWN",
+      "rect": [
+        1569,
+        96,
+        351,
+        94
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "From here the town is a smudge of chimney smoke and one bright steeple, keeping an eye on the place.",
+            "repeat": [
+              "The road between is worn by pilgrims, going out hopeful and coming back the same, which is a kind of faith.",
+              "From the famous nothing, Consolation looks like something. It is the best view of it in the district."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The bell, very thin, carried on the wind.",
+            "repeat": [
+              "Hammering, small and far. Somebody is building something on top of all this.",
+              "Nothing for a moment, then the bell again, as though the town had remembered itself."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "view_of_prosperity",
+      "name": "THE VIEW OF PROSPERITY",
+      "rect": [
+        0,
+        76,
+        520,
+        88
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "From the famous nothing, you can just see my worthless something — one ridge over, unregarded, mine. Nobody has ever dug there twice.",
+            "repeat": [
+              "From here it looks exactly like every piece of ground in between, which is its own kind of camouflage.",
+              "I can see my marker from here if I squint, leaning the way it leans."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Quiet, from that direction. It has never had anything to say. I find I like it for that.",
+            "repeat": [
+              "Still quiet from over there. It is very good at it.",
+              "Nothing from that direction. It is the most restful thing I own."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 560,
+        "y": 792,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "sieve_pile",
+      "name": "THE SIEVE PILE",
+      "rect": [
+        28,
+        644,
+        470,
+        164
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Broken sieves and worn pans, discarded where the last hopeful stood.",
+            "repeat": [
+              "A pan with its bottom worn clean through. Somebody swirled until there was nothing left to swirl with.",
+              "The meshes get finer toward the top of the pile. The hopes got smaller and so did the holes."
+            ],
+            "then": [
+              "The tools give up before the men, but not by much."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Mesh, buzzing faintly in the gusts. The pile still sifts the wind.",
+            "repeat": [
+              "A rattle as a gust goes through: tin, wire and patience, all past use.",
+              "Nothing between gusts. The pile waits for the wind like everything else here."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 538,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "bedrock",
+      "name": "THE BEDROCK",
+      "rect": [
+        600,
+        380,
+        700,
+        200
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Scraped clean as a plate. Men have gone over this stone with brushes. With brushes.",
+            "repeat": [
+              "There are scratches in it from every tool the Mercantile has ever sold, in roughly the order it sold them.",
+              "It is the cleanest rock in the district and the least interesting. I have looked at it longer than it deserves, in honor of everyone else who did."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Stone that has answered the same question ten thousand times.",
+            "repeat": [
+              "Nothing. It has had nothing to hide for twelve years, and has said so, under brushes.",
+              "Nothing. Brushed by ten thousand men, it has nothing left to confide."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "Ten thousand men, with brushes. There is nothing left to do to this stone except apologize."
+      },
+      "walkTo": {
+        "x": 950,
+        "y": 792,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "spoil_heaps",
+      "name": "THE SPOIL HEAPS",
+      "rect": [
+        0,
+        164,
+        1920,
+        126
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Spoil heaps, grown into small hills of their own.",
+            "repeat": [
+              "Grass has started on the oldest heap. Even nature has stopped waiting for a result.",
+              "Somebody has sifted the heaps too, and heaped the siftings. It is heaps all the way down."
+            ],
+            "then": [
+              "The site has produced a new landscape and no gold."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Gravel trickling down a slope: a small, dry, continual surrender.",
+            "repeat": [
+              "A scrabble on the warm side. A lizard, probably, minding the property.",
+              "Nothing. Dirt that has been looked through has nothing left to say."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 960,
+        "y": 792,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "site",
+      "name": "THE SITE",
+      "rect": [
+        0,
+        620,
+        1920,
+        244
+      ],
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "The famous nothing, resting. The pilgrims have stopped coming — the gold has an address now, and it was never this one. The moon can have its claim back."
+          },
+          {
+            "say": "The most famous forty feet in the territory, excavated to bedrock and below by twelve years of certainty. It looks like the moon, if the moon had been disappointed in.",
+            "repeat": [
+              "Turned over so many times that it is no longer ground so much as an opinion about where ground used to be.",
+              "There is a bench at the edge for pilgrims. It faces the diggings the way pews face an altar."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Wind in the workings, same as ever. It sounds different when it is no longer lying to anyone."
+          },
+          {
+            "say": "Wind in the workings. A hollow instrument, played badly.",
+            "repeat": [
+              "Nothing. Nothing whatsoever. It is the emptiest sound I have heard since I arrived.",
+              "The wind, and under it, faint and far off, somebody's pick. Even here, somebody is still checking."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "'You could have been anywhere,' I told the famous nothing. The wind moved a sieve. I chose to hear an apology; nothing here corrects you."
+      }
+    },
+    {
+      "id": "pits",
+      "name": "THE PITS",
+      "rect": [
+        250,
+        290,
+        1500,
+        330
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Perhaps four hundred separate diggings, overlapping. Ten thousand men have come here, individually, each certain that the others had looked in the wrong place.",
+            "repeat": [
+              "They overlap so completely that nobody can say where one man's hope ended and the next began.",
+              "One pit still has a ladder in it. The man who climbed out did not come back for it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Loose dirt sliding back into a pit, slowly refilling what was emptied.",
+              "Nothing. Four hundred holes, every one keeping the same secret, which is that there isn't one."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1000,
+        "y": 792,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_claims_road",
+      "name": "THE ROAD",
+      "stub": true,
+      "rect": [
+        0,
+        450,
+        170,
+        414
+      ],
+      "colour": 0,
+      "to": "claims_road",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: the site is reached through the road to the claims; this is the way back to it. NO DOCUMENT WRITES IT a LOOK or LISTEN: a stub exit (errata 99 A).",
+      "walkTo": {
+        "x": 520,
+        "y": 800,
+        "facing": "left"
+      }
+    }
+  ],
+  "ambient": [],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-30.json",
+      "reference/room-30/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        500,
+        700,
+        960,
+        53
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        500,
+        753,
+        960,
+        52
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        500,
+        805,
+        960,
+        53
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      500,
+      700
+    ],
+    [
+      1460,
+      700
+    ],
+    [
+      1460,
+      858
+    ],
+    [
+      500,
+      858
+    ]
+  ],
+  "entrance": [
+    560,
+    800
+  ],
+  "entrances": [
+    {
+      "from": "claims_road",
+      "at": [
+        560,
+        800
+      ],
+      "facing": "right",
+      "note": "In from the road, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        560,
+        800
+      ],
+      "facing": "right",
+      "note": "As from the road."
+    },
+    {
+      "from": "town_map",
+      "at": [
+        560,
+        800
+      ],
+      "facing": "right",
+      "note": "From the map, as from the road."
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 500,
+          "y": 700
+        },
+        {
+          "x": 1460,
+          "y": 700
+        },
+        {
+          "x": 1460,
+          "y": 753
+        },
+        {
+          "x": 500,
+          "y": 753
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 271,
+        "nearY": 858,
+        "nearHeight": 379
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 500,
+          "y": 753
+        },
+        {
+          "x": 1460,
+          "y": 753
+        },
+        {
+          "x": 1460,
+          "y": 805
+        },
+        {
+          "x": 500,
+          "y": 805
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 271,
+        "nearY": 858,
+        "nearHeight": 379
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 500,
+          "y": 805
+        },
+        {
+          "x": 1460,
+          "y": 805
+        },
+        {
+          "x": 1460,
+          "y": 858
+        },
+        {
+          "x": 500,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 271,
+        "nearY": 858,
+        "nearHeight": 379
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [],
+  "props": [],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-30/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

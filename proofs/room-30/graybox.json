@@ -1,0 +1,272 @@
+{
+ "room": 30,
+ "note": "Ruling 22 steps 1-6 for Mott's supposed site, written by tools/room30-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 99).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 705,
+   "height": 300
+  },
+  "near": {
+   "y": 855,
+   "height": 400
+  },
+  "from": "Room 5's slope, a little smaller than Room 13's"
+ },
+ "walkable": [
+  150,
+  690,
+  1740,
+  165
+ ],
+ "exit": {
+  "hotspot": "THE WAY BACK TO THE ROAD",
+  "to": "claims_road",
+  "rect": [
+   0,
+   520,
+   140,
+   330
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 220,
+   "y": 790,
+   "facing": "right"
+  },
+  "mid": {
+   "x": 960,
+   "y": 780,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE WAY BACK TO THE ROAD",
+   "rect": [
+    0,
+    520,
+    140,
+    330
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE VIEW OF PROSPERITY",
+   "rect": [
+    60,
+    200,
+    360,
+    90
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE VIEW BACK TO TOWN",
+   "rect": [
+    1540,
+    190,
+    340,
+    90
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SPOIL HEAPS",
+   "rect": [
+    100,
+    300,
+    1720,
+    120
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE OLD WINDLASS",
+   "rect": [
+    1180,
+    330,
+    200,
+    200
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BEDROCK",
+   "rect": [
+    600,
+    470,
+    640,
+    130
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE OFFERINGS",
+   "rect": [
+    860,
+    520,
+    120,
+    40
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "A NEW DIGGING",
+   "rect": [
+    1450,
+    520,
+    160,
+    70
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SIEVE PILE",
+   "rect": [
+    260,
+    560,
+    200,
+    100
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE INITIALS",
+   "rect": [
+    480,
+    420,
+    60,
+    240
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SURVEY STAKE, ORIGINAL",
+   "rect": [
+    1660,
+    500,
+    40,
+    160
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MARKER STONE",
+   "rect": [
+    1740,
+    570,
+    120,
+    90
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the site is a bowl below and behind the rim, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "the site",
+   "p10": 64.0,
+   "p90": 88.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 33.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "the near rim",
+   "p10": 92.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 66.5,
+   "lightAnchorMargin": 29.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WAY BACK TO THE ROAD",
+   "p10": 100.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 74.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE SPOIL HEAPS",
+   "p10": 62.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE OLD WINDLASS",
+   "p10": 62.0,
+   "p90": 88.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 33.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE BEDROCK",
+   "p10": 88.0,
+   "p90": 88.0,
+   "darkAnchorMargin": 62.5,
+   "lightAnchorMargin": 33.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE OFFERINGS",
+   "p10": 96.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 70.5,
+   "lightAnchorMargin": 25.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "A NEW DIGGING",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SIEVE PILE",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE INITIALS",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SURVEY STAKE, ORIGINAL",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE MARKER STONE",
+   "p10": 82.0,
+   "p90": 82.0,
+   "darkAnchorMargin": 56.5,
+   "lightAnchorMargin": 39.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

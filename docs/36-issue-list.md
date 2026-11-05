@@ -4858,3 +4858,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Eight subjects and fifty-two lines; Consolation's lamps far below; nobody. Up the path from Sheng's door, and on the map after the road (`?room=high_ridge`). Played in `tests/room-29.test.ts`; doc 02 sites no puzzle here. Proofs under `renders/proofs/high-ridge/`.
 
 **Open, for Tyler:** (a) The new plate is also the one `content/ui/title.json` names for the title screen (Q59, not built), as doc 17 puts the title over the ridge at night.
+
+## Q172 · Room 30, Mott's supposed site: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99, delegated); BUILT, room-30 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Thirteen subjects and eighty-two lines; the famous nothing by night; THE SITE's Act IV line (`?fixture=r30-b`); on the map after the road (`?room=motts_site`). Played in `tests/room-30.test.ts`; doc 02 sites no puzzle here. Proofs under `renders/proofs/motts-site/`.
+
+**Also, for Tyler:** act lines the documents write and the compiler had dropped now play -- Room 19's window, letters and coat in Acts II-IV, and Room 23's claim marker in Act IV (errata 99 F).

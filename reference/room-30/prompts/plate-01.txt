@@ -1,0 +1,8 @@
+Image 1 is a finished background from my pixel-art adventure game: a huge, endlessly dug-over site at night, hundreds of pits in a bowl, an old windlass, spoil heaps, and a man in a long blue coat standing on the near rim.
+
+Make exactly these changes:
+1. Remove the man in the blue coat. Paint the rim and the pits behind him.
+2. At the very centre of the bowl, add a small scatter of coins pressed into the dirt, catching a little moonlight.
+3. Make one small pit near the windlass look FRESHLY dug: dark new earth thrown up beside it, unlike the old grey pits.
+
+Change nothing else. Same camera, same pixel grid, same big square pixels, same colours, same night light; every other pit, the windlass, the spoil heaps, the sieves and pans, the posts, the stone, the far hills and the town exactly as they are. Leave the light grey strips above and below the picture exactly as they are. No people, no shadows of people, no text, no numerals.

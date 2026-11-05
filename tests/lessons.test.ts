@@ -210,6 +210,32 @@ test('every talking character in a built room is drawn whole: one piece, no hole
   assert.deepEqual(faults, [], 'a cut figure carries holes or loose pieces -- generate him whole on magenta and key him (doc 55 section 8)');
 });
 
+/* ---- 3b. An act line the documents write reaches its room ---------------- */
+
+test('every act line the examine extraction carries is compiled into its built room', () => {
+  // Doc 54's merge carries Part Two-B's lines on a merged subject (`acts`);
+  // the compiler never read them, and THE SITE's Act IV line and THE CLAIM
+  // MARKER's compiled to nothing (errata 99 F).
+  const missing: string[] = [];
+  for (const name of readdirSync(resolve(ROOT, 'content/examine')).filter((one) => /^room-\d+\.json$/.test(one))) {
+    const sources = resolve(ROOT, `proofs/readiness/${name.replace('.json', '.sources.json')}`);
+    if (!existsSync(sources)) continue;
+    const roomFile = read(`proofs/readiness/${name.replace('.json', '.sources.json')}`).roomFile as string | null;
+    if (!roomFile || !existsSync(resolve(ROOT, roomFile))) continue;
+    const room = readFileSync(resolve(ROOT, roomFile), 'utf8');
+    for (const subject of (read(`content/examine/${name}`).subjects ?? []) as { name: string; acts?: Record<string, unknown>[] }[]) {
+      for (const act of subject.acts ?? []) {
+        for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
+          const line = (act[verb] as string[] | undefined)?.[0];
+          // Its opening, not the whole: a long line is split into utterances.
+          if (line && !room.includes(JSON.stringify(line.slice(0, 32)).slice(1, -1))) missing.push(`${roomFile}: ${subject.name} act ${String(act.act)} ${verb}`);
+        }
+      }
+    }
+  }
+  assert.deepEqual(missing, [], 'an act line the documents write is not in its room');
+});
+
 /* ---- 4. A puzzle the game waits on can be completed ------------------------ */
 
 const puzzles = read('proofs/readiness/puzzles.json').puzzles as Record<string, { rooms: number[] }>;

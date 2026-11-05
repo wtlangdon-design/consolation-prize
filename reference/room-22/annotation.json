@@ -97,6 +97,15 @@
    ],
    "facing": "right",
    "note": "Back from the laundry, by the mile post (errata 99 A)."
+  },
+  {
+   "from": "motts_site",
+   "at": [
+    700,
+    800
+   ],
+   "facing": "right",
+   "note": "Back from Mott's site, by the mile post (errata 99 A)."
   }
  ],
  "hotspots": {
