@@ -1,0 +1,56 @@
+{
+ "sheet": "art/staging/room-16/ozymandia/ozymandia.png",
+ "frames": [
+  [
+   2,
+   2,
+   228,
+   241
+  ],
+  [
+   232,
+   2,
+   228,
+   241
+  ],
+  [
+   462,
+   2,
+   228,
+   241
+  ],
+  [
+   692,
+   2,
+   228,
+   241
+  ],
+  [
+   922,
+   2,
+   228,
+   241
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "humming",
+  "pronouncing",
+  "the fee"
+ ],
+ "topLeft": {
+  "x": 852,
+  "y": 289
+ },
+ "anchor": {
+  "x": 966,
+  "y": 530
+ },
+ "height": 440,
+ "feetRow": 760.6,
+ "cut": 522,
+ "handsTo": 530,
+ "key": 150,
+ "source": "room-16 attempt 3 (art/staging/room-16/ozymandia-01/sheet.png)"
+}

@@ -1166,6 +1166,54 @@ function combinations() {
       livery, ride,
     };
   })();
+  // DOC 57 A7: MADAME OZYMANDIA'S FEE AND THE MAP (errata 89 E). Three cases,
+  // the words read from the section; a reply after **OZYMANDIA:** alternates
+  // speaker at each " — " between quotes (hers, then Thad's, then hers).
+  const a7 = (() => {
+    const whole = read('docs/57-puzzle-completion.md');
+    const from = whole.indexOf('## A7 ');
+    if (from < 0) throw new Error('doc 57: no A7 section');
+    const body = whole.slice(from, whole.indexOf('\n## ', from + 5));
+    const caseOf = (item, label) => {
+      const re = new RegExp(`^> \\*\\*MADAME OZYMANDIA\\*\\* · USE ${item}, \\*${label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\* — (.+)$`, 'm');
+      const m = re.exec(body);
+      if (!m) throw new Error(`doc 57 A7: no case "${item}, ${label}"`);
+      const cell = m[1].split('→')[0].replace(/\*\([^)]*\)\*/g, '');
+      const [before, after] = cell.split('**OZYMANDIA:**');
+      const lines = quoted(before ?? '').map((line) => ({ speaker: 'thad', line: line.replace(/\*/g, '') }));
+      if (after !== undefined) {
+        after.split(/"\s+—\s+"/).forEach((turn, n) => {
+          for (const line of quoted(`"${turn.trim().replace(/^"|"$/g, '')}"`)) {
+            lines.push({ speaker: n % 2 === 0 ? 'ozymandia' : 'thad', line: line.replace(/\*/g, '') });
+          }
+        });
+      }
+      if (!lines.length) throw new Error(`doc 57 A7: "${label}" has no line`);
+      return lines;
+    };
+    return {
+      fee: caseOf('THE FILING FEE', 'after OZY_A1 option 1'),
+      map: caseOf('THE COMPANY MAP', 'after `T_OZY_PAID`'),
+      unpaid: caseOf('THE COMPANY MAP', 'not yet paid'),
+    };
+  })();
+  const spokenBy = ([first, ...rest]) => ({ ...(first.speaker === 'thad' ? {} : { by: first.speaker }), say: first.line,
+    ...(rest.length ? { then: rest.map((one) => ({ speaker: one.speaker, line: one.line })) } : {}) });
+  rebuilt.push({
+    item: 'filing_fee', room: 'ozymandias_tent', target: 'ozymandia', puzzle: 'A7', say: a7.fee[0].line,
+    note: 'Doc 57 A7, step 3: the filing fee becomes a divining fee, once she has named her price (OZY_A1 option 1).',
+    rules: [
+      { case: 'after OZY_A1 option 1', when: { T_OZY_ASKED: true, T_OZY_PAID: false }, ...spokenBy(a7.fee), takes: ['filing_fee'], set: { T_OZY_PAID: true } },
+    ],
+  });
+  rebuilt.push({
+    item: 'company_map', room: 'ozymandias_tent', target: 'ozymandia', puzzle: 'A7', say: a7.map[0].line,
+    note: 'Doc 57 A7: the map divined -- THE SURVEY, on Form 12-C. She hands the map back.',
+    rules: [
+      { case: 'after T_OZY_PAID', when: { T_OZY_PAID: true }, ...spokenBy(a7.map), items: ['survey'], completes: 'A7' },
+      { case: 'not yet paid', when: { T_OZY_PAID: false }, ...spokenBy(a7.unpaid) },
+    ],
+  });
   rebuilt.push({
     item: 'tuning_fork', room: 'livery', target: 'grievance', puzzle: 'B3', say: b3.livery,
     note: 'Doc 57 B3 (with doc 54\'s lines): the fork on Grievance. With the hum and Vessel\'s whereabouts, the corrected tune, "Twelve years.", the ride over black, and Thad placed in the Nugget (errata 73 B).',
@@ -3427,8 +3475,60 @@ function liveryTree() {
   });
 }
 
+/**
+ * DOC 04, MADAME OZYMANDIA: Room 16's tree, OZY_A1 (errata 75, 89 E). Routing,
+ * as doc 57 A7 writes it: option 1 waits for `T_SURVEY_NEEDED` (Sump's refusal,
+ * A6) and names her price, which the filing fee then answers (`T_OZY_ASKED`);
+ * 5 is pair 19. Option 4 plants the Act IV corroboration, which doc 04 says is
+ * "never mentioned again", so it sets nothing. A universal exit from doc 04's
+ * pool closes it. Every string is the document's.
+ */
+function ozymandiaTree() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('# MADAME OZYMANDIA');
+  const to = doc.indexOf('\n---', from);
+  if (from < 0 || to < 0) throw new Error('doc 04: no MADAME OZYMANDIA section');
+  const body = doc.slice(from, to);
+  const SPEAKER = 'ozymandia';
+  const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
+  const prompt = /^> \*\*OZYMANDIA:\*\* "([^"]+)"/m.exec(body)?.[1];
+  if (!prompt) throw new Error('doc 04 OZY_A1: no opening line');
+  const ROUTE = { 1: { set: { T_OZY_ASKED: true } }, 5: { set: { ASSAY_PAIR_19: true } } };
+  const options = [];
+  for (const [, number, optionCell, tagCell, responseCell] of body.matchAll(/^\| (\d+) \| (.+?) \| (.+?) \| (.+?) \|$/gm)) {
+    const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
+    const text = quoted(optionCell)[0];
+    const [reply] = responseCell.split('→');
+    const said = spokenIn(reply.replace(/\*\([^)]*\)\*/g, ''), SPEAKER);
+    for (const d of spokenIn(responseCell, SPEAKER).staging) process.stderr.write(`  doc 04 OZY_A1 option ${number} staging: ${d}\n`);
+    if (!tag || !text || !said.lines.length) throw new Error(`doc 04 OZY_A1: option ${number} does not read`);
+    const option = { id: `${SPEAKER}${number}`, tag: tag[1], ...(tag[2] ? { afterUse: tag[2] } : {}), text };
+    if (said.lines.length === 1 && said.lines[0].speaker === SPEAKER) option.say = said.lines[0].line;
+    else option.exchange = said.lines;
+    const req = /req `([A-Z_0-9]+)`/.exec(responseCell);
+    if (req) option.when = { [req[1]]: true };
+    if (ROUTE[number]?.set) option.set = ROUTE[number].set;
+    options.push(option);
+  }
+  if (options.length !== 5) throw new Error(`doc 04 OZY_A1: ${options.length} options, not 5`);
+  options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[2 % POOL.length], universal: true, ends: true });
+  return write('content/dialogue/ozymandia.json', {
+    aftermathAuthored: true,
+    schema: 1,
+    id: 'OZYMANDIA',
+    speaker: SPEAKER,
+    name: 'MADAME OZYMANDIA',
+    note: 'EXTRACTED from docs/04-dialogue-trees.md (MADAME OZYMANDIA) by tools/extract-content.mjs. '
+      + 'Do not edit: change doc 04 and re-run. Plain quotes in a reply are hers, italic quotes Thad\'s. '
+      + 'The universal exit line is doc 04 part one\'s pool.',
+    entries: [],
+    start: 'OZY_A1',
+    nodes: { OZY_A1: { id: 'OZY_A1', prompt, options } },
+  });
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

@@ -1,0 +1,252 @@
+{
+ "room": "ozymandias_tent",
+ "plate": "art/backgrounds/room-16-tent.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-16/plate-01/candidate-1920x864.png, room-16 attempt 2, the standard 20:9 crop -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-16-tent.png",
+ "plateShippingHash": "6eb1e2e2dc2e956731727eb5",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   220,
+   755
+  ],
+  [
+   1880,
+   755
+  ],
+  [
+   1880,
+   858
+  ],
+  [
+   220,
+   858
+  ]
+ ],
+ "walkableNote": "THE BARE EARTH. The box under the table reaches y 750, the incense stand and the rod's foot 720, the stove's feet 700. So the band runs y 755-858.",
+ "scaling": {
+  "far": {
+   "y": 755,
+   "height": 448
+  },
+  "near": {
+   "y": 858,
+   "height": 519
+  },
+  "note": "ROOM 16'S DEPTH, FROM THE MAN THE MASTER PAINTED: about 370 tall with his feet at source y 790, which is 467 at y 783 in this plate's frame; along Room 5's slope (0.69 a row) that is 448 at the band's far edge and 519 at its near. Ozymandia stands behind the table at 440 (tools/art/room16-ozymandia.py)."
+ },
+ "entrance": [
+  300,
+  800
+ ],
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    300,
+    800
+   ],
+   "facing": "right",
+   "note": "In by the flap, at left: the map leads here."
+  }
+ ],
+ "hotspots": {
+  "madame_ozymandia_s_table": [
+   735,
+   505,
+   490,
+   190
+  ],
+  "crystal_ball": [
+   920,
+   420,
+   95,
+   130
+  ],
+  "money_box": [
+   795,
+   475,
+   95,
+   72
+  ],
+  "cards": [
+   1028,
+   512,
+   72,
+   42
+  ],
+  "tea_service": [
+   1095,
+   458,
+   100,
+   98
+  ],
+  "brass_rod": [
+   1255,
+   388,
+   72,
+   312
+  ],
+  "price_list": [
+   498,
+   205,
+   64,
+   192
+  ],
+  "testimonial_board": [
+   288,
+   160,
+   186,
+   255
+  ],
+  "incense_burner": [
+   310,
+   400,
+   92,
+   322
+  ],
+  "cushions": [
+   385,
+   500,
+   340,
+   215
+  ],
+  "curtain": [
+   700,
+   180,
+   150,
+   330
+  ],
+  "lantern_red": [
+   915,
+   0,
+   92,
+   182
+  ],
+  "second_rod": [
+   845,
+   688,
+   252,
+   64
+  ],
+  "chart": [
+   1560,
+   95,
+   322,
+   500
+  ],
+  "stove": [
+   1350,
+   0,
+   192,
+   700
+  ],
+  "tent_walls": [
+   1215,
+   0,
+   330,
+   380
+  ],
+  "ground": [
+   0,
+   700,
+   1920,
+   42
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. THE CURTAIN is its left fall, beside her, so a LOOK at her is not the curtain's; THE TENT WALLS the painted canvas between the rod and the chart; THE GROUND the strip of bare earth behind the walk band; THE SECOND ROD the long box under the table.",
+ "people": {
+  "MADAME OZYMANDIA": [
+   "ozymandia"
+  ]
+ },
+ "exitSubjects": {
+  "THE FLAP TO OUTSIDE": {
+   "id": "flap_to_outside",
+   "to": "town_map",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 20: the tent is reached by the map, and its flap leads back to it. Doc 05 and doc 54 write the flap's LOOK and LISTEN."
+  }
+ },
+ "exits": {
+  "flap_to_outside": [
+   25,
+   90,
+   230,
+   620
+  ]
+ },
+ "exitWalkTo": {
+  "flap_to_outside": {
+   "x": 240,
+   "y": 790,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "red_lantern",
+   "at": [
+    960,
+    110
+   ],
+   "radius": 620,
+   "amount": 0.12,
+   "rate": 0.22,
+   "phase": 0.3,
+   "note": "The red lantern hung centre. A slow, low breath (invariant 9)."
+  },
+  {
+   "id": "stove",
+   "at": [
+    1450,
+    580
+   ],
+   "radius": 320,
+   "amount": 0.1,
+   "rate": 0.31,
+   "phase": 0.7,
+   "note": "The stove's glow."
+  }
+ ],
+ "defaultVerbs": {
+  "madame_ozymandia_s_table": "LOOK_AT",
+  "crystal_ball": "LOOK_AT",
+  "money_box": "LOOK_AT",
+  "cards": "LOOK_AT",
+  "tea_service": "LOOK_AT",
+  "brass_rod": "LOOK_AT",
+  "price_list": "LOOK_AT",
+  "testimonial_board": "LOOK_AT",
+  "incense_burner": "LOOK_AT",
+  "cushions": "LOOK_AT",
+  "curtain": "LOOK_AT",
+  "lantern_red": "LOOK_AT",
+  "second_rod": "LOOK_AT",
+  "chart": "LOOK_AT",
+  "stove": "LOOK_AT",
+  "tent_walls": "LOOK_AT",
+  "ground": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
+ "occlusion": {
+  "note": "ONE PLANE, HERS: the crystal ball, the cash box and the tea pot stand in front of her on the table (art/masks/room-16-plane-1.png, written by tools/art/room16-ozymandia.py), assigned by her ambient record's clipPlane. Thad's walk band is in front of everything, so his bands are plane 0.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": [
+   {
+    "level": 1,
+    "mask": "art/masks/room-16-plane-1.png",
+    "note": "The crystal ball, the cash box and the tea pot, by box and by colour off the plate (tools/art/room16-ozymandia.py). Assigned to Ozymandia by her ambient record's clipPlane, not by any walk box."
+   }
+  ]
+ }
+}

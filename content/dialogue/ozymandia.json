@@ -1,0 +1,99 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "OZYMANDIA",
+  "speaker": "ozymandia",
+  "name": "MADAME OZYMANDIA",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (MADAME OZYMANDIA) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a reply are hers, italic quotes Thad's. The universal exit line is doc 04 part one's pool.",
+  "entries": [],
+  "start": "OZY_A1",
+  "nodes": {
+    "OZY_A1": {
+      "id": "OZY_A1",
+      "prompt": "The rod has been expecting you.",
+      "options": [
+        {
+          "id": "ozymandia1",
+          "tag": "PROGRESS",
+          "afterUse": "remove",
+          "text": "I need a boundary divined.",
+          "say": "The earth will speak — two dollars — the earth will speak to me of lines and limits — in advance —",
+          "when": {
+            "T_SURVEY_NEEDED": true
+          },
+          "set": {
+            "T_OZY_ASKED": true
+          }
+        },
+        {
+          "id": "ozymandia2",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "How does the rod work?",
+          "say": "It is drawn to the hidden metal."
+        },
+        {
+          "id": "ozymandia3",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "Does it ever not work?",
+          "exchange": [
+            {
+              "speaker": "ozymandia",
+              "line": "It has never not worked."
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "It has occasionally been early."
+            }
+          ]
+        },
+        {
+          "id": "ozymandia4",
+          "tag": "TOPIC",
+          "afterUse": "remove",
+          "text": "Do you ever hear anything?",
+          "say": "…Hear?"
+        },
+        {
+          "id": "ozymandia5",
+          "tag": "ASSAY",
+          "afterUse": "remove",
+          "text": "Have you ever been in the Liar's Assay, Madame?",
+          "exchange": [
+            {
+              "speaker": "ozymandia",
+              "line": "Once. A prospector told me he had panned a pound before breakfast, and the rod moved me to say—"
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "'You have never seen breakfast.'"
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "Two dollars."
+            },
+            {
+              "speaker": "thad",
+              "line": "For the story?"
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "For the counter. The story was free."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_19": true
+          }
+        },
+        {
+          "id": "ozymandiax",
+          "tag": "EXIT",
+          "text": "I am going to leave now, in a dignified manner.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

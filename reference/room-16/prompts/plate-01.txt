@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: inside a fortune-teller's tent at night, with two people in it: the man in the blue coat standing on the ground at the left, and the woman sitting behind the round table.
+
+Remove both of them. Paint what is behind each, exactly as the tent would look with nobody in it: the cushions, the curtained doorway's edge, the painted canvas and the bare ground behind the man; the dark velvet curtain with its fringe behind the woman, down to the table top. The crystal ball, the cards, the tea pot and the box on the table stay exactly as they are.
+
+Change nothing else. Same framing, same camera, same pixel grid, same colours, same light, same objects in the same places: the doorway curtain, the pinned letters, the hanging sign, the incense burner and its smoke, the cushions, the red lantern, the table and its cloth, the box under the table, the brass rod, the stove, the chart, the painted stars. The grey strips above and below stay grey. No people, no shadows of people, no text.

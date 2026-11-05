@@ -1,0 +1,13 @@
+{
+ "assetId": "room-16",
+ "subject": "room-16-tent",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-16-tent",
+ "promptFile": "reference/room-16/prompts/plate-01.txt",
+ "out": "art/staging/room-16/plate-01/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-16/composition-master-01.png"
+ ]
+}

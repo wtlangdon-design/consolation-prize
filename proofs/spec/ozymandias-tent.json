@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "ozymandias_tent",
+ "note": "ROOM 16's PROOF SPEC. The route is Main Street's, then the map. A7 is played in tests/room-16.test.ts.",
+ "route": "ozymandias-tent",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "One visual state: nothing in the tent changes with the story (doc 05 Part Two-B writes no variant for it; her Act IV appearance is at Prosperity, doc 04; errata 89 A). A7's fee and survey change the inventory, not the picture."
+ }
+}

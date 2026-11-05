@@ -1,0 +1,969 @@
+{
+  "schema": 1,
+  "id": "ozymandias_tent",
+  "name": "MADAME OZYMANDIA'S TENT",
+  "materialIdentity": "Painted canvas, velvet and brass under a red lantern, bare earth, night (errata 89 A)",
+  "note": "Room 16, doc 20. Reached by the map; THE FLAP TO OUTSIDE leads back to it. Lines EXTRACTED from docs/05, 09, 54 and 49 by tools/extract-examine.mjs and compiled by tools/compile-room.mjs. Do not edit: change the documents and re-run.",
+  "background": "art/backgrounds/room-16-tent.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 170,
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-16.json",
+      "reference/room-16/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        220,
+        755,
+        1660,
+        34
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        220,
+        789,
+        1660,
+        35
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        220,
+        824,
+        1660,
+        34
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      220,
+      755
+    ],
+    [
+      1880,
+      755
+    ],
+    [
+      1880,
+      858
+    ],
+    [
+      220,
+      858
+    ]
+  ],
+  "entrance": [
+    300,
+    800
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        300,
+        800
+      ],
+      "facing": "right",
+      "note": "In by the flap, at left: the map leads here."
+    }
+  ],
+  "ambient": [
+    "ozymandia"
+  ],
+  "hotspots": [
+    {
+      "id": "cards",
+      "name": "THE CARDS",
+      "rect": [
+        1028,
+        512,
+        72,
+        42
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A deck worn soft, wrapped in silk. The top card, when she is elsewhere, is always the same one. I have stopped checking which.",
+            "repeat": [
+              "The silk has a monogram, faded past reading. They were somebody else's before they were hers.",
+              "The deck is thinner than a full deck. Some futures, she says, are not for sale."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Card against card, in the wrap. They shuffle themselves slightly.",
+            "repeat": [
+              "A whisper of silk when the tent breathes.",
+              "Nothing. They are waiting to be told what they mean."
+            ],
+            "then": [
+              "I have decided this is settling."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "The silk wrap tightened. I did not see her move. The deck stayed where destiny — her word — had left it."
+      },
+      "walkTo": {
+        "x": 1064,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "money_box",
+      "name": "THE MONEY BOX",
+      "rect": [
+        795,
+        475,
+        95,
+        72
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A cash box with a painted eye on the lid. Nobody steals from it. The eye may be why.",
+            "repeat": [
+              "The eye on the lid has been repainted. It used to look left. It now looks at you.",
+              "A slot in the top and no lock. It does not need one."
+            ],
+            "then": [
+              "The eye may not be why."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Coins, when the table moves. She is doing better than the Mercantile.",
+            "repeat": [
+              "Nothing. It is listening to me, possibly.",
+              "A single coin shifting as she passes the table. It knows its owner."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "The painted eye and I held a discussion. The eye won on experience."
+      },
+      "walkTo": {
+        "x": 843,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "tea_service",
+      "name": "THE TEA SERVICE",
+      "rect": [
+        1095,
+        458,
+        100,
+        98
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The leaves are read in a cup with no handle, from a pot that is never empty.",
+            "repeat": [
+              "The cups are four different patterns, each from a different town she has left.",
+              "The leaves at the bottom of my cup made a shape. I asked what it was. She said it was a fee."
+            ],
+            "then": [
+              "The tea itself is genuinely good, which she considers beside the point."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The pot, at a murmur. It is always just off the boil.",
+            "repeat": [
+              "A soft rattle of china when the table moves.",
+              "The pot, still murmuring. It is the only thing in the tent that never pretends."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1145,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "price_list",
+      "name": "THE PRICE LIST",
+      "rect": [
+        498,
+        205,
+        64,
+        192
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Divination, two dollars. Boundary divination, two dollars.",
+            "repeat": [
+              "Below the prices, smaller: SATISFACTION AS THE SPIRITS ALLOW.",
+              "Boundary divination costs the same as the ordinary kind. The earth does not charge extra for lines, apparently."
+            ],
+            "then": [
+              "Consultation regarding prices, one dollar."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper. The prices hold steady, which is more than the bank manages.",
+            "repeat": [
+              "Nothing.",
+              "The card tapping against the tent pole in the draft. Two dollars, two dollars."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 530,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "crystal_ball",
+      "name": "THE CRYSTAL BALL",
+      "rect": [
+        920,
+        420,
+        95,
+        130
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A glass ball on a brass stand. In it: the tent, upside down, and me, small.",
+            "repeat": [
+              "Glass. Good glass, though. She has not economized on the glass.",
+              "A small chip on the underside, turned to the wall. Even the future has a bad side."
+            ],
+            "then": [
+              "It is right about both."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Glass keeps what it sees.",
+            "repeat": [
+              "Nothing. It is reflecting, which is quiet work.",
+              "A faint ring when the table is bumped. The future, briefly, in a key."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I looked. Upside-down tent, small Thad. Two dollars. On reflection — which is all the ball does — fair."
+      },
+      "walkTo": {
+        "x": 968,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "second_rod",
+      "name": "THE SECOND ROD",
+      "rect": [
+        845,
+        688,
+        252,
+        64
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An identical rod, in a box, under the table. She has a spare.",
+            "repeat": [
+              "The box is lined in velvet and the spare is polished. It has never been used, and it is better looked after than the first.",
+              "Two rods. If one finds nothing, there is always the other, to find nothing in agreement."
+            ],
+            "then": [
+              "I find this oddly reassuring about her sincerity."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing, boxed.",
+            "repeat": [
+              "Nothing, under the table, in the dark.",
+              "A faint ring when the table is bumped. It would like to work."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 971,
+        "y": 857,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "lantern_red",
+      "name": "THE LANTERN, RED",
+      "rect": [
+        915,
+        0,
+        92,
+        182
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A lantern with red glass, hung center.",
+            "repeat": [
+              "The red glass is cracked and mended with a strip of red ribbon. Nothing in here is allowed to be ordinary, not even a repair.",
+              "Under it my hands look like a stranger's, and a lucky one."
+            ],
+            "then": [
+              "It makes everyone's face look like a secret being kept."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The flame, steady. Red does not flicker, apparently. Ask her why.",
+            "repeat": [
+              "A faint hiss from the wick. Steady, as advertised.",
+              "Nothing. The red keeps the flame quiet, or she does."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 961,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "brass_rod",
+      "name": "THE BRASS ROD",
+      "rect": [
+        1255,
+        388,
+        72,
+        312
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A dowsing rod of solid brass, polished at the grip. It finds water, gold, and — per the sign — 'that which the seeker conceals from himself.' Priced accordingly.",
+            "repeat": [
+              "A brass rod. Gold is not magnetic and neither is brass, and I have decided that raising this would be unkind and also expensive.",
+              "The grip is wrapped in red thread, worn through to the brass where her thumb goes. Eleven years of the same thumb."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A hum, if I hold my breath. Possibly my own blood. Possibly not.",
+            "repeat": [
+              "It rings when she sets it down. She sets it down a great deal, always in the same place, and it always rings the same.",
+              "Nothing, when I breathe normally. I have decided to breathe normally."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "It swung toward the money box. 'It seeks the hidden metal,' she said, without a trace of embarrassment. Professional courtesy forbade comment."
+      },
+      "walkTo": {
+        "x": 1291,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "incense_burner",
+      "name": "THE INCENSE BURNER",
+      "rect": [
+        310,
+        400,
+        92,
+        322
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Smoke rises from it in a line and then decides things.",
+            "repeat": [
+              "It is shaped like a small brass temple from a country she has certainly never seen.",
+              "The ash beneath it is a week deep. The smell of the tent is mostly the tent's own history."
+            ],
+            "then": [
+              "The smell is cedar, church, and somewhere behind both, supper."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The faintest crackle. A very small fire with a very large job.",
+            "repeat": [
+              "A thread of smoke whispering as it breaks against the canvas.",
+              "Nothing between draws, then the faint crackle again, working."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 356,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "testimonial_board",
+      "name": "THE TESTIMONIAL BOARD",
+      "rect": [
+        288,
+        160,
+        186,
+        255
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Letters pinned up: SHE FOUND MY RING. SHE KNEW ABOUT WILLIAM.",
+            "repeat": [
+              "Letters of thanks. They are in four different hands and one of them is hers.",
+              "I WAS WRONG TO DOUBT is pinned higher than the others, at eye level. She knows which letter does the work."
+            ],
+            "then": [
+              "One reads only I WAS WRONG TO DOUBT, unsigned, in a fine hand."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper, pinned and fluttering. A choir of the convinced.",
+            "repeat": [
+              "Nothing.",
+              "A pin working loose, and a letter sliding an inch before it holds. Even the convinced waver."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 381,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "curtain",
+      "name": "THE CURTAIN",
+      "rect": [
+        700,
+        180,
+        150,
+        330
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A curtain at the back, dark velvet with a fringe of gold thread, most of it still gold.",
+            "repeat": [
+              "Behind it, she says, the spirits wait. Behind it, I am fairly sure, is her bed.",
+              "It is drawn exactly as far as she wants it drawn. I have never seen it move, and I have never seen it in the same place twice."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Breathing behind it, or the tent breathing. I prefer the tent.",
+            "repeat": [
+              "Nothing behind the curtain. The spirits are between appointments.",
+              "The rings on the rail, faintly, when the wind leans on the tent."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 775,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "cushions",
+      "name": "THE CUSHIONS",
+      "rect": [
+        385,
+        500,
+        340,
+        215
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Cushions on the client's side, faded velvet, each softer than the last.",
+            "repeat": [
+              "There is a coin down between two of them. I have left it. It is probably part of the act.",
+              "Her side has no cushion, only a hard stool. She does not need to be comfortable to be certain."
+            ],
+            "then": [
+              "You sink into a consultation."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A soft sigh of velvet as I lean on one.",
+            "repeat": [
+              "Nothing. They absorb everything, including doubt.",
+              "A faint crunch of something sewn inside. Lavender, or nerves."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 555,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "ground",
+      "name": "THE GROUND",
+      "rect": [
+        0,
+        700,
+        1920,
+        42
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Bare earth, under a tent, in the middle of town. She could have had a floor.",
+            "repeat": [
+              "Swept bare and level, with the marks of a broom going round in circles, like the rest of the business.",
+              "Her chair legs have sunk an inch into it. She has sat in exactly the same place for a very long time."
+            ],
+            "then": [
+              "She has chosen not to have a floor."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing unusual.",
+            "repeat": [
+              "Nothing unusual. Earth, under a tent.",
+              "Nothing. Packed dirt, minding its own business."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 960,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "madame_ozymandia_s_table",
+      "name": "MADAME OZYMANDIA'S TABLE",
+      "rect": [
+        735,
+        505,
+        490,
+        190
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A round table under a fringed cloth. Round, I am told, so that no one sits at the head.",
+            "repeat": [
+              "The fringe is long enough to hide a foot. I have decided not to wonder whose.",
+              "A ring of wear on the cloth where a hundred clients have rested their hands, palms up, and paid."
+            ],
+            "then": [
+              "She sits at the head anyway."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The cloth's tassels, moving without wind. There is a wind.",
+            "repeat": [
+              "The tassels again, swaying. I checked for a draft. There is a draft.",
+              "Nothing, for once. The table is between appointments."
+            ],
+            "then": [
+              "It is just not one you can feel."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "One came off in my hand. It was back on the cloth when I looked again. I have elected not to think about this."
+      },
+      "walkTo": {
+        "x": 980,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "tent_walls",
+      "name": "THE TENT WALLS",
+      "rect": [
+        1215,
+        0,
+        330,
+        380
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Canvas, painted with stars on the inside, patched with flour sacks on the out.",
+            "repeat": [
+              "Some of the painted stars are in constellations. Some are wherever she wanted a star.",
+              "From outside: FLOUR, FLOUR, FLOUR, in faded stencil. From inside: the heavens."
+            ],
+            "then": [
+              "From in here, the sky is always clear."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Canvas breathing. The whole room inhales.",
+            "repeat": [
+              "A gust leaning on the canvas, and the stars bellying in.",
+              "The street through canvas, soft and far, like a rumor about a street."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1380,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "stove",
+      "name": "THE STOVE",
+      "rect": [
+        1350,
+        0,
+        192,
+        700
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A small iron stove, very hot, in a tent whose door is a sheet of canvas.",
+            "repeat": [
+              "It is fed with pages from an almanac. The future, she tells me, is excellent fuel.",
+              "The heat makes the painted stars shimmer. I am almost certain that is deliberate."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A low roar, small and steady, like an audience waiting.",
+            "repeat": [
+              "A page curling as it catches.",
+              "Iron ticking. It keeps better time than her predictions."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1446,
+        "y": 855,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "chart",
+      "name": "THE CHART",
+      "rect": [
+        1560,
+        95,
+        322,
+        500
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A chart of the humors of the earth, hand-painted, extremely detailed, and entirely invented. It took somebody weeks.",
+            "repeat": [
+              "The earth's humors are color-coded. Gold is a warm humor. Debt, I notice, is not on it.",
+              "In one corner, very small, the painter's name. It is hers, in a different style."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. Invented things make no noise.",
+              "The paper lifting at one corner in the draft from the flap."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1721,
+        "y": 855,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "flap_to_outside",
+      "name": "THE FLAP TO OUTSIDE",
+      "rect": [
+        25,
+        90,
+        230,
+        620
+      ],
+      "colour": 0,
+      "to": "town_map",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The tent flap, weighted so it closes itself with a certain finality. Entrances here are hers; exits are yours.",
+            "repeat": [
+              "Small bells are sewn along the hem. They ring when you leave, never when you come in.",
+              "The weights in the hem are horseshoes, four of them. Luck, put to practical use."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The street, arriving in pieces. She hears all of this, all day. Perhaps that is the whole trick.",
+            "repeat": [
+              "The bells on the hem, faintly, in the wind.",
+              "The street, and then the flap closing it off with a soft and final thump."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: the tent is reached by the map, and its flap leads back to it. Doc 05 and doc 54 write the flap's LOOK and LISTEN.",
+      "walkTo": {
+        "x": 240,
+        "y": 790,
+        "facing": "left"
+      }
+    }
+  ],
+  "peopleResponses": {
+    "ozymandia": {
+      "PICK_UP": [
+        {
+          "say": "There would be a fee, and then a curse, and the fee would be larger."
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "She would sway, theatrically, and describe it afterward as a vision."
+        }
+      ],
+      "GIVE": [
+        {
+          "say": "Anything I give her, she prices."
+        }
+      ]
+    }
+  },
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 220,
+          "y": 755
+        },
+        {
+          "x": 1880,
+          "y": 755
+        },
+        {
+          "x": 1880,
+          "y": 789
+        },
+        {
+          "x": 220,
+          "y": 789
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 755,
+        "farHeight": 448,
+        "nearY": 858,
+        "nearHeight": 519
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 220,
+          "y": 789
+        },
+        {
+          "x": 1880,
+          "y": 789
+        },
+        {
+          "x": 1880,
+          "y": 824
+        },
+        {
+          "x": 220,
+          "y": 824
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 755,
+        "farHeight": 448,
+        "nearY": 858,
+        "nearHeight": 519
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 220,
+          "y": 824
+        },
+        {
+          "x": 1880,
+          "y": 824
+        },
+        {
+          "x": 1880,
+          "y": 858
+        },
+        {
+          "x": 220,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 755,
+        "farHeight": 448,
+        "nearY": 858,
+        "nearHeight": 519
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "red_lantern",
+      "at": [
+        960,
+        110
+      ],
+      "radius": 620,
+      "amount": 0.12,
+      "rate": 0.22,
+      "phase": 0.3,
+      "note": "The red lantern hung centre. A slow, low breath (invariant 9)."
+    },
+    {
+      "id": "stove",
+      "at": [
+        1450,
+        580
+      ],
+      "radius": 320,
+      "amount": 0.1,
+      "rate": 0.31,
+      "phase": 0.7,
+      "note": "The stove's glow."
+    }
+  ],
+  "occlusionPlanes": [
+    {
+      "level": 1,
+      "mask": "art/masks/room-16-plane-1.png",
+      "note": "The crystal ball, the cash box and the tea pot, by box and by colour off the plate (tools/art/room16-ozymandia.py). Assigned to Ozymandia by her ambient record's clipPlane, not by any walk box."
+    }
+  ],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-16/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

@@ -1,0 +1,89 @@
+{
+ "schema": 1,
+ "id": "ozymandia",
+ "name": "MADAME OZYMANDIA",
+ "posture": "behind-counter",
+ "room": "ozymandias_tent",
+ "x": 966,
+ "y": 530,
+ "zone": 2,
+ "approachRadius": 40,
+ "clipPlane": 1,
+ "walkTo": {
+  "x": 700,
+  "y": 790,
+  "facing": "right"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HER: on the bare ground before the table's left side, the client's side (errata 89 C).",
+ "tree": "OZYMANDIA",
+ "note": "MADAME OZYMANDIA, behind her round table under the red lantern. No document describes her; she is drawn as an American spiritualist medium of the 1850s (errata 89 B), five poses on magenta generated against Thad (room-16 operation 3), cut at the table top by tools/art/room16-ozymandia.py. BEHIND THE TABLE: `y` is the cut row, not her feet. The crystal ball, the cash box and the tea pot stand in front of her: occlusion plane 1. Present in every act; her Act IV appearance is at Prosperity (doc 04), not here.",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for her.",
+ "sprite": {
+  "sheet": "art/actors/room-16-ozymandia.png",
+  "frames": [
+   [
+    2,
+    2,
+    228,
+    241
+   ],
+   [
+    232,
+    2,
+    228,
+    241
+   ],
+   [
+    462,
+    2,
+    228,
+    241
+   ],
+   [
+    692,
+    2,
+    228,
+    241
+   ],
+   [
+    922,
+    2,
+    228,
+    241
+   ]
+  ],
+  "rate": 0.24,
+  "phase": 0.2,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    0
+   ],
+   [
+    2,
+    2,
+    0,
+    2,
+    0
+   ],
+   [
+    4,
+    4,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "talkFrame": 3,
+  "frameNote": "0 rest, hands spread over the ball · 1 breath (derived) · 2 humming · 3 pronouncing, a hand raised · 4 the palm out for the fee. Breathing on 0 and 1; every `breakEvery` seconds one break -- mostly humming (doc 01: 'a great deal of humming'; errata 77). She pronounces as she talks.",
+  "provenance": "art/staging/room-16/ozymandia/ozymandia.json"
+ }
+}

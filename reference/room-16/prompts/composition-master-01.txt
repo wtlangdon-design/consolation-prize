@@ -1,0 +1,20 @@
+Image 1 is the layout for one room of my pixel-art adventure game: grey blocks for the walls and furniture, and the hero (the man in the long coat) standing on the floor. Paint this room as a finished game background with two people in it, keeping the camera, the layout and every block where image 1 puts it. Paint the room ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched. The whole room, from the tent roof to the ground in front of the hero, fits inside that band.
+
+THE ROOM: inside a fortune-teller's tent in a gold-rush town, 1850s, at night. Canvas walls painted on the inside with stars; bare earth for a floor; theatrical and a little shabby.
+- Far left: the tent flap, the way out, weighted at the bottom, closed.
+- Left: a board of handwritten testimonial letters pinned up; beside it a small painted price list; lower, a brass incense burner on a stand with a thin line of smoke, and faded velvet cushions on the ground.
+- Middle, back: a dark velvet curtain with a gold fringe.
+- Hanging at the centre top: a lantern with red glass.
+- Middle: a round table under a fringed cloth. On it a crystal ball on a brass stand, a deck of cards wrapped in silk, a tea pot and a cup with no handle, and a cash box with an eye painted on its lid. Under the table, a long wooden box.
+- Right of the table: a brass dowsing rod standing upright in a holder, polished at the grip.
+- Right: a small iron stove, glowing, its pipe going up through the canvas.
+- Far right: a large hand-painted chart pinned to the canvas, diagrams of the earth.
+- Light: the red lantern, warm and red over the table; the stove's orange glow; the corners darker.
+
+THE PEOPLE (this picture is a reference painting, so people are allowed in it):
+- The hero from image 4, standing where image 1 puts him, at exactly that size, facing right toward the table.
+- MADAME OZYMANDIA, sitting behind the round table at its head, seen from the waist up over it, hands spread above the crystal ball: a theatrical fortune-teller of about fifty, a jewel-coloured silk head-wrap, a fringed shawl, gold hoop earrings, rings on her fingers, kohl-dark eyes, enormous self-assurance. The size of a seated woman at that depth.
+
+THE LOOK: the same pixel-art style as images 2, 3 and 6, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero -- the fortune-teller drawn on exactly the hero's coarse pixel grid, no finer -- flat, soft shading, very little texture, simple shapes. Deep reds, purples and brass in red lantern light. Nothing near black where the hero stands.
+
+RULES: no readable text, letters or numbers anywhere -- the letters, the price list and the chart carry marks, never words. No border, no frame around the picture, no caption.
