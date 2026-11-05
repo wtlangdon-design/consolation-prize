@@ -1,0 +1,781 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "claim_row",
+ "commit": "c2efd2fe37380d2149d85bdbc17ac91c23379495",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": null,
+ "fixture": "r27-a",
+ "warped": false,
+ "lifeRoute": "claim-row-doors",
+ "durationSeconds": 24.04,
+ "events": [
+  {
+   "t": 2.63,
+   "line": "started from fixture r27-a, no entry route"
+  },
+  {
+   "t": 5.7,
+   "line": "in claim_row; life route: 23 action(s)"
+  },
+  {
+   "t": 6.58,
+   "line": "capture 00-arrived: room claim_row, says null, options 0, control null"
+  },
+  {
+   "t": 7.03,
+   "line": "action 1 (click): clicked claim_row/to_claims_road at world 55,712 -- up to the road"
+  },
+  {
+   "t": 7.39,
+   "line": "action 1 (waitFor): reached {\"room\":\"claims_road\"} in room claims_road"
+  },
+  {
+   "t": 8.41,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 9.4,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.39,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 10.42,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.9,
+   "line": "capture 01-out: room claims_road, says null, options 0, control null"
+  },
+  {
+   "t": 11.04,
+   "line": "action 1 (click): clicked screen 540,1052 -- the MAP button"
+  },
+  {
+   "t": 11.09,
+   "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 12.09,
+   "line": "action 1 (wait): waited 1s"
+  },
+  {
+   "t": 12.1,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.18,
+   "line": "action 1 (click): clicked screen 1640,250 -- the claim row's marker"
+  },
+  {
+   "t": 12.21,
+   "line": "action 1 (waitFor): reached {\"room\":\"claim_row\"} in room claim_row"
+  },
+  {
+   "t": 13.23,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 14.23,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 14.24,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 14.73,
+   "line": "capture 01-in: room claim_row, says null, options 0, control null"
+  },
+  {
+   "t": 14.88,
+   "line": "action 1 (click): clicked claim_row/to_claims_road at world 55,712 -- up to the road"
+  },
+  {
+   "t": 15.19,
+   "line": "action 1 (waitFor): reached {\"room\":\"claims_road\"} in room claims_road"
+  },
+  {
+   "t": 16.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 17.22,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.19,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 18.23,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 18.66,
+   "line": "capture 02-out: room claims_road, says null, options 0, control null"
+  },
+  {
+   "t": 18.77,
+   "line": "action 1 (click): clicked screen 540,1052 -- the MAP button"
+  },
+  {
+   "t": 18.8,
+   "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 19.81,
+   "line": "action 1 (wait): waited 1s"
+  },
+  {
+   "t": 19.82,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     700,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 19.88,
+   "line": "action 1 (click): clicked screen 1640,250 -- the claim row's marker"
+  },
+  {
+   "t": 19.91,
+   "line": "action 1 (waitFor): reached {\"room\":\"claim_row\"} in room claim_row"
+  },
+  {
+   "t": 20.93,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 21.91,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 21.92,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 22.43,
+   "line": "capture 02-in: room claim_row, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "00-arrived",
+   "why": null,
+   "t": 6.57,
+   "file": "renders/proofs/claim-row/doors/raw-captures-ignored/00-arrived.png",
+   "hash": "65fd9b3e956cd0fc547abc34f99b8e1809312bcfddadd4b630dae6ab018da10a",
+   "room": "claim_row",
+   "clock": 6.2202,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 370,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      68,
+      420,
+      384,
+      408
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claim_row",
+     "path": "art/backgrounds/room-27-claim-row.png",
+     "drawn": "art/backgrounds/room-27-claim-row.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "239199d6d52af07f118135321a36c5d3460976f1dc68d15fb8304b7157c6cd34"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-out",
+   "why": null,
+   "t": 10.89,
+   "file": "renders/proofs/claim-row/doors/raw-captures-ignored/01-out.png",
+   "hash": "624b19e9963ef736f1606e6fcf317b0572b14725e7cd90d6f74e48a33eb722b5",
+   "room": "claims_road",
+   "clock": 10.603399999999999,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      700,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 336,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      526,
+      464,
+      348,
+      371
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_road",
+     "path": "art/backgrounds/room-22-claims-road.png",
+     "drawn": "art/backgrounds/room-22-claims-road.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "88a5f4efd234d1e364a8669304ff72ec20f2d2e3051d9dd87dcab89f14942ba0"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-in",
+   "why": null,
+   "t": 14.73,
+   "file": "renders/proofs/claim-row/doors/raw-captures-ignored/01-in.png",
+   "hash": "64ab0301f5abd258660fa25a3c2bd5b8c72cea9167e232cc7d4f98c259699cd4",
+   "room": "claim_row",
+   "clock": 14.5699,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 370,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      8,
+      420,
+      384,
+      408
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claim_row",
+     "path": "art/backgrounds/room-27-claim-row.png",
+     "drawn": "art/backgrounds/room-27-claim-row.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "239199d6d52af07f118135321a36c5d3460976f1dc68d15fb8304b7157c6cd34"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-out",
+   "why": null,
+   "t": 18.65,
+   "file": "renders/proofs/claim-row/doors/raw-captures-ignored/02-out.png",
+   "hash": "318659500da9bf581c75ea4f467d49c32d859afd2984ae7cdcd2779f239b9262",
+   "room": "claims_road",
+   "clock": 18.386400000000002,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      700,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 336,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      526,
+      464,
+      348,
+      371
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_road",
+     "path": "art/backgrounds/room-22-claims-road.png",
+     "drawn": "art/backgrounds/room-22-claims-road.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "88a5f4efd234d1e364a8669304ff72ec20f2d2e3051d9dd87dcab89f14942ba0"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
+    },
+    {
+     "key": "art/actors/room-22-miners.png",
+     "path": "art/actors/room-22-miners.png",
+     "drawn": "art/actors/room-22-miners.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5b5c6ff9852163f9b83da24bf92cbd00a6e9f900f60849d12d8642280a3bd0d2"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-in",
+   "why": null,
+   "t": 22.43,
+   "file": "renders/proofs/claim-row/doors/raw-captures-ignored/02-in.png",
+   "hash": "4192252863b2a9c343abc9e65029a7e50ecb9548bc7bb28313b2ac9e98c3a217",
+   "room": "claim_row",
+   "clock": 22.2529,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 370,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      8,
+      420,
+      384,
+      408
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claim_row",
+     "path": "art/backgrounds/room-27-claim-row.png",
+     "drawn": "art/backgrounds/room-27-claim-row.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "239199d6d52af07f118135321a36c5d3460976f1dc68d15fb8304b7157c6cd34"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 24.04s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T19:54:22.337Z"
+}
