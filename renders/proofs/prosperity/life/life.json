@@ -2,8 +2,8 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "prosperity",
- "commit": "bdbac343cbd60c2b8257861a3363096d75de2e79",
- "workingTreeClean": true,
+ "commit": "46a372e8cb689ff93d233483060ffa734ae06bd1",
+ "workingTreeClean": false,
  "dirtyAllowed": false,
  "visualState": null,
  "objectStates": null,
@@ -13,22 +13,22 @@
  "fixture": "r23-a",
  "warped": false,
  "lifeRoute": "prosperity-life",
- "durationSeconds": 85.79,
+ "durationSeconds": 66.46,
  "events": [
   {
-   "t": 2.84,
+   "t": 2.81,
    "line": "started from fixture r23-a, no entry route"
   },
   {
-   "t": 6.03,
-   "line": "in prosperity; life route: 27 action(s)"
+   "t": 5.88,
+   "line": "in prosperity; life route: 28 action(s)"
   },
   {
-   "t": 6.92,
+   "t": 6.78,
    "line": "capture 01-arrived: room prosperity, says null, options 0, control null"
   },
   {
-   "t": 7.93,
+   "t": 7.79,
    "trace": {
     "says": null,
     "control": null,
@@ -43,7 +43,7 @@
    }
   },
   {
-   "t": 8.94,
+   "t": 8.8,
    "trace": {
     "says": null,
     "control": null,
@@ -58,7 +58,7 @@
    }
   },
   {
-   "t": 9.93,
+   "t": 9.81,
    "trace": {
     "says": null,
     "control": null,
@@ -73,7 +73,7 @@
    }
   },
   {
-   "t": 10.93,
+   "t": 10.82,
    "trace": {
     "says": null,
     "control": null,
@@ -88,7 +88,7 @@
    }
   },
   {
-   "t": 11.93,
+   "t": 11.81,
    "trace": {
     "says": null,
     "control": null,
@@ -103,7 +103,7 @@
    }
   },
   {
-   "t": 12.95,
+   "t": 12.8,
    "trace": {
     "says": null,
     "control": null,
@@ -118,7 +118,7 @@
    }
   },
   {
-   "t": 13.94,
+   "t": 13.8,
    "trace": {
     "says": null,
     "control": null,
@@ -133,15 +133,15 @@
    }
   },
   {
-   "t": 14.92,
+   "t": 14.78,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 15.39,
+   "t": 15.28,
    "line": "capture 02-the-claim: room prosperity, says null, options 0, control null"
   },
   {
-   "t": 16.42,
+   "t": 16.3,
    "trace": {
     "says": null,
     "control": null,
@@ -156,7 +156,7 @@
    }
   },
   {
-   "t": 17.42,
+   "t": 17.3,
    "trace": {
     "says": null,
     "control": null,
@@ -171,7 +171,7 @@
    }
   },
   {
-   "t": 18.42,
+   "t": 18.3,
    "trace": {
     "says": null,
     "control": null,
@@ -186,7 +186,7 @@
    }
   },
   {
-   "t": 19.43,
+   "t": 19.3,
    "trace": {
     "says": null,
     "control": null,
@@ -201,7 +201,7 @@
    }
   },
   {
-   "t": 20.42,
+   "t": 20.31,
    "trace": {
     "says": null,
     "control": null,
@@ -216,7 +216,7 @@
    }
   },
   {
-   "t": 21.42,
+   "t": 21.31,
    "trace": {
     "says": null,
     "control": null,
@@ -231,19 +231,11 @@
    }
   },
   {
-   "t": 22.39,
+   "t": 22.29,
    "line": "action 1 (wait): waited 7s"
   },
   {
-   "t": 22.45,
-   "line": "action 1 (verb): chose verb LOOK_AT -- "
-  },
-  {
-   "t": 22.62,
-   "line": "action 1 (click): clicked prosperity/raccoon at world 1180,443 -- THE RACCOON"
-  },
-  {
-   "t": 23.63,
+   "t": 22.31,
    "trace": {
     "says": null,
     "control": null,
@@ -251,14 +243,37 @@
     "performing": false,
     "options": 0,
     "thad": [
-     568,
+     240,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 22.34,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 22.5,
+   "line": "action 1 (click): clicked prosperity/raccoon at world 1180,443 -- THE RACCOON"
+  },
+  {
+   "t": 23.52,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     574,
      797
     ],
     "moving": true
    }
   },
   {
-   "t": 24.64,
+   "t": 24.52,
    "trace": {
     "says": null,
     "control": null,
@@ -266,14 +281,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     918,
+     917,
      804
     ],
     "moving": true
    }
   },
   {
-   "t": 25.64,
+   "t": 25.52,
    "trace": {
     "says": null,
     "control": null,
@@ -288,15 +303,15 @@
    }
   },
   {
-   "t": 25.91,
+   "t": 25.86,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room prosperity"
   },
   {
-   "t": 26.37,
+   "t": 26.32,
    "line": "capture 03-look-raccoon: room prosperity, says \"thad\", options 0, control null"
   },
   {
-   "t": 27.39,
+   "t": 27.34,
    "trace": {
     "says": "thad",
     "control": null,
@@ -311,7 +326,7 @@
    }
   },
   {
-   "t": 28.38,
+   "t": 28.33,
    "trace": {
     "says": null,
     "control": null,
@@ -326,7 +341,7 @@
    }
   },
   {
-   "t": 29.4,
+   "t": 29.37,
    "trace": {
     "says": null,
     "control": null,
@@ -341,7 +356,7 @@
    }
   },
   {
-   "t": 30.39,
+   "t": 30.35,
    "trace": {
     "says": null,
     "control": null,
@@ -356,7 +371,7 @@
    }
   },
   {
-   "t": 31.41,
+   "t": 31.33,
    "trace": {
     "says": null,
     "control": null,
@@ -371,7 +386,7 @@
    }
   },
   {
-   "t": 32.4,
+   "t": 32.34,
    "trace": {
     "says": null,
     "control": null,
@@ -386,7 +401,7 @@
    }
   },
   {
-   "t": 33.43,
+   "t": 33.37,
    "trace": {
     "says": null,
     "control": null,
@@ -401,7 +416,22 @@
    }
   },
   {
-   "t": 34.37,
+   "t": 34.34,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1180,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 34.35,
    "line": "action 1 (wait): waited 8s"
   },
   {
@@ -417,11 +447,11 @@
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room prosperity"
   },
   {
-   "t": 35.1,
+   "t": 35.14,
    "line": "capture 04-listen-hole: room prosperity, says \"thad\", options 0, control null"
   },
   {
-   "t": 36.13,
+   "t": 36.16,
    "trace": {
     "says": "thad",
     "control": null,
@@ -436,7 +466,7 @@
    }
   },
   {
-   "t": 37.12,
+   "t": 37.18,
    "trace": {
     "says": "thad",
     "control": null,
@@ -451,7 +481,7 @@
    }
   },
   {
-   "t": 38.14,
+   "t": 38.18,
    "trace": {
     "says": "thad",
     "control": null,
@@ -466,7 +496,7 @@
    }
   },
   {
-   "t": 39.14,
+   "t": 39.18,
    "trace": {
     "says": "thad",
     "control": null,
@@ -481,7 +511,7 @@
    }
   },
   {
-   "t": 40.13,
+   "t": 40.18,
    "trace": {
     "says": null,
     "control": null,
@@ -496,7 +526,7 @@
    }
   },
   {
-   "t": 41.13,
+   "t": 41.19,
    "trace": {
     "says": null,
     "control": null,
@@ -511,7 +541,7 @@
    }
   },
   {
-   "t": 42.13,
+   "t": 42.18,
    "trace": {
     "says": null,
     "control": null,
@@ -524,158 +554,162 @@
     ],
     "moving": false
    }
-  },
-  {
-   "t": 43.11,
-   "line": "action 1 (wait): waited 8s"
   },
   {
    "t": 43.15,
-   "line": "action 1 (verb): chose verb TALK_TO -- "
-  },
-  {
-   "t": 43.31,
-   "line": "action 1 (click): clicked prosperity/raccoon at world 1180,443 -- RAC_A1, the first TALK TO"
-  },
-  {
-   "t": 43.77,
-   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room prosperity"
-  },
-  {
-   "t": 44.23,
-   "line": "capture 05-naming: room prosperity, says null, options 5, control null"
-  },
-  {
-   "t": 44.39,
-   "line": "action 1 (option): chose option raccoon1 -- Absalom Crispin Thrupp."
-  },
-  {
-   "t": 44.44,
-   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room prosperity"
-  },
-  {
-   "t": 44.95,
-   "line": "capture 06-named: room prosperity, says \"thad\", options 5, control null"
-  },
-  {
-   "t": 45.97,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 46.97,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 47.98,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 48.98,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 49.98,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 50.98,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 51.98,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 5,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 52.96,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 53.01,
+   "t": 43.21,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 43.38,
+   "line": "action 1 (click): clicked prosperity/raccoon at world 1180,443 -- RAC_A1, the first TALK TO"
+  },
+  {
+   "t": 43.84,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room prosperity"
+  },
+  {
+   "t": 44.36,
+   "line": "capture 05-naming: room prosperity, says null, options 5, control null"
+  },
+  {
+   "t": 44.52,
+   "line": "action 1 (option): chose option raccoon1 -- Absalom Crispin Thrupp."
+  },
+  {
+   "t": 44.57,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room prosperity"
+  },
+  {
+   "t": 45.06,
+   "line": "capture 06-named: room prosperity, says \"thad\", options 5, control null"
+  },
+  {
+   "t": 46.09,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1180,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 47.09,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1180,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 48.08,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1180,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 49.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1180,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 49.1,
+   "line": "action 1 (waitFor): reached {} in room prosperity"
+  },
+  {
+   "t": 50.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1180,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 51.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1180,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 52.1,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 52.13,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1180,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 52.16,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 53.17,
+   "t": 52.31,
    "line": "action 1 (click): clicked prosperity/claim_marker at world 268,608 -- THE CLAIM MARKER"
   },
   {
-   "t": 54.18,
+   "t": 53.32,
    "trace": {
     "says": null,
     "control": null,
@@ -683,14 +717,52 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1180,
-     840
+     819,
+     846
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 54.32,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     449,
+     852
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 55.09,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room prosperity"
+  },
+  {
+   "t": 55.56,
+   "line": "capture 07-look-marker: room prosperity, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 56.59,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     268,
+     855
     ],
     "moving": false
    }
   },
   {
-   "t": 55.2,
+   "t": 57.59,
    "trace": {
     "says": null,
     "control": null,
@@ -698,14 +770,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1180,
-     840
+     268,
+     855
     ],
     "moving": false
    }
   },
   {
-   "t": 56.18,
+   "t": 58.57,
    "trace": {
     "says": null,
     "control": null,
@@ -713,14 +785,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1180,
-     840
+     268,
+     855
     ],
     "moving": false
    }
   },
   {
-   "t": 57.18,
+   "t": 59.57,
    "trace": {
     "says": null,
     "control": null,
@@ -728,14 +800,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1180,
-     840
+     268,
+     855
     ],
     "moving": false
    }
   },
   {
-   "t": 58.19,
+   "t": 60.59,
    "trace": {
     "says": null,
     "control": null,
@@ -743,14 +815,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1180,
-     840
+     268,
+     855
     ],
     "moving": false
    }
   },
   {
-   "t": 59.2,
+   "t": 61.6,
    "trace": {
     "says": null,
     "control": null,
@@ -758,14 +830,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1180,
-     840
+     268,
+     855
     ],
     "moving": false
    }
   },
   {
-   "t": 60.2,
+   "t": 62.6,
    "trace": {
     "says": null,
     "control": null,
@@ -773,29 +845,18 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1180,
-     840
+     268,
+     855
     ],
     "moving": false
    }
   },
   {
-   "t": 61.2,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
+   "t": 63.57,
+   "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 62.19,
+   "t": 63.58,
    "trace": {
     "says": null,
     "control": null,
@@ -803,323 +864,8 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 63.19,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 64.2,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 65.2,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 66.19,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 67.2,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 68.21,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 69.21,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 70.19,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 71.2,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 72.19,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 73.2,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 74.2,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 75.21,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 76.19,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 77.19,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 78.2,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 79.21,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 80.2,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 81.21,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 82.22,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 83.22,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1180,
-     840
+     268,
+     855
     ],
     "moving": false
    }
@@ -1129,11 +875,11 @@
   {
    "name": "01-arrived",
    "why": "the claim, the raccoon in the hole",
-   "t": 6.91,
+   "t": 6.77,
    "file": "renders/proofs/prosperity/life/raw-captures-ignored/01-arrived.png",
    "hash": "acf87929bc6e7eab2db2219910e192e49b48fc5979d794a017d774c5957410ef",
    "room": "prosperity",
-   "clock": 6.536899999999999,
+   "clock": 6.42,
    "control": null,
    "says": null,
    "options": 0,
@@ -1220,11 +966,11 @@
   {
    "name": "02-the-claim",
    "why": null,
-   "t": 15.39,
+   "t": 15.28,
    "file": "renders/proofs/prosperity/life/raw-captures-ignored/02-the-claim.png",
    "hash": "5b05d95a2c197cfe725476641514384c720b57118d333bf8093896213a84f836",
    "room": "prosperity",
-   "clock": 15.0865,
+   "clock": 15.1197,
    "control": null,
    "says": null,
    "options": 0,
@@ -1311,11 +1057,11 @@
   {
    "name": "03-look-raccoon",
    "why": "where the words land (doc 55 section 8)",
-   "t": 26.36,
+   "t": 26.32,
    "file": "renders/proofs/prosperity/life/raw-captures-ignored/03-look-raccoon.png",
    "hash": "2028571625b05f68d7d446d99b53d01be1bf1e5e18c347318c892bfbda9bf294",
    "room": "prosperity",
-   "clock": 26.0694,
+   "clock": 26.052599999999998,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1402,11 +1148,11 @@
   {
    "name": "04-listen-hole",
    "why": "where the words land (doc 55 section 8)",
-   "t": 35.1,
+   "t": 35.14,
    "file": "renders/proofs/prosperity/life/raw-captures-ignored/04-listen-hole.png",
    "hash": "1597c600f3156afd648ea1f849c0ec498d45d5cc55b5a72e9c38143ef22e9f07",
    "room": "prosperity",
-   "clock": 34.9024,
+   "clock": 34.8355,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1493,11 +1239,11 @@
   {
    "name": "05-naming",
    "why": "three names and a refusal",
-   "t": 44.23,
+   "t": 44.35,
    "file": "renders/proofs/prosperity/life/raw-captures-ignored/05-naming.png",
    "hash": "8b930e5a326c05f43311f74b650ede6c68fcc926b453b24dcf8c294b3e4febc5",
    "room": "prosperity",
-   "clock": 43.935300000000005,
+   "clock": 44.185199999999995,
    "control": null,
    "says": null,
    "options": 5,
@@ -1584,11 +1330,11 @@
   {
    "name": "06-named",
    "why": "where the words land (doc 55 section 8)",
-   "t": 44.95,
+   "t": 45.06,
    "file": "renders/proofs/prosperity/life/raw-captures-ignored/06-named.png",
    "hash": "ae107017236170c9460ff2b46d484468a1faba7d45c0bc1bdfcb79ce9f5c00ca",
    "room": "prosperity",
-   "clock": 44.7353,
+   "clock": 44.8851,
    "control": null,
    "says": "thad",
    "options": 5,
@@ -1671,10 +1417,102 @@
    ],
    "stubs": [],
    "missingAssets": []
+  },
+  {
+   "name": "07-look-marker",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 55.56,
+   "file": "renders/proofs/prosperity/life/raw-captures-ignored/07-look-marker.png",
+   "hash": "11e10822eabfe418f402395dfd12512c0d39c0c392fa0c8e7ba0614d7d789348",
+   "room": "prosperity",
+   "clock": 55.284699999999994,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_RACCOON_NAMED",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 1,
+    "PRATT_OFFERS": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      268,
+      855
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 462,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      -6,
+      393,
+      547,
+      510
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:prosperity",
+     "path": "art/backgrounds/room-23-prosperity.png",
+     "drawn": "art/backgrounds/room-23-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a00c9435bdb5b8eb5bac6f32e3ffb9091db8958fcbd094a2e4536ffed57629f1"
+    },
+    {
+     "key": "art/actors/room-23-raccoon.png",
+     "path": "art/actors/room-23-raccoon.png",
+     "drawn": "art/actors/room-23-raccoon.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5d01d9cbdc7f4d4d483a6ed5f48eb0a602f6d657f041e5a74fca009fc2c93d69"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
   }
  ],
  "failures": [
-  "life action 25 (waitFor): route: waitFor {\"do\":\"waitFor\",\"says\":\"thad\",\"upTo\":30} timed out after 30s. It saw: room prosperity, control null, beat -, 0 option(s), handedOver true"
+  "working tree dirty; re-run with --allow-dirty to record it"
  ],
  "passed": false,
  "judgement": {
@@ -1687,7 +1525,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 85.79s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 66.46s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -1702,5 +1540,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T18:59:12.864Z"
+ "at": "2026-11-05T19:08:50.153Z"
 }
