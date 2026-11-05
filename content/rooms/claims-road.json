@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "claims_road",
   "name": "THE ROAD TO THE CLAIMS",
-  "materialIdentity": "A dirt road rutted a foot deep, sage and greasewood, the diggings' scars on the hills, the town's first lamps below; dusk (errata 95 A)",
+  "materialIdentity": "A dirt road rutted a foot deep, sage and greasewood, the diggings' scars on the hills, the town's first lamps below; night, the town's hour (errata 98)",
   "note": "Room 22, doc 20: the junction between the town and the diggings, built new at errata 54's size (the stub is retired). Main Street's THE ROAD TO THE CLAIMS leads here. Doc 10's two crowds walk the road (content/ambient/miners-*.json, errata 95 E). Doc 57 A4: the way up to the claims is offered only while Thad holds the map. Lines EXTRACTED from the documents by tools/extract-examine.mjs and compiled by tools/compile-room.mjs. Do not edit: change the docs and re-run.",
   "background": "art/backgrounds/room-22-claims-road.png",
   "colours": {

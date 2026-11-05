@@ -4,12 +4,14 @@
 // THE FRAME. Operation 2 took Thad and both groups of miners out (they are walkers,
 // errata 95 E). The master painted the whole canvas; the 20:9 crop from y 200 keeps
 // the town and the hills above and the road in front of the mile post.
+// NIGHT (Tyler, 2026-11-05: "Going from night back to dusk doesn't make sense"):
+// room-22 attempt 4 relit the empty plate to the town's hour, nothing moved.
 import { writeFileSync } from 'node:fs';
 import { deriveFixedRoomPlate } from './derive.mjs';
 import { runGates } from './gates.mjs';
 import { promoteProvisional } from './staging.mjs';
 
-const S = 'art/staging/room-22/plate-01';
+const S = 'art/staging/room-22/plate-night';
 const CROP = { x: 8, y: 200, width: 1520, height: 684 };
 const record = deriveFixedRoomPlate({ source: `${S}/source.png`, out: `${S}/candidate-1920x864.png`, crop: CROP });
 writeFileSync(`${S}/frame.json`, `${JSON.stringify({
@@ -20,7 +22,7 @@ console.log('derived', record.derived.path, record.derived.hash.slice(0, 12));
 if (process.argv.includes('--promote')) {
   const gates = runGates(`${S}/candidate-1920x864.png`, { kind: 'plate', expect: '1920x864' });
   if (!gates.passed) throw new Error('the plate fails its gates');
-  const done = promoteProvisional({ assetId: 'room-22', attempt: 2, derived: `${S}/candidate-1920x864.png`,
+  const done = promoteProvisional({ assetId: 'room-22', attempt: 4, derived: `${S}/candidate-1920x864.png`,
     provenance: `${S}/frame.json`, shippingPath: 'art/backgrounds/room-22-claims-road.png',
     gates: { ...gates, kind: 'plate' }, by: 'claude, Room 22 builder (doc 55 section 3, errata 72 E)' });
   console.log('promoted (pending acceptance)', done.to, done.hash.slice(0, 12));

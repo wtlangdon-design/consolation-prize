@@ -15996,6 +15996,360 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-05T17:35:01.451Z"
+  },
+  {
+   "attempt": 4,
+   "role": "plate",
+   "assetId": "room-22",
+   "subject": "room-22-claims-road",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/room-22/plate-01/source.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-22/prompts/plate-night.txt",
+   "promptHash": "5d36e0c839aec9355bbf97a7caf62fcd3aa34fdcc641168a5e150212c2a753d3",
+   "references": [
+    {
+     "path": "art/staging/room-22/plate-night/input.png",
+     "hash": "092fb1abd891be0ac3ead69be11bf134ea37423e80b1bf5389057259b0429600",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-22-claims-road",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-01-stage-road)",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "092fb1abd891be0ac3ead69be11bf134ea37423e80b1bf5389057259b0429600",
+   "sourcePath": "art/staging/room-22/plate-night/input.png",
+   "out": "art/staging/room-22/plate-night/source.png",
+   "outputHash": "64516b9a119771cdbf0b941fee926f044b91e399f2017f5706b92b9f5a7424e2",
+   "bytes": 2174000,
+   "usage": {
+    "input_tokens": 8738,
+    "input_tokens_details": {
+     "image_tokens": 8528,
+     "text_tokens": 210
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 10289
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-05T18:24:17.944Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-05T18:24:17.952Z"
+  },
+  {
+   "attempt": 4,
+   "role": "plate",
+   "assetId": "room-23",
+   "subject": "room-23-prosperity",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/room-23/plate-01/source.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-23/prompts/plate-night.txt",
+   "promptHash": "a6808952e8231f544e9a9b2db99b171e52d26b7b52c4a9409398cc55b6fcaee7",
+   "references": [
+    {
+     "path": "art/staging/room-23/plate-night/input.png",
+     "hash": "98291da098a9c8a64830d0653405336f4e5e0a4d409429e3963db866799fe5f6",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-23-prosperity",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-01-stage-road)",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "98291da098a9c8a64830d0653405336f4e5e0a4d409429e3963db866799fe5f6",
+   "sourcePath": "art/staging/room-23/plate-night/input.png",
+   "out": "art/staging/room-23/plate-night/source.png",
+   "outputHash": "bfe6b4886617e6916ab9380608cf44640732f8bbca614163a87e93a54c9a461f",
+   "bytes": 1795401,
+   "usage": {
+    "input_tokens": 8729,
+    "input_tokens_details": {
+     "image_tokens": 8528,
+     "text_tokens": 201
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+     "image_tokens": 343,
+     "text_tokens": 0
+    },
+    "total_tokens": 9072
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-05T18:24:36.812Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-05T18:24:36.814Z"
+  },
+  {
+   "attempt": 5,
+   "role": "plate",
+   "assetId": "room-25",
+   "subject": "room-25-pratts-claim",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/room-25/plate-02/source.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-25/prompts/plate-night.txt",
+   "promptHash": "1f7df47ac06bb9b7e25f27f14e6e8b0f3f64712f8ca5d9f82b4f27b5ba45165d",
+   "references": [
+    {
+     "path": "art/staging/room-25/plate-night/input.png",
+     "hash": "96da3e3557d674d47e1183b98860bf12efbbf335f6349fcc824e093d97fe18a1",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-25-pratts-claim",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-01-stage-road)",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "96da3e3557d674d47e1183b98860bf12efbbf335f6349fcc824e093d97fe18a1",
+   "sourcePath": "art/staging/room-25/plate-night/input.png",
+   "out": "art/staging/room-25/plate-night/source.png",
+   "outputHash": "3cf43e22663e43029ede0c08b300950d01db474ab32cf51205c9905dd795ce7a",
+   "bytes": 2073313,
+   "usage": {
+    "input_tokens": 8739,
+    "input_tokens_details": {
+     "image_tokens": 8528,
+     "text_tokens": 211
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+     "image_tokens": 343,
+     "text_tokens": 0
+    },
+    "total_tokens": 9082
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-05T18:25:03.394Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-05T18:25:03.396Z"
   }
  ],
  "promotions": [
@@ -17559,6 +17913,63 @@
    "acceptedBy": null,
    "by": "claude, Room 25 builder (doc 55 section 3, errata 72 E)",
    "at": "2026-11-05T17:35:30.178Z"
+  },
+  {
+   "assetId": "room-22",
+   "attempt": 4,
+   "from": "art/staging/room-22/plate-night/candidate-1920x864.png",
+   "derivedFrom": "art/staging/room-22/plate-night/source.png",
+   "provenance": "art/staging/room-22/plate-night/frame.json",
+   "to": "art/backgrounds/room-22-claims-road.png",
+   "hash": "88a5f4efd234d1e364a8669304ff72ec20f2d2e3051d9dd87dcab89f14942ba0",
+   "sourceHash": "64516b9a119771cdbf0b941fee926f044b91e399f2017f5706b92b9f5a7424e2",
+   "replacedHash": "2fa7d921a4f119b8ab0e66fc31c8c6d19e92b8422cf983f63c4b9492ed631439",
+   "gates": {
+    "passed": true,
+    "kind": "plate"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 22 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-05T18:25:30.630Z"
+  },
+  {
+   "assetId": "room-23",
+   "attempt": 4,
+   "from": "art/staging/room-23/plate-night/candidate-1920x864.png",
+   "derivedFrom": "art/staging/room-23/plate-night/source.png",
+   "provenance": "art/staging/room-23/plate-night/frame.json",
+   "to": "art/backgrounds/room-23-prosperity.png",
+   "hash": "cd47d1784cc93ce84ac772e0eb38fadbf297c8b6d1c758d3cb5efeada272b2ab",
+   "sourceHash": "bfe6b4886617e6916ab9380608cf44640732f8bbca614163a87e93a54c9a461f",
+   "replacedHash": "62990833d1a3af0d698f7cbade7ed4592bfb933648bd93be85cbb7e232e0a7f0",
+   "gates": {
+    "passed": true,
+    "kind": "plate"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 23 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-05T18:25:31.226Z"
+  },
+  {
+   "assetId": "room-25",
+   "attempt": 5,
+   "from": "art/staging/room-25/plate-night/candidate-1920x864.png",
+   "derivedFrom": "art/staging/room-25/plate-night/source.png",
+   "provenance": "art/staging/room-25/plate-night/frame.json",
+   "to": "art/backgrounds/room-25-pratts-claim.png",
+   "hash": "e9054b4f0d03be6334e662767c98fa3b79d9770b9b37d3ee69bd1a7f3699abff",
+   "sourceHash": "3cf43e22663e43029ede0c08b300950d01db474ab32cf51205c9905dd795ce7a",
+   "replacedHash": "dac7a2d50b612a60cc7f924d4b1b72f72a3f0a3b26b37b856833eb5a4b277374",
+   "gates": {
+    "passed": true,
+    "kind": "plate"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 25 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-05T18:25:32.121Z"
   }
  ],
  "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."

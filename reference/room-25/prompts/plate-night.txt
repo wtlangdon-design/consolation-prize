@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: a tidy gold claim on a hillside, with a lean-to, a sluice, a trench and sorted heaps, painted at dusk. Images 2 and 3 are other places in the same game, at NIGHT -- the hour the whole town is set at.
+
+Make exactly ONE change: relight image 1 to NIGHT, the same hour and the same light as images 2 and 3 -- a dark night sky with stars, no orange or sunset glow anywhere, the hills dark shapes against it, the ground and everything on it in dim, cool, blue moonlight with soft shadows, still readable. Any lamps or windows already in the picture may glow warm; add no new lights.
+
+Change nothing else. Same camera, same framing, same pixel grid, same big square pixels, every object exactly where it is and the same shape and size. No people, no animals, no text, no numerals. No border, no frame.
