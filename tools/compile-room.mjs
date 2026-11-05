@@ -308,6 +308,18 @@ function roomDocExits(text) {
     const head = /^##\s+(THE [A-Z' ]+?)\s*(?:→|->)\s*Room\s+\d+\s*$/.exec(line);
     if (head) { current = head[1].trim(); continue; }
     if (/^##\s/.test(line)) { current = null; continue; }
+    // AND ITS OVERRIDES. Doc 16 writes them as `> BACK ROOM DOOR · PUSH — "..."`
+    // under the exit's own heading. Nothing read them either, so the door's
+    // PUSH kept the live file's words after the doc was rewritten (errata 100's
+    // Room 3 pass). A row with no quoted line -- `OPEN — *(walks through)*` --
+    // is staging, not words, and is left as it was.
+    const override = /^>\s*[^·]+·.*?\b(OPEN|CLOSE|PUSH|PULL|USE|PICK UP|TALK TO)\s+—\s+"([^"]*)"\s*$/.exec(line);
+    if (override && current) {
+      if (!out.has(current)) out.set(current, {});
+      const entry = out.get(current);
+      entry.overrides = { ...(entry.overrides ?? {}), [VERBS[override[1]]]: override[2] };
+      continue;
+    }
     const row = /^\*\*(LOOK|LISTEN)\*\*\s+(.+)$/.exec(line);
     if (!row || !current) continue;
     const numbered = [...row[2].matchAll(/(\d+)\s*"([^"]*)"/g)]
@@ -1410,12 +1422,13 @@ built.exits = [...openExits, ...(live.exits ?? []).filter((e) => !subjectExits.s
   // exit the doc does not write keeps what the live file carries, as before.
   const written = exitLines.get(e.name);
   const responses = written ? Object.fromEntries(Object.entries(written)
-    .filter(([, v]) => v.first)
+    .filter(([verb, v]) => verb !== 'overrides' && v.first)
     .map(([verb, v]) => [verb, v.rest.length ? [{ say: v.first, repeat: v.rest }] : [{ say: v.first }]]))
     : null;
   return {
     ...rest,
     ...(responses && Object.keys(responses).length ? { responses: { ...(rest.responses ?? {}), ...responses } } : {}),
+    ...(written?.overrides ? { overrides: { ...(rest.overrides ?? {}), ...written.overrides } } : {}),
     ...(ann.exits[e.id] ? { rect: ann.exits[e.id] } : {}),
     ...(ann.exitWalkTo?.[e.id] ? { walkTo: ann.exitWalkTo[e.id] } : {}),
   };
