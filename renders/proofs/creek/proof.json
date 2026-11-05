@@ -1,0 +1,343 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "creek",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "c0fd01521ac78304014838a4a2877a534d5bf52a",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r26-a, then entered creek by control -- NOT proof that a player can reach it"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 691,
+    "xs": [
+     1045,
+     831,
+     1259,
+     618,
+     1473,
+     404,
+     1686,
+     190,
+     1900
+    ],
+    "expect": 282,
+    "x": 1045
+   },
+   "at": [
+    1045,
+    691
+   ],
+   "reportedHeight": 282,
+   "expected": 282,
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "bounds": [
+    899,
+    409,
+    292,
+    311
+   ],
+   "order": 0,
+   "renderedHeight": 282,
+   "renderedBottom": 690,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     1045,
+     831,
+     1259,
+     618,
+     1473,
+     404,
+     1686,
+     190,
+     1900
+    ],
+    "expect": 394,
+    "x": 1045
+   },
+   "at": [
+    1045,
+    857
+   ],
+   "reportedHeight": 394,
+   "expected": 394,
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
+   "bounds": [
+    841,
+    463,
+    408,
+    435
+   ],
+   "order": 0,
+   "renderedHeight": 394,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "man_panning",
+   "feet": [
+    1474,
+    640
+   ],
+   "sheet": "art/actors/room-26-panner.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1339,
+    "y": 487,
+    "width": 270,
+    "height": 155
+   },
+   "seen": {
+    "x": 1340,
+    "y": 502,
+    "width": 157,
+    "height": 138,
+    "bottom": 639,
+    "right": 1496,
+    "changed": 9206
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "creek",
+   "clock": 9.3251,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 349,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      79,
+      441,
+      362,
+      385
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:creek",
+     "path": "art/backgrounds/room-26-creek.png",
+     "drawn": "art/backgrounds/room-26-creek.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2423285fa11828740e609778ccecc461c5bd5fdf22b0a1a0c0937a0714ea32ad"
+    },
+    {
+     "key": "art/actors/room-26-panner.png",
+     "path": "art/actors/room-26-panner.png",
+     "drawn": "art/actors/room-26-panner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f1edd94c21cace4efcd367a83e81f2a7c512a240b67bbf4d3ff426371142109"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(creek)"
+   ],
+   "capturedAt": "2026-11-05T19:34:16.408Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "d0c94f8aab93beed2896040977efec8c85f8d3ff80757bd6294de73df2d0b0da"
+  },
+  {
+   "panel": "A",
+   "room": "creek",
+   "clock": 10.2084,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_EGGS_ON_ACCOUNT",
+    "T_TONIC_ON_ACCOUNT",
+    "T_BLANKET_BORROWED",
+    "T_SEEN_CLAIMS_ROAD"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      260,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 349,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:creek",
+     "path": "art/backgrounds/room-26-creek.png",
+     "drawn": "art/backgrounds/room-26-creek.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2423285fa11828740e609778ccecc461c5bd5fdf22b0a1a0c0937a0714ea32ad"
+    },
+    {
+     "key": "art/actors/room-26-panner.png",
+     "path": "art/actors/room-26-panner.png",
+     "drawn": "art/actors/room-26-panner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9f1edd94c21cace4efcd367a83e81f2a7c512a240b67bbf4d3ff426371142109"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(creek)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-05T19:34:17.285Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "fa51c193682589cc32dbdad4fd7068e2635809dc96eff1c6dc2922a72e1e5e27"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T19:34:21.524Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 432224,
+  "panels": 4,
+  "scale": 0.5
+ }
+}

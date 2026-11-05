@@ -1,0 +1,40 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 26, the creek & sluice. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r26-a",
+   "label": "R26-A Act I, at the creek: the man panning, the sluice across the water",
+   "room": "creek",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_EGGS_ON_ACCOUNT": true,
+    "T_TONIC_ON_ACCOUNT": true,
+    "T_BLANKET_BORROWED": true,
+    "T_SEEN_CLAIMS_ROAD": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "deed"
+   ],
+   "derivedFrom": [
+    "docs/05-examine-layer.md::ROOM 26 — THE CREEK & SLUICE",
+    "docs/54-batch-c.md::ROOM 26 · THE CREEK & SLUICE"
+   ],
+   "note": "No puzzle is sited here (doc 02). LOOK and LISTEN at the ten subjects; the man panning does not speak."
+  }
+ ]
+}

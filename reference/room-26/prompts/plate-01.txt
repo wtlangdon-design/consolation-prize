@@ -1,0 +1,8 @@
+Image 1 is a finished background from my pixel-art adventure game: a creek in the gold diggings at night, with a man in a long blue coat standing on the near bank and a miner crouched at the water's edge with a pan, a long wooden sluice on the far bank, a willow at the left and a headgate at the right.
+
+Make exactly these changes:
+1. Remove the man in the blue coat. Paint the trodden mud of the near bank behind him.
+2. Remove the crouching miner and his pan. Paint the water's edge and the bank behind him.
+3. On the near (left) end of the sluice, add one small dark iron flask, about the size of a man's hand, hanging from the box on a short chain. Nothing else is added.
+
+Change nothing else. Same camera, same pixel grid, same big square pixels, same colours, same night light, same objects in the same places: the willow and the pan in its branches, the sluice, the headgate, the creek, the far bank, the sky. Leave the light grey strips above and below the picture exactly as they are. No people, no shadows of people, no text, no numerals.

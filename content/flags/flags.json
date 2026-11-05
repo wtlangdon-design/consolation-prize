@@ -1163,6 +1163,15 @@
    ],
    "note": "Doc 04 PRA_D6 option 5: 'Yep. Sump closes at four.' Doc 57 D6: the next time Thad enters the Registrar's, Pratt is at the counter. That scene is Room 7's and is not staged yet (doc 36 Q167).",
    "pending": true
+  },
+  {
+   "id": "T_SEEN_CLAIMS_ROAD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:claims_road:entry"
+   ],
+   "note": "Thad has walked the road to the claims. Doc 20: the diggings are reached 'via 22', the junction; each goes on the map from then (errata 99 A)."
   }
  ]
 }

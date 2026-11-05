@@ -1,0 +1,192 @@
+{
+ "room": 26,
+ "note": "Ruling 22 steps 1-6 for the creek, written by tools/room26-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 99).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 705,
+   "height": 300
+  },
+  "near": {
+   "y": 855,
+   "height": 400
+  },
+  "from": "Room 5's slope, a little smaller than Room 13's"
+ },
+ "walkable": [
+  150,
+  705,
+  1740,
+  150
+ ],
+ "exit": {
+  "hotspot": "THE WAY BACK TO THE ROAD",
+  "to": "claims_road",
+  "rect": [
+   0,
+   520,
+   140,
+   330
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 220,
+   "y": 790,
+   "facing": "right"
+  },
+  "by_the_sluice": {
+   "x": 1000,
+   "y": 780,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE WAY BACK TO THE ROAD",
+   "rect": [
+    0,
+    520,
+    140,
+    330
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WILLOW",
+   "rect": [
+    150,
+    180,
+    300,
+    470
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE DISCARDED PAN",
+   "rect": [
+    380,
+    610,
+    70,
+    40
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SLUICE",
+   "rect": [
+    760,
+    430,
+    860,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE RIFFLES",
+   "rect": [
+    800,
+    470,
+    220,
+    60
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MERCURY FLASK",
+   "rect": [
+    1150,
+    575,
+    50,
+    60
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE HEADGATE",
+   "rect": [
+    1620,
+    390,
+    170,
+    190
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MAN PANNING",
+   "rect": [
+    520,
+    560,
+    120,
+    140
+   ],
+   "where": "figure"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the willow, the sluice and the man panning are all behind it, at the water, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "the creek",
+   "p10": 66.0,
+   "p90": 86.0,
+   "darkAnchorMargin": 40.5,
+   "lightAnchorMargin": 35.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "the near bank",
+   "p10": 92.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 66.5,
+   "lightAnchorMargin": 29.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WAY BACK TO THE ROAD",
+   "p10": 100.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 74.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE WILLOW",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SLUICE",
+   "p10": 78.0,
+   "p90": 86.0,
+   "darkAnchorMargin": 52.5,
+   "lightAnchorMargin": 35.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE RIFFLES",
+   "p10": 78.0,
+   "p90": 78.0,
+   "darkAnchorMargin": 52.5,
+   "lightAnchorMargin": 43.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE HEADGATE",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 63.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

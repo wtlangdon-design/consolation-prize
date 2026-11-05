@@ -161,7 +161,7 @@ async function waitFor(page, want, upTo, why) {
     // And a wait for the conversation's list reads through its GREETING: an
     // opening exchange (Frame's) is a line up and not an exchange performing,
     // and it waits for its clicks too.
-    const reading = last?.performing || ((want.dialogue === true || want.idle === true) && last?.says && !last?.options);
+    const reading = last?.performing || (want.dialogue === true && last?.says && !last?.options);
     if ((want.says === undefined || (last?.says && last.says !== want.says)) && READS_BY_CLICK
       && reading && Date.now() - lineSince >= READ_MS) {
       await clickScreen(page, NATIVE.width / 2, PLAY.height / 2);
@@ -172,13 +172,14 @@ async function waitFor(page, want, upTo, why) {
       if (want.control !== undefined && last.control === want.control) return last;
       if (want.dialogue === true && last.options > 0 && !last.performing) return last;
       if (want.handedOver === true && last.handedOver) return last;
-      // NOTHING SAID AND NOTHING TO CHOOSE: the conversation is over and its
-      // last line read. Under conversationWaitsForClick a line holds until it
-      // is clicked, so a fixed wait after one never ends it, and the route's
-      // next click was spent on the line instead of the room (Room 23's life
-      // route: the LOOK at the marker skipped the raccoon's naming instead).
-      // The loop above clicks through the lines while this waits.
-      if (want.idle === true && !last.performing && !last.says && !(last.options > 0)) return last;
+      // NO CONVERSATION PLAYING AND NOTHING TO CHOOSE. Under
+      // conversationWaitsForClick an exchange performs until it is clicked, so
+      // a fixed wait after one never ends it, and the route's next click was
+      // spent on the line instead of the room (Room 23's life route: the LOOK
+      // at the marker skipped the raccoon's naming instead). The loop above
+      // clicks the exchange through while this waits. An examine line up is
+      // not a conversation: clicking it through walked Thad away (Room 26).
+      if (want.idle === true && !last.performing && !(last.options > 0)) return last;
       if (want.flag !== undefined && last.flags.includes(want.flag)) return last;
       // A LINE BY A SPEAKER IS UP. `says` is the probe's speaker id, never the
       // words. A capture that wants to land INSIDE a reading hold waits on

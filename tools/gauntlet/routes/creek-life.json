@@ -1,0 +1,109 @@
+{
+ "schema": 1,
+ "room": "creek",
+ "note": "ROOM 26's LIFE ROUTE, ruling 47: about a minute and a half at the creek, starting there (fixture r26-a). The man panning breathes, peers, tips and swirls. LOOK at him, LISTEN to the creek, LOOK at the sluice.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-arrived",
+   "why": "the creek, the man panning"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "02-the-creek"
+  },
+  {
+   "do": "wait",
+   "seconds": 7
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "man_panning",
+   "why": "THE MAN PANNING"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "03-look-man",
+   "why": "where the words land (doc 55 section 8)"
+  },
+  {
+   "do": "waitFor",
+   "idle": true,
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "creek",
+   "why": "THE CREEK"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "04-listen-creek"
+  },
+  {
+   "do": "waitFor",
+   "idle": true,
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "sluice",
+   "why": "THE SLUICE"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "05-look-sluice"
+  },
+  {
+   "do": "wait",
+   "seconds": 20
+  },
+  {
+   "do": "capture",
+   "name": "06-still-panning"
+  },
+  {
+   "do": "wait",
+   "seconds": 15
+  }
+ ]
+}

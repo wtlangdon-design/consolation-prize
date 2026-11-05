@@ -123,6 +123,7 @@ Stop the room, not the build, and say so in doc 36 and to Tyler, when:
 | 25 | 2026-11-05 | #128, #129 | 4 of 4 (master, plate, Pratt's sheet, the plate relit to dusk) | Pratt's claim, built new at dusk (Tyler: as next door): Pratt raking, his five trees and the offer that ends every conversation; A5's fourth way (`?fixture=r25-a`); D2 on Prosperity in Act II (`?fixture=r25-c`) and at his claim, D5's turn (`?fixture=r25-b`); next door from Prosperity and on the map with the map. `?room=pratts_claim`. D6's counter scene in Room 7 waits (doc 36 Q167, errata 97) |
 | 22, 23/24, 25 | 2026-11-05 | #130 | one each (room-22 4 of 4, room-23 4 of 4, room-25 5 of 5) | The diggings relit to night, the town's hour (Tyler: "Going from night back to dusk doesn't make sense"); every figure graded into it; nothing moved (errata 98) |
 | 23/24, 25 | 2026-11-05 | #131 | room-25 6 of 6 (the embers) | Prosperity and Pratt's claim lifted to the approved night rooms' level; the coffee fire's embers on Pratt's claim, its one warm light (errata 98 D) |
+| 26 | 2026-11-05 | #132 | 3 of 4 (master, plate, the man panning) | The creek and the community sluice at night: ten subjects, the man panning at the water; on the map once the road to the claims has been walked. `?room=creek`. No puzzle sited (doc 36 Q168, errata 99) |
 
 ## 8 · What playing found — held by a script where a script can hold it
 
