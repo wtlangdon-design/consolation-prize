@@ -4,7 +4,7 @@
  "room": "back_alley",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "56c54f923f21ba8dae293571ded8dc21e0d9a034",
+ "commit": "456d1bfa74243aa089294b63a19ff7f4c481ab3e",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -47,7 +47,12 @@
   "action 33 (click): clicked main_street/to_back_alley at world 29,510 -- THE BACK LOTS",
   "action 34 (waitFor): reached {\"room\":\"back_alley\"} in room back_alley",
   "action 35 (wait): waited 3s",
-  "action 1 (wait): waited 3s"
+  "action 1 (click): clicked back_alley/to_main_street at world 190,480 -- out, so the alley is arrived at again with the flag set",
+  "action 2 (waitFor): reached {\"room\":\"main_street\"} in room main_street",
+  "action 3 (wait): waited 2s",
+  "action 4 (click): clicked main_street/to_back_alley at world 29,510 -- and back in: Hob is on his rounds",
+  "action 5 (waitFor): reached {\"room\":\"back_alley\"} in room back_alley",
+  "action 6 (wait): waited 3s"
  ],
  "depthMarks": [
   {
@@ -75,7 +80,7 @@
    ],
    "reportedHeight": 259,
    "expected": 259,
-   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-02.png",
    "bounds": [
     430,
     447,
@@ -83,8 +88,8 @@
     286
    ],
    "order": 0,
-   "renderedHeight": 259,
-   "renderedBottom": 705,
+   "renderedHeight": 260,
+   "renderedBottom": 706,
    "file": "raw-captures-ignored/panel-c-mud_far-far.png"
   },
   {
@@ -112,7 +117,7 @@
    ],
    "reportedHeight": 361,
    "expected": 361,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-01.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-06.png",
    "bounds": [
     848,
     496,
@@ -143,13 +148,13 @@
     "height": 58
    },
    "seen": {
-    "x": 439,
-    "y": 500,
-    "width": 46,
-    "height": 58,
-    "bottom": 557,
-    "right": 484,
-    "changed": 2190
+    "x": 445,
+    "y": 501,
+    "width": 33,
+    "height": 56,
+    "bottom": 556,
+    "right": 477,
+    "changed": 1190
    },
    "props": []
   }
@@ -158,7 +163,7 @@
   {
    "panel": "B",
    "room": "back_alley",
-   "clock": 154.2339,
+   "clock": 154.66570000000002,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -201,7 +206,7 @@
      "height": 282,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
       114,
       458,
@@ -236,15 +241,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-05T08:27:02.658Z",
+   "capturedAt": "2026-11-05T08:37:03.045Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "5af3a55db64b6811eadc099d813225da6640c181d9d0af4893615548d6771510"
+   "hash": "1ed8fcd966a69198713fe352310c3637d21f23059acddac8f588f4a6089543c7"
   },
   {
    "panel": "A",
    "room": "back_alley",
-   "clock": 155.4172,
+   "clock": 155.91570000000002,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -283,7 +288,7 @@
       740
      ],
      "facing": "right",
-     "clip": "idle",
+     "clip": "idle-break",
      "height": 282,
      "moving": false,
      "drawn": "sprite",
@@ -319,15 +324,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T08:27:03.822Z",
+   "capturedAt": "2026-11-05T08:37:04.135Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "04e8e10e05cf3f1c09024cdd16782fc2354656c0589473663090505785d244d2"
+   "hash": "c48355c05a815d2f1625a20d8862c3b032d3f819768b4a76b343abe97db05643"
   },
   {
    "panel": "D",
    "room": "back_alley",
-   "clock": 165.7501,
+   "clock": 172.3316,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -363,20 +368,20 @@
    "movers": {
     "thad": {
      "at": [
-      1035,
-      857
+      260,
+      740
      ],
      "facing": "right",
      "clip": "idle",
-     "height": 361,
+     "height": 282,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
-      848,
-      496,
-      374,
-      399
+      114,
+      458,
+      292,
+      311
      ],
      "order": 0,
      "clipLevel": 0,
@@ -401,6 +406,14 @@
      "candidate": false,
      "loaded": true,
      "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+    },
+    {
+     "key": "art/actors/room-20-hob.png",
+     "path": "art/actors/room-20-hob.png",
+     "drawn": "art/actors/room-20-hob.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "aec4426527b2b98bc8b211200dc83b14b6f6307d9c5d79e6b3395a873a4a6aa7"
     }
    ],
    "stubs": [],
@@ -416,10 +429,10 @@
     "cast(true)",
     "flag T_EXECUTOR_RULE=true"
    ],
-   "capturedAt": "2026-11-05T08:27:14.147Z",
-   "intent": "principal changed state: T_EXECUTOR_RULE. Visible consequence: Hob, with his lantern, before the Company's side door.",
+   "capturedAt": "2026-11-05T08:37:20.753Z",
+   "intent": "principal changed state: T_EXECUTOR_RULE. Visible consequence: Hob, with his lantern, before the Company's side door. Who is in a room is decided as Thad arrives, so the panel steps out to the street and back in.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "37c0df59ff58eed20f0fe2a49c465ef867a6fe24e7665f5c1de863a9771426af",
+   "hash": "eb141131520e1f1e9b54fa12ca9e1276ac46bd9e781588d080bf6c0edccf4672",
    "changedBy": "flags"
   }
  ],
@@ -450,11 +463,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T08:27:14.147Z",
+ "at": "2026-11-05T08:37:20.754Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 383178,
+  "bytes": 384832,
   "panels": 5,
   "scale": 0.5
  }
