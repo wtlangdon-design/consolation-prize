@@ -31,7 +31,7 @@
     {
       "name": "THE FILING LADDER",
       "LOOK_AT": [
-        "A ladder on a rail, for reaching the years nobody asks about. The wheels are rusted at 1858 and shine at the present.",
+        "A ladder on a rail, for reaching the years nobody asks about. The wheels are rusted at 1846 and shine at the present.",
         "The rungs are worn smooth in the middle, the way rungs are.",
         "From the top rung you can touch the ceiling and the oldest box in the district at once."
       ],
@@ -41,7 +41,7 @@
         "Nothing. It has been put back exactly where it was, which is to say, used."
       ],
       "overrides": {
-        "PUSH": "It rolls to 1858 and stops of its own accord, like a horse that knows the route."
+        "PUSH": "It rolls to 1846 and stops of its own accord, like a horse that knows the route."
       }
     },
     {

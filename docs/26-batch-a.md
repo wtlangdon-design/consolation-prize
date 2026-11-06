@@ -64,7 +64,7 @@
 **LISTEN** 1 "Nothing." · 2 "Nothing." · 3 "Nothing. It is a bed and it is waiting, which is what they do."
 
 ### THE WASHSTAND
-**LOOK** 1 "A washstand, a jug, a basin, and a piece of mirror the size of my hand." · 2 "The water is brought up cold at six and is cold at six." · 3 "I've shaved in a piece of mirror the size of my hand every day for eleven weeks, and I'm beginning to take a view about it."
+**LOOK** 1 "A washstand, a jug, a basin, and a piece of mirror the size of my hand." · 2 "The water is brought up cold at six and is cold at six." · 3 "I shave in a piece of mirror the size of my hand, and I'm beginning to take a view about it."
 **LISTEN** 1 "Nothing. Water, when I move it." · 2 "Nothing." · 3 "Nothing."
 
 ### THE COAT ON THE DOOR

@@ -317,7 +317,7 @@
       },
       "overrides": {
         "PULL": "It's screwed on. Thoroughly. Somebody paid extra for it to stay put.",
-        "TALK_TO": "I've spoken to the building it's attached to. It went badly, and I haven't recovered."
+        "TALK_TO": "I'm not going to talk to the sign. I'll talk to the man inside, when he'll see me."
       },
       "walkTo": {
         "x": 668,
@@ -587,14 +587,14 @@
             "say": "Not a sound. The quietest doorway on the street, and it's never still.",
             "repeat": [
               "Not a sound, and somebody is always going in.",
-              "Nothing at all. Not one raised voice in eleven weeks."
+              "Nothing at all. I've never once heard a raised voice through that door."
             ]
           }
         ]
       },
       "overrides": {
         "PUSH": "It opens inward, which is a decision somebody made.",
-        "TALK_TO": "I've spoken to the man behind that door. I came away with a map, and I'm no longer sure what I gave him.",
+        "TALK_TO": "Talking to the door won't get me in. The men who go in come out holding maps.",
         "CLOSE": "It closes on its own, slowly, and without a sound. Somebody paid for that too."
       },
       "defaultVerb": "OPEN",
@@ -663,7 +663,7 @@
             "say": "The road out to the diggings. Worn a foot deep by boots — which is more dirt than anybody out there has shifted on purpose.",
             "repeat": [
               "Two miles. It looks further in the morning and considerably further at night.",
-              "Somewhere down there is forty feet of mud that's legally mine. I can't wait to see it."
+              "Somewhere down there is forty feet of mud for any man fool enough to buy it."
             ]
           }
         ],

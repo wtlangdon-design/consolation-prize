@@ -58,7 +58,7 @@ Where a specific line exists it takes precedence over the pool.
 
 **THE IMPROVEMENT COMPANY SIGN**
 > PULL — "It's screwed on. Thoroughly. Somebody paid extra for it to stay put."
-> TALK TO — "I've spoken to the building it's attached to. It went badly, and I haven't recovered."
+> TALK TO — "I'm not going to talk to the sign. I'll talk to the man inside, when he'll see me."
 
 **THE WATER TROUGH**
 > USE — "I've drunk from it once. The “once” is doing a great deal of work in that sentence." *(doc 49 supersedes the original line here)*

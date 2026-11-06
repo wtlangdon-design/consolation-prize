@@ -162,6 +162,7 @@ Every row here shipped past a green suite and was found by Tyler playing, by a r
 
 ### Not caught — the process that worked
 
+- **A line readable before the event it assumes.** "Eleven weeks" on the first night, the Company's map before Fanshawe, "my watch" after Vessel has it (doc 91). No script knows when a sentence becomes true. **After a room's lines are written, read every ungated line as Thad on his first night and ask whether it is true yet** (doc 59 rule 11).
 - **A line that needs a second read.** Period slang that hides the joke fails on screen even when the joke is good: Vessel's "Producing, mind." (Tyler, 2026-11-05, after the Room 3 voice pass). **Read every rewritten line once, at speed, as someone who does not know the joke's setup; if a word is jargon, say the plain thing and keep the joke under it** (doc 59 rule 8).
 - **Cutting a figure out of a painted plate.** It carries the wall, loses dark clothes against dark walls, or slices a leg off (Room 4's Sowerby took four rounds). **Generate every new figure whole on magenta and key him.** Never cut a figure from an image where anything stands in front of him (e700515).
 - **Light and colour.** A figure or prop that is right by the numbers can still read wrong (Deke's lighting, the barrel's brightness, twice). **Render three versions in the room at game size and let Tyler pick**; a small nudge after that ("ever so slightly brighter") is a number, not a new image.
