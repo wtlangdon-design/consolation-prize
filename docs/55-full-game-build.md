@@ -155,9 +155,11 @@ Every row here shipped past a green suite and was found by Tyler playing, by a r
 | A place on the map could not be clicked: another place's label ran across its marker | The registrar, Room 7's only built way in, under the undertaker's label (errata 80 H) | `tests/map.test.ts` — every place that can be travelled to is reached by its own marker, in every fixture's state |
 | A scene that leads to another room changed rooms before its lines were read | The archive door's exchange hung its first line over the archive and lost the rest (errata 81 F) | `tests/room-08.test.ts` — a response with lines and a destination reports `goesTo` and does not change the room itself |
 | A character standing still | The back row in Room 4 | `tests/movement.test.mjs` (errata 77) |
+| A room line the doc changed never reached the game | The Nugget back-room door's PUSH after the voice pass (#140) | `tools/check-room-lines-sourced.mjs` — every line a room speaks is in /docs |
 
 ### Not caught — the process that worked
 
+- **A line that needs a second read.** Period slang that hides the joke fails on screen even when the joke is good: Vessel's "Producing, mind." (Tyler, 2026-11-05, after the Room 3 voice pass). **Read every rewritten line once, at speed, as someone who does not know the joke's setup; if a word is jargon, say the plain thing and keep the joke under it** (doc 59 rule 8).
 - **Cutting a figure out of a painted plate.** It carries the wall, loses dark clothes against dark walls, or slices a leg off (Room 4's Sowerby took four rounds). **Generate every new figure whole on magenta and key him.** Never cut a figure from an image where anything stands in front of him (e700515).
 - **Light and colour.** A figure or prop that is right by the numbers can still read wrong (Deke's lighting, the barrel's brightness, twice). **Render three versions in the room at game size and let Tyler pick**; a small nudge after that ("ever so slightly brighter") is a number, not a new image.
 - **Staging taste.** Whether a character feels anchored or "floating in the middle of the room" is Tyler's. Put talkers by furniture (a bar, a barrel) rather than on open floor, and show him the frame before merging.
