@@ -10,7 +10,7 @@
 ## Newly written
 
 ### THE SETTEE
-**LOOK** 1 "A settee in worn blue plush, gone shiny at both arms and nowhere in the middle." · 2 "Two men have sat at either end of this for years and neither has moved to the center." · 3 "It is the only comfortable thing I have seen since the coach, and the coach was not comfortable."
+**LOOK** 1 "A settee in worn blue plush, gone shiny at both arms and nowhere in the middle." · 2 "Two men have sat at either end of this for years and neither has moved to the center." · 3 "It's the only comfortable thing I've seen since the coach, and the coach wasn't comfortable."
 **LISTEN** 1 "Nothing. Horsehair, settling." · 2 "Nothing." · 3 "Nothing. Nobody is sitting on it and nobody is going to."
 
 ### THE STAIRS
@@ -27,21 +27,21 @@
 
 ## Repeat variants for docs 09's four
 
-**THE REGISTER** — LOOK 2 "Forty-one names. I have read all of them and I do not know one." · 3 "Mine is the last, and it is spelled in a way I have not previously encountered." | LISTEN 2 "Nothing." · 3 "Nothing. It is a list of people who are elsewhere."
+**THE REGISTER** — LOOK 2 "Forty-one names. I've read all of them, and I don't know one." · 3 "Mine is the last, and it's spelled in a way I haven't previously encountered." | LISTEN 2 "Nothing." · 3 "Nothing. It is a list of people who are elsewhere."
 
-**THE KEY RACK** — LOOK 2 "Four out of forty. The four are not near each other." · 3 "Number nineteen is mine. I have looked at it more than a man should look at a key." | LISTEN 2 "Nothing." · 3 "Brass on wood, faintly, when the door goes."
+**THE KEY RACK** — LOOK 2 "Four out of forty. The four are not near each other." · 3 "Number nineteen is mine! I've looked at it more than a man should look at a key." | LISTEN 2 "Nothing." · 3 "Brass on wood, faintly, when the door goes."
 
 **THE ENGRAVING** — LOOK 2 "The Bay of Naples, in a mining camp, four hundred miles from a paved road." · 3 "It is hung too high, which suggests it was hung by somebody who did not want it looked at closely." | LISTEN 2 "Nothing." · 3 "Nothing. It is a long way from home and so am I, and only one of us is framed."
 
-**THE CLOCK** — LOOK 2 "Nineteen minutes off the Registrar's, and neither has ever been challenged." · 3 "It is slow. In this town that is nearly an act of kindness." | LISTEN 2 "Ticking. Slow." · 3 "Ticking. I am not going to say anything."
+**THE CLOCK** — LOOK 2 "Nineteen minutes off the Registrar's, and neither has ever been challenged." · 3 "It is slow. In this town that is nearly an act of kindness." | LISTEN 2 "Ticking. Slow." · 3 "Ticking. I'm still not going to say anything."
 
 ## Overrides
 
 > **THE REGISTER** · PICK UP — "It is the register. It stays on the desk and the desk stays where it is."
 > **THE KEY RACK** · PICK UP — "One of those is mine and the other thirty-nine are a matter for the management."
 > **THE ENGRAVING** · PICK UP — "It is hung too high for a man who has not been invited to touch it."
-> **THE CLOCK** · USE — "I have been asked not to."
-> **THE SETTEE** · USE — "I have sat on it. That is what happened next."
+> **THE CLOCK** · USE — "I've been asked not to."
+> **THE SETTEE** · USE — "I've sat on it. That's what happened next."
 > **THE STOVE** · OPEN — "Cold, and empty, and it has been both for some time."
 
 ## Exits
@@ -60,15 +60,15 @@
 ## Newly written
 
 ### THE BED
-**LOOK** 1 "A bed, made, narrow, and the sheets are clean. I had not expected the sheets to be clean." · 2 "It is the only thing in Consolation that has exceeded my expectations." · 3 "Five dollars a week. I have decided the sheets are most of it."
+**LOOK** 1 "A bed, made, narrow, and the sheets are clean. I hadn't expected the sheets to be clean." · 2 "It is the only thing in Consolation that has exceeded my expectations." · 3 "Five dollars a week. I have decided the sheets are most of it."
 **LISTEN** 1 "Nothing." · 2 "Nothing." · 3 "Nothing. It is a bed and it is waiting, which is what they do."
 
 ### THE WASHSTAND
-**LOOK** 1 "A washstand, a jug, a basin, and a piece of mirror the size of my hand." · 2 "The water is brought up cold at six and is cold at six." · 3 "I have shaved in a piece of mirror the size of my hand every day for eleven weeks and I am beginning to take a view about it."
+**LOOK** 1 "A washstand, a jug, a basin, and a piece of mirror the size of my hand." · 2 "The water is brought up cold at six and is cold at six." · 3 "I've shaved in a piece of mirror the size of my hand every day for eleven weeks, and I'm beginning to take a view about it."
 **LISTEN** 1 "Nothing. Water, when I move it." · 2 "Nothing." · 3 "Nothing."
 
 ### THE COAT ON THE DOOR
-**LOOK Acts I–II** 1 "My good coat. The only thing I own that suggests I was once somebody's son with prospects." · 2 "It has mud to the knee and I have stopped attending to it." · 3 "Providence made this coat for a man walking to an office."
+**LOOK Acts I–II** 1 "My good coat. The only thing I own that suggests I was once somebody's son with prospects." · 2 "It has mud to the knee, and I've stopped attending to it." · 3 "Providence made this coat for a man walking to an office."
 **LISTEN** 1 "Nothing." · 2 "Nothing." · 3 "Nothing."
 
 ### THE WALL
@@ -91,20 +91,20 @@
 
 **THE TUNING FORK CASE** — LOOK 2 "Velvet-lined, and worth more than the fork it was made for." · 3 "It is the most cared-for object I own and it is a box." | LISTEN 2 "Nothing, closed." · 3 "Nothing."
 
-**THE WINDOW** — LOOK 2 "The alley. A cat, some barrels, and the back of the Improvement Company." · 3 "One story, from here. From the street it is three. I have checked from both." | LISTEN 2 "The cat is on the barrels again. She gets up there and then reconsiders." · 3 "Nothing. Whoever was unloading has stopped, and the quiet is worse." *(Both rewritten — the old 2 and 3 were doc 08's variant 1 cut in half.)*
+**THE WINDOW** — LOOK 2 "The alley. A cat, some barrels, and the back of the Improvement Company." · 3 "One story, from here. From the street it's three. I've checked from both." | LISTEN 2 "The cat is on the barrels again. She gets up there and then reconsiders." · 3 "Nothing. Whoever was unloading has stopped, and the quiet is worse." *(Both rewritten — the old 2 and 3 were doc 08's variant 1 cut in half.)*
 
 ## Overrides
 
 > **THE BED** · USE — "It is nine in the morning."
 > **THE WASHSTAND** · USE — "I have washed. It made less difference than I hoped."
 > **HIS MOTHER'S LETTERS** · PICK UP — "I have them. I have had them since Sacramento."
-> **THE COAT** · PICK UP — "I am wearing the other one, which is this one."
+> **THE COAT** · PICK UP — "I'm wearing the other one, which is this one."
 > **THE WALL** · PUSH — "It gives. I am going to stop pushing it."
 
 ## Exit
 
 **THE DOOR → Room 18**
-**LOOK** 1 "The door down to the lobby. Number nineteen, in brass, hung slightly crooked." · 2 "Nineteen. The nine has been on and off more than once." · 3 "It locks. It is the only door I have ever had that locks and I do not lock it."
+**LOOK** 1 "The door down to the lobby. Number nineteen, in brass, hung slightly crooked." · 2 "Nineteen. The nine has been on and off more than once." · 3 "It locks. It's the only door I've ever had that locks, and I don't lock it."
 **LISTEN** 1 "The lobby. A clock, and somebody on the landing." · 2 "Still the clock." · 3 "Nothing."
 
 ---

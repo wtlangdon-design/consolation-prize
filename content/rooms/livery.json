@@ -112,7 +112,7 @@
             "say": "A kitchen chair tipped back against the wall at the exact angle of a man who has seen everything once.",
             "repeat": [
               "The back legs are worn short. He has tipped it for so many years the chair has adapted.",
-              "It faces Grievance's stall. He sits where he can see her. I have yet to see her return the courtesy."
+              "It faces Grievance's stall. He sits where he can see her. I've yet to see her return the courtesy."
             ]
           }
         ],
@@ -120,7 +120,7 @@
           {
             "say": "A creak as it settles back onto four legs.",
             "repeat": [
-              "Nothing. It is waiting for him, and it can wait.",
+              "Nothing. It's waiting for him, and it can wait.",
               "The chair ticks against the wall in the draft, as if he were still in it, rocking."
             ]
           }
@@ -226,7 +226,7 @@
             "say": "Oats, at a level she monitors precisely. The livery man says she can count.",
             "repeat": [
               "The lid has a latch she has learned to work and a second latch she has decided not to, as a courtesy.",
-              "The level has not gone down while I have been here. She is watching me watch it."
+              "The level hasn't gone down while I've been here. She's watching me watch it."
             ],
             "then": [
               "He says it without smiling."
@@ -276,7 +276,7 @@
           {
             "say": "Nothing. It is saving its one note.",
             "repeat": [
-              "Nothing, though I can hear it anyway: a high clean A, if it is any good. I am not going to strike it to find out.",
+              "Nothing, though I can hear it anyway: a high clean A, if it's any good. I'm not going to strike it to find out. I want to.",
               "Nothing. An anvil at rest is the quietest iron there is."
             ]
           }
@@ -367,8 +367,8 @@
         ]
       },
       "overrides": {
-        "USE": "You do not use Grievance. You are, if she consents, briefly adjacent to her purposes.",
-        "PUSH": "I have pushed buildings with more give."
+        "USE": "I don't use Grievance. I am, if she consents, briefly adjacent to her purposes.",
+        "PUSH": "I've pushed buildings with more give."
       },
       "walkTo": {
         "x": 1123,
@@ -482,7 +482,7 @@
         ]
       },
       "overrides": {
-        "USE": "The ladder is worn bright by men sleeping off their optimism. I have a room. For now, I insist on the distinction."
+        "USE": "The ladder is worn bright by men sleeping off their optimism. I've got a room. For now. I insist on the distinction."
       },
       "walkTo": {
         "x": 1220,

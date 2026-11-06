@@ -16,7 +16,7 @@
       ],
       "LOOK_AT": [
         "A round table under a fringed cloth. Round, I am told, so that no one sits at the head. She sits at the head anyway.",
-        "The fringe is long enough to hide a foot. I have decided not to wonder whose.",
+        "The fringe is long enough to hide a foot. I'm choosing not to wonder whose.",
         "A ring of wear on the cloth where a hundred clients have rested their hands, palms up, and paid."
       ],
       "LISTEN_TO": [
@@ -25,7 +25,7 @@
         "Nothing, for once. The table is between appointments."
       ],
       "overrides": {
-        "PULL": "One came off in my hand. It was back on the cloth when I looked again. I have elected not to think about this."
+        "PULL": "One came off in my hand. It was back on the cloth when I looked again. I've elected not to think about this."
       }
     },
     {
@@ -35,7 +35,7 @@
       ],
       "LOOK_AT": [
         "A glass ball on a brass stand. In it: the tent, upside down, and me, small. It is right about both.",
-        "Glass. Good glass, though. She has not economized on the glass.",
+        "Glass. Good glass, though. She hasn't economized on the glass.",
         "A small chip on the underside, turned to the wall. Even the future has a bad side."
       ],
       "LISTEN_TO": [
@@ -60,7 +60,7 @@
       "LISTEN_TO": [
         "A hum, if I hold my breath. Possibly my own blood. Possibly not.",
         "It rings when she sets it down. She sets it down a great deal, always in the same place, and it always rings the same.",
-        "Nothing, when I breathe normally. I have decided to breathe normally."
+        "Nothing, when I breathe normally. So I'm breathing normally."
       ],
       "overrides": {
         "USE": "It swung toward the money box. 'It seeks the hidden metal,' she said, without a trace of embarrassment. Professional courtesy forbade comment."
@@ -82,7 +82,7 @@
     {
       "name": "THE CARDS",
       "LOOK_AT": [
-        "A deck worn soft, wrapped in silk. The top card, when she is elsewhere, is always the same one. I have stopped checking which.",
+        "A deck worn soft, wrapped in silk. The top card, when she is elsewhere, is always the same one. I've stopped checking which.",
         "The silk has a monogram, faded past reading. They were somebody else's before they were hers.",
         "The deck is thinner than a full deck. Some futures, she says, are not for sale."
       ],
@@ -92,7 +92,7 @@
         "Nothing. They are waiting to be told what they mean."
       ],
       "overrides": {
-        "PICK_UP": "The silk wrap tightened. I did not see her move. The deck stayed where destiny — her word — had left it."
+        "PICK_UP": "The silk wrap tightened. I didn't see her move. The deck stayed where destiny — her word — had left it."
       }
     },
     {
@@ -175,7 +175,7 @@
       ],
       "LISTEN_TO": [
         "Coins, when the table moves. She is doing better than the Mercantile.",
-        "Nothing. It is listening to me, possibly.",
+        "Nothing. It's listening to me, possibly.",
         "A single coin shifting as she passes the table. It knows its owner."
       ],
       "overrides": {
@@ -238,7 +238,7 @@
       "name": "THE CUSHIONS",
       "LOOK_AT": [
         "Cushions on the client's side, faded velvet, each softer than the last. You sink into a consultation.",
-        "There is a coin down between two of them. I have left it. It is probably part of the act.",
+        "There's a coin down between two of them. I've left it. It's probably part of the act.",
         "Her side has no cushion, only a hard stool. She does not need to be comfortable to be certain."
       ],
       "LISTEN_TO": [
@@ -252,7 +252,7 @@
       "LOOK_AT": [
         "A small iron stove, very hot, in a tent whose door is a sheet of canvas.",
         "It is fed with pages from an almanac. The future, she tells me, is excellent fuel.",
-        "The heat makes the painted stars shimmer. I am almost certain that is deliberate."
+        "The heat makes the painted stars shimmer. I'm almost certain that's deliberate."
       ],
       "LISTEN_TO": [
         "A low roar, small and steady, like an audience waiting.",

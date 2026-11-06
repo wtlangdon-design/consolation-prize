@@ -65,7 +65,7 @@
               "The brass is worn bright in one place, where a hand lifts it the same way every evening."
             ],
             "then": [
-              "It is the only well-maintained object I have seen in Consolation."
+              "It's the only well-maintained object I've seen in Consolation."
             ]
           }
         ],
@@ -137,7 +137,7 @@
             "say": "It faces Main Street. It faces the Improvement Company.",
             "repeat": [
               "The glass has been cleaned in one square only, at the height of a man on a stool. The rest of the window may do as it likes.",
-              "From here you can see every door on Main Street, and the Company's twice. I do not know what you would be watching for. I suspect he does."
+              "From here you can see every door on Main Street, and the Company's twice. I don't know what you'd be watching for. I suspect he does."
             ],
             "then": [
               "Whoever put this window in wanted to see one particular building."

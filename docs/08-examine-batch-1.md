@@ -96,7 +96,7 @@
 *Nine hotspots. The letters home live here. Available in every act, and every hotspot has an act variant.*
 
 **THE DESK**
-> **LOOK:** "A desk, a chair, and a window facing an alley. For five dollars a week, I had expected a slightly worse alley." *(Five, not four: doc 02 A2 prices the room at five, and doc 26 says five. Errata 69 C.)*
+> **LOOK:** "A desk, a chair, and a window facing an alley. For five dollars a week, I'd expected a slightly worse alley." *(Five, not four: doc 02 A2 prices the room at five, and doc 26 says five. Errata 69 C.)*
 > **LISTEN:** "Nothing. It is the only place in Consolation where nobody is talking."
 
 **HIS MOTHER'S LETTERS**
@@ -117,7 +117,7 @@
 **THE WINDOW**
 > **LOOK Acts I–III:** "The alley. A cat, some barrels, and a view of the back of the Improvement Company."
 > **LOOK Act IV:** "The alley. The cat has gone. The barrels are the same."
-> **LISTEN:** "Somebody unloading, two streets over. It goes on all night. I have stopped minding it, which worries me."
+> **LISTEN:** "Somebody unloading, two streets over. It goes on all night. I've stopped minding it, which worries me."
 
 **THE BED** · **THE WASHSTAND** · **THE COAT ON THE DOOR** · **THE WALL**
 > *(The coat — **LOOK Act I:** "My good coat. It is the only thing I own that suggests I was once somebody's son with prospects." **LOOK Act III:** "My good coat. It has been in a grave.")*

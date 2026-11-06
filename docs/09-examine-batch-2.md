@@ -151,7 +151,7 @@
 > **LISTEN:** "Nothing unusual."
 
 **THE TASSELS** · **THE CRYSTAL** · **THE CUSHIONS** · **THE STOVE** · **THE CURTAIN** · **THE LAMP**
-> *(The crystal — **LOOK:** "Glass. Good glass, though. She has not economized on the glass.")*
+> *(The crystal — **LOOK:** "Glass. Good glass, though. She hasn't economized on the glass.")*
 
 ---
 
@@ -159,7 +159,7 @@
 *Ten hotspots. The tallest building in town and the only one as deep as it is tall.*
 
 **THE PEWS**
-> **LOOK:** "Pews built from the crates the piano came in. The third one still reads PROVIDENCE R I, which is where I am from. I have sat down."
+> **LOOK:** "Pews built from the crates the piano came in. The third one still reads PROVIDENCE R I, which is where I'm from. I've sat down. I'm staying a minute."
 > **LISTEN:** "Nothing."
 
 **THE HYMNAL**
@@ -204,7 +204,7 @@
 
 **THE CLOCK**
 > **LOOK:** "A lobby clock. It disagrees with the Registrar's clock by nineteen minutes and neither has ever been challenged."
-> **LISTEN:** "Ticking. Slightly slow. I am not going to say anything."
+> **LISTEN:** "Ticking. Slightly slow. I'm not going to say anything."
 
 **THE SETTEE** · **THE STAIRS** · **THE STOVE** · **THE SPITTOON**
 > *(The stairs — **LISTEN:** "Somebody on the landing, not moving. There is always somebody on the landing not moving.")*
@@ -215,7 +215,7 @@
 *Six hotspots. The most informative screen in Act II, and nobody will come here.*
 
 **THE BACK OF THE IMPROVEMENT COMPANY**
-> **LOOK:** "One story. From Main Street it is three. I have walked around it twice to be sure."
+> **LOOK:** "One story. From Main Street it's three. I've walked around it twice to be sure."
 > **LISTEN:** "Nothing. It is the quietest building in Consolation from every side."
 
 **THE ASH PILE**

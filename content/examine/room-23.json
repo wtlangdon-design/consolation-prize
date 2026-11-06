@@ -17,7 +17,7 @@
       "LOOK_AT": [
         "A stake with a number on it. Beyond it, forty feet of land that is legally, indisputably mine.",
         "The number is painted on with confidence and very little paint.",
-        "It leans. I have straightened it twice and it has gone back to leaning, which I respect as a position."
+        "It leans. I've straightened it twice, and it's gone back to leaning, which I respect as a position."
       ],
       "LISTEN_TO": [
         "Wind. It is not impressed either.",
@@ -41,9 +41,9 @@
     {
       "name": "THE MUD",
       "LOOK_AT": [
-        "Approximately forty percent mud, thirty percent rock, and thirty percent a substance I have not yet identified.",
+        "Approximately forty percent mud, thirty percent rock, and thirty percent a substance I haven't yet identified.",
         "Having stood in it, I can report on the unidentified thirty percent. It is cold, and it is personal.",
-        "This is the mud I own. I keep expecting to feel differently about it than about other mud. I do not."
+        "This is the mud I own. I keep expecting to feel differently about it than about other mud. I don't."
       ],
       "LISTEN_TO": [
         "Wet. Working at it.",
@@ -78,7 +78,7 @@
         }
       ],
       "overrides": {
-        "CLOSE": "You cannot close a hole. You can only fill it, and I have nothing to spare, including — on some mornings — the inclination.",
+        "CLOSE": "I can't close a hole. I can only fill it, and I don't have anything to spare, including — on some mornings — the inclination.",
         "TALK_TO": "I said good morning down it. The echo said it back warmer than the town does.",
         "OPEN": "Vacant, per the eviction. The warm air keeps it aired. Best-ventilated address I own."
       }
@@ -93,11 +93,11 @@
       "LISTEN_TO": [
         "Breathing. Slowly. In a way I would describe as editorial.",
         "A small, contented grinding. He is eating something, and it was mine.",
-        "He is breathing at me again. I have been reviewed and found tenantable."
+        "He's breathing at me again. I've been reviewed and found tenantable."
       ],
       "overrides": {
         "PICK_UP": "No. He is in residence, and I am not his landlord in any sense he recognizes.",
-        "PUSH": "I am not going to push a raccoon further into a hole he already likes. That is encouragement.",
+        "PUSH": "I'm not going to push a raccoon further into a hole he already likes. That's encouragement.",
         "USE": "He is not a tool. He is barely a tenant."
       }
     },

@@ -107,7 +107,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A deck worn soft, wrapped in silk. The top card, when she is elsewhere, is always the same one. I have stopped checking which.",
+            "say": "A deck worn soft, wrapped in silk. The top card, when she is elsewhere, is always the same one. I've stopped checking which.",
             "repeat": [
               "The silk has a monogram, faded past reading. They were somebody else's before they were hers.",
               "The deck is thinner than a full deck. Some futures, she says, are not for sale."
@@ -128,7 +128,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "The silk wrap tightened. I did not see her move. The deck stayed where destiny — her word — had left it."
+        "PICK_UP": "The silk wrap tightened. I didn't see her move. The deck stayed where destiny — her word — had left it."
       },
       "walkTo": {
         "x": 1064,
@@ -163,7 +163,7 @@
           {
             "say": "Coins, when the table moves. She is doing better than the Mercantile.",
             "repeat": [
-              "Nothing. It is listening to me, possibly.",
+              "Nothing. It's listening to me, possibly.",
               "A single coin shifting as she passes the table. It knows its owner."
             ]
           }
@@ -271,7 +271,7 @@
           {
             "say": "A glass ball on a brass stand. In it: the tent, upside down, and me, small.",
             "repeat": [
-              "Glass. Good glass, though. She has not economized on the glass.",
+              "Glass. Good glass, though. She hasn't economized on the glass.",
               "A small chip on the underside, turned to the wall. Even the future has a bad side."
             ],
             "then": [
@@ -401,7 +401,7 @@
             "say": "A hum, if I hold my breath. Possibly my own blood. Possibly not.",
             "repeat": [
               "It rings when she sets it down. She sets it down a great deal, always in the same place, and it always rings the same.",
-              "Nothing, when I breathe normally. I have decided to breathe normally."
+              "Nothing, when I breathe normally. So I'm breathing normally."
             ]
           }
         ]
@@ -544,7 +544,7 @@
           {
             "say": "Cushions on the client's side, faded velvet, each softer than the last.",
             "repeat": [
-              "There is a coin down between two of them. I have left it. It is probably part of the act.",
+              "There's a coin down between two of them. I've left it. It's probably part of the act.",
               "Her side has no cushion, only a hard stool. She does not need to be comfortable to be certain."
             ],
             "then": [
@@ -622,7 +622,7 @@
           {
             "say": "A round table under a fringed cloth. Round, I am told, so that no one sits at the head.",
             "repeat": [
-              "The fringe is long enough to hide a foot. I have decided not to wonder whose.",
+              "The fringe is long enough to hide a foot. I'm choosing not to wonder whose.",
               "A ring of wear on the cloth where a hundred clients have rested their hands, palms up, and paid."
             ],
             "then": [
@@ -644,7 +644,7 @@
         ]
       },
       "overrides": {
-        "PULL": "One came off in my hand. It was back on the cloth when I looked again. I have elected not to think about this."
+        "PULL": "One came off in my hand. It was back on the cloth when I looked again. I've elected not to think about this."
       },
       "walkTo": {
         "x": 980,
@@ -707,7 +707,7 @@
             "say": "A small iron stove, very hot, in a tent whose door is a sheet of canvas.",
             "repeat": [
               "It is fed with pages from an almanac. The future, she tells me, is excellent fuel.",
-              "The heat makes the painted stars shimmer. I am almost certain that is deliberate."
+              "The heat makes the painted stars shimmer. I'm almost certain that's deliberate."
             ]
           }
         ],

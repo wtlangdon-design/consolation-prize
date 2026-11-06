@@ -71,7 +71,7 @@
             "say": "Purring, at the frequency of ownership.",
             "repeat": [
               "Nothing. She has heard everything that has ever been said back here and has drawn no conclusions.",
-              "Purring, briefly, then silence. She has decided I am furniture."
+              "Purring, briefly, then silence. She's decided I'm furniture."
             ]
           }
         ]
@@ -102,7 +102,7 @@
             "say": "A barrel under a downspout, holding last month's weather.",
             "repeat": [
               "A skin of dust on the water and a single leaf on the dust. Last month's weather, with a bookmark.",
-              "Something is looking up at me from the bottom. I am choosing to believe it is my reflection."
+              "Something is looking up at me from the bottom. I'm choosing to believe it's my reflection."
             ],
             "then": [
               "Something has drunk from it recently; something else lives in it."
@@ -144,7 +144,7 @@
             "say": "Ash from the Colonel's stove, swept out weekly.",
             "repeat": [
               "Most of it is ordinary ash. The paper in it was good paper, the heavy kind, with a watermark.",
-              "I have left the corner that says BOSTON where it lies. It is not mine, and in this town that is not a small distinction."
+              "I've left the corner that says BOSTON where it lies. It isn't mine, and in this town that isn't a small distinction."
             ],
             "then": [
               "Some of it is paper that did not entirely burn. One corner reads BOSTON."
@@ -234,7 +234,7 @@
             "say": "Nothing.",
             "repeat": [
               "Nothing. It is a very well-fitted door, for a back alley.",
-              "Nothing. If anyone is behind it, they are better at waiting than I am."
+              "Nothing. If anyone is behind it, they're better at waiting than I am."
             ]
           }
         ]
@@ -303,7 +303,7 @@
             "say": "Empty barrels, stenciled for flour, stacked behind a company that does not sell flour.",
             "repeat": [
               "Stacked in a pyramid, true and square. Whoever did it took pride in a pile of nothing.",
-              "I have stopped asking what things are for in this town. I have not stopped noticing."
+              "I've stopped asking what things are for in this town. I haven't stopped noticing."
             ]
           }
         ],
@@ -406,7 +406,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "One story. From Main Street it is three. I have walked around it twice to be sure.",
+            "say": "One story. From Main Street it's three. I've walked around it twice to be sure.",
             "repeat": [
               "From here you can see the bracing that holds up the two stories that are not there. It is very good bracing. Somebody spent real money on the part nobody sees.",
               "No windows on this side at all. A building that faces only one way."
@@ -418,7 +418,7 @@
             "say": "Nothing. It is the quietest building in Consolation from every side.",
             "repeat": [
               "Nothing. Whatever goes on inside, the walls were built thick enough to keep it there.",
-              "Nothing still. I have stood here long enough to be noticed, and nobody has noticed."
+              "Nothing still. I've stood here long enough to be noticed, and nobody's noticed."
             ]
           }
         ]

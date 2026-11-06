@@ -13,15 +13,15 @@
 
 *Merged: doc 05's eight and doc 09's eight, eleven objects. THE REGISTER, THE KEY RACK, THE SETTEE, THE STAIRS and THE SPITTOON were written by both passes under the same name. THE PAINTING (doc 05, a mountain scene) and THE ENGRAVING (doc 09, the Bay of Naples) are not declared one object: they describe different pictures.*
 
-**THE CLERK'S BELL** — LOOK 2 "A card beside it reads RING FOR SERVICE, in the same hand as the card that reads NO CREDIT." · 3 "I have looked at this bell three times now. A lesser man would have rung it. So would a braver one." | LISTEN 2 "Nothing. It is waiting me out." · 3 "Still nothing. The bell and I have reached an understanding, and the understanding is silence."
+**THE CLERK'S BELL** — LOOK 2 "A card beside it reads RING FOR SERVICE, in the same hand as the card that reads NO CREDIT." · 3 "I've looked at this bell three times now. A lesser man would have rung it. So would a braver one." | LISTEN 2 "Nothing. It is waiting me out." · 3 "Still nothing. The bell and I have reached an understanding, and the understanding is silence."
 
 **THE PAINTING** — LOOK 2 "There is a goat on the nearest peak, looking out of the picture as though it was promised a better frame." · 3 "The signature is larger than the mountain. That, at least, is an honest account of the painter's priorities." | LISTEN 2 "The frame creaks. It is the most western thing about it." · 3 "Nothing. A painting of a mountain is quieter than a mountain, and that is the only improvement on offer."
 
-**THE FRONT WINDOW** — LOOK 2 "A man outside has been about to cross the street for the whole of my stay. The glass makes him reconsider in waves." · 3 "My own reflection, rippling. Even the window has not decided whether I have arrived." | LISTEN 2 "A wagon, a dog, a man insisting. The glass lets the insisting through." · 3 "Somebody laughing on the boardwalk. Through the window it sounds like an opinion."
+**THE FRONT WINDOW** — LOOK 2 "A man outside has been about to cross the street for the whole of my stay. The glass makes him reconsider in waves." · 3 "My own reflection, rippling. Even the window hasn't decided whether I've arrived." | LISTEN 2 "A wagon, a dog, a man insisting. The glass lets the insisting through." · 3 "Somebody laughing on the boardwalk. Through the window it sounds like an opinion."
 
 ### THE PARLOR PIANO
 **LOOK** 1 "An upright piano in the corner of the lobby, under a fern that is doing better than it is. The hotel calls this corner the parlor." · 2 "Walnut, with a brass plate: DONATED BY THE CONSOLATION IMPROVEMENT COMPANY. There is no plate saying who has played it since." · 3 "The clerk dusts it every morning, around the keys. He does not touch the keys. Neither does anyone else."
-**LISTEN** 1 "Nothing, until a cart goes by. Then every string answers, and every one of them is wrong in its own direction." · 2 "Still wrong. The A is the worst. The A is always the worst." · 3 "Four minutes' work, and a room for the night. I have done the arithmetic, which I gather is frowned on here."
+**LISTEN** 1 "Nothing, until a cart goes by. Then every string answers, and every one of them is wrong in its own direction." · 2 "Still wrong. The A is the worst. The A is always the worst." · 3 "Four minutes' work, and a room for the night. I've done the arithmetic, which I gather is frowned on here."
 
 *Errata 75: A2's piano had no hotspot in any pass. It stands in the lobby's corner, which the hotel calls the parlor. Its LISTEN is the line A2 teaches LISTEN TO with.*
 
@@ -81,7 +81,7 @@
 
 **THE COAT ON THE NAIL** — LOOK 2 "The lining is silk, worn through at one pocket, where something heavy was carried for a long time." · 3 "It has been brushed recently and not worn in years. Somebody looks after it for no reason I can see." | LISTEN 2 "Nothing. Good wool keeps quiet on principle." · 3 "Nothing. It hangs exactly straight. Even the draft has been asked to leave it alone."
 
-**THE WINDOW** — LOOK 2 "The glass has been cleaned in one square only, at the height of a man on a stool. The rest of the window may do as it likes." · 3 "From here you can see every door on Main Street, and the Company's twice. I do not know what you would be watching for. I suspect he does." | LISTEN 2 "Main Street, at the distance a watchman would choose: near enough to hear a door, far enough not to be asked anything." · 3 "The Company's door, opening and closing. From in here it is the loudest thing in town."
+**THE WINDOW** — LOOK 2 "The glass has been cleaned in one square only, at the height of a man on a stool. The rest of the window may do as it likes." · 3 "From here you can see every door on Main Street, and the Company's twice. I don't know what you'd be watching for. I suspect he does." | LISTEN 2 "Main Street, at the distance a watchman would choose: near enough to hear a door, far enough not to be asked anything." · 3 "The Company's door, opening and closing. From in here it is the loudest thing in town."
 
 **THE STOVE** — LOOK 2 "Swept out, and the ash bucket empty. A cold stove that someone still cleans." · 3 "There is kindling laid in it, dry, and from the dust on it, laid a long time ago." | LISTEN 2 "Nothing. Iron, at the temperature of the room, which is the temperature of outside." · 3 "Nothing. A stove that has given up on this season and possibly the next."
 
@@ -105,13 +105,13 @@
 
 *(Part Two-B's Act IV LOOK for the marker names it THE CLAIM MARKER (MINE). It is this stake; its variant replaces LOOK only, as Part Two-B's doctrine says single-verb variants do.)*
 
-**THE CLAIM MARKER** — LOOK 2 "The number is painted on with confidence and very little paint." · 3 "It leans. I have straightened it twice and it has gone back to leaning, which I respect as a position." | LISTEN 2 "The stake creaks in the wind like a man trying to remember something." · 3 "Wind again. It comes through here on its way to somewhere better."
+**THE CLAIM MARKER** — LOOK 2 "The number is painted on with confidence and very little paint." · 3 "It leans. I've straightened it twice, and it's gone back to leaning, which I respect as a position." | LISTEN 2 "The stake creaks in the wind like a man trying to remember something." · 3 "Wind again. It comes through here on its way to somewhere better."
 
-**THE MUD** — LOOK 2 "Having stood in it, I can report on the unidentified thirty percent. It is cold, and it is personal." · 3 "This is the mud I own. I keep expecting to feel differently about it than about other mud. I do not." | LISTEN 2 "It sucks at my boot as I lift it. Possessive, for something I bought." · 3 "A slow settling. It has nowhere else to be, and neither, it turns out, do I."
+**THE MUD** — LOOK 2 "Having stood in it, I can report on the unidentified thirty percent. It is cold, and it is personal." · 3 "This is the mud I own. I keep expecting to feel differently about it than about other mud. I don't." | LISTEN 2 "It sucks at my boot as I lift it. Possessive, for something I bought." · 3 "A slow settling. It has nowhere else to be, and neither, it turns out, do I."
 
 **THE HOLE** — LOOK 2 "The edges are old and smooth. Whatever dug this was in no hurry." · 3 "Forty feet of my land, and this is the only part of it that has shown any initiative." | LISTEN 2 "Air. Moving. It's warmer than the day." · 3 "Air. Moving. It's warmer than the day."
 
-**THE RACCOON** — LOOK 2 "He has arranged the hole to his satisfaction. There is a pine cone positioned with real intent." · 3 "We have looked at each other for some time. He is winning, in the sense that he is comfortable." | LISTEN 2 "A small, contented grinding. He is eating something, and it was mine." · 3 "He is breathing at me again. I have been reviewed and found tenantable."
+**THE RACCOON** — LOOK 2 "He has arranged the hole to his satisfaction. There is a pine cone positioned with real intent." · 3 "We have looked at each other for some time. He is winning, in the sense that he is comfortable." | LISTEN 2 "A small, contented grinding. He is eating something, and it was mine." · 3 "He's breathing at me again. I've been reviewed and found tenantable."
 
 **CLAIM ONE'S BOUNDARY** — LOOK 2 "A boundary stake, older than mine and sunk deeper. Someone meant it." · 3 "On that side, the most valuable ground in the territory. On this side, mine. The raccoon cannot tell the difference, and has not tried." | LISTEN 2 "Wind, crossing from his land to mine without a survey." · 3 "Exactly the same. I have listened for the difference twice now, and the difference is the price."
 
@@ -126,7 +126,7 @@
 ## Overrides
 
 > **THE RACCOON** · PICK UP — "No. He is in residence, and I am not his landlord in any sense he recognizes."
-> **THE RACCOON** · PUSH — "I am not going to push a raccoon further into a hole he already likes. That is encouragement."
+> **THE RACCOON** · PUSH — "I'm not going to push a raccoon further into a hole he already likes. That's encouragement."
 > **THE RACCOON** · USE — "He is not a tool. He is barely a tenant."
 
 ## A5 — the raccoon *(errata 68 A)*
@@ -263,7 +263,7 @@
 
 ## Repeats
 
-**THE ROAD** — LOOK 3 "I have walked it enough times now to have a favorite rut. It is the one that does not fill with water." | LISTEN 2 "Boots far up the road, coming or going. From here you cannot tell which, and often neither can they." · 3 "The hum again, low. The road sounds best when nobody is on it."
+**THE ROAD** — LOOK 3 "I've walked it enough times now to have a favorite rut. It's the one that doesn't fill with water." | LISTEN 2 "Boots far up the road, coming or going. From here you cannot tell which, and often neither can they." · 3 "The hum again, low. The road sounds best when nobody is on it."
 
 **THE MILE POST** — LOOK 3 "The paint is fresh on the CLAIMS side and peeling on the TOWN side. The post knows which way the money walks." | LISTEN 3 "The knock, slower than yesterday. The wind is tired, or the post is."
 
@@ -278,7 +278,7 @@
 **THE MEN COMING BACK** — LOOK 2 "Nobody is carrying anything he did not take out." · 3 "They walk slower than they walked out, and all at the same pace, without anyone having agreed to it." | LISTEN 2 "Boots. Only boots. Nobody even swears." · 3 "Nothing. Tomorrow they will talk again on the way out. This is the part nobody talks about."
 
 ### THE SCRUB
-**LOOK** 1 "Sage and greasewood, gray-green and low, holding the hillside together out of habit." · 2 "Something lives in it. I have seen it move with nobody near." · 3 "It was here before the road and will be here after. It has never needed the gold, or anything else."
+**LOOK** 1 "Sage and greasewood, gray-green and low, holding the hillside together out of habit." · 2 "Something lives in it. I've seen it move with nobody near." · 3 "It was here before the road and will be here after. It has never needed the gold, or anything else."
 **LISTEN** 1 "Dry leaves, rattling like a gourd." · 2 "A rustle, then stillness. Whatever it is, it heard me first." · 3 "Wind through it, a long hiss. The hillside, breathing out."
 
 ## Merge decisions *(errata 68 H)*
@@ -337,21 +337,21 @@
 
 **THE CRATES** — LOOK 2 "One reads FRAGILE in three languages. The crate under it has been crushed flat." · 3 "Somebody has carved a checkerboard into the top one. The game on it has been in progress for some time." | LISTEN 2 "A scrabbling in the lowest crate, then a silence that is trying very hard." · 3 "Nothing. The crates have given up on being shipped anywhere."
 
-**THE RAIN BARREL** — LOOK 2 "A skin of dust on the water and a single leaf on the dust. Last month's weather, with a bookmark." · 3 "Something is looking up at me from the bottom. I am choosing to believe it is my reflection." | LISTEN 2 "The drip, slower now. The economy is contracting." · 3 "A small plop from below. Whatever lives in there has made its position known."
+**THE RAIN BARREL** — LOOK 2 "A skin of dust on the water and a single leaf on the dust. Last month's weather, with a bookmark." · 3 "Something is looking up at me from the bottom. I'm choosing to believe it's my reflection." | LISTEN 2 "The drip, slower now. The economy is contracting." · 3 "A small plop from below. Whatever lives in there has made its position known."
 
 **THE BACK DOORS** — LOOK 2 "Each one has a different lock and the same scuff at boot height. Everybody leaves the same way." · 3 "The Nugget's back door is propped open with a brick. It is the only frank door in the row." | LISTEN 2 "A bolt shot home somewhere along the row. Someone has decided against visitors." · 3 "Nothing. Every door in the row is listening for the same thing I am."
 
 **THE WASH LINE** — LOOK 2 "The shirt has been mended at both elbows by someone who cared, and at the collar by someone who did not." · 3 "It has been dry for a day and nobody has taken it in. It is waiting for its owner, like most things in this alley." | LISTEN 2 "A clothes-peg creaking, holding on." · 3 "The underwear again, flapping. It has found its audience."
 
-**THE CAT** — LOOK 3 "She has moved six inches to the left, after the sun. It is the only progress anyone has made in this alley today." | LISTEN 3 "Purring, briefly, then silence. She has decided I am furniture."
+**THE CAT** — LOOK 3 "She has moved six inches to the left, after the sun. It is the only progress anyone has made in this alley today." | LISTEN 3 "Purring, briefly, then silence. She's decided I'm furniture."
 
-**THE BACK OF THE IMPROVEMENT COMPANY** — LOOK 2 "From here you can see the bracing that holds up the two stories that are not there. It is very good bracing. Somebody spent real money on the part nobody sees." · 3 "No windows on this side at all. A building that faces only one way." | LISTEN 2 "Nothing. Whatever goes on inside, the walls were built thick enough to keep it there." · 3 "Nothing still. I have stood here long enough to be noticed, and nobody has noticed."
+**THE BACK OF THE IMPROVEMENT COMPANY** — LOOK 2 "From here you can see the bracing that holds up the two stories that are not there. It is very good bracing. Somebody spent real money on the part nobody sees." · 3 "No windows on this side at all. A building that faces only one way." | LISTEN 2 "Nothing. Whatever goes on inside, the walls were built thick enough to keep it there." · 3 "Nothing still. I've stood here long enough to be noticed, and nobody's noticed."
 
-**THE ASH PILE** — LOOK 2 "Most of it is ordinary ash. The paper in it was good paper, the heavy kind, with a watermark." · 3 "I have left the corner that says BOSTON where it lies. It is not mine, and in this town that is not a small distinction." | LISTEN 2 "Nothing. Ash has finished saying things." · 3 "A dry whisper when the wind lifts the scraps."
+**THE ASH PILE** — LOOK 2 "Most of it is ordinary ash. The paper in it was good paper, the heavy kind, with a watermark." · 3 "I've left the corner that says BOSTON where it lies. It isn't mine, and in this town that isn't a small distinction." | LISTEN 2 "Nothing. Ash has finished saying things." · 3 "A dry whisper when the wind lifts the scraps."
 
-**THE BARRELS** — LOOK 2 "Stacked in a pyramid, true and square. Whoever did it took pride in a pile of nothing." · 3 "I have stopped asking what things are for in this town. I have not stopped noticing." | LISTEN 2 "I knocked on one. Empty, and it said so at length." · 3 "Nothing. Forty empty barrels and not one rattle."
+**THE BARRELS** — LOOK 2 "Stacked in a pyramid, true and square. Whoever did it took pride in a pile of nothing." · 3 "I've stopped asking what things are for in this town. I haven't stopped noticing." | LISTEN 2 "I knocked on one. Empty, and it said so at length." · 3 "Nothing. Forty empty barrels and not one rattle."
 
-**THE SIDE DOOR** — LOOK 2 "No handle on this side. A keyhole, oiled." · 3 "Somebody uses this door. The step is worn, and Main Street does not know it exists." | LISTEN 2 "Nothing. It is a very well-fitted door, for a back alley." · 3 "Nothing. If anyone is behind it, they are better at waiting than I am."
+**THE SIDE DOOR** — LOOK 2 "No handle on this side. A keyhole, oiled." · 3 "Somebody uses this door. The step is worn, and Main Street does not know it exists." | LISTEN 2 "Nothing. It is a very well-fitted door, for a back alley." · 3 "Nothing. If anyone is behind it, they're better at waiting than I am."
 
 ### THE MUD
 **LOOK** 1 "Alley mud, which is Main Street's mud without the audience." · 2 "Footprints both ways, mostly to and from the Nugget's back door, and the ones coming back are less straight." · 3 "It is the same mud as the street. I find that reassuring, which tells you how my week has gone."
@@ -433,13 +433,13 @@
 
 **GRIEVANCE'S BLANKET** — LOOK 3 "It smells of mule, and of something older, like a coat kept in a cedar chest." | LISTEN 3 "Nothing. It is the quietest thing in the stable, and it knows its worth."
 
-**GRIEVANCE'S FEED BIN** — LOOK 2 "The lid has a latch she has learned to work and a second latch she has decided not to, as a courtesy." · 3 "The level has not gone down while I have been here. She is watching me watch it." | LISTEN 2 "Grain settling, then a snort from the stall to let me know it was noted." · 3 "Nothing. She has stopped listening for me, which I take as a promotion."
+**GRIEVANCE'S FEED BIN** — LOOK 2 "The lid has a latch she has learned to work and a second latch she has decided not to, as a courtesy." · 3 "The level hasn't gone down while I've been here. She's watching me watch it." | LISTEN 2 "Grain settling, then a snort from the stall to let me know it was noted." · 3 "Nothing. She has stopped listening for me, which I take as a promotion."
 
 **THE STALLS** — LOOK 2 "The broken sulky has a seat for one and a wheel for nobody." · 3 "One stall is stacked with folding chairs, which the town keeps here against the next funeral." | LISTEN 2 "A mouse in the empty stalls, taking inventory." · 3 "The boards again, warm and slow. The stable sounds like a big animal at rest."
 
 **THE TACK WALL** — LOOK 3 "One collar is enormous. It belonged to a horse the livery man still talks about, and nobody has oiled it since." | LISTEN 3 "A buckle tapping in the draft, keeping a slow time of its own."
 
-**THE ANVIL** — LOOK 2 "The face is worn into a shallow dish by forty years of hammering. It has outlasted every horse it shod." · 3 "A horseshoe hangs on the horn, half made. The smith left in the middle of a sentence." | LISTEN 2 "Nothing, though I can hear it anyway: a high clean A, if it is any good. I am not going to strike it to find out." · 3 "Nothing. An anvil at rest is the quietest iron there is."
+**THE ANVIL** — LOOK 2 "The face is worn into a shallow dish by forty years of hammering. It has outlasted every horse it shod." · 3 "A horseshoe hangs on the horn, half made. The smith left in the middle of a sentence." | LISTEN 2 "Nothing, though I can hear it anyway: a high clean A, if it's any good. I'm not going to strike it to find out. I want to." · 3 "Nothing. An anvil at rest is the quietest iron there is."
 
 **THE HAY LOFT** — LOOK 2 "Men sleep up there, by the look of the ladder, and the livery man does not ask." · 3 "Hay, and dust in the light, and the smell of a summer that happened somewhere else." | LISTEN 2 "A rustle, a squeak, and a silence that is pretending to be hay." · 3 "Nothing up there now. Whoever sleeps in it is out working, or trying to."
 
@@ -452,8 +452,8 @@
 **THE BOARD OF NAMES** — LOOK 2 "Names, dates and animals, in a hand that gets more patient every year." · 3 "Some names have a line through them and the word PAID. Some have a line and the word GONE." | LISTEN 2 "Nothing. Paper pinned to wood, keeping accounts." · 3 "The pin rattles in the draft. Twelve years of comings and goings, held up by one nail."
 
 ### THE LIVERY MAN'S CHAIR
-**LOOK** 1 "A kitchen chair tipped back against the wall at the exact angle of a man who has seen everything once." · 2 "The back legs are worn short. He has tipped it for so many years the chair has adapted." · 3 "It faces Grievance's stall. He sits where he can see her. I have yet to see her return the courtesy."
-**LISTEN** 1 "A creak as it settles back onto four legs." · 2 "Nothing. It is waiting for him, and it can wait." · 3 "The chair ticks against the wall in the draft, as if he were still in it, rocking."
+**LOOK** 1 "A kitchen chair tipped back against the wall at the exact angle of a man who has seen everything once." · 2 "The back legs are worn short. He has tipped it for so many years the chair has adapted." · 3 "It faces Grievance's stall. He sits where he can see her. I've yet to see her return the courtesy."
+**LISTEN** 1 "A creak as it settles back onto four legs." · 2 "Nothing. It's waiting for him, and it can wait." · 3 "The chair ticks against the wall in the draft, as if he were still in it, rocking."
 
 ## B3 — the Grievance puzzle *(errata 68 F)*
 
@@ -739,15 +739,15 @@
 
 **THE BELL ROPE** — LOOK 3 "A second knot is tied higher up, for a taller ringer. Nobody has needed it since Sowerby came." | LISTEN 3 "A faint hum down the rope from above. The bell is never entirely silent; it is only flat quietly."
 
-**THE BELL** — LOOK 2 "A dark ring on the ceiling boards around the hole, where years of ringing have shaken the dust loose." · 3 "I have never seen it and I could draw you its crack." | LISTEN 2 "Nothing at the moment, and I can still hear exactly how wrong it is." · 3 "The beam it hangs from ticks in the heat. The bell is saving its error for the morning."
+**THE BELL** — LOOK 2 "A dark ring on the ceiling boards around the hole, where years of ringing have shaken the dust loose." · 3 "I've never seen it, and I could draw you its crack." | LISTEN 2 "Nothing at the moment, and I can still hear exactly how wrong it is." · 3 "The beam it hangs from ticks in the heat. The bell is saving its error for the morning."
 
 **THE PEWS** — LOOK 3 "The back pew is worn smoother than the front. The town's devotion is strongest nearest the door." | LISTEN 3 "A pew creaking under nobody. Old wood remembering a Sunday."
 
-**THE HYMNAL** — LOOK 2 "Somebody has pressed a flower in Hymn 41. It has outlasted whoever meant it." · 3 "Every hymn has its key printed at the top. Not one of them is the key this town sings in." | LISTEN 3 "Nothing. It is waiting for Sunday, when it will be overruled."
+**THE HYMNAL** — LOOK 2 "Somebody has pressed a flower in Hymn 41. It has outlasted whoever meant it." · 3 "Every hymn has its key printed at the top. Not one of them is the key this town sings in." | LISTEN 3 "Nothing. It's waiting for Sunday, when it'll be overruled."
 
 **THE PULPIT** — LOOK 2 "There is a step behind it for a shorter preacher. Sowerby uses neither." · 3 "On the shelf inside, a sermon in Sowerby's hand, priced in the margin." | LISTEN 2 "The boards behind it creak when the door opens, as though someone were about to begin." · 3 "Nothing. A pulpit nobody climbs is the quietest furniture in town."
 
-**THE MEETING TABLE** — LOOK 2 "Rings from coffee cups at one end and from whiskey glasses at the other. The town divides along the table." · 3 "The minutes book lies open at the last meeting. Item one: the Company's proposal. Carried. Item two: nothing." | LISTEN 2 "The wobble again when I lean on it. The motion is seconded." · 3 "Nothing. The town is not in session."
+**THE MEETING TABLE** — LOOK 2 "Rings from coffee cups at one end and from whiskey glasses at the other. The town divides along the table." · 3 "The minutes book lies open at the last meeting. Item one: the Company's proposal. Carried. Item two: nothing." | LISTEN 2 "The wobble again when I lean on it. The motion is seconded." · 3 "Nothing. The town isn't in session."
 
 **THE STOVE, CHURCH-SIZED** — LOOK 2 "Gilt letters on the door: GIVEN BY COL. A. FANSHAWE. Even the stove is grateful in public." · 3 "The front pews have their paint blistered from it and the back pews have frost in January. Theology, by distance." | LISTEN 2 "A slow tick as it cools, like a clock with nothing to count." · 3 "Nothing. Cold iron, waiting for the cold months to give it something to say."
 
@@ -892,7 +892,7 @@
 
 ## Repeats
 
-**THE WARDROBE** — LOOK 2 "The bottom drawer sticks. I have nothing to put in it, so we have come to an accommodation." · 3 "Somebody left a single glove on the top shelf. Nobody in Consolation owns gloves, so it was a visitor, and he lost the other one too." | LISTEN 2 "The door drifting on its hinge, a long, thin creak." · 3 "Nothing. My second shirt has nothing to say for itself."
+**THE WARDROBE** — LOOK 2 "The bottom drawer sticks. I don't have anything to put in it, so we've come to an accommodation." · 3 "Somebody left a single glove on the top shelf. Nobody in Consolation owns gloves, so it was a visitor, and he lost the other one too." | LISTEN 2 "The door drifting on its hinge, a long, thin creak." · 3 "Nothing. My second shirt has nothing to say for itself."
 
 **THE LAMP** — LOOK 2 "A notice is tacked beside it: GUESTS WILL KINDLY NOT TURN UP THE WICK. Kindly is underlined." · 3 "I turned it up a quarter inch. Nobody came. I turned it back down anyway." | LISTEN 2 "A small flutter when the door opens. It does not like visitors either." · 3 "Nothing. It burns at the volume management prefers."
 
@@ -1072,11 +1072,11 @@
 
 ## Repeats
 
-**MADAME OZYMANDIA'S TABLE** — LOOK 2 "The fringe is long enough to hide a foot. I have decided not to wonder whose." · 3 "A ring of wear on the cloth where a hundred clients have rested their hands, palms up, and paid." | LISTEN 2 "The tassels again, swaying. I checked for a draft. There is a draft." · 3 "Nothing, for once. The table is between appointments."
+**MADAME OZYMANDIA'S TABLE** — LOOK 2 "The fringe is long enough to hide a foot. I'm choosing not to wonder whose." · 3 "A ring of wear on the cloth where a hundred clients have rested their hands, palms up, and paid." | LISTEN 2 "The tassels again, swaying. I checked for a draft. There is a draft." · 3 "Nothing, for once. The table is between appointments."
 
 **THE CRYSTAL BALL** — LOOK 3 "A small chip on the underside, turned to the wall. Even the future has a bad side." | LISTEN 2 "Nothing. It is reflecting, which is quiet work." · 3 "A faint ring when the table is bumped. The future, briefly, in a key."
 
-**THE BRASS ROD** — LOOK 3 "The grip is wrapped in red thread, worn through to the brass where her thumb goes. Eleven years of the same thumb." | LISTEN 3 "Nothing, when I breathe normally. I have decided to breathe normally."
+**THE BRASS ROD** — LOOK 3 "The grip is wrapped in red thread, worn through to the brass where her thumb goes. Eleven years of the same thumb." | LISTEN 3 "Nothing, when I breathe normally. So I'm breathing normally."
 
 **THE PRICE LIST** — LOOK 2 "Below the prices, smaller: SATISFACTION AS THE SPIRITS ALLOW." · 3 "Boundary divination costs the same as the ordinary kind. The earth does not charge extra for lines, apparently." | LISTEN 3 "The card tapping against the tent pole in the draft. Two dollars, two dollars."
 
@@ -1092,7 +1092,7 @@
 
 **THE LANTERN, RED** — LOOK 2 "The red glass is cracked and mended with a strip of red ribbon. Nothing in here is allowed to be ordinary, not even a repair." · 3 "Under it my hands look like a stranger's, and a lucky one." | LISTEN 2 "A faint hiss from the wick. Steady, as advertised." · 3 "Nothing. The red keeps the flame quiet, or she does."
 
-**THE MONEY BOX** — LOOK 2 "The eye on the lid has been repainted. It used to look left. It now looks at you." · 3 "A slot in the top and no lock. It does not need one." | LISTEN 2 "Nothing. It is listening to me, possibly." · 3 "A single coin shifting as she passes the table. It knows its owner."
+**THE MONEY BOX** — LOOK 2 "The eye on the lid has been repainted. It used to look left. It now looks at you." · 3 "A slot in the top and no lock. It does not need one." | LISTEN 2 "Nothing. It's listening to me, possibly." · 3 "A single coin shifting as she passes the table. It knows its owner."
 
 **THE FLAP TO OUTSIDE** — LOOK 2 "Small bells are sewn along the hem. They ring when you leave, never when you come in." · 3 "The weights in the hem are horseshoes, four of them. Luck, put to practical use." | LISTEN 2 "The bells on the hem, faintly, in the wind." · 3 "The street, and then the flap closing it off with a soft and final thump."
 
@@ -1103,11 +1103,11 @@
 **THE GROUND** — LOOK 2 "Swept bare and level, with the marks of a broom going round in circles, like the rest of the business." · 3 "Her chair legs have sunk an inch into it. She has sat in exactly the same place for a very long time." | LISTEN 2 "Nothing unusual. Earth, under a tent." · 3 "Nothing. Packed dirt, minding its own business."
 
 ### THE CUSHIONS
-**LOOK** 1 "Cushions on the client's side, faded velvet, each softer than the last. You sink into a consultation." · 2 "There is a coin down between two of them. I have left it. It is probably part of the act." · 3 "Her side has no cushion, only a hard stool. She does not need to be comfortable to be certain."
+**LOOK** 1 "Cushions on the client's side, faded velvet, each softer than the last. You sink into a consultation." · 2 "There's a coin down between two of them. I've left it. It's probably part of the act." · 3 "Her side has no cushion, only a hard stool. She does not need to be comfortable to be certain."
 **LISTEN** 1 "A soft sigh of velvet as I lean on one." · 2 "Nothing. They absorb everything, including doubt." · 3 "A faint crunch of something sewn inside. Lavender, or nerves."
 
 ### THE STOVE
-**LOOK** 1 "A small iron stove, very hot, in a tent whose door is a sheet of canvas." · 2 "It is fed with pages from an almanac. The future, she tells me, is excellent fuel." · 3 "The heat makes the painted stars shimmer. I am almost certain that is deliberate."
+**LOOK** 1 "A small iron stove, very hot, in a tent whose door is a sheet of canvas." · 2 "It is fed with pages from an almanac. The future, she tells me, is excellent fuel." · 3 "The heat makes the painted stars shimmer. I'm almost certain that's deliberate."
 **LISTEN** 1 "A low roar, small and steady, like an audience waiting." · 2 "A page curling as it catches." · 3 "Iron ticking. It keeps better time than her predictions."
 
 ### THE CURTAIN
