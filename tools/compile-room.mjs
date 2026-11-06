@@ -1949,6 +1949,11 @@ if (MERGED) {
   // about. Every other annotation's `plate` already equals its room's
   // `background`; this makes that true by construction.
   if (ann.plate) built.background = ann.plate;
+  // A PLATE CHOSEN BY STATE, where the annotation declares one (errata 119:
+  // Room 19's Act IV morning). A room whose annotation declares none keeps
+  // whatever its file already had, as Rooms 31 and 34 do.
+  if (ann.plates) built.plates = ann.plates;
+  if (ann.plateWhen) built.plateWhen = ann.plateWhen;
   // WHO IS IN THE ROOM, INCLUDING THE ONES WHO ARE PAINT. A room whose
   // furniture-dependent people ship inside the background art cannot have its
   // population counted from the ambient files, and counting them there would
