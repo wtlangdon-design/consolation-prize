@@ -3398,3 +3398,7 @@ Tyler, on what else would make the game great: **"Go on all five."** Two of the 
 
 **B · The voice pass is finished.** Errata 100's pass had reached 31 rooms. The three underground rooms of Act IV (the listening chamber, under Prosperity and the vault) get it now, lightly, because they already had the voice: 36 edits, almost all contractions, plus the seam's bare "Nothing." openers varied. Doc 93 lists every line before and after. No fact a puzzle reads is touched, and nor is the void's line.
 
+
+**Two art briefs for the session with the image key (Tyler, 2026-11-06: "proceed with your recommendations on the items that are still open").**
+- **The fiddler, drawn as Charlie.** Tyler: "I think the fiddler is perfect to look like Charlie" (his husband, who asked to be a character). `reference/fiddler-charlie/brief.md` changes only the fiddler's face, hair and build; it keeps his poses, costume and pixel level, and recuts to the same frames. Cap `fiddler-charlie`, 2 operations. **The photograph never enters the repository:** it is attached in the image session and saved under `art/staging/private/`, which `.gitignore` now excludes.
+- **The undertaker and Ozymandia, softer.** `reference/cast-softer/brief.md` is one cast-unify operation for both, plus a correction if it misses. It answers Tyler's notes that both are "too detailed compared to Thad", which still hold in part after errata 111 and 112 (the side-by-sides are in the brief's folder). No new cap: cast-unify has 15 of its 75 left.
