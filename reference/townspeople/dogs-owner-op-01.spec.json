@@ -1,12 +1,16 @@
 {
  "assetId": "townspeople-110",
  "subject": "dogs-owner",
- "role": "other",
+ "role": "canonical-design",
+ "purpose": "room-art",
  "promptFile": "reference/townspeople/dogs-owner-prompt-01.txt",
  "out": "art/staging/townspeople-110/dogs-owner/sheet-01.png",
  "size": "1536x1024",
  "images": [
+  "art/staging/cast-unify/batch-28/board.png",
+  "art/staging/cast-unify/batch-28/townsfolk.png",
   "reference/townspeople/dogs-owner-style-reference-crop.png"
  ],
+ "derivedFrom": "art/staging/cast-master/master-02.png",
  "authorizedBy": "Tyler, 2026-11-06: 'Go: townspeople, up to 10 images.' One sheet per figure, then corrections within the shared cap of 10 (reference/townspeople/brief.md)."
 }

@@ -1,5 +1,7 @@
 # The townspeople (errata 110): generation and integration brief
 
+**Brought up to errata 111 and 112 (the locked cast and the one level), which landed on main the same afternoon.**
+
 **Authorized:** Tyler, 2026-11-06, "Go: townspeople, up to 10 images." This covers asset `townspeople-110` in `art/staging/caps.json`, with **10 operations shared across five sheets**: one sheet per figure, plus corrections. Nothing else may be spent under this asset.
 
 **Already done (errata 110, this branch's PR):**
@@ -10,13 +12,18 @@
 
 ## Before anything: the rules
 
-Read `CLAUDE.md`, then `docs/55-full-game-build.md` §8 (the character rows), and the character style gate in CLAUDE.md. In short:
-- Generate against Thad in the actual room.
-- Measure before anyone looks.
-- Correct a miss by showing the generator the side-by-side, within the cap.
-- Every figure moves from the start (`tests/movement.test.mjs`).
+Read these first:
+- `CLAUDE.md`;
+- **errata 111 (one artist, one cast: the locked cast master) and errata 112 (one level of pixelation)**, which govern every character drawn from 2026-11-06 on;
+- `docs/55-full-game-build.md` §8, the character rows.
 
-**Too sharp is the usual miss:** Thad is flat, soft-shaded and low in texture. Never touch `wtlangdon-design/anchorage`.
+How errata 111 and 112 apply here:
+- **These five are new people, not on the cast master.** They are drawn the way the mourners and the duel crowd were (cast-unify 28; `reference/cast-unify-28.txt`): from the locked cast's board and the townsfolk already drawn in that hand, at the hero's scale, each a different individual. Each prompt here follows that one.
+- **Every later pose or correction of one of them is drawn from his own first sheet, never from a correction** (errata 111 B: drift compounds).
+- **Every sheet is snapped to the one level:** a man is 115 art pixels tall, with `tools/art/one-level.py` (errata 112 G). Its figure height is **crown to sole** (`tools/art/figure-height.py`, `--hat` for a hat).
+- **A figure that must look somewhere declares `faces`** (`tests/faces.test.mjs`): the boundary men at each other, the boy and the dog's owner toward Thad's stand.
+- **Every figure moves from the start** (`tests/movement.test.mjs`).
+- Never touch `wtlangdon-design/anchorage`.
 
 ## The five sheets
 
@@ -30,9 +37,9 @@ Read `CLAUDE.md`, then `docs/55-full-game-build.md` §8 (the character rows), an
 
 All files are in `reference/townspeople/`. Each figure has:
 - a prompt, `<sheet>-prompt-01.txt`;
-- a spec, `<sheet>-op-01.spec.json`;
+- a spec, `<sheet>-op-01.spec.json`. It attaches the cast board and the townsfolk (`art/staging/cast-unify/batch-28/board.png`, `townsfolk.png`) for style and scale, and the room crop for light and setting only;
 - a full-frame reference, `-style-reference.png`;
-- a close crop, `-style-reference-crop.png` (Thad at game size where he will stand to talk, doubled).
+- a close crop, `-style-reference-crop.png` (Thad, as rebuilt by errata 112, at game size where he will stand to talk, doubled).
 
 `tools/art/townspeople-refs.py` remakes the references.
 
@@ -56,7 +63,9 @@ If the image service refuses a prompt before making an image (`moderation_blocke
 
 ## Cutting and integrating each figure
 
-1. **Cut** with `python3 tools/art/cut-ambient-sheet.py <sheet> <height> art/actors/<file>.png`, at the height the table gives. For the boy, use the man's height × his stature. For the boundary men, cut one sheet into two files, `art/actors/boundary-a.png` and `art/actors/boundary-b.png`, each man's three poses.
+1. **Cut** the way the newest cast was cut: the pose cutter that `tools/art/room31-mourners.py` and the cast-unify scripts use, at the height the table gives, crown to sole. For the boy, use the man's height × his stature. For the boundary men, cut one sheet into two files, `art/actors/boundary-a.png` and `art/actors/boundary-b.png`, each man's three poses.
+   - Then snap each sheet with `tools/art/one-level.py` (`tests/one-level.test.mjs` requires it of every figure).
+   - Then run `tests/master-cut-edges.test.mjs`. The older `tools/art/cut-ambient-sheet.py` is the fallback where those do not fit.
 2. **Write the `sprite`** into the ambient file, the way `content/ambient/hotel-clerk.json` and `letter-writer.json` do:
    - `sheet` and `frames`, with frame 0 as rest;
    - `figureHeight` and `stature`, so the renderer holds him to the room's curve in every room he stands in (this matters for the dog's owner in two rooms);
@@ -81,7 +90,7 @@ If the image service refuses a prompt before making an image (`moderation_blocke
      - `tests/lessons.test.ts`;
      - `tests/town-barks.test.ts`.
    - Then capture each room with `node tools/gauntlet/proof.mjs <room id>` and look at it: talk to each figure, and walk past the pair for their two-voice bark.
-7. **Record** an errata entry (111) with:
+7. **Record** an errata entry (the next free number) with:
    - the measurements;
    - every operation spent;
    - any correction and why;
