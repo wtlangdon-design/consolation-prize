@@ -72,7 +72,7 @@
   "provenance": "reference/cast-unify-26.spec.json",
   "figureHeight": 352,
   "stature": 1.0,
-  "redrawn": "Errata 101 T (Tyler, 2026-11-06: no table at Duel Three; the gathering composed as one picture). Drawn standing on magenta from the locked cast master by cast-unify operation 28 (reference/cast-unify-26.txt), turned toward the duel, cut with its own pixels and a clean edge; placed where the painted composition (cast-unify 27, art/staging/cast-unify/batch-25/edit-porch.png) stood him, feet on the boards or the street, drawn at the street's man there.",
+  "redrawn": "Errata 111 T (Tyler, 2026-11-06: no table at Duel Three; the gathering composed as one picture). Drawn standing on magenta from the locked cast master by cast-unify operation 28 (reference/cast-unify-26.txt), turned toward the duel, cut with its own pixels and a clean edge; placed where the painted composition (cast-unify 27, art/staging/cast-unify/batch-25/edit-porch.png) stood him, feet on the boards or the street, drawn at the street's man there.",
   "figureHeightNote": "Crown to sole, his top hat excluded (tools/art/figure-height.py --hat)."
  },
  "walkTo": {

@@ -73,7 +73,12 @@
   "content/dialogue/raccoon.json",
   "content/dialogue/pratt.json",
   "content/dialogue/pratt-jump.json",
-  "content/dialogue/sheng.json"
+  "content/dialogue/sheng.json",
+  "content/dialogue/amb-boundary-men.json",
+  "content/dialogue/amb-message-boy.json",
+  "content/dialogue/amb-man-leaving-tomorrow.json",
+  "content/dialogue/amb-fiddler.json",
+  "content/dialogue/amb-dogs-owner.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -238,14 +243,298 @@
   "rooms": {
    "stage_road": {
     "src": "audio/thaddeus-room-01.wav",
-    "gain": 0.7
+    "gain": 0.7,
+    "layers": [
+     {
+      "src": "audio/consolation-distant-piano.wav",
+      "gain": 0.4
+     }
+    ],
+    "variants": [
+     {
+      "when": {
+       "T_NUGGET_PIANO_TUNED": true
+      },
+      "src": "audio/thaddeus-room-01.wav",
+      "gain": 0.7,
+      "layers": [
+       {
+        "src": "audio/consolation-distant-piano-tuned.wav",
+        "gain": 0.4
+       }
+      ]
+     }
+    ],
+    "why": "Doc 28 Room 1: THADDEUS, solo fiddle, very sparse; doc 45 O-07-M: the Nugget's piano from town under it, a layer on its own loop. THE STRIKE as Hob crosses is beat-timed and waits on errata 28a."
    },
    "listening_chamber": {
     "src": "audio/thaddeus-complete-room-33.wav",
-    "gain": 0.7
+    "gain": 0.7,
+    "why": "Doc 28 Part Five; errata 70 C: THADDEUS, complete."
+   },
+   "main_street": {
+    "src": "audio/consolation-title.wav",
+    "gain": 0.65,
+    "why": "Doc 28 Room 2: CONSOLATION, Main Street full."
+   },
+   "nugget": {
+    "src": "audio/consolation-nugget-piano.wav",
+    "gain": 0.75,
+    "variants": [
+     {
+      "when": {
+       "T_NUGGET_PIANO_TUNED": true
+      },
+      "src": "audio/consolation-nugget-piano-tuned.wav",
+      "gain": 0.75
+     }
+    ],
+    "why": "Doc 28 Room 3: CONSOLATION played diegetically on the room's own piano, broken C-sharp and all, until Thad tunes it."
+   },
+   "assay_office": {
+    "src": "audio/winnie.wav",
+    "gain": 0.6,
+    "why": "Doc 28 Rooms 5/6: WINNIE. THE ASSAY layered at the counter (R05-M2) needs a counter state the engine does not have yet."
+   },
+   "assay_records": {
+    "src": "audio/winnie.wav",
+    "gain": 0.6,
+    "why": "Doc 28 Rooms 5/6: WINNIE. THE ASSAY layered at the counter (R05-M2) needs a counter state the engine does not have yet."
+   },
+   "claims_registrar": {
+    "src": "audio/the-assay-registrar.wav",
+    "gain": 0.7,
+    "why": "Doc 28 Rooms 7/8: THE ASSAY, unaccompanied jaw harp."
+   },
+   "archive": {
+    "src": "audio/the-assay-registrar.wav",
+    "gain": 0.7,
+    "why": "Doc 28 Rooms 7/8: THE ASSAY, unaccompanied jaw harp."
+   },
+   "company_lobby": {
+    "src": "audio/the-company.wav",
+    "gain": 0.6,
+    "why": "Doc 28 Rooms 10/11: THE COMPANY."
+   },
+   "fanshawe_office": {
+    "src": "audio/the-company.wav",
+    "gain": 0.6,
+    "why": "Doc 28 Rooms 10/11: THE COMPANY."
+   },
+   "undertaker": null,
+   "hotel_lobby": {
+    "src": "audio/consolation-through-wall.wav",
+    "gain": 0.7,
+    "why": "Doc 28 Rooms 18/19: CONSOLATION, heard faintly through a wall, as if from the street."
+   },
+   "thads_room": {
+    "src": "audio/consolation-through-wall.wav",
+    "gain": 0.7,
+    "why": "Doc 28 Rooms 18/19: CONSOLATION, heard faintly through a wall, as if from the street."
+   },
+   "prosperity": {
+    "src": "audio/thaddeus-room-01.wav",
+    "gain": 0.4,
+    "layers": [
+     {
+      "src": "audio/the-strike-layer.wav",
+      "gain": 0.45
+     }
+    ],
+    "why": "Doc 28 Rooms 23/24: THADDEUS and THE STRIKE, together, quiet; two loops that share no clock, because neither knows."
+   },
+   "under_prosperity": {
+    "src": "audio/thaddeus-room-01.wav",
+    "gain": 0.4,
+    "layers": [
+     {
+      "src": "audio/the-strike-layer.wav",
+      "gain": 0.45
+     }
+    ],
+    "why": "Doc 28 Rooms 23/24: THADDEUS and THE STRIKE, together, quiet; two loops that share no clock, because neither knows."
+   },
+   "funeral": {
+    "src": "audio/consolation-funeral.wav",
+    "gain": 0.55,
+    "layers": [
+     {
+      "src": "audio/sfx/funeral-bell-layer.wav",
+      "gain": 0.35
+     }
+    ],
+    "why": "Doc 28 Room 31: CONSOLATION, slow, on the flat church bell's pitch; the bell tolls under it on its own loop."
+   },
+   "main_street_dawn": {
+    "src": "audio/consolation-dawn.wav",
+    "gain": 0.55,
+    "why": "Doc 28 Room 36: CONSOLATION, in tune, thin, one instrument. In tune by T_IN_TUNE, not by the stem."
+   },
+   "mercantile": {
+    "src": "audio/consolation-dawn.wav",
+    "gain": 0.55,
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): CONSOLATION, the tune on fiddle alone. The same stem as Room 36's dawn; there it is in tune, here it is not."
+   },
+   "laundry": {
+    "src": "audio/consolation-laundry.wav",
+    "gain": 0.5,
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): CONSOLATION, the tune on harmonica alone."
+   },
+   "livery": {
+    "src": "audio/consolation-livery.wav",
+    "gain": 0.6,
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): CONSOLATION, fiddle over the jaw harp's offbeats."
+   },
+   "clarion": {
+    "src": "audio/consolation-clarion.wav",
+    "gain": 0.5,
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): CONSOLATION, harmonica over the jaw harp's offbeats."
+   },
+   "ozymandias_tent": {
+    "src": "audio/consolation-tent.wav",
+    "gain": 0.5,
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): CONSOLATION, harmonica at half speed against the fiddle's counter-line."
+   },
+   "church": {
+    "src": "audio/consolation-funeral.wav",
+    "gain": 0.5,
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): CONSOLATION, slow, on the bell's pitch: the funeral's arrangement without its bell, which tolls only at the graveside."
+   },
+   "boot_hill": {
+    "src": "audio/consolation-funeral.wav",
+    "gain": 0.55,
+    "layers": [
+     {
+      "src": "audio/sfx/funeral-bell-layer.wav",
+      "gain": 0.35
+     }
+    ],
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): the funeral's music: CONSOLATION slow on the bell's pitch, the bell tolling under it."
+   },
+   "nugget_back": {
+    "src": "audio/consolation-nugget-piano-wall.wav",
+    "gain": 0.75,
+    "variants": [
+     {
+      "when": {
+       "T_NUGGET_PIANO_TUNED": true
+      },
+      "src": "audio/consolation-nugget-piano-wall-tuned.wav",
+      "gain": 0.75
+     }
+    ],
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): the saloon piano through the back room's wall."
+   },
+   "back_alley": {
+    "src": "audio/consolation-distant-piano.wav",
+    "gain": 0.6,
+    "variants": [
+     {
+      "when": {
+       "T_NUGGET_PIANO_TUNED": true
+      },
+      "src": "audio/consolation-distant-piano-tuned.wav",
+      "gain": 0.6
+     }
+    ],
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): the Nugget's piano from the alley behind it (doc 28's Lane is 'piano alone')."
+   },
+   "company_vault": {
+    "src": "audio/the-company-wall.wav",
+    "gain": 0.7,
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): THE COMPANY through the wall from Fanshawe's office."
+   },
+   "watchmans_shack": {
+    "src": "audio/the-strike-layer.wav",
+    "gain": 0.5,
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): THE STRIKE alone, coming round every 29 seconds: Hob's place, and his three notes (doc 28 Room 1)."
+   },
+   "claims_road": {
+    "src": "audio/thaddeus-room-01.wav",
+    "gain": 0.45,
+    "layers": [
+     {
+      "src": "audio/the-strike-layer.wav",
+      "gain": 0.45
+     }
+    ],
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): the diggings take Prosperity's mix (doc 28 Rooms 23/24): THADDEUS and THE STRIKE, two loops on their own clocks."
+   },
+   "claim_row": {
+    "src": "audio/thaddeus-room-01.wav",
+    "gain": 0.45,
+    "layers": [
+     {
+      "src": "audio/the-strike-layer.wav",
+      "gain": 0.45
+     }
+    ],
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): the diggings take Prosperity's mix (doc 28 Rooms 23/24): THADDEUS and THE STRIKE, two loops on their own clocks."
+   },
+   "creek": {
+    "src": "audio/thaddeus-room-01.wav",
+    "gain": 0.45,
+    "layers": [
+     {
+      "src": "audio/the-strike-layer.wav",
+      "gain": 0.45
+     }
+    ],
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): the diggings take Prosperity's mix (doc 28 Rooms 23/24): THADDEUS and THE STRIKE, two loops on their own clocks."
+   },
+   "high_ridge": {
+    "src": "audio/thaddeus-room-01.wav",
+    "gain": 0.45,
+    "layers": [
+     {
+      "src": "audio/the-strike-layer.wav",
+      "gain": 0.45
+     }
+    ],
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): the diggings take Prosperity's mix (doc 28 Rooms 23/24): THADDEUS and THE STRIKE, two loops on their own clocks."
+   },
+   "motts_site": {
+    "src": "audio/thaddeus-room-01.wav",
+    "gain": 0.45,
+    "layers": [
+     {
+      "src": "audio/the-strike-layer.wav",
+      "gain": 0.45
+     }
+    ],
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): the diggings take Prosperity's mix (doc 28 Rooms 23/24): THADDEUS and THE STRIKE, two loops on their own clocks."
+   },
+   "pratts_claim": {
+    "src": "audio/thaddeus-room-01.wav",
+    "gain": 0.45,
+    "layers": [
+     {
+      "src": "audio/the-strike-layer.wav",
+      "gain": 0.45
+     }
+    ],
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): the diggings take Prosperity's mix (doc 28 Rooms 23/24): THADDEUS and THE STRIKE, two loops on their own clocks."
+   },
+   "town_map": {
+    "src": "audio/consolation-title.wav",
+    "gain": 0.6,
+    "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): the district map plays the town theme, full, as Monkey Island's map screen plays its own."
    }
   },
-  "tunedFlag": "T_IN_TUNE"
+  "tunedFlag": "T_IN_TUNE",
+  "duels": {
+   "default": {
+    "src": "audio/the-assay.wav",
+    "gain": 0.6,
+    "why": "doc 45 R04-DUEL and its Liar's Assay row: THE ASSAY for the full duel state."
+   },
+   "duel_three": {
+    "src": "audio/the-final-duel.wav",
+    "gain": 0.6,
+    "why": "doc 45 U-FINAL-DUEL: THE ASSAY + THE COMPANY (errata 109's arrangement)."
+   }
+  }
  },
- "musicNote": "DOC 45'S BEDS. `title` is O-01-M -- CONSOLATION, the title mix. `stage_road` is O-02-M -- THADDEUS, Room 1, four bars of 3/4 solo and unaccompanied. Both are named here and rendered by tools/render-music.mjs from the proof's own synthesis, which is errata 49 item 1.\n\nTHE FILES DO NOT EXIST UNTIL SOMEBODY RUNS THE RENDERER, and it has never been run: it needs Chromium and it was written where none could be installed. Music.ts treats a missing file as silence rather than an error, so the game runs exactly as it does today and the moment the stems are committed it plays. Nothing else has to change.\n\nWAV rather than OGG because the renderer writes PCM directly and encoding to Ogg needs a codec the repo does not carry. Converting later is one ffmpeg pass and one edit here; shipping a wrong extension that nothing can decode is worse.\n\nGAINS: the title is the loudest thing in the game and Room 1 is a man alone at night, so the bed sits under him. Both are look decisions and both are one number in a content file.\n\n`listening_chamber` is R33-M -- THADDEUS, complete (errata 70 C): the same four bars with the fourth resolved to the tonic, composed by the builder at Tyler's word (2026-11-06, errata 99 L) and rendered from the proof's THADDEUS_COMPLETE_LA. A placeholder like every theme in the score. It is baked at -35 cents like the others; `tunedFlag` and the ninety seconds bring it to pitch."
+ "musicNote": "DOC 45'S BEDS. `title` is O-01-M -- CONSOLATION, the title mix. `stage_road` is O-02-M -- THADDEUS, Room 1, four bars of 3/4 solo and unaccompanied. Both are named here and rendered by tools/render-music.mjs from the proof's own synthesis, which is errata 49 item 1.\n\nTHE FILES DO NOT EXIST UNTIL SOMEBODY RUNS THE RENDERER, and it has never been run: it needs Chromium and it was written where none could be installed. Music.ts treats a missing file as silence rather than an error, so the game runs exactly as it does today and the moment the stems are committed it plays. Nothing else has to change.\n\nWAV rather than OGG because the renderer writes PCM directly and encoding to Ogg needs a codec the repo does not carry. Converting later is one ffmpeg pass and one edit here; shipping a wrong extension that nothing can decode is worse.\n\nGAINS: the title is the loudest thing in the game and Room 1 is a man alone at night, so the bed sits under him. Both are look decisions and both are one number in a content file.\n\n`listening_chamber` is R33-M -- THADDEUS, complete (errata 70 C): the same four bars with the fourth resolved to the tonic, composed by the builder at Tyler's word (2026-11-06, errata 99 L) and rendered from the proof's THADDEUS_COMPLETE_LA. A placeholder like every theme in the score. It is baked at -35 cents like the others; `tunedFlag` and the ninety seconds bring it to pitch.\n\nERRATA 103: THE ROOM MIXES. Every room doc 28 Part Three names now has its bed, each entry carrying its reason in `why`. `null` is deliberate silence (the undertaker's); a room with no entry plays the title bed until doc 28 or Tyler gives it one. A bed's `layers` loop on their own lengths, never re-synced; `variants` swap the bed on a flag, first match wins (the Nugget piano after T_NUGGET_PIANO_TUNED).",
+ "sounds": "content/audio/sounds.json"
 }

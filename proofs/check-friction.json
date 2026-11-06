@@ -159,6 +159,12 @@
    "why": "TUNED. Of three loosenings in a fortnight, two were rooms whose design the test assumed away (Room 31's interrupted grave chain, Room 33's tapped rock) and were narrowed to what each room actually does; the third was a written line typed into the test, which errata 100's voice pass will change in every room. The test now types no written line at all -- the dog's PUSH and the mud's USE are read from content -- so the dialogue pass cannot misfire it again; what it asserts (overrides repeat, pools rotate, a target's own line is never an item's answer) is unchanged."
   },
   {
+   "check": "tools/check-sound-levels.mjs",
+   "date": "2026-11-06",
+   "kind": "loosened",
+   "why": "Misfired on the one kind of sound it was not written for: a cue meant to be heard over the music. Errata 106 measured every sound against the median room bed, which held the church bell 8 dB under the music actually playing in the church (Tyler: \"The bell is hard to hear over the music\"). A cue that ducks the score is now measured against its own room's music as ducked, which lets the two bells ring over it; every other sound keeps its ceiling, and the same change adds a floor for featured sounds, so this is a narrowing to what the room does and a new assertion, not a waiver."
+  },
+  {
    "check": "tests/movement.test.mjs",
    "date": "2026-11-06",
    "kind": "loosened",
@@ -168,19 +174,19 @@
    "check": "tests/lessons.test.ts",
    "date": "2026-11-06",
    "kind": "loosened",
-   "why": "Drawn whole: a figure cut from the locked cast master (errata 101) is keyed off magenta, so a hole in it is backdrop the drawing had -- the air between Fanshawe's raised arm and his face as he tips his hat at the duel, 2.4% of the figure. That is the test's own remedy ('generate him whole on magenta and key him'). Such figures skip only the hole count; their pieces are still counted, and a keyed-out coat is failed by tests/master-cut-edges.test.mjs (edge key and pockets)."
+   "why": "Drawn whole: a figure cut from the locked cast master (errata 111) is keyed off magenta, so a hole in it is backdrop the drawing had -- the air between Fanshawe's raised arm and his face as he tips his hat at the duel, 2.4% of the figure. That is the test's own remedy ('generate him whole on magenta and key him'). Such figures skip only the hole count; their pieces are still counted, and a keyed-out coat is failed by tests/master-cut-edges.test.mjs (edge key and pockets)."
   },
   {
    "check": "tests/room-20.test.ts",
    "date": "2026-11-06",
    "kind": "loosened",
-   "why": "Not a threshold: the only numbers changed are the errata citation in this test's titles, 101 -> 103. Main's #162 took errata 101 while PR #151's cast rulings held 101 and 102; on merging main, #162's ruling was renumbered 103 and every citation it added was changed with it (docs/00-errata.md 103 says so). The heuristic reads any changed line with a digit in an existing test as a loosened threshold."
+   "why": "Not a threshold: the only numbers changed are the errata citation in this test's titles, 101 -> 103. Main's #162 took errata 111 while PR #151's cast rulings held 101 and 102; on merging main, #162's ruling was renumbered 103 and every citation it added was changed with it (docs/00-errata.md 103 says so). The heuristic reads any changed line with a digit in an existing test as a loosened threshold."
   },
   {
    "check": "tests/room-21.test.ts",
    "date": "2026-11-06",
    "kind": "loosened",
-   "why": "Not a threshold: the only numbers changed are the errata citation in this test's titles, 101 -> 103. Main's #162 took errata 101 while PR #151's cast rulings held 101 and 102; on merging main, #162's ruling was renumbered 103 and every citation it added was changed with it (docs/00-errata.md 103 says so). The heuristic reads any changed line with a digit in an existing test as a loosened threshold."
+   "why": "Not a threshold: the only numbers changed are the errata citation in this test's titles, 101 -> 103. Main's #162 took errata 111 while PR #151's cast rulings held 101 and 102; on merging main, #162's ruling was renumbered 103 and every citation it added was changed with it (docs/00-errata.md 103 says so). The heuristic reads any changed line with a digit in an existing test as a loosened threshold."
   },
   {
    "check": "tests/walk-gait.test.mjs",

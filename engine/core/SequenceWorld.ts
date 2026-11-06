@@ -58,6 +58,12 @@ export interface SequenceWorldParts {
    * `Assertions.assertRequiredClip` is the guard shipped for exactly this.
    */
   choreSeconds: (mover: Actor, clip: string) => number;
+  /**
+   * When the step after a chore may start, where that is sooner than the
+   * chore's end (ActorClip.landsAt). Absent, or undefined for a clip: the
+   * whole chore.
+   */
+  choreLands?: (mover: Actor, clip: string) => number | undefined;
   /** Shows a line and returns how long it holds. See `SequenceHost.say`. */
   say: (step: Extract<SequenceStep, { kind: 'say' }>) => number;
   /** Traced paths by the content path that names them. */
@@ -75,6 +81,8 @@ export interface SequenceWorldParts {
    * so the step can be exercised without a browser.
    */
   camera?: (to: number | undefined, follow: string | undefined) => void;
+  /** Fires a doc 45 cue (errata 106). Injected; a world with no audio has none. */
+  cue?: (id: string) => void;
 }
 
 /**
@@ -99,15 +107,27 @@ export class SequenceWorld implements SequenceHost {
   private readonly actors: RoomActors;
   private readonly bodies: BodyOwnership;
   private readonly choreSecondsFor: (mover: Actor, clip: string) => number;
+  private readonly choreLandsFor: (mover: Actor, clip: string) => number | undefined;
+  /**
+   * Movers whose chore has LANDED: the sequence was handed on at `landsAt`
+   * and the clip is playing out its tail under a chore claim nobody is
+   * waiting on. The next claim on such a body cuts the tail first -- the
+   * player pulling the bell and clicking at once on the door is ordinary play
+   * (review on #171). Any other chore still trips BODY_ONE_OWNER.
+   */
+  private readonly landed = new Set<string>();
   private readonly speak: (step: Extract<SequenceStep, { kind: 'say' }>) => number;
   private readonly paths: Map<string, PathFile>;
   private readonly travelThrough: (through: string) => void;
   private readonly pointCamera: (to: number | undefined, follow: string | undefined) => void;
+  /** A missing cue is a no-op, like a missing camera: a world with no audio is still a world. */
+  private readonly fire: (id: string) => void;
 
   constructor(parts: SequenceWorldParts) {
     this.actors = parts.actors;
     this.bodies = parts.bodies;
     this.choreSecondsFor = parts.choreSeconds;
+    this.choreLandsFor = parts.choreLands ?? (() => undefined);
     this.speak = parts.say;
     this.paths = parts.paths ?? new Map();
     this.travelThrough = parts.travel ?? (() => {
@@ -120,11 +140,12 @@ export class SequenceWorld implements SequenceHost {
     // playable, and every room but one fits the window and has nowhere to
     // point it. A world built without one is a test that does not care.
     this.pointCamera = parts.camera ?? (() => {});
+    this.fire = parts.cue ?? (() => {});
   }
 
   walk(actor: string, x: number, y: number): void {
     const mover = this.actors.require(actor);
-    this.bodies.claimBody(actor, WALK_OWNER);
+    this.takeBody(actor, WALK_OWNER);
     mover.walkTo(x, y);
   }
 
@@ -137,7 +158,7 @@ export class SequenceWorld implements SequenceHost {
     const mover = from
       ? this.actors.place(actor, from.x, from.y)
       : this.actors.require(actor);
-    this.bodies.claimBody(actor, WALK_OWNER);
+    this.takeBody(actor, WALK_OWNER);
     mover.glideTo(x, y, seconds);
   }
 
@@ -153,9 +174,13 @@ export class SequenceWorld implements SequenceHost {
     const traced = this.paths.get(path);
     if (!traced) throw new Error(`Unknown traced path: ${path}`);
     const mover = this.actors.require(actor);
-    this.bodies.claimBody(actor, WALK_OWNER);
+    this.takeBody(actor, WALK_OWNER);
     return mover.followPath(traced.waypoints, traced.beatSeconds,
       traced.farClipHandoff ?? -1);
+  }
+
+  cue(id: string): void {
+    this.fire(id);
   }
 
   travel(through: string): void {
@@ -186,9 +211,22 @@ export class SequenceWorld implements SequenceHost {
     // The duration is asked for BEFORE the claim, so a clip nobody has drawn
     // throws without leaving a body owned by a chore that never started.
     const seconds = this.choreSecondsFor(mover, clip);
-    this.bodies.claimBody(actor, CHORE_OWNER);
+    this.takeBody(actor, CHORE_OWNER);
     mover.react(clip, seconds);
-    return seconds;
+    // The clip plays its whole length; the SEQUENCE waits only until it lands.
+    const lands = this.choreLandsFor(mover, clip);
+    if (lands === undefined || lands >= seconds) return seconds;
+    this.landed.add(actor);
+    return lands;
+  }
+
+  /** A claim, after cutting the tail of a chore that has already landed (see `landed`). */
+  private takeBody(actor: string, owner: string): void {
+    if (this.landed.delete(actor) && this.bodies.bodyOwner(actor) === CHORE_OWNER) {
+      this.actors.require(actor).settle();
+      this.bodies.releaseBody(actor, CHORE_OWNER);
+    }
+    this.bodies.claimBody(actor, owner);
   }
 
   /**
@@ -227,6 +265,7 @@ export class SequenceWorld implements SequenceHost {
       }
       if (owner === CHORE_OWNER && !mover.isChoring) {
         this.bodies.releaseBody(mover.id, CHORE_OWNER);
+        this.landed.delete(mover.id);
       }
     }
   }
@@ -257,6 +296,7 @@ export class SequenceWorld implements SequenceHost {
     mover.settle();
     this.bodies.releaseBody(id, WALK_OWNER);
     this.bodies.releaseBody(id, CHORE_OWNER);
+    this.landed.delete(id);
   }
 
   /** A player-driven walk, claiming the body the same way a scripted one does. */
@@ -268,6 +308,7 @@ export class SequenceWorld implements SequenceHost {
     if (this.bodies.bodyOwner(player.id) === CHORE_OWNER) {
       player.settle();
       this.bodies.releaseBody(player.id, CHORE_OWNER);
+      this.landed.delete(player.id);
     }
     const walking = player.walkTo(x, y);
     if (walking) this.bodies.claimBody(player.id, WALK_OWNER);

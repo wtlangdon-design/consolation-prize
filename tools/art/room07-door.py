@@ -1,6 +1,6 @@
 """The registrar's street door, open (room-07 attempt 5): the doorway's view cut from the generated corner and
 fitted into the plate's door frame in perspective, as art/props/room-07-street-door-open.png. Drawn by the
-engine while Pratt goes out by it (content/ambient/pratt-registrar.json exit.door; errata 102 L).
+engine while Pratt goes out by it (content/ambient/pratt-registrar.json exit.door; errata 112 L).
 
 Usage: room07-door.py
 """

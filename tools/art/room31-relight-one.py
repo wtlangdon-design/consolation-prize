@@ -2,7 +2,7 @@
 relights the funeral cast: the same ratio (night over day, blurred past any
 detail), and CAST_LIGHT of it where each frame stands.
 
-For a figure redrawn from the cast master (errata 101) after the funeral was
+For a figure redrawn from the cast master (errata 111) after the funeral was
 built: room31-night.py relights the sheets room31-cast.py writes, and running
 those again would put the old cast back, so a redrawn figure keeps its own
 file and is relit here once.

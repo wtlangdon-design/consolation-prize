@@ -83,3 +83,8 @@ art/staging/**
 !art/staging/room-04/
 !art/staging/room-04/**
 .walk-raw/
+# THAD'S ROPE-PULL SHEET (thad-rope-pull attempt 1): tools/rig/cut-rope-pull.py and
+# art/actors/thad-reach-back/rig.json read it, so a branch without it could not
+# rebuild the clip.
+!art/staging/thad-rope-pull/
+!art/staging/thad-rope-pull/**

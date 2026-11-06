@@ -95,6 +95,14 @@ export type SequenceStep =
    */
   | { kind: 'setState'; object: string; state?: string }
   /**
+   * ERRATA 28a STRUCK `sound`; TYLER REVERSED IT (2026-11-06, errata 106:
+   * "Handle the sounds that aren't hooked up yet", after being told the
+   * opening's team, case and STRIKE cues waited on exactly that). A doc 45
+   * cue, by id, fired the moment the step runs. It takes no time and holds
+   * nothing: what plays is content, and a cue with no sound is a no-op.
+   */
+  | { kind: 'cue'; cue: string }
+  /**
    * Doc 17 beat 11. Walk a mover along a TRACED path over its own duration.
    *
    * NOT A `move` AND NOT A `walk`. A walk is routed across the room's boxes
@@ -162,6 +170,8 @@ export interface SequenceHost {
   move(actor: string, from: { x: number; y: number } | undefined,
        x: number, y: number, seconds: number): void;
   isWalking(actor: string): boolean;
+  /** Fires a doc 45 cue (errata 106). Optional: a host with no audio ignores it. */
+  cue?(id: string): void;
   face(actor: string, facing: Facing): void;
   isTurning(actor: string): boolean;
   /**
@@ -354,6 +364,12 @@ export class SequenceRunner {
       if (step.kind === 'chore') {
         this.waitUntil = seconds + host.chore(step.actor, step.chore);
         this.waiting = true;
+        this.index += 1;
+        moved = true;
+        continue;
+      }
+      if (step.kind === 'cue') {
+        host.cue?.(step.cue);
         this.index += 1;
         moved = true;
         continue;

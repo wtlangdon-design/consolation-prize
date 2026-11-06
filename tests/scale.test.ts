@@ -57,6 +57,16 @@ for (const path of manifest.ambient) {
     assert.ok(npc.posture, `${path} has a visible sprite and no posture -- say whether it is standing `
       + '(and so held to the curve) or which exception it is');
   });
+  // A CHILD (errata 110: doc 07's message boy "is nine") is held to the
+  // curve too, at a child's share of it, which he must declare.
+  if (npc.posture === 'child') {
+    test(`${npc.id} is drawn at a child's height where he stands`, () => {
+      const stature = npc.sprite?.stature;
+      assert.ok(npc.sprite?.figureHeight && stature !== undefined && stature >= 0.55 && stature <= 0.8,
+        `${npc.id} is a child: declare sprite.figureHeight and a stature between 0.55 and 0.8 of the room's man`);
+    });
+    continue;
+  }
   if (npc.posture !== 'standing') continue;
   test(`${npc.id} is drawn at the height of a standing man where he stands`, () => {
     const curve = curveAt(room, npc.x, npc.y);

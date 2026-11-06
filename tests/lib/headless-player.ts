@@ -265,7 +265,7 @@ export class HeadlessPlayer {
         this.arrival(from);
         continue;
       }
-      // GameScene.openActWhenQuiet: the act's card has come down; the cut and the line (errata 103 B).
+      // GameScene.openActWhenQuiet: the act's card has come down; the cut and the line (errata 101 B).
       if (this.state.actOpeningDue) {
         const from = this.state.roomId;
         const lines = this.state.openAct();

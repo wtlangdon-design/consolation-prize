@@ -28,6 +28,10 @@ export interface InteractionResult {
   goesTo?: string;
   enteredDialogue: boolean;
   changedRoom: boolean;
+  /** Which written line `say` was (ResolvedAction.variant), for the sounds doc 45 ties to one. */
+  variant?: number;
+  /** The room it was resolved in, captured before any room change. */
+  room?: string;
 }
 
 /**
@@ -139,6 +143,8 @@ export class Interaction {
       ...(this.resolution.goesTo ? { goesTo: this.resolution.goesTo } : {}),
       enteredDialogue: this.resolution.dialogue !== null,
       changedRoom: this.resolution.destination !== null,
+      ...(this.resolution.action.variant ? { variant: this.resolution.action.variant } : {}),
+      room: this.resolution.room,
     };
   }
 
@@ -1331,7 +1337,7 @@ export class GameState {
   }
 
   /**
-   * THE ACT OPENING OWED, if one is (errata 103 B): an act whose opening's
+   * THE ACT OPENING OWED, if one is (errata 101 B): an act whose opening's
    * `due` flag the act turn wrote and nothing has cleared yet. The scene asks
    * once the act's card is down and nothing is being said, walked or chosen.
    */
@@ -1343,7 +1349,7 @@ export class GameState {
   }
 
   /**
-   * THE CUT (errata 103 B: "the game cuts to Room 19 and Thad says doc 57's
+   * THE CUT (errata 101 B: "the game cuts to Room 19 and Thad says doc 57's
    * line once"). Clears `due` first, so the save the room change takes no
    * longer owes it, then enters the room. Returns the lines he says there.
    */

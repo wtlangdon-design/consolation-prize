@@ -14,7 +14,7 @@ tenth of it (errata 77). The Reverend on the porch is his redrawn pencil sheet.
 Writes art/actors/room-02-duel-table.png and room-02-duel-sowerby.png; prints frames.
 
   --master <sheet> <row> <out.png>: the table drawn from the locked cast
-  master (errata 101; cast-unify 22), cut through tools/art/cast-unify-cut.py
+  master (errata 111; cast-unify 22), cut through tools/art/cast-unify-cut.py
   (its clean edge and pocket rule) to <out.png>; the Reverend is not touched
   (his duel placement draws his own master sheet).
 """

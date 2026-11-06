@@ -90,7 +90,7 @@
   "talkFrame": 2,
   "frameNote": "0 rest (hands on his waistcoat) · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 welcome, his hand open · 3 the watch · 4 laughing. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool (errata 35 and 77: a deliberate action at least every 30 s). He welcomes as he talks.",
   "provenance": "reference/cast-unify-12.spec.json",
-  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from his crop of the locked cast master by cast-unify operation 14 (reference/cast-unify-12.txt), with nothing on the desk or counter; the sheet has no clean grid, so it is cut with its own pixels and only the edge cleaned (tools/art/cast-unify-cut.py --grid 1), registered on the head, sized so his head (crown to shoulders) matches the drawing it replaces; face width put him 21% too large. Same poses.",
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from his crop of the locked cast master by cast-unify operation 14 (reference/cast-unify-12.txt), with nothing on the desk or counter; the sheet has no clean grid, so it is cut with its own pixels and only the edge cleaned (tools/art/cast-unify-cut.py --grid 1), registered on the head, sized so his head (crown to shoulders) matches the drawing it replaces; face width put him 21% too large. Same poses.",
   "waistOn": 495,
   "hands": "folded",
   "waistOnNote": "The plate row the figure's waist ends on: his desk's back edge (y 495 at x 1031); nothing on the desk is his and his hands never come below it. Held by tests/counter-surface.test.mjs against the plate."

@@ -1,5 +1,5 @@
 """Thad looking up at the driver's box (thad-lookup-left, thad-idlebreak-lookup-left), rebuilt
-from his redrawn pose (errata 102; art/staging/thad-b/keyposes-03.png, pose 8).
+from his redrawn pose (errata 112; art/staging/thad-b/keyposes-03.png, pose 8).
 
 The motion is measured from the clips it replaces, not invented: every frame is
 the pose with the band from 30% of his height down to the coat's hem raised d

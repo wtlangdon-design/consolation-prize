@@ -89,7 +89,7 @@ test('a wrong verb on Hob in the shack is doc 54\'s line for it', async () => {
   }
 });
 
-test('errata 103 B: once Act IV begins, the game cuts to his room and he says doc 57\'s line once', async () => {
+test('errata 101 B: once Act IV begins, the game cuts to his room and he says doc 57\'s line once', async () => {
   // Found by the continuous playthrough: doc 57's Act IV opening was never
   // wired, so Act IV began wherever the confession left him.
   const due = (one: GameState) => one.actOpeningDue;

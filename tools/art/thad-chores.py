@@ -1,4 +1,4 @@
-"""Thad's action clips (chores) with his redrawn key poses (errata 102).
+"""Thad's action clips (chores) with his redrawn key poses (errata 112).
 
 Each chore is the stand, a drawn key pose held for its middle frames, and the
 stand again (doc 40; tools/rig/reseat_chore.py puts the current stand on the

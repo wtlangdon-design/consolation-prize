@@ -59,6 +59,10 @@ Web Audio only. Nothing here is a shipping asset.</p>
   <button id="b-thad">THADDEUS &mdash; bowed fiddle (as before)</button>
   <button id="b-thadla">THADDEUS &mdash; LA-flavoured (MT-32 manner)</button>
   <button id="b-arc">the 90-second resolution</button>
+  <button data-piece="STRIKE_LA">THE STRIKE</button>
+  <button data-piece="ASSAY_LA">THE ASSAY</button>
+  <button data-piece="WINNIE_LA">WINNIE</button>
+  <button data-piece="COMPANY_LA">THE COMPANY</button>
   <button id="b-stop" class="stop">stop</button>
 </div>
 
@@ -543,7 +547,9 @@ const ConsolationAudio = (function () {
       const vibOsc = lfo(v, 4.6);
       const vib = gain(v);
       vib.gain.setValueAtTime(0, t);
-      vib.gain.linearRampToValueAtTime(11, t + Math.min(0.32, durS * 0.7));
+      // `vib` is the part's own depth in cents; WINNIE's is 0 (doc 28: "no
+      // vibrato on the fiddle"). Everything else keeps the 11 it always had.
+      vib.gain.linearRampToValueAtTime(ev.vib == null ? 11 : ev.vib, t + Math.min(0.32, durS * 0.7));
       vibOsc.connect(vib); vib.connect(o.detune);
       vibOsc.start(t); vibOsc.stop(t + durS + 0.3);
 
@@ -696,7 +702,7 @@ const ConsolationAudio = (function () {
           if (Math.floor(e.b) !== local) continue;
           v({ midi: e.m, time: time + (e.b - local) * pieceBeat, dur: e.d,
               vel: (e.v == null ? 0.7 : e.v) * (part.gain == null ? 1 : part.gain),
-              sweepFrom: e.sf, sweepTo: e.st });
+              sweepFrom: e.sf, sweepTo: e.st, vib: part.vibrato });
         }
       }
     }
@@ -903,6 +909,192 @@ const ConsolationAudio = (function () {
     parts: [ { inst: 'fiddleLA', role: 'melody', gain: 1.00, fromLoop: 0, events: THAD_MEL_COMPLETE } ]
   };
 
+  /* ================================================================ *
+   * THE OTHER FOUR THEMES  --  PLACEHOLDER COMPOSITIONS
+   * Composed by the builder at Tyler's word (2026-11-05, errata 102:
+   * "Have me compose them"), under the warning THADDEUS and CONSOLATION
+   * carry: no notated score exists in the docs, every one of these is
+   * built against doc 28's sentences, and any of them can be replaced
+   * by somebody who writes a better one. Tyler's ear is the acceptance.
+   *
+   * KEYS ARE CHOSEN AROUND THE PIANO'S C-SHARP. Doc 28 makes WINNIE the
+   * theme that avoids it, which only means something if the theme she
+   * shares an office with does not. So THE ASSAY leans on C-sharp and
+   * WINNIE never touches it, and the Company, which should sound
+   * flawless, is in F, where the broken note does not occur.
+   * ================================================================ */
+
+  /* THE STRIKE -- "Three notes, ascending, unresolved. Harmonica, always
+   * distant." B-flat, C, E. The outer interval is a tritone, the least
+   * settled interval there is, and nothing follows it: it asks a question
+   * and leaves. Slow, spaced, and on the far bus. A one-shot, per doc 45
+   * 0.3, not a loop.
+   *
+   * THE COMPANY OPENS WITH THESE THREE PITCHES (doc 28: "It shares its
+   * first three notes with THE STRIKE and nobody notices for ten
+   * hours"). In F major, B-flat, C, E is the most ordinary pickup there
+   * is -- four, five, seven -- and it lands on F. THE STRIKE is the
+   * Company's opening with the answer taken away. */
+  const STRIKE_TEMPO = 60;
+  const STRIKE_MEL = [
+    {b:0.0, m:70, d:1.5, v:0.70},   // B-flat
+    {b:1.5, m:72, d:1.5, v:0.70},   // C
+    {b:3.0, m:76, d:4.0, v:0.75}    // E -- a tritone above where it began, held, and left
+  ];
+  const STRIKE_LA = {
+    name: 'THE STRIKE (LA)',
+    tempo: STRIKE_TEMPO, loopBeats: 7, oneShot: true,
+    parts: [ { inst: 'harmonicaLA', role: 'melody', gain: 0.90, fromLoop: 0, events: STRIKE_MEL } ]
+  };
+
+  /* THE ASSAY -- "Jaw harp and piano, mechanical, in a metre that keeps
+   * adding a beat. Bureaucracy that will not resolve into a bar you can
+   * count."
+   *
+   * BARS OF 3, 4, 5 AND 6, then back to 3. Each bar is the last one with
+   * one more item on the list: a tick-tock of eighths whose top note
+   * climbs a step further each time (D, E, F, G, A), and every bar ends
+   * on the same stamp, C-sharp, the leading tone of D minor.
+   *
+   * THE STAMP IS THE PIANO'S BROKEN NOTE. Doc 05's C-sharp is a semitone
+   * flat, so the leading tone the theme keeps reaching for sounds a
+   * semitone short of itself, every bar, forever. It never resolves
+   * because it cannot. The dominant under it is an open fifth, as
+   * CONSOLATION's is, so the flat C-sharp is heard in the tune.
+   *
+   * 88 to the quarter, which is WINNIE's tempo, so the two can share a
+   * cycle when Thad is at the counter (doc 45 R05-M2). Eighteen beats
+   * against her sixteen: they line up every 144. */
+  const ASSAY_TEMPO = 88;
+  const ASSAY_BARS = [3, 4, 5, 6];
+  const ASSAY_TOPS = [74, 76, 77, 79, 81];      // D5 E5 F5 G5 A5
+  const ASSAY_PNO = [], ASSAY_LH = [], ASSAY_JAW = [];
+  (function () {
+    let b0 = 0;
+    for (const n of ASSAY_BARS) {
+      for (let k = 0; k < n; k++) {
+        const b = b0 + k, last = k === n - 1;
+        if (last) {
+          ASSAY_PNO.push({ b: b, m: 73, d: 0.9, v: 0.80 });            // the stamp: C-sharp
+          ASSAY_LH.push({ b: b, m: 45, d: 0.8, v: 0.46 });             // A, open fifth,
+          ASSAY_LH.push({ b: b, m: 52, d: 0.8, v: 0.40 });             //   no third
+          ASSAY_JAW.push({ b: b, m: 50, d: 0.5, v: 0.52, sf: 900, st: 2100 });   // a sweep UP
+        } else {
+          ASSAY_PNO.push({ b: b,       m: ASSAY_TOPS[k], d: 0.45, v: 0.66 });
+          ASSAY_PNO.push({ b: b + 0.5, m: 69,            d: 0.45, v: 0.48 });
+          if (k === 0) ASSAY_LH.push({ b: b, m: 50, d: 0.9, v: 0.60 });          // D, on the one
+          else { ASSAY_LH.push({ b: b, m: 53, d: 0.35, v: 0.30 });               // F + A
+                 ASSAY_LH.push({ b: b, m: 57, d: 0.35, v: 0.28 }); }
+          ASSAY_JAW.push({ b: b, m: 50, d: 0.4,
+                           v: k === 0 ? 0.60 : 0.36, sf: k === 0 ? 2600 : 1700, st: k === 0 ? 700 : 620 });
+        }
+      }
+      b0 += n;
+    }
+  })();
+  const ASSAY_LA = {
+    name: 'THE ASSAY (LA)',
+    tempo: ASSAY_TEMPO, loopBeats: 18,
+    parts: [
+      { inst: 'pianoLA',   role: 'melody',   gain: 1.00, fromLoop: 0, events: ASSAY_PNO },
+      { inst: 'pianoLA',   role: 'left hand', gain: 0.85, fromLoop: 0, events: ASSAY_LH },
+      { inst: 'jawHarpLA', role: 'every beat', gain: 0.90, fromLoop: 0, events: ASSAY_JAW }
+    ]
+  };
+
+  /* WINNIE -- "The only theme in the score that is in tune ... played on
+   * the piano's correct notes, avoiding C-sharp entirely ... Four bars,
+   * no ornament, no vibrato on the fiddle. She is not sentimental and
+   * neither is her music."
+   *
+   * C MAJOR, which has no C-sharp in it to avoid. Quarter notes, a
+   * half note at each bar's end, nothing decorated, and the fiddle's
+   * vibrato set to zero -- the only part in the score where it is.
+   *
+   * IT ENDS ON THE TONIC. Every other theme before Act IV stops short:
+   * CONSOLATION on its leading tone, THADDEUS on his third, THE STRIKE
+   * on its tritone, THE ASSAY on a stamp that cannot land. WINNIE comes
+   * home in four bars because she is the one person in town who knows
+   * what she knows. Harmony: | C | Dm  C/E | G  G7 | C |. */
+  const WINNIE_TEMPO = 88;
+  const WINNIE_MEL = [
+    {b:0, m:72, d:1}, {b:1, m:76, d:1}, {b:2, m:74, d:1}, {b:3, m:72, d:1},
+    {b:4, m:74, d:1}, {b:5, m:77, d:1}, {b:6, m:76, d:2},
+    {b:8, m:74, d:1}, {b:9, m:71, d:1}, {b:10, m:67, d:1}, {b:11, m:71, d:1},
+    {b:12, m:72, d:3.5}
+  ];
+  const WINNIE_PNO = [];
+  for (const [b, bass, chord, d] of [
+    [0, 48, [52, 55, 60], 2], [2, 48, [52, 55, 60], 2],   // C
+    [4, 50, [53, 57, 62], 2], [6, 52, [55, 60], 2],       // Dm, C/E
+    [8, 43, [55, 59, 62], 2], [10, 43, [53, 59, 62], 2],  // G, G7
+    [12, 48, [52, 55, 60], 4]                             // C
+  ]) {
+    WINNIE_PNO.push({ b: b, m: bass, d: d, v: 0.55 });
+    for (const m of chord) WINNIE_PNO.push({ b: b, m: m, d: d, v: 0.30 });
+  }
+  const WINNIE_LA = {
+    name: 'WINNIE (LA)',
+    tempo: WINNIE_TEMPO, loopBeats: 16,
+    parts: [
+      { inst: 'fiddleLA', role: 'melody', gain: 1.00, fromLoop: 0, events: WINNIE_MEL, vibrato: 0 },
+      { inst: 'pianoLA',  role: 'chords', gain: 0.70, fromLoop: 0, events: WINNIE_PNO }
+    ]
+  };
+
+  /* THE COMPANY -- "Warm, generous, and in a major key. It is the most
+   * inviting music in the game. It shares its first three notes with THE
+   * STRIKE and nobody notices for ten hours."
+   *
+   * F MAJOR, 4/4 at 96: slower than the town's 152 and unhurried, because
+   * the Company has never had to hurry. Fiddle, with its vibrato, over a
+   * parlour piano -- the one theme with real harmony moving under it, IV
+   * to V7 to I, the sound of something being taken care of. Doc 45 OQ-03
+   * left the instruments open; these two are the warm ones (doc 28: the
+   * fiddle is "people"), and the second time round the piano doubles the
+   * tune an octave down, which is what generous sounds like.
+   *
+   * It opens B-flat, C, E -- THE STRIKE's pitches, in its register -- but
+   * as quick quarter notes over IV and V7, landing on F. The same three
+   * notes, answered, warm, and in plain sight.
+   *
+   * It resolves, because it is selling something: a cadence is a promise
+   * kept. It is the only other theme that does, and it is not in tune
+   * the way WINNIE is -- it is only in a key where the piano's fault does
+   * not show. */
+  const COMPANY_TEMPO = 96;
+  const COMPANY_MEL = [
+    {b:0, m:70, d:1}, {b:1, m:72, d:1}, {b:2, m:76, d:1}, {b:3, m:77, d:3},   // B-flat, C, E -- then F
+    {b:6, m:81, d:1}, {b:7, m:79, d:1},
+    {b:8, m:77, d:1}, {b:9, m:74, d:1}, {b:10, m:72, d:2},
+    {b:12, m:69, d:1}, {b:13, m:70, d:1}, {b:14, m:72, d:2},
+    {b:16, m:70, d:1}, {b:17, m:72, d:1}, {b:18, m:76, d:1}, {b:19, m:77, d:3},
+    {b:22, m:81, d:1}, {b:23, m:84, d:1},
+    {b:24, m:86, d:1}, {b:25, m:84, d:1}, {b:26, m:82, d:1}, {b:27, m:79, d:1},
+    {b:28, m:77, d:3}
+  ];
+  // half-bar harmony: bass, chord
+  const BB = [46, [58, 62, 65]], C7 = [48, [58, 64, 67]], F = [41, [60, 65, 69]],
+        FA = [45, [60, 65, 69]], FC = [48, [60, 65, 69]], GM = [43, [58, 62, 67]],
+        F7 = [41, [63, 65, 69]];
+  const COMPANY_HARMONY = [BB, C7, F, FA, BB, FC, GM, C7, BB, C7, F, F7, BB, C7, F, F];
+  const COMPANY_PNO = [];
+  COMPANY_HARMONY.forEach(([bass, chord], i) => {
+    const b = i * 2;
+    COMPANY_PNO.push({ b: b, m: bass, d: 1, v: 0.55 });
+    for (const m of chord) COMPANY_PNO.push({ b: b + 1, m: m, d: 0.9, v: 0.30 });
+  });
+  const COMPANY_DOUBLE = COMPANY_MEL.map(e => ({ b: e.b, m: e.m - 12, d: e.d, v: 0.42 }));
+  const COMPANY_LA = {
+    name: 'THE COMPANY (LA)',
+    tempo: COMPANY_TEMPO, loopBeats: 32,
+    parts: [
+      { inst: 'fiddleLA', role: 'melody',  gain: 1.00, fromLoop: 0, events: COMPANY_MEL },
+      { inst: 'pianoLA',  role: 'parlour', gain: 0.80, fromLoop: 0, events: COMPANY_PNO },
+      { inst: 'pianoLA',  role: 'doubling', gain: 0.80, fromLoop: 1, events: COMPANY_DOUBLE }
+    ]
+  };
+
   const THEME_LA = {
     name: 'CONSOLATION (LA)',
     tempo: TEMPO, loopBeats: LOOP_BEATS,
@@ -941,6 +1133,138 @@ const ConsolationAudio = (function () {
     ]
   };
 
+  /* ================================================================ *
+   * THE ROOM MIXES (doc 28 Part Three; errata 103). Arrangements of the
+   * approved themes, never new themes: every note below is CONSOLATION's,
+   * THE ASSAY's or THE STRIKE's own, re-scored per room.
+   * ================================================================ */
+  const partOf = (piece, inst) => piece.parts.filter(p => p.inst === inst);
+
+  /* Upright piano only: the Nugget's diegetic performance (R03-M), the same
+   * piano heard from the stage road (O-07-M) and the Lane's "piano alone".
+   * The broken C-sharp is the instrument's, so it is in all of them until
+   * T_NUGGET_PIANO_TUNED (the renderer's `pianoTuned` stems). */
+  const CONSOLATION_PIANO_LA = {
+    name: 'CONSOLATION, the Nugget piano (LA)',
+    tempo: TEMPO, loopBeats: LOOP_BEATS,
+    parts: partOf(THEME_LA, 'pianoLA')
+  };
+
+  /* Main Street, dawn (doc 28 Room 36): "in tune, thin, one instrument".
+   * The fiddle takes the tune itself, alone. In tune is the global bus's
+   * business (R33-TUNE), not the stem's: by Room 36 the bus is at 0. */
+  const CONSOLATION_MEL = THEME_LA.parts.find(p => p.role === 'melody').events;
+  const CONSOLATION_DAWN_LA = {
+    name: 'CONSOLATION, dawn (LA)',
+    tempo: TEMPO, loopBeats: LOOP_BEATS,
+    parts: [ { inst: 'fiddleLA', role: 'melody', gain: 1.00, fromLoop: 0, events: CONSOLATION_MEL } ]
+  };
+
+  /* The funeral (doc 28 Room 31): "CONSOLATION, slow, on the flat church
+   * bell's pitch". The bell is cast for D and sounds C-sharp (errata 102),
+   * so the town's tune goes down that same half step, at half its speed,
+   * on the fiddle -- there is no piano at a graveside, and the piano's
+   * broken note would be this key's tonic. The bell itself tolls under it
+   * as the room's second layer. */
+  const CONSOLATION_FUNERAL_LA = {
+    name: 'CONSOLATION, the funeral (LA)',
+    tempo: TEMPO / 2, loopBeats: LOOP_BEATS,
+    parts: [ { inst: 'fiddleLA', role: 'melody', gain: 1.00, fromLoop: 0,
+               events: CONSOLATION_MEL.map(e => Object.assign({}, e, { m: e.m - 1 })) } ]
+  };
+
+  /* The registrar (doc 28 Rooms 7/8): "THE ASSAY, unaccompanied jaw harp". */
+  const ASSAY_JAW_LA = {
+    name: 'THE ASSAY, the registrar (LA)',
+    tempo: ASSAY_TEMPO, loopBeats: 18,
+    parts: partOf(ASSAY_LA, 'jawHarpLA')
+  };
+
+  /* Prosperity (doc 28 Rooms 23/24): "THADDEUS and THE STRIKE, together,
+   * quiet. They are in the same place and neither knows." So they are two
+   * layers that do not share a clock: THADDEUS loops at its own length and
+   * THE STRIKE comes round every 29 seconds, a length chosen to share no
+   * bar with his, so the two drift and never meet the same way twice. */
+  const STRIKE_LAYER_LA = {
+    name: 'THE STRIKE, Prosperity layer (LA)',
+    tempo: STRIKE_TEMPO, loopBeats: 29,
+    parts: STRIKE_LA.parts
+  };
+
+  /* THE WOODTICK WAY (Tyler, 2026-11-06; errata 104). Monkey Island 2 gives
+   * every building in Woodtick the town theme on its own instrument; doc 28
+   * already asks for that on the streets. So each building doc 28 does not
+   * name takes CONSOLATION in its own orchestration. Still no new notes: the
+   * tune, the jaw harp's offbeats and the fiddle's counter-line are all
+   * CONSOLATION's own parts, handed to different players. */
+  const CONSOLATION_JAW = THEME_LA.parts.find(p => p.role === 'offbeats').events;
+  const CONSOLATION_FID = THEME_LA.parts.find(p => p.role === 'counter+tune').events;
+  const tune = (inst, gain) => ({ inst: inst, role: 'tune', gain: gain, fromLoop: 0, events: CONSOLATION_MEL });
+
+  /* The laundry: the tune on harmonica, alone. */
+  const CONSOLATION_LAUNDRY_LA = { name: 'CONSOLATION, the laundry (LA)', tempo: TEMPO, loopBeats: LOOP_BEATS,
+    parts: [ tune('harmonicaLA', 1.0) ] };
+  /* The livery: the tune on fiddle over the jaw harp's offbeats. */
+  const CONSOLATION_LIVERY_LA = { name: 'CONSOLATION, the livery (LA)', tempo: TEMPO, loopBeats: LOOP_BEATS,
+    parts: [ tune('fiddleLA', 1.0),
+             { inst: 'jawHarpLA', role: 'offbeats', gain: 0.85, fromLoop: 0, events: CONSOLATION_JAW } ] };
+  /* The Clarion: the tune on harmonica over the jaw harp's offbeats. */
+  const CONSOLATION_CLARION_LA = { name: 'CONSOLATION, the Clarion (LA)', tempo: TEMPO, loopBeats: LOOP_BEATS,
+    parts: [ tune('harmonicaLA', 1.0),
+             { inst: 'jawHarpLA', role: 'offbeats', gain: 0.8, fromLoop: 0, events: CONSOLATION_JAW } ] };
+  /* Madame Ozymandia's tent: the tune on harmonica at half speed, the fiddle's
+   * counter-line against it from the first bar. */
+  const CONSOLATION_TENT_LA = { name: 'CONSOLATION, the tent (LA)', tempo: TEMPO / 2, loopBeats: LOOP_BEATS,
+    parts: [ tune('harmonicaLA', 1.0),
+             { inst: 'fiddleLA', role: 'counter', gain: 0.6, fromLoop: 0, events: CONSOLATION_FID } ] };
+
+  /* THE FINAL DUEL (doc 45 U-FINAL-DUEL: "THE ASSAY + THE COMPANY"; OQ-14
+   * left how they combine; errata 109). The Company's tune, on the fiddle that
+   * sang it in its own offices, over the Assay's machinery -- the piano's
+   * climbing list and the jaw harp's stamp -- because Fanshawe has brought his
+   * warmth to the town's court. They can share a floor because D minor is F
+   * major's own relative: the stamp's flat C-sharp sounds as C, which is the
+   * Company's dominant. At the Company's tempo, 96. The Assay's 18-beat cycle
+   * runs against the tune's 32 and is cut where the loop ends, so the list
+   * never reaches the end of itself. */
+  const tileAssay = (events, until) => {
+    const out = [];
+    for (let start = 0; start < until; start += 18) {
+      for (const e of events) if (start + e.b < until) out.push(Object.assign({}, e, { b: start + e.b }));
+    }
+    return out;
+  };
+  const FINAL_DUEL_LA = {
+    name: 'THE ASSAY + THE COMPANY, the final duel (LA)',
+    tempo: COMPANY_TEMPO, loopBeats: 64,
+    parts: [
+      { inst: 'fiddleLA',  role: 'the Company', gain: 1.00, fromLoop: 0,
+        events: [...COMPANY_MEL, ...COMPANY_MEL.map(e => Object.assign({}, e, { b: e.b + 32 }))] },
+      { inst: 'pianoLA',   role: 'the list',    gain: 0.80, fromLoop: 0, events: tileAssay(ASSAY_PNO, 64) },
+      { inst: 'pianoLA',   role: 'left hand',   gain: 0.70, fromLoop: 0, events: tileAssay(ASSAY_LH, 64) },
+      { inst: 'jawHarpLA', role: 'the stamp',   gain: 0.85, fromLoop: 0, events: tileAssay(ASSAY_JAW, 64) }
+    ]
+  };
+
+  /* THE PIANO, TUNED (A2, A8; errata 109): what Thad hears when he works. The
+   * flat C-sharp struck twice, as the room has always heard it, and an A major
+   * spread that shows it up; the renderer plays the same notes on the mended
+   * piano for the second half. */
+  const TUNING_LA = {
+    name: 'the piano, tuned (LA)',
+    tempo: 80, loopBeats: 6, oneShot: true,
+    parts: [ { inst: 'pianoLA', role: 'test', gain: 1.0, fromLoop: 0, events: [
+      { b: 0, m: 73, d: 0.8, v: 0.8 }, { b: 1, m: 73, d: 0.8, v: 0.7 },
+      { b: 2.5, m: 69, d: 2.5, v: 0.6 }, { b: 2.75, m: 73, d: 2.25, v: 0.6 }, { b: 3, m: 76, d: 2, v: 0.6 } ] } ]
+  };
+
+  /* WHAT THE FELLA WHISTLED (B3; doc 04 LIV_A1 option 4: "recognisably the
+   * town theme"). The first phrase of CONSOLATION's tune, as a melody alone,
+   * for the livery man to hum badly and Thad to whistle right; the renderer
+   * plays it on the fiddle as a guide pitch track, and the hum and whistle are
+   * shaped from these notes offline (tools/audio/render-tunes.py). */
+  const WHISTLE_PHRASE = CONSOLATION_MEL.filter(e => e.b < 8);
+
   /* ---------- audition figures (not content) ---------- */
   const AUDITIONS = {
     piano:     [ {m:74,b:0,d:0.5,v:.85},{m:78,b:0.5,d:0.5,v:.8},{m:81,b:1,d:0.5,v:.8},
@@ -955,7 +1279,11 @@ const ConsolationAudio = (function () {
 
   return {
     TEMPO, BEAT, LOOP_BEATS, LOOP_SECONDS, ARC_SECONDS, LEAD_SECONDS,
-    DETUNE_START, PIANO_CLASS_CENTS, THEME, THEME_LA, THADDEUS, THADDEUS_LA, THADDEUS_COMPLETE_LA, AUDITIONS,
+    DETUNE_START, PIANO_CLASS_CENTS, THEME, THEME_LA, THADDEUS, THADDEUS_LA, THADDEUS_COMPLETE_LA,
+    STRIKE_LA, ASSAY_LA, WINNIE_LA, COMPANY_LA,
+    CONSOLATION_PIANO_LA, CONSOLATION_DAWN_LA, CONSOLATION_FUNERAL_LA, ASSAY_JAW_LA, STRIKE_LAYER_LA,
+    CONSOLATION_LAUNDRY_LA, CONSOLATION_LIVERY_LA, CONSOLATION_CLARION_LA, CONSOLATION_TENT_LA,
+    FINAL_DUEL_LA, TUNING_LA, WHISTLE_PHRASE, TEMPO_OF_THEME: TEMPO, AUDITIONS,
     midiToFreq, createEngine, automateArc
   };
 })();
@@ -986,6 +1314,7 @@ window.ConsolationAudio = ConsolationAudio;
     if (engine) { engine.close(); engine = null; }
     mode = null; arc = null;
     for (const k in btn) btn[k].classList.remove('on');
+    for (const b of document.querySelectorAll('[data-piece]')) b.classList.remove('on');
     out.state.textContent = 'idle';
   }
 
@@ -1059,6 +1388,23 @@ window.ConsolationAudio = ConsolationAudio;
   }
   btn.thad.onclick   = () => playThaddeus('bowed');
   btn.thadla.onclick = () => playThaddeus('la');
+  // THE OTHER FOUR (errata 102). At the town's tuning, like everything else.
+  for (const b of document.querySelectorAll('[data-piece]')) b.onclick = () => {
+    stop();
+    const e = newEngine(CA.DETUNE_START);
+    const piece = CA[b.dataset.piece];
+    e.setPiece(piece);
+    mode = 'piece';
+    startTime = e.ctx.currentTime + 0.14;
+    nextBeat = 0;
+    e.open(startTime);
+    if (piece.oneShot) {
+      e.scheduleSpan(startTime, piece.loopBeats, 0);
+      setTimeout(() => { if (engine === e) stop(); }, (piece.loopBeats * 60 / piece.tempo + 4) * 1000);
+    } else { timer = setInterval(tick, 25); tick(); }
+    b.classList.add('on');
+    out.state.textContent = piece.name;
+  };
   btn.consla.onclick = () => playTheme('la');
   btn.flat.onclick  = () => playTheme('flat');
   btn.tuned.onclick = () => playTheme('tuned');

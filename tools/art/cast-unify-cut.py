@@ -11,7 +11,7 @@ the layout every ambient record already uses: 0 rest, 1 breath, 2-4 actions.
 Usage: cast-unify-cut.py <sheet.png> <row> <height> <out.png> [--grid N]
 Prints the frames as JSON.
 
---grid N (errata 101 C, one pixel for everyone): before cutting, the row is
+--grid N (errata 111 C, one pixel for everyone): before cutting, the row is
 snapped to the square grid the generator drew it on -- N sheet pixels to the
 art pixel, its phase found where the colour steps fall -- by a BOX reduction
 and a NEAREST redraw, so the soft in-between pixels the generator leaves on

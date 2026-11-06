@@ -2738,7 +2738,264 @@ What Tyler still decides: acceptance of the art (errata 72 E, at the full playth
 
 **E · Tyler's ruling on the sample (2026-11-05), after playing Room 3:** "The dialogue in Room 3 is so much better… way better." The direction is approved and the pass goes on to the other rooms under doc 59. His one miss was Vessel's "Producing, mind.", which he did not understand. It is rewritten to read on one pass, and the joke underneath it (the claim produces mud) is kept. Doc 59 rule 8 is the reason: period slang that hides the joke fails the one-read test.
 
-# 101 · ONE ARTIST, ONE CAST — THE CAST MASTER IS LOCKED (Tyler, 2026-11-06)
+---
+
+# 101 · HOB ON HIS ROUNDS IN ACTS I–II, AND HOW ACT IV OPENS — DECIDED (Tyler delegated, 2026-11-05)
+
+*Tyler, 2026-11-05: "You decide on both of the open questions." The full-game playthrough (tests/full-game.test.ts) found both.*
+
+**A · Hob is on his rounds from the first night.** Doc 04 calls HOB_A1 "the whole game": the player who asks him about Mott in Act I gets a four-second pause and forgets it for fifteen hours. Nothing reached HOB_A1 — Hob was placed only from Act III — so that pause could never happen. From the start of the game through Act II he stands on his rounds in the back alley (Room 20), at the spot and in the approved drawing his Act III rounds already use (doc 07: "on his rounds at night (Main Street, the back alley)"; no image operation), and his conversation there opens on HOB_A1. From Act III the existing placements govern unchanged. Doc 04's "Running" lines (every fourth night) need a count of nights the game does not keep, and stay unwired.
+
+**B · Act IV opens in Thad's room.** Doc 57 gives the line and the setting but not the cut. When Act IV begins, after the PART FOUR card, the game cuts to Room 19 and Thad says doc 57's line once, unprompted ("Packed. It took four minutes…"). The packed case on the bed and the morning light are Room 19's Act IV state and wait for the next session with an image budget; until then the room shows as it is, and the line carries the morning.
+
+---
+
+# 102 · THE OTHER FOUR THEMES ARE WRITTEN, BY THE BUILDER — OWNER RULING (Tyler, 2026-11-05)
+
+Asked whether the music and sound were done, and told that four of doc 28's six themes had never been written, Tyler chose: **"Have me compose them the way THADDEUS was done. You would listen and approve each one."**
+
+So THE STRIKE, THE ASSAY, WINNIE and THE COMPANY now exist as note data in `proofs/audio/consolation-audio-proof.html`, in the LA manner errata 56 made canon, and as stems rendered by `tools/render-music.mjs` (`audio/the-strike.wav`, `the-assay.wav`, `winnie.wav`, `the-company.wav`). **They are placeholders in the same sense CONSOLATION and THADDEUS are**, written against doc 28 because no notated score exists, and **none is accepted until Tyler has heard it.** The builder cannot hear them; the checks below are measurements, not judgement.
+
+| Theme | Doc 28's brief | The setting |
+|---|---|---|
+| **THE STRIKE** | "Three notes, ascending, unresolved … Harmonica, always distant" | B-flat, C, E at 60, the E held. The outer interval is a tritone. Harmonica on the far bus. A one-shot (doc 45 §0.3), rendered with its tail rung out, not folded into a loop |
+| **THE COMPANY** | "Warm, generous, and in a major key … shares its first three notes with THE STRIKE and nobody notices for ten hours" | F major, 4/4 at 96. It opens B-flat, C, E in THE STRIKE's register, as quick quarter notes over IV and V7, landing on F: the same three notes with the answer supplied. Fiddle with vibrato over a parlour piano; the piano doubles the tune the second time. **Doc 45 OQ-03 is answered: fiddle and upright piano** |
+| **THE ASSAY** | "Jaw harp and piano, mechanical, in a metre that keeps adding a beat" | D minor at 88, bars of 3, 4, 5 and 6, then round. Each bar is the last with one more tick, and every bar ends on the same stamp: C-sharp, the leading tone, which is the piano's broken note (doc 05), so it lands a semitone short every time and cannot resolve. The jaw harp sweeps upward on the stamp |
+| **WINNIE** | "In tune … avoiding C-sharp entirely. Four bars, no ornament, no vibrato on the fiddle" | C major at 88, four bars, quarter and half notes. The fiddle's vibrato is zero, the only part in the score where it is (a per-part `vibrato` depth in the synthesis; every other part keeps its 11 cents). **It ends on the tonic**, the only theme before Act IV that does |
+
+**Keys are chosen around the piano's C-sharp.** WINNIE avoiding it only means something if the theme she shares an office with does not, so THE ASSAY leans on it and WINNIE never touches it. THE COMPANY sits in F, where the broken note does not occur: it sounds flawless because it avoids the fault, not because it is true.
+
+**WINNIE and THE ASSAY share a tempo** so they can share a cycle when Thad is at the counter (doc 45 `R05-M2`): eighteen beats against sixteen, aligned every 144. WINNIE still plays at −35 cents with everything else (doc 45 §0.2); her "in tune" is the avoided note and the absent vibrato, not an exemption from the bus.
+
+**Measured, because nobody here can listen:** THE STRIKE's three pitches land within 0.3 cents of B-flat, C and E at −35; THE ASSAY's stamp sounds at C (512.8 Hz), a semitone under C-sharp, as the piano's fault requires; WINNIE's held E has zero pitch spread (no vibrato), THE COMPANY's has 17.7 Hz; no loop has a silent run; THE ASSAY's loop seam is an ordinary sample step (80th percentile).
+
+**Not done by this, and next once the themes are heard:** the room mixes doc 28 Part Three asks for (arrangements of these themes per room, including the Nugget's diegetic piano and the hotel's through-the-wall CONSOLATION), wiring them into `manifest.music`, and doc 28 Part Six's SFX. Beat-timed cues still wait on errata 28a, which is Tyler's to reverse.
+
+## 102 (cont.) · The everyday sounds, rendered for the same audition
+
+Tyler asked, the same night, what other sounds he could hear alongside the themes. **`tools/audio/render-everyday-sfx.py`** renders doc 28 Part Six's essential list and the doc 45 cues specified plainly enough to build (footsteps on mud, boardwalk, plank and dirt, four takes each; the batwings, the assay office latch and the locked archive door; the team moving, standing and departing; the case into the mud with the fork at exactly A440; the flat church bell, near and distant; paper, the stamp, the Assay's pencil; the floorboards, the sign, the leather chairs, Sump's clock, the wind, the Clarion's press). Files only: **no cue is wired until Tyler has heard them**, the same rule as the themes.
+
+**The flat bell is cast for D and half a step flat: C-sharp 4, exactly 277.18 Hz**, measured at 277.12 in the render. It bypasses the score's −35 cents (doc 45 §0.2) and is the same pitch every strike. Doc 28 Room 31 then puts CONSOLATION "on the flat church bell's pitch", which is the town's own key lowered by that half step.
+
+**Loops are built to be loops.** The beds (team, clock, wind, press) fold their releases back over the start like the music stems, a continuous noise (the wheels' rumble) is generated exactly one loop long in the frequency domain so its end runs into its start, and the output filter is run in over the loop's own end so sample 0 does not follow silence. Measured seams: clock and press at the 0th percentile of sample steps, the rest between the 70th and 94th: ordinary steps, no click.
+
+**Not made:** R03-A's indistinct talk and R01-WEST-3's laugh are human voices, which want recordings; the spittoon waits on OQ-11.
+
+## 102 (cont.) · Tyler's audition — 2026-11-06
+
+**"I like all of it except the footsteps on the boardwalk and the doors swinging. The footstep need to sound like they're on wood and the swinging doors maybe need a bit of a hinge creakiness or something vs the seagull type sound."**
+
+So **THE STRIKE, THE ASSAY, WINNIE and THE COMPANY are approved as written**, and so is every everyday sound except two, along with Room 32's coffin sounds and Room 33's taps, void and fork (the audition errata 49 and doc 57 F2 required).
+
+Both misses are rebuilt, and the lesson is the same in both: **a clean sine is a tone, and a tone is what Tyler heard as wrong.** The first boardwalk rang pure sine modes (a drum); the first batwing's hinge was a pitched square wave gliding through 700–1,200 Hz (a gull). Both are now modal synthesis: a noise strike, or a stick-slip pulse train, rung through damped resonators, so what rings is the grain of the excitation and not a tone. The boardwalk's strongest energy now sits in wood's 250–750 Hz; the batwing's, which was 1,376 and 2,769 Hz, is now 170–430 Hz, the iron hinge and the leaf. The replaced functions still draw their random numbers, so every approved sound re-renders byte for byte. Doc 55 §8 carries the rule.
+
+**Then the plank floor too (Tyler, a few minutes later): "It should probably have the same wood sound, just maybe with more of a muted thud vs the boardwalk since the boardwalk is hollow underneath."** The plank step is now the boardwalk's wood struck the same way, on a floor laid tight over joists: every mode dies faster (to −26 dB in about 45 ms against the boardwalk's 72), the highs are softened, no loose end slaps, and the weight lands as a low thud (three to five times the boardwalk's share of energy under 200 Hz). So the two surfaces are one material, and the difference between them is what is underneath.
+
+**Third try (Tyler): "The wood sounds like glass bottles being struck vs creaky dry wood that thuds."** Resonators that ring at a pitch, however short, read as glass. So the wood steps are now no resonance at all: **a thud** (low noise, the main body), **a tok** (a broad mid band of noise, gone in under ten milliseconds) and **a creak** (dry stick-slip as the board flexes on its nails). The boardwalk's thud is lower and longer with a hollow drop under it, and it creaks on most steps; the plank floor's thud is short and muted, and it creaks rarely and faintly. Measured: everything above 800 Hz is down 30 dB within 17–25 ms (the first boardwalk took 206).
+
+**Fourth try (Tyler pointed to a real recording, "Footsteps, Human, Boardwalk, Walking, Medium 02" on Epidemic Sound, and asked for something similar).** The builder cannot hear it, and the audio sits behind a sign-in, so it served as a description: a recorded boot on a board. The step is now built from the parts of one that the first three left out: the sole's soft pat a hair before the weight, the heel's thock as broad bands of noise (no resonator), the roll from heel to toe with a scuff of sole across grain, the board bending onto its joist, sometimes the plank knocking its neighbour or creaking, and for the boardwalk only a short echo off the ground underneath (4.5, 9.5 and 16 ms), which is what hollow sounds like without a tone. Spectral peakiness 4–16 against the first boardwalk's 531. Six takes per wood surface now, not four, because a walk on wood repeats its feet more audibly than one in mud. If Tyler downloads the recording, it replaces these.
+
+**A correction to this record.** The audition page's sound files were not re-uploaded with the second, third and fourth tries: each republish changed only the page's words. So every verdict above after the first ("not like wood", "glass bottles") was about **the first renders**, the sine-mode boardwalk and plank, and Tyler never heard the batwing hinge. The second and third tries were never auditioned, not rejected. All current files went up together with the wood-block calibration (four amounts of ring, A to D), which asks Tyler which sounds like wood.
+
+**Approved (Tyler, 2026-11-06): "The redone versions you finally pushed to me were so much better. And the office door swing too."** The fourth-try boardwalk and plank steps and the iron-hinge batwings stand. With that, every theme and every sound in this ruling is approved by ear. The wood-block calibration was not needed and is not a game asset.
+
+---
+
+# 103 · THE ROOM MIXES (doc 28 Part Three), BUILT FROM THE APPROVED THEMES
+
+With every theme approved (errata 102), each room doc 28 Part Three names now has its music in `content/manifest.json`, every entry carrying its doc 28 line in `why`. **Arrangements only:** no new melody anywhere. Each is the approved theme re-scored, as doc 28 asks ("Each room declares a stem mix, not a track").
+
+| Room | Bed | How it is made |
+|---|---|---|
+| 1 · Stage road | THADDEUS, solo fiddle, **and** the Nugget's piano from town as a layer (doc 45 O-07-M) | The piano is CONSOLATION's piano parts alone, low-passed at 1.5 kHz with the echoes of the street (`distance: far`) |
+| 2 · Main Street | CONSOLATION, full | The title stem |
+| 3 · The Nugget | CONSOLATION on the upright alone, diegetic | The same piano parts, broken C-sharp and all |
+| 5/6 · Assay office | WINNIE | |
+| 7/8 · Registrar | THE ASSAY, unaccompanied jaw harp | THE ASSAY's jaw-harp part alone |
+| 10/11 · The Company | THE COMPANY | |
+| 13 · Undertaker's | **Silence** | `null`: a room's deliberate silence, which the engine now tells apart from a room with no entry |
+| 18/19 · Hotel | CONSOLATION, faintly through a wall | The full mix low-passed at 420 Hz with a wall's short reflections (`distance: wall`) |
+| 23/24 · Prosperity | THADDEUS and THE STRIKE, quiet | Two layers on their own loops — THADDEUS at his length, THE STRIKE every 29 seconds — so they drift and never meet the same way twice: "neither knows" |
+| 31 · The funeral | CONSOLATION, slow, on the bell's pitch | The tune on the fiddle at half speed, down the bell's half step (cast for D, sounding C-sharp); no piano at a graveside, and the piano's broken note would be this key's tonic. The approved bell tolls under it every 21 seconds as a layer |
+| 36 · Dawn | CONSOLATION, in tune, thin, one instrument | The tune on the fiddle alone; in tune by T_IN_TUNE, as the whole score is after Room 33 |
+
+**THE NUGGET PIANO AFTER IT IS TUNED (doc 45 OQ-12, decided under the standing delegation).** Once `T_NUGGET_PIANO_TUNED` is set, the Nugget and the stage road's distant piano play the same performance with the C-sharp mended. Only the C-sharp changes: Thad tunes the instrument, and the score's −35 cents is invariant 5's alone, untouched until Room 33.
+
+**THE ENGINE.** A bed may carry `layers` (each its own loop, started with the bed and never re-synced: doc 28's pairs are things that do not share a clock), and `variants` swap a bed on a flag, first match wins. A file in both the outgoing and incoming beds carries on rather than restarting under itself; the coffin's suspend stops every layer and brings each back where *it* would have been. `tests/room-music.test.ts`.
+
+**NOT DONE, AND WHY.** R05-M2 (THE ASSAY layered over WINNIE while Thad is at the counter) needs a counter state the engine does not have. THE STRIKE as Hob crosses in Room 1 (O-09-M) is beat-timed, and errata 28a still stands. Twenty rooms that doc 28 never mentions play the title bed as before, until Tyler says otherwise.
+
+---
+
+# 104 · EVERY OTHER ROOM, THE WOODTICK WAY — OWNER RULING (Tyler, 2026-11-06)
+
+Doc 28 Part Three names seventeen rooms; the eighteen it does not played the title bed by default. Tyler asked how Monkey Island handles it. *The Secret of Monkey Island* gives its main places their own tunes and cuts between them; *Monkey Island 2* (iMUSE) gives each building in a town the town's theme on its own instrument, with transitions that finish their phrase. Doc 28 is the second approach already. Offered the Woodtick way for the rest, **Tyler: "Yes."**
+
+| Room | Music |
+|---|---|
+| Mercantile | CONSOLATION, the tune on fiddle alone (Room 36's stem; out of tune here, in tune there) |
+| Sheng's laundry | the tune on harmonica alone |
+| Livery | fiddle over the jaw harp's offbeats |
+| The Clarion | harmonica over the jaw harp's offbeats |
+| Madame Ozymandia's tent | harmonica at half speed against the fiddle's counter-line |
+| Church | the funeral arrangement without the bell, which tolls only at the graveside |
+| Boot Hill | the funeral's music, bell and all |
+| Nugget back room | the saloon piano through the wall (tuned after `T_NUGGET_PIANO_TUNED`) |
+| Back alley | the saloon piano from the alley behind it (doc 28's Lane: "piano alone") |
+| Company vault | THE COMPANY through the wall from Fanshawe's office |
+| Watchman's shack | THE STRIKE alone, every 29 seconds: Hob's place |
+| Claims road, claim row, creek, high ridge, Mott's site, Pratt's claim | Prosperity's mix: THADDEUS and THE STRIKE on their own clocks |
+| District map | CONSOLATION, full |
+
+Still no new notes: every arrangement hands CONSOLATION's own tune, offbeats and counter-line to different players. **Every playable room now has its music chosen**, and `tests/room-music.test.ts` fails on a room that has none, so a new room cannot fall back to the title bed by omission.
+
+**Approved (Tyler, 2026-11-06): "Keep"**, for both errata 103 and 104, after hearing every room on the audition page.
+
+---
+
+# 105 · THE EVERYDAY SOUNDS, WIRED INTO THE GAME
+
+The sounds Tyler approved by ear (errata 102) now play in the game, where doc 45 says they do. **Which sound plays when is content** (`content/audio/sounds.json`, named in the manifest as `sounds`); the engine knows a cue id, a verb on a target, a door between two rooms, a foot coming down and a room's background, and nothing about Consolation.
+
+- **Footsteps** sound once per foot plant (doc 45 §3.4), taken from the gait (distance walked, doc 43), so they keep time with the legs at any size. A walk box whose own `surface` is a footstep surface (Main Street's boardwalk) walks on boards; anywhere else on the room's floor: mud on the road and the street, plank floors indoors, dirt on the hill, the diggings, the tent and under ground. A walk never repeats a take twice running.
+- **Verbs.** R01-SIGN on the sign's first two LISTENs, not the third ("the sign has stopped"); R01-CASE-B2's fork on the case's second; R02-BELL, R03-HANDBILL, R05-QUEUE, R05-FLOOR, R08-TIME, R09-PAPER, R11-CHAIRS; R07/08-LOCK when the archive door is tried before Thad is the executor. A verb's result now says which written line was spoken (`variant`), which is what lets a sound follow a line.
+- **Doors.** R03-DOOR, the batwings, three swings each smaller, walking between the Nugget and Main Street; R05/06-LATCH between the assay office and the street or the records room.
+- **The board.** R05-FLOOR-STEP, already fired by the step trigger, now creaks.
+- **Backgrounds.** R02-A's wind on Main Street and R07-A's clock in the registrar's, on a second bed player that is never detuned (it is not the score) and falls silent wherever the score is suspended.
+- **Invariant 3 holds.** The timesheet's paper is the queue book's paper, file for file; `tests/sounds.test.ts` fails if a load-bearing LISTEN ever gets a sound no other object makes.
+
+**Not wired, and why.** The opening's team, case and Hob cues are beat-timed (errata 28a). R17-BELL has no bell-rope action to hang on. R09-PRESS waits for a documented "operating state". R23/24-MUD, R21-WINDOW, R03-A's crowd and the spittoon have no approved file. U-STAMP and U-ASSAY-PENCIL are OPEN in doc 45 itself.
+
+---
+
+# 106 · EVERY REMAINING SOUND, AND EVERY SOUND IN ITS PLACE — OWNER RULING (Tyler, 2026-11-06)
+
+**"Handle the sounds that aren't hooked up yet. And make sure sfx aren't absurdly loud. The sound level needs to make sure they're background effects not sounds that take center stage."**
+
+**ERRATA 28a's ban on timed sound is reversed for cues.** Tyler was told the opening's sounds waited on exactly that reversal, and asked for them. A cutscene may now carry a `cue` step: a doc 45 cue by id, fired as the beat reaches it, taking no time. The opening carries four: the standing team's breathing from beat 2 (O-02-S2; the coach is placed already halted, so O-02-S1's arrival has nothing to go with), the case into the mud in beat 6 (O-06-S1), the team pulling away in 6b (O-06B-S), and THE STRIKE as Hob crosses in beat 9 (O-09-M).
+
+**The rest of doc 45, wired** (`content/audio/sounds.json`; new sounds rendered by `tools/audio/render-room-sfx.py`):
+
+| Cue | What | How |
+|---|---|---|
+| R01-COACH-2 | the axle squealing away, LISTEN 1–2 | new: stick-slip, each turn quieter |
+| R01-WEST-3 | a distant laugh, LISTEN 3 | new: five formant "ha"s across a street |
+| R03-SPITTOON | LISTEN 1–2; 3 is "I've stopped listening" | new: a small wet arrival and the brass |
+| R03-A | the Nugget's room: talk with no words, glasses, the chandelier ticking | new loop |
+| R02-A | the wind with a handbill in it, and the dog's breathing while the dog is there | wind and paper as approved; new breathing |
+| R07-A | Sump's clock, shuffling, paper | the approved clock and paper, with shuffles |
+| R09-PRESS | the press, running: the room's own LISTEN hears it every time | the approved press, as the Clarion's background |
+| R21-WINDOW | "The street. All of it." | the approved wind, the Nugget's piano faint, a latch |
+| R23/24-MUD | Prosperity's mud, LISTEN 1–2 | new: sucking and settling |
+| U-STAMP | the two places the writing says a stamp lands | the approved stamp, on the line itself |
+| U-ASSAY-PENCIL | each point the judges write down | the approved pencil |
+
+**R17-BELL, corrected the same morning.** This paragraph first said the church had no bell-rope action and that one would have to be written. **That was wrong.** Doc 49 wrote it (THE BELL ROPE · PULL, "The whole town orders its morning by that flat note, and it was not morning..."), and it has been in the game all along as the rope's PULL override; the search that missed it read the rope's `responses` and not its `overrides`. Tyler asked for the rope to be properly integrated, and it is now: PULL on the rope strikes the approved bell, the near one, overhead, the same fixed C-sharp the town hears from Main Street, at 8 dB under the music (a bell the whole town hears sits a little above a paper rustle and still under the score). No line was written for it. **Not done:** Thad has no rope-pulling animation (the only back-facing pull is `tug`, his boot stuck in the mud, arms at his sides, which would not read as a pull on a rope overhead), so the line and the bell carry it, as they carry every verb without a reaction clip; drawing one is art work for a session with an image budget.
+
+**THE LEVELS.** The first wiring set gains by eye, and measured against the music the fork in the case was ten decibels over it, the distant bell seven, the hollow board six, the coffin's dirt ten, Room 33's void and fork sixteen. Now every sound has a place under the music as it actually plays (the median room bed), and its gain is set from measurement: footsteps 16 dB under, one-shots 10, doors 13–14, backgrounds 18, the opening's STRIKE (score, not an effect) 8. The coffin and the listening chamber are turned down as rooms (`roomGain`), keeping the shape inside them, so their loudest is no louder than the music. **`tools/check-sound-levels.mjs`** measures all 108 and fails on any sound more than 2 dB above its place.
+
+---
+
+# 107 · THE BELL IS HEARD — TYLER, 2026-11-06
+
+**"The bell is hard to hear over the music."** Measured, it was: errata 106 put the rope's bell 8 dB under the *median* room bed, but the church's music is about that loud, so the bell's strike sat 8 dB under the music actually playing and its ringing tail 13 under. Worse, the church plays CONSOLATION on the bell's own pitch, so the music masked exactly the note that should stand out. Main Street's distant bell was 15 dB under that street's louder bed.
+
+**The music now ducks.** A cue may dip the score under it (`duck`: to a fraction of its level, for so many seconds, down in a quarter second and back over a second and a half). The rope's bell ducks the church's music to 0.35 for six seconds and rings 6 dB over what is left; Main Street's distant bell ducks to 0.5 for five and sits 2 dB over. Errata 106's ceilings stand for everything else: footsteps, doors, paper and backgrounds are still background.
+
+**A featured sound now has a floor.** `levels.featured` names the cues the room is about (the two bells); `tools/check-sound-levels.mjs` fails if one does not duck the music or sits more than 2 dB under its place, measured against its own room's music as ducked. Proved: the old bell fails it.
+
+---
+
+# 108 · THE BELL TOLLS, AND THE MUSIC IS ALREADY DOWN — TYLER, 2026-11-06
+
+**"The bell doesn't toll loudly enough for long enough and the music dips too late."** Both true, and measurable:
+
+- **Too short.** One strike rang out and was gone while the music was still held down. A pull on a bell rope swings the bell, and it strikes on each swing: R17-BELL is now **three strikes of the approved bell**, two and a half seconds apart, each softer as the swing dies, ringing out over about twelve seconds (`church-bell-toll.wav`, `tools/audio/render-room-sfx.py`). Same bell, same flat note. Main Street's distant bell stays one strike, as doc 45 writes it.
+- **Too quiet.** The strikes now sit 10 dB over the ducked church music (was 6), and the music ducks further, to a quarter (was 0.35), for twelve seconds.
+- **Too late.** The dip took a quarter second and started with the strike, so the bell's attack -- the moment that says *bell* -- landed on music still at full level. The dip now takes 80 ms and the bell waits 120 ms for it (`duck.attack`, the sound's `at`); the music comes back over two and a half seconds.
+
+**The level check now asks both questions** of a featured sound: does it wait for the dip (its `at` is at least the duck's attack), and is it still heard -- within 10 dB of the ducked music -- for as long as the music is held down. Proved: errata 107's bell fails on timing and level.
+
+---
+
+# 109 · WHAT THE WRITING SAYS IS HEARD, HEARD; THAD IN THE ROOM'S LIGHT; THE CLERK'S BARKS — 2026-11-06
+
+Tyler, on the pre-playthrough review: **"Start."** The first group of the review's "can build now" list -- the moments the documents already write that the game was only showing as text, and two consistency fixes the art audit found. No line is written here; every sound below plays under a line the documents already have.
+
+**Duel music.** Doc 45 R04-DUEL writes the duels to THE ASSAY. While a duel runs, the room's music gives way to its bed (`manifest.music.duels`), and comes back when it ends. The third duel, the final one, has its own: **THE FINAL DUEL** (`the-final-duel.wav`, the music proof's FINAL_DUEL_LA) -- THE COMPANY's melody on the fiddle twice over THE ASSAY's piano, faster (96), so the last duel sounds like the Company's ground. Any other duel plays THE ASSAY.
+
+**The hum, the whistle and the tuning (doc 04 LIV_A1 option 4; doc 02 B3, A2, A8).** What the puzzles turn on is a pitch, and until now the player only read about it.
+
+- **The livery man's hum** (LIV-HUM), on his own line "That's what the fella whistled...": CONSOLATION's first phrase an octave down, every note a little off and the eighth a half step wrong -- "recognisably the town theme and recognisably wrong".
+- **Grievance** (B3-WHISTLE), on USE the fork on her while the puzzle is open: the fork, the same phrase whistled right at A440, and her hooves as she goes.
+- **The pianos** (A-TUNING), on USE the fork on the Nugget's piano or the hotel parlor's while each is out of tune: the broken C-sharp as the room has always heard it, the fork, the pin turning, the mended notes. The room's music changes to the tuned version at once.
+
+The phrase is the town theme's, from the music proof; the voices sit at true pitch, not the score's -35 cents, because a man's whistle is not the score. All three duck the music and are featured sounds under errata 107/108's floor and timing checks (`tools/audio/render-tunes.py`).
+
+**A verb's sound is chosen before the verb runs.** A sound rule may now name the item used (`item`) and the flags it needs (`when`). Those are read *before* the interaction, so the tuning sounds on the use that tunes the piano, not on the use after it, when the flag it sets has already closed the rule.
+
+**Thad in the room's light (`figureLight`).** The art audit's real mismatch: in the dark rooms and at the funeral, Thad was drawn at the plate's daylight default -- bright and warm in the vault, the chamber and the tunnels, warm under the funeral's moonlight beside a cool undertaker. Rooms 6, 33, 34 and 35 now light him warm and low (lamp or candle, 0.67-0.84), and Room 31 cool (moonlight, 0.85). **Not changed: the undertaker's 7-pixel "sink"** the audit also flagged. It is the tapered rows of his shoes, not a figure standing in the ground; moving him would have been a fix for a fault that is not there.
+
+**The hotel clerk's barks.** His file said "Doc 07 writes no barks for the clerk". Doc 07 §8 writes him nine -- a different misspelling of Grubb for every reputation but one, which he gets right once and never again. They are in the game now, and the town's barks are **extracted, not typed**: `tools/extract-content.mjs` reads every single-voice doc 07 bark table into its ambient file (`tools/town-barks.json` says which goes where). The five that were typed by hand came out word for word the same; their apostrophes are now the document's own straight ones. The transforms are the ones the hand-typed files already used: directions dropped, emphasis made plain, and an exchange with Thad cut to its first line (the pie woman's R_DEAD). Six doc 07 townspeople are written barks and are in no built room (the message boy, the man leaving tomorrow, the barber, the photographer, the dog's owner, and the stage driver as a town figure); `tools/town-barks.json` names them, and `tests/town-barks.test.ts` fails on any doc 07 table routed nowhere.
+
+
+---
+
+# 110 · FIVE MORE OF DOC 07'S TOWNSPEOPLE, WRITTEN IN AND WAITING ON THEIR PICTURES — TYLER, 2026-11-06
+
+Tyler: **"Go: townspeople, up to 10 images."** That covers the figures doc 07 writes whose place is a room already built: the message boy (#5), the man leaving tomorrow (#7), the two boundary men (#2, #3), the fiddler (#11) and the dog's owner (#18). The cap is `townspeople-110` in `art/staging/caps.json`: 10 operations, five sheets and up to five corrections.
+
+**This session has no image key, so the pictures are made in the image session** from `reference/townspeople/brief.md`. Everything else is done here, and no line was written.
+
+**Their words are extracted, never typed.** `tools/extract-content.mjs` reads each micro-tree from doc 07 into `content/dialogue/amb-*.json`, and each bark table into the figure's ambient file. `tools/town-barks.json` routes them. The notation is doc 07's:
+- ↳ is a follow-up;
+- an indented *Thad:* line is an interjection;
+- **A:** and **B:** name which boundary man speaks;
+- directions are performed or hidden by doc 58's rules.
+
+The figures greet with their bark, like the card sharp, because doc 07 writes no opening line for any of them. Exits are doc 04 part one's pool.
+
+**What doc 07 says in prose, made to happen:**
+- **The dog's owner.** "There's a dog on Main Street" sets `T_BILL_FOUND` and ends the talk ("He goes"). From then on he stands on Main Street beside the dog, with no bark, and "How's Bill?" is offered. Doc 07 writes that R_TRUTH has no bark once he is resolved; it is read as his resolved state in every reputation, because a man beside his dog does not ask whether you have seen one.
+- **The message boy.** He "runs off" after the school question, but that option is [COMIC], and a COMIC option is never an exit (`tests/resolution.test.ts`), so he stays.
+
+**What doc 07 leaves unwritten, and is left out:**
+- **The message boy's *(pay)* option** has no words for Thad to say. It is not on his menu until Tyler writes or rules it.
+- **The fiddler's barks are all playing:** faster for R_BORDERS_MOTT, the passing tune for R_DEAD, his A retuned during F2 (doc 06). That is music, not yet made, so he has no balloon.
+
+**Doc 58's hidden list** gains two builder's notes from these trees: "He goes. This is the resolution…" and "He runs off. This is the only explanation of the schoolhouse…". **Doc 07's "Not a colour"** is now "color", as the one-strike man's was.
+
+**Engine (no content):**
+- A bark may be said by two people (`barkExchange`), each line over its own speaker and one after another. The pair also greets in both voices.
+- A placement may carry its own `barks` (`{}` is none).
+- A figure may be `awaitingArt`: the room compiler casts no one who carries it, so a figure is never a voice with no body. The field comes off when his sheet is cut.
+- A `child` posture is held to the curve at a declared stature between 0.55 and 0.8 (`tests/scale.test.ts`).
+
+**Placed:**
+- the boy on Main Street between the Company and the Clarion;
+- the man leaving tomorrow just east of the hotel's door;
+- the boundary men in mid-street, facing each other;
+- the dog's owner in the alley by the crates, and later on Main Street beside the dog;
+- the fiddler by the Nugget's piano.
+
+`tests/staging-clear.test.ts` proves the stands once the art is cut.
+
+**Not placed, Tyler's decisions:**
+- **The bell-ringer (#4).** Doc 07 puts him on the church steps, which are on Lower Street (errata 43), and that is unbuilt. The pre-playthrough review listed the steps as built; they are not.
+- **The stage driver (#12).** He "arrives, complains, departs", and no document says when the coach is in town after the opening.
+
+**Found, and reported rather than changed.** The other five townspeople's trees (the letter-writer, pie woman, map seller, card sharp and one-strike man, typed in by hand on 2026-07-30) carry six lines no document writes:
+- the letter-writer's prompt "The letter-writer looks up." and his repeat "Once. And I charged him double.";
+- the map seller's prompt "The map seller brightens considerably." and his repeats "Like a man eating his own dinner, sir." and "Still not been disproved.";
+- the pie woman's prompt "The pie woman does not look up."
+
+Tyler has played them. Whether they go into doc 07 or come out is his.
+
+---
+
+# 111 · ONE ARTIST, ONE CAST — THE CAST MASTER IS LOCKED (Tyler, 2026-11-06)
+
+*Numbered 101 and 102 on their branch (PR #151) while main took 101-110 for Hob's rounds, the music and the sounds; renumbered 111 and 112 when the branch merged after them. Every citation of them on the branch now reads 111 or 112.*
 
 *Tyler: "put all characters in the game side by side in a line up. I want them to all look like they were drawn by the same artist for the same game at the same time." On method: "have chatgpt draw all characters on one sheet … And then have chatgpt draw all the versions of each character after they're locked in." On the anchors: "Thad, Hob and Deke … have the level of pixelation, detail, and look that I think fits the game." On master 02: "Sooo much better. They look like characters from the same game now."*
 
@@ -2792,11 +3049,11 @@ What Tyler still decides: acceptance of the art (errata 72 E, at the full playth
 
 **Y · One Hob (Tyler, 2026-11-06).** The funeral's Hob is drawn from his own in-game frames (cast-unify 32): his face, moustache and coat, his lit lantern (doc 54: the lid opens on Hob's lantern that night) and his hat in his other hand (doc 05). He walks off the hill on his own walk, hat back on. Cast-unify 31's bareheaded Hob is not used. Thirty-two of thirty-five operations used.
 
-# 102 · ONE LEVEL OF PIXELATION FOR THE WHOLE GAME — OWNER RULING (Tyler, 2026-11-06)
+# 112 · ONE LEVEL OF PIXELATION FOR THE WHOLE GAME — OWNER RULING (Tyler, 2026-11-06)
 
 *Tyler: "We need consistency throughout the whole game with the level of pixelation." Shown the funeral three ways at game size (renders/pixel-level-options-funeral-*.png) -- as it stood, everyone as chunky as Thad (A), everyone at the cast sheet's finer level (B) -- he chose **B**.*
 
-**A · The level is the cast sheet's.** Every character is drawn at the level of the locked cast master (errata 101) -- the mourners, the duel's people, the counter cast. The figures still drawn coarser are redrawn from their cast-sheet selves: **Thad** (all 33 clips, rebuilt from redrawn sources through the same rig), **Hob** (all four clips, and his alley, shack and funeral placements), **Deke**, and any other figure the pixel line-up (renders/pixel-level-faces-as-drawn.png) shows coarser. Errata 101 F ("Thad, Hob and Deke keep their shipping art") is withdrawn.
+**A · The level is the cast sheet's.** Every character is drawn at the level of the locked cast master (errata 111) -- the mourners, the duel's people, the counter cast. The figures still drawn coarser are redrawn from their cast-sheet selves: **Thad** (all 33 clips, rebuilt from redrawn sources through the same rig), **Hob** (all four clips, and his alley, shack and funeral placements), **Deke**, and any other figure the pixel line-up (renders/pixel-level-faces-as-drawn.png) shows coarser. Errata 111 F ("Thad, Hob and Deke keep their shipping art") is withdrawn.
 
 **B · Never enlarged.** A figure's sheet is drawn at or above the size the engine shows it, so the engine never enlarges it into bigger blocks.
 
@@ -2810,23 +3067,11 @@ What Tyler still decides: acceptance of the art (errata 72 E, at the full playth
 
 **G · Every figure snapped to one grid: a man is 115 art pixels tall.** With the redraws in, the line-up still showed one figure finer than its neighbour wherever the generator had drawn it larger. So the rule is now arithmetic, not a judgement per figure: a man's height is **N = 115** art pixels wherever he stands (the level of the funeral mock-up Tyler chose). `tools/art/one-level.py` reduces every frame of every character sheet and actor clip to that grid and draws it back up nearest-neighbour. The art pixel is `b = (a man's height in that sheet's pixels) / 115`: `figureHeight / stature` for a sheet the engine scales, the room's man at the figure's feet for a 1:1 sheet, and the rig's figure height for an actor clip. The coach and the driver are not people at that scale and are left alone. The grid is **fitted to each figure's own opaque box**: the block is nudged so a whole number of blocks spans crown to sole, and anchored there. A grid laid from the frame's corner moved soles and crowns by a row or two, and the rig-record check and the counter-waist check both caught it. A behind-counter figure keeps its waist cut on the plate's edge (`recut`). Frames are despilled afterwards. A drawing coarser than the level cannot be snapped finer; the line-up at game size (`renders/pixel-level-faces-at-one-level.png`, drawn by `tools/art/face-lineup.py`) is where that would show, and it shows none. **Held by `tests/one-level.test.mjs`:** the same grid is laid over every frame, and every block must be one colour. On the snapped game the worst of 472 frames has 6.0% of its pixels off their block's colour. On the same frames before the snap, 461 of 472 are over the 8% bound. No operations used.
 
----
-
-# 103 · HOB ON HIS ROUNDS IN ACTS I–II, AND HOW ACT IV OPENS — DECIDED (Tyler delegated, 2026-11-05)
-
-*Numbered 101 when it merged to main (#162); renumbered 103 when the cast work, which had taken 101 and 102 on its own branch, merged after it. Every citation of it now reads 103.*
-
-*Tyler, 2026-11-05: "You decide on both of the open questions." The full-game playthrough (tests/full-game.test.ts) found both.*
-
-**A · Hob is on his rounds from the first night.** Doc 04 calls HOB_A1 "the whole game": the player who asks him about Mott in Act I gets a four-second pause and forgets it for fifteen hours. Nothing reached HOB_A1 — Hob was placed only from Act III — so that pause could never happen. From the start of the game through Act II he stands on his rounds in the back alley (Room 20), at the spot and in the approved drawing his Act III rounds already use (doc 07: "on his rounds at night (Main Street, the back alley)"; no image operation), and his conversation there opens on HOB_A1. From Act III the existing placements govern unchanged. Doc 04's "Running" lines (every fourth night) need a count of nights the game does not keep, and stay unwired.
-
-**B · Act IV opens in Thad's room.** Doc 57 gives the line and the setting but not the cut. When Act IV begins, after the PART FOUR card, the game cuts to Room 19 and Thad says doc 57's line once, unprompted ("Packed. It took four minutes…"). The packed case on the bed and the morning light are Room 19's Act IV state and wait for the next session with an image budget; until then the room shows as it is, and the line carries the morning.
-
 **H · Walks (Tyler, 2026-11-06, of every walk recorded in the game: "Thad and the racoons are good. Hob could be better generally. Hob at the funeral isn't great. Deke isn't great. Pratt is horrible.").** Two faults, both measured. (1) A departing or looping figure's cycle ran at `fps` whatever his speed: Pratt a full cycle every 53 px on a man nearly 400 px tall, his legs pumping four times faster than he moved; the funeral Hob every 47 px; Deke every 450 px, gliding. Thad's cycle advances with distance and his is the walk Tyler passed, so an exit, loop or arrival may now declare `strideRatio`, one cycle as a share of the man's drawn height, and its frames advance with the ground covered at the local height (`engine/core/Departure.ts`); animals keep the clock. (2) The cycles were not cycles: Hob's and the funeral Hob's four frames led with the same leg every step, Pratt's four were one stride pumped. Hob, Deke and Pratt are redrawn as six frames posed on Thad's walk (cast-unify 40, 44, 45; 41-43 were replaced: Pratt's first with the same leg in front in all six, Hob's first with both legs one tone, Pratt's second with the same stride six times). `tools/art/walk-c.py` cuts them at the old walks' drawn size, Hob's on his clip's canvases with the lantern's light anchor found per frame, and the funeral's copy relit for the night. Every stride is measured from the drawing's own frames (R5f), calibrated against Thad's recorded 0.588: Hob 0.608, Deke and Pratt 0.600, the funeral Hob 0.584, the claims road's miners 0.50 and 0.46 (their drawings unchanged). Which leg leads could not be measured -- in profile both contact poses share a silhouette, and the generator lit Pratt's front leg in all three drawings -- so that stays Tyler's eye, on the recorded walks. Held by `tests/walk-gait.test.mjs`. Forty-five of seventy-five operations used.
 
 **I · Walks, second round (Tyler, 2026-11-06: "Hob looks like he's kind of scooting across air. Deke seems pretty good. Not as good as Thad, but close. Pratt walks so slow it's hard to even figure out if his walk could be good. The miners are awful").** Hob's drawing (cast-unify 44) held a wide stride in five frames of six, so he slid; redrawn with every frame's pose named (46) -- two contacts, two mid-steps, two passing poses -- and the funeral Hob relit from it. Pratt walked a fifth of his height a second; he now walks at Deke's pace, which Tyler passed, half his height a second (about 200 px/s), and the funeral Hob at Hob's own Room 1 pace (194 px/s). The miners are four men drawn alone, each a six-frame walk with his tool (47, 48), composed into the crowd by `tools/art/walk-c.py` one behind another on staggered steps; the crowd walking back is the same men mirrored (doc 10). They climbed a road from 440 px tall to 36 at a fixed 55 px/s, crawling near the camera and racing far away, so a walk may now declare `pace` in its own heights a second (`engine/core/Departure.ts`; with it, speed follows the local height, and the stride uses the walk's own `heights`); the miners walk at 0.5. Strides re-measured from the new frames (R5f): Hob 0.709, Deke 0.611, Pratt 0.727, the miners 0.777 -- the test's stride ceiling, 0.75, sat below a human stride (about 0.8 of stature) and is 0.95 (proofs/check-friction.json). `tests/walk-gait.test.mjs` now also holds the pace (0.35-1.2 heights a second, and a pace on any road whose heights more than halve) and the feet passing in each half of the cycle; run on the previous commit's walks it fails seven checks, the four things Tyler named. Forty-eight of seventy-five operations used.
 
-**J · Pratt leaner; the miners off the beat (Tyler, 2026-11-06: "Hob looks good. Deke looks good. Pratt's gait is kind of awkward because his knee goes so high. Also, I realized that standing next to Thad Pratt look like a much 'thicker' character… The miners all walking in complete unison looks insane").** Asked whether Pratt should be leaner -- errata 101 D had made him and Fanshawe the cast's two heavy builds -- Tyler chose "Leaner, still sturdy". Pratt is redrawn in all his poses as an ordinary working man a little broader than Thad, his face, hat and clothes unchanged (cast-unify 49: the rake on his claim, the mallet at Prosperity and the registrar's), shoulders about 1.4 of Thad's against 1.7 before (`renders/pratt-leaner-beside-thad.png`); figureHeight crown to sole, the hat not counted (363 with the rake, 386 with the mallet). His walk is redrawn from the leaner man with low knees named in the brief (50), sized the same way on its passing frame (341); his stake at Prosperity moves to x 434, under the new strike. The miners' crowd stepped as one although each man had his own phase: a pose and the pose half a cycle on share a silhouette, and every man changed pose on the same frame. It now runs twelve frames a cycle, each man holding a pose for two and changing on his own beat, from his own point in the cycle, a little different in size, spacing and nearness. `tools/art/walk-c.py` now measures every size against the walks before this work (commit e5e3739), not its own last output -- the sizes crept with every run -- writes the frames into the content files and snaps what it cut, so a run is repeatable; `tools/art/one-level.py` and `tests/one-level.test.mjs` now include looping walkers, which they had skipped. The game's probe reports where each departing or looping walker drew (`walkers`), and the walk recorder follows that. Fifty of seventy-five operations used.
+**J · Pratt leaner; the miners off the beat (Tyler, 2026-11-06: "Hob looks good. Deke looks good. Pratt's gait is kind of awkward because his knee goes so high. Also, I realized that standing next to Thad Pratt look like a much 'thicker' character… The miners all walking in complete unison looks insane").** Asked whether Pratt should be leaner -- errata 111 D had made him and Fanshawe the cast's two heavy builds -- Tyler chose "Leaner, still sturdy". Pratt is redrawn in all his poses as an ordinary working man a little broader than Thad, his face, hat and clothes unchanged (cast-unify 49: the rake on his claim, the mallet at Prosperity and the registrar's), shoulders about 1.4 of Thad's against 1.7 before (`renders/pratt-leaner-beside-thad.png`); figureHeight crown to sole, the hat not counted (363 with the rake, 386 with the mallet). His walk is redrawn from the leaner man with low knees named in the brief (50), sized the same way on its passing frame (341); his stake at Prosperity moves to x 434, under the new strike. The miners' crowd stepped as one although each man had his own phase: a pose and the pose half a cycle on share a silhouette, and every man changed pose on the same frame. It now runs twelve frames a cycle, each man holding a pose for two and changing on his own beat, from his own point in the cycle, a little different in size, spacing and nearness. `tools/art/walk-c.py` now measures every size against the walks before this work (commit e5e3739), not its own last output -- the sizes crept with every run -- writes the frames into the content files and snaps what it cut, so a run is repeatable; `tools/art/one-level.py` and `tests/one-level.test.mjs` now include looping walkers, which they had skipped. The game's probe reports where each departing or looping walker drew (`walkers`), and the walk recorder follows that. Fifty of seventy-five operations used.
 
 **K · Pratt's hand and size; the miners' view and lanes (Tyler, 2026-11-06: "Pratt's hand randomly leaves his mallet in one frame… scale wise, he still looks way bigger than Thad… His gait is way better though but maybe still weirdly slow. The miners… weirdly split down the hill and up the hill from the same point… the ones walking up are walking up sideways. And hands leave their tools also. How are you missing these things?").** They were missed because each walk was judged from a strip of a few frames, never every frame at size, never the facing against the way the figure travels, and never the scene with both crowds in it. Now `tools/art/walk-review.py` writes every frame of every walk large (`renders/walks-every-frame/`), and every one is looked at before a walk is shown; the whole scene is looked at too. Pratt's walk frame 2 had his arm off the handle; it is replaced by frame 5, the other passing pose (grafting frame 1's arm onto it left seams). His stature is 0.96 of the room's man, from 1.03, so with his hat he stands level with Thad, and he walks 0.7 of his height a second. The miners' crowds are redrawn seen from behind going up the road and from the front coming down it (cast-unify 51-54, eight frames each, posed on Thad's own back and front walks; 53's men were drawn turned the wrong way and are mirrored), spaced so no man's tool crosses another's face, and walk in two lanes so they pass instead of meeting and parting. A walk may declare `view` (`profile`, `away`, `toward`), and `tests/walk-gait.test.mjs` requires a walk that goes into the picture -- its depth change, |ln(h2/h1)|, at least 0.1 of how far it crosses in man heights (the flat walks 0-0.04, the claims road 0.2) -- to be drawn `away` or `toward` the way it goes. `tests/one-level.test.mjs` now reads a block edge that falls exactly on a pixel centre either way, as the snap's nearest-neighbour draw-up does (an evenly snapped frame of exactly 3.5 px blocks read 12% off). Fifty-four of seventy-five operations used.
 
@@ -2839,3 +3084,5 @@ What Tyler still decides: acceptance of the art (errata 72 E, at the full playth
 **O · The miners turned along the road (Tyler, 2026-11-06: "Their legs are walking forward in relation to the camera/screen while their bodies are moving at a diagonal up the mountain. They need to be fully oriented in the direction they're walking up/down the mountain.").** The road climbs diagonally to the top-right; the straight-on rigged walks (errata M) pointed the men's legs up the screen while they travelled across it. Each man is now drawn at three-quarters along the road -- going up from behind, turned to the top-right; coming down from the front, turned to the bottom-left -- six named poses each, the generator shown the road with the way marked (cast-unify 57-60). Each pose is held to the cycle's median height so crown and soles keep their lines (the drawings varied up to 2.5%). `view` gains `away-right`, `away-left`, `toward-right`, `toward-left`, and `tests/walk-gait.test.mjs` requires a walk that goes into the picture and more than two of the man's heights across it to be turned the way it crosses (fails both straight-on crowds), each man's own cycle to hold its height within 1%, and each crowd's heads-and-shoulders band to move under 1% of the frame (the stomping crowd moved 1.05-2.37%). Deke's, Hob's and Pratt's walks are left exactly as Tyler passed them: their committed sheets had been snapped to the level twice, and a rerun of `tools/art/walk-c.py` (which snaps once) would change their pixels, so they were restored. Sixty of seventy-five operations used.
 
 **P · Behind the cabin (Tyler, 2026-11-06, of the miners far up the road: "the little ones at the top just randomly walking across a building"; asked, he chose "Behind the cabin").** The loop's last leg ran from the bend straight through the cabin at the top of the road. The cabin is cut from the plate's own pixels as a room prop (`cabin_front`, `tools/art/room22-cabin.py`, base on the road's edge), invisible until someone is behind it; both paths now end behind it (1852,194), so the men going out pass behind the cabin and are hidden, and the men coming back step out from behind it. Each loop is 64 s again (out 0-22 s, back 31-51 s). A loop may end hidden behind a prop it names (`hiddenBehind`); `tests/movement.test.mjs` accepts that only when the prop covers the whole walker there and is drawn in front of him. `tools/art/walk-review.py` now also draws every walk's path over its room with a box the walker's size at each point (`renders/walks-every-frame/<walker>-path.png`), the picture that shows a path crossing a building.
+
+**Q · Merged with main (2026-11-06).** Main had taken errata 101-110 (Hob's rounds, the music, the sounds, the bell, the townspeople) while this branch held its cast and walk rulings as 101 and 102. Main's numbers stand; the cast rulings are 111 and 112 here, and every citation this branch wrote is renumbered to match. The image caps add both sides' raises (attemptsTotal 276); the ledger keeps every attempt from both; the map seller keeps main's extracted barks and this branch's placement. Main's new rope-pull clip (`thad-reach-back`, Room 17's bell) was drawn before the one level and is snapped to it (`tools/art/one-level.py --only thad-reach-back/`), as `tests/one-level.test.mjs` requires of every figure. Content re-extracted from the documents.

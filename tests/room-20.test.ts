@@ -122,7 +122,7 @@ test('a wrong verb on Hob in the alley is doc 54\'s line for it', async () => {
   }
 });
 
-test('errata 103 A: from the first night through Act II, Hob is on his rounds here and opens on HOB_A1', async () => {
+test('errata 101 A: from the first night through Act II, Hob is on his rounds here and opens on HOB_A1', async () => {
   // Found by the continuous playthrough: he was placed only from Act III, so
   // HOB_A1 -- doc 04's "Option 3 is the whole game" -- could never be reached.
   const content = await loadContent(fsReader);

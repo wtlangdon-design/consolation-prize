@@ -1071,7 +1071,7 @@
     "dialogue:HOB:HOB_C2:hobx (with ACT 4, doc 48 S4 beat 3)",
     "engine:GameState.openAct (clears it)"
    ],
-   "note": "Errata 103 B: Act IV's opening is owed. Written by the act turn with ACT = 4 and cleared when the game has cut to Room 19 and Thad has said doc 57's line, so the line is said once and a save taken in between still owes it. content/act-cards.json names it (`openings.4.due`)."
+   "note": "Errata 101 B: Act IV's opening is owed. Written by the act turn with ACT = 4 and cleared when the game has cut to Room 19 and Thad has said doc 57's line, so the line is said once and a save taken in between still owes it. content/act-cards.json names it (`openings.4.due`)."
   },
   {
    "id": "T_NO_GOLD_EVER",
@@ -1446,6 +1446,15 @@
     "combination:sample:claims_registrar:counter"
    ],
    "note": "Doc 57 F5 beat 1: sample laid on the counter at the filing."
+  },
+  {
+   "id": "T_BILL_FOUND",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:amb_dogs_owner:root:dogs_owner2"
+   ],
+   "note": "Thad has told the dog's owner there is a dog on Main Street, and he has gone to it (doc 07 #18: 'This is the resolution. It is worth nothing.'). From then on he stands on Main Street with Bill and has no bark, and 'How's Bill?' is offered. Nothing else reads it, on purpose (errata 110)."
   }
  ]
 }

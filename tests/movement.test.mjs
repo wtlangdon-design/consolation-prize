@@ -185,7 +185,7 @@ for (const path of manifest.ambient) {
     const width = room.size?.[0] ?? 1920;
     const height = room.size?.[1] ?? 864;
     const off = ([x, y]) => x < 0 || x > width || y > height;
-    // OR BEHIND SOMETHING (errata 102 P: the claims road's miners go behind the cabin at the top of the
+    // OR BEHIND SOMETHING (errata 112 P: the claims road's miners go behind the cabin at the top of the
     // road): the end is hidden if the prop the loop names covers the whole walker there and is drawn in
     // front of him (its base lower than his feet).
     const hidden = (i) => {

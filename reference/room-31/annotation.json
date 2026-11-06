@@ -357,5 +357,17 @@
    "mud_near": 0
   },
   "planes": []
+ },
+ "figureLight": {
+  "figures": [
+   "thad"
+  ],
+  "light": [
+   0.74,
+   0.82,
+   1.0
+  ],
+  "brightness": 0.85,
+  "note": "Errata 109, from the pre-playthrough art audit: the graveside is moonlit, and its whole cast -- Sowerby, the undertaker, the mourners -- was drawn in that cold light, while Thad, drawn in even neutral light for every room, stood among them warm, as if lit by a different lamp. A cool multiply and a little less brightness put him under the same moon. A measurement, not a verdict: Tyler's playthrough decides."
  }
 }

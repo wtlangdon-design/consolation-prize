@@ -903,6 +903,11 @@ if (ann.entrances) {
   const dir = 'content/ambient';
   const cast = existsSync(dir)
     ? readdirSync(dir).map((file) => JSON.parse(readFileSync(`${dir}/${file}`, 'utf8')))
+      // EXCEPT ONE WHOSE PICTURE IS NOT YET DRAWN (errata 110): a figure
+      // written, placed and waiting on its image operation says so in its
+      // own file (`awaitingArt`), and is cast the day the art is cut and the
+      // field removed -- not before, when he would be a voice with no body.
+      .filter((npc) => !npc.awaitingArt)
       .filter((npc) => npc.room === built.id || npc.placements?.[built.id]).map((npc) => npc.id).sort()
     : [];
   if (cast.length) built.ambient = cast;
@@ -1058,6 +1063,10 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
           // data. See engine/core/StepTriggers.ts.
           ...(ann.hotspotStates[id].step ? { step: ann.hotspotStates[id].step } : {}) }
       : {}),
+    // A VERB'S ANIMATION travels with the hotspot, from the annotation's
+    // `reactions.<id>` (verb -> clip id). Without this a compile dropped one
+    // silently: Room 17's bell rope pulls with Thad's `reach`.
+    ...(ann.reactions?.[id] ? { reactions: ann.reactions[id] } : {}),
     responses,
     ...(Object.keys(objectOverrides).length ? { overrides: objectOverrides } : {}),
   };

@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
-import type { AmbientFile, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep,
+import type { AmbientFile, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep, SoundsFile,
 } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
 import { planNear } from '../core/BootAssets.ts';
@@ -81,6 +81,24 @@ export class GameScene extends Phaser.Scene {
   /** The performed line whose sound has been played, so it plays once. */
   private soundedLine: Utterance | null = null;
   private readonly sfx = new Sfx(() => this.state.menu.toggle(MUSIC_OPTION), () => this.music.isUnlocked);
+  /**
+   * DOC 45'S ROOM BACKGROUNDS (`R02-A`, `R07-A`; errata 105): a second bed
+   * player beside the score. It is never detuned -- wind is not the score --
+   * and it is silent wherever the score is suspended.
+   */
+  private readonly ambience = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
+  /** A cue's held sound -- the standing team in the opening -- until a cue or the room ends it (errata 106). */
+  private readonly cueBed = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
+  /** The judges' marks already sounded, so each new one sounds once. */
+  private marksHeard = 0;
+  /** The duel whose music is playing, so a duel's start and end each choose the bed once. */
+  private duelPlaying: string | null = null;
+  /** The words on screen when they last sounded, so a redraw does not stamp twice. */
+  private soundedWords: string | null = null;
+  /** The last foot to come down (Actor.gait, in half-cycles), so each plant sounds once. */
+  private lastFoot = -1;
+  /** The take each footstep surface played last, so a walk never repeats a foot. */
+  private readonly lastTake = new Map<string, number>();
   /** Errata 70 G: a room that is its own cutscene (Room 32). */
   private readonly timeline = new RoomTimeline();
   /** True while a timeline room keeps the verb panel away. */
@@ -129,6 +147,8 @@ export class GameScene extends Phaser.Scene {
   /** A bark's gap above the head, as a fraction of height -- speech's SPEECH_GAP. */
   private static readonly BARK_GAP = 0.12;
   private static readonly BARK_BLOCK_WIDTH = Math.round(NATIVE_WIDTH * (150 / 320));
+  /** How long a bark stays over a head. */
+  private static readonly BARK_MS = 2600;
 
   private sayLines: string[] = [];
   /** When the line on screen has been up long enough. Null while none is. */
@@ -209,6 +229,7 @@ export class GameScene extends Phaser.Scene {
   private spokenBreak: string | null = null;
   private barkAt: { x: number; y: number } | null = null;
   private barkTimer?: Phaser.Time.TimerEvent;
+  private barkChain?: Phaser.Time.TimerEvent;
   /** A sound written in the world, over the thing that made it. See `showCaption`. */
   private captionLines: string[] = [];
   private captionAt: { x: number; y: number } | null = null;
@@ -302,7 +323,9 @@ export class GameScene extends Phaser.Scene {
       actors: this.actors,
       bodies: this.bodies,
       choreSeconds: (mover, clip) => this.choreSeconds(mover, clip),
+      choreLands: (mover, clip) => this.choreLands(mover, clip),
       say: (step) => this.saySequenceStep(step),
+      cue: (id) => this.fireCue(id),
       paths: this.state.content.paths,
       // THE TRAVEL, NAMED BY ITS EXIT. The scene owns the room change because
       // it owns the bookkeeping around one -- the autosave and the actor
@@ -542,8 +565,21 @@ export class GameScene extends Phaser.Scene {
       && Math.floor(before * GameScene.LAMP_TICKS) !== Math.floor(now * GameScene.LAMP_TICKS)) {
       this.markDirty();
     }
+    // A DUEL BEGINS OR ENDS: its music comes in or goes (errata 109).
+    if (this.state.dialogue.duelId !== this.duelPlaying) {
+      this.duelPlaying = this.state.dialogue.duelId;
+      this.applyMusic();
+    }
+    // A POINT WRITTEN DOWN (doc 45 U-ASSAY-PENCIL): the judges' pencil, once a mark.
+    const marks = this.state.dialogue.duelMarks;
+    if (marks > this.marksHeard) {
+      const cue = this.state.content.sounds?.events?.duelMark;
+      if (cue) this.fireCue(cue);
+    }
+    this.marksHeard = marks;
     if (this.actor.isWalking) {
       this.markDirty();
+      this.footsteps();
       // A WALK TO A CONVERSATION HEARS ONLY THE PERSON IT IS GOING TO. Barks
       // are the town noticing Thad in passing; on the way to talk to somebody
       // a BYSTANDER's remark lands on top of the greeting that follows (the
@@ -557,7 +593,8 @@ export class GameScene extends Phaser.Scene {
       const fired = !going ? this.ambient.checkApproach(this.actor.x, this.actor.y)
         : host && !host.greetsWithBark ? this.ambient.checkApproach(this.actor.x, this.actor.y, host.id)
           : null;
-      if (fired) this.showBark(fired.npc.name, fired.line, fired.npc.x, this.barkFoot(fired.npc));
+      if (fired?.exchange) this.showBarkExchange(fired.exchange);
+      else if (fired) this.showBark(fired.npc.name, fired.line, fired.npc.x, this.barkFoot(fired.npc));
     }
     // The tree opens when the walk that was started for it finishes.
     if (this.linesOnArrival && !this.actor.isWalking) {
@@ -607,9 +644,11 @@ export class GameScene extends Phaser.Scene {
             : this.state.dialogue.openingOf(tree, this.pendingTree.viaAction === true);
           const host = this.pendingTree.npc
             ? this.ambient.present.find((each) => each.id === this.pendingTree?.npc) : undefined;
-          const remark = host?.greetsWithBark ? this.ambient.barkFor(host) : null;
-          if (greeting.length === 0 && host && remark) {
-            greeting = [{ speaker: host.id, line: remark }];
+          // A PAIR GREETS IN BOTH VOICES (errata 110): the boundary men's bark
+          // is an exchange, each line over the man who says it.
+          const remark = host?.greetsWithBark ? this.ambient.barkLinesFor(host) : [];
+          if (greeting.length === 0 && host && remark.length) {
+            greeting = remark.map((one) => ({ speaker: one.speaker, line: one.line }));
             this.ambient.markBarked(host);
           }
           if (greeting.length > 0) {
@@ -902,6 +941,8 @@ export class GameScene extends Phaser.Scene {
     // and this runs before any of the early returns below -- a click that
     // opens the menu unlocks as well as a click on the road.
     this.music.unlock();
+    this.ambience.unlock();
+    this.cueBed.unlock();
     this.applyMusic();
     const { x, y } = this.nativePoint(pointer);
     const secondary = pointer.rightButtonDown();
@@ -1328,7 +1369,15 @@ export class GameScene extends Phaser.Scene {
 
   private applyInteraction(target: Interactable, verb: string): void {
     if (this.listenAt(target, verb)) return;
+    const sounding = this.soundsFor(target, verb);
     const result = this.state.interact(target, verb);
+    for (const rule of sounding) {
+      if (rule.variants && !rule.variants.includes(result.variant ?? 0)) continue;
+      this.fireCue(rule.cue);
+    }
+    // A verb can change what the room plays -- the Nugget's piano, tuned -- so
+    // the bed is chosen again now rather than on the next click.
+    this.applyMusic();
     // ERRATA 28b AS AMENDED (Q74): A VERB CLEARS ON USE.
     //
     // 28b used to say "a selected verb persists until another is chosen. It is
@@ -1427,7 +1476,7 @@ export class GameScene extends Phaser.Scene {
   private applyTimelineStep(due: RoomTimelineStep, silent: boolean): void {
     switch (due.do) {
       case 'plate': this.plate = due.plate; break;
-      case 'sound': if (!silent) this.sfx.play(due.src, due.gain ?? 1); break;
+      case 'sound': if (!silent) this.sfx.play(due.src, (due.gain ?? 1) * this.roomSoundGain()); break;
       case 'panel': this.panelHidden = !due.show; break;
       case 'music': this.music.resume(this.timeline.elapsed / 1000); this.musicResumed = true; break;
       case 'dialogue': {
@@ -1480,6 +1529,7 @@ export class GameScene extends Phaser.Scene {
    * none -- which is every room today, because THADDEUS has not been written.
    */
   private applyMusic(): void {
+    this.applyAmbience();
     // DOC 45 R32-MUTE: the coffin stops the score dead and carries its place.
     if (this.state.room.music === 'suspend') {
       // Until the timeline's resume; after it the returned bed plays on, and
@@ -1489,8 +1539,23 @@ export class GameScene extends Phaser.Scene {
     }
     const declared = this.state.content.manifest.music;
     if (!declared) return;
-    const room = declared.rooms?.[this.state.room.id];
-    this.music.play(room ?? declared.title ?? null);
+    // A DUEL HAS ITS OWN MUSIC (doc 45 R04-DUEL; U-FINAL-DUEL), for as long as it lasts.
+    const duel = this.state.dialogue.duelId;
+    const duelBed = duel ? declared.duels?.[duel] ?? declared.duels?.['default'] : undefined;
+    if (duelBed) {
+      this.music.play({ src: duelBed.src, gain: duelBed.gain });
+      return;
+    }
+    const entry = declared.rooms?.[this.state.room.id];
+    // ERRATA 103: null is a room's deliberate silence; no entry is the title bed.
+    if (entry === null) {
+      this.music.play(null);
+    } else if (entry === undefined) {
+      this.music.play(declared.title ?? null);
+    } else {
+      const state = entry.variants?.find((variant) => this.state.flags.test(variant.when));
+      this.music.play(state ?? entry);
+    }
     // INVARIANT 5: -35 cents until Room 33's ninety seconds, 0 after them.
     if (this.tuneStart === null) {
       this.music.setTune(declared.tunedFlag && this.state.flags.test({ [declared.tunedFlag]: true }) ? 1 : 0);
@@ -1508,7 +1573,7 @@ export class GameScene extends Phaser.Scene {
     if (!listening || target.id !== listening.surface || verb !== 'LISTEN_TO' || !this.lastClick) return false;
     const at = this.lastClick;
     const tap = tapAt(listening, at.x, at.y);
-    this.sfx.play(tap.src);
+    this.sfx.play(tap.src, this.roomSoundGain());
     const now = this.time.now;
     this.ripples.push({ x: at.x, y: at.y, start: now, end: now + tap.tail * 1000, tail: tap.tail });
     this.state.verbs.resetToDefault();
@@ -1556,6 +1621,10 @@ export class GameScene extends Phaser.Scene {
     this.ambient.arrived();
     this.musicResumed = false;
     this.applyMusic();
+    // A cue's held sound belongs to the room it was started in.
+    this.cueBed.play(null);
+    this.soundForTransit(from);
+    this.lastFoot = -1;
     // ERRATA 70 G. A timeline room starts its clock on entry; any other room
     // stops whatever timeline was running and gives the panel back.
     this.timeline.stop();
@@ -1597,7 +1666,7 @@ export class GameScene extends Phaser.Scene {
       }
       // DOC 48 S5 BEAT 1: the fork, unbidden, once. A, 440.
       if (listening.fork && !this.state.flags.test({ [listening.fork.onceFlag]: true })) {
-        this.sfx.play(listening.fork.src);
+        this.sfx.play(listening.fork.src, this.roomSoundGain());
         this.state.flags.applyWrites({ [listening.fork.onceFlag]: true });
       }
     }
@@ -1733,6 +1802,13 @@ export class GameScene extends Phaser.Scene {
       throw new Error(`No declared clip "${clip}" (${facing}) for mover "${mover.id}"`);
     }
     return found.frames.length / record.reactRate;
+  }
+
+  /** When the step after this chore may start: its clip's `landsAt` frame, if it declares one. */
+  private choreLands(mover: Actor, clip: string): number | undefined {
+    const record = this.state.content.actors.get(mover.id);
+    const found = record?.clips.find((candidate) => candidate.id === clip && candidate.facing === mover.facing);
+    return found?.landsAt === undefined || !record ? undefined : found.landsAt / record.reactRate;
   }
 
   /**
@@ -2234,6 +2310,15 @@ export class GameScene extends Phaser.Scene {
   }
 
   private setSay(text: string | null, speaker: string | null = null, direction = false): void {
+    // A LINE THAT SOUNDS (errata 106): "He notarizes it. He stamps it." Matched
+    // on the words as the document wrote them, without the parentheses a
+    // direction is shown in.
+    const words = text && direction && text.startsWith('(') && text.endsWith(')') ? text.slice(1, -1) : text;
+    if (words && words !== this.soundedWords) {
+      for (const rule of this.state.content.sounds?.lines ?? []) if (rule.line === words) this.fireCue(rule.cue);
+    }
+    // Once per showing: a line redrawn is not a line said again.
+    this.soundedWords = words;
     this.sayIsDirection = text !== null && direction;
     // DOC 30 SECTION 5'S BLOCK WIDTH, WHICH NOTHING HAD EVER USED. "Spoken
     // text uses a default maximum block width of 240 native pixels." This
@@ -2588,7 +2673,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   /**
-   * AN ACT THAT OPENS SOMEWHERE (errata 103 B): once its card is down and
+   * AN ACT THAT OPENS SOMEWHERE (errata 101 B): once its card is down and
    * nothing is being said, walked, chosen or performed, he is cut to the room
    * and says the line. Waiting for quiet is what keeps the cut from landing
    * in the middle of a scene; a load that still owes it makes it here too.
@@ -2734,6 +2819,83 @@ export class GameScene extends Phaser.Scene {
    */
   private fireCue(id: string): void {
     this.cuesFired = { last: id, count: this.cuesFired.count + 1 };
+    // ERRATA 105: the audio layer exists now. A cue with no sound written for
+    // it is still counted, and still silent.
+    const cue = this.state.content.sounds?.cues[id];
+    if (cue && 'bed' in cue) this.cueBed.play(cue.bed ? { src: cue.bed.src, gain: cue.bed.gain } : null);
+    if (cue?.duck) this.music.duck(cue.duck.to, cue.duck.seconds, cue.duck.attack, cue.duck.release);
+    for (const part of cue?.play ?? []) {
+      if (part.at) this.time.delayedCall(part.at * 1000, () => this.sfx.play(part.src, part.gain ?? 1));
+      else this.sfx.play(part.src, part.gain ?? 1);
+    }
+  }
+
+  /**
+   * A whole room's sounds, scaled together (errata 106). The coffin's dirt and
+   * the listening chamber's taps were rendered loud and played at full gain,
+   * up to sixteen decibels over the music; their shape inside the room -- the
+   * dirt thinning, the taps deepening toward the void -- is the design, so the
+   * room is turned down as one rather than sound by sound.
+   */
+  private roomSoundGain(): number {
+    return this.state.content.sounds?.roomGain?.[this.state.room.id] ?? 1;
+  }
+
+  /** The room's background, or none: doc 45's `-A` beds, which carry under the score. */
+  private applyAmbience(): void {
+    const bed = this.state.room.music === 'suspend' ? undefined
+      : this.state.content.sounds?.ambience[this.state.room.id];
+    const here = new Set(this.ambient.present.map((each) => each.id));
+    const layers = (bed?.layers ?? []).filter((layer) => !layer.whenPresent || here.has(layer.whenPresent))
+      .map((layer) => ({ src: layer.src, gain: layer.gain }));
+    this.ambience.play(bed ? { src: bed.src, gain: bed.gain, layers } : null);
+  }
+
+  /**
+   * The sounds a verb on a target will make (R02-BELL, R05-QUEUE, B3's whistle
+   * and the rest), chosen BEFORE it runs: `when` and `item` describe the world
+   * as the player acted on it. Which written line was spoken is known only
+   * after, so `variants` is checked by the caller.
+   */
+  private soundsFor(target: Interactable, verb: string): NonNullable<SoundsFile['verbs']> {
+    const room = this.state.room.id;
+    const held = this.state.heldItem;
+    return (this.state.content.sounds?.verbs ?? []).filter((rule) => rule.room === room && rule.target === target.id
+      && rule.verb === verb && (!rule.item || rule.item === held)
+      && (!rule.when || this.state.flags.test(rule.when as Record<string, boolean>)));
+  }
+
+  /** Walking through a door that doc 45 hears: the batwings, the assay office's latch. */
+  private soundForTransit(from: string | null): void {
+    const to = this.state.room.id;
+    if (!from || from === to) return;
+    for (const rule of this.state.content.sounds?.transits ?? []) {
+      if (rule.between.includes(from) && rule.between.includes(to)) this.fireCue(rule.cue);
+    }
+  }
+
+  /**
+   * A FOOT COMES DOWN (doc 45 section 3.4: "one step event per animation foot
+   * plant"). The gait is distance walked, in cycles, so a plant is every half
+   * cycle: the sound keeps time with the legs at any speed and any size.
+   */
+  private footsteps(): void {
+    const foot = Math.floor(this.actor.gait * 2);
+    if (foot === this.lastFoot) return;
+    const first = this.lastFoot < 0;
+    this.lastFoot = foot;
+    if (first) return;
+    const steps = this.state.content.sounds?.footsteps;
+    if (!steps) return;
+    const underfoot = this.state.surfaceAt(Math.round(this.actor.x), Math.round(this.actor.y));
+    const surface = steps.walkBoxSurfaces.includes(underfoot) ? underfoot : steps.rooms[this.state.room.id];
+    const takes = surface ? steps.surfaces[surface] : undefined;
+    if (!takes?.length) return;
+    const last = this.lastTake.get(surface!) ?? -1;
+    let take = Math.floor(Math.random() * takes.length);
+    if (take === last && takes.length > 1) take = (take + 1) % takes.length;
+    this.lastTake.set(surface!, take);
+    this.sfx.play(takes[take]!, steps.gain);
   }
 
   /**
@@ -2768,11 +2930,27 @@ export class GameScene extends Phaser.Scene {
     return Math.round(npc.y - height - GameScene.BARK_GAP * height);
   }
 
+  /**
+   * A BARK TWO PEOPLE SAY (AmbientFile.barkExchange; errata 110): each line
+   * over its own speaker's head, one after another, each held as a bark is.
+   */
+  private showBarkExchange(lines: { speaker: string; line: string }[]): void {
+    const next = (at: number): void => {
+      const one = lines[at];
+      if (!one) return;
+      const who = this.ambient.present.find((each) => each.id === one.speaker);
+      if (who) this.showBark(who.name, one.line, who.x, this.barkFoot(who));
+      if (at + 1 < lines.length) this.barkChain = this.time.delayedCall(GameScene.BARK_MS, () => next(at + 1));
+    };
+    this.barkChain?.remove();
+    next(0);
+  }
+
   private showBark(_name: string, line: string, x: number, y: number): void {
     this.barkLines = this.font.wrap(line, GameScene.BARK_BLOCK_WIDTH);
     this.barkAt = { x, y };
     this.barkTimer?.remove();
-    this.barkTimer = this.time.delayedCall(2600, () => {
+    this.barkTimer = this.time.delayedCall(GameScene.BARK_MS, () => {
       this.barkLines = [];
       this.barkAt = null;
       this.markDirty();

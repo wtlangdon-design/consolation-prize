@@ -451,7 +451,7 @@ export interface AmbientFile {
    * half-figure). Tyler, 2026-10-31: "Make sure matching scales are written
    * into the system of checks."
    */
-  posture?: 'standing' | 'seated' | 'band' | 'identity' | 'animal' | 'behind-counter';
+  posture?: 'standing' | 'seated' | 'band' | 'identity' | 'animal' | 'behind-counter' | 'child';
   /**
    * WHY THIS VISIBLE FIGURE IS ALLOWED TO BE STILL, quoting the ruling.
    * Errata 77: every visible character in a shipping room moves, deliberately,
@@ -467,7 +467,7 @@ export interface AmbientFile {
   when?: Condition;
   /**
    * AND ANY ONE OF THESE, for a person who is there in more than one state
-   * (errata 103 A: Hob on his rounds in Acts I-II, and again in Act III while
+   * (errata 101 A: Hob on his rounds in Acts I-II, and again in Act III while
    * the executor is wanted). Read with `when`, never instead of it: `when`
    * stays a condition that holds in every case, so whatever reads it alone
    * still knows when he is certainly gone. A placement's own `when` replaces
@@ -573,8 +573,28 @@ export interface AmbientFile {
      * (doc 04 SOW_A1, SOW_C1).
      */
     tree?: string;
+    /**
+     * The barks this person has IN THIS ROOM, replacing the file's own; `{}`
+     * is none. Doc 07 #18: once found, the dog's owner stands on Main Street
+     * with Bill "and has no bark at all" (errata 110).
+     */
+    barks?: Record<string, string>;
   }>;
   barks: Record<string, string>;
+  /**
+   * Written and placed, waiting on an image operation (errata 110): the room
+   * compiler casts no one who carries this, so a figure is never a voice with
+   * no body. The value names the asset and its brief.
+   */
+  awaitingArt?: string;
+  /**
+   * A BARK SAID BY TWO PEOPLE, one line each in turn over each speaker's head
+   * (doc 07 #2 and #3, the boundary men, whose bark table is written as an
+   * exchange: **A:** "Borders Claim One!" **B:** "So does the sky, Clement.").
+   * Keyed by reputation state like `barks`, which it is used instead of; each
+   * line names the ambient id that says it. Carried by one of the two.
+   */
+  barkExchange?: Record<string, { speaker: string; line: string }[]>;
   /**
    * The occlusion plane that masks this figure, when it stands where no walk
    * box is. Room 5's Winnie stands BEHIND the counter: no box exists there
@@ -856,6 +876,16 @@ export interface ActorClip {
    * nothing derives one from the other.
    */
   walkDx?: number;
+  /**
+   * THE FRAME A REACTION LANDS ON, when its line should not wait for the
+   * whole clip. A verb's reaction plays before its line, and the line is what
+   * fires the verb's sound -- so a clip that ends in recovery (a pull's let-go
+   * and straighten) would put the bell after he has let go. With this set, the
+   * sequence moves on to the line, and its sound, when the clip reaches this
+   * frame, and the clip plays out underneath. Room 17's bell rope: the toll
+   * comes on the downstroke. Absent: the line waits for the clip, as always.
+   */
+  landsAt?: number;
   /**
    * WHERE THE LANTERN IS, ONE POINT PER FRAME, in the same padded-canvas space
    * as `anchor`.
@@ -2085,6 +2115,8 @@ export interface ManifestFile {
    * existed.
    */
   carriedLight?: string;
+  /** Doc 45's everyday sounds: cues, footsteps, room ambience (errata 105). */
+  sounds?: string;
   /** A colour per speaker for spoken lines. Absent draws in the default ink. */
   speechColours?: string;
   /** Doc 03's Liar's Assay, as content/assay/assay.json. Optional so a manifest without duels still loads. */
@@ -2104,15 +2136,91 @@ export interface ManifestFile {
    */
   music?: {
     title?: { src: string; gain?: number };
-    rooms?: Record<string, { src: string; gain?: number }>;
+    /**
+     * A room's bed, with its layers and its states (errata 103). `null` is
+     * deliberate SILENCE -- the undertaker's (doc 28: "No stems ... nothing
+     * says why") -- which is not the same as a room with no entry: those
+     * play the title bed until doc 28 or Tyler gives them their own.
+     */
+    rooms?: Record<string, RoomMusic | null>;
     /**
      * THE FLAG THAT SAYS THE SCORE IS IN TUNE (invariant 5, doc 45 R33-TUNE):
      * every bed is rendered at -35 cents, and once this is set they play at 0
      * "for the rest of the game". Room 33's ninety seconds write it.
      */
     tunedFlag?: string;
+    /**
+     * The bed while a Liar's Assay duel is on (doc 45 R04-DUEL, U-FINAL-DUEL;
+     * errata 109): by duel id, else `default`. Back to the room's when it ends.
+     */
+    duels?: Record<string, { src: string; gain?: number; why?: string }>;
   };
   musicNote?: string;
+}
+
+/** One file in a cue, `at` seconds after the cue fires. */
+export interface SoundRef { src: string; gain?: number; at?: number }
+
+/**
+ * DOC 45'S EVERYDAY SOUNDS (errata 105). Which sound plays when is content:
+ * the engine knows a cue id, a verb on a target, a doorway between two rooms,
+ * a foot coming down, a room's background -- and nothing about Consolation.
+ */
+export interface SoundsFile {
+  about?: string;
+  /**
+   * Doc 45 cue id to what it does: one-shots to `play`, and a `bed` -- a
+   * held sound such as the standing team -- started (or, when null, stopped)
+   * on the cue bed, which also ends when the room does (errata 106).
+   */
+  cues: Record<string, { why?: string; play?: SoundRef[]; bed?: SoundRef | null;
+    /** The music dips under this sound: to `to` of its level, for `seconds` (errata 107: the bell). */
+    duck?: { to: number; seconds: number; attack?: number; release?: number };
+    /** For a cue fired by a line rather than a verb: the room whose music it is measured against. */
+    room?: string }>;
+  /** A line put on screen fires a cue: a direction such as "stamping" (U-STAMP). Matched exactly. */
+  lines?: { line: string; cue: string }[];
+  /** A room's own scripted sounds (a timeline's, a puzzle's) all scaled by one number (errata 106). */
+  roomGain?: Record<string, number>;
+  /** Engine events to the cue they fire: `duelMark`, a point written down in an Assay duel (U-ASSAY-PENCIL). */
+  events?: { duelMark?: string };
+  /** A verb on a target fires a cue: optionally only on some written lines, or in some states. */
+  /**
+   * `when` and `item` are read BEFORE the verb runs (errata 109): a sound for
+   * the moment a thing first happens -- the fork on Grievance, a piano tuned --
+   * must not fire again on the repeat that the same write makes true.
+   * `variants` is read after, from the line that was spoken.
+   */
+  verbs: { room: string; target: string; verb: string; item?: string; variants?: number[];
+    when?: Record<string, boolean | number>; cue: string }[];
+  /** Walking between two rooms, either way, fires a cue (a door). */
+  transits: { between: [string, string]; cue: string }[];
+  footsteps: {
+    gain: number;
+    /** Surface to its takes; consecutive steps never repeat a take. */
+    surfaces: Record<string, string[]>;
+    /** Walk-box surfaces that are also footstep surfaces (a boardwalk); any other box walks on the room's floor. */
+    walkBoxSurfaces: string[];
+    /** Room id to the floor its footsteps sound on. A room not listed is silent underfoot. */
+    rooms: Record<string, string>;
+  };
+  /**
+   * Room id to the background it carries (doc 45's `-A` beds). Never detuned:
+   * it is not the score. A layer with `whenPresent` plays only while that
+   * character is in the room (R02-A: the dog's breathing, while the dog is there).
+   */
+  ambience: Record<string, SoundRef & { why?: string; layers?: (SoundRef & { whenPresent?: string })[] }>;
+}
+
+/** A room's music: a bed with layers, and states that swap it (errata 103). */
+export interface RoomMusic {
+  src: string;
+  gain?: number;
+  layers?: { src: string; gain?: number }[];
+  /** First match wins: the Nugget's piano once T_NUGGET_PIANO_TUNED is set. */
+  variants?: { when: Record<string, boolean>; src: string; gain?: number; layers?: { src: string; gain?: number }[] }[];
+  /** Why this room has this music -- doc 28's line, or the ruling. Not read by the engine. */
+  why?: string;
 }
 
 /** Everything the engine needs, resolved from the manifest. */
@@ -2305,6 +2413,7 @@ export interface ContentBundle {
   overlays: Map<string, OverlayFile>;
   /** The lamp's ground light, or null when the manifest declares none. */
   carriedLight: CarriedLightFile | null;
+  sounds: SoundsFile | null;
   /** Traced paths, keyed by the content path that names them. */
   paths: Map<string, PathFile>;
   /** A colour per speaker, or null where none is declared. */
@@ -2414,6 +2523,8 @@ export type SequenceStagingStep =
    * means back to the declared default -- shut, for the coach's door.
    */
   | { do: 'setState'; object: string; state?: string }
+  /** A doc 45 cue, fired as the beat reaches it (errata 106). Takes no time. */
+  | { do: 'cue'; cue: string }
   /**
    * Doc 17 beat 11. Walk a mover along a TRACED path over its own duration.
    *
@@ -2736,12 +2847,12 @@ export interface ActCardsFile {
   schema: number;
   note?: string;
   cards: Record<string, string>;
-  /** Where an act opens, by act (errata 103 B; see ActOpening). */
+  /** Where an act opens, by act (errata 101 B; see ActOpening). */
   openings?: Record<string, ActOpening>;
 }
 
 /**
- * AN ACT THAT OPENS SOMEWHERE (errata 103 B, doc 57: "Act IV opens in Room 19").
+ * AN ACT THAT OPENS SOMEWHERE (errata 101 B, doc 57: "Act IV opens in Room 19").
  * Once the act's card is down, while `due` holds, he is cut to `room` and says
  * `say`; doing so clears `due`, so it happens once and a load does not replay it.
  */

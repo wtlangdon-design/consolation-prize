@@ -1,4 +1,4 @@
-"""Thad's side walks (thad-walk-right, thad-walk-left) from his redrawn cycle (errata 102).
+"""Thad's side walks (thad-walk-right, thad-walk-left) from his redrawn cycle (errata 112).
 
 art/staging/thad-b/walks-04.png: two rows of six, right then left, drawn
 against the cycles they replace. Each row is cut at one scale -- the scale that

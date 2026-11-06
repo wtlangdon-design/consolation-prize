@@ -1,4 +1,4 @@
-"""ONE LEVEL OF PIXELATION FOR EVERY CHARACTER (errata 102, Tyler chose B).
+"""ONE LEVEL OF PIXELATION FOR EVERY CHARACTER (errata 112, Tyler chose B).
 
 Every figure is drawn with the same number of art pixels for a man's height:
 N (115, the level of the funeral mock-up Tyler chose). Each frame of every

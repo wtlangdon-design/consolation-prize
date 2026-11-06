@@ -21,7 +21,7 @@
  "registrationNote": "His head top in the old plate is y 360 at x 1205. zone 2 is 222 tall, so y 582 puts speakerHead at 360. The frame is cut to 155x222, so Ambient.npcAt's box is x 1161-1249, y 360-582: his head, shoulders and back down to the stool.",
  "sprite": {
   "sheet": "art/actors/nugget-one-strike-identity.png",
-  "rate": 0.0,
+  "rate": 0,
   "frames": [
    [
     0,
@@ -33,16 +33,16 @@
   "note": "ZERO ALPHA EVERYWHERE (tools/retrofit/nugget-identity-frames.py asserts it). The declared frame is the top 222 rows of the 155x263 sheet."
  },
  "barks": {
-  "R_NOBODY": "Found color in ’49. Nugget the size of a fist.",
-  "R_SWINDLED": "Found color in ’49. Size of a fist.",
-  "R_RACCOON": "Found color in ’49. Size of a good apple.",
-  "R_SURVEYED": "Found color in ’49. Size of an apple.",
-  "R_BORDERS_MOTT": "Found color in ’49! Size of a walnut, mind.",
-  "R_LOST_DUEL": "Found color in ’49. Walnut.",
+  "R_NOBODY": "Found color in '49. Nugget the size of a fist.",
+  "R_SWINDLED": "Found color in '49. Size of a fist.",
+  "R_RACCOON": "Found color in '49. Size of a good apple.",
+  "R_SURVEYED": "Found color in '49. Size of an apple.",
+  "R_BORDERS_MOTT": "Found color in '49! Size of a walnut, mind.",
+  "R_LOST_DUEL": "Found color in '49. Walnut.",
   "R_WON_DUEL": "Found color once. Size of a pea.",
-  "R_DEAD": "Found color in ’49. Think I did.",
-  "R_TRUTH": "…I don’t believe I found anything."
+  "R_DEAD": "Found color in '49. Think I did.",
+  "R_TRUTH": "…I don't believe I found anything."
  },
- "barksNote": "Doc 07 §13's bark table, all nine states. THE STRIKE SHRINKS FROM A FIST TO A PEA ACROSS THEM AND NOTHING ANYWHERE MARKS IT -- that is his whole arc and it must stay unmarked. TWO TRANSFORMS, both recorded: the document's British \"colour\" is written \"color\" because the fiction is American and check-american-english enforces it (doc 07 §13 was corrected in the same commit, so the document and the content still read alike); and R_DEAD's internal direction, written \"Found color in ’49.\" *(pause)* \"Think I did.\", loses the parenthetical because a bark is one string. No word is added or changed.",
+ "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 13 · THE ONE-STRIKE MAN) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109).",
  "idNote": "THE ID IS THE SPEAKER ID, AND THAT IS MECHANISM RATHER THAN CONVENTION. Renderer.speakerHead finds an ambient speaker by `each.id === this.speaker`, and the speaker is what the TREE declares -- so an ambient called nugget_card_sharp whose tree says `card_sharp` is never found, and doc 30 section 3.1's forbidden top-centre fallback fires for a man plainly on screen. It did: the first live proof of this pass drew \"I am.\" over the chandelier. Every other speaking character in the game -- winnie, pie_woman, map_seller, letter_writer -- is named this way for the same reason, and the room-prefixed nugget_* ids belong to the ambients that never speak."
 }

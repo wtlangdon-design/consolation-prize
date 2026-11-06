@@ -5,6 +5,8 @@ import type { GameState } from './GameState.ts';
 export interface FiredBark {
   npc: AmbientFile;
   line: string;
+  /** A bark two people say (AmbientFile.barkExchange): every line, in order, `line` the first. */
+  exchange?: { speaker: string; line: string }[];
 }
 
 /**
@@ -138,6 +140,10 @@ export class AmbientLayer {
             posture: placed.posture ?? npc.posture,
             walkTo: placed.walkTo ?? npc.walkTo,
             tree: placed.tree ?? npc.tree,
+            // AND WHAT HE SAYS HERE, where the room says otherwise: the dog's
+            // owner, found and standing beside his dog, asks nobody whether
+            // they have seen one (doc 07 #18; errata 110).
+            barks: placed.barks ?? npc.barks,
           }
           : npc;
       });
@@ -228,10 +234,11 @@ export class AmbientLayer {
       const key = `${npc.id}:${state}`;
       if (this.fired.has(key)) continue;
       if (Math.hypot(npc.x - x, npc.y - y) > npc.approachRadius) continue;
-      const line = npc.barks[state];
+      const exchange = npc.barkExchange?.[state];
+      const line = exchange?.[0]?.line ?? npc.barks[state];
       if (!line) continue;
       this.fired.add(key);
-      return { npc, line };
+      return { npc, line, ...(exchange ? { exchange } : {}) };
     }
     return null;
   }
@@ -247,7 +254,18 @@ export class AmbientLayer {
 
   /** The line this character has for the reputation Thad currently carries. */
   barkFor(npc: AmbientFile): string | null {
-    return npc.barks[this.reputationState] ?? null;
+    return npc.barkExchange?.[this.reputationState]?.[0]?.line ?? npc.barks[this.reputationState] ?? null;
+  }
+
+  /**
+   * Every line of this character's bark for the current reputation, each with
+   * who says it: one line, his own, or a pair's exchange in both voices.
+   */
+  barkLinesFor(npc: AmbientFile): { speaker: string; line: string }[] {
+    const exchange = npc.barkExchange?.[this.reputationState];
+    if (exchange?.length) return exchange;
+    const line = npc.barks[this.reputationState];
+    return line ? [{ speaker: npc.id, line }] : [];
   }
 
   /** The rect a character answers the pointer in: the box npcAt tests. */

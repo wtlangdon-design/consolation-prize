@@ -8,7 +8,7 @@ import { WalkBoxes, heightIn } from '../engine/core/WalkBoxes.ts';
 import { readPng } from '../tools/lib/png.mjs';
 
 /**
- * ONE LEVEL OF PIXELATION THROUGHOUT THE WHOLE GAME (errata 102 G). Tyler,
+ * ONE LEVEL OF PIXELATION THROUGHOUT THE WHOLE GAME (errata 112 G). Tyler,
  * 2026-11-06: "The problem is that the super pixelated face you just gave him
  * is going to look ridiculous next to like the people at the funeral. We need
  * consistency throughout the whole game with the level of pixelation." He chose
@@ -53,7 +53,7 @@ export function offGrid(png, frame, b) {
   // A pixel centre exactly on a block edge (a block of exactly 3.5 px) can go to either block: the snap's
   // nearest-neighbour draw-up rounds such ties by floating point, not by rule. Rounded the wrong way the
   // grid drifts a row from the snap's and an evenly snapped frame reads 12% off (Pratt's breath frame,
-  // errata 102 K). So both roundings are tried and the better taken.
+  // errata 112 K). So both roundings are tried and the better taken.
   return Math.min(offGridTies(png, frame, b, -1e-9), offGridTies(png, frame, b, 1e-9));
 }
 

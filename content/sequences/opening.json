@@ -41,6 +41,10 @@
       },
       "staging": [
         {
+          "do": "cue",
+          "cue": "O-02-S2"
+        },
+        {
           "do": "move",
           "actor": "hob",
           "from": [
@@ -203,6 +207,10 @@
       },
       "staging": [
         {
+          "do": "cue",
+          "cue": "O-06-S1"
+        },
+        {
           "do": "face",
           "actor": "thad",
           "facing": "right"
@@ -241,6 +249,10 @@
           "object": "coach"
         },
         {
+          "do": "cue",
+          "cue": "O-06B-S"
+        },
+        {
           "do": "move",
           "actor": "coach",
           "to": [
@@ -272,6 +284,10 @@
       "control": "player",
       "note": "Now the second strange encounter, carrying no exposition",
       "staging": [
+        {
+          "do": "cue",
+          "cue": "O-09-M"
+        },
         {
           "do": "say",
           "line": 0

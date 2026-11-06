@@ -103,7 +103,7 @@
   ],
   "breakEvery": 4.0,
   "frameNote": "0 rest, the pencil raised · 1 breath (derived) · 2 the pencil lowered to his chest · 3 leaning to confer · 4 leaning back, the pencil up. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
-  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one).",
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one).",
   "figureHeight": 437,
   "stature": 1.0,
   "provenance": "reference/cast-unify-18.spec.json",
@@ -189,7 +189,7 @@
     "talkFrame": 2,
     "frameNote": "0 rest, hands on the reading desk · 1 breath (derived) · 2 preaching, a finger raised · 3 counting adjectives on his fingers · 4 a hand on his heart. A break every `breakEvery` seconds (errata 77). He preaches as he talks.",
     "provenance": "reference/cast-unify-18.spec.json",
-    "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one). At the pulpit, cut at the waist with his hands on the pulpit's top either side of the reading desk; the drawing brought a reading desk of its own, and every pixel of the figure where the room's desk (plane 1) stands in front of him is cleared, so the sheet carries none."
+    "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one). At the pulpit, cut at the waist with his hands on the pulpit's top either side of the reading desk; the drawing brought a reading desk of its own, and every pixel of the figure where the room's desk (plane 1) stands in front of him is cleared, so the sheet carries none."
    },
    "clipPlane": 1
   }

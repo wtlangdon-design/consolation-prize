@@ -16,9 +16,9 @@
   "R_RACCOON": "Heard about your animal. Pie?",
   "R_SURVEYED": "That woman charged you two dollars to point at dirt. Pie.",
   "R_BORDERS_MOTT": "Pie, Mr. Grubb. On the house. On the house today.",
-  "R_LOST_DUEL": "Pie. You’ll want the big one.",
-  "R_WON_DUEL": "Beat Deke Vessel! Pie’s still a nickel.",
-  "R_DEAD": "Thought you’d passed.",
+  "R_LOST_DUEL": "Pie. You'll want the big one.",
+  "R_WON_DUEL": "Beat Deke Vessel! Pie's still a nickel.",
+  "R_DEAD": "Thought you'd passed.",
   "R_TRUTH": "Biggest lie ever told in this territory and he still buys the nickel pie."
  },
  "sprite": {
@@ -83,9 +83,9 @@
    2
   ],
   "provenance": "reference/cast-unify-17.spec.json",
-  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 19 (reference/cast-unify-17.txt), full figure, her basket in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet; its own file.",
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 19 (reference/cast-unify-17.txt), full figure, her basket in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet; its own file.",
   "figureHeight": 168,
-  "stature": 1.0,
+  "stature": 1,
   "figureHeightNote": "Crown to sole; stature 1.0 keeps her the size she was drawn (the street's man where she stands, 157).",
   "frameNote": "0 standing with her basket · 1 breath (derived) · 2 holding a pie out · 3 lifting the basket · 4 one hand up, calling out."
  },
@@ -100,7 +100,7 @@
    "clipPlane": 1,
    "sprite": {
     "sheet": "art/actors/cast-pie-woman.png",
-    "rate": 1.0,
+    "rate": 1,
     "frames": [
      [
       2,
@@ -139,5 +139,6 @@
    }
   }
  },
- "placementsNote": "PHASE 1.5B/1.5D: LEGACY CONTEXT ONLY. On the Main Street candidate her shipping x,y lands inside the trough's footprint; placed on the far mud east of the trough's end, behind the rail, until Phase 2 recasts her. The shipping room's x,y is untouched."
+ "placementsNote": "PHASE 1.5B/1.5D: LEGACY CONTEXT ONLY. On the Main Street candidate her shipping x,y lands inside the trough's footprint; placed on the far mud east of the trough's end, behind the rail, until Phase 2 recasts her. The shipping room's x,y is untouched.",
+ "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 6 · THE PIE WOMAN) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109)."
 }

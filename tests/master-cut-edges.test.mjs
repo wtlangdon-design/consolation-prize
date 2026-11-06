@@ -15,7 +15,7 @@ import { readPng } from '../tools/lib/png.mjs';
  * purple ring. tools/art/cast-unify-cut.py now gives an edge block only its
  * pure figure pixels, or makes it backdrop.
  *
- * Held for every figure whose sheet was cut from the locked master (errata 101:
+ * Held for every figure whose sheet was cut from the locked master (errata 111:
  * its provenance spec is derivedFrom master-02): within RIM px of transparency,
  * no more than SHARE of the pixels are key -- blue at least 12 over green,
  * (r + b) / 2 - g at least 25, and more magenta by OVER than the figure just

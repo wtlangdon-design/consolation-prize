@@ -1,4 +1,4 @@
-"""Fit Thad's redrawn standing poses (errata 102) into his four rig sources.
+"""Fit Thad's redrawn standing poses (errata 112) into his four rig sources.
 
 Each new pose is keyed off the generated sheet (tools/art/cast-unify-cut.py's
 clean edge), scaled so the figure is exactly as tall as the figure in the old

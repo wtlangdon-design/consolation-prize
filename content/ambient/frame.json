@@ -85,7 +85,7 @@
   "talkFrame": 2,
   "frameNote": "0 rest, his notebook at his side · 1 breath (derived) · 2 talking, a hand out · 3 taking a quote in his notebook, the pencil from behind his ear · 4 leaning in. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
   "provenance": "reference/cast-unify-16.spec.json",
-  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 18 (reference/cast-unify-16.txt), full figure, holding his own thing in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet. Its own file: the sheet it replaces is written by an earlier cut.",
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 18 (reference/cast-unify-16.txt), full figure, holding his own thing in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet. Its own file: the sheet it replaces is written by an earlier cut.",
   "figureHeight": 502,
   "stature": 1.0,
   "figureHeightNote": "Crown to sole of the rest frame (tools/art/figure-height.py); the engine draws him at the room's man there."

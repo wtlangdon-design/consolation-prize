@@ -1,5 +1,5 @@
 """Rebuild every RIGGED Thad clip from its source, with the arguments its own
-rig.json recorded -- so redrawing a source (errata 102: one level of
+rig.json recorded -- so redrawing a source (errata 112: one level of
 pixelation) rebuilds every clip made from it, nothing hand-copied.
 
   thad-rebuild.py [--out-root DIR] [--only clip-dir ...]

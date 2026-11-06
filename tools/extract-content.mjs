@@ -36,10 +36,10 @@ function read(relative) {
 const CHECKING = process.argv.includes('--check');
 const stale = [];
 
-function write(relative, data) {
+function write(relative, data, indent = 2) {
   if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = performDirections(data);
   const path = resolve(ROOT, relative);
-  const wanted = `${JSON.stringify(data, null, 2)}\n`;
+  const wanted = `${JSON.stringify(data, null, indent)}\n`;
   if (CHECKING) {
     let found = null;
     try {
@@ -385,7 +385,13 @@ function opening() {
     //    horses    x1485 - 1866
     //
     // Every position below is measured against those, not guessed.
+    // ERRATA 106: THE OPENING'S SOUNDS (doc 45 O-02-S2, O-06-S1, O-06B-S,
+    // O-09-M). The coach is already standing when beat 2 opens -- it is placed,
+    // not driven in -- so the team's sound starts at the halt: breathing and
+    // harness, held until the first stride of 6b. O-02-S1, the moving team, has
+    // no arrival to go with and is not played.
     2: [
+      { do: 'cue', cue: 'O-02-S2' },
       { do: 'move', actor: 'hob', from: [600, 720], to: [600, 720], seconds: 0.1 },
       { do: 'move', actor: 'coach', from: [1390, 742], to: [1390, 742], seconds: 0.1 },
       { do: 'setState', object: 'coach', state: 'door-open' },
@@ -434,6 +440,8 @@ function opening() {
       { do: 'say', line: 1 },
     ],
     6: [
+      // O-06-S1: the case hits the mud, and the fork inside rings its A.
+      { do: 'cue', cue: 'O-06-S1' },
       { do: 'face', actor: 'thad', facing: 'right' },
       { do: 'chore', actor: 'thad', clip: 'pickup-low' },
     ],
@@ -460,6 +468,9 @@ function opening() {
       // back every time he turned left for the rest of the game.
       { do: 'setState', object: 'thad' },
       { do: 'setState', object: 'coach' },
+      // O-06B-S: the standing team's bed stops on the first stride, and the
+      // team, the wheels and the axle go with the coach.
+      { do: 'cue', cue: 'O-06B-S' },
       { do: 'move', actor: 'coach', to: [3000, 742], seconds: 3 },
     ],
     // BEAT 7 NO LONGER TOUCHES HIM -- he has stood at the roadside since beat
@@ -497,6 +508,8 @@ function opening() {
     // only when each lands. An index with no line behind it throws at
     // extraction rather than playing silence.
     9: [
+      // O-09-M: THE STRIKE, once, distant, as Hob begins to cross (doc 28 Room 1).
+      { do: 'cue', cue: 'O-09-M' },
       // NO WALK IN, AND IT DOES NOT BEGIN UNTIL HE IS SPOKEN TO. He has been
       // standing since beat 2; the beat is what it says it is -- an exchange,
       // and then he goes on. See `awaits`.
@@ -3552,7 +3565,7 @@ function hobTree() {
     const leave = nodes.HOB_C2.options.find((one) => one.tag === 'EXIT');
     if (!leave) throw new Error('doc 04: HOB_C2 has no way out');
     leave.say = said(beat(3), 'S4 beat 3');
-    // The act turn owes Act IV's opening (errata 103 B): its `due` flag is
+    // The act turn owes Act IV's opening (errata 101 B): its `due` flag is
     // written with ACT, so a load before the cut still makes it.
     leave.set = { T_HOB_IS_MOTT: true, T_NO_GOLD_EVER: true, ACT: 4, [actOpenings()[4].due]: true };
   }
@@ -4115,7 +4128,7 @@ function fanshaweTree() {
  */
 /**
  * HOW AN ACT OPENS, where doc 57 says it opens somewhere: "**Act IV opens in
- * Room 19, morning**, ..." and the line under it. Errata 103 B: after the
+ * Room 19, morning**, ..." and the line under it. Errata 101 B: after the
  * act's card the game cuts to that room and Thad says the line, once. The
  * room is named by number in the doc and found by the room's own annotation.
  *
@@ -4149,7 +4162,7 @@ function actCards() {
   return write('content/act-cards.json', {
     schema: 1,
     note: 'EXTRACTED from docs/57-puzzle-completion.md (A10, E0b, E10) by tools/extract-content.mjs. The card shown when '
-      + 'ACT rises to the key in play; and, where doc 57 says an act opens in a room, that opening (errata 103 B): '
+      + 'ACT rises to the key in play; and, where doc 57 says an act opens in a room, that opening (errata 101 B): '
       + 'once the card is down he is in `room` and says `say`, while `due` holds, and the opening clears it.',
     cards,
     openings,
@@ -4737,8 +4750,187 @@ function sowerbyTree() {
   });
 }
 
+// ---------------------------------------------------------------------------
+// THE TOWN'S REPUTATION BARKS (doc 07 Part Two; errata 109). Every single-voice
+// bark table is read here into the `barks` of that townsperson's ambient file.
+// Until errata 109 five were typed in by hand and the hotel clerk's file said
+// "Doc 07 writes no barks for the clerk" while doc 07 section 8 wrote nine.
+//
+// THE TRANSFORMS, all of them, because a bark is one string over a head and
+// carries only words:
+//   - an italic direction -- *(beat)*, *(He shakes his head.)* -- is dropped,
+//     inside the quotes or out;
+//   - emphasis asterisks go, the words stay;
+//   - two quotes from the same mouth are one line, in order;
+//   - an exchange written "A." — "B." — "C." is a conversation with Thad, and
+//     the bark is its first line, the townsperson's (the pie woman's R_DEAD).
+// The quote marks are the document's. Two-voice tables (the boundary men, the
+// boarding-house women) and tables of directions alone (the bell-ringer, the
+// fiddler) are not single barks and are not read here.
+const BARK_SECTIONS = JSON.parse(read('tools/town-barks.json')).extract;
+
+function townBarks() {
+  const doc = read('docs/07-ambient-layer.md');
+  const states = JSON.parse(read('content/reputation.json')).states;
+  const written = [];
+  for (const [heading, file] of Object.entries(BARK_SECTIONS)) {
+    const start = doc.indexOf(`\n## ${heading}\n`);
+    if (start < 0) throw new Error(`doc 07: no section "## ${heading}"`);
+    const end = doc.indexOf('\n## ', start + 4);
+    const body = doc.slice(start, end < 0 ? undefined : end);
+    const table = body.slice(body.indexOf('**Barks**'));
+    const barks = {};
+    for (const row of table.split('\n')) {
+      const match = row.match(/^\| `(R_[A-Z_]+)` \| (.+) \|$/);
+      if (!match) continue;
+      let cell = match[2].replace(/\*\([^)]*\)\*/g, ' ');
+      const exchange = cell.indexOf('" — "');
+      if (exchange >= 0) cell = cell.slice(0, exchange + 1);
+      const words = quoted(cell).map(plain).filter(Boolean);
+      if (!words.length) throw new Error(`doc 07 ${heading} ${match[1]}: no quoted words`);
+      barks[match[1]] = words.join(' ').replace(/\s+/g, ' ').trim();
+    }
+    const missing = states.filter((state) => !(state in barks));
+    if (missing.length) throw new Error(`doc 07 ${heading}: no bark for ${missing.join(', ')}`);
+    const path = `content/ambient/${file}.json`;
+    const npc = JSON.parse(read(path));
+    npc.barks = Object.fromEntries(states.map((state) => [state, barks[state]]));
+    npc.barksNote = `EXTRACTED from docs/07-ambient-layer.md (## ${heading}) by tools/extract-content.mjs. `
+      + 'Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange '
+      + 'with Thad is its first line (errata 109).';
+    written.push(write(path, npc, 1));
+  }
+  return written;
+}
+
+// ---------------------------------------------------------------------------
+// THE TOWNSPEOPLE'S MICRO-TREES AND THE PAIR'S BARKS (doc 07 Part Two;
+// errata 110). The five placed in errata 110 -- the boundary men, the message
+// boy, the man leaving tomorrow, the fiddler, the dog's owner -- are read from
+// doc 07 here, never typed. The grammar is doc 07's NOTATION:
+//   > "Q" → reply                 an option, TOPIC
+//   > `[COMIC]` "Q" → reply       an option, COMIC
+//   > ↳ "Q" → reply               a FOLLOW-UP: offered once the option above has been asked
+//   >   *Thad:* "x"               an INTERJECTION inside the reply above
+//   >   → "y"                     and the reply goes on
+// In a reply, **A:** and **B:** name which of a pair is speaking, a quote is
+// the speaker's, and an italic parenthetical is a direction, performed or
+// hidden by doc 58's rules. An option line with no quoted words for Thad --
+// the message boy's *(pay)* -- has nothing to put on the menu and is left
+// out and reported, never worded here. *(after)* is a gate the routes in
+// tools/town-barks.json say the meaning of.
+function townTrees() {
+  const doc = read('docs/07-ambient-layer.md');
+  const routing = JSON.parse(read('tools/town-barks.json'));
+  const pool = [...read('docs/04-dialogue-trees.md').slice(read('docs/04-dialogue-trees.md').indexOf('## Universal exit lines')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
+  const section = (heading) => {
+    const start = doc.indexOf(`\n## ${heading}\n`);
+    if (start < 0) throw new Error(`doc 07: no section "## ${heading}"`);
+    const end = doc.indexOf('\n## ', start + 4);
+    return doc.slice(start, end < 0 ? undefined : end);
+  };
+  /** A reply's spans in order: [{speaker, line, direction?}]. */
+  const spoken = (text, speakers, first) => {
+    const out = [];
+    let who = first;
+    for (const span of text.matchAll(/\*\*([AB]):\*\*|\*\(([^)]+)\)\*|"([^"]+)"/g)) {
+      const [, voice, direction, words] = span;
+      if (voice) { who = speakers[voice]; continue; }
+      if (direction !== undefined) {
+        const shown = performedDirection(plain(direction));
+        if (shown) out.push({ speaker: who, line: shown.line, ...(shown.direction ? { direction: true } : {}) });
+        continue;
+      }
+      out.push({ speaker: who, line: plain(words) });
+    }
+    return out;
+  };
+  const written = [];
+  const reported = [];
+  let poolIndex = 0;
+  for (const [heading, spec] of Object.entries(routing.trees)) {
+    const body = section(heading);
+    const tree = body.slice(body.indexOf('**Micro-tree**'), body.indexOf('**Barks**'));
+    const speakers = spec.speakers ?? {};
+    const routes = routing.treeRoutes?.[heading] ?? {};
+    const options = [];
+    let lastTop = null;
+    for (const raw of tree.split('\n')) {
+      if (!raw.startsWith('>')) continue;
+      const line = raw.slice(1);
+      const continuation = /^\s{2,}/.test(line);
+      const text = line.trim();
+      if (continuation) {
+        const option = options.at(-1);
+        if (!option) throw new Error(`doc 07 ${heading}: a continuation with no option above it`);
+        const thad = /^\*Thad:\*\s*"([^"]+)"/.exec(text);
+        if (thad) { option.exchange.push({ speaker: 'thad', line: plain(thad[1]) }); continue; }
+        const more = /^→\s*(.+)$/.exec(text);
+        if (more) { option.exchange.push(...spoken(more[1], speakers, spec.speaker)); continue; }
+        throw new Error(`doc 07 ${heading}: unread continuation "${text}"`);
+      }
+      const followUp = text.startsWith('↳');
+      const comic = text.includes('`[COMIC]`');
+      const arrow = text.indexOf('→');
+      if (arrow < 0) throw new Error(`doc 07 ${heading}: an option with no reply: "${text}"`);
+      const asked = /"([^"]+)"/.exec(text.slice(0, arrow))?.[1];
+      if (!asked) { reported.push(`${heading}: "${text.slice(0, arrow).trim()}" has no words for Thad to say -- left out`); continue; }
+      const id = `${spec.prefix}${options.length + 1}`;
+      const option = { id, text: plain(asked), tag: comic ? 'COMIC' : 'TOPIC',
+        ...(followUp && lastTop ? { after: [lastTop] } : {}), exchange: spoken(text.slice(arrow + 1), speakers, spec.speaker) };
+      Object.assign(option, routes[option.text] ?? {});
+      if (!followUp) lastTop = id;
+      options.push(option);
+    }
+    for (const text of Object.keys(routes)) {
+      if (!options.some((option) => option.text === text)) throw new Error(`doc 07 ${heading}: a route for "${text}", which no option says`);
+    }
+    for (const option of options) {
+      if (option.exchange.length === 1 && option.exchange[0].speaker === spec.speaker && !option.exchange[0].direction) {
+        option.say = option.exchange[0].line;
+        delete option.exchange;
+      }
+    }
+    options.push({ id: `${spec.prefix}x`, tag: 'EXIT', text: pool[poolIndex % 2], universal: true, ends: true });
+    poolIndex += 1;
+    written.push(write(`content/dialogue/${spec.file}.json`, {
+      schema: 1,
+      id: spec.tree,
+      speaker: spec.speaker,
+      note: `EXTRACTED from docs/07-ambient-layer.md (## ${heading}) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. `
+        + 'Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one\'s pool (errata 110).',
+      start: 'root',
+      nodes: { root: { id: 'root', noPrompt: true, exceptionReason: 'Doc 07 writes the micro-tree as options only; the greeting is the bark.', options } },
+    }));
+  }
+  // THE PAIR'S BARKS: one exchange per reputation, carried by the file named.
+  const states = JSON.parse(read('content/reputation.json')).states;
+  for (const [heading, spec] of Object.entries(routing.exchanges ?? {})) {
+    const body = section(heading);
+    const table = body.slice(body.indexOf('**Barks**'));
+    const exchange = {};
+    for (const row of table.split('\n')) {
+      const match = row.match(/^\| `(R_[A-Z_]+)` \| (.+) \|$/);
+      if (!match) continue;
+      const lines = spoken(match[2], spec.speakers, null).filter((one) => !one.direction);
+      if (lines.some((one) => !one.speaker)) throw new Error(`doc 07 ${heading} ${match[1]}: a line with no A or B`);
+      exchange[match[1]] = lines;
+    }
+    const missing = states.filter((state) => !exchange[state]?.length);
+    if (missing.length) throw new Error(`doc 07 ${heading}: no bark for ${missing.join(', ')}`);
+    const path = `content/ambient/${spec.file}.json`;
+    const npc = JSON.parse(read(path));
+    npc.barkExchange = Object.fromEntries(states.map((state) => [state, exchange[state]]));
+    npc.barksNote = `EXTRACTED from docs/07-ambient-layer.md (## ${heading}) by tools/extract-content.mjs, as \`barkExchange\`: `
+      + 'the table is written in two voices, each line said over its own man. Directions are dropped (errata 110).';
+    written.push(write(path, npc, 1));
+  }
+  for (const line of reported) process.stderr.write(`doc 07: ${line}\n`);
+  return written;
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), ...room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), ...townBarks(), ...townTrees()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
   // Doc 58 rule 5: a reply whose spoken lines this pass reads differently is

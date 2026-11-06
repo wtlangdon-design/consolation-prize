@@ -1,0 +1,642 @@
+{
+ "about": "ERRATA 105: the everyday sounds, wired. Every cue is doc 45's, by its id, and plays a file Tyler approved by ear (errata 102). Footsteps follow the floor: a walk box whose own `surface` is boardwalk walks on boards; anywhere else the room's floor below. Nothing here marks a load-bearing LISTEN: the timesheet's paper is the same ordinary paper as the queue book's (doc 45 R08-TIME, section 3.5). ERRATA 106 adds the opening's cues (Tyler reversed errata 28a's ban on timed sound), the remaining LISTEN cues, the stamp and the judges' pencil, and the room backgrounds.",
+ "cues": {
+  "R01-SIGN": {
+   "why": "doc 45 R01-SIGN-1/2: one wooden sign creak",
+   "play": [
+    {
+     "src": "audio/sfx/sign-creak.wav",
+     "gain": 0.482
+    }
+   ]
+  },
+  "R01-CASE-B2": {
+   "why": "doc 45 R01-CASE-B2: the fork against the clasp, exact A440",
+   "play": [
+    {
+     "src": "audio/sfx/r33-fork.wav",
+     "gain": 0.049
+    }
+   ]
+  },
+  "R02-BELL": {
+   "why": "doc 45 R02-BELL: one distant hand-struck bell, half a step flat",
+   "play": [
+    {
+     "src": "audio/sfx/church-bell-distant.wav",
+     "gain": 0.377,
+     "at": 0.12
+    }
+   ],
+   "duck": {
+    "to": 0.45,
+    "seconds": 5,
+    "attack": 0.08,
+    "release": 2.0
+   }
+  },
+  "R03-HANDBILL": {
+   "why": "doc 45 R03-HANDBILL: one light paper movement",
+   "play": [
+    {
+     "src": "audio/sfx/paper-light.wav",
+     "gain": 0.184
+    }
+   ]
+  },
+  "R03-DOOR": {
+   "why": "doc 45 R03-DOOR: a batwing swing for each oscillation, each smaller",
+   "play": [
+    {
+     "src": "audio/sfx/batwing-swing-1.wav",
+     "gain": 0.222,
+     "at": 0.0
+    },
+    {
+     "src": "audio/sfx/batwing-swing-2.wav",
+     "gain": 0.222,
+     "at": 0.95
+    },
+    {
+     "src": "audio/sfx/batwing-swing-3.wav",
+     "gain": 0.222,
+     "at": 1.7
+    }
+   ]
+  },
+  "R05-QUEUE": {
+   "why": "doc 45 R05-QUEUE: one paper movement",
+   "play": [
+    {
+     "src": "audio/sfx/paper-ordinary.wav",
+     "gain": 0.186
+    }
+   ]
+  },
+  "R05-FLOOR": {
+   "why": "doc 45 R05-FLOOR: a loose plank with the hollow under it",
+   "play": [
+    {
+     "src": "audio/sfx/floorboard-hollow.wav",
+     "gain": 0.116
+    }
+   ]
+  },
+  "R05-FLOOR-STEP": {
+   "why": "doc 45 R05-FLOOR-STEP: the board creaks under his weight",
+   "play": [
+    {
+     "src": "audio/sfx/floorboard-creak.wav",
+     "gain": 0.237
+    }
+   ]
+  },
+  "R05/06-LATCH": {
+   "why": "doc 45 R05/06-LATCH: the assay office's latch",
+   "play": [
+    {
+     "src": "audio/sfx/door-latch.wav",
+     "gain": 0.172
+    }
+   ]
+  },
+  "R07/08-LOCK": {
+   "why": "doc 45 R07/08-LOCK: the archive door does not open, and sounds it",
+   "play": [
+    {
+     "src": "audio/sfx/door-locked.wav",
+     "gain": 0.231
+    }
+   ]
+  },
+  "R08-TIME": {
+   "why": "doc 45 R08-TIME: one ordinary paper movement, the queue book's own, nothing more",
+   "play": [
+    {
+     "src": "audio/sfx/paper-ordinary.wav",
+     "gain": 0.186
+    }
+   ]
+  },
+  "R09-PAPER": {
+   "why": "doc 45 R09-PAPER: one substantial paper movement",
+   "play": [
+    {
+     "src": "audio/sfx/paper-substantial.wav",
+     "gain": 0.157
+    }
+   ]
+  },
+  "R11-CHAIRS": {
+   "why": "doc 45 R11-CHAIRS: one leather-settling sound",
+   "play": [
+    {
+     "src": "audio/sfx/leather-settle.wav",
+     "gain": 0.171
+    }
+   ]
+  },
+  "O-02-S2": {
+   "why": "doc 45 O-02-S2: the halted team, breathing, harness moving, held until the first stride (the coach is placed already standing, so O-02-S1's arrival has nothing to go with)",
+   "bed": {
+    "src": "audio/sfx/team-halted.wav",
+    "gain": 0.119
+   }
+  },
+  "O-06-S1": {
+   "why": "doc 45 O-06-S1: the case into the mud, the fork inside ringing its A",
+   "play": [
+    {
+     "src": "audio/sfx/case-in-mud.wav",
+     "gain": 0.151
+    }
+   ]
+  },
+  "O-06B-S": {
+   "why": "doc 45 O-06B-S: the standing team stops on the first stride; team, wheels and axle go with the coach",
+   "bed": null,
+   "play": [
+    {
+     "src": "audio/sfx/team-departing.wav",
+     "gain": 0.064
+    }
+   ]
+  },
+  "O-09-M": {
+   "why": "doc 45 O-09-M; doc 28 Room 1: THE STRIKE, once, distant, as Hob crosses. Score, baked at -35 cents like the beds",
+   "play": [
+    {
+     "src": "audio/the-strike.wav",
+     "gain": 0.099
+    }
+   ]
+  },
+  "R01-COACH-2": {
+   "why": "doc 45 R01-COACH-2: the dry near axle, receding east, while it can still be heard",
+   "play": [
+    {
+     "src": "audio/sfx/axle-receding.wav",
+     "gain": 0.207
+    }
+   ]
+  },
+  "R01-WEST-3": {
+   "why": "doc 45 R01-WEST-3: one distant human laugh from town, no words",
+   "play": [
+    {
+     "src": "audio/sfx/laugh-distant.wav",
+     "gain": 0.145
+    }
+   ]
+  },
+  "R03-SPITTOON": {
+   "why": "doc 45 R03-SPITTOON: one restrained wet spittoon sound (OQ-11 left the source; a small wet arrival and the brass)",
+   "play": [
+    {
+     "src": "audio/sfx/spittoon.wav",
+     "gain": 0.386
+    }
+   ]
+  },
+  "R23/24-MUD": {
+   "why": "doc 45 R23/24-MUD: a localized wet working, squelching",
+   "play": [
+    {
+     "src": "audio/sfx/mud-working.wav",
+     "gain": 0.257
+    }
+   ]
+  },
+  "R21-WINDOW": {
+   "why": "doc 45 R21-WINDOW: distant Main Street, all of it",
+   "play": [
+    {
+     "src": "audio/sfx/street-distant.wav",
+     "gain": 0.174
+    }
+   ]
+  },
+  "U-STAMP": {
+   "why": "doc 45 U-STAMP: a stamp landing on paper, where the writing says one does",
+   "play": [
+    {
+     "src": "audio/sfx/stamp.wav",
+     "gain": 0.187
+    }
+   ]
+  },
+  "U-ASSAY-PENCIL": {
+   "why": "doc 45 U-ASSAY-PENCIL: the judges' pencil, each point written down (doc 03: Sowerby holds it)",
+   "play": [
+    {
+     "src": "audio/sfx/pencil.wav",
+     "gain": 0.197
+    }
+   ]
+  },
+  "R17-BELL": {
+   "why": "doc 45 R17-BELL: pulling the rope strikes the bell -- the same fixed, half-step-flat bell heard from Main Street, here directly overhead. Doc 49's PULL line has always been in the game; it had no sound. Errata 108: a pull swings the bell, so it tolls -- three strikes, ringing out over twelve seconds -- with the music dipped before the first strike lands.",
+   "play": [
+    {
+     "src": "audio/sfx/church-bell-toll.wav",
+     "gain": 0.147,
+     "at": 0.12
+    }
+   ],
+   "duck": {
+    "to": 0.25,
+    "seconds": 12,
+    "attack": 0.08,
+    "release": 2.5
+   }
+  },
+  "LIV-HUM": {
+   "why": "doc 04 LIV_A1 option 4's staging: \"He hums the pitch. Badly. It is recognisably the town theme and recognisably wrong, and Thad's ear files it.\" The town theme's first phrase, hummed off (errata 109).",
+   "play": [
+    {
+     "src": "audio/sfx/livery-hum.wav",
+     "gain": 0.092,
+     "at": 0.12
+    }
+   ],
+   "duck": {
+    "to": 0.25,
+    "seconds": 5,
+    "attack": 0.08,
+    "release": 2.0
+   },
+   "room": "livery"
+  },
+  "B3-WHISTLE": {
+   "why": "doc 02 B3: Grievance responds to one whistled pitch, and Thad, by ear, corrects it. The fork, the phrase whistled right, and she goes (errata 109).",
+   "play": [
+    {
+     "src": "audio/sfx/grievance-whistle.wav",
+     "gain": 0.065,
+     "at": 0.12
+    }
+   ],
+   "duck": {
+    "to": 0.2,
+    "seconds": 5.6,
+    "attack": 0.08,
+    "release": 2.5
+   }
+  },
+  "A-TUNING": {
+   "why": "doc 02 A2 and A8: the piano tuned. The flat C-sharp as the room has always heard it, the fork, the pin turning, and the same notes mended (errata 109).",
+   "play": [
+    {
+     "src": "audio/sfx/piano-tuning.wav",
+     "gain": 0.124,
+     "at": 0.12
+    }
+   ],
+   "duck": {
+    "to": 0.15,
+    "seconds": 9.0,
+    "attack": 0.08,
+    "release": 2.5
+   }
+  }
+ },
+ "verbs": [
+  {
+   "room": "stage_road",
+   "target": "town_sign",
+   "verb": "LISTEN_TO",
+   "variants": [
+    1,
+    2
+   ],
+   "cue": "R01-SIGN"
+  },
+  {
+   "room": "stage_road",
+   "target": "case_mud",
+   "verb": "LISTEN_TO",
+   "variants": [
+    2
+   ],
+   "cue": "R01-CASE-B2"
+  },
+  {
+   "room": "main_street",
+   "target": "church_steeple",
+   "verb": "LISTEN_TO",
+   "cue": "R02-BELL"
+  },
+  {
+   "room": "nugget",
+   "target": "handbill",
+   "verb": "LISTEN_TO",
+   "cue": "R03-HANDBILL"
+  },
+  {
+   "room": "assay_office",
+   "target": "queue_book",
+   "verb": "LISTEN_TO",
+   "cue": "R05-QUEUE"
+  },
+  {
+   "room": "assay_office",
+   "target": "floorboard",
+   "verb": "LISTEN_TO",
+   "cue": "R05-FLOOR"
+  },
+  {
+   "room": "claims_registrar",
+   "target": "sealed_archive_door",
+   "verb": "OPEN",
+   "when": {
+    "T_EXECUTOR_NAMED": false
+   },
+   "cue": "R07/08-LOCK"
+  },
+  {
+   "room": "archive",
+   "target": "timesheet",
+   "verb": "LISTEN_TO",
+   "cue": "R08-TIME"
+  },
+  {
+   "room": "clarion",
+   "target": "back_editions",
+   "verb": "LISTEN_TO",
+   "cue": "R09-PAPER"
+  },
+  {
+   "room": "fanshawe_office",
+   "target": "chairs",
+   "verb": "LISTEN_TO",
+   "cue": "R11-CHAIRS"
+  },
+  {
+   "room": "stage_road",
+   "target": "coach_gone",
+   "verb": "LISTEN_TO",
+   "variants": [
+    1,
+    2
+   ],
+   "cue": "R01-COACH-2"
+  },
+  {
+   "room": "stage_road",
+   "target": "road_west",
+   "verb": "LISTEN_TO",
+   "variants": [
+    3
+   ],
+   "cue": "R01-WEST-3"
+  },
+  {
+   "room": "nugget",
+   "target": "spittoon",
+   "verb": "LISTEN_TO",
+   "variants": [
+    1,
+    2
+   ],
+   "cue": "R03-SPITTOON"
+  },
+  {
+   "room": "prosperity",
+   "target": "mud",
+   "verb": "LISTEN_TO",
+   "variants": [
+    1,
+    2
+   ],
+   "cue": "R23/24-MUD"
+  },
+  {
+   "room": "watchmans_shack",
+   "target": "window",
+   "verb": "LISTEN_TO",
+   "variants": [
+    1,
+    2
+   ],
+   "cue": "R21-WINDOW"
+  },
+  {
+   "room": "church",
+   "target": "bell_rope",
+   "verb": "PULL",
+   "cue": "R17-BELL"
+  },
+  {
+   "room": "livery",
+   "target": "grievance",
+   "verb": "USE",
+   "item": "tuning_fork",
+   "when": {
+    "T_HUM_HEARD": true,
+    "T_VESSEL_LOCATION": true,
+    "T_VESSEL_FOUND": false
+   },
+   "cue": "B3-WHISTLE"
+  },
+  {
+   "room": "nugget",
+   "target": "piano",
+   "verb": "USE",
+   "item": "tuning_fork",
+   "when": {
+    "T_NUGGET_PIANO_TUNED": false
+   },
+   "cue": "A-TUNING"
+  },
+  {
+   "room": "hotel_lobby",
+   "target": "parlor_piano",
+   "verb": "USE",
+   "item": "tuning_fork",
+   "when": {
+    "T_TUNES_PIANOS": true,
+    "T_ROOM_GRANTED": false
+   },
+   "cue": "A-TUNING"
+  }
+ ],
+ "transits": [
+  {
+   "between": [
+    "nugget",
+    "main_street"
+   ],
+   "cue": "R03-DOOR"
+  },
+  {
+   "between": [
+    "assay_office",
+    "main_street"
+   ],
+   "cue": "R05/06-LATCH"
+  },
+  {
+   "between": [
+    "assay_office",
+    "assay_records"
+   ],
+   "cue": "R05/06-LATCH"
+  }
+ ],
+ "footsteps": {
+  "gain": 0.079,
+  "surfaces": {
+   "mud": [
+    "audio/sfx/step-mud-1.wav",
+    "audio/sfx/step-mud-2.wav",
+    "audio/sfx/step-mud-3.wav",
+    "audio/sfx/step-mud-4.wav"
+   ],
+   "boardwalk": [
+    "audio/sfx/step-boardwalk-1.wav",
+    "audio/sfx/step-boardwalk-2.wav",
+    "audio/sfx/step-boardwalk-3.wav",
+    "audio/sfx/step-boardwalk-4.wav",
+    "audio/sfx/step-boardwalk-5.wav",
+    "audio/sfx/step-boardwalk-6.wav"
+   ],
+   "plank": [
+    "audio/sfx/step-plank-1.wav",
+    "audio/sfx/step-plank-2.wav",
+    "audio/sfx/step-plank-3.wav",
+    "audio/sfx/step-plank-4.wav",
+    "audio/sfx/step-plank-5.wav",
+    "audio/sfx/step-plank-6.wav"
+   ],
+   "dirt": [
+    "audio/sfx/step-dirt-1.wav",
+    "audio/sfx/step-dirt-2.wav",
+    "audio/sfx/step-dirt-3.wav",
+    "audio/sfx/step-dirt-4.wav"
+   ]
+  },
+  "walkBoxSurfaces": [
+   "boardwalk"
+  ],
+  "rooms": {
+   "stage_road": "mud",
+   "main_street": "mud",
+   "main_street_dawn": "mud",
+   "claims_road": "mud",
+   "creek": "mud",
+   "prosperity": "mud",
+   "nugget": "plank",
+   "nugget_back": "plank",
+   "assay_office": "plank",
+   "assay_records": "plank",
+   "claims_registrar": "plank",
+   "archive": "plank",
+   "company_lobby": "plank",
+   "fanshawe_office": "plank",
+   "company_vault": "plank",
+   "undertaker": "plank",
+   "hotel_lobby": "plank",
+   "thads_room": "plank",
+   "mercantile": "plank",
+   "laundry": "plank",
+   "clarion": "plank",
+   "church": "plank",
+   "watchmans_shack": "plank",
+   "back_alley": "dirt",
+   "livery": "dirt",
+   "boot_hill": "dirt",
+   "funeral": "dirt",
+   "high_ridge": "dirt",
+   "claim_row": "dirt",
+   "motts_site": "dirt",
+   "pratts_claim": "dirt",
+   "under_prosperity": "dirt",
+   "listening_chamber": "dirt",
+   "ozymandias_tent": "dirt"
+  }
+ },
+ "ambience": {
+  "main_street": {
+   "src": "audio/sfx/main-street-bed.wav",
+   "gain": 0.128,
+   "why": "doc 45 R02-A: wind through the false fronts, posted paper in it, and the dog breathing while the dog is there",
+   "layers": [
+    {
+     "src": "audio/sfx/dog-breathing.wav",
+     "gain": 0.14,
+     "whenPresent": "dog"
+    }
+   ]
+  },
+  "claims_registrar": {
+   "src": "audio/sfx/registrar-bed.wav",
+   "gain": 0.399,
+   "why": "doc 45 R07-A: patient shuffling, paper settling, Sump's clock ticking"
+  },
+  "nugget": {
+   "src": "audio/sfx/nugget-crowd.wav",
+   "gain": 0.612,
+   "why": "doc 45 R03-A: glasses, indistinct talk, the chandelier cooling"
+  },
+  "clarion": {
+   "src": "audio/sfx/press-cycle.wav",
+   "gain": 0.142,
+   "why": "doc 45 R09-PRESS: the press in its operating state -- the room's own LISTEN hears it running every time (\"It knocks on the return stroke.\")"
+  }
+ },
+ "lines": [
+  {
+   "line": "He notarizes it. He stamps it. He does not look up.",
+   "cue": "U-STAMP"
+  },
+  {
+   "line": "stamping",
+   "cue": "U-STAMP"
+  },
+  {
+   "line": "That's what the fella whistled. Twelve years I've been getting it wrong.",
+   "cue": "LIV-HUM"
+  }
+ ],
+ "events": {
+  "duelMark": "U-ASSAY-PENCIL"
+ },
+ "levels": {
+  "about": "TYLER, 2026-11-06: \"make sure sfx aren't absurdly loud ... background effects not sounds that take center stage.\" Targets in dB against the median room bed (the music as it plays), and the gains in this file are set from them by measurement, never by ear alone. tools/check-sound-levels.mjs fails on any sound above its ceiling, which is the target plus 2 dB. `roomGain` turns a room's own scripted sounds down together -- the coffin's dirt and the chamber's taps -- whose loudest must sit no higher than the music (`scene`, 0 dB): in the coffin there is no music, and those sounds are the room, but not a slap. The two synthesized human sounds -- the Nugget's talk and the distant laugh -- sit lower than their kinds (20 and 16 dB under), because a voice made by synthesis is most convincing when it is barely there (errata 106). A cue with a `duck` dips the music under it, and its target is measured against its own room's music as ducked rather than the median: the bells (Tyler: \"The bell is hard to hear over the music\") ring over a dipped score, the near one 6 dB above it, the distant one 2.",
+  "footsteps": -16,
+  "cue": -10,
+  "cueBed": -16,
+  "ambienceDefault": -18,
+  "ambienceLayer": -20,
+  "cues": {
+   "R03-DOOR": -13,
+   "R05/06-LATCH": -14,
+   "U-ASSAY-PENCIL": -14,
+   "O-09-M": -8,
+   "O-06B-S": -12,
+   "O-06-S1": -10,
+   "R01-WEST-3": -16,
+   "R01-COACH-2": -14,
+   "R17-BELL": 10,
+   "R02-BELL": 2,
+   "LIV-HUM": 4,
+   "B3-WHISTLE": 6,
+   "A-TUNING": 6
+  },
+  "ambience": {
+   "nugget": -20
+  },
+  "scene": 0,
+  "featured": [
+   "R17-BELL",
+   "R02-BELL",
+   "LIV-HUM",
+   "B3-WHISTLE",
+   "A-TUNING"
+  ]
+ },
+ "roomGain": {
+  "coffin": 0.32,
+  "listening_chamber": 0.17
+ }
+}

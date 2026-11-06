@@ -1,4 +1,4 @@
-"""Hob at the cast sheet's level (errata 102), from one sheet: his standing pose
+"""Hob at the cast sheet's level (errata 112), from one sheet: his standing pose
 and a four-frame walk, his lantern in every figure (cast-unify 37,
 art/staging/hob-b/stand-walk-01.png).
 

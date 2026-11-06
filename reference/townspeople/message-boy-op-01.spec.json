@@ -1,0 +1,12 @@
+{
+ "assetId": "townspeople-110",
+ "subject": "message-boy",
+ "role": "other",
+ "promptFile": "reference/townspeople/message-boy-prompt-01.txt",
+ "out": "art/staging/townspeople-110/message-boy/sheet-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/townspeople/message-boy-style-reference-crop.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-06: 'Go: townspeople, up to 10 images.' One sheet per figure, then corrections within the shared cap of 10 (reference/townspeople/brief.md)."
+}

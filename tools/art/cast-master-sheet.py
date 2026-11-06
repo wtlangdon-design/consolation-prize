@@ -17,7 +17,7 @@ kept the same shortfall), so it is fixed here, where it can be measured:
 
 Usage: cast-master-sheet.py <master.png> <boxes.json> <out.png> [--labels]
        cast-master-sheet.py <master.png> <boxes.json> <out.png> --board 0,1,6
-The second form is the REFERENCE BOARD for a pose sheet (errata 101 B): the
+The second form is the REFERENCE BOARD for a pose sheet (errata 111 B): the
 named figures (by index, 0 is Thad) on flat magenta, one scale, one grid, no
 text -- each character drawn from his own master crop and nothing else.
 """

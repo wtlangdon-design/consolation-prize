@@ -17,7 +17,7 @@
    "T_EXECUTOR_RULE": true
   }
  ],
- "whenNote": "Errata 103 A: on his rounds here from the first night through Act II (his conversation opens on HOB_A1, the tree's start, since no entry holds), and again in Act III from Section nineteen said aloud until E6. `when` is the part true in both: the executor is never named before Act III.",
+ "whenNote": "Errata 101 A: on his rounds here from the first night through Act II (his conversation opens on HOB_A1, the tree's start, since no entry holds), and again in Act III from Section nineteen said aloud until E6. `when` is the part true in both: the executor is never named before Act III.",
  "note": "HOB ON HIS ROUNDS (doc 04 HOB_E6: 'Open once T_EXECUTOR_RULE is set and until E6 is complete; he is on his rounds at night (Main Street, the back alley)'; Tyler, 2026-11-05: the alley). His approved Room 1 drawing (art/actors/hob-idle-right), mirrored to face the gap Thad comes in by, scaled to the alley's curve at his feet by tools/art/room20-hob.py; no image operation. He stands before the Company's side door with his lantern, from Section nineteen said aloud (SUM_E1 option 2, T_EXECUTOR_RULE) until Sump accepts the form (T_EXECUTOR_NAMED, E6). His wrong verbs are doc 54 Room 20's Overrides (the room's peopleResponses). His id is his speaker id, so his lines are drawn over his head.",
  "x": 1180,
  "y": 790,

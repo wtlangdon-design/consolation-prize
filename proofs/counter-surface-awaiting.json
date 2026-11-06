@@ -1,5 +1,5 @@
 {
- "note": "Behind-counter figures still drawn with the counter's things in their own frames, each awaiting its redraw from the locked cast master (errata 101). tests/counter-surface.test.mjs fails if one of these starts passing (take it off this list) or if any figure not on it fails. The list only shrinks. `awaitingWaist`: figures not yet placed with a measured waist (sprite.waistOn), each awaiting the same redraw; the waist test fails if one of them declares it while still listed.",
+ "note": "Behind-counter figures still drawn with the counter's things in their own frames, each awaiting its redraw from the locked cast master (errata 111). tests/counter-surface.test.mjs fails if one of these starts passing (take it off this list) or if any figure not on it fails. The list only shrinks. `awaitingWaist`: figures not yet placed with a measured waist (sprite.waistOn), each awaiting the same redraw; the waist test fails if one of them declares it while still listed.",
  "awaiting": [],
  "awaitingWaist": []
 }

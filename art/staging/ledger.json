@@ -20086,6 +20086,114 @@
   },
   {
    "attempt": 1,
+   "role": "other",
+   "assetId": "thad-rope-pull",
+   "subject": "thad",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-17/rope-pull/prompt-03.txt",
+   "promptHash": "f49c2677be61261ffdfab6b5dd0bbf7810d0eb417273b4830a43b2172c408741",
+   "references": [
+    {
+     "path": "reference/room-17/rope-pull/style-reference-no-rope.png",
+     "hash": "d06c2b856d9c35527ab86edaaf772137df43c2d67d97f670b8a3683f1cf81a57",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "d06c2b856d9c35527ab86edaaf772137df43c2d67d97f670b8a3683f1cf81a57",
+   "sourcePath": "reference/room-17/rope-pull/style-reference-no-rope.png",
+   "out": "art/staging/thad-rope-pull/sheet-01.png",
+   "outputHash": "4ada0e59672698f4205c38eaeb71bb9697e7139ac57098859f37b3a094899d33",
+   "bytes": 1429052,
+   "usage": {
+    "input_tokens": 1386,
+    "input_tokens_details": {
+     "image_tokens": 896,
+     "text_tokens": 490
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 1819
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T17:58:09.445Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06, thad-rope-pull cap 2 (reference/room-17/rope-pull/brief.md)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T17:58:09.453Z"
+  },
+  {
+   "attempt": 2,
+   "role": "other",
+   "assetId": "thad-rope-pull",
+   "subject": "thad",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/thad-rope-pull/sheet-01.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/room-17/rope-pull/prompt-04.txt",
+   "promptHash": "1a23587ebbd68b2d711ea86a2b7f7f6a84a810dda0bb2c58388aa465c969d57f",
+   "references": [
+    {
+     "path": "reference/room-17/rope-pull/style-reference-no-rope.png",
+     "hash": "d06c2b856d9c35527ab86edaaf772137df43c2d67d97f670b8a3683f1cf81a57",
+     "transmitted": true
+    },
+    {
+     "path": "reference/room-17/rope-pull/miss-01.png",
+     "hash": "2ebd3ec6969cb98d22f3fdea93bcc8ecaa81993551690964f29db60be280b3a0",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "d06c2b856d9c35527ab86edaaf772137df43c2d67d97f670b8a3683f1cf81a57",
+   "sourcePath": "reference/room-17/rope-pull/style-reference-no-rope.png",
+   "out": "art/staging/thad-rope-pull/sheet-02.png",
+   "outputHash": "0fac2df5448b018fd011853a02c0bc4224c5b63d305590bc9fa052948c6e4d14",
+   "bytes": 1412387,
+   "usage": {
+    "input_tokens": 3090,
+    "input_tokens_details": {
+     "image_tokens": 2381,
+     "text_tokens": 709
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 3523
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T18:41:24.281Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06, thad-rope-pull cap 2, the correction (reference/room-17/rope-pull/brief.md): 'New sheet + rope' after 'he's stretching, not pulling a rope'",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T18:41:24.287Z"
+  },
+  {
+   "attempt": 1,
    "role": "canonical-design",
    "assetId": "cast-unify",
    "subject": "main-street-townspeople",

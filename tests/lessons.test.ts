@@ -234,7 +234,7 @@ test('every talking character in a built room is drawn whole: one piece, no hole
         if (largest < total * 0.97) faults.push(`${npc.id} in ${room}, frame ${index}: in pieces (${((1 - largest / total) * 100).toFixed(1)}% apart from the body)`);
         // An arm raised to a hat encloses a little floor (Vessel's frame 3: 0.6%);
         // a coat that keyed out with the wall behind it is several percent.
-        // A FIGURE KEYED OFF MAGENTA FROM THE CAST MASTER (errata 101) can only
+        // A FIGURE KEYED OFF MAGENTA FROM THE CAST MASTER (errata 111) can only
         // have a hole where its drawing had backdrop -- the air between
         // Fanshawe's raised arm and his face as he tips his hat (2.4%) -- which
         // is this test's own remedy; its pieces are still counted, and a keyed
