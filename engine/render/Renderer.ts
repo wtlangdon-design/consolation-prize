@@ -356,7 +356,7 @@ export function conversationFrameAt(
 export function ambientFrameAt(
   declared: NonNullable<AmbientFile['sprite']>, phase: number, clock: number, arrivedAt?: number,
 ): number {
-  // ONCE, TIMED FROM HIS ARRIVAL (errata 120 B): the man on the ladder's nod.
+  // ONCE, TIMED FROM HIS ARRIVAL (errata 121 B): the man on the ladder's nod.
   const once = declared.onArrival;
   if (once && arrivedAt !== undefined) {
     const step = Math.floor((clock - arrivedAt - once.at) / (once.frameSeconds ?? 0.3));

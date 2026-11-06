@@ -215,7 +215,7 @@ const scenes = {
     const rec = await record(page, dir, async () => { await page.waitForTimeout(66_000); });   // one full 64 s cycle of the two crowds
     return { ...rec, track: 'path', walkers: ['miners_out', 'miners_back'], loop: true };
   },
-  // Room 33, doc 48 S5 beat 3 (errata 120 A): the void is heard, its line read, and he sits; then,
+  // Room 33, doc 48 S5 beat 3 (errata 121 A): the void is heard, its line read, and he sits; then,
   // the ninety seconds over, the first click stands him up.
   'thad-sits': async (page, server, dir) => {
     await listenAtVoid(page, server);
@@ -232,7 +232,7 @@ const scenes = {
     });
     return { ...rec, track: 'window', window: [560, 360, 1000, 504] };
   },
-  // Room 36's close (doc 48 S7 beat 3, errata 120 B): the coach stop exit, the man on the ladder at the town
+  // Room 36's close (doc 48 S7 beat 3, errata 121 B): the coach stop exit, the man on the ladder at the town
   // sign who nods, "Leave the mud.", and the letter over black.
   'the-close': async (page, server, dir) => {
     await open(page, server, 'fixture=r36-a&room=main_street_dawn');

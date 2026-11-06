@@ -127,7 +127,7 @@ export interface ResponseRule {
    */
   stays?: boolean;
   /**
-   * AN EXIT'S BEAT PLAYED WHERE IT GOES (errata 120 B). Doc 48 S7 beat 3 is
+   * AN EXIT'S BEAT PLAYED WHERE IT GOES (errata 121 B). Doc 48 S7 beat 3 is
    * "at the coach stop": the room changes first and the lines are said there,
    * the first of them `pause` seconds after he arrives.
    */
@@ -738,7 +738,7 @@ export interface AmbientFile {
      */
     keepsTime?: 'music';
     /**
-     * ONCE, ON HIS ARRIVAL (errata 120 B): `frames` played `at` seconds after
+     * ONCE, ON HIS ARRIVAL (errata 121 B): `frames` played `at` seconds after
      * Thad comes into the room, `frameSeconds` each. Doc 48 S7 beat 3's man on
      * the ladder "who nods" -- at Thad, so the nod is timed from Thad.
      */
@@ -1432,7 +1432,7 @@ export interface RoomFile {
   /** Whole-plate cycles per second. */
   backgroundRate?: number;
   /**
-   * THE ROOM IS OVER BLACK WHILE THIS HOLDS (errata 120 B). The close ends over
+   * THE ROOM IS OVER BLACK WHILE THIS HOLDS (errata 121 B). The close ends over
    * black, and a game loaded after it finds the coach stop black, not a picture
    * with nothing left to do in it.
    */

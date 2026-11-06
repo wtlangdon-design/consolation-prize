@@ -26,7 +26,7 @@ export interface InteractionResult {
   direction?: boolean;
   /** Where the scene leads once its lines have been read; the room has not changed yet. */
   goesTo?: string;
-  /** The room HAS changed and the lines are said there, the first `pause` seconds after (errata 120 B). */
+  /** The room HAS changed and the lines are said there, the first `pause` seconds after (errata 121 B). */
   arrives?: boolean;
   pause?: number;
   enteredDialogue: boolean;
@@ -65,7 +65,7 @@ export interface InteractionResolution {
   readonly then?: SpokenLine[];
   /** Where the scene leads once its lines have been read (see resolveInteraction). */
   readonly goesTo?: string;
-  /** The scene is played where the exit goes, after arriving (errata 120 B). */
+  /** The scene is played where the exit goes, after arriving (errata 121 B). */
   readonly arrives?: boolean;
   readonly pause?: number;
   readonly effects: readonly DurableEffect[];
@@ -799,7 +799,7 @@ export class GameState {
         for (const [flag, value] of Object.entries(scene.set ?? {})) {
           effects.push({ id: `act/${objectKey}/${verb}#scene:flag:${flag}`, kind: 'flag', flag, value });
         }
-        // A BEAT PLAYED WHERE THE EXIT GOES (errata 120 B, doc 48 S7 beat 3 "at the coach stop"):
+        // A BEAT PLAYED WHERE THE EXIT GOES (errata 121 B, doc 48 S7 beat 3 "at the coach stop"):
         // the room changes now, and its lines are said there once he has arrived.
         if (scene.arrives) {
           effects.push({ id: `act/${objectKey}/${verb}#transit:room`, kind: 'room', room: transit });

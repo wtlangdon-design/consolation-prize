@@ -17,7 +17,7 @@ Every board, sign and puddle is Room 2's; the sky, the warmth on the fronts
 and the dark windows are the morning's. No pixel is invented.
 
 Writes <staging>/candidate-<W>x<H>.png and frame.json. The defaults are Room 36's; Room 1 at dawn
-(errata 120 B) is the same transfer on Room 1's lettered plate:
+(errata 121 B) is the same transfer on Room 1's lettered plate:
   room36-dawn.py --staging art/staging/room-36/coach-stop-dawn
                  --night art/staging/room-36/coach-stop-dawn/night-lettered.png --top 166 --rows 691 --shift-y -4
 """
@@ -35,7 +35,7 @@ ap.add_argument('--night', default='art/backgrounds/room-02-main-street.png')
 ap.add_argument('--top', type=int, default=332)
 ap.add_argument('--rows', type=int, default=359)
 ap.add_argument('--shift-y', type=int, default=-1)
-# ROOM 1 (errata 120 B): its hills are LOWER than the ones operation 3 drew, so the morning's ridge
+# ROOM 1 (errata 121 B): its hills are LOWER than the ones operation 3 drew, so the morning's ridge
 # painted sky over their tops and left their outline floating. With --ridge-blue, the ridge is Room
 # 1's own: its night sky grows bluer toward the horizon and its far hills are a duller blue, so each
 # column's ridge is the first row below --ridge-from where the star-free blue drops under this.
@@ -126,7 +126,7 @@ morning_sky_small = slum >= (sky_level_col[None, :] - SKY_DROP)
 morning_sky = np.asarray(Image.fromarray((morning_sky_small * 255).astype(np.uint8)).resize((W, H), Image.NEAREST)) > 127
 bluish = (raw_dist < SKY_SIGMA * 6) & (night[..., 2] > night[..., 0] + 10)
 skylike = (raw_dist < SKY_SIGMA * 2.2) | star | (morning_sky & bluish)
-# Not with --ridge-blue (Room 1, errata 120 B): its ridge is read off its own night sky, so there is no
+# Not with --ridge-blue (Room 1, errata 121 B): its ridge is read off its own night sky, so there is no
 # fringe to grow into -- and its far range is night-blue too, which the growth ate into.
 for _ in range(EDGE_GROW if args.ridge_blue is None else 0):
     grown = ndi.binary_dilation(sky) & skylike & (rows < ridge[None, :] + BAND)

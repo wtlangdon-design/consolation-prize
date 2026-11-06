@@ -3332,7 +3332,23 @@ Tyler: "Read reference/art-fixes/brief.md and carry it out." Each item fit its r
 
 ---
 
-# 120 · THE STAGING THE BUILD LEFT OUT — TYLER, 2026-11-06 ("Proceed")
+# 120 · DUEL THREE COULD NEVER END — FOUND BY THE DUEL AUDIT, FIXED (2026-11-06)
+
+The audit Tyler asked for ("Go on all five") played the duels as a newcomer, and found a dead end that breaks invariant 6.
+
+**The fault.** Duel Three throws pairs 4, 9, 22, 23 and 24, and re-throws a lost exchange. A pair the player has not learned is offered only its three wrong answers. Errata 75 I calls 4 and 9 "guaranteed in Act II". Pair 9 was not: its one source is Winnie's "Teach me to answer a boast." in WIN_B4, an option a player can walk past. Once the funeral is booked, WIN_B4 never opens again, and Duel Two can be won without it. Such a player reached exchange 2 of the final duel and could never leave it. Every test of F4 handed the player pairs 4 and 9 by fixture, so none saw it.
+
+**The fix keeps the ruling's word.** Duel Three now knows pairs 4 and 9 itself (`knows: [4, 9, 24]`), as it already knew pair 24. Fanshawe throws Thad's own repertoire back at him, and "guaranteed" now means guaranteed.
+
+**The lesson is a test.** `tests/assay.test.ts` plays Duel Three from the fewest pairs a player can hold (Duel One's four and the confession's, and the confession's alone) and fails if it does not end. It fails on the old content.
+
+**And the last filing had lost its direction.** The fairness audit found it independently. Doc 04 has Winnie, after running the assay (WIN_F1 option 1), say: "Twenty-two hundred dollars to the ton." *(beat)* "Nine years I've waited to write down a number I believed." *(She writes it down.)* "File it. I'll be at the Registrar's when you do." Her extractor kept the first quoted line of a reply and dropped the rest, so the game never told the player where to go for F5. She now says all three. `tests/replies-whole.test.ts` holds every line of every doc 04 reply to what the game says. It fails on the old extractor.
+
+The audits' other findings change how the duels and puzzles play, and are Tyler's to rule on (reported separately).
+
+---
+
+# 121 · THE STAGING THE BUILD LEFT OUT — TYLER, 2026-11-06 ("Proceed")
 
 Tyler, on the list of what the full build left unstaged (doc 36 Q173, Q174, Q176): **"Proceed."** Each item is built from what the documents already describe, and no line is written.
 

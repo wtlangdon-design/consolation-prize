@@ -394,7 +394,7 @@
     "gain": 0.55,
     "why": "Doc 28 Room 36: CONSOLATION, in tune, thin, one instrument. In tune by T_IN_TUNE, not by the stem."
    },
-   "coach_stop_dawn": {"src": "audio/consolation-dawn.wav", "gain": 0.55, "why": "Doc 28 Room 36: CONSOLATION, in tune, thin, one instrument -- carried on to the coach stop, Room 36's close (errata 120 B): the same file, so it continues rather than restarting."},
+   "coach_stop_dawn": {"src": "audio/consolation-dawn.wav", "gain": 0.55, "why": "Doc 28 Room 36: CONSOLATION, in tune, thin, one instrument -- carried on to the coach stop, Room 36's close (errata 121 B): the same file, so it continues rather than restarting."},
    "mercantile": {
     "src": "audio/consolation-dawn.wav",
     "gain": 0.55,

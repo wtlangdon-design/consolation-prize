@@ -2,7 +2,7 @@
  "schema": 1,
  "id": "coach_stop_dawn",
  "name": "THE COACH STOP",
- "note": "Doc 48 S7 beat 3 (errata 120 B): Room 1's coach stop at first light, where Room 36's one exit goes. Its picture is the beat's: the town sign being repainted upward by a man on a ladder, who nods. Thad's last spoken line and the Act IV letter over black are Room 36's exit's, compiled from doc 48 and the letters file and performed here on arrival (`arrives`). No hotspots and no exits: the game ends here, over black, and a load after the close finds it black (`blackWhen`). Room 1's ground, walk box and depth curve, unchanged.",
+ "note": "Doc 48 S7 beat 3 (errata 121 B): Room 1's coach stop at first light, where Room 36's one exit goes. Its picture is the beat's: the town sign being repainted upward by a man on a ladder, who nods. Thad's last spoken line and the Act IV letter over black are Room 36's exit's, compiled from doc 48 and the letters file and performed here on arrival (`arrives`). No hotspots and no exits: the game ends here, over black, and a load after the close finds it black (`blackWhen`). Room 1's ground, walk box and depth curve, unchanged.",
  "materialIdentity": "Room 1 at first light: the same mud, sign, tower, fence and road, relit by room-36 operation 3 (tools/art/coach-stop-dawn-plate.mjs).",
  "background": "art/backgrounds/room-36-coach-stop-dawn.png",
  "ambient": [

@@ -276,3 +276,16 @@ test('every pair the player can learn is taught by some row or duel, by the teac
     }
   }
 });
+
+test('Duel Three always ends, whatever the player learned before it (invariant 6; errata 120)', async () => {
+  // The fewest pairs a player can hold at F4: Duel One's four, then whatever
+  // the confession gives. Errata 75 I says pairs 4 and 9 are "guaranteed in
+  // Act II", but pair 9's one source is an option the player can walk past for
+  // good. Duel Three re-throws a lost exchange, and a pair the player cannot
+  // answer is offered only its wrong answers -- so it must be one he knows.
+  const file = await assayFile();
+  const confession = (file.duels['duel_three']?.sequence ?? []).filter((n) => n >= 22);
+  for (const known of [new Set<number>([1, 2, 3, 4, ...confession]), new Set<number>(confession)]) {
+    assert.equal(playBest(file, 'duel_three', known).ended, true, `stuck with ${[...known].join(',')}`);
+  }
+});
