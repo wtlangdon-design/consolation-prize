@@ -1,21 +1,14 @@
-The attached image is a frame from my pixel-art adventure game. The man in the long blue coat is Thad, the hero, standing where he talks to a new character. I need that new character, drawn to match Thad: THE DOG'S OWNER: a lanky, worried man who has been looking for his lost dog for six weeks. Shabby coat, hat pushed back, a short coiled rope leash in one hand.
+Image 1 is from the locked cast sheet of my pixel-art adventure game, a comedy in an 1850s frontier gold town: the hero on the left (THE STYLE AND THE SCALE) and three townspeople already in the game. Image 2 shows townspeople drawn for this game in the same hand. Image 3 is the hero standing in the room where the new character will stand, at game size, for the light and the setting only. Draw a NEW person in EXACTLY the style of Images 1 and 2 -- the same size of square pixel, the same amount of detail, the same soft shading, dark outline and muted palette -- who does NOT look like anyone in Images 1 or 2.
 
-STYLE — match the man in the long blue coat (Thad, the hero) exactly:
-- Same pixel-art style, same pixel size, same flat, soft shading, same small amount of texture, same clean dark outlines. Not sharper, not more detailed, not more contrasty. Too sharp is the usual mistake: keep the shading flat and soft like his.
-- Same proportions and drawing of faces, hands and boots as Thad.
-- Same warm, low night light as the attached frame. 1850s California gold-rush town; worn, plain, period clothes in muted colours.
+THE NEW PERSON: THE DOG'S OWNER: a lanky, worried man who has been looking for his lost dog for six weeks, a shabby coat, hat pushed back, a short coiled rope leash in one hand in EVERY pose.
 
-THE SHEET — one image, 5 poses side by side, left to right:
-1. REST: standing, facing three-quarters to the viewer's right, the coiled leash held at his side.
-2. LOOK: hand shading his eyes, peering off to the viewer's left.
-3. CALL: hand cupped to his mouth, calling for the dog.
-4. TALK: facing three-quarters right, mouth open mid-word, the leash held up a little.
-5. GLAD: standing easy, smiling, looking down at his feet where a dog would be, the leash slack.
+PROPORTIONS: an ordinary frontier person of ordinary, lean build (nobody fat or round), a normal-sized head, at the SAME SCALE as the hero.
 
-RULES — these matter more than anything else:
-- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no wall, no furniture, no scenery.
-- Every pose full-length (head to boots), the same size, boots on the same baseline.
-- Clear magenta space between poses. No pose touches or overlaps another.
-- Between poses, ONLY the change described happens. Same clothes, same colours, same proportions.
-- Crisp pixel edges against the magenta. No soft glow, halo or blur around the figure.
-- Do not draw Thad. No text, labels, numbers or borders.
+THE SHEET: flat pure magenta (#FF00FF) background, ONE row of 5 FULL FIGURES, feet on one line, the same size in every pose, separated by clear magenta space; only the change named happens between poses:
+1. standing, turned three-quarters to the RIGHT, the coiled leash at his side;
+2. a hand shading his eyes, peering off to the LEFT;
+3. a hand cupped to his mouth, calling for the dog;
+4. turned three-quarters to the RIGHT, mouth open mid-word, the leash held up a little;
+5. standing easy, smiling down at his feet where a dog would be, the leash slack;
+
+RULES: only what is named. No ground, no shadows, no scenery, no text, no numbers, no border. Crisp pixel edges against the magenta. Do not draw the hero.
