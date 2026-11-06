@@ -295,7 +295,9 @@
       "gain": 0.75
      }
     ],
-    "why": "Doc 28 Room 3: CONSOLATION played diegetically on the room's own piano, broken C-sharp and all, until Thad tunes it."
+    "why": "Doc 28 Room 3: CONSOLATION played diegetically on the room's own piano, broken C-sharp and all, until Thad tunes it.",
+    "tempo": 152,
+    "tempoNote": "CONSOLATION's tempo, 152 in 4/4 (proofs/audio/consolation-audio-proof.html TEMPO; the stem is two loops of eight bars, 25.26 s). The bar grid the fiddler keeps time with (errata 116)."
    },
    "assay_office": {
     "src": "audio/winnie.wav",

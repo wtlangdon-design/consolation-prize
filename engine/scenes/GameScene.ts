@@ -76,6 +76,9 @@ export class GameScene extends Phaser.Scene {
   private readonly controlWrites: string[] = [];
   /** Every named mover in the room, the player among them. Issue X4 defect 3. */
   private actors!: RoomActors;
+  /** The room bed's clock this frame and last, for a figure that keeps time with it (errata 116). */
+  private musicNow = 0;
+  private musicBefore = 0;
   private readonly music = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
   /** Errata 70 G: one-shots, under the same switch and the same unlock as the beds. */
   /** The performed line whose sound has been played, so it plays once. */
@@ -501,6 +504,9 @@ export class GameScene extends Phaser.Scene {
     this.watchActTurn(now);
     this.openActWhenQuiet();
     this.view.setClock(now);
+    this.musicBefore = this.musicNow;
+    this.musicNow = this.music.position() ?? now;
+    this.view.setMusicClock(this.musicNow, this.bedTempo());
     if (this.cycleChanged()) this.markDirty();
     // THE WORLD MOVES, THEN SETTLES, THEN THE SCRIPT DECIDES. This order is
     // load-bearing and it used to be the other way round.
@@ -864,12 +870,31 @@ export class GameScene extends Phaser.Scene {
    * in the drawing code and stand still on screen for want of a redraw.
    */
   private ambientChanged(before: number, after: number): boolean {
+    const tempo = this.bedTempo();
     return this.ambient.present.some((npc) => {
       const sprite = npc.sprite;
       if (!sprite) return false;
+      // One who keeps time with the bed turns over on the bed's beat.
+      if (sprite.keepsTime === 'music' && tempo) {
+        const timed = { ...sprite, rate: tempo / 120, phase: 0 };
+        return ambientFrameAt(timed, 0, this.musicBefore) !== ambientFrameAt(timed, 0, this.musicNow);
+      }
       const phase = sprite.phase ?? 0;
       return ambientFrameAt(sprite, phase, before) !== ambientFrameAt(sprite, phase, after);
     });
+  }
+
+  /**
+   * The tempo of the bed this room plays, or null: what a figure that keeps
+   * time with the music reads (errata 116). The room's own entry, or the
+   * variant its flags select, which plays at the entry's tempo unless it says.
+   */
+  private bedTempo(): number | null {
+    if (this.state.room.music === 'suspend' || this.state.dialogue.duelId) return null;
+    const entry = this.state.content.manifest.music?.rooms?.[this.state.room.id];
+    if (!entry) return null;
+    const variant = entry.variants?.find((one) => this.state.flags.test(one.when));
+    return variant?.tempo ?? entry.tempo ?? null;
   }
 
   private onPointerMove(pointer: Phaser.Input.Pointer): void {

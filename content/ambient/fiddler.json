@@ -53,8 +53,8 @@
   ],
   "figureHeight": 288,
   "stature": 1.0,
-  "rate": 0.85,
-  "phase": 0.0,
+  "rate": 1.2667,
+  "phase": 0,
   "breaks": [
    [
     3,
@@ -77,10 +77,11 @@
     0
    ]
   ],
-  "breakEvery": 19,
+  "breakEvery": 18.947,
   "talkFrame": 4,
-  "frameNote": "HIS IDLE IS HIS PLAYING: 0 the bow out at the start of the stroke and 1 drawn across to its end, alternating at 0.85 (about 0.6 s a stroke) · 2 mid-stroke, for a busier passage in the second break · 3 TUNE, the fiddle at his chest, a peg turned -- the first break · 4 TALK, fiddle and bow lowered. Doc 22 wants the bowing on the music's bar grid; the score has no bar grid yet, so the rate is fixed (errata 115).",
+  "frameNote": "HE KEEPS TIME WITH THE PIANO (doc 22: the fiddler idles in time with the musical bar grid; errata 116): `keepsTime` reads the Nugget bed's own position at its tempo, 152, so 0, the bow out at the start of the stroke, and 1, drawn across to its end, alternate once a beat, and a break comes every twelve bars (18.95 s), on a bar line. 2 mid-stroke, for a busier passage in the second break; 3 TUNE, the fiddle at his chest, a peg turned -- the first break; 4 TALK, fiddle and bow lowered.",
   "provenance": "art/staging/townspeople-110/fiddler/sheet-03.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 115)",
-  "figureHeightNote": "Crown to sole (errata 112 L), the brim read by eye from the rest frame's row widths: tools/art/figure-height.py --hat took the fiddle at his chin for the brim (errata 115)."
+  "figureHeightNote": "Crown to sole (errata 112 L), the brim read by eye from the rest frame's row widths: tools/art/figure-height.py --hat took the fiddle at his chin for the brim (errata 115).",
+  "keepsTime": "music"
  }
 }

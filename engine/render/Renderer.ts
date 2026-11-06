@@ -442,6 +442,9 @@ export class Renderer {
   private readonly idles: IdleLayer;
   /** Seconds since the scene started, supplied by the caller each frame. */
   private clock = 0;
+  /** The room's music, for a figure that keeps time with it (errata 116): its clock and tempo. */
+  private musicClock = 0;
+  private musicTempo: number | null = null;
 
   /** The player's drawn sprite. Null only before the sheets have loaded. */
   /**
@@ -504,6 +507,22 @@ export class Renderer {
   /** The animation clock, in seconds. Set once per frame by the scene. */
   setClock(seconds: number): void {
     this.clock = seconds;
+  }
+
+  /**
+   * THE BED'S CLOCK, for a figure that `keepsTime` (errata 116): where the
+   * room's music is, in seconds, and its tempo. Null tempo: the room's bed
+   * declares none, and such a figure moves on the scene clock like anyone.
+   */
+  setMusicClock(seconds: number, tempo: number | null): void {
+    this.musicClock = seconds;
+    this.musicTempo = tempo;
+  }
+
+  /** The sprite and clock a figure is drawn by: the bed's, at its tempo, when he keeps time with it. */
+  timed(declared: NonNullable<AmbientFile['sprite']>): { sprite: NonNullable<AmbientFile['sprite']>; clock: number } {
+    if (declared.keepsTime !== 'music' || !this.musicTempo) return { sprite: declared, clock: this.clock };
+    return { sprite: { ...declared, rate: this.musicTempo / 120, phase: 0 }, clock: this.musicClock };
   }
 
   /**
@@ -1822,8 +1841,9 @@ export class Renderer {
   ambientBreak(npc: AmbientFile): { index: number; step: number } | null {
     const declared = npc.sprite;
     if (!declared?.breaks?.length) return null;
-    const every = declared.breakEvery ?? 26;
-    const t = this.clock + (declared.phase ?? 0) * every;
+    const { sprite: timed, clock } = this.timed(declared);
+    const every = timed.breakEvery ?? 26;
+    const t = clock + (timed.phase ?? 0) * every;
     const cycle = Math.floor(t / every);
     const into = t - cycle * every;
     const step = Math.floor(into / 0.34);
@@ -1832,7 +1852,8 @@ export class Renderer {
   }
 
   private ambientFrame(declared: NonNullable<AmbientFile['sprite']>, phase: number): number {
-    return ambientFrameAt(declared, phase, this.clock);
+    const { sprite, clock } = this.timed(declared);
+    return ambientFrameAt(sprite, sprite === declared ? phase : (sprite.phase ?? 0), clock);
   }
 
   /**
