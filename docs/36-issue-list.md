@@ -4881,7 +4881,7 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **For Tyler:**
 - **Listen to it.** The tap curve, the void's place and its size are tuning "judged by Tyler's ear" (doc 57 F2). The taps are rendered files (tools/audio/render-r33-sfx.py) by an agent that cannot hear them.
 - **The ninety seconds have no music. RULED (Tyler, 2026-11-06, errata 99 L): "Finish the song yourself."** `R33-M` is now THADDEUS complete: the fragment's first three bars, and a fourth that lands on the tonic and holds it (`audio/thaddeus-complete-room-33.wav`). A placeholder composition, for Tyler's ear.
-- **Thad stands, not sits,** for the ninety seconds (doc 48 S5 beat 3): there is no seated Thad to draw him with.
+- **Thad sits for the ninety seconds. BUILT 2026-11-06 (errata 115 A), room-33 4 of 4 operations.** Once the void's line has been read he turns to it and sits; he holds one still frame (invariant 8 leaves the lamp the only moving thing), and the first click after the ninety seconds stands him up.
 
 ## Q175 · Room 35, the Company vault: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 I, delegated); BUILT, room-35 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
 

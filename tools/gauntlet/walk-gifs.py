@@ -284,6 +284,13 @@ def main():
             ids = sorted({m for s in rec['samples'] for m, v in s['movers'].items() if v.get('moving')})
             for m in ids:
                 follow_mover(d, rec, frames, m, f'{scene}-{m}', out_dir, results)
+        elif rec['track'] == 'window':
+            # A movement that is not a walk, in one place (Room 33's sit): the whole recording, a fixed window.
+            x, y, w, h = rec['window']
+            crops = [Image.open(os.path.join(d, f['name'])).crop((x, y, x + w, y + h)) for f in frames]
+            path = os.path.join(out_dir, f'{scene}.gif')
+            if write_gif(path, crops, [f['t'] for f in frames]):
+                results.append((path, 'window', [], len(crops), round(frames[-1]['t'] - frames[0]['t'], 1), (w, h)))
         elif rec['track'] == 'path' and all(walker_as_mover(rec, w) for w in (rec.get('walkers') or [rec.get('walker')])):
             # The probe says where each walker drew: follow that, as a mover is followed.
             for w in (rec.get('walkers') or [rec['walker']]):

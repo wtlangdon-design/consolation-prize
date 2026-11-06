@@ -166,6 +166,13 @@ export class GameScene extends Phaser.Scene {
   /** Scene ms at Room 33's confirmed void: the score's ninety seconds run from here, control away. */
   private tuneStart: number | null = null;
   /**
+   * DOC 48 S5 BEAT 3: "He sits down in the dark and listens to it." Set at the
+   * void; once its line has been read he turns to the void and sits. Seated is
+   * his mover state (`seated`), so it saves with the room and a load finds him
+   * where he was; the first click after the ninety seconds stands him up.
+   */
+  private sitDue = false;
+  /**
    * THE ACT CARDS AFTER THE OPENING (errata 84 C). ACT is the one fact; when it
    * rises in play, that act's card (content/act-cards.json, from doc 57) is
    * shown once the scene's last line has been read and no conversation is
@@ -950,6 +957,7 @@ export class GameScene extends Phaser.Scene {
     // DOC 48 S5 BEAT 3: the ninety seconds are not his. He sits in the dark
     // and listens; no click moves him, opens the panel or cuts it short.
     if (this.tuneStart !== null) return;
+    if (this.riseIfSeated()) return;
 
     // An act card holds the screen for its time; a click does not cut it.
     if (this.actCardUntil !== null) return;
@@ -1583,6 +1591,7 @@ export class GameScene extends Phaser.Scene {
       this.applyInteraction({ id: `${listening.surface}#void`, name: target.name, rect: target.rect, colour: 0,
         distant: true, responses: { LISTEN_TO: [listening.found] } } as Interactable, verb);
       this.tuneStart = now;
+      this.sitDue = true;
     }
     this.markDirty();
     return true;
@@ -1596,6 +1605,7 @@ export class GameScene extends Phaser.Scene {
       this.markDirty();
     }
     const listening = this.state.room.listening;
+    if (listening) this.sitWhenSaid(listening.void.at[0]);
     if (this.tuneStart === null || !listening) return;
     const fraction = tuneAt(listening, now - this.tuneStart);
     this.music.setTune(fraction);
@@ -1604,6 +1614,32 @@ export class GameScene extends Phaser.Scene {
       this.tuneStart = null;
       this.state.flags.applyWrites({ [listening.tune.doneFlag]: true });
     }
+  }
+
+  /**
+   * He sits once the void's line has come down: a turn to face it, then `sit`.
+   * The state is set as the clip starts -- `sit` has no seated variant, so it
+   * plays through (partialStates), and the frame after it is already the held
+   * seated one rather than a frame of him standing.
+   */
+  private sitWhenSaid(voidX: number): void {
+    if (!this.sitDue || this.sayingActor !== null || this.pendingSay.length > 0) return;
+    const toward = voidX < this.actor.x ? 'left' : 'right';
+    if (this.actor.facing !== toward) { this.actor.setFacing(toward); return; }
+    if (this.actor.isBusy || this.actor.isWalking) return;
+    this.sitDue = false;
+    this.actor.react('sit', this.choreSeconds(this.actor, 'sit'));
+    this.state.setMoverState(this.actor.id, 'seated');
+    this.markDirty();
+  }
+
+  /** Seated and the ninety seconds over: the click stands him up, and is spent doing it. */
+  private riseIfSeated(): boolean {
+    if (this.state.moverState(this.actor.id) !== 'seated' || this.sitDue || this.actor.isBusy) return false;
+    this.state.setMoverState(this.actor.id, undefined);
+    this.actor.react('rise', this.choreSeconds(this.actor, 'rise'));
+    this.markDirty();
+    return true;
   }
 
   /** How still the room's lamps are: Room 33's, on the score's clock (invariant 8). */
@@ -1656,6 +1692,7 @@ export class GameScene extends Phaser.Scene {
     this.armSteps();
     this.ripples = [];
     this.tuneStart = null;
+    this.sitDue = false;
     const listening = this.state.room.listening;
     if (listening) {
       // A save made inside the ninety seconds loads with them over: the

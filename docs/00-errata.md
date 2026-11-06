@@ -3124,3 +3124,17 @@ To see them on the live site:
 
 **C · The six July lines are kept and written into doc 07.** They are the opening lines over three trees (the letter-writer looks up; the pie woman does not; the map seller brightens considerably) and three repeats (the letter-writer's "Once. And I charged him double.", the map seller's "Like a man eating his own dinner, sir." and "Still not been disproved."). Tyler had played them, so they stay as he heard them. Doc 07's NOTATION gains ***Opening:***. `tests/town-trees-sourced.test.ts` now holds every line of every townsperson's tree to doc 07, word for word. It is proved by deleting one of the six, which fails it.
 
+
+---
+
+# 115 · THE STAGING THE BUILD LEFT OUT — TYLER, 2026-11-06 ("Proceed")
+
+Tyler, on the list of what the full build left unstaged (doc 36 Q173, Q174, Q176): **"Proceed."** Each item is built from what the documents already describe, and no line is written.
+
+**A · Thad sits for the ninety seconds (doc 48 S5 beat 3: "He sits down in the dark and listens to it").** Room 33's fourth operation drew four poses of him at one scale against his cast sheet, his key poses and a frame of him in the chamber (`art/staging/room-33/thad-sits/sheet.png`): standing, half down, a hand behind him, sitting with his knees drawn up. `tools/art/thad-sit.py` cuts them onto his chores' scale and snaps them to one level: `sit` (his chore stand, then the poses, the middle two held a frame each, so the sit takes 0.86 s rather than a verb's 0.57), `rise` (the same, backwards), and `seated` as a state of `idle`, `idle-break` and `stand`, left and right (left is the drawing mirrored). **In the game:** once the void's line has come down he turns toward the void and sits; seated is his mover state, so it saves with the room; the ninety seconds take every click as before; the first click after them stands him up and is spent doing it.
+
+**Seated is ONE still frame.** Invariant 8: by the time the score resolves, the lamp -- the only moving thing in the frame -- has stopped. A seated figure that breathed would be a second moving thing, so the seated idle and its break are the same single frame. Errata 77's movement rule is for the people of the town, not for this.
+
+**What holds it:** `tests/thad-sits.test.mjs` (sit and rise are each other backwards; every seated clip is one frame, the one the sit ends on; the sit lasts at least 0.8 s). `tools/check-rig-describes-frames.mjs` gains `scale_from`: a pose that never stands names the clip that does, and is held to its figure and its sole row (recorded in `proofs/check-friction.json`).
+
+**Art: room-33 4 of 4 operations.**

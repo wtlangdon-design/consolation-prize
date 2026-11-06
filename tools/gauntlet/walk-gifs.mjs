@@ -88,6 +88,15 @@ async function open(page, server, query) {
   await page.waitForFunction(() => Boolean(window.__gauntlet?.probe?.()), { timeout: 60_000 });
 }
 
+/** Room 33: LISTEN TO, then a click on the void (content/rooms/listening-chamber.json `listening.void`). */
+async function listenAtVoid(page, server) {
+  await open(page, server, 'fixture=r33-a&room=listening_chamber');
+  await page.waitForTimeout(1500);
+  await page.mouse.click(887, 1011);
+  await page.waitForTimeout(300);
+  await page.mouse.click(1395, 335);
+}
+
 const idle = (s) => !s.says && !s.pending && !(s.options > 0) && !s.dialogueAt?.tree;
 
 /** A walk sent by flags: start where the walker stands, set the flags, record until he is gone. */
@@ -205,6 +214,23 @@ const scenes = {
     await pump(page, (s) => idle(s) && !s.movers?.thad?.moving, 30_000, 'arrival');
     const rec = await record(page, dir, async () => { await page.waitForTimeout(66_000); });   // one full 64 s cycle of the two crowds
     return { ...rec, track: 'path', walkers: ['miners_out', 'miners_back'], loop: true };
+  },
+  // Room 33, doc 48 S5 beat 3 (errata 115 A): the void is heard, its line read, and he sits; then,
+  // the ninety seconds over, the first click stands him up.
+  'thad-sits': async (page, server, dir) => {
+    await listenAtVoid(page, server);
+    const rec = await record(page, dir, async () => { await page.waitForTimeout(8000); });
+    return { ...rec, track: 'window', window: [560, 360, 1000, 504] };
+  },
+  'thad-rises': async (page, server, dir) => {
+    await listenAtVoid(page, server);
+    await page.waitForTimeout(96_000);
+    const rec = await record(page, dir, async () => {
+      await page.waitForTimeout(800);
+      await page.mouse.click(400, 760);
+      await page.waitForTimeout(2500);
+    });
+    return { ...rec, track: 'window', window: [560, 360, 1000, 504] };
   },
   'raccoon-leaves': departure('r23-a', 'prosperity', null, { T_WARM_HOLE: true }, 11, 'raccoon'),
   'raccoons-meeting-leave': departure('r23-a', 'prosperity', { T_RACCOON_MEETING: true }, { T_WARM_HOLE: true }, 11, 'raccoon_meeting'),

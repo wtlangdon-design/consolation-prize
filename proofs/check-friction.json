@@ -193,6 +193,12 @@
    "date": "2026-11-06",
    "kind": "loosened",
    "why": "The walking-stride range was [0.4, 0.75] of a man's height, set from Thad's 0.588 and the first redraws (0.58-0.61). The claims road's miners, redrawn (cast-unify 47-48), measure 0.777 from their own frames -- and a human stride, two steps, is about 0.8 of stature, so the ceiling was below an ordinary walk. Now [0.4, 0.95]; the floor, which caught the clock-driven walks, is unchanged."
+  },
+  {
+   "check": "tools/check-rig-describes-frames.mjs",
+   "date": "2026-11-06",
+   "kind": "exception",
+   "why": "A seated pose never stands, so no frame of Thad's seated clips (Room 33, doc 48 S5 beat 3) can prove his declared 526px figure, and clause one/two refused them. A rig may now name `scale_from`: the clip that does stand (his `sit`, frame 0 his chore stand), held to that clip's figure and to its soles on the declared row. Only the three seated rigs use it; tests/thad-sits.test.mjs holds their frames to the sit's last, byte for byte."
   }
  ]
 }

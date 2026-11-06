@@ -1,0 +1,15 @@
+Image 1 is my pixel-art adventure game's hero, from the locked cast sheet: the man on the LEFT. THIS IS THE MAN AND THE STYLE: draw him exactly as there -- face, untidy dark hair, slight build, long blue coat, brown waistcoat, white shirt, dark trousers, brown boots -- at that level of detail, with that soft shading and dark outline.
+
+Image 2 is the same man as he is drawn in the game now, in nine poses. Match him to these exactly: the same proportions, the same pixel size, the same colours.
+
+Image 3 is a frame of the game: the hero standing in a dark rock chamber, lit by his one lamp on the floor. It shows where the poses below are used and how big he is there. Do not draw the room.
+
+Draw FOUR poses of him, left to right, every one facing RIGHT in profile, as a man lowers himself to sit on the ground and then sits still:
+1. standing upright, arms at his sides (as Image 2's first pose without the offered hand);
+2. knees bent, half-way down, leaning forward a little, one hand reaching back and down behind him toward the ground;
+3. lower, almost down, that hand flat on the ground behind him taking his weight, knees bent high;
+4. SITTING on the ground, knees drawn up in front of him, forearms resting on his knees, hands loosely together, back straight, head level, looking straight ahead, quiet. The coat falls around him onto the ground.
+
+THE SHEET: flat pure magenta (#FF00FF) background. One row. The SAME man at the SAME scale in all four: pose 1 as tall as fits, and the others at that man's size, so pose 4 is short because he is sitting. Every figure's lowest point -- boots, or seat and boots in pose 4 -- on ONE ground line, separated by clear magenta space.
+
+RULES: no lamp, no props, no ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.
