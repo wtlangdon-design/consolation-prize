@@ -167,8 +167,8 @@ const file = (p) => { const png = readPng(readFileSync(resolve(ROOT, p))); retur
 
 for (const { id, kind, npc, walk } of walks) {
   if (npc.posture === 'animal') continue;
-  if (walk.view === 'away' || walk.view === 'toward') {
-    test(`${id}'s ${kind} walk, seen ${walk.view === 'away' ? 'from behind' : 'from the front'}, keeps a walking time`, () => {
+  if (/^(away|toward)/.test(walk.view ?? '')) {
+    test(`${id}'s ${kind} walk, seen ${walk.view.startsWith('away') ? 'from behind' : 'from the front'}, keeps a walking time`, () => {
       assert.equal(walk.strideRatio, undefined, `${id}'s ${kind} counts strides by screen distance, which a walk into the picture barely covers: he glides`);
       const strides = walk.fps / walk.frames.length;
       assert.ok(strides >= 1.0 && strides <= 1.7, `${id}'s ${kind} takes ${strides.toFixed(2)} strides a second`);
@@ -199,11 +199,12 @@ for (const { id, kind, npc, walk } of walks) {
     const h = (i) => walk.heights?.[i] ?? (() => {
       const [x, y] = walk.path[i]; const near = boxes.nearest(x, y); return near ? heightIn(near.box, y) : 0;
     })();
-    let across = 0; let depth = 0; let signed = 0;
+    let across = 0; let depth = 0; let signed = 0; let sideways = 0;
     for (let i = 1; i < walk.path.length; i += 1) {
       const a = h(i - 1); const b = h(i);
       if (a <= 0 || b <= 0) continue;
       across += Math.abs(walk.path[i][0] - walk.path[i - 1][0]) / ((a + b) / 2);
+      sideways += (walk.path[i][0] - walk.path[i - 1][0]) / ((a + b) / 2);
       depth += Math.abs(Math.log(b / a)); signed += Math.log(b / a);
     }
     const ratio = depth / Math.max(across, 1e-6);
@@ -212,7 +213,10 @@ for (const { id, kind, npc, walk } of walks) {
       assert.equal(view, 'profile', `${id}'s ${kind} crosses the picture (depth ${ratio.toFixed(2)} of its width) and is drawn ${view}`);
     } else {
       assert.ok(view !== 'profile', `${id}'s ${kind} goes into the picture (depth ${ratio.toFixed(2)} of its width) and is drawn in profile: he will slide sideways`);
-      assert.equal(view, signed < 0 ? 'away' : 'toward', `${id}'s ${kind} ${signed < 0 ? 'shrinks' : 'grows'} along its path and is drawn ${view}`);
+      // Into the picture AND across it (more than two of his heights sideways): turned the way he crosses.
+      const turn = Math.abs(sideways) > 2 ? (sideways > 0 ? '-right' : '-left') : '';
+      const want = (signed < 0 ? 'away' : 'toward') + turn;
+      assert.equal(view, want, `${id}'s ${kind} ${signed < 0 ? 'goes away' : 'comes toward us'}${turn ? ` and ${sideways > 0 ? 'right' : 'left'} across the picture (${Math.abs(sideways).toFixed(1)} of his heights)` : ''} and is drawn ${view}: his legs walk one way while he moves another`);
     }
   });
   test(`${id}'s ${kind} walk is at a walking pace`, () => {
@@ -222,21 +226,33 @@ for (const { id, kind, npc, walk } of walks) {
       assert.ok(walk.pace, `${id}'s ${kind} climbs a road from ${Math.max(...walk.heights)} px to ${Math.min(...walk.heights)} px tall at a fixed speed: give it a pace`);
     }
   });
-  if (npc.posture === 'walking' && (walk.view === 'away' || walk.view === 'toward')) {
+  if (npc.posture === 'walking' && (/^(away|toward)/.test(walk.view ?? ''))) {
     test(`${id}'s ${kind}: no man in the crowd bobs up and down`, () => {
+      // Each man's own cycle holds his height within 1% (Thad's side walk 0.3%), and in the crowd the
+      // heads-and-shoulders band (top 40%) of each quarter keeps its centre of mass within 1% of the
+      // frame: the stomping crowd moved 1.05-2.37%, the steady ones 0.03-0.76%. Legs are left out
+      // because their shape changes with the stride, which is walking, not bouncing.
+      for (const dir of walk.men ?? []) {
+        const hs = readdirSync(resolve(ROOT, dir)).filter((f) => f.endsWith('.png')).sort().map((f) => {
+          const c = file(`${dir}/${f}`); let top = -1; let bottom = -1;
+          for (let y = 0; y < c.height; y += 1) for (let x = 0; x < c.width; x += 1) if (c.alpha(x, y)) { if (top < 0) top = y; bottom = y; break; }
+          return bottom - top + 1;
+        });
+        assert.ok((Math.max(...hs) - Math.min(...hs)) / Math.max(...hs) <= 0.01, `${dir}: his height runs ${Math.min(...hs)}-${Math.max(...hs)} over the cycle: he bobs`);
+      }
       const png = readPng(readFileSync(resolve(ROOT, walk.sheet)));
       const men = walk.men?.length ?? 4;
       const ranges = Array.from({ length: men }, () => [Infinity, -Infinity]);
       for (const f of walk.frames) {
         const c = cell(png, f); const q = Math.floor(c.width / men);
         for (let m = 0; m < men; m += 1) {
-          let top = -1;
-          for (let y = 0; y < c.height && top < 0; y += 1) for (let x = m * q; x < (m + 1) * q; x += 1) if (c.alpha(x, y)) { top = y; break; }
-          if (top >= 0) { ranges[m][0] = Math.min(ranges[m][0], top); ranges[m][1] = Math.max(ranges[m][1], top); }
+          let sum = 0; let n = 0;
+          for (let y = 0; y < Math.floor(c.height * 0.4); y += 1) for (let x = m * q; x < (m + 1) * q; x += 1) if (c.alpha(x, y)) { sum += y; n += 1; }
+          if (n) { const cy = sum / n; ranges[m][0] = Math.min(ranges[m][0], cy); ranges[m][1] = Math.max(ranges[m][1], cy); }
         }
       }
       const h = walk.frames[0][3];
-      ranges.forEach(([lo, hi], m) => assert.ok(hi - lo <= 0.02 * h, `${id}'s ${kind}: man ${m + 1}'s crown moves ${hi - lo} px over the cycle (frame ${h} tall): he bounces`));
+      ranges.forEach(([lo, hi], m) => assert.ok(hi - lo <= 0.01 * h, `${id}'s ${kind}: man ${m + 1} moves ${(hi - lo).toFixed(1)} px up and down over the cycle (frame ${h} tall): he bounces`));
     });
   }
   if (npc.posture === 'walking') {

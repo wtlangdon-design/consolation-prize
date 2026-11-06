@@ -266,35 +266,42 @@ MAN_H = old_h - 6
 # front (55, 56), and his walk is made by the same rig and the same arguments as Thad's own back and
 # front walks (tools/rig/character.py --view headon --pose striding, as art/actors/thad-walk-back/rig.json
 # records): the feet pass twice a cycle, as Thad's do. Rigged frames in art/staging/walk-c/rig-miners/.
-RIG = os.path.join(STAGE, 'rig-miners')
-CROWDS = {'away': ('back', +1), 'toward': ('front', -1)}
+# ALONG THE ROAD (Tyler, 2026-11-06: "Their legs are walking forward in relation to the camera/screen while
+# their bodies are moving at a diagonal up the mountain. They need to be fully oriented in the direction
+# they're walking"). The road climbs to the top-right; straight-on rigged walks pointed their legs up the
+# screen while they travelled across it. Each man is drawn at three-quarters along the road -- going up
+# from behind, turned to the top-right; coming down from the front, turned to the bottom-left -- six named
+# poses each, his feet passing twice a cycle (cast-unify 57-60, shown the road with the way marked).
+# Each man's cycle is kept in art/staging/walk-c/diag-miners/<view>-<i>/ for the test.
+DIAG = os.path.join(STAGE, 'diag-miners')
+CROWDS = {'away': ('up', +1), 'toward': ('down', -1)}
 
 
 def rigged(view_dir, i):
-    d = os.path.join(RIG, f'{view_dir}-{i}')
-    fs = sorted(f for f in os.listdir(d) if f.endswith('.png'))
-    figs = [Image.open(os.path.join(d, f)).convert('RGBA') for f in fs]
-    # one scale for the cycle: the tallest frame at MAN_H; each frame cropped to the cycle's shared box
-    box = [min(f.getbbox()[0] for f in figs), min(f.getbbox()[1] for f in figs),
-           max(f.getbbox()[2] for f in figs), max(f.getbbox()[3] for f in figs)]
-    k = MAN_H / (box[3] - box[1])
+    """Man i's six frames (sheet a: men 0-1, sheet b: men 2-3), cut at MAN_H on one shared box (no bob added)."""
+    sheet = os.path.join(STAGE, f"miners-diag-{view_dir}-{'ab'[i // 2]}.png")
+    path = rows_of(sheet)[i % 2]
+    figs = cut(path, MAN_H, 6)
+    # ONE HEIGHT FOR THE CYCLE (Tyler, 2026-11-06: "bouncing/stomping up and down the hillside"): the
+    # drawings' poses vary up to 2.5% in height, which reads as a bob when a crowd of them walks. Each
+    # pose is drawn at the cycle's median height, soles and crown on fixed lines, as Thad's side walk is
+    # (0.3%).
+    target = int(np.median([f.height for f in figs]))
+    figs = [f.resize((f.width, target), Image.NEAREST) for f in figs]
+    W = max(f.width for f in figs) + 8; H = target
     out = []
     for f in figs:
-        # THE CYCLE'S OWN FRAME, NOT EACH POSE'S (Tyler, 2026-11-06: "They look like they're bouncing/stomping
-        # up and down the hillside"). The rig holds the crown still and the soles rise about 5% as a foot
-        # steps toward or away, as Thad's back walk does; each pose cropped to itself and stood on its
-        # lowest pixel bounced the whole man twice a stride. Every frame keeps the cycle's shared box.
-        c = f.crop(box)
-        c = c.resize((max(1, round(c.width * k)), max(1, round(c.height * k))), Image.LANCZOS)
-        a = np.asarray(c).copy(); a[..., 3] = np.where(a[..., 3] >= 128, 255, 0)
-        # The rig's edges keep a few pixels of the magenta it was cut from; they go (check-key-colour).
+        a = np.asarray(f).copy()
         r, g, b = a[..., 0].astype(int), a[..., 1].astype(int), a[..., 2].astype(int)
         a[..., 3] = np.where((r > 140) & (b > 140) & (g < 120) & (b > g + 50), 0, a[..., 3])
-        # And the generator drew the dark outlines faintly magenta ((8,0,8)): made neutral, keeping their
-        # darkness, so they are not read as key trapped inside the figure (tools/check-residual-key.mjs).
         dark = (r < 48) & (np.abs(r - b) <= 3) & (r - g >= 4)
         a[..., 1] = np.where(dark, np.maximum(g, np.minimum(r, b)), a[..., 1])
-        out.append(Image.fromarray(a))
+        f = Image.fromarray(a)
+        c = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+        c.alpha_composite(f, (int(round(W / 2 - torso_x(f))), H - f.height))   # soles on one line, torso on one column
+        out.append(c)
+    d = os.path.join(DIAG, f'{view_dir}-{i}'); os.makedirs(d, exist_ok=True)
+    for k, c in enumerate(out): c.save(os.path.join(d, f'walk-{k:02d}.png'))
     return out
 
 
@@ -302,7 +309,7 @@ def rigged(view_dir, i):
 # the cycle (PHASE), and differs a little in size (SCALE). Along the road the men walk one behind another:
 # the one ahead is further up the road going out (higher, a little smaller) and nearer the camera coming
 # back (lower, a little larger) -- AHEAD, in man heights, and RISE.
-PHASE = [0, 3, 6, 1]   # rigged frames: 8 a cycle
+PHASE = [0, 3, 1, 4]   # six frames a cycle
 BEAT = [0, 1, 1, 0]
 SCALE = [1.0, 1.04, 0.96, 1.02]
 AHEAD = [0, 0.46, 0.40, 0.48]   # wide enough that no man's tool crosses the face of the man beside him
@@ -319,17 +326,18 @@ for view, (view_dir, heading) in CROWDS.items():
     H = int(max(f.height for c in men for f in c) + top_pad + 2)
     order = sorted(range(4), key=lambda m: -ys[m])          # the man furthest up the road drawn first
     frames_out = []
-    for i in range(16):
+    for i in range(12):
         c = Image.new('RGBA', (W, H), (0, 0, 0, 0))
         for m in order:
-            f = men[m][((i + BEAT[m]) // 2 + PHASE[m]) % 8]
+            f = men[m][((i + BEAT[m]) // 2 + PHASE[m]) % 6]
             c.alpha_composite(f, (int(round(xs[m] - f.width / 2)), int(H - 1 - ys[m] - f.height + 1)))
         frames_out.append(c)
     crowd = f'art/actors/room-22-miners-{view}.png'
     frames = strip(frames_out, R(crowd))
     nb = body_height(Image.open(R(crowd)).convert('RGBA'), frames[0])
     report[f'miners-{view}'] = {'sheet': crowd, 'frames': frames, 'figureHeight': round(old['figureHeight'] * nb / ob),
-                                'drawnFacing': 'right' if heading > 0 else 'left', 'view': view}
+                                'drawnFacing': 'right' if heading > 0 else 'left', 'view': view + ('-right' if heading > 0 else '-left'),
+                                'men': [f'art/staging/walk-c/diag-miners/{view_dir}-{i}' for i in range(4)]}
 # Each exit and loop is pointed at what was cut -- sheet, frames, figureHeight, facing -- BEFORE the snap,
 # which reads the frames from the content files; snapped against the old frames, the miners' new crowd was
 # left finer than the level. (Strides, paces and notes are set by hand in the content and left alone.)
@@ -338,6 +346,7 @@ for name, key, kind in [('deke-vessel', 'deke', 'exit'), ('pratt-jump', 'pratt',
     path = R(f'content/ambient/{name}.json'); j = json.load(open(path)); e = j[kind]; d = report[key]
     e['sheet'], e['frames'], e['figureHeight'], e['drawnFacing'] = d['sheet'], d['frames'], d['figureHeight'], d.get('drawnFacing', 'right')
     if d.get('view'): e['view'] = d['view']
+    if d.get('men'): e['men'] = d['men']
     open(path, 'w').write(json.dumps(j, indent=1, ensure_ascii=False) + '\n')
 
 # Every sheet this writes is new, so it is snapped to the one level here, on its own (tools/art/one-level.py
@@ -348,20 +357,4 @@ subprocess.check_call([sys.executable, R('tools/art/one-level.py'), '--only', 'd
 subprocess.check_call([sys.executable, R('tools/art/despill-frames.py'), R('art/actors/hob-walk-right') + '/'], stdout=subprocess.DEVNULL)
 
 
-# Each exit and loop is pointed at what was cut -- sheet, frames, figureHeight, facing -- BEFORE the snap,
-# which reads the frames from the content files; snapped against the old frames, the miners' new crowd was
-# left finer than the level. (Strides, paces and notes are set by hand in the content and left alone.)
-for name, key, kind in [('deke-vessel', 'deke', 'exit'), ('pratt-jump', 'pratt', 'exit'), ('pratt-registrar', 'pratt', 'exit'),
-                        ('funeral-hob', 'funeral', 'exit'), ('miners-out', 'miners-away', 'loop'), ('miners-back', 'miners-toward', 'loop')]:
-    path = R(f'content/ambient/{name}.json'); j = json.load(open(path)); e = j[kind]; d = report[key]
-    e['sheet'], e['frames'], e['figureHeight'], e['drawnFacing'] = d['sheet'], d['frames'], d['figureHeight'], d.get('drawnFacing', 'right')
-    if d.get('view'): e['view'] = d['view']
-    open(path, 'w').write(json.dumps(j, indent=1, ensure_ascii=False) + '\n')
-
-# Every sheet this writes is new, so it is snapped to the one level here, on its own (tools/art/one-level.py
-# --only), and Hob's clip despilled. Run without this, walk-c left Deke's and the Hobs' walks unsnapped
-# every time it was rerun for another character, and tests/one-level.test.mjs caught it.
-subprocess.check_call([sys.executable, R('tools/art/one-level.py'), '--only', 'deke-vessel-walk', 'room-25-pratt-walk',
-                       'hob-walk-right/', 'room-31-hob-walk-master', 'room-22-miners-away', 'room-22-miners-toward'], stdout=subprocess.DEVNULL)
-subprocess.check_call([sys.executable, R('tools/art/despill-frames.py'), R('art/actors/hob-walk-right') + '/'], stdout=subprocess.DEVNULL)
 print(json.dumps(report))

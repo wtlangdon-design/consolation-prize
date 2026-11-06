@@ -2649,9 +2649,13 @@ export interface AmbientExit {
   /**
    * How the sheet sees him: in profile (the default), from behind walking `away`, or from the front walking
    * `toward` the camera. A walk that goes mostly into or out of the picture is drawn `away` or `toward`:
-   * the claims road's miners, drawn in profile, slid up the hill sideways (Tyler, 2026-11-06).
+   * the claims road's miners, drawn in profile, slid up the hill sideways (Tyler, 2026-11-06). A walk that
+   * goes into the picture AND across it is drawn at three-quarters, turned the way it crosses
+   * (`away-right`: from behind, turned to the right): drawn straight on, the miners' legs pointed up the
+   * screen while they travelled across it ("They need to be fully oriented in the direction they're
+   * walking", Tyler, 2026-11-06).
    */
-  view?: 'profile' | 'away' | 'toward';
+  view?: 'profile' | 'away' | 'toward' | 'away-right' | 'away-left' | 'toward-right' | 'toward-left';
   /** A walk that leaves the room's depth curve: a man's drawn height at each point of `path`. */
   heights?: number[];
   /**
