@@ -150,6 +150,19 @@ const STEMS = [
     note: 'A2/A8 — the flat C-sharp as the room has always heard it.' },
   { file: 'sfx/piano-tuned.wav', piece: 'TUNING_LA', loops: 1, oneShot: true, pianoTuned: true,
     note: 'A2/A8 — the same notes on the mended piano.' },
+  // ERRATA 115: the fiddler (doc 07 #11).
+  { file: 'consolation-nugget-fiddle.wav', piece: 'CONSOLATION_NUGGET_FIDDLE_LA', loops: 2,
+    note: 'The Nugget fiddler: CONSOLATION\'s own fiddle part, with the piano, while he is in the room.' },
+  { file: 'sfx/fiddler-faster.wav', piece: 'FIDDLER_FASTER_LA', loops: 1, oneShot: true,
+    note: 'R_BORDERS_MOTT: "He plays something faster. Still flat."' },
+  { file: 'sfx/fiddler-passing.wav', piece: 'FIDDLER_PASSING_LA', loops: 1, oneShot: true,
+    note: 'R_DEAD: "He plays the passing tune. Correctly. Flat."' },
+  { file: 'sfx/fiddler-broken-off-far.wav', piece: 'FIDDLER_BROKEN_OFF_LA', loops: 1, oneShot: true, distance: 'far',
+    note: 'R_TRUTH, F2: the phrase, broken off, far away (assembled by tools/audio/render-fiddler.py).' },
+  { file: 'sfx/fiddler-open-a-far.wav', piece: 'FIDDLER_OPEN_A_LA', loops: 1, oneShot: true, distance: 'far',
+    note: 'R_TRUTH, F2: his A string, flat, before he turns the peg.' },
+  { file: 'sfx/fiddler-phrase-far-tuned.wav', piece: 'FIDDLER_PHRASE_LA', loops: 1, oneShot: true, distance: 'far', inTune: true,
+    note: 'R_TRUTH, F2: the phrase again, in tune -- the only stem rendered at 0 cents, because it is the one that is.' },
 ];
 /** Where a stem is heard from (errata 103): a low-pass, a level, and the room it crosses. */
 const DISTANCE = {
@@ -252,7 +265,7 @@ await page.goto(pathToFileURL(PROOF).href);
 mkdirSync(OUT, { recursive: true });
 
 for (const stem of STEMS) {
-  const rendered = await page.evaluate(async ({ piece, loops, rate, tail, pianoTuned }) => {
+  const rendered = await page.evaluate(async ({ piece, loops, rate, tail, pianoTuned, inTune }) => {
     const CA = window.ConsolationAudio;
     const music = CA[piece];
     const beat = 60 / music.tempo;
@@ -261,7 +274,7 @@ for (const stem of STEMS) {
     // release is present at the loop point rather than chopped off it.
     const seconds = beats * beat + tail;
     const ctx = new OfflineAudioContext(2, Math.ceil(seconds * rate), rate);
-    const engine = CA.createEngine(ctx, { detuneCents: CA.DETUNE_START, pianoCSharpFlat: !pianoTuned });
+    const engine = CA.createEngine(ctx, { detuneCents: inTune ? 0 : CA.DETUNE_START, pianoCSharpFlat: !pianoTuned });
     engine.setPiece(music);
     engine.open(0);
     engine.scheduleSpan(0, beats, 0);
@@ -273,7 +286,7 @@ for (const stem of STEMS) {
       bodyFrames: Math.round(beats * beat * rate),
     };
   }, { piece: stem.piece, loops: stem.loops, rate: RATE, tail: stem.oneShot ? ONE_SHOT_TAIL_SECONDS : TAIL_SECONDS,
-       pianoTuned: Boolean(stem.pianoTuned) });
+       pianoTuned: Boolean(stem.pianoTuned), inTune: Boolean(stem.inTune) });
 
   // A one-shot ends where its sound does, plus a breath: the first render of
   // THE STRIKE carried 3.15s of digital silence after its tail.

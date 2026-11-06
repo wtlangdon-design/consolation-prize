@@ -7,6 +7,8 @@ export interface FiredBark {
   line: string;
   /** A bark two people say (AmbientFile.barkExchange): every line, in order, `line` the first. */
   exchange?: { speaker: string; line: string }[];
+  /** A bark that is played, not said (AmbientFile.barkCues): the sound cue to fire. */
+  cue?: string;
 }
 
 /**
@@ -236,9 +238,10 @@ export class AmbientLayer {
       if (Math.hypot(npc.x - x, npc.y - y) > npc.approachRadius) continue;
       const exchange = npc.barkExchange?.[state];
       const line = exchange?.[0]?.line ?? npc.barks[state];
-      if (!line) continue;
+      const cue = npc.barkCues?.[state];
+      if (!line && !cue) continue;
       this.fired.add(key);
-      return { npc, line, ...(exchange ? { exchange } : {}) };
+      return { npc, line: line ?? '', ...(exchange ? { exchange } : {}), ...(cue ? { cue } : {}) };
     }
     return null;
   }

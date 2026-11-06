@@ -348,8 +348,21 @@ export class GameState {
     return this.cameFrom;
   }
 
+  /**
+   * THAD'S REPUTATION: the furthest state in doc 07's order whose headline
+   * puzzle (doc 06's propagation table, `reputation.setBy`) is complete.
+   * Errata 116: it was a number nothing ever raised, so every townsperson
+   * said his R_NOBODY line for the whole game.
+   */
   get reputationIndex(): number {
-    return this.reputation;
+    const { states, setBy } = this.content.reputation;
+    if (!setBy) return this.reputation;
+    let index = 0;
+    states.forEach((state, at) => {
+      const puzzle = setBy[state];
+      if (puzzle && this.puzzles.get(puzzle) === 'complete') index = Math.max(index, at);
+    });
+    return index;
   }
 
   get roomId(): string {

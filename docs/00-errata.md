@@ -3214,3 +3214,29 @@ The fiddler's idle is his playing: two bow positions, about 0.6 s a stroke.
 **Open, and not this pass's:**
 - **The fiddler's bowing is not on the music's bar grid** (doc 22). The score has no tempo or bar grid yet, so his rate is fixed. It goes with his playing in the music: faster for R_BORDERS_MOTT, the passing tune for R_DEAD, and retuning first in F2.
 - The message boy's *(pay)*, the bell-ringer and the stage driver remain Tyler's (errata 110).
+
+---
+
+# 116 · THE TOWN HEARS ABOUT THAD; THE FIDDLER PLAYS; TWO FIGURES STAY OUT — TYLER, 2026-11-06
+
+Tyler, on what was still open: **"2. I agree. 3. I'll take your recommendation here."** And: **"Do the fiddler's music."**
+
+**A · Two townspeople stay out.**
+- **The stage driver** is not placed in town. He drives away in the opening, and no document says when the coach is back.
+- **The bell-ringer** waits for Lower Street, where doc 07 puts him (the church steps, errata 43).
+
+**B · Reputation was never raised. It is now, as doc 06 designs it.** Building the fiddler's barks showed that `GameState.reputation` was a number nothing ever changed. Every townsperson said his R_NOBODY line for the whole game, and eight-ninths of doc 07's barks were unreachable. That is a large part of why the pre-playthrough review found the town the same in every act. Doc 06's propagation engine has always said what moves it: Frame's headline for each of A3, A5, A7, A9, B5, B6, E5 and F4. `tools/extract-content.mjs` now reads that table into `content/reputation.json` (`setBy`). Thad's reputation is the furthest state, in errata 7's order, whose puzzle is complete. It can only rise, and it is read from the save's own puzzle progress. `tests/reputation.test.ts` holds it; it fails on the old getter.
+
+**C · The fiddler's music (doc 07 #11). No new notes: everything he plays is CONSOLATION's own.**
+- **In the Nugget, while he is there,** the room's music carries his fiddle: the theme's own fiddle part, with the piano (doc 28: "Piano-led, fiddle joining"). A music layer may now name the person whose playing it is (`whenPresent`). A part joining a bed already playing joins it in time, so tuning the piano does not throw the band out.
+- **R_BORDERS_MOTT,** "He plays something faster. Still flat.": the tune, once through, at half again the speed.
+- **R_DEAD,** "He plays the passing tune. Correctly. Flat.": the funeral's arrangement, its first half.
+- Both are his barks, played on approach as a bark is (`barkCues`). They duck the room's music and are featured sounds under errata 107/108's checks.
+- **R_TRUTH, in F2:** "twenty seconds into the tuning arc, he stops mid-phrase, tunes his A, and continues". This is Room 33's R33-FIDDLER, fired on the arc's own clock (`listening.tune.cues`). It is far off and under the score, and it is off the music bus, so his A is drawn up the 35 cents to 440 while the score is still flat. Nothing remarks on it, and invariant 5's ninety seconds are unchanged.
+- The stems are rendered from the music proof by `tools/render-music.mjs` (an `inTune` stem for the one phrase that is), and the retuning is assembled by `tools/audio/render-fiddler.py`. He was drawn and cast the same afternoon (errata 115), so his fiddle plays from now on; his layer still names him, and a Nugget without him has none.
+
+**D · Three art fixes have a brief** (`reference/art-fixes/brief.md`), for the session with the image key, within the rooms' existing caps:
+- Room 19's packed case and morning light for Act IV (errata 101 B);
+- the dawn street's glowing roof edges, in the tooling first;
+- the undertaker's flat ceiling band.
+
