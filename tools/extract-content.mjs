@@ -385,7 +385,13 @@ function opening() {
     //    horses    x1485 - 1866
     //
     // Every position below is measured against those, not guessed.
+    // ERRATA 106: THE OPENING'S SOUNDS (doc 45 O-02-S2, O-06-S1, O-06B-S,
+    // O-09-M). The coach is already standing when beat 2 opens -- it is placed,
+    // not driven in -- so the team's sound starts at the halt: breathing and
+    // harness, held until the first stride of 6b. O-02-S1, the moving team, has
+    // no arrival to go with and is not played.
     2: [
+      { do: 'cue', cue: 'O-02-S2' },
       { do: 'move', actor: 'hob', from: [600, 720], to: [600, 720], seconds: 0.1 },
       { do: 'move', actor: 'coach', from: [1390, 742], to: [1390, 742], seconds: 0.1 },
       { do: 'setState', object: 'coach', state: 'door-open' },
@@ -434,6 +440,8 @@ function opening() {
       { do: 'say', line: 1 },
     ],
     6: [
+      // O-06-S1: the case hits the mud, and the fork inside rings its A.
+      { do: 'cue', cue: 'O-06-S1' },
       { do: 'face', actor: 'thad', facing: 'right' },
       { do: 'chore', actor: 'thad', clip: 'pickup-low' },
     ],
@@ -460,6 +468,9 @@ function opening() {
       // back every time he turned left for the rest of the game.
       { do: 'setState', object: 'thad' },
       { do: 'setState', object: 'coach' },
+      // O-06B-S: the standing team's bed stops on the first stride, and the
+      // team, the wheels and the axle go with the coach.
+      { do: 'cue', cue: 'O-06B-S' },
       { do: 'move', actor: 'coach', to: [3000, 742], seconds: 3 },
     ],
     // BEAT 7 NO LONGER TOUCHES HIM -- he has stood at the roadside since beat
@@ -497,6 +508,8 @@ function opening() {
     // only when each lands. An index with no line behind it throws at
     // extraction rather than playing silence.
     9: [
+      // O-09-M: THE STRIKE, once, distant, as Hob begins to cross (doc 28 Room 1).
+      { do: 'cue', cue: 'O-09-M' },
       // NO WALK IN, AND IT DOES NOT BEGIN UNTIL HE IS SPOKEN TO. He has been
       // standing since beat 2; the beat is what it says it is -- an exchange,
       // and then he goes on. See `awaits`.

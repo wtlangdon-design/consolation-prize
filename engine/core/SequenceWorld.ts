@@ -75,6 +75,8 @@ export interface SequenceWorldParts {
    * so the step can be exercised without a browser.
    */
   camera?: (to: number | undefined, follow: string | undefined) => void;
+  /** Fires a doc 45 cue (errata 106). Injected; a world with no audio has none. */
+  cue?: (id: string) => void;
 }
 
 /**
@@ -103,6 +105,8 @@ export class SequenceWorld implements SequenceHost {
   private readonly paths: Map<string, PathFile>;
   private readonly travelThrough: (through: string) => void;
   private readonly pointCamera: (to: number | undefined, follow: string | undefined) => void;
+  /** A missing cue is a no-op, like a missing camera: a world with no audio is still a world. */
+  private readonly fire: (id: string) => void;
 
   constructor(parts: SequenceWorldParts) {
     this.actors = parts.actors;
@@ -120,6 +124,7 @@ export class SequenceWorld implements SequenceHost {
     // playable, and every room but one fits the window and has nowhere to
     // point it. A world built without one is a test that does not care.
     this.pointCamera = parts.camera ?? (() => {});
+    this.fire = parts.cue ?? (() => {});
   }
 
   walk(actor: string, x: number, y: number): void {
@@ -156,6 +161,10 @@ export class SequenceWorld implements SequenceHost {
     this.bodies.claimBody(actor, WALK_OWNER);
     return mover.followPath(traced.waypoints, traced.beatSeconds,
       traced.farClipHandoff ?? -1);
+  }
+
+  cue(id: string): void {
+    this.fire(id);
   }
 
   travel(through: string): void {

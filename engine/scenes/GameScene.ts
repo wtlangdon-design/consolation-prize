@@ -85,6 +85,12 @@ export class GameScene extends Phaser.Scene {
    * and it is silent wherever the score is suspended.
    */
   private readonly ambience = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
+  /** A cue's held sound -- the standing team in the opening -- until a cue or the room ends it (errata 106). */
+  private readonly cueBed = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
+  /** The judges' marks already sounded, so each new one sounds once. */
+  private marksHeard = 0;
+  /** The words on screen when they last sounded, so a redraw does not stamp twice. */
+  private soundedWords: string | null = null;
   /** The last foot to come down (Actor.gait, in half-cycles), so each plant sounds once. */
   private lastFoot = -1;
   /** The take each footstep surface played last, so a walk never repeats a foot. */
@@ -311,6 +317,7 @@ export class GameScene extends Phaser.Scene {
       bodies: this.bodies,
       choreSeconds: (mover, clip) => this.choreSeconds(mover, clip),
       say: (step) => this.saySequenceStep(step),
+      cue: (id) => this.fireCue(id),
       paths: this.state.content.paths,
       // THE TRAVEL, NAMED BY ITS EXIT. The scene owns the room change because
       // it owns the bookkeeping around one -- the autosave and the actor
@@ -550,6 +557,13 @@ export class GameScene extends Phaser.Scene {
       && Math.floor(before * GameScene.LAMP_TICKS) !== Math.floor(now * GameScene.LAMP_TICKS)) {
       this.markDirty();
     }
+    // A POINT WRITTEN DOWN (doc 45 U-ASSAY-PENCIL): the judges' pencil, once a mark.
+    const marks = this.state.dialogue.duelMarks;
+    if (marks > this.marksHeard) {
+      const cue = this.state.content.sounds?.events?.duelMark;
+      if (cue) this.fireCue(cue);
+    }
+    this.marksHeard = marks;
     if (this.actor.isWalking) {
       this.markDirty();
       this.footsteps();
@@ -912,6 +926,7 @@ export class GameScene extends Phaser.Scene {
     // opens the menu unlocks as well as a click on the road.
     this.music.unlock();
     this.ambience.unlock();
+    this.cueBed.unlock();
     this.applyMusic();
     const { x, y } = this.nativePoint(pointer);
     const secondary = pointer.rightButtonDown();
@@ -1438,7 +1453,7 @@ export class GameScene extends Phaser.Scene {
   private applyTimelineStep(due: RoomTimelineStep, silent: boolean): void {
     switch (due.do) {
       case 'plate': this.plate = due.plate; break;
-      case 'sound': if (!silent) this.sfx.play(due.src, due.gain ?? 1); break;
+      case 'sound': if (!silent) this.sfx.play(due.src, (due.gain ?? 1) * this.roomSoundGain()); break;
       case 'panel': this.panelHidden = !due.show; break;
       case 'music': this.music.resume(this.timeline.elapsed / 1000); this.musicResumed = true; break;
       case 'dialogue': {
@@ -1528,7 +1543,7 @@ export class GameScene extends Phaser.Scene {
     if (!listening || target.id !== listening.surface || verb !== 'LISTEN_TO' || !this.lastClick) return false;
     const at = this.lastClick;
     const tap = tapAt(listening, at.x, at.y);
-    this.sfx.play(tap.src);
+    this.sfx.play(tap.src, this.roomSoundGain());
     const now = this.time.now;
     this.ripples.push({ x: at.x, y: at.y, start: now, end: now + tap.tail * 1000, tail: tap.tail });
     this.state.verbs.resetToDefault();
@@ -1576,6 +1591,8 @@ export class GameScene extends Phaser.Scene {
     this.ambient.arrived();
     this.musicResumed = false;
     this.applyMusic();
+    // A cue's held sound belongs to the room it was started in.
+    this.cueBed.play(null);
     this.soundForTransit(from);
     this.lastFoot = -1;
     // ERRATA 70 G. A timeline room starts its clock on entry; any other room
@@ -1619,7 +1636,7 @@ export class GameScene extends Phaser.Scene {
       }
       // DOC 48 S5 BEAT 1: the fork, unbidden, once. A, 440.
       if (listening.fork && !this.state.flags.test({ [listening.fork.onceFlag]: true })) {
-        this.sfx.play(listening.fork.src);
+        this.sfx.play(listening.fork.src, this.roomSoundGain());
         this.state.flags.applyWrites({ [listening.fork.onceFlag]: true });
       }
     }
@@ -2243,6 +2260,15 @@ export class GameScene extends Phaser.Scene {
   }
 
   private setSay(text: string | null, speaker: string | null = null, direction = false): void {
+    // A LINE THAT SOUNDS (errata 106): "He notarizes it. He stamps it." Matched
+    // on the words as the document wrote them, without the parentheses a
+    // direction is shown in.
+    const words = text && direction && text.startsWith('(') && text.endsWith(')') ? text.slice(1, -1) : text;
+    if (words && words !== this.soundedWords) {
+      for (const rule of this.state.content.sounds?.lines ?? []) if (rule.line === words) this.fireCue(rule.cue);
+    }
+    // Once per showing: a line redrawn is not a line said again.
+    this.soundedWords = words;
     this.sayIsDirection = text !== null && direction;
     // DOC 30 SECTION 5'S BLOCK WIDTH, WHICH NOTHING HAD EVER USED. "Spoken
     // text uses a default maximum block width of 240 native pixels." This
@@ -2744,17 +2770,33 @@ export class GameScene extends Phaser.Scene {
     this.cuesFired = { last: id, count: this.cuesFired.count + 1 };
     // ERRATA 105: the audio layer exists now. A cue with no sound written for
     // it is still counted, and still silent.
-    for (const part of this.state.content.sounds?.cues[id]?.play ?? []) {
+    const cue = this.state.content.sounds?.cues[id];
+    if (cue && 'bed' in cue) this.cueBed.play(cue.bed ? { src: cue.bed.src, gain: cue.bed.gain } : null);
+    for (const part of cue?.play ?? []) {
       if (part.at) this.time.delayedCall(part.at * 1000, () => this.sfx.play(part.src, part.gain ?? 1));
       else this.sfx.play(part.src, part.gain ?? 1);
     }
+  }
+
+  /**
+   * A whole room's sounds, scaled together (errata 106). The coffin's dirt and
+   * the listening chamber's taps were rendered loud and played at full gain,
+   * up to sixteen decibels over the music; their shape inside the room -- the
+   * dirt thinning, the taps deepening toward the void -- is the design, so the
+   * room is turned down as one rather than sound by sound.
+   */
+  private roomSoundGain(): number {
+    return this.state.content.sounds?.roomGain?.[this.state.room.id] ?? 1;
   }
 
   /** The room's background, or none: doc 45's `-A` beds, which carry under the score. */
   private applyAmbience(): void {
     const bed = this.state.room.music === 'suspend' ? undefined
       : this.state.content.sounds?.ambience[this.state.room.id];
-    this.ambience.play(bed ? { src: bed.src, gain: bed.gain } : null);
+    const here = new Set(this.ambient.present.map((each) => each.id));
+    const layers = (bed?.layers ?? []).filter((layer) => !layer.whenPresent || here.has(layer.whenPresent))
+      .map((layer) => ({ src: layer.src, gain: layer.gain }));
+    this.ambience.play(bed ? { src: bed.src, gain: bed.gain, layers } : null);
   }
 
   /** A verb on a target that doc 45 gives a sound: R02-BELL, R05-QUEUE, R07/08-LOCK and the rest. */

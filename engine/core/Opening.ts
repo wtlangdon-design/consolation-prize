@@ -225,6 +225,8 @@ function lower(staged: SequenceStagingStep, beat: SequenceBeat): SequenceStep[] 
       return [{ kind: 'say', interact: { target: staged.target, verb: staged.verb } }];
     case 'setState':
       return [{ kind: 'setState', object: staged.object, state: staged.state }];
+    case 'cue':
+      return [{ kind: 'cue', cue: staged.cue }];
     case 'path':
       // NO `waitForActor` AFTER IT. The path holds the runner for its own
       // stated duration, which is the same number the title is keyed to, so a

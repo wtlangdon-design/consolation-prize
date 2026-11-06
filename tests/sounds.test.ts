@@ -8,7 +8,7 @@
  * load-bearing LISTEN gets a sound of its own (doc 05, doc 45 section 3.5).
  */
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import test from 'node:test';
@@ -26,7 +26,8 @@ const sounds = JSON.parse(readFileSync(resolve(ROOT, manifest.sounds), 'utf8')) 
 
 test('every file the sounds name is on disk', () => {
   const files = [
-    ...Object.values(sounds.cues).flatMap((cue) => cue.play.map((part) => part.src)),
+    ...Object.values(sounds.cues).flatMap((cue) => [...(cue.play ?? []), ...(cue.bed ? [cue.bed] : [])].map((part) => part.src)),
+    ...Object.values(sounds.ambience).flatMap((bed) => (bed.layers ?? []).map((layer) => layer.src)),
     ...Object.values(sounds.footsteps.surfaces).flat(),
     ...Object.values(sounds.ambience).map((bed) => bed.src),
   ];
@@ -39,7 +40,29 @@ test('every cue a verb or a door fires is defined, and every step trigger\'s cue
   for (const room of content.rooms.values()) {
     for (const thing of room.hotspots ?? []) if (thing.step?.cue) fired.push(thing.step.cue);
   }
+  // The opening's cues (errata 106), every line that sounds, and every engine event.
+  const opening = JSON.parse(readFileSync(resolve(ROOT, 'content/sequences/opening.json'), 'utf8')) as
+    { beats: { staging?: { do: string; cue?: string }[] }[] };
+  for (const beat of opening.beats) for (const step of beat.staging ?? []) if (step.do === 'cue') fired.push(step.cue!);
+  fired.push(...(sounds.lines ?? []).map((rule) => rule.cue), ...Object.values(sounds.events ?? {}));
   assert.deepEqual(fired.filter((cue) => !(cue in sounds.cues)), []);
+});
+
+test('every line that sounds is a line the game shows, word for word', () => {
+  const everything = ['content/rooms', 'content/dialogue']
+    .flatMap((dir) => readdirSync(resolve(ROOT, dir)).map((file) => readFileSync(resolve(ROOT, dir, file), 'utf8')))
+    .join('\n');
+  for (const rule of sounds.lines ?? []) {
+    assert.ok(everything.includes(JSON.stringify(rule.line)), `"${rule.line}" (${rule.cue}) is in no room or tree: the doc changed it`);
+  }
+});
+
+test('the opening plays its sounds where doc 45 puts them (errata 106)', () => {
+  const opening = JSON.parse(readFileSync(resolve(ROOT, 'content/sequences/opening.json'), 'utf8')) as
+    { beats: { beat: string; staging?: { do: string; cue?: string }[] }[] };
+  const where = Object.fromEntries(opening.beats.flatMap((beat) =>
+    (beat.staging ?? []).filter((step) => step.do === 'cue').map((step) => [step.cue!, beat.beat])));
+  assert.deepEqual(where, { 'O-02-S2': '2', 'O-06-S1': '6', 'O-06B-S': '6b', 'O-09-M': '9' });
 });
 
 test('every verb the sounds hear is a real target and verb in its room', async () => {
@@ -87,8 +110,8 @@ test('a sound tied to written lines follows the line: the sign creaks twice, the
 test('no load-bearing LISTEN has a sound of its own: the timesheet plays what other paper plays (doc 05; doc 45 R08-TIME)', () => {
   const timesheet = sounds.verbs.find((rule) => rule.cue === 'R08-TIME');
   if (!timesheet) return;
-  const own = sounds.cues[timesheet.cue]!.play.map((part) => part.src);
+  const own = (sounds.cues[timesheet.cue]!.play ?? []).map((part) => part.src);
   const elsewhere = new Set(sounds.verbs.filter((rule) => rule.cue !== timesheet.cue)
-    .flatMap((rule) => sounds.cues[rule.cue]!.play.map((part) => part.src)));
+    .flatMap((rule) => (sounds.cues[rule.cue]!.play ?? []).map((part) => part.src)));
   for (const src of own) assert.ok(elsewhere.has(src), `${src} is heard only on the timesheet`);
 });

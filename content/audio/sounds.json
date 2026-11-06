@@ -1,12 +1,12 @@
 {
- "about": "ERRATA 105: the everyday sounds, wired. Every cue is doc 45's, by its id, and plays a file Tyler approved by ear (errata 102). Footsteps follow the floor: a walk box whose own `surface` is boardwalk walks on boards; anywhere else the room's floor below. Nothing here marks a load-bearing LISTEN: the timesheet's paper is the same ordinary paper as the queue book's (doc 45 R08-TIME, section 3.5).",
+ "about": "ERRATA 105: the everyday sounds, wired. Every cue is doc 45's, by its id, and plays a file Tyler approved by ear (errata 102). Footsteps follow the floor: a walk box whose own `surface` is boardwalk walks on boards; anywhere else the room's floor below. Nothing here marks a load-bearing LISTEN: the timesheet's paper is the same ordinary paper as the queue book's (doc 45 R08-TIME, section 3.5). ERRATA 106 adds the opening's cues (Tyler reversed errata 28a's ban on timed sound), the remaining LISTEN cues, the stamp and the judges' pencil, and the room backgrounds.",
  "cues": {
   "R01-SIGN": {
    "why": "doc 45 R01-SIGN-1/2: one wooden sign creak",
    "play": [
     {
      "src": "audio/sfx/sign-creak.wav",
-     "gain": 0.7
+     "gain": 0.482
     }
    ]
   },
@@ -15,7 +15,7 @@
    "play": [
     {
      "src": "audio/sfx/r33-fork.wav",
-     "gain": 0.5
+     "gain": 0.049
     }
    ]
   },
@@ -24,7 +24,7 @@
    "play": [
     {
      "src": "audio/sfx/church-bell-distant.wav",
-     "gain": 0.8
+     "gain": 0.114
     }
    ]
   },
@@ -33,7 +33,7 @@
    "play": [
     {
      "src": "audio/sfx/paper-light.wav",
-     "gain": 0.6
+     "gain": 0.184
     }
    ]
   },
@@ -42,17 +42,17 @@
    "play": [
     {
      "src": "audio/sfx/batwing-swing-1.wav",
-     "gain": 0.7,
+     "gain": 0.222,
      "at": 0.0
     },
     {
      "src": "audio/sfx/batwing-swing-2.wav",
-     "gain": 0.7,
+     "gain": 0.222,
      "at": 0.95
     },
     {
      "src": "audio/sfx/batwing-swing-3.wav",
-     "gain": 0.7,
+     "gain": 0.222,
      "at": 1.7
     }
    ]
@@ -62,7 +62,7 @@
    "play": [
     {
      "src": "audio/sfx/paper-ordinary.wav",
-     "gain": 0.6
+     "gain": 0.186
     }
    ]
   },
@@ -71,7 +71,7 @@
    "play": [
     {
      "src": "audio/sfx/floorboard-hollow.wav",
-     "gain": 0.75
+     "gain": 0.116
     }
    ]
   },
@@ -80,7 +80,7 @@
    "play": [
     {
      "src": "audio/sfx/floorboard-creak.wav",
-     "gain": 0.8
+     "gain": 0.237
     }
    ]
   },
@@ -89,7 +89,7 @@
    "play": [
     {
      "src": "audio/sfx/door-latch.wav",
-     "gain": 0.6
+     "gain": 0.172
     }
    ]
   },
@@ -98,7 +98,7 @@
    "play": [
     {
      "src": "audio/sfx/door-locked.wav",
-     "gain": 0.75
+     "gain": 0.231
     }
    ]
   },
@@ -107,7 +107,7 @@
    "play": [
     {
      "src": "audio/sfx/paper-ordinary.wav",
-     "gain": 0.6
+     "gain": 0.186
     }
    ]
   },
@@ -116,7 +116,7 @@
    "play": [
     {
      "src": "audio/sfx/paper-substantial.wav",
-     "gain": 0.6
+     "gain": 0.157
     }
    ]
   },
@@ -125,7 +125,105 @@
    "play": [
     {
      "src": "audio/sfx/leather-settle.wav",
-     "gain": 0.7
+     "gain": 0.171
+    }
+   ]
+  },
+  "O-02-S2": {
+   "why": "doc 45 O-02-S2: the halted team, breathing, harness moving, held until the first stride (the coach is placed already standing, so O-02-S1's arrival has nothing to go with)",
+   "bed": {
+    "src": "audio/sfx/team-halted.wav",
+    "gain": 0.119
+   }
+  },
+  "O-06-S1": {
+   "why": "doc 45 O-06-S1: the case into the mud, the fork inside ringing its A",
+   "play": [
+    {
+     "src": "audio/sfx/case-in-mud.wav",
+     "gain": 0.151
+    }
+   ]
+  },
+  "O-06B-S": {
+   "why": "doc 45 O-06B-S: the standing team stops on the first stride; team, wheels and axle go with the coach",
+   "bed": null,
+   "play": [
+    {
+     "src": "audio/sfx/team-departing.wav",
+     "gain": 0.064
+    }
+   ]
+  },
+  "O-09-M": {
+   "why": "doc 45 O-09-M; doc 28 Room 1: THE STRIKE, once, distant, as Hob crosses. Score, baked at -35 cents like the beds",
+   "play": [
+    {
+     "src": "audio/the-strike.wav",
+     "gain": 0.099
+    }
+   ]
+  },
+  "R01-COACH-2": {
+   "why": "doc 45 R01-COACH-2: the dry near axle, receding east, while it can still be heard",
+   "play": [
+    {
+     "src": "audio/sfx/axle-receding.wav",
+     "gain": 0.207
+    }
+   ]
+  },
+  "R01-WEST-3": {
+   "why": "doc 45 R01-WEST-3: one distant human laugh from town, no words",
+   "play": [
+    {
+     "src": "audio/sfx/laugh-distant.wav",
+     "gain": 0.183
+    }
+   ]
+  },
+  "R03-SPITTOON": {
+   "why": "doc 45 R03-SPITTOON: one restrained wet spittoon sound (OQ-11 left the source; a small wet arrival and the brass)",
+   "play": [
+    {
+     "src": "audio/sfx/spittoon.wav",
+     "gain": 0.386
+    }
+   ]
+  },
+  "R23/24-MUD": {
+   "why": "doc 45 R23/24-MUD: a localized wet working, squelching",
+   "play": [
+    {
+     "src": "audio/sfx/mud-working.wav",
+     "gain": 0.257
+    }
+   ]
+  },
+  "R21-WINDOW": {
+   "why": "doc 45 R21-WINDOW: distant Main Street, all of it",
+   "play": [
+    {
+     "src": "audio/sfx/street-distant.wav",
+     "gain": 0.174
+    }
+   ]
+  },
+  "U-STAMP": {
+   "why": "doc 45 U-STAMP: a stamp landing on paper, where the writing says one does",
+   "play": [
+    {
+     "src": "audio/sfx/stamp.wav",
+     "gain": 0.187
+    }
+   ]
+  },
+  "U-ASSAY-PENCIL": {
+   "why": "doc 45 U-ASSAY-PENCIL: the judges' pencil, each point written down (doc 03: Sowerby holds it)",
+   "play": [
+    {
+     "src": "audio/sfx/pencil.wav",
+     "gain": 0.197
     }
    ]
   }
@@ -200,6 +298,55 @@
    "target": "chairs",
    "verb": "LISTEN_TO",
    "cue": "R11-CHAIRS"
+  },
+  {
+   "room": "stage_road",
+   "target": "coach_gone",
+   "verb": "LISTEN_TO",
+   "variants": [
+    1,
+    2
+   ],
+   "cue": "R01-COACH-2"
+  },
+  {
+   "room": "stage_road",
+   "target": "road_west",
+   "verb": "LISTEN_TO",
+   "variants": [
+    3
+   ],
+   "cue": "R01-WEST-3"
+  },
+  {
+   "room": "nugget",
+   "target": "spittoon",
+   "verb": "LISTEN_TO",
+   "variants": [
+    1,
+    2
+   ],
+   "cue": "R03-SPITTOON"
+  },
+  {
+   "room": "prosperity",
+   "target": "mud",
+   "verb": "LISTEN_TO",
+   "variants": [
+    1,
+    2
+   ],
+   "cue": "R23/24-MUD"
+  },
+  {
+   "room": "watchmans_shack",
+   "target": "window",
+   "verb": "LISTEN_TO",
+   "variants": [
+    1,
+    2
+   ],
+   "cue": "R21-WINDOW"
   }
  ],
  "transits": [
@@ -226,7 +373,7 @@
   }
  ],
  "footsteps": {
-  "gain": 0.4,
+  "gain": 0.079,
   "surfaces": {
    "mud": [
     "audio/sfx/step-mud-1.wav",
@@ -299,14 +446,70 @@
  },
  "ambience": {
   "main_street": {
-   "src": "audio/sfx/wind.wav",
-   "gain": 0.3,
-   "why": "doc 45 R02-A: wind through false fronts"
+   "src": "audio/sfx/main-street-bed.wav",
+   "gain": 0.128,
+   "why": "doc 45 R02-A: wind through the false fronts, posted paper in it, and the dog breathing while the dog is there",
+   "layers": [
+    {
+     "src": "audio/sfx/dog-breathing.wav",
+     "gain": 0.14,
+     "whenPresent": "dog"
+    }
+   ]
   },
   "claims_registrar": {
-   "src": "audio/sfx/clock-tick.wav",
-   "gain": 0.35,
-   "why": "doc 45 R07-A: Sump's clock ticking"
+   "src": "audio/sfx/registrar-bed.wav",
+   "gain": 0.399,
+   "why": "doc 45 R07-A: patient shuffling, paper settling, Sump's clock ticking"
+  },
+  "nugget": {
+   "src": "audio/sfx/nugget-crowd.wav",
+   "gain": 0.97,
+   "why": "doc 45 R03-A: glasses, indistinct talk, the chandelier cooling"
+  },
+  "clarion": {
+   "src": "audio/sfx/press-cycle.wav",
+   "gain": 0.142,
+   "why": "doc 45 R09-PRESS: the press in its operating state -- the room's own LISTEN hears it running every time (\"It knocks on the return stroke.\")"
   }
+ },
+ "lines": [
+  {
+   "line": "He notarizes it. He stamps it. He does not look up.",
+   "cue": "U-STAMP"
+  },
+  {
+   "line": "stamping",
+   "cue": "U-STAMP"
+  }
+ ],
+ "events": {
+  "duelMark": "U-ASSAY-PENCIL"
+ },
+ "levels": {
+  "about": "TYLER, 2026-11-06: \"make sure sfx aren't absurdly loud ... background effects not sounds that take center stage.\" Targets in dB against the median room bed (the music as it plays), and the gains in this file are set from them by measurement, never by ear alone. tools/check-sound-levels.mjs fails on any sound above its ceiling, which is the target plus 2 dB. `roomGain` turns a room's own scripted sounds down together -- the coffin's dirt and the chamber's taps -- whose loudest must sit no higher than the music (`scene`, 0 dB): in the coffin there is no music, and those sounds are the room, but not a slap.",
+  "footsteps": -16,
+  "cue": -10,
+  "cueBed": -16,
+  "ambienceDefault": -18,
+  "ambienceLayer": -20,
+  "cues": {
+   "R03-DOOR": -13,
+   "R05/06-LATCH": -14,
+   "U-ASSAY-PENCIL": -14,
+   "O-09-M": -8,
+   "O-06B-S": -12,
+   "O-06-S1": -10,
+   "R01-WEST-3": -14,
+   "R01-COACH-2": -14
+  },
+  "ambience": {
+   "nugget": -16
+  },
+  "scene": 0
+ },
+ "roomGain": {
+  "coffin": 0.32,
+  "listening_chamber": 0.17
  }
 }

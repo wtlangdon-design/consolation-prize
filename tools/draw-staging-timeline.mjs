@@ -179,6 +179,8 @@ function drawTimeline(sequence) {
                   // rather than as a blank, because "setState" with nothing
                   // after it looks like a truncation.
                   : s.do === 'setState' ? `${s.object} -> ${s.state ?? 'default'}`
+                    // Errata 106: a doc 45 cue, by its id.
+                    : s.do === 'cue' ? `cue ${s.cue}`
                     // The ninth. Named with its verb, because "interact" alone
                     // does not say which of nine it is.
                     : s.do === 'interact' ? `${s.verb} ${s.target}`

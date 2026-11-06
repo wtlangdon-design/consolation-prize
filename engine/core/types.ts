@@ -2113,8 +2113,18 @@ export interface SoundRef { src: string; gain?: number; at?: number }
  */
 export interface SoundsFile {
   about?: string;
-  /** Doc 45 cue id to the files it plays. */
-  cues: Record<string, { why?: string; play: SoundRef[] }>;
+  /**
+   * Doc 45 cue id to what it does: one-shots to `play`, and a `bed` -- a
+   * held sound such as the standing team -- started (or, when null, stopped)
+   * on the cue bed, which also ends when the room does (errata 106).
+   */
+  cues: Record<string, { why?: string; play?: SoundRef[]; bed?: SoundRef | null }>;
+  /** A line put on screen fires a cue: a direction such as "stamping" (U-STAMP). Matched exactly. */
+  lines?: { line: string; cue: string }[];
+  /** A room's own scripted sounds (a timeline's, a puzzle's) all scaled by one number (errata 106). */
+  roomGain?: Record<string, number>;
+  /** Engine events to the cue they fire: `duelMark`, a point written down in an Assay duel (U-ASSAY-PENCIL). */
+  events?: { duelMark?: string };
   /** A verb on a target fires a cue: optionally only on some written lines, or in some states. */
   verbs: { room: string; target: string; verb: string; variants?: number[]; when?: Record<string, boolean>; cue: string }[];
   /** Walking between two rooms, either way, fires a cue (a door). */
@@ -2128,8 +2138,12 @@ export interface SoundsFile {
     /** Room id to the floor its footsteps sound on. A room not listed is silent underfoot. */
     rooms: Record<string, string>;
   };
-  /** Room id to the background it carries (doc 45's `-A` beds). Never detuned: it is not the score. */
-  ambience: Record<string, SoundRef & { why?: string }>;
+  /**
+   * Room id to the background it carries (doc 45's `-A` beds). Never detuned:
+   * it is not the score. A layer with `whenPresent` plays only while that
+   * character is in the room (R02-A: the dog's breathing, while the dog is there).
+   */
+  ambience: Record<string, SoundRef & { why?: string; layers?: (SoundRef & { whenPresent?: string })[] }>;
 }
 
 /** A room's music: a bed with layers, and states that swap it (errata 103). */
@@ -2443,6 +2457,8 @@ export type SequenceStagingStep =
    * means back to the declared default -- shut, for the coach's door.
    */
   | { do: 'setState'; object: string; state?: string }
+  /** A doc 45 cue, fired as the beat reaches it (errata 106). Takes no time. */
+  | { do: 'cue'; cue: string }
   /**
    * Doc 17 beat 11. Walk a mover along a TRACED path over its own duration.
    *
