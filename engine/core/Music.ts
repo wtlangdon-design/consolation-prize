@@ -42,9 +42,9 @@ export interface MusicLayer {
 /**
  * A bed, and anything that plays WITH it (errata 103). A layer is its own loop
  * at its own length, started with the bed and never re-synced to it: doc 28's
- * pairs are things that do not share a clock -- the Nugget's piano heard from
- * the stage road under Thad's fiddle, THE STRIKE coming round under THADDEUS in
- * Prosperity ("neither knows"), the bell tolling under the funeral's tune.
+ * pairs are things that do not share a clock -- a piano heard from down the
+ * road under a fiddle, one theme coming round under another that does not
+ * know it is there, a bell tolling under a tune.
  */
 export interface MusicTrack extends MusicLayer {
   layers?: MusicLayer[];
@@ -128,8 +128,8 @@ export class Music {
     const parts = [track, ...(track.layers ?? [])]
       .filter((part) => !this.missing.has(part.src))
       .map((part) => ({ part, element: this.element(part.src) }));
-    // A file in both the old bed and the new one (the Nugget's piano, say,
-    // from the street to the Lane) carries on where it was instead of being
+    // A file in both the old bed and the new one (a piano heard in two
+    // neighboring rooms, say) carries on where it was instead of being
     // faded out and restarted under itself.
     this.fadeOut(new Set(parts.map(({ element }) => element).filter((e): e is HTMLAudioElement => e !== null)));
     const voices: Voice[] = [];

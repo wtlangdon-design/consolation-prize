@@ -46,15 +46,6 @@ test('every room bed carries its reason', () => {
   }
 });
 
-test('the rooms doc 28 Part Three names all have their own music', () => {
-  // Doc 28's room numbers, as the room files name them.
-  const named = ['stage_road', 'main_street', 'nugget', 'assay_office', 'assay_records', 'claims_registrar', 'archive',
-    'company_lobby', 'fanshawe_office', 'undertaker', 'hotel_lobby', 'thads_room', 'prosperity', 'under_prosperity',
-    'funeral', 'listening_chamber', 'main_street_dawn'];
-  const missing = named.filter((room) => !(room in manifest.music.rooms));
-  assert.deepEqual(missing, []);
-});
-
 test('every room in the game has music chosen for it: none falls back to the title bed by omission (errata 104)', () => {
   const roomsDir = resolve(ROOT, 'content/rooms');
   // Engine fixtures, unbuilt candidates and stubs are not rooms a player walks
@@ -107,7 +98,7 @@ test('a bed starts its layers with it, each looping on its own', () => {
 
 test('a file in both the old bed and the new carries on instead of restarting', () => {
   const music = player();
-  music.play({ src: 'thaddeus.wav', layers: [{ src: 'piano.wav' }] });
+  music.play({ src: 'fiddle.wav', layers: [{ src: 'piano.wav' }] });
   const piano = playing('piano.wav')!;
   piano.currentTime = 12.5;
   music.play({ src: 'piano.wav' });
