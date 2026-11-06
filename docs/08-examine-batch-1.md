@@ -130,10 +130,10 @@
 
 **THE SAMPLE WALL**
 > **LOOK:** "Every sample assayed in nine years, in labeled vials. It is beautiful, in the way that only a completed thing is beautiful."
-> **LISTEN:** "Nothing. It is nine years of work and it is not asking for anything."
+> **LISTEN:** "Nothing. Nine years of work, and not one bottle asking for anything."
 
 **THE OFFICIAL LEDGER**
-> **LOOK:** "Nine years of assays, in a hand that has not varied once. Not one crossing-out."
+> **LOOK:** "Nine years of assays, in a hand that hasn't varied once. Not one crossing-out. My letters home are mostly crossing-out."
 > **LISTEN:** "Nothing."
 
 **THE FLOORBOARD, LIFTED** *(after C5)* — *LOCATION SUPERSEDED, errata 66 ruling D: the loose board and the second ledger are in Room 5, the assay office front; these lines apply there.*

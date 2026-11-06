@@ -123,7 +123,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE CRUCIBLE** · USE — "Cold, and not mine to fire. Some instruments you earn."
 **THE SCALES CABINET** · OPEN — "Locked, and the key is Winnie, and Winnie is the lock."
 **THE NINETEEN NAMES** · TALK_TO — "I read them aloud once, quietly. It felt like a roll call. Nobody answered, which is the point of the list."
-**THE SAMPLE SHELF** · PICK_UP — "Every bottle is somebody's whole year. I am not qualified to hold a year."
+**THE SAMPLE SHELF** · PICK_UP — "Every bottle is somebody's whole year. I'm not qualified to hold a year."
 **THE STOOL** · USE — "I sat on it. It announced me. I got down."
 
 ## ROOM 8 — REGISTRAR'S ARCHIVE
