@@ -3305,7 +3305,11 @@ function winnieTree() {
       const plainDirections = directions.filter((d) => !/^rephrases after/.test(d));
       const spoken = firstCell.replace(/\*\([^)]*\)\*/g, '');
       const lines = quoted(spoken);
-      if (lines[0]) option.say = lines[0];
+      // EVERY QUOTED LINE IS SAID (errata 119). This kept the first and dropped
+      // the rest, which lost WIN_F1's "File it. I'll be at the Registrar's when
+      // you do." -- the only line that sends Thad to the last filing (F5).
+      if (lines.length > 1) option.exchange = lines.map((line) => ({ speaker: SPEAKER, line }));
+      else if (lines[0]) option.say = lines[0];
       for (const later of laterCells) {
         for (const d of later.cell.matchAll(/\*\(([^)]+)\)\*/g)) unplayed.push(`${id} option ${number} selection ${later.selection} staging: ${d[1]}`);
         const line = quoted(later.cell.replace(/\*\([^)]*\)\*/g, ''))[0];
@@ -3340,7 +3344,7 @@ function winnieTree() {
       if (signing) {
         if (!then.length) throw new Error(`doc 04: ${id} option ${number} leads to a scene with no lines`);
         Object.assign(option, signing);
-        option.exchange = [...(option.say ? [{ speaker: SPEAKER, line: option.say }] : []), ...then];
+        option.exchange = [...(option.exchange ?? (option.say ? [{ speaker: SPEAKER, line: option.say }] : [])), ...then];
         delete option.say;
       }
       // THE SPARRING (doc 57 C6): WIN_B4's teaching row, doc 03's exchange and pairs.

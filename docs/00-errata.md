@@ -3342,5 +3342,7 @@ The audit Tyler asked for ("Go on all five") played the duels as a newcomer, and
 
 **The lesson is a test.** `tests/assay.test.ts` plays Duel Three from the fewest pairs a player can hold (Duel One's four and the confession's, and the confession's alone) and fails if it does not end. It fails on the old content.
 
-The audit's other findings (how a lost Duel Two teaches, the score, reactions, staging) change how the duels play, and are Tyler's to rule on (reported separately).
+**And the last filing had lost its direction.** The fairness audit found it independently. Doc 04 has Winnie, after running the assay (WIN_F1 option 1), say: "Twenty-two hundred dollars to the ton." *(beat)* "Nine years I've waited to write down a number I believed." *(She writes it down.)* "File it. I'll be at the Registrar's when you do." Her extractor kept the first quoted line of a reply and dropped the rest, so the game never told the player where to go for F5. She now says all three. `tests/replies-whole.test.ts` holds every line of every doc 04 reply to what the game says. It fails on the old extractor.
+
+The audits' other findings change how the duels and puzzles play, and are Tyler's to rule on (reported separately).
 
