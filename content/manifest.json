@@ -311,7 +311,9 @@
       "gain": 0.7,
       "whenPresent": "fiddler"
      }
-    ]
+    ],
+    "tempo": 152,
+    "tempoNote": "CONSOLATION's tempo, 152 in 4/4 (proofs/audio/consolation-audio-proof.html TEMPO; the stem is two loops of eight bars, 25.26 s). The bar grid the fiddler keeps time with, and the fiddle layer plays in it (errata 118)."
    },
    "assay_office": {
     "src": "audio/winnie.wav",
@@ -392,7 +394,7 @@
     "gain": 0.55,
     "why": "Doc 28 Room 36: CONSOLATION, in tune, thin, one instrument. In tune by T_IN_TUNE, not by the stem."
    },
-   "coach_stop_dawn": {"src": "audio/consolation-dawn.wav", "gain": 0.55, "why": "Doc 28 Room 36: CONSOLATION, in tune, thin, one instrument -- carried on to the coach stop, Room 36's close (errata 118 B): the same file, so it continues rather than restarting."},
+   "coach_stop_dawn": {"src": "audio/consolation-dawn.wav", "gain": 0.55, "why": "Doc 28 Room 36: CONSOLATION, in tune, thin, one instrument -- carried on to the coach stop, Room 36's close (errata 119 B): the same file, so it continues rather than restarting."},
    "mercantile": {
     "src": "audio/consolation-dawn.wav",
     "gain": 0.55,

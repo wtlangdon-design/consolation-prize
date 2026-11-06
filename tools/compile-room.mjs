@@ -1382,7 +1382,7 @@ function transitBeat(spec) {
       ...(spec.set ? { set: spec.set } : {}), ...(spec.stays ? { stays: true } : {}),
       sceneLine: `${spec.ref} · ${spec.bullet ?? `beat ${spec.row}`}` };
   }
-  // A BEAT PLAYED WHERE THE EXIT GOES (errata 118 B): doc 48 S7 beat 3 is "at the coach stop", so its
+  // A BEAT PLAYED WHERE THE EXIT GOES (errata 119 B): doc 48 S7 beat 3 is "at the coach stop", so its
   // picture is that room's and its words are said there, `pause` seconds after he arrives.
   const arrival = spec.arrives ? { arrives: true, ...(spec.pause ? { pause: spec.pause } : {}) } : {};
   return { ...arrival, ...(spec.when ? { when: spec.when } : {}), say: first, ...(by ? { by } : {}),

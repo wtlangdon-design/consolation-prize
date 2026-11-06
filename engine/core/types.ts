@@ -127,7 +127,7 @@ export interface ResponseRule {
    */
   stays?: boolean;
   /**
-   * AN EXIT'S BEAT PLAYED WHERE IT GOES (errata 118 B). Doc 48 S7 beat 3 is
+   * AN EXIT'S BEAT PLAYED WHERE IT GOES (errata 119 B). Doc 48 S7 beat 3 is
    * "at the coach stop": the room changes first and the lines are said there,
    * the first of them `pause` seconds after he arrives.
    */
@@ -727,7 +727,18 @@ export interface AmbientFile {
     /** Seconds between breaks, before the per-character jitter. */
     breakEvery?: number;
     /**
-     * ONCE, ON HIS ARRIVAL (errata 118 B): `frames` played `at` seconds after
+     * KEEPS TIME WITH THE ROOM'S MUSIC (doc 22: "fiddler idles in time with
+     * the musical bar grid"; errata 118). The sway and the breaks are read
+     * from the playing bed's own position instead of the scene clock, at the
+     * bed's `tempo`: the idle's two frames alternate once a beat, and a break
+     * cycle starts on a bar line when `breakEvery` is a whole number of bars.
+     * With no bed sounding (locked audio, a missing file) he keeps the same
+     * tempo on the scene clock. `rate` is still written as tempo / 120, so a
+     * reader of the file sees the speed he moves at.
+     */
+    keepsTime?: 'music';
+    /**
+     * ONCE, ON HIS ARRIVAL (errata 119 B): `frames` played `at` seconds after
      * Thad comes into the room, `frameSeconds` each. Doc 48 S7 beat 3's man on
      * the ladder "who nods" -- at Thad, so the nod is timed from Thad.
      */
@@ -1421,7 +1432,7 @@ export interface RoomFile {
   /** Whole-plate cycles per second. */
   backgroundRate?: number;
   /**
-   * THE ROOM IS OVER BLACK WHILE THIS HOLDS (errata 118 B). The close ends over
+   * THE ROOM IS OVER BLACK WHILE THIS HOLDS (errata 119 B). The close ends over
    * black, and a game loaded after it finds the coach stop black, not a picture
    * with nothing left to do in it.
    */
@@ -2259,9 +2270,14 @@ export interface RoomMusic {
    */
   layers?: MusicLayer[];
   /** First match wins: the Nugget's piano once T_NUGGET_PIANO_TUNED is set. */
-  variants?: { when: Record<string, boolean>; src: string; gain?: number; layers?: MusicLayer[] }[];
+  variants?: { when: Record<string, boolean>; src: string; gain?: number; layers?: MusicLayer[]; tempo?: number }[];
   /** Why this room has this music -- doc 28's line, or the ruling. Not read by the engine. */
   why?: string;
+  /**
+   * The bed's tempo, beats a minute: the bar grid a figure that `keepsTime`
+   * reads (errata 118). A variant without its own plays at the entry's.
+   */
+  tempo?: number;
 }
 
 /** Everything the engine needs, resolved from the manifest. */

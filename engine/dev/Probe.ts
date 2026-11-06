@@ -274,6 +274,12 @@ export interface Controls {
    */
   cast(on: boolean): void;
   /**
+   * Draw the room without its bystanders (the ambient figures) and with the
+   * protagonist: render-only, as `cast` is. Panel C measures him alone at an
+   * authored mark, whoever stands in front of it (errata 118).
+   */
+  bystanders(on: boolean): void;
+  /**
    * Put the protagonist's feet on a point. PANEL C.
    *
    * REFUSES A POINT OFF THE FLOOR, and returns why. A depth test run at a
@@ -365,6 +371,7 @@ export function installGauntlet(target: Record<string, unknown>,
     // control writes.
     controls: {
       cast: (on) => scene()?.controls.cast(on),
+      bystanders: (on) => scene()?.controls.bystanders(on),
       stand: (x, y) => scene()?.controls.stand(x, y) ?? { ok: false, why: 'no scene' },
       flags: (values) => scene()?.controls.flags(values) ?? { ok: false, refused: [] },
       enter: (roomId) => scene()?.controls.enter(roomId) ?? { ok: false, why: 'no scene' },

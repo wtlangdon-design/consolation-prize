@@ -356,7 +356,7 @@ export function conversationFrameAt(
 export function ambientFrameAt(
   declared: NonNullable<AmbientFile['sprite']>, phase: number, clock: number, arrivedAt?: number,
 ): number {
-  // ONCE, TIMED FROM HIS ARRIVAL (errata 118 B): the man on the ladder's nod.
+  // ONCE, TIMED FROM HIS ARRIVAL (errata 119 B): the man on the ladder's nod.
   const once = declared.onArrival;
   if (once && arrivedAt !== undefined) {
     const step = Math.floor((clock - arrivedAt - once.at) / (once.frameSeconds ?? 0.3));
@@ -448,6 +448,9 @@ export class Renderer {
   private readonly idles: IdleLayer;
   /** Seconds since the scene started, supplied by the caller each frame. */
   private clock = 0;
+  /** The room's music, for a figure that keeps time with it (errata 118): its clock and tempo. */
+  private musicClock = 0;
+  private musicTempo: number | null = null;
 
   /** The player's drawn sprite. Null only before the sheets have loaded. */
   /**
@@ -513,6 +516,22 @@ export class Renderer {
   }
 
   /**
+   * THE BED'S CLOCK, for a figure that `keepsTime` (errata 118): where the
+   * room's music is, in seconds, and its tempo. Null tempo: the room's bed
+   * declares none, and such a figure moves on the scene clock like anyone.
+   */
+  setMusicClock(seconds: number, tempo: number | null): void {
+    this.musicClock = seconds;
+    this.musicTempo = tempo;
+  }
+
+  /** The sprite and clock a figure is drawn by: the bed's, at its tempo, when he keeps time with it. */
+  timed(declared: NonNullable<AmbientFile['sprite']>): { sprite: NonNullable<AmbientFile['sprite']>; clock: number } {
+    if (declared.keepsTime !== 'music' || !this.musicTempo) return { sprite: declared, clock: this.clock };
+    return { sprite: { ...declared, rate: this.musicTempo / 120, phase: 0 }, clock: this.musicClock };
+  }
+
+  /**
    * What each mover last drew as, for the probe. Doc 44 part three.
    *
    * Only maintained while the watch is on: a map write per mover per frame is
@@ -548,10 +567,23 @@ export class Renderer {
    * generations went by before anybody asked; this is the frame that asks.
    */
   private castHidden = false;
+  private bystandersHidden = false;
 
   /** Suppresses every mover and ambient figure for the next frames drawn. */
   hideCast(hidden: boolean): void {
     this.castHidden = hidden;
+  }
+
+  /**
+   * Draw the room without its BYSTANDERS -- the ambient figures, standing or
+   * walking -- and with everyone else. Render-only, as `hideCast` is. The
+   * proof's depth gates measure the protagonist by differencing a frame with
+   * him against one without; a townsman standing in front of the mark is in
+   * both and over his feet, and the Nugget's far row lies wholly behind Deke
+   * (errata 118).
+   */
+  hideBystanders(hidden: boolean): void {
+    this.bystandersHidden = hidden;
   }
   private readonly shownOverlays = new Map<string, string>();
   private speaker: string | null = null;
@@ -1177,6 +1209,7 @@ export class Renderer {
     for (const figure of depthOrder(roomFigures(this.ambient.present.filter((npc) => !npc.loop),
       this.actors.all(), props, this.ambient.departing))) {
       if (playerHidden && figure.mover?.id === this.state.content.actor.id) continue;
+      if (this.bystandersHidden && (figure.npc || figure.walker)) continue;
       if (figure.walker) {
         this.drawWalker(figure.walker);
         continue;
@@ -1828,8 +1861,9 @@ export class Renderer {
   ambientBreak(npc: AmbientFile): { index: number; step: number } | null {
     const declared = npc.sprite;
     if (!declared?.breaks?.length) return null;
-    const every = declared.breakEvery ?? 26;
-    const t = this.clock + (declared.phase ?? 0) * every;
+    const { sprite: timed, clock } = this.timed(declared);
+    const every = timed.breakEvery ?? 26;
+    const t = clock + (timed.phase ?? 0) * every;
     const cycle = Math.floor(t / every);
     const into = t - cycle * every;
     const step = Math.floor(into / 0.34);
@@ -1838,7 +1872,10 @@ export class Renderer {
   }
 
   private ambientFrame(declared: NonNullable<AmbientFile['sprite']>, phase: number): number {
-    return ambientFrameAt(declared, phase, this.clock, this.arrivedAt);
+    const { sprite, clock } = this.timed(declared);
+    // A figure keeping time with the music runs on the bed's clock; `onArrival` counts on the scene's.
+    return ambientFrameAt(sprite, sprite === declared ? phase : (sprite.phase ?? 0), clock,
+      sprite === declared ? this.arrivedAt : undefined);
   }
 
   /** When Thad came into this room, on the renderer's clock: `onArrival` frames count from it. */
