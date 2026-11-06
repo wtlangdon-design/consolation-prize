@@ -714,6 +714,15 @@ if __name__ == '__main__':
     save('clock-tick.wav', clock_tick())
     save('wind.wav', wind())
     save('press-cycle.wav', press_cycle())
+    # ERRATA 103: the funeral's second layer. The approved bell, tolling once
+    # every 21 seconds -- slower than any bar of the slowed tune, and a length
+    # that shares no bar with it, so the two do not lock. Built from the
+    # rendered bell rather than a new strike, so it is the bell Tyler heard.
+    toll = np.zeros(n_of(21.0))
+    with wave.open(str(OUT / 'church-bell.wav')) as src:
+        rung = np.frombuffer(src.readframes(src.getnframes()), dtype='<i2') / 32767
+    toll[:len(rung)] = rung * 0.8
+    save('funeral-bell-layer.wav', toll)
     # Wood takes 5 and 6 (fourth try): a walk on wood repeats its feet more
     # audibly than mud does, so the wood surfaces get six. Rendered last, on
     # their own streams, so nothing above them changes.

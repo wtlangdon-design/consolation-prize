@@ -2084,7 +2084,13 @@ export interface ManifestFile {
    */
   music?: {
     title?: { src: string; gain?: number };
-    rooms?: Record<string, { src: string; gain?: number }>;
+    /**
+     * A room's bed, with its layers and its states (errata 103). `null` is
+     * deliberate SILENCE -- the undertaker's (doc 28: "No stems ... nothing
+     * says why") -- which is not the same as a room with no entry: those
+     * play the title bed until doc 28 or Tyler gives them their own.
+     */
+    rooms?: Record<string, RoomMusic | null>;
     /**
      * THE FLAG THAT SAYS THE SCORE IS IN TUNE (invariant 5, doc 45 R33-TUNE):
      * every bed is rendered at -35 cents, and once this is set they play at 0
@@ -2093,6 +2099,17 @@ export interface ManifestFile {
     tunedFlag?: string;
   };
   musicNote?: string;
+}
+
+/** A room's music: a bed with layers, and states that swap it (errata 103). */
+export interface RoomMusic {
+  src: string;
+  gain?: number;
+  layers?: { src: string; gain?: number }[];
+  /** First match wins: the Nugget's piano once T_NUGGET_PIANO_TUNED is set. */
+  variants?: { when: Record<string, boolean>; src: string; gain?: number; layers?: { src: string; gain?: number }[] }[];
+  /** Why this room has this music -- doc 28's line, or the ruling. Not read by the engine. */
+  why?: string;
 }
 
 /** Everything the engine needs, resolved from the manifest. */

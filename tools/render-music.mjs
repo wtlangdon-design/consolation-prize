@@ -104,7 +104,64 @@ const STEMS = [
     note: 'WINNIE — fiddle without vibrato, piano, C major, four bars.' },
   { file: 'the-company.wav', piece: 'COMPANY_LA', loops: 2,
     note: 'THE COMPANY — fiddle and parlour piano, F major; the piano doubles the tune the second time.' },
+  // ERRATA 103: the room mixes, doc 28 Part Three. Arrangements of the approved
+  // themes; `pianoTuned` renders the Nugget piano after T_NUGGET_PIANO_TUNED, and
+  // `distance` puts a stem somewhere else: `far` (from up the road), `wall`
+  // (through a hotel wall) -- filtering done here, after the synthesis, so the
+  // proof keeps one performance and the room decides where it is heard from.
+  { file: 'consolation-nugget-piano.wav', piece: 'CONSOLATION_PIANO_LA', loops: 2,
+    note: 'R03-M — the Nugget piano, untuned: CONSOLATION on the upright alone. Also the Lane.' },
+  { file: 'consolation-nugget-piano-tuned.wav', piece: 'CONSOLATION_PIANO_LA', loops: 2, pianoTuned: true,
+    note: 'R03-M after T_NUGGET_PIANO_TUNED: the same performance with the C-sharp mended.' },
+  { file: 'consolation-distant-piano.wav', piece: 'CONSOLATION_PIANO_LA', loops: 2, distance: 'far',
+    note: 'O-07-M — the Nugget piano from the stage road.' },
+  { file: 'consolation-distant-piano-tuned.wav', piece: 'CONSOLATION_PIANO_LA', loops: 2, distance: 'far', pianoTuned: true,
+    note: 'O-07-M after the piano is tuned.' },
+  { file: 'consolation-through-wall.wav', piece: 'THEME_LA', loops: 2, distance: 'wall',
+    note: 'Rooms 18/19 — CONSOLATION faintly through a wall, as if from the street.' },
+  { file: 'consolation-dawn.wav', piece: 'CONSOLATION_DAWN_LA', loops: 2,
+    note: 'Room 36 — CONSOLATION, thin, one instrument (in tune by the bus, not the stem).' },
+  { file: 'consolation-funeral.wav', piece: 'CONSOLATION_FUNERAL_LA', loops: 1,
+    note: 'Room 31 — CONSOLATION, slow, a half step down on the bell\'s pitch, fiddle.' },
+  { file: 'the-assay-registrar.wav', piece: 'ASSAY_JAW_LA', loops: 2,
+    note: 'Rooms 7/8 — THE ASSAY, unaccompanied jaw harp.' },
+  { file: 'the-strike-layer.wav', piece: 'STRIKE_LAYER_LA', loops: 1,
+    note: 'Rooms 23/24 — THE STRIKE every 29 seconds, the layer under THADDEUS.' },
 ];
+/** Where a stem is heard from (errata 103): a low-pass, a level, and the room it crosses. */
+const DISTANCE = {
+  far:  { lowpass: 1500, gain: 0.7, echoes: [[0.083, 0.30], [0.171, 0.18], [0.29, 0.10]] },
+  wall: { lowpass: 420,  gain: 0.9, echoes: [[0.012, 0.35], [0.027, 0.2]] },
+};
+
+/** A two-pole low-pass, run twice, over a loop as the circle it is. */
+function placeAt(data, how, bodyFrames) {
+  const out = Float32Array.from(data);
+  const w = 2 * Math.PI * how.lowpass / RATE, q = Math.SQRT1_2;
+  const alpha = Math.sin(w) / (2 * q), cos = Math.cos(w), a0 = 1 + alpha;
+  const b = [(1 - cos) / 2 / a0, (1 - cos) / a0, (1 - cos) / 2 / a0], a = [-2 * cos / a0, (1 - alpha) / a0];
+  for (let pass = 0; pass < 2; pass += 1) {
+    // run in over the loop's end first, so sample 0 follows the last sample
+    let x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+    const lead = Math.min(out.length, Math.round(0.2 * RATE));
+    for (let i = out.length - lead; i < out.length; i += 1) {
+      const y = b[0] * out[i] + b[1] * x1 + b[2] * x2 - a[0] * y1 - a[1] * y2;
+      x2 = x1; x1 = out[i]; y2 = y1; y1 = y;
+    }
+    for (let i = 0; i < out.length; i += 1) {
+      const y = b[0] * out[i] + b[1] * x1 + b[2] * x2 - a[0] * y1 - a[1] * y2;
+      x2 = x1; x1 = out[i]; y2 = y1; y1 = y; out[i] = y;
+    }
+  }
+  const dry = Float32Array.from(out);
+  for (const [delay, g] of how.echoes) {
+    const d = Math.round(delay * RATE);
+    for (let i = 0; i < out.length; i += 1) out[(i + d) % bodyFrames] += g * dry[i];
+  }
+  for (let i = 0; i < out.length; i += 1) out[i] *= how.gain;
+  return out;
+}
+
 /** A one-shot rings out in full rather than folding into a loop it is not. */
 const ONE_SHOT_TAIL_SECONDS = 4.0;
 
@@ -172,7 +229,7 @@ await page.goto(pathToFileURL(PROOF).href);
 mkdirSync(OUT, { recursive: true });
 
 for (const stem of STEMS) {
-  const rendered = await page.evaluate(async ({ piece, loops, rate, tail }) => {
+  const rendered = await page.evaluate(async ({ piece, loops, rate, tail, pianoTuned }) => {
     const CA = window.ConsolationAudio;
     const music = CA[piece];
     const beat = 60 / music.tempo;
@@ -181,7 +238,7 @@ for (const stem of STEMS) {
     // release is present at the loop point rather than chopped off it.
     const seconds = beats * beat + tail;
     const ctx = new OfflineAudioContext(2, Math.ceil(seconds * rate), rate);
-    const engine = CA.createEngine(ctx, { detuneCents: CA.DETUNE_START, pianoCSharpFlat: true });
+    const engine = CA.createEngine(ctx, { detuneCents: CA.DETUNE_START, pianoCSharpFlat: !pianoTuned });
     engine.setPiece(music);
     engine.open(0);
     engine.scheduleSpan(0, beats, 0);
@@ -192,7 +249,8 @@ for (const stem of STEMS) {
       seconds: buffer.duration,
       bodyFrames: Math.round(beats * beat * rate),
     };
-  }, { piece: stem.piece, loops: stem.loops, rate: RATE, tail: stem.oneShot ? ONE_SHOT_TAIL_SECONDS : TAIL_SECONDS });
+  }, { piece: stem.piece, loops: stem.loops, rate: RATE, tail: stem.oneShot ? ONE_SHOT_TAIL_SECONDS : TAIL_SECONDS,
+       pianoTuned: Boolean(stem.pianoTuned) });
 
   // A one-shot ends where its sound does, plus a breath: the first render of
   // THE STRIKE carried 3.15s of digital silence after its tail.
@@ -202,6 +260,7 @@ for (const stem of STEMS) {
   const channels = stem.oneShot
     ? [rendered.left, rendered.right].map((data) => Float32Array.from(data.slice(0, oneShotEnd)))
     : [rendered.left, rendered.right].map((data) => fold(data, rendered.bodyFrames));
+  if (stem.distance) channels.forEach((data, i) => { channels[i] = placeAt(data, DISTANCE[stem.distance], data.length); });
   const path = resolve(OUT, stem.file);
   writeFileSync(path, wav(channels, RATE));
   const held = stem.oneShot ? oneShotEnd / RATE : rendered.bodyFrames / RATE;

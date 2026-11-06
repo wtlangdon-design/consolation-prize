@@ -32,32 +32,53 @@
 
 const CROSSFADE_SECONDS = 2.0;
 
-export interface MusicTrack {
+export interface MusicLayer {
   /** The file, relative to the site root. */
   src: string;
-  /** Bed volume, 0..1. Doc 28's rooms differ in orchestration AND in level. */
+  /** Volume, 0..1. Doc 28's rooms differ in orchestration AND in level. */
   gain?: number;
 }
 
+/**
+ * A bed, and anything that plays WITH it (errata 103). A layer is its own loop
+ * at its own length, started with the bed and never re-synced to it: doc 28's
+ * pairs are things that do not share a clock -- the Nugget's piano heard from
+ * the stage road under Thad's fiddle, THE STRIKE coming round under THADDEUS in
+ * Prosperity ("neither knows"), the bell tolling under the funeral's tune.
+ */
+export interface MusicTrack extends MusicLayer {
+  layers?: MusicLayer[];
+}
+
 type Voice = { element: HTMLAudioElement; gain: number };
+
+/** Two requests are the same bed when the bed and all its layers are. */
+const keyOf = (track: MusicTrack): string => [track.src, ...(track.layers ?? []).map((l) => l.src)].join('|');
 
 import { rateForTune } from './Listening.ts';
 
 export class Music {
   private ctx: AudioContext | null = null;
-  private playing: Voice | null = null;
+  private playing: Voice[] | null = null;
+  private playingKey: string | null = null;
   private wanted: MusicTrack | null = null;
   /** Set once a gesture has unlocked playback. */
   private unlocked = false;
   private readonly cache = new Map<string, HTMLAudioElement>();
   private readonly missing = new Set<string>();
   /** A bed stopped dead by `suspend`, and where it was. */
-  private suspended: { element: HTMLAudioElement | null; gain: number; position: number } | null = null;
+  private suspended: { voices: { element: HTMLAudioElement; gain: number; position: number }[]; key: string | null } | null = null;
 
   /** How far into tune the score is: 0 is the -35 cents it is rendered at, 1 is in tune. */
   private tune = 0;
 
-  constructor(private readonly enabled: () => boolean) {}
+  // A plain field, not a parameter property: node's type-stripping (the test
+  // runner) cannot run parameter properties, and the room-music test loads this.
+  private readonly enabled: () => boolean;
+
+  constructor(enabled: () => boolean) {
+    this.enabled = enabled;
+  }
 
   /**
    * INVARIANT 5: the score is detuned by -35 cents for the whole game and, in
@@ -67,7 +88,7 @@ export class Music {
    */
   setTune(fraction: number): void {
     this.tune = Math.max(0, Math.min(1, fraction));
-    if (this.playing) this.applyTune(this.playing.element);
+    for (const voice of this.playing ?? []) this.applyTune(voice.element);
   }
 
   private applyTune(element: HTMLAudioElement): void {
@@ -101,21 +122,36 @@ export class Music {
     }
     if (!this.unlocked || !this.enabled()) return;
     if (this.missing.has(track.src)) return;
-    if (this.playing && this.playing.element.dataset.src === track.src) return;
+    const key = keyOf(track);
+    if (this.playing && this.playingKey === key) return;
 
-    const element = this.element(track.src);
-    if (!element) return;
-    this.fadeOut();
-    element.loop = true;
-    element.volume = 0;
-    this.applyTune(element);
-    const target = track.gain ?? 1;
-    void element.play().then(() => this.fadeIn(element, target)).catch(() => {
-      // Autoplay refused, or the file is not there. Either way: silence, and
-      // the request is still remembered, so a later gesture retries it.
-      this.missing.add(track.src);
-    });
-    this.playing = { element, gain: target };
+    const parts = [track, ...(track.layers ?? [])]
+      .filter((part) => !this.missing.has(part.src))
+      .map((part) => ({ part, element: this.element(part.src) }));
+    // A file in both the old bed and the new one (the Nugget's piano, say,
+    // from the street to the Lane) carries on where it was instead of being
+    // faded out and restarted under itself.
+    this.fadeOut(new Set(parts.map(({ element }) => element).filter((e): e is HTMLAudioElement => e !== null)));
+    const voices: Voice[] = [];
+    for (const { part, element } of parts) {
+      if (!element) continue;
+      element.loop = true;
+      if (element.paused) {
+        element.volume = 0;
+        element.currentTime = 0;
+      }
+      this.applyTune(element);
+      const target = part.gain ?? 1;
+      void element.play().then(() => this.fadeIn(element, target)).catch(() => {
+        // Autoplay refused, or the file is not there. Either way: silence, and
+        // the request is still remembered, so a later gesture retries it.
+        this.missing.add(part.src);
+      });
+      voices.push({ element, gain: target });
+    }
+    if (!voices.length) return;
+    this.playing = voices;
+    this.playingKey = key;
   }
 
   /**
@@ -125,12 +161,14 @@ export class Music {
    */
   suspend(): void {
     if (this.suspended) return;
-    const voice = this.playing;
-    this.suspended = voice
-      ? { element: voice.element, gain: voice.gain, position: voice.element.currentTime }
-      : { element: null, gain: 0, position: 0 };
-    if (voice) voice.element.pause();
+    const voices = this.playing ?? [];
+    this.suspended = {
+      voices: voices.map((voice) => ({ element: voice.element, gain: voice.gain, position: voice.element.currentTime })),
+      key: this.playingKey,
+    };
+    for (const voice of voices) voice.element.pause();
     this.playing = null;
+    this.playingKey = null;
   }
 
   /** Whether a gesture has unlocked audio; the one-shots share the answer. */
@@ -152,22 +190,26 @@ export class Music {
   resume(elapsedSeconds: number): void {
     const held = this.suspended;
     this.suspended = null;
-    if (!held?.element) return;
-    const length = Number.isFinite(held.element.duration) && held.element.duration > 0
-      ? held.element.duration : 0;
-    const position = held.position + elapsedSeconds;
-    held.element.currentTime = length ? position % length : 0;
-    held.element.volume = held.gain;
-    void held.element.play().catch(() => undefined);
-    this.playing = { element: held.element, gain: held.gain };
+    if (!held?.voices.length) return;
+    // Every layer returns where IT would have been: each loops at its own length.
+    for (const voice of held.voices) {
+      const length = Number.isFinite(voice.element.duration) && voice.element.duration > 0
+        ? voice.element.duration : 0;
+      const position = voice.position + elapsedSeconds;
+      voice.element.currentTime = length ? position % length : 0;
+      voice.element.volume = voice.gain;
+      void voice.element.play().catch(() => undefined);
+    }
+    this.playing = held.voices.map((voice) => ({ element: voice.element, gain: voice.gain }));
+    this.playingKey = held.key;
   }
 
   /** Stops everything, immediately. For a hard cut such as quitting to menu. */
   stop(): void {
     this.wanted = null;
-    if (!this.playing) return;
-    this.playing.element.pause();
+    for (const voice of this.playing ?? []) voice.element.pause();
     this.playing = null;
+    this.playingKey = null;
   }
 
   private element(src: string): HTMLAudioElement | null {
@@ -194,27 +236,34 @@ export class Music {
    */
   private fadeIn(element: HTMLAudioElement, target: number): void {
     const started = Date.now();
+    const from = element.volume;
     const step = (): void => {
       const t = Math.min(1, (Date.now() - started) / (CROSSFADE_SECONDS * 1000));
-      element.volume = Math.max(0, Math.min(1, t * target));
+      element.volume = Math.max(0, Math.min(1, from + t * (target - from)));
       if (t < 1) requestAnimationFrame(step);
     };
     step();
   }
 
-  private fadeOut(): void {
-    const voice = this.playing;
-    if (!voice) return;
+  private fadeOut(keep: ReadonlySet<HTMLAudioElement> = new Set()): void {
+    const voices = this.playing;
+    if (!voices) return;
     this.playing = null;
-    const from = voice.element.volume;
-    const started = Date.now();
-    const step = (): void => {
-      const t = Math.min(1, (Date.now() - started) / (CROSSFADE_SECONDS * 1000));
-      voice.element.volume = Math.max(0, from * (1 - t));
-      if (t < 1) { requestAnimationFrame(step); return; }
-      voice.element.pause();
-      voice.element.currentTime = 0;
-    };
-    step();
+    this.playingKey = null;
+    for (const voice of voices) {
+      if (keep.has(voice.element)) continue;
+      const from = voice.element.volume;
+      const started = Date.now();
+      const step = (): void => {
+        // Taken back up by a later bed before it finished fading: leave it be.
+        if (this.playing?.some((v) => v.element === voice.element)) return;
+        const t = Math.min(1, (Date.now() - started) / (CROSSFADE_SECONDS * 1000));
+        voice.element.volume = Math.max(0, from * (1 - t));
+        if (t < 1) { requestAnimationFrame(step); return; }
+        voice.element.pause();
+        voice.element.currentTime = 0;
+      };
+      step();
+    }
   }
 }
