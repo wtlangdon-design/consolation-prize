@@ -5,7 +5,7 @@
  "posture": "standing",
  "room": "nugget",
  "note": "Doc 27, DEKE VESSEL · Room 3: gates A3, the swindle. Drawn from Tyler's approved attempt 2 (art/staging/room-03/deke-02, generated against Thad in this room, 2026-10-31), keyed, despilled, the five poses registered on his legs by tools/art/cut-ambient-sheet.py, BOX-reduced to the bent curve's man where he stands -- 345 at the bar's end (Tyler, 2026-10-31: 312 too small, 375 'way too big', 345 chosen from four), 428 at 1035,815 since 2026-11-01, the same ruling at his depth -- and graded to the bar men beside him (tools/grade/match-neighbours.py) after Tyler: 'Deke's coloring doesn't match anything else around him'.",
- "x": 1050,
+ "x": 1046,
  "y": 815,
  "zone": 0,
  "approachRadius": 160,
@@ -46,56 +46,45 @@
    [
     2,
     2,
-    228,
+    221,
     428
    ],
    [
-    922,
+    448,
     2,
-    228,
+    221,
     428
    ],
    [
-    1152,
+    671,
     2,
-    228,
+    221,
     428
    ],
    [
-    232,
+    894,
     2,
-    228,
+    221,
     428
    ],
    [
-    692,
+    1117,
     2,
-    228,
+    221,
     428
    ],
    [
-    922,
+    1340,
     2,
-    228,
-    428
-   ],
-   [
-    462,
-    2,
-    228,
-    428
-   ],
-   [
-    232,
-    2,
-    228,
+    221,
     428
    ]
   ],
   "fps": 2.0,
   "drawnFacing": "left",
   "figureHeight": 428,
-  "note": "Doc 57 A3: once the swindle settles 'he finishes his drink, collects his hat, and leaves the Nugget' -- Tyler, 2026-11-01: 'it would bother me immensely to have a character just disappear.' Six frames generated against Thad's walk-left beside Deke's approved rest pose (art/staging/room-03/deke-walk-01, deke-vessel 3, reference/room-03/deke-walk/brief.md), then corrected once (deke-walk-02, deke-vessel 4 of 5, prompt-02.txt with hat-side-by-side.png -- Tyler, 2026-11-01: 'We can use another image generation or two to get it looking right'): the hat had read as hair and the coat ran to his knees, and both now match his approved standing look -- a brimmed felt hat pushed back, a short jacket to the hips -- with every pose kept, keyed, despilled and registered on his torso with his boots on the bottom row by tools/art/cut-walk-sheet.py, BOX-reduced so the passing pose is 428 -- his standing sheet's height, and the curve's man at his mark, so he does not change size as he sets off -- and graded to the bar men (tools/grade/match-neighbours.py, barmen-pixels.npy) as his standing sheet was. PLAYED AS 0, 4, 5, 1, 3, 4, 2, 1 OF THE SHEET, not as drawn: the generator drew contact, pass, contact, contact, pass, contact, and its frames 2 and 3 (and 5 and 0) are OPPOSITE contacts -- 0 and 3 swing his near arm back, 2 and 5 forward -- so in sheet order his legs swapped with no passing pose between them. Reordered, every change of leg goes through a passing pose and both drawings of each contact are used. FPS FROM HIS STRIDE, NOT CHOSEN: the planted foot travels 162 px of the 428 figure from one contact to the next, so a cycle (contact, pass, contact, pass) is 0.76 of his height; on the path's time-weighted man (397) that is 300 px, and at 150 px/s the feet keep pace with the floor at 2.0 poses a second. The brief's placeholder 8 fps would have slid his boots backward across the floor at nearly three times his pace. Each pose is held over 81 px of floor whatever the speed (his stride over four poses); speed and fps move together, and at Thad's 194 px/s it is 2.6. BEHIND THAD AND THE BARREL (Tyler, 2026-11-01: 'He probably should walk behind Thad, no?'): from his feet up onto the floor behind the barrel (floor_5_2, y 759-790), along it behind Thad's talking place (730,818) and behind the door entrance (300,760), to the batwing doors. The brief's first path crossed in front of both."
+  "note": "Doc 57 A3: once the swindle settles 'he finishes his drink, collects his hat, and leaves the Nugget' -- Tyler, 2026-11-01: 'it would bother me immensely to have a character just disappear.' Six frames generated against Thad's walk-left beside Deke's approved rest pose (art/staging/room-03/deke-walk-01, deke-vessel 3, reference/room-03/deke-walk/brief.md), then corrected once (deke-walk-02, deke-vessel 4 of 5, prompt-02.txt with hat-side-by-side.png -- Tyler, 2026-11-01: 'We can use another image generation or two to get it looking right'): the hat had read as hair and the coat ran to his knees, and both now match his approved standing look -- a brimmed felt hat pushed back, a short jacket to the hips -- with every pose kept, keyed, despilled and registered on his torso with his boots on the bottom row by tools/art/cut-walk-sheet.py, BOX-reduced so the passing pose is 428 -- his standing sheet's height, and the curve's man at his mark, so he does not change size as he sets off -- and graded to the bar men (tools/grade/match-neighbours.py, barmen-pixels.npy) as his standing sheet was. PLAYED AS 0, 4, 5, 1, 3, 4, 2, 1 OF THE SHEET, not as drawn: the generator drew contact, pass, contact, contact, pass, contact, and its frames 2 and 3 (and 5 and 0) are OPPOSITE contacts -- 0 and 3 swing his near arm back, 2 and 5 forward -- so in sheet order his legs swapped with no passing pose between them. Reordered, every change of leg goes through a passing pose and both drawings of each contact are used. FPS FROM HIS STRIDE, NOT CHOSEN: the planted foot travels 162 px of the 428 figure from one contact to the next, so a cycle (contact, pass, contact, pass) is 0.76 of his height; on the path's time-weighted man (397) that is 300 px, and at 150 px/s the feet keep pace with the floor at 2.0 poses a second. The brief's placeholder 8 fps would have slid his boots backward across the floor at nearly three times his pace. Each pose is held over 81 px of floor whatever the speed (his stride over four poses); speed and fps move together, and at Thad's 194 px/s it is 2.6. BEHIND THAD AND THE BARREL (Tyler, 2026-11-01: 'He probably should walk behind Thad, no?'): from his feet up onto the floor behind the barrel (floor_5_2, y 759-790), along it behind Thad's talking place (730,818) and behind the door entrance (300,760), to the batwing doors. The brief's first path crossed in front of both.",
+  "redrawn": "Errata 102: drawn at the cast sheet's level by cast-unify 39 (reference/deke-b-01.txt) from his cast-sheet self, in his old poses; cut with its own pixels and a clean edge. Six-frame walk to the left, his hat on."
  },
  "barks": {},
  "barksNote": "Doc 07 writes no reputation barks for him: he is a doc 27 tree character, not one of the eighteen ambients.",
@@ -105,31 +94,31 @@
    [
     2,
     2,
-    227,
+    237,
     428
    ],
    [
-    231,
+    241,
     2,
-    227,
+    237,
     428
    ],
    [
-    460,
+    480,
     2,
-    227,
+    237,
     428
    ],
    [
-    689,
+    719,
     2,
-    227,
+    237,
     428
    ],
    [
-    918,
+    958,
     2,
-    227,
+    237,
     428
    ]
   ],
@@ -160,7 +149,7 @@
    ]
   ],
   "note": "Frames: 0 rest, 1 breath (the sway), 2 talking -- held while spoken to, and a break because doc 27's LISTEN is 'He has been talking since before I came in' -- 3 pushes his hat back, 4 looks out at the room. Breaks every 11 s: Tyler, no person in a room is ever static.",
-  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn in Thad's hand with the cast already redrawn (cast-unify operation 4, reference/cast-unify-04.txt). 0 rest, 1 breath, 2 talking, 3 hand through his hair, 4 looking out."
+  "redrawn": "Errata 102: drawn at the cast sheet's level by cast-unify 39 (reference/deke-b-01.txt) from his cast-sheet self, in his old poses; cut with its own pixels and a clean edge."
  },
  "placements": {
   "nugget_back": {
@@ -183,31 +172,31 @@
      [
       2,
       2,
-      281,
+      294,
       530
      ],
      [
-      285,
+      298,
       2,
-      281,
+      294,
       530
      ],
      [
-      568,
+      594,
       2,
-      281,
+      294,
       530
      ],
      [
-      851,
+      890,
       2,
-      281,
+      294,
       530
      ],
      [
-      1134,
+      1186,
       2,
-      281,
+      294,
       530
      ]
     ],
@@ -238,9 +227,10 @@
      ]
     ],
     "note": "Room 4: the same five poses re-cut from Tyler's approved sheet at this room's height (530 at his mark, tools/art/cut-ambient-sheet.py) and graded to his own figure as room-04's composition master painted him here (tools/grade/match-neighbours.py). Faces left, toward Thad across the burnt line.",
-    "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn in Thad's hand with the cast already redrawn (cast-unify operation 4, reference/cast-unify-04.txt). 0 rest, 1 breath, 2 talking, 3 hand through his hair, 4 looking out."
+    "redrawn": "Errata 102: drawn at the cast sheet's level by cast-unify 39 (reference/deke-b-01.txt) from his cast-sheet self, in his old poses; cut with its own pixels and a clean edge."
    },
    "note": "ERRATA 73 B: from B3's completion Vessel is in Room 4, across the spit line from Thad's duel mark ('Not across the line' -- doc 54). TALK TO stands Thad on his own mark, facing him."
   }
- }
+ },
+ "placedNote": "x 1046 (2026-11-06): redrawn at the cast sheet level (errata 102) he stands a little wider; between the bar man and the card sharp's talk stand."
 }

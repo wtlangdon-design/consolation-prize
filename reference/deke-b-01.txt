@@ -1,0 +1,9 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game: left to right the hero, the SWINDLER (in the middle: thirties, dark curly hair, a bushy moustache, an open brown coat, a loose shirt, a belt, tall boots, grinning) and the night watchman. Draw the SWINDLER exactly as there -- face, hair, build, clothes -- at that level of detail, with that soft shading and dark outline.
+
+Image 2 shows the swindler as an earlier artist drew him: the top two rows are his standing poses (rest; one hand held out; scratching the back of his head; a sly sideways look), the bottom row his walk to the LEFT with a battered hat on. Copy only the POSES, not the look (Image 2's pixels are too chunky).
+
+THE SHEET: flat pure magenta (#FF00FF) background, two rows, every figure FULL FIGURE at the SAME height and scale, as large as fits, feet on one line in each row, separated by clear magenta space.
+- Row 1, FOUR standing figures facing the viewer, bareheaded: 1. rest, both thumbs hooked in his belt, grinning; 2. one hand held out to the side, palm up, making a pitch; 3. one hand scratching the back of his head; 4. thumbs in his belt, a sly sideways look.
+- Row 2, SIX frames of him WALKING to the LEFT, in profile facing left, a battered brown hat on his head: a walk cycle -- 1. left leg forward; 2. passing; 3. right leg forward; 4. passing; 5. left leg forward; 6. passing -- his arms swinging opposite to his legs.
+
+RULES: only the hat in row 2. No ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.
