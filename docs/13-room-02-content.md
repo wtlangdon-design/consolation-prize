@@ -53,42 +53,42 @@ Used when no object-specific line exists. Rotate within a pool; never repeat con
 Where a specific line exists it takes precedence over the pool.
 
 **THE FALSE FRONTS**
-> PUSH — "I have pushed the front of a building. It did not fall over, which is more than I expected."
-> PULL — "If I pull hard enough the entire town comes down, and I have not settled how I feel about that."
+> PUSH — "I push the front of a building. It doesn't fall over. I'm honestly a little surprised."
+> PULL — "If I pull hard enough, the whole town comes down. I haven't decided how I feel about that."
 
 **THE IMPROVEMENT COMPANY SIGN**
-> PULL — "It is screwed on. Thoroughly. Somebody paid for it to be screwed on."
-> TALK TO — "I have spoken to the building it is attached to. It went badly and I have not recovered."
+> PULL — "It's screwed on. Thoroughly. Somebody paid extra for it to stay put."
+> TALK TO — "I've spoken to the building it's attached to. It went badly, and I haven't recovered."
 
 **THE WATER TROUGH**
-> USE — "I have drunk from it once. The once is doing a great deal of work in that sentence." *(doc 49 supersedes the original line here)*
-> OPEN — "It is a trough. It is entirely open. It is nothing but open."
+> USE — "I've drunk from it once. The “once” is doing a great deal of work in that sentence." *(doc 49 supersedes the original line here)*
+> OPEN — "It's a trough. It's entirely open. It's nothing but open."
 
 **THE BOARDWALK**
 > PULL — "The loose board declines to come up. It is loose recreationally, not professionally." *(doc 49 supersedes)*
-> PUSH — "Third from the end. Up an inch, down an inch. Nobody has ever fixed it."
+> PUSH — "Third from the end. Up an inch, down an inch. I did that four more times than I needed to."
 
 **POSTED NOTICES**
-> PICK UP — "They belong to the town. I have read them four times, which I consider a form of ownership."
-> OPEN — "They are already facing outward. That is the whole design."
+> PICK UP — "They belong to the town. I've read them four times, which I consider a form of ownership."
+> OPEN — "They're already facing out. That's the whole design."
 
 **THE CHURCH STEEPLE**
-> PICK UP — "It is four hundred yards away and approximately forty feet tall. I admire the ambition of the instruction."
-> TALK TO — "I am not going to shout at a church from a street."
+> PICK UP — "It's four hundred yards away and about forty feet tall. I admire the ambition."
+> TALK TO — "I'm not going to shout at a church from the street. I was raised better than that. Slightly."
 
 **A DOG**
 > TALK TO — "Good morning." *(The dog does not respond. It is the most dignified exchange I have had in Consolation.)*
-> PICK UP — "I am not picking up a dog I have not been introduced to."
-> PUSH — "I will not."
+> PICK UP — "I'm not picking up a dog I haven't been introduced to."
+> PUSH — "I won't. Look at him."
 
 **THE MUD**
-> PICK UP — "I have picked up some mud. I am now a man holding mud, in a street, at night."
+> PICK UP — "I pick up some mud. I am now a man holding mud, in a street, at night. I put it back."
 > USE — "On what."
 
 **THE HILLS**
-> PICK UP — "They are hills."
+> PICK UP — "They're hills."
 > TALK TO — "No."
-> USE — "I would not know where to begin, and neither would they."
+> USE — "I wouldn't know where to begin, and neither would they."
 
 ---
 
@@ -97,42 +97,42 @@ Where a specific line exists it takes precedence over the pool.
 First selection, then second, then third. Third repeats indefinitely thereafter.
 
 ## THE FALSE FRONTS
-**LOOK** — 1 *(existing)* · 2 "Still two stories of nothing. I keep hoping the back will have arrived." · 3 "I have counted. Six fronts, six sheds, one town."
-**LISTEN** — 1 *(existing)* · 2 "The same nothing. It is a very consistent nothing." · 3 "Nothing. I have stopped expecting otherwise and I am the better for it."
+**LOOK** — 1 *(existing)* · 2 "Still two stories of front and nothing behind. I keep hoping the back will turn up." · 3 "I've counted. Six fronts, six sheds, one town."
+**LISTEN** — 1 *(existing)* · 2 "The same nothing. It's a very consistent nothing." · 3 "Nothing. I've stopped expecting otherwise, and I'm the better for it."
 
 ## THE IMPROVEMENT COMPANY SIGN
 **LOOK** — 2 "Gilt. Actual gilt. In a town where the road is a suggestion." · 3 "Painted twice, and the second time by a better man than the first."
-**LISTEN** — 2 "Nothing. Still full." · 3 "Nothing at all. Whatever they do in there, they do it without raising their voices."
+**LISTEN** — 2 "Still quiet. Still full." · 3 "Whatever they do in there, they do it without raising their voices."
 
 ## THE WATER TROUGH
-**LOOK** — 2 "The water has not improved." · 3 "Three inches. I have measured it with a stick, which is the most scientific act performed in Consolation this year."
-**LISTEN** — 2 "It is still in there. It has moved." · 3 "We have reached an understanding."
+**LOOK** — 2 "The water hasn't improved. Neither has my opinion of it." · 3 "Three inches. I measured it with a stick. The most scientific thing anyone's done in Consolation this year."
+**LISTEN** — 2 "It's still in there. It's moved." · 3 "We have reached an understanding."
 
 ## THE BOARDWALK
-**LOOK** — 2 "Six inches. I have never been so aware of six inches." · 3 "The boards are good. Somebody spent money on the one thing that keeps a man out of the road."
-**LISTEN** — 2 "Third from the end. Still loose." · 3 "It has a note. B flat, roughly. I have decided not to tell anyone."
+**LOOK** — 2 "Six inches. I've never been so aware of six inches." · 3 "The boards are good. Somebody spent money on the one thing that keeps a man out of the road."
+**LISTEN** — 2 "Third from the end. Still loose." · 3 "It has a note. B flat, roughly. I've decided not to tell anyone."
 
 ## POSTED NOTICES
 **LOOK** — 2 "The lost dog notice has been up six weeks. The dog is on this street." · 3 "Four claims for sale today. There were three yesterday."
-**LISTEN** — 2 "Paper. Still a great deal of it." · 3 "One corner has come loose and is knocking. It will do that until somebody dies."
+**LISTEN** — 2 "Paper. Still a great deal of it." · 3 "One corner has come loose and is knocking. It'll do that until somebody dies."
 
 ## THE CHURCH STEEPLE
-**LOOK** — 2 "Still the only honest building on the horizon." · 3 "Somebody built that properly. I should like to meet them and I suspect they have left."
-**LISTEN** — 2 "Half a step. Every time." · 3 "I have begun to hear it correctly in my head before it rings, which is the first sign of something."
+**LOOK** — 2 "Still the only honest building on the horizon." · 3 "Somebody built that properly. I'd like to meet them. I suspect they've left."
+**LISTEN** — 2 "Half a step. Every time." · 3 "I've started hearing it in tune, in my head, before it rings. That's the first sign of something."
 
 ## A DOG
-**LOOK** — 2 "He has not moved. He has the air of a creature waiting for the town to finish." · 3 "He is looking at me. I have nothing to offer and he knows it."
-**LISTEN** — 2 "Still contented. Still solvent." · 3 "Nothing. He has gone to sleep in the middle of my attention."
+**LOOK** — 2 "He hasn't moved. He has the air of a creature waiting for the town to finish." · 3 "He's looking at me. I've got nothing to offer, and he knows it."
+**LISTEN** — 2 "Still contented. Still solvent." · 3 "Quiet. He's gone to sleep in the middle of my attention."
 
 ## THE MUD
 **Reordered — supersedes doc 05's Room 2 mud entry.** The original variant 1 opened "The same mud" and "Nothing new", both of which assume a prior look. Doc 17's stand-alone rule applies.
 
-**LOOK** — 1 "Mud, the full width of the street and six inches deep. The boardwalk is six inches high. Somebody worked that out." · 2 "The same mud. I have begun to recognize individual portions of it." · 3 "That portion I have named. I will not be sharing the name."
-**LISTEN** — 1 "Nothing. It is mud, and it is being mud." · 2 "Nothing new." · 3 "Nothing new. I want that understood."
+**LOOK** — 1 "Mud, the full width of the street and six inches deep. The boardwalk is six inches high. Somebody worked that out." · 2 "The same mud. I've started to recognize individual portions of it." · 3 "That portion there, I've named. I won't be sharing the name."
+**LISTEN** — 1 "Nothing. It's mud, being mud." · 2 "Nothing new." · 3 "Nothing new. I want that understood."
 
 ## THE HILLS
-**LOOK** — 2 "Still gold country. Still no gold." · 3 "They are the same hills as yesterday. I check."
-**LISTEN** — 2 "Nothing. Still large." · 3 "Nothing. I should be alarmed if there were."
+**LOOK** — 2 "Still gold country. Still no gold." · 3 "The same hills as yesterday. I check."
+**LISTEN** — 2 "Still large. Still quiet." · 3 "Nothing. I'd be alarmed if there were."
 
 ---
 

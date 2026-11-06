@@ -122,17 +122,17 @@
           {
             "say": "A stub of chalk on the scoreboard's ledge, worn to the shape of a thumb.",
             "repeat": [
-              "It is kept in a little tin with a lid. Chalk has been stolen here before, I am told, by a man who meant to change history.",
-              "Only the judges may touch it. It is the most powerful object in the territory and it is the size of a bean."
+              "It lives in a little tin with a lid. Chalk has been stolen before, I'm told, by a man who meant to change history.",
+              "Only the judges may touch it. The most powerful object in the territory, and it's the size of a bean."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. Chalk at rest is silent.",
+            "say": "Silent. Chalk at rest has nothing to add.",
             "repeat": [
               "The tin lid, ticking as the room warms.",
-              "Nothing. It speaks once a duel, on slate, and then it is done."
+              "It speaks once a duel, on slate, and then it's done."
             ]
           }
         ]
@@ -158,17 +158,17 @@
           {
             "say": "The pencil the judges score with, chained to the table like something precious.",
             "repeat": [
-              "It has been sharpened so often there is very little pencil left between the two points. Justice, worn to a stub.",
+              "It's been sharpened so often there's hardly any pencil left between the points. Justice, worn to a stub.",
               "There are tooth marks on it, at both ends. The judges deliberate in the usual way."
             ],
             "then": [
-              "It is sharpened at both ends, which nobody will explain."
+              "It's sharpened at both ends, and nobody will explain why."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. It has written every verdict in town and holds no opinion.",
+            "say": "Nothing. It's written every verdict in town and holds no opinion.",
             "repeat": [
               "Nothing.",
               "The chain clinking against the table leg when the door opens."
@@ -177,7 +177,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "Chained, and the chain is newer than the pencil. There is a story and nobody will tell it to a newcomer."
+        "PICK_UP": "Chained, and the chain is newer than the pencil. There's a story there, and nobody will tell it to a newcomer. I'm working on not being a newcomer."
       },
       "walkTo": {
         "x": 813,
@@ -240,7 +240,7 @@
             "say": "A line scored in the floorboards. You stand behind it to boast.",
             "repeat": [
               "Some men stand a long way behind it. Some stand on it. Nobody stands in front of it, twice.",
-              "Someone has gone over it with a hot iron to keep it from wearing away. The line is the most maintained thing in the Nugget."
+              "Someone's gone over it with a hot iron to keep it from wearing away. The best-kept thing in the Nugget, after the bar."
             ],
             "then": [
               "The floor in front of it is stained with the history of emphasis."
@@ -251,14 +251,14 @@
           {
             "say": "Nothing. The line has heard it all twice.",
             "repeat": [
-              "Nothing. It is a line, and it is enough.",
+              "It's a line. It doesn't need to say anything.",
               "Nothing. The boasts it has heard have all gone into the floor."
             ]
           }
         ]
       },
       "overrides": {
-        "PUSH": "You cannot move the line. Men have tried. The line is load-bearing, socially."
+        "PUSH": "I can't move the line. Men have tried. The line is load-bearing, socially."
       }
     },
     {
@@ -315,8 +315,8 @@
           {
             "say": "Two chairs, worn in different places.",
             "repeat": [
-              "The challenger's chair has a short leg. Nobody has fixed it, because nobody thinks the challenger should be comfortable.",
-              "The champion's chair has a cushion. It was won, I am told, in a duel about the cushion."
+              "The challenger's chair has a short leg. Nobody's fixed it. Nobody thinks the challenger should be comfortable.",
+              "The champion's chair has a cushion. It was won, I'm told, in a duel about the cushion."
             ],
             "then": [
               "The challenger's is worn at the edge of the seat; the champion's, at the back."
@@ -328,7 +328,7 @@
             "say": "A creak waiting to happen.",
             "repeat": [
               "The short leg, rocking once as I touch it.",
-              "Nothing. Two chairs, facing, saying nothing to each other."
+              "Two chairs, facing, not speaking. Like an old married couple. Or the judges."
             ]
           }
         ]
@@ -357,11 +357,11 @@
           {
             "say": "Painted over from the inside. What happens in the Assay is public and the window is not.",
             "repeat": [
-              "Someone has scratched a small hole in the paint at the corner, at eye height, the size of an eye.",
+              "Someone's scratched a hole in the paint at the corner, at eye height, the size of an eye. I've used it. Everyone has.",
               "The paint is the same green as the lamp shade. Somebody had a theory about green."
             ],
             "then": [
-              "I do not fully follow the reasoning either."
+              "I don't follow the reasoning either."
             ]
           }
         ],
@@ -397,7 +397,7 @@
             "say": "A slate of past Assays.",
             "repeat": [
               "Duels won, by name, in chalk, going back years. Deke Vessel has forty-one. Nickel Pratt has nine, which surprises me. Colonel Fanshawe has none — because Colonel Fanshawe has never entered.",
-              "The chalk on the oldest names has been gone over again and again, so it will not fade. Losing is kept up as carefully as winning."
+              "The chalk on the oldest names has been gone over and over, so it won't fade. Losing is kept up as carefully as winning."
             ],
             "then": [
               "The same three names win and the same eleven lose, and all fourteen keep playing."
@@ -450,7 +450,7 @@
           {
             "say": "The wood is still. Between duels it keeps its own counsel.",
             "repeat": [
-              "Nothing. It is waiting to be sat at, which is most of what furniture does here.",
+              "Nothing. It's waiting to be sat at, which is most of what furniture does here.",
               "A knuckle rapping it, somewhere in memory. The table remembers every point of order."
             ]
           }
@@ -490,7 +490,7 @@
             "say": "Nothing yet.",
             "repeat": [
               "One chair creaking as the floor shifts. An audience of one, getting comfortable.",
-              "Nothing. The ring is waiting for the next fool, and I am standing in the middle of it."
+              "The ring is waiting for the next fool. I notice I'm standing in the middle of it."
             ]
           }
         ]
@@ -528,7 +528,7 @@
           {
             "say": "Money, changing its mind.",
             "repeat": [
-              "The bar. Muffled. Somebody out there has told the same story four times and it has grown twice.",
+              "The bar, muffled. Somebody out there is still telling the bear story. The bear is enormous now.",
               "A cheer, through the boards, for something that has nothing to do with in here."
             ]
           }

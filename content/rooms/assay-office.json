@@ -62,17 +62,17 @@
           {
             "say": "A steel pen, nib down in its stand, cleaned. It has been cleaned today.",
             "repeat": [
-              "There is no blot anywhere on this counter. I have looked for one.",
-              "She writes down what she knows. It is apparently the entire discipline."
+              "There isn't a blot anywhere on this counter. I've looked. I'd have liked to find one, just for company.",
+              "She writes down what she knows. That's apparently the entire discipline. I've been doing it backwards."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "Nothing. A pen, at rest.",
             "repeat": [
-              "Nothing.",
-              "Nothing. It is a pen and it is between sentences."
+              "Still nothing. It's waiting for a fact.",
+              "Nothing. It's a pen, between sentences."
             ]
           }
         ]
@@ -102,17 +102,17 @@
           {
             "say": "THIS WINDOW CLOSES AT FOUR. Handwritten. The ink has faded but the sentiment has not.",
             "repeat": [
-              "Six years. The ink has gone and nobody has needed to read it in some time.",
+              "Six years. The ink has gone, and nobody's needed to read it in a long time.",
               "THIS WINDOW CLOSES AT FOUR. It closes at four."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. It has been saying the same thing for six years and requires no assistance.",
+            "say": "Nothing. It's been saying the same thing for six years, and it needs no help.",
             "repeat": [
-              "Nothing.",
-              "Nothing. It has said the same thing for six years and needed no help."
+              "Nothing. It's said its piece.",
+              "Silence. It made its point six years ago."
             ]
           }
         ]
@@ -140,7 +140,7 @@
             "say": "Eight months of names. Two-thirds of them in the same hand.",
             "repeat": [
               "Two-thirds of these entries are in the same hand and the same ink.",
-              "Eight months. I have counted forward and I arrive in March."
+              "Eight months. I've counted forward. I arrive in March."
             ]
           }
         ],
@@ -149,13 +149,13 @@
             "say": "Paper.",
             "repeat": [
               "Paper.",
-              "Nothing."
+              "Paper, and eight months of patience."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "That is the queue. Men have killed over less orderly things."
+        "PICK_UP": "That's the queue. Men have killed over less orderly things."
       },
       "walkTo": {
         "x": 1200,
@@ -189,16 +189,16 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing.",
+            "say": "Nothing. Paper and glass.",
             "repeat": [
-              "Nothing.",
-              "Nothing at all."
+              "Not a sound from W. Ledger's commission.",
+              "Nothing at all. It's waiting for the other word too."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "It is screwed to the wall, and it is hers."
+        "PICK_UP": "It's screwed to the wall, and it's hers."
       },
       "walkTo": {
         "x": 1448,
@@ -233,7 +233,7 @@
             "say": "An oil lamp hung directly over the ledger. Centered, naturally.",
             "repeat": [
               "The light falls on the book and almost nowhere else.",
-              "It has been placed exactly where the work is."
+              "It's hung exactly where the work is. So is she."
             ]
           }
         ],
@@ -347,7 +347,7 @@
             "say": "A balance, in a glass case, so accurate that men have wept in front of it.",
             "repeat": [
               "Under glass. Nobody touches it but her.",
-              "I have watched a man watch this scale for four minutes without breathing."
+              "I've watched a man watch this scale for four minutes without breathing. I've been that man."
             ],
             "then": [
               "Mostly in the other direction."
@@ -356,17 +356,17 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing at all. It is the only instrument in Consolation that cannot be argued with.",
+            "say": "Nothing at all. It's the only instrument in Consolation that can't be argued with.",
             "repeat": [
-              "Nothing.",
-              "Nothing at all. It cannot be argued with, and it knows."
+              "Perfectly still.",
+              "Nothing at all. It can't be argued with, and it knows it."
             ]
           }
         ]
       },
       "overrides": {
-        "USE": "I am not touching it.",
-        "PICK_UP": "It is under glass, and I would not touch it if it were not."
+        "USE": "I'm not touching it.",
+        "PICK_UP": "It's under glass, and I wouldn't touch it if it weren't."
       },
       "walkTo": {
         "x": 1303,
@@ -396,8 +396,8 @@
           {
             "say": "The bench seats nine and holds two.",
             "repeat": [
-              "Seven empty places. The bench has not adjusted to the improvement.",
-              "It is still built for nine. The queue, for once, is not."
+              "Seven empty places. The bench hasn't adjusted to the improvement.",
+              "Still built for nine. The queue, for once, isn't."
             ],
             "then": [
               "The queue has been on a diet since a certain log was read aloud."
@@ -415,7 +415,7 @@
         ]
       },
       "overrides": {
-        "USE": "It seats nine. I have been all nine, on different days.",
+        "USE": "It seats nine. I've been all nine, on different days.",
         "PUSH": "Moving the bench does not move the queue. The queue is a spiritual object; the bench is merely where it condenses."
       },
       "walkTo": {
@@ -438,10 +438,13 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A small stove, lit, with a kettle on it that is not for tea. It is for the work.",
+            "say": "A small stove, lit, with a kettle on it that isn't for tea. It's for the work.",
             "repeat": [
-              "The only warm thing in a cold room, and it is warm for the ore's sake rather than anybody's.",
+              "The only warm thing in a cold room, and it's warm for the ore's sake, not anybody's.",
               "Somebody has swept the ash. Of course somebody has swept the ash."
+            ],
+            "then": [
+              "I asked."
             ]
           }
         ],
@@ -450,13 +453,13 @@
             "say": "Ticking. Working.",
             "repeat": [
               "Ticking.",
-              "Nothing. It has been let go out, and the room is colder for it."
+              "Nothing. It's been let go out, and the room is colder for it."
             ]
           }
         ]
       },
       "overrides": {
-        "OPEN": "That is the work's fire. I am not opening it."
+        "OPEN": "That's the work's fire. I'm not opening it. I'm not even standing that close."
       },
       "walkTo": {
         "x": 608,
@@ -481,22 +484,22 @@
             "say": "Vials, labelled, in rows, in order. Nine years of them and not one out of place.",
             "repeat": [
               "Each one is somebody's morning. Somebody carried that up here in a fold of paper and waited.",
-              "I have looked for a gap. There is no gap."
+              "I've looked for a gap. There's no gap. I looked quite hard."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. It is nine years of finished work and it is not asking for anything.",
+            "say": "Nothing. Nine years of finished work, and it isn't asking for anything.",
             "repeat": [
-              "Nothing.",
-              "Nothing. Glass, in order, with nothing to add."
+              "Not a clink.",
+              "Glass, in order, with nothing to add."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "Nine years, in order. I am not going to be the man who moves one."
+        "PICK_UP": "Nine years, in order. I'm not going to be the man who moves one."
       },
       "walkTo": {
         "x": 1131,
@@ -529,7 +532,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "The street. Muffled. It sounds like a town from in here.",
+            "say": "The street, muffled. From in here it almost sounds like a town.",
             "repeat": [
               "Still the street.",
               "Somebody arguing about a boundary, a long way off."
@@ -563,7 +566,7 @@
           {
             "say": "A door behind the counter. Records, presumably, and the presumption is doing some work.",
             "repeat": [
-              "It is shut and it is not locked, which are different facts.",
+              "It's shut, and it isn't locked. Those are different facts.",
               "There is a cot in there. I have seen the corner of it."
             ]
           }
@@ -572,8 +575,8 @@
           {
             "say": "Nothing.",
             "repeat": [
-              "Nothing.",
-              "Nothing. She is not in there, and she is not going to be."
+              "Nothing from behind the door.",
+              "Nothing. She isn't in there, and she isn't going to be."
             ]
           }
         ]

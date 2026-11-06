@@ -1308,7 +1308,32 @@ if (ann.headlines) {
 // hotspot inside a large one ever be reached.
 built.hotspots.sort((a, b) => (a.rect[2] * a.rect[3]) - (b.rect[2] * b.rect[3]));
 
-const exitLines = ROOM_DOC && !ROOM_DOC_IS_RANGE ? roomDocExits(ROOM_DOC_TEXT) : new Map();
+// A RANGE DOCUMENT WRITES ITS EXITS TOO (doc 25's `## Exits`, a bold
+// `**THE STREET DOOR → Room 2**` and numbered runs under it). Nothing read
+// them, so Rooms 5 and 7 kept their doors' words from the live file, and
+// errata 100's rewrite of doc 25 did not reach them; check-room-lines-sourced
+// said so.
+function rangeDocExits(text) {
+  const out = new Map();
+  const at = text.search(/^## Exits?\s*$/m);
+  if (at < 0) return out;
+  let current = null;
+  for (const line of text.slice(at).split('\n').slice(1)) {
+    if (/^#{1,2} /.test(line)) break;
+    const head = /^\*\*(THE [A-Z' ]+?)\s*(?:→|->)\s*Room\s+\d+\*\*\s*$/.exec(line);
+    if (head) { current = head[1].trim(); out.set(current, {}); continue; }
+    const row = /^\*\*(LOOK|LISTEN)\*\*\s+(.+)$/.exec(line);
+    if (!row || !current) continue;
+    const numbered = [...row[2].matchAll(/(\d+)\s*"([^"]*)"/g)].map((m) => ({ n: Number(m[1]), say: m[2] }));
+    if (!numbered.length) continue;
+    out.get(current)[VERBS[row[1]]] = {
+      first: numbered.find((v) => v.n === 1)?.say ?? null,
+      rest: numbered.filter((v) => v.n > 1).map((v) => v.say),
+    };
+  }
+  return out;
+}
+const exitLines = !ROOM_DOC ? new Map() : ROOM_DOC_IS_RANGE ? rangeDocExits(ROOM_DOC_TEXT) : roomDocExits(ROOM_DOC_TEXT);
 // A MERGED ROOM'S EXIT IS ONE OF ITS SUBJECTS (the annotation's `exitSubjects`):
 // doc 54 writes THE DOOR TO THE BAR with three LOOK and three LISTEN like the
 // table beside it, and doc 20 makes it the way out. Compiled as the exit with

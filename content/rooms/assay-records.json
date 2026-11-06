@@ -62,7 +62,7 @@
             "say": "The nineteen. Some are dead, some left, one runs the bakehouse now.",
             "repeat": [
               "Each name has a date beside it, and the dates are spread across twelve years like a slow leak.",
-              "I have read them often enough to know any of them if I met him. I am not going to meet most of them."
+              "I've read them often enough to know any of them if I met him. I'm not going to meet most of them."
             ],
             "then": [
               "Not one of them found enough to matter, and every one of them is famous for it."
@@ -115,7 +115,7 @@
           {
             "say": "Cold. A crucible only speaks at temperature.",
             "repeat": [
-              "Nothing. It is waiting for a fire and a question.",
+              "Nothing. It's waiting for a fire and a question.",
               "A faint tick as it settles on its stand. Even cold, it has weight."
             ]
           }
@@ -141,7 +141,7 @@
             "say": "Assaying manuals, a chemistry, a German dictionary and the territorial statutes, all with their spines broken in the right places.",
             "repeat": [
               "One manual is annotated in her hand. In three places she has corrected the author.",
-              "The German dictionary is the most used. I cannot think what for, and I am afraid to ask."
+              "The German dictionary is the most used. I can't think what for, and I'm afraid to ask."
             ]
           }
         ],
@@ -150,7 +150,7 @@
             "say": "Nothing. Knowledge, resting.",
             "repeat": [
               "A spine creaking as the shelf takes the damp.",
-              "Nothing. They have been read thoroughly and have nothing new to say."
+              "They've been read thoroughly, and they have nothing new to say."
             ]
           }
         ]
@@ -186,7 +186,7 @@
             "say": "One loose joint. It announces him.",
             "repeat": [
               "The loose joint again, when I set a hand on it. It is used to one weight only.",
-              "Nothing. It is waiting for her."
+              "Nothing. It's waiting for her."
             ]
           }
         ]
@@ -215,7 +215,7 @@
           {
             "say": "A cup, a saucer, a tin of tea and a spoon, arranged on a tray as exactly as everything else she keeps.",
             "repeat": [
-              "One cup. She does not entertain.",
+              "One cup. She doesn't entertain.",
               "The tin's label is from Canton by way of San Francisco by way of Sheng. Even her tea has a paper trail."
             ]
           }
@@ -251,7 +251,7 @@
           {
             "say": "It looks up the diggings. From here you can watch men carry hope in and results out.",
             "repeat": [
-              "It is set high, so nobody passing can see in. She can see out only by standing on the stool.",
+              "It's set high, so nobody passing can see in. She can only see out by standing on the stool. I tried it. The stool announced me.",
               "From up here the diggings look like a page of arithmetic, and none of it adds up."
             ]
           }
@@ -288,7 +288,7 @@
             "say": "A spare apron on a peg, starched and pressed, with acid holes along the hem in a neat row.",
             "repeat": [
               "The pocket holds a pencil sharpened at one end only, which in this town is a sign of good character.",
-              "It matches the one she is wearing, stain for stain. She keeps a spare of everything except time."
+              "It matches the one she's wearing, stain for stain. She keeps a spare of everything except time."
             ]
           }
         ],
@@ -297,7 +297,7 @@
             "say": "Nothing. Linen, on a peg.",
             "repeat": [
               "The peg creaking very slightly when the door opens.",
-              "Nothing. It is ready for tomorrow, and the day after."
+              "It's ready for tomorrow, and the day after."
             ]
           }
         ]
@@ -360,7 +360,7 @@
             "say": "An old acid burn, scrubbed at for years and settled into the grain.",
             "repeat": [
               "Someone has laid a mat over the edge of it. The mat is not quite big enough.",
-              "It is the shape of a hand, if you look at it the wrong way, which I did."
+              "It's the shape of a hand, if you look at it the wrong way. I looked at it the wrong way."
             ],
             "then": [
               "Some result somebody took badly."
@@ -372,7 +372,7 @@
             "say": "Nothing. Whatever happened here is finished happening.",
             "repeat": [
               "Nothing. The floor has forgiven it.",
-              "Nothing. Even the boards around it are quiet."
+              "Even the boards around it are quiet."
             ]
           }
         ]
@@ -411,7 +411,7 @@
             "say": "A hiss so small it may be memory.",
             "repeat": [
               "A tiny ping of glass as the shelf takes the weight of the morning.",
-              "Nothing. It does its work in silence, and I respect that more than I can say."
+              "Nothing. It does its work in silence. I respect that more than I can say, and I've tried."
             ]
           }
         ]
@@ -510,7 +510,7 @@
           {
             "say": "Every ounce of color ever brought in, weighed and named. Nineteen names, twelve years.",
             "repeat": [
-              "Nine years of assays, in a hand that has not varied once. Not one crossing-out.",
+              "Nine years of assays, in a hand that hasn't varied once. Not one crossing-out. My letters home are mostly crossing-out.",
               "The columns are ruled by hand, every page, every year. She has never once bought ruled paper."
             ],
             "then": [
@@ -549,7 +549,7 @@
           {
             "say": "The good scales, behind glass, level to a hair.",
             "repeat": [
-              "The glass door has a brass lock. The key, I am told, is on a ribbon round her neck.",
+              "The glass door has a brass lock. The key, I'm told, is on a ribbon round her neck.",
               "Beside the scales, a set of weights in a velvet tray, each in its own hollow, none missing."
             ],
             "then": [
@@ -561,7 +561,7 @@
           {
             "say": "Nothing at all. Precision resting.",
             "repeat": [
-              "Nothing. Precision does not hum.",
+              "Precision doesn't hum.",
               "The glass door ticking very slightly in its frame when the street door goes."
             ]
           }
@@ -598,14 +598,14 @@
           {
             "say": "Glass, shoulder to shoulder. A faint ring when the floor moves.",
             "repeat": [
-              "Nothing. It is nine years of work and it is not asking for anything.",
+              "Nothing. Nine years of work, and not one bottle asking for anything.",
               "The ring again, very faint, as I step back. Glass, sorry to see me go."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "Every bottle is somebody's whole year. I am not qualified to hold a year."
+        "PICK_UP": "Every bottle is somebody's whole year. I'm not qualified to hold a year."
       },
       "walkTo": {
         "x": 1045,
@@ -637,7 +637,7 @@
           {
             "say": "Nothing.",
             "repeat": [
-              "Nothing. It is very carefully not being slept in, just now.",
+              "Nothing. It's very carefully not being slept in, just now.",
               "A spring easing in the frame, long after anyone sat on it."
             ]
           }

@@ -43,7 +43,7 @@ He came for gold (doc 01: "concrete, greedy, unromantic"). Let him covet, price,
 ### 2 · He tries things, and they go wrong
 When a verb is refused, he may have *tried* first. Report the attempt, then the failure. This is where the physical comedy lives — the 0.1% becomes a real share.
 
-> "It gives half an inch and stops. There's a chair against it. I apologise to the chair."
+> "It gives half an inch and stops. There's a chair against it. I apologize to the chair."
 
 ### 3 · Contractions are the default
 He talks like a person. "I have decided…" is his signature move, not his grammar: **at most once a room**, where the formality is the joke.

@@ -149,7 +149,7 @@
           {
             "say": "I can nearly hear it. That is not the same as hearing it.",
             "repeat": [
-              "Nothing. It's a picture of a piano. I am aware that I am doing this.",
+              "Nothing. It's a picture of a piano. I'm aware I'm doing this.",
               "Nothing. I have stopped pretending otherwise."
             ]
           }
@@ -347,7 +347,7 @@
           {
             "say": "Names, sums, and a column of small marks I decline to interpret.",
             "repeat": [
-              "Every man in town, and a number beside him. The numbers only go one way. He is not worried, because they cannot leave until they pay, and they cannot pay.",
+              "Every man in town, and a number beside him. The numbers only go one way. He isn't worried. They can't leave until they pay, and they can't pay.",
               "The ink changes color halfway down the page, where he ran out and carried on in whatever was nearest."
             ],
             "then": [
@@ -412,7 +412,7 @@
             "when": {
               "T_EGGS_ON_ACCOUNT": false
             },
-            "say": "One jar, on my account. I have an account now. I am told that makes me a resident.",
+            "say": "One jar, on my account. I have an account now! I'm told that makes me a resident.",
             "set": {
               "T_EGGS_ON_ACCOUNT": true
             },
@@ -424,7 +424,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "One jar, on my account. I have an account now. I am told that makes me a resident.",
+        "PICK_UP": "One jar, on my account. I have an account now! I'm told that makes me a resident.",
         "OPEN": "The brine and I regarded each other. I resealed the arrangement."
       }
     },
@@ -450,7 +450,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. It is entirely comfortable with itself.",
+            "say": "Nothing. It's entirely comfortable with itself.",
             "repeat": [
               "The board ticking against the wall when the door goes.",
               "Nothing. Prices this high have no need to raise their voices."
@@ -489,7 +489,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. They have never been out of the paper.",
+            "say": "Nothing. They've never been out of the paper.",
             "repeat": [
               "Nothing. A dozen scales, perfectly balanced, with nothing to weigh.",
               "The paper crackling as I lean on the shelf. That is as close as they have come to being used."
@@ -575,8 +575,8 @@
           {
             "say": "Nothing. It is either perfectly safe or saving itself.",
             "repeat": [
-              "…No. I would rather not.",
-              "Nothing. I have listened as long as I am prepared to."
+              "…No. I'd rather not.",
+              "Nothing. I've listened as long as I'm prepared to."
             ]
           }
         ]
@@ -631,7 +631,7 @@
             "when": {
               "T_PICKAXE_ON_ACCOUNT": false
             },
-            "say": "The one with the loose head, on my account. It is the only one I can afford, and the only one honest about itself.",
+            "say": "The one with the loose head, on my account. It's the only one I can afford, and the only one honest about itself.",
             "set": {
               "T_PICKAXE_ON_ACCOUNT": true
             },
@@ -643,7 +643,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "The one with the loose head, on my account. It is the only one I can afford, and the only one honest about itself."
+        "PICK_UP": "The one with the loose head, on my account. It's the only one I can afford, and the only one honest about itself."
       },
       "walkTo": {
         "x": 370,
@@ -667,7 +667,7 @@
             "say": "Restorative Bile Tonic. Restores bile, presumably.",
             "repeat": [
               "The label shows Dr. Purvis himself, bearded and benevolent. The same beard is on the hair restorer, the cough syrup and the horse liniment.",
-              "Ingredients: 'Restorative Principles.' I should like to meet the chemist who isolated them."
+              "Ingredients: 'Restorative Principles.' I'd like to meet the chemist who isolated them."
             ],
             "then": [
               "The testimonials on the label are all in the same hand."
@@ -914,7 +914,7 @@
           {
             "say": "Cloth. A held breath of a sound.",
             "repeat": [
-              "Nothing. It is the softest thing within two hundred miles and nobody in here has touched it.",
+              "Nothing. It's the softest thing within two hundred miles, and nobody in here has touched it.",
               "A thread catching on my sleeve and letting go."
             ]
           }

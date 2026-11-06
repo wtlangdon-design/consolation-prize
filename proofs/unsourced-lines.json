@@ -1,12 +1,5 @@
 {
  "schema": 1,
  "note": "Lines a room speaks that no document writes, which predate tools/check-room-lines-sourced.mjs. The list may only shrink: a line comes off when its words are written into /docs and the room recompiled. Never add to it to get past the check -- a new unsourced line is the defect the check exists for.",
- "lines": [
-  {
-   "room": "main_street",
-   "target": "to_company",
-   "line": "Three storeys from here. I have been round the back and it is one.",
-   "why": "Doc 14 writes 'Three stories from here'; the room file says 'storeys'. The content drifted from its document; whichever spelling is right belongs in doc 14."
-  }
- ]
+ "lines": []
 }

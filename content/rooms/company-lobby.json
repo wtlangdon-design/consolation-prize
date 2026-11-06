@@ -36,7 +36,7 @@
             "say": "A ring, faint, like a bell that regrets being one.",
             "repeat": [
               "A hum when the door closes, tuned more or less to F.",
-              "Nothing. It has never been used, and it has never looked better."
+              "Nothing. It's never been used, and it's never looked better."
             ]
           }
         ]
@@ -60,13 +60,13 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Framed letters of thanks from satisfied claimholders. Four of them.",
+            "say": "Framed letters of thanks from satisfied claimholders. Four of them. I've read the dates.",
             "repeat": [
               "One thanks the Company 'for everything'. It does not go into detail.",
               "There is room on the wall for forty. Somebody planned for more gratitude than arrived."
             ],
             "then": [
-              "I have read the dates. They are all from the first two years."
+              "They're all from the first two years."
             ]
           }
         ],
@@ -111,7 +111,7 @@
             "say": "Nothing.",
             "repeat": [
               "The page lifting in the warm air off the stove.",
-              "Nothing. It is waiting for the next small number."
+              "Nothing. It's waiting for the next small number."
             ]
           }
         ]
@@ -174,7 +174,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "Free, insists the clerk. Nothing in this building is free. I took one. We shall see what it cost."
+        "PICK_UP": "‘Free,’ says the clerk. Nothing in this building is free. I took one. We'll see what it cost."
       },
       "walkTo": {
         "x": 958,
@@ -198,7 +198,7 @@
             "say": "A stove, lit, in a lobby, in July. Nobody who comes in here is ever cold.",
             "repeat": [
               "There are scraps of paper in the ash pan, half burned. The Company heats its lobby with what it no longer needs.",
-              "It is very warm in here. You do not want to leave, and you do not want to take your coat off, and so you sit."
+              "It's very warm in here. You don't want to leave, and you don't want to take your coat off, so you sit. I sat."
             ]
           }
         ],
@@ -391,7 +391,7 @@
             "say": "Maps to Mott's strike, framed, for sale.",
             "repeat": [
               "Each one is priced. The more certain the map, the higher the price, and the most certain is very expensive indeed.",
-              "I have stood in front of them for a while now. The strike has been in eleven places and I have not moved."
+              "I've stood in front of them for a while now. The strike has been in eleven places, and I haven't moved."
             ],
             "then": [
               "Eleven different maps, all of them authoritative, all of them different."

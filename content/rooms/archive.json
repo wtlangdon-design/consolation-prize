@@ -73,7 +73,7 @@
           {
             "say": "Nothing. It speaks only when pressed.",
             "repeat": [
-              "Nothing. It is resting between truths.",
+              "Nothing. It's resting between truths.",
               "A faint ring when I set it down. Brass, agreeing with itself."
             ]
           }
@@ -103,7 +103,7 @@
           {
             "say": "A record of every man who has entered this room. Nineteen names.",
             "repeat": [
-              "The ink of the last entry before mine is years old. Nobody has been dead enough to come in here for a long time.",
+              "The ink of the last entry before mine is years old. Nobody's been dead enough to come in here for a long time.",
               "I signed it. Under occupation I wrote 'deceased', because it seemed the honest thing."
             ],
             "then": [
@@ -194,7 +194,7 @@
             "say": "Nothing.",
             "repeat": [
               "Nothing. A box holding one sheet makes the same sound as an empty one.",
-              "Nothing. The most famous box in the territory has nothing to say for itself."
+              "Nothing. Famous, and quiet about it."
             ]
           }
         ]
@@ -257,7 +257,7 @@
             "say": "One chair. Facing the shelves. Somebody sits in here.",
             "repeat": [
               "A plain chair with a cushion worn flat in the shape of one particular person.",
-              "I did not sit in it. It felt like someone else's."
+              "I didn't sit in it. It felt like someone else's."
             ]
           }
         ],
@@ -266,7 +266,7 @@
             "say": "Nothing. It has been sat in a great deal and it is not saying by whom.",
             "repeat": [
               "A creak as the cushion lets go of the last shape it held.",
-              "Nothing. It is waiting for whoever it waits for."
+              "Nothing. It's waiting for whoever it waits for."
             ]
           }
         ]
@@ -302,7 +302,7 @@
             "say": "Nothing.",
             "repeat": [
               "Nothing. Dust is very good at being undisturbed.",
-              "Nothing. I sneezed once, which is the loudest thing this room has heard in a year."
+              "Nothing. I sneezed once. It's the loudest thing this room has heard in a year, and I apologized to it."
             ]
           }
         ]
@@ -347,7 +347,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "Other men's letters. I have one of my own addressed to a dead man; I know how they feel about being held."
+        "PICK_UP": "Other men's letters. I've got one of my own, addressed to a dead man. I know how they feel about being held."
       },
       "walkTo": {
         "x": 525,
@@ -368,7 +368,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Barred, on the inside. Whoever built this was not worried about people getting in.",
+            "say": "Barred, on the inside. Whoever built this wasn't worried about people getting in.",
             "repeat": [
               "The bars are set in mortar on the inside of the frame. Somebody built a room to keep paper from escaping.",
               "Through the bars, a slice of Main Street: one hitching rail, one horse, one man looking at neither."
@@ -377,7 +377,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Main Street. Muffled. It sounds like a town from in here.",
+            "say": "Main Street, muffled. From in here it sounds like somebody else's town.",
             "repeat": [
               "A wagon passing, reduced to a rumor.",
               "Somebody laughing outside. In here it sounds like a story about someone else."
@@ -418,7 +418,7 @@
             "say": "The famous filing. The original declaration of the strike, under glass now, because people kept touching it. The signature is confident. The rest is brief.",
             "repeat": [
               "One sheet. A date, a name, an assertion, and a signature. There is no location on it. There has never been a location on it. Ten thousand men have dug for twelve years on the strength of a sheet of paper that does not say where.",
-              "It is shorter than my letter to my mother. It has done considerably more."
+              "It's shorter than my letter to my mother. It's done considerably more."
             ]
           }
         ],
@@ -508,7 +508,7 @@
             "say": "A drawer that does not quite shut. It holds something read often.",
             "repeat": [
               "The drawer that will not quite shut, ticking when the floor moves.",
-              "Nothing. Sump's desk is quiet even when he is not at it."
+              "Sump's desk is quiet even when he isn't at it."
             ]
           }
         ]
@@ -582,7 +582,7 @@
           {
             "say": "Settling. An archive breathes about once an hour.",
             "repeat": [
-              "Nothing. Paper does not keep secrets so much as decline to volunteer.",
+              "Nothing. Paper doesn't keep secrets so much as decline to volunteer.",
               "A box settling on a high shelf. The archive, turning over in its sleep."
             ]
           }

@@ -33,7 +33,7 @@
 > **LISTEN:** "Nothing. It is very well made and there is nothing in it."
 
 **THE TALLY POST**
-> **LOOK:** "Days worked, cut into the post in fives. I have counted them twice. Two thousand and six."
+> **LOOK:** "Days worked, cut into the post in fives. I've counted them twice. Two thousand and six."
 > **LISTEN:** "Nothing."
 
 **THE SPOIL HEAP**

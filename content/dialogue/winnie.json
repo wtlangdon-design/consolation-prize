@@ -457,17 +457,7 @@
           "tag": "PROGRESS",
           "text": "It's just a form.",
           "afterUse": "retain",
-          "exchange": [
-            {
-              "speaker": "winnie",
-              "line": "Wrong. Hard wrong.",
-              "direction": true
-            },
-            {
-              "speaker": "winnie",
-              "line": "It is never just a form. That is what this town is made of."
-            }
-          ]
+          "say": "It is never just a form. That is what this town is made of."
         },
         {
           "id": "winnie3",

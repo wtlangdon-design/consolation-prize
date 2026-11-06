@@ -28,15 +28,40 @@ const BRITISH = {
   moustache: 'mustache', sceptical: 'skeptical', whilst: 'while',
   amongst: 'among', learnt: 'learned', spelt: 'spelled', dreamt: 'dreamed',
   burnt: 'burned', leapt: 'leaped',
+  // Errata 100's voice pass wrote three of these into Room 3 and Room 1 kept a
+  // fourth, all in repeat variants and overrides the old walk never read.
+  apologising: 'apologizing', apologised: 'apologized', vandalise: 'vandalize',
+  vandalising: 'vandalizing', vandalised: 'vandalized', practising: 'practicing',
+  practised: 'practiced', organise: 'organize', organised: 'organized',
+  recognised: 'recognized', realised: 'realized', neighbours: 'neighbors',
+  favourite: 'favorite', honoured: 'honored', colourful: 'colorful',
+  draughts: 'drafts', centred: 'centered', jewellery: 'jewelry', tyre: 'tire',
+  kerb: 'curb', aluminium: 'aluminum', catalogue: 'catalog', analyse: 'analyze',
 };
 
-/** Every spoken string in a loaded content tree, wherever it hides. */
-function* spoken(node) {
-  if (Array.isArray(node)) { for (const item of node) yield* spoken(item); return; }
+/**
+ * Every spoken string in a loaded content tree, wherever it hides.
+ *
+ * NOT ONLY `say`, `line` AND `text`. A response's second and third variants
+ * are a `repeat` array, an override is a string under its verb, a refusal is a
+ * `fallback` array -- and the old walk read none of them, so "I apologise to
+ * the chair" and "practising" shipped in the Room 3 voice pass with this check
+ * green (errata 100). Those are spoken too.
+ */
+const SPOKEN_LISTS = new Set(['repeat', 'fallback', 'variants', 'lines']);
+function* spoken(node, key = '', under = '') {
+  if (Array.isArray(node)) {
+    for (const item of node) {
+      if (typeof item === 'string' && SPOKEN_LISTS.has(key)) yield item;
+      else yield* spoken(item, key, under);
+    }
+    return;
+  }
   if (!node || typeof node !== 'object') return;
-  for (const [key, value] of Object.entries(node)) {
-    if (typeof value === 'string' && ['say', 'line', 'text'].includes(key)) yield value;
-    else yield* spoken(value);
+  for (const [inner, value] of Object.entries(node)) {
+    if (typeof value === 'string' && (['say', 'line', 'text', 'then', 'else'].includes(inner)
+      || (under === 'overrides' && /^[A-Z_]+$/.test(inner)))) yield value;
+    else yield* spoken(value, inner, inner);
   }
 }
 

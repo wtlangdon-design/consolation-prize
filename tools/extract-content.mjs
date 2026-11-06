@@ -1647,46 +1647,77 @@ function combinations() {
 // ---------------------------------------------------------------------------
 
 /**
- * Doc 14's Room 2 exits. Only THE ASSAY OFFICE is extracted here.
+ * Doc 14's Room 2 exits, ALL FIVE.
  *
- * The other four were transcribed before the extraction rule was binding and
- * re-parsing them now would be a diff nobody asked for; this one arrived
- * after, and it is the shape the rest convert to when they are next touched.
+ * Only THE ASSAY OFFICE used to be read here: the other four "were
+ * transcribed before the extraction rule was binding", so their lines lived in
+ * main-street.json and nowhere read them again. That held until errata 100's
+ * voice pass rewrote doc 14 and the game kept the old words -- and one of them
+ * had already drifted, "storeys" in the room file against doc 14's "stories".
+ * The rest were converted "when next touched", which is now.
+ *
+ * Each section heading names the doorway as the player sees it; the table
+ * maps it to the exit's id. A heading not in the table, or an exit the table
+ * names that the room does not have, is an error rather than a skip.
  */
+const ROOM_02_EXITS = {
+  "THE NUGGET'S DOORS \u2192 Room 3": 'to_nugget',
+  'THE CLARION OFFICE \u2192 Room 9': 'to_clarion',
+  'THE IMPROVEMENT COMPANY \u2192 Room 10': 'to_company',
+  'THE ROAD TO THE CLAIMS \u2192 Room 22': 'to_claims_road',
+  'THE ASSAY OFFICE \u2192 Room 5': 'to_assay_office',
+};
+
 function room02Exits() {
+  // AND THE CANDIDATE STREET, whose lines are the shipping street's on a new
+  // plate (doc 36 Q116). Its exits are carried by compile-room from its own
+  // file, so without this they keep whatever words they were copied with --
+  // "storeys" outlived the shipping room's fix there.
+  return ['content/rooms/main-street.json', 'content/rooms/main-street-candidate.json']
+    .filter((path) => existsSync(resolve(ROOT, path)))
+    .map((path) => room02ExitsInto(path));
+}
+
+function room02ExitsInto(path) {
   const doc = read('docs/14-room-02-exits.md');
-  const path = 'content/rooms/main-street.json';
   const room = JSON.parse(read(path));
 
-  const section = doc.split('## THE ASSAY OFFICE \u2192 Room 5')[1];
-  if (!section) throw new Error('doc 14: no assay office section');
+  for (const [heading, id] of Object.entries(ROOM_02_EXITS)) {
+    const section = doc.split(`## ${heading}`)[1]?.split(/^---$|^## /m)[0];
+    if (!section) throw new Error(`doc 14: no "${heading}" section`);
+    const exit = room.exits.find((entry) => entry.id === id);
+    if (!exit) throw new Error(`doc 14: ${path} has no ${id} exit`);
 
-  const exit = room.exits.find((entry) => entry.id === 'to_assay_office');
-  if (!exit) throw new Error('doc 14: main street has no to_assay_office exit');
-
-  for (const [verb, heading] of [['LOOK_AT', 'LOOK'], ['LISTEN_TO', 'LISTEN']]) {
-    const block = section.split(`**${heading}**`)[1];
-    if (!block) throw new Error(`doc 14: assay office has no ${heading} run`);
-    const lines = [];
-    for (const line of block.split('\n')) {
-      const numbered = line.match(/^(\d)\. "(.+)"$/);
-      if (numbered) lines[Number(numbered[1]) - 1] = numbered[2];
-      else if (line.startsWith('**') && lines.length) break;
+    for (const [verb, word] of [['LOOK_AT', 'LOOK'], ['LISTEN_TO', 'LISTEN']]) {
+      const block = section.split(`**${word}**`)[1];
+      if (!block) throw new Error(`doc 14: ${id} has no ${word} run`);
+      const lines = [];
+      for (const line of block.split('\n')) {
+        const numbered = line.match(/^(\d)\. "(.+)"$/);
+        if (numbered) lines[Number(numbered[1]) - 1] = numbered[2];
+        else if (line.startsWith('**') && lines.length) break;
+      }
+      if (lines.length !== 3 || lines.some((line) => line === undefined)) {
+        throw new Error(`doc 14: ${id} ${word} has ${lines.filter(Boolean).length} of 3 variants`);
+      }
+      exit.responses = exit.responses ?? {};
+      const rules = exit.responses[verb] ?? [{}];
+      rules[0].say = lines[0];
+      rules[0].repeat = lines.slice(1);
+      exit.responses[verb] = rules;
     }
-    if (lines.length !== 3) throw new Error(`doc 14: assay ${heading} has ${lines.length} variants`);
-    exit.responses = exit.responses ?? {};
-    exit.responses[verb] = [{ say: lines[0], repeat: lines.slice(1) }];
-  }
 
-  exit.overrides = exit.overrides ?? {};
-  for (const entry of section.matchAll(/^> (\w[\w ]*?) \u2014 "(.+)"$/gm)) {
-    exit.overrides[entry[1].trim().replace(/ /g, '_')] = entry[2];
-  }
+    const overrides = {};
+    for (const entry of section.matchAll(/^> (\w[\w ]*?) \u2014 "(.+)"$/gm)) {
+      overrides[entry[1].trim().replace(/ /g, '_')] = entry[2];
+    }
+    if (Object.keys(overrides).length) exit.overrides = { ...(exit.overrides ?? {}), ...overrides };
 
-  // THE STUB MARKING COMES OFF. `stub` means the destination exists so the
-  // exit works with its examine layer honestly absent -- true of this door
-  // until doc 14 covered it, and a lie the moment it did.
-  delete exit.stub;
+    // THE STUB MARKING COMES OFF. `stub` means the destination exists so the
+    // exit works with its examine layer honestly absent -- a lie once doc 14
+    // covers it.
+    delete exit.stub;
+  }
   return write(path, room);
 }
 
@@ -4571,7 +4602,7 @@ function sowerbyTree() {
   });
 }
 
-const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
+const written = [opening(), stageDriver(), combinations(), ...rooms0507(), ...room02Exits(),
   ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);

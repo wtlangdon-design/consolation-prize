@@ -80,39 +80,39 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE FALSE FRONTS**
 > **LOOK:** "Half this street is two stories tall in front and one story deep. Consolation is a stage set people have moved into."
-> **LISTEN:** "Wind. There is a great deal of nothing behind half of these."
+> **LISTEN:** "Wind. There's a great deal of nothing behind half of these."
 
 **THE IMPROVEMENT COMPANY SIGN**
-> **LOOK:** "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering. It is the only sign in town that has been painted twice."
-> **LISTEN:** "Nothing. It is the quietest building on the street and it is always full."
+> **LOOK:** "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering. The only sign in town that's been painted twice."
+> **LISTEN:** "Nothing. It's the quietest building on the street, and it's always full."
 
 **THE WATER TROUGH**
 > **LOOK:** "A trough. Three inches of water and a great deal of ambition."
-> **LISTEN:** "Something is living in it. I have decided not to pursue this."
+> **LISTEN:** "Something is living in it. I've decided not to pursue this."
 
 **THE BOARDWALK**
 > **LOOK:** "Six inches above the mud. In Consolation, this is the difference between a gentleman and a prospector."
 > **LISTEN:** "Loose board, third from the end. Everyone in town steps over it without thinking. Nobody has ever fixed it."
 
 **POSTED NOTICES**
-> **LOOK:** "Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who cannot. He is doing better than anyone."
+> **LOOK:** "Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who can't. He's doing better than anyone."
 > **LISTEN:** "Paper, in wind. A great deal of it."
 
 **THE CHURCH STEEPLE** *(distant)*
 > **LOOK:** "The tallest thing in Consolation, and the only building that is as deep as it is tall."
-> **LISTEN:** "The bell is a half-step flat. It has been struck by hand for six years by a man who does not care."
+> **LISTEN:** "The bell is a half-step flat. A man has rung it by hand for six years, and he doesn't care."
 
 **A DOG**
 > **LOOK:** "A dog with the settled look of an animal that has outlasted several owners."
-> **LISTEN:** "Breathing. Contented. He is the only solvent resident of Consolation."
+> **LISTEN:** "Breathing. Contented. He's the only solvent resident of Consolation."
 
 **THE MUD** *(again)*
-> **LOOK:** "The same mud. I have begun to recognize individual portions of it."
+> **LOOK:** "The same mud. I've started to recognize individual portions of it."
 > **LISTEN:** "Nothing new."
 
 **THE HILLS**
 > **LOOK:** "Gold country. Everyone here has looked at these hills for years and seen a number."
-> **LISTEN:** "Nothing. They are extremely large and they are not doing anything."
+> **LISTEN:** "Nothing. They're extremely large, and they aren't doing anything."
 
 ---
 
@@ -156,11 +156,11 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE WINDOW SIGN**
 > **LOOK:** "THIS WINDOW CLOSES AT FOUR. Handwritten. The ink has faded but the sentiment has not."
-> **LISTEN:** "Nothing. It has been saying the same thing for six years and requires no assistance."
+> **LISTEN:** "Nothing. It's been saying the same thing for six years, and it needs no help."
 
 **THE SCALES**
 > **LOOK:** "A balance, in a glass case, so accurate that men have wept in front of it. Mostly in the other direction."
-> **LISTEN:** "Nothing at all. It is the only instrument in Consolation that cannot be argued with."
+> **LISTEN:** "Nothing at all. It's the only instrument in Consolation that can't be argued with."
 
 **THE QUEUE BOOK**
 > **LOOK:** "Eight months of names. Two-thirds of them in the same hand."
@@ -178,7 +178,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 *Ten hotspots. The anachronism pillar's showcase room.*
 
 **THE NUMBER SPINDLE**
-> **LOOK:** "A spindle of numbered tickets. I am ninety-one. There is one other man in the room and he is forty."
+> **LOOK:** "A spindle of numbered tickets. I'm ninety-one. There's one other man in the room, and he's forty."
 > **LISTEN:** "Nothing. It waits extremely well."
 
 **THE TWO LINES**
@@ -191,7 +191,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **SUMP'S CLOCK**
 > **LOOK:** "The office clock. It is authoritative and it is wrong."
-> **LISTEN:** "Running eleven minutes fast, which I know because I own a watch that agrees with it and I do not trust that either."
+> **LISTEN:** "Running eleven minutes fast. I know because my watch agrees with it, and I don't trust my watch either."
 
 **THE SEALED ARCHIVE DOOR**
 > **LOOK:** "A door, locked, with a statute posted beside it explaining precisely who may pass through. I am not among them."
@@ -214,7 +214,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE CHAIRS**
 > **LOOK:** "Eleven chairs, in a room that receives visitors one at a time."
-> **LISTEN:** "Leather, settling. They are extremely comfortable and I do not wish to sit in one."
+> **LISTEN:** "Leather, settling. They're extremely comfortable, and I don't wish to sit in one."
 
 **THE MAP WALL**
 > **LOOK:** "Every claim in the district, pinned. Two of them have red pins. One is Claim One. The other is mine."
@@ -222,7 +222,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE DECANTER**
 > **LOOK:** "Good whisky, offered freely to everyone, always."
-> **LISTEN:** "Full. It is always full. He does not drink it."
+> **LISTEN:** "Full. It's always full. He doesn't drink it."
 
 **THE SUBMISSION LOG** · **THE SAFE** · **THE WINDOW** · **THE STOCK PORTRAIT DRAWER** · **THE HANDKERCHIEF** · **THE LEDGERS** · **THE DOOR** — *(working script)*
 
@@ -236,7 +236,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "Wind. It is not impressed either."
 
 **THE MUD**
-> **LOOK:** "Approximately forty percent mud, thirty percent rock, and thirty percent a substance I have not yet identified."
+> **LOOK:** "Approximately forty percent mud, thirty percent rock, and thirty percent a substance I haven't yet identified."
 > **LISTEN:** "Wet. Working at it."
 
 **THE HOLE** — ***the line the entire game rests on***
@@ -267,7 +267,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "Nothing. Somebody did this quietly."
 
 **THE LAMP**
-> **LOOK:** "Trimmed, filled, and ready. It is the only well-maintained object I have seen in Consolation."
+> **LOOK:** "Trimmed, filled, and ready. It's the only well-maintained object I've seen in Consolation."
 > **LISTEN:** "Nothing yet."
 
 **THE COAT ON THE NAIL**
@@ -311,7 +311,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE TYPE CASE**
 > **LOOK:** "Lead type in wooden trays. The B is worn nearly flat."
-> **LISTEN:** "Nothing. It is lead and it has nothing to add."
+> **LISTEN:** "Nothing. It's lead, and it has nothing to add."
 
 **THE PRESS**
 > **LOOK:** "A flatbed press of considerable age, operated by a man of considerable enthusiasm."
@@ -384,7 +384,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Horsehair, resettling. It sighs longer than furniture should."
 
 **THE SPITTOON**
-> **LOOK:** "I will not be examining the spittoon closely. Some economies are false."
+> **LOOK:** "I won't be examining the spittoon closely. Some economies are false."
 > **LISTEN:** "No."
 
 **THE PAINTING**
@@ -406,7 +406,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE WASHSTAND**
 > **LOOK:** "A basin, a pitcher, and a bar of soap worn to a wafer. Washing in the territory is devotional: brief, and mostly symbolic."
-> **LISTEN:** "A drip that keeps no rhythm. I have tried tuning it. It resists."
+> **LISTEN:** "A drip that keeps no rhythm. I've tried tuning it. It resists."
 
 **THE WINDOW**
 > **LOOK:** "It faces the street, which faces back. In the morning the false fronts glow like scenery, which is honest of the light."
@@ -429,7 +429,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "The flame eats quietly. Good manners, in a fire."
 
 **THE FLOORBOARDS**
-> **LOOK:** "Gaps generous enough to bank coins in, which I would consider if I had coins to a degree worth hiding."
+> **LOOK:** "Gaps generous enough to bank coins in, which I'd consider if I had coins to a degree worth hiding."
 > **LISTEN:** "The lobby, in outline. Mostly the bell."
 
 **THE DOOR**
@@ -517,8 +517,8 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "The wood is still. Between duels it keeps its own counsel."
 
 **THE JUDGES' PENCIL**
-> **LOOK:** "The pencil the judges score with, chained to the table like something precious. It is sharpened at both ends, which nobody will explain."
-> **LISTEN:** "Nothing. It has written every verdict in town and holds no opinion."
+> **LOOK:** "The pencil the judges score with, chained to the table like something precious. It's sharpened at both ends, and nobody will explain why."
+> **LISTEN:** "Nothing. It's written every verdict in town and holds no opinion."
 
 **THE SCOREBOARD**
 > **LOOK:** "A slate of past Assays. The same three names win and the same eleven lose, and all fourteen keep playing."
@@ -541,7 +541,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. The line has heard it all twice."
 
 **THE WINDOW, PAINTED OVER**
-> **LOOK:** "Painted over from the inside. What happens in the Assay is public and the window is not. I do not fully follow the reasoning either."
+> **LOOK:** "Painted over from the inside. What happens in the Assay is public and the window is not. I don't follow the reasoning either."
 > **LISTEN:** "Wind on glass, dulled by paint. The outside, filed away."
 
 ---
@@ -694,7 +694,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE TEETH**
 > **LOOK:** "A jar of teeth. I asked whose. He said, and I am quoting, 'various.'"
-> **LISTEN:** "They shift when the floor does. I wish they would not."
+> **LISTEN:** "They shift when the floor does. I wish they wouldn't."
 
 **THE MEASURING WALL**
 > **LOOK:** "Heights penciled on the door frame, like a family kitchen, except for what the measurements are for. I am between two men I never met."
@@ -780,7 +780,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Paper. The prices hold steady, which is more than the bank manages."
 
 **THE CARDS**
-> **LOOK:** "A deck worn soft, wrapped in silk. The top card, when she is elsewhere, is always the same one. I have stopped checking which."
+> **LOOK:** "A deck worn soft, wrapped in silk. The top card, when she is elsewhere, is always the same one. I've stopped checking which."
 > **LISTEN:** "Card against card, in the wrap. They shuffle themselves slightly. I have decided this is settling."
 
 **THE TEA SERVICE**
@@ -821,7 +821,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "The rope creaks against the beam. The bell above holds its breath."
 
 **THE BELL** *(heard, not seen)*
-> **LOOK:** "You cannot see it from here. You can see where the ceiling knows about it."
+> **LOOK:** "You can't see it from here. You can see where the ceiling knows about it."
 > **LISTEN:** "A half-step flat, even in memory."
 
 **THE PEWS**
@@ -925,7 +925,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. Stones with a job."
 
 **THE TOOL RACK**
-> **LOOK:** "Pick, shovel, pan, and bar, hung in size order, oiled. They look forward to Monday. I have never seen tools look forward to anything."
+> **LOOK:** "Pick, shovel, pan, and bar, hung in size order, oiled. They look forward to Monday. I've never seen tools look forward to anything."
 > **LISTEN:** "The pan swings a little. A single soft gong, on the hour, when the wind is right."
 
 **THE DIGGINGS, SUCH AS THEY ARE**
@@ -1015,7 +1015,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. The argument is over."
 
 **CLAIM MARKER — "GLORY HOLE"**
-> **LOOK:** "GLORY HOLE. A mining term, I am assured. The hole is there. The glory is on back order."
+> **LOOK:** "GLORY HOLE. A mining term, I'm assured. The hole is there. The glory is on back order."
 > **LISTEN:** "Wind across the shaft mouth below. A low note, held."
 
 **CLAIM MARKER — "THE WIDOW'S MITE"**
@@ -1061,7 +1061,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE STOVE & IRONS**
 > **LOOK:** "Flat irons in ranks on the stove top, rotated by weight and heat in an order I could not learn in a year."
-> **LISTEN:** "Iron on iron, set down and taken up. A steady percussion. It is the closest thing this town has to a metronome, and I would know."
+> **LISTEN:** "Iron on iron, set down and taken up. A steady percussion. It's the closest thing this town has to a metronome, and I'd know."
 
 **THE MENDING BASKET**
 > **LOOK:** "Torn shirts awaiting needles. The territory is hard on elbows. Half the mending is the same three men's."
@@ -1152,7 +1152,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing from inside, which is the least I can do."
 
 **THE NAME PLATE**
-> **LOOK:** "THADDEUS GRUB, it says. Even my death is missing a B. I would complain, but the plate was free and so, apparently, was I."
+> **LOOK:** "THADDEUS GRUB, it says. Even my death is missing a B. I'd complain, but the plate was free, and so, apparently, was I."
 > **LISTEN:** "Brass. It rings a little flat, which in this town is house style."
 
 **THE MOURNERS**
@@ -1288,7 +1288,7 @@ The only prose line in the entire room, on the correct spot:
 
 **POSTED NOTICES**
 > **LOOK:** "Under all the claims and disputes, one new notice, official, sealed, correctly spelled. It has the whole board's attention."
-> **LISTEN:** "Paper in wind. This morning it sounds like applause. I am aware that is me."
+> **LISTEN:** "Paper in wind. This morning it sounds like applause. I'm aware that's me."
 
 **THE CHURCH STEEPLE**
 > **LOOK:** "The tallest thing in Consolation, catching the first light, as is its habit and its right."
@@ -1322,14 +1322,14 @@ bark budget, not here.
 > **LISTEN:** "Wind behind them, and under it, my own name being discussed. Approximately my name."
 
 **POSTED NOTICES** *(act: 3)*
-> **LOOK:** "My funeral notice, prominently posted. 'THE PIANO MAN, MOURNED BY ALL.' Frame has finally found a spelling he cannot get wrong."
+> **LOOK:** "My funeral notice, prominently posted. 'THE PIANO MAN, MOURNED BY ALL.' Frame has finally found a spelling he can't get wrong."
 > **LISTEN:** "Paper in wind. One of those sheets is my whole official existence, flapping."
 
 **THE IMPROVEMENT COMPANY SIGN** *(act: 3)*
-> **LOOK:** "Fresh gilt on the lettering. Business is good. Business, for the Company, is always the search, and the search just outlived its most annoying obstacle. Me."
+> **LOOK:** "Fresh gilt on the lettering. Business is good. The Company's business is the search, and the search has just outlived its most annoying obstacle. Me."
 
 **A DOG** *(act: 3)*
-> **LISTEN:** "He knows me. Tail, twice. The one resident who never read a word of paper in his life, and therefore the one resident I am still alive to."
+> **LISTEN:** "He knows me. Tail, twice. The one resident who's never read a newspaper, so the one resident I'm still alive to."
 
 ## ROOM 3 — THE BOUNTIFUL NUGGET
 

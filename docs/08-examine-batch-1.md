@@ -12,7 +12,7 @@
 
 **THE SHELVES**
 > **LOOK:** "Every claim ever filed in this district, in boxes, in order. It is the most organized thing in Consolation and no one is permitted to look at it."
-> **LISTEN:** "Nothing. Paper does not keep secrets so much as decline to volunteer."
+> **LISTEN:** "Nothing. Paper doesn't keep secrets so much as decline to volunteer."
 
 **CLAIM ONE'S BOX**
 > **LOOK:** "The most famous claim in the territory. The box is the same size as all the others, which I find unreasonable."
@@ -31,8 +31,8 @@
 > **LISTEN:** "Nothing."
 
 **THE BARRED WINDOW**
-> **LOOK:** "Barred, on the inside. Whoever built this was not worried about people getting in."
-> **LISTEN:** "Main Street. Muffled. It sounds like a town from in here."
+> **LOOK:** "Barred, on the inside. Whoever built this wasn't worried about people getting in."
+> **LISTEN:** "Main Street, muffled. From in here it sounds like somebody else's town."
 
 **THE DUST**
 > **LOOK:** "Undisturbed everywhere except one shelf, at chest height, where somebody has been reaching for years."
@@ -48,7 +48,7 @@
 
 **THE PRICE LIST**
 > **LOOK:** "Flour, twelve dollars the barrel. In Providence it is two. I have read this list four times looking for the error and the error is that I came here."
-> **LISTEN:** "Nothing. It is entirely comfortable with itself."
+> **LISTEN:** "Nothing. It's entirely comfortable with itself."
 
 **THE SHOVELS**
 > **LOOK:** "Forty shovels. There are two thousand men in Consolation and forty shovels, and somehow this has never become a problem, which tells you something about the men."
@@ -64,11 +64,11 @@
 
 **THE UNSOLD SCALES**
 > **LOOK:** "A dozen assayer's scales, still in their paper. He ordered them in the first year, for all the men who would need to weigh things."
-> **LISTEN:** "Nothing. They have never been out of the paper."
+> **LISTEN:** "Nothing. They've never been out of the paper."
 
 **THE DYNAMITE**
 > **LOOK:** "A crate of dynamite, kept beside the stove, which I have decided not to think about."
-> **LISTEN:** "…No. I would rather not."
+> **LISTEN:** "…No. I'd rather not."
 
 **THE CATALOGUE — cover**
 > **LOOK:** "A mail-order catalogue, four hundred pages, six months old. Every man in Consolation has read it cover to cover. It is the most-read book in the territory and it is a list of prices in Chicago."
@@ -80,15 +80,15 @@
 
 **THE CATALOGUE — the page on pianos**
 > **LOOK:** "Uprights, from ninety dollars. Delivery not available west of St. Louis."
-> **LISTEN:** "Nothing. It's a picture of a piano. I am aware that I am doing this."
+> **LISTEN:** "Nothing. It's a picture of a piano. I'm aware I'm doing this."
 
 **THE DEBT LEDGER**
-> **LOOK:** "Every man in town, and a number beside him. The numbers only go one way. He is not worried, because they cannot leave until they pay, and they cannot pay."
+> **LOOK:** "Every man in town, and a number beside him. The numbers only go one way. He isn't worried. They can't leave until they pay, and they can't pay."
 > **LISTEN:** "Nothing."
 
 **THE BOOTS** · **THE TINNED GOODS** · **THE BOLTS OF CLOTH** · **THE NAILS** · **THE LAMP OIL** · **THE STOVE**
 > *(Tinned goods — **LOOK:** "Peaches, from Baltimore, at a dollar the tin. There is a man in the corner looking at them the way other men look at gold.")*
-> *(Cloth — **LISTEN:** "Nothing. It is the softest thing within two hundred miles and nobody in here has touched it.")*
+> *(Cloth — **LISTEN:** "Nothing. It's the softest thing within two hundred miles, and nobody in here has touched it.")*
 
 ---
 
@@ -96,12 +96,12 @@
 *Nine hotspots. The letters home live here. Available in every act, and every hotspot has an act variant.*
 
 **THE DESK**
-> **LOOK:** "A desk, a chair, and a window facing an alley. For five dollars a week, I had expected a slightly worse alley." *(Five, not four: doc 02 A2 prices the room at five, and doc 26 says five. Errata 69 C.)*
+> **LOOK:** "A desk, a chair, and a window facing an alley. For five dollars a week, I'd expected a slightly worse alley." *(Five, not four: doc 02 A2 prices the room at five, and doc 26 says five. Errata 69 C.)*
 > **LISTEN:** "Nothing. It is the only place in Consolation where nobody is talking."
 
 **HIS MOTHER'S LETTERS**
 > **LOOK Act I:** "Three from home. She is proud of me. She has been given no reason to be."
-> **LOOK Act II:** "Four from home. She has told the neighbours. The neighbours are also proud of me."
+> **LOOK Act II:** "Four from home. She has told the neighbors. The neighbors are also proud of me."
 > **LOOK Act III:** "Five from home. She asks whether I am eating."
 > **LOOK Act IV:** "Six. I am going to answer this one properly."
 > **LISTEN:** "Nothing. Paper is very quiet about this sort of thing."
@@ -117,7 +117,7 @@
 **THE WINDOW**
 > **LOOK Acts I–III:** "The alley. A cat, some barrels, and a view of the back of the Improvement Company."
 > **LOOK Act IV:** "The alley. The cat has gone. The barrels are the same."
-> **LISTEN:** "Somebody unloading, two streets over. It goes on all night. I have stopped minding it, which worries me."
+> **LISTEN:** "Somebody unloading, two streets over. It goes on all night. I've stopped minding it, which worries me."
 
 **THE BED** · **THE WASHSTAND** · **THE COAT ON THE DOOR** · **THE WALL**
 > *(The coat — **LOOK Act I:** "My good coat. It is the only thing I own that suggests I was once somebody's son with prospects." **LOOK Act III:** "My good coat. It has been in a grave.")*
@@ -130,10 +130,10 @@
 
 **THE SAMPLE WALL**
 > **LOOK:** "Every sample assayed in nine years, in labeled vials. It is beautiful, in the way that only a completed thing is beautiful."
-> **LISTEN:** "Nothing. It is nine years of work and it is not asking for anything."
+> **LISTEN:** "Nothing. Nine years of work, and not one bottle asking for anything."
 
 **THE OFFICIAL LEDGER**
-> **LOOK:** "Nine years of assays, in a hand that has not varied once. Not one crossing-out."
+> **LOOK:** "Nine years of assays, in a hand that hasn't varied once. Not one crossing-out. My letters home are mostly crossing-out."
 > **LISTEN:** "Nothing."
 
 **THE FLOORBOARD, LIFTED** *(after C5)* — *LOCATION SUPERSEDED, errata 66 ruling D: the loose board and the second ledger are in Room 5, the assay office front; these lines apply there.*
@@ -189,7 +189,7 @@
 > **LISTEN:** "Nothing." *(All eleven. The same word, eleven times, and the eleventh lands differently than the first.)*
 
 **THE WORKINGS**
-> **LOOK:** "Eleven holes. Some of them are forty feet deep. Somebody dug forty feet by hand and then stopped and walked away, and I would like to know on which day he decided."
+> **LOOK:** "Eleven holes. Some of them are forty feet deep. Somebody dug forty feet by hand and then stopped and walked away, and I'd like to know which day he decided."
 > **LISTEN:** "Wind, in the holes. It's a low sound. It is almost the same sound as my hole and it is not the same sound at all."
 
 **THE SLUICE FRAMES** · **A BOOT** · **THE PATH**
@@ -203,14 +203,14 @@
 
 **THE GROUND**
 > **LOOK:** "Turned over so many times that it is no longer ground so much as an opinion about where ground used to be."
-> **LISTEN:** "Nothing. Nothing whatsoever. It is the emptiest sound I have heard since I arrived."
+> **LISTEN:** "Nothing. Nothing whatsoever. It's the emptiest sound I've heard since I arrived."
 
 **THE PITS**
 > **LOOK:** "Perhaps four hundred separate diggings, overlapping. Ten thousand men have come here, individually, each certain that the others had looked in the wrong place."
 > **LISTEN:** "Nothing."
 
 **THE OFFERINGS**
-> **LOOK:** "Coins, pressed into the dirt at the center. Men have been leaving money here. I do not know what for and I do not think they do."
+> **LOOK:** "Coins, pressed into the dirt at the center. Men have been leaving money here. I don't know what for, and I don't think they do."
 > **LISTEN:** "Nothing."
 
 **A NEW DIGGING**

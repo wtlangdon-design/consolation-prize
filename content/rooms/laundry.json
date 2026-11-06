@@ -66,7 +66,7 @@
             "say": "A printed advertisement for detachable collars, pinned inside the door. The gentleman modeling them is square-jawed, confident, and — I am increasingly sure — the same man as in every printed image in this town.",
             "repeat": [
               "A portrait of a gentleman in an excellent collar, advertising the excellence of the collar. I have seen this man before. He is on the front page of the Clarion once a month and his name there is Obadiah Mott.",
-              "Up close, the printing is very fine. He has a dimple. I had not noticed the dimple in the Clarion."
+              "Up close, the printing is very fine. He has a dimple. I hadn't noticed the dimple in the Clarion."
             ]
           }
         ],
@@ -498,7 +498,7 @@
               "Iron set down, iron taken up. Still the steadiest time in town."
             ],
             "then": [
-              "It is the closest thing this town has to a metronome, and I would know."
+              "It's the closest thing this town has to a metronome, and I'd know."
             ]
           }
         ]
@@ -543,7 +543,7 @@
         ]
       },
       "overrides": {
-        "USE": "He let me turn the crank once. It was the most useful thing I have done in the territory and we both knew it."
+        "USE": "He let me turn the crank once. It was the most useful thing I've done in the territory, and we both knew it."
       },
       "walkTo": {
         "x": 811,
@@ -564,7 +564,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A curtain across a doorway, and behind it a room I am not invited into.",
+            "say": "A curtain across a doorway, and behind it a room I'm not invited into.",
             "repeat": [
               "The curtain is clean. Everything here is clean, including, I suspect, the business behind it.",
               "Once the curtain moved, and I saw a desk and a lamp and a great many papers in very good order. Then it moved back."
@@ -573,7 +573,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing behind the curtain, or nothing I am meant to hear.",
+            "say": "Nothing behind the curtain, or nothing I'm meant to hear.",
             "repeat": [
               "A pen, somewhere back there, adding.",
               "Nothing. Sheng's back room is where the town's noise goes to be counted."

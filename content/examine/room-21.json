@@ -40,7 +40,7 @@
     {
       "name": "THE LAMP",
       "LOOK_AT": [
-        "Trimmed, filled, and ready. It is the only well-maintained object I have seen in Consolation.",
+        "Trimmed, filled, and ready. It's the only well-maintained object I've seen in Consolation.",
         "The wick is trimmed square, and the glass is polished on the inside, which is the side that matters and the side nobody checks.",
         "The brass is worn bright in one place, where a hand lifts it the same way every evening."
       ],
@@ -68,7 +68,7 @@
       "LOOK_AT": [
         "It faces Main Street. It faces the Improvement Company. Whoever put this window in wanted to see one particular building.",
         "The glass has been cleaned in one square only, at the height of a man on a stool. The rest of the window may do as it likes.",
-        "From here you can see every door on Main Street, and the Company's twice. I do not know what you would be watching for. I suspect he does."
+        "From here you can see every door on Main Street, and the Company's twice. I don't know what you'd be watching for. I suspect he does."
       ],
       "LISTEN_TO": [
         "The street. All of it.",

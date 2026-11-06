@@ -87,7 +87,7 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 - **Pratt** is asked only while the raccoon is in the hole (PRA_A1 option 1); the bite is a standing topic afterward (option 4).
 - **Talking to the raccoon after naming him:**
 
-> **THE RACCOON** · TALK TO, *named* — "He has heard me. He has decided against it." · *(again)* "I asked after his health. He ate something I had not known was edible." · *(again, and after)* "We have reached an understanding. He understands it and I do not."
+> **THE RACCOON** · TALK TO, *named* — "He has heard me. He has decided against it." · *(again)* "I asked after his health. He ate something I hadn't known was edible." · *(again, and after)* "We have reached an understanding. He understands it and I do not."
 
 ## A6 · The deed has no boundary
 

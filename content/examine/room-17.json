@@ -28,9 +28,9 @@
     {
       "name": "THE BELL",
       "LOOK_AT": [
-        "You cannot see it from here. You can see where the ceiling knows about it.",
+        "You can't see it from here. You can see where the ceiling knows about it.",
         "A dark ring on the ceiling boards around the hole, where years of ringing have shaken the dust loose.",
-        "I have never seen it and I could draw you its crack."
+        "I've never seen it, and I could draw you its crack."
       ],
       "LISTEN_TO": [
         "A half-step flat, even in memory.",
@@ -42,7 +42,7 @@
       "name": "THE PEWS",
       "LOOK_AT": [
         "Eight pews, benched close. On Sundays the whole town fits in here, which tells you something about the size of the town and something about Sundays.",
-        "Pews built from the crates the piano came in. The third one still reads PROVIDENCE R I, which is where I am from. I have sat down.",
+        "Pews built from the crates the piano came in. The third one still reads PROVIDENCE R I, which is where I'm from. I've sat down. I'm staying a minute.",
         "The back pew is worn smoother than the front. The town's devotion is strongest nearest the door."
       ],
       "LISTEN_TO": [
@@ -61,7 +61,7 @@
       "LISTEN_TO": [
         "Pages. A soft chord of paper.",
         "Nothing. Nobody opens it. They sing what they remember, and they remember it wrong, and they remember it wrong *together*, which is nearly as good.",
-        "Nothing. It is waiting for Sunday, when it will be overruled."
+        "Nothing. It's waiting for Sunday, when it'll be overruled."
       ],
       "overrides": {
         "USE": "I corrected the penciled corrections. Somebody has since corrected mine. The hymnal is now a debate."
@@ -93,7 +93,7 @@
       "LISTEN_TO": [
         "A wobble in one leg. Democracy, structurally.",
         "The wobble again when I lean on it. The motion is seconded.",
-        "Nothing. The town is not in session."
+        "Nothing. The town isn't in session."
       ]
     },
     {
@@ -144,7 +144,7 @@
         "A last ring as the plate settles on its bolt. Fuller than it is, again."
       ],
       "overrides": {
-        "PICK_UP": "It is bolted down, which I take to be doctrine informed by experience."
+        "PICK_UP": "It's bolted down, which I take to be doctrine informed by experience."
       }
     },
     {

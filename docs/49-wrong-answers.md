@@ -42,8 +42,8 @@ repeat variants), and is marked verbatim. This section contributes only what doc
 where the two conflicted, the better line won and is noted in doc 13.
 
 **THE FALSE FRONTS** · OPEN — "The front is the part that doesn't open. That is its entire function and its entire biography."
-**THE CHURCH STEEPLE** · USE — "It is a steeple. Its use is being seen from everywhere, and it is currently in use."
-**THE WATER TROUGH** · USE — "I have drunk from it once. The once is doing a great deal of work in that sentence." *(supersedes doc 13's trough USE — funnier, and it implies history)*
+**THE CHURCH STEEPLE** · USE — "It's a steeple. Its use is being seen from everywhere, and it's already doing that."
+**THE WATER TROUGH** · USE — "I've drunk from it once. The “once” is doing a great deal of work in that sentence." *(supersedes doc 13's trough USE — funnier, and it implies history)*
 **THE BOARDWALK** · PULL — "The loose board declines to come up. It is loose recreationally, not professionally." *(supersedes doc 13's PULL; its PUSH stands)*
 
 ## ROOM 3 — THE BOUNTIFUL NUGGET
@@ -57,7 +57,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 ## ROOM 5 — ASSAY OFFICE, FRONT
 
-**THE QUEUE BENCH** · USE — "It seats nine. I have been all nine, on different days."
+**THE QUEUE BENCH** · USE — "It seats nine. I've been all nine, on different days."
 **THE QUEUE BENCH** · PUSH — "Moving the bench does not move the queue. The queue is a spiritual object; the bench is merely where it condenses."
 
 ## ROOM 7 — CLAIMS REGISTRAR
@@ -79,7 +79,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 ## ROOM 11 — FANSHAWE'S OFFICE
 
-**THE CHAIRS** · PUSH — "They are heavier than they look. Everything in this office is heavier than it looks."
+**THE CHAIRS** · PUSH — "They're heavier than they look. Everything in this office is heavier than it looks."
 **THE GLOBE** · USE — "I spun it. His thumb-mark is worn into it over the East. I stopped spinning it."
 **THE DECANTER** · OPEN — "It is always already open. Generosity, pre-loaded."
 **THE PORTRAIT** · TALK_TO — "The painted one listens exactly as well and commits to less. I prefer him slightly."
@@ -92,7 +92,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 **PIKE'S HEADBOARD** · TALK_TO — "I read him my letter of introduction. It seemed only right. He took it as well as anything else I've said here."
 **THE FENCE** · PUSH — "It holds. The undertaker maintains it. His clients do not leave, but their reputation for it must be kept up."
 **THE WILD OATS** · PICK_UP — "Boot Hill's only harvest. I left it. It's theirs."
-**PLOT ELEVEN** · USE — "It is in use. That is the entire and only thing a plot can be."
+**PLOT ELEVEN** · USE — "It's in use. That's the entire and only thing a plot can be."
 
 ## ROOM 21 — THE WATCHMAN'S SHACK
 
@@ -107,14 +107,14 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE CLAIM MARKER (MINE)** · PUSH — "Mine now, lean and all. I have decided the lean is jaunty."
 **THE CLAIM MARKER (MINE)** · TALK_TO — "'Prosperity,' I told it, 'you and I are going to be the punchline of something.' I was righter than I knew."
 **THE MUD (DEEDED)** · USE — "I did use it. I filed it. It is the most administrated mud in the territory."
-**THE HOLE** · CLOSE — "You cannot close a hole. You can only fill it, and I have nothing to spare, including — on some mornings — the inclination."
+**THE HOLE** · CLOSE — "I can't close a hole. I can only fill it, and I don't have anything to spare, including — on some mornings — the inclination."
 **THE HOLE** · TALK_TO — "I said good morning down it. The echo said it back warmer than the town does."
 **THE RACCOON'S FORMER RESIDENCE** · OPEN — "Vacant, per the eviction. The warm air keeps it aired. Best-ventilated address I own."
 
 ## ROOM 4 — NUGGET BACK ROOM
 
-**THE JUDGES' PENCIL** · PICK_UP — "Chained, and the chain is newer than the pencil. There is a story and nobody will tell it to a newcomer."
-**THE SPIT LINE** · PUSH — "You cannot move the line. Men have tried. The line is load-bearing, socially."
+**THE JUDGES' PENCIL** · PICK_UP — "Chained, and the chain is newer than the pencil. There's a story there, and nobody will tell it to a newcomer. I'm working on not being a newcomer."
+**THE SPIT LINE** · PUSH — "I can't move the line. Men have tried. The line is load-bearing, socially."
 **THE SCOREBOARD** · USE — "Amending the slate is how the last man lost his chalk privileges, and the story is told as a tragedy."
 **THE CHAIRS** · TALK_TO — "'One day,' I told the champion's chair. It creaked. Not unkindly."
 
@@ -123,7 +123,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE CRUCIBLE** · USE — "Cold, and not mine to fire. Some instruments you earn."
 **THE SCALES CABINET** · OPEN — "Locked, and the key is Winnie, and Winnie is the lock."
 **THE NINETEEN NAMES** · TALK_TO — "I read them aloud once, quietly. It felt like a roll call. Nobody answered, which is the point of the list."
-**THE SAMPLE SHELF** · PICK_UP — "Every bottle is somebody's whole year. I am not qualified to hold a year."
+**THE SAMPLE SHELF** · PICK_UP — "Every bottle is somebody's whole year. I'm not qualified to hold a year."
 **THE STOOL** · USE — "I sat on it. It announced me. I got down."
 
 ## ROOM 8 — REGISTRAR'S ARCHIVE
@@ -132,13 +132,13 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE COUNTY SEAL** · USE — "I lifted it an inch. The weight of it is a legal argument. I set it down persuaded."
 **THE MOTT FILE** · OPEN — "Under glass, and the glass is under Sump, and Sump is under statute. It is the best-defended document in the territory."
 **THE FILING LADDER** · PUSH — "It rolls to 1858 and stops of its own accord, like a horse that knows the route."
-**THE UNCLAIMED CORRESPONDENCE** · PICK_UP — "Other men's letters. I have one of my own addressed to a dead man; I know how they feel about being held."
+**THE UNCLAIMED CORRESPONDENCE** · PICK_UP — "Other men's letters. I've got one of my own, addressed to a dead man. I know how they feel about being held."
 
 ## ROOM 10 — IMPROVEMENT COMPANY LOBBY
 
 **THE CHAIRS** · USE — "I sat. Twenty minutes evaporated. These chairs are how the Company buys time — literally, in bulk, from visitors."
 **THE CLOCK** · USE — "Setting it right would be an act of vandalism against a working system."
-**THE PROSPECTUS RACK** · PICK_UP — "Free, insists the clerk. Nothing in this building is free. I took one. We shall see what it cost."
+**THE PROSPECTUS RACK** · PICK_UP — "‘Free,’ says the clerk. Nothing in this building is free. I took one. We'll see what it cost."
 **THE PORTRAIT** · PUSH — "Straightened it. It was straight. It is now very slightly crooked and I feel I have accomplished something."
 **THE CARPET** · PULL — "It runs under the desk, under the door, and — for all I know — under the town."
 
@@ -154,31 +154,31 @@ where the two conflicted, the better line won and is noted in doc 13.
 ## ROOM 13 — THE UNDERTAKER'S
 
 **THE TEETH** · PICK_UP — "No."
-**THE TEETH** · USE — "I have teeth. It is among my few unencumbered assets."
+**THE TEETH** · USE — "I have teeth. They're among my few unencumbered assets."
 **THE GOOD SUIT** · USE — "Renting it while alive is, I'm told, 'irregular but not unprecedented.' I did not ask about the precedent."
 **THE COFFINS** · USE — "Trying one for size is free. I know because I asked, which tells you what this town has done to my sense of thrift."
 **THE MEASURING WALL** · TALK_TO — "I congratulated the wall on its discretion. It has the measure of everyone and repeats nothing."
 
 ## ROOM 15 — THE LIVERY STABLE
 
-**GRIEVANCE** · USE — "You do not use Grievance. You are, if she consents, briefly adjacent to her purposes."
-**GRIEVANCE** · PUSH — "I have pushed buildings with more give."
+**GRIEVANCE** · USE — "I don't use Grievance. I am, if she consents, briefly adjacent to her purposes."
+**GRIEVANCE** · PUSH — "I've pushed buildings with more give."
 **GRIEVANCE'S BLANKET** · PICK_UP — "She turned her head one inch. I returned the blanket two inches. We understand each other."
 **THE ANVIL** · PICK_UP — "It occurred to me. It stopped occurring to me almost immediately."
-**THE HAY LOFT** · USE — "The ladder is worn bright by men sleeping off their optimism. I have a room. For now, I insist on the distinction."
+**THE HAY LOFT** · USE — "The ladder is worn bright by men sleeping off their optimism. I've got a room. For now. I insist on the distinction."
 
 ## ROOM 16 — OZYMANDIA'S TENT
 
 **THE CRYSTAL BALL** · USE — "I looked. Upside-down tent, small Thad. Two dollars. On reflection — which is all the ball does — fair."
-**THE CARDS** · PICK_UP — "The silk wrap tightened. I did not see her move. The deck stayed where destiny — her word — had left it."
+**THE CARDS** · PICK_UP — "The silk wrap tightened. I didn't see her move. The deck stayed where destiny — her word — had left it."
 **THE MONEY BOX** · OPEN — "The painted eye and I held a discussion. The eye won on experience."
 **THE BRASS ROD** · USE — "It swung toward the money box. 'It seeks the hidden metal,' she said, without a trace of embarrassment. Professional courtesy forbade comment."
-**THE TASSELS** · PULL — "One came off in my hand. It was back on the cloth when I looked again. I have elected not to think about this."
+**THE TASSELS** · PULL — "One came off in my hand. It was back on the cloth when I looked again. I've elected not to think about this."
 
 ## ROOM 17 — CHURCH & MEETING HALL
 
 **THE BELL ROPE** · PULL — "The whole town orders its morning by that flat note, and it was not morning. Sowerby appeared before the echo died. We have agreed it was the wind."
-**THE COLLECTION PLATE** · PICK_UP — "It is bolted down, which I take to be doctrine informed by experience."
+**THE COLLECTION PLATE** · PICK_UP — "It's bolted down, which I take to be doctrine informed by experience."
 **THE PULPIT** · USE — "I stood at it a moment while the hall was empty. It faces a room of chairs the way my claim faces the future: expectantly, on faith."
 **THE HYMNAL** · USE — "I corrected the penciled corrections. Somebody has since corrected mine. The hymnal is now a debate."
 **THE STOVE** · TALK_TO — "I asked it to extend its range to the back pews. It ticked noncommittally, like everything else in this building with a congregation."
@@ -187,9 +187,9 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 **THE CLERK'S BELL** · USE — "I rang it. The clerk arrived from a direction the building does not have."
 **THE REGISTER** · USE — "I corrected my name in it. The next morning it was wrong again, differently. The register is alive, or the clerk is loyal to some principle I lack."
-**THE KEY RACK** · PICK_UP — "Three keys, and mine is one, and the other two belong to men I have never seen. The hotel is fuller of mystery than of guests."
+**THE KEY RACK** · PICK_UP — "Three keys, and mine is one, and the other two belong to men I've never seen. The hotel is fuller of mystery than of guests."
 **THE STAIRS** · PUSH — "The fourth step and I have an arrangement: I skip it, and it tells no one my hours."
-**THE PAINTING** · PULL — "Behind it: wall. I do not know what I expected. More wall, perhaps, but honest about it."
+**THE PAINTING** · PULL — "Behind it: wall. I don't know what I expected. More wall, perhaps, but honest about it."
 
 ## ROOM 19 — THAD'S HOTEL ROOM
 
@@ -216,7 +216,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 ## ROOM 25 — PRATT'S CLAIM
 
 **THE BORDER STONES** · PUSH — "I nudged one a hand-width. When I passed at dusk it was back, and the whitewash was fresh. We have not discussed it. We will never discuss it."
-**THE TOOL RACK** · PICK_UP — "Borrowing from Pratt is simple: you ask, he says yes, and then you are a man who borrowed from Pratt, and the tools come back cleaner than they left. I am not ready for the standard."
+**THE TOOL RACK** · PICK_UP — "Borrowing from Pratt is simple: you ask, he says yes, and then you are a man who borrowed from Pratt, and the tools come back cleaner than they left. I'm not ready for the standard."
 **THE SIGN: NO COLOR YET** · TALK_TO — "'Any day now,' I told it. The YET gleamed. Somebody repaints that word the way other men pray."
 **THE CAMP CHAIR** · USE — "I sat in it. The trench looked back, square-cornered, patient. For one minute I understood him completely, and it was restful."
 
@@ -237,7 +237,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 ## ROOM 28 — SHENG'S LAUNDRY
 
-**THE MANGLE** · USE — "He let me turn the crank once. It was the most useful thing I have done in the territory and we both knew it."
+**THE MANGLE** · USE — "He let me turn the crank once. It was the most useful thing I've done in the territory, and we both knew it."
 **THE COPPERS** · OPEN — "Steam took my hat's shape briefly. Sheng did not look up: 'Collars are extra.'"
 **THE TICKET RAIL** · PULL — "The district's one uncorrupted ledger, on a wire. I withdrew my hand with the reverence it was owed."
 **THE COLLAR ADVERTISEMENT** · TALK_TO — "I asked the gentleman who he really was. He kept his jaw square and his counsel. He is the most consistent man in Consolation and he does not exist."
@@ -261,7 +261,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 **THE COFFIN (MINE)** · OPEN — "Ahead of schedule. The lid stays shut; the plan requires my absence and I am contractually elsewhere."
 **THE COFFIN (MINE)** · USE — "It is in use. By me. Officially. The paperwork is immaculate."
-**THE MOURNERS** · TALK_TO — "A stranger offered me comfort at my own funeral. I said the departed sounded like a fine man, taken too soon. He agreed, with feeling. I am having a very strange week."
+**THE MOURNERS** · TALK_TO — "A stranger offered me comfort at my own funeral. I said the departed sounded like a fine man, taken too soon. He agreed, with feeling. I'm having a very strange week."
 **THE GRAVE** · CLOSE — "Not yet. There is a man not in that box counting on the delay."
 
 ## ROOM 32 — INSIDE THE COFFIN

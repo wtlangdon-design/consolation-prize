@@ -27,25 +27,25 @@
             "say": "A jar of teeth. I asked whose. He said, and I am quoting, 'various.'",
             "repeat": [
               "A jar of teeth. He sells them on to the barber, who fits them to the living. Nothing in this establishment is wasted.",
-              "Still there. I have decided to think of it as inventory.",
-              "There are more than there were on Tuesday. I am not going to develop this thought."
+              "Still there. I've decided to think of it as inventory.",
+              "There are more than there were on Tuesday. I'm not going to develop this thought."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "They shift when the floor does. I wish they would not.",
+            "say": "They shift when the floor does. I wish they wouldn't.",
             "repeat": [
               "Nothing. Obviously nothing. I checked, and I regret it.",
               "Nothing.",
-              "Nothing. I have satisfied myself and I should like that to be the end of it."
+              "Nothing. I've satisfied myself, and I'd like that to be the end of it."
             ]
           }
         ]
       },
       "overrides": {
         "PICK_UP": "No.",
-        "USE": "I have teeth. It is among my few unencumbered assets."
+        "USE": "I have teeth. They're among my few unencumbered assets."
       },
       "walkTo": {
         "x": 1405,
@@ -109,7 +109,7 @@
             "repeat": [
               "Plain, Respectable, and Handsome. The Handsome is four times the Plain and the difference is a handle.",
               "There is a fourth line, scratched out, that began with the word Gratis.",
-              "Nobody has ever asked me which I would want, and I have decided that is a courtesy."
+              "Nobody's ever asked me which I'd want, and I've decided that's a courtesy."
             ],
             "then": [
               "The top grade is surprisingly reasonable."
@@ -188,7 +188,7 @@
             "say": "A saw, a plane, a brace, and a mallet, hung level and clean.",
             "repeat": [
               "The plane has been used this morning. There are shavings and they are pale.",
-              "He makes them himself. I had assumed they came from somewhere."
+              "He makes them himself. I'd assumed they came from somewhere."
             ],
             "then": [
               "This is a carpenter's shop that has specialized."
@@ -200,13 +200,13 @@
             "say": "Nothing.",
             "repeat": [
               "Nothing.",
-              "Nothing. He is not working while I am standing here."
+              "Nothing. He isn't working while I'm standing here."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "They are hung level. I am not the man who unhangs them."
+        "PICK_UP": "They're hung level. I'm not the man who unhangs them."
       }
     },
     {
@@ -244,7 +244,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "It is rented, and I am not the size.",
+        "PICK_UP": "It's rented, and I'm not the size.",
         "USE": "Renting it while alive is, I'm told, 'irregular but not unprecedented.' I did not ask about the precedent."
       },
       "walkTo": {
@@ -270,7 +270,7 @@
             "repeat": [
               "Every burial in Consolation. Eleven pages. Two thousand people have lived here for twelve years and it is eleven pages, which means most of them left.",
               "Eleven pages in twelve years, in a town of two thousand.",
-              "Which means most of them left. I have been telling myself that all morning."
+              "Which means most of them left. I've been telling myself that all morning."
             ]
           }
         ],
@@ -342,7 +342,7 @@
           {
             "say": "A bench by the door, for those come to arrange things. It has a cushion.",
             "repeat": [
-              "Somebody put a cushion on a bench in an undertaker's. I would like to know who and I am not going to ask.",
+              "Somebody put a cushion on a bench in an undertaker's. I'd like to know who, and I'm not going to ask.",
               "It is worn in the middle, which is the opposite of the Registrar's."
             ]
           }
@@ -358,7 +358,7 @@
         ]
       },
       "overrides": {
-        "USE": "I have sat down. It is a very good cushion and that is somehow the worst part."
+        "USE": "I've sat down. It's a very good cushion, and that's somehow the worst part."
       },
       "walkTo": {
         "x": 405,
@@ -481,7 +481,7 @@
       },
       "overrides": {
         "USE": "Not yet.",
-        "OPEN": "There is nothing in it. I have checked, which I regret."
+        "OPEN": "There's nothing in it. I've checked, which I regret."
       },
       "walkTo": {
         "x": 1115,
