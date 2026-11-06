@@ -1,0 +1,15 @@
+{
+ "assetId": "room-33",
+ "subject": "thad-sits",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-33-listening-chamber",
+ "promptFile": "reference/room-33/prompts/thad-sits-01.txt",
+ "out": "art/staging/room-33/thad-sits/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/thad-b/board.png",
+  "art/staging/thad-b/keyposes-03.png",
+  "art/staging/room-33/thad-sits/room-frame.png"
+ ]
+}

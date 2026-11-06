@@ -25,19 +25,16 @@
         190
       ],
       "colour": 0,
-      "to": "stage_road",
+      "to": "coach_stop_dawn",
       "responses": {},
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "transitScene": [
         {
-          "say": "At the coach stop: the sign — POP. 2,000 AND CLIMBING — being repainted upward by a man on a ladder, who nods.",
-          "direction": true,
+          "arrives": true,
+          "pause": 3.8,
+          "say": "Leave the mud.",
           "then": [
-            {
-              "speaker": "thad",
-              "line": "Leave the mud."
-            },
             {
               "speaker": "thad",
               "line": "Dear Mother.",
@@ -62,11 +59,10 @@
           "set": {
             "T_CLOSE_SAID": true
           },
-          "stays": true,
           "sceneLine": "docs/48-act-turn-beats.md::## S7 · MAIN STREET, DAWN (the close) · beat 3"
         }
       ],
-      "note": "Doc 48 S7: 'The one exit is the coach stop, east.' Beat 3, Thad's last spoken line, then beat 4, the Act IV letter over black (doc 04 Part Three's, as Room 19 reads it). No document writes the stop a LOOK or LISTEN: a stub (errata 72 F). Beat 3's picture -- the sign repainted upward by a man on a ladder -- and beat 5's credits are not built (doc 36 Q176).",
+      "note": "Doc 48 S7: 'The one exit is the coach stop, east.' Beat 3 at the coach stop (coach_stop_dawn, errata 121 B): Thad's last spoken line, then beat 4, the Act IV letter over black (doc 04 Part Three's, as Room 19 reads it). No document writes the stop a LOOK or LISTEN: a stub (errata 72 F). Beat 5's credits are not built (doc 36 Q176).",
       "stub": true,
       "when": {
         "T_CLOSE_SAID": false

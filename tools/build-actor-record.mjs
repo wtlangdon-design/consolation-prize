@@ -103,6 +103,16 @@ const CLIPS = [
   // his head came down for six seconds every time the break fired: a state on
   // one clip and not another unsets itself whenever the other plays.
   { id: 'idle-break', dir: 'idlebreak-lookup', prefix: 'idle-break', state: 'lookup' },
+  // SITTING, Room 33 (doc 48 S5 beat 3: "He sits down in the dark and listens to it").
+  // `sit` and `rise` are one-shots, stand to seated and back, left and right only: he turns
+  // to the void before he sits. Seated is a STATE of what he already plays standing still --
+  // `idle`, `idle-break`, `stand` -- each one still frame, because invariant 8 leaves the
+  // lamp the only moving thing in the frame. tools/art/thad-sit.py.
+  { id: 'sit', dir: 'sit', prefix: 'sit' },
+  { id: 'rise', dir: 'rise', prefix: 'rise' },
+  { id: 'idle', dir: 'seated', prefix: 'seated', state: 'seated' },
+  { id: 'idle-break', dir: 'idlebreak-seated', prefix: 'idle-break', state: 'seated' },
+  { id: 'stand', dir: 'stand-seated', prefix: 'stand', state: 'seated' },
   // THE COACH IS A MOVER, not a room layer. errata 38's `move` translates a
   // named mover; a hotspot's state image is drawn by drawPlate and cannot be
   // translated at all, so beat 6b could never have worked from one. Its two
@@ -122,7 +132,15 @@ const PARTIAL_STATES = {
   // anything moves him. Turning him is MEANT to drop it, which clipOf does for
   // free -- and `strain` is beat 11, long after beat 6 cleared it, reached
   // through a `face left` that would drop the state anyway.
-  thad: { lookup: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'stand'] },
+  // Seated (Room 33), he does nothing but listen: the ninety seconds take every click, and the
+  // first click after them plays `rise` and clears the state before anything else can play, so
+  // nothing below is ever asked for while he sits. `sit` itself plays before the state is set.
+  // Neither `sit` nor `rise` is played looking up.
+  thad: {
+    lookup: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'stand', 'sit', 'rise'],
+    seated: ['walk', 'recoil', 'sit', 'rise', 'use-near', 'give-offer', 'shrug', 'pickup-low', 'alight-coach',
+      'aboard-coach', 'carry'],
+  },
   // THE DOOR IS CLOSED BY THE STAGING, NOT BY A MISSING VARIANT. Beat 6b
   // clears `door-open` BEFORE the move, so the driver shuts the door and then
   // pulls away, and the coach never plays `walk` with the state set. A door

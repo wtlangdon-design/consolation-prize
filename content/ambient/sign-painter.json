@@ -1,0 +1,30 @@
+{
+ "schema": 1,
+ "id": "sign_painter",
+ "name": "A MAN ON A LADDER",
+ "posture": "standing",
+ "postureNote": "A standing man, up a step-ladder: sprite.figureHeight is the HERO's height on the same sheet, so the engine draws him at the room's man where the ladder's feet are (812), and the ladder is the height that puts his brush on the board's number line.",
+ "room": "coach_stop_dawn",
+ "note": "Doc 48 S7 beat 3: 'At the coach stop: the sign -- POP. 2,000 AND CLIMBING -- being repainted upward by a man on a ladder, who nods.' Room 36 operation 4, drawn beside the hero for scale; cut, his ladder lengthened to reach the board and his stroke and nod derived, by tools/art/sign-painter.py (errata 121 B). He paints; when Thad arrives he turns and nods.",
+ "x": 470,
+ "y": 812,
+ "zone": 1,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "He does not speak: the beat gives him a nod and no line.",
+ "sprite": {
+  "sheet": "art/actors/ambient-sign-painter.png",
+  "frames": [[2, 2, 501, 1289], [505, 2, 501, 1289], [1008, 2, 501, 1289], [1511, 2, 501, 1289]],
+  "figureHeight": 935,
+  "stature": 1,
+  "rate": 0.35,
+  "phase": 0.2,
+  "breaks": [[2, 2, 3, 2, 2]],
+  "breakEvery": 24,
+  "onArrival": { "at": 2.0, "frames": [2, 2, 3, 2, 2], "frameSeconds": 0.3 },
+  "talkFrame": 0,
+  "frameNote": "0 the brush on the numbers · 1 the dab (derived) · 2 his head turned over his shoulder · 3 the nod (derived). The idle alternates 0 and 1: he paints. `onArrival` is the beat's nod, timed from Thad's arrival; the break repeats it now and then while Thad stands there (errata 77).",
+  "provenance": "reference/room-36/prompts/sign-painter-01.spec.json"
+ }
+}

@@ -354,8 +354,14 @@ export function conversationFrameAt(
 }
 
 export function ambientFrameAt(
-  declared: NonNullable<AmbientFile['sprite']>, phase: number, clock: number,
+  declared: NonNullable<AmbientFile['sprite']>, phase: number, clock: number, arrivedAt?: number,
 ): number {
+  // ONCE, TIMED FROM HIS ARRIVAL (errata 121 B): the man on the ladder's nod.
+  const once = declared.onArrival;
+  if (once && arrivedAt !== undefined) {
+    const step = Math.floor((clock - arrivedAt - once.at) / (once.frameSeconds ?? 0.3));
+    if (step >= 0 && step < once.frames.length) return once.frames[step] ?? 0;
+  }
   // A BEAT: at rest on frame 0, and every `beatEvery` seconds the rest of
   // the frames play once. Different intervals per figure mean they coincide
   // only by chance, which is the difference between a room of people and a
@@ -1867,7 +1873,16 @@ export class Renderer {
 
   private ambientFrame(declared: NonNullable<AmbientFile['sprite']>, phase: number): number {
     const { sprite, clock } = this.timed(declared);
-    return ambientFrameAt(sprite, sprite === declared ? phase : (sprite.phase ?? 0), clock);
+    // A figure keeping time with the music runs on the bed's clock; `onArrival` counts on the scene's.
+    return ambientFrameAt(sprite, sprite === declared ? phase : (sprite.phase ?? 0), clock,
+      sprite === declared ? this.arrivedAt : undefined);
+  }
+
+  /** When Thad came into this room, on the renderer's clock: `onArrival` frames count from it. */
+  private arrivedAt: number | undefined;
+
+  setArrivedAt(seconds: number): void {
+    this.arrivedAt = seconds;
   }
 
   /**

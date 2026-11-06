@@ -26,7 +26,22 @@
       "tug",
       "strain",
       "wrench",
-      "stand"
+      "stand",
+      "sit",
+      "rise"
+    ],
+    "seated": [
+      "walk",
+      "recoil",
+      "sit",
+      "rise",
+      "use-near",
+      "give-offer",
+      "shrug",
+      "pickup-low",
+      "alight-coach",
+      "aboard-coach",
+      "carry"
     ]
   },
   "clips": [
@@ -615,6 +630,152 @@
         526
       ],
       "state": "lookup"
+    },
+    {
+      "id": "sit",
+      "facing": "left",
+      "frames": [
+        "art/actors/thad-sit-left/sit-00.png",
+        "art/actors/thad-sit-left/sit-01.png",
+        "art/actors/thad-sit-left/sit-02.png",
+        "art/actors/thad-sit-left/sit-03.png",
+        "art/actors/thad-sit-left/sit-04.png",
+        "art/actors/thad-sit-left/sit-05.png"
+      ],
+      "figureHeight": 526,
+      "anchor": [
+        261,
+        526
+      ]
+    },
+    {
+      "id": "sit",
+      "facing": "right",
+      "frames": [
+        "art/actors/thad-sit-right/sit-00.png",
+        "art/actors/thad-sit-right/sit-01.png",
+        "art/actors/thad-sit-right/sit-02.png",
+        "art/actors/thad-sit-right/sit-03.png",
+        "art/actors/thad-sit-right/sit-04.png",
+        "art/actors/thad-sit-right/sit-05.png"
+      ],
+      "figureHeight": 526,
+      "anchor": [
+        261,
+        526
+      ]
+    },
+    {
+      "id": "rise",
+      "facing": "left",
+      "frames": [
+        "art/actors/thad-rise-left/rise-00.png",
+        "art/actors/thad-rise-left/rise-01.png",
+        "art/actors/thad-rise-left/rise-02.png",
+        "art/actors/thad-rise-left/rise-03.png",
+        "art/actors/thad-rise-left/rise-04.png",
+        "art/actors/thad-rise-left/rise-05.png"
+      ],
+      "figureHeight": 526,
+      "anchor": [
+        261,
+        526
+      ]
+    },
+    {
+      "id": "rise",
+      "facing": "right",
+      "frames": [
+        "art/actors/thad-rise-right/rise-00.png",
+        "art/actors/thad-rise-right/rise-01.png",
+        "art/actors/thad-rise-right/rise-02.png",
+        "art/actors/thad-rise-right/rise-03.png",
+        "art/actors/thad-rise-right/rise-04.png",
+        "art/actors/thad-rise-right/rise-05.png"
+      ],
+      "figureHeight": 526,
+      "anchor": [
+        261,
+        526
+      ]
+    },
+    {
+      "id": "idle",
+      "facing": "left",
+      "frames": [
+        "art/actors/thad-seated-left/seated-00.png"
+      ],
+      "figureHeight": 526,
+      "anchor": [
+        261,
+        526
+      ],
+      "state": "seated"
+    },
+    {
+      "id": "idle",
+      "facing": "right",
+      "frames": [
+        "art/actors/thad-seated-right/seated-00.png"
+      ],
+      "figureHeight": 526,
+      "anchor": [
+        261,
+        526
+      ],
+      "state": "seated"
+    },
+    {
+      "id": "idle-break",
+      "facing": "left",
+      "frames": [
+        "art/actors/thad-idlebreak-seated-left/idle-break-00.png"
+      ],
+      "figureHeight": 526,
+      "anchor": [
+        261,
+        526
+      ],
+      "state": "seated"
+    },
+    {
+      "id": "idle-break",
+      "facing": "right",
+      "frames": [
+        "art/actors/thad-idlebreak-seated-right/idle-break-00.png"
+      ],
+      "figureHeight": 526,
+      "anchor": [
+        261,
+        526
+      ],
+      "state": "seated"
+    },
+    {
+      "id": "stand",
+      "facing": "left",
+      "frames": [
+        "art/actors/thad-stand-seated-left/stand-00.png"
+      ],
+      "figureHeight": 526,
+      "anchor": [
+        261,
+        526
+      ],
+      "state": "seated"
+    },
+    {
+      "id": "stand",
+      "facing": "right",
+      "frames": [
+        "art/actors/thad-stand-seated-right/stand-00.png"
+      ],
+      "figureHeight": 526,
+      "anchor": [
+        261,
+        526
+      ],
+      "state": "seated"
     }
   ]
 }

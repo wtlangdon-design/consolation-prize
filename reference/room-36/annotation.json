@@ -147,7 +147,7 @@
  "exitSubjects": {
   "THE COACH STOP": {
    "id": "to_coach_stop",
-   "to": "stage_road",
+   "to": "coach_stop_dawn",
    "defaultVerb": "WALK_TO",
    "stub": true,
    "when": {
@@ -161,17 +161,17 @@
      "set": {
       "T_CLOSE_SAID": true
      },
-     "stays": true,
      "thenFrom": {
       "file": "content/dialogue/letters-home.json",
       "field": "actFour",
       "overBlack": true
      },
-     "directionUntil": "Thad's last spoken line:",
-     "directionNote": "Errata 99 P (Tyler delegated, 2026-11-06): the sign repainted upward by a man on a ladder is performed as the beat's own words, not drawn -- the sign is at Room 1's coach stop, and a dawn Room 1 for one beat is not built."
+     "arrives": true,
+     "pause": 3.8,
+     "arrivesNote": "Errata 121 B (Tyler, 2026-11-06, \"Proceed\"): beat 3's picture is drawn -- Room 1's coach stop at first light, the sign being repainted upward by a man on a ladder, who nods -- so the beat is played THERE: the exit goes to coach_stop_dawn and the line follows his arrival, after the man has turned and nodded. Replaces errata 99 P's performed stage direction."
     }
    ],
-   "note": "Doc 48 S7: 'The one exit is the coach stop, east.' Beat 3, Thad's last spoken line, then beat 4, the Act IV letter over black (doc 04 Part Three's, as Room 19 reads it). No document writes the stop a LOOK or LISTEN: a stub (errata 72 F). Beat 3's picture -- the sign repainted upward by a man on a ladder -- and beat 5's credits are not built (doc 36 Q176)."
+   "note": "Doc 48 S7: 'The one exit is the coach stop, east.' Beat 3 at the coach stop (coach_stop_dawn, errata 121 B): Thad's last spoken line, then beat 4, the Act IV letter over black (doc 04 Part Three's, as Room 19 reads it). No document writes the stop a LOOK or LISTEN: a stub (errata 72 F). Beat 5's credits are not built (doc 36 Q176)."
   }
  },
  "exits": {

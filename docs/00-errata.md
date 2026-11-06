@@ -3346,3 +3346,25 @@ The audit Tyler asked for ("Go on all five") played the duels as a newcomer, and
 
 The audits' other findings change how the duels and puzzles play, and are Tyler's to rule on (reported separately).
 
+---
+
+# 121 · THE STAGING THE BUILD LEFT OUT — TYLER, 2026-11-06 ("Proceed")
+
+Tyler, on the list of what the full build left unstaged (doc 36 Q173, Q174, Q176): **"Proceed."** Each item is built from what the documents already describe, and no line is written.
+
+**A · Thad sits for the ninety seconds (doc 48 S5 beat 3: "He sits down in the dark and listens to it").** Room 33's fourth operation drew four poses of him at one scale against his cast sheet, his key poses and a frame of him in the chamber (`art/staging/room-33/thad-sits/sheet.png`): standing, half down, a hand behind him, sitting with his knees drawn up. `tools/art/thad-sit.py` cuts them onto his chores' scale and snaps them to one level: `sit` (his chore stand, then the poses, the middle two held a frame each, so the sit takes 0.86 s rather than a verb's 0.57), `rise` (the same, backwards), and `seated` as a state of `idle`, `idle-break` and `stand`, left and right (left is the drawing mirrored). **In the game:** once the void's line has come down he turns toward the void and sits; seated is his mover state, so it saves with the room; the ninety seconds take every click as before; the first click after them stands him up and is spent doing it.
+
+**Seated is ONE still frame.** Invariant 8: by the time the score resolves, the lamp -- the only moving thing in the frame -- has stopped. A seated figure that breathed would be a second moving thing, so the seated idle and its break are the same single frame. Errata 77's movement rule is for the people of the town, not for this.
+
+**What holds it:** `tests/thad-sits.test.mjs` (sit and rise are each other backwards; every seated clip is one frame, the one the sit ends on; the sit lasts at least 0.8 s). `tools/check-rig-describes-frames.mjs` gains `scale_from`: a pose that never stands names the clip that does, and is held to its figure and its sole row (recorded in `proofs/check-friction.json`).
+
+**Art: room-33 4 of 4 operations.**
+
+**B · Beat 3 of the close is drawn, at the coach stop (doc 48 S7 beat 3: "At the coach stop: the sign — POP. 2,000 AND CLIMBING — being repainted upward by a man on a ladder, who nods. Thad's last spoken line: 'Leave the mud.'").** Errata 99 P performed the picture as a stage direction because a dawn Room 1 was not built; it is built now, and the direction is gone.
+
+- **The place.** `coach_stop_dawn` (`content/rooms/coach-stop-dawn.json`) is Room 1 at first light, as Room 36 is Room 2: Room 1's ground, walk box and depth curve, unchanged; no hotspots and no exits, because the game ends there. Its plate is Room 1's own pixels with its sign's lettering, under room-36 operation 3's light, by the same transfer as Room 36's street (`tools/art/room36-dawn.py`, now taking Room 1's own skyline and putting out its town's windows; `tools/art/coach-stop-dawn-plate.mjs`). The numbers on the sign are the approved lettering's: nothing is painted over or added -- the new number is the man's to paint, and no document writes it.
+- **The man on the ladder.** Room-36 operation 4 drew him beside the hero for scale. `tools/art/sign-painter.py` cuts him at one level; his step-ladder is lengthened (the steps keep their thickness, the gaps widen to a man's step) so his brush reaches the board's number line, and his dab and his nod are derived from his own frames. He paints; `onArrival` plays his nod two seconds after Thad comes in, and a break repeats it now and then.
+- **The words are where they were.** Room 36's exit still carries the beat compiled from doc 48 and the letters file, unchanged: it now `arrives` -- the room changes first, and "Leave the mud." follows 3.8 s later, once the nod is done; the Act IV letter follows over black. A load after the close finds the room black (`blackWhen`), not a picture with nothing left in it.
+- **What holds it:** `tests/room-36.test.ts` (the close goes to the coach stop; the man is there; the line waits for his nod; no way out; black after). Seen in `renders/walks/the-close.gif`.
+
+**Art: room-36 4 of 4 operations.**

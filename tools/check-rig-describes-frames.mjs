@@ -121,6 +121,26 @@ export function check() {
       }
       continue;
     }
+    // A RIG WITH A scale_from is a pose that never stands -- Thad seated in
+    // Room 33 -- so no frame of its own can prove the scale. It names the clip
+    // that does (his `sit`, whose first frame is his stand at the declared
+    // height, held by the clauses above and below), and is held to that clip's
+    // figure and to its soles on the declared row. Anything else about it is
+    // that clip's frames, which tests/thad-sits.test.mjs compares byte for byte.
+    if (rig.scale_from !== undefined) {
+      const fromPath = resolve(ROOT, ACTORS, rig.scale_from, 'rig.json');
+      const from = existsSync(fromPath) ? JSON.parse(readFileSync(fromPath, 'utf8')) : null;
+      if (!from) {
+        report.fail(`${dir}: takes its scale from ${rig.scale_from}, which has no rig`);
+      } else if (from.scale_from !== undefined || String(from.figure) !== String(rig.figure)) {
+        report.fail(`${dir}: takes its scale from ${rig.scale_from}, whose figure is `
+          + `${from.figure} (${rig.figure} here), or which takes its own from elsewhere`);
+      }
+      if (rows.bottom + 1 !== declared) {
+        report.fail(`${dir}: its soles end at row ${rows.bottom + 1}, not the declared ${declared}`);
+      }
+      continue;
+    }
     if (rows.top !== 0) {
       report.fail(`${dir}: the figure starts at row ${rows.top}, not row 0. The anchor is `
         + 'measured down from the canvas top, so every placement is off by that much');

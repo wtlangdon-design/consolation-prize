@@ -43,7 +43,7 @@ test('the nine dawn hotspots answer LOOK and LISTEN with lines the documents wri
   }
 });
 
-test('the one exit is the close: the last line, the letter over black, and he stays', async () => {
+test('the one exit is the close: at the coach stop, the last line, the letter over black, and he stays', async () => {
   const state = await inState();
   assert.equal(state.room.exits.length, 1, 'one exit');
   const stop = state.room.exits[0]!;
@@ -51,7 +51,18 @@ test('the one exit is the close: the last line, the letter over black, and he st
   assert.ok(close.say && docs.includes(close.say), 'his last spoken line');
   const letter = (close.then ?? []).filter((one) => typeof one !== 'string' && one.overBlack);
   assert.equal(letter.length, 4, 'four lines, entirely true');
-  assert.equal(close.changedRoom, false);
   assert.ok(state.flags.test({ T_CLOSE_SAID: true }));
-  assert.ok(!state.targets.some((one) => one.id === stop.id), 'and the stop is gone');
+  // ERRATA 115 B: doc 48 S7 beat 3 is "at the coach stop" -- the room changes first, and the line
+  // is said there once the man on the ladder has nodded (his nod is timed from the arrival).
+  assert.equal(close.changedRoom, true, 'he goes to the coach stop');
+  assert.equal(close.arrives, true, 'and the beat is played there');
+  assert.equal(state.roomId, 'coach_stop_dawn');
+  const painter = state.content.ambient.get('sign_painter');
+  assert.equal(painter?.room, 'coach_stop_dawn', 'the man on the ladder is at the sign');
+  const nod = painter?.sprite?.onArrival;
+  assert.ok(nod && close.pause !== undefined && close.pause > nod.at + nod.frames.length * (nod.frameSeconds ?? 0.3),
+    'the line waits until the man on the ladder has nodded');
+  assert.equal(state.room.exits.length, 0, 'and he stays: the game ends here');
+  assert.equal((state.room.hotspots ?? []).length, 0);
+  assert.ok(state.room.blackWhen && state.flags.test(state.room.blackWhen), 'a load after the close finds it black');
 });

@@ -170,6 +170,17 @@ export class GameScene extends Phaser.Scene {
   private tuneStart: number | null = null;
   private readonly tuneCuesFired = new Set<string>();
   /**
+   * DOC 48 S5 BEAT 3: "He sits down in the dark and listens to it." Set at the
+   * void; once its line has been read he turns to the void and sits. Seated is
+   * his mover state (`seated`), so it saves with the room and a load finds him
+   * where he was; the first click after the ninety seconds stands him up.
+   */
+  private sitDue = false;
+  /** When he came into this room (scene seconds): a figure's `onArrival` frames count from it (errata 121 B). */
+  private arrivedAt: number | undefined;
+  /** An exit's beat played where it goes: its first line waits until this (scene seconds; errata 121 B). */
+  private sayAt: number | null = null;
+  /**
    * THE ACT CARDS AFTER THE OPENING (errata 84 C). ACT is the one fact; when it
    * rises in play, that act's card (content/act-cards.json, from doc 57) is
    * shown once the scene's last line has been read and no conversation is
@@ -502,6 +513,11 @@ export class GameScene extends Phaser.Scene {
       this.markDirty();
     }
     this.tickListening();
+    // AN EXIT'S BEAT, PLAYED WHERE IT WENT (errata 121 B): its first line once the pause is over.
+    if (this.sayAt !== null && now >= this.sayAt) {
+      this.sayAt = null;
+      this.advanceSay();
+    }
     this.watchActTurn(now);
     this.openActWhenQuiet();
     this.view.setClock(now);
@@ -882,7 +898,8 @@ export class GameScene extends Phaser.Scene {
         return ambientFrameAt(timed, 0, this.musicBefore) !== ambientFrameAt(timed, 0, this.musicNow);
       }
       const phase = sprite.phase ?? 0;
-      return ambientFrameAt(sprite, phase, before) !== ambientFrameAt(sprite, phase, after);
+      return ambientFrameAt(sprite, phase, before, this.arrivedAt)
+        !== ambientFrameAt(sprite, phase, after, this.arrivedAt);
     });
   }
 
@@ -977,6 +994,7 @@ export class GameScene extends Phaser.Scene {
     // DOC 48 S5 BEAT 3: the ninety seconds are not his. He sits in the dark
     // and listens; no click moves him, opens the panel or cuts it short.
     if (this.tuneStart !== null) return;
+    if (this.riseIfSeated()) return;
 
     // An act card holds the screen for its time; a click does not cut it.
     if (this.actCardUntil !== null) return;
@@ -1441,6 +1459,24 @@ export class GameScene extends Phaser.Scene {
     // with no speaker is Thad's by definition, not by default.
     // A RULE THAT IS ALL DIRECTION (doc 58: Room 33's third swing) is
     // performed as one, in parentheses, in the quieter ink.
+    // A BEAT PLAYED WHERE THE EXIT GOES (errata 121 B): he arrives first, and every line -- the first
+    // after `pause` -- is said there. Doc 48 S7 beat 3: the man on the ladder nods, then "Leave the mud."
+    if (result.arrives && result.changedRoom) {
+      this.hovered = null;
+      this.hoveredName = null;
+      this.enterRoomPerformance();
+      // Its writes have landed (the close's T_CLOSE_SAID), but this is the arrival that says it: the
+      // picture stays until a line over black takes it. `blackWhen` is for a load after the close.
+      this.overBlack = false;
+      const who = this.state.content.actor.id;
+      // A rule's `say` with no `by` is Thad's by definition, as everywhere else (doc 57 A9), not by default.
+      if (result.say) this.pendingSay.push({ speaker: result.by !== undefined ? result.by : who, line: result.say });
+      this.pendingSay.push(...(result.then ?? []).map((line) => (typeof line === 'string'
+        ? { speaker: who, line } : { speaker: line.speaker, line: line.line, ...(line.overBlack ? { overBlack: true } : {}) })));
+      this.sayAt = this.time.now / 1000 + (result.pause ?? 0);
+      this.markDirty();
+      return;
+    }
     if (result.direction && result.say && result.by) this.setSay(GameScene.asDirection(result.say), result.by, true);
     else if (result.direction && result.say) this.setSay(GameScene.asDirection(result.say), this.state.content.actor.id, true);
     else if (result.by) this.setSay(result.say, result.by);
@@ -1614,6 +1650,7 @@ export class GameScene extends Phaser.Scene {
       this.applyInteraction({ id: `${listening.surface}#void`, name: target.name, rect: target.rect, colour: 0,
         distant: true, responses: { LISTEN_TO: [listening.found] } } as Interactable, verb);
       this.tuneStart = now;
+      this.sitDue = true;
     }
     this.markDirty();
     return true;
@@ -1627,6 +1664,7 @@ export class GameScene extends Phaser.Scene {
       this.markDirty();
     }
     const listening = this.state.room.listening;
+    if (listening) this.sitWhenSaid(listening.void.at[0]);
     if (this.tuneStart === null || !listening) return;
     const fraction = tuneAt(listening, now - this.tuneStart);
     this.music.setTune(fraction);
@@ -1645,6 +1683,32 @@ export class GameScene extends Phaser.Scene {
     }
   }
 
+  /**
+   * He sits once the void's line has come down: a turn to face it, then `sit`.
+   * The state is set as the clip starts -- `sit` has no seated variant, so it
+   * plays through (partialStates), and the frame after it is already the held
+   * seated one rather than a frame of him standing.
+   */
+  private sitWhenSaid(voidX: number): void {
+    if (!this.sitDue || this.sayingActor !== null || this.pendingSay.length > 0) return;
+    const toward = voidX < this.actor.x ? 'left' : 'right';
+    if (this.actor.facing !== toward) { this.actor.setFacing(toward); return; }
+    if (this.actor.isBusy || this.actor.isWalking) return;
+    this.sitDue = false;
+    this.actor.react('sit', this.choreSeconds(this.actor, 'sit'));
+    this.state.setMoverState(this.actor.id, 'seated');
+    this.markDirty();
+  }
+
+  /** Seated and the ninety seconds over: the click stands him up, and is spent doing it. */
+  private riseIfSeated(): boolean {
+    if (this.state.moverState(this.actor.id) !== 'seated' || this.sitDue || this.actor.isBusy) return false;
+    this.state.setMoverState(this.actor.id, undefined);
+    this.actor.react('rise', this.choreSeconds(this.actor, 'rise'));
+    this.markDirty();
+    return true;
+  }
+
   /** How still the room's lamps are: Room 33's, on the score's clock (invariant 8). */
   private lampStillness(): number {
     const listening = this.state.room.listening;
@@ -1655,7 +1719,12 @@ export class GameScene extends Phaser.Scene {
 
   private enterRoomPerformance(from: string | null = this.state.previousRoomId): void {
     this.loadNear();
-    this.overBlack = false;
+    // A room over once its ending is said stays over black, after a load too (errata 121 B).
+    const black = this.state.room.blackWhen;
+    this.overBlack = black !== undefined && this.state.flags.test(black);
+    this.arrivedAt = this.time.now / 1000;
+    this.view.setArrivedAt(this.arrivedAt);
+    this.sayAt = null;
     // Who is in the room is decided now, as he arrives (AmbientLayer.present).
     this.ambient.arrived();
     this.musicResumed = false;
@@ -1695,6 +1764,7 @@ export class GameScene extends Phaser.Scene {
     this.armSteps();
     this.ripples = [];
     this.tuneStart = null;
+    this.sitDue = false;
     const listening = this.state.room.listening;
     if (listening) {
       // A save made inside the ninety seconds loads with them over: the

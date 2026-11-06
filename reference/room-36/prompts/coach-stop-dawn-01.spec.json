@@ -1,0 +1,13 @@
+{
+ "assetId": "room-36",
+ "subject": "room-36-coach-stop-dawn",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-36-main-street-dawn",
+ "promptFile": "reference/room-36/prompts/coach-stop-dawn-01.txt",
+ "out": "art/staging/room-36/coach-stop-dawn/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-36/coach-stop-dawn/input.png"
+ ]
+}

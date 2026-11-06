@@ -1,0 +1,13 @@
+{
+  "clip": "idle-break",
+  "facing": "right",
+  "figure": [
+    221,
+    526
+  ],
+  "frames": 1,
+  "padding": 150,
+  "state": "seated",
+  "scale_from": "thad-sit-right",
+  "note": "Doc 48 S5 beat 3: he sits down in the dark and listens. Room 33 operation 4 (art/staging/room-33/thad-sits/sheet.png), cut by tools/art/thad-sit.py on the chores' scale; left is the right drawing mirrored about the anchor."
+}
