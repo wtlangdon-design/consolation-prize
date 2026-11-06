@@ -1331,6 +1331,44 @@ bark budget, not here.
 **A DOG** *(act: 3)*
 > **LISTEN:** "He knows me. Tail, twice. The one resident who's never read a newspaper, so the one resident I'm still alive to."
 
+*The lines below are new writing, not doc 05's: errata 113's act-change pass (Tyler, 2026-11-06, "I'm giving you permission to do it"), Main Street as its sample. Doc 92 lists them. The plate does not change between acts, so no line describes anything the picture does not show.*
+
+**THE FALSE FRONTS** *(act: 3)*
+> **LOOK:** "Same false fronts. Last week every doorway said good morning to me. This week they're terribly sorry for my loss."
+> **LISTEN:** "Wind, and two men agreeing I was a fine fellow. Neither one ever met me. I'm touched."
+
+**THE WATER TROUGH** *(act: 3)*
+> **LOOK:** "My reflection, in three inches of water. For a dead man, I look surprisingly worried."
+> **LISTEN:** "Something's still living in it. So am I, whatever the paper says."
+
+**THE BOARDWALK** *(act: 3)*
+> **LOOK:** "Six inches above the mud. People still step aside for me, then remember I'm dead, and look embarrassed."
+
+**THE MUD** *(act: 3)*
+> **LOOK:** "The mud. The one thing on this street that treats me exactly as it did before I died."
+> **LISTEN:** "Not a sound. The mud sent no flowers."
+
+**THE HILLS** *(act: 3)*
+> **LOOK:** "Every pick in those hills is still looking for Mott's strike. Nobody's looking for me. I find I mind."
+
+**POSTED NOTICES** *(act: 4)*
+> **LOOK:** "Claims for sale, claims disputed, maps to Mott's strike. I've met Mott. He'd have bought a map."
+> **LISTEN:** "Paper in wind, every sheet rustling about one man. He's heard it for twelve years."
+
+**THE IMPROVEMENT COMPANY SIGN** *(act: 4)*
+> **LOOK:** "CONSOLATION IMPROVEMENT COMPANY. Two coats of gilt on a rumor. I've met the man who started it. He'd have stopped at one coat."
+
+**THE FALSE FRONTS** *(act: 4)*
+> **LOOK:** "Two stories in front, one behind. I used to call these the town's lie. I've since met the town's lie. These are just carpentry."
+> **LISTEN:** "Wind behind them, and nothing else. They never pretended otherwise."
+
+**A DOG** *(act: 4)*
+> **LOOK:** "The dog. He was here before the rumor, and he'll be here after it. I'd like to know his secret."
+
+**THE HILLS** *(act: 4)*
+> **LOOK:** "Every pick in those hills is after Mott's strike. Mott never struck anything. They all look so busy."
+> **LISTEN:** "Picks, far off. Honest work, every stroke of it, on a story."
+
 ## ROOM 3 — THE BOUNTIFUL NUGGET
 
 **THE BAR** *(act: 3)*

@@ -3086,3 +3086,26 @@ Tyler has played them. Whether they go into doc 07 or come out is his.
 **P · Behind the cabin (Tyler, 2026-11-06, of the miners far up the road: "the little ones at the top just randomly walking across a building"; asked, he chose "Behind the cabin").** The loop's last leg ran from the bend straight through the cabin at the top of the road. The cabin is cut from the plate's own pixels as a room prop (`cabin_front`, `tools/art/room22-cabin.py`, base on the road's edge), invisible until someone is behind it; both paths now end behind it (1852,194), so the men going out pass behind the cabin and are hidden, and the men coming back step out from behind it. Each loop is 64 s again (out 0-22 s, back 31-51 s). A loop may end hidden behind a prop it names (`hiddenBehind`); `tests/movement.test.mjs` accepts that only when the prop covers the whole walker there and is drawn in front of him. `tools/art/walk-review.py` now also draws every walk's path over its room with a box the walker's size at each point (`renders/walks-every-frame/<walker>-path.png`), the picture that shows a path crossing a building.
 
 **Q · Merged with main (2026-11-06).** Main had taken errata 101-110 (Hob's rounds, the music, the sounds, the bell, the townspeople) while this branch held its cast and walk rulings as 101 and 102. Main's numbers stand; the cast rulings are 111 and 112 here, and every citation this branch wrote is renumbered to match. The image caps add both sides' raises (attemptsTotal 276); the ledger keeps every attempt from both; the map seller keeps main's extracted barks and this branch's placement. Main's new rope-pull clip (`thad-reach-back`, Room 17's bell) was drawn before the one level and is snapped to it (`tools/art/one-level.py --only thad-reach-back/`), as `tests/one-level.test.mjs` requires of every figure. Content re-extracted from the documents.
+
+---
+
+# 113 · NEW LINES FOR ROOMS THE PLAYER COMES BACK TO — OWNER RULING (Tyler, 2026-11-06)
+
+Tyler remembered the Monkey Island touch of familiar rooms with new things in them. He was told that making more of Consolation's rooms change between acts needs new writing, which the project forbids. He said: **"I'm giving you permission to do it."**
+
+**A · The act-change pass is authorized, and it is the second exception** to "never generate written content", beside errata 100's dialogue pass. It writes new act-variant lines only, in doc 05 Part Two-B (or the room's own document), under doc 92's rules:
+- no puzzle, flag, gate, item or hotspot changes;
+- no load-bearing LISTEN line and no puzzle-fact LISTEN gets a variant;
+- nothing the plate does not show;
+- every line true whenever it can be read;
+- doc 59's voice, one writer, no subagents.
+
+Every other missing line is still a hard stop. Whether this also covers the gaps errata 110 reported (the message boy's *(pay)* option, the six hand-typed July lines) is asked, not assumed.
+
+**B · Main Street is the sample.** It has 16 new lines: 8 for Act III and 8 for Act IV, which had none. Doc 92 lists them. No other room is written until Tyler has played it and ruled.
+
+To see them on the live site:
+- Act III: `?fixture=r7-d&room=main_street`
+- Act IV: `?fixture=r2-f4&room=main_street`
+
+**C · CLAUDE.md** names this exception beside errata 100's, so a later session does not treat the pass as forbidden.
