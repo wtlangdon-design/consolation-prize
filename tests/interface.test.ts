@@ -535,7 +535,10 @@ test('object overrides repeat; global pools rotate', async () => {
     return state.interact(dog, state.verbs.verbFor(dog)).say;
   };
   const override = [push(), push(), push()];
-  assert.equal(override[0], 'I will not.');
+  // The written line, read from content: a test that types the line goes stale
+  // the first time the writing changes (errata 100's voice pass).
+  assert.equal(override[0], dog.overrides?.['PUSH']);
+  assert.ok(override[0], 'the dog has a PUSH override');
   assert.ok(
     override.every((line) => line === override[0]),
     'an object override fires the same line every time for that verb-object pair',
