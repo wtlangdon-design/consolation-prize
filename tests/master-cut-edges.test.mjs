@@ -17,15 +17,19 @@ import { readPng } from '../tools/lib/png.mjs';
  *
  * Held for every figure whose sheet was cut from the locked master (errata 101:
  * its provenance spec is derivedFrom master-02): within RIM px of transparency,
- * no more than SHARE of the pixels are key -- blue at least 12 over green and
- * (r + b) / 2 - g at least 25. Purple needs blue above green; a warm skin
- * outline has none. Measured: Thad 0; the four first cuts 1.5% to 3.3%; recut
+ * no more than SHARE of the pixels are key -- blue at least 12 over green,
+ * (r + b) / 2 - g at least 25, and more magenta by OVER than the figure just
+ * inside it (the median of its solid pixels within 4 px that are not edge).
+ * Purple needs blue above green, so a warm skin outline is not key; and real
+ * purple -- Ozymandia's hair, which falls to her edge -- continues inward, so
+ * it is not key either. Measured: Thad 0; the four first cuts 1.5% to 3.3%; recut
  * 0. Older sheets lit purple all over by a night relight are not master cuts
  * and are replaced from the master as it goes.
  */
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const RIM = 2;
 const SHARE = 0.005;
+const OVER = 20;
 
 const fromMaster = (npc) => {
   const spec = npc.sprite?.provenance;
@@ -48,7 +52,22 @@ export function keyOnEdge(png) {
       if (!edge) continue;
       rim += 1;
       const i = (y * width + x) * 4, r = pixels[i], g = pixels[i + 1], b = pixels[i + 2];
-      if (b >= g + 12 && (r + b) / 2 - g >= 25) key += 1;
+      if (!(b >= g + 12 && (r + b) / 2 - g >= 25)) continue;
+      const inner = [];
+      for (let dy = -4; dy <= 4; dy += 1) {
+        for (let dx = -4; dx <= 4; dx += 1) {
+          const xx = x + dx, yy = y + dy;
+          if (!solid(xx, yy)) continue;
+          let deep = true;
+          for (let ey = -RIM; ey <= RIM && deep; ey += 1) for (let ex = -RIM; ex <= RIM; ex += 1) if (!solid(xx + ex, yy + ey)) { deep = false; break; }
+          if (!deep) continue;
+          const j = (yy * width + xx) * 4;
+          inner.push((pixels[j] + pixels[j + 2]) / 2 - pixels[j + 1]);
+        }
+      }
+      inner.sort((p, q) => p - q);
+      const within = inner.length ? inner[Math.floor(inner.length / 2)] : -255;
+      if ((r + b) / 2 - g - within > OVER) key += 1;
     }
   }
   return rim ? key / rim : 0;

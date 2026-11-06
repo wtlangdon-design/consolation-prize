@@ -22059,6 +22059,139 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-06T04:08:12.426Z"
+  },
+  {
+   "attempt": 16,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "counter-trio-four",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/cast-master/master-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/cast-unify-14.txt",
+   "promptHash": "254ffa1a3d6668588a8d8b4399695a2d90c2cb6e1f09759d0179d9d4b7298107",
+   "references": [
+    {
+     "path": "art/staging/cast-unify/batch-14/board.png",
+     "hash": "80b7ef448ef072d9ddcb962d8cd55140d7777c84fd6030d88d4e4721065f0660",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-14/last-time.png",
+     "hash": "7a87ec494bf204e2c2bc7760966d37bd8bc6b38a263b487ad4202eba1116c243",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-14/undertaker-last.png",
+     "hash": "f58598d4f5419af23512dae47361b503459f3228e88c1b564bc2cd5fd0b01510",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-14/rooms.png",
+     "hash": "2765540329f1fbd4a21936683797bdd3a51a44d103cbf450e6b038ff52df3e6f",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-18-hotel-lobby",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "80b7ef448ef072d9ddcb962d8cd55140d7777c84fd6030d88d4e4721065f0660",
+   "sourcePath": "art/staging/cast-unify/batch-14/board.png",
+   "out": "art/staging/cast-unify/batch-14/sheet.png",
+   "outputHash": "681a013e4343681c974d9ad2f2d7a70becc5863a6dff6544ac28c3e48e727b19",
+   "bytes": 1802211,
+   "usage": {
+    "input_tokens": 11291,
+    "input_tokens_details": {
+     "image_tokens": 10587,
+     "text_tokens": 704
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 12842
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T04:18:39.793Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T04:18:39.797Z"
   }
  ],
  "promotions": [

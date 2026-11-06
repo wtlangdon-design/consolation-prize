@@ -38,15 +38,17 @@ import { readPng } from '../tools/lib/png.mjs';
  * waist ends on; held here twice over:
  *   - the rest frame's waist (the lowest drawn row of its centre column) lands
  *     on that row, within one pixel; and
- *   - that row IS an edge in the plate at the figure's x, standing EDGE times
- *     out of the rows around it (edgeProminence), so a number that matches the
- *     drawing but not the room fails too.
+ *   - that row IS an edge in the plate across the figure's waist (within REACH
+ *     of its x), standing EDGE times out of the rows around it
+ *     (edgeProminence), so a number that matches the drawing but not the room
+ *     fails too.
  */
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const SPAN = 6;
 const WIDEST = 0.45;
 const EDGE = 4;
 const FOLDED = 0.85;
+const REACH = 40;
 
 const lists = JSON.parse(readFileSync(resolve(ROOT, 'proofs/counter-surface-awaiting.json'), 'utf8'));
 const awaiting = new Set(lists.awaiting);
@@ -151,8 +153,11 @@ for (const npc of figures) {
     const waist = waistRow(png, npc.sprite.frames[0], npc.y);
     assert.ok(Math.abs(waist - edge) <= 1, `${npc.id}'s waist is drawn at y ${waist}, not on y ${edge}`);
     const plate = readPng(readFileSync(resolve(ROOT, plates.get(npc.room))));
-    const prominence = edgeProminence(plate, npc.x, edge);
-    assert.ok(prominence >= EDGE, `y ${edge} is not an edge in the plate at x ${npc.x} (it stands ${prominence.toFixed(1)}x out of the rows around it)`);
+    // Read across the waist, not at one column: at the figure's centre the edge
+    // can be behind what stands in front of it (Ozymandia's ball, the spine of
+    // the hotel register). The strongest reading within REACH of centre counts.
+    const prominence = Math.max(...Array.from({ length: 2 * REACH / 10 + 1 }, (_, k) => edgeProminence(plate, npc.x - REACH + 10 * k, edge)));
+    assert.ok(prominence >= EDGE, `y ${edge} is not an edge in the plate within ${REACH} px of x ${npc.x} (it stands ${prominence.toFixed(1)}x out of the rows around it)`);
   });
 }
 
