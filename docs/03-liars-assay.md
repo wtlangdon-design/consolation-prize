@@ -332,7 +332,7 @@ Loss dialogue:
 
 *Not a duel. She corrects him the way one corrects a student, and it is the first time she is anything but curt.*
 
-> **WINNIE:** "Say it again. And don't apologise in the middle of it."
+> **WINNIE:** "Say it again. And don't apologize in the middle of it."
 > **THAD:** "I've had three fortunes and lost — "
 > **WINNIE:** "No. You've had one fortune and told it twice. That's the answer. Say the answer."
 > **THAD:** "Why do you know this so well?"

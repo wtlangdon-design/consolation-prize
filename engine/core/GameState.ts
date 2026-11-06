@@ -172,6 +172,16 @@ export class GameState {
   private reputation = 0;
   /** The room walked out of, so the arrival point can be chosen. Doc 21 gap 7. */
   private cameFrom: string | null = null;
+  /**
+   * The room the map was opened FROM, while it is open or was last closed.
+   * Closing the map back onto that room is a return; travelling on the map to
+   * any OTHER room is an arrival, even one he has stood in before
+   * (resumeStanding). Not saved: a load forgets where he stood anyway, so a
+   * map reached through a load has no room to return to.
+   */
+  private mapOpenedFrom: string | null = null;
+  /** The flags as they stood as he walked into the current room, before its onEnter writes (arrivalOf). */
+  private enteredWith: { room: string; flags: ReturnType<FlagStore['snapshot']> } | null = null;
   /** The item the next verb applies WITH, not the item it applies TO. */
   private held: string | null = null;
   /** First visible inventory row. Errata ruling 26's scrollable list. */
@@ -557,15 +567,51 @@ export class GameState {
 
   /**
    * Where to put him on entering, when this is a RETURN rather than an
-   * arrival: back from the map, or back from a load. Walking through a door
-   * is an arrival and still uses the entrance, because coming in through a
-   * door is exactly what an entrance is for.
+   * arrival: the map closed back onto the room it was opened from, or a load.
+   * Walking through a door is an arrival and still uses the entrance, because
+   * coming in through a door is exactly what an entrance is for.
+   *
+   * TRAVELLING BY THE MAP TO ANOTHER ROOM IS AN ARRIVAL, even to one he has
+   * stood in before. The rule used to be "anything off the map is a return",
+   * and every map-only room he had visited once then skipped its arrival
+   * lines, scenes and accosts for the rest of the session: Pratt at the
+   * registrar's counter (doc 57 D6) could never play, and Boot Hill on the
+   * funeral day never ended the day (D4). Opening and closing the map is not a
+   * move; going somewhere on it is.
    *
    * The map is recognised by its own `kind`, so no `.ts` file names Room 0.
    */
   resumeStanding(from: string | null): [number, number] | undefined {
-    const returning = from === null || this.content.rooms.get(from)?.kind === 'map';
+    const fromMap = from !== null && this.content.rooms.get(from)?.kind === 'map';
+    const returning = from === null || (fromMap && this.mapOpenedFrom === this.currentRoomId);
     return returning ? this.standing.get(this.currentRoomId) : undefined;
+  }
+
+  /**
+   * WHAT THE ROOM HE HAS JUST WALKED INTO SAYS: whether its own lines are held
+   * (`sayOnce` already true, or `sayWhen` not holding) and which arrival scenes
+   * play -- decided against the flags AS THEY STOOD AS HE WALKED IN, before
+   * the room's onEnter writes landed.
+   *
+   * `sayOnce` names a flag onEnter itself sets ("the lines play before the
+   * flag lands and never again after"), and GameScene used to read it after
+   * the writes: Main Street's first-sight lines were held on the very first
+   * visit and never played. Found by the continuous playthrough.
+   *
+   * After a load or a fixture nothing was written on the way in, so the flags
+   * as they are now are the flags he walked in with.
+   */
+  arrivalOf(): { held: boolean; scenes: NonNullable<NonNullable<RoomFile['onEnter']>['scenes']> } {
+    const entry = this.room.onEnter;
+    let test = (condition?: Condition) => this.flags.test(condition);
+    if (this.enteredWith?.room === this.currentRoomId) {
+      const before = new FlagStore(this.content.flags);
+      before.restore(this.enteredWith.flags);
+      test = (condition?: Condition) => before.test(condition);
+    }
+    const held = Boolean(entry?.sayOnce && test({ [entry.sayOnce]: true }))
+      || (entry?.sayWhen !== undefined && !test(entry.sayWhen));
+    return { held, scenes: (entry?.scenes ?? []).filter((scene) => test(scene.when)) };
   }
 
   /**
@@ -628,6 +674,9 @@ export class GameState {
       throw new Error(`Unknown room: ${roomId}`);
     }
     this.cameFrom = this.currentRoomId;
+    if (this.content.rooms.get(roomId)?.kind === 'map' && this.content.rooms.get(this.cameFrom)?.kind !== 'map') {
+      this.mapOpenedFrom = this.cameFrom;
+    }
     this.currentRoomId = roomId;
     this.boxCache = null;
     // THE VIEW GOES BACK TO HIM ON EVERY ENTRY. A beat that pinned the camera
@@ -642,11 +691,14 @@ export class GameState {
     // Wherever he will be standing: the resumed position if this is a return,
     // else the entrance, else the middle. The scene places him from the same
     // three, so the view starts where he does.
-    const resumed = this.standing.get(roomId);
+    const resumed = this.resumeStanding(this.cameFrom);
     const entrance = this.entranceInto(roomId, this.cameFrom)?.at;
     const width = roomWidth(this.content.rooms.get(roomId)?.size);
     const entryX = resumed?.[0] ?? entrance?.[0] ?? width / 2;
     this.camera = cameraAt(entryX, width);
+    // WHAT THE ROOM SAYS IS DECIDED AGAINST THE FLAGS AS HE WALKED IN, so it is
+    // taken before the writes below land (arrivalOf).
+    this.enteredWith = { room: roomId, flags: this.flags.snapshot() };
     // Errata 31c: standing somewhere is a thing that can happen to a player,
     // and no hotspot response can observe it. Applied before the autosave so
     // a save taken on arrival already knows where he has been.
@@ -1306,6 +1358,8 @@ export class GameState {
     this.reputation = save.reputation;
     this.held = null;
     this.cameFrom = null;
+    this.mapOpenedFrom = null;
+    this.enteredWith = null;
     this.scroll = 0;
     this.objectStates = new Map(Object.entries(save.objectStates ?? {}));
     this.taken = new Set(save.taken ?? []);
@@ -1335,6 +1389,8 @@ export class GameState {
     this.reputation = 0;
     this.held = null;
     this.cameFrom = null;
+    this.mapOpenedFrom = null;
+    this.enteredWith = null;
     this.scroll = 0;
     this.objectStates.clear();
     this.taken.clear();

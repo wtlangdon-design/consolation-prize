@@ -240,3 +240,39 @@ test('the Assay stays sitting until the player walks out after Duel Two, and is 
   assert.equal(state.flags.get('T_ASSAY_ADJOURNED'), true, 'walking out after the win adjourns it');
   assert.equal(sitting().length, 0, 'and when he comes back they are gone');
 });
+
+test('every pair the player can learn is taught by some row or duel, by the teacher doc 03 names (doc 57 pair table)', async () => {
+  // Found by the continuous playthrough (tests/full-game.test.ts): the two
+  // sparrings (WIN_B4 1, PRA_D6 4) and Hob's pair 21 wrote nothing, so real
+  // play could hold 9 pairs against Duel Two's 14 and B6 could not be won.
+  const content = await loadContent(fsReader);
+  const file = await assayFile();
+  const written = new Map<string, string[]>();
+  for (const tree of content.dialogue.values()) {
+    for (const node of Object.values(tree.nodes)) {
+      for (const option of node.options) {
+        for (const [flag, value] of Object.entries(option.set ?? {})) {
+          if (value === true) written.set(flag, [...(written.get(flag) ?? []), tree.speaker ?? tree.id]);
+        }
+      }
+    }
+  }
+  // A duel teaches by its `learns` (Duel One's notebook, errata 73 D).
+  for (const duel of Object.values(file.duels)) {
+    for (const n of (duel as { learns?: number[] }).learns ?? []) {
+      const flag = file.pairs.find((pair) => pair.n === n)?.flag;
+      if (flag) written.set(flag, ['duel']);
+    }
+  }
+  const untaught = file.pairs.filter((pair) => pair.flag && !written.has(pair.flag)).map((pair) => pair.n);
+  assert.deepEqual(untaught, [], 'pairs nothing teaches');
+  // A teacher's row teaches only the teacher's own pairs.
+  for (const pair of file.pairs.filter((one) => one.flag)) {
+    const who = (pair as { learnedFrom?: string }).learnedFrom ?? '';
+    for (const speaker of (written.get(pair.flag!) ?? []).filter((one) => one !== 'duel')) {
+      const name = content.ambient.get(speaker)?.name ?? speaker;
+      assert.ok(who.toLowerCase().split(/\s+/).some((word) => name.toLowerCase().includes(word)),
+        `pair ${pair.n} is doc 03's ${who}'s, and ${speaker} teaches it`);
+    }
+  }
+});

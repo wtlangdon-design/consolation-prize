@@ -1,0 +1,1855 @@
+{
+ "schema": 1,
+ "note": "The continuous playthrough's route, in doc 57's order, ids only (tests/full-game.test.ts). Each step plays one click's worth -- a room reached by exits and the map, a TALK TO and its options, an item used, a verb -- and names what it must have changed. A step that breaks is a finding; `knownBreaks` lists them, with the cause, and a step's `bypass` is applied only after it has broken, so play can go on to the next one.",
+ "knownBreaks": [],
+ "neverRecorded": [],
+ "ending": {
+  "puzzle": "F5",
+  "flags": {
+   "T_FILED": true,
+   "T_CLOSE_SAID": true
+  }
+ },
+ "steps": [
+  {
+   "id": "open.1",
+   "do": "opening",
+   "expect": {
+    "room": "stage_road",
+    "dialogue": "STAGE_DRIVER"
+   }
+  },
+  {
+   "id": "open.2",
+   "do": "choose",
+   "choose": [
+    "drv1",
+    "drv2",
+    "drv3",
+    "drv4"
+   ],
+   "expect": {
+    "dialogue": null,
+    "flags": {
+     "T_UNDERTAKER_NAMED": true,
+     "T_COACH_DEPARTED": true
+    }
+   }
+  },
+  {
+   "id": "open.3",
+   "do": "verb",
+   "verb": "LOOK_AT",
+   "on": "lamp",
+   "expect": {
+    "flags": {
+     "T_HOB_SPOKEN": true,
+     "T_HOB_GONE": true
+    }
+   }
+  },
+  {
+   "id": "open.4",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "case_mud",
+   "expect": {
+    "carrying": [
+     "letter",
+     "tuning_fork",
+     "four_dollars",
+     "watch"
+    ]
+   }
+  },
+  {
+   "id": "open.5",
+   "do": "verb",
+   "verb": "WALK_TO",
+   "on": "road_west",
+   "expect": {
+    "room": "main_street",
+    "flags": {
+     "T_SEEN_MAIN_STREET": true
+    }
+   }
+  },
+  {
+   "id": "A1.1",
+   "puzzle": "A1",
+   "do": "go",
+   "room": "undertaker"
+  },
+  {
+   "id": "A1.2",
+   "puzzle": "A1",
+   "do": "talk",
+   "npc": "undertaker",
+   "choose": [
+    "undertaker1",
+    "undertaker2"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "A1"
+    ],
+    "flags": {
+     "T_PIKE_DEAD": true
+    },
+    "dialogue": null
+   }
+  },
+  {
+   "id": "A1.3",
+   "puzzle": "A1",
+   "do": "go",
+   "room": "boot_hill",
+   "expect": {
+    "room": "boot_hill"
+   }
+  },
+  {
+   "id": "A2.1",
+   "puzzle": "A2",
+   "do": "go",
+   "room": "hotel_lobby"
+  },
+  {
+   "id": "A2.2",
+   "puzzle": "A2",
+   "do": "talk",
+   "npc": "hotel_clerk",
+   "choose": [
+    "hotel_clerk2",
+    "hotel_clerk3",
+    "hotel_clerk4"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_TUNES_PIANOS": true
+    }
+   }
+  },
+  {
+   "id": "A2.3",
+   "puzzle": "A2",
+   "do": "verb",
+   "verb": "LISTEN_TO",
+   "on": "parlor_piano"
+  },
+  {
+   "id": "A2.4",
+   "puzzle": "A2",
+   "do": "use",
+   "item": "tuning_fork",
+   "on": "parlor_piano",
+   "expect": {
+    "puzzles": [
+     "A2"
+    ],
+    "flags": {
+     "T_ROOM_GRANTED": true
+    },
+    "targets": [
+     "stairs"
+    ]
+   }
+  },
+  {
+   "id": "A3.1",
+   "puzzle": "A3",
+   "do": "go",
+   "room": "nugget",
+   "expect": {
+    "dialogue": "DEKE_VESSEL"
+   }
+  },
+  {
+   "id": "A3.2",
+   "puzzle": "A3",
+   "do": "choose",
+   "choose": [
+    "deke_vessel2",
+    "deke_vessel3",
+    "deke_vessel4",
+    "deke_vessel6"
+   ],
+   "expect": {
+    "puzzles": [
+     "A3"
+    ],
+    "dialogue": null,
+    "carrying": [
+     "deed"
+    ],
+    "notCarrying": [
+     "four_dollars",
+     "watch"
+    ]
+   }
+  },
+  {
+   "id": "A8.1",
+   "puzzle": "A8",
+   "do": "use",
+   "item": "tuning_fork",
+   "on": "piano",
+   "expect": {
+    "puzzles": [
+     "A8"
+    ],
+    "carrying": [
+     "filing_fee"
+    ]
+   }
+  },
+  {
+   "id": "A4.1",
+   "puzzle": "A4",
+   "do": "go",
+   "room": "fanshawe_office"
+  },
+  {
+   "id": "A4.2",
+   "puzzle": "A4",
+   "do": "talk",
+   "npc": "fanshawe",
+   "choose": [
+    "fanshawe1"
+   ],
+   "leave": true,
+   "expect": {
+    "carrying": [
+     "company_map"
+    ],
+    "puzzles": [
+     "A4"
+    ]
+   }
+  },
+  {
+   "id": "A4.3",
+   "puzzle": "A4",
+   "do": "go",
+   "room": "claims_road",
+   "expect": {
+    "flags": {
+     "T_SEEN_CLAIMS_ROAD": true
+    },
+    "targets": [
+     "to_prosperity"
+    ]
+   }
+  },
+  {
+   "id": "A5.1",
+   "puzzle": "A5",
+   "do": "go",
+   "room": "livery"
+  },
+  {
+   "id": "A5.2",
+   "puzzle": "A5",
+   "do": "talk",
+   "npc": "livery_man",
+   "choose": [
+    "livery_man5"
+   ],
+   "leave": true,
+   "expect": {
+    "carrying": [
+     "blanket"
+    ]
+   }
+  },
+  {
+   "id": "A5.3",
+   "puzzle": "A5",
+   "do": "go",
+   "room": "prosperity",
+   "expect": {
+    "present": [
+     "raccoon"
+    ]
+   }
+  },
+  {
+   "id": "A5.4",
+   "puzzle": "A5",
+   "do": "use",
+   "item": "blanket",
+   "on": "hole",
+   "expect": {
+    "puzzles": [
+     "A5"
+    ],
+    "flags": {
+     "T_WARM_HOLE": true
+    }
+   }
+  },
+  {
+   "id": "A6.1",
+   "puzzle": "A6",
+   "do": "go",
+   "room": "claims_registrar"
+  },
+  {
+   "id": "A6.2",
+   "puzzle": "A6",
+   "do": "talk",
+   "npc": "sump",
+   "choose": [
+    "sump1",
+    "sump1a"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "A6"
+    ],
+    "flags": {
+     "T_SURVEY_NEEDED": true
+    }
+   }
+  },
+  {
+   "id": "A7.1",
+   "puzzle": "A7",
+   "do": "go",
+   "room": "ozymandias_tent"
+  },
+  {
+   "id": "A7.2",
+   "puzzle": "A7",
+   "do": "talk",
+   "npc": "ozymandia",
+   "choose": [
+    "ozymandia1"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_OZY_ASKED": true
+    }
+   }
+  },
+  {
+   "id": "A7.3",
+   "puzzle": "A7",
+   "do": "use",
+   "item": "filing_fee",
+   "on": "ozymandia",
+   "expect": {
+    "flags": {
+     "T_OZY_PAID": true
+    },
+    "notCarrying": [
+     "filing_fee"
+    ]
+   }
+  },
+  {
+   "id": "A7.4",
+   "puzzle": "A7",
+   "do": "use",
+   "item": "company_map",
+   "on": "ozymandia",
+   "expect": {
+    "puzzles": [
+     "A7"
+    ],
+    "carrying": [
+     "survey",
+     "company_map"
+    ]
+   }
+  },
+  {
+   "id": "A8.2",
+   "puzzle": "A8",
+   "do": "go",
+   "room": "nugget"
+  },
+  {
+   "id": "A8.3",
+   "puzzle": "A8",
+   "do": "use",
+   "item": "tuning_fork",
+   "on": "piano",
+   "expect": {
+    "carrying": [
+     "filing_fee"
+    ]
+   }
+  },
+  {
+   "id": "A9.1",
+   "puzzle": "A9",
+   "do": "go",
+   "room": "claims_registrar"
+  },
+  {
+   "id": "A9.2",
+   "puzzle": "A9",
+   "do": "use",
+   "item": "deed",
+   "on": "counter",
+   "expect": {
+    "flags": {
+     "T_DEED_LODGED": true
+    }
+   }
+  },
+  {
+   "id": "A9.3",
+   "puzzle": "A9",
+   "do": "use",
+   "item": "survey",
+   "on": "counter",
+   "expect": {
+    "flags": {
+     "T_SURVEY_LODGED": true
+    },
+    "notCarrying": [
+     "survey"
+    ]
+   }
+  },
+  {
+   "id": "A9.4",
+   "puzzle": "A9",
+   "do": "use",
+   "item": "filing_fee",
+   "on": "sump",
+   "expect": {
+    "puzzles": [
+     "A9"
+    ],
+    "flags": {
+     "T_BORDERS_MOTT": true
+    },
+    "carrying": [
+     "invitation",
+     "deed"
+    ],
+    "notCarrying": [
+     "filing_fee"
+    ]
+   }
+  },
+  {
+   "id": "A10.1",
+   "puzzle": "A10",
+   "do": "go",
+   "room": "fanshawe_office",
+   "expect": {
+    "dialogue": "FANSHAWE",
+    "node": "FAN_A2"
+   }
+  },
+  {
+   "id": "A10.2",
+   "puzzle": "A10",
+   "do": "choose",
+   "choose": [
+    "fanshawe2",
+    "fanshawe6"
+   ],
+   "expect": {
+    "puzzles": [
+     "A10"
+    ],
+    "flags": {
+     "T_DINED": true
+    },
+    "carrying": [
+     "handkerchief"
+    ],
+    "dialogue": null
+   }
+  },
+  {
+   "id": "A10.3",
+   "puzzle": "A10",
+   "do": "go",
+   "room": "company_lobby",
+   "expect": {
+    "act": 2
+   }
+  },
+  {
+   "id": "B1.1",
+   "puzzle": "B1",
+   "do": "go",
+   "room": "clarion"
+  },
+  {
+   "id": "B1.2",
+   "puzzle": "B1",
+   "do": "talk",
+   "npc": "frame",
+   "choose": [
+    "frame7",
+    "frame1",
+    "frame1"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "B1"
+    ],
+    "flags": {
+     "T_VESSEL_LOCATION": true,
+     "ASSAY_PAIR_16": true
+    }
+   }
+  },
+  {
+   "id": "B2.1",
+   "puzzle": "B2",
+   "do": "go",
+   "room": "livery"
+  },
+  {
+   "id": "B2.2",
+   "puzzle": "B2",
+   "do": "talk",
+   "npc": "livery_man",
+   "choose": [
+    "livery_man7",
+    "livery_man6",
+    "livery_man4"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "B2"
+    ],
+    "flags": {
+     "T_GRIEVANCE_MOTT": true,
+     "T_HUM_HEARD": true,
+     "ASSAY_PAIR_20": true
+    }
+   }
+  },
+  {
+   "id": "B3.1",
+   "puzzle": "B3",
+   "do": "use",
+   "item": "tuning_fork",
+   "on": "grievance",
+   "expect": {
+    "puzzles": [
+     "B3"
+    ],
+    "flags": {
+     "T_VESSEL_FOUND": true
+    },
+    "room": "nugget"
+   }
+  },
+  {
+   "id": "B4.1",
+   "puzzle": "B4",
+   "do": "go",
+   "room": "nugget_back",
+   "expect": {
+    "present": [
+     "deke_vessel"
+    ]
+   }
+  },
+  {
+   "id": "B4.2",
+   "puzzle": "B4",
+   "do": "talk",
+   "npc": "deke_vessel",
+   "choose": [
+    "ves_b1_6"
+   ],
+   "expect": {
+    "puzzles": [
+     "B4"
+    ]
+   }
+  },
+  {
+   "id": "B5.1",
+   "puzzle": "B5",
+   "do": "duel",
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "B5"
+    ],
+    "flags": {
+     "T_DUEL_ONE_LOST": true,
+     "ASSAY_PAIR_01": true,
+     "ASSAY_PAIR_04": true
+    },
+    "dialogue": null
+   }
+  },
+  {
+   "id": "C1.1",
+   "puzzle": "C1",
+   "do": "go",
+   "room": "assay_office"
+  },
+  {
+   "id": "C1.2",
+   "puzzle": "C1",
+   "do": "talk",
+   "npc": "winnie",
+   "choose": [
+    "winnie1"
+   ],
+   "expect": {
+    "flags": {
+     "T_ASSAY_QUEUE": true
+    },
+    "puzzles": [
+     "C1"
+    ]
+   }
+  },
+  {
+   "id": "C2.1",
+   "puzzle": "C2",
+   "do": "choose",
+   "choose": [
+    "winnie2",
+    "winnie6"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_OFFICE_TOPIC": true
+    },
+    "puzzles": [
+     "C2"
+    ]
+   }
+  },
+  {
+   "id": "D1.1",
+   "puzzle": "D1",
+   "do": "go",
+   "room": "claims_registrar"
+  },
+  {
+   "id": "D1.2",
+   "puzzle": "D1",
+   "do": "talk",
+   "npc": "sump",
+   "choose": [
+    "sump1b"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "D1"
+    ],
+    "flags": {
+     "T_NINETY_DAYS": true
+    }
+   }
+  },
+  {
+   "id": "B6.pairs.1",
+   "puzzle": "B6",
+   "do": "go",
+   "room": "ozymandias_tent"
+  },
+  {
+   "id": "B6.pairs.2",
+   "puzzle": "B6",
+   "do": "talk",
+   "npc": "ozymandia",
+   "choose": [
+    "ozymandia5"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "ASSAY_PAIR_19": true
+    }
+   }
+  },
+  {
+   "id": "C3.1",
+   "puzzle": "C3",
+   "do": "go",
+   "room": "clarion"
+  },
+  {
+   "id": "C3.2",
+   "puzzle": "C3",
+   "do": "talk",
+   "npc": "frame",
+   "choose": [
+    "frame5"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_FANSHAWE_FUNERALS": true
+    }
+   }
+  },
+  {
+   "id": "C3.3",
+   "puzzle": "C3",
+   "do": "go",
+   "room": "church"
+  },
+  {
+   "id": "C3.4",
+   "puzzle": "C3",
+   "do": "talk",
+   "npc": "sowerby",
+   "choose": [
+    "sowerby8",
+    "sowerby5"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_SOW_FUNERAL_ASKED": true,
+     "ASSAY_PAIR_17": true
+    }
+   }
+  },
+  {
+   "id": "C3.5",
+   "puzzle": "C3",
+   "do": "use",
+   "item": "letter",
+   "on": "sowerby",
+   "expect": {
+    "flags": {
+     "T_MEMORIAL_BOOKED": true
+    },
+    "carrying": [
+     "letter"
+    ]
+   }
+  },
+  {
+   "id": "D2.1",
+   "puzzle": "D2",
+   "do": "go",
+   "room": "prosperity",
+   "expect": {
+    "present": [
+     "pratt_jump"
+    ],
+    "dialogue": "PRATT_JUMP"
+   }
+  },
+  {
+   "id": "D2.2",
+   "puzzle": "D2",
+   "do": "talk",
+   "choose": [
+    "pratt1"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzlesPending": [
+     "D2"
+    ],
+    "flags": {
+     "T_PRATT_STAKE": true
+    }
+   },
+   "npc": "pratt_jump"
+  },
+  {
+   "id": "D2.3",
+   "puzzle": "D2",
+   "do": "go",
+   "room": "pratts_claim"
+  },
+  {
+   "id": "D2.4",
+   "puzzle": "D2",
+   "do": "talk",
+   "npc": "pratt",
+   "choose": [
+    "pratt1",
+    "pratt2",
+    "pratt3",
+    "pratt4",
+    "pratt6"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "D2"
+    ],
+    "flags": {
+     "T_PRATT_PAID": true
+    }
+   }
+  },
+  {
+   "id": "D3.1",
+   "puzzle": "D3",
+   "do": "go",
+   "room": "laundry"
+  },
+  {
+   "id": "D3.2",
+   "puzzle": "D3",
+   "do": "talk",
+   "npc": "sheng",
+   "choose": [
+    "sheng6",
+    "sheng1",
+    "sheng1"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "D3"
+    ],
+    "flags": {
+     "T_SHENG_TASK": true,
+     "ASSAY_PAIR_18": true
+    }
+   }
+  },
+  {
+   "id": "C3.6",
+   "puzzle": "C3",
+   "do": "go",
+   "room": "clarion"
+  },
+  {
+   "id": "C3.7",
+   "puzzle": "C3",
+   "do": "talk",
+   "npc": "frame",
+   "choose": [
+    "frame6"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "C3"
+    ],
+    "flags": {
+     "T_FUNERAL_DAY": true
+    }
+   }
+  },
+  {
+   "id": "C4.1",
+   "puzzle": "C4",
+   "do": "go",
+   "room": "fanshawe_office",
+   "expect": {
+    "absent": [
+     "fanshawe"
+    ],
+    "dialogue": null
+   }
+  },
+  {
+   "id": "C4.2",
+   "puzzle": "C4",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "submission_log",
+   "expect": {
+    "carrying": [
+     "padded_log"
+    ],
+    "flags": {
+     "T_QUEUE_PADDED": true
+    }
+   }
+  },
+  {
+   "id": "C4.3",
+   "puzzle": "C4",
+   "do": "verb",
+   "verb": "OPEN",
+   "on": "stock_portrait_drawer",
+   "expect": {
+    "puzzles": [
+     "C4"
+    ],
+    "carrying": [
+     "photograph"
+    ],
+    "flags": {
+     "T_MOTT_FACE_UNKNOWN": true
+    }
+   }
+  },
+  {
+   "id": "D4.1",
+   "puzzle": "D4",
+   "do": "go",
+   "room": "boot_hill",
+   "expect": {
+    "carrying": [
+     "linen_money"
+    ],
+    "flags": {
+     "T_FUNERAL_DAY": false,
+     "T_LINEN_COLLECTED": true
+    }
+   }
+  },
+  {
+   "id": "D4.2",
+   "puzzle": "D4",
+   "do": "go",
+   "room": "laundry"
+  },
+  {
+   "id": "D4.3",
+   "puzzle": "D4",
+   "do": "talk",
+   "npc": "sheng",
+   "choose": [
+    "sheng1a"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "D4"
+    ],
+    "flags": {
+     "T_PRATT_TRAIL": true
+    }
+   }
+  },
+  {
+   "id": "C5.1",
+   "puzzle": "C5",
+   "do": "go",
+   "room": "assay_office"
+  },
+  {
+   "id": "C5.2",
+   "puzzle": "C5",
+   "do": "use",
+   "item": "padded_log",
+   "on": "winnie",
+   "expect": {
+    "puzzles": [
+     "C5"
+    ],
+    "dialogue": "WINNIE",
+    "node": "WIN_B2",
+    "carrying": [
+     "padded_log"
+    ]
+   }
+  },
+  {
+   "id": "C5.3",
+   "puzzle": "C5",
+   "do": "choose",
+   "choose": [
+    "winnie1",
+    "winnie2",
+    "winnie3"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzlesPending": [
+     "C6"
+    ],
+    "flags": {
+     "T_ASSAY_ASKED": true,
+     "T_NO_MOTT_GOLD": true,
+     "T_SECOND_LEDGER": true
+    }
+   }
+  },
+  {
+   "id": "C6.1",
+   "puzzle": "C6",
+   "do": "go",
+   "room": "main_street"
+  },
+  {
+   "id": "C6.2",
+   "puzzle": "C6",
+   "do": "go",
+   "room": "assay_office",
+   "expect": {
+    "flags": {
+     "T_ASSAY_BACK": true
+    }
+   }
+  },
+  {
+   "id": "C6.3",
+   "puzzle": "C6",
+   "do": "talk",
+   "npc": "winnie",
+   "expect": {
+    "node": "WIN_B4",
+    "puzzles": [
+     "C6"
+    ],
+    "carrying": [
+     "document_b"
+    ]
+   }
+  },
+  {
+   "id": "C6.4",
+   "puzzle": "C6",
+   "do": "choose",
+   "choose": [
+    "winnie1"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "ASSAY_PAIR_05": true,
+     "ASSAY_PAIR_06": true,
+     "ASSAY_PAIR_07": true,
+     "ASSAY_PAIR_08": true,
+     "ASSAY_PAIR_09": true
+    }
+   }
+  },
+  {
+   "id": "D5.1",
+   "puzzle": "D5",
+   "do": "go",
+   "room": "pratts_claim"
+  },
+  {
+   "id": "D5.2",
+   "puzzle": "D5",
+   "do": "talk",
+   "npc": "pratt",
+   "choose": [
+    "pratt7"
+   ],
+   "expect": {
+    "puzzles": [
+     "D5"
+    ],
+    "flags": {
+     "T_PRATT_TURNED": true
+    },
+    "node": "PRA_D6"
+   }
+  },
+  {
+   "id": "D5.3",
+   "puzzle": "D5",
+   "do": "choose",
+   "choose": [
+    "pratt4"
+   ],
+   "expect": {
+    "flags": {
+     "ASSAY_PAIR_10": true,
+     "ASSAY_PAIR_11": true,
+     "ASSAY_PAIR_12": true,
+     "ASSAY_PAIR_13": true,
+     "ASSAY_PAIR_14": true,
+     "ASSAY_PAIR_15": true
+    }
+   }
+  },
+  {
+   "id": "D6.1",
+   "puzzle": "D6",
+   "do": "talk",
+   "npc": "pratt",
+   "choose": [
+    "pratt5"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_PRATT_SWEARS": true
+    }
+   }
+  },
+  {
+   "id": "D6.2",
+   "puzzle": "D6",
+   "do": "go",
+   "room": "claims_registrar",
+   "expect": {
+    "puzzles": [
+     "D6"
+    ],
+    "carrying": [
+     "document_d"
+    ],
+    "flags": {
+     "T_ATTESTED": true
+    }
+   }
+  },
+  {
+   "id": "B6.1",
+   "puzzle": "B6",
+   "do": "go",
+   "room": "nugget_back",
+   "expect": {
+    "present": [
+     "deke_vessel"
+    ]
+   }
+  },
+  {
+   "id": "B6.2",
+   "puzzle": "B6",
+   "do": "talk",
+   "npc": "deke_vessel",
+   "choose": [
+    "ves_b1_5"
+   ],
+   "expect": {
+    "dialogue": "DEKE_VESSEL"
+   }
+  },
+  {
+   "id": "B6.3",
+   "puzzle": "B6",
+   "do": "duel",
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "B6"
+    ],
+    "flags": {
+     "T_DUEL_TWO_WON": true
+    },
+    "carrying": [
+     "document_a",
+     "watch"
+    ]
+   }
+  },
+  {
+   "id": "E0.1",
+   "puzzle": "E0",
+   "do": "go",
+   "room": "claims_registrar"
+  },
+  {
+   "id": "E0.2",
+   "puzzle": "E0",
+   "do": "talk",
+   "npc": "sump",
+   "choose": [
+    "sump1c"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "E0"
+    ],
+    "flags": {
+     "T_CLAIM1_BLANK": true
+    },
+    "carrying": [
+     "document_a",
+     "document_b",
+     "document_d",
+     "document_c"
+    ]
+   }
+  },
+  {
+   "id": "E0b.1",
+   "puzzle": "E0b",
+   "do": "go",
+   "room": "fanshawe_office",
+   "expect": {
+    "dialogue": "FANSHAWE",
+    "node": "FAN_C1"
+   }
+  },
+  {
+   "id": "E0b.2",
+   "puzzle": "E0b",
+   "do": "choose",
+   "choose": [
+    "fanshawe1"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "E0b"
+    ],
+    "flags": {
+     "T_EXCAVATION_CLAUSE": true
+    },
+    "act": 3
+   }
+  },
+  {
+   "id": "E1.1",
+   "puzzle": "E1",
+   "do": "go",
+   "room": "claims_registrar"
+  },
+  {
+   "id": "E1.2",
+   "puzzle": "E1",
+   "do": "talk",
+   "npc": "sump",
+   "choose": [
+    "sump1"
+   ],
+   "expect": {
+    "node": "SUM_E1",
+    "puzzles": [
+     "E1"
+    ]
+   }
+  },
+  {
+   "id": "E2.1",
+   "puzzle": "E2",
+   "do": "choose",
+   "choose": [
+    "sump2"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "E2"
+    ],
+    "flags": {
+     "T_NEED_TO_DIE": true,
+     "T_EXECUTOR_RULE": true
+    }
+   }
+  },
+  {
+   "id": "E3.1",
+   "puzzle": "E3",
+   "do": "go",
+   "room": "church"
+  },
+  {
+   "id": "E3.2",
+   "puzzle": "E3",
+   "do": "talk",
+   "npc": "sowerby",
+   "choose": [
+    "sowerby_c3"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_SOWERBY_PRICE": true
+    }
+   }
+  },
+  {
+   "id": "E3.3",
+   "puzzle": "E3",
+   "do": "go",
+   "room": "laundry"
+  },
+  {
+   "id": "E3.4",
+   "puzzle": "E3",
+   "do": "talk",
+   "npc": "sheng",
+   "choose": [
+    "sheng2"
+   ],
+   "leave": true,
+   "expect": {
+    "carrying": [
+     "loan"
+    ],
+    "flags": {
+     "T_SHENG_LOAN": true
+    }
+   }
+  },
+  {
+   "id": "E3.5",
+   "puzzle": "E3",
+   "do": "go",
+   "room": "undertaker"
+  },
+  {
+   "id": "E3.6",
+   "puzzle": "E3",
+   "do": "talk",
+   "npc": "undertaker",
+   "choose": [
+    "undertaker_c1"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_COFFIN_SIZED": true
+    }
+   }
+  },
+  {
+   "id": "E3.7",
+   "puzzle": "E3",
+   "do": "use",
+   "item": "loan",
+   "on": "undertaker",
+   "expect": {
+    "puzzles": [
+     "E3"
+    ],
+    "flags": {
+     "T_FUNERAL_BOOKED": true
+    },
+    "notCarrying": [
+     "loan"
+    ]
+   }
+  },
+  {
+   "id": "E4.1",
+   "puzzle": "E4",
+   "do": "go",
+   "room": "assay_office"
+  },
+  {
+   "id": "E4.2",
+   "puzzle": "E4",
+   "do": "talk",
+   "npc": "winnie",
+   "choose": [
+    "winnie4"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "E4"
+    ],
+    "carrying": [
+     "death_certificate"
+    ],
+    "flags": {
+     "T_DEATH_CERTIFIED": true
+    }
+   }
+  },
+  {
+   "id": "E5.1",
+   "puzzle": "E5",
+   "do": "go",
+   "room": "claims_registrar"
+  },
+  {
+   "id": "E5.2",
+   "puzzle": "E5",
+   "do": "talk",
+   "npc": "sump",
+   "choose": [
+    "sump1"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_DECEASED": true
+    }
+   }
+  },
+  {
+   "id": "E5.3",
+   "puzzle": "E5",
+   "do": "go",
+   "room": "clarion"
+  },
+  {
+   "id": "E5.4",
+   "puzzle": "E5",
+   "do": "talk",
+   "npc": "frame",
+   "choose": [
+    "frame1"
+   ],
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "E5"
+    ],
+    "carrying": [
+     "obituary"
+    ],
+    "flags": {
+     "T_OBITUARY": true
+    }
+   }
+  },
+  {
+   "id": "E6.1",
+   "puzzle": "E6",
+   "do": "go",
+   "room": "back_alley",
+   "expect": {
+    "present": [
+     "hob"
+    ]
+   }
+  },
+  {
+   "id": "E6.2",
+   "puzzle": "E6",
+   "do": "talk",
+   "npc": "hob",
+   "choose": [
+    "hob1"
+   ],
+   "leave": true,
+   "expect": {
+    "carrying": [
+     "executor_form"
+    ]
+   }
+  },
+  {
+   "id": "E6.3",
+   "puzzle": "E6",
+   "do": "go",
+   "room": "claims_registrar"
+  },
+  {
+   "id": "E6.4",
+   "puzzle": "E6",
+   "do": "use",
+   "item": "executor_form",
+   "on": "sump",
+   "expect": {
+    "puzzles": [
+     "E6"
+    ],
+    "flags": {
+     "T_EXECUTOR_NAMED": true
+    },
+    "carrying": [
+     "executor_form"
+    ]
+   }
+  },
+  {
+   "id": "E7.1",
+   "puzzle": "E7",
+   "do": "go",
+   "room": "funeral",
+   "expect": {
+    "room": "funeral",
+    "present": [
+     "funeral_sowerby"
+    ]
+   }
+  },
+  {
+   "id": "E7.2",
+   "puzzle": "E7",
+   "do": "verb",
+   "verb": "LOOK_AT",
+   "on": "grave"
+  },
+  {
+   "id": "E7.3",
+   "puzzle": "E7",
+   "do": "verb",
+   "verb": "LOOK_AT",
+   "on": "grave",
+   "expect": {
+    "flags": {
+     "T_GOOD_TURNOUT": true
+    }
+   }
+  },
+  {
+   "id": "E7.4",
+   "puzzle": "E7",
+   "do": "verb",
+   "verb": "USE",
+   "on": "coffin",
+   "expect": {
+    "puzzles": [
+     "E7"
+    ],
+    "room": "coffin",
+    "flags": {
+     "T_LAID_IN": true
+    }
+   }
+  },
+  {
+   "id": "E8.1",
+   "puzzle": "E8",
+   "do": "wait",
+   "expect": {
+    "puzzles": [
+     "E8"
+    ],
+    "dialogue": "HOB",
+    "node": "HOB_C1"
+   }
+  },
+  {
+   "id": "E8.2",
+   "puzzle": "E8",
+   "do": "choose",
+   "choose": [
+    "hob1",
+    "hob2",
+    "hob4"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_HOB_KNOWS": true,
+     "T_HOB_HANDWRITING": true,
+     "T_FUNERAL_DONE": true
+    },
+    "room": "funeral"
+   }
+  },
+  {
+   "id": "E9.1",
+   "puzzle": "E9",
+   "do": "go",
+   "room": "claims_registrar"
+  },
+  {
+   "id": "E9.2",
+   "puzzle": "E9",
+   "do": "verb",
+   "verb": "OPEN",
+   "on": "sealed_archive_door",
+   "expect": {
+    "room": "archive"
+   }
+  },
+  {
+   "id": "E9.3",
+   "puzzle": "E9",
+   "do": "use",
+   "item": "executor_form",
+   "on": "mott_file",
+   "expect": {
+    "puzzles": [
+     "E9"
+    ],
+    "flags": {
+     "T_SAME_HAND": true
+    }
+   }
+  },
+  {
+   "id": "E10.1",
+   "puzzle": "E10",
+   "do": "go",
+   "room": "watchmans_shack",
+   "expect": {
+    "puzzles": [
+     "E10"
+    ],
+    "dialogue": "HOB",
+    "node": "HOB_C2"
+   }
+  },
+  {
+   "id": "E10.2",
+   "puzzle": "E10",
+   "do": "leave",
+   "expect": {
+    "flags": {
+     "T_HOB_IS_MOTT": true,
+     "T_NO_GOLD_EVER": true
+    },
+    "act": 4
+   }
+  },
+  {
+   "id": "F1.1",
+   "puzzle": "F1",
+   "do": "go",
+   "room": "prosperity"
+  },
+  {
+   "id": "F1.2",
+   "puzzle": "F1",
+   "do": "verb",
+   "verb": "LOOK_AT",
+   "on": "hole",
+   "expect": {
+    "puzzles": [
+     "F1"
+    ],
+    "flags": {
+     "T_DRAUGHT": true
+    }
+   }
+  },
+  {
+   "id": "F1.3",
+   "puzzle": "F1",
+   "do": "go",
+   "room": "mercantile"
+  },
+  {
+   "id": "F1.4",
+   "puzzle": "F1",
+   "do": "verb",
+   "verb": "PICK_UP",
+   "on": "pickaxes",
+   "expect": {
+    "carrying": [
+     "pickaxe"
+    ]
+   }
+  },
+  {
+   "id": "F1.5",
+   "puzzle": "F1",
+   "do": "go",
+   "room": "prosperity"
+  },
+  {
+   "id": "F1.6",
+   "puzzle": "F1",
+   "do": "use",
+   "item": "pickaxe",
+   "on": "hole",
+   "expect": {
+    "flags": {
+     "T_DUG_DOWN": true
+    },
+    "room": "under_prosperity"
+   }
+  },
+  {
+   "id": "F2.1",
+   "puzzle": "F2",
+   "do": "go",
+   "room": "listening_chamber",
+   "expect": {
+    "flags": {
+     "T_FORK_STRUCK": true
+    }
+   }
+  },
+  {
+   "id": "F2.2",
+   "puzzle": "F2",
+   "do": "tap",
+   "expect": {
+    "puzzles": [
+     "F2"
+    ],
+    "flags": {
+     "T_VOID_FOUND": true,
+     "T_IN_TUNE": true
+    }
+   }
+  },
+  {
+   "id": "F3.1",
+   "puzzle": "F3",
+   "do": "use",
+   "item": "pickaxe",
+   "on": "every_rock_surface",
+   "expect": {
+    "flags": {
+     "PICK_SWINGS": 1
+    }
+   }
+  },
+  {
+   "id": "F3.2",
+   "puzzle": "F3",
+   "do": "use",
+   "item": "pickaxe",
+   "on": "every_rock_surface",
+   "expect": {
+    "flags": {
+     "PICK_SWINGS": 2
+    }
+   }
+  },
+  {
+   "id": "F3.3",
+   "puzzle": "F3",
+   "do": "use",
+   "item": "pickaxe",
+   "on": "every_rock_surface",
+   "expect": {
+    "puzzles": [
+     "F3"
+    ],
+    "carrying": [
+     "sample"
+    ],
+    "flags": {
+     "T_BROKE_THROUGH": true,
+     "T_STRIKE_FOUND": true
+    },
+    "room": "under_prosperity"
+   }
+  },
+  {
+   "id": "F4.1",
+   "puzzle": "F4",
+   "do": "go",
+   "room": "assay_office"
+  },
+  {
+   "id": "F4.2",
+   "puzzle": "F4",
+   "do": "talk",
+   "npc": "winnie",
+   "choose": [
+    "winnie1"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "T_ASSAY_RUN": true
+    }
+   }
+  },
+  {
+   "id": "F4.3",
+   "puzzle": "F4",
+   "do": "go",
+   "room": "main_street",
+   "expect": {
+    "flags": {
+     "T_DUEL_CROWD": true
+    },
+    "present": [
+     "duel_fanshawe"
+    ],
+    "dialogue": "FANSHAWE"
+   }
+  },
+  {
+   "id": "F4.4",
+   "puzzle": "F4",
+   "do": "duel",
+   "leave": true,
+   "expect": {
+    "puzzles": [
+     "F4"
+    ],
+    "flags": {
+     "T_FANSHAWE_BEATEN": true
+    },
+    "dialogue": null
+   }
+  },
+  {
+   "id": "F5.1",
+   "puzzle": "F5",
+   "do": "go",
+   "room": "claims_registrar",
+   "expect": {
+    "present": [
+     "winnie_registrar"
+    ]
+   }
+  },
+  {
+   "id": "F5.2",
+   "puzzle": "F5",
+   "do": "use",
+   "item": "death_certificate",
+   "on": "counter",
+   "expect": {
+    "flags": {
+     "F5_LAID": 1
+    }
+   }
+  },
+  {
+   "id": "F5.3",
+   "puzzle": "F5",
+   "do": "use",
+   "item": "deed",
+   "on": "counter",
+   "expect": {
+    "flags": {
+     "F5_LAID": 2
+    }
+   }
+  },
+  {
+   "id": "F5.4",
+   "puzzle": "F5",
+   "do": "use",
+   "item": "document_c",
+   "on": "counter",
+   "expect": {
+    "flags": {
+     "F5_LAID": 3
+    }
+   }
+  },
+  {
+   "id": "F5.5",
+   "puzzle": "F5",
+   "do": "use",
+   "item": "sample",
+   "on": "counter",
+   "expect": {
+    "flags": {
+     "F5_LAID": 4
+    }
+   }
+  },
+  {
+   "id": "F5.6",
+   "puzzle": "F5",
+   "do": "talk",
+   "npc": "sump",
+   "choose": [
+    "sump1"
+   ],
+   "expect": {
+    "puzzles": [
+     "F5"
+    ],
+    "flags": {
+     "T_FILED": true
+    },
+    "room": "main_street_dawn",
+    "dialogue": null
+   }
+  },
+  {
+   "id": "END.1",
+   "puzzle": "F5",
+   "do": "verb",
+   "verb": "WALK_TO",
+   "on": "to_coach_stop",
+   "expect": {
+    "flags": {
+     "T_CLOSE_SAID": true
+    },
+    "noTargets": [
+     "to_coach_stop"
+    ]
+   }
+  }
+ ]
+}

@@ -94,7 +94,10 @@
           "tag": "ASSAY",
           "text": "I know where Mott's strike is.",
           "afterUse": "retain",
-          "say": "So does everybody. That's the town. Try again."
+          "say": "So does everybody. That's the town. Try again.",
+          "set": {
+            "ASSAY_PAIR_21": true
+          }
         },
         {
           "id": "hobx",

@@ -128,7 +128,10 @@
           "say": "Prosperity! You've named it. Nobody names them. I like you enormously.",
           "gives": [
             "company_map"
-          ]
+          ],
+          "puzzle": {
+            "A4": "complete"
+          }
         },
         {
           "id": "fanshawe2",
@@ -138,6 +141,9 @@
           "gives": [
             "company_map"
           ],
+          "puzzle": {
+            "A4": "complete"
+          },
           "exchange": [
             {
               "speaker": "fanshawe",

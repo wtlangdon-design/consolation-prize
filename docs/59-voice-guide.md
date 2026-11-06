@@ -79,6 +79,9 @@ Tyler: "some is really dull and hard to follow." A line on screen is read once, 
 ### 9 · Other people exist
 Thad lives in a town full of named, absurd people. He may mention them — Winnie, Vessel, the Reverend, the man on the landing — where they are honestly on his mind. (The 2.6% becomes a habit.)
 
+### 11 · A line is true whenever it can be read
+An ungated line can be read at any moment its room is open, and most rooms are open on Thad's first night. So a line with no gate may not assume time has passed ("eleven weeks"), an event has happened (the swindle, the map, meeting Fanshawe), or Thad still owns something he trades away (the watch between A3 and B6). If the line needs the event, it needs a gate, and a gate is a decision for the room's document, not a rewrite. The continuity audit of 2026-11-05 (doc 91) found seven lines that broke this.
+
 ### 10 · Bolder `[COMIC]` options
 A `[COMIC]` option's *text* is the joke: the thing a player picks to see what happens. Let Thad say the dumb thing, the greedy thing, the wildly over-familiar thing — and let the answer land it.
 

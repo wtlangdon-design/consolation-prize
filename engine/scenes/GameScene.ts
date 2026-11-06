@@ -2131,10 +2131,9 @@ export class GameScene extends Phaser.Scene {
     const entry = this.state.room.onEnter;
     if (!entry?.say?.length && !entry?.scenes?.length && !entry?.walkTo) return;
     const who = this.state.content.actor.id;
-    // The scenes whose condition holds as he walks in, before anything lands.
-    const scenes = (entry.scenes ?? []).filter((scene) => this.state.flags.test(scene.when));
-    const held = (entry.sayOnce && this.state.flags.get(entry.sayOnce) === true)
-      || (entry.sayWhen !== undefined && !this.state.flags.test(entry.sayWhen));
+    // The lines and scenes as he walks in, before the room's own writes land
+    // (GameState.arrivalOf: read after them, Main Street's first sight never played).
+    const { held, scenes } = this.state.arrivalOf();
     const lines: { speaker: string; line: string; direction?: boolean }[] = [
       ...(held ? [] : (entry.say ?? []).map((line) => ({ speaker: who, line }))),
       ...scenes.flatMap((scene) => scene.lines)];

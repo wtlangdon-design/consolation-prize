@@ -54,11 +54,11 @@
 **LISTEN**
 1. "Not a sound. The quietest doorway on the street, and it's never still."
 2. "Not a sound, and somebody is always going in."
-3. "Nothing at all. Not one raised voice in eleven weeks."
+3. "Nothing at all. I've never once heard a raised voice through that door."
 
 **Overrides**
 > PUSH — "It opens inward, which is a decision somebody made."
-> TALK TO — "I've spoken to the man behind that door. I came away with a map, and I'm no longer sure what I gave him."
+> TALK TO — "Talking to the door won't get me in. The men who go in come out holding maps."
 > CLOSE — "It closes on its own, slowly, and without a sound. Somebody paid for that too."
 
 ---
@@ -68,7 +68,7 @@
 **LOOK**
 1. "The road out to the diggings. Worn a foot deep by boots — which is more dirt than anybody out there has shifted on purpose."
 2. "Two miles. It looks further in the morning and considerably further at night."
-3. "Somewhere down there is forty feet of mud that's legally mine. I can't wait to see it."
+3. "Somewhere down there is forty feet of mud for any man fool enough to buy it."
 
 **LISTEN**
 1. "Boots. A great many of them, going out. The most cheerful sound in Consolation, and it happens at six in the morning."

@@ -191,7 +191,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **SUMP'S CLOCK**
 > **LOOK:** "The office clock. It is authoritative and it is wrong."
-> **LISTEN:** "Running eleven minutes fast. I know because my watch agrees with it, and I don't trust my watch either."
+> **LISTEN:** "Running eleven minutes fast. I know because the church bell disagrees with it, and the church bell is half a step flat."
 
 **THE SEALED ARCHIVE DOOR**
 > **LOOK:** "A door, locked, with a statute posted beside it explaining precisely who may pass through. I am not among them."
@@ -603,7 +603,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Settling. An archive breathes about once an hour."
 
 **THE FILING LADDER**
-> **LOOK:** "A ladder on a rail, for reaching the years nobody asks about. The wheels are rusted at 1858 and shine at the present."
+> **LOOK:** "A ladder on a rail, for reaching the years nobody asks about. The wheels are rusted at 1846 and shine at the present."
 > **LISTEN:** "The rail, ticking as the building cools."
 
 **THE MOTT FILE**

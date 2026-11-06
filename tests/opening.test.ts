@@ -4,6 +4,8 @@ import test from 'node:test';
 import { playfieldClick, segmentsOf, stepsFor } from '../engine/core/Opening.ts';
 import { SequenceRunner, type SequenceHost } from '../engine/core/Sequence.ts';
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
+import { GameState } from '../engine/core/GameState.ts';
+import { MemoryStorage } from '../engine/core/SaveManager.ts';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -192,4 +194,25 @@ test('a playfield click while a greeting performs is spent, and nothing else cha
   assert.equal(playfieldClick({ sequenceRunning: false, openingActive: false }), 'pass');
   assert.equal(playfieldClick({ sequenceRunning: true, openingActive: false }), 'cancel');
   assert.equal(playfieldClick({ sequenceRunning: true, openingActive: true }), 'consume');
+});
+
+test('first-sight lines play on the first entry, though the room itself writes their once-flag on the way in', async () => {
+  // Found by the continuous playthrough: GameScene read `sayOnce` after the
+  // room's onEnter writes had set it, so Main Street's first sight was held on
+  // the first visit and never played. Every room whose own onEnter writes its
+  // `sayOnce` flag is checked, found from the data.
+  const content = await loadContent(fsReader);
+  const rooms = [...content.rooms.values()].filter((room) => room.onEnter?.sayOnce && room.onEnter.say?.length
+    && room.onEnter.set?.[room.onEnter.sayOnce] === true && !(room as { fixture?: boolean }).fixture);
+  assert.ok(rooms.length > 0, 'some room writes its own first-sight flag');
+  for (const room of rooms) {
+    const state = new GameState(content, new MemoryStorage());
+    const elsewhere = [...content.rooms.values()].find((one) => one.id !== room.id && one.kind !== 'map')!;
+    state.enterRoom(room.id);
+    assert.equal(state.flags.get(room.onEnter!.sayOnce!), true, `${room.id} has written its flag`);
+    assert.equal(state.arrivalOf().held, false, `${room.id}: the first sight is said`);
+    state.enterRoom(elsewhere.id);
+    state.enterRoom(room.id);
+    assert.equal(state.arrivalOf().held, true, `${room.id}: and only once`);
+  }
 });
