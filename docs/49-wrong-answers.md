@@ -107,7 +107,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE CLAIM MARKER (MINE)** · PUSH — "Mine now, lean and all. I have decided the lean is jaunty."
 **THE CLAIM MARKER (MINE)** · TALK_TO — "'Prosperity,' I told it, 'you and I are going to be the punchline of something.' I was righter than I knew."
 **THE MUD (DEEDED)** · USE — "I did use it. I filed it. It is the most administrated mud in the territory."
-**THE HOLE** · CLOSE — "You cannot close a hole. You can only fill it, and I have nothing to spare, including — on some mornings — the inclination."
+**THE HOLE** · CLOSE — "I can't close a hole. I can only fill it, and I don't have anything to spare, including — on some mornings — the inclination."
 **THE HOLE** · TALK_TO — "I said good morning down it. The echo said it back warmer than the town does."
 **THE RACCOON'S FORMER RESIDENCE** · OPEN — "Vacant, per the eviction. The warm air keeps it aired. Best-ventilated address I own."
 
@@ -161,24 +161,24 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 ## ROOM 15 — THE LIVERY STABLE
 
-**GRIEVANCE** · USE — "You do not use Grievance. You are, if she consents, briefly adjacent to her purposes."
-**GRIEVANCE** · PUSH — "I have pushed buildings with more give."
+**GRIEVANCE** · USE — "I don't use Grievance. I am, if she consents, briefly adjacent to her purposes."
+**GRIEVANCE** · PUSH — "I've pushed buildings with more give."
 **GRIEVANCE'S BLANKET** · PICK_UP — "She turned her head one inch. I returned the blanket two inches. We understand each other."
 **THE ANVIL** · PICK_UP — "It occurred to me. It stopped occurring to me almost immediately."
-**THE HAY LOFT** · USE — "The ladder is worn bright by men sleeping off their optimism. I have a room. For now, I insist on the distinction."
+**THE HAY LOFT** · USE — "The ladder is worn bright by men sleeping off their optimism. I've got a room. For now. I insist on the distinction."
 
 ## ROOM 16 — OZYMANDIA'S TENT
 
 **THE CRYSTAL BALL** · USE — "I looked. Upside-down tent, small Thad. Two dollars. On reflection — which is all the ball does — fair."
-**THE CARDS** · PICK_UP — "The silk wrap tightened. I did not see her move. The deck stayed where destiny — her word — had left it."
+**THE CARDS** · PICK_UP — "The silk wrap tightened. I didn't see her move. The deck stayed where destiny — her word — had left it."
 **THE MONEY BOX** · OPEN — "The painted eye and I held a discussion. The eye won on experience."
 **THE BRASS ROD** · USE — "It swung toward the money box. 'It seeks the hidden metal,' she said, without a trace of embarrassment. Professional courtesy forbade comment."
-**THE TASSELS** · PULL — "One came off in my hand. It was back on the cloth when I looked again. I have elected not to think about this."
+**THE TASSELS** · PULL — "One came off in my hand. It was back on the cloth when I looked again. I've elected not to think about this."
 
 ## ROOM 17 — CHURCH & MEETING HALL
 
 **THE BELL ROPE** · PULL — "The whole town orders its morning by that flat note, and it was not morning. Sowerby appeared before the echo died. We have agreed it was the wind."
-**THE COLLECTION PLATE** · PICK_UP — "It is bolted down, which I take to be doctrine informed by experience."
+**THE COLLECTION PLATE** · PICK_UP — "It's bolted down, which I take to be doctrine informed by experience."
 **THE PULPIT** · USE — "I stood at it a moment while the hall was empty. It faces a room of chairs the way my claim faces the future: expectantly, on faith."
 **THE HYMNAL** · USE — "I corrected the penciled corrections. Somebody has since corrected mine. The hymnal is now a debate."
 **THE STOVE** · TALK_TO — "I asked it to extend its range to the back pews. It ticked noncommittally, like everything else in this building with a congregation."
@@ -187,9 +187,9 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 **THE CLERK'S BELL** · USE — "I rang it. The clerk arrived from a direction the building does not have."
 **THE REGISTER** · USE — "I corrected my name in it. The next morning it was wrong again, differently. The register is alive, or the clerk is loyal to some principle I lack."
-**THE KEY RACK** · PICK_UP — "Three keys, and mine is one, and the other two belong to men I have never seen. The hotel is fuller of mystery than of guests."
+**THE KEY RACK** · PICK_UP — "Three keys, and mine is one, and the other two belong to men I've never seen. The hotel is fuller of mystery than of guests."
 **THE STAIRS** · PUSH — "The fourth step and I have an arrangement: I skip it, and it tells no one my hours."
-**THE PAINTING** · PULL — "Behind it: wall. I do not know what I expected. More wall, perhaps, but honest about it."
+**THE PAINTING** · PULL — "Behind it: wall. I don't know what I expected. More wall, perhaps, but honest about it."
 
 ## ROOM 19 — THAD'S HOTEL ROOM
 

@@ -236,7 +236,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "Wind. It is not impressed either."
 
 **THE MUD**
-> **LOOK:** "Approximately forty percent mud, thirty percent rock, and thirty percent a substance I have not yet identified."
+> **LOOK:** "Approximately forty percent mud, thirty percent rock, and thirty percent a substance I haven't yet identified."
 > **LISTEN:** "Wet. Working at it."
 
 **THE HOLE** — ***the line the entire game rests on***
@@ -267,7 +267,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "Nothing. Somebody did this quietly."
 
 **THE LAMP**
-> **LOOK:** "Trimmed, filled, and ready. It is the only well-maintained object I have seen in Consolation."
+> **LOOK:** "Trimmed, filled, and ready. It's the only well-maintained object I've seen in Consolation."
 > **LISTEN:** "Nothing yet."
 
 **THE COAT ON THE NAIL**
@@ -384,7 +384,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Horsehair, resettling. It sighs longer than furniture should."
 
 **THE SPITTOON**
-> **LOOK:** "I will not be examining the spittoon closely. Some economies are false."
+> **LOOK:** "I won't be examining the spittoon closely. Some economies are false."
 > **LISTEN:** "No."
 
 **THE PAINTING**
@@ -406,7 +406,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE WASHSTAND**
 > **LOOK:** "A basin, a pitcher, and a bar of soap worn to a wafer. Washing in the territory is devotional: brief, and mostly symbolic."
-> **LISTEN:** "A drip that keeps no rhythm. I have tried tuning it. It resists."
+> **LISTEN:** "A drip that keeps no rhythm. I've tried tuning it. It resists."
 
 **THE WINDOW**
 > **LOOK:** "It faces the street, which faces back. In the morning the false fronts glow like scenery, which is honest of the light."
@@ -429,7 +429,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "The flame eats quietly. Good manners, in a fire."
 
 **THE FLOORBOARDS**
-> **LOOK:** "Gaps generous enough to bank coins in, which I would consider if I had coins to a degree worth hiding."
+> **LOOK:** "Gaps generous enough to bank coins in, which I'd consider if I had coins to a degree worth hiding."
 > **LISTEN:** "The lobby, in outline. Mostly the bell."
 
 **THE DOOR**
@@ -780,7 +780,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Paper. The prices hold steady, which is more than the bank manages."
 
 **THE CARDS**
-> **LOOK:** "A deck worn soft, wrapped in silk. The top card, when she is elsewhere, is always the same one. I have stopped checking which."
+> **LOOK:** "A deck worn soft, wrapped in silk. The top card, when she is elsewhere, is always the same one. I've stopped checking which."
 > **LISTEN:** "Card against card, in the wrap. They shuffle themselves slightly. I have decided this is settling."
 
 **THE TEA SERVICE**
@@ -821,7 +821,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "The rope creaks against the beam. The bell above holds its breath."
 
 **THE BELL** *(heard, not seen)*
-> **LOOK:** "You cannot see it from here. You can see where the ceiling knows about it."
+> **LOOK:** "You can't see it from here. You can see where the ceiling knows about it."
 > **LISTEN:** "A half-step flat, even in memory."
 
 **THE PEWS**

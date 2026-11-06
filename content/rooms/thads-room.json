@@ -315,7 +315,7 @@
             "say": "My good coat.",
             "repeat": [
               "My good coat. The only thing I own that suggests I was once somebody's son with prospects.",
-              "It has mud to the knee and I have stopped attending to it.",
+              "It has mud to the knee, and I've stopped attending to it.",
               "Providence made this coat for a man walking to an office."
             ],
             "then": [
@@ -334,7 +334,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "I am wearing the other one, which is this one."
+        "PICK_UP": "I'm wearing the other one, which is this one."
       },
       "walkTo": {
         "x": 210,
@@ -355,7 +355,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Gaps generous enough to bank coins in, which I would consider if I had coins to a degree worth hiding.",
+            "say": "Gaps generous enough to bank coins in, which I'd consider if I had coins to a degree worth hiding.",
             "repeat": [
               "One board is newer than the others, and nailed down harder.",
               "At night the lobby lamp shines up through the gaps, and the floor glows in stripes, like a cell, or a keyboard."
@@ -449,7 +449,7 @@
             "say": "The alley.",
             "repeat": [
               "The alley. A cat, some barrels, and the back of the Improvement Company.",
-              "One story, from here. From the street it is three. I have checked from both."
+              "One story, from here. From the street it's three. I've checked from both."
             ],
             "then": [
               "A cat, some barrels, and a view of the back of the Improvement Company."
@@ -460,7 +460,7 @@
           {
             "say": "The town. All of it. The wall between us is a formality.",
             "repeat": [
-              "Somebody unloading, two streets over. It goes on all night. I have stopped minding it, which worries me.",
+              "Somebody unloading, two streets over. It goes on all night. I've stopped minding it, which worries me.",
               "The cat is on the barrels again. She gets up there and then reconsiders.",
               "Nothing. Whoever was unloading has stopped, and the quiet is worse."
             ]
@@ -490,7 +490,7 @@
             "repeat": [
               "A washstand, a jug, a basin, and a piece of mirror the size of my hand.",
               "The water is brought up cold at six and is cold at six.",
-              "I have shaved in a piece of mirror the size of my hand every day for eleven weeks and I am beginning to take a view about it."
+              "I've shaved in a piece of mirror the size of my hand every day for eleven weeks, and I'm beginning to take a view about it."
             ],
             "then": [
               "Washing in the territory is devotional: brief, and mostly symbolic."
@@ -499,7 +499,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "A drip that keeps no rhythm. I have tried tuning it. It resists.",
+            "say": "A drip that keeps no rhythm. I've tried tuning it. It resists.",
             "repeat": [
               "Nothing. Water, when I move it.",
               "Nothing.",
@@ -532,7 +532,7 @@
           {
             "say": "One short leg, corrected with a folded claim notice.",
             "repeat": [
-              "A desk, a chair, and a window facing an alley. For five dollars a week, I had expected a slightly worse alley.",
+              "A desk, a chair, and a window facing an alley. For five dollars a week, I'd expected a slightly worse alley.",
               "The chair does not match the desk. Neither matches the room."
             ],
             "then": [
@@ -571,7 +571,7 @@
           {
             "say": "A wardrobe for a man with wardrobe ambitions.",
             "repeat": [
-              "The bottom drawer sticks. I have nothing to put in it, so we have come to an accommodation.",
+              "The bottom drawer sticks. I don't have anything to put in it, so we've come to an accommodation.",
               "Somebody left a single glove on the top shelf. Nobody in Consolation owns gloves, so it was a visitor, and he lost the other one too."
             ],
             "then": [
@@ -613,7 +613,7 @@
           {
             "say": "A bed with a valley in it, shaped by predecessors.",
             "repeat": [
-              "A bed, made, narrow, and the sheets are clean. I had not expected the sheets to be clean.",
+              "A bed, made, narrow, and the sheets are clean. I hadn't expected the sheets to be clean.",
               "It is the only thing in Consolation that has exceeded my expectations.",
               "Five dollars a week. I have decided the sheets are most of it."
             ],
@@ -663,7 +663,7 @@
             "repeat": [
               "The door down to the lobby. Number nineteen, in brass, hung slightly crooked.",
               "Nineteen. The nine has been on and off more than once.",
-              "It locks. It is the only door I have ever had that locks and I do not lock it."
+              "It locks. It's the only door I've ever had that locks, and I don't lock it."
             ]
           }
         ],

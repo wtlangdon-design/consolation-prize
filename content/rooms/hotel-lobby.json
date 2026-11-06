@@ -128,7 +128,7 @@
             "say": "A bell for summoning the clerk.",
             "repeat": [
               "A card beside it reads RING FOR SERVICE, in the same hand as the card that reads NO CREDIT.",
-              "I have looked at this bell three times now. A lesser man would have rung it. So would a braver one."
+              "I've looked at this bell three times now. A lesser man would have rung it. So would a braver one."
             ],
             "then": [
               "The handle is worn to bare brass, which tells you how often the clerk is elsewhere."
@@ -167,7 +167,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "I will not be examining the spittoon closely. Some economies are false.",
+            "say": "I won't be examining the spittoon closely. Some economies are false.",
             "repeat": [
               "Brass, and emptied. In a hotel lobby this counts as gentility.",
               "It has been moved twice since this morning and it is still in the wrong place.",
@@ -216,8 +216,8 @@
           {
             "say": "There I am.",
             "repeat": [
-              "Forty-one names. I have read all of them and I do not know one.",
-              "Mine is the last, and it is spelled in a way I have not previously encountered."
+              "Forty-one names. I've read all of them, and I don't know one.",
+              "Mine is the last, and it's spelled in a way I haven't previously encountered."
             ],
             "then": [
               "'Thadeus Grub.' The hotel has removed exactly the letters it considers extravagant."
@@ -318,7 +318,7 @@
         ]
       },
       "overrides": {
-        "PULL": "Behind it: wall. I do not know what I expected. More wall, perhaps, but honest about it."
+        "PULL": "Behind it: wall. I don't know what I expected. More wall, perhaps, but honest about it."
       },
       "walkTo": {
         "x": 600,
@@ -348,16 +348,16 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Ticking. Slightly slow. I am not going to say anything.",
+            "say": "Ticking. Slightly slow. I'm not going to say anything.",
             "repeat": [
               "Ticking. Slow.",
-              "Ticking. I am not going to say anything."
+              "Ticking. I'm still not going to say anything."
             ]
           }
         ]
       },
       "overrides": {
-        "USE": "I have been asked not to."
+        "USE": "I've been asked not to."
       },
       "walkTo": {
         "x": 1550,
@@ -381,7 +381,7 @@
             "say": "Forty keys. Four of them are out.",
             "repeat": [
               "Four out of forty. The four are not near each other.",
-              "Number nineteen is mine. I have looked at it more than a man should look at a key."
+              "Number nineteen is mine! I've looked at it more than a man should look at a key."
             ],
             "then": [
               "The hotel is one-tenth occupied and charges as though it were not."
@@ -400,7 +400,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "Three keys, and mine is one, and the other two belong to men I have never seen. The hotel is fuller of mystery than of guests."
+        "PICK_UP": "Three keys, and mine is one, and the other two belong to men I've never seen. The hotel is fuller of mystery than of guests."
       },
       "walkTo": {
         "x": 1357,
@@ -425,7 +425,7 @@
             "repeat": [
               "A settee in worn blue plush, gone shiny at both arms and nowhere in the middle.",
               "Two men have sat at either end of this for years and neither has moved to the center.",
-              "It is the only comfortable thing I have seen since the coach, and the coach was not comfortable."
+              "It's the only comfortable thing I've seen since the coach, and the coach wasn't comfortable."
             ],
             "then": [
               "Someone has slept on it recently, and at length."
@@ -443,7 +443,7 @@
         ]
       },
       "overrides": {
-        "USE": "I have sat on it. That is what happened next."
+        "USE": "I've sat on it. That's what happened next."
       },
       "walkTo": {
         "x": 418,
@@ -476,7 +476,7 @@
             "say": "Nothing, until a cart goes by.",
             "repeat": [
               "Still wrong. The A is the worst. The A is always the worst.",
-              "Four minutes' work, and a room for the night. I have done the arithmetic, which I gather is frowned on here."
+              "Four minutes' work, and a room for the night. I've done the arithmetic, which I gather is frowned on here."
             ],
             "then": [
               "Then every string answers, and every one of them is wrong in its own direction."
@@ -506,7 +506,7 @@
             "say": "Main Street through glass with a wave in it.",
             "repeat": [
               "A man outside has been about to cross the street for the whole of my stay. The glass makes him reconsider in waves.",
-              "My own reflection, rippling. Even the window has not decided whether I have arrived."
+              "My own reflection, rippling. Even the window hasn't decided whether I've arrived."
             ],
             "then": [
               "The town ripples, like it has not set yet."

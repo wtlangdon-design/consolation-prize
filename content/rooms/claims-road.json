@@ -297,7 +297,7 @@
           {
             "say": "Sage and greasewood, gray-green and low, holding the hillside together out of habit.",
             "repeat": [
-              "Something lives in it. I have seen it move with nobody near.",
+              "Something lives in it. I've seen it move with nobody near.",
               "It was here before the road and will be here after. It has never needed the gold, or anything else."
             ]
           }
@@ -368,7 +368,7 @@
             "say": "Rutted a foot deep by everything the diggings ever needed.",
             "repeat": [
               "Worn a foot deep in twelve years. This much dirt was moved by boots, not by digging, and it is more than anybody has moved on purpose.",
-              "I have walked it enough times now to have a favorite rut. It is the one that does not fill with water."
+              "I've walked it enough times now to have a favorite rut. It's the one that doesn't fill with water."
             ],
             "then": [
               "The town pours up this road each morning and drains back each night."
