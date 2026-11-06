@@ -42,8 +42,8 @@ repeat variants), and is marked verbatim. This section contributes only what doc
 where the two conflicted, the better line won and is noted in doc 13.
 
 **THE FALSE FRONTS** · OPEN — "The front is the part that doesn't open. That is its entire function and its entire biography."
-**THE CHURCH STEEPLE** · USE — "It is a steeple. Its use is being seen from everywhere, and it is currently in use."
-**THE WATER TROUGH** · USE — "I have drunk from it once. The once is doing a great deal of work in that sentence." *(supersedes doc 13's trough USE — funnier, and it implies history)*
+**THE CHURCH STEEPLE** · USE — "It's a steeple. Its use is being seen from everywhere, and it's already doing that."
+**THE WATER TROUGH** · USE — "I've drunk from it once. The “once” is doing a great deal of work in that sentence." *(supersedes doc 13's trough USE — funnier, and it implies history)*
 **THE BOARDWALK** · PULL — "The loose board declines to come up. It is loose recreationally, not professionally." *(supersedes doc 13's PULL; its PUSH stands)*
 
 ## ROOM 3 — THE BOUNTIFUL NUGGET

@@ -86,10 +86,10 @@
                 "atMost": 3
               }
             },
-            "say": "My funeral notice, prominently posted. 'THE PIANO MAN, MOURNED BY ALL.' Frame has finally found a spelling he cannot get wrong."
+            "say": "My funeral notice, prominently posted. 'THE PIANO MAN, MOURNED BY ALL.' Frame has finally found a spelling he can't get wrong."
           },
           {
-            "say": "Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who cannot. He is doing better than anyone.",
+            "say": "Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who can't. He's doing better than anyone.",
             "repeat": [
               "The lost dog notice has been up six weeks. The dog is on this street.",
               "Four claims for sale today. There were three yesterday."
@@ -110,14 +110,14 @@
             "say": "Paper, in wind. A great deal of it.",
             "repeat": [
               "Paper. Still a great deal of it.",
-              "One corner has come loose and is knocking. It will do that until somebody dies."
+              "One corner has come loose and is knocking. It'll do that until somebody dies."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "They belong to the town. I have read them four times, which I consider a form of ownership.",
-        "OPEN": "They are already facing outward. That is the whole design."
+        "PICK_UP": "They belong to the town. I've read them four times, which I consider a form of ownership.",
+        "OPEN": "They're already facing out. That's the whole design."
       },
       "walkTo": {
         "x": 1193,
@@ -141,24 +141,24 @@
           {
             "say": "A trough. Three inches of water and a great deal of ambition.",
             "repeat": [
-              "The water has not improved.",
-              "Three inches. I have measured it with a stick, which is the most scientific act performed in Consolation this year."
+              "The water hasn't improved. Neither has my opinion of it.",
+              "Three inches. I measured it with a stick. The most scientific thing anyone's done in Consolation this year."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Something is living in it. I have decided not to pursue this.",
+            "say": "Something is living in it. I've decided not to pursue this.",
             "repeat": [
-              "It is still in there. It has moved.",
+              "It's still in there. It's moved.",
               "We have reached an understanding."
             ]
           }
         ]
       },
       "overrides": {
-        "USE": "I have drunk from it once. The once is doing a great deal of work in that sentence.",
-        "OPEN": "It is a trough. It is entirely open. It is nothing but open."
+        "USE": "I've drunk from it once. The “once” is doing a great deal of work in that sentence.",
+        "OPEN": "It's a trough. It's entirely open. It's nothing but open."
       },
       "walkTo": {
         "x": 1940,
@@ -182,8 +182,8 @@
           {
             "say": "A dog with the settled look of an animal that has outlasted several owners.",
             "repeat": [
-              "He has not moved. He has the air of a creature waiting for the town to finish.",
-              "He is looking at me. I have nothing to offer and he knows it."
+              "He hasn't moved. He has the air of a creature waiting for the town to finish.",
+              "He's looking at me. I've got nothing to offer, and he knows it."
             ]
           }
         ],
@@ -195,21 +195,21 @@
                 "atMost": 3
               }
             },
-            "say": "He knows me. Tail, twice. The one resident who never read a word of paper in his life, and therefore the one resident I am still alive to."
+            "say": "He knows me. Tail, twice. The one resident who's never read a newspaper, so the one resident I'm still alive to."
           },
           {
-            "say": "Breathing. Contented. He is the only solvent resident of Consolation.",
+            "say": "Breathing. Contented. He's the only solvent resident of Consolation.",
             "repeat": [
               "Still contented. Still solvent.",
-              "Nothing. He has gone to sleep in the middle of my attention."
+              "Quiet. He's gone to sleep in the middle of my attention."
             ]
           }
         ]
       },
       "overrides": {
         "TALK_TO": "Good morning.",
-        "PICK_UP": "I am not picking up a dog I have not been introduced to.",
-        "PUSH": "I will not."
+        "PICK_UP": "I'm not picking up a dog I haven't been introduced to.",
+        "PUSH": "I won't. Look at him."
       },
       "walkTo": {
         "x": 2628,
@@ -234,7 +234,7 @@
             "say": "The tallest thing in Consolation, and the only building that is as deep as it is tall.",
             "repeat": [
               "Still the only honest building on the horizon.",
-              "Somebody built that properly. I should like to meet them and I suspect they have left."
+              "Somebody built that properly. I'd like to meet them. I suspect they've left."
             ]
           }
         ],
@@ -243,18 +243,18 @@
             "say": "The bell is a half-step flat.",
             "repeat": [
               "Half a step. Every time.",
-              "I have begun to hear it correctly in my head before it rings, which is the first sign of something."
+              "I've started hearing it in tune, in my head, before it rings. That's the first sign of something."
             ],
             "then": [
-              "It has been struck by hand for six years by a man who does not care."
+              "A man has rung it by hand for six years, and he doesn't care."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "It is four hundred yards away and approximately forty feet tall. I admire the ambition of the instruction.",
-        "TALK_TO": "I am not going to shout at a church from a street.",
-        "USE": "It is a steeple. Its use is being seen from everywhere, and it is currently in use."
+        "PICK_UP": "It's four hundred yards away and about forty feet tall. I admire the ambition.",
+        "TALK_TO": "I'm not going to shout at a church from the street. I was raised better than that. Slightly.",
+        "USE": "It's a steeple. Its use is being seen from everywhere, and it's already doing that."
       },
       "walkTo": {
         "x": 788,
@@ -292,7 +292,7 @@
                 "atMost": 3
               }
             },
-            "say": "Fresh gilt on the lettering. Business is good. Business, for the Company, is always the search, and the search just outlived its most annoying obstacle. Me."
+            "say": "Fresh gilt on the lettering. Business is good. The Company's business is the search, and the search has just outlived its most annoying obstacle. Me."
           },
           {
             "say": "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering.",
@@ -301,23 +301,23 @@
               "Painted twice, and the second time by a better man than the first."
             ],
             "then": [
-              "It is the only sign in town that has been painted twice."
+              "The only sign in town that's been painted twice."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. It is the quietest building on the street and it is always full.",
+            "say": "Nothing. It's the quietest building on the street, and it's always full.",
             "repeat": [
-              "Nothing. Still full.",
-              "Nothing at all. Whatever they do in there, they do it without raising their voices."
+              "Still quiet. Still full.",
+              "Whatever they do in there, they do it without raising their voices."
             ]
           }
         ]
       },
       "overrides": {
-        "PULL": "It is screwed on. Thoroughly. Somebody paid for it to be screwed on.",
-        "TALK_TO": "I have spoken to the building it is attached to. It went badly and I have not recovered."
+        "PULL": "It's screwed on. Thoroughly. Somebody paid extra for it to stay put.",
+        "TALK_TO": "I've spoken to the building it's attached to. It went badly, and I haven't recovered."
       },
       "walkTo": {
         "x": 668,
@@ -341,7 +341,7 @@
           {
             "say": "Six inches above the mud.",
             "repeat": [
-              "Six inches. I have never been so aware of six inches.",
+              "Six inches. I've never been so aware of six inches.",
               "The boards are good. Somebody spent money on the one thing that keeps a man out of the road."
             ],
             "then": [
@@ -354,7 +354,7 @@
             "say": "Loose board, third from the end. Everyone in town steps over it without thinking.",
             "repeat": [
               "Third from the end. Still loose.",
-              "It has a note. B flat, roughly. I have decided not to tell anyone."
+              "It has a note. B flat, roughly. I've decided not to tell anyone."
             ],
             "then": [
               "Nobody has ever fixed it."
@@ -364,7 +364,7 @@
       },
       "overrides": {
         "PULL": "The loose board declines to come up. It is loose recreationally, not professionally.",
-        "PUSH": "Third from the end. Up an inch, down an inch. Nobody has ever fixed it."
+        "PUSH": "Third from the end. Up an inch, down an inch. I did that four more times than I needed to."
       },
       "walkTo": {
         "x": 925,
@@ -389,24 +389,24 @@
             "say": "Gold country. Everyone here has looked at these hills for years and seen a number.",
             "repeat": [
               "Still gold country. Still no gold.",
-              "They are the same hills as yesterday. I check."
+              "The same hills as yesterday. I check."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. They are extremely large and they are not doing anything.",
+            "say": "Nothing. They're extremely large, and they aren't doing anything.",
             "repeat": [
-              "Nothing. Still large.",
-              "Nothing. I should be alarmed if there were."
+              "Still large. Still quiet.",
+              "Nothing. I'd be alarmed if there were."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "They are hills.",
+        "PICK_UP": "They're hills.",
         "TALK_TO": "No.",
-        "USE": "I would not know where to begin, and neither would they."
+        "USE": "I wouldn't know where to begin, and neither would they."
       },
       "walkTo": {
         "x": 3440,
@@ -430,8 +430,8 @@
           {
             "say": "Mud, the full width of the street and six inches deep.",
             "repeat": [
-              "The same mud. I have begun to recognize individual portions of it.",
-              "That portion I have named. I will not be sharing the name."
+              "The same mud. I've started to recognize individual portions of it.",
+              "That portion there, I've named. I won't be sharing the name."
             ],
             "then": [
               "The boardwalk is six inches high. Somebody worked that out."
@@ -440,7 +440,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. It is mud, and it is being mud.",
+            "say": "Nothing. It's mud, being mud.",
             "repeat": [
               "Nothing new.",
               "Nothing new. I want that understood."
@@ -449,7 +449,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "I have picked up some mud. I am now a man holding mud, in a street, at night.",
+        "PICK_UP": "I pick up some mud. I am now a man holding mud, in a street, at night. I put it back.",
         "USE": "On what."
       }
     },
@@ -478,8 +478,8 @@
           {
             "say": "Half this street is two stories tall in front and one story deep.",
             "repeat": [
-              "Still two stories of nothing. I keep hoping the back will have arrived.",
-              "I have counted. Six fronts, six sheds, one town."
+              "Still two stories of front and nothing behind. I keep hoping the back will turn up.",
+              "I've counted. Six fronts, six sheds, one town."
             ],
             "then": [
               "Consolation is a stage set people have moved into."
@@ -497,17 +497,17 @@
             "say": "Wind behind them, and under it, my own name being discussed. Approximately my name."
           },
           {
-            "say": "Wind. There is a great deal of nothing behind half of these.",
+            "say": "Wind. There's a great deal of nothing behind half of these.",
             "repeat": [
-              "The same nothing. It is a very consistent nothing.",
-              "Nothing. I have stopped expecting otherwise and I am the better for it."
+              "The same nothing. It's a very consistent nothing.",
+              "Nothing. I've stopped expecting otherwise, and I'm the better for it."
             ]
           }
         ]
       },
       "overrides": {
-        "PUSH": "I have pushed the front of a building. It did not fall over, which is more than I expected.",
-        "PULL": "If I pull hard enough the entire town comes down, and I have not settled how I feel about that.",
+        "PUSH": "I push the front of a building. It doesn't fall over. I'm honestly a little surprised.",
+        "PULL": "If I pull hard enough, the whole town comes down. I haven't decided how I feel about that.",
         "OPEN": "The front is the part that doesn't open. That is its entire function and its entire biography."
       },
       "walkTo": {
@@ -532,26 +532,26 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The Bountiful Nugget. Batwing doors, which swing both ways, and which I suspect is the whole philosophy of the establishment.",
+            "say": "The Bountiful Nugget. Batwing doors, which swing both ways. I suspect that's the whole philosophy of the place.",
             "repeat": [
-              "Somebody spent money on those doors and on nothing else. I have looked.",
-              "The Nugget. It is bountiful in the way that a promise is bountiful."
+              "Somebody spent money on those doors and nothing else. I've looked.",
+              "The Nugget. It's bountiful the way a promise is bountiful."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Talk, glasses, and a piano that is flat in one place. I could put it right in four minutes and nobody has asked me.",
+            "say": "Talk, glasses, and a piano that's flat in one place. I could put it right in four minutes, and nobody's asked me.",
             "repeat": [
-              "Still flat. C-sharp. It is going to be C-sharp for the rest of my life.",
-              "Somebody in there has told the same story four times and it has grown twice."
+              "Still flat. C-sharp. It's going to be C-sharp for the rest of my life.",
+              "Somebody in there is telling a story about a bear. The bear is bigger than it was."
             ]
           }
         ]
       },
       "overrides": {
         "CLOSE": "They swing. Closing them is a temporary opinion.",
-        "TALK_TO": "I would have to go in. Going in costs money.",
+        "TALK_TO": "I'd have to go in. Going in costs money.",
         "PULL": "They swing outward, inward, and for some time afterwards."
       },
       "defaultVerb": "OPEN",
@@ -575,18 +575,18 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "CONSOLATION IMPROVEMENT COMPANY. The door is a great deal heavier than the building requires.",
+            "say": "CONSOLATION IMPROVEMENT COMPANY. The door is a great deal heavier than the building needs.",
             "repeat": [
-              "Everyone who goes in comes out pleased. I have watched eleven men do it.",
-              "Three stories from here. I have been round the back and it is one."
+              "Everyone who goes in comes out pleased. I've watched eleven men do it. I'd like to be the twelfth.",
+              "Three stories from here. I've been round the back. It's one."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. It is the quietest doorway on the street and it is never still.",
+            "say": "Not a sound. The quietest doorway on the street, and it's never still.",
             "repeat": [
-              "Nothing. Somebody is always going in.",
+              "Not a sound, and somebody is always going in.",
               "Nothing at all. Not one raised voice in eleven weeks."
             ]
           }
@@ -594,7 +594,7 @@
       },
       "overrides": {
         "PUSH": "It opens inward, which is a decision somebody made.",
-        "TALK_TO": "I have spoken to the man behind that door. I came away with a map and I am no longer certain what I gave him.",
+        "TALK_TO": "I've spoken to the man behind that door. I came away with a map, and I'm no longer sure what I gave him.",
         "CLOSE": "It closes on its own, slowly, and without a sound. Somebody paid for that too."
       },
       "defaultVerb": "OPEN",
@@ -620,24 +620,24 @@
           {
             "say": "The Consolation Clarion. One press, one man, and the front page of every issue for twelve years has been about a hole nobody can find.",
             "repeat": [
-              "The door is open. The door is always open. He is desperate for somebody to say something quotable.",
-              "There is a bill in the window advertising the Clarion, printed by the Clarion, on the Clarion's press."
+              "The door's open. The door's always open. He's desperate for somebody to say something quotable.",
+              "There's a bill in the window advertising the Clarion, printed by the Clarion, on the Clarion's press."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "The press. It knocks on the return stroke, and it has knocked for years.",
+            "say": "The press. It knocks on the return stroke. It's knocked for years.",
             "repeat": [
               "Knocking. Still knocking.",
-              "He is talking to himself in there. He is doing both sides of an interview."
+              "He's talking to himself in there. Both sides of an interview. He's winning."
             ]
           }
         ]
       },
       "overrides": {
-        "TALK_TO": "If I say anything within forty feet of that door it will be in print by four o'clock.",
-        "CLOSE": "He would only open it again, and then write about it."
+        "TALK_TO": "If I say anything within forty feet of that door, it'll be in print by four o'clock. Spelled wrong.",
+        "CLOSE": "He'd only open it again, and then write about it."
       },
       "defaultVerb": "OPEN",
       "walkTo": {
@@ -663,25 +663,25 @@
             "say": "The road out to the diggings. Worn a foot deep by boots — which is more dirt than anybody out there has shifted on purpose.",
             "repeat": [
               "Two miles. It looks further in the morning and considerably further at night.",
-              "Somewhere down there is forty feet of mud that is legally mine."
+              "Somewhere down there is forty feet of mud that's legally mine. I can't wait to see it."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Boots. A great many of them, going out. It is the most cheerful sound in Consolation and it happens at six in the morning.",
+            "say": "Boots. A great many of them, going out. The most cheerful sound in Consolation, and it happens at six in the morning.",
             "repeat": [
-              "Nothing at the moment. They are all out there.",
+              "Nothing at the moment. They're all out there.",
               "Nothing coming back yet. They come back quiet."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "It is a road.",
-        "PULL": "It is a road.",
-        "TALK_TO": "There is nobody on it.",
-        "CLOSE": "I have considered it. Several of us have."
+        "PICK_UP": "It's a road. It's two miles long. No.",
+        "PULL": "It's a road. It's been pulled about enough.",
+        "TALK_TO": "There's nobody on it.",
+        "CLOSE": "I've considered it. Several of us have."
       },
       "defaultVerb": "WALK_TO",
       "walkTo": {
@@ -705,7 +705,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The assay office. A door, a step, and one window. It is the only front on this street that is not selling itself.",
+            "say": "The assay office. A door, a step, and one window. The only front on this street that isn't selling itself.",
             "repeat": [
               "No sign. Everybody knows where it is and nobody needs telling twice.",
               "The step is worn pale in the middle and nowhere else. They come, they stand, they go."
@@ -714,10 +714,10 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. It is the quietest working building in Consolation.",
+            "say": "Hardly a sound. Somebody in there is working, and doing it quietly.",
             "repeat": [
               "Nothing. A pen, possibly. I may be inventing the pen.",
-              "Nothing at all. Whatever is decided in there is decided without discussion."
+              "Whatever's decided in there is decided without discussion."
             ]
           }
         ]
@@ -735,9 +735,9 @@
         }
       },
       "overrides": {
-        "PUSH": "It opens inward, and it opens easily. Somebody has oiled it.",
+        "PUSH": "It opens inward, and easily. Somebody oils it.",
         "CLOSE": "It closes itself, slowly, and latches. Somebody sees to that.",
-        "TALK_TO": "I have tried talking to it. The building is not the problem."
+        "TALK_TO": "I've tried talking to it. The building isn't the problem."
       },
       "walkTo": {
         "x": 3113,
