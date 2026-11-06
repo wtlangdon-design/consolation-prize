@@ -3368,3 +3368,24 @@ Tyler, on the list of what the full build left unstaged (doc 36 Q173, Q174, Q176
 - **What holds it:** `tests/room-36.test.ts` (the close goes to the coach stop; the man is there; the line waits for his nod; no way out; black after). Seen in `renders/walks/the-close.gif`.
 
 **Art: room-36 4 of 4 operations.**
+
+# 122 · THE BACKGROUND IS HEARD — TYLER, 2026-11-06
+
+*Tyler, listening to "Every remaining sound, at its real level": "you can't hear really any of the background sounds and noises. The music completely overpowers everything."*
+
+**A · The places were too low.** Errata 106 answered "make sure sfx aren't absurdly loud ... background effects not sounds that take center stage" with places 16-20 dB under the median room bed (about a quarter as loud as the score), and set every gain to sit exactly on them. Nothing was too loud, and nothing was heard. `content/audio/sounds.json` `levels` now places:
+- each room's background 8 dB under the music (the Nugget's synthesized crowd 12, errata 106's rule that a synthesized voice is most convincing barely there), and its layers 10;
+- footsteps 10 under, measured on the loudest step of each floor;
+- one-off cues 4 under, and every per-cue place 6 higher than it was.
+
+The featured moments (the bells, the hum, the whistle, the tunings, the fiddler's barks), the Strike, the tuning arc's fiddler, and the coffin's and chamber's scripted sounds keep their places. Every changed gain is set by measurement to its place, not by ear.
+
+**B · Two beds re-rendered.** The Nugget's crowd and the registrar's bed would have needed gains over 1 (an HTML audio element cannot play louder than its file), so `tools/audio/render-room-sfx.py` renders them nearer full scale (peak 0.98 and 0.95); nothing else in that script's output changed.
+
+**C · What holds it.** `tools/check-sound-levels.mjs` had a ceiling only. It now also fails:
+- any place lower than -12 dB under the music;
+- any sound more than 6 dB under its place, its "floor". For footsteps the floor is checked on each floor's loudest step. The coffin's and the chamber's scripted sounds keep a ceiling only, because their distance is the scene.
+
+Proved: the old `sounds.json` fails it on eleven places.
+
+**D · Heard.** The Themes page's new top section plays Main Street, the Nugget, the registrar, the Clarion and the stage road three ways at one overall volume: before, as now in the game, and 6 dB louder still. Tyler picks by ear; the game ships the middle one until he does.

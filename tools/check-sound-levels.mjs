@@ -25,6 +25,19 @@ import { readJson, Report, ROOT, runCheck } from './lib/content.mjs';
  * averaged over a silent tail would read as quiet and land like a slap.
  */
 const SLACK_DB = 2;
+/**
+ * AND NO BACKGROUND SOUND IS LOST UNDER THE MUSIC (Tyler, 2026-11-06, listening
+ * to every room at its real level: "you can't hear really any of the background
+ * sounds and noises. The music completely overpowers everything."). The first
+ * pass set ceilings only, 16-20 dB under the score, and nothing stopped a sound
+ * sitting so far under its place that nobody hears it. Every sound measured
+ * here must also sit no more than FLOOR_DB under its place.
+ */
+const FLOOR_DB = 6;
+/** And no place is set so far under the score that the floor itself is silence:
+ * the first pass's places were 16-20 dB under, and every sound sat exactly on
+ * its place. A background's place is no lower than this. */
+const LOWEST_PLACE = -12;
 
 function samples(path) {
   const buf = readFileSync(resolve(ROOT, path));
@@ -79,17 +92,30 @@ export function check() {
     report.fail(`${manifest.sounds} has no \`levels\`: every sound needs a place under the music`);
     return report;
   }
+  const places = [['footsteps', levels.footsteps], ['cue', levels.cue], ['cueBed', levels.cueBed],
+    ['ambienceDefault', levels.ambienceDefault], ['ambienceLayer', levels.ambienceLayer],
+    ...Object.entries(levels.ambience ?? {}).map(([room, v]) => [`ambience.${room}`, v]),
+    ...Object.entries(levels.cues ?? {}).map(([id, v]) => [`cues.${id}`, v])];
+  for (const [name, place] of places) {
+    if (typeof place === 'number' && place < LOWEST_PLACE) {
+      report.fail(`levels.${name} is ${place} dB under the music; no sound's place is lower than ${LOWEST_PLACE} -- below that it is not heard`);
+    }
+  }
   const cache = new Map();
   const read = (path) => { if (!cache.has(path)) cache.set(path, samples(path)); return cache.get(path); };
   const beds = Object.values(manifest.music.rooms).filter(Boolean).map((bed) => db(rms(read(bed.src)) * (bed.gain ?? 1)));
   const music = median(beds);
   let checked = 0;
-  const judge = (what, level, target, reference = music, against = 'the music') => {
+  const judge = (what, level, target, reference = music, against = 'the music', floor = true) => {
     checked += 1;
     const over = level - reference - target;
     if (over > SLACK_DB) {
       report.fail(`${what}: ${(level - reference).toFixed(1)} dB against ${against}, its place is ${target} `
         + `(ceiling ${target + SLACK_DB}) -- lower its gain in ${manifest.sounds}`);
+    }
+    if (floor && over < -FLOOR_DB) {
+      report.fail(`${what}: ${(level - reference).toFixed(1)} dB against ${against}, its place is ${target} `
+        + `(floor ${target - FLOOR_DB}) -- lost under the music; raise its gain in ${manifest.sounds}`);
     }
   };
   // A SOUND THAT DUCKS THE MUSIC (errata 107) is measured against what it
@@ -104,7 +130,10 @@ export function check() {
 
   const steps = sounds.footsteps;
   for (const [surface, files] of Object.entries(steps.surfaces)) {
-    for (const file of files) judge(`footstep ${surface} ${file}`, db(loudestMoment(read(file)) * steps.gain), levels.footsteps);
+    // Each step under its ceiling; the floor is the surface's loudest step, since
+    // a walk's steps differ on purpose and the softest of them is not the walk.
+    for (const file of files) judge(`footstep ${surface} ${file}`, db(loudestMoment(read(file)) * steps.gain), levels.footsteps, music, 'the music', false);
+    judge(`footsteps on ${surface}`, Math.max(...files.map((file) => db(loudestMoment(read(file)) * steps.gain))), levels.footsteps);
   }
   for (const [id, cue] of Object.entries(sounds.cues)) {
     const target = levels.cues?.[id] ?? levels.cue;
@@ -194,14 +223,14 @@ export function check() {
     const scale = roomGain[room.id] ?? 1;
     const steps = (room.timeline?.steps ?? room.timeline ?? []);
     for (const step of Array.isArray(steps) ? steps : []) {
-      if (step.do === 'sound' && step.src) judge(`${room.id} timeline ${step.src}`, db(loudestMoment(read(step.src)) * (step.gain ?? 1) * scale), levels.scene);
+      if (step.do === 'sound' && step.src) judge(`${room.id} timeline ${step.src}`, db(loudestMoment(read(step.src)) * (step.gain ?? 1) * scale), levels.scene, music, 'the music', false);
     }
   }
   if (manifest.listening || sounds.roomGain?.listening_chamber) {
     const taps = readJson('content/audio/r33-taps.json');
     const scale = roomGain.listening_chamber ?? 1;
     for (const one of [...taps.taps, taps.void, taps.fork].filter(Boolean)) {
-      judge(`listening_chamber ${one.src}`, db(loudestMoment(read(one.src)) * scale), levels.scene);
+      judge(`listening_chamber ${one.src}`, db(loudestMoment(read(one.src)) * scale), levels.scene, music, 'the music', false);
     }
   }
   report.note(`${checked} sounds measured against the music (median room bed ${music.toFixed(1)} dBFS)`);
