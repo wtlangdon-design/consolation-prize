@@ -1487,8 +1487,16 @@ export class GameScene extends Phaser.Scene {
     }
     const declared = this.state.content.manifest.music;
     if (!declared) return;
-    const room = declared.rooms?.[this.state.room.id];
-    this.music.play(room ?? declared.title ?? null);
+    const entry = declared.rooms?.[this.state.room.id];
+    // ERRATA 103: null is a room's deliberate silence; no entry is the title bed.
+    if (entry === null) {
+      this.music.play(null);
+    } else if (entry === undefined) {
+      this.music.play(declared.title ?? null);
+    } else {
+      const state = entry.variants?.find((variant) => this.state.flags.test(variant.when));
+      this.music.play(state ?? entry);
+    }
     // INVARIANT 5: -35 cents until Room 33's ninety seconds, 0 after them.
     if (this.tuneStart === null) {
       this.music.setTune(declared.tunedFlag && this.state.flags.test({ [declared.tunedFlag]: true }) ? 1 : 0);

@@ -2797,3 +2797,55 @@ Both misses are rebuilt, and the lesson is the same in both: **a clean sine is a
 **A correction to this record.** The audition page's sound files were not re-uploaded with the second, third and fourth tries: each republish changed only the page's words. So every verdict above after the first ("not like wood", "glass bottles") was about **the first renders**, the sine-mode boardwalk and plank, and Tyler never heard the batwing hinge. The second and third tries were never auditioned, not rejected. All current files went up together with the wood-block calibration (four amounts of ring, A to D), which asks Tyler which sounds like wood.
 
 **Approved (Tyler, 2026-11-06): "The redone versions you finally pushed to me were so much better. And the office door swing too."** The fourth-try boardwalk and plank steps and the iron-hinge batwings stand. With that, every theme and every sound in this ruling is approved by ear. The wood-block calibration was not needed and is not a game asset.
+
+---
+
+# 103 · THE ROOM MIXES (doc 28 Part Three), BUILT FROM THE APPROVED THEMES
+
+With every theme approved (errata 102), each room doc 28 Part Three names now has its music in `content/manifest.json`, every entry carrying its doc 28 line in `why`. **Arrangements only:** no new melody anywhere. Each is the approved theme re-scored, as doc 28 asks ("Each room declares a stem mix, not a track").
+
+| Room | Bed | How it is made |
+|---|---|---|
+| 1 · Stage road | THADDEUS, solo fiddle, **and** the Nugget's piano from town as a layer (doc 45 O-07-M) | The piano is CONSOLATION's piano parts alone, low-passed at 1.5 kHz with the echoes of the street (`distance: far`) |
+| 2 · Main Street | CONSOLATION, full | The title stem |
+| 3 · The Nugget | CONSOLATION on the upright alone, diegetic | The same piano parts, broken C-sharp and all |
+| 5/6 · Assay office | WINNIE | |
+| 7/8 · Registrar | THE ASSAY, unaccompanied jaw harp | THE ASSAY's jaw-harp part alone |
+| 10/11 · The Company | THE COMPANY | |
+| 13 · Undertaker's | **Silence** | `null`: a room's deliberate silence, which the engine now tells apart from a room with no entry |
+| 18/19 · Hotel | CONSOLATION, faintly through a wall | The full mix low-passed at 420 Hz with a wall's short reflections (`distance: wall`) |
+| 23/24 · Prosperity | THADDEUS and THE STRIKE, quiet | Two layers on their own loops — THADDEUS at his length, THE STRIKE every 29 seconds — so they drift and never meet the same way twice: "neither knows" |
+| 31 · The funeral | CONSOLATION, slow, on the bell's pitch | The tune on the fiddle at half speed, down the bell's half step (cast for D, sounding C-sharp); no piano at a graveside, and the piano's broken note would be this key's tonic. The approved bell tolls under it every 21 seconds as a layer |
+| 36 · Dawn | CONSOLATION, in tune, thin, one instrument | The tune on the fiddle alone; in tune by T_IN_TUNE, as the whole score is after Room 33 |
+
+**THE NUGGET PIANO AFTER IT IS TUNED (doc 45 OQ-12, decided under the standing delegation).** Once `T_NUGGET_PIANO_TUNED` is set, the Nugget and the stage road's distant piano play the same performance with the C-sharp mended. Only the C-sharp changes: Thad tunes the instrument, and the score's −35 cents is invariant 5's alone, untouched until Room 33.
+
+**THE ENGINE.** A bed may carry `layers` (each its own loop, started with the bed and never re-synced: doc 28's pairs are things that do not share a clock), and `variants` swap a bed on a flag, first match wins. A file in both the outgoing and incoming beds carries on rather than restarting under itself; the coffin's suspend stops every layer and brings each back where *it* would have been. `tests/room-music.test.ts`.
+
+**NOT DONE, AND WHY.** R05-M2 (THE ASSAY layered over WINNIE while Thad is at the counter) needs a counter state the engine does not have. THE STRIKE as Hob crosses in Room 1 (O-09-M) is beat-timed, and errata 28a still stands. Twenty rooms that doc 28 never mentions play the title bed as before, until Tyler says otherwise.
+
+---
+
+# 104 · EVERY OTHER ROOM, THE WOODTICK WAY — OWNER RULING (Tyler, 2026-11-06)
+
+Doc 28 Part Three names seventeen rooms; the eighteen it does not played the title bed by default. Tyler asked how Monkey Island handles it. *The Secret of Monkey Island* gives its main places their own tunes and cuts between them; *Monkey Island 2* (iMUSE) gives each building in a town the town's theme on its own instrument, with transitions that finish their phrase. Doc 28 is the second approach already. Offered the Woodtick way for the rest, **Tyler: "Yes."**
+
+| Room | Music |
+|---|---|
+| Mercantile | CONSOLATION, the tune on fiddle alone (Room 36's stem; out of tune here, in tune there) |
+| Sheng's laundry | the tune on harmonica alone |
+| Livery | fiddle over the jaw harp's offbeats |
+| The Clarion | harmonica over the jaw harp's offbeats |
+| Madame Ozymandia's tent | harmonica at half speed against the fiddle's counter-line |
+| Church | the funeral arrangement without the bell, which tolls only at the graveside |
+| Boot Hill | the funeral's music, bell and all |
+| Nugget back room | the saloon piano through the wall (tuned after `T_NUGGET_PIANO_TUNED`) |
+| Back alley | the saloon piano from the alley behind it (doc 28's Lane: "piano alone") |
+| Company vault | THE COMPANY through the wall from Fanshawe's office |
+| Watchman's shack | THE STRIKE alone, every 29 seconds: Hob's place |
+| Claims road, claim row, creek, high ridge, Mott's site, Pratt's claim | Prosperity's mix: THADDEUS and THE STRIKE on their own clocks |
+| District map | CONSOLATION, full |
+
+Still no new notes: every arrangement hands CONSOLATION's own tune, offbeats and counter-line to different players. **Every playable room now has its music chosen**, and `tests/room-music.test.ts` fails on a room that has none, so a new room cannot fall back to the title bed by omission.
+
+**Approved (Tyler, 2026-11-06): "Keep"**, for both errata 103 and 104, after hearing every room on the audition page.
