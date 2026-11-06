@@ -79,7 +79,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 ## ROOM 11 — FANSHAWE'S OFFICE
 
-**THE CHAIRS** · PUSH — "They are heavier than they look. Everything in this office is heavier than it looks."
+**THE CHAIRS** · PUSH — "They're heavier than they look. Everything in this office is heavier than it looks."
 **THE GLOBE** · USE — "I spun it. His thumb-mark is worn into it over the East. I stopped spinning it."
 **THE DECANTER** · OPEN — "It is always already open. Generosity, pre-loaded."
 **THE PORTRAIT** · TALK_TO — "The painted one listens exactly as well and commits to less. I prefer him slightly."
@@ -138,7 +138,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 **THE CHAIRS** · USE — "I sat. Twenty minutes evaporated. These chairs are how the Company buys time — literally, in bulk, from visitors."
 **THE CLOCK** · USE — "Setting it right would be an act of vandalism against a working system."
-**THE PROSPECTUS RACK** · PICK_UP — "Free, insists the clerk. Nothing in this building is free. I took one. We shall see what it cost."
+**THE PROSPECTUS RACK** · PICK_UP — "‘Free,’ says the clerk. Nothing in this building is free. I took one. We'll see what it cost."
 **THE PORTRAIT** · PUSH — "Straightened it. It was straight. It is now very slightly crooked and I feel I have accomplished something."
 **THE CARPET** · PULL — "It runs under the desk, under the door, and — for all I know — under the town."
 

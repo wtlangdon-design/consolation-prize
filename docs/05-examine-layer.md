@@ -214,7 +214,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE CHAIRS**
 > **LOOK:** "Eleven chairs, in a room that receives visitors one at a time."
-> **LISTEN:** "Leather, settling. They are extremely comfortable and I do not wish to sit in one."
+> **LISTEN:** "Leather, settling. They're extremely comfortable, and I don't wish to sit in one."
 
 **THE MAP WALL**
 > **LOOK:** "Every claim in the district, pinned. Two of them have red pins. One is Claim One. The other is mine."
@@ -222,7 +222,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE DECANTER**
 > **LOOK:** "Good whisky, offered freely to everyone, always."
-> **LISTEN:** "Full. It is always full. He does not drink it."
+> **LISTEN:** "Full. It's always full. He doesn't drink it."
 
 **THE SUBMISSION LOG** · **THE SAFE** · **THE WINDOW** · **THE STOCK PORTRAIT DRAWER** · **THE HANDKERCHIEF** · **THE LEDGERS** · **THE DOOR** — *(working script)*
 
@@ -311,7 +311,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE TYPE CASE**
 > **LOOK:** "Lead type in wooden trays. The B is worn nearly flat."
-> **LISTEN:** "Nothing. It is lead and it has nothing to add."
+> **LISTEN:** "Nothing. It's lead, and it has nothing to add."
 
 **THE PRESS**
 > **LOOK:** "A flatbed press of considerable age, operated by a man of considerable enthusiasm."

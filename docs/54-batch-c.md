@@ -156,11 +156,11 @@
 
 **THE TYPE CASE** — LOOK 2 "The exclamation marks have a compartment of their own, and it is the largest." · 3 "Every letter is cast backward so that it prints forward. It is the most honest thing in the building and it does it in reverse." | LISTEN 2 "A faint rattle of lead when the press starts. The type knows what is coming." · 3 "Nothing. Several thousand words in that case, and not one of them in order."
 
-**THE PRESS** — LOOK 2 "A sheet is half-printed in the bed: CONSOLATION REJOICES. The headline has not yet decided at what." · 3 "It is older than the town. It came over the mountains in pieces, which is more effort than anyone has put into the news since." | LISTEN 2 "The knock again, on the return. I could find it in a minute, and he would print that I had broken it." · 3 "A long iron sigh as the bed comes home, and then the knock, with the timing of a man repeating a joke."
+**THE PRESS** — LOOK 2 "A sheet is half-printed in the bed: CONSOLATION REJOICES. The headline has not yet decided at what." · 3 "It is older than the town. It came over the mountains in pieces, which is more effort than anyone has put into the news since." | LISTEN 2 "The knock again, on the return. I could find it in a minute, and he'd print that I'd broken it." · 3 "A long iron sigh as the bed comes home, and then the knock, with the timing of a man repeating a joke."
 
 **BACK EDITIONS** — LOOK 2 "Each Mott story gives a different date for the strike. The latest has moved it to a Sunday, for color." · 3 "The oldest are yellow and the newest are white, and the story inside them has not aged at all." | LISTEN 2 "The stack creaks. Twelve years of news, settling under its own weight." · 3 "Nothing. Yesterday's paper has nothing to add to yesterday."
 
-**THE MOTT PHOTOGRAPH** — LOOK 2 "He has the look of a man who was asked to think of something noble and is thinking of lunch." · 3 "The photographer's stamp has been trimmed off the bottom, neatly. Somebody wanted this to be a picture of someone." | LISTEN 2 "Nothing. Whoever he is, he has not said a word in twelve years." · 3 "The frame ticks on its nail. It is the most this likeness has ever said."
+**THE MOTT PHOTOGRAPH** — LOOK 2 "He has the look of a man who was asked to think of something noble and is thinking of lunch." · 3 "The photographer's stamp has been trimmed off the bottom, neatly. Somebody wanted this to be a picture of someone." | LISTEN 2 "Nothing. Whoever he is, he hasn't said a word in twelve years." · 3 "The frame ticks on its nail. It is the most this likeness has ever said."
 
 ### FRAME'S DESK
 **LOOK** 1 "A desk under a drift of proofs, notes and half-sentences. Somewhere beneath them, I am assured, is a desk." · 2 "A card pinned to the top reads VERIFY. It has been there so long the ink has faded to a suggestion." · 3 "Every drawer is open. Nothing in this office has ever been kept back from print, including several things that should have been."
@@ -168,11 +168,11 @@
 
 ### THE INK
 **LOOK** 1 "A keg of printer's ink, black as a creditor's mood and nearly as hard to get off the hands." · 2 "There are black thumbprints on everything in this office, including, somehow, the ceiling." · 3 "The keg is stenciled ST. LOUIS. The news here is local; the black is imported."
-**LISTEN** 1 "A thick, slow settle when the floor moves. It does not slosh. It considers." · 2 "Nothing. It is waiting to be turned into opinions." · 3 "The lid comes up with a reluctant kiss. I put it back down."
+**LISTEN** 1 "A thick, slow settle when the floor moves. It does not slosh. It considers." · 2 "Nothing. It's waiting to be turned into opinions." · 3 "The lid comes up with a reluctant kiss. I put it back down."
 
 ### THE SPIKE
 **LOOK** 1 "A paper spike, loaded to the hilt with stories that did not run. It is the most accurate archive in the building." · 2 "The top sheet reads CORRECTION in capitals, and nothing else. It was spiked before he could think of one." · 3 "He spikes his own stories when better ones occur to him. The better ones are on the front page. The true ones are here."
-**LISTEN** 1 "Nothing. A spike is where a story's life ends, and it is very quiet there." · 2 "Paper stirring when the door opens. The rejected, briefly hopeful." · 3 "Nothing. I will not be adding to it."
+**LISTEN** 1 "Nothing. A spike is where a story's life ends, and it is very quiet there." · 2 "Paper stirring when the door opens. The rejected, briefly hopeful." · 3 "Nothing. I won't be adding to it. I hope."
 
 ### THE WINDOW
 **LOOK** 1 "The front window, lettered THE CLARION in gold, backward from in here, which is how Frame sees most things." · 2 "People stop outside to read the headline board, then glance in to see whether Frame has noticed them reading. He always has." · 3 "The glass is the cleanest thing in the office. He likes to see who is coming before they can deny it."
@@ -197,21 +197,21 @@
 
 **THE PORTRAIT** — LOOK 2 "The uniform has more braid than a regiment would issue and fewer stains than a war would allow." · 3 "The painter has given him a battle in the background. It is not clear which battle. I suspect the painter was told several." | LISTEN 2 "Canvas, stretched very taut, like the story." · 3 "Nothing. In oils he is the strong, silent type, which is the only thing the painter added."
 
-**THE SABRE** — LOOK 2 "The scabbard is engraved with a battle honor. I would tell you which, but the engraving and the Colonel disagree." · 3 "Not a nick on it. It is either the finest blade in the territory or it has never met anything." | LISTEN 2 "Nothing. Steel at rest, and resting comfortably." · 3 "A faint ring when the door closes, and then it remembers itself."
+**THE SABRE** — LOOK 2 "The scabbard is engraved with a battle honor. I would tell you which, but the engraving and the Colonel disagree." · 3 "Not a nick on it. Either it's the finest blade in the territory, or it's never met anything." | LISTEN 2 "Nothing. Steel at rest, and resting comfortably." · 3 "A faint ring when the door closes, and then it remembers itself."
 
 **THE CHAIRS** — LOOK 2 "Each one is turned slightly toward his desk, the way flowers turn toward a window." · 3 "Eleven chairs. I counted twice, and on the second count I had the strong impression I had been offered one." | LISTEN 2 "A cushion slowly breathing out. Somebody sat in it recently and was relieved of something." · 3 "Nothing. Good furniture in this town is very patient."
 
-**THE MAP WALL** — LOOK 2 "Green pins for the Company, a great many. The two red pins are alone together near the middle." · 3 "My pin has been pushed all the way in. The others merely rest. I do not know why that bothers me as much as it does." | LISTEN 2 "Pins ticking against the cork in the draft. A small, busy, acquisitive sound." · 3 "Nothing. The map is entirely up to date and has nothing further to report."
+**THE MAP WALL** — LOOK 2 "Green pins for the Company, a great many. The two red pins are alone together near the middle." · 3 "My pin has been pushed all the way in. The others merely rest. I don't know why that bothers me as much as it does." | LISTEN 2 "Pins ticking against the cork in the draft. A small, busy, acquisitive sound." · 3 "Nothing. The map is entirely up to date and has nothing further to report."
 
 **THE DECANTER** — LOOK 2 "Cut glass, and the whisky catches the light so well I suspect the light came with it." · 3 "He pours for every visitor and none for himself. A man who never drinks, in a room built for drinking, is a man keeping count." | LISTEN 2 "The stopper rings faintly when the desk is struck. Even the glass is in a cordial mood." · 3 "Nothing. It is full again. Somebody refills it quietly."
 
 ### THE SUBMISSION LOG
 **LOOK** 1 "The Company's submission log, bound in green leather, closed, and lying where he can reach it and I cannot." · 2 "He has moved it an inch since I last looked. He is a courteous man and a careful one, and in him those are not in tension." · 3 "The spine is cracked in one place only, where it is opened most. Whatever is in it is consulted daily."
-**LISTEN** 1 "Nothing. It is closed, and it will stay closed while he is in the room." · 2 "Nothing. Even the paper in this office waits to be invited." · 3 "Nothing. I have the distinct sense of the book listening back."
+**LISTEN** 1 "Nothing. It's closed, and it'll stay closed while he's in the room." · 2 "Nothing. Even the paper in this office waits to be invited." · 3 "I have the distinct sense of the book listening back."
 
 ### THE SAFE
 **LOOK** 1 "A safe the size of a small cabin, painted with roses and a landscape, as though money could be made to feel at home." · 2 "The landscape has a river in it, running gold, toward the handle." · 3 "He has never opened it in front of me. He has opened everything else."
-**LISTEN** 1 "Nothing. Iron this thick has heard nothing since it was cast." · 2 "Nothing. It does not tick, which is the first thing I listen for in a lock." · 3 "A dull note when the floor takes my weight. Heavy things have very little to say, and say it low."
+**LISTEN** 1 "Nothing. Iron this thick has heard nothing since it was cast." · 2 "Nothing. It doesn't tick, which is the first thing I listen for in a lock." · 3 "A dull note when the floor takes my weight. Heavy things have very little to say, and say it low."
 
 ### THE WINDOW
 **LOOK** 1 "A tall window over Main Street, curtained in velvet the color of good port. He can see the whole town from here, and the town can see him being generous." · 2 "The glass is new, thick, and very slightly green. The town looks prosperous through it. That may be what the glass is for." · 3 "From here you can see the Assay Office door and the Registrar's, and how long the line is at each."
@@ -219,7 +219,7 @@
 
 ### THE STOCK PORTRAIT DRAWER
 **LOOK** 1 "A wide, shallow drawer in the sideboard, the kind printers keep plates in. Fine joinery, for something nobody is meant to look in." · 2 "It does not quite close. A corner of card shows at the gap, the good heavy kind photographers use." · 3 "He has offered me everything else in this room. He has not offered me this."
-**LISTEN** 1 "Nothing. Whatever is in there is packed too tight to shift." · 2 "The runners squeak a little when the sideboard takes my weight. It has been opened recently." · 3 "Nothing more. I am being very good."
+**LISTEN** 1 "Nothing. Whatever is in there is packed too tight to shift." · 2 "The runners squeak a little when the sideboard takes my weight. It has been opened recently." · 3 "Nothing more. I'm being very good. It's killing me."
 
 ### THE HANDKERCHIEF
 **LOOK** 1 "A handkerchief of white silk, monogrammed in thread finer than anything else in the territory." · 2 "He offers it to anyone who looks upset. Several men have left this office with one, and with nothing else." · 3 "The initials are A.F., the A rather larger than the F, as though the A had done most of the work."
@@ -240,7 +240,7 @@
 
 > **THE SUBMISSION LOG** · PICK UP, *empty office* — "Nine years of priority submissions, filed one day a month, every month, in one hand. Winnie is going to want to see this, and she is not going to enjoy it." → the padded log (C4)
 > **THE STOCK PORTRAIT DRAWER** · OPEN or PICK UP, *empty office* — "The drawer is full of the same gentleman. Dozens of him, stacked, all looking nobly at nothing. Every one of him is Obadiah Mott." → the fake photograph (C4)
-> **THE SUBMISSION LOG** or **THE STOCK PORTRAIT DRAWER** · PICK UP or OPEN, *Fanshawe present* — "Not with him in the room. He would offer to help me carry it."
+> **THE SUBMISSION LOG** or **THE STOCK PORTRAIT DRAWER** · PICK UP or OPEN, *Fanshawe present* — "Not with him in the room. He'd offer to help me carry it."
 
 ## Overrides
 
@@ -977,19 +977,19 @@
 
 **THE WINDOW BLINDS** — LOOK 2 "The slats are dusted. The window behind them is not." · 3 "Through the slats, the street in strips: a horse's head, a wheel, a man's boots, and nothing whole." | LISTEN 2 "A slat ticking in the draft from the door." · 3 "The street, cut into slices and served politely."
 
-**THE SPITTOON, POLISHED** — LOOK 2 "My face is in it, warped and improved. It is a very flattering spittoon." · 3 "There is a small brass plaque on it, which says PRESENTED, and nothing else." | LISTEN 2 "A hum when the door closes, tuned more or less to F." · 3 "Nothing. It has never been used, and it has never looked better."
+**THE SPITTOON, POLISHED** — LOOK 2 "My face is in it, warped and improved. It is a very flattering spittoon." · 3 "There is a small brass plaque on it, which says PRESENTED, and nothing else." | LISTEN 2 "A hum when the door closes, tuned more or less to F." · 3 "Nothing. It's never been used, and it's never looked better."
 
 **THE MAP OF HOLDINGS** — LOOK 2 "The green is hand-tinted, and someone has gone over the edges twice, so there is no doubt where the Company ends. It does not, much." · 3 "The legend has two entries: COMPANY and OTHER. OTHER is in very small type." | LISTEN 2 "Nothing. Paper with this much green on it is very composed." · 3 "The frame tapping the wall as the inner door shuts."
 
 **THE MODEL** — LOOK 2 "The opera house has tiny painted posters on it for an opera that has not been written." · 3 "The model's Main Street is paved. The real one is three yards away and is not." | LISTEN 2 "Nothing. A town in miniature is even quieter than the real one." · 3 "A tiny bell in the model church, ringing when I knock the table. It is in tune, which is how I know it is a model."
 
-**THE MAP WALL** — LOOK 2 "Each one is priced. The more certain the map, the higher the price, and the most certain is very expensive indeed." · 3 "I have stood in front of them for a while now. The strike has been in eleven places and I have not moved." | LISTEN 2 "Nothing. Eleven confident maps, not arguing with each other in public." · 3 "The glass of one frame humming faintly when a wagon passes."
+**THE MAP WALL** — LOOK 2 "Each one is priced. The more certain the map, the higher the price, and the most certain is very expensive indeed." · 3 "I've stood in front of them for a while now. The strike has been in eleven places, and I haven't moved." | LISTEN 2 "Nothing. Eleven confident maps, not arguing with each other in public." · 3 "The glass of one frame humming faintly when a wagon passes."
 
 **THE TESTIMONIALS** — LOOK 2 "One thanks the Company 'for everything'. It does not go into detail." · 3 "There is room on the wall for forty. Somebody planned for more gratitude than arrived." | LISTEN 2 "Nothing. Thanks, framed, goes very quiet after two years." · 3 "A frame settling on its wire. Even the gratitude is sagging."
 
-**THE SUBSCRIPTION BOOK** — LOOK 2 "There is a pen beside it, inked and ready. It is the only pen in town that is always inked." · 3 "The last name on the page has subscribed for one share. It is spelled carefully, as if it mattered." | LISTEN 2 "The page lifting in the warm air off the stove." · 3 "Nothing. It is waiting for the next small number."
+**THE SUBSCRIPTION BOOK** — LOOK 2 "There is a pen beside it, inked and ready. It is the only pen in town that is always inked." · 3 "The last name on the page has subscribed for one share. It is spelled carefully, as if it mattered." | LISTEN 2 "The page lifting in the warm air off the stove." · 3 "Nothing. It's waiting for the next small number."
 
-**THE STOVE** — LOOK 2 "There are scraps of paper in the ash pan, half burned. The Company heats its lobby with what it no longer needs." · 3 "It is very warm in here. You do not want to leave, and you do not want to take your coat off, and so you sit." | LISTEN 2 "A soft collapse in the firebox as something settles." · 3 "Burning, steadily. It is never allowed to go out, which is the most expensive thing in the room."
+**THE STOVE** — LOOK 2 "There are scraps of paper in the ash pan, half burned. The Company heats its lobby with what it no longer needs." · 3 "It's very warm in here. You don't want to leave, and you don't want to take your coat off, so you sit. I sat." | LISTEN 2 "A soft collapse in the firebox as something settles." · 3 "Burning, steadily. It is never allowed to go out, which is the most expensive thing in the room."
 
 ---
 
