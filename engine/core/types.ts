@@ -466,6 +466,15 @@ export interface AmbientFile {
    */
   when?: Condition;
   /**
+   * AND ANY ONE OF THESE, for a person who is there in more than one state
+   * (errata 103 A: Hob on his rounds in Acts I-II, and again in Act III while
+   * the executor is wanted). Read with `when`, never instead of it: `when`
+   * stays a condition that holds in every case, so whatever reads it alone
+   * still knows when he is certainly gone. A placement's own `when` replaces
+   * both, as it replaces `when`.
+   */
+  whenAny?: Condition[];
+  /**
    * HOW HE LEAVES, when `when` stops holding while Thad is in the room. Tyler,
    * 2026-11-01: a character must never just disappear. Without this he is
    * simply absent; with it he walks the path and is gone at its end.
@@ -2290,6 +2299,8 @@ export interface ContentBundle {
    * 84 C). Extracted from doc 57. Empty when the manifest declares none.
    */
   actCards: Map<number, string>;
+  /** Act openings, by act (ActCardsFile.openings). */
+  actOpenings: Map<number, ActOpening>;
   /** Head overlays by id. Empty until something declares one. */
   overlays: Map<string, OverlayFile>;
   /** The lamp's ground light, or null when the manifest declares none. */
@@ -2685,6 +2696,19 @@ export interface ActCardsFile {
   schema: number;
   note?: string;
   cards: Record<string, string>;
+  /** Where an act opens, by act (errata 103 B; see ActOpening). */
+  openings?: Record<string, ActOpening>;
+}
+
+/**
+ * AN ACT THAT OPENS SOMEWHERE (errata 103 B, doc 57: "Act IV opens in Room 19").
+ * Once the act's card is down, while `due` holds, he is cut to `room` and says
+ * `say`; doing so clears `due`, so it happens once and a load does not replay it.
+ */
+export interface ActOpening {
+  room: string;
+  say: string[];
+  due: string;
 }
 
 /**

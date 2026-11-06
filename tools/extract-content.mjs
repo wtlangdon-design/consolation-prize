@@ -3552,7 +3552,9 @@ function hobTree() {
     const leave = nodes.HOB_C2.options.find((one) => one.tag === 'EXIT');
     if (!leave) throw new Error('doc 04: HOB_C2 has no way out');
     leave.say = said(beat(3), 'S4 beat 3');
-    leave.set = { T_HOB_IS_MOTT: true, T_NO_GOLD_EVER: true, ACT: 4 };
+    // The act turn owes Act IV's opening (errata 103 B): its `due` flag is
+    // written with ACT, so a load before the cut still makes it.
+    leave.set = { T_HOB_IS_MOTT: true, T_NO_GOLD_EVER: true, ACT: 4, [actOpenings()[4].due]: true };
   }
   const running = /^\*\*Running:\*\*/m.test(body);
   if (running) unplayed.push('the "Running" lines (every fourth night, unprompted) are ambient barks, not this tree -- carried by the ambient layer when Hob is placed');
@@ -4111,17 +4113,46 @@ function fanshaweTree() {
  * and E0b's "the act card, **PART THREE — ...**". Keyed by the ACT value the
  * turn sets; the engine shows a card when ACT rises to its number in play.
  */
+/**
+ * HOW AN ACT OPENS, where doc 57 says it opens somewhere: "**Act IV opens in
+ * Room 19, morning**, ..." and the line under it. Errata 103 B: after the
+ * act's card the game cuts to that room and Thad says the line, once. The
+ * room is named by number in the doc and found by the room's own annotation.
+ *
+ * `due` is the flag the act turn writes with ACT (doc 48 S4 beat 3's way out,
+ * hobTree below) and the opening clears: a save taken between the two still
+ * owes the opening, and a fixture that merely starts in the act does not.
+ */
+const ROMAN = { II: 2, III: 3, IV: 4 };
+function actOpenings() {
+  const d57 = read('docs/57-puzzle-completion.md');
+  const out = {};
+  for (const m of d57.matchAll(/^\*\*Act ([IV]+) opens in Room (\d+)[^*]*\*\*[^\n]*\n\n> "(.+?)"$/gm)) {
+    const act = ROMAN[m[1]];
+    if (!act) throw new Error(`doc 57: an opening for Act ${m[1]}, which is not an act turn`);
+    const annotation = `reference/room-${m[2].padStart(2, '0')}/annotation.json`;
+    const room = JSON.parse(read(annotation)).room;
+    if (!room) throw new Error(`doc 57: Act ${m[1]} opens in Room ${m[2]}, and ${annotation} names no room`);
+    out[act] = { room, say: [m[3]], due: `T_ACT_${m[1]}_OPENING` };
+  }
+  return out;
+}
+
 function actCards() {
   const d57 = read('docs/57-puzzle-completion.md');
   const cards = {};
   // E10 writes its card as "then **PART FOUR -- ...**, and `ACT` = 4" (errata 94 E).
   for (const m of d57.matchAll(/(?:the act card,|then) \*\*(PART [A-Z]+ — [^*]+)\*\*, and `ACT` = (\d)/g)) cards[m[2]] = m[1];
   if (!cards['2'] || !cards['3'] || !cards['4']) throw new Error('doc 57: the act cards for ACT 2, 3 and 4 were not found');
+  const openings = actOpenings();
+  if (!openings[4]) throw new Error('doc 57: "Act IV opens in Room 19" was not found');
   return write('content/act-cards.json', {
     schema: 1,
     note: 'EXTRACTED from docs/57-puzzle-completion.md (A10, E0b, E10) by tools/extract-content.mjs. The card shown when '
-      + 'ACT rises to the key in play.',
+      + 'ACT rises to the key in play; and, where doc 57 says an act opens in a room, that opening (errata 103 B): '
+      + 'once the card is down he is in `room` and says `say`, while `due` holds, and the opening clears it.',
     cards,
+    openings,
   });
 }
 

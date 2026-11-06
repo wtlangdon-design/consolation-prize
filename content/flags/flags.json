@@ -1064,6 +1064,16 @@
    "note": "Doc 48 S4 beat 3: after the confession, Hob is Obadiah Mott. Written at HOB_C2's end (errata 94 E). Read by the shack's dawn window."
   },
   {
+   "id": "T_ACT_IV_OPENING",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:HOB:HOB_C2:hobx (with ACT 4, doc 48 S4 beat 3)",
+    "engine:GameState.openAct (clears it)"
+   ],
+   "note": "Errata 103 B: Act IV's opening is owed. Written by the act turn with ACT = 4 and cleared when the game has cut to Room 19 and Thad has said doc 57's line, so the line is said once and a save taken in between still owes it. content/act-cards.json names it (`openings.4.due`)."
+  },
+  {
    "id": "T_NO_GOLD_EVER",
    "type": "boolean",
    "initial": false,

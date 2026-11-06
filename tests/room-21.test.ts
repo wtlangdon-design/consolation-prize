@@ -88,3 +88,49 @@ test('a wrong verb on Hob in the shack is doc 54\'s line for it', async () => {
     assert.ok(said && doc54.includes(`"${said}"`), `${verb}: doc 54's line`);
   }
 });
+
+test('errata 103 B: once Act IV begins, the game cuts to his room and he says doc 57\'s line once', async () => {
+  // Found by the continuous playthrough: doc 57's Act IV opening was never
+  // wired, so Act IV began wherever the confession left him.
+  const due = (one: GameState) => one.actOpeningDue;
+  const doc57 = await readFile(resolve(ROOT, 'docs/57-puzzle-completion.md'), 'utf8');
+  const content = await loadContent(fsReader);
+  const storage = new MemoryStorage();
+  const state = new GameState(content, storage);
+  assert.ok(state.applyFixture(content.fixtures.get('r21-a')!));
+  const host = present(state).find((one) => one.tree)!;
+  state.completeByTimeline('E10');
+  assert.equal(due(state), null, 'nothing is owed before the act turns');
+  state.dialogue.start(host.tree!);
+  const leave = state.dialogue.presentOptions().find((one) => one.option.tag === 'EXIT')!;
+  state.dialogue.select(leave.option.id);
+  const owed = due(state);
+  assert.ok(owed, 'the act turn owes the opening');
+  assert.equal(content.actOpenings.get(4), owed, 'Act IV\'s');
+  const annotation = JSON.parse(await readFile(resolve(ROOT, 'reference/room-19/annotation.json'), 'utf8'));
+  assert.equal(owed.room, annotation.room, 'Room 19');
+
+  // A save taken between the turn and the cut still owes it.
+  state.save(2);
+  const between = new GameState(content, storage);
+  assert.ok(between.load(2));
+  assert.equal(due(between)?.room, owed.room, 'a load before the cut still makes it');
+
+  const lines = state.openAct();
+  assert.equal(state.roomId, owed.room, 'he is in his room');
+  assert.ok(lines.length > 0 && lines.every((line) => doc57.includes(`> "${line}"`)), 'doc 57\'s line, as written');
+  assert.equal(due(state), null, 'said once');
+  assert.deepEqual(state.openAct(), [], 'and never again');
+  const after = new GameState(content, storage);
+  assert.ok(after.load());
+  assert.equal(after.roomId, owed.room);
+  assert.equal(due(after), null, 'a load after the cut does not replay it');
+
+  // A playtest fixture that merely starts in Act IV owes nothing.
+  for (const fixture of content.fixtures.values()) {
+    if (fixture.flags.ACT !== 4) continue;
+    const other = new GameState(content, new MemoryStorage());
+    assert.ok(other.applyFixture(fixture));
+    assert.equal(due(other), null, `${fixture.id} is not cut away from`);
+  }
+});

@@ -18,6 +18,7 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
+import { AmbientLayer } from '../engine/core/Ambient.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
 import type { Interactable } from '../engine/core/types.ts';
@@ -119,4 +120,46 @@ test('a wrong verb on Hob in the alley is doc 54\'s line for it', async () => {
     const said: string | undefined = lines[verb]?.[0]?.say;
     assert.ok(said && doc54.includes(`"${said}"`), `${verb}: doc 54's line`);
   }
+});
+
+test('errata 103 A: from the first night through Act II, Hob is on his rounds here and opens on HOB_A1', async () => {
+  // Found by the continuous playthrough: he was placed only from Act III, so
+  // HOB_A1 -- doc 04's "Option 3 is the whole game" -- could never be reached.
+  const content = await loadContent(fsReader);
+  const alley = (await inState('r20-a')).roomId;
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom(alley);
+  const layer = new AmbientLayer(state);
+  const host = () => { layer.arrived(); return layer.present.find((one) => one.tree); };
+  const npc = host();
+  assert.ok(npc?.tree, 'Act I: a person with a conversation is in the alley');
+  const tree = content.dialogue.get(npc.tree)!;
+  state.dialogue.start(npc.tree);
+  assert.equal(state.dialogue.positionSnapshot().node, tree.start, 'his conversation opens on the start node, HOB_A1');
+
+  // Option 3 performs doc 04's pause: he stops, says one word, and does not walk on.
+  const three = state.dialogue.select(`${tree.speaker}3`);
+  const spoken = [{ line: three.say, direction: three.direction }, ...three.rest];
+  assert.ok(spoken.filter((one) => one.direction).length >= 2, 'the stop and the four seconds are performed');
+  assert.ok(spoken.some((one) => !one.direction && one.line), 'and the one word is said');
+  // Option 6 teaches pair 21 quietly: doc 04's tag, a flag, and nothing else.
+  const six = tree.nodes[tree.start]!.options.find((one) => one.id === `${tree.speaker}6`)!;
+  assert.equal(six.tag, 'ASSAY');
+  assert.equal(six.puzzle, undefined, 'it records no progress');
+  state.dialogue.select(six.id);
+  for (const flag of Object.keys(six.set ?? {})) assert.equal(state.flags.get(flag), true, `${flag} is learned`);
+  assert.ok(Object.keys(six.set ?? {}).some((flag) => flag.startsWith('ASSAY_PAIR_')), 'a pair');
+  state.dialogue.end();
+
+  state.flags.set('ACT', 2);
+  assert.equal(host()?.id, npc.id, 'Act II: still on his rounds');
+  state.flags.set('ACT', 3);
+  assert.equal(host(), undefined, 'Act III: gone until Section nineteen is said aloud');
+  state.flags.set('T_EXECUTOR_RULE', true);
+  assert.equal(host()?.id, npc.id, 'back for the executor');
+  state.dialogue.start(npc.tree);
+  assert.equal(state.dialogue.positionSnapshot().node, 'HOB_E6');
+  state.dialogue.end();
+  state.flags.set('T_EXECUTOR_NAMED', true);
+  assert.equal(host(), undefined, 'and gone once E6 is done');
 });

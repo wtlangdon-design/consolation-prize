@@ -1,4 +1,4 @@
-import type { Condition, FlagWrites,
+import type { ActOpening, Condition, FlagWrites,
   ContentBundle, Entrance, Exit, Interactable, MapLocation, Point, RoomFile, WalkableRegion, PlaytestFixture, PuzzleStatus, CombinationPair,
   SpokenLine,
 } from './types.ts';
@@ -1328,6 +1328,31 @@ export class GameState {
     for (const item of done.gives ?? []) if (!this.inventory.includes(item)) this.inventory.push(item);
     if (done.completes) this.completeByTimeline(done.completes);
     else this.autosave();
+  }
+
+  /**
+   * THE ACT OPENING OWED, if one is (errata 103 B): an act whose opening's
+   * `due` flag the act turn wrote and nothing has cleared yet. The scene asks
+   * once the act's card is down and nothing is being said, walked or chosen.
+   */
+  get actOpeningDue(): ActOpening | null {
+    for (const [, opening] of [...this.content.actOpenings].sort(([a], [b]) => a - b)) {
+      if (this.flags.get(opening.due) === true && this.content.rooms.has(opening.room)) return opening;
+    }
+    return null;
+  }
+
+  /**
+   * THE CUT (errata 103 B: "the game cuts to Room 19 and Thad says doc 57's
+   * line once"). Clears `due` first, so the save the room change takes no
+   * longer owes it, then enters the room. Returns the lines he says there.
+   */
+  openAct(): string[] {
+    const opening = this.actOpeningDue;
+    if (!opening) return [];
+    this.flags.set(opening.due, false);
+    this.enterRoom(opening.room);
+    return [...opening.say];
   }
 
   completeByTimeline(puzzle: string): void {

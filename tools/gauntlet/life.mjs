@@ -196,10 +196,15 @@ async function main() {
           // `when` does not hold in this frame's state is not in the room
           // (Room 4's Vessel and judges before B3, errata 73 B), so her sheet
           // has no reason to be loaded yet.
-          const when = npc.placements?.[room.id]?.when ?? npc.when;
-          const holds = Object.entries(when ?? {}).every(([flag, want]) => (typeof want === 'boolean'
+          // `whenAny` too, where the file's own condition governs (AmbientFile.whenAny).
+          const ownWhen = npc.placements?.[room.id]?.when;
+          const test = (when) => Object.entries(when ?? {}).every(([flag, want]) => (typeof want === 'boolean'
             ? (frame.flags ?? []).includes(flag) === want
-            : (frame.counters ?? {})[flag] === want));
+            : typeof want === 'number' ? (frame.counters ?? {})[flag] === want
+              : ((got) => (want.atLeast === undefined || got >= want.atLeast) && (want.atMost === undefined || got <= want.atMost)
+                && (want.equals === undefined || got === want.equals))((frame.counters ?? {})[flag] ?? 0)));
+          const holds = ownWhen !== undefined ? test(ownWhen)
+            : test(npc.when) && (!npc.whenAny?.length || npc.whenAny.some(test));
           if (!holds) continue;
           const sheet = frame.assets.find((a) => a.path === declared?.sheet);
           if (!sheet?.loaded) failures.push(`capture ${action.name}: ${npcId}'s sheet ${declared?.sheet ?? '(none declared)'} is not loaded -- she is absent`);
