@@ -89,6 +89,8 @@
   ],
   "pause": 14,
   "offset": 21,
-  "note": "Heights per point: the road climbs out of the walk band into the distance (errata 95 E)."
+  "note": "Heights per point: the road climbs out of the walk band into the distance (errata 95 E).",
+  "strideRatio": 0.5,
+  "strideNote": "MEASURED FROM THESE FRAMES (R5f; Tyler, 2026-11-06, of the walks recorded in the game: legs that pump faster than the ground they cover read as wrong). The leading man's widest foot spread is 0.42 of his height; on Thad's walk the same measure is 0.495 against his recorded stride of 0.588, so 0.5. At fps 5 the cycle ran every 44 px whatever his height."
  }
 }

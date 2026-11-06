@@ -94,36 +94,50 @@
    ]
   ],
   "speed": 80,
-  "sheet": "art/actors/room-25-pratt-jump.png",
+  "sheet": "art/actors/room-25-pratt-walk.png",
   "frames": [
    [
-    1306,
-    52,
-    219,
+    2,
+    2,
+    248,
     397
    ],
    [
-    1527,
-    52,
-    219,
+    252,
+    2,
+    248,
     397
    ],
    [
-    1748,
-    52,
-    219,
+    502,
+    2,
+    248,
     397
    ],
    [
-    1969,
-    52,
-    219,
+    752,
+    2,
+    248,
+    397
+   ],
+   [
+    1002,
+    2,
+    248,
+    397
+   ],
+   [
+    1252,
+    2,
+    248,
     397
    ]
   ],
   "fps": 6,
-  "drawnFacing": "left",
-  "figureHeight": 397,
-  "note": "Doc 57 D6: attested, he goes -- in front of the queue rope, not through it, and out by the street door at the left."
+  "drawnFacing": "right",
+  "figureHeight": 385,
+  "note": "Doc 57 D6: attested, he goes -- in front of the queue rope, not through it, and out by the street door at the left.",
+  "strideRatio": 0.6,
+  "walkNote": "WALK-C (Tyler, 2026-11-06: \"Pratt is horrible\"): six frames posed on Thad's walk (cast-unify 45), cut by tools/art/walk-c.py; strideRatio MEASURED FROM THESE FRAMES (R5f): the planted foot's travel against the body over a cycle, against the same measure on Thad's walk (whose recorded 0.588 it calibrates); so the cycle advances with the ground he covers and his feet hold it."
  }
 }

@@ -197,6 +197,15 @@ const scenes = {
   'hob-leaves-funeral': departure('r31-a', 'funeral', null, { T_GOOD_TURNOUT: true }, 8, 'funeral_hob'),
   'pratt-leaves-registrar': departure('r7-e', 'claims_registrar', null, { T_ATTESTED: true }, 22, 'pratt_registrar'),
   'pratt-leaves-prosperity': departure('r7-c', 'prosperity', null, { T_PRATT_STAKE: true }, 18, 'pratt_jump'),
+  // The claims road's miners: two crowds on loops (out to the diggings, back), always walking.
+  miners: async (page, server, dir) => {
+    await open(page, server, 'room=claims_road');
+    await pump(page, (s) => s.room === 'claims_road', 60_000, 'reach the claims road');
+    await page.waitForTimeout(1500);
+    await pump(page, (s) => idle(s) && !s.movers?.thad?.moving, 30_000, 'arrival');
+    const rec = await record(page, dir, async () => { await page.waitForTimeout(45_000); });
+    return { ...rec, track: 'path', walkers: ['miners_out', 'miners_back'], loop: true };
+  },
   'raccoon-leaves': departure('r23-a', 'prosperity', null, { T_WARM_HOLE: true }, 11, 'raccoon'),
   'raccoons-meeting-leave': departure('r23-a', 'prosperity', { T_RACCOON_MEETING: true }, { T_WARM_HOLE: true }, 11, 'raccoon_meeting'),
 };

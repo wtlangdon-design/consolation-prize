@@ -12,7 +12,11 @@ A man's height in a sheet's pixels: its `figureHeight` (the engine draws it at
 the room's man), else the room's man at its feet (1:1 sheets); for an actor's
 clips, the rig's figure height.
 
-Usage: one-level.py [--n 115] [--dry]   prints every sheet and its block size
+Usage: one-level.py [--n 115] [--dry] [--only <path part> ...]   prints every sheet and its block size
+
+--only snaps just the sheets whose path contains one of the parts: a NEW sheet is snapped on its
+own. Run over the whole game again, it rewrote 280 finished sheets -- snapping a frame that was
+snapped and then despilled moves its outline by a pixel -- so a finished sheet is never re-snapped.
 """
 import json, os, sys
 import numpy as np
@@ -21,6 +25,11 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 N = float(sys.argv[sys.argv.index('--n') + 1]) if '--n' in sys.argv else 115.0
 DRY = '--dry' in sys.argv
+ONLY = []
+if '--only' in sys.argv:
+    for a in sys.argv[sys.argv.index('--only') + 1:]:
+        if a.startswith('--'): break
+        ONLY.append(a)
 SKIP_ACTORS = {'coach', 'driver'}
 
 
@@ -120,6 +129,7 @@ for d in sorted(os.listdir(os.path.join(ROOT, 'art/actors'))):
 by_sheet = {}
 for (sheet, fr), b in jobs.items(): by_sheet.setdefault(sheet, []).append((fr, b))
 for sheet, items in sorted(by_sheet.items()):
+    if ONLY and not any(part in sheet for part in ONLY): continue
     path = os.path.join(ROOT, sheet)
     a = np.asarray(Image.open(path).convert('RGBA')).copy()
     for fr, b in items:

@@ -2626,6 +2626,16 @@ export interface AmbientExit {
   /** The walk cycle, in order. */
   frames: [number, number, number, number][];
   fps: number;
+  /**
+   * ONE WALK CYCLE'S LENGTH AS A FRACTION OF HIS DRAWN HEIGHT. Present, the
+   * cycle advances with the distance he has walked, as Thad's does, so his feet
+   * hold the ground; absent, it runs at `fps` whatever his speed. Tyler,
+   * 2026-11-06, of the walks recorded in the game: "Pratt is horrible" -- his
+   * cycle ran at six frames a second at 80 px/s, a full cycle every 53 px on a
+   * man nearly 400 px tall, legs pumping four times too fast for the ground
+   * he covered; Deke's ran at two a second and he glided.
+   */
+  strideRatio?: number;
   /** Which way the sheet draws him walking; the other way is mirrored. */
   drawnFacing: 'left' | 'right';
   /** The sheet's figure height, so he is drawn on the room's curve. */

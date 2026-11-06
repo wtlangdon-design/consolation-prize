@@ -24,10 +24,20 @@ export interface DeparturePose {
   along?: number;
 }
 
-export function departureAt(walk: AmbientExit, elapsed: number): DeparturePose {
+/**
+ * `heightAt` is the drawn height of a man at a floor point (the room's curve
+ * times his stature). With it and the walk's `strideRatio`, the cycle is the
+ * distance walked over the local stride, summed along the path, so his feet
+ * hold the ground as he nears or leaves the camera; without, it is the clock.
+ */
+export function departureAt(walk: AmbientExit, elapsed: number,
+                            heightAt?: (x: number, y: number) => number): DeparturePose {
   const path = walk.path;
   const frames = Math.max(1, walk.frames.length);
-  const frame = Math.floor(Math.max(0, elapsed) * walk.fps) % frames;
+  const strided = walk.strideRatio !== undefined && walk.strideRatio > 0 && heightAt !== undefined;
+  const frame = strided
+    ? Math.floor(cyclesWalked(walk, Math.max(0, elapsed) * walk.speed, heightAt!) * frames) % frames
+    : Math.floor(Math.max(0, elapsed) * walk.fps) % frames;
   let travelled = Math.max(0, elapsed) * walk.speed;
   for (let index = 1; index < path.length; index += 1) {
     const [ax, ay] = path[index - 1]!;
@@ -50,4 +60,25 @@ export function departureAt(walk: AmbientExit, elapsed: number): DeparturePose {
   }
   const [x, y] = path[path.length - 1] ?? [0, 0];
   return { x, y, heading: 1, frame, done: true };
+}
+
+/** Walk cycles completed over the first `distance` pixels of the path, at the stride where each step was taken. */
+function cyclesWalked(walk: AmbientExit, distance: number, heightAt: (x: number, y: number) => number): number {
+  const STEP = 8;
+  let cycles = 0;
+  let left = distance;
+  for (let index = 1; index < walk.path.length && left > 0; index += 1) {
+    const [ax, ay] = walk.path[index - 1]!;
+    const [bx, by] = walk.path[index]!;
+    const length = Math.hypot(bx - ax, by - ay);
+    const span = index === walk.path.length - 1 ? Math.min(left, length) : Math.min(left, length);
+    for (let done = 0; done < span; done += STEP) {
+      const run = Math.min(STEP, span - done);
+      const t = length === 0 ? 0 : (done + run / 2) / length;
+      const height = heightAt(ax + (bx - ax) * t, ay + (by - ay) * t);
+      if (height > 0) cycles += run / (walk.strideRatio! * height);
+    }
+    left -= span;
+  }
+  return cycles;
 }

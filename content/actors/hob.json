@@ -10,8 +10,8 @@
   "walkRate": 5,
   "walkSpeed": 134,
   "walkSpeedNote": "134 px/s, DOWN FROM 170, and the change is a consequence of walking becoming time-based rather than a retune of taste. The gait advances from DISTANCE, so while movement was frame-locked at a fraction of its declared pace the legs barely turned over and it read as a glide. Fixed, he covered the declared 245 px/s -- which over his measured 102px stride is 2.4 strides a second. A walking man does about 1.9, and 134 is exactly that. Actor.ts predicted this in its own comment before anyone could see it: \"the legs now tell the truth about the speed, and the speed is a sprint.\" Hob keeps his ratio; he ambles on purpose. One number per actor if the pace wants changing again.",
-  "strideLength": 105,
-  "strideNote": "MEASURED FROM HIS OWN FRAMES, never taken from Thad's -- R5f. The widest separation across his cycle is 230px in a 526px figure, which is 105 drawn pixels at height 240, or 0.44 of his height. His walk has the same structure as Thad's: eight frames, five distinct, ping-ponged.",
+  "strideLength": 146,
+  "strideNote": "MEASURED FROM HIS OWN FRAMES (R5f), WALK-C (Tyler, 2026-11-06: \"Hob could be better generally\"): his walk is six frames posed on Thad's (cast-unify 44). The planted foot's travel against his body over a cycle is 0.840 of his figure, against 0.813 by the same measure on Thad's walk, whose recorded stride is 0.588: so 0.608 x 240 = 146. Was 105, for the four-frame walk whose same leg led every step.",
   "reactRate": 7,
   "idleRate": 2.4,
   "idleBreakRate": 2,
@@ -76,7 +76,9 @@
         "art/actors/hob-walk-right/walk-00.png",
         "art/actors/hob-walk-right/walk-01.png",
         "art/actors/hob-walk-right/walk-02.png",
-        "art/actors/hob-walk-right/walk-03.png"
+        "art/actors/hob-walk-right/walk-03.png",
+        "art/actors/hob-walk-right/walk-04.png",
+        "art/actors/hob-walk-right/walk-05.png"
       ],
       "figureHeight": 668,
       "anchor": [
@@ -85,20 +87,28 @@
       ],
       "lanternAnchor": [
         [
-          303,
-          409
+          289,
+          308
         ],
         [
-          295,
-          448
+          269,
+          310
         ],
         [
-          317,
-          418
+          259,
+          313
         ],
         [
-          283,
-          459
+          273,
+          313
+        ],
+        [
+          274,
+          309
+        ],
+        [
+          276,
+          313
         ]
       ]
     }

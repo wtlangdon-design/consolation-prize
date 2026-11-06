@@ -163,26 +163,48 @@ def ambient_file(walker):
     raise SystemExit(f'no ambient file has id {walker}')
 
 
-def follow_path(scene_dir, rec, frames, name, out_dir, results):
+def median_background(scene_dir, frames, n=41):
+    """The scene without its walkers: the per-pixel median of frames spread across the recording."""
+    pick = [frames[int(i)] for i in np.linspace(0, len(frames) - 1, min(n, len(frames)))]
+    stack = np.stack([np.asarray(Image.open(os.path.join(scene_dir, f['name'])).convert('RGB'))[:PLAY_H] for f in pick])
+    return np.median(stack, axis=0).astype(np.int16)
+
+
+def follow_path(scene_dir, rec, frames, name, out_dir, results, walker=None, background=None):
     """A departing character, found in every frame ALONG THE ROUTE HIS FILE DECLARES: from where he
     stands, through his exit path. Each frame is compared with the last (he has gone by then) and he is
     the figure-sized box on that route with the most change in it. Searching only his route keeps the
     mourners' and the hearse's own life out (following the whole frame's difference took them for Hob),
     and finding him rather than timing him keeps a walk that starts after a line (Pratt) in step."""
-    npc = ambient_file(rec['walker']); ex = npc['exit']
-    route = [[npc['x'], npc['y']]] + ex['path']
+    walker = walker or rec['walker']
+    npc = ambient_file(walker)
+    if rec.get('loop'):
+        ex = npc['loop']; route = ex['path']
+    else:
+        ex = npc['exit']; route = [[npc['x'], npc['y']]] + ex['path']
     pts = []
     for (x0, y0), (x1, y1) in zip(route, route[1:]):
         n = max(1, int(np.hypot(x1 - x0, y1 - y0) / 6))
         pts += [(x0 + (x1 - x0) * k / n, y0 + (y1 - y0) * k / n) for k in range(n)]
     pts.append(tuple(route[-1])); pts = np.asarray(pts)
     cam = lambda t: interp(rec['samples'], t, lambda s: s['camera']) if rec['samples'] else 0
-    last = np.asarray(Image.open(os.path.join(scene_dir, frames[-1]['name'])).convert('RGB')).astype(np.int16)[:PLAY_H]
+    last = background if background is not None else np.asarray(Image.open(os.path.join(scene_dir, frames[-1]['name'])).convert('RGB')).astype(np.int16)[:PLAY_H]
     def mask(f):
         a = np.asarray(Image.open(os.path.join(scene_dir, f['name'])).convert('RGB')).astype(np.int16)[:PLAY_H]
         return np.abs(a - last).max(-1) > 40
     # His drawn size, from the first frame: what differs around where he stands.
-    m0 = mask(frames[0]); sx, sy = npc['x'] - cam(frames[0]['t']), npc['y']
+    # His size: where he stands (an exit), or the busiest point of his route (a loop).
+    if rec.get('loop'):
+        best = (-1, None, None)
+        for f in frames[::max(1, len(frames) // 40)]:
+            m = mask(f)
+            for px, py in route:
+                X, Y = int(px - cam(f['t'])), int(py)
+                v = m[max(0, Y - 150):Y + 4, max(0, X - 150):X + 150].sum()
+                if v > best[0]: best = (v, f, (px, py))
+        f0, (sx0, sy) = best[1], best[2]; m0 = mask(f0); sx = sx0 - cam(f0['t'])
+    else:
+        m0 = mask(frames[0]); sx, sy = npc['x'] - cam(frames[0]['t']), npc['y']
     x0, x1 = int(max(0, sx - 250)), int(min(m0.shape[1], sx + 250))
     sub = m0[:int(sy) + 12, x0:x1]
     rows = np.where(sub.sum(1) > 2)[0]; cols = np.where(sub.sum(0) > 2)[0]
@@ -203,11 +225,22 @@ def follow_path(scene_dir, rec, frames, name, out_dir, results):
         found.append(where if best > 0.08 * bx * by else None)
     idx = [i for i, w in enumerate(found) if w]
     if len(idx) < 4: return
-    # From half a second before he first moves to the moment he is gone.
-    xs = [found[i][0] for i in idx]
-    moved = next((k for k in range(len(idx)) if abs(xs[k] - xs[0]) > 6), 0)
-    first = idx[max(0, moved - 8)]; lastf = idx[-1]
-    keep = list(range(first, lastf + 1))
+    if rec.get('loop'):
+        # A loop never leaves: the five seconds where he is nearest the camera, sized there.
+        on = [i for i in idx if found[i][1] < PLAY_H]
+        mid = max(on, key=lambda i: found[i][1])
+        keep = [i for i in range(len(frames)) if abs(frames[i]['t'] - frames[mid]['t']) <= MAX_S / 2]
+        m = mask(frames[mid]); X, Y = found[mid]
+        sub = m[max(0, Y - 500):Y + 6, max(0, X - 400):X + 400]
+        rows = np.where(sub.sum(1) > 2)[0]; cols = np.where(sub.sum(0) > 2)[0]
+        if len(rows): bh = float(Y - (max(0, Y - 500) + rows[0]))
+        if len(cols): bw = float(cols[-1] - cols[0])
+    else:
+        # From half a second before he first moves to the moment he is gone.
+        xs = [found[i][0] for i in idx]
+        moved = next((k for k in range(len(idx)) if abs(xs[k] - xs[0]) > 6), 0)
+        first = idx[max(0, moved - 8)]; lastf = idx[-1]
+        keep = list(range(first, lastf + 1))
     known = {i: found[i] for i in idx}
     def near(i): return known[min(known, key=lambda j: abs(j - i))]
     cx = smooth([near(i)[0] for i in keep], 2); cb = smooth([near(i)[1] for i in keep], 2)
@@ -218,7 +251,7 @@ def follow_path(scene_dir, rec, frames, name, out_dir, results):
         crops.append(im.crop(window(x, y + 15, w, h, im.width))); times.append(frames[i]['t'])
     path = os.path.join(out_dir, f'{name}.gif')
     if write_gif(path, crops, times):
-        results.append((path, rec['walker'], [], len(crops), round(times[-1] - times[0], 1), (w, h)))
+        results.append((path, walker, [], len(crops), round(times[-1] - times[0], 1), (w, h)))
 
 
 def main():
@@ -235,6 +268,10 @@ def main():
             ids = sorted({m for s in rec['samples'] for m, v in s['movers'].items() if v.get('moving')})
             for m in ids:
                 follow_mover(d, rec, frames, m, f'{scene}-{m}', out_dir, results)
+        elif rec['track'] == 'path' and rec.get('walkers'):
+            bg = median_background(d, frames)
+            for w in rec['walkers']:
+                follow_path(d, rec, frames, f"{scene}-{w.replace('_', '-')}", out_dir, results, walker=w, background=bg)
         elif rec['track'] == 'path':
             follow_path(d, rec, frames, scene, out_dir, results)
         else:
