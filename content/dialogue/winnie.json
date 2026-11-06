@@ -487,6 +487,9 @@
           "puzzle": {
             "E4": "complete"
           },
+          "set": {
+            "T_DEATH_CERTIFIED": true
+          },
           "exchange": [
             {
               "speaker": "winnie",

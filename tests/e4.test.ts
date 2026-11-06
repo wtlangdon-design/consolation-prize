@@ -26,7 +26,7 @@ const setup = async () => {
   const npc = [...content.ambient.values()].find((one) => one.room === state.roomId && one.tree)!;
   return { content, state, tree: npc.tree as string };
 };
-const certificate = (content: Awaited<ReturnType<typeof loadContent>>) => content.dialogue.get('WINNIE')!
+const certificate = (content: Awaited<ReturnType<typeof loadContent>>, tree: string) => content.dialogue.get(tree)!
   .nodes.WIN_C1!.options.find((one) => one.gives?.length)!.gives![0]!;
 
 test('the tree opens on the death certificate once the funeral is booked, and not before', async () => {
@@ -44,7 +44,7 @@ test('arguing changes nothing; dropping it is the signing, the certificate and E
   const { content, state, tree } = await setup();
   state.flags.set('T_FUNERAL_BOOKED', true);
   state.dialogue.start(tree);
-  const paper = certificate(content);
+  const paper = certificate(content, tree);
   for (const row of ['winnie1', 'winnie2', 'winnie3']) {
     state.dialogue.select(row);
     assert.notEqual(state.puzzleProgress().E4, 'complete', `${row} does not advance`);

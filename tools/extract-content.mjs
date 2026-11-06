@@ -2623,11 +2623,39 @@ function sumpTree() {
   const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
   if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
   const DEFER = {
-    SUM_C1: 'opens on the death certificate (E4, Act III), which no built room yields',
     SUM_F1: 'Act IV\'s filing (doc 48 S6, doc 57 F5), after F4 in rooms not built',
   };
-  const DEFER_OPTION = { 'SUM_B1:1‴': 'needs Documents B and D in hand (C6, D6), from rooms not built' };
-  const ENTRY = { SUM_E1: { ACT: { atLeast: 3 } }, SUM_B1: { ACT: { atLeast: 2 } } };
+  const DEFER_OPTION = {};
+  // SUM_C1 from E4 (the signing writes T_DEATH_CERTIFIED) until the decease is
+  // recorded (doc 57 E5), then Act III's root again.
+  const ENTRIES = [
+    { when: { T_DEATH_CERTIFIED: true, T_DECEASED: false }, node: 'SUM_C1' },
+    { when: { ACT: { atLeast: 3 } }, node: 'SUM_E1' },
+    { when: { ACT: { atLeast: 2 } }, node: 'SUM_B1' },
+  ];
+  // WHAT DOC 57 WRITES THAT DOC 04'S ROWS DO NOT. E0: "SUM_B1 option 1''',
+  // holding THE AFFIDAVIT, THE ASSAY OF RECORD and THE ATTESTATION -> THE
+  // CERTIFICATE (the three are kept, stamped SEEN), and the viewing ... ->
+  // T_CLAIM1_BLANK, E0." E5: "SUM_C1 option 1, presenting the certificate,
+  // records the decease -> T_DECEASED."
+  const DOC57 = read('docs/57-puzzle-completion.md');
+  const viewingAt = DOC57.indexOf('## E0 · The Certificate of Contiguity');
+  const viewing = [];
+  for (const m of DOC57.slice(viewingAt, DOC57.indexOf('\n## ', viewingAt + 5)).matchAll(/^> \*\*(SUMP|THAD):\*\* (.+)$/gm)) {
+    const speaker = m[1] === 'THAD' ? 'thad' : SPEAKER;
+    for (const span of m[2].matchAll(/\*\(([^)]+)\)\*|"([^"]+)"/g)) {
+      if (span[1] !== undefined) {
+        const shown = performedDirection(span[1]);
+        if (shown) viewing.push({ speaker, line: shown.line, ...(shown.direction ? { direction: true } : {}) });
+      } else viewing.push({ speaker, line: span[2] });
+    }
+  }
+  if (viewing.length < 4) throw new Error('doc 57 E0: the viewing was not found');
+  const STATE = {
+    'SUM_B1:1‴': { holds: ['document_a', 'document_b', 'document_d'], gives: ['document_c'],
+      set: { T_CLAIM1_BLANK: true }, puzzle: { E0: 'complete' }, then: viewing },
+    'SUM_C1:1': { holds: ['death_certificate'], set: { T_DECEASED: true } },
+  };
   const ITEM = { 'THE SURVEY': 'survey' };
   const PRIME = { '': '', '′': 'a', '″': 'b', '‴': 'c' };
   const unplayed = [];
@@ -2698,6 +2726,15 @@ function sumpTree() {
       if (reqPuzzle) option.after = [`${SPEAKER}${reqPuzzle[2]}`];
       const completes = /\*\*([A-F]\d+)\*\*/.exec(stateText);
       if (completes) option.puzzle = { [completes[1]]: 'complete' };
+      const more = STATE[`${id}:${label}`];
+      if (more) {
+        const { then, ...rest } = more;
+        Object.assign(option, rest);
+        if (then) {
+          option.exchange = [...(option.exchange ?? (option.say ? [{ speaker: SPEAKER, line: option.say }] : [])), ...then];
+          delete option.say;
+        }
+      }
       options.push(option);
     }
     if (!hasExit) {
@@ -2710,7 +2747,7 @@ function sumpTree() {
       ...(opening.length ? { opening } : {}), options };
   }
   if (!nodes.SUM_A1) throw new Error('doc 04: SUM_A1 was not extracted');
-  const entries = Object.entries(ENTRY).filter(([node]) => nodes[node]).map(([node, when]) => ({ when, node }));
+  const entries = ENTRIES.filter((one) => nodes[one.node]);
   for (const note of unplayed) process.stderr.write(`  doc 04 SUMP: ${note}\n`);
   return write('content/dialogue/sump.json', {
     aftermathAuthored: true,
@@ -2720,7 +2757,7 @@ function sumpTree() {
     name: 'REGISTRAR SUMP',
     note: 'EXTRACTED from docs/04-dialogue-trees.md (REGISTRAR CADWALLADER SUMP) by tools/extract-content.mjs. '
       + 'Do not edit: change doc 04 and re-run. Plain quotes in a reply are Sump\'s, italic quotes Thad\'s. '
-      + 'SUM_C1, SUM_F1 and SUM_B1\'s last document option wait for the rooms that make them playable '
+      + 'SUM_F1 waits for F4 (see the extractor); SUM_B1\'s Document C option carries doc 57 E0\'s viewing '
       + '(see the extractor). Universal exit lines are doc 04 part one\'s pool.',
     entries,
     start: 'SUM_A1',
@@ -2927,7 +2964,7 @@ function winnieTree() {
   // letters' node is (check-dialogue-nodes reads `noComic`). The scene after
   // "Then:" is option 4's exchange; the signing hands over the certificate.
   const NO_COMIC = { WIN_C1: 'Doc 04 Act III: "The relationship scene. Six exchanges, and the correct path is not persuasion." Its four rows are the persuasion and the dropping of it; none is a joke option.' };
-  const SIGNING = { 'WIN_C1:4': { gives: ['death_certificate'], puzzle: { E4: 'complete' } } };
+  const SIGNING = { 'WIN_C1:4': { gives: ['death_certificate'], puzzle: { E4: 'complete' }, set: { T_DEATH_CERTIFIED: true } } };
   // WIN_B4, doc 04: "Opened by the first TALK TO after WIN_B2 option 1 has left
   // C6 pending and Thad has been out of the office and back." The asking writes
   // T_ASSAY_ASKED (below); Room 5's onEnter writes T_ASSAY_BACK on the way back

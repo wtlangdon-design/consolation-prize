@@ -724,10 +724,9 @@
    "type": "boolean",
    "initial": false,
    "writtenBy": [
-    "docs/57-puzzle-completion.md E5, SUM_C1 option 1 (Room 7; waits for the death certificate, E4) -- unbuilt"
+    "dialogue:SUMP:SUM_C1:sump1"
    ],
-   "note": "Doc 57 E5: the decease recorded. Opens FRA_E1 on the next TALK TO Frame.",
-   "pending": true
+   "note": "Doc 57 E5: the decease recorded. Opens FRA_E1 on the next TALK TO Frame."
   },
   {
    "id": "T_OBITUARY",
@@ -832,9 +831,10 @@
    "id": "T_CLAIM1_BLANK",
    "type": "boolean",
    "initial": false,
-   "writtenBy": [],
-   "pending": true,
-   "note": "Doc 57 C6/E0: Sump turns Claim One's filing over and its back is blank. Written by SUM_B1 option 1''' (E0), which waits unextracted on Documents B and D (doc 36 Q150). Read by FAN_C1's entry (E0b)."
+   "writtenBy": [
+    "dialogue:SUMP:SUM_B1:sump1c"
+   ],
+   "note": "Doc 57 E0: Sump turns Claim One's filing over and its back is blank. Written by SUM_B1 option 1''' with Documents A, B and D in hand. Read by FAN_C1's entry (E0b)."
   },
   {
    "id": "T_EXCAVATION_CLAUSE",
@@ -1320,6 +1320,15 @@
     "dialogue:WINNIE:WIN_B4:open"
    ],
    "note": "Doc 04 WIN_B4: the returned assay has been spoken, C6 completed and Document B issued -- once."
+  },
+  {
+   "id": "T_DEATH_CERTIFIED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:WINNIE:WIN_C1:winnie4"
+   ],
+   "note": "Doc 57 E4: Winnie has signed THE DEATH CERTIFICATE. Opens SUM_C1 at the Registrar's until the decease is recorded (E5)."
   }
  ]
 }

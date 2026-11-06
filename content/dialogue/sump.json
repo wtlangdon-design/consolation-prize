@@ -4,8 +4,15 @@
   "id": "SUMP",
   "speaker": "sump",
   "name": "REGISTRAR SUMP",
-  "note": "EXTRACTED from docs/04-dialogue-trees.md (REGISTRAR CADWALLADER SUMP) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a reply are Sump's, italic quotes Thad's. SUM_C1, SUM_F1 and SUM_B1's last document option wait for the rooms that make them playable (see the extractor). Universal exit lines are doc 04 part one's pool.",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (REGISTRAR CADWALLADER SUMP) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a reply are Sump's, italic quotes Thad's. SUM_F1 waits for F4 (see the extractor); SUM_B1's Document C option carries doc 57 E0's viewing (see the extractor). Universal exit lines are doc 04 part one's pool.",
   "entries": [
+    {
+      "when": {
+        "T_DEATH_CERTIFIED": true,
+        "T_DECEASED": false
+      },
+      "node": "SUM_C1"
+    },
     {
       "when": {
         "ACT": {
@@ -160,6 +167,58 @@
           }
         },
         {
+          "id": "sump1c",
+          "tag": "PROGRESS",
+          "text": "About Document C—",
+          "afterUse": "remove",
+          "holds": [
+            "document_a",
+            "document_b",
+            "document_d"
+          ],
+          "gives": [
+            "document_c"
+          ],
+          "set": {
+            "T_CLAIM1_BLANK": true
+          },
+          "puzzle": {
+            "E0": "complete"
+          },
+          "exchange": [
+            {
+              "speaker": "sump",
+              "line": "Present A, B and D together and the office issues C, the Certificate of Contiguity. It is the only document that comes after D. I find that restful."
+            },
+            {
+              "speaker": "sump",
+              "line": "He brings Claim One's filing to the window, under its glass.",
+              "direction": true
+            },
+            {
+              "speaker": "sump",
+              "line": "Claim One. Obadiah Mott, eighteen forty-six. 'The richest strike in the history of this territory, lying at the place herein described.'"
+            },
+            {
+              "speaker": "thad",
+              "line": "Where is it described?"
+            },
+            {
+              "speaker": "sump",
+              "line": "Herein."
+            },
+            {
+              "speaker": "sump",
+              "line": "He turns the glass over. The back of the sheet is blank.",
+              "direction": true
+            },
+            {
+              "speaker": "sump",
+              "line": "The office accepted it. It was a busy year."
+            }
+          ]
+        },
+        {
           "id": "sump2",
           "tag": "TOPIC",
           "text": "Who else may see a sealed filing?",
@@ -268,6 +327,47 @@
           "id": "sumpx",
           "tag": "EXIT",
           "text": "I am going to leave now, in a dignified manner.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "SUM_C1": {
+      "id": "SUM_C1",
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 writes this node as a table only -- no opening exchange -- so the conversation opens on the choices.",
+      "options": [
+        {
+          "id": "sump1",
+          "tag": "PROGRESS",
+          "text": "I have a death to record. Mine.",
+          "afterUse": "remove",
+          "say": "The office does not require the deceased to be absent. An oversight, possibly. I do not correct statute. I administer it.",
+          "holds": [
+            "death_certificate"
+          ],
+          "set": {
+            "T_DECEASED": true
+          }
+        },
+        {
+          "id": "sump2",
+          "tag": "TOPIC",
+          "text": "You know I'm not dead.",
+          "afterUse": "remove",
+          "say": "I know what is certified, Mr. Grubb. It is the only kind of knowing this window does."
+        },
+        {
+          "id": "sump3",
+          "tag": "COMIC",
+          "text": "Is there a form for this?",
+          "afterUse": "retain",
+          "say": "Form 31-D. Notice of Decease, Self-Reported. Nobody has used it before. It was printed in hope."
+        },
+        {
+          "id": "sumpx",
+          "tag": "EXIT",
+          "text": "Thank you. This has been clarifying.",
           "universal": true,
           "ends": true
         }
