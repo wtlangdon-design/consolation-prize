@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "judges-and-clerk-distinct",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-04-nugget-back",
+ "promptFile": "reference/cast-unify-07.txt",
+ "out": "art/staging/cast-unify/batch-07/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-07/thad-the-hand.png",
+  "art/staging/cast-unify/batch-06/sheet.png",
+  "art/staging/cast-unify/batch-07/refs.png"
+ ]
+}

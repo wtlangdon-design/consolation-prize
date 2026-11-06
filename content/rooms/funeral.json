@@ -542,7 +542,7 @@
             "say": "Nothing. Nobody fans himself with a hat at a funeral.",
             "repeat": [
               "A brim being turned in nervous fingers, round and round.",
-              "Nothing. Nine hats, held still."
+              "Nothing. Seven hats, held still."
             ]
           }
         ]
@@ -758,7 +758,7 @@
           {
             "say": "A respectable turnout for a man of my brief acquaintance.",
             "repeat": [
-              "Nine people have come to my funeral. I have been in Consolation eleven weeks. I do not know what to do with this and I am going to have to get into the box shortly.",
+              "Seven people have come to my funeral. I have been in Consolation eleven weeks. I do not know what to do with this and I am going to have to get into the box shortly.",
               "One of them is holding his hat over his heart and his other hand over his wallet. He has been to funerals here before."
             ],
             "then": [
@@ -770,7 +770,7 @@
           {
             "say": "Shuffling, a cough, and somewhere in the middle of it, genuine crying.",
             "repeat": [
-              "Nothing. Nine people, not talking.",
+              "Nothing. Seven people, not talking.",
               "A sniff at the back, and then a nose blown into a sleeve with real feeling."
             ],
             "then": [

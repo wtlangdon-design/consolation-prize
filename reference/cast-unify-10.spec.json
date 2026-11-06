@@ -1,0 +1,14 @@
+{
+ "assetId": "cast-unify",
+ "subject": "counter-clerks-no-desk",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-07-claims-registrar",
+ "promptFile": "reference/cast-unify-10.txt",
+ "out": "art/staging/cast-unify/batch-10/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-10/board.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

@@ -1331,6 +1331,44 @@ bark budget, not here.
 **A DOG** *(act: 3)*
 > **LISTEN:** "He knows me. Tail, twice. The one resident who's never read a newspaper, so the one resident I'm still alive to."
 
+*The lines below are new writing, not doc 05's: errata 113's act-change pass (Tyler, 2026-11-06, "I'm giving you permission to do it"), Main Street as its sample. Doc 92 lists them. The plate does not change between acts, so no line describes anything the picture does not show.*
+
+**THE FALSE FRONTS** *(act: 3)*
+> **LOOK:** "Same false fronts. Last week every doorway said good morning to me. This week they're terribly sorry for my loss."
+> **LISTEN:** "Wind, and two men agreeing I was a fine fellow. Neither one ever met me. I'm touched."
+
+**THE WATER TROUGH** *(act: 3)*
+> **LOOK:** "My reflection, in three inches of water. For a dead man, I look surprisingly worried."
+> **LISTEN:** "Something's still living in it. So am I, whatever the paper says."
+
+**THE BOARDWALK** *(act: 3)*
+> **LOOK:** "Six inches above the mud. People still step aside for me, then remember I'm dead, and look embarrassed."
+
+**THE MUD** *(act: 3)*
+> **LOOK:** "The mud. The one thing on this street that treats me exactly as it did before I died."
+> **LISTEN:** "Not a sound. The mud sent no flowers."
+
+**THE HILLS** *(act: 3)*
+> **LOOK:** "Every pick in those hills is still looking for Mott's strike. Nobody's looking for me. I find I mind."
+
+**POSTED NOTICES** *(act: 4)*
+> **LOOK:** "Claims for sale, claims disputed, maps to Mott's strike. I've met Mott. He'd have bought a map."
+> **LISTEN:** "Paper in wind, every sheet rustling about one man. He's heard it for twelve years."
+
+**THE IMPROVEMENT COMPANY SIGN** *(act: 4)*
+> **LOOK:** "CONSOLATION IMPROVEMENT COMPANY. Two coats of gilt on a rumor. I've met the man who started it. He'd have stopped at one coat."
+
+**THE FALSE FRONTS** *(act: 4)*
+> **LOOK:** "Two stories in front, one behind. I used to call these the town's lie. I've since met the town's lie. These are just carpentry."
+> **LISTEN:** "Wind behind them, and nothing else. They never pretended otherwise."
+
+**A DOG** *(act: 4)*
+> **LOOK:** "The dog. He was here before the rumor, and he'll be here after it. I'd like to know his secret."
+
+**THE HILLS** *(act: 4)*
+> **LOOK:** "Every pick in those hills is after Mott's strike. Mott never struck anything. They all look so busy."
+> **LISTEN:** "Picks, far off. Honest work, every stroke of it, on a story."
+
 ## ROOM 3 — THE BOUNTIFUL NUGGET
 
 **THE BAR** *(act: 3)*
@@ -1344,17 +1382,50 @@ bark budget, not here.
 > **LOOK:** "Tuned, and staying tuned. The room plays it softer now, like it knows what it cost."
 > **LISTEN:** "A. Four hundred and forty. In this town, at last, that's not a foreign language."
 
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE STOVE** *(act: 3)*
+> **LOOK:** "The stove, still lit. I've been buried since I last looked at it, and it's still the warmest thing in here."
+
+**THE MIRROR** *(act: 3)*
+> **LOOK:** "I look like a man who has recently been buried and is being brave about it."
+
+**THE MIRROR** *(act: 4)*
+> **LOOK:** "I look like a man who knows something the whole room doesn't. It's not a good look on me. I'm keeping it."
+
+**THE PATRONS** *(act: 3)*
+> **LISTEN:** "Talk, all at the same volume. I came up once, between a mule and the price of flour."
+
+**THE PATRONS** *(act: 4)*
+> **LOOK:** "Nine men drinking to Mott's strike, up at seven to dig for it. I could tell them. I'm not sure who that would help."
+
 ## ROOM 5 — ASSAY OFFICE, FRONT
 
 **THE QUEUE BENCH** *(act: "2-4")*
 > **LOOK:** "The bench seats nine and holds two. The queue has been on a diet since a certain log was read aloud."
 > **LISTEN:** "Two people shifting. There is room between them."
 
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE STOVE** *(act: 3)*
+> **LOOK:** "The stove, the kettle, the work. My funeral didn't stop any of it, and I find that very reassuring."
+
+**THE WINDOW SIGN** *(act: 4)*
+> **LOOK:** "THIS WINDOW CLOSES AT FOUR. In a town built on a story, it's the one sign that's never once exaggerated."
+
 ## ROOM 7 — CLAIMS REGISTRAR
 
 **THE COUNTER** *(act: 3)*
 > **LOOK:** "Somewhere behind that partition is a certificate asserting my death, filed correctly, in perfect order. It is the best-organized thing that has ever happened to me."
 > **LISTEN:** "Sump, stamping. Every third document is somebody becoming official. I know the weight of it now."
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE NUMBER SPINDLE** *(act: 3)*
+> **LOOK:** "A spindle of numbered tickets. I was ninety-one. The dead don't queue, but I've kept my ticket."
+
+**THE TWO LINES** *(act: 3)*
+> **LOOK:** "Two roped lines, FILING and INQUIRIES, and no line for the deceased. I'd make a fuss, but who'd write it down?"
 
 ## ROOM 12 — THE MERCANTILE
 
@@ -1363,6 +1434,18 @@ bark budget, not here.
 
 **THE DYNAMITE CRATE** *(act: "3-4")*
 > **LOOK:** "Still beside the stove. The town has survived twelve years of lies and one crate of dynamite, and I no longer know which is the greater miracle."
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE PICKLE JAR** *(act: 3)*
+> **LOOK:** "Pickled eggs, the brine still working. It's outlasted me, officially. I suspect it'll outlast everyone."
+
+**THE STOVE** *(act: 3)*
+> **LOOK:** "The stove where the town's opinions are formed. This week the opinion is me, and it's very generous, considering."
+> **LISTEN:** "Iron ticking, and my name, said kindly."
+
+**THE PANS** *(act: 4)*
+> **LOOK:** "Gold pans to the ceiling. He's never had to reorder. I know why now, and I wish I didn't."
 
 ## ROOM 14 — BOOT HILL
 
@@ -1374,6 +1457,37 @@ bark budget, not here.
 
 **THE REGISTER** *(act: 3)*
 > **LOOK:** "My line is ruled through, respectfully. The clerk did it with a straightedge. In this town even the erasures are filed."
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE KEY RACK** *(act: 3)*
+> **LOOK:** "Forty keys. Mine's still out. The clerk hasn't asked for it back, which is either tact or a backlog."
+
+**THE CLOCK** *(act: 4)*
+> **LOOK:** "The lobby clock, nineteen minutes off the Registrar's. After what I've learned, a lie that small is practically good manners."
+
+**THE SETTEE** *(act: 3)*
+> **LISTEN:** "Horsehair, sighing, same as when I was alive."
+
+**THE ENGRAVING** *(act: 4)*
+> **LOOK:** "The Bay of Naples, carried four hundred miles on purpose. Somebody here believed in something real once. I've started to respect that."
+
+
+## ROOM 19 — THAD'S HOTEL ROOM
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE BED** *(act: 3)*
+> **LOOK:** "A bed with a valley in it. After a coffin, it's the finest bed in the territory."
+
+**THE WASHSTAND** *(act: 3)*
+> **LOOK:** "A basin and a pitcher. I've washed the grave off twice. The pitcher feels once was plenty."
+
+**THE WALL** *(act: 4)*
+> **LISTEN:** "Next door, two men still sure where Mott's strike is."
+
+**THE DESK** *(act: 4)*
+> **LOOK:** "One short leg, propped on a claim notice. It's the only claim in town I'm sure is doing any good."
 
 ## ROOM 23 & 24 — PROSPERITY, AND THE HOLE
 
@@ -1398,6 +1512,49 @@ bark budget, not here.
 
 **THE CHAIRS** *(act: 4)*
 > **LOOK:** "Six chairs, and for the first time in Company history, nobody waiting in any of them. Comfort with no takers. It is the saddest furniture in the territory and I cannot spare it a full minute."
+
+## ROOM 9 — THE CLARION OFFICE
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE SPIKE** *(act: 3)*
+> **LOOK:** "A paper spike, loaded with stories that didn't run. Somewhere in there is the version of me that lived."
+
+**THE PRESS** *(act: 4)*
+> **LOOK:** "The press, running Mott's legend again. Twelve years of front pages, and I've met the man who'd be most embarrassed by them."
+
+**THE WINDOW** *(act: 3)*
+> **LISTEN:** "Main Street, and someone reading aloud about the Piano Man. Both of them are pleased."
+
+## ROOM 13 — THE UNDERTAKER'S
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE FLOWERS, WAXED** *(act: 3)*
+> **LOOK:** "Wax lilies, dusted. They were at my funeral. They'll be at the next one. They don't play favorites."
+
+## ROOM 17 — CHURCH & MEETING HALL
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE NOTICE OF SERVICES** *(act: 3)*
+> **LOOK:** "SERVICES SUNDAY. FUNERALS AS REQUIRED. I was required. I've never felt so needed by a notice."
+
+**THE WINDOW GLASS** *(act: 4)*
+> **LOOK:** "Plain glass. The dawn does the colors for free. In a town that charged for everything, I'd never noticed that."
+
+## ROOM 20 — THE BACK ALLEY
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE WASH LINE** *(act: 3)*
+> **LOOK:** "The same shirt and the same long underwear, still at half mast. I've decided to take it personally."
+
+**THE ALLEY ITSELF** *(act: 4)*
+> **LOOK:** "The space behind Main Street, where the false fronts stop pretending. I used to come here for the honesty. Now I bring my own."
+
+**THE MUD** *(act: 4)*
+> **LOOK:** "Alley mud. Hob's boots have been through it every night for twelve years, and I never once looked down."
 
 # PART THREE — MANIFEST, REMAINING ROOMS
 

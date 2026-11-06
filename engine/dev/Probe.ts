@@ -95,6 +95,8 @@ export interface FrameReport {
   waitingBeat: string | null;
   control: string | null;
   movers: Record<string, MoverReport>;
+  /** Figures walking out or on a loop: where each drew, `[x, y, w, h]` in room coordinates. */
+  walkers: Record<string, [number, number, number, number]>;
   overlays: Record<string, string | null>;
   /** Every stateful object's current state, by id. Identifiers, never content. */
   states: Record<string, string>;

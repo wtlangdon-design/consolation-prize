@@ -1,0 +1,11 @@
+Image 1 is the hero of my pixel-art adventure game drawn large: THIS IS THE ART STYLE OF THE WHOLE GAME. Images 2 and 3 show townspeople already drawn correctly in that style: match their hand exactly -- the same size of square pixels, flat colour areas, soft simple shading with two or three tones per colour, very little texture, the same muted palette, realistic proportions, the same dark outline treatment. Image 4 shows the livery stable's keeper as ANOTHER artist drew him: use it ONLY for who he is -- his face, his skin, his grey beard, his battered hat with a feather in the band, his waistcoat and work clothes -- and what he does.
+
+Redraw him AS IF THE SAME ARTIST WHO DREW THE HERO DREW HIM: an old man sitting in a plain wooden chair tipped back on two legs, his boots out in front of him, relaxed, in the same chair in every pose.
+
+THE SHEET: flat pure magenta (#FF00FF) background, ONE row, the man and his chair shown FOUR times side by side, every figure the same size, about 330 pixels tall, chair legs on one line, separated by clear magenta space. Same man, same chair, only the pose changes:
+  1. tipped back, arms folded, eyes half open, at rest;
+  2. tipped back, eyes shut, humming to himself, head nodding a little;
+  3. talking, one hand lifted, looking at the viewer;
+  4. pulling his hat brim down over his eyes.
+
+RULES: crisp pixel edges against the magenta, no glow, no blur, no shadow on the ground, no text, no numbers, no border.

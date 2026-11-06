@@ -60,14 +60,22 @@ os.makedirs(out_dir, exist_ok=True)
 Image.fromarray(np.clip(lit, 0, 255).astype(np.uint8)).save(f'{out_dir}/plate-1920x864.png')
 
 
+# THE CAST TAKES A HINT OF THE MOON, NOT ALL OF IT (Tyler, 2026-11-06: "one
+# artist, one game"). At the full ratio the mourners went deep blue beside a
+# Thad drawn in his own colours, and every other night room draws its people in
+# theirs; the line-up showed them in another universe. CAST_LIGHT is how much of
+# the night's ratio a figure takes: the plate takes all of it.
+CAST_LIGHT = 0.35
+
+
 def relight(sheet_path, frames, foot_x, foot_y):
-    """Each frame drawn bottom-centre at (foot_x, foot_y) takes the ratio where it stands."""
+    """Each frame drawn bottom-centre at (foot_x, foot_y) takes CAST_LIGHT of the ratio where it stands."""
     sheet = np.asarray(Image.open(sheet_path).convert('RGBA')).astype(float)
     for fx, fy, fw, fh in frames:
         x0, y0 = int(round(foot_x - fw / 2)), int(round(foot_y - fh))
         ys, xs = np.mgrid[0:fh, 0:fw]
         wy, wx = np.clip(ys + y0, 0, H - 1), np.clip(xs + x0, 0, W - 1)
-        sheet[fy:fy + fh, fx:fx + fw, :3] *= ratio[wy, wx]
+        sheet[fy:fy + fh, fx:fx + fw, :3] *= ratio[wy, wx] ** CAST_LIGHT
     Image.fromarray(np.clip(sheet, 0, 255).astype(np.uint8)).save(sheet_path)
 
 
@@ -79,10 +87,12 @@ for name, fig in cast['figures'].items():
 for name, prop in cast['props'].items():
     relight(os.path.join(ROOT, prop['sheet']), [prop['frame']], prop['x'], prop['y'])
     done.append(prop['sheet'])
-walk = json.load(open(WALK))
-hob = cast['figures']['hob']
-relight(os.path.join(ROOT, 'art/actors/room-31-hob-walk.png'), walk['frames'], hob['x'] + 60, hob['y'])
-done.append('art/actors/room-31-hob-walk.png')
+# NOT THE WALK. Every sheet above is rewritten in day colours by room31-cast.py
+# before this runs; the walk was not, so each run relit the previous run's
+# output and it compounded to solid blue (0,0,136), shipped (found 2026-11-06).
+# Hob's funeral walk is now its own sheet, relit once from its day drawing by
+# tools/art/room31-relight-one.py; a sheet this script relights must be
+# rewritten in day colours on every run.
 with open(f'{out_dir}/night.json', 'w') as f:
     json.dump({'day': os.path.relpath(DAY, ROOT), 'night': os.path.relpath(NIGHT, ROOT), 'sigma': SIGMA,
                'skyPixels': int(day_sky.sum()), 'relit': done,

@@ -648,7 +648,7 @@ async function main() {
         // window (Main Street is 3700) the panel shows one stretch of it, and
         // "nothing drew" there could not tell a sheet that never arrived from
         // a man out of shot -- the letter-writer, there since 2026-09, failed
-        // it with the boy and a boundary man (errata 111). Thad is stood
+        // it with the boy and a boundary man (errata 115). Thad is stood
         // beside him, the camera follows, and the same populated-minus-
         // suppressed pair is taken there. The cast is suppressed here (panel
         // A), and is left so.
@@ -804,7 +804,7 @@ async function main() {
     // THE PEOPLE STANDING IN THE ROOM, in world coordinates, from panel B.
     // Gate 8B differences the populated frame against the cast-suppressed
     // one inside a box around him, and a figure standing IN FRONT of a mark
-    // is in that box and over his feet: Room 20's dog's owner (errata 111)
+    // is in that box and over his feet: Room 20's dog's owner (errata 115)
     // stands on the alley's centre line, where the far mark is first tried,
     // and the gate measured the owner's coat as his "float". The mark's ROW
     // is authored and is never moved; along it, an x where he would stand

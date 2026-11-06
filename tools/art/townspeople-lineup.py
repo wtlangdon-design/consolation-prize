@@ -1,5 +1,5 @@
 """The townspeople beside Thad and the cast Tyler passed, at one game height,
-enlarged with hard pixel edges so the grid can be seen (errata 111). No image
+enlarged with hard pixel edges so the grid can be seen (errata 115). No image
 operation.
 
 Tyler, 2026-11-06, on the first cut: "None of the new characters seem to match

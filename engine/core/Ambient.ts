@@ -1,5 +1,5 @@
 import type { AmbientExit, AmbientFile, Condition } from './types.ts';
-import { departureAt, type DeparturePose } from './Departure.ts';
+import { departureAt, walkDuration, type DeparturePose, type HeightAt } from './Departure.ts';
 import type { GameState } from './GameState.ts';
 
 export interface FiredBark {
@@ -184,17 +184,38 @@ export class AmbientLayer {
       }
     }
     this.seen = present;
-    this.departures = this.departures.filter((one) => !departureAt(one.exit, now - one.startedAt).done);
+    // A walker who went out by a door stays on the list, not drawn, until it has shut behind him.
+    this.departures = this.departures.filter((one) => !departureAt(one.exit, now - one.startedAt).done
+      || (one.exit.door !== undefined && now - one.startedAt < walkDuration(one.exit) + one.exit.door.linger));
     return this.departures.length > 0 || this.arrivals.length > 0 || this.present.some((npc) => npc.loop);
+  }
+
+  /** The doors standing open this frame: one a walker is going out by, or has just gone through. */
+  get openDoors(): NonNullable<AmbientExit['door']>[] {
+    const out: NonNullable<AmbientExit['door']>[] = [];
+    for (const { npc, exit, startedAt } of this.departures) {
+      const door = exit.door;
+      if (!door) continue;
+      const pose = departureAt(exit, this.clock - startedAt, this.manAt(npc));
+      const [ex, ey] = exit.path[exit.path.length - 1]!;
+      if (pose.done || Math.hypot(pose.x - ex, pose.y - ey) <= door.within) out.push(door);
+    }
+    return out;
+  }
+
+  /** A man's drawn height at a floor point, for this figure (his stature): what a stride is measured against. */
+  private manAt(npc: AmbientFile): HeightAt {
+    const stature = npc.sprite?.stature ?? 1;
+    return (x, y, declared) => (declared ?? this.state.stagedHeightAt(x, y) ?? 0) * stature;
   }
 
   /** Everyone walking out this frame, and everyone walking a loop, and where. */
   get departing(): Departing[] {
     const out: Departing[] = [...this.departures, ...this.arrivals].map(({ npc, exit, startedAt }) => ({
-      npc, exit, pose: departureAt(exit, this.clock - startedAt),
-    }));
+      npc, exit, pose: departureAt(exit, this.clock - startedAt, this.manAt(npc)),
+    })).filter((one) => !one.pose.done);
     for (const npc of this.present) {
-      const pose = loopPose(npc, this.clock);
+      const pose = loopPose(npc, this.clock, this.manAt(npc));
       if (pose && npc.loop) out.push({ npc, exit: npc.loop, pose });
     }
     return out;
@@ -287,20 +308,14 @@ export class AmbientLayer {
  * WHERE A LOOPING WALKER IS (AmbientFile.loop), or null while it is off the
  * frame between walks. Pure in the clock, as a departure is.
  */
-export function loopPose(npc: AmbientFile, clock: number): DeparturePose | null {
+export function loopPose(npc: AmbientFile, clock: number, heightAt?: HeightAt): DeparturePose | null {
   const walk = npc.loop;
-  if (!walk || walk.speed <= 0) return null;
-  let length = 0;
-  for (let index = 1; index < walk.path.length; index += 1) {
-    const [ax, ay] = walk.path[index - 1]!;
-    const [bx, by] = walk.path[index]!;
-    length += Math.hypot(bx - ax, by - ay);
-  }
-  const walking = length / walk.speed;
+  if (!walk || (walk.speed <= 0 && !(walk.pace && walk.pace > 0))) return null;
+  const walking = walkDuration(walk, heightAt);
   const cycle = walking + Math.max(0, walk.pause ?? 0);
   if (cycle <= 0) return null;
   const t = (((clock + (walk.offset ?? 0)) % cycle) + cycle) % cycle;
   if (t >= walking) return null;
-  const pose = departureAt(walk, t);
+  const pose = departureAt(walk, t, heightAt);
   return pose.done ? null : pose;
 }

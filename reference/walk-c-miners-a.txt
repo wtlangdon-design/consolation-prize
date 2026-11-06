@@ -1,0 +1,17 @@
+Image 1 is four MINERS of my pixel-art adventure game walking together, drawn in the game's style: THESE ARE THE MEN AND THE STYLE -- their faces, hats, coats and build, this level of detail, this soft shading and dark outline.
+
+Image 2 is a WALK CYCLE that reads well in this game: six frames of another man walking RIGHT, left to right in order. Copy each frame's POSE exactly -- where each leg and foot is, how far the stride opens, the slight rise and fall of the body -- but draw the miners of Image 1, not the man in Image 2.
+
+THE SHEET: flat pure magenta (#FF00FF) background. TWO rows of SIX full figures, each man ALONE, walking RIGHT in profile, in Image 2's order; every figure the SAME height and scale, as large as fits, feet on one line in each row, separated by clear magenta space.
+- Row 1: the FIRST miner (far left: blue coat, blue-grey bowler hat, a pickaxe over his shoulder), carrying a pickaxe over his near shoulder, his near hand on its handle, the same tool in every frame; his free arm swings opposite to his legs.
+- Row 2: the SECOND miner (brown coat and waistcoat, brown hat, clean-shaven), carrying a long-handled shovel over his near shoulder, his near hand on its handle, the same tool in every frame; his free arm swings opposite to his legs.
+
+THE SIX FRAMES OF EACH ROW ARE SIX DIFFERENT POSES, exactly as in Image 2 -- the feet come TOGETHER twice in the cycle, never a wide stride held. His NEAR leg (nearer the viewer) is lighter; his FAR leg darker, in shadow:
+1. NEAR leg forward, heel down; far leg stretched behind, on its toe. Widest stride.
+2. weight onto the near leg, which straightens under him; the far leg lifts and bends at the knee.
+3. PASSING: the far leg swings forward past the near leg, the legs close together, one foot off the ground.
+4. FAR (darker) leg forward, heel down; the near (lighter) leg stretched behind, on its toe. Widest stride.
+5. weight onto the far leg; the near leg lifts and bends at the knee.
+6. PASSING: the near leg swings forward past the far leg, the legs close together.
+
+RULES: one tool per man, nothing else in his hands. No ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.

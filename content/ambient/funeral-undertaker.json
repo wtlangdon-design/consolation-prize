@@ -16,37 +16,37 @@
  "barks": {},
  "barksNote": "Doc 07 writes no barks for the undertaker.",
  "sprite": {
-  "sheet": "art/actors/room-31-undertaker.png",
+  "sheet": "art/actors/room-31-undertaker-master.png",
   "frames": [
    [
     2,
     2,
-    135,
-    336
+    129,
+    400
    ],
    [
-    139,
+    133,
     2,
-    135,
-    336
+    129,
+    400
    ],
    [
-    276,
+    264,
     2,
-    135,
-    336
+    129,
+    400
    ],
    [
-    413,
+    395,
     2,
-    135,
-    336
+    129,
+    400
    ],
    [
-    550,
+    526,
     2,
-    135,
-    336
+    129,
+    400
    ]
   ],
   "rate": 0.22,
@@ -55,14 +55,18 @@
    [
     2,
     2,
+    2,
+    2,
     0
    ],
    [
     3,
     3,
+    3,
     0
    ],
    [
+    4,
     4,
     4,
     0
@@ -70,7 +74,10 @@
   ],
   "breakEvery": 7,
   "talkFrame": 0,
-  "frameNote": "0 rest, hands folded · 1 breath · 2 a lean toward the coffin · 3 a nod · 4 a lean back. A break every `breakEvery` seconds (errata 77).",
-  "provenance": "art/staging/room-31/cast/cast.json"
+  "frameNote": "0 hands folded · 1 breath (derived) · 2 head bowed · 3 a glance down to the left, at the coffin · 4 hands folded, looking up.",
+  "provenance": "reference/cast-unify-29.spec.json",
+  "redrawn": "Errata 111 X (Tyler, 2026-11-06: 'The old man is super weirdly short and stout. The man in the blue jacket is a bad cutout.'). Drawn on magenta by cast-unify 31 (reference/cast-unify-29.txt) at ordinary lean proportions, as tall as Thad, cut with its own pixels and a clean edge, and relit into the funeral's night (tools/art/room31-relight-one.py). The undertaker at Thad's height (the brief before had asked for him 'a little shorter than the hero', and he came back squat).",
+  "figureHeight": 400,
+  "stature": 1.0
  }
 }

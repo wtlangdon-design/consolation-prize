@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "counter-trio-three",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-18-hotel-lobby",
+ "promptFile": "reference/cast-unify-13.txt",
+ "out": "art/staging/cast-unify/batch-13/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-13/board.png",
+  "art/staging/cast-unify/batch-13/last-time.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

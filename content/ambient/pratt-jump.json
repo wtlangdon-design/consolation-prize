@@ -25,55 +25,70 @@
  "barks": {},
  "barksNote": "Doc 07 writes no barks for Pratt.",
  "sprite": {
-  "sheet": "art/actors/room-25-pratt-jump.png",
+  "sheet": "art/actors/room-25-pratt-jump-master.png",
   "frames": [
    [
     2,
     2,
-    324,
-    447
+    304,
+    450
    ],
    [
-    328,
+    308,
     2,
-    324,
-    447
+    304,
+    450
    ],
    [
-    654,
+    614,
     2,
-    324,
-    447
+    304,
+    450
    ],
    [
-    980,
+    920,
     2,
-    324,
-    447
+    304,
+    450
+   ],
+   [
+    1226,
+    2,
+    304,
+    450
    ]
   ],
   "rate": 0.25,
   "phase": 0.1,
   "breaks": [
    [
-    2,
     3,
-    2,
+    4,
     3,
+    4,
+    0
+   ],
+   [
+    3,
+    4,
     0
    ],
    [
     2,
-    3,
+    2,
+    2,
     0
    ]
   ],
   "breakEvery": 7,
-  "frameNote": "0 mallet rest · 1 breath · 2 mallet up · 3 mallet down on the new stake. Breathing on 0 and 1; every `breakEvery` seconds he drives the stake (errata 77).",
-  "provenance": "art/staging/room-25/pratt/pratt-jump.json",
-  "figureHeight": 409,
-  "stature": 1.03,
-  "statureNote": "The bigger man: room-25's master drew him 1.05 of Thad; 1.03 keeps him inside the 5% a standing man is held to (tests/scale.test.ts)."
+  "frameNote": "0 the mallet resting on the ground · 1 breath (derived) · 2 the mallet on his shoulder · 3 the mallet raised overhead · 4 struck down on the new stake. Every `breakEvery` seconds he drives the stake, or shoulders the mallet (errata 77).",
+  "provenance": "reference/cast-unify-17.spec.json",
+  "figureHeight": 386,
+  "stature": 0.96,
+  "statureNote": "Tyler, 2026-11-06, after the leaner redraw: \"scale wise, he still looks way bigger than Thad. I think his current frame needs to be scaled down to better match Thad.\" With his hat, his breadth and his mallet he read well over Thad at 1.03. Now 0.96 of the room's man, crown to sole: his hat brings him level with Thad. (Was 1.03: \"The bigger man: room-25's master drew him 1.05 of Thad\".)",
+  "figureHeightNote": "Crown to sole, his hat excluded: 0.913 of the drawn rest frame, as measured on the rake row of the same sheet (the hat-brim reading is thrown here by the mallet's handle).",
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 19 (reference/cast-unify-17.txt), full figure, his mallet in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet; its own file.",
+  "buildNote": "LEANER (Tyler, 2026-11-06: \"standing next to Thad Pratt look like a much 'thicker' character\"; he chose \"Leaner, still sturdy\"): redrawn in the same poses, an ordinary working man a little broader than Thad (cast-unify 49), cut by tools/art/cast-unify-cut.py; figureHeight is crown to sole, the hat not counted (tools/art/figure-height.py --hat)."
  },
  "exit": {
   "path": [
@@ -90,43 +105,58 @@
     790
    ]
   ],
-  "speed": 80,
-  "sheet": "art/actors/room-25-pratt-jump.png",
+  "speed": 266,
+  "sheet": "art/actors/room-25-pratt-walk.png",
   "frames": [
    [
-    1306,
-    52,
-    219,
+    2,
+    2,
+    216,
     397
    ],
    [
-    1527,
-    52,
-    219,
+    220,
+    2,
+    216,
     397
    ],
    [
-    1748,
-    52,
-    219,
+    438,
+    2,
+    216,
     397
    ],
    [
-    1969,
-    52,
-    219,
+    656,
+    2,
+    216,
+    397
+   ],
+   [
+    874,
+    2,
+    216,
+    397
+   ],
+   [
+    1092,
+    2,
+    216,
     397
    ]
   ],
   "fps": 6,
-  "drawnFacing": "left",
-  "figureHeight": 397,
+  "drawnFacing": "right",
+  "figureHeight": 336,
   "heights": [
    397,
    397,
    397,
    397
   ],
-  "note": "Doc 57 D2 sends him back to his own claim; Pratt's claim is next door, past the creek at the right (errata 97 C)."
+  "note": "Doc 57 D2 sends him back to his own claim; Pratt's claim is next door, past the creek at the right (errata 97 C).",
+  "strideRatio": 0.646,
+  "walkNote": "WALK-C: six frames posed on Thad's walk, the leaner Pratt (cast-unify 50; Tyler, 2026-11-06: \"Pratt's gait is kind of awkward because his knee goes so high\" -- briefed with low knees), cut by tools/art/walk-c.py; figureHeight crown to sole on the passing frame, as his standing frames are measured. strideRatio MEASURED FROM THESE FRAMES (R5f), calibrated on Thad's walk.",
+  "speedNote": "Tyler, 2026-11-06: \"His gait is way better though but maybe still weirdly slow.\" Now 0.7 of his height a second (Thad walks 0.81), 266 px/s at his 0.96 stature. Was half his height a second, Deke's pace. Before that 80 px/s: \"Pratt walks so slow it's hard to even figure out if his walk could be good.\""
  }
 }

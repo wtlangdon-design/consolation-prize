@@ -1,0 +1,13 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game: left to right the hero, the NIGHT WATCHMAN (in the middle: tall and lean, a long dark coat with brass buttons, a dark hat, a black moustache, a lit oil lantern) and another man, all three drawn in the game's style. Draw the WATCHMAN exactly as there -- face, moustache, build, coat, hat, lantern -- at that level of detail, with that soft shading and dark outline.
+
+Image 2 shows the watchman as an earlier artist drew him: standing in profile facing right, and four frames of a walk to the right. Copy only the POSES -- the standing pose with the lantern held out at his side, and a walk -- not the look (Image 2's pixels are too chunky and its walk is a different man in a brown coat).
+
+THE SHEET: flat pure magenta (#FF00FF) background. ONE row of FIVE full figures of the watchman, all the same height and scale, as tall as fits the sheet, feet on one line, separated by clear magenta space, all facing RIGHT in profile, his lit lantern held by its handle in his near hand in EVERY figure:
+1. standing, upright, the lantern held a little out from his side, his other arm hanging down; his two legs slightly apart with a clear magenta gap between them below the coat's hem;
+2. walking, right leg forward, heel down;
+3. walking, passing, legs together;
+4. walking, LEFT leg forward, heel down (the other leg leads now);
+5. walking, passing, legs together.
+In the walk his free arm swings opposite to his legs and the lantern swings a little.
+
+RULES: no ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.

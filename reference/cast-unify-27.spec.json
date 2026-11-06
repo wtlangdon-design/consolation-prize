@@ -1,0 +1,14 @@
+{
+ "assetId": "cast-unify",
+ "subject": "duel-townsfolk",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/cast-unify-27.txt",
+ "out": "art/staging/cast-unify/batch-27/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-27/board.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

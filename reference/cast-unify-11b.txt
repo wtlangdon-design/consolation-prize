@@ -1,0 +1,11 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game: the hero on the left (THE STYLE), and the town's assayer, a woman of 34, on the right. Image 2 is THE SAME WOMAN as she is already drawn in the game, behind another counter: MATCH IMAGE 2 EXACTLY -- the same face, the same PALE skin, the same DARK BLUE-GREY dress (blue, not black), the same hair, the same head size, the same size of square pixel and the same amount of detail. She must look like the same drawing as Image 2, only in new poses.
+
+She stands behind a counter that is ALREADY PAINTED in the game's background, waiting while a clerk does the paperwork. Draw NO counter and nothing on it. Draw her from the WAIST UP, at the same size as in Image 2, cut off in ONE straight horizontal line across the waist where the counter's back edge hides her. Her arms are FOLDED across her body ABOVE that line, so nothing of her comes below it.
+
+THE SHEET: flat pure magenta (#FF00FF) background. ONE row, the same woman FOUR times side by side, every figure the same size, separated by clear magenta space:
+1. arms folded, her head turned toward the LEFT of the picture (at the clerk), sharp and unimpressed;
+2. arms folded, looking straight out at the viewer;
+3. arms folded, one eyebrow raised, her head tilted a little;
+4. her arms UNFOLDED: one hand lifted to tug straight the cuff of her other sleeve, glancing down at it.
+
+RULES: nothing in her hands. Crisp pixel edges against the magenta, no glow, no blur, no shadows, no text, no numbers, no border.

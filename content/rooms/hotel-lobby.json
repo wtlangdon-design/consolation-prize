@@ -258,6 +258,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "The Bay of Naples, carried four hundred miles on purpose. Somebody here believed in something real once. I've started to respect that."
+          },
+          {
             "say": "An engraving of the Bay of Naples, in a hotel lobby, in a mining camp, four hundred miles from a paved road. Somebody carried this here on purpose.",
             "repeat": [
               "The Bay of Naples, in a mining camp, four hundred miles from a paved road.",
@@ -339,6 +348,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "The lobby clock, nineteen minutes off the Registrar's. After what I've learned, a lie that small is practically good manners."
+          },
+          {
             "say": "A lobby clock. It disagrees with the Registrar's clock by nineteen minutes and neither has ever been challenged.",
             "repeat": [
               "Nineteen minutes off the Registrar's, and neither has ever been challenged.",
@@ -377,6 +395,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Forty keys. Mine's still out. The clerk hasn't asked for it back, which is either tact or a backlog."
+          },
           {
             "say": "Forty keys. Four of them are out.",
             "repeat": [
@@ -433,6 +460,15 @@
           }
         ],
         "LISTEN_TO": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Horsehair, sighing, same as when I was alive."
+          },
           {
             "say": "Horsehair, resettling. It sighs longer than furniture should.",
             "repeat": [

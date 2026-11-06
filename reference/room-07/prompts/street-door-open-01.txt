@@ -1,0 +1,5 @@
+Image 1 is the left end of the claims registrar's office in my pixel-art adventure game, at night: the street door at the far left, shut, then the wall, a window, a bench, the floorboards. THIS IS THE PICTURE AND THE STYLE.
+
+Redraw Image 1 EXACTLY -- the same wall, window, bench, floor, light and colours, pixel for pixel -- with ONLY THE DOOR CHANGED: the door stands OPEN. It opens OUTWARD onto the street, so inside the same door frame we now see the open doorway: the door leaf swung out beyond the frame, its edge just visible outside, and through the doorway the night street -- dark blue night, a boardwalk, the warm edge of a lit window across the way. The door frame, its trim and everything outside the frame are unchanged.
+
+RULES: the same size and framing as Image 1. No people, no text, no border. Crisp pixel edges.

@@ -1,0 +1,8 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game, a comedy in an 1850s frontier gold town: the hero on the left (THE STYLE AND THE SCALE) and three townspeople already in the game. Image 2 shows townspeople drawn for this game in the same hand. Draw NEW people in EXACTLY this style -- the same size of square pixel, the same amount of detail, the same soft shading, dark outline and muted palette -- but every one a different individual who does NOT look like anyone in Images 1 or 2.
+
+They are SEVEN mourners at a small hillside funeral at night, standing quietly at the graveside: ordinary frontier people of ordinary, mostly lean build (nobody fat), different ages, in their best dark clothes. EVERY MAN HOLDS HIS HAT in his hands at his chest (no man wears a hat); the women wear dark bonnets or a shawl over the head. Solemn, still, hands folded or holding the hat.
+The seven: a grey-bearded old miner holding a battered hat; a tall young man in a too-short black coat holding a cap; a stout-hearted but slim widow in a black bonnet; a young woman in a dark shawl; a barrel-chested but not fat blacksmith in a borrowed black coat holding a hat; a small elderly woman with a cane; a nervous clerk in spectacles holding a bowler.
+
+THE SHEET: flat pure magenta (#FF00FF) background. ONE row of the seven, every one FULL FIGURE, standing, feet on one line, at the SAME SCALE as the hero (an ordinary man as tall as him; women and the old woman shorter), EACH TURNED THREE-QUARTERS TO THE LEFT, looking down and to the left as if at a grave, separated by clear magenta space.
+
+RULES: no ground, no shadows, no grave, no text, no numbers, no border. Crisp pixel edges against the magenta.

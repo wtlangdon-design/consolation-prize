@@ -27,65 +27,87 @@
     602
    ]
   ],
-  "speed": 70,
-  "sheet": "art/actors/room-31-hob-walk.png",
+  "speed": 194,
+  "sheet": "art/actors/room-31-hob-walk-master.png",
   "frames": [
    [
     2,
     2,
-    226,
-    368
+    373,
+    668
    ],
    [
-    230,
+    377,
     2,
-    226,
-    368
+    373,
+    668
    ],
    [
-    458,
+    752,
     2,
-    226,
-    368
+    373,
+    668
    ],
    [
-    686,
+    1127,
     2,
-    226,
-    368
+    373,
+    668
+   ],
+   [
+    1502,
+    2,
+    373,
+    668
+   ],
+   [
+    1877,
+    2,
+    373,
+    668
    ]
   ],
   "fps": 6,
   "drawnFacing": "right",
-  "figureHeight": 368,
-  "note": "Doc 48 S2 beat 3: 'and he walks.' Off the hill at the right, unhurried, his hat in his hand (room-31 operation 3, cut by tools/art/cut-walk-sheet.py)."
+  "figureHeight": 642,
+  "note": "Doc 48 S2 beat 3: 'and he walks.' Off the hill at the right, unhurried, his hat in his hand (room-31 operation 3, cut by tools/art/cut-walk-sheet.py).",
+  "redrawn": "His own walk (art/actors/hob-walk-right, cast-unify 37), lantern in hand and hat on, relit once into the night.",
+  "strideRatio": 0.709,
+  "walkNote": "WALK-C (Tyler, 2026-11-06: \"Hob at the funeral isn't great\"): six frames posed on Thad's walk (cast-unify 46): six frames posed on Thad's walk (cast-unify 44), cut by tools/art/walk-c.py; strideRatio MEASURED FROM THESE FRAMES (R5f): the planted foot's travel against the body over a cycle, against the same measure on Thad's walk (whose recorded 0.588 it calibrates); so the cycle advances with the ground he covers and his feet hold it.",
+  "speedNote": "One Hob, one pace: his own walkSpeed in Room 1 as a share of his height (134 / 240 = 0.558 a second), at the funeral's man (347 px): 194 px/s. Was 70, and his legs scooted."
  },
  "sprite": {
-  "sheet": "art/actors/room-31-hob.png",
+  "sheet": "art/actors/room-31-hob-master.png",
   "frames": [
    [
     2,
     2,
-    149,
-    368
+    173,
+    400
    ],
    [
-    153,
+    177,
     2,
-    149,
-    368
+    173,
+    400
    ],
    [
-    304,
+    352,
     2,
-    149,
-    368
+    173,
+    400
    ],
    [
-    455,
+    527,
     2,
-    149,
-    368
+    173,
+    400
+   ],
+   [
+    702,
+    2,
+    173,
+    400
    ]
   ],
   "rate": 0.3,
@@ -104,10 +126,11 @@
   ],
   "breakEvery": 8,
   "talkFrame": 0,
-  "frameNote": "0 rest, hat in hand · 1 breath · 2 his weight shifts · 3 his head goes down. A break every `breakEvery` seconds (errata 77).",
-  "provenance": "art/staging/room-31/cast/cast.json",
-  "figureHeight": 368,
+  "frameNote": "0 watching, lantern and hat · 1 breath (derived) · 2 head bowed · 3 a glance down to the left · 4 the hat to his chest.",
+  "provenance": "reference/hob-b-02.spec.json",
+  "figureHeight": 400,
   "stature": 1.04,
-  "statureNote": "Tall (the master drew him a head over the mourners, 368 where the curve's man is 334); held to 1.04, inside the 5% a standing man is allowed (tests/scale.test.ts), so he is drawn 6% under the master."
+  "statureNote": "Tall (the master drew him a head over the mourners, 368 where the curve's man is 334); held to 1.04, inside the 5% a standing man is allowed (tests/scale.test.ts), so he is drawn 6% under the master.",
+  "redrawn": "Errata 112 (one Hob, one level): drawn by cast-unify 38 from the redrawn Hob's own standing frame -- his face, coat and lantern -- bareheaded with his hat in his left hand (doc 05); relit into the funeral's night."
  }
 }

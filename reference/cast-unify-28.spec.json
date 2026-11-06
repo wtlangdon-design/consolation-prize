@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "funeral-mourners",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-31-funeral",
+ "promptFile": "reference/cast-unify-28.txt",
+ "out": "art/staging/cast-unify/batch-28/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-28/board.png",
+  "art/staging/cast-unify/batch-28/townsfolk.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

@@ -3,8 +3,9 @@
   "name": "THE CLARION OFFICE",
   "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
   "sources": [
-    "docs/05-examine-layer.md::ROOM 9 — THE CLARION OFFICE",
+    "docs/05-examine-layer.md::ROOM 9 — THE CLARION OFFICE#1",
     "docs/54-batch-c.md::ROOM 9 · THE CLARION OFFICE",
+    "docs/05-examine-layer.md::ROOM 9 — THE CLARION OFFICE#2",
     "docs/49-wrong-answers.md::ROOM 9 — THE CLARION OFFICE"
   ],
   "subjects": [
@@ -35,6 +36,15 @@
         "It knocks on the return stroke. It has been knocking for years and it will not be attended to.",
         "The knock again, on the return. I could find it in a minute, and he'd print that I'd broken it.",
         "A long iron sigh as the bed comes home, and then the knock, with the timing of a man repeating a joke."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "The press, running Mott's legend again. Twelve years of front pages, and I've met the man who'd be most embarrassed by them."
+          ],
+          "LISTEN_TO": []
+        }
       ],
       "overrides": {
         "USE": "Frame offered to let me. Then he described the last man's sleeve. I withdrew the request and he printed that I had.",
@@ -107,6 +117,15 @@
         "Nothing. A spike is where a story's life ends, and it is very quiet there.",
         "Paper stirring when the door opens. The rejected, briefly hopeful.",
         "Nothing. I won't be adding to it. I hope."
+      ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "A paper spike, loaded with stories that didn't run. Somewhere in there is the version of me that lived."
+          ],
+          "LISTEN_TO": []
+        }
       ]
     },
     {
@@ -120,6 +139,15 @@
         "Main Street, and over it someone reading a headline aloud to someone who cannot read. Both of them are pleased.",
         "The bell over the door, waiting. It rings for news and for creditors and cannot tell them apart.",
         "Boots on the boardwalk, slowing at the glass. Everybody slows here. It is the only place in town the news is free."
+      ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [],
+          "LISTEN_TO": [
+            "Main Street, and someone reading aloud about the Piano Man. Both of them are pleased."
+          ]
+        }
       ]
     },
     {

@@ -1,0 +1,11 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game, a comedy in an 1850s frontier gold town: left to right, the hero (THE STYLE AND THE SCALE), then A (the undertaker) and B (the colonel). These designs are FINAL. Image 2 shows A as drawn for this game last time, and Image 3 shows B as drawn last time: keep their faces, colours and pixel size EXACTLY as there. Only the poses change.
+
+THE SHEET: flat pure magenta (#FF00FF) background. Three rows, every figure in a row the same size, separated by clear magenta space:
+
+- Row 1, A, from the WAIST UP, cut off in ONE straight horizontal line across the waist where his workbench's back edge hides him (the bench is already painted: draw no bench). NOTHING of him comes below that line. In EVERY pose he holds a wooden woodworking hand plane UP AT HIS CHEST in both hands, the plane level: 1. looking down at the plane, turning it in his hands; 2. holding it up to his eye, sighting along its sole; 3. running his thumb along the edge of its blade, carefully; 4. looking up at the viewer, the plane at his chest. FOUR figures.
+
+- Row 2, B, FULL FIGURE, standing on one line, wearing a tall black silk top hat, his frock coat and gold watch chain: 1. thumbs hooked in his waistcoat pockets, pleased with himself; 2. one hand held out open, welcoming; 3. holding up his gold pocket watch and reading it; 4. one hand at the brim of his top hat, tipping it. FOUR figures, the same height as the hero in Image 1.
+
+- Row 3, A, FULL FIGURE, standing on one line, at a graveside: no apron, a plain black coat buttoned over his waistcoat, black trousers, black boots, bareheaded: 1. hands folded in front of him, solemn; 2. head bowed; 3. glancing aside and down, toward something at his side; 4. hands folded, looking up. FOUR figures, a little shorter than the hero in Image 1.
+
+RULES: only the plane, the watch and the hat, where named. Crisp pixel edges against the magenta, no glow, no blur, no shadows, no ground, no text, no numbers, no border.

@@ -6,62 +6,50 @@
  "room": "creek",
  "note": "THE MAN PANNING (doc 05: 'A man, crouched, doing the same motion he was doing when I passed this morning'; doc 10: 'He has not spoken in nine hours'). Room-26 operation 3's sheet, cut by tools/art/room26-panner.py, crouched at the water's edge. No tree: THE MAN PANNING hotspot over him carries doc 05's lines (errata 99 B).",
  "x": 1474,
- "y": 640,
+ "y": 652,
  "zone": 2,
  "approachRadius": 0,
  "tree": "",
  "barks": {},
  "barksNote": "Doc 10: he does not speak.",
  "sprite": {
-  "sheet": "art/actors/room-26-panner.png",
+  "sheet": "art/actors/room-26-panner-master.png",
   "frames": [
    [
     2,
     2,
-    270,
-    153
+    132,
+    150
    ],
    [
-    274,
+    136,
     2,
-    270,
-    153
+    132,
+    150
    ],
    [
-    546,
-    2,
     270,
-    153
+    2,
+    132,
+    150
    ],
    [
-    818,
+    404,
     2,
-    270,
-    153
+    132,
+    150
    ],
    [
-    1090,
+    538,
     2,
-    270,
-    153
+    132,
+    150
    ],
    [
-    1362,
+    672,
     2,
-    270,
-    153
-   ],
-   [
-    1634,
-    2,
-    270,
-    153
-   ],
-   [
-    1906,
-    2,
-    270,
-    153
+    132,
+    150
    ]
   ],
   "rate": 0.3,
@@ -70,12 +58,10 @@
    [
     4,
     5,
-    6,
-    7,
     4,
     5,
-    6,
-    7,
+    4,
+    5,
     0
    ],
    [
@@ -92,13 +78,14 @@
    [
     4,
     5,
-    6,
-    7,
+    4,
+    5,
     0
    ]
   ],
   "breakEvery": 6,
-  "frameNote": "0 rest · 1 breath · 2 peering into the pan · 3 tipping it out · 4-7 the swirl. Breathing on 0 and 1; every `breakEvery` seconds one break -- a swirl, a peer, the tip (errata 77).",
-  "provenance": "art/staging/room-26/panner/panner.json"
+  "frameNote": "0 the pan dipped, level · 1 breath (derived) · 2 peering into the pan · 3 tipping it out · 4-5 the swirl, toward and away. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
+  "provenance": "reference/cast-unify-22.spec.json",
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 24 (reference/cast-unify-22.txt), against pictures of his room; cut with its own pixels and a clean edge; its own file. SIDE-ON AT THE WATER'S EDGE. Operation 22 drew him facing the viewer, and placed at the old feet row his body sat over the creek (Tyler: 'standing on water'). He crouches side-on on the near bank, feet on the ground below the water's edge (y 640 at his x), the pan dipped at the edge, as the first drawing had it."
  }
 }

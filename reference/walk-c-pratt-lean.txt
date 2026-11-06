@@ -1,0 +1,9 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game: left to right the hero, A (the CLAIM-JUMPER) and the night watchman, drawn in the game's style. Draw A with EXACTLY his face, moustache, battered brown hat, grey work shirt with rolled sleeves, belt, dark trousers and brown boots, this level of detail, this soft shading and dark outline -- BUT A LEANER MAN: an ordinary working man's build, only a little broader in the shoulders than the hero, a flat stomach, slim arms and legs, the hero's height or a little taller. Not heavy, not stout.
+
+Image 2 shows A as he was drawn before, too heavy: the top row with his long wooden garden RAKE, the bottom row with his big wooden MALLET. Copy each POSE exactly, and what he holds, but draw the leaner man.
+
+THE SHEET: flat pure magenta (#FF00FF) background. Two rows of FOUR full figures, every figure in a row the same size, feet on one line in each row, separated by clear magenta space. He holds his own thing in EVERY pose, so it never appears or vanishes:
+- Row 1, with the RAKE: 1. leaning on the rake's handle, unhurried; 2. one hand shading his eyes, checking the sky, the other on the rake; 3. raking, the rake's head on the ground pulled toward him; 4. raking, the rake pushed away from him.
+- Row 2, with the MALLET: 1. standing, the mallet's head resting on the ground beside his boot, one hand on its handle; 2. the mallet lifted onto his shoulder; 3. the mallet raised high over his head in both hands, about to strike; 4. the mallet struck down, its head at the ground just in front of his feet (the stake it drives is not drawn).
+
+RULES: only the rake and the mallet, where named. Crisp pixel edges against the magenta, no glow, no blur, no shadows, no ground, no text, no numbers, no border.

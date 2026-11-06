@@ -1,4 +1,4 @@
-"""How many pixel BLOCKS tall a generated figure is, head to boots (errata 111).
+"""How many pixel BLOCKS tall a generated figure is, head to boots (errata 115).
 
 A generated sheet is drawn on a grid of square blocks; the block count from
 head to boots is what makes a figure read as finer or coarser than Thad,

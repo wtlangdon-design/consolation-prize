@@ -69,7 +69,7 @@
     152
    ]
   ],
-  "figureHeight": 152,
+  "figureHeight": 150,
   "stature": 1,
   "rate": 0.45,
   "phase": 0.72,
@@ -98,10 +98,10 @@
   "breakEvery": 17,
   "talkFrame": 5,
   "frameNote": "0 rest, hands in pockets, the bag at his feet · 1 breath (derived) · 2 reaches for the bag · 3 lifts it a few inches, as if about to go · 4 sets it down, a hand still on the handle, looking down the road · 5 TALK. The one break is the whole of him: he reaches, lifts, and sets it down again (errata 110).",
-  "provenance": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-03.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 111)"
+  "provenance": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-03.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 115)"
  },
  "when": {
   "T_DUEL_CROWD": false
  },
- "whenNote": "NOT ON THE DUEL'S VISIT (errata 111): the one visit Fanshawe calls the duel, 'half the town' stands at the saloon end (doc 57 F4; duel-town-left/right, duel-fanshawe), across the mud where he waits with his bag, and he is in it. Back by his bag the next visit."
+ "whenNote": "NOT ON THE DUEL'S VISIT (errata 115): the one visit Fanshawe calls the duel, 'half the town' stands at the saloon end (doc 57 F4; duel-town-left/right, duel-fanshawe), across the mud where he waits with his bag, and he is in it. Back by his bag the next visit."
 }

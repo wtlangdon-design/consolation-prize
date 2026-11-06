@@ -1,0 +1,11 @@
+Image 1 is four MINERS of my pixel-art adventure game walking together, drawn in the game's style: THESE ARE THE MEN AND THE STYLE -- their faces, hats, coats, tools and build, this level of detail, this soft shading and dark outline.
+
+Image 2 is a WALK CYCLE seen from the FRONT that reads well in this game: eight frames of another man walking TOWARD us, left to right in order. Copy each frame's LEG POSE exactly -- which foot is forward, which heel is lifted, the slight rise and fall -- but draw the miner of Image 1.
+
+THE SHEET: flat pure magenta (#FF00FF) background. TWO rows of EIGHT full figures, each man ALONE, walking TOWARD us down a road that comes down to the LEFT: seen from the FRONT and a little to the side -- his face three-quarters toward us, his body turned a little to the LEFT, in Image 2's order; every figure the SAME height and scale, as large as fits, feet on one line in each row, separated by clear magenta space.
+- Row 1: the THIRD miner (brown coat and waistcoat, brown bowler, a short beard, a long-handled shovel).
+- Row 2: the FOURTH miner (blue coat, brown hat, a beard, a pickaxe).
+
+HIS TOOL: carried over his shoulder, ONE HAND GRIPPING ITS HANDLE IN ALL EIGHT FRAMES -- the hand never leaves it, the tool never floats or balances by itself; the same tool, at the same angle, in every frame. His free arm swings a little opposite to his legs.
+
+RULES: one tool per man, nothing else in his hands. No ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.

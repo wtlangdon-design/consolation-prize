@@ -15,7 +15,9 @@
     "dog",
     "dogs_owner",
     "duel_fanshawe",
-    "duel_judges",
+    "duel_judge_1",
+    "duel_judge_2",
+    "duel_judge_3",
     "duel_sowerby",
     "duel_town_left",
     "duel_town_right",
@@ -94,6 +96,15 @@
             "say": "My funeral notice, prominently posted. 'THE PIANO MAN, MOURNED BY ALL.' Frame has finally found a spelling he can't get wrong."
           },
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Claims for sale, claims disputed, maps to Mott's strike. I've met Mott. He'd have bought a map."
+          },
+          {
             "say": "Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who can't. He's doing better than anyone.",
             "repeat": [
               "The lost dog notice has been up six weeks. The dog is on this street.",
@@ -110,6 +121,15 @@
               }
             },
             "say": "Paper in wind. One of those sheets is my whole official existence, flapping."
+          },
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Paper in wind, every sheet rustling about one man. He's heard it for twelve years."
           },
           {
             "say": "Paper, in wind. A great deal of it.",
@@ -144,6 +164,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "My reflection, in three inches of water. For a dead man, I look surprisingly worried."
+          },
+          {
             "say": "A trough. Three inches of water and a great deal of ambition.",
             "repeat": [
               "The water hasn't improved. Neither has my opinion of it.",
@@ -152,6 +181,15 @@
           }
         ],
         "LISTEN_TO": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Something's still living in it. So am I, whatever the paper says."
+          },
           {
             "say": "Something is living in it. I've decided not to pursue this.",
             "repeat": [
@@ -184,6 +222,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "The dog. He was here before the rumor, and he'll be here after it. I'd like to know his secret."
+          },
           {
             "say": "A dog with the settled look of an animal that has outlasted several owners.",
             "repeat": [
@@ -300,6 +347,15 @@
             "say": "Fresh gilt on the lettering. Business is good. The Company's business is the search, and the search has just outlived its most annoying obstacle. Me."
           },
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "CONSOLATION IMPROVEMENT COMPANY. Two coats of gilt on a rumor. I've met the man who started it. He'd have stopped at one coat."
+          },
+          {
             "say": "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering.",
             "repeat": [
               "Gilt. Actual gilt. In a town where the road is a suggestion.",
@@ -343,6 +399,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Six inches above the mud. People still step aside for me, then remember I'm dead, and look embarrassed."
+          },
           {
             "say": "Six inches above the mud.",
             "repeat": [
@@ -391,6 +456,24 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Every pick in those hills is still looking for Mott's strike. Nobody's looking for me. I find I mind."
+          },
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Every pick in those hills is after Mott's strike. Mott never struck anything. They all look so busy."
+          },
+          {
             "say": "Gold country. Everyone here has looked at these hills for years and seen a number.",
             "repeat": [
               "Still gold country. Still no gold.",
@@ -399,6 +482,15 @@
           }
         ],
         "LISTEN_TO": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Picks, far off. Honest work, every stroke of it, on a story."
+          },
           {
             "say": "Nothing. They're extremely large, and they aren't doing anything.",
             "repeat": [
@@ -433,6 +525,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "The mud. The one thing on this street that treats me exactly as it did before I died."
+          },
+          {
             "say": "Mud, the full width of the street and six inches deep.",
             "repeat": [
               "The same mud. I've started to recognize individual portions of it.",
@@ -444,6 +545,15 @@
           }
         ],
         "LISTEN_TO": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Not a sound. The mud sent no flowers."
+          },
           {
             "say": "Nothing. It's mud, being mud.",
             "repeat": [
@@ -481,6 +591,24 @@
             "say": "Two stories in front, one behind, same as ever — but now every doorway says good morning to me by name. Approximately by name."
           },
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Same false fronts. Last week every doorway said good morning to me. This week they're terribly sorry for my loss."
+          },
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Two stories in front, one behind. I used to call these the town's lie. I've since met the town's lie. These are just carpentry."
+          },
+          {
             "say": "Half this street is two stories tall in front and one story deep.",
             "repeat": [
               "Still two stories of front and nothing behind. I keep hoping the back will turn up.",
@@ -500,6 +628,24 @@
               }
             },
             "say": "Wind behind them, and under it, my own name being discussed. Approximately my name."
+          },
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Wind, and two men agreeing I was a fine fellow. Neither one ever met me. I'm touched."
+          },
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Wind behind them, and nothing else. They never pretended otherwise."
           },
           {
             "say": "Wind. There's a great deal of nothing behind half of these.",
@@ -1123,7 +1269,8 @@
       },
       "afterSeconds": 1.5,
       "duel": "duel_three",
-      "note": "Doc 57 F4 and doc 03: Fanshawe calls the duel himself, 'to discredit Thad in front of the whole town before Thad can be heard'. His challenge and the first boast are the greeting; the duel is running when the counters are offered."
+      "note": "Doc 57 F4 and doc 03: Fanshawe calls the duel himself, 'to discredit Thad in front of the whole town before Thad can be heard'. His challenge and the first boast are the greeting; the duel is running when the counters are offered.",
+      "approach": true
     }
   },
   "size": [

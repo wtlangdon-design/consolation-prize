@@ -528,6 +528,7 @@ export class Renderer {
    * nobody pays for it when nobody is reading it (R5h).
    */
   private readonly drawRecord = new Map<string, DrawRecord>();
+  private readonly walkerBounds = new Map<string, [number, number, number, number]>();
   private drawOrder = 0;
   /**
    * PANEL A: the room drawn without anybody in it.
@@ -569,6 +570,11 @@ export class Renderer {
   /** What each mover drew from, where, and in what order. Gates 7, 8B and 8D. */
   lastDrawRecords(): Record<string, DrawRecord> {
     return Object.fromEntries(this.drawRecord);
+  }
+
+  /** Where each walking-out or looping figure drew last frame, `[x, y, w, h]` in room coordinates (the probe's). */
+  lastWalkerBounds(): Record<string, [number, number, number, number]> {
+    return Object.fromEntries(this.walkerBounds);
   }
 
   /** Options currently drawn, so the scene can hit-test them. */
@@ -678,6 +684,13 @@ export class Renderer {
     this.screen.context.translate(-camera, 0);
     this.drawRoom();
     this.drawObjectStates();
+    // A door a walker is going out by stands open: room geometry, so with the plate, before the people.
+    for (const door of this.ambient.openDoors) {
+      const image = this.sheet(door.sheet);
+      if (!image) continue;
+      const [sx, sy, w, h] = door.frame;
+      this.screen.context.drawImage(image, sx, sy, w, h, door.x, door.y, w, h);
+    }
     // AFTER THE PLATE, BEFORE THE PEOPLE. A lamp lights the room it hangs in;
     // the figures are lit by match-local at cut time, which is a different
     // job done once rather than every frame.
@@ -1142,6 +1155,7 @@ export class Renderer {
     const spans: { id: string; feetX: number; feetY: number; halfWidth: number }[] = [];
     if (watch.enabled) {
       this.drawRecord.clear();
+      this.walkerBounds.clear();
       this.drawOrder = 0;
     }
     // BEFORE THE LOOP, NOT INSIDE IT. Skipping each figure individually would
@@ -1250,6 +1264,7 @@ export class Renderer {
     const grade = this.gradeFor(npc.id);
     if (tint || grade) this.drawTinted(tint, [left, top, drawW, drawH], draw, grade);
     else draw();
+    this.walkerBounds.set(npc.id, [left, top, drawW, drawH]);
   }
 
   /** A piece of furniture, 1:1, its bottom row on its base line. See RoomFile.props. */

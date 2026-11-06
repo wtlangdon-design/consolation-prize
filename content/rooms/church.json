@@ -257,6 +257,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "SERVICES SUNDAY. FUNERALS AS REQUIRED. I was required. I've never felt so needed by a notice."
+          },
+          {
             "say": "SERVICES SUNDAY. FUNERALS AS REQUIRED. A schedule of fees below, in a smaller hand.",
             "repeat": [
               "The fees are by the word, and the longer words cost more.",
@@ -379,6 +388,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Plain glass. The dawn does the colors for free. In a town that charged for everything, I'd never noticed that."
+          },
           {
             "say": "Plain glass, no colors. The territory does its own stained glass at dawn and dusk, and the church accepts the donation.",
             "repeat": [

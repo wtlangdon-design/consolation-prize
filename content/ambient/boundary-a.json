@@ -135,7 +135,7 @@
     170
    ]
   ],
-  "figureHeight": 170,
+  "figureHeight": 165,
   "stature": 1,
   "rate": 0.55,
   "phase": 0,
@@ -159,6 +159,8 @@
   "breakEvery": 10,
   "talkFrame": 3,
   "frameNote": "0 rest, arms folded, facing B · 1 breath (derived) · 2 points across the forty feet · 3 argues, hand raised -- TALK. B breaks on the same 10 s cycle half a cycle later (phase 0.5), so the two never point on the same beat.",
-  "provenance": "art/staging/townspeople-110/boundary-men/sheet-03.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 111)"
- }
+  "provenance": "art/staging/townspeople-110/boundary-men/sheet-03.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 115)",
+  "figureHeightNote": "Crown to sole (errata 112 L), the brim read by eye from the rest frame's row widths: tools/art/figure-height.py --hat took his folded arms for the brim (errata 115)."
+ },
+ "faces": "right"
 }

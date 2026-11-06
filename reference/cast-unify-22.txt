@@ -1,0 +1,9 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game, a comedy in an 1850s frontier gold town: the hero (THE STYLE AND THE SCALE), then A (the old livery man) and B (a prospector). Image 2 shows A and B as drawn for this game last time: keep their faces, clothes, colours, size and pixel size EXACTLY as there. Only the poses change.
+
+Image 3 is the stable where A sits: the tall spindle-backed wooden chair in it is ALREADY PAINTED there and is HIS chair. Image 4 shows where B works: the near bank of a creek at night, with an earlier drawing of him crouched side-on at the water's edge, dipping his pan into the water.
+
+THE SHEET: flat pure magenta (#FF00FF) background. Two rows, separated by clear magenta space:
+- Row 1, A, FULL FIGURE, SITTING IN A CHAIR THAT IS NOT DRAWN: draw NO chair at all, only the man, seated, as if in the chair of Image 3 -- leaning back against its tall back, his seat at chair height, his legs stretched forward with his boots flat on the ground, facing three-quarters toward the viewer. FOUR times: 1. leaning back, thumbs in his braces, at ease; 2. humming, eyes shut (draw no musical notes); 3. talking, one hand lifted; 4. pulling his hat brim down over his eyes.
+- Row 2, B, FULL FIGURE, seen SIDE-ON facing LEFT, crouched low on his heels, both arms reaching forward and down to his left, holding the round gold pan low and level in front of him at the height of his boots, as if dipping it in water that is not drawn. FIVE times: 1. the pan dipped, level; 2. peering into the pan, the pan lifted a little; 3. tipping the pan out, tilted away; 4. swirling, tilted toward him; 5. swirling, tilted away.
+
+RULES: only the man and the pan; no chair, no water, no ground, no notes. Crisp pixel edges against the magenta, no glow, no blur, no shadows, no text, no numbers, no border.

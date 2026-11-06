@@ -1,5 +1,5 @@
 """Cut errata 110's townspeople (reference/townspeople/brief.md) into their
-shipping sheets, from the redraws at the cast's pixel size (errata 111: the
+shipping sheets, from the redraws at the cast's pixel size (errata 115: the
 first sheets came back far finer than Thad, the second far coarser; the boy's
 second redraw and the others' third land between, at Thad's and the Nugget
 cast's level). No image operation: the sheets are townspeople-110's, in

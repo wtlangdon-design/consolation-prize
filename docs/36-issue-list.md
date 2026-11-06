@@ -4871,7 +4871,7 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 
 **For Tyler:**
 - **Day after night. RULED (Tyler, 2026-11-06, errata 99 K): night.** The service is relit under operation 4's moon and five daylight lines were rewritten (errata 99 K lists each); every exterior is now checked to be night.
-- **Seven mourners, not nine.** Doc 54 writes "Nine hats, held still"; the master drew seven people with their hats. The room's four operations are spent.
+- **Seven mourners, not nine. RULED (Tyler, 2026-11-06): "7 is fine."** The three lines that counted nine now count seven (errata 99 P).
 - **Not staged:** beat 1's procession (the town walking in behind the coffin) -- the service is already gathered when Thad arrives; and the watchman "at Thad's shoulder" -- he speaks from the back, where he stands, and walks off as he says it.
 
 ## Q174 · Rooms 34 and 33, under Prosperity and the listening chamber: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 H, delegated); BUILT, room-34 3 of 4 and room-33 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**

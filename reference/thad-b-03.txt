@@ -1,0 +1,16 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game: the hero is on the LEFT. THIS IS THE MAN AND THE STYLE: draw him exactly as there -- face, untidy dark hair, slight build, long blue coat, brown waistcoat, white shirt, dark trousers, brown boots -- at that level of detail, with that soft shading and dark outline.
+
+Image 2 shows NINE poses of the same hero as an earlier artist drew them, left to right. Copy each POSE exactly -- the stance, the bend, where each arm and leg is, which way he faces -- but draw him as in Image 1 (Image 2's pixels are too chunky and his build too heavy).
+1. facing RIGHT, one arm held out in front at waist height, palm up, offering something (nothing in it);
+2. facing RIGHT, bent far forward from the hips, legs apart, one arm hanging down reaching to pick something up off the ground (nothing in the hand);
+3. facing RIGHT, one arm raised forward at chest height, hand open, reaching to use something just in front of him;
+4. facing RIGHT, standing, holding a small brown leather case by its handle in his far hand, hanging at his side;
+5. facing RIGHT, mid-step, both hands lifted a little out from his sides, palms up, a shrug;
+6. facing RIGHT, stepping up, one foot forward and up, one arm reaching forward and up to grab a handrail (not drawn);
+7. facing RIGHT, stepping down, one foot forward and down, one arm raised behind him holding a handrail (not drawn);
+8. facing LEFT, standing, head tilted UP, looking up at someone high above him;
+9. facing the VIEWER, mid-stride, one leg forward and one back, a clear gap between the legs up to the coat's hem, arms hanging clear of the coat.
+
+THE SHEET: flat pure magenta (#FF00FF) background. Two rows: poses 1-5 in the top row, 6-9 in the bottom row. Every figure FULL FIGURE, at the SAME scale (the same man, the same size), feet on one line in each row, separated by clear magenta space, as large as fits.
+
+RULES: only the leather case in pose 4. No ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.

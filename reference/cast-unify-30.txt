@@ -1,0 +1,9 @@
+Image 1 is the night watchman of my pixel-art adventure game EXACTLY as he already appears in the game, standing and walking, his lit oil lantern in his right hand. Draw THIS SAME MAN -- the same face, the same black moustache, the same long dark grey coat with its brass buttons, the same dark trousers and boots, the same lean build and proportions, the same size of square pixel, the same amount of detail and the same soft shading -- so that he is instantly recognisable as him. He must not look like a different man.
+
+The ONLY change: he is at a funeral, so he has taken his hat off and holds it in his LEFT hand, down at his side; his head is bare (short dark hair). His lit lantern stays in his RIGHT hand, exactly as in Image 1, in every pose.
+
+THE SHEET: flat pure magenta (#FF00FF) background, two rows, figures separated by clear magenta space, feet on one line in each row, all the same height as the man in Image 1.
+- Row 1, standing, turned three-quarters to the LEFT, FOUR times: 1. still, watching; 2. head bowed; 3. a glance down to the left; 4. the hat held to his chest.
+- Row 2, seen from the side, WALKING TO THE RIGHT, unhurried, a FOUR-frame walk cycle: 1. right foot forward; 2. passing, feet together; 3. left foot forward; 4. passing, feet together.
+
+RULES: only his lantern and his hat. No ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.

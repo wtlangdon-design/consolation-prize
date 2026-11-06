@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "duel-three-gathering",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/cast-unify-24.txt",
+ "out": "art/staging/cast-unify/batch-24/edit.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-24/base-1536.png",
+  "art/staging/cast-unify/batch-24/board.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

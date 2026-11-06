@@ -23,48 +23,36 @@
  "barks": {},
  "barksNote": "Doc 07 writes no barks for Sowerby in Room 4.",
  "sprite": {
-  "sheet": "art/actors/room-04-sowerby.png",
+  "sheet": "art/actors/room-04-sowerby-master.png",
   "frames": [
    [
     2,
     2,
-    243,
+    222,
     437
    ],
    [
-    247,
+    226,
     2,
-    243,
+    222,
     437
    ],
    [
-    492,
+    450,
     2,
-    243,
+    222,
     437
    ],
    [
-    737,
+    674,
     2,
-    243,
+    222,
     437
    ],
    [
-    982,
+    898,
     2,
-    243,
-    437
-   ],
-   [
-    1227,
-    2,
-    243,
-    437
-   ],
-   [
-    1472,
-    2,
-    243,
+    222,
     437
    ]
   ],
@@ -90,19 +78,13 @@
   "breaks": [
    [
     2,
-    3,
-    3,
     2,
     0
    ],
    [
-    2,
     3,
-    2,
-    0,
-    2,
     3,
-    2,
+    3,
     0
    ],
    [
@@ -113,27 +95,19 @@
     0
    ],
    [
-    5,
-    5,
-    5,
-    5,
-    5,
-    0,
     2,
-    3,
-    2,
-    0
-   ],
-   [
-    6,
-    6,
-    6,
     0,
     4,
     0
    ]
   ],
-  "breakEvery": 4.0
+  "breakEvery": 4.0,
+  "frameNote": "0 rest, the pencil raised · 1 breath (derived) · 2 the pencil lowered to his chest · 3 leaning to confer · 4 leaning back, the pencil up. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one).",
+  "figureHeight": 437,
+  "stature": 1.0,
+  "provenance": "reference/cast-unify-18.spec.json",
+  "figureHeightNote": "Crown to sole of the rest frame; the room's man where he stands is 437, as he was drawn."
  },
  "placements": {
   "church": {
@@ -151,37 +125,37 @@
    },
    "tree": "SOWERBY",
    "sprite": {
-    "sheet": "art/actors/room-17-sowerby.png",
+    "sheet": "art/actors/room-17-sowerby-master.png",
     "frames": [
      [
       2,
       2,
-      119,
-      220
+      232,
+      206
      ],
      [
-      123,
+      236,
       2,
-      119,
-      220
+      232,
+      206
      ],
      [
-      244,
+      470,
       2,
-      119,
-      220
+      232,
+      206
      ],
      [
-      365,
+      704,
       2,
-      119,
-      220
+      232,
+      206
      ],
      [
-      486,
+      938,
       2,
-      119,
-      220
+      232,
+      206
      ]
     ],
     "rate": 0.22,
@@ -214,7 +188,38 @@
     "breakEvery": 6,
     "talkFrame": 2,
     "frameNote": "0 rest, hands on the reading desk · 1 breath (derived) · 2 preaching, a finger raised · 3 counting adjectives on his fingers · 4 a hand on his heart. A break every `breakEvery` seconds (errata 77). He preaches as he talks.",
-    "provenance": "art/staging/room-17/sowerby/sowerby.json"
+    "provenance": "reference/cast-unify-18.spec.json",
+    "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one). At the pulpit, cut at the waist with his hands on the pulpit's top either side of the reading desk; the drawing brought a reading desk of its own, and every pixel of the figure where the room's desk (plane 1) stands in front of him is cleared, so the sheet carries none.",
+    "plateFurniture": {
+     "polygon": [
+      [
+       1455,
+       264
+      ],
+      [
+       1503,
+       261
+      ],
+      [
+       1567,
+       303
+      ],
+      [
+       1567,
+       309
+      ],
+      [
+       1478,
+       309
+      ],
+      [
+       1456,
+       273
+      ]
+     ],
+     "below": 303,
+     "note": "The pulpit's reading desk and top are the PLATE's (errata 112 R): his frames draw nothing there but his hands (tools/art/room17-sowerby-desk.py). Each pose of the sheet had drawn its own desk, so the book-rest jumped when he gestured."
+    }
    },
    "clipPlane": 1
   }

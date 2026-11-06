@@ -1,4 +1,4 @@
-"""Image 1 of each townspeople redraw (errata 111): Thad, front on, beside the
+"""Image 1 of each townspeople redraw (errata 115): Thad, front on, beside the
 figure as first drawn, at the same scale, on flat grey -- the side-by-side
 Fanshawe, Sump, Frame and the clerk were redrawn against (errata 84 J,
 tools/art/cast-vs-thad.py). The boundary men's shows both men. No image

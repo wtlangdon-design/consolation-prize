@@ -130,7 +130,7 @@ test('errata 101 A: from the first night through Act II, Hob is on his rounds he
   const state = new GameState(content, new MemoryStorage());
   state.enterRoom(alley);
   const layer = new AmbientLayer(state);
-  // THE ALLEY'S OWN CONVERSATION, not a passer-by's: since errata 111 the dog's
+  // THE ALLEY'S OWN CONVERSATION, not a passer-by's: since errata 115 the dog's
   // owner stands here too, and doc 07's townspeople talk in micro-trees
   // (`amb_*`), never in a doc 04 tree. Asking for "the first with a tree" found
   // him instead.

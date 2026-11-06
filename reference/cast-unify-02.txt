@@ -1,0 +1,12 @@
+Image 1 is a screenshot of my pixel-art adventure game: the hero (the young man in the long blue coat) in a frontier claims office at night, with a clerk behind the counter. Image 2 is the hero drawn large: THIS IS THE ART STYLE OF THE WHOLE GAME. Image 3 shows three men who were drawn by a DIFFERENT artist -- chunky, cartoonish, with oversized heads and blocky pixels -- so they look like they come from another game. Image 4 shows three townspeople ALREADY redrawn correctly in the hero's style: match them. Use image 3 ONLY for who the men are, what they wear and what they do.
+
+Redraw these three men AS IF THE SAME ARTIST WHO DREW THE HERO DREW THEM: the same size of square pixels, flat colour areas, soft simple shading with two or three tones per colour, very little texture, the same muted, slightly dusty palette, REALISTIC proportions like the hero's (a normal-sized head, not a big cartoon head), the same dark outline treatment. When in doubt, use LESS detail and SOFTER contrast.
+
+Each man is seen from the waist up, standing behind a counter that is NOT drawn: draw only the man, cut off flat in a straight horizontal line just below his hands, his forearms resting on that line where the counter edge would be.
+
+THE SHEET: flat pure magenta (#FF00FF) background. Three rows, one man per row, each man shown FOUR times side by side, every figure the same size in its row, about 260 pixels tall from the top of the head to the cut, separated by clear magenta space. Same man in all four; only the pose changes:
+- Row 1, the Registrar (a thin, exact clerk in his fifties, round spectacles, thinning hair parted flat, white shirt, brown waistcoat, black tie): 1. hands resting on a ledger, looking down; 2. writing in the ledger with a pen; 3. a rubber stamp raised, about to come down; 4. looking up over his spectacles.
+- Row 2, the Colonel (a big, prosperous man in his sixties, grey hair, grey moustache, black frock coat, brown waistcoat with a gold watch chain): 1. thumbs in his waistcoat, pleased with himself; 2. one hand held out open, welcoming; 3. holding up his gold pocket watch, looking at it; 4. laughing, head back a little.
+- Row 3, the Company clerk (a young, neat clerk, dark hair, white shirt with sleeve garters, dark waistcoat): 1. hands resting on the desk; 2. writing; 3. holding up a pocket watch and reading it; 4. looking up.
+
+RULES: the ledger, pen, stamp and watch are drawn in their hands where named; nothing else. Crisp pixel edges against the magenta, no glow, no blur, no text, no numbers, no border.

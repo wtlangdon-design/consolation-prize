@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "thad-standing-sources",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/thad-b-01.txt",
+ "out": "art/staging/thad-b/sources-01.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/thad-b/board.png",
+  "art/staging/thad-b/old-sources.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

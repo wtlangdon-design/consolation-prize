@@ -1,0 +1,10 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game: left to right the hero (THE STYLE AND THE SCALE), the night watchman (A) and the undertaker (B). Image 2 is the watchman as he already appears in the game: keep his face, moustache, build and dark coat EXACTLY. Image 3 shows the undertaker as already drawn for the game: keep his face and grey hair EXACTLY. Draw everyone in the same pixel art as Image 1: the same size of square pixel, the same detail and soft shading.
+
+PROPORTIONS: both are ordinary grown men of normal, LEAN proportions, AS TALL AS THE HERO, with LONG LEGS -- the legs below the coat as long as the hero's -- a normal-sized head (about one seventh of their height), narrow shoulders. NOT short, NOT stout, NOT big-headed.
+
+They are at a small hillside funeral at night. THE SHEET: flat pure magenta (#FF00FF) background, three rows, figures separated by clear magenta space, feet on one line in each row, all at the same scale as the hero.
+- Row 1, the watchman A, FULL FIGURE, standing at the back of the funeral, his dark hat held in one hand at his side (bareheaded), NO lantern, turned three-quarters to the LEFT, FOUR times: 1. watching, still; 2. head bowed; 3. a glance down to the left; 4. the hat held to his chest.
+- Row 2, the watchman A, FULL FIGURE, seen from the SIDE, WALKING TO THE RIGHT, unhurried, his hat in his hand, a FOUR-frame walk cycle: 1. right foot forward, contact; 2. passing, feet together; 3. left foot forward, contact; 4. passing, feet together.
+- Row 3, the undertaker B, FULL FIGURE, a plain black coat buttoned over his waistcoat, black trousers, black boots, bareheaded, turned three-quarters to the LEFT, FOUR times: 1. hands folded in front of him, solemn; 2. head bowed; 3. glancing down to the left; 4. hands folded, looking up.
+
+RULES: only the hat. No ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.

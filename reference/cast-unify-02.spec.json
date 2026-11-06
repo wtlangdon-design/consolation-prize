@@ -1,0 +1,16 @@
+{
+ "assetId": "cast-unify",
+ "subject": "counter-clerks",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-07-claims-registrar",
+ "promptFile": "reference/cast-unify-02.txt",
+ "out": "art/staging/cast-unify/batch-02/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-02/thad-in-room-07.png",
+  "art/staging/cast-unify/batch-02/thad-the-hand.png",
+  "art/staging/cast-unify/batch-02/old-sheets.png",
+  "art/staging/cast-unify/batch-01/sheet.png"
+ ]
+}

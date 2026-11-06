@@ -834,8 +834,8 @@
     {
       "id": "pratt_stake",
       "sheet": "art/props/room-23-pratt-stake.png",
-      "x": 411,
-      "y": 724,
+      "x": 434,
+      "y": 825,
       "frame": [
         0,
         0,
@@ -848,7 +848,8 @@
         },
         "T_PRATT_TURNED": false
       },
-      "note": "Pratt's new stake (doc 04 PRA_D2: 'The new stake'), where his mallet comes down. Cut from room-25 operation 3 by tools/art/room25-pratt.py: a talking figure is drawn in one piece, so the stake stands on its own. It stays when he goes home after D2, and is gone once he has signed the quitclaim (D5, at his own claim) (errata 97 D)."
+      "note": "Pratt's new stake (doc 04 PRA_D2: 'The new stake'), where his mallet comes down. Cut from room-25 operation 3 by tools/art/room25-pratt.py: a talking figure is drawn in one piece, so the stake stands on its own. It stays when he goes home after D2, and is gone once he has signed the quitclaim (D5, at his own claim) (errata 97 D).",
+      "placedNote": "Moved (2026-11-06) under the redrawn Pratt's strike: his mallet's head comes down left of his feet, its bottom at y 758, its centre at x 429 at Prosperity's scale, so the stake's top is where it lands. Then x 434 under the leaner Pratt's strike (errata 112 J: the head 116 sheet px left of his feet, at a figureHeight of 386)."
     }
   ],
   "occlusionPlanes": [],

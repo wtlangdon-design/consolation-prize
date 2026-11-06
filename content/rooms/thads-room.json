@@ -403,6 +403,15 @@
         ],
         "LISTEN_TO": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Next door, two men still sure where Mott's strike is."
+          },
+          {
             "say": "Two men, next door, discussing where Mott's strike is. They are very sure.",
             "repeat": [
               "Two men next door, discussing where Mott's strike is. They are very sure, and sure in completely different directions.",
@@ -486,6 +495,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "A basin and a pitcher. I've washed the grave off twice. The pitcher feels once was plenty."
+          },
+          {
             "say": "A basin, a pitcher, and a bar of soap worn to a wafer.",
             "repeat": [
               "A washstand, a jug, a basin, and a piece of mirror the size of my hand.",
@@ -529,6 +547,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "One short leg, propped on a claim notice. It's the only claim in town I'm sure is doing any good."
+          },
           {
             "say": "One short leg, corrected with a folded claim notice.",
             "repeat": [
@@ -610,6 +637,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "A bed with a valley in it. After a coffin, it's the finest bed in the territory."
+          },
           {
             "say": "A bed with a valley in it, shaped by predecessors.",
             "repeat": [

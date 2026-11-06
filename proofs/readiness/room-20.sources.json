@@ -5,7 +5,7 @@
  "name": "THE BACK ALLEY",
  "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54) from docs 02, 05, 09/10, 20 and 54.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 20 — THE BACK ALLEY",
+  "primary": "docs/05-examine-layer.md::ROOM 20 — THE BACK ALLEY#1",
   "batch": [
    "docs/09-examine-batch-2.md::ROOM 20 — THE BACK ALLEY"
   ],
@@ -18,7 +18,8 @@
   "actVariantsNone": {
    "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
    "why": "Part Two-B wrote no variant for the alley."
-  }
+  },
+  "actVariants": "docs/05-examine-layer.md::ROOM 20 — THE BACK ALLEY#2"
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 20 — THE BACK ALLEY",
  "dialogue": {

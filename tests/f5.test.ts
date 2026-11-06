@@ -85,3 +85,13 @@ test('before the duel is won, the counter answers as it always has', async () =>
   state.interact(counter, 'USE');
   assert.equal(state.flags.getNumber('F5_LAID'), 0);
 });
+
+test('the county seal is one sound, the score resting under it, between the certification and the read-back', async () => {
+  const { content, tree } = await setup();
+  const filing = content.dialogue.get(tree)!.nodes.SUM_F1!.options.find((one) => one.puzzle?.F5)!;
+  const sounded = (filing.exchange ?? []).filter((line) => line.sound);
+  assert.equal(sounded.length, 1, 'one stamp');
+  const seal = sounded[0]!.sound!;
+  assert.ok((seal.rest ?? 0) > 0, 'the score rests under it');
+  await readFile(resolve(ROOT, seal.src));
+});

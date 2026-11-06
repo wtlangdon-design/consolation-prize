@@ -17,6 +17,7 @@
 
 ## Hidden by name
 
+- This is true, is never followed up, and is not needed for anything.
 - He goes. This is the resolution. It is worth nothing. It takes twenty seconds and it is the nicest thing in the game.
 - He runs off. This is the only explanation of the schoolhouse the game ever offers.
 - Available only when it has not been.

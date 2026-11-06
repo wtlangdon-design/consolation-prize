@@ -267,6 +267,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "The stove, still lit. I've been buried since I last looked at it, and it's still the warmest thing in here."
+          },
+          {
             "say": "A cast-iron stove, lit, in July. Nobody's said anything. I'm not going to be the first.",
             "repeat": [
               "Still lit. The man beside it hasn't taken his coat off since I arrived in the territory. I'm beginning to think he can't.",
@@ -507,6 +516,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Nine men drinking to Mott's strike, up at seven to dig for it. I could tell them. I'm not sure who that would help."
+          },
+          {
             "say": "Nine men drinking after dark. Every one of them was at his claim by seven this morning, and will be again by seven tomorrow. This is the bit in between.",
             "repeat": [
               "The same nine. I can tell them apart now. I don't think that's good news for me.",
@@ -515,6 +533,15 @@
           }
         ],
         "LISTEN_TO": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Talk, all at the same volume. I came up once, between a mule and the price of flour."
+          },
           {
             "say": "Talk. Lots of it, all at the same volume, none of it listened to.",
             "repeat": [
@@ -546,6 +573,24 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "I look like a man who has recently been buried and is being brave about it."
+          },
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "I look like a man who knows something the whole room doesn't. It's not a good look on me. I'm keeping it."
+          },
           {
             "say": "I look like a man who has recently been robbed and is being brave about it.",
             "repeat": [

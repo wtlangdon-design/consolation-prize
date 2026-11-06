@@ -1,0 +1,13 @@
+Image 1 is the CLAIM-JUMPER of my pixel-art adventure game, drawn in the game's style: THIS IS THE MAN AND THE STYLE -- a stocky miner, a battered brown hat, a black moustache, a grey work shirt with rolled sleeves, a belt, dark trousers, brown boots, and a big wooden maul (a long handle with a heavy wooden head); this level of detail, this soft shading and dark outline.
+
+Image 2 is a WALK CYCLE that reads well in this game: six frames of another man walking RIGHT, left to right in order. Copy each frame's POSE exactly -- where each leg and foot is, how far the stride opens, the slight rise and fall of the body -- but draw the CLAIM-JUMPER of Image 1, not the man in Image 2. THE SIX FRAMES ARE SIX DIFFERENT POSES, exactly as in Image 2 -- never the same stride twice. His NEAR leg (nearer the viewer) has lighter trousers and boot; his FAR leg is darker, in shadow:
+1. NEAR leg forward, heel down; far leg stretched behind, on its toe. Widest stride.
+2. weight onto the near leg, which straightens under him; the far leg lifts and bends.
+3. PASSING: the far leg swings forward past the near leg, knees close together, one foot off the ground.
+4. FAR (darker) leg forward, heel down; the near (lighter) leg stretched behind, on its toe. Widest stride.
+5. weight onto the far leg; the near leg lifts and bends.
+6. PASSING: the near leg swings forward past the far leg, knees close together.
+
+THE SHEET: flat pure magenta (#FF00FF) background. ONE row of SIX full figures of the claim-jumper walking RIGHT in profile, in Image 2's order, every figure the SAME height and scale, as large as fits, feet on one line, separated by clear magenta space. He carries the one big maul over his near shoulder in EVERY frame, his near hand holding its handle, the heavy head behind his back, the same maul in every frame; his free arm swings opposite to his legs. ONE maul only, nothing else in his hands.
+
+RULES: no ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.

@@ -808,7 +808,7 @@
 
 **THE DIRT PILE** — LOOK 2 "A shovel stands upright in it, waiting for a volunteer, and nobody is looking at it." · 3 "It is exactly the size of the hole. Nothing is ever wasted at the undertaker's." | LISTEN 2 "Loose earth sliding down its side, rehearsing." · 3 "Nothing. It is very patient, for dirt."
 
-**THE HATS** — LOOK 2 "Hats of every class, held against every chest. A hat is the only formal clothing most of these men own." · 3 "One man is holding two hats. I would like to know whose the other one is, and I am not going to ask at a funeral." | LISTEN 1 "Nothing. Nobody fans himself with a hat at a funeral." · 2 "A brim being turned in nervous fingers, round and round." · 3 "Nothing. Nine hats, held still."
+**THE HATS** — LOOK 2 "Hats of every class, held against every chest. A hat is the only formal clothing most of these men own." · 3 "One man is holding two hats. I would like to know whose the other one is, and I am not going to ask at a funeral." | LISTEN 1 "Nothing. Nobody fans himself with a hat at a funeral." · 2 "A brim being turned in nervous fingers, round and round." · 3 "Nothing. Seven hats, held still."
 
 ### THE SKY
 **LOOK** 1 "Clear, very high and full of stars. It is a beautiful night to be buried, if one has to be." · 2 "One cloud, keeping to itself across the moon." · 3 "I am going to want to remember this sky in a few minutes. I am trying to look at it properly."

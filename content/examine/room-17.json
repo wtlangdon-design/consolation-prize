@@ -3,9 +3,10 @@
   "name": "CHURCH & MEETING HALL",
   "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
   "sources": [
-    "docs/05-examine-layer.md::ROOM 17 — CHURCH & MEETING HALL",
+    "docs/05-examine-layer.md::ROOM 17 — CHURCH & MEETING HALL#1",
     "docs/09-examine-batch-2.md::ROOM 17 — CHURCH & MEETING HALL",
     "docs/54-batch-c.md::ROOM 17 · CHURCH & MEETING HALL",
+    "docs/05-examine-layer.md::ROOM 17 — CHURCH & MEETING HALL#2",
     "docs/49-wrong-answers.md::ROOM 17 — CHURCH & MEETING HALL"
   ],
   "subjects": [
@@ -129,6 +130,15 @@
         "Wind. The glass thins it into something nearly sung.",
         "Nothing.",
         "The wind again, nearly sung. It never quite reaches the note."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "Plain glass. The dawn does the colors for free. In a town that charged for everything, I'd never noticed that."
+          ],
+          "LISTEN_TO": []
+        }
       ]
     },
     {
@@ -161,6 +171,28 @@
       ]
     },
     {
+      "name": "THE NOTICE OF SERVICES",
+      "LOOK_AT": [
+        "SERVICES SUNDAY. FUNERALS AS REQUIRED. A schedule of fees below, in a smaller hand.",
+        "The fees are by the word, and the longer words cost more.",
+        "WEDDINGS has been painted out. There is room under it for something new, and nothing has been put there."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Paper, pinned flat.",
+        "The pin rattling in the draft from the door.",
+        "Nothing. A schedule with one fixed day has very little to say."
+      ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "SERVICES SUNDAY. FUNERALS AS REQUIRED. I was required. I've never felt so needed by a notice."
+          ],
+          "LISTEN_TO": []
+        }
+      ]
+    },
+    {
       "name": "THE SUBSCRIPTION LIST",
       "LOOK_AT": [
         "Who paid for what. The Colonel paid for the roof, the windows, the bell, and the stove, and his name is on all four in gilt.",
@@ -184,19 +216,6 @@
         "Solid underfoot. Not a creak in it, which in this town is a kind of miracle.",
         "My own footsteps, sounding more certain than I feel.",
         "Nothing. It was built to be quiet, and it is."
-      ]
-    },
-    {
-      "name": "THE NOTICE OF SERVICES",
-      "LOOK_AT": [
-        "SERVICES SUNDAY. FUNERALS AS REQUIRED. A schedule of fees below, in a smaller hand.",
-        "The fees are by the word, and the longer words cost more.",
-        "WEDDINGS has been painted out. There is room under it for something new, and nothing has been put there."
-      ],
-      "LISTEN_TO": [
-        "Nothing. Paper, pinned flat.",
-        "The pin rattling in the draft from the door.",
-        "Nothing. A schedule with one fixed day has very little to say."
       ]
     }
   ],

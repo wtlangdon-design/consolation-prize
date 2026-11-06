@@ -1,0 +1,16 @@
+Image 1 is the hero of my pixel-art adventure game drawn large: THIS IS THE ART STYLE OF THE WHOLE GAME. Image 2 shows townspeople already drawn correctly in that style: match their hand exactly -- the same size of square pixels, flat colour areas, soft simple shading with two or three tones per colour, very little texture, the same muted palette, realistic proportions, the same dark outline treatment. Image 3: at the top, a judge who is FINISHED -- copy him exactly, the same man; below, five people already in the game whom NOBODY you draw may resemble.
+
+EVERY PERSON MUST BE A DIFFERENT, RECOGNISABLE INDIVIDUAL -- a different face, age, build, hair, facial hair and silhouette. NO spectacles on anyone. Nobody old with a beard and a hat. Nobody with the young brown-haired face of the two standing men in image 3.
+
+THE SHEET: flat pure magenta (#FF00FF) background, three rows, everything separated by clear magenta space.
+
+Row 1 -- THREE JUDGES, each drawn ONCE, seen from the WAIST UP sitting behind a table that is NOT drawn: cut off flat in a straight horizontal line just below their hands, which rest on that line; each about 250 pixels from the top of the head to the cut:
+  1. THE JUDGE FROM IMAGE 3, exactly: stout, red-faced, bald on top, white mutton-chop whiskers, brown suit, gold watch chain, hands folded.
+  2. A gaunt, sallow man of fifty with a hooked nose, a waxed black moustache curled up at the ends, black hair pomaded flat with a centre parting, a high white collar and a dark green cravat, a black coat; long fingers steepled.
+  3. A plump, cheerful young man of twenty-five, red hair, freckles, clean-shaven, round pink cheeks, shirtsleeves rolled and a loud tartan waistcoat; one hand raised, holding a short pencil.
+
+Row 2 -- THE SAME THREE JUDGES, exactly those three, sitting in a row behind ONE plain wooden table, seen from the front, the WHOLE scene drawn: the table with its legs, three wooden chairs, and each judge's own legs and shoes visible under the table matching his own body (the stout man's wide legs in brown trousers, the gaunt man's thin black trousers, the young man's tartan-waistcoat body with grey trousers). About 250 pixels tall in all.
+
+Row 3 -- THE COMPANY CLERK, a fussy young man of about thirty, PALE BLOND hair parted exactly in the middle, a thin pencil moustache, a stiff high collar and a narrow black tie, a dark waistcoat, black sleeve garters on white sleeves, seen from the WAIST UP behind a desk that is NOT drawn -- cut off flat just below his hands; about 250 pixels from head to the cut; FOUR times: 1. hands resting on the desk; 2. writing; 3. holding up a pocket watch and reading it; 4. looking up.
+
+RULES: crisp pixel edges against the magenta, no glow, no blur, no shadow on the ground, no text, no numbers, no border.

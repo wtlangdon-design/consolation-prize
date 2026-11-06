@@ -1,0 +1,7 @@
+Image 1 is four MINERS of my pixel-art adventure game, drawn in the game's style: THESE ARE THE MEN AND THE STYLE -- left to right: (1) blue coat, blue-grey bowler, a pickaxe; (2) brown coat and waistcoat, brown hat, clean-shaven, a long-handled shovel; (3) brown coat and waistcoat, brown bowler, a short beard, a long-handled shovel; (4) blue coat, brown hat, a beard, a pickaxe. Their faces, hats, coats, tools and build, this level of detail, this soft shading and dark outline.
+
+Image 2 is the hero of the same game, from behind: copy his STANCE and FRAMING exactly.
+
+THE SHEET: flat pure magenta (#FF00FF) background. ONE row of the FOUR miners, in Image 1's order, each man ALONE and FULL FIGURE, seen STRAIGHT FROM BEHIND, his back to us, exactly as the man in Image 2 stands: standing upright, legs STRAIGHT and slightly apart with a clear magenta gap between them from the crotch to the boots, both boots flat on one line; every man the SAME height and scale, as large as fits, separated by wide magenta space. Each carries his tool over his shoulder, ONE HAND GRIPPING ITS HANDLE at his shoulder; his other arm hangs straight at his side, clear of his body.
+
+RULES: one tool per man, nothing else in his hands. No ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.
