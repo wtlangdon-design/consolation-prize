@@ -1315,7 +1315,7 @@ built.hotspots.sort((a, b) => (a.rect[2] * a.rect[3]) - (b.rect[2] * b.rect[3]))
 // said so.
 function rangeDocExits(text) {
   const out = new Map();
-  const at = text.search(/^## Exits\s*$/m);
+  const at = text.search(/^## Exits?\s*$/m);
   if (at < 0) return out;
   let current = null;
   for (const line of text.slice(at).split('\n').slice(1)) {

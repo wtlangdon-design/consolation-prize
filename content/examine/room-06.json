@@ -16,7 +16,7 @@
       ],
       "LOOK_AT": [
         "Every ounce of color ever brought in, weighed and named. Nineteen names, twelve years. It is a shorter book than the town believes.",
-        "Nine years of assays, in a hand that has not varied once. Not one crossing-out.",
+        "Nine years of assays, in a hand that hasn't varied once. Not one crossing-out. My letters home are mostly crossing-out.",
         "The columns are ruled by hand, every page, every year. She has never once bought ruled paper."
       ],
       "LISTEN_TO": [
@@ -30,7 +30,7 @@
       "LOOK_AT": [
         "The nineteen. Some are dead, some left, one runs the bakehouse now. Not one of them found enough to matter, and every one of them is famous for it.",
         "Each name has a date beside it, and the dates are spread across twelve years like a slow leak.",
-        "I have read them often enough to know any of them if I met him. I am not going to meet most of them."
+        "I've read them often enough to know any of them if I met him. I'm not going to meet most of them."
       ],
       "LISTEN_TO": [
         "Nothing. Fame this size is very quiet.",
@@ -53,11 +53,11 @@
       ],
       "LISTEN_TO": [
         "Glass, shoulder to shoulder. A faint ring when the floor moves.",
-        "Nothing. It is nine years of work and it is not asking for anything.",
+        "Nothing. Nine years of work, and not one bottle asking for anything.",
         "The ring again, very faint, as I step back. Glass, sorry to see me go."
       ],
       "overrides": {
-        "PICK_UP": "Every bottle is somebody's whole year. I am not qualified to hold a year."
+        "PICK_UP": "Every bottle is somebody's whole year. I'm not qualified to hold a year."
       }
     },
     {
@@ -69,7 +69,7 @@
       ],
       "LISTEN_TO": [
         "Cold. A crucible only speaks at temperature.",
-        "Nothing. It is waiting for a fire and a question.",
+        "Nothing. It's waiting for a fire and a question.",
         "A faint tick as it settles on its stand. Even cold, it has weight."
       ],
       "overrides": {
@@ -80,12 +80,12 @@
       "name": "THE SCALES CABINET",
       "LOOK_AT": [
         "The good scales, behind glass, level to a hair. The one instrument in Consolation nobody has ever accused of anything.",
-        "The glass door has a brass lock. The key, I am told, is on a ribbon round her neck.",
+        "The glass door has a brass lock. The key, I'm told, is on a ribbon round her neck.",
         "Beside the scales, a set of weights in a velvet tray, each in its own hollow, none missing."
       ],
       "LISTEN_TO": [
         "Nothing at all. Precision resting.",
-        "Nothing. Precision does not hum.",
+        "Precision doesn't hum.",
         "The glass door ticking very slightly in its frame when the street door goes."
       ],
       "overrides": {
@@ -115,7 +115,7 @@
       "LISTEN_TO": [
         "One loose joint. It announces him.",
         "The loose joint again, when I set a hand on it. It is used to one weight only.",
-        "Nothing. It is waiting for her."
+        "Nothing. It's waiting for her."
       ],
       "overrides": {
         "USE": "I sat on it. It announced me. I got down."
@@ -131,7 +131,7 @@
       "LISTEN_TO": [
         "A hiss so small it may be memory.",
         "A tiny ping of glass as the shelf takes the weight of the morning.",
-        "Nothing. It does its work in silence, and I respect that more than I can say."
+        "Nothing. It does its work in silence. I respect that more than I can say, and I've tried."
       ]
     },
     {
@@ -154,7 +154,7 @@
       ],
       "LOOK_AT": [
         "It looks up the diggings. From here you can watch men carry hope in and results out.",
-        "It is set high, so nobody passing can see in. She can see out only by standing on the stool.",
+        "It's set high, so nobody passing can see in. She can only see out by standing on the stool. I tried it. The stool announced me.",
         "From up here the diggings look like a page of arithmetic, and none of it adds up."
       ],
       "LISTEN_TO": [
@@ -168,12 +168,12 @@
       "LOOK_AT": [
         "An old acid burn, scrubbed at for years and settled into the grain. Some result somebody took badly.",
         "Someone has laid a mat over the edge of it. The mat is not quite big enough.",
-        "It is the shape of a hand, if you look at it the wrong way, which I did."
+        "It's the shape of a hand, if you look at it the wrong way. I looked at it the wrong way."
       ],
       "LISTEN_TO": [
         "Nothing. Whatever happened here is finished happening.",
         "Nothing. The floor has forgiven it.",
-        "Nothing. Even the boards around it are quiet."
+        "Even the boards around it are quiet."
       ]
     },
     {
@@ -198,7 +198,7 @@
       ],
       "LISTEN_TO": [
         "Nothing.",
-        "Nothing. It is very carefully not being slept in, just now.",
+        "Nothing. It's very carefully not being slept in, just now.",
         "A spring easing in the frame, long after anyone sat on it."
       ]
     },
@@ -207,12 +207,12 @@
       "LOOK_AT": [
         "A spare apron on a peg, starched and pressed, with acid holes along the hem in a neat row.",
         "The pocket holds a pencil sharpened at one end only, which in this town is a sign of good character.",
-        "It matches the one she is wearing, stain for stain. She keeps a spare of everything except time."
+        "It matches the one she's wearing, stain for stain. She keeps a spare of everything except time."
       ],
       "LISTEN_TO": [
         "Nothing. Linen, on a peg.",
         "The peg creaking very slightly when the door opens.",
-        "Nothing. It is ready for tomorrow, and the day after."
+        "It's ready for tomorrow, and the day after."
       ]
     },
     {
@@ -220,19 +220,19 @@
       "LOOK_AT": [
         "Assaying manuals, a chemistry, a German dictionary and the territorial statutes, all with their spines broken in the right places.",
         "One manual is annotated in her hand. In three places she has corrected the author.",
-        "The German dictionary is the most used. I cannot think what for, and I am afraid to ask."
+        "The German dictionary is the most used. I can't think what for, and I'm afraid to ask."
       ],
       "LISTEN_TO": [
         "Nothing. Knowledge, resting.",
         "A spine creaking as the shelf takes the damp.",
-        "Nothing. They have been read thoroughly and have nothing new to say."
+        "They've been read thoroughly, and they have nothing new to say."
       ]
     },
     {
       "name": "HER TEA THINGS",
       "LOOK_AT": [
         "A cup, a saucer, a tin of tea and a spoon, arranged on a tray as exactly as everything else she keeps.",
-        "One cup. She does not entertain.",
+        "One cup. She doesn't entertain.",
         "The tin's label is from Canton by way of San Francisco by way of Sheng. Even her tea has a paper trail."
       ],
       "LISTEN_TO": [

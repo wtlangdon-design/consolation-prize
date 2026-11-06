@@ -178,7 +178,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 *Ten hotspots. The anachronism pillar's showcase room.*
 
 **THE NUMBER SPINDLE**
-> **LOOK:** "A spindle of numbered tickets. I am ninety-one. There is one other man in the room and he is forty."
+> **LOOK:** "A spindle of numbered tickets. I'm ninety-one. There's one other man in the room, and he's forty."
 > **LISTEN:** "Nothing. It waits extremely well."
 
 **THE TWO LINES**
@@ -191,7 +191,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **SUMP'S CLOCK**
 > **LOOK:** "The office clock. It is authoritative and it is wrong."
-> **LISTEN:** "Running eleven minutes fast, which I know because I own a watch that agrees with it and I do not trust that either."
+> **LISTEN:** "Running eleven minutes fast. I know because my watch agrees with it, and I don't trust my watch either."
 
 **THE SEALED ARCHIVE DOOR**
 > **LOOK:** "A door, locked, with a statute posted beside it explaining precisely who may pass through. I am not among them."

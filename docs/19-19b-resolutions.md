@@ -39,7 +39,7 @@ The audit found a genuine writing contradiction: THE TWO LINES needs two occupie
 
 **THE TWO LINES is rewritten and needs no figures:**
 
-> **LOOK** 1 "Two roped lines, two signs. FILING and INQUIRIES. There is nobody in either of them and the ropes are up regardless." · 2 "The ropes have been up long enough to have worn the paint off the posts." · 3 "I have stood in both, to be certain. It made no difference to anything."
+> **LOOK** 1 "Two roped lines, two signs. FILING and INQUIRIES. There is nobody in either of them and the ropes are up regardless." · 2 "The ropes have been up long enough to have worn the paint off the posts." · 3 "I've stood in both, to be sure. It made no difference to anything."
 > **LISTEN** 1 "Nothing. Two empty queues are quieter than one." · 2 "Nothing." · 3 "Nothing at all. There is a clock, and there is a man, and that is the whole of it."
 
 ---
