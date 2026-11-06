@@ -1152,7 +1152,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing from inside, which is the least I can do."
 
 **THE NAME PLATE**
-> **LOOK:** "THADDEUS GRUB, it says. Even my death is missing a B. I would complain, but the plate was free and so, apparently, was I."
+> **LOOK:** "THADDEUS GRUB, it says. Even my death is missing a B. I'd complain, but the plate was free, and so, apparently, was I."
 > **LISTEN:** "Brass. It rings a little flat, which in this town is house style."
 
 **THE MOURNERS**
@@ -1288,7 +1288,7 @@ The only prose line in the entire room, on the correct spot:
 
 **POSTED NOTICES**
 > **LOOK:** "Under all the claims and disputes, one new notice, official, sealed, correctly spelled. It has the whole board's attention."
-> **LISTEN:** "Paper in wind. This morning it sounds like applause. I am aware that is me."
+> **LISTEN:** "Paper in wind. This morning it sounds like applause. I'm aware that's me."
 
 **THE CHURCH STEEPLE**
 > **LOOK:** "The tallest thing in Consolation, catching the first light, as is its habit and its right."

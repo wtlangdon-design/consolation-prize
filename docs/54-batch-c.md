@@ -707,7 +707,7 @@
 
 **THE BOARDWALK** — LOOK 2 "Somebody has swept it. Not the street: just the boardwalk, end to end, at dawn, for no reason anyone will admit to." · 3 "I stood on the loose board on purpose. It said what it always says. I find I had missed it." | LISTEN 2 "Boots further down, slow ones. Nobody is in a hurry this morning." · 3 "The loose board, under my own weight this time. A friendly note. A little flat."
 
-**POSTED NOTICES** — LOOK 3 "Somebody has drawn a small raccoon in the corner of the official notice. I am choosing not to know who." | LISTEN 3 "One sheet has come loose and gone off down the street, taking its business elsewhere."
+**POSTED NOTICES** — LOOK 3 "Somebody has drawn a small raccoon in the corner of the official notice. I'm choosing not to know who." | LISTEN 3 "One sheet has come loose and gone off down the street, taking its business elsewhere."
 
 **THE CHURCH STEEPLE** — LOOK 3 "A bird has landed on the cross at the top. It is the only thing in town higher than the bell, and it is not making anything of it." | LISTEN 2 "The bell again, the note settling into the hills. It took this town twelve years to sound like this." · 3 "The last of the bell, fading. Under it, nothing out of tune at all."
 
@@ -790,11 +790,11 @@
 
 **THE COFFIN** — LOOK 2 "The lid is propped against the trestle, waiting for me, like a coat held out by a valet." · 3 "Someone has put a cushion in it. I suspect the undertaker, and I suspect he will charge." | LISTEN 3 "Nothing yet. That changes shortly, and I am trying not to think about it."
 
-**THE NAME PLATE** — LOOK 2 "The engraver gave the G a flourish he could not afford to give the rest." · 3 "It will be on the lid, over my face, for the next few minutes of my life. I would have liked it spelled right for that." | LISTEN 2 "A faint ring when the wind catches the lid. Flat, as noted." · 3 "Nothing. Brass keeps its opinions about spelling to itself."
+**THE NAME PLATE** — LOOK 2 "The engraver gave the G a flourish he could not afford to give the rest." · 3 "It will be on the lid, over my face, for the next few minutes of my life. I'd have liked it spelled right for that." | LISTEN 2 "A faint ring when the wind catches the lid. Flat, as noted." · 3 "Nothing. Brass keeps its opinions about spelling to itself."
 
 **THE MOURNERS** — LOOK 3 "One of them is holding his hat over his heart and his other hand over his wallet. He has been to funerals here before." | LISTEN 3 "A sniff at the back, and then a nose blown into a sleeve with real feeling."
 
-**REVEREND SOWERBY, OFFICIATING** — LOOK 3 "He has a card in his palm with the adjectives on it and is ticking them off as he goes. I am getting exactly what I paid for." | LISTEN 3 "'…a man who came among us, and stayed…' — that one was free, I think. He has thrown it in."
+**REVEREND SOWERBY, OFFICIATING** — LOOK 3 "He has a card in his palm with the adjectives on it and is ticking them off as he goes. I'm getting exactly what I paid for." | LISTEN 3 "'…a man who came among us, and stayed…' — that one was free, I think. He has thrown it in."
 
 **THE FLOWERS, WAXED** — LOOK 2 "Somebody has wiped the dust off them for the occasion. That is the undertaker's idea of grief, and I find I accept it." · 3 "They lean toward the grave, the way everything here eventually does." | LISTEN 2 "A faint tap of wax on wax when the wind finds them." · 3 "Nothing. They have outlived everyone they were ever arranged for, and they will outlive me, technically."
 
