@@ -29,9 +29,9 @@
     {
       "name": "THE NAME PLATE",
       "LOOK_AT": [
-        "THADDEUS GRUB, it says. Even my death is missing a B. I would complain, but the plate was free and so, apparently, was I.",
+        "THADDEUS GRUB, it says. Even my death is missing a B. I'd complain, but the plate was free, and so, apparently, was I.",
         "The engraver gave the G a flourish he could not afford to give the rest.",
-        "It will be on the lid, over my face, for the next few minutes of my life. I would have liked it spelled right for that."
+        "It will be on the lid, over my face, for the next few minutes of my life. I'd have liked it spelled right for that."
       ],
       "LISTEN_TO": [
         "Brass. It rings a little flat, which in this town is house style.",
@@ -52,7 +52,7 @@
         "A sniff at the back, and then a nose blown into a sleeve with real feeling."
       ],
       "overrides": {
-        "TALK_TO": "A stranger offered me comfort at my own funeral. I said the departed sounded like a fine man, taken too soon. He agreed, with feeling. I am having a very strange week."
+        "TALK_TO": "A stranger offered me comfort at my own funeral. I said the departed sounded like a fine man, taken too soon. He agreed, with feeling. I'm having a very strange week."
       }
     },
     {
@@ -63,7 +63,7 @@
       "LOOK_AT": [
         "Sowerby at grade-two sincerity, which I paid for, delivering me to my reward. He keeps almost catching my eye and electing not to.",
         "He is preparing to deliver four words for fifty cents and he is preparing thoroughly.",
-        "He has a card in his palm with the adjectives on it and is ticking them off as he goes. I am getting exactly what I paid for."
+        "He has a card in his palm with the adjectives on it and is ticking them off as he goes. I'm getting exactly what I paid for."
       ],
       "LISTEN_TO": [
         "'…a man of music, taken flat…' — he wrote that this morning and is proud of it.",

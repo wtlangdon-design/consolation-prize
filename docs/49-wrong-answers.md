@@ -261,7 +261,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 **THE COFFIN (MINE)** · OPEN — "Ahead of schedule. The lid stays shut; the plan requires my absence and I am contractually elsewhere."
 **THE COFFIN (MINE)** · USE — "It is in use. By me. Officially. The paperwork is immaculate."
-**THE MOURNERS** · TALK_TO — "A stranger offered me comfort at my own funeral. I said the departed sounded like a fine man, taken too soon. He agreed, with feeling. I am having a very strange week."
+**THE MOURNERS** · TALK_TO — "A stranger offered me comfort at my own funeral. I said the departed sounded like a fine man, taken too soon. He agreed, with feeling. I'm having a very strange week."
 **THE GRAVE** · CLOSE — "Not yet. There is a man not in that box counting on the delay."
 
 ## ROOM 32 — INSIDE THE COFFIN
