@@ -1,0 +1,53 @@
+{
+ "schema": 1,
+ "id": "dogs_owner",
+ "name": "THE DOG'S OWNER",
+ "awaitingArt": "townspeople-110 (art/staging/caps.json; reference/townspeople/brief.md). Not cast in any room until his sheet is cut and this field is removed.",
+ "posture": "standing",
+ "note": "Doc 07 #18. 'Back alley. Looking for the lost dog from the notice board. The dog is on Main Street.' In the alley until Thad tells him there is a dog on Main Street (T_BILL_FOUND); from then on he is on Main Street with Bill, the street dog, and has no bark at all (doc 07 R_TRUTH: 'If resolved: he is on Main Street with Bill, and has no bark at all.' Read as his resolved state, not only that reputation's: a man standing beside his dog does not ask whether you have seen one). Who is present is decided as Thad arrives, so he stays in the alley for the visit he leaves in (errata 110).",
+ "room": "back_alley",
+ "x": 560,
+ "y": 792,
+ "zone": 1,
+ "approachRadius": 40,
+ "tree": "amb_dogs_owner",
+ "greetsWithBark": true,
+ "greetsWithBarkNote": "As the card sharp: TALK TO opens with his bark for the current reputation. Doc 07 writes no root line for him.",
+ "when": {
+  "T_BILL_FOUND": false
+ },
+ "walkTo": {
+  "x": 720,
+  "y": 795,
+  "facing": "left"
+ },
+ "placements": {
+  "main_street": {
+   "x": 2560,
+   "y": 768,
+   "zone": 1,
+   "when": {
+    "T_BILL_FOUND": true
+   },
+   "barks": {},
+   "walkTo": {
+    "x": 2450,
+    "y": 775,
+    "facing": "right"
+   }
+  }
+ },
+ "placementsNote": "MAIN STREET, WITH BILL: beside the street dog (dog.json, 2628,765), from T_BILL_FOUND on. `barks` empty here: doc 07 gives him none once resolved.",
+ "barks": {
+  "R_NOBODY": "You seen a dog?",
+  "R_SWINDLED": "You seen a dog? …Sorry about your money.",
+  "R_RACCOON": "Not a raccoon. A dog.",
+  "R_SURVEYED": "You seen a dog?",
+  "R_BORDERS_MOTT": "You seen a dog? Congratulations, by the way.",
+  "R_LOST_DUEL": "You seen a dog?",
+  "R_WON_DUEL": "You seen a dog?",
+  "R_DEAD": "You seen a — You seen a dog?",
+  "R_TRUTH": "You seen a dog?"
+ },
+ "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 18 · THE DOG'S OWNER) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109)."
+}

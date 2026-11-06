@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "boundary_a",
+ "name": "THE BOUNDARY MAN",
+ "awaitingArt": "townspeople-110 (art/staging/caps.json; reference/townspeople/brief.md). Not cast in any room until his sheet is cut and this field is removed.",
+ "posture": "standing",
+ "note": "Doc 07 #2 and #3, the one doc 07 marks A (Clement, by B's R_BORDERS_MOTT). The two have argued about the same forty feet for six years; they stand in the middle of the street, facing each other. TALK TO either opens the one tree, and they answer alternately (errata 110).",
+ "room": "main_street",
+ "x": 1640,
+ "y": 760,
+ "zone": 1,
+ "approachRadius": 60,
+ "tree": "amb_boundary_men",
+ "greetsWithBark": true,
+ "greetsWithBarkNote": "As the card sharp: TALK TO opens with the pair's bark for the current reputation, in both voices.",
+ "walkTo": {
+  "x": 1700,
+  "y": 830,
+  "facing": "back"
+ },
+ "barks": {},
+ "barkExchange": {
+  "R_NOBODY": [
+   {
+    "speaker": "boundary_a",
+    "line": "— from the split pine —"
+   }
+  ],
+  "R_SWINDLED": [
+   {
+    "speaker": "boundary_b",
+    "line": "Sold you Claim Two? Ha! That's not even disputed."
+   }
+  ],
+  "R_RACCOON": [
+   {
+    "speaker": "boundary_a",
+    "line": "At least yours has an animal on it."
+   }
+  ],
+  "R_SURVEYED": [
+   {
+    "speaker": "boundary_b",
+    "line": "You had it surveyed?"
+   },
+   {
+    "speaker": "boundary_a",
+    "line": "Don't. Don't put ideas in it."
+   }
+  ],
+  "R_BORDERS_MOTT": [
+   {
+    "speaker": "boundary_a",
+    "line": "Borders Claim One!"
+   },
+   {
+    "speaker": "boundary_b",
+    "line": "So does the sky, Clement."
+   }
+  ],
+  "R_LOST_DUEL": [
+   {
+    "speaker": "boundary_b",
+    "line": "We could've told you not to duel Vessel."
+   }
+  ],
+  "R_WON_DUEL": [
+   {
+    "speaker": "boundary_a",
+    "line": "Beat Vessel."
+   },
+   {
+    "speaker": "boundary_b",
+    "line": "Wouldn't have beat me."
+   },
+   {
+    "speaker": "boundary_a",
+    "line": "You've never entered."
+   }
+  ],
+  "R_DEAD": [
+   {
+    "speaker": "boundary_a",
+    "line": "…"
+   },
+   {
+    "speaker": "boundary_b",
+    "line": "…"
+   },
+   {
+    "speaker": "boundary_a",
+    "line": "— from the split pine —"
+   }
+  ],
+  "R_TRUTH": [
+   {
+    "speaker": "boundary_b",
+    "line": "So there's no gold anywhere."
+   },
+   {
+    "speaker": "boundary_a",
+    "line": "None."
+   },
+   {
+    "speaker": "boundary_b",
+    "line": "…Line still runs from the rock."
+   }
+  ]
+ },
+ "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 2 & 3 · THE TWO BOUNDARY MEN) by tools/extract-content.mjs, as `barkExchange`: the table is written in two voices, each line said over its own man. Directions are dropped (errata 110)."
+}

@@ -1,0 +1,22 @@
+{
+ "schema": 1,
+ "id": "boundary_b",
+ "name": "THE OTHER BOUNDARY MAN",
+ "awaitingArt": "townspeople-110 (art/staging/caps.json; reference/townspeople/brief.md). Not cast in any room until his sheet is cut and this field is removed.",
+ "posture": "standing",
+ "note": "Doc 07 #2 and #3, the one doc 07 marks B. Faces A across the forty feet. His barks are carried in A's file as the pair's exchange; he has none of his own (errata 110).",
+ "room": "main_street",
+ "x": 1770,
+ "y": 760,
+ "zone": 1,
+ "approachRadius": 60,
+ "tree": "amb_boundary_men",
+ "greetsWithBark": true,
+ "greetsWithBarkNote": "As A.",
+ "walkTo": {
+  "x": 1700,
+  "y": 830,
+  "facing": "back"
+ },
+ "barks": {}
+}

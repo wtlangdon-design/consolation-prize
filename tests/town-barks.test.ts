@@ -56,3 +56,33 @@ test('no ambient file claims doc 07 writes it nothing when doc 07 has its sectio
     assert.equal(Object.keys(npc.barks ?? {}).length, 0, `${npc.barksNote}: but it has barks`);
   }
 });
+
+test('a bark said by two people names two people who stand in the same room (errata 110)', () => {
+  const all = readdirSync(resolve(ROOT, 'content/ambient')).map((file) =>
+    JSON.parse(readFileSync(resolve(ROOT, 'content/ambient', file), 'utf8')) as
+      { id: string; room?: string; barkExchange?: Record<string, { speaker: string; line: string }[]> });
+  const byId = new Map(all.map((npc) => [npc.id, npc]));
+  const pairs = all.filter((npc) => npc.barkExchange);
+  assert.ok(pairs.length > 0, 'no ambient carries a two-voice bark');
+  for (const npc of pairs) {
+    for (const [state, lines] of Object.entries(npc.barkExchange!)) {
+      assert.ok(lines.length > 0, `${npc.id} ${state}: an empty exchange`);
+      for (const { speaker } of lines) {
+        const who = byId.get(speaker);
+        assert.ok(who, `${npc.id} ${state}: no ambient "${speaker}"`);
+        assert.equal(who.room, npc.room, `${npc.id} ${state}: ${speaker} stands in another room`);
+      }
+    }
+  }
+});
+
+test('a figure waiting on its art is cast in no room (errata 110)', () => {
+  const waiting = readdirSync(resolve(ROOT, 'content/ambient'))
+    .map((file) => JSON.parse(readFileSync(resolve(ROOT, 'content/ambient', file), 'utf8')) as { id: string; awaitingArt?: string })
+    .filter((npc) => npc.awaitingArt).map((npc) => npc.id);
+  for (const file of readdirSync(resolve(ROOT, 'content/rooms'))) {
+    const room = JSON.parse(readFileSync(resolve(ROOT, 'content/rooms', file), 'utf8')) as { id: string; ambient?: string[] };
+    const cast = (room.ambient ?? []).filter((id) => waiting.includes(id));
+    assert.deepEqual(cast, [], `${room.id} casts figures with no picture yet`);
+  }
+});

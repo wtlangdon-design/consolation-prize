@@ -903,6 +903,11 @@ if (ann.entrances) {
   const dir = 'content/ambient';
   const cast = existsSync(dir)
     ? readdirSync(dir).map((file) => JSON.parse(readFileSync(`${dir}/${file}`, 'utf8')))
+      // EXCEPT ONE WHOSE PICTURE IS NOT YET DRAWN (errata 110): a figure
+      // written, placed and waiting on its image operation says so in its
+      // own file (`awaitingArt`), and is cast the day the art is cut and the
+      // field removed -- not before, when he would be a voice with no body.
+      .filter((npc) => !npc.awaitingArt)
       .filter((npc) => npc.room === built.id || npc.placements?.[built.id]).map((npc) => npc.id).sort()
     : [];
   if (cast.length) built.ambient = cast;

@@ -73,7 +73,12 @@
   "content/dialogue/raccoon.json",
   "content/dialogue/pratt.json",
   "content/dialogue/pratt-jump.json",
-  "content/dialogue/sheng.json"
+  "content/dialogue/sheng.json",
+  "content/dialogue/amb-boundary-men.json",
+  "content/dialogue/amb-message-boy.json",
+  "content/dialogue/amb-man-leaving-tomorrow.json",
+  "content/dialogue/amb-fiddler.json",
+  "content/dialogue/amb-dogs-owner.json"
  ],
  "puzzles": [],
  "sequences": [

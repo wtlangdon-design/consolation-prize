@@ -451,7 +451,7 @@ export interface AmbientFile {
    * half-figure). Tyler, 2026-10-31: "Make sure matching scales are written
    * into the system of checks."
    */
-  posture?: 'standing' | 'seated' | 'band' | 'identity' | 'animal' | 'behind-counter';
+  posture?: 'standing' | 'seated' | 'band' | 'identity' | 'animal' | 'behind-counter' | 'child';
   /**
    * WHY THIS VISIBLE FIGURE IS ALLOWED TO BE STILL, quoting the ruling.
    * Errata 77: every visible character in a shipping room moves, deliberately,
@@ -573,8 +573,28 @@ export interface AmbientFile {
      * (doc 04 SOW_A1, SOW_C1).
      */
     tree?: string;
+    /**
+     * The barks this person has IN THIS ROOM, replacing the file's own; `{}`
+     * is none. Doc 07 #18: once found, the dog's owner stands on Main Street
+     * with Bill "and has no bark at all" (errata 110).
+     */
+    barks?: Record<string, string>;
   }>;
   barks: Record<string, string>;
+  /**
+   * Written and placed, waiting on an image operation (errata 110): the room
+   * compiler casts no one who carries this, so a figure is never a voice with
+   * no body. The value names the asset and its brief.
+   */
+  awaitingArt?: string;
+  /**
+   * A BARK SAID BY TWO PEOPLE, one line each in turn over each speaker's head
+   * (doc 07 #2 and #3, the boundary men, whose bark table is written as an
+   * exchange: **A:** "Borders Claim One!" **B:** "So does the sky, Clement.").
+   * Keyed by reputation state like `barks`, which it is used instead of; each
+   * line names the ambient id that says it. Carried by one of the two.
+   */
+  barkExchange?: Record<string, { speaker: string; line: string }[]>;
   /**
    * The occlusion plane that masks this figure, when it stands where no walk
    * box is. Room 5's Winnie stands BEHIND the counter: no box exists there

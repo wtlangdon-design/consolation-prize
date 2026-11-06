@@ -111,7 +111,7 @@ is the whole of his character.
 
 **Micro-tree** *(they answer alternately and interrupt each other)*
 > "What are you arguing about?" → **A:** "The line runs from the split pine —" **B:** "It runs from the *rock* —" **A:** "— which is what I said —" **B:** "— it is *not* what you said."
-> "Is there gold on either claim?" → *(pause)* **A:** "No." **B:** "No." **A:** "Not a colour." **B:** "Never has been." *(They resume immediately.)*
+> "Is there gold on either claim?" → *(pause)* **A:** "No." **B:** "No." **A:** "Not a color." **B:** "Never has been." *(They resume immediately.)*
 > `[COMIC]` "Have you tried settling it?" → **A:** "And do *what*?"
 
 **Barks**

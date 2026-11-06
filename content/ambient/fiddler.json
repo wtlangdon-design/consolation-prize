@@ -1,0 +1,21 @@
+{
+ "schema": 1,
+ "id": "fiddler",
+ "name": "THE FIDDLER",
+ "awaitingArt": "townspeople-110 (art/staging/caps.json; reference/townspeople/brief.md). Not cast in any room until his sheet is cut and this field is removed.",
+ "posture": "standing",
+ "note": "Doc 07 #11. 'The Nugget. Tuned to the flat piano, therefore flat. Corrects first in Act IV.' He stands by the piano with his fiddle. HIS BARKS ARE ALL PLAYING (doc 07: 'mostly just playing'): none is a spoken line, so his file has none, and what doc 07 writes for R_BORDERS_MOTT, R_DEAD and R_TRUTH -- something faster, the passing tune, the A tuned in F2 -- is music, not yet made (errata 110). Doc 22: he idles in time with the bar grid.",
+ "room": "nugget",
+ "x": 600,
+ "y": 600,
+ "zone": 1,
+ "approachRadius": 40,
+ "tree": "amb_fiddler",
+ "walkTo": {
+  "x": 760,
+  "y": 640,
+  "facing": "left"
+ },
+ "barks": {},
+ "barksNote": "Doc 07 §11 writes him three barks and all three are directions -- playing -- not words; none is a bark a balloon can carry (errata 110)."
+}
