@@ -45,6 +45,9 @@ test('every cue a verb or a door fires is defined, and every step trigger\'s cue
     { beats: { staging?: { do: string; cue?: string }[] }[] };
   for (const beat of opening.beats) for (const step of beat.staging ?? []) if (step.do === 'cue') fired.push(step.cue!);
   fired.push(...(sounds.lines ?? []).map((rule) => rule.cue), ...Object.values(sounds.events ?? {}));
+  // A townsperson's played bark, and a sound on Room 33's tuning arc (errata 116).
+  for (const npc of content.ambient.values()) fired.push(...Object.values(npc.barkCues ?? {}));
+  for (const room of content.rooms.values()) fired.push(...(room.listening?.tune.cues ?? []).map((one) => one.cue));
   assert.deepEqual(fired.filter((cue) => !(cue in sounds.cues)), []);
 });
 

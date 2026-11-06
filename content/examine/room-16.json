@@ -3,9 +3,10 @@
   "name": "OZYMANDIA'S TENT",
   "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
   "sources": [
-    "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT",
+    "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT#1",
     "docs/09-examine-batch-2.md::ROOM 16 — MADAME OZYMANDIA'S TENT",
     "docs/54-batch-c.md::ROOM 16 · MADAME OZYMANDIA'S TENT",
+    "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT#2",
     "docs/49-wrong-answers.md::ROOM 16 — OZYMANDIA'S TENT"
   ],
   "subjects": [
@@ -42,6 +43,15 @@
         "Nothing. Glass keeps what it sees.",
         "Nothing. It is reflecting, which is quiet work.",
         "A faint ring when the table is bumped. The future, briefly, in a key."
+      ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "A glass ball. In it: the tent, upside down, and me, small, and apparently deceased. I look well, considering."
+          ],
+          "LISTEN_TO": []
+        }
       ],
       "overrides": {
         "USE": "I looked. Upside-down tent, small Thad. Two dollars. On reflection — which is all the ball does — fair."
@@ -196,19 +206,6 @@
       ]
     },
     {
-      "name": "THE SECOND ROD",
-      "LOOK_AT": [
-        "An identical rod, in a box, under the table. She has a spare. I find this oddly reassuring about her sincerity.",
-        "The box is lined in velvet and the spare is polished. It has never been used, and it is better looked after than the first.",
-        "Two rods. If one finds nothing, there is always the other, to find nothing in agreement."
-      ],
-      "LISTEN_TO": [
-        "Nothing, boxed.",
-        "Nothing, under the table, in the dark.",
-        "A faint ring when the table is bumped. It would like to work."
-      ]
-    },
-    {
       "name": "THE CHART",
       "LOOK_AT": [
         "A chart of the humors of the earth, hand-painted, extremely detailed, and entirely invented. It took somebody weeks.",
@@ -219,6 +216,28 @@
         "Nothing.",
         "Nothing. Invented things make no noise.",
         "The paper lifting at one corner in the draft from the flap."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "A chart of the humors of the earth, entirely invented, and it took somebody weeks. In this town that's practically a founding document."
+          ],
+          "LISTEN_TO": []
+        }
+      ]
+    },
+    {
+      "name": "THE SECOND ROD",
+      "LOOK_AT": [
+        "An identical rod, in a box, under the table. She has a spare. I find this oddly reassuring about her sincerity.",
+        "The box is lined in velvet and the spare is polished. It has never been used, and it is better looked after than the first.",
+        "Two rods. If one finds nothing, there is always the other, to find nothing in agreement."
+      ],
+      "LISTEN_TO": [
+        "Nothing, boxed.",
+        "Nothing, under the table, in the dark.",
+        "A faint ring when the table is bumped. It would like to work."
       ]
     },
     {

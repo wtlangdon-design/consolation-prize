@@ -522,6 +522,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "A hand-cranked mangle, the most reliable machine in the territory. After this week, I'd add: and the most honest."
+          },
+          {
             "say": "A hand-cranked mangle, the single most reliable machine in the territory.",
             "repeat": [
               "The rollers are wood, worn so smooth they shine. Ten thousand shirts have gone through them and come out flatter and better.",

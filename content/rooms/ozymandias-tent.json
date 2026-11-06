@@ -269,6 +269,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "A glass ball. In it: the tent, upside down, and me, small, and apparently deceased. I look well, considering."
+          },
+          {
             "say": "A glass ball on a brass stand. In it: the tent, upside down, and me, small.",
             "repeat": [
               "Glass. Good glass, though. She hasn't economized on the glass.",
@@ -739,6 +748,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "A chart of the humors of the earth, entirely invented, and it took somebody weeks. In this town that's practically a founding document."
+          },
           {
             "say": "A chart of the humors of the earth, hand-painted, extremely detailed, and entirely invented. It took somebody weeks.",
             "repeat": [

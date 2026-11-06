@@ -1265,6 +1265,51 @@ const ConsolationAudio = (function () {
    * shaped from these notes offline (tools/audio/render-tunes.py). */
   const WHISTLE_PHRASE = CONSOLATION_MEL.filter(e => e.b < 8);
 
+  /* THE FIDDLER (doc 07 #11: "The Nugget. Tuned to the flat piano, therefore
+   * flat. Corrects first in Act IV."; errata 116). No new notes: everything
+   * he plays is CONSOLATION's own, as the Woodtick rooms are.
+   *  - In the Nugget, while he is there, he plays the theme's fiddle part with
+   *    the piano: doc 28's "Piano-led, fiddle joining". Same tempo and loop as
+   *    the piano stem, so the two are one band.
+   *  - R_BORDERS_MOTT, "He plays something faster. Still flat.": the tune,
+   *    once through, at half again the speed.
+   *  - R_DEAD, "He plays the passing tune. Correctly. Flat.": the funeral's
+   *    arrangement (slow, a half step down to the bell), its first half.
+   *  - R_TRUTH, in F2: the first phrase, broken off at the fifth note; his A
+   *    string, and the same phrase again -- in tune (tools/audio/render-
+   *    fiddler.py assembles it from the three stems below). */
+  const CONSOLATION_NUGGET_FIDDLE_LA = {
+    name: 'CONSOLATION, the Nugget fiddler (LA)',
+    tempo: TEMPO, loopBeats: LOOP_BEATS,
+    parts: [ { inst: 'fiddleLA', role: 'counter+tune', gain: 0.85, fromLoop: 0, events: CONSOLATION_FID } ]
+  };
+  const FIDDLER_FASTER_LA = {
+    name: 'the fiddler, something faster (LA)',
+    tempo: TEMPO * 1.5, loopBeats: LOOP_BEATS, oneShot: true,
+    parts: [ { inst: 'fiddleLA', role: 'melody', gain: 1.0, fromLoop: 0, events: CONSOLATION_MEL } ]
+  };
+  const FIDDLER_PASSING_LA = {
+    name: 'the fiddler, the passing tune (LA)',
+    tempo: TEMPO / 2, loopBeats: 16, oneShot: true,
+    parts: [ { inst: 'fiddleLA', role: 'melody', gain: 1.0, fromLoop: 0,
+               events: CONSOLATION_MEL.filter(e => e.b < 16).map(e => Object.assign({}, e, { m: e.m - 1 })) } ]
+  };
+  const FIDDLER_BROKEN_OFF_LA = {
+    name: 'the fiddler, broken off (LA)',
+    tempo: TEMPO, loopBeats: 3, oneShot: true,
+    parts: [ { inst: 'fiddleLA', role: 'melody', gain: 1.0, fromLoop: 0, events: CONSOLATION_MEL.filter(e => e.b < 2.5) } ]
+  };
+  const FIDDLER_OPEN_A_LA = {
+    name: 'the fiddler, his A string (LA)',
+    tempo: 60, loopBeats: 3, oneShot: true,
+    parts: [ { inst: 'fiddleLA', role: 'the A', gain: 0.9, fromLoop: 0, events: [ { b: 0, m: 69, d: 2.6, v: 0.7 } ] } ]
+  };
+  const FIDDLER_PHRASE_LA = {
+    name: 'the fiddler, the phrase again (LA)',
+    tempo: TEMPO, loopBeats: 8, oneShot: true,
+    parts: [ { inst: 'fiddleLA', role: 'melody', gain: 1.0, fromLoop: 0, events: CONSOLATION_MEL.filter(e => e.b < 8) } ]
+  };
+
   /* ---------- audition figures (not content) ---------- */
   const AUDITIONS = {
     piano:     [ {m:74,b:0,d:0.5,v:.85},{m:78,b:0.5,d:0.5,v:.8},{m:81,b:1,d:0.5,v:.8},
@@ -1284,6 +1329,7 @@ const ConsolationAudio = (function () {
     CONSOLATION_PIANO_LA, CONSOLATION_DAWN_LA, CONSOLATION_FUNERAL_LA, ASSAY_JAW_LA, STRIKE_LAYER_LA,
     CONSOLATION_LAUNDRY_LA, CONSOLATION_LIVERY_LA, CONSOLATION_CLARION_LA, CONSOLATION_TENT_LA,
     FINAL_DUEL_LA, TUNING_LA, WHISTLE_PHRASE, TEMPO_OF_THEME: TEMPO, AUDITIONS,
+    CONSOLATION_NUGGET_FIDDLE_LA, FIDDLER_FASTER_LA, FIDDLER_PASSING_LA, FIDDLER_BROKEN_OFF_LA, FIDDLER_OPEN_A_LA, FIDDLER_PHRASE_LA,
     midiToFreq, createEngine, automateArc
   };
 })();

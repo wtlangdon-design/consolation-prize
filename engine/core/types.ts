@@ -127,7 +127,7 @@ export interface ResponseRule {
    */
   stays?: boolean;
   /**
-   * AN EXIT'S BEAT PLAYED WHERE IT GOES (errata 115 B). Doc 48 S7 beat 3 is
+   * AN EXIT'S BEAT PLAYED WHERE IT GOES (errata 118 B). Doc 48 S7 beat 3 is
    * "at the coach stop": the room changes first and the lines are said there,
    * the first of them `pause` seconds after he arrives.
    */
@@ -595,6 +595,12 @@ export interface AmbientFile {
    */
   awaitingArt?: string;
   /**
+   * A BARK THAT IS PLAYED, NOT SAID: a sound cue (content/audio/sounds.json)
+   * fired on approach in that reputation state, once, as a bark is. Doc 07 #11:
+   * the fiddler's barks are "mostly just playing" (errata 116).
+   */
+  barkCues?: Record<string, string>;
+  /**
    * A BARK SAID BY TWO PEOPLE, one line each in turn over each speaker's head
    * (doc 07 #2 and #3, the boundary men, whose bark table is written as an
    * exchange: **A:** "Borders Claim One!" **B:** "So does the sky, Clement.").
@@ -721,7 +727,7 @@ export interface AmbientFile {
     /** Seconds between breaks, before the per-character jitter. */
     breakEvery?: number;
     /**
-     * ONCE, ON HIS ARRIVAL (errata 115 B): `frames` played `at` seconds after
+     * ONCE, ON HIS ARRIVAL (errata 118 B): `frames` played `at` seconds after
      * Thad comes into the room, `frameSeconds` each. Doc 48 S7 beat 3's man on
      * the ladder "who nods" -- at Thad, so the nod is timed from Thad.
      */
@@ -816,6 +822,14 @@ export interface VerbFallbacksFile {
 export interface ReputationFile {
   schema: number;
   states: string[];
+  /**
+   * THE PROPAGATION ENGINE (doc 06: "Frame's headlines"): the puzzle whose
+   * headline moves the town to each state. Thad's reputation is the furthest
+   * state, in `states` order, whose puzzle is complete -- so it can only rise,
+   * and it reads from the save's puzzle progress rather than a number of its
+   * own. Extracted from doc 06's table by tools/extract-content.mjs (errata 116).
+   */
+  setBy?: Record<string, string>;
 }
 
 /** One region of floor. Errata ruling 15: a region without a zone fails the build. */
@@ -1407,7 +1421,7 @@ export interface RoomFile {
   /** Whole-plate cycles per second. */
   backgroundRate?: number;
   /**
-   * THE ROOM IS OVER BLACK WHILE THIS HOLDS (errata 115 B). The close ends over
+   * THE ROOM IS OVER BLACK WHILE THIS HOLDS (errata 118 B). The close ends over
    * black, and a game loaded after it finds the coach stop black, not a picture
    * with nothing left to do in it.
    */
@@ -2231,13 +2245,21 @@ export interface SoundsFile {
   ambience: Record<string, SoundRef & { why?: string; layers?: (SoundRef & { whenPresent?: string })[] }>;
 }
 
+/** A loop under a room's bed (RoomMusic.layers). */
+export interface MusicLayer { src: string; gain?: number; whenPresent?: string }
+
 /** A room's music: a bed with layers, and states that swap it (errata 103). */
 export interface RoomMusic {
   src: string;
   gain?: number;
-  layers?: { src: string; gain?: number }[];
+  /**
+   * Loops played with the bed. One with `whenPresent` plays only while that
+   * person is in the room: the Nugget's fiddle is the fiddler's, and with no
+   * fiddler drawn there is no fiddle (doc 07 #11; errata 116).
+   */
+  layers?: MusicLayer[];
   /** First match wins: the Nugget's piano once T_NUGGET_PIANO_TUNED is set. */
-  variants?: { when: Record<string, boolean>; src: string; gain?: number; layers?: { src: string; gain?: number }[] }[];
+  variants?: { when: Record<string, boolean>; src: string; gain?: number; layers?: MusicLayer[] }[];
   /** Why this room has this music -- doc 28's line, or the ruling. Not read by the engine. */
   why?: string;
 }
@@ -2901,7 +2923,17 @@ export interface ListeningRoom {
   /** Set by `found`: the void has been found. */
   foundFlag: string;
   /** R33-TUNE: its length, and the flag written when it is over (the manifest's music.tunedFlag). */
-  tune: { seconds: number; doneFlag: string };
+  tune: {
+    seconds: number;
+    doneFlag: string;
+    /**
+     * A sound the arc plays on its own clock, once: doc 07 #11's fiddler, who
+     * "in F2, twenty seconds into the tuning arc, stops mid-phrase, tunes his
+     * A, and continues" -- the first in the town to notice (errata 116). Its
+     * cue is not on the music bus, so it is in tune while the score is not.
+     */
+    cues?: { at: number; cue: string }[];
+  };
   /** Doc 48 S5 beat 1: the fork, struck once on the first entry. */
   fork?: { src: string; onceFlag: string };
   note?: string;

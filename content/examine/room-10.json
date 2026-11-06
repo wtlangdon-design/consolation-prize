@@ -160,6 +160,15 @@
         "A tap when the wind moves them. The building's one nervous habit.",
         "A slat ticking in the draft from the door.",
         "The street, cut into slices and served politely."
+      ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "Half-drawn, at the same angle, as if the building were in mourning. It isn't. It's always like this."
+          ],
+          "LISTEN_TO": []
+        }
       ]
     },
     {
@@ -199,6 +208,15 @@
         "Nothing.",
         "Nothing. A town in miniature is even quieter than the real one.",
         "A tiny bell in the model church, ringing when I knock the table. It is in tune, which is how I know it is a model."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "A scale model of a town built on a strike that never was. Beautifully made. Like the strike."
+          ],
+          "LISTEN_TO": []
+        }
       ]
     },
     {

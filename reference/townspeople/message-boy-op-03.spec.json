@@ -1,0 +1,14 @@
+{
+ "assetId": "townspeople-110",
+ "subject": "message-boy",
+ "role": "other",
+ "promptFile": "reference/townspeople/message-boy-prompt-03.txt",
+ "out": "art/staging/townspeople-110/message-boy/sheet-03.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/townspeople/message-boy-thad-grid.png",
+  "art/staging/townspeople-110/message-boy/sheet-02.png"
+ ],
+ "derivedFrom": "art/staging/townspeople-110/message-boy/sheet-02.png",
+ "authorizedBy": "Tyler, 2026-11-06: '+1 op, redraw all 5' (townspeople-110 cap 11), after 'None of the new characters seem to match the pixelation level of the cast we worked really hard on.' Redrawn at Thad's pixel size the way Fanshawe was (errata 84 J)."
+}

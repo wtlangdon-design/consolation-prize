@@ -1,0 +1,24 @@
+Image 1 shows characters from my pixel-art adventure game side by side at the same scale. On the left is Thad, the hero: he is the style standard. On the right is the dog's owner as he is drawn now -- and he is WRONG: the pixels are far too small and the detail far too fine. Look at Thad: his pixels are BIG square blocks, several times larger. Thad is only about 80 pixels tall from hair to shoes; every pixel of him is a clear, chunky square; his face is a handful of blocks -- one dark block for an eye, a few for the nose and mouth; his clothes are a few flat tones with no fine texture.
+
+Image 2 is the dog's owner's sheet of five poses, drawn too finely. Redraw that same sheet -- the same character, the same clothes and colours, the same five poses in the same order, left to right -- in THAD'S PIXEL SIZE:
+- Each pose about 82 big pixels tall from hat to boots (a little taller than Thad), exactly as coarse as Thad: every pixel a large, crisp square block the same size as Thad's.
+- Simple shapes and flat colour areas, the way Thad is drawn. No fine texture, no tiny highlights, no thin lines -- a feature too small for one of Thad's blocks is left out.
+- The face as simple as Thad's: a few blocks, dark blocks for the eyes, the features still readable.
+- The same warm, low night light as Thad; no brighter than him.
+
+The character: THE DOG'S OWNER: a lanky, worried man in a long shabby brown coat and a brown hat, a coiled rope leash in one hand.
+
+The poses, as in image 2:
+1. REST: standing, the coiled leash held at his side, looking off to the viewer's left.
+2. LOOK: hand shading his eyes, peering off to the viewer's left.
+3. CALL: hand cupped to his mouth, calling for the dog.
+4. TALK: facing three-quarters right, mouth open mid-word, the leash held up a little.
+5. GLAD: standing easy, smiling, looking down at his feet where a dog would be, the leash slack.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, nothing else in the picture.
+- All five poses the same size, with the boots on the same baseline, each about two-thirds the height of the picture.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same face everywhere else.
+- Crisp pixel edges against the magenta. No soft glow or blur.
+- Do not draw Thad. No text, labels, numbers or borders.

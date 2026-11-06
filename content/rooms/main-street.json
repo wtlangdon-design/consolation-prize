@@ -10,7 +10,10 @@
   },
   "horizon": 192,
   "ambient": [
+    "boundary_a",
+    "boundary_b",
     "dog",
+    "dogs_owner",
     "duel_fanshawe",
     "duel_judge_1",
     "duel_judge_2",
@@ -19,7 +22,9 @@
     "duel_town_left",
     "duel_town_right",
     "letter_writer",
+    "man_leaving_tomorrow",
     "map_seller",
+    "message_boy",
     "pie_woman"
   ],
   "walkable": [

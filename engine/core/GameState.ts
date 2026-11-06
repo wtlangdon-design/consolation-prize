@@ -26,7 +26,7 @@ export interface InteractionResult {
   direction?: boolean;
   /** Where the scene leads once its lines have been read; the room has not changed yet. */
   goesTo?: string;
-  /** The room HAS changed and the lines are said there, the first `pause` seconds after (errata 115 B). */
+  /** The room HAS changed and the lines are said there, the first `pause` seconds after (errata 118 B). */
   arrives?: boolean;
   pause?: number;
   enteredDialogue: boolean;
@@ -65,7 +65,7 @@ export interface InteractionResolution {
   readonly then?: SpokenLine[];
   /** Where the scene leads once its lines have been read (see resolveInteraction). */
   readonly goesTo?: string;
-  /** The scene is played where the exit goes, after arriving (errata 115 B). */
+  /** The scene is played where the exit goes, after arriving (errata 118 B). */
   readonly arrives?: boolean;
   readonly pause?: number;
   readonly effects: readonly DurableEffect[];
@@ -355,8 +355,21 @@ export class GameState {
     return this.cameFrom;
   }
 
+  /**
+   * THAD'S REPUTATION: the furthest state in doc 07's order whose headline
+   * puzzle (doc 06's propagation table, `reputation.setBy`) is complete.
+   * Errata 116: it was a number nothing ever raised, so every townsperson
+   * said his R_NOBODY line for the whole game.
+   */
   get reputationIndex(): number {
-    return this.reputation;
+    const { states, setBy } = this.content.reputation;
+    if (!setBy) return this.reputation;
+    let index = 0;
+    states.forEach((state, at) => {
+      const puzzle = setBy[state];
+      if (puzzle && this.puzzles.get(puzzle) === 'complete') index = Math.max(index, at);
+    });
+    return index;
   }
 
   get roomId(): string {
@@ -786,7 +799,7 @@ export class GameState {
         for (const [flag, value] of Object.entries(scene.set ?? {})) {
           effects.push({ id: `act/${objectKey}/${verb}#scene:flag:${flag}`, kind: 'flag', flag, value });
         }
-        // A BEAT PLAYED WHERE THE EXIT GOES (errata 115 B, doc 48 S7 beat 3 "at the coach stop"):
+        // A BEAT PLAYED WHERE THE EXIT GOES (errata 118 B, doc 48 S7 beat 3 "at the coach stop"):
         // the room changes now, and its lines are said there once he has arrived.
         if (scene.arrives) {
           effects.push({ id: `act/${objectKey}/${verb}#transit:room`, kind: 'room', room: transit });

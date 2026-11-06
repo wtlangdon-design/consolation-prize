@@ -28301,6 +28301,831 @@
    "recordedAt": "2026-11-06T20:28:24.689Z"
   },
   {
+   "attempt": 1,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "message-boy",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/message-boy-prompt-01.txt",
+   "promptHash": "9751e68e78e25ce66b18dd806ae02511c2d6cb54f2b25ba0f8cd719d0003ede4",
+   "references": [
+    {
+     "path": "reference/townspeople/message-boy-style-reference-crop.png",
+     "hash": "f6a08017c60fa99219471e77e5375de4f06233e6afd1e6c2c8ddaa0c989def18",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "f6a08017c60fa99219471e77e5375de4f06233e6afd1e6c2c8ddaa0c989def18",
+   "sourcePath": "reference/townspeople/message-boy-style-reference-crop.png",
+   "out": "art/staging/townspeople-110/message-boy/sheet-01.png",
+   "outputHash": "bbfbca3c823d9200336b5a22a74a86e8ed3e71e7337b4ad2e6fb6870ed149100",
+   "bytes": 1505015,
+   "usage": {
+    "input_tokens": 1329,
+    "input_tokens_details": {
+     "image_tokens": 836,
+     "text_tokens": 493
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 1762
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:10:08.552Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: 'Go: townspeople, up to 10 images.' One sheet per figure, then corrections within the shared cap of 10 (reference/townspeople/brief.md).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:10:08.559Z"
+  },
+  {
+   "attempt": 2,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "man-leaving-tomorrow",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/man-leaving-tomorrow-prompt-01.txt",
+   "promptHash": "80409fbc7d45cabafc72f681ca43195ef7f28a7b00bb5f2764e4eb7e9233ba76",
+   "references": [
+    {
+     "path": "reference/townspeople/man-leaving-tomorrow-style-reference-crop.png",
+     "hash": "f21d07a2e4016137c57e073ed2738c71ab7d75f3536e55cfe737c65413fe78c3",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "f21d07a2e4016137c57e073ed2738c71ab7d75f3536e55cfe737c65413fe78c3",
+   "sourcePath": "reference/townspeople/man-leaving-tomorrow-style-reference-crop.png",
+   "out": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-01.png",
+   "outputHash": "adce400f8de216f9e04924d8cad41264cb3fdfbfa46aba30523054315a1e99f8",
+   "bytes": 1436358,
+   "usage": {
+    "input_tokens": 1319,
+    "input_tokens_details": {
+     "image_tokens": 836,
+     "text_tokens": 483
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 1752
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:10:22.626Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: 'Go: townspeople, up to 10 images.' One sheet per figure, then corrections within the shared cap of 10 (reference/townspeople/brief.md).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:10:22.631Z"
+  },
+  {
+   "attempt": 3,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "boundary-men",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/boundary-men-prompt-01.txt",
+   "promptHash": "e57b0addf52869afadec00e598d4f3443f27baf30f88ddb66d1251fe63b99241",
+   "references": [
+    {
+     "path": "reference/townspeople/boundary-a-style-reference-crop.png",
+     "hash": "bf0c8b8755116251f75de83d4e5779a1d9154aa9b28df3a18a1e178ab87b5cd5",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "bf0c8b8755116251f75de83d4e5779a1d9154aa9b28df3a18a1e178ab87b5cd5",
+   "sourcePath": "reference/townspeople/boundary-a-style-reference-crop.png",
+   "out": "art/staging/townspeople-110/boundary-men/sheet-01.png",
+   "outputHash": "21c8f0cc1420e078fa37a878972a4420e11c8ff4c3ad4d6387c3305c2eddea96",
+   "bytes": 1554776,
+   "usage": {
+    "input_tokens": 1391,
+    "input_tokens_details": {
+     "image_tokens": 880,
+     "text_tokens": 511
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 1824
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:10:38.467Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: 'Go: townspeople, up to 10 images.' One sheet per figure, then corrections within the shared cap of 10 (reference/townspeople/brief.md).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:10:38.470Z"
+  },
+  {
+   "attempt": 4,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "dogs-owner",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/dogs-owner-prompt-01.txt",
+   "promptHash": "d0e9a0d59e8086f337c5f265b0d68fc2c01f45b47ce89d42df7439a4e915f6a5",
+   "references": [
+    {
+     "path": "reference/townspeople/dogs-owner-style-reference-crop.png",
+     "hash": "1913ff6861de8b6accb770323cf22170c65f030c4b9b45270fe3ef50450c56e2",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "1913ff6861de8b6accb770323cf22170c65f030c4b9b45270fe3ef50450c56e2",
+   "sourcePath": "reference/townspeople/dogs-owner-style-reference-crop.png",
+   "out": "art/staging/townspeople-110/dogs-owner/sheet-01.png",
+   "outputHash": "0d1f60cd3bdb60a4a26c7b99fe81b12c73f28574e12a2fb1ab41834dbd72147c",
+   "bytes": 1501625,
+   "usage": {
+    "input_tokens": 1978,
+    "input_tokens_details": {
+     "image_tokens": 1508,
+     "text_tokens": 470
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 2411
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:10:51.849Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: 'Go: townspeople, up to 10 images.' One sheet per figure, then corrections within the shared cap of 10 (reference/townspeople/brief.md).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:10:51.853Z"
+  },
+  {
+   "attempt": 5,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "fiddler",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/fiddler-prompt-01.txt",
+   "promptHash": "e37ea3ebd08e6c75b6a5bd116fa8cb7bdbd5275da446c7797212198a1e669014",
+   "references": [
+    {
+     "path": "reference/townspeople/fiddler-style-reference-crop.png",
+     "hash": "3054d4a63708578aa986ea366a332d3232636471cb777e41088365fc3089fa38",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "3054d4a63708578aa986ea366a332d3232636471cb777e41088365fc3089fa38",
+   "sourcePath": "reference/townspeople/fiddler-style-reference-crop.png",
+   "out": "art/staging/townspeople-110/fiddler/sheet-01.png",
+   "outputHash": "b8676f7879ab7326377fa961442436e0bec9d1abf7d042f177d4caeb90491a9d",
+   "bytes": 1484787,
+   "usage": {
+    "input_tokens": 1999,
+    "input_tokens_details": {
+     "image_tokens": 1508,
+     "text_tokens": 491
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 3550
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:11:18.977Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: 'Go: townspeople, up to 10 images.' One sheet per figure, then corrections within the shared cap of 10 (reference/townspeople/brief.md).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:11:18.981Z"
+  },
+  {
+   "attempt": 6,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "message-boy",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/message-boy/sheet-01.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/message-boy-prompt-02.txt",
+   "promptHash": "820c468ff7020cb0106fdfe968e41b9b88df9356c584e7ab3f85cb0312f3f239",
+   "references": [
+    {
+     "path": "reference/townspeople/message-boy-style-reference-crop.png",
+     "hash": "f6a08017c60fa99219471e77e5375de4f06233e6afd1e6c2c8ddaa0c989def18",
+     "transmitted": true
+    },
+    {
+     "path": "reference/townspeople/message-boy-miss-01.png",
+     "hash": "2279ca6ca33b2a22089b077889031fddd5202973195df97efa65a14d0e136634",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "f6a08017c60fa99219471e77e5375de4f06233e6afd1e6c2c8ddaa0c989def18",
+   "sourcePath": "reference/townspeople/message-boy-style-reference-crop.png",
+   "out": "art/staging/townspeople-110/message-boy/sheet-02.png",
+   "outputHash": "4ccfbf05d8ecbc34829f59f2dac8ea6e1394fa0c1cee49eb2871cf985056e9b9",
+   "bytes": 1430354,
+   "usage": {
+    "input_tokens": 3088,
+    "input_tokens_details": {
+     "image_tokens": 2372,
+     "text_tokens": 716
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 3521
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:13:03.475Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: 'Go: townspeople, up to 10 images.' One sheet per figure, then corrections within the shared cap of 10 (reference/townspeople/brief.md). Correction for attempt 1 (sheet-01): texture 1.54x Thad's, a finer grid than his.",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:13:03.478Z"
+  },
+  {
+   "attempt": 7,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "boundary-men",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/boundary-men/sheet-01.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/boundary-men-prompt-02.txt",
+   "promptHash": "6d943c924a5284d09d8eb2877304892eb1b3c46f7f5aaba62e9da280a2bf6d0d",
+   "references": [
+    {
+     "path": "reference/townspeople/boundary-men-thad-grid.png",
+     "hash": "a1d7548aab16ee0686ff940b4dbfbb5924e394a7364ccb9b7a0bac7306da729b",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/boundary-men/sheet-01.png",
+     "hash": "21c8f0cc1420e078fa37a878972a4420e11c8ff4c3ad4d6387c3305c2eddea96",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "a1d7548aab16ee0686ff940b4dbfbb5924e394a7364ccb9b7a0bac7306da729b",
+   "sourcePath": "reference/townspeople/boundary-men-thad-grid.png",
+   "out": "art/staging/townspeople-110/boundary-men/sheet-02.png",
+   "outputHash": "75f147bf102874995b0fac5cc7461948531771efb2deba5206233aead9f2f30d",
+   "bytes": 1381462,
+   "usage": {
+    "input_tokens": 3715,
+    "input_tokens_details": {
+     "image_tokens": 3072,
+     "text_tokens": 643
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 5266
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:23:48.955Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: '+1 op, redraw all 5' (townspeople-110 cap 11), after 'None of the new characters seem to match the pixelation level of the cast we worked really hard on.' Redrawn at Thad's pixel size the way Fanshawe was (errata 84 J).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:23:48.959Z"
+  },
+  {
+   "attempt": 8,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "message-boy",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/message-boy/sheet-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/message-boy-prompt-03.txt",
+   "promptHash": "c1746b0736120db58cbb4d66f3ad70c22e870eeda8150baa758afd4a11f4efee",
+   "references": [
+    {
+     "path": "reference/townspeople/message-boy-thad-grid.png",
+     "hash": "a7809c6d10188b9987ff996c677e29b87b50982eaad3f0bf2a08a58f24b5ef0d",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/message-boy/sheet-02.png",
+     "hash": "4ccfbf05d8ecbc34829f59f2dac8ea6e1394fa0c1cee49eb2871cf985056e9b9",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "a7809c6d10188b9987ff996c677e29b87b50982eaad3f0bf2a08a58f24b5ef0d",
+   "sourcePath": "reference/townspeople/message-boy-thad-grid.png",
+   "out": "art/staging/townspeople-110/message-boy/sheet-03.png",
+   "outputHash": "7860879960e85f7db398826d0fd57d7e7e8c531e0cdfb866461eaf9b2ff8a4d2",
+   "bytes": 1329516,
+   "usage": {
+    "input_tokens": 3718,
+    "input_tokens_details": {
+     "image_tokens": 3072,
+     "text_tokens": 646
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 5269
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:24:21.928Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: '+1 op, redraw all 5' (townspeople-110 cap 11), after 'None of the new characters seem to match the pixelation level of the cast we worked really hard on.' Redrawn at Thad's pixel size the way Fanshawe was (errata 84 J).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:24:21.933Z"
+  },
+  {
+   "attempt": 9,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "man-leaving-tomorrow",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-01.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/man-leaving-tomorrow-prompt-02.txt",
+   "promptHash": "57a0f28ab2fd6416ff6e910c7feb063b318d7f2e002dcbd8c81aea40735b0c34",
+   "references": [
+    {
+     "path": "reference/townspeople/man-leaving-tomorrow-thad-grid.png",
+     "hash": "afb72f04c5eb5b505a3686faf33ed41518eb72f5635a00d6e947b4f20c22c374",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-01.png",
+     "hash": "adce400f8de216f9e04924d8cad41264cb3fdfbfa46aba30523054315a1e99f8",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "afb72f04c5eb5b505a3686faf33ed41518eb72f5635a00d6e947b4f20c22c374",
+   "sourcePath": "reference/townspeople/man-leaving-tomorrow-thad-grid.png",
+   "out": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-02.png",
+   "outputHash": "9196b50ba16f7908e70f34baa9992e106c988a413b4041b3dd790b1d9c783c36",
+   "bytes": 1336514,
+   "usage": {
+    "input_tokens": 3697,
+    "input_tokens_details": {
+     "image_tokens": 3072,
+     "text_tokens": 625
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 5248
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:24:45.538Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: '+1 op, redraw all 5' (townspeople-110 cap 11), after 'None of the new characters seem to match the pixelation level of the cast we worked really hard on.' Redrawn at Thad's pixel size the way Fanshawe was (errata 84 J).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:24:45.544Z"
+  },
+  {
+   "attempt": 10,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "dogs-owner",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/dogs-owner/sheet-01.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/dogs-owner-prompt-02.txt",
+   "promptHash": "978ae9d7fec3eadd5dd690f0e6cf986e2a010cdcfa3ad59fa7701d6c03528100",
+   "references": [
+    {
+     "path": "reference/townspeople/dogs-owner-thad-grid.png",
+     "hash": "2d07d3c6915600f71d3a7d79d69b7d9fcd1d703c0b0e31025d1efc407860c36d",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/dogs-owner/sheet-01.png",
+     "hash": "0d1f60cd3bdb60a4a26c7b99fe81b12c73f28574e12a2fb1ab41834dbd72147c",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "2d07d3c6915600f71d3a7d79d69b7d9fcd1d703c0b0e31025d1efc407860c36d",
+   "sourcePath": "reference/townspeople/dogs-owner-thad-grid.png",
+   "out": "art/staging/townspeople-110/dogs-owner/sheet-02.png",
+   "outputHash": "7367353aabb1595e10e6b2c0a888e0518f9557373da952ff55ae51c59a453ae7",
+   "bytes": 1333665,
+   "usage": {
+    "input_tokens": 3678,
+    "input_tokens_details": {
+     "image_tokens": 3072,
+     "text_tokens": 606
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 5229
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:25:11.145Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: '+1 op, redraw all 5' (townspeople-110 cap 11), after 'None of the new characters seem to match the pixelation level of the cast we worked really hard on.' Redrawn at Thad's pixel size the way Fanshawe was (errata 84 J).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:25:11.149Z"
+  },
+  {
+   "attempt": 11,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "fiddler",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/fiddler/sheet-01.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/fiddler-prompt-02.txt",
+   "promptHash": "87f69090308c70fc7dc97d8a60f76448a76a3cf074fc9feb8a312ffb0fa96e00",
+   "references": [
+    {
+     "path": "reference/townspeople/fiddler-thad-grid.png",
+     "hash": "253d1b9e83caa2ad08d75b21ad2ca61738f836da42c3fa75f1cd0a6495286327",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/fiddler/sheet-01.png",
+     "hash": "b8676f7879ab7326377fa961442436e0bec9d1abf7d042f177d4caeb90491a9d",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "253d1b9e83caa2ad08d75b21ad2ca61738f836da42c3fa75f1cd0a6495286327",
+   "sourcePath": "reference/townspeople/fiddler-thad-grid.png",
+   "out": "art/staging/townspeople-110/fiddler/sheet-02.png",
+   "outputHash": "09a4183e518076ababcd2b76fc93ef88492c8310c04fbbd24ab874b232660599",
+   "bytes": 1408251,
+   "usage": {
+    "input_tokens": 3699,
+    "input_tokens_details": {
+     "image_tokens": 3072,
+     "text_tokens": 627
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 5250
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:25:34.105Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: '+1 op, redraw all 5' (townspeople-110 cap 11), after 'None of the new characters seem to match the pixelation level of the cast we worked really hard on.' Redrawn at Thad's pixel size the way Fanshawe was (errata 84 J).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:25:34.110Z"
+  },
+  {
+   "attempt": 12,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "boundary-men",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/boundary-men/sheet-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/boundary-men-prompt-03.txt",
+   "promptHash": "d2a85600cf26655f63f6b83507ef7e6f1fc024c2013008cadefcd4e903009528",
+   "references": [
+    {
+     "path": "reference/townspeople/nugget-cast-standard.png",
+     "hash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/boundary-men/sheet-02.png",
+     "hash": "75f147bf102874995b0fac5cc7461948531771efb2deba5206233aead9f2f30d",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+   "sourcePath": "reference/townspeople/nugget-cast-standard.png",
+   "out": "art/staging/townspeople-110/boundary-men/sheet-03.png",
+   "outputHash": "1868f023e75c5b2a147c5aeb46b94280ffd4cc0aaccd099bfa2725263990f87a",
+   "bytes": 1428844,
+   "usage": {
+    "input_tokens": 3754,
+    "input_tokens_details": {
+     "image_tokens": 3044,
+     "text_tokens": 710
+    },
+    "output_tokens": 522,
+    "output_tokens_details": {
+     "image_tokens": 522,
+     "text_tokens": 0
+    },
+    "total_tokens": 4276
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T22:12:25.011Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06 (townspeople-110 cap 15): 'The fiddler and the other 3 characters all need to be pulled up to about the same level of pixelation which should make sense with the characters in the Nugget, for comparison.'",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T22:12:25.016Z"
+  },
+  {
+   "attempt": 13,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "fiddler",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/fiddler/sheet-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/fiddler-prompt-03.txt",
+   "promptHash": "9e006b10172de54255ca98eac906d76b09eb5af3568946d3273c4df33777abcf",
+   "references": [
+    {
+     "path": "reference/townspeople/nugget-cast-standard.png",
+     "hash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/fiddler/sheet-02.png",
+     "hash": "09a4183e518076ababcd2b76fc93ef88492c8310c04fbbd24ab874b232660599",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+   "sourcePath": "reference/townspeople/nugget-cast-standard.png",
+   "out": "art/staging/townspeople-110/fiddler/sheet-03.png",
+   "outputHash": "fc4919d6e96fc8f9586b21c98781b2c6bf3dba465940a0aba4df0831944a910a",
+   "bytes": 1459104,
+   "usage": {
+    "input_tokens": 3739,
+    "input_tokens_details": {
+     "image_tokens": 3044,
+     "text_tokens": 695
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 4172
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T22:12:57.055Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06 (townspeople-110 cap 15): 'The fiddler and the other 3 characters all need to be pulled up to about the same level of pixelation which should make sense with the characters in the Nugget, for comparison.'",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T22:12:57.060Z"
+  },
+  {
+   "attempt": 14,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "man-leaving-tomorrow",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/man-leaving-tomorrow-prompt-03.txt",
+   "promptHash": "3539992cd1c85b647e1486be657b394a9ff66627afab8a57b4575222845d55fd",
+   "references": [
+    {
+     "path": "reference/townspeople/nugget-cast-standard.png",
+     "hash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-02.png",
+     "hash": "9196b50ba16f7908e70f34baa9992e106c988a413b4041b3dd790b1d9c783c36",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+   "sourcePath": "reference/townspeople/nugget-cast-standard.png",
+   "out": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-03.png",
+   "outputHash": "34519acc0053ad14b343163f42be36a828251ec59145dece280369b813a7a13d",
+   "bytes": 1565648,
+   "usage": {
+    "input_tokens": 3736,
+    "input_tokens_details": {
+     "image_tokens": 3044,
+     "text_tokens": 692
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 4169
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T22:13:22.693Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06 (townspeople-110 cap 15): 'The fiddler and the other 3 characters all need to be pulled up to about the same level of pixelation which should make sense with the characters in the Nugget, for comparison.'",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T22:13:22.698Z"
+  },
+  {
+   "attempt": 15,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "dogs-owner",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/dogs-owner/sheet-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/dogs-owner-prompt-03.txt",
+   "promptHash": "5b45b7e25dc53bd86ba74f9cd8cb8417a46696cc048abaa212b788e4d1cda87d",
+   "references": [
+    {
+     "path": "reference/townspeople/nugget-cast-standard.png",
+     "hash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/dogs-owner/sheet-02.png",
+     "hash": "7367353aabb1595e10e6b2c0a888e0518f9557373da952ff55ae51c59a453ae7",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+   "sourcePath": "reference/townspeople/nugget-cast-standard.png",
+   "out": "art/staging/townspeople-110/dogs-owner/sheet-03.png",
+   "outputHash": "36bbec62e75ed1442a2e5dba3b0bb7ba413ed47cf217d0ae762b592cb2c50c88",
+   "bytes": 1445983,
+   "usage": {
+    "input_tokens": 3711,
+    "input_tokens_details": {
+     "image_tokens": 3044,
+     "text_tokens": 667
+    },
+    "output_tokens": 522,
+    "output_tokens_details": {
+     "image_tokens": 522,
+     "text_tokens": 0
+    },
+    "total_tokens": 4233
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T22:13:38.175Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06 (townspeople-110 cap 15): 'The fiddler and the other 3 characters all need to be pulled up to about the same level of pixelation which should make sense with the characters in the Nugget, for comparison.'",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T22:13:38.181Z"
+  },
+  {
    "attempt": 4,
    "role": "canonical-design",
    "assetId": "room-33",
@@ -30625,7 +31450,7 @@
    },
    "acceptance": "pending Tyler's playthrough (errata 72 E)",
    "acceptedBy": null,
-   "by": "claude, Room 36 builder (doc 48 S7 beat 3, errata 115 B)",
+   "by": "claude, Room 36 builder (doc 48 S7 beat 3, errata 118 B)",
    "at": "2026-11-06T23:03:32.628Z"
   }
  ],

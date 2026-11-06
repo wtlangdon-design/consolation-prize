@@ -4931,8 +4931,38 @@ function townTrees() {
   return written;
 }
 
+// ---------------------------------------------------------------------------
+// THE PROPAGATION ENGINE (doc 06; errata 116). Each reputation state and the
+// puzzle whose headline sets it, read from doc 06's table into
+// content/reputation.json's `setBy`. The ORDER of the states is errata 7's
+// (doc 07 wins), and is the file's own; doc 06 lists BORDERS_MOTT before
+// SURVEYED and its order is not used.
+function reputation() {
+  const doc = read('docs/06-technical-spec.md');
+  const body = doc.slice(doc.indexOf('## The propagation engine'), doc.indexOf('## Ambient NPC roster'));
+  const file = JSON.parse(read('content/reputation.json'));
+  const setBy = {};
+  for (const row of body.split('\n')) {
+    const match = /^\| `(R_[A-Z_]+)` \| ([^|]+)\|/.exec(row);
+    if (!match) continue;
+    const puzzle = /\b([A-F]\d{1,2})\b/.exec(match[2])?.[1];
+    if (puzzle) setBy[match[1]] = puzzle;
+    else if (!/start/i.test(match[2])) throw new Error(`doc 06: ${match[1]} is set by "${match[2].trim()}", which names no puzzle`);
+  }
+  const unset = file.states.slice(1).filter((state) => !setBy[state]);
+  if (unset.length) throw new Error(`doc 06's propagation table sets no puzzle for ${unset.join(', ')}`);
+  return write('content/reputation.json', {
+    schema: file.schema,
+    note: file.note,
+    states: file.states,
+    setBy: Object.fromEntries(file.states.filter((state) => setBy[state]).map((state) => [state, setBy[state]])),
+    setByNote: 'EXTRACTED from docs/06-technical-spec.md (The propagation engine) by tools/extract-content.mjs: the puzzle whose '
+      + 'headline moves the town to each state. Reputation is the furthest state, in this order, whose puzzle is complete (errata 116).',
+  });
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), ...room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), ...townBarks(), ...townTrees()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), ...townBarks(), ...townTrees(), reputation()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
   // Doc 58 rule 5: a reply whose spoken lines this pass reads differently is

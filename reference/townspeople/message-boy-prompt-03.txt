@@ -1,0 +1,24 @@
+Image 1 shows characters from my pixel-art adventure game side by side at the same scale. On the left is Thad, the hero: he is the style standard. On the right is the message boy as he is drawn now -- and he is WRONG: the pixels are far too small and the detail far too fine. Look at Thad: his pixels are BIG square blocks, several times larger. Thad is only about 80 pixels tall from hair to shoes; every pixel of him is a clear, chunky square; his face is a handful of blocks -- one dark block for an eye, a few for the nose and mouth; his clothes are a few flat tones with no fine texture.
+
+Image 2 is the message boy's sheet of five poses, drawn too finely. Redraw that same sheet -- the same character, the same clothes and colours, the same five poses in the same order, left to right -- in THAD'S PIXEL SIZE:
+- Each pose about 55 big pixels tall from cap to boots -- a child, two thirds of Thad's 80 -- and exactly as coarse as Thad: every pixel a large, crisp square block the same size as Thad's.
+- Simple shapes and flat colour areas, the way Thad is drawn. No fine texture, no tiny highlights, no thin lines -- a feature too small for one of Thad's blocks is left out.
+- The face as simple as Thad's: a few blocks, dark blocks for the eyes, the features still readable.
+- The same warm, low night light as Thad; no brighter than him.
+
+The character: a MESSAGE BOY, nine years old, who runs notes around town for a penny: small, quick, sharp-eyed, in a too-big cap, patched jacket and short trousers, worn boots.
+
+The poses, as in image 2:
+1. REST: standing, facing three-quarters to the viewer's right, a folded note in one hand at his side.
+2. LOOK: the same, head turned to look back over his shoulder.
+3. PENNY: holding out an open palm toward the viewer's right, waiting to be paid.
+4. FLIP: tossing a penny up with his thumb, eyes on it; the penny, two or three big blocks across, in the air just above his hand.
+5. TALK: facing three-quarters right, mouth open mid-word, the note raised a little.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, nothing else in the picture.
+- All five poses the same size, with the boots on the same baseline, each about two-thirds the height of the picture (the boy shorter: he is a child).
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same face everywhere else.
+- Crisp pixel edges against the magenta. No soft glow or blur.
+- Do not draw Thad. No text, labels, numbers or borders.

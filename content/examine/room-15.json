@@ -3,9 +3,10 @@
   "name": "THE LIVERY STABLE",
   "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
   "sources": [
-    "docs/05-examine-layer.md::ROOM 15 — THE LIVERY STABLE",
+    "docs/05-examine-layer.md::ROOM 15 — THE LIVERY STABLE#1",
     "docs/09-examine-batch-2.md::ROOM 15 — THE LIVERY STABLE",
     "docs/54-batch-c.md::ROOM 15 · THE LIVERY STABLE",
+    "docs/05-examine-layer.md::ROOM 15 — THE LIVERY STABLE#2",
     "docs/49-wrong-answers.md::ROOM 15 — THE LIVERY STABLE"
   ],
   "subjects": [
@@ -68,6 +69,15 @@
         "Boards, warm and creaking. The building digests.",
         "A mouse in the empty stalls, taking inventory.",
         "The boards again, warm and slow. The stable sounds like a big animal at rest."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "Six stalls, one occupied, and the town's whole history in the others. I know which parts of it were true now. Not many."
+          ],
+          "LISTEN_TO": []
+        }
       ]
     },
     {
@@ -135,6 +145,28 @@
       ]
     },
     {
+      "name": "THE LIVERY MAN'S CHAIR",
+      "LOOK_AT": [
+        "A kitchen chair tipped back against the wall at the exact angle of a man who has seen everything once.",
+        "The back legs are worn short. He has tipped it for so many years the chair has adapted.",
+        "It faces Grievance's stall. He sits where he can see her. I've yet to see her return the courtesy."
+      ],
+      "LISTEN_TO": [
+        "A creak as it settles back onto four legs.",
+        "Nothing. It's waiting for him, and it can wait.",
+        "The chair ticks against the wall in the draft, as if he were still in it, rocking."
+      ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "The chair, tipped back at the angle of a man who's seen everything once. Now he's seen me twice."
+          ],
+          "LISTEN_TO": []
+        }
+      ]
+    },
+    {
       "name": "GRIEVANCE'S STALL",
       "LOOK_AT": [
         "Her name is burned into the post. The other stalls are numbered. Somebody, at some point, decided this animal warranted a name.",
@@ -158,19 +190,6 @@
         "Contented. They have no idea.",
         "Chewing, in four slightly different rhythms.",
         "One of them sighs. It is a working sigh, and it means nothing by it."
-      ]
-    },
-    {
-      "name": "THE LIVERY MAN'S CHAIR",
-      "LOOK_AT": [
-        "A kitchen chair tipped back against the wall at the exact angle of a man who has seen everything once.",
-        "The back legs are worn short. He has tipped it for so many years the chair has adapted.",
-        "It faces Grievance's stall. He sits where he can see her. I've yet to see her return the courtesy."
-      ],
-      "LISTEN_TO": [
-        "A creak as it settles back onto four legs.",
-        "Nothing. It's waiting for him, and it can wait.",
-        "The chair ticks against the wall in the draft, as if he were still in it, rocking."
       ]
     },
     {
