@@ -1,0 +1,10 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game, a comedy in an 1850s frontier gold town: left to right, the hero (THE STYLE AND THE SCALE), then three characters, A, B and C. These designs are FINAL. Draw each of A, B and C EXACTLY as they are in Image 1 -- the same face, hair, age, build, clothes and colours, the same size of square pixel, the same amount of detail, the same soft shading and dark outline -- only in new poses. Nothing about them changes but the pose.
+
+Each of them works behind a counter. Draw each one from the WAIST UP, at the same scale as in Image 1, standing behind a counter that is NOT drawn: cut off flat in a straight horizontal line just below the hands, the forearms resting on that line where the counter edge would be.
+
+THE SHEET: flat pure magenta (#FF00FF) background. Three rows, one character per row, each shown FOUR times side by side, every figure in a row the same size, separated by clear magenta space:
+- Row 1, A, the assayer (the woman with her dark hair pinned up, dark-blue high-collared dress, black sleeve protectors): 1. both hands resting flat on an open ledger, looking down at it; 2. writing in the ledger with a dip pen, looking down; 3. writing, the hand further along the line; 4. looking up from the page, sharp and unimpressed, the pen still in her hand.
+- Row 2, B, the registrar (spectacles, flat parted hair, white shirt, brown waistcoat, black tie): 1. hands resting on an open ledger, looking down; 2. writing in the ledger with a pen; 3. a rubber stamp raised high in one hand, about to come down; 4. looking up over his spectacles.
+- Row 3, C, the company clerk (pale blond hair parted in the middle, a thin moustache, high collar, dark waistcoat, sleeve garters): 1. hands resting on the desk; 2. writing; 3. holding up a pocket watch and reading it; 4. looking up.
+
+RULES: the ledger, pen, stamp and watch are drawn in their hands where named; nothing else. Crisp pixel edges against the magenta, no glow, no blur, no ground, no shadows, no text, no numbers, no border.

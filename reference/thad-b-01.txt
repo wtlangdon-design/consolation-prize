@@ -1,0 +1,7 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game: the hero on the LEFT (a slight, earnest young man of 26, untidy dark hair, clean-shaven, long blue coat, brown waistcoat, white shirt, dark trousers, brown boots), drawn beside two other characters for the level of detail. THIS IS THE STYLE: draw the hero exactly as in Image 1 -- his face, hair, build and clothes -- at that level of detail, the same size of square pixel relative to his height, the same soft shading and dark outline.
+
+Image 2 is the hero as he is drawn in the game today, four times: facing RIGHT in profile, facing LEFT in profile, facing the viewer, and from BEHIND. These four POSES are exact and must be kept: the same stance, the same arm positions (arms hanging straight down, clear of the coat), the same slight gap between the legs, the same proportions and height. Use Image 2 ONLY for the poses -- its pixels are too chunky; draw him finer, as in Image 1.
+
+THE SHEET: flat pure magenta (#FF00FF) background. ONE row of FOUR full figures of the hero, left to right: 1. profile facing RIGHT; 2. profile facing LEFT; 3. facing the viewer; 4. from behind. All four the same height (as tall as possible while fitting the sheet), feet on one line, separated by clear magenta space. Nothing in his hands.
+
+RULES: no ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.

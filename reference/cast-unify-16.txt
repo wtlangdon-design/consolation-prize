@@ -1,0 +1,10 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game, a comedy in an 1850s frontier gold town: left to right, the hero (THE STYLE AND THE SCALE), then A, B and C. These designs are FINAL. Draw each EXACTLY as in Image 1 -- the same face, hair, age, build, clothes and colours, the same size of square pixel, the same amount of detail, the same soft shading and dark outline -- only in new poses. Image 2 shows another character of this cast drawn full figure for this game, for how a full figure is drawn at this size.
+
+Each is a FULL FIGURE, standing, feet on one line in each row, at the SAME SCALE as the hero in Image 1 (an ordinary man as tall as the hero). Each holds his own thing in EVERY pose, so it never appears or vanishes.
+
+THE SHEET: flat pure magenta (#FF00FF) background. Three rows, one character per row, each shown FOUR times side by side, every figure in a row the same size, separated by clear magenta space:
+- Row 1, A, the newspaper editor (wiry, untidy brown hair, a pencil behind his ear, rolled shirtsleeves, an ink-stained dark printer's apron). A small notebook in one hand in every pose: 1. standing, the notebook at his side; 2. talking, his free hand held out; 3. writing a quote in the notebook with the pencil from behind his ear; 4. leaning in, curious, the notebook at his chest.
+- Row 2, B, the letter-writer (bowler hat, moustache, grey-blue suit). His flat writing case in every pose: 1. standing, the case under his arm; 2. the case held open in front of him, as if offering to write; 3. touching the brim of his hat, the case under his other arm; 4. the case held closed at his chest.
+- Row 3, C, the map seller (a young man, flat cap, waistcoat, brown trousers). His big folded paper map in every pose: 1. standing, holding the map up beside him; 2. holding the map out toward the viewer, offering it; 3. the map lowered at his side; 4. pointing at the map held up in his other hand.
+
+RULES: only the notebook, pencil, case and map, where named. Crisp pixel edges against the magenta, no glow, no blur, no shadows, no ground, no text, no numbers, no border.

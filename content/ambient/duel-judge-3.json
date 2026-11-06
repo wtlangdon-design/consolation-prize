@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "duel_judge_3",
+ "name": "THE BEARDED JUDGE",
+ "posture": "standing",
+ "room": "main_street",
+ "when": {
+  "T_DUEL_CROWD": true
+ },
+ "x": 2838,
+ "y": 597,
+ "zone": 1,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "The duel is spoken through the assay (content/assay/assay.json).",
+ "note": "A JUDGE OF THE ASSAY, standing on the hotel porch with the other two to watch Duel Three (doc 57 F4: 'the judges' table on the boardwalk' -- no table, Tyler 2026-11-06: 'Do we need the desk at all?'). Left of the corner post, clear of it, feet on the boards.",
+ "sprite": {
+  "sheet": "art/actors/room-02-duel-judge-3.png",
+  "frames": [
+   [
+    2,
+    2,
+    157,
+    400
+   ],
+   [
+    161,
+    2,
+    157,
+    400
+   ],
+   [
+    320,
+    2,
+    157,
+    400
+   ]
+  ],
+  "figureHeight": 365,
+  "stature": 1.0,
+  "rate": 0.5,
+  "phase": 0.6000000000000001,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    0
+   ]
+  ],
+  "breakEvery": 7,
+  "frameNote": "0 watching · 1 breath (derived) · 2 his second pose (conferring, a nod, a hand to his beard). A break every `breakEvery` seconds (errata 77).",
+  "provenance": "reference/cast-unify-26.spec.json",
+  "redrawn": "Errata 111 T (Tyler, 2026-11-06: no table at Duel Three; the gathering composed as one picture). Drawn standing on magenta from the locked cast master by cast-unify operation 28 (reference/cast-unify-26.txt), turned toward the duel, cut with its own pixels and a clean edge; placed where the painted composition (cast-unify 27, art/staging/cast-unify/batch-25/edit-porch.png) stood him, feet on the boards or the street, drawn at the street's man there."
+ },
+ "standsOn": {
+  "surface": "the hotel porch, left of its corner post",
+  "polygon": [
+   [
+    2690,
+    584
+   ],
+   [
+    2858,
+    588
+   ],
+   [
+    2858,
+    606
+   ],
+   [
+    2690,
+    604
+   ]
+  ],
+  "note": "The hotel porch's boards, measured on the plate (renders/main-street-porch-floor@6x.png): from the foot of the wall (y 584-594) to the front edge (y 604-606). Feet are inside it, so he stands ON the boards -- first placed at y 572, on the foot of the wall, and he hovered in front of it (Tyler: 'They're floating over the porch')."
+ },
+ "faces": "right",
+ "facesNote": "Toward the duel: Fanshawe and Thad below, Thad to the right. Measured on the rest frame by tests/faces.test.mjs."
+}

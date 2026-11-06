@@ -2865,7 +2865,11 @@ function sumpTree() {
       set: { T_CLAIM1_BLANK: true }, puzzle: { E0: 'complete' }, then: viewing },
     'SUM_C1:1': { holds: ['death_certificate'], set: { T_DECEASED: true } },
     // The filing ends the conversation: doc 48 S6 beat 5, "T_FILED. Main Street dawn opens".
-    'SUM_F1:1': { set: { T_FILED: true }, puzzle: { F5: 'complete' }, ends: true, then: [...winF2, ...readBack] },
+    // BEAT 3, THE COUNTY SEAL (doc 48 S6): "One stamp. It is the loudest sound in
+    // the game and the score rests under it." A beat with the sound and two
+    // seconds of rest, between WIN_F2 and the read-back (errata 99 P).
+    'SUM_F1:1': { set: { T_FILED: true }, puzzle: { F5: 'complete' }, ends: true,
+      then: [...winF2, { speaker: SPEAKER, line: '…', sound: { src: 'audio/sfx/county-seal.wav', gain: 1, rest: 2 } }, ...readBack] },
     // Doc 04 gives this reply to Winnie by name: "**WINNIE:** "Don't you dare."".
     'SUM_F1:3': { speakerAll: 'winnie' },
   };

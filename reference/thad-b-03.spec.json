@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "thad-key-poses",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/thad-b-03.txt",
+ "out": "art/staging/thad-b/keyposes-03.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/thad-b/board.png",
+  "art/staging/thad-b/old-keyposes.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

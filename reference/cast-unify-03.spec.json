@@ -1,0 +1,17 @@
+{
+ "assetId": "cast-unify",
+ "subject": "undertaker-hotel-clerk-editor",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-09-clarion",
+ "promptFile": "reference/cast-unify-03.txt",
+ "out": "art/staging/cast-unify/batch-03/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-02/thad-in-room-07.png",
+  "art/staging/cast-unify/batch-03/thad-the-hand.png",
+  "art/staging/cast-unify/batch-03/old-sheets.png",
+  "art/staging/cast-unify/batch-02/sheet.png",
+  "art/staging/cast-unify/batch-01/sheet.png"
+ ]
+}

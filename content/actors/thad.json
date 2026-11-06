@@ -38,7 +38,7 @@
       ],
       "figureHeight": 626,
       "anchor": [
-        371,
+        355,
         626
       ]
     },
@@ -48,10 +48,10 @@
       "frames": [
         "art/actors/thad-stand-back/stand-00.png"
       ],
-      "figureHeight": 625,
+      "figureHeight": 627,
       "anchor": [
-        370,
-        625
+        351,
+        627
       ]
     },
     {
@@ -60,10 +60,10 @@
       "frames": [
         "art/actors/thad-stand-left/stand-00.png"
       ],
-      "figureHeight": 624,
+      "figureHeight": 625,
       "anchor": [
-        325,
-        624
+        332,
+        625
       ]
     },
     {
@@ -72,10 +72,10 @@
       "frames": [
         "art/actors/thad-stand-right/stand-00.png"
       ],
-      "figureHeight": 625,
+      "figureHeight": 626,
       "anchor": [
-        324,
-        625
+        332,
+        626
       ]
     },
     {
@@ -91,7 +91,7 @@
       ],
       "figureHeight": 626,
       "anchor": [
-        371,
+        355,
         626
       ]
     },
@@ -106,10 +106,10 @@
         "art/actors/thad-idle-back/idle-04.png",
         "art/actors/thad-idle-back/idle-05.png"
       ],
-      "figureHeight": 625,
+      "figureHeight": 627,
       "anchor": [
-        370,
-        625
+        351,
+        627
       ]
     },
     {
@@ -123,10 +123,10 @@
         "art/actors/thad-idle-left/idle-04.png",
         "art/actors/thad-idle-left/idle-05.png"
       ],
-      "figureHeight": 624,
+      "figureHeight": 625,
       "anchor": [
-        325,
-        624
+        332,
+        625
       ]
     },
     {
@@ -140,10 +140,10 @@
         "art/actors/thad-idle-right/idle-04.png",
         "art/actors/thad-idle-right/idle-05.png"
       ],
-      "figureHeight": 625,
+      "figureHeight": 626,
       "anchor": [
-        324,
-        625
+        332,
+        626
       ]
     },
     {
@@ -165,7 +165,7 @@
       ],
       "figureHeight": 626,
       "anchor": [
-        371,
+        355,
         626
       ]
     },
@@ -186,10 +186,10 @@
         "art/actors/thad-idlebreak-back/idle-break-10.png",
         "art/actors/thad-idlebreak-back/idle-break-11.png"
       ],
-      "figureHeight": 625,
+      "figureHeight": 627,
       "anchor": [
-        370,
-        625
+        351,
+        627
       ]
     },
     {
@@ -209,10 +209,10 @@
         "art/actors/thad-idlebreak-left/idle-break-10.png",
         "art/actors/thad-idlebreak-left/idle-break-11.png"
       ],
-      "figureHeight": 624,
+      "figureHeight": 625,
       "anchor": [
-        325,
-        624
+        332,
+        625
       ]
     },
     {
@@ -232,10 +232,10 @@
         "art/actors/thad-idlebreak-right/idle-break-10.png",
         "art/actors/thad-idlebreak-right/idle-break-11.png"
       ],
-      "figureHeight": 625,
+      "figureHeight": 626,
       "anchor": [
-        324,
-        625
+        332,
+        626
       ]
     },
     {
@@ -251,10 +251,10 @@
         "art/actors/thad-walk-front/walk-06.png",
         "art/actors/thad-walk-front/walk-07.png"
       ],
-      "figureHeight": 630,
+      "figureHeight": 631,
       "anchor": [
-        385,
-        630
+        373,
+        631
       ],
       "walkDx": 1
     },
@@ -271,10 +271,10 @@
         "art/actors/thad-walk-back/walk-06.png",
         "art/actors/thad-walk-back/walk-07.png"
       ],
-      "figureHeight": 625,
+      "figureHeight": 627,
       "anchor": [
-        370,
-        625
+        351,
+        627
       ],
       "walkDx": 1
     },
@@ -324,7 +324,7 @@
       ],
       "figureHeight": 46,
       "anchor": [
-        8,
+        6,
         46
       ]
     },
@@ -339,7 +339,7 @@
       ],
       "figureHeight": 626,
       "anchor": [
-        371,
+        355,
         626
       ]
     },
@@ -352,10 +352,10 @@
         "art/actors/thad-recoil-back/recoil-02.png",
         "art/actors/thad-recoil-back/recoil-03.png"
       ],
-      "figureHeight": 625,
+      "figureHeight": 627,
       "anchor": [
-        370,
-        625
+        351,
+        627
       ]
     },
     {
@@ -367,10 +367,10 @@
         "art/actors/thad-recoil-left/recoil-02.png",
         "art/actors/thad-recoil-left/recoil-03.png"
       ],
-      "figureHeight": 624,
+      "figureHeight": 625,
       "anchor": [
-        325,
-        624
+        332,
+        625
       ]
     },
     {
@@ -382,10 +382,10 @@
         "art/actors/thad-recoil-right/recoil-02.png",
         "art/actors/thad-recoil-right/recoil-03.png"
       ],
-      "figureHeight": 625,
+      "figureHeight": 626,
       "anchor": [
-        324,
-        625
+        332,
+        626
       ]
     },
     {
@@ -400,10 +400,10 @@
         "art/actors/thad-tug-back/tug-05.png",
         "art/actors/thad-tug-back/tug-06.png"
       ],
-      "figureHeight": 625,
+      "figureHeight": 627,
       "anchor": [
-        370,
-        625
+        351,
+        627
       ]
     },
     {
@@ -436,10 +436,10 @@
         "art/actors/thad-strain-back/strain-05.png",
         "art/actors/thad-strain-back/strain-06.png"
       ],
-      "figureHeight": 625,
+      "figureHeight": 627,
       "anchor": [
-        370,
-        625
+        351,
+        627
       ]
     },
     {
@@ -455,10 +455,10 @@
         "art/actors/thad-wrench-back/wrench-06.png",
         "art/actors/thad-wrench-back/wrench-07.png"
       ],
-      "figureHeight": 625,
+      "figureHeight": 627,
       "anchor": [
-        370,
-        625
+        351,
+        627
       ]
     },
     {

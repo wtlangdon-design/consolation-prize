@@ -7,46 +7,46 @@
  "when": {
   "T_LAID_IN": false
  },
- "note": "THE MOURNERS (doc 05, doc 54), the town at the graveside with their hats held. One group: they stand close and overlap, so they are one cut (tools/art/room31-cast.py), and their actions are a few of them shifting their weight at once (errata 78: 'one man shifting his weight is enough to stop it being a photograph'). The master drew seven; doc 54 says nine hats (doc 36 Q173). Examined through THE MOURNERS and THE HATS over them (errata 99 G).",
- "x": 1493,
- "y": 668,
+ "note": "THE MOURNERS (doc 05, doc 54), the town at the graveside with their hats held. One group: they stand close and overlap, so they are one cut (tools/art/room31-cast.py), and their actions are a few of them shifting their weight at once (errata 78: 'one man shifting his weight is enough to stop it being a photograph'). The master drew seven, and the lines count seven (Tyler, 2026-11-06, errata 99 P). Examined through THE MOURNERS and THE HATS over them (errata 99 G).",
+ "x": 1449,
+ "y": 664,
  "zone": 2,
  "approachRadius": 0,
  "tree": "",
  "barks": {},
  "barksNote": "The mourners are heard through their LISTEN lines.",
  "sprite": {
-  "sheet": "art/actors/room-31-mourners.png",
+  "sheet": "art/actors/room-31-mourners-master.png",
   "frames": [
    [
     2,
     2,
-    546,
-    372
+    443,
+    403
    ],
    [
-    550,
+    447,
     2,
-    546,
-    372
+    443,
+    403
    ],
    [
-    1098,
+    892,
     2,
-    546,
-    372
+    443,
+    403
    ],
    [
-    1646,
+    1337,
     2,
-    546,
-    372
+    443,
+    403
    ],
    [
-    2194,
+    1782,
     2,
-    546,
-    372
+    443,
+    403
    ]
   ],
   "rate": 0.25,
@@ -70,7 +70,8 @@
   ],
   "breakEvery": 6,
   "talkFrame": 0,
-  "frameNote": "0 rest, hats held · 1 breath · 2-4 a few of them shifting their weight, a different few each time. A break every `breakEvery` seconds (errata 77).",
-  "provenance": "art/staging/room-31/cast/cast.json"
+  "frameNote": "0 watching the grave, hats held · 1 breath (derived) · 2-4 a different two or three of them shifting their weight.",
+  "provenance": "reference/cast-unify-28.spec.json",
+  "redrawn": "Errata 111 W (Tyler, 2026-11-06). Seven distinct mourners drawn on magenta by cast-unify 30 (reference/cast-unify-28.txt), every man holding his hat (doc 10), each measured and turned to look LEFT toward the grave, standing at his own spot on the hill at its depth curve inside THE MOURNERS hotspot, composed and relit into the night by tools/art/room31-mourners.py. The old group faced the camera."
  }
 }

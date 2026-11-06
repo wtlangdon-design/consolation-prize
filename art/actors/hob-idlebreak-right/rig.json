@@ -1,14 +1,28 @@
 {
+  "invocation": {
+    "source": "reference/casting/hob-stand-right.png",
+    "key": "magenta",
+    "view": "profile",
+    "facing": "right",
+    "clip": "idle-break",
+    "pose": "striding",
+    "pad": 260,
+    "swing": 1.0,
+    "knee": 1.0,
+    "level_limbs": false,
+    "legs_only": false,
+    "breath": 1.0
+  },
   "source": "reference/casting/hob-stand-right.png",
   "key": "magenta",
   "clip": "idle-break",
   "view": "profile",
   "facing": "right",
   "figure": [
-    632,
-    1365
+    514,
+    1366
   ],
-  "shoulder_row": 273,
+  "shoulder_row": 461,
   "padding": 260,
   "step_px": 6,
   "motion": "shrug",

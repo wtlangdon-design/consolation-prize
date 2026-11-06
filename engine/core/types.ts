@@ -1479,6 +1479,14 @@ export interface RoomFile {
        * boast are the greeting, and the duel is running when the list opens.
        */
       duel?: string;
+      /**
+       * HE COMES TO FACE THE ONE WHO CALLS HIM (Tyler, 2026-11-06, of Duel
+       * Three: "The main street scene is a MESS" -- Thad stayed in the assay
+       * office doorway, high on the porch, while Fanshawe called him out from
+       * the street). Thad walks to the caller's declared stand (`walkTo`)
+       * before the greeting; the conversation opens when he arrives.
+       */
+      approach?: boolean;
     };
   };
   /** Destinations doc 20 names but whose appearance rule nobody has stated. */
@@ -1708,7 +1716,7 @@ export interface DialogueOption {
    * on screen as one man saying all of it and loses the joke's timing. An
    * option has either `say` or `exchange`, never both.
    */
-  exchange?: { speaker: string; line: string; direction?: boolean }[];
+  exchange?: { speaker: string; line: string; direction?: boolean; sound?: LineSound }[];
   /**
    * Shown instead of `say` once the option has already been taken. The
    * pre-W1 shape: one string, the second selection's line, kept for the
@@ -1805,11 +1813,23 @@ export interface DialogueOption {
 
 export type AfterUse = 'retain' | 'remove' | 'counted-repeat' | 'rephrase' | 'replace';
 
+/**
+ * A SOUND A PERFORMED LINE MAKES (doc 48 S6 beat 3: "The county seal comes down.
+ * One stamp. It is the loudest sound in the game and the score rests under it").
+ * Played when the line is shown; with `rest`, the score stops for that many
+ * seconds and picks up where it stopped.
+ */
+export interface LineSound {
+  src: string;
+  gain?: number;
+  rest?: number;
+}
+
 /** One later selection's answer: from `selection` on, until the next entry. */
 export interface DialogueRepeat {
   selection: number;
   say?: string;
-  exchange?: { speaker: string; line: string; direction?: boolean }[];
+  exchange?: { speaker: string; line: string; direction?: boolean; sound?: LineSound }[];
 }
 
 export interface DialogueNode {
@@ -2717,6 +2737,46 @@ export interface AmbientExit {
   /** The walk cycle, in order. */
   frames: [number, number, number, number][];
   fps: number;
+  /**
+   * ONE WALK CYCLE'S LENGTH AS A FRACTION OF HIS DRAWN HEIGHT. Present, the
+   * cycle advances with the distance he has walked, as Thad's does, so his feet
+   * hold the ground; absent, it runs at `fps` whatever his speed. Tyler,
+   * 2026-11-06, of the walks recorded in the game: "Pratt is horrible" -- his
+   * cycle ran at six frames a second at 80 px/s, a full cycle every 53 px on a
+   * man nearly 400 px tall, legs pumping four times too fast for the ground
+   * he covered; Deke's ran at two a second and he glided.
+   */
+  strideRatio?: number;
+  /**
+   * HIS PACE, IN HIS OWN HEIGHTS A SECOND. Present, it replaces `speed`: he
+   * covers the ground at this share of his drawn height at each point, so a
+   * man walking up a road into the distance slows on the screen as he shrinks.
+   * Tyler, 2026-11-06, of the claims road's miners: "awful" -- at a fixed
+   * 55 px/s they crawled at an eighth of their height a second near the
+   * camera, where they are 440 px tall, and raced at one and a half heights a
+   * second far up the road, where they are 36.
+   */
+  pace?: number;
+  /**
+   * How the sheet sees him: in profile (the default), from behind walking `away`, or from the front walking
+   * `toward` the camera. A walk that goes mostly into or out of the picture is drawn `away` or `toward`:
+   * the claims road's miners, drawn in profile, slid up the hill sideways (Tyler, 2026-11-06). A walk that
+   * goes into the picture AND across it is drawn at three-quarters, turned the way it crosses
+   * (`away-right`: from behind, turned to the right): drawn straight on, the miners' legs pointed up the
+   * screen while they travelled across it ("They need to be fully oriented in the direction they're
+   * walking", Tyler, 2026-11-06).
+   */
+  view?: 'profile' | 'away' | 'toward' | 'away-right' | 'away-left' | 'toward-right' | 'toward-left';
+  /** A walk that leaves the room's depth curve: a man's drawn height at each point of `path`. */
+  heights?: number[];
+  /**
+   * THE DOOR HE GOES OUT BY, drawn open while he goes through it (Tyler, 2026-11-06: "Does Pratt just
+   * disappear through a closed door?"; he chose "Door opens for him"). `sheet` and `frame` are the open
+   * doorway, drawn over the plate at `x`,`y` (its top-left, room pixels) as room geometry, before the
+   * people. It opens when he is `within` pixels of the path's end, and shuts `linger` seconds after he
+   * is through.
+   */
+  door?: { sheet: string; frame: [number, number, number, number]; x: number; y: number; within: number; linger: number };
   /** Which way the sheet draws him walking; the other way is mirrored. */
   drawnFacing: 'left' | 'right';
   /** The sheet's figure height, so he is drawn on the room's curve. */

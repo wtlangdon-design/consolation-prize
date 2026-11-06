@@ -9,45 +9,45 @@
   "T_FILED": false
  },
  "note": "WINNIE AT THE END OF THE COUNTER (doc 57 F5: 'Winnie is at the end of the counter'; doc 04 WIN_C... 'I'll be at the Registrar's when you do'). Her accepted Room 5 counter sheet, behind Room 7's counter beside the right-hand lamp. She signs beside the sample and certifies the filing; the room hands on to the dawn when it is filed, so she is never seen to go.",
- "x": 1710,
- "y": 452,
+ "x": 1817,
+ "y": 439,
  "zone": 2,
  "approachRadius": 0,
  "tree": "",
  "barks": {},
  "barksNote": "Her lines at the filing are the counter's and SUM_F1's (doc 57 F5).",
  "sprite": {
-  "sheet": "art/actors/winnie-counter-sheet.png",
+  "sheet": "art/actors/room-07-winnie.png",
   "frames": [
    [
     2,
     2,
-    444,
-    184
+    129,
+    193
    ],
    [
-    448,
+    133,
     2,
-    444,
-    184
+    129,
+    193
    ],
    [
-    894,
+    264,
     2,
-    444,
-    184
+    129,
+    193
    ],
    [
-    1340,
+    395,
     2,
-    444,
-    184
+    129,
+    193
    ],
    [
-    1786,
+    526,
     2,
-    444,
-    184
+    129,
+    193
    ]
   ],
   "rate": 0.28,
@@ -55,99 +55,33 @@
   "breaks": [
    [
     2,
-    3,
     2,
-    3,
     2,
-    3,
-    2,
-    3,
     2,
     0
    ],
    [
-    2,
     3,
-    2,
     3,
-    4,
-    4,
-    4,
-    2,
-    3,
-    2,
-    3,
-    2,
-    0
-   ],
-   [
-    2,
-    3,
-    2,
-    3,
-    2,
     3,
     0
    ],
    [
-    2,
-    3,
-    2,
     4,
     4,
-    2,
-    3,
-    2,
-    3,
-    0
-   ],
-   [
-    2,
-    3,
-    2,
-    3,
-    2,
-    3,
-    2,
-    3,
-    2,
-    3,
-    2,
-    3,
-    2,
+    4,
+    4,
     0
    ]
   ],
   "breakEvery": 9,
-  "talkFrame": 4,
-  "frameNote": "0 rest (pen in stand) · 1 breath (derived) · 2 writing · 3 writing, hand shifted two display pixels along the line (derived) · 4 looking up from the page. BEHIND-COUNTER SHEET (Tyler's counter-contact corrections 1 and 2, 2026-09-04): the lit five-frame sheet matted per column against the ledger's far edge and the counter's back edge, the working forearms/hands/pen kept whole ABOVE the surface and lifted a few whole pixels so paper shows under the hands, the pen shaft re-angled about its grip in the writing frames, the stand removed into its own prop, frames cropped to what is drawn. No pixel repainted; the slivers of dress the lifted forearms uncovered are filled from the torso column beside them and counted in frames.json.",
-  "provenance": "art/staging/room-05/winnie-02-counter/frames.json",
-  "props": [
-   {
-    "sheet": "art/objects/room-05/inkstand.png",
-    "x": 933,
-    "y": 409,
-    "frames": [
-     [
-      0,
-      0,
-      36,
-      50
-     ],
-     [
-      38,
-      0,
-      36,
-      50
-     ]
-    ],
-    "byFrame": {
-     "2": 1,
-     "3": 1,
-     "4": 1
-    },
-    "note": "THE INK STAND, a counter object: one plate coordinate, base on the counter surface, pen in the stand while she rests (frames 0-1) and out of it while her hand holds it (frames 2-4). Both states are cut from her rest frame by tools/rig/winnie-counter.py; the pot body is identical in both."
-   }
-  ]
- }
+  "talkFrame": 2,
+  "frameNote": "0 arms folded, looking along the counter at the Registrar · 1 breath (derived) · 2 looking out, her talk frame · 3 one eyebrow raised · 4 tugging a cuff straight. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
+  "provenance": "reference/cast-unify-11b.spec.json",
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): WAITING, ARMS FOLDED, as the master draws her. Her writing poses had nothing to write on at this end of the counter -- Tyler: 'What is she writing on here?' -- her hands span 131 px and the closed book there is 125, and the only other thing is a tall stack of paper. Doc 57 F5 has her at the end of the counter while the Registrar takes the documents; her signing and stamping are performed as directions on screen (doc 58), not drawn. Cast-unify operation 13 (reference/cast-unify-11b.txt), drawn against her master crop AND her Room 5 drawing for colour and pixel size (operation 12 came back in a black dress, darker skin and a coarser grain, and was not used). Cut on its own 7 px grid (tools/art/cast-unify-cut.py --grid 7), head matched to Room 7's scale by face width. Her ink stand is gone from this room: she holds no pen here.",
+  "waistOn": 439,
+  "waistOnNote": "The plate row the figure's waist ends on: the far edge of the closed book at the counter's end (y 439 at x 1817). Whatever lies on the counter in front of the waist is in front of the body, so the body stops at its far edge and only the hands come forward onto it. Tyler, 2026-11-06: 'body is partially on top of the book' -- the waist had been set on the counter's back edge, below the ledger's far edge. Held by tests/counter-surface.test.mjs against the plate.",
+  "hands": "folded"
+ },
+ "placedNote": "At the end of the counter (doc 57 F5), standing behind the closed book at the counter's right end (plate x 1755-1880), arms folded; her waist on that book's far edge, y 439. HER OWN SHEET FOR THIS ROOM, at this counter's depth: Room 5's would stand her about 18% smaller than the Registrar."
 }

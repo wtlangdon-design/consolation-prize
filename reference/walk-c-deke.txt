@@ -1,0 +1,7 @@
+Image 1 is the SWINDLER of my pixel-art adventure game, drawn in the game's style: THIS IS THE MAN AND THE STYLE -- thirties, dark curly hair, a bushy moustache, an open brown coat, a loose shirt, a belt, tall boots, and for walking a battered brown hat (the right-hand figure); this level of detail, this soft shading and dark outline.
+
+Image 2 is a WALK CYCLE that reads well in this game: six frames of another man walking RIGHT, left to right in order. Copy each frame's POSE exactly -- where each leg and foot is, how far the stride opens, the arm swing, the slight rise and fall of the body -- but draw the SWINDLER of Image 1, not the man in Image 2. The legs must trade places through the cycle: in frames 1-3 one leg leads, in frames 4-6 the OTHER leg leads, exactly as in Image 2.
+
+THE SHEET: flat pure magenta (#FF00FF) background. ONE row of SIX full figures of the swindler walking RIGHT in profile, in Image 2's order, his battered hat on, every figure the SAME height and scale, as large as fits, feet on one line, separated by clear magenta space. Nothing in his hands; his arms swing opposite to his legs, clear of the coat; the open coat moves with the stride.
+
+RULES: no ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.

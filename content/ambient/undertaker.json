@@ -5,7 +5,7 @@
  "posture": "behind-counter",
  "room": "undertaker",
  "x": 1542,
- "y": 526,
+ "y": 515,
  "zone": 2,
  "approachRadius": 40,
  "walkTo": {
@@ -19,37 +19,37 @@
  "barks": {},
  "barksNote": "Doc 07 writes no barks for the undertaker.",
  "sprite": {
-  "sheet": "art/actors/room-13-undertaker.png",
+  "sheet": "art/actors/room-13-undertaker-master.png",
   "frames": [
    [
     2,
     2,
-    167,
-    227
+    205,
+    199
    ],
    [
-    171,
+    209,
     2,
-    167,
-    227
+    205,
+    199
    ],
    [
-    340,
+    416,
     2,
-    167,
-    227
+    205,
+    199
    ],
    [
-    509,
+    623,
     2,
-    167,
-    227
+    205,
+    199
    ],
    [
-    678,
+    830,
     2,
-    167,
-    227
+    205,
+    199
    ]
   ],
   "rate": 0.25,
@@ -84,7 +84,11 @@
   ],
   "breakEvery": 6,
   "talkFrame": 4,
-  "frameNote": "0 rest (hands on the table) · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 planing · 3 putting the plane down · 4 waiting, looking out. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool -- mostly planing (errata 35 and 77: a deliberate action at least every 30 s). He waits as he talks.",
-  "provenance": "art/staging/room-13/undertaker/undertaker.json"
+  "frameNote": "0 turning the plane in his hands, looking at it · 1 breath (derived) · 2 sighting along its sole · 3 running a thumb along the blade · 4 looking up, the plane at his chest. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
+  "provenance": "reference/cast-unify-15.spec.json",
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 17 (reference/cast-unify-15.txt). Doc 27: 'doing something careful with a plane' -- he holds it in every pose, at his chest. Drawn planing on the bench (operations 15, 16), the plane overhung the bench's front edge, which slants as steeply as its back, at any size near his; so nothing of him touches the bench. Cut with its own pixels and a clean edge, registered on the head and the waist row, head matched to the drawing it replaces. Its own file: tools/art/room13-undertaker.py writes the old path.",
+  "waistOn": 505,
+  "hands": "folded",
+  "waistOnNote": "The plate row the figure's waist ends on at his x: the bench's back edge, y 505. The edge SLANTS (y 496 to 514 across his width), so he is placed with his waist on its lowest row and matted column by column along it (tools/art/waist-matte.py): the bench is in front of him all the way along. Held by tests/counter-surface.test.mjs against the plate."
  }
 }

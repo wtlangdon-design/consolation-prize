@@ -1,0 +1,9 @@
+Image 1 is part of a picture from my pixel-art adventure game: a frontier main street at night, with a hotel's long low porch (its door, a lit window, a bench, a barrel and a corner post), and in the street a young man in a long blue coat (the hero) and a sleeping brown dog. EDIT IMAGE 1: keep EVERY existing pixel exactly as it is, in the same place, at the same size -- the buildings, the porch, the street, the hero and the dog do not move or change at all -- and ADD ONLY the people below, in the same pixel art and the same night and lamplight.
+
+Image 2 is the cast: left to right the hero (for style and scale), the colonel (A), the reverend (B), and three judges (C, D, E). Draw them exactly as they are there.
+
+ADD:
+1. ON THE HOTEL PORCH, standing on its boards well back from the front edge, between the door and the lit window, side by side: the three judges C, D and E, watching gravely, hands folded in front or behind their backs. Beside them on the same porch boards, nearer the window: the reverend B, holding up a short pencil. All four stand fully on the porch, nobody at its edge or corner, nobody in front of a post. No table, no chairs.
+2. IN THE STREET: EXACTLY ONE colonel (A), in a tall black top hat, standing on the ground a few paces to the LEFT of the hero, between the dog and the hero, turned three-quarters toward the hero, thumbs hooked in his waistcoat, pleased with himself. The same scale as the hero (a big man, a touch taller).
+
+Nobody else. There is only ONE colonel in the picture. No table, no furniture, no text.

@@ -33,6 +33,8 @@ export interface Utterance {
   line: string;
   /** A stage direction rather than speech: drawn over the speaker, quieter. */
   direction?: boolean;
+  /** A sound the line makes when it is shown (doc 48 S6's county seal). */
+  sound?: { src: string; gain?: number; rest?: number };
 }
 
 /**

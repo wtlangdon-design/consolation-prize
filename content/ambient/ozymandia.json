@@ -5,7 +5,7 @@
  "posture": "behind-counter",
  "room": "ozymandias_tent",
  "x": 966,
- "y": 530,
+ "y": 500,
  "zone": 2,
  "approachRadius": 40,
  "clipPlane": 1,
@@ -25,32 +25,32 @@
    [
     2,
     2,
-    228,
-    241
+    201,
+    208
    ],
    [
-    232,
+    205,
     2,
-    228,
-    241
+    201,
+    208
    ],
    [
-    462,
+    408,
     2,
-    228,
-    241
+    201,
+    208
    ],
    [
-    692,
+    611,
     2,
-    228,
-    241
+    201,
+    208
    ],
    [
-    922,
+    814,
     2,
-    228,
-    241
+    201,
+    208
    ]
   ],
   "rate": 0.24,
@@ -83,7 +83,11 @@
   ],
   "breakEvery": 6,
   "talkFrame": 3,
-  "frameNote": "0 rest, hands spread over the ball · 1 breath (derived) · 2 humming · 3 pronouncing, a hand raised · 4 the palm out for the fee. Breathing on 0 and 1; every `breakEvery` seconds one break -- mostly humming (doc 01: 'a great deal of humming'; errata 77). She pronounces as she talks.",
-  "provenance": "art/staging/room-16/ozymandia/ozymandia.json"
+  "frameNote": "0 fingertips to her temples, eyes closed · 1 breath (derived) · 2 humming, fingertips at her temples · 3 one hand raised high, pronouncing · 4 one hand held out palm up, for the fee. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
+  "provenance": "reference/cast-unify-14.spec.json",
+  "hands": "folded",
+  "waistOn": 500,
+  "waistOnNote": "The plate row the figure's waist ends on: the table's back edge (y 500-502 either side of the ball; behind the ball's stand at her centre). Nothing of her comes below it: the ball, the strong box and the tea pot stand in front of her (occlusion plane 1). Held by tests/counter-surface.test.mjs against the plate.",
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master by cast-unify operation 16 (reference/cast-unify-14.txt), against a picture of the last attempt in this room; cut with its own pixels and a clean edge (tools/art/cast-unify-cut.py --grid 1), registered on the head and on the bottom row (tools/art/bust-register.py --bottom), head matched to the drawing it replaces. Her hands are at her temples: twice drawn resting on the table, they landed on the box and the tea pot that stand in front of her."
  }
 }

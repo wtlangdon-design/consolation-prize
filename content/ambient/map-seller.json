@@ -5,7 +5,7 @@
  "posture": "standing",
  "note": "Doc 07 #16. Sells maps to Mott's strike. Unknowingly employed by the Improvement Company. Genuinely believes in them. The saddest character in the game and he is played entirely for laughs.",
  "room": "main_street",
- "x": 3140,
+ "x": 3270,
  "y": 706,
  "zone": 1,
  "approachRadius": 40,
@@ -23,37 +23,37 @@
  },
  "sprite": {
   "note": "Frames 0-1 are the idle: the pose and a derived one-pixel breath. Frames 2-4 are the three poses from the character sheet. `breaks` are SEPARATE actions chosen from a pool, each leaving the idle and returning to it -- not a routine played in order, which is what the eye catches.",
-  "sheet": "art/actors/ambient-map-seller.png",
+  "sheet": "art/actors/ambient-map-seller-master.png",
   "frames": [
    [
     2,
     2,
-    65,
-    150
+    110,
+    160
    ],
    [
-    69,
+    114,
     2,
-    65,
-    150
+    110,
+    160
    ],
    [
-    136,
+    226,
     2,
-    65,
-    150
+    110,
+    160
    ],
    [
-    203,
+    338,
     2,
-    65,
-    150
+    110,
+    160
    ],
    [
-    270,
+    450,
     2,
-    65,
-    150
+    110,
+    160
    ]
   ],
   "rate": 0.8,
@@ -80,7 +80,13 @@
     4
    ]
   ],
-  "breakEvery": 23
+  "breakEvery": 23,
+  "provenance": "reference/cast-unify-16.spec.json",
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 18 (reference/cast-unify-16.txt), full figure, holding his own thing in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet. Its own file: the sheet it replaces is written by an earlier cut.",
+  "figureHeight": 160,
+  "stature": 1,
+  "figureHeightNote": "Crown to sole of the rest frame (tools/art/figure-height.py); the engine draws him at the room's man there.",
+  "frameNote": "0 standing, the map held up beside him · 1 breath (derived) · 2 the map held out, offered · 3 the map lowered · 4 pointing at the map."
  },
  "migrationNote": "ERRATA 54, x6. Was (250, 116) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
  "placeNote": "Clear of the small office’s steps. Was (3120, 658).",
@@ -94,10 +100,34 @@
     "rate": 1,
     "frames": [
      [
-      0,
-      0,
-      111,
-      231
+      2,
+      2,
+      99,
+      150
+     ],
+     [
+      103,
+      2,
+      99,
+      150
+     ],
+     [
+      204,
+      2,
+      99,
+      150
+     ],
+     [
+      305,
+      2,
+      99,
+      150
+     ],
+     [
+      406,
+      2,
+      99,
+      150
      ]
     ],
     "figureHeight": 231,
@@ -107,5 +137,6 @@
    "note": "Unmoved: his placeNote already puts him clear of the small office's steps, on legal ground, with the office lantern over him. Only his SIZE was wrong. An adult man: 1.0."
   }
  },
- "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 16 · THE MAP SELLER) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109)."
+ "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 16 · THE MAP SELLER) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109).",
+ "placedNote": "x 3270, right of the assay office steps (2026-11-06). At x 3140 he stood in front of the assay office door, and Thad, coming out, stood behind him with the map across him -- on every visit (Tyler, of Duel Three: 'The main street scene is a MESS'). Held by tests/staging-clear.test.ts: where the player comes in, he stands on nobody."
 }

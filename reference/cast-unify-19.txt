@@ -1,0 +1,10 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game, a comedy in an 1850s frontier gold town: left to right, the hero (THE STYLE AND THE SCALE), then three judges, A, B and C. These designs are FINAL. Draw each EXACTLY as in Image 1 -- the same face, hair, age, build, clothes and colours, the same size of square pixel, the same amount of detail, the same soft shading and dark outline -- only in new poses. Image 2 is the long table they sit behind, already painted in the game, with three empty chairs.
+
+Each judge SITS behind that table. Draw NO table, NO chair and nothing that lies on the table. Draw each from the WAIST UP, cut off in ONE straight horizontal line across the waist where the table's back edge hides him; his forearms rest forward on the table top, so his hands lie a little BELOW that line, with magenta between and around them.
+
+THE SHEET: flat pure magenta (#FF00FF) background. Three rows, one judge per row, each shown FOUR times side by side, every figure in a row the same size, separated by clear magenta space. In every row: 1. hands folded together on the table, solemn, looking ahead; 2. leaning toward his neighbour on one side, head turned, as if to confer, hands still on the table; 3. nodding, head lowered, hands folded; 4. hands flat on the table, drumming his fingers, looking up.
+- Row 1, A: thick-set and bald on top, white mutton-chop whiskers, red-faced, a brown suit, a gold watch chain.
+- Row 2, B: gaunt and sallow, a hooked nose, a waxed black moustache, black hair pomaded flat with a centre parting, a high collar and a green cravat, a black coat.
+- Row 3, C: a weathered, lean former miner of about fifty, a full dark-brown beard going grey at the chin, a low-crowned grey felt hat, a dark-red flannel shirt under a worn black coat.
+
+RULES: nothing in their hands. Crisp pixel edges against the magenta, no glow, no blur, no shadows, no text, no numbers, no border.

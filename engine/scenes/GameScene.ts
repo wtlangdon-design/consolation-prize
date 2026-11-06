@@ -12,7 +12,7 @@ import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
 import { StepTriggers, type StepEvent } from '../core/StepTriggers.ts';
-import { DialoguePerformance, readingHold, type HoldTiming } from '../core/DialoguePerformance.ts';
+import { DialoguePerformance, readingHold, type HoldTiming, type Utterance } from '../core/DialoguePerformance.ts';
 import { liveCycling, mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
 import { BitmapFont, GLYPH_SCALE, type Face } from '../render/BitmapFont.ts';
 import { appliedCandidates, askedCandidates, resolveAssetPath } from '../dev/CandidateArt.ts';
@@ -78,6 +78,8 @@ export class GameScene extends Phaser.Scene {
   private actors!: RoomActors;
   private readonly music = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
   /** Errata 70 G: one-shots, under the same switch and the same unlock as the beds. */
+  /** The performed line whose sound has been played, so it plays once. */
+  private soundedLine: Utterance | null = null;
   private readonly sfx = new Sfx(() => this.state.menu.toggle(MUSIC_OPTION), () => this.music.isUnlocked);
   /**
    * DOC 45'S ROOM BACKGROUNDS (`R02-A`, `R07-A`; errata 105): a second bed
@@ -1715,6 +1717,8 @@ export class GameScene extends Phaser.Scene {
       this.actor.faceToward(npc.x, npc.y);
       this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y }, greeted: false, npc: npc.id,
         ...(accost.completes ? { viaAction: true } : {}), ...(accost.duel ? { duel: accost.duel } : {}) };
+      // `approach`: he walks to the caller's stand first; the tree opens on arrival.
+      if (accost.approach && npc.walkTo) this.actor.walkTo(npc.walkTo.x, npc.walkTo.y);
       this.markDirty();
     });
   }
@@ -1967,6 +1971,7 @@ export class GameScene extends Phaser.Scene {
         speaker: spoken.speaker,
         line: spoken.direction ? GameScene.asDirection(spoken.line) : spoken.line,
         direction: spoken.direction === true,
+        ...((spoken as { sound?: Utterance['sound'] }).sound ? { sound: (spoken as { sound?: Utterance['sound'] }).sound } : {}),
       })),
     ];
     this.performance = new DialoguePerformance(
@@ -2000,6 +2005,16 @@ export class GameScene extends Phaser.Scene {
     if (!live) return;
     const line = live.current;
     this.setSay(line?.line ?? null, line?.speaker ?? null, line?.direction ?? false);
+    // A LINE THAT MAKES A SOUND makes it once, as it is shown; the score rests
+    // under it and comes back where it stopped (doc 48 S6 beat 3).
+    if (line?.sound && this.soundedLine !== line) {
+      this.soundedLine = line;
+      this.sfx.play(line.sound.src, line.sound.gain ?? 1);
+      if (line.sound.rest && !this.music.isSuspended) {
+        this.music.suspend();
+        this.time.delayedCall(line.sound.rest * 1000, () => { if (this.music.isSuspended) this.music.resume(0); });
+      }
+    }
     if (!live.done) { this.markDirty(); return; }
     this.performance = null;
     if (!this.state.dialogue.isActive) {
@@ -2430,6 +2445,7 @@ export class GameScene extends Phaser.Scene {
       // already arrived. The harness reported 'room stage_road' from its own
       // fallback and looked like a routing failure rather than a probe gap.
       room: this.state.roomId,
+      walkers: this.view.lastWalkerBounds(),
       frame: this.frameCount,
       // ALREADY SECONDS. `lastFrameAt` is `time.now / 1000` and dividing again
       // reported 0.002 for a scene two seconds old -- which nothing would have

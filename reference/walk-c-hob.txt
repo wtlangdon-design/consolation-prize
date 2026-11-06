@@ -1,0 +1,7 @@
+Image 1 is the NIGHT WATCHMAN of my pixel-art adventure game, standing in profile facing right, drawn in the game's style: THIS IS THE MAN AND THE STYLE -- tall and lean, a long dark blue coat with brass buttons, a dark hat, a black moustache, a lit oil lantern held by its handle in his near hand; this level of detail, this soft shading and dark outline.
+
+Image 2 is a WALK CYCLE that reads well in this game: six frames of another man walking RIGHT, left to right in order. Copy each frame's POSE exactly -- where each leg and foot is, how far the stride opens, the slight rise and fall of the body -- but draw the WATCHMAN of Image 1, not the man in Image 2. The legs must trade places through the cycle: in frames 1-3 one leg leads, in frames 4-6 the OTHER leg leads, exactly as in Image 2.
+
+THE SHEET: flat pure magenta (#FF00FF) background. ONE row of SIX full figures of the watchman walking RIGHT in profile, in Image 2's order, every figure the SAME height and scale, as large as fits, feet on one line, separated by clear magenta space. His lit lantern is held by its handle in his near hand in EVERY frame, swinging a little with the stride; his free arm swings opposite to his legs; the long coat moves with the stride and his legs show below its hem.
+
+RULES: no ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.

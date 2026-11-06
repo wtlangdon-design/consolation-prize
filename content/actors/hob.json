@@ -10,8 +10,8 @@
   "walkRate": 5,
   "walkSpeed": 134,
   "walkSpeedNote": "134 px/s, DOWN FROM 170, and the change is a consequence of walking becoming time-based rather than a retune of taste. The gait advances from DISTANCE, so while movement was frame-locked at a fraction of its declared pace the legs barely turned over and it read as a glide. Fixed, he covered the declared 245 px/s -- which over his measured 102px stride is 2.4 strides a second. A walking man does about 1.9, and 134 is exactly that. Actor.ts predicted this in its own comment before anyone could see it: \"the legs now tell the truth about the speed, and the speed is a sprint.\" Hob keeps his ratio; he ambles on purpose. One number per actor if the pace wants changing again.",
-  "strideLength": 105,
-  "strideNote": "MEASURED FROM HIS OWN FRAMES, never taken from Thad's -- R5f. The widest separation across his cycle is 230px in a 526px figure, which is 105 drawn pixels at height 240, or 0.44 of his height. His walk has the same structure as Thad's: eight frames, five distinct, ping-ponged.",
+  "strideLength": 170,
+  "strideNote": "MEASURED FROM HIS OWN FRAMES (R5f). WALK-C (Tyler, 2026-11-06: \"Hob looks like he's kind of scooting across air\"): his walk is six frames posed on Thad's with every pose named (cast-unify 46) -- the drawing before held a wide stride in five frames of six and slid. The planted foot's travel over a cycle, calibrated on Thad's walk (recorded 0.588): 0.709 x 240 = 170.",
   "reactRate": 7,
   "idleRate": 2.4,
   "idleBreakRate": 2,
@@ -23,10 +23,10 @@
       "frames": [
         "art/actors/hob-stand-right/stand-00.png"
       ],
-      "figureHeight": 1365,
+      "figureHeight": 1366,
       "anchor": [
-        576,
-        1365
+        517,
+        1366
       ]
     },
     {
@@ -40,10 +40,10 @@
         "art/actors/hob-idle-right/idle-04.png",
         "art/actors/hob-idle-right/idle-05.png"
       ],
-      "figureHeight": 1365,
+      "figureHeight": 1366,
       "anchor": [
-        576,
-        1365
+        517,
+        1366
       ]
     },
     {
@@ -63,10 +63,10 @@
         "art/actors/hob-idlebreak-right/idle-break-10.png",
         "art/actors/hob-idlebreak-right/idle-break-11.png"
       ],
-      "figureHeight": 1365,
+      "figureHeight": 1366,
       "anchor": [
-        576,
-        1365
+        517,
+        1366
       ]
     },
     {
@@ -76,7 +76,9 @@
         "art/actors/hob-walk-right/walk-00.png",
         "art/actors/hob-walk-right/walk-01.png",
         "art/actors/hob-walk-right/walk-02.png",
-        "art/actors/hob-walk-right/walk-03.png"
+        "art/actors/hob-walk-right/walk-03.png",
+        "art/actors/hob-walk-right/walk-04.png",
+        "art/actors/hob-walk-right/walk-05.png"
       ],
       "figureHeight": 668,
       "anchor": [
@@ -85,20 +87,28 @@
       ],
       "lanternAnchor": [
         [
-          317,
-          419
-        ],
-        [
-          297,
-          440
-        ],
-        [
-          311,
-          420
-        ],
-        [
           288,
-          444
+          323
+        ],
+        [
+          276,
+          322
+        ],
+        [
+          252,
+          321
+        ],
+        [
+          292,
+          323
+        ],
+        [
+          267,
+          329
+        ],
+        [
+          255,
+          323
         ]
       ]
     }

@@ -5,10 +5,9 @@
  "posture": "behind-counter",
  "room": "hotel_lobby",
  "x": 1209,
- "y": 445,
+ "y": 423,
  "zone": 2,
  "approachRadius": 40,
- "clipPlane": 1,
  "walkTo": {
   "x": 1010,
   "y": 760,
@@ -35,32 +34,26 @@
    [
     2,
     2,
-    121,
-    134
+    134,
+    133
    ],
    [
-    125,
+    138,
     2,
-    121,
-    134
+    134,
+    133
    ],
    [
-    248,
+    274,
     2,
-    121,
-    134
+    134,
+    133
    ],
    [
-    371,
+    410,
     2,
-    121,
-    134
-   ],
-   [
-    494,
-    2,
-    121,
-    134
+    134,
+    133
    ]
   ],
   "rate": 0.24,
@@ -70,9 +63,12 @@
     2,
     2,
     2,
+    2,
+    2,
     0
    ],
    [
+    3,
     3,
     3,
     0
@@ -80,19 +76,20 @@
    [
     2,
     2,
-    0,
-    4,
-    4,
-    0
-   ],
-   [
+    2,
+    3,
     3,
     0
    ]
   ],
   "breakEvery": 6,
   "talkFrame": 3,
-  "frameNote": "0 rest, reading the register · 1 breath (derived) · 2 writing · 3 looking up over his spectacles · 4 turning the register round (doc 27 option 4). A break every `breakEvery` seconds (errata 77). He looks up as he talks.",
-  "provenance": "art/staging/room-18/clerk/clerk.json"
- }
+  "frameNote": "0 hands on the register's pages, reading · 1 breath (derived) · 2 writing in it · 3 looking up over his spectacles. A break every `breakEvery` seconds (errata 77). The drawing's fifth pose (meant as turning the register round) came back as two raised fists beside the book and is not used.",
+  "provenance": "reference/cast-unify-14.spec.json",
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master by cast-unify operation 16 (reference/cast-unify-14.txt), against a picture of the last attempt in this room; cut with its own pixels and a clean edge (tools/art/cast-unify-cut.py --grid 1), registered on the head and on the bottom row (tools/art/bust-register.py --bottom), head matched to the drawing it replaces.",
+  "waistOn": 410,
+  "hands": "on-counter",
+  "waistOnNote": "The plate row the figure's waist ends on: the register's far edge (y 410), which lies in front of his whole torso (the register spans x 1142-1272; the counter's back edge behind it is y 404). His hands rest on its pages, the pen's nib on the left page. Held by tests/counter-surface.test.mjs against the plate."
+ },
+ "clipNote": "No clip plane: the register (plane 1) lies forward of where his waist ends, and his hands rest on it."
 }

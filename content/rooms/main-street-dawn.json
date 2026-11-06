@@ -31,8 +31,13 @@
       "defaultVerb": "WALK_TO",
       "transitScene": [
         {
-          "say": "Leave the mud.",
+          "say": "At the coach stop: the sign — POP. 2,000 AND CLIMBING — being repainted upward by a man on a ladder, who nods.",
+          "direction": true,
           "then": [
+            {
+              "speaker": "thad",
+              "line": "Leave the mud."
+            },
             {
               "speaker": "thad",
               "line": "Dear Mother.",
