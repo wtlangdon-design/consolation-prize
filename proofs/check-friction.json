@@ -157,6 +157,12 @@
    "date": "2026-11-05",
    "kind": "reviewed",
    "why": "TUNED. Of three loosenings in a fortnight, two were rooms whose design the test assumed away (Room 31's interrupted grave chain, Room 33's tapped rock) and were narrowed to what each room actually does; the third was a written line typed into the test, which errata 100's voice pass will change in every room. The test now types no written line at all -- the dog's PUSH and the mud's USE are read from content -- so the dialogue pass cannot misfire it again; what it asserts (overrides repeat, pools rotate, a target's own line is never an item's answer) is unchanged."
+  },
+  {
+   "check": "tools/check-sound-levels.mjs",
+   "date": "2026-11-06",
+   "kind": "loosened",
+   "why": "Misfired on the one kind of sound it was not written for: a cue meant to be heard over the music. Errata 106 measured every sound against the median room bed, which held the church bell 8 dB under the music actually playing in the church (Tyler: \"The bell is hard to hear over the music\"). A cue that ducks the score is now measured against its own room's music as ducked, which lets the two bells ring over it; every other sound keeps its ceiling, and the same change adds a floor for featured sounds, so this is a narrowing to what the room does and a new assertion, not a waiver."
   }
  ]
 }
