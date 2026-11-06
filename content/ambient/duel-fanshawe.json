@@ -70,9 +70,10 @@
   "breakEvery": 6,
   "frameNote": "0 thumbs in his waistcoat, his top hat on · 1 breath (derived) · 2 a hand held out · 3 the watch · 4 tipping his hat. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
   "provenance": "reference/cast-unify-15.spec.json",
-  "figureHeight": 280,
+  "figureHeight": 259,
   "stature": 1.0,
-  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 17 (reference/cast-unify-15.txt), full figure in his top hat, cut with its own pixels and a clean edge on his feet, at the figureHeight he had. Its own file: tools/art/cast-unify-duel.py writes the old one."
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 17 (reference/cast-unify-15.txt), full figure in his top hat, cut with its own pixels and a clean edge on his feet, at the figureHeight he had. Its own file: tools/art/cast-unify-duel.py writes the old one.",
+  "figureHeightNote": "Crown to sole, not hat to sole: the top hat is not part of his height (first set to the frame's height, it drew the man under it about 11% short). Measured from the hat's brim, plus the forehead above it."
  },
  "walkTo": {
   "x": 3000,

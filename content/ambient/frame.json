@@ -19,36 +19,36 @@
  "barks": {},
  "barksNote": "Doc 07 writes no barks for Frame.",
  "sprite": {
-  "sheet": "art/actors/room-09-frame.png",
+  "sheet": "art/actors/room-09-frame-master.png",
   "frames": [
    [
     2,
     2,
-    244,
+    280,
     502
    ],
    [
-    248,
+    284,
     2,
-    244,
+    280,
     502
    ],
    [
-    494,
+    566,
     2,
-    244,
+    280,
     502
    ],
    [
-    740,
+    848,
     2,
-    244,
+    280,
     502
    ],
    [
-    986,
+    1130,
     2,
-    244,
+    280,
     502
    ]
   ],
@@ -83,8 +83,11 @@
   ],
   "breakEvery": 5,
   "talkFrame": 2,
-  "frameNote": "0 rest · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 talking, a hand out · 3 taking a quote in his notebook · 4 leaning in. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool (errata 35, 77: a deliberate action at least every 30 s).",
-  "provenance": "reference/cast-unify-03.spec.json",
-  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn in Thad's hand with the cast already redrawn (cast-unify operation 3, reference/cast-unify-03.txt). Same poses."
+  "frameNote": "0 rest, his notebook at his side · 1 breath (derived) · 2 talking, a hand out · 3 taking a quote in his notebook, the pencil from behind his ear · 4 leaning in. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
+  "provenance": "reference/cast-unify-16.spec.json",
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 18 (reference/cast-unify-16.txt), full figure, holding his own thing in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet. Its own file: the sheet it replaces is written by an earlier cut.",
+  "figureHeight": 502,
+  "stature": 1.0,
+  "figureHeightNote": "Crown to sole of the rest frame (tools/art/figure-height.py); the engine draws him at the room's man there."
  }
 }
