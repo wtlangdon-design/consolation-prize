@@ -23,6 +23,10 @@ import { readPng } from '../tools/lib/png.mjs';
  *      person he is talking to.
  *   2. A person who talks does not overlap another figure who can be there
  *      at the same time.
+ *   3. Where the player comes into a room, he stands on nobody (Tyler,
+ *      2026-11-06, of Duel Three: "The main street scene is a MESS" -- he
+ *      stepped out of the assay office behind the map seller, whose map lay
+ *      across him; it happened on every visit, not only the duel's).
  *
  * Masks, not boxes: a bounding box calls a man's hat brim and his
  * neighbour's elbow a collision. Overlap is counted in opaque pixels, at the
@@ -168,5 +172,23 @@ for (const roomId of built) {
       }
     }
     assert.deepEqual(faults, [], `${roomId}: move a figure`);
+  });
+
+  test(`${roomId}: where the player comes in, he stands on nobody`, () => {
+    const faults: string[] = [];
+    const image = sheet(playerStand);
+    for (const entrance of (room.entrances ?? []) as { from: string; at: [number, number]; facing?: string }[]) {
+      const [x, y] = entrance.at;
+      const height = man(x, y);
+      if (!height) continue;
+      const scale = height / (playerBox.bottom - playerBox.top + 1);
+      const body = maskOf(playerStand, [0, playerBox.top, image.width, playerBox.bottom - playerBox.top + 1], scale, x, y, entrance.facing === 'left');
+      for (const other of people) {
+        if (other.posture === 'band' || other.posture === 'animal') continue;
+        const share = most([body], other.masks);
+        if (share > TOUCH) faults.push(`coming in from ${entrance.from} at ${x},${y}, the player overlaps ${other.npc.id} by ${(share * 100).toFixed(0)}%`);
+      }
+    }
+    assert.deepEqual(faults, [], `${roomId}: move the figure or the entrance`);
   });
 }

@@ -1647,6 +1647,8 @@ export class GameScene extends Phaser.Scene {
       this.actor.faceToward(npc.x, npc.y);
       this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y }, greeted: false, npc: npc.id,
         ...(accost.completes ? { viaAction: true } : {}), ...(accost.duel ? { duel: accost.duel } : {}) };
+      // `approach`: he walks to the caller's stand first; the tree opens on arrival.
+      if (accost.approach && npc.walkTo) this.actor.walkTo(npc.walkTo.x, npc.walkTo.y);
       this.markDirty();
     });
   }

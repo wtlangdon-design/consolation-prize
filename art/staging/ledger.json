@@ -23099,6 +23099,139 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-06T05:28:21.061Z"
+  },
+  {
+   "attempt": 24,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "livery-and-panner-in-place",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/cast-master/master-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/cast-unify-22.txt",
+   "promptHash": "a0726d3364f068a5c115bc1edc22c0c34daf0021742c01d94b98f84425e11c13",
+   "references": [
+    {
+     "path": "art/staging/cast-unify/batch-22/board.png",
+     "hash": "b0085c477eb5afa2c3782ceea5b5fc1b1436307a05c9cc40ea8cf56cc6e132ec",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-22/last-time.png",
+     "hash": "61a5bc877f2f81b361d22ff1fc8d2754f15f53814fba9dad46a85c7e4796a8fb",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-22/chair.png",
+     "hash": "b76dc289eb583f560c9df80f576c2fda5729e7b512813c8d04f45fa1e582372c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-22/creek-old.png",
+     "hash": "e26f6276ad6f18cb73ac6b8a681da8e958843644723d2afece30129fee689bb5",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-15-livery",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "b0085c477eb5afa2c3782ceea5b5fc1b1436307a05c9cc40ea8cf56cc6e132ec",
+   "sourcePath": "art/staging/cast-unify/batch-22/board.png",
+   "out": "art/staging/cast-unify/batch-22/sheet.png",
+   "outputHash": "ca13072ec181b48c6c324ef788b8542d16ffbed788d41f59bcaa097312833f76",
+   "bytes": 1689454,
+   "usage": {
+    "input_tokens": 10913,
+    "input_tokens_details": {
+     "image_tokens": 10424,
+     "text_tokens": 489
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 12464
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T05:33:48.616Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T05:33:48.620Z"
   }
  ],
  "promotions": [

@@ -5,7 +5,7 @@
  "posture": "standing",
  "note": "Doc 07 #16. Sells maps to Mott's strike. Unknowingly employed by the Improvement Company. Genuinely believes in them. The saddest character in the game and he is played entirely for laughs.",
  "room": "main_street",
- "x": 3140,
+ "x": 3270,
  "y": 706,
  "zone": 1,
  "approachRadius": 40,
@@ -136,5 +136,6 @@
    },
    "note": "Unmoved: his placeNote already puts him clear of the small office's steps, on legal ground, with the office lantern over him. Only his SIZE was wrong. An adult man: 1.0."
   }
- }
+ },
+ "placedNote": "x 3270, right of the assay office steps (2026-11-06). At x 3140 he stood in front of the assay office door, and Thad, coming out, stood behind him with the map across him -- on every visit (Tyler, of Duel Three: 'The main street scene is a MESS'). Held by tests/staging-clear.test.ts: where the player comes in, he stands on nobody."
 }

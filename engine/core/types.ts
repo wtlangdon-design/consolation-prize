@@ -1440,6 +1440,14 @@ export interface RoomFile {
        * boast are the greeting, and the duel is running when the list opens.
        */
       duel?: string;
+      /**
+       * HE COMES TO FACE THE ONE WHO CALLS HIM (Tyler, 2026-11-06, of Duel
+       * Three: "The main street scene is a MESS" -- Thad stayed in the assay
+       * office doorway, high on the porch, while Fanshawe called him out from
+       * the street). Thad walks to the caller's declared stand (`walkTo`)
+       * before the greeting; the conversation opens when he arrives.
+       */
+      approach?: boolean;
     };
   };
   /** Destinations doc 20 names but whose appearance rule nobody has stated. */
