@@ -280,7 +280,11 @@ def rigged(view_dir, i):
     k = MAN_H / (box[3] - box[1])
     out = []
     for f in figs:
-        c = f.crop(box).crop(f.crop(box).getbbox())
+        # THE CYCLE'S OWN FRAME, NOT EACH POSE'S (Tyler, 2026-11-06: "They look like they're bouncing/stomping
+        # up and down the hillside"). The rig holds the crown still and the soles rise about 5% as a foot
+        # steps toward or away, as Thad's back walk does; each pose cropped to itself and stood on its
+        # lowest pixel bounced the whole man twice a stride. Every frame keeps the cycle's shared box.
+        c = f.crop(box)
         c = c.resize((max(1, round(c.width * k)), max(1, round(c.height * k))), Image.LANCZOS)
         a = np.asarray(c).copy(); a[..., 3] = np.where(a[..., 3] >= 128, 255, 0)
         # The rig's edges keep a few pixels of the magenta it was cut from; they go (check-key-colour).
@@ -319,7 +323,7 @@ for view, (view_dir, heading) in CROWDS.items():
         c = Image.new('RGBA', (W, H), (0, 0, 0, 0))
         for m in order:
             f = men[m][((i + BEAT[m]) // 2 + PHASE[m]) % 8]
-            c.alpha_composite(f, (int(round(xs[m] - torso_x(f))), int(H - 1 - ys[m] - f.height + 1)))
+            c.alpha_composite(f, (int(round(xs[m] - f.width / 2)), int(H - 1 - ys[m] - f.height + 1)))
         frames_out.append(c)
     crowd = f'art/actors/room-22-miners-{view}.png'
     frames = strip(frames_out, R(crowd))

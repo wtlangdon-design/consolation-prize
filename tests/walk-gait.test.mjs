@@ -53,6 +53,12 @@ import { readPng } from '../tools/lib/png.mjs';
  *    against Thad's back walk 18-47), so their legs jittered (Tyler: "still
  *    stutter stepping"). A crowd loop names each man's own cycle (`men`), and
  *    each must pass the feet as a walk does.
+ *  - STOMPING. The rig holds a man's crown still and his soles rise ~5% as a
+ *    foot steps toward or away (Thad's back walk does too); the crowd stood
+ *    each pose on its own lowest pixel and the men bounced twice a stride
+ *    (Tyler: "bouncing/stomping up and down the hillside"). In a crowd drawn
+ *    `away` or `toward`, each man's crown moves under 2% of the frame over
+ *    the cycle.
  *  - THE FEET NEVER CAME TOGETHER. Hob's second drawing held a wide stride in
  *    five frames of six (Tyler: "kind of scooting across air"). In each half
  *    of a cycle the feet pass: their spread at its narrowest is under 60% of
@@ -216,6 +222,23 @@ for (const { id, kind, npc, walk } of walks) {
       assert.ok(walk.pace, `${id}'s ${kind} climbs a road from ${Math.max(...walk.heights)} px to ${Math.min(...walk.heights)} px tall at a fixed speed: give it a pace`);
     }
   });
+  if (npc.posture === 'walking' && (walk.view === 'away' || walk.view === 'toward')) {
+    test(`${id}'s ${kind}: no man in the crowd bobs up and down`, () => {
+      const png = readPng(readFileSync(resolve(ROOT, walk.sheet)));
+      const men = walk.men?.length ?? 4;
+      const ranges = Array.from({ length: men }, () => [Infinity, -Infinity]);
+      for (const f of walk.frames) {
+        const c = cell(png, f); const q = Math.floor(c.width / men);
+        for (let m = 0; m < men; m += 1) {
+          let top = -1;
+          for (let y = 0; y < c.height && top < 0; y += 1) for (let x = m * q; x < (m + 1) * q; x += 1) if (c.alpha(x, y)) { top = y; break; }
+          if (top >= 0) { ranges[m][0] = Math.min(ranges[m][0], top); ranges[m][1] = Math.max(ranges[m][1], top); }
+        }
+      }
+      const h = walk.frames[0][3];
+      ranges.forEach(([lo, hi], m) => assert.ok(hi - lo <= 0.02 * h, `${id}'s ${kind}: man ${m + 1}'s crown moves ${hi - lo} px over the cycle (frame ${h} tall): he bounces`));
+    });
+  }
   if (npc.posture === 'walking') {
     test(`${id}'s ${kind}: every man in the crowd walks a real cycle`, () => {
       assert.ok(Array.isArray(walk.men) && walk.men.length > 0, `${id}'s ${kind} is a crowd and names no man's own cycle (\`men\`): nothing shows his feet pass`);
