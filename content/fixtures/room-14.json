@@ -213,25 +213,36 @@
     "T_SEEN_MAIN_STREET": true,
     "T_CASE_DOWN": true,
     "T_CASE_TAKEN": true,
-    "T_PIKE_DEAD": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "ACT": 2,
     "T_FUNERAL_DAY": true,
-    "T_SHENG_TASK": true,
-    "ACT": 2
+    "T_SHENG_TASK": true
    },
    "inventory": [
     "tuning_fork",
-    "letter",
-    "four_dollars",
-    "watch"
+    "deed",
+    "company_map",
+    "invitation"
    ],
    "puzzles": {
-    "A1": "complete"
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete"
    },
    "derivedFrom": [
-    "docs/05-examine-layer.md::ROOM 14 — BOOT HILL",
-    "docs/54-batch-c.md::ROOM 14 · BOOT HILL"
+    "docs/57-puzzle-completion.md::D1 · The ninety-day rule",
+    "docs/00-errata.md::75 · THE PUZZLE COMPLETION PASS (2026-11-01) (H: ACT 2 at A10's card)"
    ],
-   "note": "Doc 57 C3/D4: on Main Street on the funeral day; the map to Boot Hill ends the day, and Sowerby at the gate pays Sheng's linens out of the plate."
+   "note": "Doc 57 C3/D4: on Main Street on the funeral day; the map to Boot Hill ends the day, and Sowerby at the gate pays Sheng's linens out of the plate.",
+   "notBuilt": [
+    "A10 (Room 11, the dinner): the act card that sets ACT 2"
+   ]
   }
  ]
 }
