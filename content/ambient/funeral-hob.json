@@ -57,9 +57,9 @@
   ],
   "fps": 6,
   "drawnFacing": "right",
-  "figureHeight": 628,
+  "figureHeight": 648,
   "note": "Doc 48 S2 beat 3: 'and he walks.' Off the hill at the right, unhurried, his hat in his hand (room-31 operation 3, cut by tools/art/cut-walk-sheet.py).",
-  "redrawn": "HIS OWN WALK (art/actors/hob-walk-right, the one he walks everywhere else), lantern in hand and hat back on as he leaves, relit once into the night. Cast-unify 32's funeral walk dropped the lantern in its passing frames and is not used. figureHeight crown to sole under the hat."
+  "redrawn": "His own walk (art/actors/hob-walk-right, cast-unify 37), lantern in hand and hat on, relit once into the night."
  },
  "sprite": {
   "sheet": "art/actors/room-31-hob-master.png",
@@ -67,31 +67,31 @@
    [
     2,
     2,
-    214,
+    173,
     400
    ],
    [
-    218,
+    177,
     2,
-    214,
+    173,
     400
    ],
    [
-    434,
+    352,
     2,
-    214,
+    173,
     400
    ],
    [
-    650,
+    527,
     2,
-    214,
+    173,
     400
    ],
    [
-    866,
+    702,
     2,
-    214,
+    173,
     400
    ]
   ],
@@ -112,10 +112,10 @@
   "breakEvery": 8,
   "talkFrame": 0,
   "frameNote": "0 watching, lantern and hat · 1 breath (derived) · 2 head bowed · 3 a glance down to the left · 4 the hat to his chest.",
-  "provenance": "reference/cast-unify-30.spec.json",
-  "figureHeight": 399,
+  "provenance": "reference/hob-b-02.spec.json",
+  "figureHeight": 400,
   "stature": 1.04,
   "statureNote": "Tall (the master drew him a head over the mourners, 368 where the curve's man is 334); held to 1.04, inside the 5% a standing man is allowed (tests/scale.test.ts), so he is drawn 6% under the master.",
-  "redrawn": "Errata 101 Y (Tyler, 2026-11-06: \"That's hob!? I feel like he always needs his lamp to remain recognizable\" and \"we need to use the new version everywhere\"). ONE HOB: drawn by cast-unify 32 from his own in-game frames -- the same face, moustache, coat and build -- with his lit lantern (doc 54: the lid opens on Hob's lantern, that night) and his hat in his other hand (doc 05: 'Hob, hat in hand'); relit into the funeral's night. Cast-unify 31's bareheaded Hob without the lantern read as another man and is not used."
+  "redrawn": "Errata 102 (one Hob, one level): drawn by cast-unify 38 from the redrawn Hob's own standing frame -- his face, coat and lantern -- bareheaded with his hat in his left hand (doc 05); relit into the funeral's night."
  }
 }

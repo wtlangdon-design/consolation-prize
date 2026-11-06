@@ -28,55 +28,55 @@
    [
     2,
     2,
-    146,
+    119,
     316
    ],
    [
-    150,
+    123,
     2,
-    146,
+    119,
     316
    ],
    [
-    298,
+    244,
     2,
-    146,
+    119,
     316
    ],
    [
-    446,
+    365,
     2,
-    146,
+    119,
     316
    ],
    [
-    594,
+    486,
     2,
-    146,
+    119,
     316
    ],
    [
-    742,
+    607,
     2,
-    146,
+    119,
     316
    ],
    [
-    890,
+    728,
     2,
-    146,
+    119,
     316
    ],
    [
-    1038,
+    849,
     2,
-    146,
+    119,
     316
    ],
    [
-    1186,
+    970,
     2,
-    146,
+    119,
     316
    ]
   ],
@@ -102,7 +102,8 @@
   "breakEvery": 8,
   "talkFrame": 0,
   "frameNote": "0-5 facing left toward the gap, breathing, his lantern flickering · 6-8 turned to look down the alley the other way. A break every `breakEvery` seconds (errata 77).",
-  "provenance": "art/staging/room-20/hob/hob.json"
+  "provenance": "art/staging/room-20/hob/hob.json",
+  "redrawn": "ERRATA 102: rebuilt from his redrawn idle (art/actors/hob-idle-right, cast-unify 37) by the same script."
  },
  "placements": {
   "watchmans_shack": {
@@ -126,55 +127,55 @@
      [
       2,
       2,
-      217,
+      176,
       469
      ],
      [
-      221,
+      180,
       2,
-      217,
+      176,
       469
      ],
      [
-      440,
+      358,
       2,
-      217,
+      176,
       469
      ],
      [
-      659,
+      536,
       2,
-      217,
+      176,
       469
      ],
      [
-      878,
+      714,
       2,
-      217,
+      176,
       469
      ],
      [
-      1097,
+      892,
       2,
-      217,
+      176,
       469
      ],
      [
-      1316,
+      1070,
       2,
-      217,
+      176,
       469
      ],
      [
-      1535,
+      1248,
       2,
-      217,
+      176,
       469
      ],
      [
-      1754,
+      1426,
       2,
-      217,
+      176,
       469
      ]
     ],
@@ -200,7 +201,8 @@
     "breakEvery": 8,
     "talkFrame": 0,
     "frameNote": "0-5 facing left toward the door and the table, breathing, his lantern flickering · 6-8 turned toward the cot and the wall. A break every `breakEvery` seconds (errata 77).",
-    "provenance": "art/staging/room-21/hob/hob.json"
+    "provenance": "art/staging/room-21/hob/hob.json",
+    "redrawn": "ERRATA 102: rebuilt from his redrawn idle (art/actors/hob-idle-right, cast-unify 37) by the same script."
    }
   }
  },

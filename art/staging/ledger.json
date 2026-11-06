@@ -24852,6 +24852,271 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-06T07:22:03.257Z"
+  },
+  {
+   "attempt": 37,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "hob-stand-and-walk",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/cast-master/master-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/hob-b-01.txt",
+   "promptHash": "16ba7db186ebf93eaa480e9b813e139aa865b4329158e5cd2fbeeb9b1e69c94d",
+   "references": [
+    {
+     "path": "art/staging/hob-b/board.png",
+     "hash": "3627de693d0020d0ef292829c33f253f6821ec00eaa11e7e62448c058cc0b1b0",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/hob-b/old-hob.png",
+     "hash": "6229c13cc60bd3eb14c896dfed8c4c78ab06ef148dd0566dcf6317b89681b1a9",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "aa9dc7fc86b2cc69993b69568ad2ac1d74fc2626ace5bf0af7ce5f89c1fd71fe",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "room-art",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "aa9dc7fc86b2cc69993b69568ad2ac1d74fc2626ace5bf0af7ce5f89c1fd71fe",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "3627de693d0020d0ef292829c33f253f6821ec00eaa11e7e62448c058cc0b1b0",
+   "sourcePath": "art/staging/hob-b/board.png",
+   "out": "art/staging/hob-b/stand-walk-01.png",
+   "outputHash": "c3c3d7dc0a1416790cd604c8b0addd0488999b970d8f4905ee0925210b52e3e1",
+   "bytes": 1405825,
+   "usage": {
+    "input_tokens": 11147,
+    "input_tokens_details": {
+     "image_tokens": 10756,
+     "text_tokens": 391
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 12698
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T07:33:27.854Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T07:33:27.858Z"
+  },
+  {
+   "attempt": 38,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "funeral-hob-from-new-hob",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/cast-master/master-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/hob-b-02.txt",
+   "promptHash": "569a42183301213b559172a8e3126ff936e9fef1db0c32405f4ba0e60c6ceacf",
+   "references": [
+    {
+     "path": "art/staging/hob-b/hob-new-stand.png",
+     "hash": "55861a6906e2f367bfab9be1293f434d6e80f6ee4f34335ca43926cad550f985",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "aa9dc7fc86b2cc69993b69568ad2ac1d74fc2626ace5bf0af7ce5f89c1fd71fe",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "reference/room-31/cast-board.png",
+     "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-31-funeral",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "aa9dc7fc86b2cc69993b69568ad2ac1d74fc2626ace5bf0af7ce5f89c1fd71fe",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-14-boot-hill)",
+      "path": "art/backgrounds/room-14-boot-hill.png",
+      "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the cast already drawn: Sowerby (Room 17), the undertaker (Room 13), Grievance (Room 15), Hob (Room 21))",
+      "path": "reference/room-31/cast-board.png",
+      "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "55861a6906e2f367bfab9be1293f434d6e80f6ee4f34335ca43926cad550f985",
+   "sourcePath": "art/staging/hob-b/hob-new-stand.png",
+   "out": "art/staging/hob-b/funeral-02.png",
+   "outputHash": "759354fcfe36a2b6938f9dab355aa82e971374e3b781fb7f20f3326009829305",
+   "bytes": 1425903,
+   "usage": {
+    "input_tokens": 8569,
+    "input_tokens_details": {
+     "image_tokens": 8304,
+     "text_tokens": 265
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 10120
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T07:35:25.055Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T07:35:25.058Z"
   }
  ],
  "promotions": [

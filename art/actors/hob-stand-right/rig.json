@@ -1,16 +1,28 @@
 {
+  "invocation": {
+    "source": "reference/casting/hob-stand-right.png",
+    "key": "magenta",
+    "view": "profile",
+    "facing": "right",
+    "clip": "stand",
+    "pose": "striding",
+    "pad": 260,
+    "swing": 1.0,
+    "knee": 1.0,
+    "level_limbs": false,
+    "legs_only": false,
+    "breath": 1.0
+  },
   "source": "reference/casting/hob-stand-right.png",
   "key": "magenta",
   "clip": "stand",
   "view": "profile",
   "facing": "right",
   "figure": [
-    632,
-    1365
+    514,
+    1366
   ],
-  "hem_row": 963,
+  "hem_row": 965,
   "padding": 260,
-  "breath_px": 6.8,
-  "frames": 1,
-  "note": "Hob standing still. Frame 0 of his idle, so a clip settling into stand cannot pop.\n\nHE WAS FROZEN MID-STRIDE until now: his stand was frame 0 of a clip derived from the WALK source, so a man who had stopped stood with one foot forward. This is a generated standing pose -- three-quarter toward the viewer, feet level, lantern held out clear of his coat so it can still be cut and so the glow anchors to the same flame. The WALK keeps its own profile source: he stops and looks at you, then turns and walks off."
+  "frames": 1
 }
