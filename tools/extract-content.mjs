@@ -3900,8 +3900,10 @@ function assay() {
     sequenceRuling: 'errata 75 and doc 57 F4: "in the order 4, 9, 22, 23, then the fifth".',
     rethrow: [again1, again2, again3].flatMap(spoken3),
     rethrowRuling: 'errata 75: "A lost exchange is thrown again ... After the reply to a wrong answer, one of these, in turn." So the duel cannot be lost, and ends when the fifth is answered.',
-    knows: [24],
-    knowsRuling: 'doc 03: "The player is offered four counters. Three are jokes. The fourth is pair 24, and it is not a lie." It is always on offer.',
+    knows: [4, 9, 24],
+    knowsRuling: 'doc 03: "The player is offered four counters. Three are jokes. The fourth is pair 24, and it is not a lie." It is always on offer. '
+      + 'Pairs 4 and 9 too: errata 75 I calls them "guaranteed in Act II", and pair 9\'s one source (WIN_B4) can be walked past for good, '
+      + 'after which a re-thrown exchange 2 never ends (invariant 6; errata 120).',
     win: ending.flatMap(spoken3),
     setsOnWin: { T_FANSHAWE_BEATEN: true },
     calledByOpponent: true,

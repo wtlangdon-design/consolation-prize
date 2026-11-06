@@ -897,9 +897,11 @@
       ],
       "rethrowRuling": "errata 75: \"A lost exchange is thrown again ... After the reply to a wrong answer, one of these, in turn.\" So the duel cannot be lost, and ends when the fifth is answered.",
       "knows": [
+        4,
+        9,
         24
       ],
-      "knowsRuling": "doc 03: \"The player is offered four counters. Three are jokes. The fourth is pair 24, and it is not a lie.\" It is always on offer.",
+      "knowsRuling": "doc 03: \"The player is offered four counters. Three are jokes. The fourth is pair 24, and it is not a lie.\" It is always on offer. Pairs 4 and 9 too: errata 75 I calls them \"guaranteed in Act II\", and pair 9's one source (WIN_B4) can be walked past for good, after which a re-thrown exchange 2 never ends (invariant 6; errata 119).",
       "win": [
         {
           "speaker": "sowerby",

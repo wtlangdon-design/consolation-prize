@@ -3329,3 +3329,18 @@ Tyler: "Read reference/art-fixes/brief.md and carry it out." Each item fit its r
 - `tests/keeps-time.test.mjs` drives three loops of the real bed's length. The frames now match continuous time, and it shows that reading the file's own time draws other frames.
 
 **Waiting on Tyler:** all three plates are promoted pending his playthrough (errata 72 E).
+
+---
+
+# 120 · DUEL THREE COULD NEVER END — FOUND BY THE DUEL AUDIT, FIXED (2026-11-06)
+
+The audit Tyler asked for ("Go on all five") played the duels as a newcomer, and found a dead end that breaks invariant 6.
+
+**The fault.** Duel Three throws pairs 4, 9, 22, 23 and 24, and re-throws a lost exchange. A pair the player has not learned is offered only its three wrong answers. Errata 75 I calls 4 and 9 "guaranteed in Act II". Pair 9 was not: its one source is Winnie's "Teach me to answer a boast." in WIN_B4, an option a player can walk past. Once the funeral is booked, WIN_B4 never opens again, and Duel Two can be won without it. Such a player reached exchange 2 of the final duel and could never leave it. Every test of F4 handed the player pairs 4 and 9 by fixture, so none saw it.
+
+**The fix keeps the ruling's word.** Duel Three now knows pairs 4 and 9 itself (`knows: [4, 9, 24]`), as it already knew pair 24. Fanshawe throws Thad's own repertoire back at him, and "guaranteed" now means guaranteed.
+
+**The lesson is a test.** `tests/assay.test.ts` plays Duel Three from the fewest pairs a player can hold (Duel One's four and the confession's, and the confession's alone) and fails if it does not end. It fails on the old content.
+
+The audit's other findings (how a lost Duel Two teaches, the score, reactions, staging) change how the duels play, and are Tyler's to rule on (reported separately).
+
