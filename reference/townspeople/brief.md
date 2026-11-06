@@ -4,6 +4,8 @@
 
 **Authorized:** Tyler, 2026-11-06, "Go: townspeople, up to 10 images." This covers asset `townspeople-110` in `art/staging/caps.json`, with **10 operations shared across five sheets**: one sheet per figure, plus corrections. Nothing else may be spent under this asset.
 
+**Status (2026-11-06): drawn, cut and cast -- all 15 operations spent (cap raised from 10 to 11, then 15, by Tyler).** Three passes (errata 115): the first sheets (`-prompt-01`) came back far too fine; the second (`-prompt-02`, the boy's `-03`), briefed with Fanshawe's "about 80 big pixels", too coarse except the boy; the third (`-prompt-03`), shown the Nugget's cast as the standard (`nugget-cast-standard.png`) and asked for about 110, landed. Thad measures about 104 blocks (`tools/art/measure-grid.py`). Cut by `tools/art/townspeople-cut.py`; compared in `renders/townspeople-vs-cast@3x.png`. **Brief the next figure from the `-prompt-03` files, not `-01`.**
+
 **Already done (errata 110, this branch's PR):**
 - Every word these figures say is extracted from doc 07 by `tools/extract-content.mjs`. That covers their trees in `content/dialogue/amb-*.json` and their barks in `content/ambient/*.json`. The boundary men's barks are a two-voice `barkExchange`.
 - The engine plays two-voice barks and per-room barks.

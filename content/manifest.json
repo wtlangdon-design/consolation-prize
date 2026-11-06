@@ -206,7 +206,13 @@
   "content/ambient/duel-sowerby.json",
   "content/ambient/duel-town-left.json",
   "content/ambient/duel-town-right.json",
-  "content/ambient/winnie-registrar.json"
+  "content/ambient/winnie-registrar.json",
+  "content/ambient/message-boy.json",
+  "content/ambient/man-leaving-tomorrow.json",
+  "content/ambient/boundary-a.json",
+  "content/ambient/boundary-b.json",
+  "content/ambient/dogs-owner.json",
+  "content/ambient/fiddler.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",

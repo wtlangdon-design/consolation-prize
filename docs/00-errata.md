@@ -3124,3 +3124,93 @@ To see them on the live site:
 
 **C · The six July lines are kept and written into doc 07.** They are the opening lines over three trees (the letter-writer looks up; the pie woman does not; the map seller brightens considerably) and three repeats (the letter-writer's "Once. And I charged him double.", the map seller's "Like a man eating his own dinner, sir." and "Still not been disproved."). Tyler had played them, so they stay as he heard them. Doc 07's NOTATION gains ***Opening:***. `tests/town-trees-sourced.test.ts` now holds every line of every townsperson's tree to doc 07, word for word. It is proved by deleting one of the six, which fails it.
 
+# 115 · THE TOWNSPEOPLE DRAWN AT THE CAST'S PIXEL SIZE, CUT AND CAST — TYLER, 2026-11-06
+
+Errata 110's five townspeople have their pictures, under Tyler's "Go: townspeople, up to 10 images" (`townspeople-110`, `reference/townspeople/brief.md`), raised twice on his word: to 11 ("+1 op, redraw all 5") and to 15 (the fiddler and three more "pulled up to about the same level of pixelation which should make sense with the characters in the Nugget"). **All 15 operations are spent.** None was refused, and no line was written.
+
+**It took three passes to reach the cast's pixel size, and Tyler's eye called each one:**
+
+| Pass | Grid (blocks, head to boots) | Tyler |
+|---|---|---|
+| Thad, for comparison | **about 104** | |
+| First sheets, briefed in general words | about 200 | "None of the new characters seem to match the pixelation level of the cast we worked really hard on." |
+| Second, Fanshawe's prompt ("about 80 big pixels") | 62–84 | "They all maybe look slightly too pixelated?" The boy was "the best"; "the fiddler looks out of place". |
+| Third: the fiddler, the man leaving tomorrow, the boundary men, the dog's owner | 87–138 | |
+
+The boy keeps his second sheet: 62 blocks at a child's height, which is about 92 for a man.
+
+**Why the second pass overshot.** Fanshawe's prompt says Thad is "about 80 pixels tall". Measured, he is about 104 (`tools/art/measure-grid.py`: the spacing of colour edges inside the figure, on the sheet at its own resolution). The undertaker is 104, and Sump and Fanshawe 84–87. Asking for 80 got 62–84.
+
+**What the third pass showed the generator** (`reference/townspeople/nugget-cast-standard.png`, `-prompt-03.txt`):
+- the Nugget's own cast, close up, as the standard: the card players, the bar men, Deke and Thad, with small pixels, soft warm shading on faces, hands and clothes, and muted, slightly dark colour;
+- the second-pass fiddler beside them, as the miss;
+- the figure's own sheet, for the poses;
+- a request for about 110 pixels tall, shaded like the men in the picture and no sharper than them.
+
+All four came back in that range at the first try.
+
+**The operations (`art/staging/ledger.json`):**
+
+| # | Sheet | Result |
+|---|---|---|
+| 1–5 | first sheets | too fine |
+| 6 | the boy's correction in general words | too fine |
+| 7–11 | second sheets | the boy kept; the rest too coarse |
+| 12–15 | third sheets: the boundary men (first, to prove the brief), the fiddler, the man leaving tomorrow, the dog's owner | **cut** |
+
+**The comparisons:**
+- `renders/townspeople-vs-cast@3x.png` (`tools/art/townspeople-lineup.py`) draws every figure at the size the game draws it in his own room, beside Thad and the passed cast, enlarged 3× with hard edges.
+- The judgement that settled it was Tyler's, made in the room: the fiddler against the Nugget.
+
+**What the generator did that the prompts did not ask:**
+- The boundary men point at each other across the forty feet, not away to their own ground. It reads as the argument, and every pass kept it.
+- The dog's owner looks to the left at rest. That suits a man looking for his dog, and his TALK pose turns to Thad.
+
+**The cut** (`tools/art/townspeople-cut.py`, through `tools/art/cut-ambient-sheet.py`):
+- Each figure is cut at the height the brief gives: the boy at 109 (160 × 0.68), the man leaving tomorrow at 152, the boundary men at 170, the dog's owner at 317, the fiddler at 288.
+- The cutter gains two options; every figure cut before keeps its defaults.
+  - `--min-island` keeps the boy's penny.
+  - `--register right` sets the man leaving tomorrow by the right edge of his boots. His bag sits at his boots in four poses of five and swung the centre of his "legs".
+- Every sprite declares `figureHeight` and `stature`, so the renderer holds the figure to the room's curve wherever he stands. That is how the dog's owner is 317 in the alley and 167 on Main Street from one sheet.
+
+**What moves (errata 77, `tests/movement.test.mjs`):** each has a rest pose, a breath derived from it (`tools/rig/ambient-breath.py`), a pool of breaks and a TALK pose.
+
+| Figure | Breaks | Every |
+|---|---|---|
+| Boy | looks back down the street; flips his penny | 11 s |
+| Man leaving tomorrow | reaches, lifts the bag and sets it down; or looks down the road with a hand on it | 17 s |
+| Boundary men | point; argue | 10 s each, B half a cycle after A, so they never point on the same beat |
+| Dog's owner, alley | shades his eyes and looks; calls | 13 s |
+| Dog's owner, Main Street (his placement's own sprite) | rests on GLAD, smiling down at Bill, and looks up the street now and then | 14 s |
+| Fiddler | TUNE; a busier bowing passage | 19 s |
+
+The fiddler's idle is his playing: two bow positions, about 0.6 s a stroke.
+
+**Not on the duel's visit.** The one visit Fanshawe calls the duel, doc 57's "half the town" stands at the saloon end (`duel-town-left`, `duel-fanshawe`), across the very mud where the man leaving tomorrow waits with his bag and where the dog's owner stands with Bill. `tests/staging-clear.test.ts` found them inside the crowd, at 69% and 74% overlap. Both are absent while `T_DUEL_CROWD` holds (they are in the crowd) and back the next visit. Presence is decided as Thad arrives, so neither vanishes in front of him.
+
+**Merged after errata 111–114 (2026-11-06).** This entry was written as 111 on its branch while main took 111–114 for the locked cast master (111), one level of pixelation for the whole game (112) and the act-change lines (113, 114); it is 115. Its figures are snapped to 112 G's grid -- a man 115 art pixels tall -- by `tools/art/one-level.py`, as every figure is (`tests/one-level.test.mjs`).
+- **Heights:** each `figureHeight` is crown to sole (112 L). `tools/art/figure-height.py --hat` took the boundary man A's folded arms, the dog's owner's collar and the fiddler's fiddle for their brims, so those three are read by eye from the rest frame's row widths: 165, 315 and 288.
+- **`faces`:** the boundary men declare it, A right and B left, at each other, and so does the boy, right, toward Thad's stand (`tests/faces.test.mjs`).
+- **The dog's owner declares none.** At rest he looks off up the alley for his dog (doc 07: "Looking for the lost dog"), away from Thad's stand, and his TALK pose, the one the conversation shows, turns to Thad. The brief asked for `faces` on him; his rest pose is the reason it is left off.
+
+**Cast and seen.**
+- The six files are in the manifest, `awaitingArt` is gone, and Main Street, the Nugget and the back alley are recompiled.
+- In the game, TALK TO opens each figure's doc 07 tree with its own options: the boy, the man leaving tomorrow, the boundary men, the dog's owner in the alley, the fiddler in the Nugget.
+
+**A test that assumed it was alone.** `tests/room-20.test.ts` took the alley's conversation to be the first person there with a tree. The dog's owner stands there now, so it asks for the doc 04 conversation, not a doc 07 micro-tree (`amb_*`).
+
+**The proofs** (`renders/proofs/{main-street,back-alley,nugget}/`):
+- **Main Street and the back alley pass.** Main Street's was last recorded failing, in 2026-09.
+- **Two gates were measuring the wrong thing, and are fixed in `tools/gauntlet/proof.mjs`:**
+  - *A figure out of panel B's shot was failed as "nothing drew".* Main Street is 3700 wide and the panel shows one stretch of it. The letter-writer, there since 2026-09, failed it with the boy and a boundary man. Such a figure is now looked at where he stands: Thad is stood beside him, the camera follows, and the same populated-minus-suppressed pair is measured.
+  - *Gate 8B measured Thad's feet behind whoever stood in front of the mark.* The dog's owner is on the alley's centre line, and his coat read as 46px of float. Along the authored row, an x where Thad would stand behind a present figure is now passed over while another x remains, as an x off the floor already was. The row itself never moves.
+- **The Nugget's proof still fails, on two things that were there before today:**
+  - Its far depth row (y515, x900–1015) lies wholly behind Deke at the bar, so gates 8A and 8B measure him and the card sharp with Thad.
+  - `proofs/spec/nugget.json` names no principal change, so panel D cannot be taken. Which change is principal is authorship.
+  - The fiddler is clear of both: the near mark stepped off him to x224 and passed.
+
+**Left for the playthrough** (style gate step 3, errata 72): how each figure reads in his room at play speed.
+
+**Open, and not this pass's:**
+- **The fiddler's bowing is not on the music's bar grid** (doc 22). The score has no tempo or bar grid yet, so his rate is fixed. It goes with his playing in the music: faster for R_BORDERS_MOTT, the passing tune for R_DEAD, and retuning first in F2.
+- The message boy's *(pay)*, the bell-ringer and the stage driver remain Tyler's (errata 110).

@@ -1,0 +1,25 @@
+Image 1 shows characters from my pixel-art adventure game side by side at the same scale. On the left is Thad, the hero: he is the style standard. On the right are the two boundary men as they are drawn now -- and they are WRONG: the pixels are far too small and the detail far too fine. Look at Thad: his pixels are BIG square blocks, several times larger. Thad is only about 80 pixels tall from hair to shoes; every pixel of him is a clear, chunky square; his face is a handful of blocks -- one dark block for an eye, a few for the nose and mouth; his clothes are a few flat tones with no fine texture.
+
+Image 2 is the two boundary men's sheet of six poses, drawn too finely. Redraw that same sheet -- the same men, the same clothes and colours, the same six poses in the same order, left to right -- in THAD'S PIXEL SIZE:
+- Each man about 80 big pixels tall from hat to boots, exactly as coarse as Thad: every pixel a large, crisp square block the same size as Thad's.
+- Simple shapes and flat colour areas, the way Thad is drawn. No fine texture, no tiny highlights, no thin lines -- a feature too small for one of Thad's blocks is left out.
+- The face as simple as Thad's: a few blocks, dark blocks for the eyes, the features still readable.
+- The same warm, low night light as Thad; no brighter than him.
+
+The characters: THE TWO BOUNDARY MEN, two old prospectors arguing: MAN A, thin, grey beard, battered brown hat, red plaid flannel shirt, braces, facing the viewer's right; MAN B, stout, clean-shaven, black bowler hat, brown waistcoat over a pale shirt, facing the viewer's left.
+
+The poses, as in image 2:
+1. A REST: Man A standing, facing right, arms folded.
+2. A POINT: Man A pointing firmly to the viewer's right, at Man B.
+3. A TALK: Man A facing right, mouth open mid-argument, one hand raised.
+4. B REST: Man B standing, facing left, hands on hips.
+5. B POINT: Man B pointing firmly to the viewer's left, at Man A.
+6. B TALK: Man B facing left, mouth open mid-argument, one finger raised.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, nothing else in the picture.
+- All six poses the same size, with the boots on the same baseline, the men about two-thirds the height of the picture.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same face everywhere else.
+- Crisp pixel edges against the magenta. No soft glow or blur.
+- Do not draw Thad. No text, labels, numbers or borders.

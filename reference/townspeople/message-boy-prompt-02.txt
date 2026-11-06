@@ -1,0 +1,25 @@
+Two images are attached. The first is a frame from my pixel-art adventure game: the man in the long blue coat is Thad, the hero, standing where he talks to a new character. The second shows Thad (left) beside the message boy you drew last time (right), at the size they will stand together in the game.
+
+THE ONE THING TO FIX: last time the boy came out on a much FINER pixel grid than Thad and with far more detail -- small pixels, a detailed face, fine crisp texture on his jacket and knees, and brighter than Thad. Beside Thad he looks like he belongs to a different game. Draw him again on THAD'S grid: big square pixels the same size as Thad's, so that from the top of his cap to his boots he is only about 55 pixels tall. Flat, soft shading with few tones, as on Thad's coat. A simple face drawn the way Thad's is. No fine texture. The same low night light as Thad, no brighter. Keep everything else as it was: the same boy, the same cap, patched jacket, short trousers and boots, the same colours, the same five poses. In FLIP, draw the penny clearly, a few of those big pixels across, just above his hand.
+
+The character: a MESSAGE BOY, nine years old, who runs notes around town for a penny: small, quick, sharp-eyed, in a too-big cap, patched jacket and short trousers, worn boots. He is a child: about two thirds of Thad's height.
+
+STYLE — match the man in the long blue coat (Thad, the hero) exactly:
+- Same pixel-art style, same pixel size, same flat, soft shading, same small amount of texture, same clean dark outlines. Not sharper, not more detailed, not more contrasty. Too sharp is the usual mistake: keep the shading flat and soft like his.
+- Same proportions and drawing of faces, hands and boots as Thad.
+- Same warm, low night light as the attached frame. 1850s California gold-rush town; worn, plain, period clothes in muted colours.
+
+THE SHEET — one image, 5 poses side by side, left to right:
+1. REST: standing, facing three-quarters to the viewer's right, a folded note in one hand at his side.
+2. LOOK: the same, head turned to look back over his shoulder down the street.
+3. PENNY: holding out an open palm toward the viewer's right, waiting to be paid.
+4. FLIP: tossing a penny up with his thumb, eyes on it, the coin in the air above his hand.
+5. TALK: facing three-quarters right, mouth open mid-word, the note raised a little.
+
+RULES — these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no wall, no furniture, no scenery.
+- Every pose full-length (head to boots), the same size, boots on the same baseline.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same proportions.
+- Crisp pixel edges against the magenta. No soft glow, halo or blur around the figure.
+- Do not draw Thad. No text, labels, numbers or borders.
