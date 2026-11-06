@@ -1293,6 +1293,33 @@
     "room:main_street_dawn:to_coach_stop:transitScene"
    ],
    "note": "Doc 48 S7 beats 3-4: Thad's last line at the coach stop and the Act IV letter over black have played; the stop is gone and the game is at its close (errata 99 J)."
+  },
+  {
+   "id": "T_ASSAY_ASKED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:WINNIE:WIN_B2:winnie1"
+   ],
+   "note": "Doc 04 WIN_B2 option 1: the assay is granted (C6 pending). Read by Room 5's onEnter so that coming back in writes T_ASSAY_BACK (doc 57 C6)."
+  },
+  {
+   "id": "T_ASSAY_BACK",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:assay_office:onEnter"
+   ],
+   "note": "Doc 57 C6: Thad has been out of the office and back since asking; WIN_B4 opens on the next TALK TO."
+  },
+  {
+   "id": "T_ASSAY_RETURNED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:WINNIE:WIN_B4:open"
+   ],
+   "note": "Doc 04 WIN_B4: the returned assay has been spoken, C6 completed and Document B issued -- once."
   }
  ]
 }

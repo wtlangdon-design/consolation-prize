@@ -1353,6 +1353,12 @@ export interface RoomFile {
     note?: string;
     set?: FlagWrites;
     /**
+     * Writes made on entering only while `when` holds, each rule on its own.
+     * Doc 57 C6: WIN_B4 opens "once Thad has left the office and come back" --
+     * the asking writes one flag, and coming back in writes the next.
+     */
+    setWhen?: { when: Condition; set: FlagWrites }[];
+    /**
      * Somewhere to walk to on arriving, once he is standing in the room.
      *
      * ARRIVING ALREADY STANDING THERE IS THE PROBLEM IT SOLVES. Thad walks out
@@ -1770,6 +1776,12 @@ export interface DialogueNode {
    * the node opens.
    */
   openingOnce?: string;
+  /**
+   * WHAT THE OPENING DOES, once, with `openingOnce`. Doc 04 WIN_B4: "The
+   * opening completes C6 and issues Document B." Performed when the tree
+   * first opens on this node; `openingOnce` records it, so it never repeats.
+   */
+  onOpen?: { set?: FlagWrites; puzzle?: Record<string, PuzzleStatus>; gives?: string[] };
   options: DialogueOption[];
 }
 

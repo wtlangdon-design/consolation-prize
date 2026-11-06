@@ -651,6 +651,12 @@ export class GameState {
     // and no hotspot response can observe it. Applied before the autosave so
     // a save taken on arrival already knows where he has been.
     this.flags.applyWrites(this.content.rooms.get(roomId)?.onEnter?.set);
+    // WRITTEN ON ENTERING, ONLY WHILE A CONDITION HOLDS (doc 57 C6: "once Thad
+    // has left the office and come back"). Read after `set`, against the state
+    // as he walks in.
+    for (const rule of this.content.rooms.get(roomId)?.onEnter?.setWhen ?? []) {
+      if (this.flags.test(rule.when)) this.flags.applyWrites(rule.set);
+    }
   }
 
   /**

@@ -4,13 +4,25 @@
   "id": "WINNIE",
   "speaker": "winnie",
   "name": "WINNIE LEDGER",
-  "note": "EXTRACTED from docs/04-dialogue-trees.md (WINNIE LEDGER) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a response are Winnie; the opening exchange is carried whole as `opening` and the prompt is its last Winnie line. WIN_B3 and WIN_C1 are not extracted (see the extractor). Universal exit lines are doc 04 part one's pool.",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (WINNIE LEDGER) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a response are Winnie; the opening exchange is carried whole as `opening` and the prompt is its last Winnie line. WIN_B3 is not extracted (see the extractor). Universal exit lines are doc 04 part one's pool.",
   "entries": [
     {
       "when": {
         "T_STRIKE_FOUND": true
       },
       "node": "WIN_F1"
+    },
+    {
+      "when": {
+        "T_FUNERAL_BOOKED": true
+      },
+      "node": "WIN_C1"
+    },
+    {
+      "when": {
+        "T_ASSAY_BACK": true
+      },
+      "node": "WIN_B4"
     },
     {
       "puzzle": "C5",
@@ -304,6 +316,9 @@
           "say": "I'll run your assay. I'd run your assay if it were a bucket of rain.",
           "puzzle": {
             "C6": "pending"
+          },
+          "set": {
+            "T_ASSAY_ASKED": true
           }
         },
         {
@@ -403,6 +418,114 @@
           "universal": true,
           "ends": true
         }
+      ],
+      "openingOnce": "T_ASSAY_RETURNED",
+      "onOpen": {
+        "puzzle": {
+          "C6": "complete"
+        },
+        "gives": [
+          "document_b"
+        ]
+      }
+    },
+    "WIN_C1": {
+      "id": "WIN_C1",
+      "noComic": true,
+      "noComicReason": "Doc 04 Act III: \"The relationship scene. Six exchanges, and the correct path is not persuasion.\" Its four rows are the persuasion and the dropping of it; none is a joke option.",
+      "prompt": "No.",
+      "opening": [
+        {
+          "speaker": "thad",
+          "line": "I need you to certify that I'm dead."
+        },
+        {
+          "speaker": "winnie",
+          "line": "No."
+        }
+      ],
+      "options": [
+        {
+          "id": "winnie1",
+          "tag": "PROGRESS",
+          "text": "It's the only way into the archive.",
+          "afterUse": "retain",
+          "say": "I'm aware of the statute. The answer is no."
+        },
+        {
+          "id": "winnie2",
+          "tag": "PROGRESS",
+          "text": "It's just a form.",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "Wrong. Hard wrong.",
+              "direction": true
+            },
+            {
+              "speaker": "winnie",
+              "line": "It is never just a form. That is what this town is made of."
+            }
+          ]
+        },
+        {
+          "id": "winnie3",
+          "tag": "PROGRESS",
+          "text": "Nineteen names, Miss Ledger.",
+          "afterUse": "retain",
+          "beat": "Long silence."
+        },
+        {
+          "id": "winnie4",
+          "tag": "PROGRESS",
+          "text": "You're right. Forget it.",
+          "afterUse": "remove",
+          "gives": [
+            "death_certificate"
+          ],
+          "puzzle": {
+            "E4": "complete"
+          },
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "…Sit down, Mr. Grubb."
+            },
+            {
+              "speaker": "winnie",
+              "line": "If I sign this and you are wrong, I have ended my own office and killed you for nothing."
+            },
+            {
+              "speaker": "thad",
+              "line": "Yes."
+            },
+            {
+              "speaker": "winnie",
+              "line": "You're not going to reassure me."
+            },
+            {
+              "speaker": "thad",
+              "line": "I don't think I can. I've checked."
+            },
+            {
+              "speaker": "winnie",
+              "line": "signing",
+              "direction": true
+            },
+            {
+              "speaker": "winnie",
+              "line": "That's the first honest transaction at this window in nine years."
+            }
+          ]
+        },
+        {
+          "id": "winniex",
+          "tag": "EXIT",
+          "text": "I've taken enough of your time. I'll be taking more later.",
+          "universal": true,
+          "ends": true
+        }
       ]
     },
     "WIN_F1": {
@@ -457,7 +580,7 @@
         {
           "id": "winniex",
           "tag": "EXIT",
-          "text": "I've taken enough of your time. I'll be taking more later.",
+          "text": "I am going to leave now, in a dignified manner.",
           "universal": true,
           "ends": true
         }

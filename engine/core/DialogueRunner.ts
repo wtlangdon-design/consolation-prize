@@ -275,7 +275,15 @@ export class DialogueRunner {
     }
     this.activeTree = tree;
     this.activeNodeId = this.opensOn(tree);
-    const once = tree.nodes[this.activeNodeId]?.openingOnce;
+    const node = tree.nodes[this.activeNodeId];
+    const once = node?.openingOnce;
+    // The opening's own act (doc 04 WIN_B4: completes C6, issues Document B),
+    // performed the first time only: `openingOnce` is what says so.
+    if (once && node?.onOpen && this.flags.get(once) !== true) {
+      this.flags.applyWrites(node.onOpen.set);
+      for (const [puzzle, status] of Object.entries(node.onOpen.puzzle ?? {})) this.milestones.set(puzzle, status);
+      if (node.onOpen.gives?.length) this.milestones.grant?.(node.onOpen.gives);
+    }
     if (once) this.flags.set(once, true);
   }
 
