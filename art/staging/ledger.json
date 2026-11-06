@@ -22455,6 +22455,124 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-06T04:37:36.550Z"
+  },
+  {
+   "attempt": 19,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "pratt-and-pie-woman",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/cast-master/master-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/cast-unify-17.txt",
+   "promptHash": "a1de6bf5dfcc2f0797ed9da4f5ca458cff508c493d7882e789d1d76eadfb8796",
+   "references": [
+    {
+     "path": "art/staging/cast-unify/batch-17/board.png",
+     "hash": "acf2d2fdb85aafdab5bde0fcd044635d508b98a8d05cadf2a3708d6bc5ba97d3",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-17/last-sheet.png",
+     "hash": "2915dc34225bea481b7f2965d3dd0a02feb7bc8db36013afb520096b47d5fa85",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-25-pratts-claim",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-01-stage-road)",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "acf2d2fdb85aafdab5bde0fcd044635d508b98a8d05cadf2a3708d6bc5ba97d3",
+   "sourcePath": "art/staging/cast-unify/batch-17/board.png",
+   "out": "art/staging/cast-unify/batch-17/sheet.png",
+   "outputHash": "e34239e185f5a4c82b932314b9e57d636ad96b9b57a95aad165bd4ff9cbb8779",
+   "bytes": 1589029,
+   "usage": {
+    "input_tokens": 8259,
+    "input_tokens_details": {
+     "image_tokens": 7724,
+     "text_tokens": 535
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 9810
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T04:52:38.046Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T04:52:38.051Z"
   }
  ],
  "promotions": [

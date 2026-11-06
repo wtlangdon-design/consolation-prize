@@ -50,9 +50,12 @@ def snap(rgb, n):
     a = rgb.astype(float)
     # KEY CAUGHT INSIDE THE DRAWING: a pocket of backdrop enclosed by the figure
     # (between the undertaker's hands on his plane) keys as figure, being far
-    # enough from #FF00FF, and shows pink. Any pixel more magenta than POCKET is
-    # backdrop. Real purple sits well under it (Ozymandia's hair, 63).
-    pocket = (a[..., 0] + a[..., 2]) / 2 - a[..., 1] > POCKET
+    # enough from #FF00FF, and shows pink. Any pixel more magenta than POCKET,
+    # with blue well over green, is backdrop. Real purple sits well under it
+    # (Ozymandia's hair, 63).
+    # Blue well over green too: a strong RED scores high on the tint alone (the
+    # pie woman's pie, 220/80/80, was punched full of holes by the first rule).
+    pocket = ((a[..., 0] + a[..., 2]) / 2 - a[..., 1] > POCKET) & (a[..., 2] > a[..., 1] + 30)
     a[pocket] = (255, 0, 255)
     ex = np.abs(np.diff(a, axis=1)).sum(-1).sum(0)
     ey = np.abs(np.diff(a, axis=0)).sum(-1).sum(1)
@@ -99,7 +102,7 @@ with tempfile.TemporaryDirectory() as tmp:
     rowimg = np.asarray(Image.open(src).convert('RGB'))[max(0, y0 - 4):y1 + 4]
     Image.fromarray(snap(rowimg, grid) if grid else rowimg).save(part)
     cut = os.path.join(tmp, 'cut.png')
-    info = json.loads(subprocess.check_output([sys.executable, os.path.join(ROOT, 'tools/art/cut-ambient-sheet.py'), part, str(height), cut]))
+    info = json.loads(subprocess.check_output([sys.executable, os.path.join(ROOT, 'tools/art/cut-ambient-sheet.py'), part, str(height), cut] + (['--clean'] if grid else [])))
     sheet = np.asarray(Image.open(cut).convert('RGBA'))
 frames = info['frames']
 rest = sheet[frames[0][1]:frames[0][1] + frames[0][3], frames[0][0]:frames[0][0] + frames[0][2]].copy()
@@ -115,5 +118,18 @@ for i, c in enumerate(cells):
     x = 2 + i * (w + 2)
     outsheet[2:2 + h, x:x + w] = c
     rects.append([x, 2, w, h])
+# LAST: no key survives the shrink. A key blend can be made by the resize itself,
+# after the pocket and edge passes (one pixel on the pie woman's bun, 196/97/189).
+# On the edge it is dropped; inside, it takes its clean neighbours' colour.
+o = outsheet.astype(int)
+keyed = (o[..., 3] > 128) & ((o[..., 0] + o[..., 2]) / 2 - o[..., 1] > POCKET) & (o[..., 2] > o[..., 1] + 30)
+for yy, xx in zip(*np.nonzero(keyed)):
+    nb = o[max(0, yy - 1):yy + 2, max(0, xx - 1):xx + 2]
+    if (nb[..., 3] == 0).any():
+        outsheet[yy, xx, 3] = 0
+    else:
+        ok = nb[(nb[..., 3] > 128) & ~(((nb[..., 0] + nb[..., 2]) / 2 - nb[..., 1] > POCKET) & (nb[..., 2] > nb[..., 1] + 30))]
+        if len(ok):
+            outsheet[yy, xx, :3] = np.median(ok[:, :3], 0)
 Image.fromarray(outsheet).save(out)
 print(json.dumps({'frames': rects, 'rows': len(bands), 'height': height}))

@@ -24,7 +24,8 @@ import { readPng } from '../tools/lib/png.mjs';
  * purple -- Ozymandia's hair, which falls to her edge -- continues inward, so
  * it is not key either. And nowhere in the figure is a pixel more magenta than
  * POCKET: a pocket of backdrop enclosed by the figure keys as figure and shows
- * pink where no edge test looks (the undertaker's plane, 116; real purple, 63). Measured: Thad 0; the four first cuts 1.5% to 3.3%; recut
+ * pink where no edge test looks (the undertaker's plane, 116; real purple, 63),
+ * blue well over green -- a red pie is not key. Measured: Thad 0; the four first cuts 1.5% to 3.3%; recut
  * 0. Older sheets lit purple all over by a night relight are not master cuts
  * and are replaced from the master as it goes.
  */
@@ -81,6 +82,8 @@ export function mostMagenta(png) {
   let worst = -255;
   for (let i = 0; i < png.pixels.length; i += 4) {
     if (png.pixels[i + 3] <= 128) continue;
+    // Blue well over green: magenta, not red (the pie woman's red pie, 220/80/80).
+    if (png.pixels[i + 2] <= png.pixels[i + 1] + 30) continue;
     worst = Math.max(worst, (png.pixels[i] + png.pixels[i + 2]) / 2 - png.pixels[i + 1]);
   }
   return worst;

@@ -1,0 +1,10 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game, a comedy in an 1850s frontier gold town: left to right, the hero (THE STYLE AND THE SCALE), then A (the claim jumper) and B (the pie woman). These designs are FINAL. Draw each EXACTLY as in Image 1 -- the same face, hair, age, build, clothes and colours, the same size of square pixel, the same amount of detail, the same soft shading and dark outline -- only in new poses. Image 2 shows other characters of this cast drawn full figure for this game last time: draw at that size and in that hand.
+
+Every figure is a FULL FIGURE, standing, feet on one line in each row, at the same scale as the hero (A is a big, heavy-shouldered man, a little taller than the hero; B a little shorter). Each holds his or her own thing in EVERY pose, so it never appears or vanishes.
+
+THE SHEET: flat pure magenta (#FF00FF) background. Three rows, each shown FOUR times side by side, every figure in a row the same size, separated by clear magenta space:
+- Row 1, A with a long wooden garden RAKE in every pose: 1. leaning on the rake's handle, unhurried; 2. one hand shading his eyes, checking the sky, the other on the rake; 3. raking, the rake's head on the ground pulled toward him; 4. raking, the rake pushed away from him.
+- Row 2, A with a big wooden MALLET in every pose: 1. standing, the mallet's head resting on the ground beside his boot, one hand on its handle; 2. the mallet lifted onto his shoulder; 3. the mallet raised high over his head in both hands, about to strike; 4. the mallet struck down, its head at the ground just in front of his feet (the stake it drives is not drawn).
+- Row 3, B with a basket of pies on her arm in every pose: 1. standing with the basket; 2. holding a pie out from the basket, offering it; 3. lifting the basket a little; 4. one hand up, calling out.
+
+RULES: only the rake, mallet and basket, where named. Crisp pixel edges against the magenta, no glow, no blur, no shadows, no ground, no text, no numbers, no border.

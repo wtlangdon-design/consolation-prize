@@ -22,31 +22,37 @@
  "barks": {},
  "barksNote": "Doc 07 writes no barks for Pratt.",
  "sprite": {
-  "sheet": "art/actors/room-25-pratt-jump.png",
+  "sheet": "art/actors/room-25-pratt-jump-master.png",
   "frames": [
    [
     2,
     2,
-    324,
-    447
+    326,
+    450
    ],
    [
-    328,
+    330,
     2,
-    324,
-    447
+    326,
+    450
    ],
    [
-    654,
+    658,
     2,
-    324,
-    447
+    326,
+    450
    ],
    [
-    980,
+    986,
     2,
-    324,
-    447
+    326,
+    450
+   ],
+   [
+    1314,
+    2,
+    326,
+    450
    ]
   ],
   "rate": 0.25,
@@ -54,15 +60,19 @@
   "breaks": [
    [
     2,
+    2,
+    2,
     0
    ]
   ],
   "breakEvery": 7,
-  "frameNote": "0 mallet rest · 1 breath · 2 the mallet lifted to his shoulder. Breathing on 0 and 1; every `breakEvery` seconds he shifts the mallet (errata 77). Not frame 3: there is no stake at the Registrar's.",
-  "provenance": "art/staging/room-25/pratt/pratt-jump.json",
-  "figureHeight": 409,
+  "frameNote": "0 the mallet resting on the ground · 1 breath (derived) · 2 the mallet on his shoulder. Every `breakEvery` seconds he shoulders it (errata 77). Not 3 or 4: there is no stake here.",
+  "provenance": "reference/cast-unify-17.spec.json",
+  "figureHeight": 405,
   "stature": 1.03,
-  "statureNote": "The bigger man: room-25's master drew him 1.05 of Thad; 1.03 keeps him inside the 5% a standing man is held to (tests/scale.test.ts)."
+  "statureNote": "The bigger man: room-25's master drew him 1.05 of Thad; 1.03 keeps him inside the 5% a standing man is held to (tests/scale.test.ts).",
+  "figureHeightNote": "Crown to sole, his hat excluded: 0.913 of the drawn rest frame, as measured on the rake row of the same sheet (the hat-brim reading is thrown here by the mallet's handle).",
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 19 (reference/cast-unify-17.txt), full figure, his mallet in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet; its own file."
  },
  "exit": {
   "path": [

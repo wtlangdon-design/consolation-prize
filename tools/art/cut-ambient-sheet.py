@@ -23,20 +23,28 @@ from PIL import Image
 from scipy.ndimage import binary_erosion, label
 
 src, height, out = sys.argv[1], int(sys.argv[2]), sys.argv[3]
+# --clean: the sheet's edge is already clean (tools/art/cast-unify-cut.py's
+# edge pass), so the one-pixel erosion below is not wanted: it is what removes
+# a blended ring, and on a clean sheet it only thins the figure -- it broke
+# Pratt's 3 px rake handle into pieces and his tines into specks (2026-11-06).
+clean = '--clean' in sys.argv
 im = np.asarray(Image.open(src).convert('RGB')).astype(float)
 dist = np.sqrt((im[..., 0] - 255) ** 2 + im[..., 1] ** 2 + (im[..., 2] - 255) ** 2)
 fg = dist >= 120
 lab, n = label(fg)
 sizes = np.bincount(lab.ravel())
 fg &= np.isin(lab, [i for i in range(1, n + 1) if sizes[i] > 400])
-core = binary_erosion(fg, iterations=1)
+core = fg.copy() if clean else binary_erosion(fg, iterations=1)
 ring = core & ~binary_erosion(core, iterations=3)
 excess = np.clip(np.minimum(im[..., 0], im[..., 2]) - im[..., 1], 0, None) * ring
 im[..., 0] -= excess * 0.85
 im[..., 2] -= excess * 0.85
 im = np.clip(im, 0, 255)
 
-cols = core.sum(0) > 3
+# A pose is one run of columns holding ANY of the figure (specks are already
+# dropped by size). '> 3' read a thin diagonal rake handle as a gap and cut
+# Pratt's raking pose in two (2026-11-06).
+cols = core.sum(0) > 0
 runs, start = [], None
 for x, on in enumerate(cols):
     if on and start is None: start = x

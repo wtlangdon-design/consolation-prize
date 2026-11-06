@@ -23,37 +23,37 @@
  },
  "sprite": {
   "note": "Frames 0-1 are the idle: the pose and a derived one-pixel breath. Frames 2-4 are the three poses from the character sheet. `breaks` are SEPARATE actions chosen from a pool, each leaving the idle and returning to it -- not a routine played in order, which is what the eye catches.",
-  "sheet": "art/actors/ambient-pie-woman.png",
+  "sheet": "art/actors/ambient-pie-woman-master.png",
   "frames": [
    [
     2,
     2,
-    110,
-    157
+    107,
+    170
    ],
    [
-    114,
+    111,
     2,
-    110,
-    157
+    107,
+    170
    ],
    [
-    226,
+    220,
     2,
-    110,
-    157
+    107,
+    170
    ],
    [
-    338,
+    329,
     2,
-    110,
-    157
+    107,
+    170
    ],
    [
-    450,
+    438,
     2,
-    110,
-    157
+    107,
+    170
    ]
   ],
   "rate": 0.7,
@@ -82,8 +82,12 @@
   "breaksThatSpeak": [
    2
   ],
-  "provenance": "reference/cast-unify-01.spec.json",
-  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn with the other Main Street townspeople in Thad's hand (cast-unify operation 1, reference/cast-unify-01.txt), cut by tools/art/cast-unify-cut.py. Same poses: 0 rest, 1 breath, 2-4 the actions."
+  "provenance": "reference/cast-unify-17.spec.json",
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 19 (reference/cast-unify-17.txt), full figure, her basket in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet; its own file.",
+  "figureHeight": 168,
+  "stature": 1.0,
+  "figureHeightNote": "Crown to sole; stature 1.0 keeps her the size she was drawn (the street's man where she stands, 157).",
+  "frameNote": "0 standing with her basket · 1 breath (derived) · 2 holding a pie out · 3 lifting the basket · 4 one hand up, calling out."
  },
  "migrationNote": "ERRATA 54, x6. Was (150, 126) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
  "placeNote": "Forward into the lit mud, clear of the porch line. Was (2210, 657).",
