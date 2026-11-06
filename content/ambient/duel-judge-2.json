@@ -76,5 +76,7 @@
    ]
   ],
   "note": "The hotel porch's boards, measured on the plate (renders/main-street-porch-floor@6x.png): from the foot of the wall (y 584-594) to the front edge (y 604-606). Feet are inside it, so he stands ON the boards -- first placed at y 572, on the foot of the wall, and he hovered in front of it (Tyler: 'They're floating over the porch')."
- }
+ },
+ "faces": "right",
+ "facesNote": "Toward the duel: Fanshawe and Thad below, Thad to the right. Measured on the rest frame by tests/faces.test.mjs."
 }

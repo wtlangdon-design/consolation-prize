@@ -80,5 +80,7 @@
   "y": 790,
   "facing": "left"
  },
- "walkToNote": "Facing him across the street, as the master stood them."
+ "walkToNote": "Facing him across the street, as the master stood them.",
+ "faces": "right",
+ "facesNote": "Toward the duel: Fanshawe and Thad below, Thad to the right. Measured on the rest frame by tests/faces.test.mjs."
 }

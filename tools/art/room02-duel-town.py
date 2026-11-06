@@ -22,6 +22,13 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 B = os.path.join(ROOT, 'art/staging/cast-unify/batch-27')
 REF = 372                     # an ordinary man's height in the drawing, crown to sole
+# Each group looks toward the duel: the left group to its right, the right
+# group to its left. The drawing turned all eleven to the left, whatever the
+# brief asked (Tyler, 2026-11-06: "as long as everyone is supposed to be looking
+# where they're looking"), so a group whose people face the wrong way is
+# mirrored, and every person is measured after: the tool refuses to write a
+# crowd with anyone facing away.
+FACES = {'left': 'right', 'right': 'left'}
 GROUPS = {
     'left': ('row-right', [(2352, 738, 162), (2405, 712, 152), (2495, 728, 158), (2300, 792, 182), (2440, 772, 174), (2525, 800, 185)]),
     'right': ('row-left', [(3450, 718, 154), (3565, 748, 165), (3395, 760, 170), (3620, 795, 183), (3505, 805, 186)]),
@@ -38,6 +45,16 @@ def people(row):
     return out
 
 
+def facing(img):
+    """+ looks right, - looks left: the face's skin centroid against the head's, top 16%."""
+    a = np.asarray(img).astype(int); m = a[..., 3] > 128
+    rows = np.nonzero(m.any(1))[0]; top = rows[0]; H = rows[-1] - top
+    hd = a[top:top + max(4, int(H * 0.16))]; ha = hd[..., 3] > 128
+    r, g, b = hd[..., 0], hd[..., 1], hd[..., 2]
+    skin = ha & (r > 150) & (g > 95) & (r - b > 45)
+    return float(np.nonzero(skin)[1].mean() - np.nonzero(ha)[1].mean())
+
+
 def lean(img, dx):
     a = np.asarray(img).copy(); h = a.shape[0]; out = np.zeros_like(a)
     for yy in range(h):
@@ -51,6 +68,11 @@ def lean(img, dx):
 result = {}
 for side, (row, spots) in GROUPS.items():
     figs = people(row)
+    want = 1 if FACES[side] == 'right' else -1
+    figs = [f if facing(f) * want > 0 else f.transpose(Image.FLIP_LEFT_RIGHT) for f in figs]
+    wrong = [i for i, f in enumerate(figs) if facing(f) * want <= 1.0]
+    if wrong:
+        raise SystemExit(f'{side}: people {wrong} do not clearly face {FACES[side]}')
     placed = []
     for i, (x, y, man) in enumerate(spots):
         f = figs[i]; k = man / REF
