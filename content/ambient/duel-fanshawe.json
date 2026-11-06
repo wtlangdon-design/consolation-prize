@@ -21,32 +21,32 @@
    [
     2,
     2,
-    144,
-    278
+    167,
+    280
    ],
    [
-    148,
+    171,
     2,
-    144,
-    278
+    167,
+    280
    ],
    [
-    294,
+    340,
     2,
-    144,
-    278
+    167,
+    280
    ],
    [
-    440,
+    509,
     2,
-    144,
-    278
+    167,
+    280
    ],
    [
-    586,
+    678,
     2,
-    144,
-    278
+    167,
+    280
    ]
   ],
   "rate": 0.22,
@@ -68,10 +68,11 @@
    ]
   ],
   "breakEvery": 6,
-  "frameNote": "0 rest · 1 breath · 2 a lean · 3 a nod · 4 a lean back",
+  "frameNote": "0 rest, thumbs in his waistcoat · 1 breath · 2 a hand out · 3 the watch · 4 the hat",
   "provenance": "art/staging/room-02/duel-cast/cast.json",
-  "figureHeight": 278,
-  "stature": 1.0
+  "figureHeight": 280,
+  "stature": 1.0,
+  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn on magenta in Thad's hand (cast-unify operation 5) and composed by tools/art/cast-unify-duel.py, replacing the subtraction cut."
  },
  "walkTo": {
   "x": 3000,

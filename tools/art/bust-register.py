@@ -8,7 +8,7 @@ head -- the largest piece of the top quarter -- sits where the rest frame's
 does; then, with --carry F, the rest frame's lowest F of rows (the ledger, the
 desk things) fills wherever a frame has nothing, so it does not come and go.
 
-Usage: bust-register.py <sheet.png> <frames.json> <out.png> [--carry 0.2]
+Usage: bust-register.py <sheet.png> <frames.json> <out.png> [--carry 0.2 [--into 3,4]]
 frames.json is the cutter's printed {"frames": [...]}; prints the new frames.
 """
 import json
@@ -20,6 +20,8 @@ from scipy import ndimage as ndi
 
 src, fjson, out = sys.argv[1], sys.argv[2], sys.argv[3]
 carry = float(sys.argv[sys.argv.index('--carry') + 1]) if '--carry' in sys.argv else 0.0
+# --into 3,4: carry only into these frames (a frame that lifts the book must not get a second one).
+into = [int(v) for v in sys.argv[sys.argv.index('--into') + 1].split(',')] if '--into' in sys.argv else None
 sheet = np.asarray(Image.open(src).convert('RGBA'))
 frames = json.loads(open(fjson).read())['frames']
 cells = [sheet[y:y + h, x:x + w].copy() for x, y, w, h in frames]
@@ -49,7 +51,9 @@ for i, cell in enumerate(cells):
 if carry > 0:
     base = outs[0]
     band = int(H * (1 - carry))
-    for c in outs[1:]:
+    for i, c in enumerate(outs):
+        if i == 0 or (into is not None and i not in into):
+            continue
         empty = c[band:, :, 3] == 0
         c[band:][empty] = base[band:][empty]
 # trim the common empty margin

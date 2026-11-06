@@ -291,7 +291,7 @@
   "who": "COLONEL FANSHAWE\nduel_fanshawe \u00b7 main_street",
   "posture": "standing",
   "sheet": "art/actors/room-02-duel-fanshawe.png",
-  "scale": 1.079
+  "scale": 1.071
  },
  {
   "who": "REVEREND SOWERBY\nduel_sowerby \u00b7 main_street",
@@ -309,13 +309,13 @@
   "who": "THE TOWN\nduel_town_left \u00b7 main_street",
   "posture": "band",
   "sheet": "art/actors/room-02-duel-town-left.png",
-  "scale": 1.042
+  "scale": 1.071
  },
  {
   "who": "THE TOWN\nduel_town_right \u00b7 main_street",
   "posture": "band",
   "sheet": "art/actors/room-02-duel-town-right.png",
-  "scale": 1.007
+  "scale": 1.071
  },
  {
   "who": "WINNIE LEDGER\nwinnie_registrar \u00b7 claims_registrar",

@@ -5,7 +5,7 @@
  "posture": "standing",
  "room": "nugget",
  "note": "Doc 27, DEKE VESSEL · Room 3: gates A3, the swindle. Drawn from Tyler's approved attempt 2 (art/staging/room-03/deke-02, generated against Thad in this room, 2026-10-31), keyed, despilled, the five poses registered on his legs by tools/art/cut-ambient-sheet.py, BOX-reduced to the bent curve's man where he stands -- 345 at the bar's end (Tyler, 2026-10-31: 312 too small, 375 'way too big', 345 chosen from four), 428 at 1035,815 since 2026-11-01, the same ruling at his depth -- and graded to the bar men beside him (tools/grade/match-neighbours.py) after Tyler: 'Deke's coloring doesn't match anything else around him'.",
- "x": 1035,
+ "x": 1050,
  "y": 815,
  "zone": 0,
  "approachRadius": 160,
@@ -22,10 +22,76 @@
  },
  "walkToNote": "Across the whiskey barrel from him (Tyler, 2026-11-01): the barrel stands at his left, 817-962 at 890,812, so Thad stands on its far side and they talk across it. Was 885,818, the floor at his left, before the barrel took it.",
  "exit": {
-  "path": [[1005, 778], [760, 772], [300, 745], [150, 712]],
+  "path": [
+   [
+    1005,
+    778
+   ],
+   [
+    760,
+    772
+   ],
+   [
+    300,
+    745
+   ],
+   [
+    150,
+    712
+   ]
+  ],
   "speed": 150,
   "sheet": "art/actors/deke-vessel-walk.png",
-  "frames": [[2, 2, 228, 428], [922, 2, 228, 428], [1152, 2, 228, 428], [232, 2, 228, 428], [692, 2, 228, 428], [922, 2, 228, 428], [462, 2, 228, 428], [232, 2, 228, 428]],
+  "frames": [
+   [
+    2,
+    2,
+    228,
+    428
+   ],
+   [
+    922,
+    2,
+    228,
+    428
+   ],
+   [
+    1152,
+    2,
+    228,
+    428
+   ],
+   [
+    232,
+    2,
+    228,
+    428
+   ],
+   [
+    692,
+    2,
+    228,
+    428
+   ],
+   [
+    922,
+    2,
+    228,
+    428
+   ],
+   [
+    462,
+    2,
+    228,
+    428
+   ],
+   [
+    232,
+    2,
+    228,
+    428
+   ]
+  ],
   "fps": 2.0,
   "drawnFacing": "left",
   "figureHeight": 428,
@@ -39,31 +105,31 @@
    [
     2,
     2,
-    196,
+    227,
     428
    ],
    [
-    200,
+    231,
     2,
-    196,
+    227,
     428
    ],
    [
-    398,
+    460,
     2,
-    196,
+    227,
     428
    ],
    [
-    596,
+    689,
     2,
-    196,
+    227,
     428
    ],
    [
-    794,
+    918,
     2,
-    196,
+    227,
     428
    ]
   ],
@@ -93,7 +159,8 @@
     4
    ]
   ],
-  "note": "Frames: 0 rest, 1 breath (the sway), 2 talking -- held while spoken to, and a break because doc 27's LISTEN is 'He has been talking since before I came in' -- 3 pushes his hat back, 4 looks out at the room. Breaks every 11 s: Tyler, no person in a room is ever static."
+  "note": "Frames: 0 rest, 1 breath (the sway), 2 talking -- held while spoken to, and a break because doc 27's LISTEN is 'He has been talking since before I came in' -- 3 pushes his hat back, 4 looks out at the room. Breaks every 11 s: Tyler, no person in a room is ever static.",
+  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn in Thad's hand with the cast already redrawn (cast-unify operation 4, reference/cast-unify-04.txt). 0 rest, 1 breath, 2 talking, 3 hand through his hair, 4 looking out."
  },
  "placements": {
   "nugget_back": {
@@ -116,31 +183,31 @@
      [
       2,
       2,
-      242,
+      281,
       530
      ],
      [
-      246,
+      285,
       2,
-      242,
+      281,
       530
      ],
      [
-      490,
+      568,
       2,
-      242,
+      281,
       530
      ],
      [
-      734,
+      851,
       2,
-      242,
+      281,
       530
      ],
      [
-      978,
+      1134,
       2,
-      242,
+      281,
       530
      ]
     ],
@@ -170,7 +237,8 @@
       4
      ]
     ],
-    "note": "Room 4: the same five poses re-cut from Tyler's approved sheet at this room's height (530 at his mark, tools/art/cut-ambient-sheet.py) and graded to his own figure as room-04's composition master painted him here (tools/grade/match-neighbours.py). Faces left, toward Thad across the burnt line."
+    "note": "Room 4: the same five poses re-cut from Tyler's approved sheet at this room's height (530 at his mark, tools/art/cut-ambient-sheet.py) and graded to his own figure as room-04's composition master painted him here (tools/grade/match-neighbours.py). Faces left, toward Thad across the burnt line.",
+    "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn in Thad's hand with the cast already redrawn (cast-unify operation 4, reference/cast-unify-04.txt). 0 rest, 1 breath, 2 talking, 3 hand through his hair, 4 looking out."
    },
    "note": "ERRATA 73 B: from B3's completion Vessel is in Room 4, across the spit line from Thad's duel mark ('Not across the line' -- doc 54). TALK TO stands Thad on his own mark, facing him."
   }

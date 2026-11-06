@@ -7,7 +7,7 @@
  "when": {
   "T_DUEL_CROWD": true
  },
- "note": "THE JUDGES' TABLE on the hotel porch. The master seated four judges; Room 4 has three (for Tyler's playthrough). Doc 57 F4: 'The first time Thad steps onto the street after T_ASSAY_RUN, Fanshawe is waiting with half the town and the judges' table on the boardwalk, Sowerby holding the pencil.' Cut from room-02 operations 1 and 2 by tools/art/room02-duel-cast.py and laid over Room 2's own street. Present for the visit the duel is called on (T_DUEL_CROWD), and gone the next time.",
+ "note": "THE JUDGES' TABLE on the hotel porch. Room 4's three judges, redrawn, at the table cut from the master. Doc 57 F4: 'The first time Thad steps onto the street after T_ASSAY_RUN, Fanshawe is waiting with half the town and the judges' table on the boardwalk, Sowerby holding the pencil.' Cut from room-02 operations 1 and 2 by tools/art/room02-duel-cast.py and laid over Room 2's own street. Present for the visit the duel is called on (T_DUEL_CROWD), and gone the next time.",
  "x": 2866,
  "y": 618,
  "zone": 1,
@@ -22,31 +22,31 @@
     2,
     2,
     308,
-    154
+    160
    ],
    [
     312,
     2,
     308,
-    154
+    160
    ],
    [
     622,
     2,
     308,
-    154
+    160
    ],
    [
     932,
     2,
     308,
-    154
+    160
    ],
    [
     1242,
     2,
     308,
-    154
+    160
    ]
   ],
   "rate": 0.22,
@@ -67,9 +67,10 @@
    ]
   ],
   "breakEvery": 6,
-  "frameNote": "0 the judges at their table · 1 breath · 2-4 a judge or two nodding, a different one each time",
+  "frameNote": "0 the judges at their table · 1 breath · 2-4 all three at once, each a different action",
   "provenance": "art/staging/room-02/duel-cast/cast.json",
   "figureHeight": 154,
-  "stature": 1.0
+  "stature": 1.0,
+  "redrawn": "Tyler, 2026-11-06 (one artist, one game): rebuilt from the redrawn cast by tools/art/cast-unify-duel-table.py."
  }
 }

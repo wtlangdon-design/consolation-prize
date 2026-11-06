@@ -21,32 +21,32 @@
    [
     2,
     2,
-    364,
-    298
+    308,
+    290
    ],
    [
-    368,
+    312,
     2,
-    364,
-    298
+    308,
+    290
    ],
    [
-    734,
+    622,
     2,
-    364,
-    298
+    308,
+    290
    ],
    [
-    1100,
+    932,
     2,
-    364,
-    298
+    308,
+    290
    ],
    [
-    1466,
+    1242,
     2,
-    364,
-    298
+    308,
+    290
    ]
   ],
   "rate": 0.22,
@@ -71,7 +71,8 @@
   "breakEvery": 6,
   "frameNote": "0 rest, watching · 1 breath · 2-4 a few of them shifting their weight, a different few each time",
   "provenance": "art/staging/room-02/duel-cast/cast.json",
-  "figureHeight": 298,
-  "stature": 1.0
+  "figureHeight": 280,
+  "stature": 1.0,
+  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn on magenta in Thad's hand (cast-unify operation 5) and composed by tools/art/cast-unify-duel.py, replacing the subtraction cut."
  }
 }

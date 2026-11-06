@@ -89,7 +89,7 @@
   "breakEvery": 7,
   "talkFrame": 2,
   "frameNote": "0 rest (hands on his waistcoat) · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 welcome, his hand open · 3 the watch · 4 laughing. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool (errata 35 and 77: a deliberate action at least every 30 s). He welcomes as he talks.",
-  "provenance": "art/staging/cast-unify/batch-02/sheet.png",
+  "provenance": "reference/cast-unify-02.spec.json",
   "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn with the other counter clerks in Thad's hand (cast-unify operation 2, reference/cast-unify-02.txt), cut by tools/art/cast-unify-cut.py and registered on the head by tools/art/bust-register.py. Same poses."
  }
 }

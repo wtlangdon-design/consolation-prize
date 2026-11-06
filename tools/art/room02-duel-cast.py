@@ -18,6 +18,12 @@ Each figure moves (errata 77): a breath, and actions derived from the rest frame
 -- a lean, a nod, a few of the crowd shifting their weight.
 
 Writes art/actors/room-02-duel-<who>.png and art/staging/room-02/duel-cast/cast.json.
+
+SUPERSEDED IN PART (Tyler, 2026-11-06, one artist, one game): Fanshawe, the town
+and the Reverend are now the redrawn cast, and the table seats the redrawn
+judges. After running this, run tools/art/cast-unify-duel.py and then
+tools/art/cast-unify-duel-table.py, which rewrite those sheets; only the table
+and chairs of this cut ship.
 """
 import json
 import os

@@ -54,18 +54,6 @@
     2,
     243,
     437
-   ],
-   [
-    1227,
-    2,
-    243,
-    437
-   ],
-   [
-    1472,
-    2,
-    243,
-    437
    ]
   ],
   "rate": 0.2,
@@ -90,19 +78,13 @@
   "breaks": [
    [
     2,
-    3,
-    3,
     2,
     0
    ],
    [
-    2,
     3,
-    2,
-    0,
-    2,
     3,
-    2,
+    3,
     0
    ],
    [
@@ -113,27 +95,15 @@
     0
    ],
    [
-    5,
-    5,
-    5,
-    5,
-    5,
-    0,
     2,
-    3,
-    2,
-    0
-   ],
-   [
-    6,
-    6,
-    6,
     0,
     4,
     0
    ]
   ],
-  "breakEvery": 4.0
+  "breakEvery": 4.0,
+  "frameNote": "Frames: 0 rest, the pencil raised · 1 breath · 2 the pencil lowered to his chest · 3 leaning to confer · 4 leaning back, the pencil up. Breathing on 0 and 1; every `breakEvery` seconds one break from the pool (errata 35, 77).",
+  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn in Thad's hand with the cast already redrawn (cast-unify operation 4, reference/cast-unify-04.txt)."
  },
  "placements": {
   "church": {
@@ -156,31 +126,31 @@
      [
       2,
       2,
-      119,
+      205,
       220
      ],
      [
-      123,
+      209,
       2,
-      119,
+      205,
       220
      ],
      [
-      244,
+      416,
       2,
-      119,
+      205,
       220
      ],
      [
-      365,
+      623,
       2,
-      119,
+      205,
       220
      ],
      [
-      486,
+      830,
       2,
-      119,
+      205,
       220
      ]
     ],
@@ -214,7 +184,8 @@
     "breakEvery": 6,
     "talkFrame": 2,
     "frameNote": "0 rest, hands on the reading desk · 1 breath (derived) · 2 preaching, a finger raised · 3 counting adjectives on his fingers · 4 a hand on his heart. A break every `breakEvery` seconds (errata 77). He preaches as he talks.",
-    "provenance": "art/staging/room-17/sowerby/sowerby.json"
+    "provenance": "art/staging/room-17/sowerby/sowerby.json",
+    "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn in Thad's hand with the cast already redrawn (cast-unify operation 4, reference/cast-unify-04.txt)."
    },
    "clipPlane": 1
   }

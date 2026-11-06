@@ -21,31 +21,31 @@
    [
     2,
     2,
-    100,
+    105,
     188
    ],
    [
-    104,
+    109,
     2,
-    100,
+    105,
     188
    ],
    [
-    206,
+    216,
     2,
-    100,
+    105,
     188
    ],
    [
-    308,
+    323,
     2,
-    100,
+    105,
     188
    ],
    [
-    410,
+    430,
     2,
-    100,
+    105,
     188
    ]
   ],
@@ -68,9 +68,10 @@
    ]
   ],
   "breakEvery": 7,
-  "frameNote": "0 rest · 1 breath · 2 a lean · 3 a nod · 4 a lean back",
+  "frameNote": "0 rest, the pencil raised · 1 breath · 2 the pencil lowered · 3 leaning to confer · 4 leaning back",
   "provenance": "art/staging/room-02/duel-cast/cast.json",
   "figureHeight": 188,
-  "stature": 1.0
+  "stature": 1.0,
+  "redrawn": "Tyler, 2026-11-06 (one artist, one game): rebuilt from the redrawn cast by tools/art/cast-unify-duel-table.py."
  }
 }

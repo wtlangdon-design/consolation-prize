@@ -161,8 +161,13 @@ test('the movement check fails a crawling idle and a rare action (review on #100
   const actions = new Set(shares.map((share, i) => (share >= ACTION ? i : -1)).filter((i) => i > 0));
   assert.ok(schedule({ ...judge, rate: 0.01, breaks: undefined }, actions).longestStill > NEVER_STILL,
     'a rate of 0.01 holds a frame for 50 s');
-  const rare = { ...judge, breakEvery: 40, breaks: [judge.breaks[0], [4, 4], [4, 4], [4, 4]] };
-  assert.ok(schedule(rare, actions).longestWithout > ACTION_EVERY,
+  // THE SCHEDULER'S HALF, INDEPENDENT OF THE ART: only the confer (frame 2)
+  // counts as an action here, and three of four pools are the rest frame. The
+  // judges were redrawn on 2026-11-06 and which of their frames measure as
+  // actions changed; what this proves is the arithmetic of a rare break.
+  const onlyConfer = new Set([2]);
+  const rare = { ...judge, breakEvery: 40, breaks: [[2, 2, 2, 0], [0, 0], [0, 0], [0, 0]] };
+  assert.ok(schedule(rare, onlyConfer).longestWithout > ACTION_EVERY,
     'an action in one pool of four, every 40 s, leaves more than 30 s between actions');
 });
 

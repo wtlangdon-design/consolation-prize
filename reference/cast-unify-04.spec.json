@@ -1,0 +1,17 @@
+{
+ "assetId": "cast-unify",
+ "subject": "deke-and-sowerby",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-04-nugget-back",
+ "promptFile": "reference/cast-unify-04.txt",
+ "out": "art/staging/cast-unify/batch-04/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-02/thad-in-room-07.png",
+  "art/staging/cast-unify/batch-04/thad-the-hand.png",
+  "art/staging/cast-unify/batch-04/old-sheets.png",
+  "art/staging/cast-unify/batch-02/sheet.png",
+  "art/staging/cast-unify/batch-03/sheet.png"
+ ]
+}

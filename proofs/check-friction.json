@@ -145,6 +145,12 @@
    "date": "2026-11-06",
    "kind": "reviewed",
    "why": "Three loosenings in a fortnight: Room 33's taps (LISTEN on the rock returns a sound, not a line), and now doc 57 F5's case-only counter pairs. Neither was the test misfiring -- each was a new content shape the test had to be taught, and the test still fails on what it exists for: a pair or verb with nothing written. TUNED, not merged: its rule-4 half now reads the same declaration the build check (tools/check-combinations.mjs) reads, `otherwise: \"pool\"`, so the two cannot disagree. Not retired."
+  },
+  {
+   "check": "tests/movement.test.mjs",
+   "date": "2026-11-06",
+   "kind": "loosened",
+   "why": "Not the check on real figures: its self-test of the scheduler used judge 2's frame 4 as 'not an action'. Redrawn (one artist, one game), his nod and his breath both move more than 10% of the small figure, so the self-test now names its action set (only the confer) instead of reading it off the art. Every figure is still held to an action every 30 s."
   }
  ]
 }

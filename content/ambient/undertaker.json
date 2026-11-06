@@ -24,31 +24,31 @@
    [
     2,
     2,
-    167,
+    194,
     227
    ],
    [
-    171,
+    198,
     2,
-    167,
+    194,
     227
    ],
    [
-    340,
+    394,
     2,
-    167,
+    194,
     227
    ],
    [
-    509,
+    590,
     2,
-    167,
+    194,
     227
    ],
    [
-    678,
+    786,
     2,
-    167,
+    194,
     227
    ]
   ],
@@ -85,6 +85,7 @@
   "breakEvery": 6,
   "talkFrame": 4,
   "frameNote": "0 rest (hands on the table) · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 planing · 3 putting the plane down · 4 waiting, looking out. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool -- mostly planing (errata 35 and 77: a deliberate action at least every 30 s). He waits as he talks.",
-  "provenance": "art/staging/room-13/undertaker/undertaker.json"
+  "provenance": "reference/cast-unify-03.spec.json",
+  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn in Thad's hand with the cast already redrawn (cast-unify operation 3, reference/cast-unify-03.txt). Same poses."
  }
 }

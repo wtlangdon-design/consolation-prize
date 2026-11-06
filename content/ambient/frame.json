@@ -24,31 +24,31 @@
    [
     2,
     2,
-    242,
+    244,
     502
    ],
    [
-    246,
+    248,
     2,
-    242,
+    244,
     502
    ],
    [
-    490,
+    494,
     2,
-    242,
+    244,
     502
    ],
    [
-    734,
+    740,
     2,
-    242,
+    244,
     502
    ],
    [
-    978,
+    986,
     2,
-    242,
+    244,
     502
    ]
   ],
@@ -84,6 +84,7 @@
   "breakEvery": 5,
   "talkFrame": 2,
   "frameNote": "0 rest · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 talking, a hand out · 3 taking a quote in his notebook · 4 leaning in. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool (errata 35, 77: a deliberate action at least every 30 s).",
-  "provenance": "art/staging/room-09/frame/frame.json"
+  "provenance": "reference/cast-unify-03.spec.json",
+  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn in Thad's hand with the cast already redrawn (cast-unify operation 3, reference/cast-unify-03.txt). Same poses."
  }
 }

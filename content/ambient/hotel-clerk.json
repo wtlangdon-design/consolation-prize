@@ -25,31 +25,31 @@
    [
     2,
     2,
-    121,
+    144,
     134
    ],
    [
-    125,
+    148,
     2,
-    121,
+    144,
     134
    ],
    [
-    248,
+    294,
     2,
-    121,
+    144,
     134
    ],
    [
-    371,
+    440,
     2,
-    121,
+    144,
     134
    ],
    [
-    494,
+    586,
     2,
-    121,
+    144,
     134
    ]
   ],
@@ -83,6 +83,7 @@
   "breakEvery": 6,
   "talkFrame": 3,
   "frameNote": "0 rest, reading the register · 1 breath (derived) · 2 writing · 3 looking up over his spectacles · 4 turning the register round (doc 27 option 4). A break every `breakEvery` seconds (errata 77). He looks up as he talks.",
-  "provenance": "art/staging/room-18/clerk/clerk.json"
+  "provenance": "reference/cast-unify-03.spec.json",
+  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn in Thad's hand with the cast already redrawn (cast-unify operation 3, reference/cast-unify-03.txt). Same poses."
  }
 }
