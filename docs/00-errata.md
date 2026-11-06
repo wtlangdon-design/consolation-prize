@@ -322,20 +322,20 @@ Doc 17 v1 had the coach depart on a timer at beat 5. Doc 17 v2 has it stand ther
 **Room 1, canonical:**
 
 **THE COACH — state A, present, driver unloading**
-> LOOK 1 "A stage coach, halted, with my case coming down off the back. It has come four hundred miles and it looks it." · 2 "The near wheel has been repaired twice with two different woods." · 3 "There is a great deal of dust on it and none of it is from here."
-> LISTEN 1 "The team, shifting. The near axle is dry — it has been dry a long time." · 2 "Still dry. It will be heard from." · 3 "Somebody up top is rearranging the load and swearing about it."
+> LOOK 1 "A stagecoach, halted, with my case coming down off the back. It's come four hundred miles, and it looks it. So do I." · 2 "The near wheel's been mended twice, with two different woods. I rode the whole way on that wheel." · 3 "A great deal of dust on it, and none of it from here. I'm wearing the rest."
+> LISTEN 1 "The team, shifting. The near axle's dry — it's been dry a long time." · 2 "Still dry. That axle is going to be heard from." · 3 "Somebody up top is rearranging the load and swearing at it. Mostly at my case."
 
 **THE COACH — state B, departed** *(hotspot becomes THE ROAD WEST OUT)*
-> LOOK 1 "Gone. It made very good time on the way out." · 2 "The next coach out of Consolation is in four days. I have checked twice and the answer did not improve." · 3 "The ruts are still filling in. That is the whole of my connection to the rest of the world, filling in."
-> LISTEN 1 "The near axle, going away. It will fail on somebody else's stretch." · 2 "Faint now." · 3 "Nothing. It is a long way off."
+> LOOK 1 "Gone. It made very good time on the way out. Better than on the way in." · 2 "The next coach out is in four days. I've asked twice. The answer didn't improve." · 3 "The ruts are still filling in. That's my whole connection to the rest of the world, filling in."
+> LISTEN 1 "The near axle, squealing away east. It'll fail on somebody else's stretch now. I wish them well. Mostly." · 2 "Faint now." · 3 "Nothing. It's a long way off, and getting longer."
 
 **THE TEAM — state A only** *(new hotspot; see the wheel-pair art)*
-> LOOK 1 "Two horses I can see and I am told there are four more. They have their heads down and they have earned it." · 2 "Nobody has unhitched them. We are not stopping long." · 3 "The near one has looked at me twice, which is twice more than the driver."
-> LISTEN 1 "Breathing, and harness. It is the most contented sound on this road." · 2 "Shifting. One of them is bored." · 3 "Nothing. They have gone to sleep standing up, which I did not know was available."
+> LOOK 1 "Two horses I can see, and I'm told four more I can't. Heads down. They've earned it." · 2 "Nobody's unhitched them. Nobody's stopping long. Nobody but me." · 3 "The near one has looked at me twice, which is twice more than the driver has."
+> LISTEN 1 "Breathing, and harness. The most contented sound on this road, and none of it is mine." · 2 "Shifting. One of them is bored." · 3 "Quiet. They've gone to sleep standing up. I didn't know that was allowed. I'm going to try it later."
 
 **THE WATCHMAN'S LAMP — does not exist before beat 8.** Not a hotspot until Hob enters frame.
-> **Crossing:** LOOK 1 "A lamp, crossing the road. There is a man behind it and he has not looked at me." · 2 "Still crossing. He is in no hurry and he is not lost." · 3 "The only lit thing on this road, and it is going the other way."
-> LISTEN 1 "Footsteps. Even ones. He is counting them." · 2 "Still even." · 3 "He has not broken stride once. Not once, in the whole length of the road."
+> **Crossing:** LOOK 1 "A lamp, crossing the road, with a man behind it. He hasn't looked at me. I'm the newest thing on this road, and he hasn't looked." · 2 "Still crossing. He's in no hurry, and he isn't lost. I'm one of those." · 3 "The only lit thing on this road, and it's going the other way. Story of my evening."
+> LISTEN 1 "Footsteps. Even ones. He is counting them." · 2 "Still even. You could set a watch by him." · 3 "He hasn't broken stride once. Not once, the whole length of the road. I broke stride getting off the coach."
 > **Gone:** LOOK 1 "The lamp, away up the street. It has not once looked back at me." · 2 "Small now." · 3 "Gone round the corner and taken the only light with it."
 > LISTEN 1 "Nothing. He has taken the sound with him too." · 2 "Nothing." · 3 "Nothing at all."
 

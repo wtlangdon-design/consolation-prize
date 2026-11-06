@@ -54,8 +54,8 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "It creaks. It would like to be taken down."
 
 **THE MUD**
-> **LOOK:** "Mud. I have been assured it improves."
-> **LISTEN:** "Nothing. Mud is the only honest thing in the territory and it has nothing to say."
+> **LOOK:** "Mud. I've been assured it improves."
+> **LISTEN:** "Nothing. Mud's the only honest thing in the territory, and it has nothing to say."
 
 **THE COACH** *(before it departs)*
 > **LOOK:** "It is leaving. It has the confident manner of a thing that will not be coming back."
@@ -70,7 +70,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "Footsteps. Even ones. He is counting them."
 
 **THE ROAD EAST**
-> **LOOK:** "Home is that way. It is eleven hundred miles that way, which robs the gesture of some of its force."
+> **LOOK:** "Home is that way. It's eleven hundred miles that way, which robs the gesture of some of its force."
 > **LISTEN:** "Nothing coming."
 
 ---

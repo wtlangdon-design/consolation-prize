@@ -133,16 +133,16 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 ## THE TOWN SIGN
 **Reordered — supersedes doc 05's Room 1 sign entry.** **And corrected against the lettering as drawn:** variants 2 and 3 said the old numbers were painted over and showing through *underneath*. The sign that was made shows them STRUCK OUT AND LEFT IN A ROW — 200, 500, 1000, 1500 each crossed through, with 2,000 standing. The lines now describe the sign the player is looking at. Variant 1 must read the sign; the original opened on repainting before the player had been told what was painted.
 
-**LOOK** 1 "CONSOLATION — POP. 2,000 AND CLIMBING. The 'and climbing' is in a different hand, and was added later." · 2 "The number has been struck out and rewritten four times. They are all still there in a row, each of them once true." · 3 "The first one, crossed out at the far left, is two hundred. Somebody was pleased with two hundred once."
-**LISTEN** 1 "It creaks. It would like to be taken down." · 2 "Creaking. It would still like to be taken down." · 3 "Nothing. The wind has dropped and it has stopped complaining."
+**LOOK** 1 "CONSOLATION — POP. 2,000 AND CLIMBING. The 'and climbing' is in a different hand, and was added later." · 2 "The number's been crossed out and written again four times. The old ones are all still there in a row. Each of them was true once." · 3 "The first one is two hundred, with a line through it. Somebody was very pleased with two hundred once. I'd be pleased with two hundred. Dollars."
+**LISTEN** 1 "It creaks. It would like to be taken down." · 2 "Still creaking. It isn't going to stop asking." · 3 "Silence. The wind's dropped, and the sign has stopped complaining. For now."
 
 ## THE MUD
-**LOOK** 2 "It has come over the top of my boots, which I had not thought possible in the first minute." · 3 "Mud. I have been in this territory for ninety seconds and I have formed a view."
-**LISTEN** 2 "Nothing. It is entirely uninterested." · 3 "Nothing. I am going to stop asking it things."
+**LOOK** 2 "It's come over the tops of my boots. In the first minute. I didn't know mud could be so ambitious." · 3 "Mud. I've been in this territory ninety seconds, and I've formed a view."
+**LISTEN** 2 "A small wet sound when I shift my weight. That's the mud, winning." · 3 "Nothing. I'm going to stop asking it things. Neither of us is enjoying this."
 
 ## THE COACH
-**LOOK** 2 *(after departure)* "Gone. It made very good time on the way out." · 3 "The next coach out of Consolation is in four days. I have checked twice and the answer did not improve."
-**LISTEN** 2 "The near axle, going away. It will fail on somebody else's stretch." · 3 "Nothing. It is a long way off now."
+**LOOK** 2 *(after departure)* "Gone. It made very good time on the way out. Better than on the way in." · 3 "The next coach out is in four days. I've asked twice. The answer didn't improve."
+**LISTEN** 2 "The near axle, squealing away east. It'll fail on somebody else's stretch now. I wish them well. Mostly." · 3 "Nothing. It is a long way off now."
 
 ## HIS CASE — **two states, and the game's first PICK UP**
 
@@ -154,40 +154,48 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 > PICK UP — "It is eight feet up and it is not mine to reach for yet."
 
 **State B — in the mud, from beat 6**
-**LOOK** 1 "My case, in the mud, where it was put." · 2 "Everything I own. It is not heavy and that is the whole difficulty." · 3 "My father packed it. He put the fork in first, which tells you what he thought of the rest."
-**LISTEN** 1 "Nothing." · 2 "The fork against the clasp. A. It is still four hundred and forty." · 3 "Nothing. I have stopped shaking it to hear that, which is a low thing to be caught doing."
+**LOOK** 1 "My case, in the mud, where it was put." · 2 "Everything I own. It isn't heavy, and that's the whole difficulty." · 3 "My father packed it. He put the tuning fork in first, which tells you what he thought of the rest."
+**LISTEN** 1 "Nothing." · 2 "The tuning fork, against the clasp. A. Four hundred and forty, and the only thing for a hundred miles that's in tune." · 3 "Nothing. I've stopped shaking it to hear that. It's a low thing to be caught doing, and I was nearly caught."
 > **PICK UP — takes it.** *"I have it."* **This is the first PICK UP in the game and it teaches the verb.**
-> OPEN — "A shirt, a razor, three letters, and a tuning fork. I have checked it four times since Sacramento and the contents have been consistent."
+> OPEN — "A shirt, a razor, three letters, and a tuning fork. I've checked it four times since Sacramento. The contents have been admirably consistent."
 
 **State C — carried.** The hotspot is gone and the case is inventory. **It has no LOOK or LISTEN lines of its own** — an object that does not exist cannot answer. Its inventory lines are doc 23's.
-**LISTEN** 2 "The fork against the clasp. A. It is still four hundred and forty." · 3 "Nothing. I have stopped shaking it to hear it, which is a low thing to be caught doing."
+**LISTEN** 2 "The tuning fork, against the clasp. A. Four hundred and forty, and the only thing for a hundred miles that's in tune." · 3 "Nothing. I've stopped shaking it to hear it. It's a low thing to be caught doing, and I was nearly caught."
 
 ## THE WATCHMAN'S LAMP
 **LOOK** 2 "Still going. He has not once looked at me and I have been standing here in a good coat." · 3 "The only lit thing on this road. He is carrying the whole street around with him."
 **LISTEN** 2 "Even footsteps. Still counting." · 3 "He has not broken stride once. Not once, in the whole length of the street."
 
 ## THE ROAD EAST
-**LOOK** 2 "Eleven hundred miles. I have just come along it and it did not feel optional at the time." · 3 "Home is that way. I am not going to keep looking at it."
+**LOOK** 2 "Eleven hundred miles. I've just come along it, and it didn't feel optional at the time." · 3 "Home is that way. I'm not going to keep looking at it. That's three times now."
 **LISTEN** 2 "Nothing coming." · 3 "Nothing coming."
 
 ---
 
 # PART THREE — OVERRIDES
 
-> **THE SIGN** · PULL — "It is nailed to a post, in the ground, at the edge of a town. I have been here two minutes and I am already vandalising the place."
-> **THE SIGN** · TALK TO — "Good evening. I am new." *(Nothing happens. It is a sign.)*
-> **THE MUD** · PICK UP — "I have enough on my boots. I am carrying a quantity of this town already."
-> **THE COACH** · USE — "It is going. It is going with some enthusiasm."
-> **THE COACH** · PULL — "I have considered running after it. I would like that on the record and nowhere else."
-> **HIS CASE** · OPEN — "A shirt, a razor, three letters, and a tuning fork. I have checked it four times since Sacramento and the contents have been consistent."
+> **THE SIGN** · PULL — "It's nailed to a post, in the ground, at the edge of a town. I've been here two minutes and I'm already vandalising the place."
+> **THE SIGN** · TALK TO — "Good evening. I'm new. Two thousand and one, and climbing." *(Nothing happens. It is a sign.)*
+> **THE MUD** · PICK UP — "I've got plenty on my boots. I'm already carrying a fair amount of this town."
+> **THE COACH** · USE — "It's going. It's going with real enthusiasm."
+> **THE COACH** · PULL — "I've considered running after it. I'd like that on the record, and nowhere else."
+> **HIS CASE** · OPEN — "A shirt, a razor, three letters, and a tuning fork. I've checked it four times since Sacramento. The contents have been admirably consistent."
 > **HIS CASE** · PICK UP — "I have it. I have had it the entire time."
-> **THE LAMP** · TALK TO — *(only before beat 8)* "He is walking. I shall let him walk."
-> **THE ROAD EAST** · USE — "That would be a decision, and I have only just made one."
-> **THE ROAD EAST** · PICK UP — "It is a road."
+> **THE LAMP** · TALK TO — *(only before beat 8)* "He's walking. I'll let him walk. He seems to know where he's going, which makes one of us."
+> **THE ROAD EAST** · USE — "That would be a decision, and I've only just made one."
+> **THE ROAD EAST** · PICK UP — "It's a road. I've got enough to carry."
 
 ## THE ROAD WEST → Room 2 *(exit)*
-**LOOK** 1 "Consolation. There are lamps on in about a third of it." · 2 "Somebody is still awake down there, and somebody is playing a piano badly, and those are two separate facts." · 3 "Two hundred yards. It is the shortest part of the journey and I am putting it off."
-**LISTEN** 1 "A town, at night, half of it asleep. A piano, flat, some distance off." · 2 "Still flat. Whoever is playing it is not the problem." · 3 "Somebody laughing. It is the first cheerful sound I have heard since Sacramento."
+**LOOK** 1 "Consolation. There are lamps on in about a third of it. I'll take a third." · 2 "Somebody's still awake down there, and somebody's playing a piano badly. Those are two separate facts, and only one of them is my business." · 3 "Two hundred yards. The shortest part of the journey, and I'm putting it off."
+**LISTEN** 1 "A town at night, half of it asleep. A piano, flat, some distance off. I could fix that." · 2 "Still flat. Whoever's playing it isn't the problem. The piano is the problem." · 3 "Somebody laughing. The first cheerful sound I've heard since Sacramento."
+
+## THE ROAD WEST, BEFORE THE CASE *(hotspot road_west_blocked — the same place, while the case is still in the mud)*
+*Errata 100: these lines were written straight into the extractor when the case became required, and no document carried them. They live here now, rewritten under doc 59. He will not leave without the case.*
+
+**WALK TO** 1 "Not without my case. Everything I own is in it. It isn't much, but it's all of it." · 2 "It's still in the mud, and it's still everything I own." · 3 "I'd rather arrive poor than arrive poor and without luggage."
+**LOOK** 1 "Consolation. And behind me, my case, still in the mud." · 2 "The lamps won't wait up on my account." · 3 "Two hundred yards. One errand first. A small, muddy errand."
+**LISTEN** 1 "Not much from down there. A town, mostly gone in for the night." · 2 "A town at this hour is mostly lamps." · 3 "The wind. And, if I'm honest, my own delay."
+**ANY OTHER VERB** 1 "That can wait until I'm carrying my own belongings." · 2 "Not before the case. The case is everything." · 3 "There's an order to these things, and the case is first in it."
 
 ---
 

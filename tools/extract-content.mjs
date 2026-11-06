@@ -2169,6 +2169,109 @@ function stageDirections(cell) {
 // ---------------------------------------------------------------------------
 
 /**
+ * ROOM 1'S OWN LINES, READ FROM THE DOCUMENTS THAT WRITE THEM.
+ *
+ * Room 1 predates the room compiler, and until errata 100 only its case was
+ * extracted: every other line in stage-road.json was carried in the file, so
+ * the voice pass rewrote doc 17 and the game did not change, and
+ * check-room-lines-sourced said so. The sources, most specific first, are the
+ * same ones the room file's own note names:
+ *
+ *   errata 19a  -- the coach present and gone, the team, the lamp crossing
+ *                  (a full line set per state, which overrides the docs)
+ *   doc 17      -- the sign, the mud and the road east (variants 2-3), both
+ *                  ways west, and PART THREE's overrides
+ *   doc 05      -- variant 1 of the mud and the road east, which doc 17 left
+ *
+ * Only `say` and `repeat` are written, on the response a line set already
+ * has, so a flag the lamp writes or a gate a state carries is never touched.
+ */
+function roomOneLines(room, doc17) {
+  const errata = read('docs/00-errata.md');
+  const doc05 = read('docs/05-examine-layer.md');
+  const target = (id) => {
+    const found = [...room.hotspots, ...room.exits].find((entry) => entry.id === id);
+    if (!found) throw new Error(`Room 1 has no "${id}" for its lines`);
+    return found;
+  };
+  const write = (id, verb, said, where) => {
+    if (said.length !== 3 || said.some((line) => line === undefined)) {
+      throw new Error(`${where}: ${id} ${verb} has ${said.filter(Boolean).length} of 3 variants`);
+    }
+    const into = target(id);
+    into.responses = into.responses ?? {};
+    const rules = into.responses[verb] ?? [{}];
+    if (rules.length !== 1) throw new Error(`${where}: ${id} ${verb} has ${rules.length} rules; Room 1 writes one`);
+    rules[0].say = said[0];
+    rules[0].repeat = said.slice(1);
+    into.responses[verb] = rules;
+  };
+  const run = (text, heading) => {
+    const found = text.match(new RegExp(`^>?\\s*(?:\\*\\*${heading}:?\\*\\*|${heading})\\s+(1\\s+".+)$`, 'm'));
+    return found ? variants(found[1]) : [];
+  };
+
+  const canonical = errata.split('**Room 1, canonical:**')[1]?.split(/^## /m)[0];
+  if (!canonical) throw new Error('errata 19a: no "Room 1, canonical" block');
+  const block = (title) => {
+    const start = canonical.indexOf(title);
+    if (start < 0) throw new Error(`errata 19a: no ${title}`);
+    return canonical.slice(start).split(/\n\*\*THE /)[0];
+  };
+  for (const [id, title] of [['coach', '**THE COACH — state A'], ['coach_gone', '**THE COACH — state B'], ['team', '**THE TEAM']]) {
+    write(id, 'LOOK_AT', run(block(title), 'LOOK'), 'errata 19a');
+    write(id, 'LISTEN_TO', run(block(title), 'LISTEN'), 'errata 19a');
+  }
+  const crossing = block("**THE WATCHMAN'S LAMP").split('**Gone:**')[0];
+  write('lamp', 'LOOK_AT', run(crossing, '\\*\\*Crossing:\\*\\* LOOK'), 'errata 19a');
+  write('lamp', 'LISTEN_TO', run(crossing, 'LISTEN'), 'errata 19a');
+
+  const section17 = (heading) => {
+    const part = doc17.split(new RegExp(`^## ${heading}.*$`, 'm'))[1]?.split(/^## |^---|^# /m)[0];
+    if (!part) throw new Error(`doc 17: no "## ${heading}" section`);
+    return part;
+  };
+  const room05 = doc05.split(/^## ROOM 1 — .*$/m)[1]?.split(/^## /m)[0] ?? '';
+  const first05 = (title, heading) => {
+    const part = room05.split(`**${title}**`)[1]?.split(/\n\*\*THE |\n\*\*HIS /)[0] ?? '';
+    const found = part.match(new RegExp(`\\*\\*${heading}:\\*\\* "([^"]+)"`));
+    if (!found) throw new Error(`doc 05 Room 1: no ${title} ${heading}`);
+    return found[1];
+  };
+  write('town_sign', 'LOOK_AT', run(section17('THE TOWN SIGN'), 'LOOK'), 'doc 17');
+  write('town_sign', 'LISTEN_TO', run(section17('THE TOWN SIGN'), 'LISTEN'), 'doc 17');
+  for (const [id, title, heading] of [['mud', 'THE MUD', 'THE MUD'], ['road_east', 'THE ROAD EAST', 'THE ROAD EAST']]) {
+    for (const [verb, word] of [['LOOK_AT', 'LOOK'], ['LISTEN_TO', 'LISTEN']]) {
+      const later = section17(heading).match(new RegExp(`^\\*\\*${word}\\*\\*(.+)$`, 'm'))?.[1] ?? '';
+      const said = variants(`1 "${first05(title, word)}" · ${later}`);
+      write(id, verb, said, 'docs 05 and 17');
+    }
+  }
+  const westSection = section17('THE ROAD WEST → Room 2');
+  write('road_west', 'LOOK_AT', run(westSection, 'LOOK'), 'doc 17');
+  write('road_west', 'LISTEN_TO', run(westSection, 'LISTEN'), 'doc 17');
+  const blocked = section17('THE ROAD WEST, BEFORE THE CASE');
+  for (const [verb, word] of [['WALK_TO', 'WALK TO'], ['LOOK_AT', 'LOOK'], ['LISTEN_TO', 'LISTEN']]) {
+    write('road_west_blocked', verb, run(blocked, word), 'doc 17');
+  }
+  const fallback = run(blocked, 'ANY OTHER VERB');
+  if (fallback.length !== 3) throw new Error('doc 17: road west before the case has no ANY OTHER VERB run');
+  target('road_west_blocked').fallback = fallback;
+
+  // PART THREE's overrides, by the name the document calls each thing.
+  const NAMES = { 'THE SIGN': 'town_sign', 'THE MUD': 'mud', 'THE COACH': 'coach', 'THE LAMP': 'lamp', 'THE ROAD EAST': 'road_east' };
+  const overrides = doc17.split(/^# PART THREE — OVERRIDES.*$/m)[1]?.split(/^## |^# /m)[0];
+  if (!overrides) throw new Error('doc 17: no PART THREE — OVERRIDES');
+  for (const row of overrides.matchAll(/^> \*\*([A-Z' ]+)\*\* · ([A-Z ]+?) — (?:\*\([^)]*\)\* )?"([^"]+)"/gm)) {
+    const [, name, verb, line] = row;
+    const id = NAMES[name.trim()];
+    if (!id) continue;
+    const into = target(id);
+    into.overrides = { ...(into.overrides ?? {}), [verb.trim().replace(/ /g, '_')]: line };
+  }
+}
+
+/**
  * Doc 17's HIS CASE, which now has THREE STATES and is the game's first PICK UP.
  *
  * The old single hotspot answered PICK UP with "I have it. I have had it the
@@ -2395,34 +2498,11 @@ function openingCase() {
       + 'case_mud\'s LOOK already carries "Everything I own. It is not heavy and that is the '
       + 'whole difficulty" -- and it counts, because he counts: the case grants exactly three '
       + 'items.',
-    responses: {
-      WALK_TO: [{
-        say: 'The case first. I own three things and they are all in it.',
-        repeat: [
-          'It is still in the mud, and it is still all of it.',
-          'I would rather arrive poor than arrive poor and without luggage.',
-        ],
-      }],
-      LOOK_AT: [{
-        say: 'Consolation, and my case still behind me in the mud.',
-        repeat: [
-          'The lamps are not going to wait up on my account.',
-          'Two hundred yards, and one errand first.',
-        ],
-      }],
-      LISTEN_TO: [{
-        say: 'Nothing from down there. They have all gone in.',
-        repeat: [
-          'Still nothing. A town at this hour is only lamps.',
-          'The wind, and my own delay.',
-        ],
-      }],
-    },
-    fallback: [
-      'That can wait until I am carrying my own belongings.',
-      'Not before the case.',
-      'There is an order to these things and the case is first in it.',
-    ],
+    // ITS LINES ARE DOC 17'S, read by roomOneLines below. They were typed
+    // here when the case became required, which made the extractor the only
+    // source of nine spoken lines (errata 100's Room 1 pass moved them).
+    responses: {},
+    fallback: [],
   });
   west.rectNote = 'THE FULL GAP, x500-650, measured off the plate with a ruler. It was narrowed '
     + 'to x500-590 so it could coexist with the lamp, which left Hob NEITHER BLOCKING NOR CLEAR '
@@ -2455,6 +2535,8 @@ function openingCase() {
     + 'the beat that flag releases walks him through the gap and travels at its end. '
     + 'setOnTransit exists because doc 14 says transit produces no line -- and a flag write '
     + 'is not a line, which is the same argument stateOnTransit is made from.';
+
+  roomOneLines(room, doc);
 
   const lamp = room.hotspots.find((entry) => entry.id === 'lamp');
   if (!lamp) throw new Error('stage road has no "lamp" hotspot for Hob to be spoken to through');

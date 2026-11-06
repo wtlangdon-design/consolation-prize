@@ -156,6 +156,7 @@ Every row here shipped past a green suite and was found by Tyler playing, by a r
 | A scene that leads to another room changed rooms before its lines were read | The archive door's exchange hung its first line over the archive and lost the rest (errata 81 F) | `tests/room-08.test.ts` — a response with lines and a destination reports `goesTo` and does not change the room itself |
 | A character standing still | The back row in Room 4 | `tests/movement.test.mjs` (errata 77) |
 | A room line the doc changed never reached the game | The Nugget back-room door's PUSH after the voice pass (#140) | `tools/check-room-lines-sourced.mjs` — every line a room speaks is in /docs |
+| A room built before the compiler kept its own copy of its lines, so rewriting the docs changed nothing | Room 1: only the case was extracted; 54 rewritten lines stayed old, and 12 lived in the extractor's code (#148) | `tools/check-room-lines-sourced.mjs` fails on every stale line; `roomOneLines` in `tools/extract-content.mjs` now reads them. **Before a voice pass on any room, run the check after editing the docs: a line that stays old means the room is not extracted** |
 
 ### Not caught — the process that worked
 
