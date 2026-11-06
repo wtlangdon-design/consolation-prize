@@ -474,6 +474,7 @@ export class GameScene extends Phaser.Scene {
     }
     this.tickListening();
     this.watchActTurn(now);
+    this.openActWhenQuiet();
     this.view.setClock(now);
     if (this.cycleChanged()) this.markDirty();
     // THE WORLD MOVES, THEN SETTLES, THEN THE SCRIPT DECIDES. This order is
@@ -2568,6 +2569,27 @@ export class GameScene extends Phaser.Scene {
       this.state.autosave();
       this.markDirty();
     }
+  }
+
+  /**
+   * AN ACT THAT OPENS SOMEWHERE (errata 101 B): once its card is down and
+   * nothing is being said, walked, chosen or performed, he is cut to the room
+   * and says the line. Waiting for quiet is what keeps the cut from landing
+   * in the middle of a scene; a load that still owes it makes it here too.
+   */
+  private openActWhenQuiet(): void {
+    if (this.opening || this.actCard !== null || this.pendingActCard !== null || this.actCardUntil !== null) return;
+    if (this.state.dialogue.isActive || this.pendingTree || this.performance !== null || this.sayingActor !== null
+      || this.pendingSay.length > 0 || this.travelAfterSay !== null || this.sequence.isRunning) return;
+    if (!this.state.actOpeningDue) return;
+    const lines = this.state.openAct();
+    this.hovered = null;
+    this.hoveredName = null;
+    this.enterRoomPerformance();
+    const who = this.state.content.actor.id;
+    this.pendingSay.push(...lines.map((line) => ({ speaker: who, line })));
+    this.advanceSay();
+    this.markDirty();
   }
 
   private afterLoad(): void {

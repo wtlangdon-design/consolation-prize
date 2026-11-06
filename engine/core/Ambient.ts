@@ -1,4 +1,4 @@
-import type { AmbientExit, AmbientFile } from './types.ts';
+import type { AmbientExit, AmbientFile, Condition } from './types.ts';
 import { departureAt, type DeparturePose } from './Departure.ts';
 import type { GameState } from './GameState.ts';
 
@@ -43,6 +43,18 @@ export interface Departing {
   npc: AmbientFile;
   exit: AmbientExit;
   pose: DeparturePose;
+}
+
+/**
+ * Whether a person's own conditions place him in this room: the placement's
+ * `when` there if it declares one, else the file's `when` with its `whenAny`
+ * (AmbientFile.whenAny).
+ * The one reading of it, so the scene, the tests and the probe cannot differ.
+ */
+export function ambientHere(npc: AmbientFile, roomId: string, test: (when?: Condition) => boolean): boolean {
+  const placed = npc.placements?.[roomId]?.when;
+  if (placed !== undefined) return test(placed);
+  return test(npc.when) && (!npc.whenAny?.length || npc.whenAny.some((one) => test(one)));
 }
 
 export class AmbientLayer {
@@ -104,7 +116,7 @@ export class AmbientLayer {
       .map((id) => this.state.content.ambient.get(id))
       .filter((npc): npc is AmbientFile => npc !== undefined)
       // PRESENT ONLY WHILE THEIR CONDITION HOLDS, the room's placement first.
-      .filter((npc) => this.state.flags.test(npc.placements?.[roomId]?.when ?? npc.when))
+      .filter((npc) => ambientHere(npc, roomId, (when) => this.state.flags.test(when)))
       // A PER-ROOM PLACEMENT WINS over the file's own x,y in that room (doc 36
       // Q117): the same dog, standing where THIS plate has ground for him.
       .map((npc) => {

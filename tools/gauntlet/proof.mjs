@@ -633,7 +633,9 @@ async function main() {
         const placed = file.placements?.[roomId];
         const npc = placed ? { ...file, x: placed.x, y: placed.y, sprite: placed.sprite ?? file.sprite } : file;
         if (!ambientIds.includes(npc.id) || !npc.sprite?.frames?.length) continue;
-        if (!holds(placed?.when ?? file.when)) {
+        const here = placed?.when !== undefined ? holds(placed.when)
+          : holds(file.when) && (!file.whenAny?.length || file.whenAny.some(holds));
+        if (!here) {
           console.log(`    ambient ${npc.id}: absent in panel B by its own condition ${JSON.stringify(placed?.when ?? file.when)}`);
           continue;
         }

@@ -1,9 +1,18 @@
 {
   "schema": 1,
-  "note": "EXTRACTED from docs/57-puzzle-completion.md (A10, E0b, E10) by tools/extract-content.mjs. The card shown when ACT rises to the key in play.",
+  "note": "EXTRACTED from docs/57-puzzle-completion.md (A10, E0b, E10) by tools/extract-content.mjs. The card shown when ACT rises to the key in play; and, where doc 57 says an act opens in a room, that opening (errata 101 B): once the card is down he is in `room` and says `say`, while `due` holds, and the opening clears it.",
   "cards": {
     "2": "PART TWO — THREE PIECES OF PAPER",
     "3": "PART THREE — THADDEUS GRUBB IS LEGALLY DEAD",
     "4": "PART FOUR — THE QUIETEST PART OF THE GAME"
+  },
+  "openings": {
+    "4": {
+      "room": "thads_room",
+      "say": [
+        "Packed. It took four minutes; there was less to pack than there was to leave. The coach is at noon. I am going to look at my mud once more first, because nobody else will."
+      ],
+      "due": "T_ACT_IV_OPENING"
+    }
   }
 }
