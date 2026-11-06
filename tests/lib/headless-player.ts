@@ -178,9 +178,7 @@ export class HeadlessPlayer {
   private arrivalLines(): void {
     const entry = this.state.room.onEnter;
     if (!entry?.say?.length && !entry?.scenes?.length && !entry?.walkTo) return;
-    const scenes = (entry.scenes ?? []).filter((scene) => this.state.flags.test(scene.when));
-    const held = (entry.sayOnce && this.state.flags.get(entry.sayOnce) === true)
-      || (entry.sayWhen !== undefined && !this.state.flags.test(entry.sayWhen));
+    const { held, scenes } = this.state.arrivalOf();
     const lines = [...(held ? [] : (entry.say ?? [])), ...scenes.flatMap((scene) => scene.lines.map((l) => l.speaker))];
     if (entry.sayWhen !== undefined && !held && lines.length && entry.sayOnce) this.state.flags.set(entry.sayOnce, true);
     if (!held && entry.say?.length && entry.saySet) this.state.flags.applyWrites(entry.saySet);
