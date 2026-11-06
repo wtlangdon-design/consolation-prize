@@ -335,6 +335,19 @@ def registrar_bed():
     return finish(x, peak=0.4, loop=True)
 
 
+def church_bell_toll():
+    """R17-BELL, as a pull on the rope really sounds (Tyler, 2026-11-06: "The
+    bell doesn't toll loudly enough for long enough"). One pull swings the
+    bell, and it strikes on each swing, each a little softer as the swing
+    dies: three strikes of the approved bell, two and a half seconds apart,
+    ringing out together. Same bell, same flat note."""
+    one = load('church-bell.wav')
+    x = np.zeros(n_of(14.0))
+    for at, g in ((0.0, 1.0), (2.5, 0.82), (5.0, 0.62)):
+        place(x, one, at, g)
+    return finish(x, peak=0.85)
+
+
 if __name__ == '__main__':
     save('axle-receding.wav', axle_receding())
     save('laugh-distant.wav', laugh_distant())
@@ -345,3 +358,4 @@ if __name__ == '__main__':
     save('dog-breathing.wav', dog_breathing())
     save('main-street-bed.wav', main_street_bed())
     save('registrar-bed.wav', registrar_bed())
+    save('church-bell-toll.wav', church_bell_toll())

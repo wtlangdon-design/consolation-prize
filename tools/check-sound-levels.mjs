@@ -125,6 +125,31 @@ export function check() {
     const room = sounds.verbs.find((rule) => rule.cue === id)?.room;
     const reference = roomBed(room) + db(cue.duck.to);
     const target = levels.cues?.[id] ?? levels.cue;
+    // AND THE DIP LANDS FIRST, AND THE SOUND OUTLASTS IT (errata 108: "The
+    // bell doesn't toll loudly enough for long enough and the music dips too
+    // late"). Its first sound waits out the duck's attack, and it stays within
+    // 10 dB of the ducked music for as long as the music is held down: a dip
+    // with nothing in it is a hole, and a bell cut short by the music's return
+    // is the complaint.
+    const attack = cue.duck.attack ?? 0.08;
+    for (const part of cue.play ?? []) {
+      if ((part.at ?? 0) < attack) {
+        report.fail(`cue ${id} ${part.src}: sounds at ${part.at ?? 0}s, before the music has dipped (${attack}s) -- give it an \`at\``);
+      }
+      const x = read(part.src);
+      const n = Math.round(0.4 * 44100);
+      let last = 0;
+      for (let i = 0; i + n <= x.length; i += 2205) {
+        let sum = 0;
+        for (let k = i; k < i + n; k += 1) sum += x[k] * x[k];
+        if (db(Math.sqrt(sum / n) * (part.gain ?? 1)) - reference >= -10) last = (i + n) / 44100;
+      }
+      const held = (part.at ?? 0) + last;
+      if (held < cue.duck.seconds) {
+        report.fail(`cue ${id} ${part.src}: heard over ${room}'s ducked music for ${held.toFixed(1)}s of a `
+          + `${cue.duck.seconds}s dip -- it is featured, and over before the music comes back`);
+      }
+    }
     for (const part of cue.play ?? []) {
       const level = db(loudestMoment(read(part.src)) * (part.gain ?? 1)) - reference;
       if (level < target - SLACK_DB) {

@@ -214,17 +214,23 @@ export class Music {
 
   /**
    * DUCKS THE BED UNDER A SOUND THAT IS THE POINT (Tyler, 2026-11-06: "The
-   * bell is hard to hear over the music"). Down to `to` over a quarter
-   * second, held for `seconds`, back over a second and a half. A second duck
-   * while one is held extends it.
+   * bell is hard to hear over the music"). Down to `to` over `attack`
+   * seconds, held for `seconds`, back over `release`. A second duck while one
+   * is held extends it.
+   *
+   * THE DIP MUST LAND BEFORE THE SOUND (Tyler, again: "the music dips too
+   * late"). It was a quarter second down, started with the strike, so the
+   * bell's attack -- the moment that says BELL -- landed on music still at
+   * full level. The default attack is now 80 ms, and the cue delays its sound
+   * past it (`at`).
    */
-  duck(to: number, seconds: number): void {
-    this.rampLevel(Math.max(0, Math.min(1, to)), 0.25);
+  duck(to: number, seconds: number, attack = 0.08, release = 2.0): void {
+    this.rampLevel(Math.max(0, Math.min(1, to)), attack);
     if (this.duckTimer) clearTimeout(this.duckTimer);
     this.duckTimer = setTimeout(() => {
       this.duckTimer = null;
-      this.rampLevel(1, 1.5);
-    }, (0.25 + seconds) * 1000);
+      this.rampLevel(1, release);
+    }, (attack + seconds) * 1000);
   }
 
   private rampLevel(to: number, seconds: number): void {

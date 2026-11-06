@@ -24,12 +24,15 @@
    "play": [
     {
      "src": "audio/sfx/church-bell-distant.wav",
-     "gain": 0.419
+     "gain": 0.377,
+     "at": 0.12
     }
    ],
    "duck": {
-    "to": 0.5,
-    "seconds": 5
+    "to": 0.45,
+    "seconds": 5,
+    "attack": 0.08,
+    "release": 2.0
    }
   },
   "R03-HANDBILL": {
@@ -232,16 +235,19 @@
    ]
   },
   "R17-BELL": {
-   "why": "doc 45 R17-BELL: pulling the rope strikes the bell -- the same fixed, half-step-flat bell heard from Main Street, here directly overhead. Doc 49's PULL line has always been in the game; it had no sound.",
+   "why": "doc 45 R17-BELL: pulling the rope strikes the bell -- the same fixed, half-step-flat bell heard from Main Street, here directly overhead. Doc 49's PULL line has always been in the game; it had no sound. Errata 108: a pull swings the bell, so it tolls -- three strikes, ringing out over twelve seconds -- with the music dipped before the first strike lands.",
    "play": [
     {
-     "src": "audio/sfx/church-bell.wav",
-     "gain": 0.138
+     "src": "audio/sfx/church-bell-toll.wav",
+     "gain": 0.147,
+     "at": 0.12
     }
    ],
    "duck": {
-    "to": 0.35,
-    "seconds": 6
+    "to": 0.25,
+    "seconds": 12,
+    "attack": 0.08,
+    "release": 2.5
    }
   }
  },
@@ -525,7 +531,7 @@
    "O-06-S1": -10,
    "R01-WEST-3": -16,
    "R01-COACH-2": -14,
-   "R17-BELL": 6,
+   "R17-BELL": 10,
    "R02-BELL": 2
   },
   "ambience": {
