@@ -149,7 +149,7 @@
           {
             "say": "Paper. It's been on this wall so long it's stopped being read.",
             "repeat": [
-              "Paper, lifting a little in the draught from the door. Still unread.",
+              "Paper, lifting a little in the draft from the door. Still unread.",
               "Silence. It has outlasted everyone who nailed it up."
             ]
           }
@@ -485,7 +485,7 @@
         ]
       },
       "overrides": {
-        "USE": "I haven't been invited up, and I'm not going to invite myself. I have been practising looking like someone who might be."
+        "USE": "I haven't been invited up, and I'm not going to invite myself. I have been practicing looking like someone who might be."
       },
       "walkTo": {
         "x": 1248,
@@ -703,7 +703,7 @@
         ]
       },
       "overrides": {
-        "PUSH": "It gives half an inch and stops. There's a chair against it. I apologise to the chair."
+        "PUSH": "It gives half an inch and stops. There's a chair against it. I apologize to the chair."
       },
       "defaultVerb": "OPEN"
     }
