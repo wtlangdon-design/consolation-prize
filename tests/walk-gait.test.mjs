@@ -28,6 +28,13 @@ import { readPng } from '../tools/lib/png.mjs';
  *    far up the road. A person covers 0.35-1.2 of his own drawn height a
  *    second -- Deke, passed, 0.5; Thad 0.81 -- by `pace`, or by `speed` over
  *    his height where he walks.
+ *  - SIDEWAYS UP A HILL. The miners, drawn in profile, slid up and down a road
+ *    that climbs into the picture (Tyler: "the ones walking up are walking up
+ *    sideways"). Over a walk, its change in depth -- how much a man grows or
+ *    shrinks, |ln(h2/h1)| -- against how far he crosses the picture, in his own
+ *    heights: a profile walk stays under 0.1 (the flat walks measure 0 to
+ *    0.04; the claims road 0.2). Over that, the walk is drawn `away` (he
+ *    shrinks along it) or `toward` (he grows).
  *  - THE FEET NEVER CAME TOGETHER. Hob's second drawing held a wide stride in
  *    five frames of six (Tyler: "kind of scooting across air"). In each half
  *    of a cycle the feet pass: their spread at its narrowest is under 60% of
@@ -70,6 +77,7 @@ for (const path of manifest.ambient) {
 
 const DISTINCT = 0.6;
 const PACE = [0.35, 1.2];
+const DEPTH = 0.1;
 const rooms = new Map(manifest.rooms.map((p) => read(p)).map((r) => [r.id, r]));
 /** His drawn height on his walk: its own `heights` where it declares them, else the room's curve at its start. */
 function drawnHeight(npc, walk) {
@@ -140,6 +148,28 @@ for (const { id, kind, npc, walk } of walks) {
       `${id}'s ${kind} declares no strideRatio, so his legs run at ${walk.fps} frames a second whatever his speed`);
     assert.ok(walk.strideRatio >= STRIDE[0] && walk.strideRatio <= STRIDE[1],
       `${id}'s ${kind} strideRatio ${walk.strideRatio} is outside a walking man's ${STRIDE.join('-')} of his height`);
+  });
+  test(`${id}'s ${kind} walk faces the way it goes`, () => {
+    const room = rooms.get(npc.room);
+    const boxes = new WalkBoxes(room.walkBoxes, () => true);
+    const h = (i) => walk.heights?.[i] ?? (() => {
+      const [x, y] = walk.path[i]; const near = boxes.nearest(x, y); return near ? heightIn(near.box, y) : 0;
+    })();
+    let across = 0; let depth = 0; let signed = 0;
+    for (let i = 1; i < walk.path.length; i += 1) {
+      const a = h(i - 1); const b = h(i);
+      if (a <= 0 || b <= 0) continue;
+      across += Math.abs(walk.path[i][0] - walk.path[i - 1][0]) / ((a + b) / 2);
+      depth += Math.abs(Math.log(b / a)); signed += Math.log(b / a);
+    }
+    const ratio = depth / Math.max(across, 1e-6);
+    const view = walk.view ?? 'profile';
+    if (ratio < DEPTH) {
+      assert.equal(view, 'profile', `${id}'s ${kind} crosses the picture (depth ${ratio.toFixed(2)} of its width) and is drawn ${view}`);
+    } else {
+      assert.ok(view !== 'profile', `${id}'s ${kind} goes into the picture (depth ${ratio.toFixed(2)} of its width) and is drawn in profile: he will slide sideways`);
+      assert.equal(view, signed < 0 ? 'away' : 'toward', `${id}'s ${kind} ${signed < 0 ? 'shrinks' : 'grows'} along its path and is drawn ${view}`);
+    }
   });
   test(`${id}'s ${kind} walk is at a walking pace`, () => {
     const pace = walk.pace ?? walk.speed / drawnHeight(npc, walk);

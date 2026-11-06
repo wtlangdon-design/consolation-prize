@@ -26704,6 +26704,546 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-06T17:42:43.639Z"
+  },
+  {
+   "attempt": 51,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "walk-c-miners-away-a",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/cast-master/master-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/walk-c-miners-away-a.txt",
+   "promptHash": "81940386720deb3c593965eff58205a514ccfec3752243d3cc3218e1cb06823a",
+   "references": [
+    {
+     "path": "art/staging/walk-c/miners-men.png",
+     "hash": "8a72aeb9e088bbbfa5a2adca9baf33ba77acd2b59ba3fe65b392de451f5d3989",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/walk-c/thad-walk-back-poses.png",
+     "hash": "0c103755b3c15175f237b5c9537a6e6874a0e8aa937db29bdc2d27166e0d2831",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "room-art",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "8a72aeb9e088bbbfa5a2adca9baf33ba77acd2b59ba3fe65b392de451f5d3989",
+   "sourcePath": "art/staging/walk-c/miners-men.png",
+   "out": "art/staging/walk-c/miners-away-a.png",
+   "outputHash": "f46ed52f0fe078991366eac196968c9794c1d39da668c42d6a94d7f22e7bdfda",
+   "bytes": 1664628,
+   "usage": {
+    "input_tokens": 10544,
+    "input_tokens_details": {
+     "image_tokens": 10145,
+     "text_tokens": 399
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 12095
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T18:13:33.427Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T18:13:33.431Z"
+  },
+  {
+   "attempt": 52,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "walk-c-miners-away-b",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/cast-master/master-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/walk-c-miners-away-b.txt",
+   "promptHash": "d05098779dfa31c9a4412db14ca64d5633c1df1f386ef21aa254b6f8d2ae170c",
+   "references": [
+    {
+     "path": "art/staging/walk-c/miners-men.png",
+     "hash": "8a72aeb9e088bbbfa5a2adca9baf33ba77acd2b59ba3fe65b392de451f5d3989",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/walk-c/thad-walk-back-poses.png",
+     "hash": "0c103755b3c15175f237b5c9537a6e6874a0e8aa937db29bdc2d27166e0d2831",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "room-art",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "8a72aeb9e088bbbfa5a2adca9baf33ba77acd2b59ba3fe65b392de451f5d3989",
+   "sourcePath": "art/staging/walk-c/miners-men.png",
+   "out": "art/staging/walk-c/miners-away-b.png",
+   "outputHash": "2efbfcc08b9e667a52659bfce46dff083576e1e6f7b45ec89597845afd500ad7",
+   "bytes": 1662177,
+   "usage": {
+    "input_tokens": 10546,
+    "input_tokens_details": {
+     "image_tokens": 10145,
+     "text_tokens": 401
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 12097
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T18:14:01.387Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T18:14:01.391Z"
+  },
+  {
+   "attempt": 53,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "walk-c-miners-toward-a",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/cast-master/master-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/walk-c-miners-toward-a.txt",
+   "promptHash": "4dfb7bb5f62ace7d985a836be7b411913c078ea00a4fe1bc25e4e628f2749784",
+   "references": [
+    {
+     "path": "art/staging/walk-c/miners-men.png",
+     "hash": "8a72aeb9e088bbbfa5a2adca9baf33ba77acd2b59ba3fe65b392de451f5d3989",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/walk-c/thad-walk-front-poses.png",
+     "hash": "dae41d60d53f16e5598f2510dc364541b6660136f4970b2ddb966239811e0707",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "room-art",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "8a72aeb9e088bbbfa5a2adca9baf33ba77acd2b59ba3fe65b392de451f5d3989",
+   "sourcePath": "art/staging/walk-c/miners-men.png",
+   "out": "art/staging/walk-c/miners-toward-a.png",
+   "outputHash": "92ffbeb98b505becf535a16868356900ed380c53dd20819cfae542b9cd8df27c",
+   "bytes": 1720729,
+   "usage": {
+    "input_tokens": 10719,
+    "input_tokens_details": {
+     "image_tokens": 10335,
+     "text_tokens": 384
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 12270
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T18:14:28.862Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T18:14:28.866Z"
+  },
+  {
+   "attempt": 54,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "walk-c-miners-toward-b",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/cast-master/master-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/walk-c-miners-toward-b.txt",
+   "promptHash": "9ee29d4b1dbc7284e418fed1f3ebd8d0317f32de5e57058e9ed3a84c93c0e490",
+   "references": [
+    {
+     "path": "art/staging/walk-c/miners-men.png",
+     "hash": "8a72aeb9e088bbbfa5a2adca9baf33ba77acd2b59ba3fe65b392de451f5d3989",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/walk-c/thad-walk-front-poses.png",
+     "hash": "dae41d60d53f16e5598f2510dc364541b6660136f4970b2ddb966239811e0707",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "room-art",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "8a72aeb9e088bbbfa5a2adca9baf33ba77acd2b59ba3fe65b392de451f5d3989",
+   "sourcePath": "art/staging/walk-c/miners-men.png",
+   "out": "art/staging/walk-c/miners-toward-b.png",
+   "outputHash": "b2896688623cef3cf66a68e3724cd36c9fe82b9f45cbe37ba103fefc2dd7825f",
+   "bytes": 1664711,
+   "usage": {
+    "input_tokens": 10721,
+    "input_tokens_details": {
+     "image_tokens": 10335,
+     "text_tokens": 386
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 12272
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T18:14:56.427Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T18:14:56.431Z"
   }
  ],
  "promotions": [

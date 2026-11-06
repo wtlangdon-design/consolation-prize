@@ -14,117 +14,141 @@
  "loop": {
   "path": [
    [
-    700,
+    735,
     1000
    ],
    [
-    950,
+    979,
     830
    ],
    [
-    1300,
+    1317,
     600
    ],
    [
-    1500,
+    1510,
     430
    ],
    [
-    1620,
+    1626,
     320
    ],
    [
-    1700,
+    1704,
     240
    ],
    [
-    1790,
+    1793,
     190
    ],
    [
-    1990,
+    1993,
     150
    ]
   ],
   "speed": 55,
-  "sheet": "art/actors/room-22-miners-walk.png",
+  "sheet": "art/actors/room-22-miners-away.png",
   "frames": [
    [
     2,
     2,
-    436,
-    262
+    456,
+    324
    ],
    [
-    440,
+    460,
     2,
-    436,
-    262
+    456,
+    324
    ],
    [
-    878,
+    918,
     2,
-    436,
-    262
+    456,
+    324
    ],
    [
-    1316,
+    1376,
     2,
-    436,
-    262
+    456,
+    324
    ],
    [
-    1754,
+    1834,
     2,
-    436,
-    262
+    456,
+    324
    ],
    [
-    2192,
+    2292,
     2,
-    436,
-    262
+    456,
+    324
    ],
    [
-    2630,
+    2750,
     2,
-    436,
-    262
+    456,
+    324
    ],
    [
-    3068,
+    3208,
     2,
-    436,
-    262
+    456,
+    324
    ],
    [
-    3506,
+    3666,
     2,
-    436,
-    262
+    456,
+    324
    ],
    [
-    3944,
+    4124,
     2,
-    436,
-    262
+    456,
+    324
    ],
    [
-    4382,
+    4582,
     2,
-    436,
-    262
+    456,
+    324
    ],
    [
-    4820,
+    5040,
     2,
-    436,
-    262
+    456,
+    324
+   ],
+   [
+    5498,
+    2,
+    456,
+    324
+   ],
+   [
+    5956,
+    2,
+    456,
+    324
+   ],
+   [
+    6414,
+    2,
+    456,
+    324
+   ],
+   [
+    6872,
+    2,
+    456,
+    324
    ]
   ],
   "fps": 5,
   "drawnFacing": "right",
-  "figureHeight": 249,
+  "figureHeight": 295,
   "heights": [
    440,
    360,
@@ -141,6 +165,8 @@
   "strideRatio": 0.771,
   "strideNote": "WALK-C (Tyler, 2026-11-06: \"The miners are awful\"): the crowd was four men stepping in unison through four frames. Now four men drawn alone, each a six-frame walk posed on Thad's (cast-unify 47, 48), the crowd composed from them by tools/art/walk-c.py: one behind another, each nearer the camera, each on his own step and his own beat -- twelve frames a cycle, each man changing pose on his own frame (Tyler: \"all walking in complete unison looks insane\") -- and each a little different in size and spacing. Stride measured from the four men's own frames (R5f), calibrated on Thad's: 0.777. The crowd walking back is the same men, mirrored (doc 10: 'The same men... Same tools.').",
   "pace": 0.5,
-  "paceNote": "Tyler, 2026-11-06: \"The miners are awful.\" At a fixed 55 px/s they crawled at an eighth of their height a second near the camera (440 px tall) and raced at one and a half heights a second far up the road (36 px). Now half their own height a second at every point of the road, Deke's pace, which Tyler passed; `speed` is no longer read."
+  "paceNote": "Tyler, 2026-11-06: \"The miners are awful.\" At a fixed 55 px/s they crawled at an eighth of their height a second near the camera (440 px tall) and raced at one and a half heights a second far up the road (36 px). Now half their own height a second at every point of the road, Deke's pace, which Tyler passed; `speed` is no longer read.",
+  "laneNote": "LANES (Tyler, 2026-11-06: \"they weirdly split down the hill and up the hill from the same point\"): the two crowds walked one line, so where they met they merged and parted like one crowd splitting. The men going out keep the left of the road, the men coming back the right, each lane a share of the man's height to the side of the road's old line (0.08 and 0.42), so they pass each other.",
+  "view": "away"
  }
 }

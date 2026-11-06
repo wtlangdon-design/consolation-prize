@@ -49,7 +49,15 @@ function manAt(roomId, x, y) {
 }
 
 /** Fraction of a frame's opaque pixels whose colour is not their art-pixel block's. */
-export function offGrid(png, [x0, y0, w, h], b) {
+export function offGrid(png, frame, b) {
+  // A pixel centre exactly on a block edge (a block of exactly 3.5 px) can go to either block: the snap's
+  // nearest-neighbour draw-up rounds such ties by floating point, not by rule. Rounded the wrong way the
+  // grid drifts a row from the snap's and an evenly snapped frame reads 12% off (Pratt's breath frame,
+  // errata 102 K). So both roundings are tried and the better taken.
+  return Math.min(offGridTies(png, frame, b, -1e-9), offGridTies(png, frame, b, 1e-9));
+}
+
+function offGridTies(png, [x0, y0, w, h], b, eps) {
   const at = (x, y) => ((y0 + y) * png.width + x0 + x) * 4;
   let top = -1; let bottom = -1; let left = w;
   for (let y = 0; y < h; y += 1) {
@@ -63,12 +71,12 @@ export function offGrid(png, [x0, y0, w, h], b) {
   const nw = Math.ceil((w - left) / bb); const W = Math.round(nw * bb);
   const first = new Map(); let opaque = 0; let off = 0;
   for (let y = top; y <= bottom; y += 1) {
-    const by = Math.floor(((y - top) + 0.5) * nh / H);
+    const by = Math.floor(((y - top) + 0.5) * nh / H + eps);
     for (let x = left; x < w; x += 1) {
       const i = at(x, y);
       if (png.pixels[i + 3] <= 128) continue;
       opaque += 1;
-      const key = by * 100000 + Math.floor(((x - left) + 0.5) * nw / W);
+      const key = by * 100000 + Math.floor(((x - left) + 0.5) * nw / W + eps);
       const c = [png.pixels[i], png.pixels[i + 1], png.pixels[i + 2]];
       const seen = first.get(key);
       if (!seen) { first.set(key, c); continue; }

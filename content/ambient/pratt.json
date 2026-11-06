@@ -73,8 +73,8 @@
   "frameNote": "0 leaning on the rake · 1 breath (derived) · 2 checking the sky · 3 raking, pulled · 4 raking, pushed. Breathing on 0 and 1; every `breakEvery` seconds one break -- the sky, or two strokes of the rake (errata 77).",
   "provenance": "reference/cast-unify-17.spec.json",
   "figureHeight": 363,
-  "stature": 1.03,
-  "statureNote": "The bigger man: room-25's master drew him 1.05 of Thad; 1.03 keeps him inside the 5% a standing man is held to (tests/scale.test.ts).",
+  "stature": 0.96,
+  "statureNote": "Tyler, 2026-11-06, after the leaner redraw: \"scale wise, he still looks way bigger than Thad. I think his current frame needs to be scaled down to better match Thad.\" With his hat, his breadth and his mallet he read well over Thad at 1.03. Now 0.96 of the room's man, crown to sole: his hat brings him level with Thad. (Was 1.03: \"The bigger man: room-25's master drew him 1.05 of Thad\".)",
   "figureHeightNote": "Crown to sole, his hat excluded (tools/art/figure-height.py --hat).",
   "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 19 (reference/cast-unify-17.txt), full figure, his rake in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet; its own file.",
   "buildNote": "LEANER (Tyler, 2026-11-06: \"standing next to Thad Pratt look like a much 'thicker' character\"; he chose \"Leaner, still sturdy\"): redrawn in the same poses, an ordinary working man a little broader than Thad (cast-unify 49), cut by tools/art/cast-unify-cut.py; figureHeight is crown to sole, the hat not counted (tools/art/figure-height.py --hat)."

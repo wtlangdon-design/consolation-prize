@@ -2646,6 +2646,12 @@ export interface AmbientExit {
    * second far up the road, where they are 36.
    */
   pace?: number;
+  /**
+   * How the sheet sees him: in profile (the default), from behind walking `away`, or from the front walking
+   * `toward` the camera. A walk that goes mostly into or out of the picture is drawn `away` or `toward`:
+   * the claims road's miners, drawn in profile, slid up the hill sideways (Tyler, 2026-11-06).
+   */
+  view?: 'profile' | 'away' | 'toward';
   /** A walk that leaves the room's depth curve: a man's drawn height at each point of `path`. */
   heights?: number[];
   /** Which way the sheet draws him walking; the other way is mirrored. */
