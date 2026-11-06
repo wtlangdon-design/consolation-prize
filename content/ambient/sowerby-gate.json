@@ -16,36 +16,36 @@
  "barks": {},
  "barksNote": "The exchange at the gate is an arrival scene (Room 14 onEnter.scenes), not a bark.",
  "sprite": {
-  "sheet": "art/actors/room-31-sowerby.png",
+  "sheet": "art/actors/room-31-sowerby-master.png",
   "frames": [
    [
     2,
     2,
-    147,
+    182,
     314
    ],
    [
-    151,
+    186,
     2,
-    147,
+    182,
     314
    ],
    [
-    300,
+    370,
     2,
-    147,
+    182,
     314
    ],
    [
-    449,
+    554,
     2,
-    147,
+    182,
     314
    ],
    [
-    598,
+    738,
     2,
-    147,
+    182,
     314
    ]
   ],
@@ -73,10 +73,11 @@
   ],
   "breakEvery": 6,
   "talkFrame": 0,
-  "frameNote": "0 rest, a finger raised · 1 breath · 2 rocks forward with the sermon · 3 rocks back · 4 a nod. A break every `breakEvery` seconds (errata 77).",
-  "provenance": "art/staging/room-31/cast/cast.json",
+  "frameNote": "0 rest, a finger raised · 1 breath (derived) · 2 leaning forward with the sermon · 3 leaning back · 4 head bowed, hands together. A break every `breakEvery` seconds (errata 77).",
+  "provenance": "reference/cast-unify-18.spec.json",
   "breaksThatSpeak": [
    0
-  ]
+  ],
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one). Drawn in day colours and relit into the funeral's night where he stands (tools/art/room31-relight-one.py), as the rest of that cast is."
  }
 }

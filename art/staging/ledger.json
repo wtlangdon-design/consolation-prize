@@ -22573,6 +22573,134 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-06T04:52:38.051Z"
+  },
+  {
+   "attempt": 20,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "sowerby",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/cast-master/master-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/cast-unify-18.txt",
+   "promptHash": "79201b30226666b4cd61e051cdeaae4471d2f83a41356ac5e8fa5b5176e96bcd",
+   "references": [
+    {
+     "path": "art/staging/cast-unify/batch-18/board.png",
+     "hash": "11157d8ede6b4854d704fec535816e32f1b7d139e07fca5ab3895cda973ce69a",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-18/last-sheet.png",
+     "hash": "cd6384fe8f364b1d2c2d092fe3eb639eb90cae5fbc9c667882f1e8a839b33ffb",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-18/pulpit.png",
+     "hash": "a8ed79748d540d5b1c88b9e154198b8e8f276eade10105a45a81932a44ce4560",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/room-04-sowerby.png",
+     "hash": "fa72d8e0b68fab1aaf5cfbf734e316df91bc3ae22c3cff9f7d773c01a7abf611",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-17-church",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Reverend Sowerby as Room 4 draws him)",
+      "path": "art/actors/room-04-sowerby.png",
+      "hash": "fa72d8e0b68fab1aaf5cfbf734e316df91bc3ae22c3cff9f7d773c01a7abf611",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "11157d8ede6b4854d704fec535816e32f1b7d139e07fca5ab3895cda973ce69a",
+   "sourcePath": "art/staging/cast-unify/batch-18/board.png",
+   "out": "art/staging/cast-unify/batch-18/sheet.png",
+   "outputHash": "ed2e9513095e803b0dcf6fee4ea1e2d1a48061b77603cc2f495ba2891bd7d9f7",
+   "bytes": 1525727,
+   "usage": {
+    "input_tokens": 8781,
+    "input_tokens_details": {
+     "image_tokens": 8258,
+     "text_tokens": 523
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 10332
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T05:02:48.959Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T05:02:48.963Z"
   }
  ],
  "promotions": [

@@ -23,36 +23,36 @@
  "barks": {},
  "barksNote": "Doc 07 writes no barks for Sowerby in Room 4.",
  "sprite": {
-  "sheet": "art/actors/room-04-sowerby.png",
+  "sheet": "art/actors/room-04-sowerby-master.png",
   "frames": [
    [
     2,
     2,
-    243,
+    222,
     437
    ],
    [
-    247,
+    226,
     2,
-    243,
+    222,
     437
    ],
    [
-    492,
+    450,
     2,
-    243,
+    222,
     437
    ],
    [
-    737,
+    674,
     2,
-    243,
+    222,
     437
    ],
    [
-    982,
+    898,
     2,
-    243,
+    222,
     437
    ]
   ],
@@ -102,8 +102,12 @@
    ]
   ],
   "breakEvery": 4.0,
-  "frameNote": "Frames: 0 rest, the pencil raised · 1 breath · 2 the pencil lowered to his chest · 3 leaning to confer · 4 leaning back, the pencil up. Breathing on 0 and 1; every `breakEvery` seconds one break from the pool (errata 35, 77).",
-  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn in Thad's hand with the cast already redrawn (cast-unify operation 4, reference/cast-unify-04.txt)."
+  "frameNote": "0 rest, the pencil raised · 1 breath (derived) · 2 the pencil lowered to his chest · 3 leaning to confer · 4 leaning back, the pencil up. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one).",
+  "figureHeight": 437,
+  "stature": 1.0,
+  "provenance": "reference/cast-unify-18.spec.json",
+  "figureHeightNote": "Crown to sole of the rest frame; the room's man where he stands is 437, as he was drawn."
  },
  "placements": {
   "church": {
@@ -121,37 +125,37 @@
    },
    "tree": "SOWERBY",
    "sprite": {
-    "sheet": "art/actors/room-17-sowerby.png",
+    "sheet": "art/actors/room-17-sowerby-master.png",
     "frames": [
      [
       2,
       2,
-      205,
-      220
+      232,
+      206
      ],
      [
-      209,
+      236,
       2,
-      205,
-      220
+      232,
+      206
      ],
      [
-      416,
+      470,
       2,
-      205,
-      220
+      232,
+      206
      ],
      [
-      623,
+      704,
       2,
-      205,
-      220
+      232,
+      206
      ],
      [
-      830,
+      938,
       2,
-      205,
-      220
+      232,
+      206
      ]
     ],
     "rate": 0.22,
@@ -184,8 +188,8 @@
     "breakEvery": 6,
     "talkFrame": 2,
     "frameNote": "0 rest, hands on the reading desk · 1 breath (derived) · 2 preaching, a finger raised · 3 counting adjectives on his fingers · 4 a hand on his heart. A break every `breakEvery` seconds (errata 77). He preaches as he talks.",
-    "provenance": "art/staging/room-17/sowerby/sowerby.json",
-    "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn in Thad's hand with the cast already redrawn (cast-unify operation 4, reference/cast-unify-04.txt)."
+    "provenance": "reference/cast-unify-18.spec.json",
+    "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one). At the pulpit, cut at the waist with his hands on the pulpit's top either side of the reading desk; the drawing brought a reading desk of its own, and every pixel of the figure where the room's desk (plane 1) stands in front of him is cleared, so the sheet carries none."
    },
    "clipPlane": 1
   }

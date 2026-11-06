@@ -16,37 +16,37 @@
  "barks": {},
  "barksNote": "The duel is spoken through the assay (content/assay/assay.json).",
  "sprite": {
-  "sheet": "art/actors/room-02-duel-sowerby.png",
+  "sheet": "art/actors/room-04-sowerby-master.png",
   "frames": [
    [
     2,
     2,
-    105,
-    188
+    222,
+    437
    ],
    [
-    109,
+    226,
     2,
-    105,
-    188
+    222,
+    437
    ],
    [
-    216,
+    450,
     2,
-    105,
-    188
+    222,
+    437
    ],
    [
-    323,
+    674,
     2,
-    105,
-    188
+    222,
+    437
    ],
    [
-    430,
+    898,
     2,
-    105,
-    188
+    222,
+    437
    ]
   ],
   "rate": 0.22,
@@ -69,9 +69,9 @@
   ],
   "breakEvery": 7,
   "frameNote": "0 rest, the pencil raised · 1 breath · 2 the pencil lowered · 3 leaning to confer · 4 leaning back",
-  "provenance": "art/staging/room-02/duel-cast/cast.json",
-  "figureHeight": 188,
+  "provenance": "reference/cast-unify-18.spec.json",
+  "figureHeight": 437,
   "stature": 1.0,
-  "redrawn": "Tyler, 2026-11-06 (one artist, one game): rebuilt from the redrawn cast by tools/art/cast-unify-duel-table.py."
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one). The same pencil sheet as the Nugget's back room, drawn at the street's scale."
  }
 }
