@@ -2065,6 +2065,8 @@ export interface ManifestFile {
    * existed.
    */
   carriedLight?: string;
+  /** Doc 45's everyday sounds: cues, footsteps, room ambience (errata 105). */
+  sounds?: string;
   /** A colour per speaker for spoken lines. Absent draws in the default ink. */
   speechColours?: string;
   /** Doc 03's Liar's Assay, as content/assay/assay.json. Optional so a manifest without duels still loads. */
@@ -2099,6 +2101,35 @@ export interface ManifestFile {
     tunedFlag?: string;
   };
   musicNote?: string;
+}
+
+/** One file in a cue, `at` seconds after the cue fires. */
+export interface SoundRef { src: string; gain?: number; at?: number }
+
+/**
+ * DOC 45'S EVERYDAY SOUNDS (errata 105). Which sound plays when is content:
+ * the engine knows a cue id, a verb on a target, a doorway between two rooms,
+ * a foot coming down, a room's background -- and nothing about Consolation.
+ */
+export interface SoundsFile {
+  about?: string;
+  /** Doc 45 cue id to the files it plays. */
+  cues: Record<string, { why?: string; play: SoundRef[] }>;
+  /** A verb on a target fires a cue: optionally only on some written lines, or in some states. */
+  verbs: { room: string; target: string; verb: string; variants?: number[]; when?: Record<string, boolean>; cue: string }[];
+  /** Walking between two rooms, either way, fires a cue (a door). */
+  transits: { between: [string, string]; cue: string }[];
+  footsteps: {
+    gain: number;
+    /** Surface to its takes; consecutive steps never repeat a take. */
+    surfaces: Record<string, string[]>;
+    /** Walk-box surfaces that are also footstep surfaces (a boardwalk); any other box walks on the room's floor. */
+    walkBoxSurfaces: string[];
+    /** Room id to the floor its footsteps sound on. A room not listed is silent underfoot. */
+    rooms: Record<string, string>;
+  };
+  /** Room id to the background it carries (doc 45's `-A` beds). Never detuned: it is not the score. */
+  ambience: Record<string, SoundRef & { why?: string }>;
 }
 
 /** A room's music: a bed with layers, and states that swap it (errata 103). */
@@ -2302,6 +2333,7 @@ export interface ContentBundle {
   overlays: Map<string, OverlayFile>;
   /** The lamp's ground light, or null when the manifest declares none. */
   carriedLight: CarriedLightFile | null;
+  sounds: SoundsFile | null;
   /** Traced paths, keyed by the content path that names them. */
   paths: Map<string, PathFile>;
   /** A colour per speaker, or null where none is declared. */

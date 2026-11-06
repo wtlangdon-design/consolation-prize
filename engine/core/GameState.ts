@@ -28,6 +28,10 @@ export interface InteractionResult {
   goesTo?: string;
   enteredDialogue: boolean;
   changedRoom: boolean;
+  /** Which written line `say` was (ResolvedAction.variant), for the sounds doc 45 ties to one. */
+  variant?: number;
+  /** The room it was resolved in, captured before any room change. */
+  room?: string;
 }
 
 /**
@@ -139,6 +143,8 @@ export class Interaction {
       ...(this.resolution.goesTo ? { goesTo: this.resolution.goesTo } : {}),
       enteredDialogue: this.resolution.dialogue !== null,
       changedRoom: this.resolution.destination !== null,
+      ...(this.resolution.action.variant ? { variant: this.resolution.action.variant } : {}),
+      room: this.resolution.room,
     };
   }
 
