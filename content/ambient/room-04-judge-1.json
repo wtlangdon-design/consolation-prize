@@ -10,7 +10,7 @@
  },
  "note": "One of the three judges of the Liar's Assay (doc 03 Part One; errata 73 B: 'the judges and the pencil are Room 4's'). Seated behind the long table, out of the lamp's pool (doc 05: the lamp 'leaves the judges dark'). Cut from room-04's composition master by subtraction against its plate (tools/art/room04-judges.py), so he is registered to the plate by construction. Present while the Assay sits: from B3 until Thad walks out after Duel Two is won (T_ASSAY_ADJOURNED, written by the door), so he never sees them vanish. No tree: doc 54's TALK TO and USE are the room's (peopleResponses); every other verb is doc 07's people pool.",
  "x": 816,
- "y": 333,
+ "y": 324,
  "zone": 2,
  "approachRadius": 40,
  "tree": "",
@@ -23,43 +23,37 @@
  "barks": {},
  "barksNote": "Doc 07 writes no barks for the judges.",
  "sprite": {
-  "sheet": "art/actors/room-04-judge-1.png",
+  "sheet": "art/actors/room-04-judge-1-master.png",
   "frames": [
    [
     2,
     2,
-    204,
-    174
+    174,
+    170
    ],
    [
-    208,
+    178,
     2,
-    204,
-    174
+    174,
+    170
    ],
    [
-    414,
+    354,
     2,
-    204,
-    174
+    174,
+    170
    ],
    [
-    620,
+    530,
     2,
-    204,
-    174
+    174,
+    170
    ],
    [
-    826,
+    706,
     2,
-    204,
-    174
-   ],
-   [
-    1032,
-    2,
-    204,
-    174
+    174,
+    170
    ]
   ],
   "rate": 0.22,
@@ -71,17 +65,9 @@
     2,
     2,
     2,
-    2,
-    2,
-    2,
-    2,
     0
    ],
    [
-    3,
-    0,
-    3,
-    0,
     3,
     3,
     0
@@ -89,24 +75,13 @@
    [
     4,
     4,
-    0,
     4,
-    4,
-    0
-   ],
-   [
-    5,
-    5,
-    5,
-    0,
-    2,
-    2,
-    2,
-    2,
     0
    ]
   ],
   "breakEvery": 6.0,
-  "redrawn": "Tyler, 2026-11-06: three different men, none like anyone else in the game -- cast-unify operations 6 and 7 (reference/cast-unify-07.txt, row 1); actions derived by tools/art/cast-unify-judges.py."
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master by cast-unify operation 21 (reference/cast-unify-19.txt), seated, nothing of the table drawn; cut with its own pixels and a clean edge, registered on the head and the hands' row, head matched to the judge it replaces. His waist is on the table's back edge (y 318), his hands on its far edge: nothing of him lies over the table. Its own file.",
+  "frameNote": "0 hands folded on the table · 1 breath (derived) · 2 leaning to confer · 3 a nod · 4 drumming his fingers. Every `breakEvery` seconds one break (errata 77).",
+  "provenance": "reference/cast-unify-19.spec.json"
  }
 }
