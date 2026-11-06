@@ -20902,6 +20902,120 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-06T22:12:57.060Z"
+  },
+  {
+   "attempt": 14,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "man-leaving-tomorrow",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/man-leaving-tomorrow-prompt-03.txt",
+   "promptHash": "3539992cd1c85b647e1486be657b394a9ff66627afab8a57b4575222845d55fd",
+   "references": [
+    {
+     "path": "reference/townspeople/nugget-cast-standard.png",
+     "hash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-02.png",
+     "hash": "9196b50ba16f7908e70f34baa9992e106c988a413b4041b3dd790b1d9c783c36",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+   "sourcePath": "reference/townspeople/nugget-cast-standard.png",
+   "out": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-03.png",
+   "outputHash": "34519acc0053ad14b343163f42be36a828251ec59145dece280369b813a7a13d",
+   "bytes": 1565648,
+   "usage": {
+    "input_tokens": 3736,
+    "input_tokens_details": {
+     "image_tokens": 3044,
+     "text_tokens": 692
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 4169
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T22:13:22.693Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06 (townspeople-110 cap 15): 'The fiddler and the other 3 characters all need to be pulled up to about the same level of pixelation which should make sense with the characters in the Nugget, for comparison.'",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T22:13:22.698Z"
+  },
+  {
+   "attempt": 15,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "dogs-owner",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/dogs-owner/sheet-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/dogs-owner-prompt-03.txt",
+   "promptHash": "5b45b7e25dc53bd86ba74f9cd8cb8417a46696cc048abaa212b788e4d1cda87d",
+   "references": [
+    {
+     "path": "reference/townspeople/nugget-cast-standard.png",
+     "hash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/dogs-owner/sheet-02.png",
+     "hash": "7367353aabb1595e10e6b2c0a888e0518f9557373da952ff55ae51c59a453ae7",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+   "sourcePath": "reference/townspeople/nugget-cast-standard.png",
+   "out": "art/staging/townspeople-110/dogs-owner/sheet-03.png",
+   "outputHash": "36bbec62e75ed1442a2e5dba3b0bb7ba413ed47cf217d0ae762b592cb2c50c88",
+   "bytes": 1445983,
+   "usage": {
+    "input_tokens": 3711,
+    "input_tokens_details": {
+     "image_tokens": 3044,
+     "text_tokens": 667
+    },
+    "output_tokens": 522,
+    "output_tokens_details": {
+     "image_tokens": 522,
+     "text_tokens": 0
+    },
+    "total_tokens": 4233
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T22:13:38.175Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06 (townspeople-110 cap 15): 'The fiddler and the other 3 characters all need to be pulled up to about the same level of pixelation which should make sense with the characters in the Nugget, for comparison.'",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T22:13:38.181Z"
   }
  ],
  "promotions": [
