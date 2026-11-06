@@ -210,6 +210,20 @@ const scenes = {
   'raccoons-meeting-leave': departure('r23-a', 'prosperity', { T_RACCOON_MEETING: true }, { T_WARM_HOLE: true }, 11, 'raccoon_meeting'),
 };
 
+// A WHOLE ROOM'S LIFE: `room:<id>` or `room:<id>:<fixture>` records 35 s of the room standing still (every
+// figure's action comes round within 30 s, errata 77), for checking movement that is not a walk.
+for (const arg of wanted.filter((w) => w.startsWith('room:'))) {
+  const [, room, fixture] = arg.split(':');
+  scenes[arg] = async (page, server, dir) => {
+    await open(page, server, fixture ? `fixture=${fixture}&room=${room}` : `room=${room}`);
+    await pump(page, (s) => s.room === room, 60_000, `reach ${room}`);
+    await page.waitForTimeout(1500);
+    await pump(page, (s) => idle(s) && !s.movers?.thad?.moving, 30_000, 'arrival');
+    const rec = await record(page, dir, async () => { await page.waitForTimeout(35_000); });
+    return { ...rec, track: 'room', room };
+  };
+}
+
 const server = await serve();
 const chrome = await browser();
 let failed = 0;

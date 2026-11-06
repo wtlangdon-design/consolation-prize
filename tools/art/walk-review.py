@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(ROOT, 'renders/walks-every-frame')
-want = sys.argv[1:]
+want = [a for a in sys.argv[1:] if not a.startswith("--")]
 
 
 def sheet_frames(sheet, frames):
@@ -30,6 +30,7 @@ def write(name, frames, per_row=8):
     for i, f in enumerate(fs):
         x, y = (i % per_row) * cw, (i // per_row) * ch
         c.paste(f, (x + 6, y + 20), f); d.text((x + 6, y + 4), str(i), fill=(255, 240, 160))
+        d.rectangle([x + 5, y + 19, x + 6 + f.width, y + 20 + f.height], outline=(140, 140, 150))   # the frame's own canvas, so an offset pose reads as one
     os.makedirs(OUT, exist_ok=True)
     c.save(os.path.join(OUT, f'{name}.png'))
     return c.size
@@ -83,3 +84,27 @@ for p in manifest['ambient']:
             d.rectangle([prop['x'] - pw // 2, prop['y'] - ph + 1, prop['x'] - pw // 2 + pw, prop['y']], outline=(255, 90, 90))
         im.save(os.path.join(OUT, f'{name}-path.png'))
         print(name, 'path drawn')
+
+
+# AND EVERY OTHER CLIP: an actor's actions and idles, and every ambient figure's own animation (its idle
+# loop, breath and actions), each frame large and in order -- renders/movement-every-frame/<name>.png.
+# Tyler, 2026-11-06, after the walks: "Any other movement in the game we should evaluate?" -- each is
+# looked at for a hand leaving what it holds, a foot sliding, a pop between frames, before it is shown.
+if '--all' in sys.argv:
+    OUT2 = os.path.join(ROOT, 'renders/movement-every-frame'); os.makedirs(OUT2, exist_ok=True)
+    def write2(name, frames, per_row=12):
+        global OUT
+        old, OUT = OUT, OUT2
+        try: return write(name, frames, per_row)
+        finally: OUT = old
+    for p in manifest.get('actors', []):
+        a = json.load(open(os.path.join(ROOT, p)))
+        for c in a.get('clips', []):
+            if c['id'] == 'walk' or len(c['frames']) < 2: continue
+            print(f"{a['id']}-{c['id']}-{c['facing']}", write2(f"{a['id']}-{c['id']}-{c['facing']}", [Image.open(os.path.join(ROOT, f)).convert('RGBA') for f in c['frames']]))
+    for p in manifest['ambient']:
+        n = json.load(open(os.path.join(ROOT, p)))
+        sprites = [('', n.get('sprite'))] + [(f'-{r}', pl.get('sprite')) for r, pl in (n.get('placements') or {}).items() if pl.get('sprite')]
+        for suffix, sp in sprites:
+            if not sp or len(sp.get('frames') or []) < 2: continue
+            print(f"{n['id']}{suffix}", write2(f"{n['id']}{suffix}", sheet_frames(sp['sheet'], sp['frames'])))
