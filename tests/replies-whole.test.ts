@@ -1,5 +1,5 @@
 /**
- * NO REPLY LOSES ITS LATER LINES (errata 119).
+ * NO REPLY LOSES ITS LATER LINES (errata 120).
  *
  * Winnie's extractor kept the first quoted line of a reply and dropped the
  * rest, and so lost WIN_F1's "File it. I'll be at the Registrar's when you

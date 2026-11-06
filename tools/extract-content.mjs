@@ -3305,7 +3305,7 @@ function winnieTree() {
       const plainDirections = directions.filter((d) => !/^rephrases after/.test(d));
       const spoken = firstCell.replace(/\*\([^)]*\)\*/g, '');
       const lines = quoted(spoken);
-      // EVERY QUOTED LINE IS SAID (errata 119). This kept the first and dropped
+      // EVERY QUOTED LINE IS SAID (errata 120). This kept the first and dropped
       // the rest, which lost WIN_F1's "File it. I'll be at the Registrar's when
       // you do." -- the only line that sends Thad to the last filing (F5).
       if (lines.length > 1) option.exchange = lines.map((line) => ({ speaker: SPEAKER, line }));
