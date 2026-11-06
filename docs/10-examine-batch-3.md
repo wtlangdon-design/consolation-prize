@@ -101,8 +101,8 @@
 *Nine hotspots. Thad is present at his own, and can examine all of it, which is the joke and also not the joke.*
 
 **THE MOURNERS**
-> **LOOK:** "Nine people have come to my funeral. I have been in Consolation eleven weeks. I do not know what to do with this and I am going to have to get into the box shortly."
-> **LISTEN:** "Nothing. Nine people, not talking."
+> **LOOK:** "Seven people have come to my funeral. I have been in Consolation eleven weeks. I do not know what to do with this and I am going to have to get into the box shortly."
+> **LISTEN:** "Nothing. Seven people, not talking."
 
 **HOB, AT THE EDGE**
 > **LOOK:** "The night watchman, standing at the back, off his rounds. I have never once seen him stand still."

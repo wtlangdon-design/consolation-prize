@@ -1334,6 +1334,20 @@ function transitBeat(spec) {
     return lines.map((line) => ({ speaker: 'thad', line, ...(spec.thenFrom.overBlack ? { overBlack: true } : {}) }));
   })() : [];
   const following = [...(by ? more.map((line) => ({ speaker: by, line })) : more), ...after];
+  // THE BEAT'S OWN PICTURE, PERFORMED (doc 48 S7 beat 3, errata 99 P): the
+  // table row's description up to `directionUntil` is played first as a stage
+  // direction, and the line follows it. For a beat whose picture is not drawn.
+  if (spec.directionUntil) {
+    const row = new RegExp(`^\\| ${spec.row} \\| ([^|]+) \\|`, 'm').exec(body);
+    if (!row) fail(`transitScene: ${spec.ref} has no row ${spec.row}`);
+    const cut = row[1].indexOf(spec.directionUntil);
+    if (cut < 0) fail(`transitScene: row ${spec.row} has no "${spec.directionUntil}"`);
+    const picture = row[1].slice(0, cut).trim();
+    return { ...(spec.when ? { when: spec.when } : {}), say: picture, direction: true,
+      then: [{ speaker: by ?? 'thad', line: first }, ...following],
+      ...(spec.set ? { set: spec.set } : {}), ...(spec.stays ? { stays: true } : {}),
+      sceneLine: `${spec.ref} · ${spec.bullet ?? `beat ${spec.row}`}` };
+  }
   return { ...(spec.when ? { when: spec.when } : {}), say: first, ...(by ? { by } : {}),
     ...(following.length ? { then: following } : {}),
     ...(spec.set ? { set: spec.set } : {}), ...(spec.stays ? { stays: true } : {}),

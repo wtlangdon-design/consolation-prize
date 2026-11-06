@@ -12,7 +12,7 @@ import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
 import { StepTriggers, type StepEvent } from '../core/StepTriggers.ts';
-import { DialoguePerformance, readingHold, type HoldTiming } from '../core/DialoguePerformance.ts';
+import { DialoguePerformance, readingHold, type HoldTiming, type Utterance } from '../core/DialoguePerformance.ts';
 import { liveCycling, mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
 import { BitmapFont, GLYPH_SCALE, type Face } from '../render/BitmapFont.ts';
 import { appliedCandidates, askedCandidates, resolveAssetPath } from '../dev/CandidateArt.ts';
@@ -78,6 +78,8 @@ export class GameScene extends Phaser.Scene {
   private actors!: RoomActors;
   private readonly music = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
   /** Errata 70 G: one-shots, under the same switch and the same unlock as the beds. */
+  /** The performed line whose sound has been played, so it plays once. */
+  private soundedLine: Utterance | null = null;
   private readonly sfx = new Sfx(() => this.state.menu.toggle(MUSIC_OPTION), () => this.music.isUnlocked);
   /** Errata 70 G: a room that is its own cutscene (Room 32). */
   private readonly timeline = new RoomTimeline();
@@ -1890,6 +1892,7 @@ export class GameScene extends Phaser.Scene {
         speaker: spoken.speaker,
         line: spoken.direction ? GameScene.asDirection(spoken.line) : spoken.line,
         direction: spoken.direction === true,
+        ...((spoken as { sound?: Utterance['sound'] }).sound ? { sound: (spoken as { sound?: Utterance['sound'] }).sound } : {}),
       })),
     ];
     this.performance = new DialoguePerformance(
@@ -1923,6 +1926,16 @@ export class GameScene extends Phaser.Scene {
     if (!live) return;
     const line = live.current;
     this.setSay(line?.line ?? null, line?.speaker ?? null, line?.direction ?? false);
+    // A LINE THAT MAKES A SOUND makes it once, as it is shown; the score rests
+    // under it and comes back where it stopped (doc 48 S6 beat 3).
+    if (line?.sound && this.soundedLine !== line) {
+      this.soundedLine = line;
+      this.sfx.play(line.sound.src, line.sound.gain ?? 1);
+      if (line.sound.rest && !this.music.isSuspended) {
+        this.music.suspend();
+        this.time.delayedCall(line.sound.rest * 1000, () => { if (this.music.isSuspended) this.music.resume(0); });
+      }
+    }
     if (!live.done) { this.markDirty(); return; }
     this.performance = null;
     if (!this.state.dialogue.isActive) {

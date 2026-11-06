@@ -1669,7 +1669,7 @@ export interface DialogueOption {
    * on screen as one man saying all of it and loses the joke's timing. An
    * option has either `say` or `exchange`, never both.
    */
-  exchange?: { speaker: string; line: string; direction?: boolean }[];
+  exchange?: { speaker: string; line: string; direction?: boolean; sound?: LineSound }[];
   /**
    * Shown instead of `say` once the option has already been taken. The
    * pre-W1 shape: one string, the second selection's line, kept for the
@@ -1766,11 +1766,23 @@ export interface DialogueOption {
 
 export type AfterUse = 'retain' | 'remove' | 'counted-repeat' | 'rephrase' | 'replace';
 
+/**
+ * A SOUND A PERFORMED LINE MAKES (doc 48 S6 beat 3: "The county seal comes down.
+ * One stamp. It is the loudest sound in the game and the score rests under it").
+ * Played when the line is shown; with `rest`, the score stops for that many
+ * seconds and picks up where it stopped.
+ */
+export interface LineSound {
+  src: string;
+  gain?: number;
+  rest?: number;
+}
+
 /** One later selection's answer: from `selection` on, until the next entry. */
 export interface DialogueRepeat {
   selection: number;
   say?: string;
-  exchange?: { speaker: string; line: string; direction?: boolean }[];
+  exchange?: { speaker: string; line: string; direction?: boolean; sound?: LineSound }[];
 }
 
 export interface DialogueNode {
