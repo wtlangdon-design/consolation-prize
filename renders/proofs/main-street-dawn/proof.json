@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "main_street_dawn",
  "roomWidth": 3700,
- "branch": "ccr-347d40c6-71r9f9",
- "commit": "f430648988292661226abd711c70338048054c9c",
+ "branch": "claude/tender-sagan-buz50u",
+ "commit": "9ed3fc2a8f3ff62f26a29b72dbed956772db3acf",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -43,9 +43,9 @@
    "expected": 105,
    "drawnFrom": "art/actors/thad-idle-left/idle-02.png",
    "bounds": [
-    906,
+    905,
     480,
-    109,
+    111,
     116
    ],
    "order": 0,
@@ -80,9 +80,9 @@
    "expected": 206,
    "drawnFrom": "art/actors/thad-idle-left/idle-05.png",
    "bounds": [
-    1768,
+    1765,
     651,
-    214,
+    219,
     227
    ],
    "order": 0,
@@ -115,7 +115,7 @@
     "height": 64,
     "bottom": 761,
     "right": 905,
-    "changed": 4733
+    "changed": 4630
    },
    "props": []
   }
@@ -124,7 +124,7 @@
   {
    "panel": "B",
    "room": "main_street_dawn",
-   "clock": 9.088899999999999,
+   "clock": 8.6219,
    "beat": null,
    "control": null,
    "camera": 1780,
@@ -180,7 +180,8 @@
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
     "PRATT_OFFERS": 0,
-    "PICK_SWINGS": 2
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0
    },
    "inventory": [
     "tuning_fork",
@@ -204,9 +205,9 @@
      "drawn": "sprite",
      "from": "art/actors/thad-idle-left/idle-02.png",
      "bounds": [
-      3602,
+      3601,
       489,
-      115,
+      118,
       123
      ],
      "order": 0,
@@ -223,7 +224,7 @@
      "drawn": "art/backgrounds/room-36-main-street-dawn.png",
      "candidate": false,
      "loaded": true,
-     "hash": "08bef467c2750c5af85af4534883c5151ba14f0e2ce860802650b5392fd4a217"
+     "hash": "2d53ccf12ced643c19a5781d1cb59e640a1325694af831ecca9d8d21643a12a3"
     },
     {
      "key": "art/actors/room-36-dog.png",
@@ -231,7 +232,7 @@
      "drawn": "art/actors/room-36-dog.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f9e2672b11220940b0c46aee037979a4a807de8dc833bd5b28acce97323e7850"
+     "hash": "9aaaa93b4766655aa6f3eed4e00e83f896ae64d1cb1cadd07604e1d0ef910204"
     }
    ],
    "stubs": [],
@@ -239,15 +240,15 @@
    "controlWrites": [
     "enter(main_street_dawn)"
    ],
-   "capturedAt": "2026-11-05T23:54:09.667Z",
+   "capturedAt": "2026-11-06T23:16:31.340Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "bd956ce14e4888e9ba4d57a0667b306726b94750fa4b8fbb2f7bb581de1acbd1"
+   "hash": "7e50dd98b04b65ace0c15004867954d48fe448cae6270897eaac650602ac711a"
   },
   {
    "panel": "A",
    "room": "main_street_dawn",
-   "clock": 9.938799999999999,
+   "clock": 9.6386,
    "beat": null,
    "control": null,
    "camera": 1780,
@@ -303,7 +304,8 @@
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
     "PRATT_OFFERS": 0,
-    "PICK_SWINGS": 2
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0
    },
    "inventory": [
     "tuning_fork",
@@ -341,7 +343,7 @@
      "drawn": "art/backgrounds/room-36-main-street-dawn.png",
      "candidate": false,
      "loaded": true,
-     "hash": "08bef467c2750c5af85af4534883c5151ba14f0e2ce860802650b5392fd4a217"
+     "hash": "2d53ccf12ced643c19a5781d1cb59e640a1325694af831ecca9d8d21643a12a3"
     },
     {
      "key": "art/actors/room-36-dog.png",
@@ -349,7 +351,7 @@
      "drawn": "art/actors/room-36-dog.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f9e2672b11220940b0c46aee037979a4a807de8dc833bd5b28acce97323e7850"
+     "hash": "9aaaa93b4766655aa6f3eed4e00e83f896ae64d1cb1cadd07604e1d0ef910204"
     }
    ],
    "stubs": [],
@@ -358,15 +360,15 @@
     "enter(main_street_dawn)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T23:54:10.505Z",
+   "capturedAt": "2026-11-06T23:16:32.217Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "8a45312134ac324d660d654e7af0e96cf142153bc7be2472618a4c49bf5f672d"
+   "hash": "d985a6f04480bf6ad04291bc3b949a769491f837ed6bb7ec323f1bdbe2623658"
   },
   {
    "panel": "D",
    "room": "main_street_dawn",
-   "clock": 17.5885,
+   "clock": 17.454900000000002,
    "beat": null,
    "control": null,
    "camera": 595,
@@ -423,7 +425,8 @@
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
     "PRATT_OFFERS": 0,
-    "PICK_SWINGS": 2
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0
    },
    "inventory": [
     "tuning_fork",
@@ -447,9 +450,9 @@
      "drawn": "sprite",
      "from": "art/actors/thad-idlebreak-left/idle-break-06.png",
      "bounds": [
-      1768,
+      1765,
       651,
-      214,
+      219,
       227
      ],
      "order": 0,
@@ -466,7 +469,7 @@
      "drawn": "art/backgrounds/room-36-main-street-dawn.png",
      "candidate": false,
      "loaded": true,
-     "hash": "08bef467c2750c5af85af4534883c5151ba14f0e2ce860802650b5392fd4a217"
+     "hash": "2d53ccf12ced643c19a5781d1cb59e640a1325694af831ecca9d8d21643a12a3"
     },
     {
      "key": "art/actors/room-36-dog.png",
@@ -474,7 +477,7 @@
      "drawn": "art/actors/room-36-dog.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f9e2672b11220940b0c46aee037979a4a807de8dc833bd5b28acce97323e7850"
+     "hash": "9aaaa93b4766655aa6f3eed4e00e83f896ae64d1cb1cadd07604e1d0ef910204"
     }
    ],
    "stubs": [],
@@ -483,18 +486,20 @@
     "enter(main_street_dawn)",
     "cast(false)",
     "cast(true)",
+    "bystanders(false)",
     "stand(961,585)",
     "cast(false)",
     "cast(true)",
     "stand(1875,857)",
     "cast(false)",
     "cast(true)",
+    "bystanders(true)",
     "flag T_CLOSE_SAID=true"
    ],
-   "capturedAt": "2026-11-05T23:54:18.148Z",
+   "capturedAt": "2026-11-06T23:16:40.038Z",
    "intent": "principal changed state: DOC 48 S7 BEATS 3-4, as state: T_CLOSE_SAID set by the flag control, the coach stop gone and the street left at its close. The close itself -- 'Leave the mud.' and the letter over black -- is played by clicking the stop in the doors route (tools/gauntlet/routes/main-street-dawn-doors.json), from where the fixture stands him; by panel D the proof has moved him far down the street.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "9bee100fc5f4aaed2dceeb899b7802f06a29918118381e9a6381e33ec737cbc1",
+   "hash": "43d7b759f10bbb1b733af78c35530dead3afc8aecbe22b7a347fba65ed062f5b",
    "changedBy": "flags"
   }
  ],
@@ -525,11 +530,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T23:54:18.148Z",
+ "at": "2026-11-06T23:16:40.039Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 882590,
+  "bytes": 865690,
   "panels": 5,
   "scale": 0.5
  }
