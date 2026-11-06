@@ -76,3 +76,27 @@ Written into doc 05 Part Two-B's blocks for Rooms 3, 5, 7, 18 and 19. Room 19's 
 | 19 | 3 | The washstand | LOOK | A basin and a pitcher. I've washed the grave off twice. The pitcher feels once was plenty. |
 | 19 | 4 | The wall | LISTEN | Next door, two men still sure where Mott's strike is. |
 | 19 | 4 | The desk | LOOK | One short leg, propped on a claim notice. It's the only claim in town I'm sure is doing any good. |
+
+## Batch 2: the back alley, the mercantile, the Clarion, the church, the undertaker's
+
+Rooms 9, 13, 17 and 20 gain their first Part Two-B blocks, and their sources files now point at them (`#2`, the room section `#1`).
+
+**Left alone on purpose:**
+- **Things a puzzle reads:** the Mott photograph, back editions and schedule board; the bell, bell rope and subscription list; the measuring wall, coffins, price board and ledger; the pickaxes, price list and calico; the side door, ash pile and barrels.
+- **Lines that would assume** a suit Thad wore, a seat he sat in, or where the service was held. No document says.
+
+| Room | Act | Hotspot | Verb | New line |
+|---|---|---|---|---|
+| 12 | 3 | The pickle jar | LOOK | Pickled eggs, the brine still working. It's outlasted me, officially. I suspect it'll outlast everyone. |
+| 12 | 3 | The stove | LOOK | The stove where the town's opinions are formed. This week the opinion is me, and it's very generous, considering. |
+| 12 | 3 | The stove | LISTEN | Iron ticking, and my name, said kindly. |
+| 12 | 4 | The pans | LOOK | Gold pans to the ceiling. He's never had to reorder. I know why now, and I wish I didn't. |
+| 9 | 3 | The spike | LOOK | A paper spike, loaded with stories that didn't run. Somewhere in there is the version of me that lived. |
+| 9 | 4 | The press | LOOK | The press, running Mott's legend again. Twelve years of front pages, and I've met the man who'd be most embarrassed by them. |
+| 9 | 3 | The window | LISTEN | Main Street, and someone reading aloud about the Piano Man. Both of them are pleased. *(the base line's two readers, again)* |
+| 13 | 3 | The flowers, waxed | LOOK | Wax lilies, dusted. They were at my funeral. They'll be at the next one. They don't play favorites. |
+| 17 | 3 | The notice of services | LOOK | SERVICES SUNDAY. FUNERALS AS REQUIRED. I was required. I've never felt so needed by a notice. |
+| 17 | 4 | The window glass | LOOK | Plain glass. The dawn does the colors for free. In a town that charged for everything, I'd never noticed that. |
+| 20 | 3 | The wash line | LOOK | The same shirt and the same long underwear, still at half mast. I've decided to take it personally. |
+| 20 | 4 | The alley itself | LOOK | The space behind Main Street, where the false fronts stop pretending. I used to come here for the honesty. Now I bring my own. |
+| 20 | 4 | The mud | LOOK | Alley mud. Hob's boots have been through it every night for twelve years, and I never once looked down. |
