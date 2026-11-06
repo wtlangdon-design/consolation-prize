@@ -51,7 +51,7 @@
 > **LISTEN:** "Nothing."
 
 **THE TESTIMONIALS**
-> **LOOK:** "Framed letters of thanks from satisfied claimholders. Four of them. I have read the dates. They are all from the first two years."
+> **LOOK:** "Framed letters of thanks from satisfied claimholders. Four of them. I've read the dates. They're all from the first two years."
 > **LISTEN:** "Nothing."
 
 **THE SUBSCRIPTION BOOK**

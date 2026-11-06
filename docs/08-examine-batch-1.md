@@ -48,7 +48,7 @@
 
 **THE PRICE LIST**
 > **LOOK:** "Flour, twelve dollars the barrel. In Providence it is two. I have read this list four times looking for the error and the error is that I came here."
-> **LISTEN:** "Nothing. It is entirely comfortable with itself."
+> **LISTEN:** "Nothing. It's entirely comfortable with itself."
 
 **THE SHOVELS**
 > **LOOK:** "Forty shovels. There are two thousand men in Consolation and forty shovels, and somehow this has never become a problem, which tells you something about the men."
@@ -64,11 +64,11 @@
 
 **THE UNSOLD SCALES**
 > **LOOK:** "A dozen assayer's scales, still in their paper. He ordered them in the first year, for all the men who would need to weigh things."
-> **LISTEN:** "Nothing. They have never been out of the paper."
+> **LISTEN:** "Nothing. They've never been out of the paper."
 
 **THE DYNAMITE**
 > **LOOK:** "A crate of dynamite, kept beside the stove, which I have decided not to think about."
-> **LISTEN:** "…No. I would rather not."
+> **LISTEN:** "…No. I'd rather not."
 
 **THE CATALOGUE — cover**
 > **LOOK:** "A mail-order catalogue, four hundred pages, six months old. Every man in Consolation has read it cover to cover. It is the most-read book in the territory and it is a list of prices in Chicago."
@@ -80,15 +80,15 @@
 
 **THE CATALOGUE — the page on pianos**
 > **LOOK:** "Uprights, from ninety dollars. Delivery not available west of St. Louis."
-> **LISTEN:** "Nothing. It's a picture of a piano. I am aware that I am doing this."
+> **LISTEN:** "Nothing. It's a picture of a piano. I'm aware I'm doing this."
 
 **THE DEBT LEDGER**
-> **LOOK:** "Every man in town, and a number beside him. The numbers only go one way. He is not worried, because they cannot leave until they pay, and they cannot pay."
+> **LOOK:** "Every man in town, and a number beside him. The numbers only go one way. He isn't worried. They can't leave until they pay, and they can't pay."
 > **LISTEN:** "Nothing."
 
 **THE BOOTS** · **THE TINNED GOODS** · **THE BOLTS OF CLOTH** · **THE NAILS** · **THE LAMP OIL** · **THE STOVE**
 > *(Tinned goods — **LOOK:** "Peaches, from Baltimore, at a dollar the tin. There is a man in the corner looking at them the way other men look at gold.")*
-> *(Cloth — **LISTEN:** "Nothing. It is the softest thing within two hundred miles and nobody in here has touched it.")*
+> *(Cloth — **LISTEN:** "Nothing. It's the softest thing within two hundred miles, and nobody in here has touched it.")*
 
 ---
 

@@ -162,7 +162,7 @@
       },
       "overrides": {
         "TALK_TO": "I read him my letter of introduction. It seemed only right. He took it as well as anything else I've said here.",
-        "USE": "It is in use. That is the entire and only thing a plot can be."
+        "USE": "It's in use. That's the entire and only thing a plot can be."
       },
       "walkTo": {
         "x": 1584,
@@ -235,7 +235,7 @@
             "say": "My plot, my headboard, HE TUNED. I visit.",
             "repeat": [
               "The grass has started over it. I am the first man in Consolation to watch his own grave come in.",
-              "Someone has left a tuning peg on the headboard, a piano's. I know whose piano. I am not going to say."
+              "Someone has left a tuning peg on the headboard, a piano's. I know whose piano. I'm not going to say."
             ],
             "then": [
               "It is restful, in the way of problems that have been filed."
@@ -246,7 +246,7 @@
           {
             "say": "Wind in the oats. My grave is the only one here whose tenant can review the accommodations, and I give it high marks.",
             "repeat": [
-              "Nothing. Not from me, and I would know.",
+              "Nothing. Not from me, and I'd know.",
               "The oats again, and somewhere down the hill, a piano, in tune."
             ]
           }

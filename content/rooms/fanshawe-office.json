@@ -33,10 +33,10 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. It is closed, and it will stay closed while he is in the room.",
+            "say": "Nothing. It's closed, and it'll stay closed while he's in the room.",
             "repeat": [
               "Nothing. Even the paper in this office waits to be invited.",
-              "Nothing. I have the distinct sense of the book listening back."
+              "I have the distinct sense of the book listening back."
             ]
           }
         ],
@@ -59,7 +59,7 @@
             "when": {
               "T_FUNERAL_DAY": false
             },
-            "say": "Not with him in the room. He would offer to help me carry it.",
+            "say": "Not with him in the room. He'd offer to help me carry it.",
             "sceneLine": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)* · Fanshawe present"
           }
         ],
@@ -68,7 +68,7 @@
             "when": {
               "T_FUNERAL_DAY": false
             },
-            "say": "Not with him in the room. He would offer to help me carry it.",
+            "say": "Not with him in the room. He'd offer to help me carry it.",
             "sceneLine": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)* · Fanshawe present"
           }
         ]
@@ -140,7 +140,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Full. It is always full. He does not drink it.",
+            "say": "Full. It's always full. He doesn't drink it.",
             "repeat": [
               "The stopper rings faintly when the desk is struck. Even the glass is in a cordial mood.",
               "Nothing. It is full again. Somebody refills it quietly."
@@ -173,7 +173,7 @@
             "say": "A cavalry sabre, mounted. Beautifully kept.",
             "repeat": [
               "The scabbard is engraved with a battle honor. I would tell you which, but the engraving and the Colonel disagree.",
-              "Not a nick on it. It is either the finest blade in the territory or it has never met anything."
+              "Not a nick on it. Either it's the finest blade in the territory, or it's never met anything."
             ]
           }
         ],
@@ -221,7 +221,7 @@
             "say": "Nothing. Whatever is in there is packed too tight to shift.",
             "repeat": [
               "The runners squeak a little when the sideboard takes my weight. It has been opened recently.",
-              "Nothing more. I am being very good."
+              "Nothing more. I'm being very good. It's killing me."
             ]
           }
         ],
@@ -247,7 +247,7 @@
             "when": {
               "T_FUNERAL_DAY": false
             },
-            "say": "Not with him in the room. He would offer to help me carry it.",
+            "say": "Not with him in the room. He'd offer to help me carry it.",
             "sceneLine": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)* · Fanshawe present"
           }
         ],
@@ -273,7 +273,7 @@
             "when": {
               "T_FUNERAL_DAY": false
             },
-            "say": "Not with him in the room. He would offer to help me carry it.",
+            "say": "Not with him in the room. He'd offer to help me carry it.",
             "sceneLine": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)* · Fanshawe present"
           }
         ]
@@ -339,7 +339,7 @@
             "say": "Every claim in the district, pinned. Two of them have red pins. One is Claim One.",
             "repeat": [
               "Green pins for the Company, a great many. The two red pins are alone together near the middle.",
-              "My pin has been pushed all the way in. The others merely rest. I do not know why that bothers me as much as it does."
+              "My pin has been pushed all the way in. The others merely rest. I don't know why that bothers me as much as it does."
             ],
             "then": [
               "The other is mine."
@@ -423,7 +423,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Leather, settling. They are extremely comfortable and I do not wish to sit in one.",
+            "say": "Leather, settling. They're extremely comfortable, and I don't wish to sit in one.",
             "repeat": [
               "A cushion slowly breathing out. Somebody sat in it recently and was relieved of something.",
               "Nothing. Good furniture in this town is very patient."
@@ -432,7 +432,7 @@
         ]
       },
       "overrides": {
-        "PUSH": "They are heavier than they look. Everything in this office is heavier than it looks."
+        "PUSH": "They're heavier than they look. Everything in this office is heavier than it looks."
       },
       "walkTo": {
         "x": 588,
@@ -506,7 +506,7 @@
           {
             "say": "Nothing. Iron this thick has heard nothing since it was cast.",
             "repeat": [
-              "Nothing. It does not tick, which is the first thing I listen for in a lock.",
+              "Nothing. It doesn't tick, which is the first thing I listen for in a lock.",
               "A dull note when the floor takes my weight. Heavy things have very little to say, and say it low."
             ]
           }

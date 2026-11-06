@@ -114,15 +114,15 @@
 ## Newly written
 
 ### THE PRICE LIST
-**LOOK** 1 "Plain, Respectable, and Handsome. The Handsome is four times the Plain and the difference is a handle." · 2 "There is a fourth line, scratched out, that began with the word Gratis." · 3 "Nobody has ever asked me which I would want, and I have decided that is a courtesy."
+**LOOK** 1 "Plain, Respectable, and Handsome. The Handsome is four times the Plain and the difference is a handle." · 2 "There is a fourth line, scratched out, that began with the word Gratis." · 3 "Nobody's ever asked me which I'd want, and I've decided that's a courtesy."
 **LISTEN** 1 "Nothing." · 2 "Nothing." · 3 "Nothing."
 
 ### THE TOOLS
-**LOOK** 1 "A saw, a plane, a brace, and a mallet, hung level and clean. This is a carpenter's shop that has specialized." · 2 "The plane has been used this morning. There are shavings and they are pale." · 3 "He makes them himself. I had assumed they came from somewhere."
-**LISTEN** 1 "Nothing." · 2 "Nothing." · 3 "Nothing. He is not working while I am standing here."
+**LOOK** 1 "A saw, a plane, a brace, and a mallet, hung level and clean. This is a carpenter's shop that has specialized." · 2 "The plane has been used this morning. There are shavings and they are pale." · 3 "He makes them himself. I'd assumed they came from somewhere."
+**LISTEN** 1 "Nothing." · 2 "Nothing." · 3 "Nothing. He isn't working while I'm standing here."
 
 ### THE WAITING BENCH
-**LOOK** 1 "A bench by the door, for those come to arrange things. It has a cushion." · 2 "Somebody put a cushion on a bench in an undertaker's. I would like to know who and I am not going to ask." · 3 "It is worn in the middle, which is the opposite of the Registrar's."
+**LOOK** 1 "A bench by the door, for those come to arrange things. It has a cushion." · 2 "Somebody put a cushion on a bench in an undertaker's. I'd like to know who, and I'm not going to ask." · 3 "It is worn in the middle, which is the opposite of the Registrar's."
 **LISTEN** 1 "Nothing." · 2 "Nothing." · 3 "Nothing. It is the quietest bench in the territory and it has earned it."
 
 ### THE WINDOW
@@ -133,23 +133,23 @@
 
 **THE COFFINS** — LOOK 2 "Stacked by size, and there are a great many in the smallest." · 3 "Six months of work, standing ready. He is not expecting a quiet year." | LISTEN 2 "Nothing." · 3 "Nothing. Naturally nothing."
 
-**THE JAR OF TEETH** — LOOK 2 "Still there. I have decided to think of it as inventory." · 3 "There are more than there were on Tuesday. I am not going to develop this thought." *(Rewritten — the old variant 3 was the back half of doc 09's variant 1.)* | LISTEN 2 "Nothing." · 3 "Nothing. I have satisfied myself and I should like that to be the end of it." *(Corrected — "I have stopped." belongs to the Nugget's spittoon and must not be shared.)*
+**THE JAR OF TEETH** — LOOK 2 "Still there. I've decided to think of it as inventory." · 3 "There are more than there were on Tuesday. I'm not going to develop this thought." *(Rewritten — the old variant 3 was the back half of doc 09's variant 1.)* | LISTEN 2 "Nothing." · 3 "Nothing. I've satisfied myself, and I'd like that to be the end of it." *(Corrected — "I have stopped." belongs to the Nugget's spittoon and must not be shared.)*
 
 **THE GOOD SUIT** — LOOK 2 "Three sizes, on one hanger, and all three have been let out at the waist." · 3 "Half the men on Boot Hill were viewed in this and buried in their own clothes." | LISTEN 2 "Nothing." · 3 "Nothing."
 
-**THE LEDGER** — LOOK 2 "Eleven pages in twelve years, in a town of two thousand." · 3 "Which means most of them left. I have been telling myself that all morning." | LISTEN 2 "Nothing." · 3 "Nothing."
+**THE LEDGER** — LOOK 2 "Eleven pages in twelve years, in a town of two thousand." · 3 "Which means most of them left. I've been telling myself that all morning." | LISTEN 2 "Nothing." · 3 "Nothing."
 
 **THE TABLE** — LOOK 2 "Scrubbed to the grain, and scrubbed again since." · 3 "It is the cleanest surface in the territory and I would rather look at the ceiling." | LISTEN 2 "Nothing." · 3 "Nothing."
 
 ## Overrides
 
 > **THE COFFINS** · USE — "Not yet." *(This line does not change in Act III. Do not add a variant.)*
-> **THE COFFINS** · OPEN — "There is nothing in it. I have checked, which I regret."
+> **THE COFFINS** · OPEN — "There's nothing in it. I've checked, which I regret."
 > **THE JAR OF TEETH** · PICK UP — "No."
-> **THE GOOD SUIT** · PICK UP — "It is rented, and I am not the size."
-> **THE TOOLS** · PICK UP — "They are hung level. I am not the man who unhangs them."
+> **THE GOOD SUIT** · PICK UP — "It's rented, and I'm not the size."
+> **THE TOOLS** · PICK UP — "They're hung level. I'm not the man who unhangs them."
 > **THE PRICE LIST** · PICK UP — "It is nailed up, and I would rather not be seen taking it."
-> **THE WAITING BENCH** · USE — "I have sat down. It is a very good cushion and that is somehow the worst part."
+> **THE WAITING BENCH** · USE — "I've sat down. It's a very good cushion, and that's somehow the worst part."
 
 ## Exit
 
