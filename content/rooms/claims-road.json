@@ -144,6 +144,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "From here Consolation is painted fronts under a church spire. Two thousand people living inside a story, and from up here it's lovely."
+          },
+          {
             "say": "From here Consolation is a shelf of painted fronts under a church spire, like crockery that argues.",
             "repeat": [
               "From this distance you cannot see that the fronts are false. It is the distance the town was built to be seen from.",

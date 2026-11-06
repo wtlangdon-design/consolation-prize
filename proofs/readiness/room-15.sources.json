@@ -5,7 +5,7 @@
  "name": "THE LIVERY STABLE",
  "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54). B3's interface is open (doc 36 Q143 item 6).",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 15 — THE LIVERY STABLE",
+  "primary": "docs/05-examine-layer.md::ROOM 15 — THE LIVERY STABLE#1",
   "batch": [
    "docs/09-examine-batch-2.md::ROOM 15 — THE LIVERY STABLE"
   ],
@@ -18,7 +18,8 @@
   "actVariantsNone": {
    "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
    "why": "Part Two-B wrote no variant for the stable."
-  }
+  },
+  "actVariants": "docs/05-examine-layer.md::ROOM 15 — THE LIVERY STABLE#2"
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 15 — THE LIVERY STABLE",
  "dialogue": {

@@ -5,7 +5,7 @@
  "name": "THE ROAD TO THE CLAIMS",
  "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54) from docs 02, 05, 10, 20 and 54.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 22 — THE ROAD TO THE CLAIMS",
+  "primary": "docs/05-examine-layer.md::ROOM 22 — THE ROAD TO THE CLAIMS#1",
   "batch": [
    "docs/10-examine-batch-3.md::ROOM 22 — THE ROAD TO THE CLAIMS"
   ],
@@ -18,7 +18,8 @@
   "actVariantsNone": {
    "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
    "why": "Part Two-B wrote no variant for the road; it is a junction traversed in every act."
-  }
+  },
+  "actVariants": "docs/05-examine-layer.md::ROOM 22 — THE ROAD TO THE CLAIMS#2"
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 22 — THE ROAD TO THE CLAIMS",
  "dialogue": {

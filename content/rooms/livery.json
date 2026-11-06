@@ -109,6 +109,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "The chair, tipped back at the angle of a man who's seen everything once. Now he's seen me twice."
+          },
+          {
             "say": "A kitchen chair tipped back against the wall at the exact angle of a man who has seen everything once.",
             "repeat": [
               "The back legs are worn short. He has tipped it for so many years the chair has adapted.",
@@ -502,6 +511,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Six stalls, one occupied, and the town's whole history in the others. I know which parts of it were true now. Not many."
+          },
           {
             "say": "Six stalls, one occupied. The others hold hay, a broken sulky, and the general storage of a town that keeps everything.",
             "repeat": [

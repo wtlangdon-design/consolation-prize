@@ -100,3 +100,35 @@ Rooms 9, 13, 17 and 20 gain their first Part Two-B blocks, and their sources fil
 | 20 | 3 | The wash line | LOOK | The same shirt and the same long underwear, still at half mast. I've decided to take it personally. |
 | 20 | 4 | The alley itself | LOOK | The space behind Main Street, where the false fronts stop pretending. I used to come here for the honesty. Now I bring my own. |
 | 20 | 4 | The mud | LOOK | Alley mud. Hob's boots have been through it every night for twelve years, and I never once looked down. |
+
+## Batch 3: the Company lobby, the livery, Ozymandia's tent, the road to the claims, Sheng's laundry
+
+| Room | Act | Hotspot | Verb | New line |
+|---|---|---|---|---|
+| 10 | 3 | The window blinds | LOOK | Half-drawn, at the same angle, as if the building were in mourning. It isn't. It's always like this. |
+| 10 | 4 | The model | LOOK | A scale model of a town built on a strike that never was. Beautifully made. Like the strike. |
+| 15 | 3 | The livery man's chair | LOOK | The chair, tipped back at the angle of a man who's seen everything once. Now he's seen me twice. |
+| 15 | 4 | The stalls | LOOK | Six stalls, one occupied, and the town's whole history in the others. I know which parts of it were true now. Not many. |
+| 16 | 3 | The crystal ball | LOOK | A glass ball. In it: the tent, upside down, and me, small, and apparently deceased. I look well, considering. |
+| 16 | 4 | The chart | LOOK | A chart of the humors of the earth, entirely invented, and it took somebody weeks. In this town that's practically a founding document. |
+| 22 | 4 | The view back at town | LOOK | From here Consolation is painted fronts under a church spire. Two thousand people living inside a story, and from up here it's lovely. |
+| 28 | 4 | The mangle | LOOK | A hand-cranked mangle, the most reliable machine in the territory. After this week, I'd add: and the most honest. |
+
+**Left alone in these rooms:**
+- **Things a puzzle reads:** the livery's board of names, feed bin and Grievance; the Company's testimonials, subscription book and maps; Ozymandia's rod and testimonials (her method is what Thad does in the Listening, and a later-act line about it would point there); Sheng's ledger, Thursday book and collar advertisement (the stock portrait).
+
+## Where the pass stands
+
+**56 new lines in 16 rooms:**
+- Main Street (16);
+- batch 1 (17): the Nugget, the assay office, the Registrar's, the hotel lobby, Thad's room;
+- batch 2 (13): the back alley, the mercantile, the Clarion, the church, the undertaker's;
+- batch 3 (8): the Company lobby, the livery, Ozymandia's tent, the road to the claims, Sheng's laundry.
+
+**Rooms the pass did not write, and why:**
+- **Fanshawe's office, the Nugget back room, the archive, the assay records room:** nearly every subject is read by a puzzle or a duel.
+- **The stage road:** Room 1 is built by hand from docs 37 and 43, not compiled from doc 05. A line added to doc 05 would never reach it, and editing /content is forbidden.
+- **Prosperity, Boot Hill and Mott's site:** they already carry the act turns doc 05 wrote.
+- **The claims beyond (Pratt's, the creek, claim row, the ridge) and the watchman's shack:** each is visited for its own act's errands, and a later-act line there would have little to come back to.
+
+Any of these can be opened with a ruling.

@@ -231,6 +231,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "A scale model of a town built on a strike that never was. Beautifully made. Like the strike."
+          },
+          {
             "say": "A scale model of Consolation as it will be. A bank, an opera house, a second church, a park. It is beautifully made. It has been beautifully made for nine years.",
             "repeat": [
               "The opera house has tiny painted posters on it for an opera that has not been written.",
@@ -348,6 +357,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Half-drawn, at the same angle, as if the building were in mourning. It isn't. It's always like this."
+          },
           {
             "say": "Half-drawn, always, at the same angle.",
             "repeat": [
