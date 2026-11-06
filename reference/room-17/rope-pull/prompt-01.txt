@@ -1,0 +1,23 @@
+The attached image is a frame from my pixel-art adventure game. The man in the long blue coat, seen from behind, is Thad, the hero. He is standing under a church bell rope. I need Thad himself, from behind, pulling that rope once.
+
+STYLE — this is Thad, so match him exactly:
+- Same pixel-art style, same pixel size, same flat, soft shading, same small amount of texture, same clean outlines. Not sharper, not more detailed.
+- Same man: same dark curly hair, same long blue-grey coat, same dark trousers and brown boots, same proportions, same height.
+- Same warm lamplight as the attached frame.
+
+THE SHEET — one image, six poses of Thad from behind, side by side, left to right:
+1. REACH: both arms raised straight up above his head, hands open, reaching for a rope just above him. Up on the balls of his feet a little.
+2. GRIP: the same, hands closed around a short length of rope above his head. Include only the piece of rope in his hands, about one hand's length above and below his fists.
+3. PULL: he pulls down hard: fists come down to just above his head, elbows bent and out to the sides, knees bent, his weight dropping. The short piece of rope comes down with his hands.
+4. PULL, LOWEST: fists at the top of his head, knees bent a little more, shoulders hunched with the effort.
+5. LET GO: arms rising again as the rope pulls up out of his hands, hands opening, knees straightening.
+6. DONE: standing straight, arms down at his sides, exactly as in the attached frame.
+
+RULES — these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no wall, no bell, no furniture. The only thing besides Thad is the short piece of rope in his hands in poses 2 to 4.
+- Seen from directly behind in every pose, like the attached frame. We never see his face.
+- All six poses full-length (hair to boots), the same size, boots on the same baseline.
+- Clear magenta space between poses. No pose touches or overlaps another, raised arms included.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same proportions.
+- Crisp pixel edges against the magenta. No soft glow or blur around him.
+- No text, labels, numbers or borders.

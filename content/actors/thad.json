@@ -407,6 +407,24 @@
       ]
     },
     {
+      "id": "reach",
+      "facing": "back",
+      "frames": [
+        "art/actors/thad-reach-back/reach-00.png",
+        "art/actors/thad-reach-back/reach-01.png",
+        "art/actors/thad-reach-back/reach-02.png",
+        "art/actors/thad-reach-back/reach-03.png",
+        "art/actors/thad-reach-back/reach-04.png",
+        "art/actors/thad-reach-back/reach-05.png"
+      ],
+      "figureHeight": 625,
+      "anchor": [
+        370,
+        764
+      ],
+      "landsAt": 2
+    },
+    {
       "id": "strain",
       "facing": "back",
       "frames": [

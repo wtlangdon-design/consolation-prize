@@ -225,5 +225,11 @@
     "note": "The reading desk on the pulpit, its dark wood against the pale wall (tools/art/room17-sowerby.py). Assigned to Sowerby by his church placement's clipPlane, not by any walk box."
    }
   ]
- }
+ },
+ "reactions": {
+  "bell_rope": {
+   "PULL": "reach"
+  }
+ },
+ "reactionsNote": "Verb -> Thad's clip, played before the line (engine/scenes/GameScene.ts). The bell rope's PULL plays `reach`, which lands on its downstroke (content/actors/thad.json `landsAt`), so the line and the bell come as his fists come down. Brief: reference/room-17/rope-pull/brief.md."
 }

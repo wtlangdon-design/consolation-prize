@@ -1,0 +1,16 @@
+{
+  "source": "art/staging/thad-rope-pull/sheet-01.png",
+  "key": "magenta",
+  "clip": "reach",
+  "view": "headon",
+  "facing": "back",
+  "figure": [
+    220,
+    625
+  ],
+  "padding": 260,
+  "sole_row": 764,
+  "lands_at": 2,
+  "frames": 6,
+  "note": "Doc 40's reach (PUSH and PULL: 'Same clip, probably'), from behind, for Room 17's bell rope: reach, close, down, lowest, open, done. thad-rope-pull attempt 1 (reference/room-17/rope-pull/brief.md), cut by tools/rig/cut-rope-pull.py at ONE scale from the standing pose, each pose's feet at x 370. The canvas is 829 tall, not 690: raised arms reach far above his crown, so the soles are at row 764 (sole_row). No rope in the art -- the image service refused any picture of a man gripping a rope overhead -- and the church plate's own rope hangs to where his fists come down. lands_at 2: the PULL's line, and the bell with it, starts on the downstroke rather than after he has let go."
+}

@@ -1,0 +1,23 @@
+The attached image is a frame from my pixel-art adventure game. The man in the long blue coat, seen from behind, is Thad, the hero. He is standing in a small wooden church under the rope of the church bell. I need Thad himself, from behind, ringing the bell: one ordinary pull on the bell-rope, the way a sexton rings for morning. It is a cheerful everyday chore.
+
+STYLE — this is Thad, so match him exactly:
+- Same pixel-art style, same pixel size, same flat, soft shading, same small amount of texture, same clean outlines. Not sharper, not more detailed.
+- Same man: same dark curly hair, same long blue-grey coat, same dark trousers and brown boots, same proportions, same height.
+- Same warm lamplight as the attached frame.
+
+THE SHEET — one image, six poses of Thad from behind, side by side, left to right:
+1. REACH: both arms raised above his head, hands open, reaching for the bell-rope just above him. Up on the balls of his feet a little.
+2. GRIP: the same, hands closed around the bell-rope above his head. Include only the piece of bell-rope in his hands, about one hand's length above and below his fists.
+3. RING: he draws the bell-rope down: fists come down to just above his head, elbows bent and out to the sides, knees bent a little. The short piece of bell-rope comes down with his hands.
+4. RING, LOWEST: fists at the top of his head, knees bent a little more.
+5. LET GO: the bell swings back and lifts the rope; his arms rise with it and his hands open, knees straightening.
+6. DONE: standing straight, arms down at his sides, exactly as in the attached frame.
+
+RULES — these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no wall, no bell, no furniture. The only thing besides Thad is the short piece of bell-rope in his hands in poses 2 to 4.
+- Seen from directly behind in every pose, like the attached frame. We never see his face.
+- All six poses full-length (hair to boots), the same size, boots on the same baseline.
+- Clear magenta space between poses. No pose touches or overlaps another, raised arms included.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same proportions.
+- Crisp pixel edges against the magenta. No soft glow or blur around him.
+- No text, labels, numbers or borders.

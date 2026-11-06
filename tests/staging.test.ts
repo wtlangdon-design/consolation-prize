@@ -1149,3 +1149,30 @@ test('a lamp with no loaded frame lights nothing, rather than lighting a guess',
       'and a clip that declares no anchor is null whatever has loaded');
   }
 });
+
+test('a chore with landsAt hands the sequence on at that frame and still plays its whole clip', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom(openingRoom(content));
+  const player = new Actor(state, content.actor.id, 960, 780, { routed: true });
+  const actors = new RoomActors(state, player);
+  const bodies = new BodyOwners();
+  // The player's own record declares a clip that lands early: its rig's lands_at.
+  const landing = content.actor.clips.find((clip) => clip.landsAt !== undefined);
+  assert.ok(landing, 'some clip of the player declares where it lands');
+  const whole = landing.frames.length / content.actor.reactRate;
+  const lands = landing.landsAt! / content.actor.reactRate;
+  const world = new SequenceWorld({
+    actors, bodies,
+    choreSeconds: () => whole,
+    choreLands: (_mover, clip) => (clip === landing.id ? lands : undefined),
+    say: () => 0,
+  });
+  assert.ok(lands < whole);
+  assert.equal(world.chore(player.id, landing.id), lands, 'the next step starts when the clip lands');
+  assert.ok(player.isChoring, 'and the clip is still playing');
+  // A world built without choreLands waits for the whole clip, as before.
+  const plain = new SequenceWorld({ actors: new RoomActors(state, new Actor(state, content.actor.id, 960, 780, { routed: true })),
+    bodies: new BodyOwners(), choreSeconds: () => whole, say: () => 0 });
+  assert.equal(plain.chore(content.actor.id, landing.id), whole);
+});

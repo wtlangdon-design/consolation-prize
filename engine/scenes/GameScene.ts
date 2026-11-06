@@ -316,6 +316,7 @@ export class GameScene extends Phaser.Scene {
       actors: this.actors,
       bodies: this.bodies,
       choreSeconds: (mover, clip) => this.choreSeconds(mover, clip),
+      choreLands: (mover, clip) => this.choreLands(mover, clip),
       say: (step) => this.saySequenceStep(step),
       cue: (id) => this.fireCue(id),
       paths: this.state.content.paths,
@@ -1770,6 +1771,13 @@ export class GameScene extends Phaser.Scene {
       throw new Error(`No declared clip "${clip}" (${facing}) for mover "${mover.id}"`);
     }
     return found.frames.length / record.reactRate;
+  }
+
+  /** When the step after this chore may start: its clip's `landsAt` frame, if it declares one. */
+  private choreLands(mover: Actor, clip: string): number | undefined {
+    const record = this.state.content.actors.get(mover.id);
+    const found = record?.clips.find((candidate) => candidate.id === clip && candidate.facing === mover.facing);
+    return found?.landsAt === undefined || !record ? undefined : found.landsAt / record.reactRate;
   }
 
   /**

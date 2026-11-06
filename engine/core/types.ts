@@ -857,6 +857,16 @@ export interface ActorClip {
    */
   walkDx?: number;
   /**
+   * THE FRAME A REACTION LANDS ON, when its line should not wait for the
+   * whole clip. A verb's reaction plays before its line, and the line is what
+   * fires the verb's sound -- so a clip that ends in recovery (a pull's let-go
+   * and straighten) would put the bell after he has let go. With this set, the
+   * sequence moves on to the line, and its sound, when the clip reaches this
+   * frame, and the clip plays out underneath. Room 17's bell rope: the toll
+   * comes on the downstroke. Absent: the line waits for the clip, as always.
+   */
+  landsAt?: number;
+  /**
    * WHERE THE LANTERN IS, ONE POINT PER FRAME, in the same padded-canvas space
    * as `anchor`.
    *

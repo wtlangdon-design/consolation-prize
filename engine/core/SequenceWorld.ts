@@ -58,6 +58,12 @@ export interface SequenceWorldParts {
    * `Assertions.assertRequiredClip` is the guard shipped for exactly this.
    */
   choreSeconds: (mover: Actor, clip: string) => number;
+  /**
+   * When the step after a chore may start, where that is sooner than the
+   * chore's end (ActorClip.landsAt). Absent, or undefined for a clip: the
+   * whole chore.
+   */
+  choreLands?: (mover: Actor, clip: string) => number | undefined;
   /** Shows a line and returns how long it holds. See `SequenceHost.say`. */
   say: (step: Extract<SequenceStep, { kind: 'say' }>) => number;
   /** Traced paths by the content path that names them. */
@@ -101,6 +107,7 @@ export class SequenceWorld implements SequenceHost {
   private readonly actors: RoomActors;
   private readonly bodies: BodyOwnership;
   private readonly choreSecondsFor: (mover: Actor, clip: string) => number;
+  private readonly choreLandsFor: (mover: Actor, clip: string) => number | undefined;
   private readonly speak: (step: Extract<SequenceStep, { kind: 'say' }>) => number;
   private readonly paths: Map<string, PathFile>;
   private readonly travelThrough: (through: string) => void;
@@ -112,6 +119,7 @@ export class SequenceWorld implements SequenceHost {
     this.actors = parts.actors;
     this.bodies = parts.bodies;
     this.choreSecondsFor = parts.choreSeconds;
+    this.choreLandsFor = parts.choreLands ?? (() => undefined);
     this.speak = parts.say;
     this.paths = parts.paths ?? new Map();
     this.travelThrough = parts.travel ?? (() => {
@@ -197,7 +205,9 @@ export class SequenceWorld implements SequenceHost {
     const seconds = this.choreSecondsFor(mover, clip);
     this.bodies.claimBody(actor, CHORE_OWNER);
     mover.react(clip, seconds);
-    return seconds;
+    // The clip plays its whole length; the SEQUENCE waits only until it lands.
+    const lands = this.choreLandsFor(mover, clip);
+    return lands === undefined ? seconds : Math.min(seconds, lands);
   }
 
   /**
