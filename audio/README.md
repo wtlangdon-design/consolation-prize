@@ -10,6 +10,10 @@ agree today and drift a semitone apart in a month.
 | `consolation-title.wav` | **O-01-M** | 25.26s | CONSOLATION, full, piano-led — doc 28's title mix. Two statements of 32 beats at 152. |
 | `thaddeus-room-01.wav` | **O-02-M** | 37.89s | THADDEUS, Room 1. Solo, unaccompanied. Four bars of 3/4 at 76, four times. |
 | `thaddeus-complete-room-33.wav` | **R33-M** | 37.89s | THADDEUS, complete — Room 33. The same four bars, the fourth resolved to the tonic (errata 99 L). Placeholder composition by the builder; rendered alone with `--only thaddeus-complete-room-33.wav`. |
+| `the-strike.wav` | **THE STRIKE** | 7.95s | Three notes, harmonica, distant. A one-shot, rung out rather than looped (errata 102). Placeholder composition by the builder. |
+| `the-assay.wav` | **THE ASSAY** | 24.55s | Piano and jaw harp, D minor, bars of 3, 4, 5, 6, twice (errata 102). Placeholder. |
+| `winnie.wav` | **WINNIE** | 43.64s | Fiddle without vibrato and piano, C major, four bars, four times (errata 102). Placeholder. |
+| `the-company.wav` | **THE COMPANY** | 40.00s | Fiddle and parlour piano, F major, eight bars twice; the piano doubles the tune the second time (errata 102). Placeholder. |
 
 Both use the LA-flavoured voices, which **errata 56** made canon: *"The
 LA-flavoured voice is canon."* `THEME_LA` and `THADDEUS_LA`, at
