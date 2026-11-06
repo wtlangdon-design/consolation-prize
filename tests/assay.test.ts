@@ -284,7 +284,7 @@ test('Duel Three always ends, whatever the player learned before it (invariant 6
   // good. Duel Three re-throws a lost exchange, and a pair the player cannot
   // answer is offered only its wrong answers -- so it must be one he knows.
   const file = await assayFile();
-  const confession = file.duels['duel_three']!.sequence.filter((n) => n >= 22);
+  const confession = (file.duels['duel_three']?.sequence ?? []).filter((n) => n >= 22);
   for (const known of [new Set<number>([1, 2, 3, 4, ...confession]), new Set<number>(confession)]) {
     assert.equal(playBest(file, 'duel_three', known).ended, true, `stuck with ${[...known].join(',')}`);
   }
