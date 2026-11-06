@@ -586,7 +586,20 @@
           "tag": "PROGRESS",
           "text": "Run it.",
           "afterUse": "remove",
-          "say": "Twenty-two hundred dollars to the ton.",
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "Twenty-two hundred dollars to the ton."
+            },
+            {
+              "speaker": "winnie",
+              "line": "Nine years I've waited to write down a number I believed."
+            },
+            {
+              "speaker": "winnie",
+              "line": "File it. I'll be at the Registrar's when you do."
+            }
+          ],
           "set": {
             "T_ASSAY_RUN": true
           }
