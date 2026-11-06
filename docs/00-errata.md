@@ -2902,3 +2902,15 @@ The sounds Tyler approved by ear (errata 102) now play in the game, where doc 45
 **The music now ducks.** A cue may dip the score under it (`duck`: to a fraction of its level, for so many seconds, down in a quarter second and back over a second and a half). The rope's bell ducks the church's music to 0.35 for six seconds and rings 6 dB over what is left; Main Street's distant bell ducks to 0.5 for five and sits 2 dB over. Errata 106's ceilings stand for everything else: footsteps, doors, paper and backgrounds are still background.
 
 **A featured sound now has a floor.** `levels.featured` names the cues the room is about (the two bells); `tools/check-sound-levels.mjs` fails if one does not duck the music or sits more than 2 dB under its place, measured against its own room's music as ducked. Proved: the old bell fails it.
+
+---
+
+# 108 · THE BELL TOLLS, AND THE MUSIC IS ALREADY DOWN — TYLER, 2026-11-06
+
+**"The bell doesn't toll loudly enough for long enough and the music dips too late."** Both true, and measurable:
+
+- **Too short.** One strike rang out and was gone while the music was still held down. A pull on a bell rope swings the bell, and it strikes on each swing: R17-BELL is now **three strikes of the approved bell**, two and a half seconds apart, each softer as the swing dies, ringing out over about twelve seconds (`church-bell-toll.wav`, `tools/audio/render-room-sfx.py`). Same bell, same flat note. Main Street's distant bell stays one strike, as doc 45 writes it.
+- **Too quiet.** The strikes now sit 10 dB over the ducked church music (was 6), and the music ducks further, to a quarter (was 0.35), for twelve seconds.
+- **Too late.** The dip took a quarter second and started with the strike, so the bell's attack -- the moment that says *bell* -- landed on music still at full level. The dip now takes 80 ms and the bell waits 120 ms for it (`duck.attack`, the sound's `at`); the music comes back over two and a half seconds.
+
+**The level check now asks both questions** of a featured sound: does it wait for the dip (its `at` is at least the duck's attack), and is it still heard -- within 10 dB of the ducked music -- for as long as the music is held down. Proved: errata 107's bell fails on timing and level.
