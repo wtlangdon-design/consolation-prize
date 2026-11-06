@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: an undertaker's shop at night, lit by one hanging oil lamp. A strip across the top of the room, coloured flat bright magenta, is MISSING PICTURE: the painting never reached the top of the frame there.
+
+Paint that magenta strip, and only that strip, as the room continuing upward: the ceiling of the same shop. The same plank boards and the same beams as the room just below it, running the same way and in the same perspective, the line where wall meets ceiling carried on as it is. The lamp's chain goes on up through the strip to a hook in a ceiling beam. The same dim, warm lamplight, darker toward the top and the corners, in the same muted colours and the same pixel art, pixel size and palette as the rest of the picture.
+
+Change nothing below the magenta strip: every board, the door, the window, the coats, the coffins, the bench, the table, the lamp, the shelf, the lectern and the floor stay exactly as they are, pixel for pixel. The light grey margins at the very top and bottom of the image stay light grey. No people, no animals, no text, no numerals, and no magenta left anywhere.

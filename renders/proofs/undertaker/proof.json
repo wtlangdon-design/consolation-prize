@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "undertaker",
  "roomWidth": 1920,
- "branch": "ccr-347d40c6-71r9f9",
- "commit": "03dbea8372b6f4e8e8e102451264e6e5a7fdefbe",
+ "branch": "claude/tender-sagan-buz50u",
+ "commit": "a8c63292e2ec1cc519e8d910652f63e25014dd5c",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -69,11 +69,11 @@
    ],
    "reportedHeight": 463,
    "expected": 463,
-   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-02.png",
    "bounds": [
-    725,
+    720,
     283,
-    480,
+    490,
     511
    ],
    "order": 0,
@@ -106,11 +106,11 @@
    ],
    "reportedHeight": 537,
    "expected": 537,
-   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-06.png",
    "bounds": [
-    686,
+    680,
     317,
-    557,
+    569,
     593
    ],
    "order": 0,
@@ -126,24 +126,24 @@
    "id": "undertaker",
    "feet": [
     1542,
-    526
+    515
    ],
-   "sheet": "art/actors/room-13-undertaker.png",
+   "sheet": "art/actors/room-13-undertaker-master.png",
    "clipPlane": null,
    "box": {
-    "x": 1459,
-    "y": 299,
-    "width": 167,
-    "height": 229
+    "x": 1440,
+    "y": 316,
+    "width": 205,
+    "height": 201
    },
    "seen": {
-    "x": 1489,
-    "y": 300,
-    "width": 131,
-    "height": 227,
-    "bottom": 526,
-    "right": 1619,
-    "changed": 20259
+    "x": 1457,
+    "y": 323,
+    "width": 183,
+    "height": 191,
+    "bottom": 513,
+    "right": 1639,
+    "changed": 20384
    },
    "props": []
   }
@@ -152,7 +152,7 @@
   {
    "panel": "B",
    "room": "undertaker",
-   "clock": 111.9387,
+   "clock": 109.1117,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -175,7 +175,12 @@
     "ACT": 1,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
-    "WAR_CONTRADICTIONS": 0
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -194,11 +199,11 @@
      "height": 493,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
-      44,
+      39,
       297,
-      511,
+      522,
       544
      ],
      "order": 0,
@@ -215,29 +220,29 @@
      "drawn": "art/backgrounds/room-13-undertakers.png",
      "candidate": false,
      "loaded": true,
-     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+     "hash": "e6031236702b9daa3d7a165b2c6e0af9f25793cb8979b7096aa74b8023d9994e"
     },
     {
-     "key": "art/actors/room-13-undertaker.png",
-     "path": "art/actors/room-13-undertaker.png",
-     "drawn": "art/actors/room-13-undertaker.png",
+     "key": "art/actors/room-13-undertaker-master.png",
+     "path": "art/actors/room-13-undertaker-master.png",
+     "drawn": "art/actors/room-13-undertaker-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+     "hash": "db9876f7d624f37bf78dc46570c2956a31b8138ca6ab4f3f1a70290c9e872d98"
     }
    ],
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-05T02:32:55.409Z",
+   "capturedAt": "2026-11-06T23:16:03.185Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "f6d1b7eb84863d302a9d2c0885f664cd3f3f9873d48e753f000b05db3d682c27"
+   "hash": "50781d2db9bf70ef04ffeb0fa6cb9eba83adab589044af855191f7e69623bf88"
   },
   {
    "panel": "A",
    "room": "undertaker",
-   "clock": 113.0386,
+   "clock": 110.1451,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -260,7 +265,12 @@
     "ACT": 1,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
-    "WAR_CONTRADICTIONS": 0
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -275,7 +285,7 @@
       790
      ],
      "facing": "right",
-     "clip": "idle",
+     "clip": "idle-break",
      "height": 493,
      "moving": false,
      "drawn": "sprite",
@@ -295,15 +305,15 @@
      "drawn": "art/backgrounds/room-13-undertakers.png",
      "candidate": false,
      "loaded": true,
-     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+     "hash": "e6031236702b9daa3d7a165b2c6e0af9f25793cb8979b7096aa74b8023d9994e"
     },
     {
-     "key": "art/actors/room-13-undertaker.png",
-     "path": "art/actors/room-13-undertaker.png",
-     "drawn": "art/actors/room-13-undertaker.png",
+     "key": "art/actors/room-13-undertaker-master.png",
+     "path": "art/actors/room-13-undertaker-master.png",
+     "drawn": "art/actors/room-13-undertaker-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+     "hash": "db9876f7d624f37bf78dc46570c2956a31b8138ca6ab4f3f1a70290c9e872d98"
     }
    ],
    "stubs": [],
@@ -311,15 +321,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T02:32:56.523Z",
+   "capturedAt": "2026-11-06T23:16:04.098Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "567f157b5114a09d1d3a70450935987c1bd08a8e487e8a8131187075e1114a8f"
+   "hash": "f6a6e850cf5766ea4d6d21e45b6467133b5c5f18a68d64d5aa89c69c6ad6ea6a"
   },
   {
    "panel": "D",
    "room": "undertaker",
-   "clock": 129.68789999999998,
+   "clock": 125.2278,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -343,7 +353,12 @@
     "ACT": 3,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
-    "WAR_CONTRADICTIONS": 0
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -357,16 +372,16 @@
       1330,
       790
      ],
-     "facing": "right",
+     "facing": "back",
      "clip": "idle",
      "height": 493,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-back/idle-00.png",
      "bounds": [
-      1074,
+      1054,
       297,
-      511,
+      552,
       544
      ],
      "order": 0,
@@ -383,15 +398,15 @@
      "drawn": "art/backgrounds/room-13-undertakers.png",
      "candidate": false,
      "loaded": true,
-     "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9"
+     "hash": "e6031236702b9daa3d7a165b2c6e0af9f25793cb8979b7096aa74b8023d9994e"
     },
     {
-     "key": "art/actors/room-13-undertaker.png",
-     "path": "art/actors/room-13-undertaker.png",
-     "drawn": "art/actors/room-13-undertaker.png",
+     "key": "art/actors/room-13-undertaker-master.png",
+     "path": "art/actors/room-13-undertaker-master.png",
+     "drawn": "art/actors/room-13-undertaker-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "7365917f3141fe725daec2b72a5a7a0bbbc29898a383e30e59be406c85a211f0"
+     "hash": "db9876f7d624f37bf78dc46570c2956a31b8138ca6ab4f3f1a70290c9e872d98"
     }
    ],
    "stubs": [],
@@ -399,19 +414,21 @@
    "controlWrites": [
     "cast(false)",
     "cast(true)",
+    "bystanders(false)",
     "stand(965,746)",
     "cast(false)",
     "cast(true)",
     "stand(965,854)",
     "cast(false)",
     "cast(true)",
+    "bystanders(true)",
     "flag ACT=3",
     "flag T_NEED_TO_DIE=true"
    ],
-   "capturedAt": "2026-11-05T02:33:13.186Z",
+   "capturedAt": "2026-11-06T23:16:19.296Z",
    "intent": "principal changed state: ACT 3 and T_NEED_TO_DIE (errata 75 H: written in rooms not built, so the flag control sets them). Visible consequence: TALK TO the undertaker opens on UND_C1.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "f6399b8b4a41e08431142148d2ce9fd5c315ef5cea48c7541fad204fbc733794",
+   "hash": "7fc2cb031ad335610e8ef3cb760d8db54ae8ad24a4e0a5771464800827f2f95c",
    "changedBy": "flags, counters"
   }
  ],
@@ -442,11 +459,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T02:33:13.187Z",
+ "at": "2026-11-06T23:16:19.296Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 386740,
+  "bytes": 392096,
   "panels": 5,
   "scale": 0.5
  }

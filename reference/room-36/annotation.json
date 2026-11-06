@@ -168,10 +168,10 @@
      },
      "arrives": true,
      "pause": 3.8,
-     "arrivesNote": "Errata 119 B (Tyler, 2026-11-06, \"Proceed\"): beat 3's picture is drawn -- Room 1's coach stop at first light, the sign being repainted upward by a man on a ladder, who nods -- so the beat is played THERE: the exit goes to coach_stop_dawn and the line follows his arrival, after the man has turned and nodded. Replaces errata 99 P's performed stage direction."
+     "arrivesNote": "Errata 120 B (Tyler, 2026-11-06, \"Proceed\"): beat 3's picture is drawn -- Room 1's coach stop at first light, the sign being repainted upward by a man on a ladder, who nods -- so the beat is played THERE: the exit goes to coach_stop_dawn and the line follows his arrival, after the man has turned and nodded. Replaces errata 99 P's performed stage direction."
     }
    ],
-   "note": "Doc 48 S7: 'The one exit is the coach stop, east.' Beat 3 at the coach stop (coach_stop_dawn, errata 119 B): Thad's last spoken line, then beat 4, the Act IV letter over black (doc 04 Part Three's, as Room 19 reads it). No document writes the stop a LOOK or LISTEN: a stub (errata 72 F). Beat 5's credits are not built (doc 36 Q176)."
+   "note": "Doc 48 S7: 'The one exit is the coach stop, east.' Beat 3 at the coach stop (coach_stop_dawn, errata 120 B): Thad's last spoken line, then beat 4, the Act IV letter over black (doc 04 Part Three's, as Room 19 reads it). No document writes the stop a LOOK or LISTEN: a stub (errata 72 F). Beat 5's credits are not built (doc 36 Q176)."
   }
  },
  "exits": {

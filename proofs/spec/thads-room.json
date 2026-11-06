@@ -1,18 +1,32 @@
 {
  "schema": 1,
  "room": "thads_room",
- "note": "ROOM 19's PROOF SPEC. The route is the hotel lobby's, then up the stairs with the room given. The room's principal change is the act: in Act IV the letters home offer one version and no choice. Played in tests/room-19.test.ts.",
+ "note": "ROOM 19's PROOF SPEC. The route is the hotel lobby's, then up the stairs with the room given. The room's principal change is the act: in Act IV the letters home offer one version and no choice, and the room is the morning, packed (errata 101 B, 119). Played in tests/room-19.test.ts.",
  "route": "thads-room",
  "settleMs": 4000,
  "principalChange": {
-  "note": "ACT 4 (doc 04 Part Three: the only version offered). Visible consequence: none in the picture -- the frame is taken to show the room unchanged.",
+  "note": "ACT 4 (doc 04 Part Three: the only version offered; errata 101 B: the packed case on the bed and the morning light). Visible consequence: the morning plate -- the lamp out, pale light through the window, Thad's case strapped on the bed. The plate is chosen as Thad arrives, so the room is entered again by control from the lobby with the act set (errata 119).",
   "flags": {
    "ACT": 4
   },
   "actions": [
    {
     "do": "wait",
-    "seconds": 2
+    "seconds": 1
+   },
+   {
+    "do": "enter",
+    "room": "hotel_lobby",
+    "why": "the plate is chosen on arrival"
+   },
+   {
+    "do": "enter",
+    "room": "thads_room",
+    "why": "back up with Act IV set"
+   },
+   {
+    "do": "wait",
+    "seconds": 3
    }
   ]
  }

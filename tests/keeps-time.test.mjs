@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
+import { LoopClock } from '../engine/core/Music.ts';
 import { ambientFrameAt } from '../engine/render/Renderer.ts';
 
 /**
@@ -57,3 +58,51 @@ for (const npc of keepers) {
     assert.ok(checked > 40, 'enough beats checked');
   });
 }
+
+/** A WAV's length in seconds, from its header: the data chunk over the byte rate. */
+const wavSeconds = (path) => {
+  const bytes = readFileSync(resolve(ROOT, path));
+  const byteRate = bytes.readUInt32LE(28);
+  for (let at = 12; at < bytes.length - 8;) {
+    const id = bytes.toString('ascii', at, at + 4);
+    const size = bytes.readUInt32LE(at + 4);
+    if (id === 'data') return size / byteRate;
+    at += 8 + size + (size % 2);
+  }
+  throw new Error(`${path} has no data chunk`);
+};
+
+for (const npc of keepers) {
+  test(`${npc.id}'s breaks keep twelve-bar time across the bed's loops (review on #182, errata 119)`, () => {
+    // The bed's file wraps to 0 at its end. Read straight, a bed whose loop is
+    // not a whole number of his break periods restarted his schedule at every
+    // wrap: the Nugget's piano is 16 bars and his breaks 12, so an extra break
+    // came four bars after the last. The clock the scene reads counts the loops.
+    const bed = manifest.music.rooms[npc.room];
+    const length = wavSeconds(bed.src);
+    const timed = { ...npc.sprite, rate: bed.tempo / 120, phase: 0 };
+    const clock = new LoopClock();
+    const element = {};
+    let differ = 0;
+    let wrapped = 0;
+    for (let t = 0; t < length * 3; t += 1 / 30) {
+      const inFile = t % length;
+      const read = clock.read(element, inFile, length);
+      assert.ok(Math.abs(read - t) < 1e-6, `at ${t.toFixed(2)} s the clock reads ${read.toFixed(2)}`);
+      if (ambientFrameAt(timed, 0, inFile) !== ambientFrameAt(timed, 0, t)) wrapped += 1;
+      if (ambientFrameAt(timed, 0, read) !== ambientFrameAt(timed, 0, t)) differ += 1;
+    }
+    assert.equal(differ, 0, 'every frame is the one continuous time gives');
+    assert.ok(wrapped > 0, 'and reading the file\'s own time would have drawn other frames -- the defect this holds');
+  });
+}
+
+test('a new bed starts its clock from its own time', () => {
+  const clock = new LoopClock();
+  const a = {};
+  const b = {};
+  clock.read(a, 20, 25);
+  assert.equal(clock.read(a, 1, 25), 26, 'a wrap adds a loop');
+  assert.equal(clock.read(b, 3, 10), 3, 'another bed: no loops carried over');
+  assert.equal(clock.read(b, 2.9, 10), 2.9, 'a small step back is not a wrap');
+});

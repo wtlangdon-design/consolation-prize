@@ -1,0 +1,8 @@
+Image 1 is a finished background from my pixel-art adventure game: a cheap hotel room at night, lit by the oil lamp on the desk. Image 2 is the hero's travelling case: a small brown leather gladstone case with two straps and two brass clasps.
+
+Paint the SAME ROOM on the morning he leaves. Make exactly these changes:
+1. Early-morning light: thin, pale, cool daylight coming through the window and falling across the floor boards in a soft pale patch. The window shows the pale grey-blue of first light instead of night (the same narrow alley and the dark plank wall of the building opposite, now dimly lit). The room is dim and quiet, lit only by the window.
+2. The oil lamp on the desk is out: no flame and no warm glow around it.
+3. On the bed, lying on the blanket near the foot of the bed, the case from image 2, closed and strapped, at the size a real gladstone case would be on that bed.
+
+Change nothing else. Same camera, same pixel grid, same pixel size, same palette and colours apart from the light, the same objects in the same places: the door with the coat on its hook, the wardrobe with its door ajar, the window, the desk with its lamp, papers and the bundle of letters, the chair, the washstand with its jug and basin, the small mirror on its nail, the iron bed and its pillow and blanket, the plank wall at the right. The light grey margins at the very top and bottom stay light grey. No people, no shadows of people, no animals, no text, no numerals.

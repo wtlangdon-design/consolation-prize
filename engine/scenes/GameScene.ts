@@ -176,9 +176,9 @@ export class GameScene extends Phaser.Scene {
    * where he was; the first click after the ninety seconds stands him up.
    */
   private sitDue = false;
-  /** When he came into this room (scene seconds): a figure's `onArrival` frames count from it (errata 119 B). */
+  /** When he came into this room (scene seconds): a figure's `onArrival` frames count from it (errata 120 B). */
   private arrivedAt: number | undefined;
-  /** An exit's beat played where it goes: its first line waits until this (scene seconds; errata 119 B). */
+  /** An exit's beat played where it goes: its first line waits until this (scene seconds; errata 120 B). */
   private sayAt: number | null = null;
   /**
    * THE ACT CARDS AFTER THE OPENING (errata 84 C). ACT is the one fact; when it
@@ -513,7 +513,7 @@ export class GameScene extends Phaser.Scene {
       this.markDirty();
     }
     this.tickListening();
-    // AN EXIT'S BEAT, PLAYED WHERE IT WENT (errata 119 B): its first line once the pause is over.
+    // AN EXIT'S BEAT, PLAYED WHERE IT WENT (errata 120 B): its first line once the pause is over.
     if (this.sayAt !== null && now >= this.sayAt) {
       this.sayAt = null;
       this.advanceSay();
@@ -1459,7 +1459,7 @@ export class GameScene extends Phaser.Scene {
     // with no speaker is Thad's by definition, not by default.
     // A RULE THAT IS ALL DIRECTION (doc 58: Room 33's third swing) is
     // performed as one, in parentheses, in the quieter ink.
-    // A BEAT PLAYED WHERE THE EXIT GOES (errata 119 B): he arrives first, and every line -- the first
+    // A BEAT PLAYED WHERE THE EXIT GOES (errata 120 B): he arrives first, and every line -- the first
     // after `pause` -- is said there. Doc 48 S7 beat 3: the man on the ladder nods, then "Leave the mud."
     if (result.arrives && result.changedRoom) {
       this.hovered = null;
@@ -1719,7 +1719,7 @@ export class GameScene extends Phaser.Scene {
 
   private enterRoomPerformance(from: string | null = this.state.previousRoomId): void {
     this.loadNear();
-    // A room over once its ending is said stays over black, after a load too (errata 119 B).
+    // A room over once its ending is said stays over black, after a load too (errata 120 B).
     const black = this.state.room.blackWhen;
     this.overBlack = black !== undefined && this.state.flags.test(black);
     this.arrivedAt = this.time.now / 1000;

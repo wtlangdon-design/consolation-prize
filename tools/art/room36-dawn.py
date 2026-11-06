@@ -17,7 +17,7 @@ Every board, sign and puddle is Room 2's; the sky, the warmth on the fronts
 and the dark windows are the morning's. No pixel is invented.
 
 Writes <staging>/candidate-<W>x<H>.png and frame.json. The defaults are Room 36's; Room 1 at dawn
-(errata 119 B) is the same transfer on Room 1's lettered plate:
+(errata 120 B) is the same transfer on Room 1's lettered plate:
   room36-dawn.py --staging art/staging/room-36/coach-stop-dawn
                  --night art/staging/room-36/coach-stop-dawn/night-lettered.png --top 166 --rows 691 --shift-y -4
 """
@@ -35,7 +35,7 @@ ap.add_argument('--night', default='art/backgrounds/room-02-main-street.png')
 ap.add_argument('--top', type=int, default=332)
 ap.add_argument('--rows', type=int, default=359)
 ap.add_argument('--shift-y', type=int, default=-1)
-# ROOM 1 (errata 119 B): its hills are LOWER than the ones operation 3 drew, so the morning's ridge
+# ROOM 1 (errata 120 B): its hills are LOWER than the ones operation 3 drew, so the morning's ridge
 # painted sky over their tops and left their outline floating. With --ridge-blue, the ridge is Room
 # 1's own: its night sky grows bluer toward the horizon and its far hills are a duller blue, so each
 # column's ridge is the first row below --ridge-from where the star-free blue drops under this.
@@ -56,6 +56,7 @@ SKY_DROP = 22                 # how far below the sky's light a pixel must be to
 PIXEL = 6                     # the street's own pixel size, errata 54
 SKY_SIGMA = 2.2               # how unlike Room 2's top rows of sky a pixel may be and still be sky
 BAND = 70                     # full rows below the morning's ridge where Room 2's night sky is looked for
+EDGE_GROW = 12                # pixels the sky may grow into night-sky-coloured neighbours at a silhouette (errata 117)
 
 night = np.asarray(Image.open(NIGHT).convert('RGB')).astype(float)
 H, W = night.shape[:2]
@@ -105,6 +106,44 @@ sky = ndi.binary_fill_holes(sky)
 ground, _ = ndi.label(~sky)
 rooted = np.unique(ground[H - 1][ground[H - 1] > 0])
 sky = ~np.isin(ground, rooted)
+# THE SKY RUNS RIGHT DOWN TO EVERY ROOF (errata 117). The mask above was found
+# on a median-filtered picture and stopped a few pixels short of each roofline
+# and peak, so a thin band of Room 2's NIGHT sky was left round every
+# silhouette -- and, multiplied by the morning's light, it glowed: the bright
+# outlines along the rooftops and the blue smears above the saloon. Grow the sky
+# a pixel at a time into any neighbour whose own (unfiltered) colour is still
+# Room 2's night sky, stars included, until nothing more joins.
+raw = night - mean
+raw_dist = np.sqrt(np.einsum('...i,ij,...j->...', raw, np.linalg.inv(cov), raw))
+star = (night.mean(2) > mean.mean() + 40) & ndi.binary_dilation(sky, iterations=2)
+# AND WHERE THE MORNING HAS SKY, Room 2's faint night mountains go with it: above
+# the saloon Room 2 painted a dim blue ridge into its night sky that operation 1
+# did not, and the mask left it as torn blue streaks. A pixel the morning shows
+# as sky (its own column's sky light, as the ridge is found) that is still
+# night-blue in Room 2 -- not a roof, which is warm -- joins the sky.
+sky_level_col = np.median(slum[:8], axis=0)
+morning_sky_small = slum >= (sky_level_col[None, :] - SKY_DROP)
+morning_sky = np.asarray(Image.fromarray((morning_sky_small * 255).astype(np.uint8)).resize((W, H), Image.NEAREST)) > 127
+bluish = (raw_dist < SKY_SIGMA * 6) & (night[..., 2] > night[..., 0] + 10)
+skylike = (raw_dist < SKY_SIGMA * 2.2) | star | (morning_sky & bluish)
+# Not with --ridge-blue (Room 1, errata 120 B): its ridge is read off its own night sky, so there is no
+# fringe to grow into -- and its far range is night-blue too, which the growth ate into.
+for _ in range(EDGE_GROW if args.ridge_blue is None else 0):
+    grown = ndi.binary_dilation(sky) & skylike & (rows < ridge[None, :] + BAND)
+    if (grown & ~sky).sum() == 0:
+        break
+    sky |= grown
+# PIECES OF NIGHT FLOATING IN THE MORNING SKY: Room 2's faint ridge lines above
+# the saloon, and the specks a roofline's fringe leaves. Cut at the foot of the
+# band the sky was looked for in, a piece of Room 2 that does not reach that
+# line -- a fragment hanging in the sky -- is sky; a mountain or a building runs
+# on down past it and is kept, however thin its top.
+inband = rows < (ridge[None, :] + BAND)
+pieces, count = ndi.label(~sky & inband)
+reaches = np.unique(pieces[np.roll(inband, -1, axis=0) != inband][pieces[np.roll(inband, -1, axis=0) != inband] > 0])
+floating = (pieces > 0) & ~np.isin(pieces, reaches)
+if args.ridge_blue is None:
+    sky |= floating
 # THE MORNING'S SKY ONLY, AS A GRADIENT. Each row's colour is the median of
 # the morning's sky across the columns where that row is still sky, carried
 # down below the lowest; a broad left-to-right tint, blurred far wider than any
@@ -128,7 +167,13 @@ clean = night.copy()
 clean[sky] = blocky[sky]
 
 # 2. The light below the ridge, from the two small pictures.
-blur = lambda a: np.stack([ndi.gaussian_filter(a[..., c], BLUR) for c in range(3)], -1)
+# FROM THE GROUND ONLY (errata 117): each picture is blurred weighted by not-sky
+# (a normalized convolution), so no roof edge takes the sky's light into its ratio.
+sky_small = np.asarray(Image.fromarray((sky * 255).astype(np.uint8)).resize((ncol, nrow), Image.BOX)) > 32
+ground_w = (~(sky_small | open_sky)).astype(float)
+def blur(a):
+    w = ndi.gaussian_filter(ground_w, BLUR)
+    return np.stack([ndi.gaussian_filter(a[..., c] * ground_w, BLUR) / np.maximum(w, 1e-3) for c in range(3)], -1)
 ratio = (blur(small_out) + 6) / (blur(small_in) + 6)
 ratio = np.clip(ratio, 0.25, 6.0)
 
