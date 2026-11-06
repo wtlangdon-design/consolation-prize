@@ -1,0 +1,33 @@
+I am making the cast of my pixel-art adventure game, a comedy set in an 1850s frontier gold town at night. I need EVERY character drawn TOGETHER, on ONE sheet, by ONE artist, so they all belong to the same game.
+
+Image 1 is THE ART STYLE: the hero, the night watchman and the swindler. Match exactly their level of pixelation (the same size of square pixels for a figure this tall), their amount of detail, their soft simple shading with two or three tones per colour, their muted, slightly dusty palette, their dark outlines and their realistic, very slightly caricatured proportions. Use LESS detail rather than more.
+
+Image 2 shows who each character is, numbered 1 to 23, as earlier artists drew them in different styles. Use it ONLY for identity -- face, hair, build, clothes, what they carry -- never for style. Some of them were drawn sitting or behind a counter; draw EVERYONE standing.
+
+DRAW: all 23, FULL FIGURE, standing, facing the viewer or three-quarters, in three rows -- 1 to 8 in the top row, 9 to 16 in the middle row, 17 to 23 in the bottom row, left to right in number order -- each row's feet on one line, everyone at ONE scale (an ordinary man about 290 pixels tall; big men bigger, women and slight men smaller), separated by clear space. Every one of them a DIFFERENT, recognisable individual -- different face, age, build, hair, facial hair, posture and silhouette:
+
+ 1. THAD, the hero, a piano tuner of 26: slight, untidy dark hair, clean-shaven, a long blue coat, brown waistcoat, dark trousers. Earnest.
+ 2. HOB, the night watchman: tall and lean, a long dark coat, a dark hat, a black moustache, holding a lit oil lantern.
+ 3. DEKE VESSEL, the swindler, in his thirties: dark curly hair, a bushy moustache, an open brown coat, loose shirt, belt, tall boots. Grinning.
+ 4. WINNIE LEDGER, the town's assayer, 34: dark hair pinned up, a plain dark-blue high-collared dress, black sleeve protectors, arms folded. Sharp and unimpressed.
+ 5. COLONEL FANSHAWE, in his sixties: big and prosperous, grey hair, a grey moustache, black frock coat, brown waistcoat with a gold watch chain, thumbs in his waistcoat, a warm smile.
+ 6. REVEREND SOWERBY, about seventy: white hair and white side-whiskers, a black frock coat to the knee, a white collar, one finger raised.
+ 7. REGISTRAR SUMP, in his fifties: thin and very upright, round spectacles, neat flat parted hair, clean-shaven, white shirt, brown waistcoat, black tie, a ledger under his arm.
+ 8. IGNATIUS FRAME, the newspaper editor, in his thirties: wiry, untidy brown hair, rolled shirtsleeves, an ink-stained dark printer's apron, a pencil behind his ear.
+ 9. NICKEL PRATT, the claim jumper: a big, slow, heavy man, a battered brown hat, a black moustache, a grey work shirt, patched trousers, leaning on a rake.
+10. AH-LAM SHENG, who runs the laundry, in his forties: slim and composed, black hair, a plain dark jacket with cloth buttons, hands folded. Full dignity.
+11. MADAME OZYMANDIA, the gold diviner, in her forties: dramatic, black hair with a streak of purple, a black dress, beads, a brass divining rod in her hand.
+12. THE UNDERTAKER, in his fifties: lean and grey-haired, shirtsleeves rolled, a pale canvas apron.
+13. THE LIVERY MAN, old: a dark-skinned man with a grey stubble beard, a battered hat with a feather in the band, a waistcoat over a work shirt, thumbs in his braces.
+14. THE STAGE DRIVER: a long brown duster coat, a low-crowned hat, a drooping moustache, a coiled whip in one hand.
+15. THE HOTEL CLERK: short and stout, balding, round spectacles, a big brown moustache, black waistcoat, a bow tie.
+16. THE COMPANY CLERK, about thirty: pale blond hair parted in the middle, a thin pencil moustache, a stiff high collar, dark waistcoat, sleeve garters.
+17. THE LETTER-WRITER, in his forties: a bowler hat, a moustache, a grey-blue suit, a flat writing case under his arm.
+18. THE MAP SELLER, a young man: a flat cap, waistcoat, brown trousers, holding up a big folded map.
+19. THE PIE WOMAN: hair in a bun, an orange shawl, a long dark skirt, a basket of pies on her arm.
+20. THE MAN PANNING, a weather-beaten prospector: a slouch hat, a brown coat, a gold pan in his hands, no beard.
+21. A JUDGE: stout, red-faced, bald on top, white mutton-chop whiskers, a brown suit, a gold watch chain.
+22. A JUDGE: gaunt and sallow, a hooked nose, a waxed black moustache curled at the ends, black hair pomaded flat with a centre parting, a high collar and a green cravat, a black coat.
+23. A JUDGE: plump and cheerful, about twenty-five, red hair, freckles, clean-shaven, shirtsleeves and a loud tartan waistcoat, holding a short pencil.
+
+THE SHEET: flat pure magenta (#FF00FF) background everywhere around the figures. Crisp pixel edges against the magenta, no glow, no blur, no ground, no shadows, no text, no numbers, no border.

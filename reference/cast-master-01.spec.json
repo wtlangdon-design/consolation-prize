@@ -1,0 +1,14 @@
+{
+ "assetId": "cast-unify",
+ "subject": "cast-master",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/cast-master-01.txt",
+ "out": "art/staging/cast-master/master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-master/style-anchors.png",
+  "art/staging/cast-master/identity-board.png"
+ ]
+}
