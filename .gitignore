@@ -87,3 +87,8 @@ art/staging/**
 # rebuild the clip.
 !art/staging/thad-rope-pull/
 !art/staging/thad-rope-pull/**
+# THE TOWNSPEOPLE'S SHEETS (townspeople-110, errata 111): tools/art/townspeople-cut.py
+# reads them and every sprite's provenance names one, so a branch without them
+# could not recut a figure.
+!art/staging/townspeople-110/
+!art/staging/townspeople-110/**

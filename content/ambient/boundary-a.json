@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "boundary_a",
  "name": "THE BOUNDARY MAN",
- "awaitingArt": "townspeople-110 (art/staging/caps.json; reference/townspeople/brief.md). Not cast in any room until his sheet is cut and this field is removed.",
  "posture": "standing",
  "note": "Doc 07 #2 and #3, the one doc 07 marks A (Clement, by B's R_BORDERS_MOTT). The two have argued about the same forty feet for six years; they stand in the middle of the street, facing each other. TALK TO either opens the one tree, and they answer alternately (errata 110).",
  "room": "main_street",
@@ -107,5 +106,59 @@
    }
   ]
  },
- "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 2 & 3 · THE TWO BOUNDARY MEN) by tools/extract-content.mjs, as `barkExchange`: the table is written in two voices, each line said over its own man. Directions are dropped (errata 110)."
+ "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 2 & 3 · THE TWO BOUNDARY MEN) by tools/extract-content.mjs, as `barkExchange`: the table is written in two voices, each line said over its own man. Directions are dropped (errata 110).",
+ "sprite": {
+  "sheet": "art/actors/boundary-a.png",
+  "frames": [
+   [
+    2,
+    2,
+    71,
+    170
+   ],
+   [
+    75,
+    2,
+    71,
+    170
+   ],
+   [
+    148,
+    2,
+    71,
+    170
+   ],
+   [
+    221,
+    2,
+    71,
+    170
+   ]
+  ],
+  "figureHeight": 170,
+  "stature": 1,
+  "rate": 0.55,
+  "phase": 0,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   [
+    3,
+    3,
+    3,
+    3,
+    3
+   ]
+  ],
+  "breakEvery": 10,
+  "talkFrame": 3,
+  "frameNote": "0 rest, arms folded, facing B · 1 breath (derived) · 2 points across the forty feet · 3 argues, hand raised -- TALK. B breaks on the same 10 s cycle half a cycle later (phase 0.5), so the two never point on the same beat.",
+  "provenance": "art/staging/townspeople-110/boundary-men/sheet-01.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 111)"
+ }
 }

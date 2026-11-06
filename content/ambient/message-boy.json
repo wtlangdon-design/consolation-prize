@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "message_boy",
  "name": "THE MESSAGE BOY",
- "awaitingArt": "townspeople-110 (art/staging/caps.json; reference/townspeople/brief.md). Not cast in any room until his sheet is cut and this field is removed.",
  "posture": "child",
  "note": "Doc 07 #5. 'Everywhere. Runs notes for a penny. Knows more than anyone. Is nine.' Placed on Main Street, between the Company and the Clarion, the street being the part of 'everywhere' that is built (errata 110). A boy: his stature is a nine-year-old's, set when the art is cut.",
  "room": "main_street",
@@ -29,5 +28,66 @@
   "R_DEAD": "You're in the paper. You're dead in the paper. Penny?",
   "R_TRUTH": "I knew it."
  },
- "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 5 · THE MESSAGE BOY) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109)."
+ "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 5 · THE MESSAGE BOY) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109).",
+ "sprite": {
+  "sheet": "art/actors/message-boy.png",
+  "frames": [
+   [
+    2,
+    2,
+    56,
+    109
+   ],
+   [
+    60,
+    2,
+    56,
+    109
+   ],
+   [
+    118,
+    2,
+    56,
+    109
+   ],
+   [
+    176,
+    2,
+    56,
+    109
+   ],
+   [
+    234,
+    2,
+    56,
+    109
+   ]
+  ],
+  "figureHeight": 102,
+  "stature": 0.68,
+  "rate": 0.7,
+  "phase": 0.31,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   [
+    3,
+    3,
+    3,
+    3,
+    3
+   ]
+  ],
+  "breakEvery": 11,
+  "talkFrame": 4,
+  "frameNote": "0 rest, the note in his hand · 1 breath (derived) · 2 looks back over his shoulder down the street · 3 flips his penny, the coin in the air · 4 TALK, the note raised. A child: stature 0.68 of the room's man (errata 110).",
+  "provenance": "art/staging/townspeople-110/message-boy/sheet-02.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 111)"
+ }
 }

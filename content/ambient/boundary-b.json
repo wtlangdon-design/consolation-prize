@@ -2,7 +2,6 @@
  "schema": 1,
  "id": "boundary_b",
  "name": "THE OTHER BOUNDARY MAN",
- "awaitingArt": "townspeople-110 (art/staging/caps.json; reference/townspeople/brief.md). Not cast in any room until his sheet is cut and this field is removed.",
  "posture": "standing",
  "note": "Doc 07 #2 and #3, the one doc 07 marks B. Faces A across the forty feet. His barks are carried in A's file as the pair's exchange; he has none of his own (errata 110).",
  "room": "main_street",
@@ -18,5 +17,59 @@
   "y": 830,
   "facing": "back"
  },
- "barks": {}
+ "barks": {},
+ "sprite": {
+  "sheet": "art/actors/boundary-b.png",
+  "frames": [
+   [
+    2,
+    2,
+    83,
+    170
+   ],
+   [
+    87,
+    2,
+    83,
+    170
+   ],
+   [
+    172,
+    2,
+    83,
+    170
+   ],
+   [
+    257,
+    2,
+    83,
+    170
+   ]
+  ],
+  "figureHeight": 170,
+  "stature": 1.0,
+  "rate": 0.65,
+  "phase": 0.5,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   [
+    3,
+    3,
+    3,
+    3,
+    3
+   ]
+  ],
+  "breakEvery": 10,
+  "talkFrame": 3,
+  "frameNote": "0 rest, hands on hips, facing A · 1 breath (derived) · 2 points back across the forty feet · 3 argues, one finger up -- TALK. Half a cycle after A (phase 0.5 of the same 10 s), never on his beat.",
+  "provenance": "art/staging/townspeople-110/boundary-men/sheet-01.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 111)"
+ }
 }

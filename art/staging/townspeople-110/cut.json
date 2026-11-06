@@ -1,0 +1,230 @@
+{
+ "message-boy": {
+  "sheet": "art/actors/message-boy.png",
+  "source": "art/staging/townspeople-110/message-boy/sheet-02.png",
+  "frames": [
+   [
+    2,
+    2,
+    56,
+    109
+   ],
+   [
+    60,
+    2,
+    56,
+    109
+   ],
+   [
+    118,
+    2,
+    56,
+    109
+   ],
+   [
+    176,
+    2,
+    56,
+    109
+   ],
+   [
+    234,
+    2,
+    56,
+    109
+   ]
+  ],
+  "figureHeight": 102
+ },
+ "man-leaving-tomorrow": {
+  "sheet": "art/actors/man-leaving-tomorrow.png",
+  "source": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-01.png",
+  "frames": [
+   [
+    2,
+    2,
+    75,
+    152
+   ],
+   [
+    79,
+    2,
+    75,
+    152
+   ],
+   [
+    156,
+    2,
+    75,
+    152
+   ],
+   [
+    233,
+    2,
+    75,
+    152
+   ],
+   [
+    310,
+    2,
+    75,
+    152
+   ],
+   [
+    387,
+    2,
+    75,
+    152
+   ]
+  ],
+  "figureHeight": 152
+ },
+ "boundary-a": {
+  "sheet": "art/actors/boundary-a.png",
+  "source": "art/staging/townspeople-110/boundary-men/sheet-01.png",
+  "frames": [
+   [
+    2,
+    2,
+    71,
+    170
+   ],
+   [
+    75,
+    2,
+    71,
+    170
+   ],
+   [
+    148,
+    2,
+    71,
+    170
+   ],
+   [
+    221,
+    2,
+    71,
+    170
+   ]
+  ],
+  "figureHeight": 170
+ },
+ "boundary-b": {
+  "sheet": "art/actors/boundary-b.png",
+  "source": "art/staging/townspeople-110/boundary-men/sheet-01.png",
+  "frames": [
+   [
+    2,
+    2,
+    83,
+    170
+   ],
+   [
+    87,
+    2,
+    83,
+    170
+   ],
+   [
+    172,
+    2,
+    83,
+    170
+   ],
+   [
+    257,
+    2,
+    83,
+    170
+   ]
+  ],
+  "figureHeight": 170
+ },
+ "dogs-owner": {
+  "sheet": "art/actors/dogs-owner.png",
+  "source": "art/staging/townspeople-110/dogs-owner/sheet-01.png",
+  "frames": [
+   [
+    2,
+    2,
+    131,
+    317
+   ],
+   [
+    135,
+    2,
+    131,
+    317
+   ],
+   [
+    268,
+    2,
+    131,
+    317
+   ],
+   [
+    401,
+    2,
+    131,
+    317
+   ],
+   [
+    534,
+    2,
+    131,
+    317
+   ],
+   [
+    667,
+    2,
+    131,
+    317
+   ],
+   [
+    800,
+    2,
+    131,
+    317
+   ]
+  ],
+  "figureHeight": 317
+ },
+ "fiddler": {
+  "sheet": "art/actors/fiddler.png",
+  "source": "art/staging/townspeople-110/fiddler/sheet-01.png",
+  "frames": [
+   [
+    2,
+    2,
+    142,
+    288
+   ],
+   [
+    146,
+    2,
+    142,
+    288
+   ],
+   [
+    290,
+    2,
+    142,
+    288
+   ],
+   [
+    434,
+    2,
+    142,
+    288
+   ],
+   [
+    578,
+    2,
+    142,
+    288
+   ]
+  ],
+  "figureHeight": 288
+ }
+}

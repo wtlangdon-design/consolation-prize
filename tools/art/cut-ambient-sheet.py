@@ -14,21 +14,37 @@ character from the generator arrives the same way: poses side by side on
   5. RIM: an outline pixel noticeably lighter than the pixels inside it takes
      their median -- the generator's soft edge reads as a halo on a dark plate.
 
-Usage: cut-ambient-sheet.py <sheet.png> <height> <out.png>
+Usage: cut-ambient-sheet.py <sheet.png> <height> <out.png> [--min-island N] [--register legs|right]
 Prints the frames and the leg anchor as JSON.
+
+  --min-island N  keep islands of N pixels or more (default 400). The message
+                  boy's penny, in the air above his thumb, is smaller than 400
+                  and is the whole point of the pose (errata 111).
+  --register right  align each pose on the RIGHT edge of its boots (the
+                  lowest 8% of the figure) instead of the centre of its legs.
+                  For a figure with a prop on the ground to his left -- the man
+                  leaving tomorrow's bag -- whose legs region takes in the prop
+                  in some poses and not others, so the centre would jump.
 """
 import json, sys
 import numpy as np
 from PIL import Image
 from scipy.ndimage import binary_erosion, label
 
-src, height, out = sys.argv[1], int(sys.argv[2]), sys.argv[3]
+args = sys.argv[1:]
+MIN_ISLAND, REGISTER = 400, 'legs'
+if '--min-island' in args:
+    i = args.index('--min-island'); MIN_ISLAND = int(args[i + 1]); del args[i:i + 2]
+if '--register' in args:
+    i = args.index('--register'); REGISTER = args[i + 1]; del args[i:i + 2]
+assert REGISTER in ('legs', 'right'), REGISTER
+src, height, out = args[0], int(args[1]), args[2]
 im = np.asarray(Image.open(src).convert('RGB')).astype(float)
 dist = np.sqrt((im[..., 0] - 255) ** 2 + im[..., 1] ** 2 + (im[..., 2] - 255) ** 2)
 fg = dist >= 120
 lab, n = label(fg)
 sizes = np.bincount(lab.ravel())
-fg &= np.isin(lab, [i for i in range(1, n + 1) if sizes[i] > 400])
+fg &= np.isin(lab, [i for i in range(1, n + 1) if sizes[i] > MIN_ISLAND])
 core = binary_erosion(fg, iterations=1)
 ring = core & ~binary_erosion(core, iterations=3)
 excess = np.clip(np.minimum(im[..., 0], im[..., 2]) - im[..., 1], 0, None) * ring
@@ -45,13 +61,13 @@ if start is not None: runs.append((start, len(cols) - 1))
 rows = np.nonzero(core.any(1))[0]
 top, bottom = rows.min(), rows.max()
 tall = bottom - top + 1
-legs_from = bottom - int(tall * 0.27)
+legs_from = bottom - int(tall * (0.08 if REGISTER == 'right' else 0.27))
 
 poses = []
 for a, b in runs:
     rgba = np.dstack([im[top:bottom + 1, a:b + 1], core[top:bottom + 1, a:b + 1] * 255.0])
     legs = np.nonzero(core[legs_from:bottom + 1, a:b + 1].any(0))[0]
-    lx = (legs.min() + legs.max()) / 2
+    lx = legs.max() if REGISTER == 'right' else (legs.min() + legs.max()) / 2
     sc = height / tall
     w, h = max(1, round(rgba.shape[1] * sc)), height
     pre = rgba.copy(); pre[..., :3] *= pre[..., 3:4] / 255
