@@ -517,8 +517,8 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "The wood is still. Between duels it keeps its own counsel."
 
 **THE JUDGES' PENCIL**
-> **LOOK:** "The pencil the judges score with, chained to the table like something precious. It is sharpened at both ends, which nobody will explain."
-> **LISTEN:** "Nothing. It has written every verdict in town and holds no opinion."
+> **LOOK:** "The pencil the judges score with, chained to the table like something precious. It's sharpened at both ends, and nobody will explain why."
+> **LISTEN:** "Nothing. It's written every verdict in town and holds no opinion."
 
 **THE SCOREBOARD**
 > **LOOK:** "A slate of past Assays. The same three names win and the same eleven lose, and all fourteen keep playing."
@@ -541,7 +541,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. The line has heard it all twice."
 
 **THE WINDOW, PAINTED OVER**
-> **LOOK:** "Painted over from the inside. What happens in the Assay is public and the window is not. I do not fully follow the reasoning either."
+> **LOOK:** "Painted over from the inside. What happens in the Assay is public and the window is not. I don't follow the reasoning either."
 > **LISTEN:** "Wind on glass, dulled by paint. The outside, filed away."
 
 ---

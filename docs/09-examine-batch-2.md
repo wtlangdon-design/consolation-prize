@@ -10,7 +10,7 @@
 
 **THE JUDGES' TABLE**
 > **LOOK:** "A table, three chairs, and a great deal of authority for a room behind a saloon."
-> **LISTEN:** "Nothing. It is waiting to be sat at, which is most of what furniture does here."
+> **LISTEN:** "Nothing. It's waiting to be sat at, which is most of what furniture does here."
 
 **THE PENCIL**
 > **LOOK:** "A pencil, on a string, nailed to the table. Every dispute in this district for eleven years has been settled with this pencil."
@@ -31,7 +31,7 @@
 > **LISTEN:** "Nothing yet."
 
 **THE CHALK** · **THE LAMP** · **THE DOOR TO THE BAR**
-> *(The door — **LISTEN:** "The bar. Muffled. Somebody out there has told the same story four times and it has grown twice.")*
+> *(The door — **LISTEN:** "The bar, muffled. Somebody out there is still telling the bear story. The bear is enormous now.")*
 
 ---
 
