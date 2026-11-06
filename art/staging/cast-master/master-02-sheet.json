@@ -1,0 +1,144 @@
+{
+ "grid": 3,
+ "topRowMedianMan": 324.0,
+ "figures": [
+  {
+   "name": "Thad",
+   "drawn": 323,
+   "rowScale": 1.0,
+   "locked": 324
+  },
+  {
+   "name": "Hob",
+   "drawn": 334,
+   "rowScale": 1.0,
+   "locked": 336
+  },
+  {
+   "name": "Deke Vessel",
+   "drawn": 328,
+   "rowScale": 1.0,
+   "locked": 330
+  },
+  {
+   "name": "Winnie Ledger",
+   "drawn": 324,
+   "rowScale": 1.0,
+   "locked": 324
+  },
+  {
+   "name": "Col. Fanshawe",
+   "drawn": 328,
+   "rowScale": 1.0,
+   "locked": 330
+  },
+  {
+   "name": "Rev. Sowerby",
+   "drawn": 324,
+   "rowScale": 1.0,
+   "locked": 324
+  },
+  {
+   "name": "Registrar Sump",
+   "drawn": 314,
+   "rowScale": 1.0,
+   "locked": 315
+  },
+  {
+   "name": "Ignatius Frame",
+   "drawn": 323,
+   "rowScale": 1.0,
+   "locked": 324
+  },
+  {
+   "name": "Nickel Pratt",
+   "drawn": 295,
+   "rowScale": 1.087,
+   "locked": 321
+  },
+  {
+   "name": "Ah-Lam Sheng",
+   "drawn": 277,
+   "rowScale": 1.087,
+   "locked": 303
+  },
+  {
+   "name": "Mme Ozymandia",
+   "drawn": 281,
+   "rowScale": 1.087,
+   "locked": 306
+  },
+  {
+   "name": "The undertaker",
+   "drawn": 298,
+   "rowScale": 1.087,
+   "locked": 324
+  },
+  {
+   "name": "The livery man",
+   "drawn": 298,
+   "rowScale": 1.087,
+   "locked": 324
+  },
+  {
+   "name": "The stage driver",
+   "drawn": 311,
+   "rowScale": 1.087,
+   "locked": 339
+  },
+  {
+   "name": "The hotel clerk",
+   "drawn": 259,
+   "rowScale": 1.087,
+   "locked": 282
+  },
+  {
+   "name": "The Company clerk",
+   "drawn": 280,
+   "rowScale": 1.087,
+   "locked": 306
+  },
+  {
+   "name": "The letter-writer",
+   "drawn": 305,
+   "rowScale": 1.106,
+   "locked": 339
+  },
+  {
+   "name": "The map seller",
+   "drawn": 293,
+   "rowScale": 1.106,
+   "locked": 324
+  },
+  {
+   "name": "The pie woman",
+   "drawn": 293,
+   "rowScale": 1.106,
+   "locked": 324
+  },
+  {
+   "name": "The man panning",
+   "drawn": 291,
+   "rowScale": 1.106,
+   "locked": 324
+  },
+  {
+   "name": "Judge (bald)",
+   "drawn": 293,
+   "rowScale": 1.106,
+   "locked": 324
+  },
+  {
+   "name": "Judge (gaunt)",
+   "drawn": 294,
+   "rowScale": 1.106,
+   "locked": 327
+  },
+  {
+   "name": "Judge (bearded)",
+   "drawn": 290,
+   "rowScale": 1.106,
+   "locked": 321
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+Image 1 is the cast sheet of my pixel-art adventure game, a comedy set in an 1850s frontier gold town: 23 characters drawn together by one artist. Image 2 is the art style -- the hero, the night watchman and the swindler.
+
+REDRAW IMAGE 1 AS THE SAME SHEET, with the same 23 people in the same places, the same faces, hair, clothes, colours and props, and only these changes:
+
+1. THE LAST FIGURE (bottom row, far right, the young red-haired man in the tartan waistcoat) is REPLACED by a different man: a weathered former miner of about fifty, lean and wiry, a full dark-brown beard going grey at the chin, a low-crowned grey felt hat, a dark-red flannel shirt buttoned to the throat under a worn black coat, a short pencil in one hand. Dry and serious, as plain as the rest of the town.
+
+2. NOBODY IS FAT. These are frontier people of ordinary, mostly lean build -- every figure as narrow through the body as the hero (Image 2, left), unless named here:
+   - the big man leaning on the rake (middle row, first): tall and heavy-shouldered, but not fat;
+   - the grey-moustached man with his thumbs in his waistcoat (top row, fifth): broad-chested and well fed, a modest paunch at most;
+   - the balding clerk with the bow tie (middle row, seventh): short, with a small paunch only;
+   - the bald judge with the white whiskers (bottom row, fifth): thick-set, an ordinary man's width, NOT round;
+   - the judge with the waxed moustache (bottom row, sixth): GAUNT and narrow-shouldered, thin as a rail, his coat hanging straight;
+   - the undertaker in the pale apron (middle row, fourth): LEAN and narrow;
+   - the pie woman and the man with the gold pan: slim.
+
+3. ONE SCALE AND ONE PIXEL SIZE FOR EVERYONE. Every row at the same scale: an ordinary man is the same height in all three rows (the height of the hero in the top row); women and slight men a little shorter, nobody shrunk. Every figure drawn with exactly the same size of square pixel as the three men in Image 2, the same amount of detail (no finer, no coarser), the same soft shading with two or three tones per colour and the same dark outline.
+
+THE SHEET: flat pure magenta (#FF00FF) background everywhere around the figures. Crisp pixel edges against the magenta, no glow, no blur, no ground, no shadows, no text, no numbers, no border. Three rows, each row's feet on one line, clear space between figures.
