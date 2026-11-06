@@ -8,7 +8,13 @@ head -- the largest piece of the top quarter -- sits where the rest frame's
 does; then, with --carry F, the rest frame's lowest F of rows (the ledger, the
 desk things) fills wherever a frame has nothing, so it does not come and go.
 
-Usage: bust-register.py <sheet.png> <frames.json> <out.png> [--carry 0.2 [--into 3,4]]
+--bottom: also shift each frame VERTICALLY so its lowest drawn row is the rest
+frame's. For a figure whose hands (or the tool in them) rest on the counter, the
+point of contact is the fixed thing, not the head: aligned on the head alone,
+the undertaker's plane rose 8 px off his bench when he leaned in to push it
+(2026-11-06).
+
+Usage: bust-register.py <sheet.png> <frames.json> <out.png> [--carry 0.2 [--into 3,4]] [--bottom]
 frames.json is the cutter's printed {"frames": [...]}; prints the new frames.
 """
 import json
@@ -39,13 +45,29 @@ def head_x(cell):
     return (xs.min() + xs.max()) / 2
 
 
+bottom_align = '--bottom' in sys.argv
+
+
+def bottom_row(cell):
+    return int(np.nonzero((cell[..., 3] > 0).any(1))[0].max())
+
+
 ref = head_x(cells[0])
+ref_bottom = bottom_row(cells[0])
 pad = 60
 H, W = cells[0].shape[:2]
 outs = []
 for i, cell in enumerate(cells):
     dx = int(round(ref - head_x(cell)))
     canvas = np.zeros((H, W + 2 * pad, 4), np.uint8)
+    if bottom_align:
+        dy = ref_bottom - bottom_row(cell)
+        moved = np.zeros_like(cell)
+        if dy >= 0:
+            moved[dy:] = cell[:H - dy]
+        else:
+            moved[:H + dy] = cell[-dy:]
+        cell = moved
     canvas[:, pad + dx:pad + dx + W] = cell
     outs.append(canvas)
 if carry > 0:

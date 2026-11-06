@@ -58,9 +58,12 @@ def snap(rgb, n):
     tint = (cells[..., 0] + cells[..., 2]) / 2 - cells[..., 1]
     pure = (key_d >= 200) & (tint <= 25)
     backdrop = (key_d < 120).any(-1)
+    # With --grid 1 (a sheet the generator drew on no clean grid) the drawing's
+    # own pixels are kept and only the edge is cleaned, three pixels deep.
+    reach = 1 if n >= 3 else 3
     near = backdrop.copy()
-    for dy in (-1, 0, 1):
-        for dx in (-1, 0, 1):
+    for dy in range(-reach, reach + 1):
+        for dx in range(-reach, reach + 1):
             near |= np.roll(np.roll(backdrop, dy, 0), dx, 1)
     col = np.median(cells, axis=2)
     for by, bx in zip(*np.where(near)):

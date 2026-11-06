@@ -1,0 +1,14 @@
+{
+ "assetId": "cast-unify",
+ "subject": "counter-trio-two",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-11-fanshawe-office",
+ "promptFile": "reference/cast-unify-12.txt",
+ "out": "art/staging/cast-unify/batch-12/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-12/board.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}
