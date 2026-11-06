@@ -4,7 +4,7 @@
  "room": "nugget",
  "roomWidth": 1920,
  "branch": "claude/tender-sagan-buz50u",
- "commit": "2a2c4680f5d11d8dcdecf544743da7cf3dd33f96",
+ "commit": "d4b177790fc59adf490f2d08895d8e0524f4ca9f",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -34,7 +34,11 @@
   "action 20 (wait): waited 2s",
   "action 21 (click): clicked main_street/to_nugget at world 2317,459 -- Main Street's Nugget doors",
   "action 22 (waitFor): reached {\"room\":\"nugget\"} in room nugget",
-  "action 23 (wait): waited 3s"
+  "action 23 (wait): waited 3s",
+  "action 1 (wait): waited 1s",
+  "action 2 (enter): entered main_street by control -- NOT proof that a player can walk there -- out",
+  "action 3 (enter): entered nugget by control -- NOT proof that a player can walk there -- and back in, the swindle settled: Deke has gone",
+  "action 4 (wait): waited 3s"
  ],
  "depthMarks": [
   {
@@ -54,24 +58,24 @@
      1015
     ],
     "expect": 210,
-    "x": 1015
+    "x": 958
    },
    "at": [
-    1015,
+    958,
     515
    ],
    "reportedHeight": 210,
    "expected": 210,
-   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-02.png",
    "bounds": [
-    906,
+    847,
     305,
-    218,
+    222,
     232
    ],
    "order": 0,
-   "renderedHeight": 272,
-   "renderedBottom": 556,
+   "renderedHeight": 211,
+   "renderedBottom": 515,
    "file": "raw-captures-ignored/panel-c-floor_0-far.png"
   },
   {
@@ -91,19 +95,19 @@
      775
     ],
     "expect": 459,
-    "x": 224
+    "x": 408
    },
    "at": [
-    224,
+    408,
     863
    ],
    "reportedHeight": 459,
    "expected": 459,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-00.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-06.png",
    "bounds": [
-    -14,
+    165,
     404,
-    476,
+    486,
     507
    ],
    "order": 0,
@@ -130,13 +134,13 @@
     "height": 247
    },
    "seen": {
-    "x": 1134,
-    "y": 357,
-    "width": 164,
-    "height": 152,
-    "bottom": 508,
-    "right": 1297,
-    "changed": 13453
+    "x": 1126,
+    "y": 358,
+    "width": 171,
+    "height": 227,
+    "bottom": 584,
+    "right": 1296,
+    "changed": 14517
    },
    "props": []
   },
@@ -157,12 +161,12 @@
    },
    "seen": {
     "x": 1298,
-    "y": 365,
-    "width": 231,
+    "y": 366,
+    "width": 229,
     "height": 144,
-    "bottom": 508,
-    "right": 1528,
-    "changed": 15910
+    "bottom": 509,
+    "right": 1526,
+    "changed": 15718
    },
    "props": []
   },
@@ -183,12 +187,12 @@
    },
    "seen": {
     "x": 1529,
-    "y": 437,
-    "width": 217,
+    "y": 438,
+    "width": 216,
     "height": 72,
-    "bottom": 508,
-    "right": 1745,
-    "changed": 6938
+    "bottom": 509,
+    "right": 1744,
+    "changed": 6718
    },
    "props": []
   },
@@ -209,12 +213,12 @@
    },
    "seen": {
     "x": 706,
-    "y": 307,
-    "width": 81,
-    "height": 74,
+    "y": 308,
+    "width": 80,
+    "height": 73,
     "bottom": 380,
-    "right": 786,
-    "changed": 2850
+    "right": 785,
+    "changed": 2860
    },
    "props": []
   },
@@ -237,10 +241,10 @@
     "x": 787,
     "y": 298,
     "width": 90,
-    "height": 84,
-    "bottom": 381,
+    "height": 83,
+    "bottom": 380,
     "right": 876,
-    "changed": 6532
+    "changed": 5350
    },
    "props": []
   },
@@ -261,12 +265,12 @@
    },
    "seen": {
     "x": 877,
-    "y": 298,
+    "y": 301,
     "width": 153,
-    "height": 84,
-    "bottom": 381,
+    "height": 80,
+    "bottom": 380,
     "right": 1029,
-    "changed": 8288
+    "changed": 6664
    },
    "props": []
   },
@@ -289,10 +293,10 @@
     "x": 875,
     "y": 300,
     "width": 110,
-    "height": 95,
-    "bottom": 394,
+    "height": 81,
+    "bottom": 380,
     "right": 984,
-    "changed": 6978
+    "changed": 5194
    },
    "props": []
   },
@@ -300,25 +304,25 @@
    "kind": "ambient",
    "id": "deke_vessel",
    "feet": [
-    1035,
+    1046,
     815
    ],
    "sheet": "art/actors/deke-vessel.png",
    "clipPlane": null,
    "box": {
-    "x": 937,
+    "x": 928,
     "y": 387,
-    "width": 196,
+    "width": 237,
     "height": 430
    },
    "seen": {
-    "x": 937,
-    "y": 389,
-    "width": 183,
+    "x": 928,
+    "y": 388,
+    "width": 237,
     "height": 427,
-    "bottom": 815,
-    "right": 1119,
-    "changed": 36504
+    "bottom": 814,
+    "right": 1164,
+    "changed": 42136
    },
    "props": []
   },
@@ -338,13 +342,13 @@
     "height": 224
    },
    "seen": {
-    "x": 1134,
+    "x": 1128,
     "y": 360,
-    "width": 149,
-    "height": 149,
-    "bottom": 508,
+    "width": 155,
+    "height": 221,
+    "bottom": 580,
     "right": 1282,
-    "changed": 12294
+    "changed": 13275
    },
    "props": []
   },
@@ -366,11 +370,11 @@
    "seen": {
     "x": 528,
     "y": 313,
-    "width": 144,
+    "width": 143,
     "height": 288,
     "bottom": 600,
-    "right": 671,
-    "changed": 16141
+    "right": 670,
+    "changed": 15441
    },
    "props": []
   }
@@ -379,7 +383,7 @@
   {
    "panel": "B",
    "room": "nugget",
-   "clock": 119.2542,
+   "clock": 119.6019,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -427,11 +431,11 @@
      "height": 397,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
-      94,
+      90,
       363,
-      412,
+      420,
       438
      ],
      "order": 0,
@@ -464,7 +468,7 @@
      "drawn": "art/actors/deke-vessel.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f151f844e0a22e1c0e751a6b8fd2082802aba762603ae26a054c0a4441a84952"
+     "hash": "0993302436caea5f4823ac550e1be1fe422b0607beab41ac852716cbd012efa0"
     },
     {
      "key": "art/actors/fiddler.png",
@@ -472,7 +476,7 @@
      "drawn": "art/actors/fiddler.png",
      "candidate": false,
      "loaded": true,
-     "hash": "411aee23ee12e5695f28b6df389d1abe638e18fbb1cb0cbc670bbc8adfb72282"
+     "hash": "3fda9fb76411fbc89a3863225a794a4ee34f1a17eb9fabecd2c1d26c573529c4"
     },
     {
      "key": "art/actors/nugget-bar1.png",
@@ -480,7 +484,7 @@
      "drawn": "art/actors/nugget-bar1.png",
      "candidate": false,
      "loaded": true,
-     "hash": "25186f492fd7b79fc8062a76270e57bab0b0f778cb3c5fe15f4c074c34b9e679"
+     "hash": "2cadd5f59be864ea95872e8544ffa9c8d2f0a8978e272a3ca2c423680590d782"
     },
     {
      "key": "art/actors/nugget-bar2.png",
@@ -488,7 +492,7 @@
      "drawn": "art/actors/nugget-bar2.png",
      "candidate": false,
      "loaded": true,
-     "hash": "836c13686d5d70aa4b9305f5691353f5fb2fda04e95c9082311dc3704c3333ff"
+     "hash": "74ff547814453fe3ed2227f7bfc5070ac6e9d0fde4841734c80495dca8a4c6be"
     },
     {
      "key": "art/actors/nugget-bar3.png",
@@ -496,7 +500,7 @@
      "drawn": "art/actors/nugget-bar3.png",
      "candidate": false,
      "loaded": true,
-     "hash": "bf8fc2740962fe84fc77241c008a89fb6055901d8881678c56140edaf271e4f7"
+     "hash": "ddedf304d58ce83bb4190bbf69d2779e590691e18dae7df0041d9a3251a47e51"
     },
     {
      "key": "art/actors/nugget-man1.png",
@@ -504,7 +508,7 @@
      "drawn": "art/actors/nugget-man1.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f94a6d84b2658cbb198d0045e954439d0ea1fa84690ab6fcf6170fc277cf7320"
+     "hash": "9e74112b7e96f4f8775560d78ba053578c9c2922b60f7c2e8954c198b281563d"
     },
     {
      "key": "art/actors/nugget-man2.png",
@@ -512,7 +516,7 @@
      "drawn": "art/actors/nugget-man2.png",
      "candidate": false,
      "loaded": true,
-     "hash": "fa94fe4a34ab391a08642962cacaae852dddffb82a388a5f1f51f3b2068e3575"
+     "hash": "9d3513e00e4e287ccd60cf0c5ecc666f7a1f345407ca2035ff15db4639db447c"
     },
     {
      "key": "art/actors/nugget-man34.png",
@@ -520,7 +524,7 @@
      "drawn": "art/actors/nugget-man34.png",
      "candidate": false,
      "loaded": true,
-     "hash": "7e5de1063c8ce0c93b6383bdb959ef2fde6f9f9c0733fa8764450f8c6d4730d5"
+     "hash": "4ada45da44157e30c4d0bda534539e43e25c64b375b4fdae78b56b87fc6beb78"
     },
     {
      "key": "art/actors/nugget-one-strike-identity.png",
@@ -534,15 +538,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-06T21:52:45.358Z",
+   "capturedAt": "2026-11-06T22:58:46.525Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "b0bd015669d62ecb0ec4381f45a8e6b84f789d0e150e30222c725854e9c91700"
+   "hash": "097e29b6736a7cc9b8d1b6c4781cafc45226d0f642139b7c48cca2a4b9c9b35e"
   },
   {
    "panel": "A",
    "room": "nugget",
-   "clock": 120.4041,
+   "clock": 120.6519,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -622,7 +626,7 @@
      "drawn": "art/actors/deke-vessel.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f151f844e0a22e1c0e751a6b8fd2082802aba762603ae26a054c0a4441a84952"
+     "hash": "0993302436caea5f4823ac550e1be1fe422b0607beab41ac852716cbd012efa0"
     },
     {
      "key": "art/actors/fiddler.png",
@@ -630,7 +634,7 @@
      "drawn": "art/actors/fiddler.png",
      "candidate": false,
      "loaded": true,
-     "hash": "411aee23ee12e5695f28b6df389d1abe638e18fbb1cb0cbc670bbc8adfb72282"
+     "hash": "3fda9fb76411fbc89a3863225a794a4ee34f1a17eb9fabecd2c1d26c573529c4"
     },
     {
      "key": "art/actors/nugget-bar1.png",
@@ -638,7 +642,7 @@
      "drawn": "art/actors/nugget-bar1.png",
      "candidate": false,
      "loaded": true,
-     "hash": "25186f492fd7b79fc8062a76270e57bab0b0f778cb3c5fe15f4c074c34b9e679"
+     "hash": "2cadd5f59be864ea95872e8544ffa9c8d2f0a8978e272a3ca2c423680590d782"
     },
     {
      "key": "art/actors/nugget-bar2.png",
@@ -646,7 +650,7 @@
      "drawn": "art/actors/nugget-bar2.png",
      "candidate": false,
      "loaded": true,
-     "hash": "836c13686d5d70aa4b9305f5691353f5fb2fda04e95c9082311dc3704c3333ff"
+     "hash": "74ff547814453fe3ed2227f7bfc5070ac6e9d0fde4841734c80495dca8a4c6be"
     },
     {
      "key": "art/actors/nugget-bar3.png",
@@ -654,7 +658,7 @@
      "drawn": "art/actors/nugget-bar3.png",
      "candidate": false,
      "loaded": true,
-     "hash": "bf8fc2740962fe84fc77241c008a89fb6055901d8881678c56140edaf271e4f7"
+     "hash": "ddedf304d58ce83bb4190bbf69d2779e590691e18dae7df0041d9a3251a47e51"
     },
     {
      "key": "art/actors/nugget-man1.png",
@@ -662,7 +666,7 @@
      "drawn": "art/actors/nugget-man1.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f94a6d84b2658cbb198d0045e954439d0ea1fa84690ab6fcf6170fc277cf7320"
+     "hash": "9e74112b7e96f4f8775560d78ba053578c9c2922b60f7c2e8954c198b281563d"
     },
     {
      "key": "art/actors/nugget-man2.png",
@@ -670,7 +674,7 @@
      "drawn": "art/actors/nugget-man2.png",
      "candidate": false,
      "loaded": true,
-     "hash": "fa94fe4a34ab391a08642962cacaae852dddffb82a388a5f1f51f3b2068e3575"
+     "hash": "9d3513e00e4e287ccd60cf0c5ecc666f7a1f345407ca2035ff15db4639db447c"
     },
     {
      "key": "art/actors/nugget-man34.png",
@@ -678,7 +682,7 @@
      "drawn": "art/actors/nugget-man34.png",
      "candidate": false,
      "loaded": true,
-     "hash": "7e5de1063c8ce0c93b6383bdb959ef2fde6f9f9c0733fa8764450f8c6d4730d5"
+     "hash": "4ada45da44157e30c4d0bda534539e43e25c64b375b4fdae78b56b87fc6beb78"
     },
     {
      "key": "art/actors/nugget-one-strike-identity.png",
@@ -694,24 +698,189 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-06T21:52:46.344Z",
+   "capturedAt": "2026-11-06T22:58:47.501Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "3b9ff68e35670989fba29533f05199303a0fc3d7c3153f2a22dd7677618cb99e"
+   "hash": "f5747a281895d00665bb5d9e72f4dd576a35ce052574fb51d7fac155438cccf2"
+  },
+  {
+   "panel": "D",
+   "room": "nugget",
+   "clock": 133.8014,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_VESSEL_OPENED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "deed"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      408,
+      863
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 459,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      165,
+      404,
+      486,
+      507
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": "thad",
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:nugget",
+     "path": "art/backgrounds/room-03-nugget.png",
+     "drawn": "art/backgrounds/room-03-nugget.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414"
+    },
+    {
+     "key": "art/actors/nugget-card-sharp-identity.png",
+     "path": "art/actors/nugget-card-sharp-identity.png",
+     "drawn": "art/actors/nugget-card-sharp-identity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "43c6f9a80d7679fa2b4536c691a5abe902ef360a47303d17b70bfb51f556ba12"
+    },
+    {
+     "key": "art/actors/fiddler.png",
+     "path": "art/actors/fiddler.png",
+     "drawn": "art/actors/fiddler.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3fda9fb76411fbc89a3863225a794a4ee34f1a17eb9fabecd2c1d26c573529c4"
+    },
+    {
+     "key": "art/actors/nugget-bar1.png",
+     "path": "art/actors/nugget-bar1.png",
+     "drawn": "art/actors/nugget-bar1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2cadd5f59be864ea95872e8544ffa9c8d2f0a8978e272a3ca2c423680590d782"
+    },
+    {
+     "key": "art/actors/nugget-bar2.png",
+     "path": "art/actors/nugget-bar2.png",
+     "drawn": "art/actors/nugget-bar2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "74ff547814453fe3ed2227f7bfc5070ac6e9d0fde4841734c80495dca8a4c6be"
+    },
+    {
+     "key": "art/actors/nugget-bar3.png",
+     "path": "art/actors/nugget-bar3.png",
+     "drawn": "art/actors/nugget-bar3.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ddedf304d58ce83bb4190bbf69d2779e590691e18dae7df0041d9a3251a47e51"
+    },
+    {
+     "key": "art/actors/nugget-man1.png",
+     "path": "art/actors/nugget-man1.png",
+     "drawn": "art/actors/nugget-man1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9e74112b7e96f4f8775560d78ba053578c9c2922b60f7c2e8954c198b281563d"
+    },
+    {
+     "key": "art/actors/nugget-man2.png",
+     "path": "art/actors/nugget-man2.png",
+     "drawn": "art/actors/nugget-man2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9d3513e00e4e287ccd60cf0c5ecc666f7a1f345407ca2035ff15db4639db447c"
+    },
+    {
+     "key": "art/actors/nugget-man34.png",
+     "path": "art/actors/nugget-man34.png",
+     "drawn": "art/actors/nugget-man34.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "4ada45da44157e30c4d0bda534539e43e25c64b375b4fdae78b56b87fc6beb78"
+    },
+    {
+     "key": "art/actors/nugget-one-strike-identity.png",
+     "path": "art/actors/nugget-one-strike-identity.png",
+     "drawn": "art/actors/nugget-one-strike-identity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "aadb0c7836915118f34e968bcab3df7ce2470dd62c3656de501bdeb831ab4b20"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)",
+    "cast(true)",
+    "bystanders(false)",
+    "stand(958,515)",
+    "cast(false)",
+    "cast(true)",
+    "stand(408,863)",
+    "cast(false)",
+    "cast(true)",
+    "bystanders(true)",
+    "flag T_SWINDLED=true",
+    "enter(main_street)",
+    "enter(nugget)"
+   ],
+   "capturedAt": "2026-11-06T22:59:00.694Z",
+   "intent": "principal changed state: T_SWINDLED. Visible consequence: Deke Vessel no longer at the bar (doc 57 A3). Who is in a room is decided as Thad arrives, so the Nugget is entered again by control with the flag set: setting T_SWINDLED in place opens what follows the swindle, and the front doors are not walked to through a conversation (errata 118).",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "2884e8d78835491135eef003b05ced1ce4e99c409586c1c4d221aa4ee32340c4",
+   "changedBy": "flags, inventory"
   }
  ],
- "failures": [
-  "gate 8A: at floor_0/far the runtime reports 210px and the FRAME shows a silhouette 272px tall. The report and the picture disagree, which is the state Q34 shipped in for a week.",
-  "gate 8B: his feet are authoritatively at y515 and the drawn silhouette bottoms out at y556 -- 41px of float. Q34 shipped 175px of exactly this.",
-  "proofs/spec/nugget.json declares no principalChange, so panel D cannot be taken. Which state change is a room's PRINCIPAL one is authorship, not a thing to guess.",
-  "panel D was never captured"
- ],
- "passed": false,
+ "failures": [],
+ "passed": true,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
  "judgement": {
   "machine": {
-   "passed": false,
+   "passed": true,
    "establishes": [
     "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
     "every asset the room declares loaded; no stub, graybox or fallback was drawn",
@@ -732,12 +901,12 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-06T21:52:54.801Z",
+ "at": "2026-11-06T22:59:00.694Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 599194,
-  "panels": 4,
+  "bytes": 718520,
+  "panels": 5,
   "scale": 0.5
  }
 }

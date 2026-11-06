@@ -3258,3 +3258,26 @@ Tyler, on what was still open: **"2. I agree. 3. I'll take your recommendation h
 
 Proved on the old levels, which fail both.
 
+---
+
+# 118 · THE OPEN ITEMS OF 115: THE BOW ON THE BEAT, THE PAIR'S GREETING, THE NUGGET'S PROOF — TYLER, 2026-11-06
+
+Tyler: "Handle all of the open items." Errata 115 left three.
+
+**A · The fiddler bows on the beat** (doc 22: "fiddler idles in time with the musical bar grid").
+- A sprite may now declare `keepsTime: "music"`.
+- The scene gives the renderer the playing bed's own position (`Music.position()`) and the room bed's `tempo`. Such a figure's idle and breaks are read from that clock, so the bow changes stroke on the beat.
+- With no bed sounding (locked audio, a missing file), he keeps the same tempo on the scene clock.
+- The Nugget's bed declares CONSOLATION's tempo, 152 in 4/4 (`proofs/audio/consolation-audio-proof.html`). His fiddle, errata 116's layer, is locked to that same bed, so the bow keeps time with the fiddle you hear.
+- His breaks come every twelve bars (18.95 s), each on a bar line.
+- `tests/keeps-time.test.mjs` holds it, and fails on his old fixed rate.
+
+**B · The boundary men's two-voice greeting is on screen.** Watched in the browser with a reputation that has an exchange (R_WON_DUEL): A's "Beat Vessel.", then on the next click B's "Wouldn't have beat *me*.", with A's line still to come. In R_NOBODY doc 07 gives the pair one line, A's, so a fresh game shows one voice.
+- It looked missing in 115's captures because the capture tool's click helper read every queued line before clicking. Nothing in the game needed fixing.
+- The walk-past bark fires within 60 px of man A's feet, and Thad's stand is 92 px from him. So it is heard by brushing past him, not by walking up to talk.
+
+**C · The Nugget's proof passes**, the first time it has.
+- **Its far depth row (y 515, x 900–1015) lies wholly behind Deke**, so gates 8A and 8B measured Deke with Thad. Panel C now draws the room without its bystanders while it measures the protagonist: `bystanders`, a render-only control like panel A's `cast`. The authored row and x are kept, and this replaces 115's step-to-another-x, which moved the mark.
+- **Its spec names a principal change:** the swindle (`T_SWINDLED`; doc 27 DEKE VESSEL option 6, doc 57 A3: "he finishes his drink, collects his hat, and leaves the Nugget"). Deke is gone from the bar.
+- Setting the flag in the room opens what follows the swindle, so the door is not walked to through a conversation. A route may now `enter` a room by control, logged as no evidence that a player can walk there, and panel D re-enters the Nugget that way.
+- The back alley's proof still passes with the change.

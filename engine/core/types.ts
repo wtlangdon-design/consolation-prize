@@ -719,6 +719,17 @@ export interface AmbientFile {
     beatSeconds?: number;
     /** Seconds between breaks, before the per-character jitter. */
     breakEvery?: number;
+    /**
+     * KEEPS TIME WITH THE ROOM'S MUSIC (doc 22: "fiddler idles in time with
+     * the musical bar grid"; errata 118). The sway and the breaks are read
+     * from the playing bed's own position instead of the scene clock, at the
+     * bed's `tempo`: the idle's two frames alternate once a beat, and a break
+     * cycle starts on a bar line when `breakEvery` is a whole number of bars.
+     * With no bed sounding (locked audio, a missing file) he keeps the same
+     * tempo on the scene clock. `rate` is still written as tempo / 120, so a
+     * reader of the file sees the speed he moves at.
+     */
+    keepsTime?: 'music';
   };
 }
 
@@ -2240,9 +2251,14 @@ export interface RoomMusic {
    */
   layers?: MusicLayer[];
   /** First match wins: the Nugget's piano once T_NUGGET_PIANO_TUNED is set. */
-  variants?: { when: Record<string, boolean>; src: string; gain?: number; layers?: MusicLayer[] }[];
+  variants?: { when: Record<string, boolean>; src: string; gain?: number; layers?: MusicLayer[]; tempo?: number }[];
   /** Why this room has this music -- doc 28's line, or the ruling. Not read by the engine. */
   why?: string;
+  /**
+   * The bed's tempo, beats a minute: the bar grid a figure that `keepsTime`
+   * reads (errata 118). A variant without its own plays at the entry's.
+   */
+  tempo?: number;
 }
 
 /** Everything the engine needs, resolved from the manifest. */
