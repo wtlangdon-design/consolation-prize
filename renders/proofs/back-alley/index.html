@@ -5,7 +5,7 @@
  h1{font-size:17px;margin:0 0 4px}
  p.lede{color:#9a9aae;margin:0 0 8px;max-width:64em}
  .verdict{font:13px ui-monospace,monospace;padding:8px 10px;border-radius:5px;margin:12px 0;
-   background:#12331e;border:1px solid #2c6b40}
+   background:#3a1620;border:1px solid #7a2c3c}
  figure{margin:0 0 22px}
  img{width:100%;display:block;border-radius:5px;border:1px solid #2c2c38}
  figcaption{padding:7px 2px;font-size:13px}
@@ -17,7 +17,7 @@
 </style>
 <h1>back_alley — four-panel live-runtime proof</h1>
 <p class="lede">Every frame below is the full play area as the renderer drew it, in the running
-game, at <code>10f3b6a2</code> on <code>claude/tender-sagan-buz50u</code>.
+game, at <code>ba7004bb</code> on <code>claude/tender-sagan-buz50u</code>.
 No crop, isolated sprite or source image appears here: those are for diagnosing what a full
 frame has already shown.</p>
 <p class="lede"><b>These panels establish technical admissibility only.</b> Nothing here says the
@@ -29,7 +29,10 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     downscaled, never cropped. The full-resolution captures are reproducible test artifacts
     and are not in git; their hashes are below.</span></figcaption>
 </figure>
-<div class="verdict">PASS — technically admissible</div>
+<div class="verdict">FAIL — 1 failure(s):
+  the working tree is dirty, so these frames do not correspond to ba7004bb. Commit, or re-run with --allow-dirty, which records it.
+
+! working tree was dirty: these frames do not correspond to the commit above.</div>
 
   <figure>
     <img src="raw-captures-ignored/panel-b-populated.png" alt="" onerror="this.replaceWith(Object.assign(
@@ -69,14 +72,14 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     <figcaption><b>PANEL C &mdash; mud_far far, authored y706</b>
       <span>expected 259px &middot; runtime 259px &middot;
         silhouette 259px, bottom y705</span>
-      <span>art/actors/thad-idle-right/idle-01.png</span>
+      <span>art/actors/thad-idlebreak-right/idle-break-02.png</span>
     </figcaption>
   </figure>
   <figure>
     <img src="raw-captures-ignored/panel-c-mud_near-near.png" alt="">
     <figcaption><b>PANEL C &mdash; mud_near near, authored y857</b>
       <span>expected 361px &middot; runtime 361px &middot;
-        silhouette 362px, bottom y857</span>
-      <span>art/actors/thad-idlebreak-right/idle-break-02.png</span>
+        silhouette 361px, bottom y856</span>
+      <span>art/actors/thad-idlebreak-right/idle-break-05.png</span>
     </figcaption>
   </figure>
