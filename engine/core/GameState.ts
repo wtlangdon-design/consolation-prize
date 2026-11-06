@@ -1,4 +1,4 @@
-import type { Condition,
+import type { Condition, FlagWrites,
   ContentBundle, Entrance, Exit, Interactable, MapLocation, Point, RoomFile, WalkableRegion, PlaytestFixture, PuzzleStatus, CombinationPair,
   SpokenLine,
 } from './types.ts';
@@ -1267,6 +1267,17 @@ export class GameState {
    * journal, then an autosave at the checkpoint -- and nothing else. Already
    * complete is a no-op, so a skip and a watch cannot complete it twice.
    */
+  /**
+   * AN ARRIVAL SCENE'S OUTCOME, once its lines are read (onEnter.sayAfter;
+   * doc 57 D6): its writes, what it hands over, and the puzzle it completes.
+   */
+  afterArrival(done: { set?: FlagWrites; gives?: string[]; completes?: string }): void {
+    this.flags.applyWrites(done.set);
+    for (const item of done.gives ?? []) if (!this.inventory.includes(item)) this.inventory.push(item);
+    if (done.completes) this.completeByTimeline(done.completes);
+    else this.autosave();
+  }
+
   completeByTimeline(puzzle: string): void {
     if (this.puzzles.get(puzzle) === 'complete') return;
     this.serial += 1;

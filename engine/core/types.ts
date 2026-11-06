@@ -1397,6 +1397,22 @@ export interface RoomFile {
      */
     saySet?: FlagWrites;
     /**
+     * ARRIVAL SCENES WITH OTHER VOICES IN THEM, each on its own condition,
+     * tested as he walks in (before `saySet` lands). Doc 57 D6: "the next time
+     * Thad enters the Registrar's, Pratt is at the counter", and Sump, Pratt
+     * and Thad speak in turn; doc 57 D4: on the funeral day the Reverend at the
+     * gate with the plate. Read from the document by the compiler. The lines
+     * run on their own, after `say`; `after` is what the scene does once every
+     * line has been read, not before -- its writes (a figure in it may then
+     * walk out), the items it hands over, the puzzle it completes.
+     */
+    scenes?: {
+      when: Condition;
+      lines: { speaker: string; line: string; direction?: boolean }[];
+      after?: { set?: FlagWrites; gives?: string[]; completes?: string };
+      note?: string;
+    }[];
+    /**
      * A CHARACTER WHO ACCOSTS THE PLAYER. Doc 27: Deke Vessel "opens. Thad
      * does not approach him." Doc 35 ("VESSEL'S AUTO-OPEN") specifies it:
      * when the condition holds on entering, wait, then the character's tree

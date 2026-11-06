@@ -61,7 +61,11 @@ async function main() {
   // not need the opening played first. The record names the warp so nobody
   // mistakes the run for one that arrived by the game's own doors.
   const warp = process.argv.includes('--warp');
-  const spec = warp ? { route: null } : readJson(`proofs/spec/${slug}.json`);
+  // `--fixture <id>`: START FROM A PLAYTEST FIXTURE, as a fixture spec does
+  // (errata 96 H), for a route about one state -- Room 7's attestation needs
+  // Pratt to have sworn, which no entry route from a fresh game reaches.
+  const fixture = flag('--fixture');
+  const spec = warp ? { route: null } : fixture ? { route: null, fixture } : readJson(`proofs/spec/${slug}.json`);
   // A spec that starts from a fixture (proof.mjs, errata 96 H) has no entry route.
   const entry = warp || !spec.route ? { actions: [] } : readJson(`tools/gauntlet/routes/${spec.route}.json`);
   const life = readJson(`tools/gauntlet/routes/${routeName}.json`);

@@ -1192,8 +1192,7 @@
    "writtenBy": [
     "dialogue:PRATT:PRA_D6:pratt5"
    ],
-   "note": "Doc 04 PRA_D6 option 5: 'Yep. Sump closes at four.' Doc 57 D6: the next time Thad enters the Registrar's, Pratt is at the counter. That scene is Room 7's and is not staged yet (doc 36 Q167).",
-   "pending": true
+   "note": "Doc 04 PRA_D6 option 5: 'Yep. Sump closes at four.' Doc 57 D6: the next time Thad enters the Registrar's, Pratt is at the counter (content/ambient/pratt-registrar.json) and the attestation plays on arrival."
   },
   {
    "id": "T_SEEN_CLAIMS_ROAD",
@@ -1329,6 +1328,33 @@
     "dialogue:WINNIE:WIN_C1:winnie4"
    ],
    "note": "Doc 57 E4: Winnie has signed THE DEATH CERTIFICATE. Opens SUM_C1 at the Registrar's until the decease is recorded (E5)."
+  },
+  {
+   "id": "T_ATTESTED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:claims_registrar:onEnter:sayAfter"
+   ],
+   "note": "Doc 57 D6: the attestation has been read at the Registrar's -- THE ATTESTATION handed over, D6 complete; Pratt walks out."
+  },
+  {
+   "id": "T_PLATE_AT_GATE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:onEnter"
+   ],
+   "note": "Doc 57 C3/D4: Sowerby is at Boot Hill's gate with the collection plate, for the visit that ends the funeral day while Sheng's task is open. Cleared on every entry, then set while that holds."
+  },
+  {
+   "id": "T_LINEN_COLLECTED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:boot_hill:onEnter:scene"
+   ],
+   "note": "Doc 57 D4: the Reverend has paid Sheng's linens out of the plate at the gate -- THE LINEN MONEY handed over."
   }
  ]
 }

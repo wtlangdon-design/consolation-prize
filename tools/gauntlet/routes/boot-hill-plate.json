@@ -1,0 +1,104 @@
+{
+ "schema": 1,
+ "room": "main_street",
+ "note": "DOC 57 D4 IN THE GAME: from r14-e (the funeral day, Sheng's task open, on Main Street), up to Boot Hill by the map; the day's line, then the Reverend at the gate pays the linens out of the plate -- THE LINEN MONEY.",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "click",
+   "at": [
+    554,
+    1052
+   ],
+   "why": "the panel's MAP button"
+  },
+  {
+   "do": "waitFor",
+   "room": "town_map",
+   "upTo": 20
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "click",
+   "at": [
+    1370,
+    95
+   ],
+   "why": "Boot Hill's marker"
+  },
+  {
+   "do": "waitFor",
+   "room": "boot_hill",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "00-arrived",
+   "room": "boot_hill"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "01-scene",
+   "room": "boot_hill"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "02-scene",
+   "room": "boot_hill"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "03-scene",
+   "room": "boot_hill"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "04-scene",
+   "room": "boot_hill"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "05-scene",
+   "room": "boot_hill"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "06-scene",
+   "room": "boot_hill"
+  }
+ ]
+}

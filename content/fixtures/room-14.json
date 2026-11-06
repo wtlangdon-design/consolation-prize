@@ -195,6 +195,43 @@
     "HOB_C1 (Room 32) writes T_FUNERAL_DONE: set here as its outcome"
    ],
    "note": "MY OWN PLOT: the headboard, the grass coming in, a tuning peg."
+  },
+  {
+   "id": "r14-e",
+   "label": "R14-E Act II, the funeral day with Sheng's task open: up Boot Hill, the Reverend at the gate with the plate (D4)",
+   "room": "main_street",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_PIKE_DEAD": true,
+    "T_FUNERAL_DAY": true,
+    "T_SHENG_TASK": true,
+    "ACT": 2
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "four_dollars",
+    "watch"
+   ],
+   "puzzles": {
+    "A1": "complete"
+   },
+   "derivedFrom": [
+    "docs/05-examine-layer.md::ROOM 14 — BOOT HILL",
+    "docs/54-batch-c.md::ROOM 14 · BOOT HILL"
+   ],
+   "note": "Doc 57 C3/D4: on Main Street on the funeral day; the map to Boot Hill ends the day, and Sowerby at the gate pays Sheng's linens out of the plate."
   }
  ]
 }

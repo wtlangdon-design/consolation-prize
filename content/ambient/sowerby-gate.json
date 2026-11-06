@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "id": "sowerby_gate",
+ "name": "REVEREND SOWERBY",
+ "posture": "standing",
+ "room": "boot_hill",
+ "when": {
+  "T_PLATE_AT_GATE": true
+ },
+ "note": "SOWERBY AT THE GATE (doc 57 C3 and D4: on the funeral day, if Sheng's task is set, 'Sowerby is at the gate with the plate'). His funeral sheet, cut from room-31's master and lit by the same moon on the same hill (tools/art/room31-night.py); no sheet of him holds the plate, so the plate is in the direction, not the picture -- for Tyler's playthrough. He is there for the visit that ends the day, and back in his church after.",
+ "x": 480,
+ "y": 835,
+ "zone": 0,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "The exchange at the gate is an arrival scene (Room 14 onEnter.scenes), not a bark.",
+ "sprite": {
+  "sheet": "art/actors/room-31-sowerby.png",
+  "frames": [
+   [
+    2,
+    2,
+    147,
+    314
+   ],
+   [
+    151,
+    2,
+    147,
+    314
+   ],
+   [
+    300,
+    2,
+    147,
+    314
+   ],
+   [
+    449,
+    2,
+    147,
+    314
+   ],
+   [
+    598,
+    2,
+    147,
+    314
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.1,
+  "breaks": [
+   [
+    2,
+    2,
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    0
+   ],
+   [
+    2,
+    3,
+    2,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "talkFrame": 0,
+  "frameNote": "0 rest, a finger raised · 1 breath · 2 rocks forward with the sermon · 3 rocks back · 4 a nod. A break every `breakEvery` seconds (errata 77).",
+  "provenance": "art/staging/room-31/cast/cast.json",
+  "breaksThatSpeak": [
+   0
+  ]
+ }
+}
