@@ -2847,3 +2847,5 @@ Doc 28 Part Three names seventeen rooms; the eighteen it does not played the tit
 | District map | CONSOLATION, full |
 
 Still no new notes: every arrangement hands CONSOLATION's own tune, offbeats and counter-line to different players. **Every playable room now has its music chosen**, and `tests/room-music.test.ts` fails on a room that has none, so a new room cannot fall back to the title bed by omission.
+
+**Approved (Tyler, 2026-11-06): "Keep"**, for both errata 103 and 104, after hearing every room on the audition page.
