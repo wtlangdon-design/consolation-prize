@@ -132,7 +132,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE COUNTY SEAL** · USE — "I lifted it an inch. The weight of it is a legal argument. I set it down persuaded."
 **THE MOTT FILE** · OPEN — "Under glass, and the glass is under Sump, and Sump is under statute. It is the best-defended document in the territory."
 **THE FILING LADDER** · PUSH — "It rolls to 1858 and stops of its own accord, like a horse that knows the route."
-**THE UNCLAIMED CORRESPONDENCE** · PICK_UP — "Other men's letters. I have one of my own addressed to a dead man; I know how they feel about being held."
+**THE UNCLAIMED CORRESPONDENCE** · PICK_UP — "Other men's letters. I've got one of my own, addressed to a dead man. I know how they feel about being held."
 
 ## ROOM 10 — IMPROVEMENT COMPANY LOBBY
 

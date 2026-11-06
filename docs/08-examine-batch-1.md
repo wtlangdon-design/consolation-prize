@@ -12,7 +12,7 @@
 
 **THE SHELVES**
 > **LOOK:** "Every claim ever filed in this district, in boxes, in order. It is the most organized thing in Consolation and no one is permitted to look at it."
-> **LISTEN:** "Nothing. Paper does not keep secrets so much as decline to volunteer."
+> **LISTEN:** "Nothing. Paper doesn't keep secrets so much as decline to volunteer."
 
 **CLAIM ONE'S BOX**
 > **LOOK:** "The most famous claim in the territory. The box is the same size as all the others, which I find unreasonable."
@@ -31,8 +31,8 @@
 > **LISTEN:** "Nothing."
 
 **THE BARRED WINDOW**
-> **LOOK:** "Barred, on the inside. Whoever built this was not worried about people getting in."
-> **LISTEN:** "Main Street. Muffled. It sounds like a town from in here."
+> **LOOK:** "Barred, on the inside. Whoever built this wasn't worried about people getting in."
+> **LISTEN:** "Main Street, muffled. From in here it sounds like somebody else's town."
 
 **THE DUST**
 > **LOOK:** "Undisturbed everywhere except one shelf, at chest height, where somebody has been reaching for years."
