@@ -196,6 +196,9 @@
           "say": "You need to be in a queue that's eight months long and getting longer.",
           "set": {
             "T_ASSAY_QUEUE": true
+          },
+          "puzzle": {
+            "C1": "complete"
           }
         },
         {
@@ -275,6 +278,9 @@
           },
           "when": {
             "T_ASSAY_QUEUE": true
+          },
+          "puzzle": {
+            "C2": "complete"
           }
         },
         {

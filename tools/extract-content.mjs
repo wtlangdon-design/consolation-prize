@@ -3187,7 +3187,10 @@ function winnieTree() {
   // A ROW THAT MOVES A PUZZLE: doc 04's State cell "grants assay → C6" on
   // WIN_B2's first row; doc 53 reads it as C6 pending (the assay is granted,
   // its return is off screen and later -- errata 66 F).
-  const PUZZLE_WRITE = { 'WIN_B2:1': { C6: 'pending' } };
+  // C1 AND C2 ARE THE TOPICS ARRIVING. Doc 57: "C1 · WIN_B1 option 1 ->
+  // T_ASSAY_QUEUE. Complete as written." and "C2 · WIN_B1 option 2 ... and
+  // option 6 ... -> T_OFFICE_TOPIC, C2" -- option 6 is the row that writes it.
+  const PUZZLE_WRITE = { 'WIN_B2:1': { C6: 'pending' }, 'WIN_B1:1': { C1: 'complete' }, 'WIN_B1:6': { C2: 'complete' } };
   const unplayed = [];
   const nodes = {};
   let poolIndex = 0;
@@ -3984,8 +3987,10 @@ function fanshaweTree() {
   const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
   if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
   const ROUTE = {
-    'FAN_A1:1': { gives: ['company_map'] },
-    'FAN_A1:2': { gives: ['company_map'] },
+    // A4 IS THE MAP ARRIVING (doc 02 A4 yields "Company map"; doc 57 A4: "FAN_A1
+    // gives THE COMPANY MAP ... The map is what finds Prosperity").
+    'FAN_A1:1': { gives: ['company_map'], puzzle: { A4: 'complete' } },
+    'FAN_A1:2': { gives: ['company_map'], puzzle: { A4: 'complete' } },
     'FAN_A2:6': { then: [{ speaker: SPEAKER, line: beat3 }], gives: ['handkerchief'], set: { T_DINED: true },
       puzzle: { A10: 'complete' }, ends: true },
     'FAN_B1:1': { goto: 'FAN_B2' },

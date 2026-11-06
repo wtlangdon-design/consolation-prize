@@ -39,6 +39,8 @@ import { MemoryStorage } from '../engine/core/SaveManager.ts';
 import { CANONICAL_PUZZLE_IDS } from '../tools/check-puzzle-graph.mjs';
 import { HeadlessPlayer, playThrough, type Break, type Step } from './lib/headless-player.ts';
 
+// PLAYS: A4, C1, C2
+
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(ROOT, path), 'utf8'));
 

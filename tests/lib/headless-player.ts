@@ -704,6 +704,7 @@ export function playThrough(player: HeadlessPlayer, steps: Step[]): Break[] {
   const breaks: Break[] = [];
   for (const step of steps) {
     let problem: string | null = null;
+    let threw = false;
     try {
       playStep(player, step);
       const missing = unmet(player, step.expect);
@@ -711,6 +712,7 @@ export function playThrough(player: HeadlessPlayer, steps: Step[]): Break[] {
     } catch (error) {
       if (!(error instanceof PlayError)) throw error;
       problem = error.message;
+      threw = true;
     }
     if (problem === null) continue;
     const found: Break = {
@@ -719,7 +721,9 @@ export function playThrough(player: HeadlessPlayer, steps: Step[]): Break[] {
     };
     breaks.push(found);
     if (step.bypass) applyBypass(player, step.bypass);
-    else if (player.state.dialogue.isActive && !player.state.dialogue.inDuel) {
+    // A step that played but missed its expectation leaves play where it is;
+    // one that could not be played leaves any conversation it stranded.
+    else if (threw && player.state.dialogue.isActive && !player.state.dialogue.inDuel) {
       try { player.leave(); } catch { player.state.dialogue.end(); player.settle(); }
     }
   }

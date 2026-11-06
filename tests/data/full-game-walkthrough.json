@@ -2,20 +2,7 @@
  "schema": 1,
  "note": "The continuous playthrough's route, in doc 57's order, ids only (tests/full-game.test.ts). Each step plays one click's worth -- a room reached by exits and the map, a TALK TO and its options, an item used, a verb -- and names what it must have changed. A step that breaks is a finding; `knownBreaks` lists them, with the cause, and a step's `bypass` is applied only after it has broken, so play can go on to the next one.",
  "knownBreaks": [],
- "neverRecorded": [
-  {
-   "puzzle": "A4",
-   "finding": "Nothing completes A4: FAN_A1 gives THE COMPANY MAP (its yield, asserted at step A4.2) and writes no puzzle state."
-  },
-  {
-   "puzzle": "C1",
-   "finding": "A topic (T_ASSAY_QUEUE, asserted at C1.2); no puzzle state is written. Recorded in proofs/played-pending.json."
-  },
-  {
-   "puzzle": "C2",
-   "finding": "A topic (T_OFFICE_TOPIC, asserted at C2.1); no puzzle state is written. Recorded in proofs/played-pending.json."
-  }
- ],
+ "neverRecorded": [],
  "ending": {
   "puzzle": "F5",
   "flags": {
@@ -236,6 +223,9 @@
    "expect": {
     "carrying": [
      "company_map"
+    ],
+    "puzzles": [
+     "A4"
     ]
    }
   },
@@ -620,7 +610,10 @@
    "expect": {
     "flags": {
      "T_ASSAY_QUEUE": true
-    }
+    },
+    "puzzles": [
+     "C1"
+    ]
    }
   },
   {
@@ -635,7 +628,10 @@
    "expect": {
     "flags": {
      "T_OFFICE_TOPIC": true
-    }
+    },
+    "puzzles": [
+     "C2"
+    ]
    }
   },
   {
