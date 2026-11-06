@@ -640,7 +640,40 @@ async function main() {
           continue;
         }
         const [, , fw, fh] = npc.sprite.frames[0];
-        const camera = panelB.camera ?? 0;
+        let camera = panelB.camera ?? 0;
+        let populated = populatedB;
+        let bare = baseA;
+        // A FIGURE PANEL B'S CAMERA DOES NOT SHOW is looked at where he
+        // stands, not failed for being elsewhere. On a street wider than the
+        // window (Main Street is 3700) the panel shows one stretch of it, and
+        // "nothing drew" there could not tell a sheet that never arrived from
+        // a man out of shot -- the letter-writer, there since 2026-09, failed
+        // it with the boy and a boundary man (errata 111). Thad is stood
+        // beside him, the camera follows, and the same populated-minus-
+        // suppressed pair is taken there. The cast is suppressed here (panel
+        // A), and is left so.
+        const offCamera = (cam) => npc.x + fw / 2 - cam <= 0 || npc.x - fw / 2 - cam >= populatedB.width;
+        if (offCamera(camera)) {
+          await page.evaluate(() => window.__gauntlet?.controls.cast(true));
+          let stood = null;
+          for (const [dx, dy] of [[260, 0], [-260, 0], [260, 30], [-260, 30], [400, 0], [-400, 0]]) {
+            stood = await page.evaluate(([px, py]) => window.__gauntlet?.controls.stand(px, py), [npc.x + dx, npc.y + dy]);
+            if (stood?.ok) break;
+          }
+          await page.waitForTimeout(1200);
+          camera = (await probe())?.camera ?? camera;
+          const there = await page.evaluate(() => window.__gauntlet?.snapshot() ?? null);
+          await page.evaluate(() => window.__gauntlet?.controls.cast(false));
+          await page.waitForTimeout(350);
+          const thereBare = await page.evaluate(() => window.__gauntlet?.snapshot() ?? null);
+          if (stood?.ok && there && thereBare && !offCamera(camera)) {
+            populated = await decode(there);
+            bare = await decode(thereBare);
+            console.log(`    ambient ${npc.id}: out of panel B's shot; looked at with the camera at x${Math.round(camera)}`);
+          } else {
+            camera = panelB.camera ?? 0;
+          }
+        }
         const box = { x: Math.round(npc.x - fw / 2 - camera), y: npc.y - fh, width: fw, height: fh + 2 };
         // Her props stand where she stands; each is measured in its own box
         // and cut out of hers, so her lowest row is HER lowest row.
@@ -648,13 +681,13 @@ async function main() {
           const [, , pw, ph] = prop.frames[0];
           return { x: Math.round(prop.x - pw / 2 - camera), y: prop.y - ph + 1, width: pw, height: ph + 2 };
         });
-        const seen = silhouette(populatedB, baseA, box, propBoxes);
+        const seen = silhouette(populated, bare, box, propBoxes);
         const record = { id: npc.id, feet: [npc.x, npc.y], sheet: npc.sprite.sheet,
           clipPlane: npc.clipPlane ?? null, box, seen };
         const contactSpec = spec?.ambientContact?.[npc.id];
         record.props = propBoxes.map((propBox, at) => {
           const prop = npc.sprite.props[at];
-          const propSeen = silhouette(populatedB, baseA, propBox);
+          const propSeen = silhouette(populated, bare, propBox);
           const want = contactSpec?.props?.[at]?.lowestDrawnRowWithin;
           const out = { sheet: prop.sheet, at: [prop.x, prop.y], box: propBox, seen: propSeen, expected: want ?? null };
           if (!propSeen) failures.push(`ambient ${npc.id}: prop ${prop.sheet} drew nothing at ${prop.x},${prop.y}`);
