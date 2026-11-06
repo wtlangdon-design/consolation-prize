@@ -768,13 +768,36 @@ async function main() {
         + 'depth extremes to test. Gate 8C forbids picking convenient ones instead.');
     }
     const measured = [];
+    // THE PEOPLE STANDING IN THE ROOM, in world coordinates, from panel B.
+    // Gate 8B differences the populated frame against the cast-suppressed
+    // one inside a box around him, and a figure standing IN FRONT of a mark
+    // is in that box and over his feet: Room 20's dog's owner (errata 111)
+    // stands on the alley's centre line, where the far mark is first tried,
+    // and the gate measured the owner's coat as his "float". The mark's ROW
+    // is authored and is never moved; along it, an x where he would stand
+    // behind someone is passed over while another x remains, exactly as an
+    // x off the floor is.
+    const standing = ambientFigures.map((one) => ({ id: one.id,
+      x: one.box.x + (panelB.camera ?? 0), y: one.box.y, width: one.box.width, height: one.box.height }));
+    const behind = (bounds) => standing.find((one) => bounds[0] < one.x + one.width && bounds[0] + bounds[2] > one.x
+      && bounds[1] < one.y + one.height && bounds[1] + bounds[3] > one.y);
     for (const mark of marks) {
       let placed = null;
       let usedX = null;
-      for (const x of mark.xs) {
+      for (const [at, x] of mark.xs.entries()) {
         placed = await page.evaluate(([px, py]) => window.__gauntlet?.controls.stand(px, py),
           [x, mark.y]);
-        if (placed?.ok) { usedX = x; break; }
+        if (!placed?.ok) continue;
+        if (at < mark.xs.length - 1) {
+          await page.waitForTimeout(150);
+          const there = (await probe()).movers[heroId];
+          const hidden = there?.bounds ? behind(there.bounds) : null;
+          if (hidden) {
+            console.log(`    panel C: ${mark.box} ${mark.kind} at x${x} stands behind ${hidden.id}; next x`);
+            continue;
+          }
+        }
+        usedX = x; break;
       }
       if (!placed?.ok) {
         failures.push(`panel C: no x along the authored ${mark.kind} row y${mark.y} of `
