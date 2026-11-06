@@ -461,7 +461,8 @@ export class GameScene extends Phaser.Scene {
     // the hill (doc 57 E8). Nothing is cut short: no line is up, nothing waits
     // to be said or chosen.
     const after = this.state.room.afterTimeline;
-    if (after && this.state.room.timeline?.length && !this.timeline.isRunning
+    // Or any room that is over once a flag says so (Room 7: the filing, doc 57 F5).
+    if (after && (!this.state.room.timeline?.length || !this.timeline.isRunning)
       && !this.state.dialogue.isActive && !this.pendingTree && this.performance === null
       && this.sayingActor === null && this.pendingSay.length === 0 && this.travelAfterSay === null
       && this.state.flags.test(after.when)) {

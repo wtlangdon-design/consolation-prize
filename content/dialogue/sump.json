@@ -8,6 +8,15 @@
   "entries": [
     {
       "when": {
+        "F5_LAID": {
+          "atLeast": 4
+        },
+        "T_FILED": false
+      },
+      "node": "SUM_F1"
+    },
+    {
+      "when": {
         "T_DEATH_CERTIFIED": true,
         "T_DECEASED": false
       },
@@ -368,6 +377,137 @@
           "id": "sumpx",
           "tag": "EXIT",
           "text": "Thank you. This has been clarifying.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "SUM_F1": {
+      "id": "SUM_F1",
+      "prompt": "Form 12-C, Amended. Location of Claim One. And the holder's name, in the holder's box.",
+      "opening": [
+        {
+          "speaker": "sump",
+          "line": "Form 12-C, Amended. Location of Claim One. And the holder's name, in the holder's box."
+        }
+      ],
+      "options": [
+        {
+          "id": "sump1",
+          "tag": "PROGRESS",
+          "text": "Obadiah Mott.",
+          "afterUse": "remove",
+          "set": {
+            "T_FILED": true
+          },
+          "puzzle": {
+            "F5": "complete"
+          },
+          "ends": true,
+          "exchange": [
+            {
+              "speaker": "sump",
+              "line": "…That's a very old claim number."
+            },
+            {
+              "speaker": "winnie",
+              "line": "You're putting it in his name."
+            },
+            {
+              "speaker": "thad",
+              "line": "Yes."
+            },
+            {
+              "speaker": "winnie",
+              "line": "You understand you get nothing."
+            },
+            {
+              "speaker": "thad",
+              "line": "I get to stop lying. I've only just learned how and I'm already tired of it."
+            },
+            {
+              "speaker": "winnie",
+              "line": "stamping",
+              "direction": true
+            },
+            {
+              "speaker": "winnie",
+              "line": "…Certified."
+            },
+            {
+              "speaker": "sump",
+              "line": "reading, toneless",
+              "direction": true
+            },
+            {
+              "speaker": "sump",
+              "line": "Amended location, Claim One. Holder, Obadiah Mott. 'The strike lies at the place herein described.'"
+            },
+            {
+              "speaker": "sump",
+              "line": "…"
+            },
+            {
+              "speaker": "sump",
+              "line": "Which is now described."
+            },
+            {
+              "speaker": "sump",
+              "line": "…"
+            },
+            {
+              "speaker": "sump",
+              "line": "Under statute, a claim must be worked by its holder within thirty days, or it reverts to the Territory."
+            },
+            {
+              "speaker": "thad",
+              "line": "So Mr. Mott will have to come forward."
+            },
+            {
+              "speaker": "sump",
+              "line": "In person. To this window. Within thirty days."
+            },
+            {
+              "speaker": "sump",
+              "line": "He blots it.",
+              "direction": true
+            },
+            {
+              "speaker": "sump",
+              "line": "I shall look forward to it."
+            }
+          ]
+        },
+        {
+          "id": "sump2",
+          "tag": "TOPIC",
+          "text": "Thaddeus Grubb.",
+          "afterUse": "retain",
+          "say": "Claim One is Mr. Mott's. You may file on his behalf. Not in your favor."
+        },
+        {
+          "id": "sump3",
+          "tag": "TOPIC",
+          "text": "Winnie Ledger.",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "Don't you dare."
+            }
+          ]
+        },
+        {
+          "id": "sump4",
+          "tag": "COMIC",
+          "text": "The raccoon.",
+          "afterUse": "retain",
+          "say": "The raccoon holds no license from this office."
+        },
+        {
+          "id": "sumpx",
+          "tag": "EXIT",
+          "text": "I should go.",
           "universal": true,
           "ends": true
         }

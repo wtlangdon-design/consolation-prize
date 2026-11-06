@@ -1,0 +1,318 @@
+{
+ "schema": 1,
+ "room": "claims_registrar",
+ "note": "DOC 57 F5 IN THE GAME: from r7-f5, Winnie at the end of the counter; the four documents down (by the flag control; the counter uses are tests/f5.test.ts's); TALK TO Sump, 'Obadiah Mott.', WIN_F2, the read-back, and the dawn.",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "00-winnie-at-the-counter",
+   "room": "claims_registrar"
+  },
+  {
+   "do": "flags",
+   "flags": {
+    "T_F5_DEATH_CERTIFICATE": true,
+    "T_F5_DEED": true,
+    "T_F5_DOCUMENT_C": true,
+    "T_F5_SAMPLE": true,
+    "F5_LAID": 4
+   },
+   "why": "the four documents down (each USE is played in tests/f5.test.ts)"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "world": [
+    1275,
+    380
+   ],
+   "why": "Sump"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "capture",
+   "name": "01-the-name",
+   "room": "claims_registrar"
+  },
+  {
+   "do": "option",
+   "option": "sump1",
+   "why": "Obadiah Mott."
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "capture",
+   "name": "02-certified",
+   "room": "claims_registrar"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "capture",
+   "name": "03-read-back",
+   "room": "claims_registrar"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    300
+   ],
+   "why": "read on (conversations wait for a click)"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street_dawn",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "04-dawn",
+   "room": "main_street_dawn"
+  }
+ ]
+}

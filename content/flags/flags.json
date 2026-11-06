@@ -1382,6 +1382,60 @@
     "dialogue:WINNIE:WIN_F1:winnie1"
    ],
    "note": "Doc 04 WIN_F1 option 1 and doc 57: the sample assayed at Winnie's window, 'Twenty-two hundred dollars to the ton.' F4's trigger on Main Street, and S6's."
+  },
+  {
+   "id": "T_FILED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:SUMP:SUM_F1:sump1"
+   ],
+   "note": "Doc 57 F5 and doc 48 S6 beat 5: the filing is made in Obadiah Mott's name; Main Street dawn opens (Room 36)."
+  },
+  {
+   "id": "F5_LAID",
+   "type": "integer",
+   "initial": 0,
+   "writtenBy": [
+    "combination:counter:claims_registrar (doc 57 F5)"
+   ],
+   "note": "Doc 57 F5 beat 1: how many of the four documents are down on the counter. At four, SUM_F1 is the Registrar's."
+  },
+  {
+   "id": "T_F5_DEATH_CERTIFICATE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:death_certificate:claims_registrar:counter"
+   ],
+   "note": "Doc 57 F5 beat 1: death certificate laid on the counter at the filing."
+  },
+  {
+   "id": "T_F5_DEED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:deed:claims_registrar:counter"
+   ],
+   "note": "Doc 57 F5 beat 1: deed laid on the counter at the filing."
+  },
+  {
+   "id": "T_F5_DOCUMENT_C",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:document_c:claims_registrar:counter"
+   ],
+   "note": "Doc 57 F5 beat 1: document c laid on the counter at the filing."
+  },
+  {
+   "id": "T_F5_SAMPLE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:sample:claims_registrar:counter"
+   ],
+   "note": "Doc 57 F5 beat 1: sample laid on the counter at the filing."
   }
  ]
 }

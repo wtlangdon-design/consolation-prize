@@ -930,6 +930,11 @@ export interface CombinationPair {
    * condition holds answers; with none, `say` does. Extracted from doc 57.
    */
   rules?: PairRule[];
+  /**
+   * `pool`: the pair is only its cases (doc 57 F5's counter). When none holds
+   * it says nothing of its own and the item's pool answers (doc 24 tier 2).
+   */
+  otherwise?: 'pool';
 }
 
 /** A line in an exchange: Thad's as a bare string, anyone else's with their speaker id. */

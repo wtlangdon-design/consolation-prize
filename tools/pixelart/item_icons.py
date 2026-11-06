@@ -398,7 +398,69 @@ def sample(canvas: IndexedCanvas, palette: Palette) -> None:
     canvas.put(14, 15, gold.frac(0.95))
 
 
+
+def document_b(canvas: IndexedCanvas, palette: Palette) -> None:
+    """THE ASSAY OF RECORD (Document B): the assay office's own printed form,
+    ruled, with a column of figures down its right side -- every one of them
+    nothing -- in a small, certain hand. The column is what tells it from the
+    survey's boxes and the affidavit's flourish."""
+    _paper(canvas, palette, 6, 2, 18, 17, tone=0.82)
+    grey = palette.family("grey")
+    for row in (5, 9, 13):
+        canvas.hline(8, row, 14, grey.frac(0.42))
+    canvas.vline(17, 5, 11, grey.frac(0.42))
+    ink = palette.family("umber").frac(0.12)
+    for row in (6, 8, 10, 12, 14):
+        canvas.hline(9, row, 6, palette.family("umber").frac(0.22))
+        canvas.outline(19, row - 1, 2, 2, ink)
+
+
+def document_c(canvas: IndexedCanvas, palette: Palette) -> None:
+    """THE CERTIFICATE OF CONTIGUITY (Document C): an official certificate with
+    a round gold seal and two red ribbon tails at its foot. The seal and ribbon
+    are what tell it from every other paper."""
+    _paper(canvas, palette, 6, 2, 18, 17, tone=0.88)
+    _writing(canvas, palette, 9, 5, 12, 3)
+    red = palette.family("accent_red")
+    canvas.line(10, 15, 9, 19, red.frac(0.55))
+    canvas.line(12, 15, 13, 19, red.frac(0.55))
+    gold = palette.family("accent_gold")
+    canvas.rect(9, 12, 4, 4, gold.frac(0.70))
+    canvas.outline(8, 11, 6, 6, gold.frac(0.45))
+
+
+def document_d(canvas: IndexedCanvas, palette: Palette) -> None:
+    """THE ATTESTATION (Document D): a short sworn paper signed with Nickel
+    Pratt's mark -- a big X -- beside a red notary's ring. The X is what tells
+    it from the affidavit's flourish and the executor form's neat name."""
+    _paper(canvas, palette, 6, 2, 17, 17, tone=0.72)
+    _writing(canvas, palette, 8, 4, 12, 3)
+    ink = palette.family("umber").frac(0.08)
+    canvas.line(9, 11, 14, 16, ink)
+    canvas.line(14, 11, 9, 16, ink)
+    stamp = palette.family("accent_red")
+    canvas.outline(16, 11, 5, 5, stamp.frac(0.60))
+    canvas.put(18, 13, stamp.frac(0.60))
+
+
+def death_certificate(canvas: IndexedCanvas, palette: Palette) -> None:
+    """THE DEATH CERTIFICATE: a certificate of death with a black mourning border
+    all the way round and one firm signature. The full black border is what
+    tells it from the obituary's black head and every other paper."""
+    _paper(canvas, palette, 6, 2, 18, 17, tone=0.86)
+    void = palette.family("void")
+    canvas.outline(6, 2, 18, 17, void.at(0))
+    _writing(canvas, palette, 9, 5, 12, 3)
+    ink = palette.family("umber").frac(0.10)
+    canvas.line(10, 15, 14, 13, ink)
+    canvas.line(14, 13, 20, 15, ink)
+
+
 ICONS = {
+    "document_b": document_b,
+    "document_c": document_c,
+    "document_d": document_d,
+    "death_certificate": death_certificate,
     "sample": sample,
     "linen_money": linen_money,
     "loan": loan,
