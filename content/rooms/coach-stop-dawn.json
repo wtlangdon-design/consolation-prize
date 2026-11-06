@@ -1,0 +1,125 @@
+{
+ "schema": 1,
+ "id": "coach_stop_dawn",
+ "name": "THE COACH STOP",
+ "note": "Doc 48 S7 beat 3 (errata 115 B): Room 1's coach stop at first light, where Room 36's one exit goes. Its picture is the beat's: the town sign being repainted upward by a man on a ladder, who nods. Thad's last spoken line and the Act IV letter over black are Room 36's exit's, compiled from doc 48 and the letters file and performed here on arrival (`arrives`). No hotspots and no exits: the game ends here, over black, and a load after the close finds it black (`blackWhen`). Room 1's ground, walk box and depth curve, unchanged.",
+ "materialIdentity": "Room 1 at first light: the same mud, sign, tower, fence and road, relit by room-36 operation 3 (tools/art/coach-stop-dawn-plate.mjs).",
+ "background": "art/backgrounds/room-36-coach-stop-dawn.png",
+ "ambient": [
+  "sign_painter"
+ ],
+ "colours": {
+  "sky": 237,
+  "ground": 181
+ },
+ "horizon": 348,
+ "walkable": [
+  {
+   "id": "road_far",
+   "zone": 2,
+   "surface": "mud",
+   "rect": [
+    0,
+    660,
+    1920,
+    68
+   ]
+  },
+  {
+   "id": "road_mid",
+   "zone": 1,
+   "surface": "mud",
+   "rect": [
+    0,
+    728,
+    1920,
+    68
+   ]
+  },
+  {
+   "id": "road_near",
+   "zone": 0,
+   "surface": "mud",
+   "rect": [
+    0,
+    796,
+    1920,
+    68
+   ]
+  }
+ ],
+ "walkBoxes": [
+  {
+   "id": "road_open",
+   "note": "ONE BOX. The obstructions run from the band's back edge, not from y690. Measured: in rows 660-690 the left corner is 88-91% not-mud and the right is 96-100% -- the water tower's legs and the woodpile -- so the strip that a y690 top edge would have opened contains no ground to lose. The left structure is solid x0-255 and the woodpile x1630-1920, both from y660 to the frame bottom; walkable is the 1374 columns between them.",
+   "points": [
+    {
+     "x": 256,
+     "y": 700
+    },
+    {
+     "x": 1629,
+     "y": 700
+    },
+    {
+     "x": 1629,
+     "y": 863
+    },
+    {
+     "x": 256,
+     "y": 863
+    }
+   ],
+   "neighbours": [],
+   "clipPlane": 0,
+   "surface": "mud",
+   "scaleMode": {
+    "kind": "curve",
+    "farY": 694,
+    "farHeight": 222,
+    "nearY": 830,
+    "nearHeight": 263,
+    "beyondY": 500,
+    "beyondHeight": 98,
+    "beyondNote": "PROVISIONAL, AND THE ONE NUMBER IN THIS FILE NOBODY HAS RULED ON. THE CURVE NOW COVERS GROUND THE WALKABLE BAND DOES NOT -- that is unusual and it is deliberate: a staged mover may leave the box (errata 38's own case, and doc 17's exit through the fence gap does exactly that), and without a third sample heightIn CLAMPS, so a man walking away up the road holds 222 exactly and never shrinks. Sliding into the distance at full size is worse than extrapolating badly. THREE WAYS OF MEASURING IT DISAGREE BY A FACTOR OF FOUR. Extending the band's own line gives 133 at y400 and barely shrinks him at all. Anchoring on the room's declared horizon of 348 -- where a man's height must reach zero, which is what a horizon means rather than a modelling choice -- gives 98 at y500 from the far sample and 83 from the near one. Measuring the town's lit windows at about four feet gives 17 at y400, but that assumption carries all the weight and the town is on the far side of a rising hill rather than on the band's plane. RULED: 98, the far anchor, and the reasoning is the tiebreak rather than the model. THE BAND'S OWN CURVE IS NOT A TRUE PERSPECTIVE -- project the far anchor through the horizon and it gives 309 at y830 where the near anchor says 263, so the two do not lie on one line and neither extrapolation is 'correct'. The tiebreak is proximity: the far anchor at y694 is adjacent to the ground being extrapolated into, and the near anchor at y830 is 136px further away through a curve already known not to be linear. Extrapolate from the nearer sample. The town also sits on the far side of a rising hill rather than on the band's plane, which makes the perspective approximate whichever anchor is used -- another reason to take the least-extrapolated reading rather than the most-derived. Overrulable by looking, and should be if a render says otherwise.",
+    "note": "RESCALED WITH ITS SHAPE UNCHANGED. The anchors were 190 and 225 under the 205 figure; the measured height is 240, so the same curve between the same two rows now runs 222 to 263. farY and nearY are the band's own sample rows and did not move -- only the heights did, which is what 'shape unchanged' means. The box governs, not the zone table: boxAt takes precedence, so a curve left at the old numbers would have quietly overridden scaling.json and drawn him short in the one room that has boxes."
+   }
+  }
+ ],
+ "entrances": [
+  {
+   "from": "main_street_dawn",
+   "at": [
+    1600,
+    770
+   ],
+   "facing": "left",
+   "note": "From Main Street's east end, along the road in from the right (Room 1's way to town is road_east)."
+  },
+  {
+   "from": "default",
+   "at": [
+    1600,
+    770
+   ],
+   "facing": "left",
+   "note": "As from Main Street."
+  }
+ ],
+ "entrance": [
+  1600,
+  770
+ ],
+ "onEnter": {
+  "walkTo": [
+   1080,
+   770
+  ],
+  "note": "He walks in off the road toward the sign before the beat's line, as the man on the ladder turns."
+ },
+ "blackWhen": {
+  "T_CLOSE_SAID": true
+ },
+ "hotspots": [],
+ "exits": []
+}

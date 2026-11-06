@@ -52,11 +52,11 @@ def runs(times, gap=1.2):
 MAX_S = 5.0
 
 
-def write_gif(path, crops, times):
+def write_gif(path, crops, times, max_s=MAX_S):
     if len(crops) < 3: return False
-    if times[-1] - times[0] > MAX_S:   # the middle five seconds: several strides, a file a phone opens
+    if times[-1] - times[0] > max_s:   # the middle five seconds: several strides, a file a phone opens
         mid = (times[0] + times[-1]) / 2
-        keep = [i for i, t in enumerate(times) if abs(t - mid) <= MAX_S / 2]
+        keep = [i for i, t in enumerate(times) if abs(t - mid) <= max_s / 2]
         crops = [crops[i] for i in keep]; times = [times[i] for i in keep]
     crops = [c.convert('RGB') for c in crops]
     if crops[0].height < 200:   # a small figure is shown twice size, nearest-neighbour, so the pixels read
@@ -287,9 +287,11 @@ def main():
         elif rec['track'] == 'window':
             # A movement that is not a walk, in one place (Room 33's sit): the whole recording, a fixed window.
             x, y, w, h = rec['window']
+            k = rec.get('scale', 1)     # a whole scene is shown smaller, so the file stays one a phone opens
             crops = [Image.open(os.path.join(d, f['name'])).crop((x, y, x + w, y + h)) for f in frames]
+            if k != 1: crops = [c.resize((round(w * k), round(h * k)), Image.NEAREST) for c in crops]
             path = os.path.join(out_dir, f'{scene}.gif')
-            if write_gif(path, crops, [f['t'] for f in frames]):
+            if write_gif(path, crops, [f['t'] for f in frames], rec.get('seconds', MAX_S)):
                 results.append((path, 'window', [], len(crops), round(frames[-1]['t'] - frames[0]['t'], 1), (w, h)))
         elif rec['track'] == 'path' and all(walker_as_mover(rec, w) for w in (rec.get('walkers') or [rec.get('walker')])):
             # The probe says where each walker drew: follow that, as a mover is followed.

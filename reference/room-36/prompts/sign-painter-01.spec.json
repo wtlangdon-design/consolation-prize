@@ -1,0 +1,14 @@
+{
+ "assetId": "room-36",
+ "subject": "sign-painter",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-36-main-street-dawn",
+ "promptFile": "reference/room-36/prompts/sign-painter-01.txt",
+ "out": "art/staging/room-36/coach-stop-dawn/painter-sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/thad-b/board.png",
+  "art/staging/room-36/coach-stop-dawn/brief-frame.png"
+ ]
+}

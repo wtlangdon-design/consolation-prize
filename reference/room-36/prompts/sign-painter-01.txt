@@ -1,0 +1,15 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game: the hero is on the LEFT. THIS IS THE STYLE: the same level of detail, the same soft shading and dark outline, the same muted colours.
+
+Image 2 is a frame of the game at dawn: the hero standing on the muddy road; on the left, the town sign -- a wooden board, CONSOLATION and its population numbers painted on it -- hangs from a beam on a post, about a head higher than a man's head.
+
+Draw a NEW character for this game: a plain working townsman, middle-aged, in shirtsleeves rolled up, a dark waistcoat, work trousers and boots, a flat cap, holding a small paint pot in one hand and a brush in the other. He is standing a few rungs up a short wooden step-ladder (the ladder drawn, plain unpainted wood, its feet on the ground), seen from the side, FACING LEFT, reaching up and left with the brush to paint a sign that is NOT drawn.
+
+THE SHEET, left to right, on flat pure magenta (#FF00FF):
+1. the HERO from Image 1, standing, facing the viewer -- FOR SCALE ONLY, the same height as in Image 1;
+2. the townsman on the ladder, brush raised up and left, touching where the sign would be;
+3. the same, the brush moved a little lower, mid-stroke;
+4. the same, the brush held still, his head turned over his RIGHT shoulder toward the viewer's right, chin dipped in a small nod.
+
+The townsman is the SAME man and the ladder the SAME ladder in poses 2-4: only his arm and head change. A man the hero's height: if he stood on the ground he would be as tall as the hero. The ladder's feet in poses 2-4 sit on the same ground line as the hero's feet.
+
+RULES: no sign, no text, no lettering, no background, no ground, no shadows, no border. Crisp pixel edges against the magenta.

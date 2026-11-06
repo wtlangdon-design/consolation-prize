@@ -1,0 +1,13 @@
+{
+ "source": "/home/user/consolation-prize/art/staging/room-36/coach-stop-dawn/source.png",
+ "night": "art/staging/room-36/coach-stop-dawn/night-lettered.png",
+ "out": "art/staging/room-36/coach-stop-dawn/candidate-1920x864.png",
+ "band": {
+  "top": 166,
+  "rows": 691,
+  "shiftY": -4
+ },
+ "blur": 4.0,
+ "skyPixels": 443320,
+ "why": "Room 2's pixels under operation 1's light (tools/art/room36-dawn.py)."
+}

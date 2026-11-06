@@ -16,7 +16,10 @@ script carries only its LIGHT back onto Room 2's own pixels:
 Every board, sign and puddle is Room 2's; the sky, the warmth on the fronts
 and the dark windows are the morning's. No pixel is invented.
 
-Writes art/staging/room-36/dawn-01/candidate-3700x864.png and frame.json.
+Writes <staging>/candidate-<W>x<H>.png and frame.json. The defaults are Room 36's; Room 1 at dawn
+(errata 115 B) is the same transfer on Room 1's lettered plate:
+  room36-dawn.py --staging art/staging/room-36/coach-stop-dawn
+                 --night art/staging/room-36/coach-stop-dawn/night-lettered.png --top 166 --rows 691 --shift-y -4
 """
 import json
 import os
@@ -25,11 +28,29 @@ import numpy as np
 from PIL import Image
 from scipy import ndimage as ndi
 
+import argparse
+ap = argparse.ArgumentParser()
+ap.add_argument('--staging', default='art/staging/room-36/dawn-01')
+ap.add_argument('--night', default='art/backgrounds/room-02-main-street.png')
+ap.add_argument('--top', type=int, default=332)
+ap.add_argument('--rows', type=int, default=359)
+ap.add_argument('--shift-y', type=int, default=-1)
+# ROOM 1 (errata 115 B): its hills are LOWER than the ones operation 3 drew, so the morning's ridge
+# painted sky over their tops and left their outline floating. With --ridge-blue, the ridge is Room
+# 1's own: its night sky grows bluer toward the horizon and its far hills are a duller blue, so each
+# column's ridge is the first row below --ridge-from where the star-free blue drops under this.
+ap.add_argument('--ridge-blue', type=float, default=None)
+ap.add_argument('--ridge-from', type=int, default=60)
+# ...and its town's lit windows are a few pixels each, far below the light's blur: inside this rect
+# (x,y,w,h; several joined by ';') every warm lit pixel of the night plate is filled from the unlit pixels around it.
+ap.add_argument('--unlight', default=None)
+args = ap.parse_args()
+
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-S = os.path.join(ROOT, 'art/staging/room-36/dawn-01')
-NIGHT = os.path.join(ROOT, 'art/backgrounds/room-02-main-street.png')
-TOP, ROWS = 332, 359          # where dawn-01/input.png put the small street
-SHIFT_Y = -1                  # operation 1 came back one row lower (edge correlation, 0.375 at 0,-1)
+S = os.path.join(ROOT, args.staging)
+NIGHT = os.path.join(ROOT, args.night)
+TOP, ROWS = args.top, args.rows       # where the operation's input put the small picture
+SHIFT_Y = args.shift_y                # how far the operation moved it (Room 36: one row lower, edge correlation 0.375 at 0,-1)
 BLUR = 4.0                    # in small pixels: light, not detail
 SKY_DROP = 22                 # how far below the sky's light a pixel must be to be ridge
 PIXEL = 6                     # the street's own pixel size, errata 54
@@ -68,6 +89,11 @@ mean, cov = top.mean(0), np.cov(top.T) + np.eye(3) * 4.0
 d = smooth - mean
 dist = np.sqrt(np.einsum('...i,ij,...j->...', d, np.linalg.inv(cov), d))
 rows = np.arange(H)[:, None]
+if args.ridge_blue is not None:
+    blue = ndi.median_filter(night[..., 2], 9)
+    low = blue[args.ridge_from:] < args.ridge_blue
+    ridge = np.where(low.any(0), low.argmax(0) + args.ridge_from, H // 3).astype(float)
+    ridge = ndi.median_filter(ridge, 9) + 2
 above = rows < (ridge[None, :] - 2)
 band = (rows >= ridge[None, :] - 2) & (rows < ridge[None, :] + BAND) & (dist < SKY_SIGMA)
 lab, _ = ndi.label(above | band)
@@ -110,9 +136,22 @@ ratio = np.clip(ratio, 0.25, 6.0)
 big = np.stack([np.asarray(Image.fromarray(ratio[..., c].astype(np.float32), mode='F')
                            .resize((W, H), Image.BILINEAR)) for c in range(3)], -1)
 big[sky] = 1.0
-dawn = np.clip(clean * big, 0, 255).astype(np.uint8)
+dawn = np.clip(clean * big, 0, 255)
+if args.unlight:
+    lit = np.zeros((H, W), bool)
+    for rect in args.unlight.split(';'):     # several rects: the town either side of what must keep its paint
+        ux, uy, uw, uh = (int(v) for v in rect.split(','))
+        box = night[uy:uy + uh, ux:ux + uw]
+        lit[uy:uy + uh, ux:ux + uw] |= (box[..., 0] > 110) & (box[..., 0] - box[..., 2] > 45)
+    lit = ndi.binary_dilation(lit, iterations=1)
+    keepw = (~lit).astype(float)
+    fill = np.stack([ndi.gaussian_filter(dawn[..., c] * keepw, 3) for c in range(3)], -1) \
+        / np.maximum(ndi.gaussian_filter(keepw, 3), 1e-3)[..., None]
+    dawn[lit] = fill[lit]
+    print('windows put out', int(lit.sum()))
+dawn = dawn.astype(np.uint8)
 stars = sky
-out = f'{S}/candidate-3700x864.png'
+out = f'{S}/candidate-{W}x{H}.png'
 Image.fromarray(dawn).save(out)
 with open(f'{S}/frame.json', 'w') as f:
     json.dump({'source': f'{S}/source.png', 'night': os.path.relpath(NIGHT, ROOT), 'out': os.path.relpath(out, ROOT),

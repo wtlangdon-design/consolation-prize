@@ -232,6 +232,17 @@ const scenes = {
     });
     return { ...rec, track: 'window', window: [560, 360, 1000, 504] };
   },
+  // Room 36's close (doc 48 S7 beat 3, errata 115 B): the coach stop exit, the man on the ladder at the town
+  // sign who nods, "Leave the mud.", and the letter over black.
+  'the-close': async (page, server, dir) => {
+    await open(page, server, 'fixture=r36-a&room=main_street_dawn');
+    await page.waitForTimeout(2000);
+    const rec = await record(page, dir, async () => {
+      await page.mouse.click(1700, 470);
+      await page.waitForTimeout(13_000);
+    });
+    return { ...rec, track: 'window', window: [0, 0, 1920, 864], scale: 0.5, seconds: 14 };
+  },
   'raccoon-leaves': departure('r23-a', 'prosperity', null, { T_WARM_HOLE: true }, 11, 'raccoon'),
   'raccoons-meeting-leave': departure('r23-a', 'prosperity', { T_RACCOON_MEETING: true }, { T_WARM_HOLE: true }, 11, 'raccoon_meeting'),
 };

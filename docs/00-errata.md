@@ -3138,3 +3138,12 @@ Tyler, on the list of what the full build left unstaged (doc 36 Q173, Q174, Q176
 **What holds it:** `tests/thad-sits.test.mjs` (sit and rise are each other backwards; every seated clip is one frame, the one the sit ends on; the sit lasts at least 0.8 s). `tools/check-rig-describes-frames.mjs` gains `scale_from`: a pose that never stands names the clip that does, and is held to its figure and its sole row (recorded in `proofs/check-friction.json`).
 
 **Art: room-33 4 of 4 operations.**
+
+**B · Beat 3 of the close is drawn, at the coach stop (doc 48 S7 beat 3: "At the coach stop: the sign — POP. 2,000 AND CLIMBING — being repainted upward by a man on a ladder, who nods. Thad's last spoken line: 'Leave the mud.'").** Errata 99 P performed the picture as a stage direction because a dawn Room 1 was not built; it is built now, and the direction is gone.
+
+- **The place.** `coach_stop_dawn` (`content/rooms/coach-stop-dawn.json`) is Room 1 at first light, as Room 36 is Room 2: Room 1's ground, walk box and depth curve, unchanged; no hotspots and no exits, because the game ends there. Its plate is Room 1's own pixels with its sign's lettering, under room-36 operation 3's light, by the same transfer as Room 36's street (`tools/art/room36-dawn.py`, now taking Room 1's own skyline and putting out its town's windows; `tools/art/coach-stop-dawn-plate.mjs`). The numbers on the sign are the approved lettering's: nothing is painted over or added -- the new number is the man's to paint, and no document writes it.
+- **The man on the ladder.** Room-36 operation 4 drew him beside the hero for scale. `tools/art/sign-painter.py` cuts him at one level; his step-ladder is lengthened (the steps keep their thickness, the gaps widen to a man's step) so his brush reaches the board's number line, and his dab and his nod are derived from his own frames. He paints; `onArrival` plays his nod two seconds after Thad comes in, and a break repeats it now and then.
+- **The words are where they were.** Room 36's exit still carries the beat compiled from doc 48 and the letters file, unchanged: it now `arrives` -- the room changes first, and "Leave the mud." follows 3.8 s later, once the nod is done; the Act IV letter follows over black. A load after the close finds the room black (`blackWhen`), not a picture with nothing left in it.
+- **What holds it:** `tests/room-36.test.ts` (the close goes to the coach stop; the man is there; the line waits for his nod; no way out; black after). Seen in `renders/walks/the-close.gif`.
+
+**Art: room-36 4 of 4 operations.**

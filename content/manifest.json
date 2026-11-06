@@ -48,7 +48,8 @@
   "content/rooms/under-prosperity.json",
   "content/rooms/listening-chamber.json",
   "content/rooms/company-vault.json",
-  "content/rooms/main-street-dawn.json"
+  "content/rooms/main-street-dawn.json",
+  "content/rooms/coach-stop-dawn.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -198,6 +199,7 @@
   "content/ambient/funeral-grievance.json",
   "content/ambient/funeral-mourners.json",
   "content/ambient/dawn-dog.json",
+  "content/ambient/sign-painter.json",
   "content/ambient/sowerby-gate.json",
   "content/ambient/duel-fanshawe.json",
   "content/ambient/duel-judge-1.json",
@@ -370,6 +372,7 @@
     "gain": 0.55,
     "why": "Doc 28 Room 36: CONSOLATION, in tune, thin, one instrument. In tune by T_IN_TUNE, not by the stem."
    },
+   "coach_stop_dawn": {"src": "audio/consolation-dawn.wav", "gain": 0.55, "why": "Doc 28 Room 36: CONSOLATION, in tune, thin, one instrument -- carried on to the coach stop, Room 36's close (errata 115 B): the same file, so it continues rather than restarting."},
    "mercantile": {
     "src": "audio/consolation-dawn.wav",
     "gain": 0.55,

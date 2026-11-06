@@ -26,6 +26,9 @@ export interface InteractionResult {
   direction?: boolean;
   /** Where the scene leads once its lines have been read; the room has not changed yet. */
   goesTo?: string;
+  /** The room HAS changed and the lines are said there, the first `pause` seconds after (errata 115 B). */
+  arrives?: boolean;
+  pause?: number;
   enteredDialogue: boolean;
   changedRoom: boolean;
   /** Which written line `say` was (ResolvedAction.variant), for the sounds doc 45 ties to one. */
@@ -62,6 +65,9 @@ export interface InteractionResolution {
   readonly then?: SpokenLine[];
   /** Where the scene leads once its lines have been read (see resolveInteraction). */
   readonly goesTo?: string;
+  /** The scene is played where the exit goes, after arriving (errata 115 B). */
+  readonly arrives?: boolean;
+  readonly pause?: number;
   readonly effects: readonly DurableEffect[];
 }
 
@@ -141,6 +147,7 @@ export class Interaction {
       ...(this.resolution.direction ? { direction: true } : {}),
       then: this.resolution.then,
       ...(this.resolution.goesTo ? { goesTo: this.resolution.goesTo } : {}),
+      ...(this.resolution.arrives ? { arrives: true, ...(this.resolution.pause ? { pause: this.resolution.pause } : {}) } : {}),
       enteredDialogue: this.resolution.dialogue !== null,
       changedRoom: this.resolution.destination !== null,
       ...(this.resolution.action.variant ? { variant: this.resolution.action.variant } : {}),
@@ -779,16 +786,22 @@ export class GameState {
         for (const [flag, value] of Object.entries(scene.set ?? {})) {
           effects.push({ id: `act/${objectKey}/${verb}#scene:flag:${flag}`, kind: 'flag', flag, value });
         }
+        // A BEAT PLAYED WHERE THE EXIT GOES (errata 115 B, doc 48 S7 beat 3 "at the coach stop"):
+        // the room changes now, and its lines are said there once he has arrived.
+        if (scene.arrives) {
+          effects.push({ id: `act/${objectKey}/${verb}#transit:room`, kind: 'room', room: transit });
+        }
         return {
           target, verb, room, objectKey,
           action: { say: scene.say ?? null, dialogue: null, goto: null, effects: [] },
           transit: true,
-          destination: null,
+          destination: scene.arrives ? transit : null,
+          ...(scene.arrives ? { arrives: true, ...(scene.pause ? { pause: scene.pause } : {}) } : {}),
           dialogue: null,
           say: scene.say ?? null,
           ...(scene.by ? { by: scene.by } : {}),
           then: scene.then,
-          ...(scene.stays ? {} : { goesTo: transit }),
+          ...(scene.stays || scene.arrives ? {} : { goesTo: transit }),
           effects,
         };
       }

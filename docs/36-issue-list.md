@@ -4893,7 +4893,8 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 
 **For Tyler:**
 - **The way in: BUILT 2026-11-06 (Q179).** F4 and F5 are built; filing hands on to the dawn.
-- **Not staged:** beat 3's picture (the POP. sign repainted upward by a man on a ladder, who nods) and beat 5's credits (errata 55's launch-screen cluster). The close ends over black, with the menu still there.
+- **Beat 3's picture: BUILT 2026-11-06 (errata 115 B), room-36 4 of 4 operations.** The coach stop exit goes to Room 1 at first light, where a man on a ladder at the town sign nods, and the line and the letter are said there.
+- **Not staged:** beat 5's credits (errata 55's launch-screen cluster): their words are Tyler's. The close ends over black, with the menu still there.
 - **The dawn plate is a relight of Room 2's,** so where the morning's mountains and Room 2's disagree the ridge is a little ragged in places. Say if it wants a hand-drawn dawn instead.
 
 ## Q177 · The puzzle chain through built rooms: C6, D4, D6, E0, E4, E5 — **BUILT 2026-11-06 (errata 99 M), AWAITING TYLER'S PLAYTHROUGH**
