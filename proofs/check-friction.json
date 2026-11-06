@@ -115,6 +115,12 @@
    "date": "2026-11-05",
    "kind": "reviewed",
    "why": "Loosened three times in a fortnight (Room 29's 'Nothing coming.', Room 31's grave, Rooms 33-34's 'Rock.'). Two of the three were the check failing to see a repetition the documents write on purpose, so it is TUNED in tools/check-examine-lines.mjs: a single word with its stop is doctrine everywhere, as 'Nothing.' already was (a duplicated joke is never one word), and a scripted beat that opens with its own subject's chain line is that line said once. Room 31's grave entry and the three 'Rock.' entries are removed, not added. 'Nothing coming.' stays declared: doc 17 rules that line does not vary, and it is three words. Not retired: it still catches every duplicated line of more than one word."
+  },
+  {
+   "check": "tools/check-night-exposure.mjs",
+   "date": "2026-11-06",
+   "kind": "loosened",
+   "why": "Not a misfire: the check is widened, not relaxed (errata 99 K). It now measures every exterior, not only those labelled night, and fails a non-night label or a sky over 60. The one way past it adds is a `daylight` entry on a room's baseline quoting the ruling (Room 36's dawn, doc 20, errata 99 J), recorded here because it is an exception path. The floor of 28 is unchanged."
   }
  ]
 }
