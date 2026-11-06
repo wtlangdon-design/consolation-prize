@@ -4,7 +4,7 @@
  "room": "nugget",
  "roomWidth": 1920,
  "branch": "claude/tender-sagan-buz50u",
- "commit": "38060882430d68c1ec52ee45c10549f6064905f4",
+ "commit": "d4b177790fc59adf490f2d08895d8e0524f4ca9f",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -34,7 +34,11 @@
   "action 20 (wait): waited 2s",
   "action 21 (click): clicked main_street/to_nugget at world 2317,459 -- Main Street's Nugget doors",
   "action 22 (waitFor): reached {\"room\":\"nugget\"} in room nugget",
-  "action 23 (wait): waited 3s"
+  "action 23 (wait): waited 3s",
+  "action 1 (wait): waited 1s",
+  "action 2 (enter): entered main_street by control -- NOT proof that a player can walk there -- out",
+  "action 3 (enter): entered nugget by control -- NOT proof that a player can walk there -- and back in, the swindle settled: Deke has gone",
+  "action 4 (wait): waited 3s"
  ],
  "depthMarks": [
   {
@@ -62,7 +66,7 @@
    ],
    "reportedHeight": 210,
    "expected": 210,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-01.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-02.png",
    "bounds": [
     847,
     305,
@@ -70,7 +74,7 @@
     232
    ],
    "order": 0,
-   "renderedHeight": 231,
+   "renderedHeight": 211,
    "renderedBottom": 515,
    "file": "raw-captures-ignored/panel-c-floor_0-far.png"
   },
@@ -99,7 +103,7 @@
    ],
    "reportedHeight": 459,
    "expected": 459,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-04.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-06.png",
    "bounds": [
     165,
     404,
@@ -214,7 +218,7 @@
     "height": 73,
     "bottom": 380,
     "right": 785,
-    "changed": 2866
+    "changed": 2860
    },
    "props": []
   },
@@ -237,10 +241,10 @@
     "x": 787,
     "y": 298,
     "width": 90,
-    "height": 84,
-    "bottom": 381,
+    "height": 83,
+    "bottom": 380,
     "right": 876,
-    "changed": 6596
+    "changed": 5350
    },
    "props": []
   },
@@ -261,12 +265,12 @@
    },
    "seen": {
     "x": 877,
-    "y": 298,
+    "y": 301,
     "width": 153,
-    "height": 84,
-    "bottom": 381,
+    "height": 80,
+    "bottom": 380,
     "right": 1029,
-    "changed": 7919
+    "changed": 6664
    },
    "props": []
   },
@@ -289,10 +293,10 @@
     "x": 875,
     "y": 300,
     "width": 110,
-    "height": 95,
-    "bottom": 394,
+    "height": 81,
+    "bottom": 380,
     "right": 984,
-    "changed": 6593
+    "changed": 5194
    },
    "props": []
   },
@@ -379,7 +383,7 @@
   {
    "panel": "B",
    "room": "nugget",
-   "clock": 119.2518,
+   "clock": 119.6019,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -427,7 +431,7 @@
      "height": 397,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
       90,
       363,
@@ -534,15 +538,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-06T22:51:45.882Z",
+   "capturedAt": "2026-11-06T22:58:46.525Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "446b0777b46f13503bab5de14c7261149a2e43cfcd5b820b70b056c597edb8ab"
+   "hash": "097e29b6736a7cc9b8d1b6c4781cafc45226d0f642139b7c48cca2a4b9c9b35e"
   },
   {
    "panel": "A",
    "room": "nugget",
-   "clock": 120.41839999999999,
+   "clock": 120.6519,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -694,15 +698,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-06T22:51:46.815Z",
+   "capturedAt": "2026-11-06T22:58:47.501Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "3b9ff68e35670989fba29533f05199303a0fc3d7c3153f2a22dd7677618cb99e"
+   "hash": "f5747a281895d00665bb5d9e72f4dd576a35ce052574fb51d7fac155438cccf2"
   },
   {
    "panel": "D",
    "room": "nugget",
-   "clock": 187.81570000000002,
+   "clock": 133.8014,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -750,7 +754,7 @@
      "height": 459,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-00.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
       165,
       404,
@@ -762,8 +766,8 @@
      "fallback": false
     }
    },
-   "says": null,
-   "options": 3,
+   "says": "thad",
+   "options": 0,
    "assets": [
     {
      "key": "bg:nugget",
@@ -859,24 +863,24 @@
     "cast(false)",
     "cast(true)",
     "bystanders(true)",
-    "flag T_SWINDLED=true"
+    "flag T_SWINDLED=true",
+    "enter(main_street)",
+    "enter(nugget)"
    ],
-   "capturedAt": "2026-11-06T22:52:54.404Z",
-   "intent": "principal changed state: T_SWINDLED. Visible consequence: Deke Vessel no longer at the bar (doc 57 A3). Out to Main Street and back in, so the Nugget is arrived at again with the flag set.",
+   "capturedAt": "2026-11-06T22:59:00.694Z",
+   "intent": "principal changed state: T_SWINDLED. Visible consequence: Deke Vessel no longer at the bar (doc 57 A3). Who is in a room is decided as Thad arrives, so the Nugget is entered again by control with the flag set: setting T_SWINDLED in place opens what follows the swindle, and the front doors are not walked to through a conversation (errata 117).",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "7331761b1597fe3911ba8148e59f642d9bd174d3a317bc7c93ed07aeb4985f6d",
+   "hash": "2884e8d78835491135eef003b05ced1ce4e99c409586c1c4d221aa4ee32340c4",
    "changedBy": "flags, inventory"
   }
  ],
- "failures": [
-  "panel D: reaching the changed state failed -- route: waitFor {\"do\":\"waitFor\",\"room\":\"main_street\",\"upTo\":60} timed out after 60s. It saw: room nugget, control null, beat -, 3 option(s), handedOver true"
- ],
- "passed": false,
+ "failures": [],
+ "passed": true,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
  "judgement": {
   "machine": {
-   "passed": false,
+   "passed": true,
    "establishes": [
     "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
     "every asset the room declares loaded; no stub, graybox or fallback was drawn",
@@ -897,11 +901,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-06T22:52:54.405Z",
+ "at": "2026-11-06T22:59:00.694Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 713212,
+  "bytes": 718520,
   "panels": 5,
   "scale": 0.5
  }

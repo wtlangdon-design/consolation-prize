@@ -5,7 +5,7 @@
  h1{font-size:17px;margin:0 0 4px}
  p.lede{color:#9a9aae;margin:0 0 8px;max-width:64em}
  .verdict{font:13px ui-monospace,monospace;padding:8px 10px;border-radius:5px;margin:12px 0;
-   background:#3a1620;border:1px solid #7a2c3c}
+   background:#12331e;border:1px solid #2c6b40}
  figure{margin:0 0 22px}
  img{width:100%;display:block;border-radius:5px;border:1px solid #2c2c38}
  figcaption{padding:7px 2px;font-size:13px}
@@ -17,7 +17,7 @@
 </style>
 <h1>nugget — four-panel live-runtime proof</h1>
 <p class="lede">Every frame below is the full play area as the renderer drew it, in the running
-game, at <code>38060882</code> on <code>claude/tender-sagan-buz50u</code>.
+game, at <code>d4b17779</code> on <code>claude/tender-sagan-buz50u</code>.
 No crop, isolated sprite or source image appears here: those are for diagnosing what a full
 frame has already shown.</p>
 <p class="lede"><b>These panels establish technical admissibility only.</b> Nothing here says the
@@ -29,8 +29,7 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     downscaled, never cropped. The full-resolution captures are reproducible test artifacts
     and are not in git; their hashes are below.</span></figcaption>
 </figure>
-<div class="verdict">FAIL — 1 failure(s):
-  panel D: reaching the changed state failed -- route: waitFor {"do":"waitFor","room":"main_street","upTo":60} timed out after 60s. It saw: room nugget, control null, beat -, 3 option(s), handedOver true</div>
+<div class="verdict">PASS — technically admissible</div>
 
   <figure>
     <img src="raw-captures-ignored/panel-b-populated.png" alt="" onerror="this.replaceWith(Object.assign(
@@ -58,7 +57,7 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     <img src="raw-captures-ignored/panel-d-changed.png" alt="" onerror="this.replaceWith(Object.assign(
       document.createElement('p'), { className: 'gone', textContent:
       'raw capture not committed -- regenerate with: npm run proof ' + "nugget" }))">
-    <figcaption><b>PANEL D &mdash; principal changed state: T_SWINDLED. Visible consequence: Deke Vessel no longer at the bar (doc 57 A3). Out to Main Street and back in, so the Nugget is arrived at again with the flag set.</b>
+    <figcaption><b>PANEL D &mdash; principal changed state: T_SWINDLED. Visible consequence: Deke Vessel no longer at the bar (doc 57 A3). Who is in a room is decided as Thad arrives, so the Nugget is entered again by control with the flag set: setting T_SWINDLED in place opens what follows the swindle, and the front doors are not walked to through a conversation (errata 117).</b>
       <span>room nugget &middot; camera 0 &middot;
         flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_SWINDLED T_CASE_DOWN T_CASE_TAKEN T_VESSEL_OPENED &middot;
         inventory letter tuning_fork deed</span>
@@ -69,8 +68,8 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     <img src="raw-captures-ignored/panel-c-floor_0-far.png" alt="">
     <figcaption><b>PANEL C &mdash; floor_0 far, authored y515</b>
       <span>expected 210px &middot; runtime 210px &middot;
-        silhouette 231px, bottom y515</span>
-      <span>art/actors/thad-idlebreak-right/idle-break-01.png</span>
+        silhouette 211px, bottom y515</span>
+      <span>art/actors/thad-idlebreak-right/idle-break-02.png</span>
     </figcaption>
   </figure>
   <figure>
@@ -78,6 +77,6 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     <figcaption><b>PANEL C &mdash; floor_6_0 near, authored y863</b>
       <span>expected 459px &middot; runtime 459px &middot;
         silhouette 460px, bottom y863</span>
-      <span>art/actors/thad-idlebreak-right/idle-break-04.png</span>
+      <span>art/actors/thad-idlebreak-right/idle-break-06.png</span>
     </figcaption>
   </figure>
