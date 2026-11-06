@@ -164,12 +164,18 @@ function roomImages(room: RoomFile): BootAsset[] {
 /** Doc 17 beat 11's wordmark. Named here and in Renderer, which draws it. */
 const TITLE_LOGO = 'art/ui/title-logo.png';
 
-export function planBoot(bundle: ContentBundle): BootPlan {
+export function planBoot(bundle: ContentBundle, opening: string = bundle.manifest.startRoom): BootPlan {
   const required = new Map<string, BootAsset>();
   const deferred = new Map<string, BootAsset>();
 
-  const start = bundle.rooms.get(bundle.manifest.startRoom);
-  for (const asset of start ? roomImages(start) : []) required.set(asset.key, asset);
+  // THE ROOM THE SESSION OPENS IN, which is not always the start room: a save,
+  // a playtest fixture or a `?room=` warp opens somewhere else, and booting the
+  // stage road and its coach for a player about to stand in the Nugget made
+  // him wait for 47 MB he would never see -- and then for his own room, which
+  // was file 581 in the deferred queue (Tyler, 2026-11-05: a black screen).
+  const openingRoom = bundle.rooms.get(opening) ?? bundle.rooms.get(bundle.manifest.startRoom);
+  const atStart = openingRoom?.id === bundle.manifest.startRoom;
+  for (const asset of openingRoom ? roomImages(openingRoom) : []) required.set(asset.key, asset);
 
   // DOC 17 BEAT 11'S TITLE, deferred rather than required: it is wanted at the
   // very end of the opening, so making the first frame wait for it would delay
@@ -187,7 +193,7 @@ export function planBoot(bundle: ContentBundle): BootPlan {
   // driver's whole conversation. And the idle-break argument is untouched,
   // because nothing stages an idle break -- it is a thing that happens when
   // nothing else is.
-  const staged = firstFrameStaging(bundle);
+  const staged = atStart ? firstFrameStaging(bundle) : new Map<string, Set<string>>();
   const cast = new Map<string, Set<string>>([[bundle.actor.id, new Set()], ...staged]);
   for (const [who, extra] of cast) {
     const record = bundle.actors.get(who);
@@ -279,4 +285,72 @@ export function planBoot(bundle: ContentBundle): BootPlan {
   }
 
   return { required: [...required.values()], deferred: [...deferred.values()] };
+}
+
+/**
+ * WHAT A ROOM NEEDS NEAR IT, IN THE ORDER IT NEEDS IT.
+ *
+ * Everything boot did not wait for used to be queued at once, the whole game
+ * -- 263 files, 141 MB, and growing by a room's worth with every room built --
+ * in no order at all. On a Chromebook the room the player had just warped to
+ * drew black until its plate came up in that queue, and every plate in the
+ * game then sat in graphics memory at once (Tyler, 2026-11-05: "I'm just
+ * getting a black screen").
+ *
+ * So the scene loads by room. On every entry it asks for this list -- the room
+ * itself first, then whoever stands in it, then the rooms its exits lead to
+ * -- and lets go of the room art that has fallen out of it. The protagonist,
+ * the lamp and the title belong everywhere and are always on it, so they are
+ * never let go.
+ *
+ * `tools/check-boot-assets.mjs` asserts that every deferred asset is on this
+ * list for SOME room: an asset that no room ever asks for is the
+ * declared-and-never-loaded category again, one level up.
+ */
+export function planNear(bundle: ContentBundle, roomId: string): BootAsset[] {
+  const out = new Map<string, BootAsset>();
+  const add = (asset: BootAsset) => { if (!out.has(asset.key)) out.set(asset.key, asset); };
+  const here = bundle.rooms.get(roomId);
+  const neighbours = [...new Set((here?.exits ?? []).map((exit) => exit.to))]
+    .filter((id) => id !== roomId)
+    .map((id) => bundle.rooms.get(id))
+    .filter((room): room is RoomFile => room !== undefined);
+
+  const withCast = (room: RoomFile) => {
+    for (const asset of roomImages(room)) add(asset);
+    for (const id of castOf(bundle, room)) actorFrames(bundle, id).forEach(add);
+  };
+  if (here) withCast(here);
+  for (const asset of actorFrames(bundle, bundle.actor.id)) add(asset);
+  for (const room of neighbours) withCast(room);
+  add({ key: TITLE_LOGO, path: TITLE_LOGO });
+  if (bundle.carriedLight) add({ key: bundle.carriedLight.sprite, path: bundle.carriedLight.sprite });
+  return [...out.values()];
+}
+
+/** Every frame of one actor, and every state of a head drawn over him. */
+function actorFrames(bundle: ContentBundle, actorId: string): BootAsset[] {
+  const out: BootAsset[] = [];
+  for (const clip of bundle.actors.get(actorId)?.clips ?? []) {
+    for (const frame of clip.frames) out.push({ key: frame, path: frame });
+  }
+  for (const overlay of bundle.overlays.values()) {
+    if (overlay.over !== actorId) continue;
+    for (const state of Object.values(overlay.states)) out.push({ key: state.image, path: state.image });
+  }
+  return out;
+}
+
+/**
+ * The actors a room puts on screen, other than the protagonist: any actor the
+ * room's own file names, and, for the start room, anyone its opening stages.
+ * Read from the data rather than listed, so a new actor staged in a new room
+ * is loaded there without anyone remembering to say so.
+ */
+function castOf(bundle: ContentBundle, room: RoomFile): string[] {
+  const text = JSON.stringify(room);
+  const opening = room.id === bundle.manifest.startRoom && bundle.manifest.openingSequence
+    ? JSON.stringify(bundle.sequences.get(bundle.manifest.openingSequence) ?? {}) : '';
+  return [...bundle.actors.keys()].filter((id) => id !== bundle.actor.id
+    && (text.includes(`"${id}"`) || opening.includes(`"${id}"`)));
 }

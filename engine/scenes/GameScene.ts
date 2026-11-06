@@ -4,7 +4,7 @@ import type { GameState } from '../core/GameState.ts';
 import type { AmbientFile, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep,
 } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
-import { planBoot } from '../core/BootAssets.ts';
+import { planNear } from '../core/BootAssets.ts';
 import { Music } from '../core/Music.ts';
 import { RoomActors } from '../core/RoomActors.ts';
 import type { Controls, FrameReport, MoverReport } from '../dev/Probe.ts';
@@ -378,29 +378,43 @@ export class GameScene extends Phaser.Scene {
 
     this.beginOpening();
     this.markDirty();
-    this.loadDeferred();
+    this.loadNear();
   }
 
   /**
-   * Everything boot did not wait for, fetched while the game is already on
-   * screen. `planBoot` decides the split; this half only has to not block.
+   * THE ROOM HE IS IN, WHO IS IN IT, AND THE ROOMS NEXT DOOR -- fetched while
+   * the game is already on screen, and nothing further. `planNear` decides the
+   * list and its order; this half asks for what is not here yet and lets go
+   * of the room art that has fallen off it, so a Chromebook is never holding
+   * every plate in the game at once (Tyler, 2026-11-05: a black screen).
+   *
+   * Called on every entry. Only what this method asked for is ever let go,
+   * and only once it has arrived: boot's own images, the ambient sheets and
+   * the icons stay for the session.
    *
    * Each arrival marks the frame dirty, because the renderer redraws on change
-   * and a texture appearing is a change it cannot otherwise see -- Hob would
-   * finish downloading into a frame that had already been drawn without him
-   * and stay invisible until something else happened to move.
-   *
-   * Until a frame arrives the renderer draws the graybox it already falls back
-   * to for an absent texture. That is deliberate and it is Q20's rule: a
-   * missing sprite looks missing, and nothing is quietly substituted for it.
+   * and a texture appearing is a change it cannot otherwise see. Until a frame
+   * arrives the renderer draws the graybox it already falls back to for an
+   * absent texture -- Q20's rule: a missing sprite looks missing, and nothing
+   * is quietly substituted for it.
    */
-  private loadDeferred(): void {
+  private readonly nearAsked = new Set<string>();
+
+  private loadNear(): void {
+    const near = planNear(this.state.content, this.state.roomId);
+    const keep = new Set(near.map((asset) => asset.key));
+    for (const key of [...this.nearAsked]) {
+      if (keep.has(key) || !this.textures.exists(key)) continue;
+      this.textures.remove(key);
+      this.nearAsked.delete(key);
+    }
     let queued = 0;
     const swaps = askedCandidates();
-    for (const { key, path } of planBoot(this.state.content).deferred) {
-      if (this.textures.exists(key)) continue;
+    for (const { key, path } of near) {
+      if (this.textures.exists(key) || this.nearAsked.has(key)) continue;
       this.load.image(key, new URL(resolveAssetPath(path, swaps), document.baseURI).toString());
       this.load.once(`filecomplete-image-${key}`, () => this.markDirty());
+      this.nearAsked.add(key);
       queued += 1;
     }
     if (queued > 0) this.load.start();
@@ -1522,6 +1536,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private enterRoomPerformance(from: string | null = this.state.previousRoomId): void {
+    this.loadNear();
     this.overBlack = false;
     // Who is in the room is decided now, as he arrives (AmbientLayer.present).
     this.ambient.arrived();

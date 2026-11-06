@@ -4,7 +4,7 @@ import Phaser from 'phaser';
 import { planBoot } from '../core/BootAssets.ts';
 import { fetchReader, loadContent } from '../core/ContentLoader.ts';
 import { GameState } from '../core/GameState.ts';
-import { askedFixture, FIXTURE_SAVE_KEY } from '../dev/Fixture.ts';
+import { askedFixture, FIXTURE_SAVE_KEY, idFromQuery } from '../dev/Fixture.ts';
 import { BOOT_SCENE, GAME_SCENE, REGISTRY_STATE } from './keys.ts';
 
 /**
@@ -28,12 +28,26 @@ export class BootScene extends Phaser.Scene {
   async create(): Promise<void> {
     const bundle = await loadContent(fetchReader(document.baseURI));
 
+    // A fixture session keeps its saves apart from the player's game.
+    const fixtureId = askedFixture();
+    const state = new GameState(bundle, window.localStorage, undefined,
+      fixtureId ? FIXTURE_SAVE_KEY : undefined);
+    state.load();
+
+    // WHERE THIS SESSION OPENS, decided as GameScene will decide it: a
+    // `?room=` warp over a fixture over the save. Boot waits for that room,
+    // not the start room, so a player warped to the Nugget is not kept in the
+    // dark downloading the stage road (planBoot's `opening`).
+    const warp = idFromQuery(window.location.search, 'room');
+    const fixtureRoom = fixtureId ? bundle.fixtures.get(fixtureId)?.room : undefined;
+    const opening = (warp && bundle.rooms.has(warp) ? warp : null) ?? fixtureRoom ?? state.roomId;
+
     const pending: Promise<void>[] = [];
     // ONE PLACE A CONTENT PATH BECOMES A URL. Ruling 10's candidate override
-    // is applied here and in GameScene.loadDeferred, and nowhere else, so no
+    // is applied here and in GameScene.loadNear, and nowhere else, so no
     // plate can reach the screen by a route the override cannot see.
     const swaps = askedCandidates();
-    for (const { key, path } of planBoot(bundle).required) {
+    for (const { key, path } of planBoot(bundle, opening).required) {
       if (this.textures.exists(key)) continue;
       this.load.image(key, new URL(resolveAssetPath(path, swaps), document.baseURI).toString());
       pending.push(new Promise((resolve) => this.load.once(`filecomplete-image-${key}`, () => resolve())));
@@ -43,10 +57,6 @@ export class BootScene extends Phaser.Scene {
       await Promise.all(pending);
     }
 
-    // A fixture session keeps its saves apart from the player's game.
-    const state = new GameState(bundle, window.localStorage, undefined,
-      askedFixture() ? FIXTURE_SAVE_KEY : undefined);
-    state.load();
     this.registry.set(REGISTRY_STATE, state);
     this.scene.start(GAME_SCENE);
   }
