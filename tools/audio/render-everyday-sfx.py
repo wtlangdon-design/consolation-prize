@@ -260,36 +260,67 @@ def dry_creak(rnd, seconds, rate_from, rate_to, lo, hi):
     return body * np.sin(np.linspace(0, np.pi, n)) ** 0.7
 
 
-def wood_step(rnd, hollow):
-    """TYLER, 2026-11-06, twice. The first boards rang pure sines (a drum);
-    the second rang resonators (glass bottles). "Creaky dry wood that thuds."
+def formant_noise(rnd, seconds, bands):
+    """Noise through a few broad bands, each with its own decay: a body's
+    colour without a pitch. (centre Hz, width as a fraction, gain, decay s)."""
+    n = n_of(seconds)
+    out = np.zeros(n)
+    for centre, width, gain, decay in bands:
+        lo, hi = centre * (1 - width / 2), centre * (1 + width / 2)
+        out += gain * bandpass(rnd.normal(0, 1, n), lo, hi, order=1) * env(n, 0.0008, decay)
+    return out
 
-    So nothing here rings at a pitch. Dry wood damps itself almost at once,
-    and a footstep on it is three things, all noise, none tonal:
-      the thud    -- the weight landing: low noise, the main body of the sound
-      the tok     -- the heel on the board's face: a broad mid band of noise
-                     that is over in under ten milliseconds
-      the creak   -- the board flexing on its nails as the weight rolls
-                     forward: stick-slip, dry, short
-    The boardwalk is hollow underneath, so its thud is lower and a little
-    longer and it creaks on most steps; the plank floor is laid tight, so
-    its thud is short and muted and it creaks rarely and faintly."""
-    d = 0.5
+
+def wood_step(rnd, hollow):
+    """TYLER, 2026-11-06: a drum, then glass bottles, then a pointer to a real
+    recording, "Footsteps, Human, Boardwalk, Walking, Medium" (Epidemic
+    Sound), which the builder could not hear. Fourth try, built from what a
+    recorded boot on a board is made of and the first three left out:
+
+      the sole      -- leather slapping the board's face a hair before the
+                       weight arrives: a soft, bright pat
+      the thock     -- the heel: broad bands of noise, low, mid and upper, each
+                       dying in tens of milliseconds. No resonator, no pitch.
+      the roll      -- the foot rolling heel to toe: a gritty scuff of sole
+                       across grain, quiet, a few tens of milliseconds long
+      the board     -- weight bending the plank down onto its joist: a dull low
+                       dunk, and now and then the plank knocking its neighbour
+      underneath    -- the boardwalk is a box with air under it, and a box
+                       answers itself a few milliseconds late: a short echo
+                       off the ground beneath gives the hollowness without a
+                       tone. The plank floor has none; it is laid tight.
+      the creak     -- on some steps, the board flexing on its nails"""
+    d = 0.55
     x = np.zeros(n_of(d))
-    thud_cut, thud_decay = (170, 0.045) if hollow else (220, 0.022)
-    for at, g in ((0.0, 1.0), (rnd.uniform(0.05, 0.075), 0.5)):
-        thud = lowpass(rnd.normal(0, 1, n_of(0.25)), thud_cut, order=4) * env(n_of(0.25), 0.003, thud_decay)
-        place(x, thud, at, 1.0 * g)
-        tok = bandpass(rnd.normal(0, 1, n_of(0.05)), 350, 1800, order=1) * env(n_of(0.05), 0.0008, 0.007)
-        place(x, tok, at, 0.55 * g)
+    heel_at = 0.012
+    place(x, bandpass(rnd.normal(0, 1, n_of(0.01)), 1500, 5000, order=1) * env(n_of(0.01), 0.0005, 0.002), 0.0, 0.25)
+    thock = formant_noise(rnd, 0.2, [(170, 1.0, 1.0, 0.030 if hollow else 0.018),
+                                    (520, 1.0, 0.55, 0.016 if hollow else 0.010),
+                                    (1500, 1.0, 0.25, 0.007),
+                                    (3200, 0.8, 0.08, 0.003)])
+    place(x, thock, heel_at, 1.0)
+    toe_at = heel_at + rnd.uniform(0.07, 0.11)
+    scuff_len = rnd.uniform(0.04, 0.08)
+    scuff = bandpass(rnd.normal(0, 1, n_of(scuff_len)), 900, 6000, order=1) * np.sin(np.linspace(0, np.pi, n_of(scuff_len))) ** 1.5
+    place(x, scuff, heel_at + 0.02, 0.07)
+    toe = formant_noise(rnd, 0.15, [(240, 1.0, 0.6, 0.014), (700, 1.0, 0.3, 0.008), (1900, 1.0, 0.1, 0.004)])
+    place(x, toe, toe_at, 0.45)
+    dunk_cut = 120 if hollow else 180
+    place(x, lowpass(rnd.normal(0, 1, n_of(0.2)), dunk_cut, order=4) * env(n_of(0.2), 0.006, 0.05 if hollow else 0.025),
+          heel_at + 0.004, 0.9 if hollow else 0.6)
+    if rnd.random() < (0.35 if hollow else 0.1):
+        knock = formant_noise(rnd, 0.08, [(380, 1.0, 1.0, 0.010), (1100, 1.0, 0.4, 0.005)])
+        place(x, knock, heel_at + rnd.uniform(0.02, 0.04), 0.35)
+    if rnd.random() < (0.5 if hollow else 0.2):
+        dur = rnd.uniform(0.1, 0.2)
+        c = dry_creak(rnd, dur, rnd.uniform(25, 40), rnd.uniform(55, 95), 250, 1000)
+        place(x, c, toe_at + rnd.uniform(0.0, 0.04), (0.5 if hollow else 0.2) * rnd.uniform(0.8, 1.1))
     if hollow:
-        place(x, lowpass(rnd.normal(0, 1, n_of(0.2)), 110, order=4) * env(n_of(0.2), 0.01, 0.06), 0.005, 0.5)
-    creaks = rnd.random() < (0.75 if hollow else 0.3)
-    if creaks:
-        dur = rnd.uniform(0.12, 0.22)
-        c = dry_creak(rnd, dur, rnd.uniform(25, 40), rnd.uniform(60, 110), 250, 1100)
-        place(x, c, rnd.uniform(0.08, 0.14), (0.9 if hollow else 0.35) * rnd.uniform(0.8, 1.1))
-    return finish(highpass(lowpass(x, 4500), 50), peak=0.7)
+        under = np.zeros_like(x)
+        for delay, g in ((0.0045, 0.45), (0.0095, 0.25), (0.016, 0.12)):
+            place(under, lowpass(x, 1800), delay, g)
+        x = x + under
+    return finish(highpass(lowpass(x, 6000), 45), peak=0.7)
 
 
 def step_boardwalk(rnd):
@@ -683,3 +714,9 @@ if __name__ == '__main__':
     save('clock-tick.wav', clock_tick())
     save('wind.wav', wind())
     save('press-cycle.wav', press_cycle())
+    # Wood takes 5 and 6 (fourth try): a walk on wood repeats its feet more
+    # audibly than mud does, so the wood surfaces get six. Rendered last, on
+    # their own streams, so nothing above them changes.
+    for i in (5, 6):
+        save(f'step-boardwalk-{i}.wav', step_boardwalk(np.random.default_rng(1000 + i)))
+        save(f'step-plank-{i}.wav', step_plank(np.random.default_rng(1100 + i)))
