@@ -104,6 +104,23 @@ export function check() {
     // construction for everything the rig makes -- and it is the cheapest way
     // to catch a frame that was cropped, re-padded or hand-composited after
     // the record was written, because the anchor is measured DOWN from here.
+    // A RIG WITH A sole_row is a clip whose poses rise above the crown (a
+    // reach, arms up: Room 17's bell rope). Its canvas is taller and the rig
+    // says where the soles are, so the two clauses read from the soles: they
+    // sit on that row, and some frame -- the standing pose -- is the declared
+    // height, which is what still catches art regenerated at another size.
+    if (rig.sole_row !== undefined) {
+      if (rows.bottom + 1 !== rig.sole_row) {
+        report.fail(`${dir}: declares its soles at row ${rig.sole_row} and its lowest pixels end `
+          + `at row ${rows.bottom + 1}, so every placement is off by the difference`);
+      }
+      const heights = frames.map((frame) => contentRows([frame])?.height ?? 0);
+      if (!heights.some((h) => h >= declared && h <= declared * BELOW_SOLE)) {
+        report.fail(`${dir}: declares a ${declared}px figure and no frame stands that tall `
+          + `(frames are ${heights.join(', ')}px). The standing pose is what proves the scale`);
+      }
+      continue;
+    }
     if (rows.top !== 0) {
       report.fail(`${dir}: the figure starts at row ${rows.top}, not row 0. The anchor is `
         + 'measured down from the canvas top, so every placement is off by that much');

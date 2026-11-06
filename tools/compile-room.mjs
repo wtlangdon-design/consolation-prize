@@ -1058,6 +1058,10 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
           // data. See engine/core/StepTriggers.ts.
           ...(ann.hotspotStates[id].step ? { step: ann.hotspotStates[id].step } : {}) }
       : {}),
+    // A VERB'S ANIMATION travels with the hotspot, from the annotation's
+    // `reactions.<id>` (verb -> clip id). Without this a compile dropped one
+    // silently: Room 17's bell rope pulls with Thad's `reach`.
+    ...(ann.reactions?.[id] ? { reactions: ann.reactions[id] } : {}),
     responses,
     ...(Object.keys(objectOverrides).length ? { overrides: objectOverrides } : {}),
   };

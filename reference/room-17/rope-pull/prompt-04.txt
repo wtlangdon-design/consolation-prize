@@ -1,0 +1,24 @@
+Two images are attached. The first is a frame from my pixel-art adventure game: the man in the long blue coat, seen from behind, is Thad, the hero, standing in a small wooden church. The second is the sheet you drew last time, of Thad ringing the church bell for morning. It was close, but it reads as a man STRETCHING: his hands are wide apart, one over each shoulder, and come down onto the top of his head. A man ringing a bell keeps BOTH HANDS TOGETHER on one spot in the middle, one fist directly on top of the other, the way you would grip a broom handle held straight up and down, and draws them straight down the middle of his body. Please draw the sheet again with that one correction. His hands are still empty: draw nothing in them and nothing above him; we add the rest ourselves.
+
+STYLE: this is Thad, so match him exactly, as you did last time:
+- Same pixel-art style, same pixel size, same flat, soft shading, same small amount of texture, same clean outlines. Not sharper, not more detailed.
+- Same man: same dark curly hair, same long blue-grey coat, same dark trousers and brown boots, same proportions, same height.
+- Same warm lamplight as the first image.
+
+THE SHEET: one image, six poses of Thad from behind, side by side, left to right:
+1. REACH: both arms raised straight up above the CENTRE of his head, close together, forearms touching. One fist directly on top of the other, stacked, gripping the same upright line. Up on the balls of his feet a little.
+2. PULL: the stacked fists, still one on top of the other, have come straight down to a hand's width above the top of his head. Elbows bent and pointing out to the sides.
+3. DOWN: the stacked fists have come down in front of his face, so from behind they are hidden by his head. We see his elbows bent, pointing out and down, upper arms angled down from his shoulders. Knees bent a little, shoulders hunched with the effort.
+4. LOWEST: the fists are at the middle of his chest, hidden in front of him. Elbows close in at his sides. Knees bent a little more.
+5. RISE: his arms are carried back up together, the stacked fists back above the centre of his head, elbows bent, knees straightening.
+6. DONE: standing straight, arms down at his sides, exactly as in the first image.
+
+RULES: these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no wall, no furniture. Nothing in the picture but Thad.
+- Seen from directly behind in every pose, like the first image. We never see his face.
+- Both hands always together on the centre line of his body, never apart.
+- All six poses full-length (hair to boots), the same size, boots on the same baseline.
+- Clear magenta space between poses. No pose touches or overlaps another, raised arms included.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same proportions.
+- Crisp pixel edges against the magenta. No soft glow or blur around him.
+- No text, labels, numbers or borders.

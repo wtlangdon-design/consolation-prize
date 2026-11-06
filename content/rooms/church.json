@@ -290,6 +290,9 @@
         585
       ],
       "defaultVerb": "LOOK_AT",
+      "reactions": {
+        "PULL": "reach"
+      },
       "responses": {
         "LOOK_AT": [
           {

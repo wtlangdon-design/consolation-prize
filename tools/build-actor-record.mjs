@@ -75,6 +75,8 @@ const CLIPS = [
   // Doc 17's mud beat, three attempts at one boot. The sizes are the joke:
   // a discreet tug, a determined pull, and an undignified wrench.
   { id: 'tug', dir: 'tug', prefix: 'tug' },
+  // Doc 40's reach (PUSH and PULL); from behind, Room 17's bell rope.
+  { id: 'reach', dir: 'reach', prefix: 'reach' },
   { id: 'strain', dir: 'strain', prefix: 'strain' },
   { id: 'wrench', dir: 'wrench', prefix: 'wrench' },
   // CHORES. Doc 40's contract: each is stand -> key pose -> stand, with
@@ -219,7 +221,11 @@ function recordFor(id) {
         // and walking rather than resizing to each clip's bounding box.
         figureHeight,
         // Where the soles and the centre line sit on the padded canvas.
-        anchor: [rig.padding + Math.round(figureWidth / 2), figureHeight],
+        // THE SOLES ARE AT figureHeight on a canvas whose top is the crown --
+        // except where a pose rises above the crown (a reach, arms up), whose
+        // canvas is taller and whose rig says where the soles are on it.
+        anchor: [rig.padding + Math.round(figureWidth / 2), rig.sole_row ?? figureHeight],
+        ...(rig.lands_at === undefined ? {} : { landsAt: rig.lands_at }),
         // Only the walk clips carry one. Written through, never inferred.
         ...(rig.walk_dx === undefined || rig.walk_dx === null ? {} : { walkDx: rig.walk_dx }),
         // ActorClip's `state` discriminator, from the rig. Written through the

@@ -1,0 +1,12 @@
+{
+ "assetId": "thad-rope-pull",
+ "subject": "thad",
+ "role": "other",
+ "promptFile": "reference/room-17/rope-pull/prompt-03.txt",
+ "out": "art/staging/thad-rope-pull/sheet-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-17/rope-pull/style-reference-no-rope.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-06, thad-rope-pull cap 2 (reference/room-17/rope-pull/brief.md)"
+}

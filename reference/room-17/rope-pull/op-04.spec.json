@@ -1,0 +1,14 @@
+{
+ "assetId": "thad-rope-pull",
+ "subject": "thad",
+ "role": "other",
+ "promptFile": "reference/room-17/rope-pull/prompt-04.txt",
+ "out": "art/staging/thad-rope-pull/sheet-02.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-17/rope-pull/style-reference-no-rope.png",
+  "reference/room-17/rope-pull/miss-01.png"
+ ],
+ "derivedFrom": "art/staging/thad-rope-pull/sheet-01.png",
+ "authorizedBy": "Tyler, 2026-11-06, thad-rope-pull cap 2, the correction (reference/room-17/rope-pull/brief.md): 'New sheet + rope' after 'he's stretching, not pulling a rope'"
+}
