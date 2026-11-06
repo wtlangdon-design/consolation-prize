@@ -2737,3 +2737,19 @@ What Tyler still decides: acceptance of the art (errata 72 E, at the full playth
 **D · Stage directions are shown (doc 58).** The other half of the same ruling: the italic directions in conversation replies, which the extractor had been dropping, are now performed on screen in parentheses in the beat's quieter ink. Builder notes stay hidden.
 
 **E · Tyler's ruling on the sample (2026-11-05), after playing Room 3:** "The dialogue in Room 3 is so much better… way better." The direction is approved and the pass goes on to the other rooms under doc 59. His one miss was Vessel's "Producing, mind.", which he did not understand. It is rewritten to read on one pass, and the joke underneath it (the claim produces mud) is kept. Doc 59 rule 8 is the reason: period slang that hides the joke fails the one-read test.
+
+# 101 · ONE ARTIST, ONE CAST — THE CAST MASTER IS LOCKED (Tyler, 2026-11-06)
+
+*Tyler: "put all characters in the game side by side in a line up. I want them to all look like they were drawn by the same artist for the same game at the same time." On method: "have chatgpt draw all characters on one sheet … And then have chatgpt draw all the versions of each character after they're locked in." On the anchors: "Thad, Hob and Deke … have the level of pixelation, detail, and look that I think fits the game." On master 02: "Sooo much better. They look like characters from the same game now."*
+
+**A · The master is the canonical design.** `art/staging/cast-master/master-02.png` (cast-unify attempt 9; read as laid out by `tools/art/cast-master-sheet.py`, render `renders/cast-master-02.png`) is the canonical design of all 23 recurring characters. It supersedes doc 38 §1's "a character's first drawing is his canonical design" for each of them, and every earlier canonical sheet is reference only.
+
+**B · Versions come from the master, never from each other.** Every pose, bust, seated figure and action of a character is drawn from that character's crop of master 02, with Thad beside it at the same scale, on magenta. A later version is never generated from an earlier version: drift compounds.
+
+**C · One scale, one pixel.** The generator drew master 02's lower rows about 9% short, which comes out 9% coarser in the game. Every row is scaled so its median man matches the top row's, then every figure is reduced by 3 and drawn back nearest-neighbour, so every figure is made of the same square pixel. Pose sheets are cut the same way.
+
+**D · Builds.** Frontier people are of ordinary, mostly lean build. Measured as torso width over height (Thad 0.32): only Pratt and Fanshawe are heavy, the hotel clerk is short with a small paunch, and the bald judge thick-set; nobody is round (Tyler, on master 01: "some extraordinary stout people").
+
+**E · The three judges** are a thick-set bald man with white mutton-chops, a gaunt man with a waxed moustache and a green cravat, and a lean bearded former miner in a grey hat. Canon gives them no description. The young red-haired judge of master 01 was cut (Tyler: "He seems out of place").
+
+**F · Thad, Hob and Deke keep their shipping art.** The master changed them only slightly. Their clips stand.
