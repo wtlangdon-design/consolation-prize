@@ -2109,6 +2109,11 @@ export interface ManifestFile {
      * "for the rest of the game". Room 33's ninety seconds write it.
      */
     tunedFlag?: string;
+    /**
+     * The bed while a Liar's Assay duel is on (doc 45 R04-DUEL, U-FINAL-DUEL;
+     * errata 109): by duel id, else `default`. Back to the room's when it ends.
+     */
+    duels?: Record<string, { src: string; gain?: number; why?: string }>;
   };
   musicNote?: string;
 }
@@ -2130,7 +2135,9 @@ export interface SoundsFile {
    */
   cues: Record<string, { why?: string; play?: SoundRef[]; bed?: SoundRef | null;
     /** The music dips under this sound: to `to` of its level, for `seconds` (errata 107: the bell). */
-    duck?: { to: number; seconds: number; attack?: number; release?: number } }>;
+    duck?: { to: number; seconds: number; attack?: number; release?: number };
+    /** For a cue fired by a line rather than a verb: the room whose music it is measured against. */
+    room?: string }>;
   /** A line put on screen fires a cue: a direction such as "stamping" (U-STAMP). Matched exactly. */
   lines?: { line: string; cue: string }[];
   /** A room's own scripted sounds (a timeline's, a puzzle's) all scaled by one number (errata 106). */
@@ -2138,7 +2145,14 @@ export interface SoundsFile {
   /** Engine events to the cue they fire: `duelMark`, a point written down in an Assay duel (U-ASSAY-PENCIL). */
   events?: { duelMark?: string };
   /** A verb on a target fires a cue: optionally only on some written lines, or in some states. */
-  verbs: { room: string; target: string; verb: string; variants?: number[]; when?: Record<string, boolean>; cue: string }[];
+  /**
+   * `when` and `item` are read BEFORE the verb runs (errata 109): a sound for
+   * the moment a thing first happens -- the fork on Grievance, a piano tuned --
+   * must not fire again on the repeat that the same write makes true.
+   * `variants` is read after, from the line that was spoken.
+   */
+  verbs: { room: string; target: string; verb: string; item?: string; variants?: number[];
+    when?: Record<string, boolean | number>; cue: string }[];
   /** Walking between two rooms, either way, fires a cue (a door). */
   transits: { between: [string, string]; cue: string }[];
   footsteps: {

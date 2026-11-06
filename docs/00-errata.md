@@ -2914,3 +2914,26 @@ The sounds Tyler approved by ear (errata 102) now play in the game, where doc 45
 - **Too late.** The dip took a quarter second and started with the strike, so the bell's attack -- the moment that says *bell* -- landed on music still at full level. The dip now takes 80 ms and the bell waits 120 ms for it (`duck.attack`, the sound's `at`); the music comes back over two and a half seconds.
 
 **The level check now asks both questions** of a featured sound: does it wait for the dip (its `at` is at least the duck's attack), and is it still heard -- within 10 dB of the ducked music -- for as long as the music is held down. Proved: errata 107's bell fails on timing and level.
+
+---
+
+# 109 · WHAT THE WRITING SAYS IS HEARD, HEARD; THAD IN THE ROOM'S LIGHT; THE CLERK'S BARKS — 2026-11-06
+
+Tyler, on the pre-playthrough review: **"Start."** The first group of the review's "can build now" list -- the moments the documents already write that the game was only showing as text, and two consistency fixes the art audit found. No line is written here; every sound below plays under a line the documents already have.
+
+**Duel music.** Doc 45 R04-DUEL writes the duels to THE ASSAY. While a duel runs, the room's music gives way to its bed (`manifest.music.duels`), and comes back when it ends. The third duel, the final one, has its own: **THE FINAL DUEL** (`the-final-duel.wav`, the music proof's FINAL_DUEL_LA) -- THE COMPANY's melody on the fiddle twice over THE ASSAY's piano, faster (96), so the last duel sounds like the Company's ground. Any other duel plays THE ASSAY.
+
+**The hum, the whistle and the tuning (doc 04 LIV_A1 option 4; doc 02 B3, A2, A8).** What the puzzles turn on is a pitch, and until now the player only read about it.
+
+- **The livery man's hum** (LIV-HUM), on his own line "That's what the fella whistled...": CONSOLATION's first phrase an octave down, every note a little off and the eighth a half step wrong -- "recognisably the town theme and recognisably wrong".
+- **Grievance** (B3-WHISTLE), on USE the fork on her while the puzzle is open: the fork, the same phrase whistled right at A440, and her hooves as she goes.
+- **The pianos** (A-TUNING), on USE the fork on the Nugget's piano or the hotel parlor's while each is out of tune: the broken C-sharp as the room has always heard it, the fork, the pin turning, the mended notes. The room's music changes to the tuned version at once.
+
+The phrase is the town theme's, from the music proof; the voices sit at true pitch, not the score's -35 cents, because a man's whistle is not the score. All three duck the music and are featured sounds under errata 107/108's floor and timing checks (`tools/audio/render-tunes.py`).
+
+**A verb's sound is chosen before the verb runs.** A sound rule may now name the item used (`item`) and the flags it needs (`when`). Those are read *before* the interaction, so the tuning sounds on the use that tunes the piano, not on the use after it, when the flag it sets has already closed the rule.
+
+**Thad in the room's light (`figureLight`).** The art audit's real mismatch: in the dark rooms and at the funeral, Thad was drawn at the plate's daylight default -- bright and warm in the vault, the chamber and the tunnels, warm under the funeral's moonlight beside a cool undertaker. Rooms 6, 33, 34 and 35 now light him warm and low (lamp or candle, 0.67-0.84), and Room 31 cool (moonlight, 0.85). **Not changed: the undertaker's 7-pixel "sink"** the audit also flagged. It is the tapered rows of his shoes, not a figure standing in the ground; moving him would have been a fix for a fault that is not there.
+
+**The hotel clerk's barks.** His file said "Doc 07 writes no barks for the clerk". Doc 07 §8 writes him nine -- a different misspelling of Grubb for every reputation but one, which he gets right once and never again. They are in the game now, and the town's barks are **extracted, not typed**: `tools/extract-content.mjs` reads every single-voice doc 07 bark table into its ambient file (`tools/town-barks.json` says which goes where). The five that were typed by hand came out word for word the same; their apostrophes are now the document's own straight ones. The transforms are the ones the hand-typed files already used: directions dropped, emphasis made plain, and an exchange with Thad cut to its first line (the pie woman's R_DEAD). Six doc 07 townspeople are written barks and are in no built room (the message boy, the man leaving tomorrow, the barber, the photographer, the dog's owner, and the stage driver as a town figure); `tools/town-barks.json` names them, and `tests/town-barks.test.ts` fails on any doc 07 table routed nowhere.
+

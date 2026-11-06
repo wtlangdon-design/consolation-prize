@@ -1218,6 +1218,53 @@ const ConsolationAudio = (function () {
     parts: [ tune('harmonicaLA', 1.0),
              { inst: 'fiddleLA', role: 'counter', gain: 0.6, fromLoop: 0, events: CONSOLATION_FID } ] };
 
+  /* THE FINAL DUEL (doc 45 U-FINAL-DUEL: "THE ASSAY + THE COMPANY"; OQ-14
+   * left how they combine; errata 109). The Company's tune, on the fiddle that
+   * sang it in its own offices, over the Assay's machinery -- the piano's
+   * climbing list and the jaw harp's stamp -- because Fanshawe has brought his
+   * warmth to the town's court. They can share a floor because D minor is F
+   * major's own relative: the stamp's flat C-sharp sounds as C, which is the
+   * Company's dominant. At the Company's tempo, 96. The Assay's 18-beat cycle
+   * runs against the tune's 32 and is cut where the loop ends, so the list
+   * never reaches the end of itself. */
+  const tileAssay = (events, until) => {
+    const out = [];
+    for (let start = 0; start < until; start += 18) {
+      for (const e of events) if (start + e.b < until) out.push(Object.assign({}, e, { b: start + e.b }));
+    }
+    return out;
+  };
+  const FINAL_DUEL_LA = {
+    name: 'THE ASSAY + THE COMPANY, the final duel (LA)',
+    tempo: COMPANY_TEMPO, loopBeats: 64,
+    parts: [
+      { inst: 'fiddleLA',  role: 'the Company', gain: 1.00, fromLoop: 0,
+        events: [...COMPANY_MEL, ...COMPANY_MEL.map(e => Object.assign({}, e, { b: e.b + 32 }))] },
+      { inst: 'pianoLA',   role: 'the list',    gain: 0.80, fromLoop: 0, events: tileAssay(ASSAY_PNO, 64) },
+      { inst: 'pianoLA',   role: 'left hand',   gain: 0.70, fromLoop: 0, events: tileAssay(ASSAY_LH, 64) },
+      { inst: 'jawHarpLA', role: 'the stamp',   gain: 0.85, fromLoop: 0, events: tileAssay(ASSAY_JAW, 64) }
+    ]
+  };
+
+  /* THE PIANO, TUNED (A2, A8; errata 109): what Thad hears when he works. The
+   * flat C-sharp struck twice, as the room has always heard it, and an A major
+   * spread that shows it up; the renderer plays the same notes on the mended
+   * piano for the second half. */
+  const TUNING_LA = {
+    name: 'the piano, tuned (LA)',
+    tempo: 80, loopBeats: 6, oneShot: true,
+    parts: [ { inst: 'pianoLA', role: 'test', gain: 1.0, fromLoop: 0, events: [
+      { b: 0, m: 73, d: 0.8, v: 0.8 }, { b: 1, m: 73, d: 0.8, v: 0.7 },
+      { b: 2.5, m: 69, d: 2.5, v: 0.6 }, { b: 2.75, m: 73, d: 2.25, v: 0.6 }, { b: 3, m: 76, d: 2, v: 0.6 } ] } ]
+  };
+
+  /* WHAT THE FELLA WHISTLED (B3; doc 04 LIV_A1 option 4: "recognisably the
+   * town theme"). The first phrase of CONSOLATION's tune, as a melody alone,
+   * for the livery man to hum badly and Thad to whistle right; the renderer
+   * plays it on the fiddle as a guide pitch track, and the hum and whistle are
+   * shaped from these notes offline (tools/audio/render-tunes.py). */
+  const WHISTLE_PHRASE = CONSOLATION_MEL.filter(e => e.b < 8);
+
   /* ---------- audition figures (not content) ---------- */
   const AUDITIONS = {
     piano:     [ {m:74,b:0,d:0.5,v:.85},{m:78,b:0.5,d:0.5,v:.8},{m:81,b:1,d:0.5,v:.8},
@@ -1235,7 +1282,8 @@ const ConsolationAudio = (function () {
     DETUNE_START, PIANO_CLASS_CENTS, THEME, THEME_LA, THADDEUS, THADDEUS_LA, THADDEUS_COMPLETE_LA,
     STRIKE_LA, ASSAY_LA, WINNIE_LA, COMPANY_LA,
     CONSOLATION_PIANO_LA, CONSOLATION_DAWN_LA, CONSOLATION_FUNERAL_LA, ASSAY_JAW_LA, STRIKE_LAYER_LA,
-    CONSOLATION_LAUNDRY_LA, CONSOLATION_LIVERY_LA, CONSOLATION_CLARION_LA, CONSOLATION_TENT_LA, AUDITIONS,
+    CONSOLATION_LAUNDRY_LA, CONSOLATION_LIVERY_LA, CONSOLATION_CLARION_LA, CONSOLATION_TENT_LA,
+    FINAL_DUEL_LA, TUNING_LA, WHISTLE_PHRASE, TEMPO_OF_THEME: TEMPO, AUDITIONS,
     midiToFreq, createEngine, automateArc
   };
 })();

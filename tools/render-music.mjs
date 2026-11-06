@@ -143,6 +143,13 @@ const STEMS = [
     note: 'The Nugget back room after the piano is tuned.' },
   { file: 'the-company-wall.wav', piece: 'COMPANY_LA', loops: 2, distance: 'wall',
     note: 'The Company vault — THE COMPANY through the wall from the offices.' },
+  // ERRATA 109: the duels and the tunings.
+  { file: 'the-final-duel.wav', piece: 'FINAL_DUEL_LA', loops: 1,
+    note: 'U-FINAL-DUEL — the Company\'s tune over the Assay\'s machinery.' },
+  { file: 'sfx/piano-flat.wav', piece: 'TUNING_LA', loops: 1, oneShot: true,
+    note: 'A2/A8 — the flat C-sharp as the room has always heard it.' },
+  { file: 'sfx/piano-tuned.wav', piece: 'TUNING_LA', loops: 1, oneShot: true, pianoTuned: true,
+    note: 'A2/A8 — the same notes on the mended piano.' },
 ];
 /** Where a stem is heard from (errata 103): a low-pass, a level, and the room it crosses. */
 const DISTANCE = {

@@ -108,7 +108,7 @@ export function check() {
   }
   for (const [id, cue] of Object.entries(sounds.cues)) {
     const target = levels.cues?.[id] ?? levels.cue;
-    const room = cue.duck ? sounds.verbs.find((rule) => rule.cue === id)?.room : undefined;
+    const room = cue.duck ? sounds.verbs.find((rule) => rule.cue === id)?.room ?? cue.room : undefined;
     const reference = cue.duck ? roomBed(room) + db(cue.duck.to) : music;
     const against = cue.duck ? `${room}'s music, ducked to ${cue.duck.to}` : 'the music';
     for (const part of cue.play ?? []) {
@@ -122,7 +122,7 @@ export function check() {
   for (const id of levels.featured ?? []) {
     const cue = sounds.cues[id];
     if (!cue?.duck) { report.fail(`cue ${id} is featured and does not duck the music: it will be lost under the score`); continue; }
-    const room = sounds.verbs.find((rule) => rule.cue === id)?.room;
+    const room = sounds.verbs.find((rule) => rule.cue === id)?.room ?? cue.room;
     const reference = roomBed(room) + db(cue.duck.to);
     const target = levels.cues?.[id] ?? levels.cue;
     // AND THE DIP LANDS FIRST, AND THE SOUND OUTLASTS IT (errata 108: "The

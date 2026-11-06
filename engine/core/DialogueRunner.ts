@@ -245,6 +245,11 @@ export class DialogueRunner {
   /** Points written down in Assay duels, ever: a judge's pencil per mark (doc 45 U-ASSAY-PENCIL). */
   private marks = 0;
 
+  /** The duel being fought, if one is: the scene plays its music while it lasts (doc 45 R04-DUEL, U-FINAL-DUEL). */
+  get duelId(): string | null {
+    return this.duel?.id ?? null;
+  }
+
   /** How many points the judges have written down this session. The scene sounds each new one. */
   get duelMarks(): number {
     return this.marks;

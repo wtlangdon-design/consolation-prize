@@ -249,6 +249,55 @@
     "attack": 0.08,
     "release": 2.5
    }
+  },
+  "LIV-HUM": {
+   "why": "doc 04 LIV_A1 option 4's staging: \"He hums the pitch. Badly. It is recognisably the town theme and recognisably wrong, and Thad's ear files it.\" The town theme's first phrase, hummed off (errata 109).",
+   "play": [
+    {
+     "src": "audio/sfx/livery-hum.wav",
+     "gain": 0.092,
+     "at": 0.12
+    }
+   ],
+   "duck": {
+    "to": 0.25,
+    "seconds": 5,
+    "attack": 0.08,
+    "release": 2.0
+   },
+   "room": "livery"
+  },
+  "B3-WHISTLE": {
+   "why": "doc 02 B3: Grievance responds to one whistled pitch, and Thad, by ear, corrects it. The fork, the phrase whistled right, and she goes (errata 109).",
+   "play": [
+    {
+     "src": "audio/sfx/grievance-whistle.wav",
+     "gain": 0.065,
+     "at": 0.12
+    }
+   ],
+   "duck": {
+    "to": 0.2,
+    "seconds": 5.6,
+    "attack": 0.08,
+    "release": 2.5
+   }
+  },
+  "A-TUNING": {
+   "why": "doc 02 A2 and A8: the piano tuned. The flat C-sharp as the room has always heard it, the fork, the pin turning, and the same notes mended (errata 109).",
+   "play": [
+    {
+     "src": "audio/sfx/piano-tuning.wav",
+     "gain": 0.124,
+     "at": 0.12
+    }
+   ],
+   "duck": {
+    "to": 0.15,
+    "seconds": 9.0,
+    "attack": 0.08,
+    "release": 2.5
+   }
   }
  },
  "verbs": [
@@ -376,6 +425,39 @@
    "target": "bell_rope",
    "verb": "PULL",
    "cue": "R17-BELL"
+  },
+  {
+   "room": "livery",
+   "target": "grievance",
+   "verb": "USE",
+   "item": "tuning_fork",
+   "when": {
+    "T_HUM_HEARD": true,
+    "T_VESSEL_LOCATION": true,
+    "T_VESSEL_FOUND": false
+   },
+   "cue": "B3-WHISTLE"
+  },
+  {
+   "room": "nugget",
+   "target": "piano",
+   "verb": "USE",
+   "item": "tuning_fork",
+   "when": {
+    "T_NUGGET_PIANO_TUNED": false
+   },
+   "cue": "A-TUNING"
+  },
+  {
+   "room": "hotel_lobby",
+   "target": "parlor_piano",
+   "verb": "USE",
+   "item": "tuning_fork",
+   "when": {
+    "T_TUNES_PIANOS": true,
+    "T_ROOM_GRANTED": false
+   },
+   "cue": "A-TUNING"
   }
  ],
  "transits": [
@@ -510,6 +592,10 @@
   {
    "line": "stamping",
    "cue": "U-STAMP"
+  },
+  {
+   "line": "That's what the fella whistled. Twelve years I've been getting it wrong.",
+   "cue": "LIV-HUM"
   }
  ],
  "events": {
@@ -532,7 +618,10 @@
    "R01-WEST-3": -16,
    "R01-COACH-2": -14,
    "R17-BELL": 10,
-   "R02-BELL": 2
+   "R02-BELL": 2,
+   "LIV-HUM": 4,
+   "B3-WHISTLE": 6,
+   "A-TUNING": 6
   },
   "ambience": {
    "nugget": -20
@@ -540,7 +629,10 @@
   "scene": 0,
   "featured": [
    "R17-BELL",
-   "R02-BELL"
+   "R02-BELL",
+   "LIV-HUM",
+   "B3-WHISTLE",
+   "A-TUNING"
   ]
  },
  "roomGain": {

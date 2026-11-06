@@ -72,8 +72,11 @@ test('every verb the sounds hear is a real target and verb in its room', async (
     assert.ok(room, `${rule.cue}: no room ${rule.room}`);
     const target = [...(room.hotspots ?? []), ...(room.exits ?? [])].find((thing) => thing.id === rule.target);
     assert.ok(target, `${rule.cue}: no ${rule.target} in ${rule.room}`);
-    assert.ok(target.responses?.[rule.verb] || target.overrides?.[rule.verb] || rule.verb === 'OPEN',
-      `${rule.cue}: ${rule.target} has nothing for ${rule.verb}`);
+    // An item used on it is a combination pair (doc 24), not one of its own responses.
+    const paired = rule.item !== undefined && content.combinations.pairs.some((pair) =>
+      pair.item === rule.item && pair.target === rule.target && (!pair.room || pair.room === rule.room));
+    assert.ok(target.responses?.[rule.verb] || target.overrides?.[rule.verb] || rule.verb === 'OPEN' || paired,
+      `${rule.cue}: ${rule.target} has nothing for ${rule.verb}${rule.item ? ` with ${rule.item}` : ''}`);
   }
 });
 
