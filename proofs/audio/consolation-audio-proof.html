@@ -877,6 +877,32 @@ const ConsolationAudio = (function () {
     {b:9.0, m:67, d:1.5},{b:10.5, m:69, d:0.5},{b:11.0, m:71, d:1.0}
   ];
 
+  /* ================================================================ *
+   * THADDEUS, COMPLETE  --  Room 33's bed (R33-M), PLACEHOLDER COMPOSITION
+   * Composed by the builder at Tyler's word (2026-11-06: "Didn't you
+   * compose the song? Finish the song yourself if you can."), under the
+   * same warning as the fragment above: no notated score exists.
+   *
+   * Doc 45 names it exactly: the fragment's "fourth-bar completion".
+   * So it is the same four bars, and only the fourth changes. Bars 1-3
+   * are the fragment's, note for note -- the player has heard them all
+   * game and must know them at once. Bar 3 walks down C, B, A; the
+   * fragment's bar 4 touches the tonic and cannot stay, lifting to the
+   * third. Here he lands on the G and stays there for the whole bar.
+   * The 2-to-1 step, the plainest cadence there is, is the point: the
+   * thought he never got to finish was always this simple.
+   * ================================================================ */
+  const THAD_MEL_COMPLETE = THAD_MEL.slice(0, 8).concat([
+    // bar 4 -- the tonic, held: the bar the fragment never gets
+    {b:9.0, m:67, d:3.0}
+  ]);
+
+  const THADDEUS_COMPLETE_LA = {
+    name: 'THADDEUS, complete (LA)',
+    tempo: THAD_TEMPO, loopBeats: THAD_LOOP,
+    parts: [ { inst: 'fiddleLA', role: 'melody', gain: 1.00, fromLoop: 0, events: THAD_MEL_COMPLETE } ]
+  };
+
   const THEME_LA = {
     name: 'CONSOLATION (LA)',
     tempo: TEMPO, loopBeats: LOOP_BEATS,
@@ -929,7 +955,7 @@ const ConsolationAudio = (function () {
 
   return {
     TEMPO, BEAT, LOOP_BEATS, LOOP_SECONDS, ARC_SECONDS, LEAD_SECONDS,
-    DETUNE_START, PIANO_CLASS_CENTS, THEME, THEME_LA, THADDEUS, THADDEUS_LA, AUDITIONS,
+    DETUNE_START, PIANO_CLASS_CENTS, THEME, THEME_LA, THADDEUS, THADDEUS_LA, THADDEUS_COMPLETE_LA, AUDITIONS,
     midiToFreq, createEngine, automateArc
   };
 })();

@@ -4867,10 +4867,10 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 
 ## Q173 · Room 31, the funeral: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 G, delegated); BUILT, room-31 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
 
-**Built.** Thirteen subjects and eighty-one lines; the service by day, Sowerby's eulogy as his bark; beat 3 on the second LOOK at the grave or at the way back; THE COFFIN · USE into Room 32 (E7); Room 32 hands back to the hill at night, and the line there ends the funeral (E8). Reached by the plot on Boot Hill once the executor is named (`?fixture=r31-a`; after beat 3 `r31-b`; the night `r31-c`). Played in `tests/room-31.test.ts`. Proofs under `renders/proofs/funeral/`.
+**Built.** Thirteen subjects and eighty-one lines; the service at night (errata 99 K), Sowerby's eulogy as his bark; beat 3 on the second LOOK at the grave or at the way back; THE COFFIN · USE into Room 32 (E7); Room 32 hands back to the hill at night, and the line there ends the funeral (E8). Reached by the plot on Boot Hill once the executor is named (`?fixture=r31-a`; after beat 3 `r31-b`; the night `r31-c`). Played in `tests/room-31.test.ts`. Proofs under `renders/proofs/funeral/`.
 
 **For Tyler:**
-- **Day after night.** The funeral is written by day (doc 54's THE SKY), and Boot Hill is drawn at night, so walking up the plot goes from night to a blue sky. Say if the funeral should be another time, or Boot Hill should have a day.
+- **Day after night. RULED (Tyler, 2026-11-06, errata 99 K): night.** The service is relit under operation 4's moon and five daylight lines were rewritten (errata 99 K lists each); every exterior is now checked to be night.
 - **Seven mourners, not nine.** Doc 54 writes "Nine hats, held still"; the master drew seven people with their hats. The room's four operations are spent.
 - **Not staged:** beat 1's procession (the town walking in behind the coffin) -- the service is already gathered when Thad arrives; and the watchman "at Thad's shoulder" -- he speaks from the back, where he stands, and walks off as he says it.
 
@@ -4880,7 +4880,7 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 
 **For Tyler:**
 - **Listen to it.** The tap curve, the void's place and its size are tuning "judged by Tyler's ear" (doc 57 F2). The taps are rendered files (tools/audio/render-r33-sfx.py) by an agent that cannot hear them.
-- **The ninety seconds have no music.** `R33-M` is THADDEUS complete, and it does not exist: the only THADDEUS is the four-bar placeholder, written to stop on the third. Finishing it is composing, which is yours or a composer's (doc 28 Part Seven). The tuning, the lamp and the lock all run; until the bed exists they run over silence.
+- **The ninety seconds have no music. RULED (Tyler, 2026-11-06, errata 99 L): "Finish the song yourself."** `R33-M` is now THADDEUS complete: the fragment's first three bars, and a fourth that lands on the tonic and holds it (`audio/thaddeus-complete-room-33.wav`). A placeholder composition, for Tyler's ear.
 - **Thad stands, not sits,** for the ninety seconds (doc 48 S5 beat 3): there is no seated Thad to draw him with.
 
 ## Q175 · Room 35, the Company vault: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 I, delegated); BUILT, room-35 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**

@@ -9,6 +9,7 @@ agree today and drift a semitone apart in a month.
 |---|---|---|---|
 | `consolation-title.wav` | **O-01-M** | 25.26s | CONSOLATION, full, piano-led — doc 28's title mix. Two statements of 32 beats at 152. |
 | `thaddeus-room-01.wav` | **O-02-M** | 37.89s | THADDEUS, Room 1. Solo, unaccompanied. Four bars of 3/4 at 76, four times. |
+| `thaddeus-complete-room-33.wav` | **R33-M** | 37.89s | THADDEUS, complete — Room 33. The same four bars, the fourth resolved to the tonic (errata 99 L). Placeholder composition by the builder; rendered alone with `--only thaddeus-complete-room-33.wav`. |
 
 Both use the LA-flavoured voices, which **errata 56** made canon: *"The
 LA-flavoured voice is canon."* `THEME_LA` and `THADDEUS_LA`, at

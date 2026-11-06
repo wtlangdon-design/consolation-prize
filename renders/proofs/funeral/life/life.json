@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "funeral",
- "commit": "ccc20c2df7bf1113e1eb1bbae085d2186f8677f1",
+ "commit": "0022ba1983a241a7371239dd1b3d616bd93632fe",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -13,22 +13,22 @@
  "fixture": "r31-a",
  "warped": false,
  "lifeRoute": "funeral-life",
- "durationSeconds": 40.38,
+ "durationSeconds": 39.58,
  "events": [
   {
-   "t": 2.88,
+   "t": 2.59,
    "line": "started from fixture r31-a, no entry route"
   },
   {
-   "t": 5.96,
+   "t": 5.82,
    "line": "in funeral; life route: 30 action(s)"
   },
   {
-   "t": 6.56,
+   "t": 6.38,
    "line": "capture 01-arrived: room funeral, says null, options 0, control null"
   },
   {
-   "t": 7.63,
+   "t": 7.46,
    "trace": {
     "says": null,
     "control": null,
@@ -43,7 +43,7 @@
    }
   },
   {
-   "t": 8.59,
+   "t": 8.41,
    "trace": {
     "says": null,
     "control": null,
@@ -58,7 +58,7 @@
    }
   },
   {
-   "t": 9.59,
+   "t": 9.4,
    "trace": {
     "says": null,
     "control": null,
@@ -73,7 +73,7 @@
    }
   },
   {
-   "t": 10.58,
+   "t": 10.39,
    "trace": {
     "says": null,
     "control": null,
@@ -88,7 +88,7 @@
    }
   },
   {
-   "t": 11.57,
+   "t": 11.4,
    "trace": {
     "says": null,
     "control": null,
@@ -103,7 +103,7 @@
    }
   },
   {
-   "t": 12.57,
+   "t": 12.4,
    "trace": {
     "says": null,
     "control": null,
@@ -118,7 +118,7 @@
    }
   },
   {
-   "t": 13.59,
+   "t": 13.41,
    "trace": {
     "says": null,
     "control": null,
@@ -133,11 +133,11 @@
    }
   },
   {
-   "t": 14.57,
+   "t": 14.4,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 14.58,
+   "t": 14.41,
    "trace": {
     "says": null,
     "control": null,
@@ -152,15 +152,15 @@
    }
   },
   {
-   "t": 14.62,
+   "t": 14.44,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 14.83,
+   "t": 14.64,
    "line": "action 1 (click): clicked funeral/reverend_sowerby_officiating at world 827,346 -- REVEREND SOWERBY, OFFICIATING"
   },
   {
-   "t": 15.84,
+   "t": 15.67,
    "trace": {
     "says": null,
     "control": null,
@@ -168,14 +168,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     607,
+     612,
      811
     ],
     "moving": true
    }
   },
   {
-   "t": 16.86,
+   "t": 16.67,
    "trace": {
     "says": null,
     "control": null,
@@ -190,19 +190,19 @@
    }
   },
   {
-   "t": 17.07,
+   "t": 16.82,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room funeral"
   },
   {
-   "t": 17.6,
+   "t": 17.3,
    "line": "capture 02-look-sowerby: room funeral, says \"thad\", options 0, control null"
   },
   {
-   "t": 17.64,
+   "t": 17.32,
    "line": "action 1 (waitFor): reached {} in room funeral"
   },
   {
-   "t": 18.65,
+   "t": 18.35,
    "trace": {
     "says": "thad",
     "control": null,
@@ -217,7 +217,7 @@
    }
   },
   {
-   "t": 19.66,
+   "t": 19.35,
    "trace": {
     "says": "thad",
     "control": null,
@@ -232,11 +232,11 @@
    }
   },
   {
-   "t": 20.65,
+   "t": 20.33,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 20.68,
+   "t": 20.34,
    "trace": {
     "says": "thad",
     "control": null,
@@ -251,27 +251,27 @@
    }
   },
   {
-   "t": 20.71,
+   "t": 20.37,
    "line": "action 1 (verb): chose verb LISTEN_TO -- "
   },
   {
-   "t": 20.87,
+   "t": 20.51,
    "line": "action 1 (click): clicked funeral/mourners at world 1493,479 -- THE MOURNERS"
   },
   {
-   "t": 20.91,
+   "t": 20.56,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room funeral"
   },
   {
-   "t": 21.39,
+   "t": 21.05,
    "line": "capture 03-listen-mourners: room funeral, says \"thad\", options 0, control null"
   },
   {
-   "t": 21.43,
+   "t": 21.08,
    "line": "action 1 (waitFor): reached {} in room funeral"
   },
   {
-   "t": 22.46,
+   "t": 22.1,
    "trace": {
     "says": "thad",
     "control": null,
@@ -286,7 +286,7 @@
    }
   },
   {
-   "t": 23.44,
+   "t": 23.1,
    "trace": {
     "says": "thad",
     "control": null,
@@ -301,11 +301,11 @@
    }
   },
   {
-   "t": 24.43,
+   "t": 24.09,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 24.44,
+   "t": 24.11,
    "trace": {
     "says": "thad",
     "control": null,
@@ -320,27 +320,27 @@
    }
   },
   {
-   "t": 24.5,
+   "t": 24.13,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 24.68,
+   "t": 24.29,
    "line": "action 1 (click): clicked funeral/grave at world 930,597 -- THE GRAVE, the first look"
   },
   {
-   "t": 24.73,
+   "t": 24.34,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room funeral"
   },
   {
-   "t": 25.25,
+   "t": 24.81,
    "line": "capture 04-look-grave: room funeral, says \"thad\", options 0, control null"
   },
   {
-   "t": 25.3,
+   "t": 24.86,
    "line": "action 1 (waitFor): reached {} in room funeral"
   },
   {
-   "t": 26.31,
+   "t": 25.87,
    "trace": {
     "says": "thad",
     "control": null,
@@ -348,14 +348,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1005,
+     1010,
      857
     ],
     "moving": true
    }
   },
   {
-   "t": 27.32,
+   "t": 26.87,
    "trace": {
     "says": "thad",
     "control": null,
@@ -370,11 +370,11 @@
    }
   },
   {
-   "t": 28.3,
+   "t": 27.87,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 28.33,
+   "t": 27.88,
    "trace": {
     "says": "thad",
     "control": null,
@@ -389,19 +389,19 @@
    }
   },
   {
-   "t": 28.36,
+   "t": 27.93,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 28.53,
+   "t": 28.07,
    "line": "action 1 (click): clicked funeral/grave at world 930,597 -- THE GRAVE, the second look: beat 3"
   },
   {
-   "t": 28.57,
+   "t": 28.11,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room funeral"
   },
   {
-   "t": 29.61,
+   "t": 29.11,
    "trace": {
     "says": "thad",
     "control": null,
@@ -416,42 +416,42 @@
    }
   },
   {
-   "t": 30.58,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     930,
-     857
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 30.58,
+   "t": 30.11,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 31.16,
+   "t": 30.14,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 30.67,
    "line": "action 1 (click): clicked screen 450,60 -- read on, to the watchman's"
   },
   {
-   "t": 31.28,
+   "t": 30.71,
    "line": "action 1 (waitFor): reached {\"says\":\"hob\"} in room funeral"
   },
   {
-   "t": 31.76,
+   "t": 31.17,
    "line": "capture 05-good-turnout: room funeral, says \"hob\", options 0, control null"
   },
   {
-   "t": 31.81,
+   "t": 31.21,
    "line": "action 1 (waitFor): reached {} in room funeral"
   },
   {
-   "t": 32.84,
+   "t": 32.24,
    "trace": {
     "says": null,
     "control": null,
@@ -466,7 +466,7 @@
    }
   },
   {
-   "t": 33.84,
+   "t": 33.23,
    "trace": {
     "says": "thad",
     "control": null,
@@ -481,7 +481,7 @@
    }
   },
   {
-   "t": 34.82,
+   "t": 34.23,
    "trace": {
     "says": "thad",
     "control": null,
@@ -496,9 +496,9 @@
    }
   },
   {
-   "t": 35.83,
+   "t": 35.23,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -511,9 +511,9 @@
    }
   },
   {
-   "t": 36.84,
+   "t": 36.25,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
@@ -526,11 +526,26 @@
    }
   },
   {
-   "t": 37.81,
+   "t": 37.22,
    "line": "action 1 (wait): waited 6s"
   },
   {
-   "t": 38.33,
+   "t": 37.23,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     450,
+     857
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 37.69,
    "line": "capture 06-he-has-walked: room funeral, says null, options 0, control null"
   }
  ],
@@ -538,11 +553,11 @@
   {
    "name": "01-arrived",
    "why": "the service",
-   "t": 6.55,
+   "t": 6.38,
    "file": "renders/proofs/funeral/life/raw-captures-ignored/01-arrived.png",
-   "hash": "5f3ca0c4986c6acc64ad09f9f2111b26c8afc470d86a3d94961fad78ffd73360",
+   "hash": "26facf4f128ae8a929a35cc6be3adcadd7217889c379448fc2711e0fa9913759",
    "room": "funeral",
-   "clock": 6.324199999999999,
+   "clock": 6.0295,
    "control": null,
    "says": null,
    "options": 0,
@@ -584,7 +599,8 @@
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
-    "PRATT_OFFERS": 0
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
    },
    "camera": 0,
    "movers": {
@@ -624,7 +640,7 @@
      "drawn": "art/backgrounds/room-31-funeral.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c"
+     "hash": "03dd0facf35b8234f8d3b1a0b7e991c62732a2ed84154fcff2dabdd193d45214"
     },
     {
      "key": "art/actors/room-31-grievance.png",
@@ -632,7 +648,7 @@
      "drawn": "art/actors/room-31-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f87dcd603ebac81cf0b71cffceafaa8a2e4c0ce9acb274463f95aeb67005ac57"
+     "hash": "4d373f6c8024b20ecf48cfdcbacc0b002448e7f7808536880a334914f2ab29ac"
     },
     {
      "key": "art/actors/room-31-hob.png",
@@ -640,7 +656,7 @@
      "drawn": "art/actors/room-31-hob.png",
      "candidate": false,
      "loaded": true,
-     "hash": "92d89f9fe628863f077f63098eeb92e4de28c879838ac8ba4f018a2408a4aa8b"
+     "hash": "942835063b3fe67bf86a45afa473c84131565605a0b71ce4ee39f59de840480b"
     },
     {
      "key": "art/actors/room-31-mourners.png",
@@ -648,7 +664,7 @@
      "drawn": "art/actors/room-31-mourners.png",
      "candidate": false,
      "loaded": true,
-     "hash": "fbf6ab58be1c3014cc3fae0fbd7f964fa82c59408b81d68327ca0b6bf092298a"
+     "hash": "a7dd472e3e1a7c4ea632e34d68c842cbfa5d6ee2860555c9c8a16533546b7e02"
     },
     {
      "key": "art/actors/room-31-sowerby.png",
@@ -656,7 +672,7 @@
      "drawn": "art/actors/room-31-sowerby.png",
      "candidate": false,
      "loaded": true,
-     "hash": "984f09ebd6d3321b856698380c24fa3e5199cdd1fff2b95b1901be105b60ad0a"
+     "hash": "71c21fa8b817e7a6b690d88f5562c515a1f31e8e80391bffd732537299b58a01"
     },
     {
      "key": "art/actors/room-31-undertaker.png",
@@ -664,7 +680,7 @@
      "drawn": "art/actors/room-31-undertaker.png",
      "candidate": false,
      "loaded": true,
-     "hash": "392397c5f6e8db4e59983e8ed389902d3da6925b6ef00ee6d008b389ffd8ebc3"
+     "hash": "e452f40c9ed7c66a958339a60fa9aab31c1ec4af18532be0bde1bc94e6122d00"
     }
    ],
    "stubs": [],
@@ -673,11 +689,11 @@
   {
    "name": "02-look-sowerby",
    "why": null,
-   "t": 17.6,
+   "t": 17.29,
    "file": "renders/proofs/funeral/life/raw-captures-ignored/02-look-sowerby.png",
-   "hash": "9bf2cd4ab4b310d554b764a8f593abc63b444e512bc7e87fc0d5ee40d9a3ee67",
+   "hash": "1abce3976d0c118feb53ab4e02b5e34f701234a50d09ba15bc8ed4a31935ecd6",
    "room": "funeral",
-   "clock": 17.390400000000003,
+   "clock": 17.029,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -719,7 +735,8 @@
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
-    "PRATT_OFFERS": 0
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
    },
    "camera": 0,
    "movers": {
@@ -759,7 +776,7 @@
      "drawn": "art/backgrounds/room-31-funeral.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c"
+     "hash": "03dd0facf35b8234f8d3b1a0b7e991c62732a2ed84154fcff2dabdd193d45214"
     },
     {
      "key": "art/actors/room-31-grievance.png",
@@ -767,7 +784,7 @@
      "drawn": "art/actors/room-31-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f87dcd603ebac81cf0b71cffceafaa8a2e4c0ce9acb274463f95aeb67005ac57"
+     "hash": "4d373f6c8024b20ecf48cfdcbacc0b002448e7f7808536880a334914f2ab29ac"
     },
     {
      "key": "art/actors/room-31-hob.png",
@@ -775,7 +792,7 @@
      "drawn": "art/actors/room-31-hob.png",
      "candidate": false,
      "loaded": true,
-     "hash": "92d89f9fe628863f077f63098eeb92e4de28c879838ac8ba4f018a2408a4aa8b"
+     "hash": "942835063b3fe67bf86a45afa473c84131565605a0b71ce4ee39f59de840480b"
     },
     {
      "key": "art/actors/room-31-mourners.png",
@@ -783,7 +800,7 @@
      "drawn": "art/actors/room-31-mourners.png",
      "candidate": false,
      "loaded": true,
-     "hash": "fbf6ab58be1c3014cc3fae0fbd7f964fa82c59408b81d68327ca0b6bf092298a"
+     "hash": "a7dd472e3e1a7c4ea632e34d68c842cbfa5d6ee2860555c9c8a16533546b7e02"
     },
     {
      "key": "art/actors/room-31-sowerby.png",
@@ -791,7 +808,7 @@
      "drawn": "art/actors/room-31-sowerby.png",
      "candidate": false,
      "loaded": true,
-     "hash": "984f09ebd6d3321b856698380c24fa3e5199cdd1fff2b95b1901be105b60ad0a"
+     "hash": "71c21fa8b817e7a6b690d88f5562c515a1f31e8e80391bffd732537299b58a01"
     },
     {
      "key": "art/actors/room-31-undertaker.png",
@@ -799,7 +816,7 @@
      "drawn": "art/actors/room-31-undertaker.png",
      "candidate": false,
      "loaded": true,
-     "hash": "392397c5f6e8db4e59983e8ed389902d3da6925b6ef00ee6d008b389ffd8ebc3"
+     "hash": "e452f40c9ed7c66a958339a60fa9aab31c1ec4af18532be0bde1bc94e6122d00"
     }
    ],
    "stubs": [],
@@ -808,11 +825,11 @@
   {
    "name": "03-listen-mourners",
    "why": null,
-   "t": 21.39,
+   "t": 21.04,
    "file": "renders/proofs/funeral/life/raw-captures-ignored/03-listen-mourners.png",
-   "hash": "039d1cfb6712aaf9d829042c33b0112858994bd491815235cacdc4e813e19ee7",
+   "hash": "fbe22dcd5dd7a6e579367042b390b37fc5fff7f2bc809240279180629067e210",
    "room": "funeral",
-   "clock": 21.0736,
+   "clock": 20.7622,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -854,7 +871,8 @@
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
-    "PRATT_OFFERS": 0
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
    },
    "camera": 0,
    "movers": {
@@ -894,7 +912,7 @@
      "drawn": "art/backgrounds/room-31-funeral.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c"
+     "hash": "03dd0facf35b8234f8d3b1a0b7e991c62732a2ed84154fcff2dabdd193d45214"
     },
     {
      "key": "art/actors/room-31-grievance.png",
@@ -902,7 +920,7 @@
      "drawn": "art/actors/room-31-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f87dcd603ebac81cf0b71cffceafaa8a2e4c0ce9acb274463f95aeb67005ac57"
+     "hash": "4d373f6c8024b20ecf48cfdcbacc0b002448e7f7808536880a334914f2ab29ac"
     },
     {
      "key": "art/actors/room-31-hob.png",
@@ -910,7 +928,7 @@
      "drawn": "art/actors/room-31-hob.png",
      "candidate": false,
      "loaded": true,
-     "hash": "92d89f9fe628863f077f63098eeb92e4de28c879838ac8ba4f018a2408a4aa8b"
+     "hash": "942835063b3fe67bf86a45afa473c84131565605a0b71ce4ee39f59de840480b"
     },
     {
      "key": "art/actors/room-31-mourners.png",
@@ -918,7 +936,7 @@
      "drawn": "art/actors/room-31-mourners.png",
      "candidate": false,
      "loaded": true,
-     "hash": "fbf6ab58be1c3014cc3fae0fbd7f964fa82c59408b81d68327ca0b6bf092298a"
+     "hash": "a7dd472e3e1a7c4ea632e34d68c842cbfa5d6ee2860555c9c8a16533546b7e02"
     },
     {
      "key": "art/actors/room-31-sowerby.png",
@@ -926,7 +944,7 @@
      "drawn": "art/actors/room-31-sowerby.png",
      "candidate": false,
      "loaded": true,
-     "hash": "984f09ebd6d3321b856698380c24fa3e5199cdd1fff2b95b1901be105b60ad0a"
+     "hash": "71c21fa8b817e7a6b690d88f5562c515a1f31e8e80391bffd732537299b58a01"
     },
     {
      "key": "art/actors/room-31-undertaker.png",
@@ -934,7 +952,7 @@
      "drawn": "art/actors/room-31-undertaker.png",
      "candidate": false,
      "loaded": true,
-     "hash": "392397c5f6e8db4e59983e8ed389902d3da6925b6ef00ee6d008b389ffd8ebc3"
+     "hash": "e452f40c9ed7c66a958339a60fa9aab31c1ec4af18532be0bde1bc94e6122d00"
     }
    ],
    "stubs": [],
@@ -943,11 +961,11 @@
   {
    "name": "04-look-grave",
    "why": null,
-   "t": 25.24,
+   "t": 24.81,
    "file": "renders/proofs/funeral/life/raw-captures-ignored/04-look-grave.png",
-   "hash": "81a410ddbe55a805d7f869c81a1b3cb38f9eccfbb32fbbe3f66d296085babceb",
+   "hash": "49fabe39de080eea7c2538e841f522bc9b9db8c965800e3b2179957d3ec5ccd2",
    "room": "funeral",
-   "clock": 24.890099999999997,
+   "clock": 24.5454,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -989,13 +1007,14 @@
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
-    "PRATT_OFFERS": 0
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
    },
    "camera": 0,
    "movers": {
     "thad": {
      "at": [
-      1371,
+      1377,
       857
      ],
      "facing": "left",
@@ -1005,7 +1024,7 @@
      "drawn": "sprite",
      "from": "art/actors/thad-walk-left/walk-04.png",
      "bounds": [
-      1158,
+      1164,
       457,
       403,
       429
@@ -1029,7 +1048,7 @@
      "drawn": "art/backgrounds/room-31-funeral.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c"
+     "hash": "03dd0facf35b8234f8d3b1a0b7e991c62732a2ed84154fcff2dabdd193d45214"
     },
     {
      "key": "art/actors/room-31-grievance.png",
@@ -1037,7 +1056,7 @@
      "drawn": "art/actors/room-31-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f87dcd603ebac81cf0b71cffceafaa8a2e4c0ce9acb274463f95aeb67005ac57"
+     "hash": "4d373f6c8024b20ecf48cfdcbacc0b002448e7f7808536880a334914f2ab29ac"
     },
     {
      "key": "art/actors/room-31-hob.png",
@@ -1045,7 +1064,7 @@
      "drawn": "art/actors/room-31-hob.png",
      "candidate": false,
      "loaded": true,
-     "hash": "92d89f9fe628863f077f63098eeb92e4de28c879838ac8ba4f018a2408a4aa8b"
+     "hash": "942835063b3fe67bf86a45afa473c84131565605a0b71ce4ee39f59de840480b"
     },
     {
      "key": "art/actors/room-31-mourners.png",
@@ -1053,7 +1072,7 @@
      "drawn": "art/actors/room-31-mourners.png",
      "candidate": false,
      "loaded": true,
-     "hash": "fbf6ab58be1c3014cc3fae0fbd7f964fa82c59408b81d68327ca0b6bf092298a"
+     "hash": "a7dd472e3e1a7c4ea632e34d68c842cbfa5d6ee2860555c9c8a16533546b7e02"
     },
     {
      "key": "art/actors/room-31-sowerby.png",
@@ -1061,7 +1080,7 @@
      "drawn": "art/actors/room-31-sowerby.png",
      "candidate": false,
      "loaded": true,
-     "hash": "984f09ebd6d3321b856698380c24fa3e5199cdd1fff2b95b1901be105b60ad0a"
+     "hash": "71c21fa8b817e7a6b690d88f5562c515a1f31e8e80391bffd732537299b58a01"
     },
     {
      "key": "art/actors/room-31-undertaker.png",
@@ -1069,7 +1088,7 @@
      "drawn": "art/actors/room-31-undertaker.png",
      "candidate": false,
      "loaded": true,
-     "hash": "392397c5f6e8db4e59983e8ed389902d3da6925b6ef00ee6d008b389ffd8ebc3"
+     "hash": "e452f40c9ed7c66a958339a60fa9aab31c1ec4af18532be0bde1bc94e6122d00"
     }
    ],
    "stubs": [],
@@ -1078,11 +1097,11 @@
   {
    "name": "05-good-turnout",
    "why": "where the watchman's words land (doc 55 section 8)",
-   "t": 31.76,
+   "t": 31.17,
    "file": "renders/proofs/funeral/life/raw-captures-ignored/05-good-turnout.png",
-   "hash": "8a94b28e19eeab29088a1cc0e5156851a4763bec921886df361896136104c17b",
+   "hash": "f61f7e63841692d97903a8623ef3a18f33beee3f37da9d376f66804ceabf8cf6",
    "room": "funeral",
-   "clock": 31.439799999999998,
+   "clock": 30.9118,
    "control": null,
    "says": "hob",
    "options": 0,
@@ -1126,13 +1145,14 @@
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
-    "PRATT_OFFERS": 0
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
    },
    "camera": 0,
    "movers": {
     "thad": {
      "at": [
-      790,
+      817,
       857
      ],
      "facing": "left",
@@ -1142,7 +1162,7 @@
      "drawn": "sprite",
      "from": "art/actors/thad-walk-left/walk-01.png",
      "bounds": [
-      577,
+      604,
       457,
       403,
       429
@@ -1166,7 +1186,7 @@
      "drawn": "art/backgrounds/room-31-funeral.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c"
+     "hash": "03dd0facf35b8234f8d3b1a0b7e991c62732a2ed84154fcff2dabdd193d45214"
     },
     {
      "key": "art/actors/room-31-grievance.png",
@@ -1174,7 +1194,7 @@
      "drawn": "art/actors/room-31-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f87dcd603ebac81cf0b71cffceafaa8a2e4c0ce9acb274463f95aeb67005ac57"
+     "hash": "4d373f6c8024b20ecf48cfdcbacc0b002448e7f7808536880a334914f2ab29ac"
     },
     {
      "key": "art/actors/room-31-mourners.png",
@@ -1182,7 +1202,7 @@
      "drawn": "art/actors/room-31-mourners.png",
      "candidate": false,
      "loaded": true,
-     "hash": "fbf6ab58be1c3014cc3fae0fbd7f964fa82c59408b81d68327ca0b6bf092298a"
+     "hash": "a7dd472e3e1a7c4ea632e34d68c842cbfa5d6ee2860555c9c8a16533546b7e02"
     },
     {
      "key": "art/actors/room-31-sowerby.png",
@@ -1190,7 +1210,7 @@
      "drawn": "art/actors/room-31-sowerby.png",
      "candidate": false,
      "loaded": true,
-     "hash": "984f09ebd6d3321b856698380c24fa3e5199cdd1fff2b95b1901be105b60ad0a"
+     "hash": "71c21fa8b817e7a6b690d88f5562c515a1f31e8e80391bffd732537299b58a01"
     },
     {
      "key": "art/actors/room-31-undertaker.png",
@@ -1198,7 +1218,7 @@
      "drawn": "art/actors/room-31-undertaker.png",
      "candidate": false,
      "loaded": true,
-     "hash": "392397c5f6e8db4e59983e8ed389902d3da6925b6ef00ee6d008b389ffd8ebc3"
+     "hash": "e452f40c9ed7c66a958339a60fa9aab31c1ec4af18532be0bde1bc94e6122d00"
     }
    ],
    "stubs": [],
@@ -1207,11 +1227,11 @@
   {
    "name": "06-he-has-walked",
    "why": null,
-   "t": 38.33,
+   "t": 37.68,
    "file": "renders/proofs/funeral/life/raw-captures-ignored/06-he-has-walked.png",
-   "hash": "1f067ad6037888b40e2108a944ced203814fb08e6ccfedabfe43a4a48a2c5b71",
+   "hash": "c0a4086a3dcd87ad7e17f6d6becaee6be00d8d064ce11acb3515441cfc32846d",
    "room": "funeral",
-   "clock": 38.123,
+   "clock": 37.4282,
    "control": null,
    "says": null,
    "options": 0,
@@ -1255,7 +1275,8 @@
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
-    "PRATT_OFFERS": 0
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
    },
    "camera": 0,
    "movers": {
@@ -1269,7 +1290,7 @@
      "height": 400,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-01.png",
+     "from": "art/actors/thad-idle-back/idle-05.png",
      "bounds": [
       213,
       457,
@@ -1295,7 +1316,7 @@
      "drawn": "art/backgrounds/room-31-funeral.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c"
+     "hash": "03dd0facf35b8234f8d3b1a0b7e991c62732a2ed84154fcff2dabdd193d45214"
     },
     {
      "key": "art/actors/room-31-grievance.png",
@@ -1303,7 +1324,7 @@
      "drawn": "art/actors/room-31-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f87dcd603ebac81cf0b71cffceafaa8a2e4c0ce9acb274463f95aeb67005ac57"
+     "hash": "4d373f6c8024b20ecf48cfdcbacc0b002448e7f7808536880a334914f2ab29ac"
     },
     {
      "key": "art/actors/room-31-mourners.png",
@@ -1311,7 +1332,7 @@
      "drawn": "art/actors/room-31-mourners.png",
      "candidate": false,
      "loaded": true,
-     "hash": "fbf6ab58be1c3014cc3fae0fbd7f964fa82c59408b81d68327ca0b6bf092298a"
+     "hash": "a7dd472e3e1a7c4ea632e34d68c842cbfa5d6ee2860555c9c8a16533546b7e02"
     },
     {
      "key": "art/actors/room-31-sowerby.png",
@@ -1319,7 +1340,7 @@
      "drawn": "art/actors/room-31-sowerby.png",
      "candidate": false,
      "loaded": true,
-     "hash": "984f09ebd6d3321b856698380c24fa3e5199cdd1fff2b95b1901be105b60ad0a"
+     "hash": "71c21fa8b817e7a6b690d88f5562c515a1f31e8e80391bffd732537299b58a01"
     },
     {
      "key": "art/actors/room-31-undertaker.png",
@@ -1327,7 +1348,7 @@
      "drawn": "art/actors/room-31-undertaker.png",
      "candidate": false,
      "loaded": true,
-     "hash": "392397c5f6e8db4e59983e8ed389902d3da6925b6ef00ee6d008b389ffd8ebc3"
+     "hash": "e452f40c9ed7c66a958339a60fa9aab31c1ec4af18532be0bde1bc94e6122d00"
     }
    ],
    "stubs": [],
@@ -1346,7 +1367,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 40.38s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 39.58s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -1361,5 +1382,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T21:52:04.487Z"
+ "at": "2026-11-06T00:29:42.032Z"
 }

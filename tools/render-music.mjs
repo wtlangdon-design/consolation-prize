@@ -90,6 +90,8 @@ const STEMS = [
     note: 'O-01-M — CONSOLATION, the title mix. Doc 28: full, piano-led.' },
   { file: 'thaddeus-room-01.wav', piece: 'THADDEUS_LA', loops: 4,
     note: 'O-02-M — THADDEUS, Room 1. Four bars of 3/4, solo, unaccompanied.' },
+  { file: 'thaddeus-complete-room-33.wav', piece: 'THADDEUS_COMPLETE_LA', loops: 4,
+    note: 'R33-M — THADDEUS, complete (errata 70 C): the fourth bar resolves. Placeholder composition by the builder.' },
 ];
 
 function wav(channels, rate) {
@@ -132,6 +134,9 @@ function fold(data, bodyFrames) {
 }
 
 const FORCE = process.argv.includes('--force');
+// --only <file>: render that stem alone, leaving the auditioned ones as they are.
+const ONLY = process.argv.includes('--only') ? process.argv[process.argv.indexOf('--only') + 1] : null;
+if (ONLY) STEMS.splice(0, STEMS.length, ...STEMS.filter((stem) => stem.file === ONLY));
 // CHECKED BEFORE THE BROWSER STARTS, so a refusal costs nothing and reads as a
 // refusal rather than as a slow failure.
 const existing = STEMS.filter((stem) => existsSync(resolve(OUT, stem.file)));

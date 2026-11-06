@@ -532,11 +532,11 @@
    "castingNote": "Nobody: 'the pilgrims are in the lines, not the room'. Thad alone, for scale."
   },
   "room-31-funeral": {
-   "visualType": "exterior-street",
+   "visualType": "exterior-night",
    "comparable": {
     "id": "room-14-boot-hill",
     "path": "art/backgrounds/room-14-boot-hill.png",
-    "note": "D -- Boot Hill itself, the same graveyard; the funeral is at the end plot of its third row (errata 87 D), by day: doc 54's THE SKY, 'Clear, very high and very blue' (errata 99 G)."
+    "note": "D -- Boot Hill itself, the same graveyard; the funeral is at the end plot of its third row (errata 87 D), at night like every exterior in the game (Tyler, 2026-11-06, errata 99 K): the day composition relit under operation 4's moon by tools/art/room31-night.py."
    },
    "casting": [
     {
@@ -602,6 +602,7 @@
   },
   "room-36-main-street-dawn": {
    "visualType": "exterior-street",
+   "daylight": "Doc 20: Main Street at dawn replaces Room 2 after F5 -- the last room, and nothing after it is night (errata 99 J).",
    "comparable": {
     "id": "room-02-main-street",
     "path": "art/backgrounds/room-02-main-street.png",

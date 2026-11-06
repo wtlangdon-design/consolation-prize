@@ -38,7 +38,7 @@ const exitOut = (state: GameState) => state.room.exits.find((one) => one.to !== 
 const lines = (result: { say: string | null; then?: unknown[] }) => [result.say,
   ...(result.then ?? []).map((one) => (typeof one === 'string' ? one : (one as { line: string }).line))];
 
-test('by day every subject answers LOOK and LISTEN with a line the documents write', async () => {
+test('during the service every subject answers LOOK and LISTEN with a line the documents write', async () => {
   const state = await inState(DAY);
   assert.equal(state.roomId, ROOM);
   const subjects = [...(state.room.hotspots ?? []), ...state.room.exits];

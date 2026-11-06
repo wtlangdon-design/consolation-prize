@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "funeral",
- "note": "ROOM 31's LIFE ROUTE, ruling 47: about a minute at his own funeral, starting there (fixture r31-a). The service by day: Sowerby's eulogy, the mourners, the mule; LOOK at the Reverend, LISTEN to the mourners, LOOK at the grave twice -- the second is beat 3, and the watchman walks.",
+ "note": "ROOM 31's LIFE ROUTE, ruling 47: about a minute at his own funeral, starting there (fixture r31-a). The service, by moonlight: Sowerby's eulogy, the mourners, the mule; LOOK at the Reverend, LISTEN to the mourners, LOOK at the grave twice -- the second is beat 3, and the watchman walks.",
  "actions": [
   {
    "do": "capture",

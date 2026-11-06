@@ -1,0 +1,16 @@
+{
+ "day": "art/staging/room-31/plate-01/candidate-lifted-1920x864.png",
+ "night": "art/backgrounds/room-31-funeral-night.png",
+ "sigma": 28,
+ "skyPixels": 300156,
+ "relit": [
+  "art/actors/room-31-undertaker.png",
+  "art/actors/room-31-sowerby.png",
+  "art/actors/room-31-hob.png",
+  "art/actors/room-31-grievance.png",
+  "art/actors/room-31-mourners.png",
+  "art/props/room-31-hearse.png",
+  "art/actors/room-31-hob-walk.png"
+ ],
+ "why": "Tyler, 2026-11-06: no night to day and back; the funeral under operation 4's moon (errata 99 K)."
+}

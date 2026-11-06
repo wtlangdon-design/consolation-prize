@@ -105,7 +105,7 @@
 > **LISTEN:** "Nothing. Nine people, not talking."
 
 **HOB, AT THE EDGE**
-> **LOOK:** "The night watchman, standing at the back, in daylight. I have never seen him in daylight."
+> **LOOK:** "The night watchman, standing at the back, off his rounds. I have never once seen him stand still."
 > **LISTEN:** "Nothing."
 
 **THE MARKER**
