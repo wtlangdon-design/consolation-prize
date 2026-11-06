@@ -52,6 +52,9 @@ function collectWrites(content) {
   // Doc 35's auto-open: a character who opens on the player writes his
   // once-only flags when he does.
   for (const { data } of content.rooms) record(data.onEnter?.accost?.set, undefined);
+  // Writes made on entry under a condition, and an arrival scene's outcome (doc 57 C6, D4, D6, F4).
+  for (const { data } of content.rooms) for (const rule of data.onEnter?.setWhen ?? []) record(rule.set, undefined);
+  for (const { data } of content.rooms) for (const scene of data.onEnter?.scenes ?? []) record(scene.after?.set, undefined);
   // An item used on something is a writer too: a pair's own `set`, and each of
   // its cases' (Room 18's stairs open on the piano pair's T_ROOM_GRANTED).
   const combos = content.combinations?.data ?? content.combinations;

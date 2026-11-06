@@ -1,0 +1,142 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "DOC 57 F4 IN THE GAME: from r2-f4, out of the assay office onto Main Street; Fanshawe calls Duel Three; one wrong answer is thrown again; then 4, 9, 22, 23 and the truth.",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "out onto the street"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 60
+  },
+  {
+   "do": "waitFor",
+   "says": "fanshawe",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "00-the-challenge",
+   "room": "main_street"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "capture",
+   "name": "01-counters",
+   "room": "main_street"
+  },
+  {
+   "do": "option",
+   "option": "w0",
+   "why": "a wrong answer: it is thrown again"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "02-reply",
+   "room": "main_street"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "capture",
+   "name": "03-again",
+   "room": "main_street"
+  },
+  {
+   "do": "option",
+   "option": "right",
+   "why": "exchange 1"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 90
+  },
+  {
+   "do": "option",
+   "option": "right",
+   "why": "exchange 2"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 90
+  },
+  {
+   "do": "option",
+   "option": "right",
+   "why": "exchange 3"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 90
+  },
+  {
+   "do": "option",
+   "option": "right",
+   "why": "exchange 4"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 90
+  },
+  {
+   "do": "option",
+   "option": "right",
+   "why": "the truth"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "04-the-truth",
+   "room": "main_street"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "capture",
+   "name": "05-verdict",
+   "room": "main_street"
+  },
+  {
+   "do": "waitFor",
+   "flag": "T_FANSHAWE_BEATEN",
+   "upTo": 90
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "06-after",
+   "room": "main_street"
+  }
+ ]
+}

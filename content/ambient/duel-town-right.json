@@ -1,0 +1,77 @@
+{
+ "schema": 1,
+ "id": "duel_town_right",
+ "name": "THE TOWN",
+ "posture": "band",
+ "room": "main_street",
+ "when": {
+  "T_DUEL_CROWD": true
+ },
+ "note": "HALF THE TOWN, watching, at the road end. Doc 57 F4: 'The first time Thad steps onto the street after T_ASSAY_RUN, Fanshawe is waiting with half the town and the judges' table on the boardwalk, Sowerby holding the pencil.' Cut from room-02 operations 1 and 2 by tools/art/room02-duel-cast.py and laid over Room 2's own street. Present for the visit the duel is called on (T_DUEL_CROWD), and gone the next time.",
+ "x": 3538,
+ "y": 817,
+ "zone": 1,
+ "approachRadius": 0,
+ "tree": "",
+ "barks": {},
+ "barksNote": "The duel is spoken through the assay (content/assay/assay.json).",
+ "sprite": {
+  "sheet": "art/actors/room-02-duel-town-right.png",
+  "frames": [
+   [
+    2,
+    2,
+    364,
+    298
+   ],
+   [
+    368,
+    2,
+    364,
+    298
+   ],
+   [
+    734,
+    2,
+    364,
+    298
+   ],
+   [
+    1100,
+    2,
+    364,
+    298
+   ],
+   [
+    1466,
+    2,
+    364,
+    298
+   ]
+  ],
+  "rate": 0.22,
+  "phase": 0.2,
+  "breaks": [
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "frameNote": "0 rest, watching · 1 breath · 2-4 a few of them shifting their weight, a different few each time",
+  "provenance": "art/staging/room-02/duel-cast/cast.json",
+  "figureHeight": 298,
+  "stature": 1.0
+ }
+}

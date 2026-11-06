@@ -621,7 +621,9 @@
           "by": "fanshawe",
           "attribution": "Fanshawe"
         }
-      ]
+      ],
+      "learnedAt": "E10",
+      "learnedRuling": "doc 57 E10 and its pair table: \"22-24 | the truth | E10, the confession\"."
     },
     {
       "n": 23,
@@ -645,6 +647,36 @@
         {
           "text": "That must be very lonely.",
           "reply": "Not at all. Being right draws a crowd, Mr. Grubb. Look around you.",
+          "by": "fanshawe",
+          "attribution": "Fanshawe"
+        }
+      ],
+      "learnedAt": "E10",
+      "learnedRuling": "doc 57 E10 and its pair table: \"22-24 | the truth | E10, the confession\"."
+    },
+    {
+      "n": 24,
+      "tier": 6,
+      "learnedFrom": "the ending",
+      "learnedAt": "E10",
+      "boast": "I have never told a lie in my life.",
+      "counter": "There is no gold in Mott's claim. There never was. Obadiah Mott invented it to raise a grubstake off men in Boston, and every one of you built a house on top of it.",
+      "wrong": [
+        {
+          "text": "Neither have I, and look where it got me.",
+          "reply": "Into a hole, by most accounts. Do try again, Mr. Grubb.",
+          "by": "fanshawe",
+          "attribution": "Fanshawe"
+        },
+        {
+          "text": "You just did.",
+          "reply": "That's not a counter, Mr. Grubb, that's an accusation, and we have no court for those.",
+          "by": "fanshawe",
+          "attribution": "Fanshawe"
+        },
+        {
+          "text": "I tune pianos.",
+          "reply": "And we are all very grateful. Was there anything else?",
           "by": "fanshawe",
           "attribution": "Fanshawe"
         }
@@ -830,6 +862,72 @@
         "watch"
       ],
       "lossRuling": "errata 73 H: a lost Duel Two ends on the reply that lost it; nothing more is said."
+    },
+    "duel_three": {
+      "puzzle": "F4",
+      "opponent": "fanshawe",
+      "opening": [
+        {
+          "speaker": "fanshawe",
+          "line": "No hard feelings, Mr. Grubb. It's simply how we settle things here. You'll find it very fair."
+        }
+      ],
+      "openingRuling": "doc 57 F4: \"doc 03's challenge plays\".",
+      "sequence": [
+        4,
+        9,
+        22,
+        23,
+        24
+      ],
+      "sequenceRuling": "errata 75 and doc 57 F4: \"in the order 4, 9, 22, 23, then the fifth\".",
+      "rethrow": [
+        {
+          "speaker": "fanshawe",
+          "line": "Shall we have that one again? I'd hate to win on a technicality."
+        },
+        {
+          "speaker": "fanshawe",
+          "line": "Again, I think. The judges have barely sharpened the pencil."
+        },
+        {
+          "speaker": "fanshawe",
+          "line": "Once more. I want the town to remember this properly."
+        }
+      ],
+      "rethrowRuling": "errata 75: \"A lost exchange is thrown again ... After the reply to a wrong answer, one of these, in turn.\" So the duel cannot be lost, and ends when the fifth is answered.",
+      "knows": [
+        24
+      ],
+      "knowsRuling": "doc 03: \"The player is offered four counters. Three are jokes. The fourth is pair 24, and it is not a lie.\" It is always on offer.",
+      "win": [
+        {
+          "speaker": "sowerby",
+          "line": "...That's the biggest one I ever heard."
+        },
+        {
+          "speaker": "thad",
+          "line": "It's true."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "Better still!"
+        },
+        {
+          "speaker": "fanshawe",
+          "line": "He puts on his hat.",
+          "direction": true
+        },
+        {
+          "speaker": "fanshawe",
+          "line": "Well played, Mr. Grubb."
+        }
+      ],
+      "setsOnWin": {
+        "T_FANSHAWE_BEATEN": true
+      },
+      "calledByOpponent": true,
+      "calledRuling": "doc 03: \"Fanshawe calls the duel himself\"; doc 57 F4: on Main Street after T_ASSAY_RUN, Fanshawe is waiting."
     }
   }
 }

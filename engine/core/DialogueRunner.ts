@@ -268,6 +268,24 @@ export class DialogueRunner {
     return this.activeTree !== null;
   }
 
+  /**
+   * A DUEL THE OPPONENT CALLS HIMSELF (doc 57 F4: "Fanshawe is waiting ... and
+   * doc 03's challenge plays"). No option starts it: his tree opens and the
+   * duel is running from its first boast. Its opening and first boast are the
+   * greeting (`duelIntro`), performed before this is called.
+   */
+  startDuel(treeId: string, duelId: string): void {
+    if (!this.assay) throw new Error(`${duelId} is called and no assay is loaded`);
+    this.start(treeId);
+    this.duel = new DuelSession(this.assay.file, duelId, this.knownPairs());
+  }
+
+  /** The challenge and first boast of a duel the opponent calls: spoken as he opens on Thad. */
+  duelIntro(duelId: string): { speaker: string; line: string; direction?: boolean }[] {
+    if (!this.assay) throw new Error(`${duelId} is called and no assay is loaded`);
+    return new DuelSession(this.assay.file, duelId, this.knownPairs()).intro();
+  }
+
   start(treeId: string): void {
     const tree = this.trees.get(treeId);
     if (!tree) {
@@ -377,7 +395,7 @@ export class DialogueRunner {
 
   private knownPairs(): Set<number> {
     if (!this.assay) return new Set();
-    return knownPairs(this.assay.file, (flag) => this.flags.get(flag) === true);
+    return knownPairs(this.assay.file, (flag) => this.flags.get(flag) === true, (puzzle) => this.milestoneReached(puzzle));
   }
 
   get currentNode(): DialogueNode | null {
@@ -740,8 +758,15 @@ export class DialogueRunner {
     if (resolution.duelChoice && this.duel) {
       const choice = this.duel.commit(resolution.duelChoice);
       if (choice.ended) {
+        const called = this.assay?.file.duels[this.duel.id]?.calledByOpponent === true;
         this.duel = null;
         if (choice.yields.length) this.assay?.grant(choice.yields);
+        // A DUEL HE CALLED HIMSELF ends the conversation it was: there was no
+        // list before it to go back to (doc 03: Fanshawe walks back up the street).
+        if (called) {
+          this.activeTree = null;
+          this.activeNodeId = null;
+        }
       }
       return;
     }

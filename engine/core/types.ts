@@ -1430,6 +1430,11 @@ export interface RoomFile {
        * does, and its tree's puzzle-gated entry performs its opening once.
        */
       completes?: string;
+      /**
+       * THE ACCOST IS A DUEL HE CALLS (doc 57 F4): its challenge and first
+       * boast are the greeting, and the duel is running when the list opens.
+       */
+      duel?: string;
     };
   };
   /** Destinations doc 20 names but whose appearance rule nobody has stated. */

@@ -11,6 +11,11 @@
   "horizon": 192,
   "ambient": [
     "dog",
+    "duel_fanshawe",
+    "duel_judges",
+    "duel_sowerby",
+    "duel_town_left",
+    "duel_town_right",
     "letter_writer",
     "map_seller",
     "pie_woman"
@@ -1081,7 +1086,8 @@
   "onEnter": {
     "note": "His first sight of the town, and the words come from doc 05's THE FALSE FRONTS rather than being written fresh -- he has the opinion already; this is him having it out loud at the moment he first has it. AMENDED AFTER TYLER CHECKED IT AGAINST THE PLATE: the original said EVERY building was a false front, which the picture contradicts -- the saloon is a flat parapet with a low roof behind it, and the hotel beside it is genuinely two storeys with lit windows and real depth. The plate is signed off, so the writing yields, and the observation is better for it: the half that is real is the half with money, which is the town's whole economy in one line. Gated on T_SEEN_MAIN_STREET, which onEnter sets, so it plays once.",
     "set": {
-      "T_SEEN_MAIN_STREET": true
+      "T_SEEN_MAIN_STREET": true,
+      "T_DUEL_CROWD": false
     },
     "sayOnce": "T_SEEN_MAIN_STREET",
     "say": [
@@ -1092,7 +1098,28 @@
     "walkTo": [
       3300,
       706
-    ]
+    ],
+    "setWhen": [
+      {
+        "when": {
+          "T_ASSAY_RUN": true,
+          "T_FANSHAWE_BEATEN": false
+        },
+        "set": {
+          "T_DUEL_CROWD": true
+        }
+      }
+    ],
+    "accost": {
+      "npc": "duel_fanshawe",
+      "when": {
+        "T_DUEL_CROWD": true,
+        "T_FANSHAWE_BEATEN": false
+      },
+      "afterSeconds": 1.5,
+      "duel": "duel_three",
+      "note": "Doc 57 F4 and doc 03: Fanshawe calls the duel himself, 'to discredit Thad in front of the whole town before Thad can be heard'. His challenge and the first boast are the greeting; the duel is running when the counters are offered."
+    }
   },
   "size": [
     3700,

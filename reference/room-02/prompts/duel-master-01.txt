@@ -1,0 +1,15 @@
+Image 1 is a finished night background from my pixel-art adventure game: a frontier main street, 1850s -- a saloon at the far left, a two-storey hotel with a covered porch in the middle, a small assay office with a lantern by its door at the right, and the muddy street with puddles in front. Image 2 shows who these people are (identity only). Image 3 is the hero.
+
+Keep image 1 EXACTLY as it is -- every building, board, window, lantern, puddle, the mountains, the stars, the camera and the pixel grid -- and ADD these people to it, at night, lit by the same lanterns and moonlight:
+
+1. On the hotel's porch (the covered boardwalk in the middle), a plain wooden table set out with three chairs behind it, and three men seated at it: the three seated men in image 2, side by side, hands folded on the table. Small, as far away as the porch is.
+2. Standing at the right-hand end of that table, on the porch: the preacher in the black frock coat from image 2 (the man with the raised hand), holding up a pencil.
+3. In the street, a little left of centre, standing in the mud facing right toward the assay office: the grey-haired, grey-moustached gentleman from image 2 -- a frock coat, a brown waistcoat with a gold watch chain, a tall hat on his head -- standing tall and pleased with himself.
+4. In the street, right of centre, in front of the assay office steps, facing left toward the gentleman: the hero from image 3, at exactly his proportions, about 175 pixels tall in this picture.
+5. Along the front edge of the porch and at the left edge of the street, watching: seven or eight plain townspeople in frontier clothes, men in hats and two women in shawls, standing, not overlapping the hero or the gentleman.
+
+SIZES: a man standing on the porch is about 125 pixels tall; a man standing in the street where the hero stands is about 175 pixels tall. Nobody is larger than that.
+
+THE LOOK: the same pixel-art style as image 1 and the hero: the SAME BIG SQUARE PIXELS, flat, soft shading, very little texture, simple shapes, night colours. Each person crisp against the background, separated from the others by a little space.
+
+RULES: no readable text, letters or numbers anywhere. No border, no frame, no caption.

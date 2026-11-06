@@ -4905,3 +4905,12 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 - **Sowerby at the gate** is his funeral sheet (finger raised, lit by the same moon). No sheet of him holds a plate, so the plate is in the performed direction, not the picture.
 - **WIN_C1 option 2's emphasis** ("*never*", "*made of*") was dropped in doc 04, wording kept: the font has no italic (check-no-markdown-emphasis).
 
+## Q178 · F4, Duel Three on Main Street — **BUILT 2026-11-06 (errata 99 N), room-02 2 of 6 operations, AWAITING TYLER'S PLAYTHROUGH**
+
+**Built.** Out of the assay office after the sample is assayed, Fanshawe, the judges' table and half the town are on the street; he calls the duel; a wrong answer is thrown again; the truth wins it (`T_FANSHAWE_BEATEN`, F4). Played in tests/f4.test.ts; seen in the game by the route `main-street-duel-three` (fixture r2-f4).
+
+**For Tyler:**
+- **Four judges, not three.** The master seated four at the table; Room 4's judges are three.
+- **Fanshawe does not walk back up the street** (doc 03: "He walks back up the street to his office"): no walk of him exists. He and the town stay while Thad is on the street and are gone the next time.
+- **The duel is played in the conversation list**, as Room 4's are.
+

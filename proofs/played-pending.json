@@ -4,7 +4,6 @@
  "puzzles": {
   "C1": "Winnie's refusal is a topic (doc 02: 'Topic: the queue'), reached through WIN_A1; no puzzle state is written for it and nothing waits on C1 as a puzzle. Played in Room 5's acceptance by Tyler; no test walks it as a puzzle.",
   "C2": "A topic like C1 (doc 02: 'Topic: get into Fanshawe's office'); its evidence is Room 11's submission log, taken in C4 (tests/room-11.test.ts), and nothing waits on C2 as a puzzle.",
-  "F4": "Act IV: the final duel on Main Street. Its prerequisites F1-F3 are in unbuilt rooms.",
   "F5": "Act IV's filing (doc 48 S6): SUM_F1 and the documents laid on the counter need F1-F4, in rooms not built; SUM_F1 waits unextracted (doc 36 Q150)."
  }
 }

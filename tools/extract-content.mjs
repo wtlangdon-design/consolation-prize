@@ -3185,7 +3185,9 @@ function winnieTree() {
       // State: opens / sets / req, by backticked id.
       const state = stateCell ?? '';
       const opens = /opens `(WIN_[A-Z0-9]+)`/.exec(state);
-      const sets = /sets `([A-Z_0-9]+)`/.exec(state);
+      // A write may sit in the response's own direction instead (doc 04 WIN_F1
+      // option 1: "*(sets `T_ASSAY_RUN`; errata 75)*").
+      const sets = /sets `([A-Z_0-9]+)`/.exec(state) ?? /\*\(sets `([A-Z_0-9]+)`/.exec(responseCell);
       const req = /req `([A-Z_0-9]+)`/.exec(state);
       if (opens) option.goto = opens[1];
       if (sets) option.set = { [sets[1]]: true };
@@ -3573,6 +3575,9 @@ function assay() {
     if (found.length !== written) throw new Error(`doc 03: Tier ${tierNumber} has ${found.length} pairs, not ${written}`);
   }
   if (pairs.length !== 23) throw new Error(`doc 03: ${pairs.length} pairs, not 23`);
+  // FANSHAWE'S TIER IS LEARNED BY A PUZZLE, NOT A FLAG. Doc 57 E10: "Pairs 22,
+  // 23 and 24 join: Thad now knows the truth" when the confession completes.
+  for (const pair of pairs) if (pair.tier === 6) Object.assign(pair, { learnedAt: 'E10', learnedRuling: 'doc 57 E10 and its pair table: "22-24 | the truth | E10, the confession".' });
 
   // PART THREE: three wrong answers per pair, each with its reply.
   const three = part('# PART THREE', '# PART FOUR');
@@ -3625,6 +3630,46 @@ function assay() {
   if (two2.length !== 2) throw new Error(`doc 03: Duel Two has ${two2.length} spoken groups, not 2`);
   const [duelTwoPreamble, duelTwoWin] = two2;
 
+  // DUEL THREE, the Main Street duel (doc 03 "DUEL FOUR -- Colonel Absalom
+  // Fanshawe"; doc 57 F4). Its spoken lines, in order, with their directions:
+  // the challenge; the three lines after a lost exchange, in turn (errata 75:
+  // "A lost exchange is thrown again"); the fifth boast and the truth (pair
+  // 24); and the end. The three jokes beside pair 24 are Part Three's.
+  const four = part('## DUEL FOUR', '# PART FIVE');
+  const said = [...four.matchAll(/^> \*\*([A-Z]+):\*\* (?:\*\(([^)]+)\)\* )?"(.+?)"$/gm)]
+    .map(([, who, direction, line]) => ({ who, direction, line: plain(line) }));
+  const SAYS3 = { FANSHAWE: 'fanshawe', THAD: 'thad', SOWERBY: 'sowerby' };
+  const spoken3 = (one) => {
+    if (!SAYS3[one.who]) throw new Error(`doc 03 Duel Four: unknown speaker ${one.who}`);
+    return [...(one.direction ? [{ speaker: SAYS3[one.who], line: plain(one.direction), direction: true }] : []),
+      { speaker: SAYS3[one.who], line: one.line }];
+  };
+  if (said.length !== 10) throw new Error(`doc 03 Duel Four: ${said.length} spoken lines, not 10`);
+  const [challenge, again1, again2, again3, fifth, truth, ...ending] = said;
+  const jokes = three.slice(three.indexOf('**Duel Three, the fifth exchange**'), three.indexOf('**Standing mockery'));
+  const pair24 = {
+    n: 24, tier: 6, learnedFrom: 'the ending', learnedAt: 'E10', boast: fifth.line, counter: truth.line,
+    wrong: [...jokes.matchAll(WRONG)].map(([, text, by, reply]) => ({ text: plain(text), reply: plain(reply), by: BY[by], attribution: by })),
+  };
+  if (pair24.wrong.length !== 3) throw new Error(`doc 03: the fifth exchange has ${pair24.wrong.length} jokes, not 3`);
+  pairs.push(pair24);
+  const duelThree = {
+    puzzle: 'F4',
+    opponent: 'fanshawe',
+    opening: spoken3(challenge),
+    openingRuling: 'doc 57 F4: "doc 03\'s challenge plays".',
+    sequence: [4, 9, 22, 23, 24],
+    sequenceRuling: 'errata 75 and doc 57 F4: "in the order 4, 9, 22, 23, then the fifth".',
+    rethrow: [again1, again2, again3].flatMap(spoken3),
+    rethrowRuling: 'errata 75: "A lost exchange is thrown again ... After the reply to a wrong answer, one of these, in turn." So the duel cannot be lost, and ends when the fifth is answered.',
+    knows: [24],
+    knowsRuling: 'doc 03: "The player is offered four counters. Three are jokes. The fourth is pair 24, and it is not a lie." It is always on offer.',
+    win: ending.flatMap(spoken3),
+    setsOnWin: { T_FANSHAWE_BEATEN: true },
+    calledByOpponent: true,
+    calledRuling: 'doc 03: "Fanshawe calls the duel himself"; doc 57 F4: on Main Street after T_ASSAY_RUN, Fanshawe is waiting.',
+  };
+
   return write('content/assay/assay.json', {
     schema: 1,
     id: 'ASSAY',
@@ -3668,6 +3713,7 @@ function assay() {
         yields: ['document_a', 'watch'],
         lossRuling: 'errata 73 H: a lost Duel Two ends on the reply that lost it; nothing more is said.',
       },
+      duel_three: duelThree,
     },
   });
 }

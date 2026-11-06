@@ -1,0 +1,7 @@
+Image 1 is a finished night background from my pixel-art adventure game: a frontier main street with a saloon at the left, a hotel with a covered porch in the middle and a small assay office with a lantern at the right. People are gathered: a table with four seated men on the hotel porch, a preacher standing beside it, a grey-haired gentleman and a man in a long blue coat facing each other in the street, and townspeople at both sides.
+
+Make exactly these changes:
+1. Remove EVERY person: the four seated men, the preacher, the gentleman, the man in the blue coat, and all the townspeople at the left and the right. Paint the street, the mud, the puddles, the porch boards, the walls and the steps behind them.
+2. Remove the table and its chairs from the porch. Paint the porch boards and the hotel wall behind them.
+
+Keep exactly as they are: every building, board, window, door, lantern, barrel, step, puddle, the mountains, the road and the stars. Same camera, same pixel grid, same big square pixels, same colours, same night light. No people, no shadows of people, no text, no numerals.
