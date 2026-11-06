@@ -30,7 +30,7 @@
               "Nobody takes them. In a town that would pick a nail out of the road, nobody takes them."
             ],
             "then": [
-              "I do not know what for and I do not think they do."
+              "I don't know what for, and I don't think they do."
             ]
           }
         ],
@@ -357,7 +357,7 @@
             "say": "Scraped clean as a plate. Men have gone over this stone with brushes. With brushes.",
             "repeat": [
               "There are scratches in it from every tool the Mercantile has ever sold, in roughly the order it sold them.",
-              "It is the cleanest rock in the district and the least interesting. I have looked at it longer than it deserves, in honor of everyone else who did."
+              "It is the cleanest rock in the district and the least interesting. I've looked at it longer than it deserves, in honor of everyone else who did."
             ]
           }
         ],
@@ -461,7 +461,7 @@
           {
             "say": "Wind in the workings. A hollow instrument, played badly.",
             "repeat": [
-              "Nothing. Nothing whatsoever. It is the emptiest sound I have heard since I arrived.",
+              "Nothing. Nothing whatsoever. It's the emptiest sound I've heard since I arrived.",
               "The wind, and under it, faint and far off, somebody's pick. Even here, somebody is still checking."
             ]
           }

@@ -216,7 +216,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 ## ROOM 25 — PRATT'S CLAIM
 
 **THE BORDER STONES** · PUSH — "I nudged one a hand-width. When I passed at dusk it was back, and the whitewash was fresh. We have not discussed it. We will never discuss it."
-**THE TOOL RACK** · PICK_UP — "Borrowing from Pratt is simple: you ask, he says yes, and then you are a man who borrowed from Pratt, and the tools come back cleaner than they left. I am not ready for the standard."
+**THE TOOL RACK** · PICK_UP — "Borrowing from Pratt is simple: you ask, he says yes, and then you are a man who borrowed from Pratt, and the tools come back cleaner than they left. I'm not ready for the standard."
 **THE SIGN: NO COLOR YET** · TALK_TO — "'Any day now,' I told it. The YET gleamed. Somebody repaints that word the way other men pray."
 **THE CAMP CHAIR** · USE — "I sat in it. The trench looked back, square-cornered, patient. For one minute I understood him completely, and it was restful."
 
@@ -237,7 +237,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 ## ROOM 28 — SHENG'S LAUNDRY
 
-**THE MANGLE** · USE — "He let me turn the crank once. It was the most useful thing I have done in the territory and we both knew it."
+**THE MANGLE** · USE — "He let me turn the crank once. It was the most useful thing I've done in the territory, and we both knew it."
 **THE COPPERS** · OPEN — "Steam took my hat's shape briefly. Sheng did not look up: 'Collars are extra.'"
 **THE TICKET RAIL** · PULL — "The district's one uncorrupted ledger, on a wire. I withdrew my hand with the reverence it was owed."
 **THE COLLAR ADVERTISEMENT** · TALK_TO — "I asked the gentleman who he really was. He kept his jaw square and his counsel. He is the most consistent man in Consolation and he does not exist."

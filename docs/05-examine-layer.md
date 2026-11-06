@@ -925,7 +925,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. Stones with a job."
 
 **THE TOOL RACK**
-> **LOOK:** "Pick, shovel, pan, and bar, hung in size order, oiled. They look forward to Monday. I have never seen tools look forward to anything."
+> **LOOK:** "Pick, shovel, pan, and bar, hung in size order, oiled. They look forward to Monday. I've never seen tools look forward to anything."
 > **LISTEN:** "The pan swings a little. A single soft gong, on the hour, when the wind is right."
 
 **THE DIGGINGS, SUCH AS THEY ARE**
@@ -1015,7 +1015,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. The argument is over."
 
 **CLAIM MARKER — "GLORY HOLE"**
-> **LOOK:** "GLORY HOLE. A mining term, I am assured. The hole is there. The glory is on back order."
+> **LOOK:** "GLORY HOLE. A mining term, I'm assured. The hole is there. The glory is on back order."
 > **LISTEN:** "Wind across the shaft mouth below. A low note, held."
 
 **CLAIM MARKER — "THE WIDOW'S MITE"**
@@ -1061,7 +1061,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE STOVE & IRONS**
 > **LOOK:** "Flat irons in ranks on the stove top, rotated by weight and heat in an order I could not learn in a year."
-> **LISTEN:** "Iron on iron, set down and taken up. A steady percussion. It is the closest thing this town has to a metronome, and I would know."
+> **LISTEN:** "Iron on iron, set down and taken up. A steady percussion. It's the closest thing this town has to a metronome, and I'd know."
 
 **THE MENDING BASKET**
 > **LOOK:** "Torn shirts awaiting needles. The territory is hard on elbows. Half the mending is the same three men's."
