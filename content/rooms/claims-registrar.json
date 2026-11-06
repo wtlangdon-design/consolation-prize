@@ -99,14 +99,14 @@
           {
             "say": "Nothing.",
             "repeat": [
-              "Nothing.",
+              "A page, if I lean close. Not a word.",
               "Nothing. It has the whole town in it and no opinion about any of it."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "That is the district."
+        "PICK_UP": "That's the district. I'd need a bigger coat."
       }
     },
     {
@@ -126,7 +126,7 @@
             "say": "A pen, chained to the counter. The chain is longer than the counter requires.",
             "repeat": [
               "It has been chained since before the chain was needed, or since somebody proved it was.",
-              "It writes. I have used it. It is a perfectly good pen on a chain."
+              "It writes. I've used it. It's a perfectly good pen on a chain, and it knows it."
             ]
           }
         ],
@@ -134,14 +134,14 @@
           {
             "say": "Nothing.",
             "repeat": [
-              "Nothing.",
-              "Nothing."
+              "The chain, if I touch it.",
+              "Nothing. It's chained, and quiet about it."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "It is chained. That is the entire design."
+        "PICK_UP": "It's chained. That's the entire design."
       }
     },
     {
@@ -158,13 +158,13 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A spindle of numbered tickets. I am ninety-one.",
+            "say": "A spindle of numbered tickets. I'm ninety-one.",
             "repeat": [
               "Ninety-one. The other man is still forty.",
-              "I have taken ninety-two, to see. Nobody stopped me."
+              "I've taken ninety-two, to see. Nobody stopped me. I'm now two people in the queue."
             ],
             "then": [
-              "There is one other man in the room and he is forty."
+              "There's one other man in the room, and he's forty."
             ]
           }
         ],
@@ -172,14 +172,14 @@
           {
             "say": "Nothing. It waits extremely well.",
             "repeat": [
-              "Nothing.",
+              "Still nothing. It's very patient.",
               "Nothing. It waits extremely well."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "I have my ticket. Taking the spindle would be a different sort of crime."
+        "PICK_UP": "I've got my ticket. Taking the spindle would be a different sort of crime."
       },
       "walkTo": {
         "x": 935,
@@ -204,22 +204,25 @@
             "say": "The office clock. It is authoritative and it is wrong.",
             "repeat": [
               "Eleven minutes fast, and authoritative about it.",
-              "It is the only clock in Consolation that anybody obeys."
+              "It's the only clock in Consolation that anybody obeys."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Running eleven minutes fast, which I know because I own a watch that agrees with it and I do not trust that either.",
+            "say": "Running eleven minutes fast.",
             "repeat": [
               "Ticking. Fast.",
-              "Ticking. I have stopped hearing it, which took four days."
+              "Ticking. I've stopped hearing it. It took four days."
+            ],
+            "then": [
+              "I know because my watch agrees with it, and I don't trust my watch either."
             ]
           }
         ]
       },
       "overrides": {
-        "USE": "I am not adjusting the Registrar's clock."
+        "USE": "I'm not adjusting the Registrar's clock. I want to. I'm not."
       }
     },
     {
@@ -238,8 +241,8 @@
           {
             "say": "A door, locked, with a statute posted beside it explaining precisely who may pass through. I am not among them.",
             "repeat": [
-              "The statute beside it lists four persons who may pass. I am none of them, and neither is Mr Sump.",
-              "Still locked. It is very consistently locked."
+              "The statute beside it lists four persons who may pass. I'm none of them, and neither is Mr Sump.",
+              "Still locked. It's very consistently locked."
             ]
           }
         ],
@@ -247,8 +250,8 @@
           {
             "say": "Nothing. It is very thick and there is nothing behind it that moves.",
             "repeat": [
-              "Nothing.",
-              "Nothing at all. Whatever is in there is not moving."
+              "Nothing through the door.",
+              "Nothing at all. Whatever's in there isn't moving."
             ]
           }
         ],
@@ -277,8 +280,8 @@
         ]
       },
       "overrides": {
-        "OPEN": "Locked. It is the only locked door in Consolation.",
-        "PULL": "Locked, and it does not give at all."
+        "OPEN": "Locked. It's the only locked door in Consolation.",
+        "PULL": "Locked, and it doesn't give at all. I gave it every chance."
       }
     },
     {
@@ -298,7 +301,7 @@
             "say": "Forms in triplicate, and a sign explaining that the third copy is for the applicant.",
             "repeat": [
               "Twelve slots. The third-copy slot is empty in all twelve.",
-              "I have taken one of each. It seemed prudent and it was not."
+              "I've taken one of each. It seemed prudent. It wasn't."
             ],
             "then": [
               "There is no third copy in any of the slots."
@@ -310,13 +313,13 @@
             "say": "Paper, settling. It is a sound like a very slow argument.",
             "repeat": [
               "Paper, settling.",
-              "Nothing."
+              "Nothing. Even the paper's waiting."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "I have taken one of each already and it did not help."
+        "PICK_UP": "I've already taken one of each. It didn't help."
       },
       "walkTo": {
         "x": 698,
@@ -340,7 +343,7 @@
           {
             "say": "Every claim in the district, pinned and numbered.",
             "repeat": [
-              "There is no cross on it. I had expected a cross.",
+              "There's no cross on it. I'd hoped for a cross. A big one, in red.",
               "Somebody has put a pin in it and taken the pin out again. There is a hole."
             ],
             "then": [
@@ -352,14 +355,14 @@
           {
             "say": "Nothing.",
             "repeat": [
-              "Nothing.",
-              "Nothing."
+              "Paper, flat to the wall.",
+              "Nothing. The pins aren't talking."
             ]
           }
         ]
       },
       "overrides": {
-        "PICK_UP": "It is pinned to the wall, and it is the only accurate map in town."
+        "PICK_UP": "It's pinned to the wall, and it's the only accurate map in town. I'm not going to be the man who changes that."
       },
       "walkTo": {
         "x": 748,
@@ -384,7 +387,7 @@
             "say": "A bench along the wall for those waiting. It seats nine.",
             "repeat": [
               "The seat is worn at one end only. Everybody sits nearest the window.",
-              "I have sat on it. It is a bench and it is doing what it can."
+              "I've sat on it. It's a bench, and it's doing what it can."
             ]
           }
         ],
@@ -393,7 +396,7 @@
             "say": "Nothing.",
             "repeat": [
               "Nothing.",
-              "Nothing. There is nobody on it."
+              "Nothing. There's nobody on it."
             ]
           }
         ]
@@ -427,10 +430,10 @@
             "say": "Somewhere behind that partition is a certificate asserting my death, filed correctly, in perfect order. It is the best-organized thing that has ever happened to me."
           },
           {
-            "say": "A counter built a little too high to lean on comfortably. I have tested this.",
+            "say": "A counter built a little too high to lean on comfortably. I've tested this. Repeatedly.",
             "repeat": [
               "Worn in a band where four thousand men have rested their forearms and been told to wait.",
-              "There is a brass rail along the front. Somebody once expected a crowd."
+              "There's a brass rail along the front. Somebody once expected a crowd."
             ]
           }
         ],
@@ -447,8 +450,8 @@
           {
             "say": "Nothing.",
             "repeat": [
-              "Nothing.",
-              "Nothing."
+              "The clock, over my shoulder, and nothing from the counter.",
+              "Wood, being leaned on. By me. Against advice."
             ]
           }
         ]
@@ -476,7 +479,7 @@
             "say": "Two roped lines, two signs. FILING and INQUIRIES.",
             "repeat": [
               "The ropes have been up long enough to have worn the paint off the posts.",
-              "I have stood in both, to be certain. It made no difference to anything."
+              "I've stood in both, to be sure. It made no difference to anything."
             ],
             "then": [
               "There is nobody in either of them and the ropes are up regardless."
@@ -515,7 +518,7 @@
             "say": "The door out. It has a bell on a spring that announces everyone.",
             "repeat": [
               "The bell has announced me four times today.",
-              "Mr Sump has not looked up at that bell in some years, I should think."
+              "Mr Sump hasn't looked up at that bell in years, I'd guess."
             ]
           }
         ],
