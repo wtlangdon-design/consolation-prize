@@ -107,4 +107,4 @@
 | VESSEL · LISTEN 2 | Still talking. / He has stopped, which is worse. | Still talking. A lovely voice for saying nothing in. / He's stopped talking. He's looking at me. |
 | VESSEL · reply 1 | Everybody knows. It's a small place and you're a new thing in it. | Everybody knows. Small place, and you're the newest thing in it. |
 | VESSEL · reply 5 [COMIC] | I've made my peace with it. | I've made my peace with it. / She hasn't, but she's a long way off. |
-
+| VESSEL · reply 3 *(after Tyler's play, 2026-11-05)* | Claim Two. Producing, mind. But my sister's poorly and Sacramento's four days. | Claim Two. A producing claim, mind you. It's never once stopped producing. But my sister's poorly, and Sacramento's four days. |
