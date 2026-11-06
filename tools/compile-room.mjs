@@ -1325,8 +1325,17 @@ function transitBeat(spec) {
   const body = rest.slice(0, (/\n## |\n---\n/.exec(rest) ?? { index: rest.length }).index);
   const [first, ...more] = beatQuotes(spec, body, 'transitScene');
   const by = spec.speaker && spec.speaker !== 'thad' ? spec.speaker : null;
+  // LINES THAT FOLLOW FROM AN EXTRACTED FILE (doc 48 S7 beat 4: "The letter,
+  // Act IV, over black"): the field of the file the extraction wrote, each line
+  // Thad's, over black when the spec says so. Never typed here.
+  const after = spec.thenFrom ? (() => {
+    const lines = JSON.parse(read(spec.thenFrom.file))[spec.thenFrom.field];
+    if (!Array.isArray(lines) || !lines.length) fail(`transitScene: ${spec.thenFrom.file} has no ${spec.thenFrom.field} lines`);
+    return lines.map((line) => ({ speaker: 'thad', line, ...(spec.thenFrom.overBlack ? { overBlack: true } : {}) }));
+  })() : [];
+  const following = [...(by ? more.map((line) => ({ speaker: by, line })) : more), ...after];
   return { ...(spec.when ? { when: spec.when } : {}), say: first, ...(by ? { by } : {}),
-    ...(more.length ? { then: by ? more.map((line) => ({ speaker: by, line })) : more } : {}),
+    ...(following.length ? { then: following } : {}),
     ...(spec.set ? { set: spec.set } : {}), ...(spec.stays ? { stays: true } : {}),
     sceneLine: `${spec.ref} · ${spec.bullet ?? `beat ${spec.row}`}` };
 }

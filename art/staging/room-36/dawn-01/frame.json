@@ -1,0 +1,13 @@
+{
+ "source": "/home/user/consolation-prize/art/staging/room-36/dawn-01/source.png",
+ "night": "art/backgrounds/room-02-main-street.png",
+ "out": "art/staging/room-36/dawn-01/candidate-3700x864.png",
+ "band": {
+  "top": 332,
+  "rows": 359,
+  "shiftY": -1
+ },
+ "blur": 4.0,
+ "skyPixels": 577696,
+ "why": "Room 2's pixels under operation 1's light (tools/art/room36-dawn.py)."
+}

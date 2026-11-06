@@ -47,7 +47,8 @@
   "content/rooms/funeral.json",
   "content/rooms/under-prosperity.json",
   "content/rooms/listening-chamber.json",
-  "content/rooms/company-vault.json"
+  "content/rooms/company-vault.json",
+  "content/rooms/main-street-dawn.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -107,7 +108,8 @@
   "content/fixtures/room-31.json",
   "content/fixtures/room-33.json",
   "content/fixtures/room-34.json",
-  "content/fixtures/room-35.json"
+  "content/fixtures/room-35.json",
+  "content/fixtures/room-36.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -183,7 +185,8 @@
   "content/ambient/funeral-sowerby.json",
   "content/ambient/funeral-hob.json",
   "content/ambient/funeral-grievance.json",
-  "content/ambient/funeral-mourners.json"
+  "content/ambient/funeral-mourners.json",
+  "content/ambient/dawn-dog.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",

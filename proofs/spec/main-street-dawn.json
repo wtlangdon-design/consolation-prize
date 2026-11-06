@@ -1,0 +1,19 @@
+{
+ "schema": 1,
+ "room": "main_street_dawn",
+ "note": "ROOM 36's PROOF SPEC. Room 36 replaces Room 2 after F5 (doc 20), and F5 is not built, so the proof starts on the street at dawn from fixture r36-a and says so. The principal change is the close: the coach stop, Thad's last line and the letter over black.",
+ "fixture": "r36-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "DOC 48 S7 BEATS 3-4, as state: T_CLOSE_SAID set by the flag control, the coach stop gone and the street left at its close. The close itself -- 'Leave the mud.' and the letter over black -- is played by clicking the stop in the doors route (tools/gauntlet/routes/main-street-dawn-doors.json), from where the fixture stands him; by panel D the proof has moved him far down the street.",
+  "flags": {
+   "T_CLOSE_SAID": true
+  },
+  "actions": [
+   {
+    "do": "wait",
+    "seconds": 2
+   }
+  ]
+ }
+}

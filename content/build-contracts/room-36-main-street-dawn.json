@@ -1,0 +1,191 @@
+{
+ "schema": 1,
+ "id": "room-36-main-street-dawn",
+ "room": "main_street_dawn",
+ "docRoom": 36,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 36 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/08-examine-batch-1.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/48-act-turn-beats.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-36.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "One picture; after F5 (doc 20); the close at the one exit (doc 48 S7)."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-36/annotation.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "Room 2's plate relit, on Room 2's geometry (its graybox is Room 2's); every subject is plate."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-36.json",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "The dog, on his back in the road (doc 48 S7 beat 1)."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/main-street-dawn/life/life.json"
+   ],
+   "note": "The dog's paw and tail."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/main-street-dawn/proof.json"
+   ],
+   "note": "Room 2's street and walk band."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-36/annotation.json"
+   ],
+   "note": "First light: Room 2's pixels under operation 1's light (tools/art/room36-dawn.py)."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-36.test.ts",
+    "docs/00-errata.md::99 · ROOMS 26-30, THE DIGGINGS -- THE BUILDER'S DECISIONS (2026-11-05)"
+   ],
+   "note": "No puzzle is sited here; the close is the one exit."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-36.json",
+    "content/rooms/main-street-dawn.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 57 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-36: 2 of 4 operations (the relight, the dog)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/main-street-dawn.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-36/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/main-street-dawn/proof.json"
+   ],
+   "note": "Panel D: the close, T_CLOSE_SAID. Started from fixture r36-a."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/main-street-dawn/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/main-street-dawn/doors/life.json",
+    "tests/room-36.test.ts"
+   ],
+   "note": "The one exit: the close plays and he stays."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "the relight",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-36/dawn-01/source.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; its light is carried onto Room 2's pixels."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-36-main-street-dawn.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-36/dawn-01/frame.json"
+   ],
+   "note": "Attempt 1, transferred; promoted provisionally (errata 72 E)."
+  },
+  {
+   "subject": "the dog on his back",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-36-dog.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-36/dog-01/dog.json"
+   ],
+   "note": "Attempt 2."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q176 · Room 36, Main Street at dawn: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 J, delegated); BUILT, room-36 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q176 · Room 36, Main Street at dawn: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 J, delegated); BUILT, room-36 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

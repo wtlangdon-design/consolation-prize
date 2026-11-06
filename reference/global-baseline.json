@@ -599,6 +599,22 @@
     }
    ],
    "castingNote": "Nobody: 'The vault is empty of people'. Thad for scale."
+  },
+  "room-36-main-street-dawn": {
+   "visualType": "exterior-street",
+   "comparable": {
+    "id": "room-02-main-street",
+    "path": "art/backgrounds/room-02-main-street.png",
+    "note": "D -- the same street (doc 20: Room 36 replaces Room 2 after F5), relit to first light; its pixels are Room 2's (errata 99 J)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "The dog, on his back in the road (doc 48 S7 beat 1). Nobody else."
   }
  }
 }

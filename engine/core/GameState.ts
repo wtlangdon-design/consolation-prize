@@ -1296,6 +1296,15 @@ export class GameState {
     // this session belongs to a game that is being put away.
     this.standing.clear();
     if (save.position) this.standing.set(save.room, save.position);
+    // THE VIEW GOES TO HIM ON A LOAD TOO, as `arrive` does on every entry. A
+    // load set the room and left the camera where it was and following nobody,
+    // so a save (or a fixture) on a street wider than the window opened on its
+    // west end with him off the frame, and the view never caught him up --
+    // found building Room 36, whose fixture starts at Main Street's east edge.
+    this.cameraFollows = this.content.actor.id;
+    const width = roomWidth(this.content.rooms.get(save.room)?.size);
+    const entryX = save.position?.[0] ?? this.entranceInto(save.room, null)?.at?.[0] ?? width / 2;
+    this.camera = cameraAt(entryX, width);
     return true;
   }
 

@@ -1,0 +1,1104 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "main_street_dawn",
+ "commit": "de6a88208220dd516dac5c1d6ebcea734aa48ae5",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": null,
+ "fixture": "r36-a",
+ "warped": false,
+ "lifeRoute": "main-street-dawn-life",
+ "durationSeconds": 45.2,
+ "events": [
+  {
+   "t": 2.7,
+   "line": "started from fixture r36-a, no entry route"
+  },
+  {
+   "t": 5.79,
+   "line": "in main_street_dawn; life route: 21 action(s)"
+  },
+  {
+   "t": 6.39,
+   "line": "capture 01-arrived: room main_street_dawn, says null, options 0, control null"
+  },
+  {
+   "t": 7.44,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3660,
+     600
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 8.39,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3660,
+     600
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 9.42,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3660,
+     600
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.4,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3660,
+     600
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 11.41,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3660,
+     600
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.39,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 12.42,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3660,
+     600
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.45,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 12.62,
+   "line": "action 1 (click): clicked main_street_dawn/dog at world 2630,730 -- A DOG"
+  },
+  {
+   "t": 13.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3571,
+     606
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 14.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3479,
+     613
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 15.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3386,
+     620
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 16.66,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3287,
+     627
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 17.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3190,
+     634
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 18.67,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3087,
+     642
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 19.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2986,
+     649
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 20.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2881,
+     657
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 21.67,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2772,
+     665
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 22.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2664,
+     673
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 23.66,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2630,
+     762
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 24.49,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room main_street_dawn"
+  },
+  {
+   "t": 25,
+   "line": "capture 02-look-dog: room main_street_dawn, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 25.04,
+   "line": "action 1 (waitFor): reached {} in room main_street_dawn"
+  },
+  {
+   "t": 26.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2630,
+     838
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 27.06,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2630,
+     838
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 28.05,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 28.06,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2630,
+     838
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 28.11,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 28.27,
+   "line": "action 1 (click): clicked main_street_dawn/hills at world 3440,325 -- THE HILLS"
+  },
+  {
+   "t": 28.32,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room main_street_dawn"
+  },
+  {
+   "t": 28.82,
+   "line": "capture 03-listen-hills: room main_street_dawn, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 28.86,
+   "line": "action 1 (waitFor): reached {} in room main_street_dawn"
+  },
+  {
+   "t": 29.89,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2868,
+     817
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 30.88,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3017,
+     804
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 31.86,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 31.89,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3165,
+     791
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 31.93,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 32.11,
+   "line": "action 1 (click): clicked main_street_dawn/false_fronts at world 1580,320 -- THE FALSE FRONTS"
+  },
+  {
+   "t": 32.15,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room main_street_dawn"
+  },
+  {
+   "t": 32.66,
+   "line": "capture 04-look-fronts: room main_street_dawn, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 32.71,
+   "line": "action 1 (waitFor): reached {} in room main_street_dawn"
+  },
+  {
+   "t": 33.73,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3422,
+     769
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 34.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3440,
+     658
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 35.72,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 35.74,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3440,
+     620
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 36.73,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3440,
+     620
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 37.74,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3440,
+     620
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 38.74,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3440,
+     620
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 39.75,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3440,
+     620
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 40.74,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3440,
+     620
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 41.74,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3440,
+     620
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 42.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3440,
+     620
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 43.72,
+   "line": "action 1 (wait): waited 8s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "first light",
+   "t": 6.38,
+   "file": "renders/proofs/main-street-dawn/life/raw-captures-ignored/01-arrived.png",
+   "hash": "bd956ce14e4888e9ba4d57a0667b306726b94750fa4b8fbb2f7bb581de1acbd1",
+   "room": "main_street_dawn",
+   "clock": 6.0898,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2
+   },
+   "camera": 1780,
+   "movers": {
+    "thad": {
+     "at": [
+      3660,
+      600
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 111,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-02.png",
+     "bounds": [
+      3602,
+      489,
+      115,
+      123
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street_dawn",
+     "path": "art/backgrounds/room-36-main-street-dawn.png",
+     "drawn": "art/backgrounds/room-36-main-street-dawn.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "08bef467c2750c5af85af4534883c5151ba14f0e2ce860802650b5392fd4a217"
+    },
+    {
+     "key": "art/actors/room-36-dog.png",
+     "path": "art/actors/room-36-dog.png",
+     "drawn": "art/actors/room-36-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f9e2672b11220940b0c46aee037979a4a807de8dc833bd5b28acce97323e7850"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-look-dog",
+   "why": null,
+   "t": 24.99,
+   "file": "renders/proofs/main-street-dawn/life/raw-captures-ignored/02-look-dog.png",
+   "hash": "7a58e73bae23577120dc046f3f8e933f75e7ddcc2911b91b129d9cf843822e35",
+   "room": "main_street_dawn",
+   "clock": 24.755599999999998,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2
+   },
+   "camera": 1780,
+   "movers": {
+    "thad": {
+     "at": [
+      2630,
+      838
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 199,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      2512,
+      639,
+      236,
+      220
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street_dawn",
+     "path": "art/backgrounds/room-36-main-street-dawn.png",
+     "drawn": "art/backgrounds/room-36-main-street-dawn.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "08bef467c2750c5af85af4534883c5151ba14f0e2ce860802650b5392fd4a217"
+    },
+    {
+     "key": "art/actors/room-36-dog.png",
+     "path": "art/actors/room-36-dog.png",
+     "drawn": "art/actors/room-36-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f9e2672b11220940b0c46aee037979a4a807de8dc833bd5b28acce97323e7850"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-listen-hills",
+   "why": null,
+   "t": 28.82,
+   "file": "renders/proofs/main-street-dawn/life/raw-captures-ignored/03-listen-hills.png",
+   "hash": "9bb59d9e0f07dcc23c2cc699aa3e4198404cd72a0a320637485b59064bdd34de",
+   "room": "main_street_dawn",
+   "clock": 28.4555,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2
+   },
+   "camera": 1780,
+   "movers": {
+    "thad": {
+     "at": [
+      2688,
+      833
+     ],
+     "facing": "right",
+     "clip": "walk",
+     "height": 197,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-right/walk-01.png",
+     "bounds": [
+      2594,
+      636,
+      199,
+      211
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street_dawn",
+     "path": "art/backgrounds/room-36-main-street-dawn.png",
+     "drawn": "art/backgrounds/room-36-main-street-dawn.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "08bef467c2750c5af85af4534883c5151ba14f0e2ce860802650b5392fd4a217"
+    },
+    {
+     "key": "art/actors/room-36-dog.png",
+     "path": "art/actors/room-36-dog.png",
+     "drawn": "art/actors/room-36-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f9e2672b11220940b0c46aee037979a4a807de8dc833bd5b28acce97323e7850"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-look-fronts",
+   "why": null,
+   "t": 32.65,
+   "file": "renders/proofs/main-street-dawn/life/raw-captures-ignored/04-look-fronts.png",
+   "hash": "4a2ed2b14c904925c81e01c0cba6d20761f40de46bd36581341e6a82c4adaef4",
+   "room": "main_street_dawn",
+   "clock": 32.3053,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_DINED",
+    "T_EXCAVATION_CLAUSE",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2
+   },
+   "camera": 1780,
+   "movers": {
+    "thad": {
+     "at": [
+      3260,
+      783
+     ],
+     "facing": "right",
+     "clip": "walk",
+     "height": 178,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-right/walk-03.png",
+     "bounds": [
+      3175,
+      605,
+      179,
+      191
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street_dawn",
+     "path": "art/backgrounds/room-36-main-street-dawn.png",
+     "drawn": "art/backgrounds/room-36-main-street-dawn.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "08bef467c2750c5af85af4534883c5151ba14f0e2ce860802650b5392fd4a217"
+    },
+    {
+     "key": "art/actors/room-36-dog.png",
+     "path": "art/actors/room-36-dog.png",
+     "drawn": "art/actors/room-36-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f9e2672b11220940b0c46aee037979a4a807de8dc833bd5b28acce97323e7850"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 45.2s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-05T23:55:06.179Z"
+}

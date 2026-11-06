@@ -1,0 +1,92 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 36, Main Street at dawn. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r36-a",
+   "label": "R36-A Act IV, the close: Main Street at first light",
+   "room": "main_street_dawn",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "T_NINETY_DAYS": true,
+    "ACT": 4,
+    "T_ASSAY_QUEUE": true,
+    "T_NEED_TO_DIE": true,
+    "T_EXECUTOR_RULE": true,
+    "T_PIKE_DEAD": true,
+    "T_EXECUTOR_NAMED": true,
+    "T_DECEASED": true,
+    "T_SAME_HAND": true,
+    "T_HOB_HANDWRITING": true,
+    "T_HOB_IS_MOTT": true,
+    "T_NO_GOLD_EVER": true,
+    "T_WARM_HOLE": true,
+    "T_PICKAXE_ON_ACCOUNT": true,
+    "T_DINED": true,
+    "T_EXCAVATION_CLAUSE": true,
+    "T_PRATT_JUMP_SEEN": true,
+    "T_PRATT_STAKE": true,
+    "T_DRAUGHT": true,
+    "T_DUG_DOWN": true,
+    "T_FORK_STRUCK": true,
+    "T_VOID_FOUND": true,
+    "T_IN_TUNE": true,
+    "PICK_SWINGS": 2,
+    "T_BROKE_THROUGH": true,
+    "T_STRIKE_FOUND": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation",
+    "blanket",
+    "pickaxe",
+    "sample"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "D1": "complete",
+    "E1": "complete",
+    "E2": "complete",
+    "E6": "complete",
+    "E9": "complete",
+    "E10": "complete",
+    "A5": "complete",
+    "A10": "complete",
+    "D2": "complete",
+    "F1": "complete",
+    "F2": "complete",
+    "F3": "complete"
+   },
+   "derivedFrom": [
+    "docs/48-act-turn-beats.md::S7 · MAIN STREET, DAWN (the close)",
+    "docs/05-examine-layer.md::ROOM 36 — MAIN STREET, DAWN"
+   ],
+   "notBuilt": [
+    "F4 (the final duel, Room 2) and F5 (the filing, Room 7) lead here; neither is built (doc 36 Q150, Q176), so the street at dawn is reached by this fixture"
+   ],
+   "note": "The nine dawn hotspots; the one exit, the coach stop, east: Thad's last line and the letter over black."
+  }
+ ]
+}
