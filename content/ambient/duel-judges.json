@@ -16,36 +16,36 @@
  "barks": {},
  "barksNote": "The duel is spoken through the assay (content/assay/assay.json).",
  "sprite": {
-  "sheet": "art/actors/room-02-duel-table.png",
+  "sheet": "art/actors/room-02-duel-table-master.png",
   "frames": [
    [
     2,
     2,
-    805,
+    746,
     300
    ],
    [
-    809,
+    750,
     2,
-    805,
+    746,
     300
    ],
    [
-    1616,
+    1498,
     2,
-    805,
+    746,
     300
    ],
    [
-    2423,
+    2246,
     2,
-    805,
+    746,
     300
    ],
    [
-    3230,
+    2994,
     2,
-    805,
+    746,
     300
    ]
   ],
@@ -68,9 +68,9 @@
   ],
   "breakEvery": 6,
   "frameNote": "0 the judges at their table · 1 breath · 2-4 each judge moving in his own third: a lean, a nod, a glance, all three at once",
-  "provenance": "art/staging/room-02/duel-cast/cast.json",
+  "provenance": "reference/cast-unify-20.spec.json",
   "figureHeight": 417,
   "stature": 1.0,
-  "redrawn": "Tyler, 2026-11-06: the three judges drawn whole at their table, each with his own legs -- cast-unify operation 7, row 2 (tools/art/cast-unify-duel-table.py)."
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 22 (reference/cast-unify-20.txt); cut with its own pixels and a clean edge; its own file. The three judges whole at one table on the hotel porch -- table, chairs, and each man's own legs and boots under it -- as one drawing; each judge's lean, nod and glance derived within his own third (tools/art/cast-unify-duel-table.py --master)."
  }
 }

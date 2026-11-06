@@ -19,36 +19,36 @@
  "barks": {},
  "barksNote": "Doc 07 writes no barks for the livery man.",
  "sprite": {
-  "sheet": "art/actors/room-15-livery-man.png",
+  "sheet": "art/actors/room-15-livery-man-master.png",
   "frames": [
    [
     2,
     2,
-    162,
+    179,
     235
    ],
    [
-    166,
+    183,
     2,
-    162,
+    179,
     235
    ],
    [
-    330,
+    364,
     2,
-    162,
+    179,
     235
    ],
    [
-    494,
+    545,
     2,
-    162,
+    179,
     235
    ],
    [
-    658,
+    726,
     2,
-    162,
+    179,
     235
    ]
   ],
@@ -83,6 +83,7 @@
   "breakEvery": 6,
   "talkFrame": 3,
   "frameNote": "0 rest, tipped back · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 humming, eyes shut · 3 talking · 4 the hat brim pulled down. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool -- humming or the hat (errata 35 and 77: a deliberate action at least every 30 s). He talks on 3.",
-  "provenance": "art/staging/room-15/livery-man/livery-man.json"
+  "provenance": "reference/cast-unify-20.spec.json",
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 22 (reference/cast-unify-20.txt); cut with its own pixels and a clean edge; its own file. In his chair, tipped back (doc 54); the chair is his. The humming pose came with a musical note drawn in the air; the cutter drops it as a speck."
  }
 }

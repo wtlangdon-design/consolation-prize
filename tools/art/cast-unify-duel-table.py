@@ -12,6 +12,11 @@ a nod, a glance), all three at once and differently, so the group's action is a
 tenth of it (errata 77). The Reverend on the porch is his redrawn pencil sheet.
 
 Writes art/actors/room-02-duel-table.png and room-02-duel-sowerby.png; prints frames.
+
+  --master <sheet> <row> <out.png>: the table drawn from the locked cast
+  master (errata 101; cast-unify 22), cut through tools/art/cast-unify-cut.py
+  (its clean edge and pocket rule) to <out.png>; the Reverend is not touched
+  (his duel placement draws his own master sheet).
 """
 import json
 import os
@@ -40,8 +45,16 @@ for y, on in enumerate(busy):
         if y - start > 40:
             bands.append((start, y))
         start = None
-y0, y1 = bands[ROW]
-with tempfile.TemporaryDirectory() as tmp:
+MASTER = sys.argv[sys.argv.index('--master') + 1:sys.argv.index('--master') + 4] if '--master' in sys.argv else None
+y0, y1 = bands[ROW] if not MASTER else (0, 0)
+if MASTER:
+    with tempfile.TemporaryDirectory() as tmp:
+        cut = os.path.join(tmp, 'cut.png')
+        info = json.loads(subprocess.check_output([sys.executable, os.path.join(ROOT, 'tools/art/cast-unify-cut.py'), MASTER[0], MASTER[1], str(TALL), cut, '--grid', '1']))
+        sheet = np.asarray(Image.open(cut).convert('RGBA'))
+    info['frames'] = info['frames'][:1]       # the rest pose; its breath is derived below
+else:
+  with tempfile.TemporaryDirectory() as tmp:
     part = os.path.join(tmp, 'row.png')
     Image.fromarray(np.asarray(Image.open(SHEET).convert('RGB'))[max(0, y0 - 4):y1 + 4]).save(part)
     cut = os.path.join(tmp, 'cut.png')
@@ -103,12 +116,14 @@ for i, f in enumerate(frames):
     fx = GAP + i * (w + GAP)
     outsheet[GAP:GAP + h, fx:fx + w] = f
     rects.append([fx, GAP, int(w), int(h)])
-Image.fromarray(outsheet).save(os.path.join(ROOT, 'art/actors/room-02-duel-table.png'))
+Image.fromarray(outsheet).save(MASTER[2] if MASTER else os.path.join(ROOT, 'art/actors/room-02-duel-table.png'))
 # Seated, the group's head-to-floor is about 0.72 of a standing man: the engine
 # draws it so (figureHeight is the standing man this drawing implies).
 out['table'] = rects
 out['tableFigureHeight'] = int(round(h / 0.72))
 
+if MASTER:
+    print(json.dumps(out)); sys.exit(0)
 sow = subprocess.check_output([sys.executable, os.path.join(ROOT, 'tools/art/cast-unify-cut.py'),
                                os.path.join(ROOT, 'art/staging/cast-unify/batch-04/sheet.png'), '1', '188',
                                os.path.join(ROOT, 'art/actors/room-02-duel-sowerby.png')])

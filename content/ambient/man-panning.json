@@ -13,54 +13,42 @@
  "barks": {},
  "barksNote": "Doc 10: he does not speak.",
  "sprite": {
-  "sheet": "art/actors/room-26-panner.png",
+  "sheet": "art/actors/room-26-panner-master.png",
   "frames": [
    [
     2,
     2,
-    270,
+    127,
     153
    ],
    [
-    274,
+    131,
     2,
-    270,
+    127,
     153
    ],
    [
-    546,
+    260,
     2,
-    270,
+    127,
     153
    ],
    [
-    818,
+    389,
     2,
-    270,
+    127,
     153
    ],
    [
-    1090,
+    518,
     2,
-    270,
+    127,
     153
    ],
    [
-    1362,
+    647,
     2,
-    270,
-    153
-   ],
-   [
-    1634,
-    2,
-    270,
-    153
-   ],
-   [
-    1906,
-    2,
-    270,
+    127,
     153
    ]
   ],
@@ -70,12 +58,10 @@
    [
     4,
     5,
-    6,
-    7,
     4,
     5,
-    6,
-    7,
+    4,
+    5,
     0
    ],
    [
@@ -92,13 +78,14 @@
    [
     4,
     5,
-    6,
-    7,
+    4,
+    5,
     0
    ]
   ],
   "breakEvery": 6,
-  "frameNote": "0 rest · 1 breath · 2 peering into the pan · 3 tipping it out · 4-7 the swirl. Breathing on 0 and 1; every `breakEvery` seconds one break -- a swirl, a peer, the tip (errata 77).",
-  "provenance": "art/staging/room-26/panner/panner.json"
+  "frameNote": "0 crouched, the pan level · 1 breath (derived) · 2 peering into the pan · 3 tipping it out · 4-5 the swirl, left and right. Breathing on 0 and 1; every `breakEvery` seconds one break -- a swirl, a peer, the tip (errata 77).",
+  "provenance": "reference/cast-unify-20.spec.json",
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 22 (reference/cast-unify-20.txt); cut with its own pixels and a clean edge; its own file. Crouched at the water's edge with his pan in every pose."
  }
 }
