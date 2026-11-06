@@ -82,3 +82,4 @@ art/staging/**
 # contract cites as evidence and what Tyler rules on in the playthrough.
 !art/staging/room-04/
 !art/staging/room-04/**
+.walk-raw/
