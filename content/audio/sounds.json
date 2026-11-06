@@ -1,0 +1,312 @@
+{
+ "about": "ERRATA 105: the everyday sounds, wired. Every cue is doc 45's, by its id, and plays a file Tyler approved by ear (errata 102). Footsteps follow the floor: a walk box whose own `surface` is boardwalk walks on boards; anywhere else the room's floor below. Nothing here marks a load-bearing LISTEN: the timesheet's paper is the same ordinary paper as the queue book's (doc 45 R08-TIME, section 3.5).",
+ "cues": {
+  "R01-SIGN": {
+   "why": "doc 45 R01-SIGN-1/2: one wooden sign creak",
+   "play": [
+    {
+     "src": "audio/sfx/sign-creak.wav",
+     "gain": 0.7
+    }
+   ]
+  },
+  "R01-CASE-B2": {
+   "why": "doc 45 R01-CASE-B2: the fork against the clasp, exact A440",
+   "play": [
+    {
+     "src": "audio/sfx/r33-fork.wav",
+     "gain": 0.5
+    }
+   ]
+  },
+  "R02-BELL": {
+   "why": "doc 45 R02-BELL: one distant hand-struck bell, half a step flat",
+   "play": [
+    {
+     "src": "audio/sfx/church-bell-distant.wav",
+     "gain": 0.8
+    }
+   ]
+  },
+  "R03-HANDBILL": {
+   "why": "doc 45 R03-HANDBILL: one light paper movement",
+   "play": [
+    {
+     "src": "audio/sfx/paper-light.wav",
+     "gain": 0.6
+    }
+   ]
+  },
+  "R03-DOOR": {
+   "why": "doc 45 R03-DOOR: a batwing swing for each oscillation, each smaller",
+   "play": [
+    {
+     "src": "audio/sfx/batwing-swing-1.wav",
+     "gain": 0.7,
+     "at": 0.0
+    },
+    {
+     "src": "audio/sfx/batwing-swing-2.wav",
+     "gain": 0.7,
+     "at": 0.95
+    },
+    {
+     "src": "audio/sfx/batwing-swing-3.wav",
+     "gain": 0.7,
+     "at": 1.7
+    }
+   ]
+  },
+  "R05-QUEUE": {
+   "why": "doc 45 R05-QUEUE: one paper movement",
+   "play": [
+    {
+     "src": "audio/sfx/paper-ordinary.wav",
+     "gain": 0.6
+    }
+   ]
+  },
+  "R05-FLOOR": {
+   "why": "doc 45 R05-FLOOR: a loose plank with the hollow under it",
+   "play": [
+    {
+     "src": "audio/sfx/floorboard-hollow.wav",
+     "gain": 0.75
+    }
+   ]
+  },
+  "R05-FLOOR-STEP": {
+   "why": "doc 45 R05-FLOOR-STEP: the board creaks under his weight",
+   "play": [
+    {
+     "src": "audio/sfx/floorboard-creak.wav",
+     "gain": 0.8
+    }
+   ]
+  },
+  "R05/06-LATCH": {
+   "why": "doc 45 R05/06-LATCH: the assay office's latch",
+   "play": [
+    {
+     "src": "audio/sfx/door-latch.wav",
+     "gain": 0.6
+    }
+   ]
+  },
+  "R07/08-LOCK": {
+   "why": "doc 45 R07/08-LOCK: the archive door does not open, and sounds it",
+   "play": [
+    {
+     "src": "audio/sfx/door-locked.wav",
+     "gain": 0.75
+    }
+   ]
+  },
+  "R08-TIME": {
+   "why": "doc 45 R08-TIME: one ordinary paper movement, the queue book's own, nothing more",
+   "play": [
+    {
+     "src": "audio/sfx/paper-ordinary.wav",
+     "gain": 0.6
+    }
+   ]
+  },
+  "R09-PAPER": {
+   "why": "doc 45 R09-PAPER: one substantial paper movement",
+   "play": [
+    {
+     "src": "audio/sfx/paper-substantial.wav",
+     "gain": 0.6
+    }
+   ]
+  },
+  "R11-CHAIRS": {
+   "why": "doc 45 R11-CHAIRS: one leather-settling sound",
+   "play": [
+    {
+     "src": "audio/sfx/leather-settle.wav",
+     "gain": 0.7
+    }
+   ]
+  }
+ },
+ "verbs": [
+  {
+   "room": "stage_road",
+   "target": "town_sign",
+   "verb": "LISTEN_TO",
+   "variants": [
+    1,
+    2
+   ],
+   "cue": "R01-SIGN"
+  },
+  {
+   "room": "stage_road",
+   "target": "case_mud",
+   "verb": "LISTEN_TO",
+   "variants": [
+    2
+   ],
+   "cue": "R01-CASE-B2"
+  },
+  {
+   "room": "main_street",
+   "target": "church_steeple",
+   "verb": "LISTEN_TO",
+   "cue": "R02-BELL"
+  },
+  {
+   "room": "nugget",
+   "target": "handbill",
+   "verb": "LISTEN_TO",
+   "cue": "R03-HANDBILL"
+  },
+  {
+   "room": "assay_office",
+   "target": "queue_book",
+   "verb": "LISTEN_TO",
+   "cue": "R05-QUEUE"
+  },
+  {
+   "room": "assay_office",
+   "target": "floorboard",
+   "verb": "LISTEN_TO",
+   "cue": "R05-FLOOR"
+  },
+  {
+   "room": "claims_registrar",
+   "target": "sealed_archive_door",
+   "verb": "OPEN",
+   "when": {
+    "T_EXECUTOR_NAMED": false
+   },
+   "cue": "R07/08-LOCK"
+  },
+  {
+   "room": "archive",
+   "target": "timesheet",
+   "verb": "LISTEN_TO",
+   "cue": "R08-TIME"
+  },
+  {
+   "room": "clarion",
+   "target": "back_editions",
+   "verb": "LISTEN_TO",
+   "cue": "R09-PAPER"
+  },
+  {
+   "room": "fanshawe_office",
+   "target": "chairs",
+   "verb": "LISTEN_TO",
+   "cue": "R11-CHAIRS"
+  }
+ ],
+ "transits": [
+  {
+   "between": [
+    "nugget",
+    "main_street"
+   ],
+   "cue": "R03-DOOR"
+  },
+  {
+   "between": [
+    "assay_office",
+    "main_street"
+   ],
+   "cue": "R05/06-LATCH"
+  },
+  {
+   "between": [
+    "assay_office",
+    "assay_records"
+   ],
+   "cue": "R05/06-LATCH"
+  }
+ ],
+ "footsteps": {
+  "gain": 0.4,
+  "surfaces": {
+   "mud": [
+    "audio/sfx/step-mud-1.wav",
+    "audio/sfx/step-mud-2.wav",
+    "audio/sfx/step-mud-3.wav",
+    "audio/sfx/step-mud-4.wav"
+   ],
+   "boardwalk": [
+    "audio/sfx/step-boardwalk-1.wav",
+    "audio/sfx/step-boardwalk-2.wav",
+    "audio/sfx/step-boardwalk-3.wav",
+    "audio/sfx/step-boardwalk-4.wav",
+    "audio/sfx/step-boardwalk-5.wav",
+    "audio/sfx/step-boardwalk-6.wav"
+   ],
+   "plank": [
+    "audio/sfx/step-plank-1.wav",
+    "audio/sfx/step-plank-2.wav",
+    "audio/sfx/step-plank-3.wav",
+    "audio/sfx/step-plank-4.wav",
+    "audio/sfx/step-plank-5.wav",
+    "audio/sfx/step-plank-6.wav"
+   ],
+   "dirt": [
+    "audio/sfx/step-dirt-1.wav",
+    "audio/sfx/step-dirt-2.wav",
+    "audio/sfx/step-dirt-3.wav",
+    "audio/sfx/step-dirt-4.wav"
+   ]
+  },
+  "walkBoxSurfaces": [
+   "boardwalk"
+  ],
+  "rooms": {
+   "stage_road": "mud",
+   "main_street": "mud",
+   "main_street_dawn": "mud",
+   "claims_road": "mud",
+   "creek": "mud",
+   "prosperity": "mud",
+   "nugget": "plank",
+   "nugget_back": "plank",
+   "assay_office": "plank",
+   "assay_records": "plank",
+   "claims_registrar": "plank",
+   "archive": "plank",
+   "company_lobby": "plank",
+   "fanshawe_office": "plank",
+   "company_vault": "plank",
+   "undertaker": "plank",
+   "hotel_lobby": "plank",
+   "thads_room": "plank",
+   "mercantile": "plank",
+   "laundry": "plank",
+   "clarion": "plank",
+   "church": "plank",
+   "watchmans_shack": "plank",
+   "back_alley": "dirt",
+   "livery": "dirt",
+   "boot_hill": "dirt",
+   "funeral": "dirt",
+   "high_ridge": "dirt",
+   "claim_row": "dirt",
+   "motts_site": "dirt",
+   "pratts_claim": "dirt",
+   "under_prosperity": "dirt",
+   "listening_chamber": "dirt",
+   "ozymandias_tent": "dirt"
+  }
+ },
+ "ambience": {
+  "main_street": {
+   "src": "audio/sfx/wind.wav",
+   "gain": 0.3,
+   "why": "doc 45 R02-A: wind through false fronts"
+  },
+  "claims_registrar": {
+   "src": "audio/sfx/clock-tick.wav",
+   "gain": 0.35,
+   "why": "doc 45 R07-A: Sump's clock ticking"
+  }
+ }
+}

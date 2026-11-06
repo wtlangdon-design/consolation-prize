@@ -2849,3 +2849,18 @@ Doc 28 Part Three names seventeen rooms; the eighteen it does not played the tit
 Still no new notes: every arrangement hands CONSOLATION's own tune, offbeats and counter-line to different players. **Every playable room now has its music chosen**, and `tests/room-music.test.ts` fails on a room that has none, so a new room cannot fall back to the title bed by omission.
 
 **Approved (Tyler, 2026-11-06): "Keep"**, for both errata 103 and 104, after hearing every room on the audition page.
+
+---
+
+# 105 · THE EVERYDAY SOUNDS, WIRED INTO THE GAME
+
+The sounds Tyler approved by ear (errata 102) now play in the game, where doc 45 says they do. **Which sound plays when is content** (`content/audio/sounds.json`, named in the manifest as `sounds`); the engine knows a cue id, a verb on a target, a door between two rooms, a foot coming down and a room's background, and nothing about Consolation.
+
+- **Footsteps** sound once per foot plant (doc 45 §3.4), taken from the gait (distance walked, doc 43), so they keep time with the legs at any size. A walk box whose own `surface` is a footstep surface (Main Street's boardwalk) walks on boards; anywhere else on the room's floor: mud on the road and the street, plank floors indoors, dirt on the hill, the diggings, the tent and under ground. A walk never repeats a take twice running.
+- **Verbs.** R01-SIGN on the sign's first two LISTENs, not the third ("the sign has stopped"); R01-CASE-B2's fork on the case's second; R02-BELL, R03-HANDBILL, R05-QUEUE, R05-FLOOR, R08-TIME, R09-PAPER, R11-CHAIRS; R07/08-LOCK when the archive door is tried before Thad is the executor. A verb's result now says which written line was spoken (`variant`), which is what lets a sound follow a line.
+- **Doors.** R03-DOOR, the batwings, three swings each smaller, walking between the Nugget and Main Street; R05/06-LATCH between the assay office and the street or the records room.
+- **The board.** R05-FLOOR-STEP, already fired by the step trigger, now creaks.
+- **Backgrounds.** R02-A's wind on Main Street and R07-A's clock in the registrar's, on a second bed player that is never detuned (it is not the score) and falls silent wherever the score is suspended.
+- **Invariant 3 holds.** The timesheet's paper is the queue book's paper, file for file; `tests/sounds.test.ts` fails if a load-bearing LISTEN ever gets a sound no other object makes.
+
+**Not wired, and why.** The opening's team, case and Hob cues are beat-timed (errata 28a). R17-BELL has no bell-rope action to hang on. R09-PRESS waits for a documented "operating state". R23/24-MUD, R21-WINDOW, R03-A's crowd and the spittoon have no approved file. U-STAMP and U-ASSAY-PENCIL are OPEN in doc 45 itself.

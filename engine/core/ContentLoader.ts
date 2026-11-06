@@ -26,6 +26,7 @@ import type {
   VerbsFile,
   MenuFile,
   SequenceFile, PlaytestFixture,
+  SoundsFile,
 } from './types.ts';
 
 /** Reads and parses one JSON file. Supplied by the host (fetch, or fs in tests). */
@@ -77,6 +78,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
   const paths = new Map<string, PathFile>(pathFiles);
   // Errata D8's lantern pool. Optional: a game that declares none draws none,
   // which is what it did for as long as the spec sat in art/ with no reader.
+  const sounds = manifest.sounds ? (await read(manifest.sounds)) as SoundsFile : null;
   const carriedLight = manifest.carriedLight
     ? (await read(manifest.carriedLight)) as CarriedLightFile
     : null;
@@ -160,7 +162,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
 
   return {
     manifest, font, palette, ui, menu, verbs, flags, scaling, reputation,
-    verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, carriedLight, paths,
+    verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, carriedLight, sounds, paths,
     speechColours, assay, items, fixtures, panel,
     combinations, itemIcons,
     sequences, actCards, actOpenings,

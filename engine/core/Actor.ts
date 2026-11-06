@@ -429,6 +429,11 @@ export class Actor {
     return this.options.routed !== false;
   }
 
+  /** Walk cycles travelled, ever (doc 43): a foot comes down at each half. */
+  get gait(): number {
+    return this.gaitPhase;
+  }
+
   get isWalking(): boolean {
     return this.route !== null || this.glide !== null
       || this.path.length > 0 || !this.arrived();

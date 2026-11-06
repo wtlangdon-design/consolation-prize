@@ -79,6 +79,16 @@ export class GameScene extends Phaser.Scene {
   private readonly music = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
   /** Errata 70 G: one-shots, under the same switch and the same unlock as the beds. */
   private readonly sfx = new Sfx(() => this.state.menu.toggle(MUSIC_OPTION), () => this.music.isUnlocked);
+  /**
+   * DOC 45'S ROOM BACKGROUNDS (`R02-A`, `R07-A`; errata 105): a second bed
+   * player beside the score. It is never detuned -- wind is not the score --
+   * and it is silent wherever the score is suspended.
+   */
+  private readonly ambience = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
+  /** The last foot to come down (Actor.gait, in half-cycles), so each plant sounds once. */
+  private lastFoot = -1;
+  /** The take each footstep surface played last, so a walk never repeats a foot. */
+  private readonly lastTake = new Map<string, number>();
   /** Errata 70 G: a room that is its own cutscene (Room 32). */
   private readonly timeline = new RoomTimeline();
   /** True while a timeline room keeps the verb panel away. */
@@ -542,6 +552,7 @@ export class GameScene extends Phaser.Scene {
     }
     if (this.actor.isWalking) {
       this.markDirty();
+      this.footsteps();
       // A WALK TO A CONVERSATION HEARS ONLY THE PERSON IT IS GOING TO. Barks
       // are the town noticing Thad in passing; on the way to talk to somebody
       // a BYSTANDER's remark lands on top of the greeting that follows (the
@@ -900,6 +911,7 @@ export class GameScene extends Phaser.Scene {
     // and this runs before any of the early returns below -- a click that
     // opens the menu unlocks as well as a click on the road.
     this.music.unlock();
+    this.ambience.unlock();
     this.applyMusic();
     const { x, y } = this.nativePoint(pointer);
     const secondary = pointer.rightButtonDown();
@@ -1327,6 +1339,7 @@ export class GameScene extends Phaser.Scene {
   private applyInteraction(target: Interactable, verb: string): void {
     if (this.listenAt(target, verb)) return;
     const result = this.state.interact(target, verb);
+    this.soundForVerb(target, verb, result.room ?? this.state.room.id, result.variant);
     // ERRATA 28b AS AMENDED (Q74): A VERB CLEARS ON USE.
     //
     // 28b used to say "a selected verb persists until another is chosen. It is
@@ -1478,6 +1491,7 @@ export class GameScene extends Phaser.Scene {
    * none -- which is every room today, because THADDEUS has not been written.
    */
   private applyMusic(): void {
+    this.applyAmbience();
     // DOC 45 R32-MUTE: the coffin stops the score dead and carries its place.
     if (this.state.room.music === 'suspend') {
       // Until the timeline's resume; after it the returned bed plays on, and
@@ -1562,6 +1576,8 @@ export class GameScene extends Phaser.Scene {
     this.ambient.arrived();
     this.musicResumed = false;
     this.applyMusic();
+    this.soundForTransit(from);
+    this.lastFoot = -1;
     // ERRATA 70 G. A timeline room starts its clock on entry; any other room
     // stops whatever timeline was running and gives the panel back.
     this.timeline.stop();
@@ -2726,6 +2742,62 @@ export class GameScene extends Phaser.Scene {
    */
   private fireCue(id: string): void {
     this.cuesFired = { last: id, count: this.cuesFired.count + 1 };
+    // ERRATA 105: the audio layer exists now. A cue with no sound written for
+    // it is still counted, and still silent.
+    for (const part of this.state.content.sounds?.cues[id]?.play ?? []) {
+      if (part.at) this.time.delayedCall(part.at * 1000, () => this.sfx.play(part.src, part.gain ?? 1));
+      else this.sfx.play(part.src, part.gain ?? 1);
+    }
+  }
+
+  /** The room's background, or none: doc 45's `-A` beds, which carry under the score. */
+  private applyAmbience(): void {
+    const bed = this.state.room.music === 'suspend' ? undefined
+      : this.state.content.sounds?.ambience[this.state.room.id];
+    this.ambience.play(bed ? { src: bed.src, gain: bed.gain } : null);
+  }
+
+  /** A verb on a target that doc 45 gives a sound: R02-BELL, R05-QUEUE, R07/08-LOCK and the rest. */
+  private soundForVerb(target: Interactable, verb: string, room: string, variant: number | undefined): void {
+    for (const rule of this.state.content.sounds?.verbs ?? []) {
+      if (rule.room !== room || rule.target !== target.id || rule.verb !== verb) continue;
+      if (rule.variants && !rule.variants.includes(variant ?? 0)) continue;
+      if (rule.when && !this.state.flags.test(rule.when)) continue;
+      this.fireCue(rule.cue);
+    }
+  }
+
+  /** Walking through a door that doc 45 hears: the batwings, the assay office's latch. */
+  private soundForTransit(from: string | null): void {
+    const to = this.state.room.id;
+    if (!from || from === to) return;
+    for (const rule of this.state.content.sounds?.transits ?? []) {
+      if (rule.between.includes(from) && rule.between.includes(to)) this.fireCue(rule.cue);
+    }
+  }
+
+  /**
+   * A FOOT COMES DOWN (doc 45 section 3.4: "one step event per animation foot
+   * plant"). The gait is distance walked, in cycles, so a plant is every half
+   * cycle: the sound keeps time with the legs at any speed and any size.
+   */
+  private footsteps(): void {
+    const foot = Math.floor(this.actor.gait * 2);
+    if (foot === this.lastFoot) return;
+    const first = this.lastFoot < 0;
+    this.lastFoot = foot;
+    if (first) return;
+    const steps = this.state.content.sounds?.footsteps;
+    if (!steps) return;
+    const underfoot = this.state.surfaceAt(Math.round(this.actor.x), Math.round(this.actor.y));
+    const surface = steps.walkBoxSurfaces.includes(underfoot) ? underfoot : steps.rooms[this.state.room.id];
+    const takes = surface ? steps.surfaces[surface] : undefined;
+    if (!takes?.length) return;
+    const last = this.lastTake.get(surface!) ?? -1;
+    let take = Math.floor(Math.random() * takes.length);
+    if (take === last && takes.length > 1) take = (take + 1) % takes.length;
+    this.lastTake.set(surface!, take);
+    this.sfx.play(takes[take]!, steps.gain);
   }
 
   /**

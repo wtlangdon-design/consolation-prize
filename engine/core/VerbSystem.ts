@@ -8,6 +8,13 @@ import type { DurableEffect } from './runtime-types.ts';
 export interface ResolvedAction {
   say: string | null;
   /**
+   * Which of the rule's written lines `say` is, from 1: the establishing line,
+   * then each repeat variant, holding at the last. Doc 45 ties some sounds to
+   * a variant (R01-SIGN-1/2 creak; R01-SIGN-3, the sign has stopped, is silent).
+   * Absent when no rule matched.
+   */
+  variant?: number;
+  /**
    * Doc 30 §5's further utterances: the rest of what he says the first time,
    * spoken one after another after `say`. Only on the FIRST selection -- a
    * repeat variant is one line by design and a punchline does not want
@@ -311,8 +318,11 @@ export class VerbSystem {
       // arrived as its first line alone (tests/room-19.test.ts). A punchline
       // does not want re-delivering every time the player clicks; the repeat
       // variants are what the second look is for.
-      const first = (this.repeatCursor.get(`${scope}/${target.id}#${index}:${verbId}`) ?? 0) === 0;
+      const seen = this.repeatCursor.get(`${scope}/${target.id}#${index}:${verbId}`) ?? 0;
+      const first = seen === 0;
+      const written = [matched.say, ...(matched.repeat ?? [])].filter((line) => typeof line === 'string').length;
       return {
+        ...(written ? { variant: Math.min(seen, written - 1) + 1 } : {}),
         say: this.nextLine(`${scope}/${target.id}#${index}`, verbId, matched),
         then: first ? matched.then : undefined,
         ...(matched.by ? { by: matched.by } : {}),
