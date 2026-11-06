@@ -805,7 +805,7 @@ async function main() {
     // the cast-suppressed one inside a box around him; a townsman standing IN
     // FRONT of a mark is in that box and over his feet, and was measured as
     // his "float" (Room 20's dog's owner, errata 115; the Nugget's far row
-    // lies wholly behind Deke, errata 117). The bystanders are not drawn while
+    // lies wholly behind Deke, errata 118). The bystanders are not drawn while
     // the marks are measured -- render-only, as panel A's suppression is --
     // and the authored row and x are kept.
     await page.evaluate(() => window.__gauntlet?.controls.bystanders?.(false));

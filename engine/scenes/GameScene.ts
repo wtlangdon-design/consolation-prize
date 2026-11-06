@@ -76,7 +76,7 @@ export class GameScene extends Phaser.Scene {
   private readonly controlWrites: string[] = [];
   /** Every named mover in the room, the player among them. Issue X4 defect 3. */
   private actors!: RoomActors;
-  /** The room bed's clock this frame and last, for a figure that keeps time with it (errata 117). */
+  /** The room bed's clock this frame and last, for a figure that keeps time with it (errata 118). */
   private musicNow = 0;
   private musicBefore = 0;
   private readonly music = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
@@ -888,7 +888,7 @@ export class GameScene extends Phaser.Scene {
 
   /**
    * The tempo of the bed this room plays, or null: what a figure that keeps
-   * time with the music reads (errata 117). The room's own entry, or the
+   * time with the music reads (errata 118). The room's own entry, or the
    * variant its flags select, which plays at the entry's tempo unless it says.
    */
   private bedTempo(): number | null {

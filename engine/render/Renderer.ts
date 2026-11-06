@@ -442,7 +442,7 @@ export class Renderer {
   private readonly idles: IdleLayer;
   /** Seconds since the scene started, supplied by the caller each frame. */
   private clock = 0;
-  /** The room's music, for a figure that keeps time with it (errata 117): its clock and tempo. */
+  /** The room's music, for a figure that keeps time with it (errata 118): its clock and tempo. */
   private musicClock = 0;
   private musicTempo: number | null = null;
 
@@ -510,7 +510,7 @@ export class Renderer {
   }
 
   /**
-   * THE BED'S CLOCK, for a figure that `keepsTime` (errata 117): where the
+   * THE BED'S CLOCK, for a figure that `keepsTime` (errata 118): where the
    * room's music is, in seconds, and its tempo. Null tempo: the room's bed
    * declares none, and such a figure moves on the scene clock like anyone.
    */
@@ -574,7 +574,7 @@ export class Renderer {
    * proof's depth gates measure the protagonist by differencing a frame with
    * him against one without; a townsman standing in front of the mark is in
    * both and over his feet, and the Nugget's far row lies wholly behind Deke
-   * (errata 117).
+   * (errata 118).
    */
   hideBystanders(hidden: boolean): void {
     this.bystandersHidden = hidden;

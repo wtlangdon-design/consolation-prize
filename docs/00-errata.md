@@ -3240,8 +3240,27 @@ Tyler, on what was still open: **"2. I agree. 3. I'll take your recommendation h
 - the dawn street's glowing roof edges, in the tooling first;
 - the undertaker's flat ceiling band.
 
+---
 
-# 117 · THE OPEN ITEMS OF 115: THE BOW ON THE BEAT, THE PAIR'S GREETING, THE NUGGET'S PROOF — TYLER, 2026-11-06
+# 117 · WHAT IS MEANT TO BE NOTICED IS LOUD ENOUGH TO NOTICE — TYLER, 2026-11-06
+
+**"It needs to really be noticeable if it's supposed to be noticeable."** Tyler said this of the fiddler's clips, and he was right. Two of the three fiddler moments are meant to be heard and were set where they are easy to miss.
+
+**A · His walk-up performances are his remarks.** He plays faster for R_BORDERS_MOTT and the passing tune for R_DEAD. These are what any other townsperson would say in a balloon, and they went in at 4 dB over a room ducked to 0.3 and 0.2. They now duck the Nugget to 0.15 and 0.12 and sit 10 dB over what is left: the level of the rope's bell, the loudest featured sound in the game.
+
+**B · His retune in F2 is there to be noticed by a player who is listening,** and never remarked on. It went in 8 dB under the score, far off and muffled, and would have been missed by nearly everyone. It now sits 2 dB under the score, still far off. Nothing ducks for it: the score's ninety seconds are the arc, and nothing interrupts them.
+
+**C · The Nugget's fiddle under the piano stays background.** It is the band, not a moment.
+
+**The lesson is a check.** `tools/check-sound-levels.mjs` now fails:
+- a townsperson's played bark that is not featured, or is placed under 8 dB over the ducked music;
+- a sound on Room 33's tuning arc placed more than 4 dB under the score.
+
+Proved on the old levels, which fail both.
+
+---
+
+# 118 · THE OPEN ITEMS OF 115: THE BOW ON THE BEAT, THE PAIR'S GREETING, THE NUGGET'S PROOF — TYLER, 2026-11-06
 
 Tyler: "Handle all of the open items." Errata 115 left three.
 

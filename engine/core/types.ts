@@ -721,7 +721,7 @@ export interface AmbientFile {
     breakEvery?: number;
     /**
      * KEEPS TIME WITH THE ROOM'S MUSIC (doc 22: "fiddler idles in time with
-     * the musical bar grid"; errata 117). The sway and the breaks are read
+     * the musical bar grid"; errata 118). The sway and the breaks are read
      * from the playing bed's own position instead of the scene clock, at the
      * bed's `tempo`: the idle's two frames alternate once a beat, and a break
      * cycle starts on a bar line when `breakEvery` is a whole number of bars.
@@ -2256,7 +2256,7 @@ export interface RoomMusic {
   why?: string;
   /**
    * The bed's tempo, beats a minute: the bar grid a figure that `keepsTime`
-   * reads (errata 117). A variant without its own plays at the entry's.
+   * reads (errata 118). A variant without its own plays at the entry's.
    */
   tempo?: number;
 }

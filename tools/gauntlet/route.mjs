@@ -308,7 +308,7 @@ export async function runRoute(page, route) {
       // whose writer is not built yet (Room 4's T_VESSEL_FOUND is B3's, in a
       // room that does not exist): the control refuses anything the registry
       // does not declare, so a route cannot invent a state.
-      // A ROOM ENTERED BY CONTROL (errata 117): the room's arrival again, with
+      // A ROOM ENTERED BY CONTROL (errata 118): the room's arrival again, with
       // whatever flags the route has just set, without walking a door a scene
       // may stand in front of. Evidence about the room, NOT that a player can
       // walk this way -- the log says so, as the proof's own entry does.

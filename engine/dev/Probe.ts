@@ -276,7 +276,7 @@ export interface Controls {
   /**
    * Draw the room without its bystanders (the ambient figures) and with the
    * protagonist: render-only, as `cast` is. Panel C measures him alone at an
-   * authored mark, whoever stands in front of it (errata 117).
+   * authored mark, whoever stands in front of it (errata 118).
    */
   bystanders(on: boolean): void;
   /**

@@ -191,7 +191,7 @@ export class Music {
   /**
    * Where the playing bed is, in seconds into its file, or null when nothing
    * is sounding (locked, missing, suspended, silent). The clock a figure that
-   * keeps time with the music is drawn by (errata 117).
+   * keeps time with the music is drawn by (errata 118).
    */
   position(): number | null {
     const first = this.playing?.[0]?.element;

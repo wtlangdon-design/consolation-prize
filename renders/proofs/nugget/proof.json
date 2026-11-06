@@ -868,7 +868,7 @@
     "enter(nugget)"
    ],
    "capturedAt": "2026-11-06T22:59:00.694Z",
-   "intent": "principal changed state: T_SWINDLED. Visible consequence: Deke Vessel no longer at the bar (doc 57 A3). Who is in a room is decided as Thad arrives, so the Nugget is entered again by control with the flag set: setting T_SWINDLED in place opens what follows the swindle, and the front doors are not walked to through a conversation (errata 117).",
+   "intent": "principal changed state: T_SWINDLED. Visible consequence: Deke Vessel no longer at the bar (doc 57 A3). Who is in a room is decided as Thad arrives, so the Nugget is entered again by control with the flag set: setting T_SWINDLED in place opens what follows the swindle, and the front doors are not walked to through a conversation (errata 118).",
    "file": "raw-captures-ignored/panel-d-changed.png",
    "hash": "2884e8d78835491135eef003b05ced1ce4e99c409586c1c4d221aa4ee32340c4",
    "changedBy": "flags, inventory"
