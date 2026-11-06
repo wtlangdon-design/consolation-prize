@@ -145,6 +145,18 @@
    "date": "2026-11-06",
    "kind": "reviewed",
    "why": "Three loosenings in a fortnight: Room 33's taps (LISTEN on the rock returns a sound, not a line), and now doc 57 F5's case-only counter pairs. Neither was the test misfiring -- each was a new content shape the test had to be taught, and the test still fails on what it exists for: a pair or verb with nothing written. TUNED, not merged: its rule-4 half now reads the same declaration the build check (tools/check-combinations.mjs) reads, `otherwise: \"pool\"`, so the two cannot disagree. Not retired."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-05",
+   "kind": "loosened",
+   "why": "Not loosened: the dog's PUSH line was typed into the test, so errata 100's rewrite of doc 13 broke it. The test now compares against the line content carries, and still asserts that the override fires the same line every time."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-05",
+   "kind": "reviewed",
+   "why": "TUNED. Of three loosenings in a fortnight, two were rooms whose design the test assumed away (Room 31's interrupted grave chain, Room 33's tapped rock) and were narrowed to what each room actually does; the third was a written line typed into the test, which errata 100's voice pass will change in every room. The test now types no written line at all -- the dog's PUSH and the mud's USE are read from content -- so the dialogue pass cannot misfire it again; what it asserts (overrides repeat, pools rotate, a target's own line is never an item's answer) is unchanged."
   }
  ]
 }

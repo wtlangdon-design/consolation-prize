@@ -80,39 +80,39 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE FALSE FRONTS**
 > **LOOK:** "Half this street is two stories tall in front and one story deep. Consolation is a stage set people have moved into."
-> **LISTEN:** "Wind. There is a great deal of nothing behind half of these."
+> **LISTEN:** "Wind. There's a great deal of nothing behind half of these."
 
 **THE IMPROVEMENT COMPANY SIGN**
-> **LOOK:** "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering. It is the only sign in town that has been painted twice."
-> **LISTEN:** "Nothing. It is the quietest building on the street and it is always full."
+> **LOOK:** "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering. The only sign in town that's been painted twice."
+> **LISTEN:** "Nothing. It's the quietest building on the street, and it's always full."
 
 **THE WATER TROUGH**
 > **LOOK:** "A trough. Three inches of water and a great deal of ambition."
-> **LISTEN:** "Something is living in it. I have decided not to pursue this."
+> **LISTEN:** "Something is living in it. I've decided not to pursue this."
 
 **THE BOARDWALK**
 > **LOOK:** "Six inches above the mud. In Consolation, this is the difference between a gentleman and a prospector."
 > **LISTEN:** "Loose board, third from the end. Everyone in town steps over it without thinking. Nobody has ever fixed it."
 
 **POSTED NOTICES**
-> **LOOK:** "Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who cannot. He is doing better than anyone."
+> **LOOK:** "Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who can't. He's doing better than anyone."
 > **LISTEN:** "Paper, in wind. A great deal of it."
 
 **THE CHURCH STEEPLE** *(distant)*
 > **LOOK:** "The tallest thing in Consolation, and the only building that is as deep as it is tall."
-> **LISTEN:** "The bell is a half-step flat. It has been struck by hand for six years by a man who does not care."
+> **LISTEN:** "The bell is a half-step flat. A man has rung it by hand for six years, and he doesn't care."
 
 **A DOG**
 > **LOOK:** "A dog with the settled look of an animal that has outlasted several owners."
-> **LISTEN:** "Breathing. Contented. He is the only solvent resident of Consolation."
+> **LISTEN:** "Breathing. Contented. He's the only solvent resident of Consolation."
 
 **THE MUD** *(again)*
-> **LOOK:** "The same mud. I have begun to recognize individual portions of it."
+> **LOOK:** "The same mud. I've started to recognize individual portions of it."
 > **LISTEN:** "Nothing new."
 
 **THE HILLS**
 > **LOOK:** "Gold country. Everyone here has looked at these hills for years and seen a number."
-> **LISTEN:** "Nothing. They are extremely large and they are not doing anything."
+> **LISTEN:** "Nothing. They're extremely large, and they aren't doing anything."
 
 ---
 
@@ -1322,14 +1322,14 @@ bark budget, not here.
 > **LISTEN:** "Wind behind them, and under it, my own name being discussed. Approximately my name."
 
 **POSTED NOTICES** *(act: 3)*
-> **LOOK:** "My funeral notice, prominently posted. 'THE PIANO MAN, MOURNED BY ALL.' Frame has finally found a spelling he cannot get wrong."
+> **LOOK:** "My funeral notice, prominently posted. 'THE PIANO MAN, MOURNED BY ALL.' Frame has finally found a spelling he can't get wrong."
 > **LISTEN:** "Paper in wind. One of those sheets is my whole official existence, flapping."
 
 **THE IMPROVEMENT COMPANY SIGN** *(act: 3)*
-> **LOOK:** "Fresh gilt on the lettering. Business is good. Business, for the Company, is always the search, and the search just outlived its most annoying obstacle. Me."
+> **LOOK:** "Fresh gilt on the lettering. Business is good. The Company's business is the search, and the search has just outlived its most annoying obstacle. Me."
 
 **A DOG** *(act: 3)*
-> **LISTEN:** "He knows me. Tail, twice. The one resident who never read a word of paper in his life, and therefore the one resident I am still alive to."
+> **LISTEN:** "He knows me. Tail, twice. The one resident who's never read a newspaper, so the one resident I'm still alive to."
 
 ## ROOM 3 — THE BOUNTIFUL NUGGET
 

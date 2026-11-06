@@ -43,7 +43,7 @@
 
 ## THE HANDBILL
 **LOOK** 2 "Rule five forbids arithmetic. There's a story behind that, and I'd pay good money to hear it, if I could count it out." · 3 "Rule four: you may appeal the judges' decision to the same judges. Somebody thought that through, and nailed it up anyway."
-**LISTEN** 2 "Paper, lifting a little in the draught from the door. Still unread." · 3 "Silence. It has outlasted everyone who nailed it up."
+**LISTEN** 2 "Paper, lifting a little in the draft from the door. Still unread." · 3 "Silence. It has outlasted everyone who nailed it up."
 
 ## THE PIANO
 **LOOK** 2 "Nobody's touched it since I came in. I check. I check more than is healthy." · 3 "Bottle rings on the lid. Several. They are using a piano as a table, and I am being very calm about it."
@@ -76,7 +76,7 @@
 > **HANDBILL** · PICK UP — "It's nailed on. Thoroughly. Somebody wanted the rules to stay up a great deal more than they wanted them read."
 > **CARDS** · PICK UP — "It isn't my hand. If it were, I'd be a lot more cheerful."
 > **CARDS** · USE — "I don't play. My father was very clear about that, and he was wrong about most things, so I've been meaning to start."
-> **STAIRS** · USE — "I haven't been invited up, and I'm not going to invite myself. I have been practising looking like someone who might be."
+> **STAIRS** · USE — "I haven't been invited up, and I'm not going to invite myself. I have been practicing looking like someone who might be."
 
 ---
 
@@ -94,7 +94,7 @@
 
 **Overrides**
 > BACK ROOM DOOR · OPEN — *(walks through)*
-> BACK ROOM DOOR · KNOCK is not a verb. PUSH — "It gives half an inch and stops. There's a chair against it. I apologise to the chair."
+> BACK ROOM DOOR · KNOCK is not a verb. PUSH — "It gives half an inch and stops. There's a chair against it. I apologize to the chair."
 
 ---
 

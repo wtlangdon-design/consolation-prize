@@ -356,7 +356,7 @@
         ]
       },
       "overrides": {
-        "PULL": "It's nailed to a post, in the ground, at the edge of a town. I've been here two minutes and I'm already vandalising the place.",
+        "PULL": "It's nailed to a post, in the ground, at the edge of a town. I've been here two minutes and I'm already vandalizing the place.",
         "TALK_TO": "Good evening. I'm new. Two thousand and one, and climbing."
       },
       "defaultVerb": "LOOK_AT",

@@ -174,7 +174,7 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 
 # PART THREE — OVERRIDES
 
-> **THE SIGN** · PULL — "It's nailed to a post, in the ground, at the edge of a town. I've been here two minutes and I'm already vandalising the place."
+> **THE SIGN** · PULL — "It's nailed to a post, in the ground, at the edge of a town. I've been here two minutes and I'm already vandalizing the place."
 > **THE SIGN** · TALK TO — "Good evening. I'm new. Two thousand and one, and climbing." *(Nothing happens. It is a sign.)*
 > **THE MUD** · PICK UP — "I've got plenty on my boots. I'm already carrying a fair amount of this town."
 > **THE COACH** · USE — "It's going. It's going with real enthusiasm."
