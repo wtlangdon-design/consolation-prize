@@ -1,0 +1,119 @@
+{
+ "schema": 1,
+ "id": "pratt_registrar",
+ "name": "NICKEL PRATT",
+ "posture": "standing",
+ "room": "claims_registrar",
+ "when": {
+  "T_PRATT_SWEARS": true,
+  "T_ATTESTED": false
+ },
+ "note": "PRATT AT THE COUNTER (doc 57 D6: 'PRA_D6 option 5; the next time Thad enters the Registrar's, Pratt is at the counter'). Room 7's four image operations are spent, so he is his Prosperity sheet, mallet in hand, as he walked home from D2 -- for Tyler's playthrough. Room 7's arrival scene is the attestation (onEnter.sayLines, from doc 57); once it is read (T_ATTESTED) he walks out of the door.",
+ "x": 1540,
+ "y": 790,
+ "zone": 1,
+ "approachRadius": 40,
+ "walkTo": {
+  "x": 1300,
+  "y": 800,
+  "facing": "right"
+ },
+ "walkToNote": "Beside him along the counter, facing him.",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for Pratt.",
+ "sprite": {
+  "sheet": "art/actors/room-25-pratt-jump.png",
+  "frames": [
+   [
+    2,
+    2,
+    324,
+    447
+   ],
+   [
+    328,
+    2,
+    324,
+    447
+   ],
+   [
+    654,
+    2,
+    324,
+    447
+   ],
+   [
+    980,
+    2,
+    324,
+    447
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.1,
+  "breaks": [
+   [
+    2,
+    0
+   ]
+  ],
+  "breakEvery": 7,
+  "frameNote": "0 mallet rest · 1 breath · 2 the mallet lifted to his shoulder. Breathing on 0 and 1; every `breakEvery` seconds he shifts the mallet (errata 77). Not frame 3: there is no stake at the Registrar's.",
+  "provenance": "art/staging/room-25/pratt/pratt-jump.json",
+  "figureHeight": 409,
+  "stature": 1.03,
+  "statureNote": "The bigger man: room-25's master drew him 1.05 of Thad; 1.03 keeps him inside the 5% a standing man is held to (tests/scale.test.ts)."
+ },
+ "exit": {
+  "path": [
+   [
+    1540,
+    790
+   ],
+   [
+    1420,
+    845
+   ],
+   [
+    330,
+    845
+   ],
+   [
+    40,
+    820
+   ]
+  ],
+  "speed": 80,
+  "sheet": "art/actors/room-25-pratt-jump.png",
+  "frames": [
+   [
+    1306,
+    52,
+    219,
+    397
+   ],
+   [
+    1527,
+    52,
+    219,
+    397
+   ],
+   [
+    1748,
+    52,
+    219,
+    397
+   ],
+   [
+    1969,
+    52,
+    219,
+    397
+   ]
+  ],
+  "fps": 6,
+  "drawnFacing": "left",
+  "figureHeight": 397,
+  "note": "Doc 57 D6: attested, he goes -- in front of the queue rope, not through it, and out by the street door at the left."
+ }
+}

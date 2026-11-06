@@ -1353,6 +1353,12 @@ export interface RoomFile {
     note?: string;
     set?: FlagWrites;
     /**
+     * Writes made on entering only while `when` holds, each rule on its own.
+     * Doc 57 C6: WIN_B4 opens "once Thad has left the office and come back" --
+     * the asking writes one flag, and coming back in writes the next.
+     */
+    setWhen?: { when: Condition; set: FlagWrites }[];
+    /**
      * Somewhere to walk to on arriving, once he is standing in the room.
      *
      * ARRIVING ALREADY STANDING THERE IS THE PROBLEM IT SOLVES. Thad walks out
@@ -1390,6 +1396,22 @@ export interface RoomFile {
      * so clearing the day there would leave `sayWhen` nothing to hold on.
      */
     saySet?: FlagWrites;
+    /**
+     * ARRIVAL SCENES WITH OTHER VOICES IN THEM, each on its own condition,
+     * tested as he walks in (before `saySet` lands). Doc 57 D6: "the next time
+     * Thad enters the Registrar's, Pratt is at the counter", and Sump, Pratt
+     * and Thad speak in turn; doc 57 D4: on the funeral day the Reverend at the
+     * gate with the plate. Read from the document by the compiler. The lines
+     * run on their own, after `say`; `after` is what the scene does once every
+     * line has been read, not before -- its writes (a figure in it may then
+     * walk out), the items it hands over, the puzzle it completes.
+     */
+    scenes?: {
+      when: Condition;
+      lines: { speaker: string; line: string; direction?: boolean }[];
+      after?: { set?: FlagWrites; gives?: string[]; completes?: string };
+      note?: string;
+    }[];
     /**
      * A CHARACTER WHO ACCOSTS THE PLAYER. Doc 27: Deke Vessel "opens. Thad
      * does not approach him." Doc 35 ("VESSEL'S AUTO-OPEN") specifies it:
@@ -1770,6 +1792,12 @@ export interface DialogueNode {
    * the node opens.
    */
   openingOnce?: string;
+  /**
+   * WHAT THE OPENING DOES, once, with `openingOnce`. Doc 04 WIN_B4: "The
+   * opening completes C6 and issues Document B." Performed when the tree
+   * first opens on this node; `openingOnce` records it, so it never repeats.
+   */
+  onOpen?: { set?: FlagWrites; puzzle?: Record<string, PuzzleStatus>; gives?: string[] };
   options: DialogueOption[];
 }
 

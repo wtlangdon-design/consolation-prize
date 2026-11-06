@@ -2705,11 +2705,39 @@ function sumpTree() {
   const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
   if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
   const DEFER = {
-    SUM_C1: 'opens on the death certificate (E4, Act III), which no built room yields',
     SUM_F1: 'Act IV\'s filing (doc 48 S6, doc 57 F5), after F4 in rooms not built',
   };
-  const DEFER_OPTION = { 'SUM_B1:1‴': 'needs Documents B and D in hand (C6, D6), from rooms not built' };
-  const ENTRY = { SUM_E1: { ACT: { atLeast: 3 } }, SUM_B1: { ACT: { atLeast: 2 } } };
+  const DEFER_OPTION = {};
+  // SUM_C1 from E4 (the signing writes T_DEATH_CERTIFIED) until the decease is
+  // recorded (doc 57 E5), then Act III's root again.
+  const ENTRIES = [
+    { when: { T_DEATH_CERTIFIED: true, T_DECEASED: false }, node: 'SUM_C1' },
+    { when: { ACT: { atLeast: 3 } }, node: 'SUM_E1' },
+    { when: { ACT: { atLeast: 2 } }, node: 'SUM_B1' },
+  ];
+  // WHAT DOC 57 WRITES THAT DOC 04'S ROWS DO NOT. E0: "SUM_B1 option 1''',
+  // holding THE AFFIDAVIT, THE ASSAY OF RECORD and THE ATTESTATION -> THE
+  // CERTIFICATE (the three are kept, stamped SEEN), and the viewing ... ->
+  // T_CLAIM1_BLANK, E0." E5: "SUM_C1 option 1, presenting the certificate,
+  // records the decease -> T_DECEASED."
+  const DOC57 = read('docs/57-puzzle-completion.md');
+  const viewingAt = DOC57.indexOf('## E0 · The Certificate of Contiguity');
+  const viewing = [];
+  for (const m of DOC57.slice(viewingAt, DOC57.indexOf('\n## ', viewingAt + 5)).matchAll(/^> \*\*(SUMP|THAD):\*\* (.+)$/gm)) {
+    const speaker = m[1] === 'THAD' ? 'thad' : SPEAKER;
+    for (const span of m[2].matchAll(/\*\(([^)]+)\)\*|"([^"]+)"/g)) {
+      if (span[1] !== undefined) {
+        const shown = performedDirection(span[1]);
+        if (shown) viewing.push({ speaker, line: shown.line, ...(shown.direction ? { direction: true } : {}) });
+      } else viewing.push({ speaker, line: span[2] });
+    }
+  }
+  if (viewing.length < 4) throw new Error('doc 57 E0: the viewing was not found');
+  const STATE = {
+    'SUM_B1:1‴': { holds: ['document_a', 'document_b', 'document_d'], gives: ['document_c'],
+      set: { T_CLAIM1_BLANK: true }, puzzle: { E0: 'complete' }, then: viewing },
+    'SUM_C1:1': { holds: ['death_certificate'], set: { T_DECEASED: true } },
+  };
   const ITEM = { 'THE SURVEY': 'survey' };
   const PRIME = { '': '', '′': 'a', '″': 'b', '‴': 'c' };
   const unplayed = [];
@@ -2780,6 +2808,15 @@ function sumpTree() {
       if (reqPuzzle) option.after = [`${SPEAKER}${reqPuzzle[2]}`];
       const completes = /\*\*([A-F]\d+)\*\*/.exec(stateText);
       if (completes) option.puzzle = { [completes[1]]: 'complete' };
+      const more = STATE[`${id}:${label}`];
+      if (more) {
+        const { then, ...rest } = more;
+        Object.assign(option, rest);
+        if (then) {
+          option.exchange = [...(option.exchange ?? (option.say ? [{ speaker: SPEAKER, line: option.say }] : [])), ...then];
+          delete option.say;
+        }
+      }
       options.push(option);
     }
     if (!hasExit) {
@@ -2792,7 +2829,7 @@ function sumpTree() {
       ...(opening.length ? { opening } : {}), options };
   }
   if (!nodes.SUM_A1) throw new Error('doc 04: SUM_A1 was not extracted');
-  const entries = Object.entries(ENTRY).filter(([node]) => nodes[node]).map(([node, when]) => ({ when, node }));
+  const entries = ENTRIES.filter((one) => nodes[one.node]);
   for (const note of unplayed) process.stderr.write(`  doc 04 SUMP: ${note}\n`);
   return write('content/dialogue/sump.json', {
     aftermathAuthored: true,
@@ -2802,7 +2839,7 @@ function sumpTree() {
     name: 'REGISTRAR SUMP',
     note: 'EXTRACTED from docs/04-dialogue-trees.md (REGISTRAR CADWALLADER SUMP) by tools/extract-content.mjs. '
       + 'Do not edit: change doc 04 and re-run. Plain quotes in a reply are Sump\'s, italic quotes Thad\'s. '
-      + 'SUM_C1, SUM_F1 and SUM_B1\'s last document option wait for the rooms that make them playable '
+      + 'SUM_F1 waits for F4 (see the extractor); SUM_B1\'s Document C option carries doc 57 E0\'s viewing '
       + '(see the extractor). Universal exit lines are doc 04 part one\'s pool.',
     entries,
     start: 'SUM_A1',
@@ -3002,9 +3039,25 @@ function winnieTree() {
     .map((m) => m[1]);
   if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
 
-  const SKIP = { WIN_B3: 'one option -- a scene with a single [COMIC], below doc 04 rule 1',
-    WIN_C1: 'no [COMIC] option -- the relationship scene, below doc 04 rule 2' };
-  const ENTRY = { WIN_F1: { T_STRIKE_FOUND: true }, WIN_B1: { T_BORDERS_MOTT: true } };
+  const SKIP = { WIN_B3: 'one option -- a scene with a single [COMIC], below doc 04 rule 1' };
+  // WIN_C1, E4 (doc 57: "WIN_C1 opens once T_FUNERAL_BOOKED is set and C5 is
+  // complete. Option 4 and the signing -> THE DEATH CERTIFICATE -> E4"). Doc 04
+  // calls it "The relationship scene" and writes no [COMIC]: declared, as the
+  // letters' node is (check-dialogue-nodes reads `noComic`). The scene after
+  // "Then:" is option 4's exchange; the signing hands over the certificate.
+  const NO_COMIC = { WIN_C1: 'Doc 04 Act III: "The relationship scene. Six exchanges, and the correct path is not persuasion." Its four rows are the persuasion and the dropping of it; none is a joke option.' };
+  const SIGNING = { 'WIN_C1:4': { gives: ['death_certificate'], puzzle: { E4: 'complete' }, set: { T_DEATH_CERTIFIED: true } } };
+  // WIN_B4, doc 04: "Opened by the first TALK TO after WIN_B2 option 1 has left
+  // C6 pending and Thad has been out of the office and back." The asking writes
+  // T_ASSAY_ASKED (below); Room 5's onEnter writes T_ASSAY_BACK on the way back
+  // in while that holds (the compiler, doc 57 C6). Before the C5 entry, which
+  // stays complete.
+  // WIN_C1 on T_FUNERAL_BOOKED alone: C5 is long complete by then (the funeral
+  // is booked after the Act II turn, which needs Document B, which needs C5).
+  const ENTRY = { WIN_F1: { T_STRIKE_FOUND: true }, WIN_C1: { T_FUNERAL_BOOKED: true }, WIN_B4: { T_ASSAY_BACK: true }, WIN_B1: { T_BORDERS_MOTT: true } };
+  // "The opening completes C6 and issues Document B" -- once.
+  const ON_OPEN = { WIN_B4: { once: 'T_ASSAY_RETURNED', onOpen: { puzzle: { C6: 'complete' }, gives: ['document_b'] } } };
+  const ASKED = { 'WIN_B2:1': { T_ASSAY_ASKED: true } };
   // A PUZZLE-GATED ENTRY: doc 04 heads WIN_B2 "after the padded log (C5)".
   // Errata 66 B-C: C5's completion is puzzle progress, and the action that
   // completes it opens this node and performs its opening; TALK TO afterwards
@@ -3031,8 +3084,21 @@ function winnieTree() {
     }, [])) found.push(grown);
   }
 
-  for (const { id, text } of found) {
+  for (const { id, text: whole } of found) {
     if (SKIP[id]) { unplayed.push(`${id} not extracted: ${SKIP[id]}`); continue; }
+    // A SCENE AFTER THE ROWS: doc 04 WIN_C1 writes "Then:" and the exchange the
+    // correct row leads to. It is not the node's opening.
+    const [text, thenBlock] = whole.split(/^Then:$/m);
+    const then = [];
+    for (const m of (thenBlock ?? '').matchAll(/^> \*\*(WINNIE|THAD):\*\* (.+)$/gm)) {
+      const speaker = m[1] === 'THAD' ? 'thad' : SPEAKER;
+      for (const span of m[2].matchAll(/\*\(([^)]+)\)\*|"([^"]+)"/g)) {
+        if (span[1] !== undefined) {
+          const shown = performedDirection(span[1]);
+          if (shown) then.push({ speaker, line: shown.line, ...(shown.direction ? { direction: true } : {}) });
+        } else then.push({ speaker, line: span[2] });
+      }
+    }
     // `[ \t]*`, NOT `\s*`: a whitespace class that includes the newline let the
     // optional fifth cell of a four-column row run on into the next row, and
     // Act IV's option 1 came out carrying option 2 as its state.
@@ -3126,6 +3192,14 @@ function winnieTree() {
       if (req) option.when = { [req[1]]: true };
       const puzzleWrite = PUZZLE_WRITE[`${id}:${number}`];
       if (puzzleWrite) option.puzzle = puzzleWrite;
+      if (ASKED[`${id}:${number}`]) option.set = { ...option.set, ...ASKED[`${id}:${number}`] };
+      const signing = SIGNING[`${id}:${number}`];
+      if (signing) {
+        if (!then.length) throw new Error(`doc 04: ${id} option ${number} leads to a scene with no lines`);
+        Object.assign(option, signing);
+        option.exchange = [...(option.say ? [{ speaker: SPEAKER, line: option.say }] : []), ...then];
+        delete option.say;
+      }
       if (state && !opens && !sets && !req && !puzzleWrite && state !== '—') {
         unplayed.push(`${id} option ${number} state "${state}" names no flag; nothing set`);
       }
@@ -3161,19 +3235,22 @@ function winnieTree() {
       options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[poolIndex % POOL.length], universal: true, ends: true });
       poolIndex += 1;
     }
-    nodes[id] = { id, ...(promptText ? { prompt: promptText } : { noPrompt: true,
+    nodes[id] = { id, ...(NO_COMIC[id] ? { noComic: true, noComicReason: NO_COMIC[id] } : {}), ...(promptText ? { prompt: promptText } : { noPrompt: true,
       exceptionReason: 'Doc 04 writes this node as a table only -- no opening exchange -- so '
         + 'the conversation continues from the previous node\'s line rather than opening on one.' }),
       ...(opening.length ? { opening } : {}), options };
   }
 
   if (!nodes.WIN_A1) throw new Error('doc 04: WIN_A1 was not extracted');
+  for (const [node, { once, onOpen }] of Object.entries(ON_OPEN)) {
+    if (nodes[node]) Object.assign(nodes[node], { openingOnce: once, onOpen });
+  }
   const entries = [];
   for (const [node, when] of Object.entries(ENTRY)) {
     if (!nodes[node]) continue;
     entries.push({ when, node });
     // The puzzle-gated entry sits after Act IV's and before Act II's root.
-    if (node === 'WIN_F1') for (const [gated, puzzle] of Object.entries(PUZZLE_ENTRY)) if (nodes[gated]) entries.push({ puzzle, node: gated });
+    if (node === 'WIN_B4') for (const [gated, puzzle] of Object.entries(PUZZLE_ENTRY)) if (nodes[gated]) entries.push({ puzzle, node: gated });
   }
   for (const note of unplayed) process.stderr.write(`  doc 04 WINNIE: ${note}\n`);
 
@@ -3186,7 +3263,7 @@ function winnieTree() {
     note: 'EXTRACTED from docs/04-dialogue-trees.md (WINNIE LEDGER) by tools/extract-content.mjs. '
       + 'Do not edit: change doc 04 and re-run. Plain quotes in a response are Winnie; the '
       + 'opening exchange is carried whole as `opening` and the prompt is its last Winnie line. '
-      + 'WIN_B3 and WIN_C1 are not extracted (see the extractor). Universal exit lines are doc '
+      + 'WIN_B3 is not extracted (see the extractor). Universal exit lines are doc '
       + '04 part one\'s pool.',
     entries,
     start: 'WIN_A1',

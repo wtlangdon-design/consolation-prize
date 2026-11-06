@@ -175,6 +175,7 @@
   "content/ambient/raccoon.json",
   "content/ambient/raccoon-meeting.json",
   "content/ambient/pratt.json",
+  "content/ambient/pratt-registrar.json",
   "content/ambient/pratt-jump.json",
   "content/ambient/man-panning.json",
   "content/ambient/sheng.json",
@@ -186,7 +187,8 @@
   "content/ambient/funeral-hob.json",
   "content/ambient/funeral-grievance.json",
   "content/ambient/funeral-mourners.json",
-  "content/ambient/dawn-dog.json"
+  "content/ambient/dawn-dog.json",
+  "content/ambient/sowerby-gate.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",

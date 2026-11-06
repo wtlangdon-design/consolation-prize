@@ -170,7 +170,7 @@ The relationship scene. Six exchanges, and the correct path is not persuasion.
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "It's the only way into the archive." | `[PROGRESS · retain]` | "I'm aware of the statute. The answer is no." |
-| 2 | "It's just a form." | `[PROGRESS · retain]` | *(Wrong. Hard wrong.)* "It is *never* just a form. That is what this town is *made of*." |
+| 2 | "It's just a form." | `[PROGRESS · retain]` | *(Wrong. Hard wrong.)* "It is never just a form. That is what this town is made of." |
 | 3 | "Nineteen names, Miss Ledger." | `[PROGRESS · retain]` | *(Long silence.)* |
 | 4 | "You're right. Forget it." | `[PROGRESS · remove] ✓` | "…Sit down, Mr. Grubb." |
 

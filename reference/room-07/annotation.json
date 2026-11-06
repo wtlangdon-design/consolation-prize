@@ -228,5 +228,29 @@
    "goto": "archive"
   }
  ],
- "sceneLinesNote": "Doc 57 E9: with T_EXECUTOR_NAMED (E6), OPEN on the archive door is Sump's exchange and the door unlocks into Room 8 (doc 20: 'reachable only as an executor'). Before it, the door's own OPEN override answers."
+ "sceneLinesNote": "Doc 57 E9: with T_EXECUTOR_NAMED (E6), OPEN on the archive door is Sump's exchange and the door unlocks into Room 8 (doc 20: 'reachable only as an executor'). Before it, the door's own OPEN override answers.",
+ "onEnterScenes": [
+  {
+   "fromRef": "docs/57-puzzle-completion.md::## D6 · The attestation",
+   "speakers": {
+    "SUMP": "sump",
+    "PRATT": "pratt_registrar",
+    "THAD": "thad"
+   },
+   "when": {
+    "T_PRATT_SWEARS": true,
+    "T_ATTESTED": false
+   },
+   "after": {
+    "set": {
+     "T_ATTESTED": true
+    },
+    "gives": [
+     "document_d"
+    ],
+    "completes": "D6"
+   },
+   "note": "Doc 57 D6: 'PRA_D6 option 5; the next time Thad enters the Registrar's, Pratt is at the counter' -- the exchange, then THE ATTESTATION and D6. Pratt is content/ambient/pratt-registrar.json; once the scene is read he walks out."
+  }
+ ]
 }

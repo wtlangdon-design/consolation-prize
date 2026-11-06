@@ -1,0 +1,125 @@
+{
+ "schema": 1,
+ "room": "main_street",
+ "note": "DOC 57 D6 IN THE GAME: from r7-e (Pratt has sworn, on Main Street), in to the Registrar's by the map; Pratt is at the counter, the attestation plays line by line, and once it is read he walks out of the door with THE ATTESTATION handed over.",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "click",
+   "at": [
+    554,
+    1052
+   ],
+   "why": "the panel's MAP button"
+  },
+  {
+   "do": "waitFor",
+   "room": "town_map",
+   "upTo": 20
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "click",
+   "at": [
+    700,
+    345
+   ],
+   "why": "the registrar's marker"
+  },
+  {
+   "do": "waitFor",
+   "room": "claims_registrar",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "00-in",
+   "room": "claims_registrar"
+  },
+  {
+   "do": "waitFor",
+   "says": "sump",
+   "upTo": 20
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "01-scene",
+   "room": "claims_registrar"
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "03-scene",
+   "room": "claims_registrar"
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "06-scene",
+   "room": "claims_registrar"
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "waitFor",
+   "flag": "T_ATTESTED",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "10-he-goes",
+   "room": "claims_registrar"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "capture",
+   "name": "11-gone",
+   "room": "claims_registrar"
+  }
+ ]
+}

@@ -154,7 +154,9 @@ export class GameScene extends Phaser.Scene {
   private pendingActCard: string | null = null;
   private actCardUntil: number | null = null;
   /** Lines to speak once the arrival walk finishes, not during it. */
-  private linesOnArrival: { speaker: string; line: string }[] | null = null;
+  private linesOnArrival: { speaker: string; line: string; direction?: boolean }[] | null = null;
+  /** An arrival scene's outcome, owed when its lines have all been read (onEnter.sayAfter). */
+  private afterArrival: { set?: Record<string, boolean | number>; gives?: string[]; completes?: string }[] | null = null;
 
   /** A tree to open, and who to turn to, when the walk started for it ends. */
   /**
@@ -436,9 +438,10 @@ export class GameScene extends Phaser.Scene {
     if (this.sayUntil !== null && now >= this.sayUntil) {
       // A GREETING RUNS ON ITS OWN: the next line of a conversation's opening
       // follows when the last has been read, as a performed exchange's lines
-      // do. Every other queued line keeps waiting for the click it always
-      // waited for.
-      if (!(this.pendingTree?.greeted && this.advanceSay())) this.setSay(null);
+      // do. So does an arrival scene with an outcome (onEnter.sayAfter, doc 57
+      // D6): several voices in turn, and nothing for the player to answer.
+      // Every other queued line keeps waiting for the click it always waited for.
+      if (!((this.pendingTree?.greeted || this.afterArrival) && this.advanceSay())) this.setSay(null);
       this.markDirty();
     }
     // THE SCENE'S LAST LINE HAS BEEN READ: now the room changes.
@@ -2103,15 +2106,22 @@ export class GameScene extends Phaser.Scene {
    */
   private arrivalLines(): void {
     const entry = this.state.room.onEnter;
-    if (!entry?.say?.length && !entry?.walkTo) return;
+    if (!entry?.say?.length && !entry?.scenes?.length && !entry?.walkTo) return;
     const who = this.state.content.actor.id;
-    const lines = (entry.say ?? []).map((line) => ({ speaker: who, line }));
+    // The scenes whose condition holds as he walks in, before anything lands.
+    const scenes = (entry.scenes ?? []).filter((scene) => this.state.flags.test(scene.when));
     const held = (entry.sayOnce && this.state.flags.get(entry.sayOnce) === true)
       || (entry.sayWhen !== undefined && !this.state.flags.test(entry.sayWhen));
+    const lines: { speaker: string; line: string; direction?: boolean }[] = [
+      ...(held ? [] : (entry.say ?? []).map((line) => ({ speaker: who, line }))),
+      ...scenes.flatMap((scene) => scene.lines)];
     if (entry.sayWhen !== undefined && !held && lines.length && entry.sayOnce) {
       this.state.flags.set(entry.sayOnce, true);
     }
-    if (!held && lines.length && entry.saySet) this.state.flags.applyWrites(entry.saySet);
+    if (!held && entry.say?.length && entry.saySet) this.state.flags.applyWrites(entry.saySet);
+    // The scenes' outcomes wait for the last line (doc 57 D6).
+    const owed = scenes.map((scene) => scene.after).filter((after) => after !== undefined);
+    if (owed.length) this.afterArrival = owed;
 
     // HE WALKS IN AND THEN SPEAKS, not both at once. Arriving already standing
     // there read as having come down out of the hills, so he now walks in from
@@ -2130,14 +2140,24 @@ export class GameScene extends Phaser.Scene {
       if (lines.length) this.linesOnArrival = lines;
       return;
     }
-    if (held || !lines.length) return;
+    if (!lines.length) return;
     this.pendingSay.push(...lines);
     this.advanceSay();
   }
 
   private advanceSay(): boolean {
     const next = this.pendingSay.shift();
-    if (next === undefined) return false;
+    if (next === undefined) {
+      // AN ARRIVAL SCENE IS OVER when its last line comes off: only now does
+      // it hand over, complete, and write (so a figure in it walks out after).
+      if (this.afterArrival) {
+        const owed = this.afterArrival;
+        this.afterArrival = null;
+        for (const done of owed) this.state.afterArrival(done);
+        this.markDirty();
+      }
+      return false;
+    }
     if (next.overBlack) this.overBlack = true;
     this.setSay(next.direction ? GameScene.asDirection(next.line) : next.line, next.speaker, next.direction === true);
     this.markDirty();

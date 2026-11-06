@@ -253,5 +253,44 @@
    "T_FUNERAL_DAY": false
   },
   "note": "Doc 57 C3: 'Room 14, Boot Hill -- entering ends the day. The service is just over.' The line plays and the day clears; it can be held again (errata 87 C)."
- }
+ },
+ "onEnterSet": {
+  "T_PLATE_AT_GATE": false
+ },
+ "onEnterSetWhen": [
+  {
+   "when": {
+    "T_FUNERAL_DAY": true,
+    "T_SHENG_TASK": true,
+    "T_LINEN_COLLECTED": false
+   },
+   "set": {
+    "T_PLATE_AT_GATE": true
+   }
+  }
+ ],
+ "onEnterSetNote": "Doc 57 C3: 'If T_SHENG_TASK is set and D4 is not done, Sowerby is at the gate with the plate (D4). Then T_FUNERAL_DAY clears ... and Sowerby is back in his church.' He stands at the gate for the visit that ends the day (T_PLATE_AT_GATE), and is gone the next time.",
+ "onEnterScenes": [
+  {
+   "fromRef": "docs/57-puzzle-completion.md::## D4 · Sheng's task",
+   "speakers": {
+    "THAD": "thad",
+    "SOWERBY": "sowerby"
+   },
+   "when": {
+    "T_FUNERAL_DAY": true,
+    "T_SHENG_TASK": true,
+    "T_LINEN_COLLECTED": false
+   },
+   "after": {
+    "set": {
+     "T_LINEN_COLLECTED": true
+    },
+    "gives": [
+     "linen_money"
+    ]
+   },
+   "note": "Doc 57 D4: on the funeral day the Reverend has a full plate, at the foot of Boot Hill -- the exchange, then THE LINEN MONEY. Plays after the day's own line. His figure is content/ambient/sowerby-gate.json."
+  }
+ ]
 }

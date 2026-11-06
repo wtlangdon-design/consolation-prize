@@ -1938,6 +1938,10 @@ if (MERGED) {
   if (ann.onEnterSet) {
     built.onEnter = { ...(built.onEnter ?? {}), set: { ...(built.onEnter?.set ?? {}), ...ann.onEnterSet } };
   }
+  // Writes made on entering only while a condition holds (onEnter.setWhen).
+  if (ann.onEnterSetWhen) {
+    built.onEnter = { ...(built.onEnter ?? {}), setWhen: ann.onEnterSetWhen };
+  }
   if (ann.onEnterAccost) {
     built.onEnter = { ...(built.onEnter ?? {}), accost: ann.onEnterAccost };
   }
@@ -1961,6 +1965,35 @@ if (MERGED) {
     }
     built.onEnter = { ...(built.onEnter ?? {}), ...rest, ...(said ? { say: said } : {}) };
   }
+  // ARRIVAL SCENES, READ FROM THE DOCUMENT (doc 57 D6, D4). `fromRef` names a
+  // section; every `> **NAME:** ...` line in it is spoken by `speakers[NAME]`,
+  // its italic directions performed in parentheses (doc 58) and its quoted
+  // words said. `when` gates it as he walks in; `after` is what it does once
+  // read (onEnter.scenes).
+  const scenes = [];
+  for (const scene of ann.onEnterScenes ?? []) {
+    const { fromRef, speakers, when, after, note } = scene;
+    const [path, heading] = fromRef.split('::');
+    const text = read(path);
+    const at = text.indexOf(heading);
+    if (at < 0) fail(`onEnterScene: ${path} has no section "${heading}"`);
+    const after_ = text.slice(at + heading.length);
+    const body = after_.slice(0, (/\n## |\n---\n/.exec(after_) ?? { index: after_.length }).index);
+    const lines = [];
+    for (const m of body.matchAll(/^> \*\*([A-Z]+):\*\* (.+)$/gm)) {
+      const speaker = speakers[m[1]];
+      if (!speaker) fail(`onEnterScene: ${fromRef} has a speaker ${m[1]} the annotation does not name`);
+      for (const span of m[2].matchAll(/\*\(([^)]+)\)\*|"([^"]+)"/g)) {
+        if (span[1] !== undefined) {
+          if (/^(beat|pause|long pause)$/i.test(span[1].trim())) lines.push({ speaker, line: '…' });
+          else lines.push({ speaker, line: span[1].trim(), direction: true });
+        } else lines.push({ speaker, line: span[2] });
+      }
+    }
+    if (lines.length < 2) fail(`onEnterScene: ${fromRef} has no exchange`);
+    scenes.push({ when, lines, ...(after ? { after } : {}), ...(note ? { note } : {}) });
+  }
+  if (scenes.length) built.onEnter = { ...(built.onEnter ?? {}), scenes };
   // OCCLUSION PLANES, WHERE THE ANNOTATION AUTHORS THEM. Geometry read off the
   // plate belongs with the rest of the geometry, and a room file this tool
   // rewrites is not a place a hand edit survives. A room whose annotation

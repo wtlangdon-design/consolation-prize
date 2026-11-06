@@ -784,5 +784,18 @@
       "phase": 0.2,
       "note": "The hanging work lamp's light: a small oil flame, so slow and low. Negligible by day (daylight is the source); by night the principal work light, a restrained warm pool on the ledger, her hands and the counter around them, centred a little below the flame so it falls on the work and not on the ceiling. The stove has no runtime lamp and stays a painted accent, secondary. Errata 64d: the state is authored, selected by the room's visual state, never by a clock. PROMOTED 2026-09-05: night is the base presentation, so `amount` is the night light and `day` the companion."
     }
-  ]
+  ],
+  "onEnter": {
+    "note": "Doc 57 C6: WIN_B4 opens on the first TALK TO after WIN_B2 option 1 (T_ASSAY_ASKED) once Thad has been out of the office and back -- coming back in writes T_ASSAY_BACK.",
+    "setWhen": [
+      {
+        "when": {
+          "T_ASSAY_ASKED": true
+        },
+        "set": {
+          "T_ASSAY_BACK": true
+        }
+      }
+    ]
+  }
 }

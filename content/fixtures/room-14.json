@@ -195,6 +195,54 @@
     "HOB_C1 (Room 32) writes T_FUNERAL_DONE: set here as its outcome"
    ],
    "note": "MY OWN PLOT: the headboard, the grass coming in, a tuning peg."
+  },
+  {
+   "id": "r14-e",
+   "label": "R14-E Act II, the funeral day with Sheng's task open: up Boot Hill, the Reverend at the gate with the plate (D4)",
+   "room": "main_street",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "ACT": 2,
+    "T_FUNERAL_DAY": true,
+    "T_SHENG_TASK": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete"
+   },
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::D1 · The ninety-day rule",
+    "docs/00-errata.md::75 · THE PUZZLE COMPLETION PASS (2026-11-01) (H: ACT 2 at A10's card)"
+   ],
+   "note": "Doc 57 C3/D4: on Main Street on the funeral day; the map to Boot Hill ends the day, and Sowerby at the gate pays Sheng's linens out of the plate.",
+   "notBuilt": [
+    "A10 (Room 11, the dinner): the act card that sets ACT 2"
+   ]
   }
  ]
 }
