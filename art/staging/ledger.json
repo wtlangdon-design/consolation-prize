@@ -24182,6 +24182,136 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-06T06:46:07.835Z"
+  },
+  {
+   "attempt": 32,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "funeral-hob-from-his-own-art",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/cast-master/master-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/cast-unify-30.txt",
+   "promptHash": "e30cc5ff75bf32e5b1f568419982d6585417dd2124a6ed2de514c5ce55bd208c",
+   "references": [
+    {
+     "path": "art/staging/cast-unify/batch-30/hob-in-game.png",
+     "hash": "8510074ee9a8e9fa0be4655dacfcbf8973474f4523a367cb0c4f63b8265d9f5b",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "reference/room-31/cast-board.png",
+     "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-31-funeral",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-14-boot-hill)",
+      "path": "art/backgrounds/room-14-boot-hill.png",
+      "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the cast already drawn: Sowerby (Room 17), the undertaker (Room 13), Grievance (Room 15), Hob (Room 21))",
+      "path": "reference/room-31/cast-board.png",
+      "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "8510074ee9a8e9fa0be4655dacfcbf8973474f4523a367cb0c4f63b8265d9f5b",
+   "sourcePath": "art/staging/cast-unify/batch-30/hob-in-game.png",
+   "out": "art/staging/cast-unify/batch-30/sheet.png",
+   "outputHash": "6ad6905f826eee7a6056d7e2d470c9e54283285a97239272e29be46503eb5f1e",
+   "bytes": 1476013,
+   "usage": {
+    "input_tokens": 8653,
+    "input_tokens_details": {
+     "image_tokens": 8288,
+     "text_tokens": 365
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 10204
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T06:51:49.929Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T06:51:49.934Z"
   }
  ],
  "promotions": [
