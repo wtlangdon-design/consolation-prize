@@ -1,0 +1,25 @@
+Image 1 is a close-up of a saloon from my pixel-art adventure game. THE MEN IN IT ARE THE STANDARD: the card players at the round table, the men at the bar, the man in the long blue coat (Thad, the hero) and the man in the brown jacket in the middle. Look at how they are drawn: small, even pixels; soft, warm shading on their faces, hands and clothes that gives them form; faces with real features in shadow and light; warm lamplight; muted, slightly dark colours. The fiddler on the far left of image 1 is WRONG and must not be copied: his pixels are too big, his face and clothes are flat and too bright, and he looks pasted in from another game.
+
+Image 2 is the dog's owner's sheet of five poses, drawn the same wrong way: pixels too big and too flat. Redraw that same sheet -- the same man, the same clothes and colours, the same five poses in the same order, left to right -- drawn EXACTLY LIKE THE MEN IN IMAGE 1:
+- Each pose about 110 pixels tall from hat to boots, the same pixel size as the card players and Thad in image 1 -- smaller pixels than in image 2.
+- Soft shading on the face, hands and clothes, as the card players and Thad have: light from one side, the other side in warm shadow. Not flat colour.
+- Faces drawn the way theirs are, with shaded features, not a few flat blocks.
+- The same warm, low lamplight and the same muted, slightly dark colours as the men in image 1. No brighter than them.
+- Not sharp or fussy either: no tiny glints or thin hard lines. Match the men in image 1, not a high-detail illustration.
+
+The character: THE DOG'S OWNER: a lanky, worried man in a long shabby brown coat and a brown hat, a coiled rope leash in one hand.
+
+The poses, as in image 2:
+1. REST: standing, the coiled leash held at his side, looking off to the viewer's left.
+2. LOOK: hand shading his eyes, peering off to the viewer's left.
+3. CALL: hand cupped to his mouth, calling for the dog.
+4. TALK: facing three-quarters right, mouth open mid-word, the leash held up a little.
+5. GLAD: standing easy, smiling, looking down at his feet where a dog would be, the leash slack.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no saloon, nothing else in the picture.
+- All five poses the same size, boots on the same baseline, each about two-thirds the height of the picture.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same face everywhere else.
+- Crisp edges against the magenta. No soft glow or blur around the figure.
+- Do not draw Thad or anyone from image 1. No text, labels, numbers or borders.

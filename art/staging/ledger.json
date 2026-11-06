@@ -20788,6 +20788,120 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-06T21:25:34.110Z"
+  },
+  {
+   "attempt": 12,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "boundary-men",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/boundary-men/sheet-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/boundary-men-prompt-03.txt",
+   "promptHash": "d2a85600cf26655f63f6b83507ef7e6f1fc024c2013008cadefcd4e903009528",
+   "references": [
+    {
+     "path": "reference/townspeople/nugget-cast-standard.png",
+     "hash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/boundary-men/sheet-02.png",
+     "hash": "75f147bf102874995b0fac5cc7461948531771efb2deba5206233aead9f2f30d",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+   "sourcePath": "reference/townspeople/nugget-cast-standard.png",
+   "out": "art/staging/townspeople-110/boundary-men/sheet-03.png",
+   "outputHash": "1868f023e75c5b2a147c5aeb46b94280ffd4cc0aaccd099bfa2725263990f87a",
+   "bytes": 1428844,
+   "usage": {
+    "input_tokens": 3754,
+    "input_tokens_details": {
+     "image_tokens": 3044,
+     "text_tokens": 710
+    },
+    "output_tokens": 522,
+    "output_tokens_details": {
+     "image_tokens": 522,
+     "text_tokens": 0
+    },
+    "total_tokens": 4276
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T22:12:25.011Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06 (townspeople-110 cap 15): 'The fiddler and the other 3 characters all need to be pulled up to about the same level of pixelation which should make sense with the characters in the Nugget, for comparison.'",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T22:12:25.016Z"
+  },
+  {
+   "attempt": 13,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "fiddler",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/fiddler/sheet-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/fiddler-prompt-03.txt",
+   "promptHash": "9e006b10172de54255ca98eac906d76b09eb5af3568946d3273c4df33777abcf",
+   "references": [
+    {
+     "path": "reference/townspeople/nugget-cast-standard.png",
+     "hash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/fiddler/sheet-02.png",
+     "hash": "09a4183e518076ababcd2b76fc93ef88492c8310c04fbbd24ab874b232660599",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+   "sourcePath": "reference/townspeople/nugget-cast-standard.png",
+   "out": "art/staging/townspeople-110/fiddler/sheet-03.png",
+   "outputHash": "fc4919d6e96fc8f9586b21c98781b2c6bf3dba465940a0aba4df0831944a910a",
+   "bytes": 1459104,
+   "usage": {
+    "input_tokens": 3739,
+    "input_tokens_details": {
+     "image_tokens": 3044,
+     "text_tokens": 695
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 4172
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T22:12:57.055Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06 (townspeople-110 cap 15): 'The fiddler and the other 3 characters all need to be pulled up to about the same level of pixelation which should make sense with the characters in the Nugget, for comparison.'",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T22:12:57.060Z"
   }
  ],
  "promotions": [
