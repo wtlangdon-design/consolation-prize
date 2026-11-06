@@ -3048,6 +3048,16 @@ The fiddler's idle is his playing: two bow positions, about 0.6 s a stroke.
 
 **A test that assumed it was alone.** `tests/room-20.test.ts` took the alley's conversation to be the first person there with a tree. The dog's owner stands there now, so it asks for the doc 04 conversation, not a doc 07 micro-tree (`amb_*`).
 
+**The proofs** (`renders/proofs/{main-street,back-alley,nugget}/`):
+- **Main Street and the back alley pass.** Main Street's was last recorded failing, in 2026-09.
+- **Two gates were measuring the wrong thing, and are fixed in `tools/gauntlet/proof.mjs`:**
+  - *A figure out of panel B's shot was failed as "nothing drew".* Main Street is 3700 wide and the panel shows one stretch of it. The letter-writer, there since 2026-09, failed it with the boy and a boundary man. Such a figure is now looked at where he stands: Thad is stood beside him, the camera follows, and the same populated-minus-suppressed pair is measured.
+  - *Gate 8B measured Thad's feet behind whoever stood in front of the mark.* The dog's owner is on the alley's centre line, and his coat read as 46px of float. Along the authored row, an x where Thad would stand behind a present figure is now passed over while another x remains, as an x off the floor already was. The row itself never moves.
+- **The Nugget's proof still fails, on two things that were there before today:**
+  - Its far depth row (y515, x900–1015) lies wholly behind Deke at the bar, so gates 8A and 8B measure him and the card sharp with Thad.
+  - `proofs/spec/nugget.json` names no principal change, so panel D cannot be taken. Which change is principal is authorship.
+  - The fiddler is clear of both: the near mark stepped off him to x224 and passed.
+
 **Left for the playthrough** (style gate step 3, errata 72): how each figure reads in his room at play speed.
 
 **Open, and not this pass's:**
