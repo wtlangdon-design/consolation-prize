@@ -2746,3 +2746,26 @@ What Tyler still decides: acceptance of the art (errata 72 E, at the full playth
 **A · Hob is on his rounds from the first night.** Doc 04 calls HOB_A1 "the whole game": the player who asks him about Mott in Act I gets a four-second pause and forgets it for fifteen hours. Nothing reached HOB_A1 — Hob was placed only from Act III — so that pause could never happen. From the start of the game through Act II he stands on his rounds in the back alley (Room 20), at the spot and in the approved drawing his Act III rounds already use (doc 07: "on his rounds at night (Main Street, the back alley)"; no image operation), and his conversation there opens on HOB_A1. From Act III the existing placements govern unchanged. Doc 04's "Running" lines (every fourth night) need a count of nights the game does not keep, and stay unwired.
 
 **B · Act IV opens in Thad's room.** Doc 57 gives the line and the setting but not the cut. When Act IV begins, after the PART FOUR card, the game cuts to Room 19 and Thad says doc 57's line once, unprompted ("Packed. It took four minutes…"). The packed case on the bed and the morning light are Room 19's Act IV state and wait for the next session with an image budget; until then the room shows as it is, and the line carries the morning.
+
+---
+
+# 102 · THE OTHER FOUR THEMES ARE WRITTEN, BY THE BUILDER — OWNER RULING (Tyler, 2026-11-05)
+
+Asked whether the music and sound were done, and told that four of doc 28's six themes had never been written, Tyler chose: **"Have me compose them the way THADDEUS was done. You would listen and approve each one."**
+
+So THE STRIKE, THE ASSAY, WINNIE and THE COMPANY now exist as note data in `proofs/audio/consolation-audio-proof.html`, in the LA manner errata 56 made canon, and as stems rendered by `tools/render-music.mjs` (`audio/the-strike.wav`, `the-assay.wav`, `winnie.wav`, `the-company.wav`). **They are placeholders in the same sense CONSOLATION and THADDEUS are**, written against doc 28 because no notated score exists, and **none is accepted until Tyler has heard it.** The builder cannot hear them; the checks below are measurements, not judgement.
+
+| Theme | Doc 28's brief | The setting |
+|---|---|---|
+| **THE STRIKE** | "Three notes, ascending, unresolved … Harmonica, always distant" | B-flat, C, E at 60, the E held. The outer interval is a tritone. Harmonica on the far bus. A one-shot (doc 45 §0.3), rendered with its tail rung out, not folded into a loop |
+| **THE COMPANY** | "Warm, generous, and in a major key … shares its first three notes with THE STRIKE and nobody notices for ten hours" | F major, 4/4 at 96. It opens B-flat, C, E in THE STRIKE's register, as quick quarter notes over IV and V7, landing on F: the same three notes with the answer supplied. Fiddle with vibrato over a parlour piano; the piano doubles the tune the second time. **Doc 45 OQ-03 is answered: fiddle and upright piano** |
+| **THE ASSAY** | "Jaw harp and piano, mechanical, in a metre that keeps adding a beat" | D minor at 88, bars of 3, 4, 5 and 6, then round. Each bar is the last with one more tick, and every bar ends on the same stamp: C-sharp, the leading tone, which is the piano's broken note (doc 05), so it lands a semitone short every time and cannot resolve. The jaw harp sweeps upward on the stamp |
+| **WINNIE** | "In tune … avoiding C-sharp entirely. Four bars, no ornament, no vibrato on the fiddle" | C major at 88, four bars, quarter and half notes. The fiddle's vibrato is zero, the only part in the score where it is (a per-part `vibrato` depth in the synthesis; every other part keeps its 11 cents). **It ends on the tonic**, the only theme before Act IV that does |
+
+**Keys are chosen around the piano's C-sharp.** WINNIE avoiding it only means something if the theme she shares an office with does not, so THE ASSAY leans on it and WINNIE never touches it. THE COMPANY sits in F, where the broken note does not occur: it sounds flawless because it avoids the fault, not because it is true.
+
+**WINNIE and THE ASSAY share a tempo** so they can share a cycle when Thad is at the counter (doc 45 `R05-M2`): eighteen beats against sixteen, aligned every 144. WINNIE still plays at −35 cents with everything else (doc 45 §0.2); her "in tune" is the avoided note and the absent vibrato, not an exemption from the bus.
+
+**Measured, because nobody here can listen:** THE STRIKE's three pitches land within 0.3 cents of B-flat, C and E at −35; THE ASSAY's stamp sounds at C (512.8 Hz), a semitone under C-sharp, as the piano's fault requires; WINNIE's held E has zero pitch spread (no vibrato), THE COMPANY's has 17.7 Hz; no loop has a silent run; THE ASSAY's loop seam is an ordinary sample step (80th percentile).
+
+**Not done by this, and next once the themes are heard:** the room mixes doc 28 Part Three asks for (arrangements of these themes per room, including the Nugget's diegetic piano and the hotel's through-the-wall CONSOLATION), wiring them into `manifest.music`, and doc 28 Part Six's SFX. Beat-timed cues still wait on errata 28a, which is Tyler's to reverse.

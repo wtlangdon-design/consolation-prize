@@ -92,7 +92,21 @@ const STEMS = [
     note: 'O-02-M — THADDEUS, Room 1. Four bars of 3/4, solo, unaccompanied.' },
   { file: 'thaddeus-complete-room-33.wav', piece: 'THADDEUS_COMPLETE_LA', loops: 4,
     note: 'R33-M — THADDEUS, complete (errata 70 C): the fourth bar resolves. Placeholder composition by the builder.' },
+  // ERRATA 102: the other four themes, placeholder compositions by the builder.
+  // Theme statements, named for the theme rather than a room: the room mixes
+  // doc 28 Part Three asks for are arrangements OF these, and come after Tyler
+  // has heard the themes themselves.
+  { file: 'the-strike.wav', piece: 'STRIKE_LA', loops: 1, oneShot: true,
+    note: 'THE STRIKE — three notes, harmonica, distant. A one-shot (doc 45 0.3): the tail is kept, not folded.' },
+  { file: 'the-assay.wav', piece: 'ASSAY_LA', loops: 2,
+    note: 'THE ASSAY — piano and jaw harp, bars of 3, 4, 5, 6.' },
+  { file: 'winnie.wav', piece: 'WINNIE_LA', loops: 4,
+    note: 'WINNIE — fiddle without vibrato, piano, C major, four bars.' },
+  { file: 'the-company.wav', piece: 'COMPANY_LA', loops: 2,
+    note: 'THE COMPANY — fiddle and parlour piano, F major; the piano doubles the tune the second time.' },
 ];
+/** A one-shot rings out in full rather than folding into a loop it is not. */
+const ONE_SHOT_TAIL_SECONDS = 4.0;
 
 function wav(channels, rate) {
   const n = channels[0].length;
@@ -135,8 +149,9 @@ function fold(data, bodyFrames) {
 
 const FORCE = process.argv.includes('--force');
 // --only <file>: render that stem alone, leaving the auditioned ones as they are.
-const ONLY = process.argv.includes('--only') ? process.argv[process.argv.indexOf('--only') + 1] : null;
-if (ONLY) STEMS.splice(0, STEMS.length, ...STEMS.filter((stem) => stem.file === ONLY));
+// A comma-separated list renders several in one browser session.
+const ONLY = process.argv.includes('--only') ? process.argv[process.argv.indexOf('--only') + 1].split(',') : null;
+if (ONLY) STEMS.splice(0, STEMS.length, ...STEMS.filter((stem) => ONLY.includes(stem.file)));
 // CHECKED BEFORE THE BROWSER STARTS, so a refusal costs nothing and reads as a
 // refusal rather than as a slow failure.
 const existing = STEMS.filter((stem) => existsSync(resolve(OUT, stem.file)));
@@ -177,14 +192,22 @@ for (const stem of STEMS) {
       seconds: buffer.duration,
       bodyFrames: Math.round(beats * beat * rate),
     };
-  }, { piece: stem.piece, loops: stem.loops, rate: RATE, tail: TAIL_SECONDS });
+  }, { piece: stem.piece, loops: stem.loops, rate: RATE, tail: stem.oneShot ? ONE_SHOT_TAIL_SECONDS : TAIL_SECONDS });
 
-  const channels = [rendered.left, rendered.right].map((data) => fold(data, rendered.bodyFrames));
+  // A one-shot ends where its sound does, plus a breath: the first render of
+  // THE STRIKE carried 3.15s of digital silence after its tail.
+  const audibleEnd = (data) => { let i = data.length - 1; while (i > 0 && Math.abs(data[i]) < 0.0005) i -= 1; return i; };
+  const oneShotEnd = Math.min(rendered.left.length,
+    Math.max(audibleEnd(rendered.left), audibleEnd(rendered.right)) + Math.round(0.2 * RATE));
+  const channels = stem.oneShot
+    ? [rendered.left, rendered.right].map((data) => Float32Array.from(data.slice(0, oneShotEnd)))
+    : [rendered.left, rendered.right].map((data) => fold(data, rendered.bodyFrames));
   const path = resolve(OUT, stem.file);
   writeFileSync(path, wav(channels, RATE));
-  const held = rendered.bodyFrames / RATE;
+  const held = stem.oneShot ? oneShotEnd / RATE : rendered.bodyFrames / RATE;
   process.stdout.write(`${stem.file}  ${held.toFixed(2)}s `
-    + `(${(rendered.seconds - held).toFixed(2)}s of release folded back)  ${stem.note}\n`);
+    + (stem.oneShot ? '(one-shot, rung out)  ' : `(${(rendered.seconds - held).toFixed(2)}s of release folded back)  `)
+    + `${stem.note}\n`);
 }
 
 await browser.close();
