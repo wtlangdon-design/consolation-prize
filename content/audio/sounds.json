@@ -178,7 +178,7 @@
    "play": [
     {
      "src": "audio/sfx/laugh-distant.wav",
-     "gain": 0.183
+     "gain": 0.145
     }
    ]
   },
@@ -224,6 +224,15 @@
     {
      "src": "audio/sfx/pencil.wav",
      "gain": 0.197
+    }
+   ]
+  },
+  "R17-BELL": {
+   "why": "doc 45 R17-BELL: pulling the rope strikes the bell -- the same fixed, half-step-flat bell heard from Main Street, here directly overhead. Doc 49's PULL line has always been in the game; it had no sound.",
+   "play": [
+    {
+     "src": "audio/sfx/church-bell.wav",
+     "gain": 0.08
     }
    ]
   }
@@ -347,6 +356,12 @@
     2
    ],
    "cue": "R21-WINDOW"
+  },
+  {
+   "room": "church",
+   "target": "bell_rope",
+   "verb": "PULL",
+   "cue": "R17-BELL"
   }
  ],
  "transits": [
@@ -464,7 +479,7 @@
   },
   "nugget": {
    "src": "audio/sfx/nugget-crowd.wav",
-   "gain": 0.97,
+   "gain": 0.612,
    "why": "doc 45 R03-A: glasses, indistinct talk, the chandelier cooling"
   },
   "clarion": {
@@ -487,7 +502,7 @@
   "duelMark": "U-ASSAY-PENCIL"
  },
  "levels": {
-  "about": "TYLER, 2026-11-06: \"make sure sfx aren't absurdly loud ... background effects not sounds that take center stage.\" Targets in dB against the median room bed (the music as it plays), and the gains in this file are set from them by measurement, never by ear alone. tools/check-sound-levels.mjs fails on any sound above its ceiling, which is the target plus 2 dB. `roomGain` turns a room's own scripted sounds down together -- the coffin's dirt and the chamber's taps -- whose loudest must sit no higher than the music (`scene`, 0 dB): in the coffin there is no music, and those sounds are the room, but not a slap.",
+  "about": "TYLER, 2026-11-06: \"make sure sfx aren't absurdly loud ... background effects not sounds that take center stage.\" Targets in dB against the median room bed (the music as it plays), and the gains in this file are set from them by measurement, never by ear alone. tools/check-sound-levels.mjs fails on any sound above its ceiling, which is the target plus 2 dB. `roomGain` turns a room's own scripted sounds down together -- the coffin's dirt and the chamber's taps -- whose loudest must sit no higher than the music (`scene`, 0 dB): in the coffin there is no music, and those sounds are the room, but not a slap. The two synthesized human sounds -- the Nugget's talk and the distant laugh -- sit lower than their kinds (20 and 16 dB under), because a voice made by synthesis is most convincing when it is barely there (errata 106).",
   "footsteps": -16,
   "cue": -10,
   "cueBed": -16,
@@ -500,11 +515,12 @@
    "O-09-M": -8,
    "O-06B-S": -12,
    "O-06-S1": -10,
-   "R01-WEST-3": -14,
-   "R01-COACH-2": -14
+   "R01-WEST-3": -16,
+   "R01-COACH-2": -14,
+   "R17-BELL": -8
   },
   "ambience": {
-   "nugget": -16
+   "nugget": -20
   },
   "scene": 0
  },
