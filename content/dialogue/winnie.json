@@ -558,7 +558,10 @@
           "tag": "PROGRESS",
           "text": "Run it.",
           "afterUse": "remove",
-          "say": "Twenty-two hundred dollars to the ton."
+          "say": "Twenty-two hundred dollars to the ton.",
+          "set": {
+            "T_ASSAY_RUN": true
+          }
         },
         {
           "id": "winnie2",

@@ -1,0 +1,61 @@
+{
+ "schema": 1,
+ "note": "Fixtures sited on Main Street (Room 2).",
+ "fixtures": [
+  {
+   "id": "r2-f4",
+   "label": "R2-F4 Act IV, the sample assayed (T_ASSAY_RUN), the confession heard: out onto Main Street, where Fanshawe calls Duel Three (F4)",
+   "room": "assay_office",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_BORDERS_MOTT": true,
+    "T_SWINDLED": true,
+    "T_ASSAY_QUEUE": true,
+    "T_NO_MOTT_GOLD": true,
+    "T_SECOND_LEDGER": true,
+    "T_STRIKE_FOUND": true,
+    "ACT": 4,
+    "T_ASSAY_RUN": true,
+    "ASSAY_PAIR_04": true,
+    "ASSAY_PAIR_09": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "pickaxe",
+    "sample"
+   ],
+   "derivedFrom": [
+    "docs/04-dialogue-trees.md:170-176 (WIN_F1 after T_STRIKE_FOUND; 'Run it.' -- she runs it at the window, the first assay the player watches)",
+    "docs/02-puzzle-graph.md:116-118 (F1-F3: the strike needs the fork and the pickaxe)",
+    "docs/48-act-turn-beats.md:61-70 and docs/00-errata.md:1781-1784 (S4's close sets ACT 4)",
+    "docs/02-puzzle-graph.md:64-69 and docs/04-dialogue-trees.md:106,124-126 (C1 T_ASSAY_QUEUE; WIN_B2's rows T_NO_MOTT_GOLD and T_SECOND_LEDGER, consumed on the way to C6 and E4; WIN_F1 option 2 presumes the nineteen names were read)"
+   ],
+   "expect": {
+    "tree": "WINNIE",
+    "opensOn": "WIN_F1",
+    "interactables": [
+     "queue_bench",
+     "floorboard",
+     "scales"
+    ]
+   },
+   "note": "Doc 57 F4: step out of the assay office and Fanshawe is waiting with the judges' table and half the town; the duel runs 4, 9, 22, 23, then the fifth.",
+   "puzzles": {
+    "E10": "complete"
+   }
+  }
+ ]
+}

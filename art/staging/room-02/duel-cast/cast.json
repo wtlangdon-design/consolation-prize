@@ -1,0 +1,232 @@
+{
+ "note": "Cut by tools/art/room02-duel-cast.py from room-02 operation 1 minus operation 2; x, y in street pixels.",
+ "scale": 1.1851851851851851,
+ "origin": 2404,
+ "figures": {
+  "fanshawe": {
+   "sheet": "art/actors/room-02-duel-fanshawe.png",
+   "frames": [
+    [
+     2,
+     2,
+     144,
+     278
+    ],
+    [
+     148,
+     2,
+     144,
+     278
+    ],
+    [
+     294,
+     2,
+     144,
+     278
+    ],
+    [
+     440,
+     2,
+     144,
+     278
+    ],
+    [
+     586,
+     2,
+     144,
+     278
+    ]
+   ],
+   "x": 2822,
+   "y": 802,
+   "figureHeight": 278,
+   "box": [
+    436,
+    672,
+    556,
+    950
+   ],
+   "frameNote": "0 rest \u00b7 1 breath \u00b7 2 a lean \u00b7 3 a nod \u00b7 4 a lean back"
+  },
+  "sowerby": {
+   "sheet": "art/actors/room-02-duel-sowerby.png",
+   "frames": [
+    [
+     2,
+     2,
+     100,
+     188
+    ],
+    [
+     104,
+     2,
+     100,
+     188
+    ],
+    [
+     206,
+     2,
+     100,
+     188
+    ],
+    [
+     308,
+     2,
+     100,
+     188
+    ],
+    [
+     410,
+     2,
+     100,
+     188
+    ]
+   ],
+   "x": 3010,
+   "y": 602,
+   "figureHeight": 188,
+   "box": [
+    680,
+    526,
+    756,
+    714
+   ],
+   "frameNote": "0 rest \u00b7 1 breath \u00b7 2 a lean \u00b7 3 a nod \u00b7 4 a lean back"
+  },
+  "table": {
+   "sheet": "art/actors/room-02-duel-table.png",
+   "frames": [
+    [
+     2,
+     2,
+     308,
+     154
+    ],
+    [
+     312,
+     2,
+     308,
+     154
+    ],
+    [
+     622,
+     2,
+     308,
+     154
+    ],
+    [
+     932,
+     2,
+     308,
+     154
+    ],
+    [
+     1242,
+     2,
+     308,
+     154
+    ]
+   ],
+   "x": 2866,
+   "y": 618,
+   "figureHeight": 154,
+   "box": [
+    406,
+    578,
+    690,
+    732
+   ],
+   "frameNote": "0 the judges at their table \u00b7 1 breath \u00b7 2-4 a judge or two nodding, a different one each time"
+  },
+  "town_left": {
+   "sheet": "art/actors/room-02-duel-town-left.png",
+   "frames": [
+    [
+     2,
+     2,
+     357,
+     288
+    ],
+    [
+     361,
+     2,
+     357,
+     288
+    ],
+    [
+     720,
+     2,
+     357,
+     288
+    ],
+    [
+     1079,
+     2,
+     357,
+     288
+    ],
+    [
+     1438,
+     2,
+     357,
+     288
+    ]
+   ],
+   "x": 2560,
+   "y": 797,
+   "figureHeight": 288,
+   "box": [
+    18,
+    657,
+    351,
+    945
+   ],
+   "frameNote": "0 rest, watching \u00b7 1 breath \u00b7 2-4 a few of them shifting their weight, a different few each time"
+  },
+  "town_right": {
+   "sheet": "art/actors/room-02-duel-town-right.png",
+   "frames": [
+    [
+     2,
+     2,
+     364,
+     298
+    ],
+    [
+     368,
+     2,
+     364,
+     298
+    ],
+    [
+     734,
+     2,
+     364,
+     298
+    ],
+    [
+     1100,
+     2,
+     364,
+     298
+    ],
+    [
+     1466,
+     2,
+     364,
+     298
+    ]
+   ],
+   "x": 3538,
+   "y": 817,
+   "figureHeight": 298,
+   "box": [
+    1174,
+    670,
+    1514,
+    968
+   ],
+   "frameNote": "0 rest, watching \u00b7 1 breath \u00b7 2-4 a few of them shifting their weight, a different few each time"
+  }
+ }
+}

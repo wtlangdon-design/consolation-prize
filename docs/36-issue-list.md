@@ -4892,7 +4892,7 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Room 2's street at first light, the nine dawn hotspots, the dog on his back in the road, and the close at the coach stop: 'Leave the mud.' and the Act IV letter over black (`?fixture=r36-a`). Played in `tests/room-36.test.ts`. Proofs under `renders/proofs/main-street-dawn/`.
 
 **For Tyler:**
-- **The way in is not built.** Room 36 follows F5, the filing, and F5 follows F4, the final duel; both live in built rooms (2 and 7) but neither is built (SUM_F1 is unextracted, doc 36 Q150). Until they are, the dawn is reached by `?fixture=r36-a`.
+- **The way in: BUILT 2026-11-06 (Q179).** F4 and F5 are built; filing hands on to the dawn.
 - **Not staged:** beat 3's picture (the POP. sign repainted upward by a man on a ladder, who nods) and beat 5's credits (errata 55's launch-screen cluster). The close ends over black, with the menu still there.
 - **The dawn plate is a relight of Room 2's,** so where the morning's mountains and Room 2's disagree the ridge is a little ragged in places. Say if it wants a hand-drawn dawn instead.
 
@@ -4904,4 +4904,21 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 - **Pratt at the counter** is his Prosperity sheet, mallet in hand (Room 7's four operations are spent). He stands at the far end of the counter, clear of Sump and of where Thad talks to Sump.
 - **Sowerby at the gate** is his funeral sheet (finger raised, lit by the same moon). No sheet of him holds a plate, so the plate is in the performed direction, not the picture.
 - **WIN_C1 option 2's emphasis** ("*never*", "*made of*") was dropped in doc 04, wording kept: the font has no italic (check-no-markdown-emphasis).
+
+## Q178 · F4, Duel Three on Main Street — **BUILT 2026-11-06 (errata 99 N), room-02 2 of 6 operations, AWAITING TYLER'S PLAYTHROUGH**
+
+**Built.** Out of the assay office after the sample is assayed, Fanshawe, the judges' table and half the town are on the street; he calls the duel; a wrong answer is thrown again; the truth wins it (`T_FANSHAWE_BEATEN`, F4). Played in tests/f4.test.ts; seen in the game by the route `main-street-duel-three` (fixture r2-f4).
+
+**For Tyler:**
+- **Four judges, not three.** The master seated four at the table; Room 4's judges are three.
+- **Fanshawe does not walk back up the street** (doc 03: "He walks back up the street to his office"): no walk of him exists. He and the town stay while Thad is on the street and are gone the next time.
+- **The duel is played in the conversation list**, as Room 4's are.
+
+## Q179 · F5, the filing, and the way into Room 36 — **BUILT 2026-11-06 (errata 99 O), AWAITING TYLER'S PLAYTHROUGH**
+
+**Built.** After Duel Three, Winnie at the end of the counter; the four documents laid down; SUM_F1, WIN_F2, the read-back; `T_FILED`, F5, and Main Street at dawn. Played in tests/f5.test.ts; seen in the game by the route `claims-registrar-filing` (fixture r7-f5). Room 36's way in (Q176) is now built.
+
+**For Tyler:**
+- **The county seal has no sound** (doc 48 S6 beat 3, "the loudest sound in the game"): it waits on errata 28a's one-shot ruling, which doc 48 asks to be made once for three scripts.
+- **Winnie at the Registrar's** is her Room 5 counter sheet, writing, behind Room 7's counter.
 

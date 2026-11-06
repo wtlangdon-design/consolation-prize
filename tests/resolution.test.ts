@@ -365,6 +365,8 @@ test('D31: an item combination reserves its writes, and precedence is unchanged'
     // circumstance (doc 57 A8, A9) answers with the first of its cases that
     // holds -- in a fresh game, carrying nothing -- and that line is written too.
     const answering = pair.rules?.find((rule) => state.flags.test(rule.when) && !(rule.holds ?? []).length);
+    // A case-only pair (doc 57 F5) with no case holding is the item's pool.
+    if (!answering && pair.otherwise === 'pool') continue;
     assert.equal(action.say, answering ? answering.say : (pair.say ?? null));
     for (const effect of action.effects) {
       // A case that completes a puzzle (doc 57 A8's first tuning) records it,

@@ -930,6 +930,11 @@ export interface CombinationPair {
    * condition holds answers; with none, `say` does. Extracted from doc 57.
    */
   rules?: PairRule[];
+  /**
+   * `pool`: the pair is only its cases (doc 57 F5's counter). When none holds
+   * it says nothing of its own and the item's pool answers (doc 24 tier 2).
+   */
+  otherwise?: 'pool';
 }
 
 /** A line in an exchange: Thad's as a bare string, anyone else's with their speaker id. */
@@ -1430,6 +1435,11 @@ export interface RoomFile {
        * does, and its tree's puzzle-gated entry performs its opening once.
        */
       completes?: string;
+      /**
+       * THE ACCOST IS A DUEL HE CALLS (doc 57 F4): its challenge and first
+       * boast are the greeting, and the duel is running when the list opens.
+       */
+      duel?: string;
     };
   };
   /** Destinations doc 20 names but whose appearance rule nobody has stated. */

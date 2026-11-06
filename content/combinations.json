@@ -170,6 +170,39 @@
       "say": "Filed. Mr Sump has written a number in a book, and the number is mine.",
       "rules": [
         {
+          "case": "at the filing",
+          "when": {
+            "T_FANSHAWE_BEATEN": true,
+            "T_FILED": false,
+            "T_F5_DEED": false
+          },
+          "by": "sump",
+          "say": "Claim Two. The adjoining holder.",
+          "then": [
+            {
+              "speaker": "sump",
+              "line": "Stamp.",
+              "direction": true
+            }
+          ],
+          "set": {
+            "T_F5_DEED": true
+          },
+          "add": {
+            "F5_LAID": 1
+          }
+        },
+        {
+          "case": "at the filing, already down",
+          "when": {
+            "T_FANSHAWE_BEATEN": true,
+            "T_FILED": false
+          },
+          "by": "sump",
+          "say": "Already on file, Mr. Grubb. Everything you have ever given me is already on file.",
+          "then": []
+        },
+        {
           "case": "with THE SURVEY",
           "when": {
             "T_DEED_LODGED": false
@@ -355,6 +388,16 @@
       "say": "The survey, on the correct form. He has read it without expression, which I am told is the highest mark this office gives.",
       "note": "Doc 57 A9 (not doc 24): the survey on the counter, after the deed and before it.",
       "rules": [
+        {
+          "case": "at the filing",
+          "when": {
+            "T_FANSHAWE_BEATEN": true,
+            "T_FILED": false
+          },
+          "by": "sump",
+          "say": "Already on file, Mr. Grubb. Everything you have ever given me is already on file.",
+          "then": []
+        },
         {
           "case": "after the deed",
           "when": {
@@ -847,6 +890,214 @@
             "T_HUM_HEARD": false
           },
           "say": "I could give her an A. I do not think an A is what she is waiting for."
+        }
+      ]
+    },
+    {
+      "item": "death_certificate",
+      "room": "claims_registrar",
+      "target": "counter",
+      "puzzle": "F5",
+      "otherwise": "pool",
+      "note": "Doc 57 F5 beat 1: laid on the counter at the filing; otherwise the item's own pool answers (doc 24 tier 2).",
+      "rules": [
+        {
+          "case": "at the filing",
+          "when": {
+            "T_FANSHAWE_BEATEN": true,
+            "T_FILED": false,
+            "T_F5_DEATH_CERTIFICATE": false
+          },
+          "by": "sump",
+          "say": "You are deceased.",
+          "then": [
+            {
+              "speaker": "thad",
+              "line": "I was. I'd like to stop."
+            },
+            {
+              "speaker": "sump",
+              "line": "Form 31-F. Notice of Return. It was printed in hope."
+            },
+            {
+              "speaker": "sump",
+              "line": "Stamp. Thad is alive.",
+              "direction": true
+            }
+          ],
+          "set": {
+            "T_F5_DEATH_CERTIFICATE": true
+          },
+          "add": {
+            "F5_LAID": 1
+          }
+        },
+        {
+          "case": "at the filing, already down",
+          "when": {
+            "T_FANSHAWE_BEATEN": true,
+            "T_FILED": false
+          },
+          "by": "sump",
+          "say": "Already on file, Mr. Grubb. Everything you have ever given me is already on file.",
+          "then": []
+        }
+      ]
+    },
+    {
+      "item": "document_c",
+      "room": "claims_registrar",
+      "target": "counter",
+      "puzzle": "F5",
+      "otherwise": "pool",
+      "note": "Doc 57 F5 beat 1: laid on the counter at the filing; otherwise the item's own pool answers (doc 24 tier 2).",
+      "rules": [
+        {
+          "case": "at the filing",
+          "when": {
+            "T_FANSHAWE_BEATEN": true,
+            "T_FILED": false,
+            "T_F5_DOCUMENT_C": false
+          },
+          "by": "sump",
+          "say": "Contiguity. A neighbor holding a Certificate of Contiguity may file an amended location on behalf of an absent claimholder. Section nineteen, sub-section four.",
+          "then": [
+            {
+              "speaker": "sump",
+              "line": "…"
+            },
+            {
+              "speaker": "sump",
+              "line": "Nobody has ever read sub-section four."
+            },
+            {
+              "speaker": "thad",
+              "line": "I have."
+            },
+            {
+              "speaker": "sump",
+              "line": "Yes. I saw you."
+            }
+          ],
+          "set": {
+            "T_F5_DOCUMENT_C": true
+          },
+          "add": {
+            "F5_LAID": 1
+          }
+        },
+        {
+          "case": "at the filing, already down",
+          "when": {
+            "T_FANSHAWE_BEATEN": true,
+            "T_FILED": false
+          },
+          "by": "sump",
+          "say": "Already on file, Mr. Grubb. Everything you have ever given me is already on file.",
+          "then": []
+        }
+      ]
+    },
+    {
+      "item": "sample",
+      "room": "claims_registrar",
+      "target": "counter",
+      "puzzle": "F5",
+      "otherwise": "pool",
+      "note": "Doc 57 F5 beat 1: laid on the counter at the filing; otherwise the item's own pool answers (doc 24 tier 2).",
+      "rules": [
+        {
+          "case": "at the filing",
+          "when": {
+            "T_FANSHAWE_BEATEN": true,
+            "T_FILED": false,
+            "T_F5_SAMPLE": false
+          },
+          "by": "winnie",
+          "say": "Twenty-two hundred to the ton. Assayed this morning, at my window, by me.",
+          "then": [
+            {
+              "speaker": "winnie",
+              "line": "She signs beside it.",
+              "direction": true
+            }
+          ],
+          "set": {
+            "T_F5_SAMPLE": true
+          },
+          "add": {
+            "F5_LAID": 1
+          }
+        },
+        {
+          "case": "at the filing, already down",
+          "when": {
+            "T_FANSHAWE_BEATEN": true,
+            "T_FILED": false
+          },
+          "by": "sump",
+          "say": "Already on file, Mr. Grubb. Everything you have ever given me is already on file.",
+          "then": []
+        }
+      ]
+    },
+    {
+      "item": "document_a",
+      "room": "claims_registrar",
+      "target": "counter",
+      "puzzle": "F5",
+      "otherwise": "pool",
+      "note": "Doc 57 F5 beat 1: laid on the counter at the filing; otherwise the item's own pool answers (doc 24 tier 2).",
+      "rules": [
+        {
+          "case": "at the filing",
+          "when": {
+            "T_FANSHAWE_BEATEN": true,
+            "T_FILED": false
+          },
+          "by": "sump",
+          "say": "Already on file, Mr. Grubb. Everything you have ever given me is already on file.",
+          "then": []
+        }
+      ]
+    },
+    {
+      "item": "document_b",
+      "room": "claims_registrar",
+      "target": "counter",
+      "puzzle": "F5",
+      "otherwise": "pool",
+      "note": "Doc 57 F5 beat 1: laid on the counter at the filing; otherwise the item's own pool answers (doc 24 tier 2).",
+      "rules": [
+        {
+          "case": "at the filing",
+          "when": {
+            "T_FANSHAWE_BEATEN": true,
+            "T_FILED": false
+          },
+          "by": "sump",
+          "say": "Already on file, Mr. Grubb. Everything you have ever given me is already on file.",
+          "then": []
+        }
+      ]
+    },
+    {
+      "item": "document_d",
+      "room": "claims_registrar",
+      "target": "counter",
+      "puzzle": "F5",
+      "otherwise": "pool",
+      "note": "Doc 57 F5 beat 1: laid on the counter at the filing; otherwise the item's own pool answers (doc 24 tier 2).",
+      "rules": [
+        {
+          "case": "at the filing",
+          "when": {
+            "T_FANSHAWE_BEATEN": true,
+            "T_FILED": false
+          },
+          "by": "sump",
+          "say": "Already on file, Mr. Grubb. Everything you have ever given me is already on file.",
+          "then": []
         }
       ]
     }

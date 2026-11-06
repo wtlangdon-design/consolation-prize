@@ -121,6 +121,30 @@
    "date": "2026-11-06",
    "kind": "loosened",
    "why": "Not a misfire: the check is widened, not relaxed (errata 99 K). It now measures every exterior, not only those labelled night, and fails a non-night label or a sky over 60. The one way past it adds is a `daylight` entry on a room's baseline quoting the ruling (Room 36's dawn, doc 20, errata 99 J), recorded here because it is an exception path. The floor of 28 is unchanged."
+  },
+  {
+   "check": "tools/check-combinations.mjs",
+   "date": "2026-11-06",
+   "kind": "loosened",
+   "why": "Doc 57 F5's counter: a pair that is only its cases (`otherwise: \"pool\"`) -- every case it handles is written and checked; outside them the item's own pool is doc 24 tier 2's answer. A case with no line still fails."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-06",
+   "kind": "loosened",
+   "why": "Doc 57 F5's counter: a pair that is only its cases (`otherwise: \"pool\"`) -- every case it handles is written and checked; outside them the item's own pool is doc 24 tier 2's answer. A case with no line still fails."
+  },
+  {
+   "check": "tests/resolution.test.ts",
+   "date": "2026-11-06",
+   "kind": "loosened",
+   "why": "Doc 57 F5's counter: a pair that is only its cases (`otherwise: \"pool\"`) -- every case it handles is written and checked; outside them the item's own pool is doc 24 tier 2's answer. A case with no line still fails."
+  },
+  {
+   "check": "tests/interface.test.ts",
+   "date": "2026-11-06",
+   "kind": "reviewed",
+   "why": "Three loosenings in a fortnight: Room 33's taps (LISTEN on the rock returns a sound, not a line), and now doc 57 F5's case-only counter pairs. Neither was the test misfiring -- each was a new content shape the test had to be taught, and the test still fails on what it exists for: a pair or verb with nothing written. TUNED, not merged: its rule-4 half now reads the same declaration the build check (tools/check-combinations.mjs) reads, `otherwise: \"pool\"`, so the two cannot disagree. Not retired."
   }
  ]
 }

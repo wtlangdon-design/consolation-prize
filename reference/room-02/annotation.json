@@ -492,5 +492,29 @@
    }
   ],
   "planesNote": "AUTHORED HERE, NOT HAND-EDITED IN THE ROOM FILE. Occlusion planes are geometry read off the plate, which is the annotator's whole subject, and a room file the compiler rewrites is not a place a hand edit survives. The compiler emits these; where an annotation declares none it preserves whatever the room already had, so a room converted later loses nothing."
+ },
+ "onEnterSet": {
+  "T_DUEL_CROWD": false
+ },
+ "onEnterSetWhen": [
+  {
+   "when": {
+    "T_ASSAY_RUN": true,
+    "T_FANSHAWE_BEATEN": false
+   },
+   "set": {
+    "T_DUEL_CROWD": true
+   }
+  }
+ ],
+ "onEnterAccost": {
+  "npc": "duel_fanshawe",
+  "when": {
+   "T_DUEL_CROWD": true,
+   "T_FANSHAWE_BEATEN": false
+  },
+  "afterSeconds": 1.5,
+  "duel": "duel_three",
+  "note": "Doc 57 F4 and doc 03: Fanshawe calls the duel himself, 'to discredit Thad in front of the whole town before Thad can be heard'. His challenge and the first boast are the greeting; the duel is running when the counters are offered."
  }
 }

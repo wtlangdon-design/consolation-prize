@@ -166,6 +166,8 @@ export class GameScene extends Phaser.Scene {
    */
   private pendingTree: {
     tree: string; at: { x: number; y: number }; greeted: boolean;
+    /** A duel he calls on Thad (an accost's `duel`): its intro is the greeting. */
+    duel?: string;
     /** The ambient character the conversation is with, when it is one. */
     npc?: string;
     /**
@@ -459,7 +461,8 @@ export class GameScene extends Phaser.Scene {
     // the hill (doc 57 E8). Nothing is cut short: no line is up, nothing waits
     // to be said or chosen.
     const after = this.state.room.afterTimeline;
-    if (after && this.state.room.timeline?.length && !this.timeline.isRunning
+    // Or any room that is over once a flag says so (Room 7: the filing, doc 57 F5).
+    if (after && (!this.state.room.timeline?.length || !this.timeline.isRunning)
       && !this.state.dialogue.isActive && !this.pendingTree && this.performance === null
       && this.sayingActor === null && this.pendingSay.length === 0 && this.travelAfterSay === null
       && this.state.flags.test(after.when)) {
@@ -596,7 +599,9 @@ export class GameScene extends Phaser.Scene {
           // playthrough (2026-09-04): the exchange had never played -- the
           // node's last line stood as a caption over the options, which read
           // as a non sequitur when TALK TO was chosen.
-          let greeting = this.state.dialogue.openingOf(tree, this.pendingTree.viaAction === true);
+          let greeting: { speaker: string; line: string; direction?: boolean }[] = this.pendingTree.duel
+            ? this.state.dialogue.duelIntro(this.pendingTree.duel)
+            : this.state.dialogue.openingOf(tree, this.pendingTree.viaAction === true);
           const host = this.pendingTree.npc
             ? this.ambient.present.find((each) => each.id === this.pendingTree?.npc) : undefined;
           const remark = host?.greetsWithBark ? this.ambient.barkFor(host) : null;
@@ -605,7 +610,8 @@ export class GameScene extends Phaser.Scene {
             this.ambient.markBarked(host);
           }
           if (greeting.length > 0) {
-            this.pendingSay.push(...greeting.map((spoken) => ({ speaker: spoken.speaker, line: spoken.line })));
+            this.pendingSay.push(...greeting.map((spoken) => ({ speaker: spoken.speaker, line: spoken.line,
+              ...(spoken.direction ? { direction: true } : {}) })));
             this.advanceSay();
           }
         }
@@ -625,9 +631,11 @@ export class GameScene extends Phaser.Scene {
         this.markDirty();
       }
       if (!(evidence && !evidence.committed) && this.sayLines.length === 0 && this.pendingSay.length === 0) {
+        const called = this.pendingTree.duel;
         this.pendingTree = null;
         this.actor.faceToward(at.x, at.y);
-        this.state.dialogue.start(tree);
+        if (called) this.state.dialogue.startDuel(tree, called);
+        else this.state.dialogue.start(tree);
         this.markDirty();
       }
     }
@@ -1636,7 +1644,7 @@ export class GameScene extends Phaser.Scene {
       if (accost.completes) this.state.completeByTimeline(accost.completes);
       this.actor.faceToward(npc.x, npc.y);
       this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y }, greeted: false, npc: npc.id,
-        ...(accost.completes ? { viaAction: true } : {}) };
+        ...(accost.completes ? { viaAction: true } : {}), ...(accost.duel ? { duel: accost.duel } : {}) };
       this.markDirty();
     });
   }

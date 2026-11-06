@@ -1939,6 +1939,8 @@ if (MERGED) {
     built.onEnter = { ...(built.onEnter ?? {}), set: { ...(built.onEnter?.set ?? {}), ...ann.onEnterSet } };
   }
   // Writes made on entering only while a condition holds (onEnter.setWhen).
+  // A ROOM THAT IS OVER HANDS ON (RoomFile.afterTimeline): Room 7 once filed.
+  if (ann.afterTimeline) built.afterTimeline = ann.afterTimeline;
   if (ann.onEnterSetWhen) {
     built.onEnter = { ...(built.onEnter ?? {}), setWhen: ann.onEnterSetWhen };
   }

@@ -1012,6 +1012,13 @@ test('doc 24 rule 4: no authored pair exists without a written line', async () =
         `${pair.item} on ${pair.room}/${pair.target}: ${pair.opens} has no opening gated on ${pair.completes}`);
       continue;
     }
+    // A PAIR THAT IS ONLY ITS CASES (doc 57 F5) has a line for every case it
+    // handles, and says so; outside them the item's pool answers (doc 24 tier 2).
+    if (pair.otherwise === 'pool') {
+      assert.ok(pair.rules?.length && pair.rules.every((rule) => typeof rule.say === 'string' && rule.say.length > 0),
+        `${pair.item} on ${pair.room}/${pair.target}: a case-only pair with a case that has no line`);
+      continue;
+    }
     assert.ok(typeof pair.say === 'string' && pair.say.length > 0,
       `${pair.item} on ${pair.room}/${pair.target} has no line`);
   }

@@ -214,7 +214,9 @@ export class VerbSystem {
         ],
       };
     }
-    if (pair) {
+    // A PAIR THAT IS ONLY CASES (doc 57 F5's counter) says nothing of its own
+    // when none holds: the item's pool answers, as if there were no pair.
+    if (pair && pair.otherwise !== 'pool') {
       return {
         say: pair.say ?? null,
         dialogue: null,

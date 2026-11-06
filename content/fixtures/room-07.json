@@ -245,6 +245,56 @@
     "opensOn": "SUM_B1"
    },
    "note": "Doc 57 D6: on Main Street after Pratt has sworn; go in to the Registrar's (the map) and Pratt is at the counter; the attestation plays, THE ATTESTATION is handed over and he walks out."
+  },
+  {
+   "id": "r7-f5",
+   "label": "R7-F5 Act IV, Duel Three won: the four documents in hand at the Registrar's (F5)",
+   "room": "claims_registrar",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_BORDERS_MOTT": true,
+    "T_SWINDLED": true,
+    "T_ASSAY_QUEUE": true,
+    "T_NO_MOTT_GOLD": true,
+    "T_SECOND_LEDGER": true,
+    "T_STRIKE_FOUND": true,
+    "ACT": 4,
+    "T_ASSAY_RUN": true,
+    "ASSAY_PAIR_04": true,
+    "ASSAY_PAIR_09": true,
+    "T_FANSHAWE_BEATEN": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "pickaxe",
+    "sample",
+    "death_certificate",
+    "document_c"
+   ],
+   "derivedFrom": [
+    "docs/04-dialogue-trees.md:170-176 (WIN_F1 after T_STRIKE_FOUND; 'Run it.' -- she runs it at the window, the first assay the player watches)",
+    "docs/02-puzzle-graph.md:116-118 (F1-F3: the strike needs the fork and the pickaxe)",
+    "docs/48-act-turn-beats.md:61-70 and docs/00-errata.md:1781-1784 (S4's close sets ACT 4)",
+    "docs/02-puzzle-graph.md:64-69 and docs/04-dialogue-trees.md:106,124-126 (C1 T_ASSAY_QUEUE; WIN_B2's rows T_NO_MOTT_GOLD and T_SECOND_LEDGER, consumed on the way to C6 and E4; WIN_F1 option 2 presumes the nineteen names were read)"
+   ],
+   "note": "Doc 57 F5: Winnie at the end of the counter; lay the death certificate, the deed, the certificate and the sample on the counter, then the name.",
+   "puzzles": {
+    "E10": "complete",
+    "F4": "complete"
+   }
   }
  ]
 }

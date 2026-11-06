@@ -1,0 +1,15 @@
+{
+ "assetId": "room-02",
+ "subject": "main-street-duel-three",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/room-02/prompts/duel-master-01.txt",
+ "out": "art/staging/room-02/duel-01/master.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-02/duel-01/street-crop.png",
+  "art/staging/room-02/duel-01/cast-board.png",
+  "art/actors/thad-stand-front/stand-00.png"
+ ]
+}

@@ -1535,6 +1535,67 @@ function combinations() {
     ],
   });
 
+  // DOC 57 F5, BEAT 1: THE DOCUMENTS ON THE COUNTER (doc 48 S6). After F4, each
+  // laid down once, by USE on THE COUNTER, in any order; each line is doc 57's,
+  // Sump's and Winnie's by their names and Thad's where the cell gives none; the
+  // italic directions are performed. Laying the fourth makes the name line
+  // (SUM_F1) the Registrar's. Anything else he has given the office before, or
+  // a paper already down, is "Already on file". A case comes FIRST on a pair that
+  // already exists (THE DEED's A9 filing), so Act IV's counter answers Act IV.
+  const f5 = (() => {
+    const whole = read('docs/57-puzzle-completion.md');
+    const from = whole.indexOf('## F5 ');
+    if (from < 0) throw new Error('doc 57: no F5 section');
+    const body = whole.slice(from, whole.indexOf('\n## ', from + 5));
+    const WHO = { SUMP: 'sump', WINNIE: 'winnie' };
+    const cases = {};
+    for (const m of body.matchAll(/^> \*\*THE COUNTER\*\* · USE (.+?) — (.+)$/gm)) {
+      const lines = [];
+      let speaker = 'thad';
+      for (const span of m[2].matchAll(/\*\*([A-Z]+):\*\*|\*\(([^)]+)\)\*|"([^"]+)"|— /g)) {
+        if (span[1]) { speaker = WHO[span[1]] ?? (() => { throw new Error(`doc 57 F5: unknown speaker ${span[1]}`); })(); continue; }
+        if (span[0] === '— ') { speaker = 'thad'; continue; }
+        if (span[2] !== undefined) {
+          const shown = performedDirection(span[2]);
+          if (shown) lines.push({ speaker: lines.length ? lines[lines.length - 1].speaker : speaker, line: shown.line, ...(shown.direction ? { direction: true } : {}) });
+          continue;
+        }
+        lines.push({ speaker, line: span[3] });
+      }
+      cases[m[1].trim()] = lines;
+    }
+    return cases;
+  })();
+  const F5_ITEMS = { 'THE DEATH CERTIFICATE': 'death_certificate', 'THE DEED': 'deed', 'THE CERTIFICATE': 'document_c', 'THE SAMPLE': 'sample' };
+  const onFile = f5['anything else Thad has given the office before'];
+  if (!onFile || Object.keys(F5_ITEMS).some((name) => !f5[name])) throw new Error('doc 57 F5: the counter cases do not read');
+  const asCase = (lines) => ({ by: lines[0].speaker === 'thad' ? undefined : lines[0].speaker, say: lines[0].line,
+    ...(lines[0].direction ? { direction: true } : {}), then: lines.slice(1) });
+  const counterPair = (item) => {
+    let pair = rebuilt.find((one) => one.item === item && one.room === 'claims_registrar' && one.target === 'counter');
+    if (!pair) {
+      pair = { item, room: 'claims_registrar', target: 'counter', puzzle: 'F5', otherwise: 'pool',
+        note: 'Doc 57 F5 beat 1: laid on the counter at the filing; otherwise the item\'s own pool answers (doc 24 tier 2).', rules: [] };
+      rebuilt.push(pair);
+    }
+    pair.rules ??= [];
+    return pair;
+  };
+  for (const [name, item] of Object.entries(F5_ITEMS)) {
+    const laid = `T_F5_${item.toUpperCase()}`;
+    const pair = counterPair(item);
+    const clean = (rule) => Object.fromEntries(Object.entries(rule).filter(([, v]) => v !== undefined));
+    pair.rules.unshift(
+      clean({ case: 'at the filing', when: { T_FANSHAWE_BEATEN: true, T_FILED: false, [laid]: false }, ...asCase(f5[name]),
+        set: { [laid]: true }, add: { F5_LAID: 1 } }),
+      clean({ case: 'at the filing, already down', when: { T_FANSHAWE_BEATEN: true, T_FILED: false }, ...asCase(onFile) }),
+    );
+  }
+  for (const item of ['survey', 'document_a', 'document_b', 'document_d']) {
+    const pair = counterPair(item);
+    pair.rules.unshift(Object.fromEntries(Object.entries({ case: 'at the filing', when: { T_FANSHAWE_BEATEN: true, T_FILED: false }, ...asCase(onFile) }).filter(([, v]) => v !== undefined)));
+  }
+
 
   const pools = {};
   let current = null;
@@ -2704,13 +2765,14 @@ function sumpTree() {
   const SPEAKER = 'sump';
   const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
   if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
-  const DEFER = {
-    SUM_F1: 'Act IV\'s filing (doc 48 S6, doc 57 F5), after F4 in rooms not built',
-  };
+  const DEFER = {};
   const DEFER_OPTION = {};
   // SUM_C1 from E4 (the signing writes T_DEATH_CERTIFIED) until the decease is
   // recorded (doc 57 E5), then Act III's root again.
+  // SUM_F1 once the four documents are down (doc 57 F5: "SUM_F1 (doc 04), once
+  // all four are down"), until the filing is made.
   const ENTRIES = [
+    { when: { F5_LAID: { atLeast: 4 }, T_FILED: false }, node: 'SUM_F1' },
     { when: { T_DEATH_CERTIFIED: true, T_DECEASED: false }, node: 'SUM_C1' },
     { when: { ACT: { atLeast: 3 } }, node: 'SUM_E1' },
     { when: { ACT: { atLeast: 2 } }, node: 'SUM_B1' },
@@ -2733,10 +2795,35 @@ function sumpTree() {
     }
   }
   if (viewing.length < 4) throw new Error('doc 57 E0: the viewing was not found');
+  // THE FILING (doc 57 F5): after the name, WIN_F2 as doc 04 writes it, then
+  // beat 4's read-back; T_FILED and F5, and the room hands on to the dawn.
+  const scene = (text, names) => {
+    const out = [];
+    for (const m of text.matchAll(/^> \*\*([A-Z]+):\*\* (.+)$/gm)) {
+      const speaker = names[m[1]];
+      if (!speaker) throw new Error(`the filing: unknown speaker ${m[1]}`);
+      for (const span of m[2].matchAll(/\*\(([^)]+)\)\*|"([^"]+)"/g)) {
+        if (span[1] !== undefined) {
+          const shown = performedDirection(span[1]);
+          if (shown) out.push({ speaker, line: shown.line, ...(shown.direction ? { direction: true } : {}) });
+        } else out.push({ speaker, line: span[2] });
+      }
+    }
+    return out;
+  };
+  const wf2At = doc.indexOf('**`WIN_F2` — the certification');
+  const winF2 = scene(doc.slice(wf2At, doc.indexOf('\n---', wf2At)), { WINNIE: 'winnie', THAD: 'thad' });
+  const f5At = DOC57.indexOf('**Beat 4 — the read-back:**');
+  const readBack = scene(DOC57.slice(f5At, DOC57.indexOf('\n## ', f5At)), { SUMP: SPEAKER, THAD: 'thad' });
+  if (winF2.length < 5 || readBack.length < 6) throw new Error('doc 04 WIN_F2 / doc 57 F5 beat 4: the filing does not read');
   const STATE = {
     'SUM_B1:1‴': { holds: ['document_a', 'document_b', 'document_d'], gives: ['document_c'],
       set: { T_CLAIM1_BLANK: true }, puzzle: { E0: 'complete' }, then: viewing },
     'SUM_C1:1': { holds: ['death_certificate'], set: { T_DECEASED: true } },
+    // The filing ends the conversation: doc 48 S6 beat 5, "T_FILED. Main Street dawn opens".
+    'SUM_F1:1': { set: { T_FILED: true }, puzzle: { F5: 'complete' }, ends: true, then: [...winF2, ...readBack] },
+    // Doc 04 gives this reply to Winnie by name: "**WINNIE:** "Don't you dare."".
+    'SUM_F1:3': { speakerAll: 'winnie' },
   };
   const ITEM = { 'THE SURVEY': 'survey' };
   const PRIME = { '': '', '′': 'a', '″': 'b', '‴': 'c' };
@@ -2809,7 +2896,10 @@ function sumpTree() {
       const completes = /\*\*([A-F]\d+)\*\*/.exec(stateText);
       if (completes) option.puzzle = { [completes[1]]: 'complete' };
       const more = STATE[`${id}:${label}`];
-      if (more) {
+      if (more?.speakerAll) {
+        option.exchange = (option.exchange ?? [{ speaker: SPEAKER, line: option.say }]).map((l) => ({ ...l, speaker: more.speakerAll }));
+        delete option.say;
+      } else if (more) {
         const { then, ...rest } = more;
         Object.assign(option, rest);
         if (then) {
@@ -3185,7 +3275,9 @@ function winnieTree() {
       // State: opens / sets / req, by backticked id.
       const state = stateCell ?? '';
       const opens = /opens `(WIN_[A-Z0-9]+)`/.exec(state);
-      const sets = /sets `([A-Z_0-9]+)`/.exec(state);
+      // A write may sit in the response's own direction instead (doc 04 WIN_F1
+      // option 1: "*(sets `T_ASSAY_RUN`; errata 75)*").
+      const sets = /sets `([A-Z_0-9]+)`/.exec(state) ?? /\*\(sets `([A-Z_0-9]+)`/.exec(responseCell);
       const req = /req `([A-Z_0-9]+)`/.exec(state);
       if (opens) option.goto = opens[1];
       if (sets) option.set = { [sets[1]]: true };
@@ -3573,6 +3665,9 @@ function assay() {
     if (found.length !== written) throw new Error(`doc 03: Tier ${tierNumber} has ${found.length} pairs, not ${written}`);
   }
   if (pairs.length !== 23) throw new Error(`doc 03: ${pairs.length} pairs, not 23`);
+  // FANSHAWE'S TIER IS LEARNED BY A PUZZLE, NOT A FLAG. Doc 57 E10: "Pairs 22,
+  // 23 and 24 join: Thad now knows the truth" when the confession completes.
+  for (const pair of pairs) if (pair.tier === 6) Object.assign(pair, { learnedAt: 'E10', learnedRuling: 'doc 57 E10 and its pair table: "22-24 | the truth | E10, the confession".' });
 
   // PART THREE: three wrong answers per pair, each with its reply.
   const three = part('# PART THREE', '# PART FOUR');
@@ -3625,6 +3720,46 @@ function assay() {
   if (two2.length !== 2) throw new Error(`doc 03: Duel Two has ${two2.length} spoken groups, not 2`);
   const [duelTwoPreamble, duelTwoWin] = two2;
 
+  // DUEL THREE, the Main Street duel (doc 03 "DUEL FOUR -- Colonel Absalom
+  // Fanshawe"; doc 57 F4). Its spoken lines, in order, with their directions:
+  // the challenge; the three lines after a lost exchange, in turn (errata 75:
+  // "A lost exchange is thrown again"); the fifth boast and the truth (pair
+  // 24); and the end. The three jokes beside pair 24 are Part Three's.
+  const four = part('## DUEL FOUR', '# PART FIVE');
+  const said = [...four.matchAll(/^> \*\*([A-Z]+):\*\* (?:\*\(([^)]+)\)\* )?"(.+?)"$/gm)]
+    .map(([, who, direction, line]) => ({ who, direction, line: plain(line) }));
+  const SAYS3 = { FANSHAWE: 'fanshawe', THAD: 'thad', SOWERBY: 'sowerby' };
+  const spoken3 = (one) => {
+    if (!SAYS3[one.who]) throw new Error(`doc 03 Duel Four: unknown speaker ${one.who}`);
+    return [...(one.direction ? [{ speaker: SAYS3[one.who], line: plain(one.direction), direction: true }] : []),
+      { speaker: SAYS3[one.who], line: one.line }];
+  };
+  if (said.length !== 10) throw new Error(`doc 03 Duel Four: ${said.length} spoken lines, not 10`);
+  const [challenge, again1, again2, again3, fifth, truth, ...ending] = said;
+  const jokes = three.slice(three.indexOf('**Duel Three, the fifth exchange**'), three.indexOf('**Standing mockery'));
+  const pair24 = {
+    n: 24, tier: 6, learnedFrom: 'the ending', learnedAt: 'E10', boast: fifth.line, counter: truth.line,
+    wrong: [...jokes.matchAll(WRONG)].map(([, text, by, reply]) => ({ text: plain(text), reply: plain(reply), by: BY[by], attribution: by })),
+  };
+  if (pair24.wrong.length !== 3) throw new Error(`doc 03: the fifth exchange has ${pair24.wrong.length} jokes, not 3`);
+  pairs.push(pair24);
+  const duelThree = {
+    puzzle: 'F4',
+    opponent: 'fanshawe',
+    opening: spoken3(challenge),
+    openingRuling: 'doc 57 F4: "doc 03\'s challenge plays".',
+    sequence: [4, 9, 22, 23, 24],
+    sequenceRuling: 'errata 75 and doc 57 F4: "in the order 4, 9, 22, 23, then the fifth".',
+    rethrow: [again1, again2, again3].flatMap(spoken3),
+    rethrowRuling: 'errata 75: "A lost exchange is thrown again ... After the reply to a wrong answer, one of these, in turn." So the duel cannot be lost, and ends when the fifth is answered.',
+    knows: [24],
+    knowsRuling: 'doc 03: "The player is offered four counters. Three are jokes. The fourth is pair 24, and it is not a lie." It is always on offer.',
+    win: ending.flatMap(spoken3),
+    setsOnWin: { T_FANSHAWE_BEATEN: true },
+    calledByOpponent: true,
+    calledRuling: 'doc 03: "Fanshawe calls the duel himself"; doc 57 F4: on Main Street after T_ASSAY_RUN, Fanshawe is waiting.',
+  };
+
   return write('content/assay/assay.json', {
     schema: 1,
     id: 'ASSAY',
@@ -3668,6 +3803,7 @@ function assay() {
         yields: ['document_a', 'watch'],
         lossRuling: 'errata 73 H: a lost Duel Two ends on the reply that lost it; nothing more is said.',
       },
+      duel_three: duelThree,
     },
   });
 }

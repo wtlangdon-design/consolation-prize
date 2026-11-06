@@ -58,7 +58,16 @@ export function check() {
       // puzzle it completes, and the tree must open on that puzzle.
       const tree = pair.opens ? trees.get(pair.opens) : null;
       const entry = tree?.entries?.find((one) => one.puzzle === pair.completes);
-      if (!pair.opens || !pair.completes) {
+      // A PAIR THAT IS ONLY ITS CASES (doc 57 F5's counter): every case it
+      // handles is written, and outside them the item's own pool is the
+      // answer doc 24 tier 2 gives. It says so (`otherwise: "pool"`); a case
+      // with no line still fails.
+      if (pair.otherwise === 'pool') {
+        if (!pair.rules?.length) report.fail(`${where}: otherwise "pool" with no cases -- it is not a pair at all`);
+        for (const rule of pair.rules ?? []) {
+          if (typeof rule.say !== 'string' || !rule.say.trim()) report.fail(`${where}: case "${rule.case}" has no written line -- doc 24 rule 4`);
+        }
+      } else if (!pair.opens || !pair.completes) {
         report.fail(`${where}: authored pair with no written line -- doc 24 rule 4. `
           + 'It must be written or removed, not left to fall through to a pool');
       } else if (!tree) report.fail(`${where}: opens "${pair.opens}", which is not a tree`);

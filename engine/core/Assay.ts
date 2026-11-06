@@ -24,12 +24,20 @@ import type { FlagValue } from './types.ts';
 export interface AssayLine {
   speaker: string;
   line: string;
+  /** A performed stage direction (doc 58), not speech: Fanshawe "puts on his hat". */
+  direction?: boolean;
 }
 
 export interface AssayWrong {
   text: string;
   reply: string;
   by: string;
+  /**
+   * Doc 03 Part Three's own attribution. "Reply" answers pairs 4 and 9, which
+   * Vessel and (in Duel Three) Fanshawe both throw: it is spoken by whoever
+   * threw the boast.
+   */
+  attribution?: string;
 }
 
 export interface AssayPair {
@@ -40,6 +48,8 @@ export interface AssayPair {
   wrong: AssayWrong[];
   /** The flag that holds whether the player has learned this pair. Absent on the final duel's opponent's. */
   flag?: string;
+  /** Or the puzzle that teaches it (doc 57 E10: pairs 22-24 join with the confession). */
+  learnedAt?: string;
 }
 
 export interface DuelDefinition {
@@ -59,6 +69,16 @@ export interface DuelDefinition {
   win?: AssayLine[];
   winnable?: boolean;
   yields?: string[];
+  /**
+   * A LOST EXCHANGE IS THROWN AGAIN (Duel Three, errata 75): after the reply to
+   * a wrong answer, the next of these lines, in turn, and the same boast. Such
+   * a duel cannot be lost; it ends when its last boast is answered.
+   */
+  rethrow?: AssayLine[];
+  /** Pairs always on offer in this duel, learned or not (pair 24: the truth). */
+  knows?: number[];
+  /** The opponent calls it on Thad (an accost), and it ends the conversation when it ends. */
+  calledByOpponent?: boolean;
 }
 
 export interface AssayFile {
@@ -151,8 +171,9 @@ export function duelOrder(file: AssayFile, duelId: string, known: ReadonlySet<nu
 }
 
 /** The pairs the player knows, read from the knowledge flags. */
-export function knownPairs(file: AssayFile, isTrue: (flag: string) => boolean): Set<number> {
-  return new Set(file.pairs.filter((p) => p.flag && isTrue(p.flag)).map((p) => p.n));
+export function knownPairs(file: AssayFile, isTrue: (flag: string) => boolean,
+  reached: (puzzle: string) => boolean = () => false): Set<number> {
+  return new Set(file.pairs.filter((p) => (p.flag && isTrue(p.flag)) || (p.learnedAt && reached(p.learnedAt))).map((p) => p.n));
 }
 
 export class DuelSession {
@@ -181,7 +202,7 @@ export class DuelSession {
       this.opponent = from.opponent;
       this.muttered = new Set(from.muttered);
     } else {
-      this.known = new Set(known);
+      this.known = new Set([...known, ...(duel.knows ?? [])]);
       this.sequence = duelOrder(file, duelId, this.known);
     }
     if (this.sequence.length === 0) throw new Error(`Duel ${duelId} has nothing to throw`);
@@ -253,7 +274,7 @@ export class DuelSession {
       opponent += 1;
       const wrong = pair.wrong[Number(optionId.slice(1))];
       if (!wrong) throw new Error(`No wrong answer ${optionId} on pair ${pair.n}`);
-      lines.push({ speaker: wrong.by, line: wrong.reply });
+      lines.push({ speaker: wrong.attribution === 'Reply' ? this.duel.opponent : wrong.by, line: wrong.reply });
       // Errata 73 D and F: in Duel One, a voice from the ring mutters the
       // right counter the first time each pair is thrown; the player writes it down.
       if ((this.duel.learns ?? []).includes(pair.n) && !muttered.has(pair.n)) {
@@ -263,10 +284,22 @@ export class DuelSession {
         if (note) lines.push(note);
       }
     }
+    const rethrow = this.duel.rethrow;
+    if (rethrow?.length && !correct) {
+      // Thrown again: the next line in turn, then the same boast. Nothing ends.
+      lines.push(rethrow[(opponent - 1) % rethrow.length]!);
+      lines.push(this.boastLine(pair.n));
+      return {
+        choice: { optionId, correct, lines, ended: false, outcome: null, sets: {}, yields: [], completes: null },
+        next: { index: this.index, player, opponent, muttered },
+      };
+    }
     const index = this.index + 1;
+    // A duel that throws again ends only when its last boast is answered: won.
     const toWin = this.file.exchangesToWin;
-    const ended = player >= toWin || opponent >= toWin || index >= this.sequence.length;
-    const outcome: DuelOutcome | null = !ended ? null : (player >= toWin ? 'won' : 'lost');
+    const ended = rethrow?.length ? index >= this.sequence.length
+      : player >= toWin || opponent >= toWin || index >= this.sequence.length;
+    const outcome: DuelOutcome | null = !ended ? null : (rethrow?.length || player >= toWin ? 'won' : 'lost');
     const sets: Record<string, FlagValue> = {};
     let yields: string[] = [];
     let completes: string | null = null;

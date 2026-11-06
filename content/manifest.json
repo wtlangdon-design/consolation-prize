@@ -80,6 +80,7 @@
   "content/sequences/opening.json"
  ],
  "fixtures": [
+  "content/fixtures/room-02.json",
   "content/fixtures/room-05.json",
   "content/fixtures/room-04.json",
   "content/fixtures/room-07.json",
@@ -126,6 +127,10 @@
   "content/items/padded-log.json",
   "content/items/watch.json",
   "content/items/document-a.json",
+  "content/items/document-b.json",
+  "content/items/document-c.json",
+  "content/items/document-d.json",
+  "content/items/death-certificate.json",
   "content/items/survey.json",
   "content/items/invitation.json",
   "content/items/executor-form.json",
@@ -188,7 +193,13 @@
   "content/ambient/funeral-grievance.json",
   "content/ambient/funeral-mourners.json",
   "content/ambient/dawn-dog.json",
-  "content/ambient/sowerby-gate.json"
+  "content/ambient/sowerby-gate.json",
+  "content/ambient/duel-fanshawe.json",
+  "content/ambient/duel-sowerby.json",
+  "content/ambient/duel-judges.json",
+  "content/ambient/duel-town-left.json",
+  "content/ambient/duel-town-right.json",
+  "content/ambient/winnie-registrar.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",

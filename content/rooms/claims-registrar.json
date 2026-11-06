@@ -539,7 +539,8 @@
   "background": "art/backgrounds/room-07-claims-registrar.png",
   "ambient": [
     "pratt_registrar",
-    "sump"
+    "sump",
+    "winnie_registrar"
   ],
   "size": [
     1920,
@@ -778,5 +779,12 @@
         "note": "Doc 57 D6: 'PRA_D6 option 5; the next time Thad enters the Registrar's, Pratt is at the counter' -- the exchange, then THE ATTESTATION and D6. Pratt is content/ambient/pratt-registrar.json; once the scene is read he walks out."
       }
     ]
+  },
+  "afterTimeline": {
+    "goto": "main_street_dawn",
+    "when": {
+      "T_FILED": true
+    },
+    "note": "Doc 48 S6 beat 5 and doc 57 F5: 'T_FILED, F5. Room 36.' Once the read-back is over, the dawn."
   }
 }

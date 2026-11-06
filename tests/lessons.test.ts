@@ -102,6 +102,30 @@ test('every item content can grant, require or yield is in the manifest and has 
       for (const id of fixture.inventory ?? []) note(id, `fixture ${fixture.id}`);
     }
   }
+  // AND WHAT A CONVERSATION OR AN ARRIVAL HANDS OVER (doc 57 C6, E0, E4, D4,
+  // D6): Document B, the death certificate, the certificate and the
+  // attestation were given by dialogue and by arrival scenes, which this test
+  // did not read, and none of them was a loaded item.
+  for (const path of read('content/manifest.json').dialogue as string[]) {
+    const tree = read(path);
+    for (const node of Object.values((tree.nodes ?? {}) as Record<string, { onOpen?: { gives?: string[] }; options?: { gives?: string[]; holds?: string[] }[] }>)) {
+      for (const id of node.onOpen?.gives ?? []) note(id, `${tree.id} opening gives`);
+      for (const option of node.options ?? []) {
+        for (const id of [...(option.gives ?? []), ...(option.holds ?? [])]) note(id, `${tree.id} option`);
+      }
+    }
+  }
+  for (const path of read('content/manifest.json').rooms as string[]) {
+    const room = read(path);
+    for (const scene of (room.onEnter?.scenes ?? []) as { after?: { gives?: string[] } }[]) {
+      for (const id of scene.after?.gives ?? []) note(id, `${room.id} arrival scene gives`);
+    }
+    for (const target of [...(room.hotspots ?? []), ...(room.exits ?? [])]) {
+      for (const rules of Object.values((target.responses ?? {}) as Record<string, { grants?: string[] }[]>)) {
+        for (const rule of rules) for (const id of rule.grants ?? []) note(id, `${room.id}/${target.id} grants`);
+      }
+    }
+  }
   const missing = [...referenced].filter(([id]) => !items.has(id)).map(([id, where]) => `${id} (${where})`);
   assert.deepEqual(missing, [], 'items content hands over that the game does not load -- add them to the manifest');
   const noIcon = [...items.values()].filter((item) => !item.fixture && !icons[item.id]).map((item) => item.id);
