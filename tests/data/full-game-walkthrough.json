@@ -3,20 +3,6 @@
  "note": "The continuous playthrough's route, in doc 57's order, ids only (tests/full-game.test.ts). Each step plays one click's worth -- a room reached by exits and the map, a TALK TO and its options, an item used, a verb -- and names what it must have changed. A step that breaks is a finding; `knownBreaks` lists them, with the cause, and a step's `bypass` is applied only after it has broken, so play can go on to the next one.",
  "knownBreaks": [
   {
-   "step": "D2.1",
-   "puzzle": "D2",
-   "room": "prosperity",
-   "cause": "engine gap",
-   "finding": "Pratt does not open on Thad the first time he comes to Prosperity in Act II (doc 57 D2). Prosperity was reached by the map, and he has stood there since A5, so the arrival is a RESUME (GameState.resumeStanding via GameScene.enterRoomPerformance): armAccost is skipped. Not a block -- TALK TO Pratt still opens PRA_D2 -- and walking in from the claims road (an exit) plays it."
-  },
-  {
-   "step": "D4.1",
-   "puzzle": "D4",
-   "room": "boot_hill",
-   "cause": "engine gap",
-   "finding": "On the funeral day, walking up Boot Hill does not end the day and Sowerby's plate scene does not play, so THE LINEN MONEY never arrives and T_FUNERAL_DAY never clears (Fanshawe stays out of his office, Sowerby out of his church). Boot Hill is reached only from the map, and he stood there after A1, so the arrival is a RESUME: arrivalLines (say/saySet/scenes) is skipped. Blocks D4 and with it D5, D6, E0 and everything after, in any session that visited Boot Hill before the funeral and has not been reloaded since. A run that never went up the hill before the funeral day gets through."
-  },
-  {
    "step": "C6.4",
    "puzzle": "C6",
    "room": "assay_office",
@@ -29,13 +15,6 @@
    "room": "pratts_claim",
    "cause": "engine gap",
    "finding": "Pratt's sparring (PRA_D6 option 4) teaches no pairs: nothing in content writes ASSAY_PAIR_10..15 (doc 36 Q-list: 'waits for the sparring runtime, as Winnie's does'). See C6.4: together they are why B6 cannot be won."
-  },
-  {
-   "step": "D6.2",
-   "puzzle": "D6",
-   "room": "claims_registrar",
-   "cause": "engine gap",
-   "finding": "Pratt at the counter (doc 57 D6, the registrar's onEnter.scenes) never plays, so THE ATTESTATION and D6 never arrive. The registrar is reached only from the map (Main Street has no door to it; the archive's door back is Act III), and he has stood there since A6, so every arrival is a RESUME and arrivalLines is skipped. A hard block on E0 and everything after in a continuous session; only a save and reload (which forgets where he stood) lets the scene play."
   }
  ],
  "neverRecorded": [
@@ -945,16 +924,6 @@
      "T_FUNERAL_DAY": false,
      "T_LINEN_COLLECTED": true
     }
-   },
-   "bypass": {
-    "reason": "Boot Hill is reached only from the map, and he stood there after A1, so the funeral-day arrival is a RESUME: the line that ends the day and Sowerby's plate scene never play, T_FUNERAL_DAY stays set. Applied the arrival's own writes and the scene's outcome.",
-    "flags": {
-     "T_FUNERAL_DAY": false,
-     "T_LINEN_COLLECTED": true
-    },
-    "give": [
-     "linen_money"
-    ]
    }
   },
   {
@@ -1168,18 +1137,6 @@
     "flags": {
      "T_ATTESTED": true
     }
-   },
-   "bypass": {
-    "reason": "The registrar is reached only from the map, and he has stood there since A6, so arriving is a RESUME (GameState.resumeStanding): onEnter.scenes -- Pratt at the counter -- never plays in a continuous session. Applied the scene's own outcome.",
-    "flags": {
-     "T_ATTESTED": true
-    },
-    "give": [
-     "document_d"
-    ],
-    "complete": [
-     "D6"
-    ]
    }
   },
   {

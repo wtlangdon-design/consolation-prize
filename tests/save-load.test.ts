@@ -226,3 +226,28 @@ test('coming back from the map resumes; coming through a door does not', async (
   assert.ok(other);
   assert.equal(state.resumeStanding(other.id), undefined);
 });
+
+test('travelling on the map to ANOTHER room he has stood in is an arrival, not a return', async () => {
+  // Found by the continuous playthrough (tests/full-game.test.ts): the old rule
+  // made every map-only room he had visited once a return for the rest of the
+  // session, so its arrival scenes never played again (doc 57 D6, D4).
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  const map = [...content.rooms.values()].find((room) => room.kind === 'map')!;
+  const [first, second] = [...content.rooms.values()]
+    .filter((room) => room.kind !== 'map' && !(room as { fixture?: boolean }).fixture).map((room) => room.id);
+  state.enterRoom(first!);
+  state.rememberStanding(700, 830);
+  state.enterRoom(second!);
+  state.rememberStanding(900, 840);
+
+  // Opened from the second room, travelled to the first: an arrival.
+  state.enterRoom(map.id);
+  state.enterRoom(first!);
+  assert.equal(state.resumeStanding(map.id), undefined, 'going somewhere on the map is a move');
+
+  // Opened from the first room and closed again: a return.
+  state.enterRoom(map.id);
+  state.enterRoom(first!);
+  assert.deepEqual(state.resumeStanding(map.id), [700, 830], 'opening and closing the map is not');
+});
