@@ -1,0 +1,326 @@
+[
+ {
+  "who": "THAD (the standard)",
+  "posture": "actor",
+  "sheet": "art/actors/thad-stand-front/stand-00.png",
+  "scale": 0.479
+ },
+ {
+  "who": "HOB (opening actor)",
+  "posture": "actor",
+  "sheet": "art/actors/hob-stand-right/stand-00.png",
+  "scale": 0.229
+ },
+ {
+  "who": "A DOG\ndog \u00b7 main_street",
+  "posture": "animal",
+  "sheet": "art/actors/ambient-dog.png",
+  "scale": 1.747
+ },
+ {
+  "who": "THE LETTER-WRITER\nletter_writer \u00b7 main_street",
+  "posture": "standing",
+  "sheet": "art/actors/ambient-letter-writer.png",
+  "scale": 2.0
+ },
+ {
+  "who": "THE MAP SELLER\nmap_seller \u00b7 main_street",
+  "posture": "standing",
+  "sheet": "art/actors/ambient-map-seller.png",
+  "scale": 2.0
+ },
+ {
+  "who": "THE PATRONS\nnugget_bar1 \u00b7 nugget",
+  "posture": "band",
+  "sheet": "art/actors/nugget-bar1.png",
+  "scale": 1.038
+ },
+ {
+  "who": "THE PATRONS\nnugget_bar2 \u00b7 nugget",
+  "posture": "band",
+  "sheet": "art/actors/nugget-bar2.png",
+  "scale": 1.038
+ },
+ {
+  "who": "THE PATRONS\nnugget_bar3 \u00b7 nugget",
+  "posture": "band",
+  "sheet": "art/actors/nugget-bar3.png",
+  "scale": 1.038
+ },
+ {
+  "who": "THE MAN ON THE LANDING\nnugget_landing_man \u00b7 nugget_candidate",
+  "posture": "standing",
+  "sheet": "art/actors/cast-nugget-landing-man.png",
+  "scale": 2.041
+ },
+ {
+  "who": "THE PATRONS\nnugget_man1 \u00b7 nugget",
+  "posture": "band",
+  "sheet": "art/actors/nugget-man1.png",
+  "scale": 1.515
+ },
+ {
+  "who": "THE PATRONS\nnugget_man2 \u00b7 nugget",
+  "posture": "band",
+  "sheet": "art/actors/nugget-man2.png",
+  "scale": 1.515
+ },
+ {
+  "who": "THE PATRONS\nnugget_man34 \u00b7 nugget",
+  "posture": "band",
+  "sheet": "art/actors/nugget-man34.png",
+  "scale": 1.515
+ },
+ {
+  "who": "THE STOVE MAN\nnugget_stove_man \u00b7 nugget_candidate",
+  "posture": "standing",
+  "sheet": "art/actors/cast-nugget-stove-man.png",
+  "scale": 1.31
+ },
+ {
+  "who": "THE PIE WOMAN\npie_woman \u00b7 main_street",
+  "posture": "standing",
+  "sheet": "art/actors/ambient-pie-woman.png",
+  "scale": 1.916
+ },
+ {
+  "who": "WINNIE LEDGER\nwinnie \u00b7 assay_office",
+  "posture": "behind-counter",
+  "sheet": "art/actors/winnie-counter-sheet.png",
+  "scale": 0.638
+ },
+ {
+  "who": "THE CARD SHARP\ncard_sharp \u00b7 nugget",
+  "posture": "identity",
+  "sheet": "art/actors/nugget-card-sharp-identity.png",
+  "scale": 1.392
+ },
+ {
+  "who": "DEKE VESSEL\ndeke_vessel \u00b7 nugget",
+  "posture": "standing",
+  "sheet": "art/actors/deke-vessel.png",
+  "scale": 0.701
+ },
+ {
+  "who": "THE ONE-STRIKE MAN\none_strike_man \u00b7 nugget",
+  "posture": "identity",
+  "sheet": "art/actors/nugget-one-strike-identity.png",
+  "scale": 1.114
+ },
+ {
+  "who": "THE JUDGES\nroom_04_judge_1 \u00b7 nugget_back",
+  "posture": "seated",
+  "sheet": "art/actors/room-04-judge-1.png",
+  "scale": 0.686
+ },
+ {
+  "who": "THE JUDGES\nroom_04_judge_2 \u00b7 nugget_back",
+  "posture": "seated",
+  "sheet": "art/actors/room-04-judge-2.png",
+  "scale": 0.686
+ },
+ {
+  "who": "THE JUDGES\nroom_04_judge_3 \u00b7 nugget_back",
+  "posture": "seated",
+  "sheet": "art/actors/room-04-judge-3.png",
+  "scale": 0.686
+ },
+ {
+  "who": "REVEREND SOWERBY\nsowerby \u00b7 nugget_back",
+  "posture": "standing",
+  "sheet": "art/actors/room-04-sowerby.png",
+  "scale": 0.686
+ },
+ {
+  "who": "REGISTRAR SUMP\nsump \u00b7 claims_registrar",
+  "posture": "behind-counter",
+  "sheet": "art/actors/room-07-sump.png",
+  "scale": 0.625
+ },
+ {
+  "who": "IGNATIUS FRAME\nframe \u00b7 clarion",
+  "posture": "standing",
+  "sheet": "art/actors/room-09-frame.png",
+  "scale": 0.576
+ },
+ {
+  "who": "THE CLERK\nlobby_clerk \u00b7 company_lobby",
+  "posture": "behind-counter",
+  "sheet": "art/actors/room-10-clerk.png",
+  "scale": 0.682
+ },
+ {
+  "who": "COLONEL FANSHAWE\nfanshawe \u00b7 fanshawe_office",
+  "posture": "behind-counter",
+  "sheet": "art/actors/room-11-fanshawe.png",
+  "scale": 0.638
+ },
+ {
+  "who": "THE UNDERTAKER\nundertaker \u00b7 undertaker",
+  "posture": "behind-counter",
+  "sheet": "art/actors/room-13-undertaker.png",
+  "scale": 0.649
+ },
+ {
+  "who": "THE LIVERY MAN\nlivery_man \u00b7 livery",
+  "posture": "seated",
+  "sheet": "art/actors/room-15-livery-man.png",
+  "scale": 0.765
+ },
+ {
+  "who": "GRIEVANCE\ngrievance \u00b7 livery",
+  "posture": "animal",
+  "sheet": "art/actors/room-15-grievance.png",
+  "scale": 0.765
+ },
+ {
+  "who": "THE CAT\nalley_cat \u00b7 back_alley",
+  "posture": "animal",
+  "sheet": "art/actors/room-20-cat.png",
+  "scale": 1.163
+ },
+ {
+  "who": "HOB\nhob \u00b7 back_alley",
+  "posture": "standing",
+  "sheet": "art/actors/room-20-hob.png",
+  "scale": 0.95
+ },
+ {
+  "who": "THE RACCOON\nraccoon \u00b7 prosperity",
+  "posture": "animal",
+  "sheet": "art/actors/room-23-raccoon.png",
+  "scale": 0.817
+ },
+ {
+  "who": "THE RACCOONS\nraccoon_meeting \u00b7 prosperity",
+  "posture": "animal",
+  "sheet": "art/actors/room-23-meeting.png",
+  "scale": 0.817
+ },
+ {
+  "who": "NICKEL PRATT\npratt \u00b7 pratts_claim",
+  "posture": "standing",
+  "sheet": "art/actors/room-25-pratt.png",
+  "scale": 0.782
+ },
+ {
+  "who": "NICKEL PRATT\npratt_registrar \u00b7 claims_registrar",
+  "posture": "standing",
+  "sheet": "art/actors/room-25-pratt-jump.png",
+  "scale": 0.756
+ },
+ {
+  "who": "NICKEL PRATT\npratt_jump \u00b7 prosperity",
+  "posture": "standing",
+  "sheet": "art/actors/room-25-pratt-jump.png",
+  "scale": 0.756
+ },
+ {
+  "who": "THE MAN PANNING\nman_panning \u00b7 creek",
+  "posture": "seated",
+  "sheet": "art/actors/room-26-panner.png",
+  "scale": 1.068
+ },
+ {
+  "who": "AH-LAM SHENG\nsheng \u00b7 laundry",
+  "posture": "standing",
+  "sheet": "art/actors/room-28-sheng.png",
+  "scale": 0.938
+ },
+ {
+  "who": "THE OTHER MULES\nother_mules \u00b7 livery",
+  "posture": "animal",
+  "sheet": "art/actors/room-15-mules.png",
+  "scale": 0.765
+ },
+ {
+  "who": "MADAME OZYMANDIA\nozymandia \u00b7 ozymandias_tent",
+  "posture": "behind-counter",
+  "sheet": "art/actors/room-16-ozymandia.png",
+  "scale": 0.67
+ },
+ {
+  "who": "THE HOTEL CLERK\nhotel_clerk \u00b7 hotel_lobby",
+  "posture": "behind-counter",
+  "sheet": "art/actors/room-18-clerk.png",
+  "scale": 0.802
+ },
+ {
+  "who": "THE UNDERTAKER\nfuneral_undertaker \u00b7 funeral",
+  "posture": "standing",
+  "sheet": "art/actors/room-31-undertaker.png",
+  "scale": 0.893
+ },
+ {
+  "who": "REVEREND SOWERBY\nfuneral_sowerby \u00b7 funeral",
+  "posture": "standing",
+  "sheet": "art/actors/room-31-sowerby.png",
+  "scale": 0.974
+ },
+ {
+  "who": "THE ONE WHO KNOWS\nfuneral_hob \u00b7 funeral",
+  "posture": "standing",
+  "sheet": "art/actors/room-31-hob.png",
+  "scale": 0.848
+ },
+ {
+  "who": "GRIEVANCE\nfuneral_grievance \u00b7 funeral",
+  "posture": "animal",
+  "sheet": "art/actors/room-31-grievance.png",
+  "scale": 0.836
+ },
+ {
+  "who": "THE MOURNERS\nfuneral_mourners \u00b7 funeral",
+  "posture": "band",
+  "sheet": "art/actors/room-31-mourners.png",
+  "scale": 0.856
+ },
+ {
+  "who": "A DOG\ndawn_dog \u00b7 main_street_dawn",
+  "posture": "animal",
+  "sheet": "art/actors/room-36-dog.png",
+  "scale": 1.747
+ },
+ {
+  "who": "REVEREND SOWERBY\nsowerby_gate \u00b7 boot_hill",
+  "posture": "standing",
+  "sheet": "art/actors/room-31-sowerby.png",
+  "scale": 0.989
+ },
+ {
+  "who": "COLONEL FANSHAWE\nduel_fanshawe \u00b7 main_street",
+  "posture": "standing",
+  "sheet": "art/actors/room-02-duel-fanshawe.png",
+  "scale": 1.079
+ },
+ {
+  "who": "REVEREND SOWERBY\nduel_sowerby \u00b7 main_street",
+  "posture": "standing",
+  "sheet": "art/actors/room-02-duel-sowerby.png",
+  "scale": 1.596
+ },
+ {
+  "who": "THE JUDGES' TABLE\nduel_judges \u00b7 main_street",
+  "posture": "band",
+  "sheet": "art/actors/room-02-duel-table.png",
+  "scale": 1.948
+ },
+ {
+  "who": "THE TOWN\nduel_town_left \u00b7 main_street",
+  "posture": "band",
+  "sheet": "art/actors/room-02-duel-town-left.png",
+  "scale": 1.042
+ },
+ {
+  "who": "THE TOWN\nduel_town_right \u00b7 main_street",
+  "posture": "band",
+  "sheet": "art/actors/room-02-duel-town-right.png",
+  "scale": 1.007
+ },
+ {
+  "who": "WINNIE LEDGER\nwinnie_registrar \u00b7 claims_registrar",
+  "posture": "behind-counter",
+  "sheet": "art/actors/winnie-counter-sheet.png",
+  "scale": 0.625
+ }
+]

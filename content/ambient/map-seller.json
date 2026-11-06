@@ -28,31 +28,31 @@
    [
     2,
     2,
-    65,
+    99,
     150
    ],
    [
-    69,
+    103,
     2,
-    65,
+    99,
     150
    ],
    [
-    136,
+    204,
     2,
-    65,
+    99,
     150
    ],
    [
-    203,
+    305,
     2,
-    65,
+    99,
     150
    ],
    [
-    270,
+    406,
     2,
-    65,
+    99,
     150
    ]
   ],
@@ -80,7 +80,9 @@
     4
    ]
   ],
-  "breakEvery": 23
+  "breakEvery": 23,
+  "provenance": "art/staging/cast-unify/batch-01/sheet.png",
+  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn with the other Main Street townspeople in Thad's hand (cast-unify operation 1, reference/cast-unify-01.txt), cut by tools/art/cast-unify-cut.py. Same poses: 0 rest, 1 breath, 2-4 the actions."
  },
  "migrationNote": "ERRATA 54, x6. Was (250, 116) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
  "placeNote": "Clear of the small office’s steps. Was (3120, 658).",
@@ -94,10 +96,34 @@
     "rate": 1.0,
     "frames": [
      [
-      0,
-      0,
-      111,
-      231
+      2,
+      2,
+      99,
+      150
+     ],
+     [
+      103,
+      2,
+      99,
+      150
+     ],
+     [
+      204,
+      2,
+      99,
+      150
+     ],
+     [
+      305,
+      2,
+      99,
+      150
+     ],
+     [
+      406,
+      2,
+      99,
+      150
      ]
     ],
     "figureHeight": 231,

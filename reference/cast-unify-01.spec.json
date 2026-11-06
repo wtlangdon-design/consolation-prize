@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "main-street-townspeople",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/cast-unify-01.txt",
+ "out": "art/staging/cast-unify/batch-01/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-01/thad-in-room-02.png",
+  "art/staging/cast-unify/batch-01/thad-the-hand.png",
+  "art/staging/cast-unify/batch-01/old-sheets.png"
+ ]
+}

@@ -1,0 +1,68 @@
+"""Re-register a waist-up figure's frames on the HEAD, and carry the rest frame's desk.
+
+For a figure seen from the waist up behind a counter (cast-unify, Tyler
+2026-11-06), the cutter's leg registration lands on the hands and whatever is
+on the counter, and a raised arm or a book in some poses and not others swings
+the whole figure sideways between frames. Here each frame is re-aligned so the
+head -- the largest piece of the top quarter -- sits where the rest frame's
+does; then, with --carry F, the rest frame's lowest F of rows (the ledger, the
+desk things) fills wherever a frame has nothing, so it does not come and go.
+
+Usage: bust-register.py <sheet.png> <frames.json> <out.png> [--carry 0.2]
+frames.json is the cutter's printed {"frames": [...]}; prints the new frames.
+"""
+import json
+import sys
+
+import numpy as np
+from PIL import Image
+from scipy import ndimage as ndi
+
+src, fjson, out = sys.argv[1], sys.argv[2], sys.argv[3]
+carry = float(sys.argv[sys.argv.index('--carry') + 1]) if '--carry' in sys.argv else 0.0
+sheet = np.asarray(Image.open(src).convert('RGBA'))
+frames = json.loads(open(fjson).read())['frames']
+cells = [sheet[y:y + h, x:x + w].copy() for x, y, w, h in frames]
+
+
+def head_x(cell):
+    a = cell[..., 3] > 0
+    rows = np.nonzero(a.any(1))[0]
+    top = rows.min(); band = a.copy(); band[top + int((rows.max() - top) * 0.25):] = False
+    lab, n = ndi.label(band)
+    if n == 0:
+        return cell.shape[1] / 2
+    big = np.argmax(ndi.sum(band, lab, range(1, n + 1))) + 1
+    xs = np.nonzero(lab == big)[1]
+    return (xs.min() + xs.max()) / 2
+
+
+ref = head_x(cells[0])
+pad = 60
+H, W = cells[0].shape[:2]
+outs = []
+for i, cell in enumerate(cells):
+    dx = int(round(ref - head_x(cell)))
+    canvas = np.zeros((H, W + 2 * pad, 4), np.uint8)
+    canvas[:, pad + dx:pad + dx + W] = cell
+    outs.append(canvas)
+if carry > 0:
+    base = outs[0]
+    band = int(H * (1 - carry))
+    for c in outs[1:]:
+        empty = c[band:, :, 3] == 0
+        c[band:][empty] = base[band:][empty]
+# trim the common empty margin
+alpha = np.any([c[..., 3] > 0 for c in outs], axis=0)
+cols = np.nonzero(alpha.any(0))[0]
+x0, x1 = cols.min(), cols.max() + 1
+outs = [c[:, x0:x1] for c in outs]
+w = x1 - x0
+result = np.zeros((H + 4, len(outs) * (w + 2) + 2, 4), np.uint8)
+rects = []
+for i, c in enumerate(outs):
+    x = 2 + i * (w + 2)
+    result[2:2 + H, x:x + w] = c
+    rects.append([int(x), 2, int(w), int(H)])
+Image.fromarray(result).save(out)
+print(json.dumps({'frames': rects}))

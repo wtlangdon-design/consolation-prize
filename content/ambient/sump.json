@@ -24,31 +24,31 @@
    [
     2,
     2,
-    203,
+    220,
     236
    ],
    [
-    207,
+    224,
     2,
-    203,
+    220,
     236
    ],
    [
-    412,
+    446,
     2,
-    203,
+    220,
     236
    ],
    [
-    617,
+    668,
     2,
-    203,
+    220,
     236
    ],
    [
-    822,
+    890,
     2,
-    203,
+    220,
     236
    ]
   ],
@@ -89,6 +89,7 @@
   "breakEvery": 6,
   "talkFrame": 4,
   "frameNote": "0 rest (hands on the ledger) · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 writing · 3 stamping, the stamp raised · 4 looking up over his spectacles. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool: he writes, he stamps, he looks up (errata 35 and 77: a deliberate action at least every 30 s).",
-  "provenance": "art/staging/room-07/sump/sump.json"
+  "provenance": "art/staging/cast-unify/batch-02/sheet.png",
+  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn with the other counter clerks in Thad's hand (cast-unify operation 2, reference/cast-unify-02.txt), cut by tools/art/cast-unify-cut.py and registered on the head by tools/art/bust-register.py. Same poses."
  }
 }
