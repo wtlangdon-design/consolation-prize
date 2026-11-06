@@ -104,6 +104,9 @@ for p in manifest['ambient']:
     places = [(n['room'], n['x'], n['y'], n.get('sprite'))] + [(r, a.get('x', n['x']), a.get('y', n['y']), a.get('sprite') or n.get('sprite')) for r, a in (n.get('placements') or {}).items()]
     if n.get('exit', {}).get('sheet'):
         ex = n['exit']; places.append((n['room'], ex['path'][0][0], ex['path'][0][1], ex))
+    for kind in ('loop', 'arrive'):   # a looping or arriving walker is a figure too
+        if n.get(kind, {}).get('sheet'):
+            ex = n[kind]; places.append((n['room'], ex['path'][0][0], ex['path'][0][1], ex))
     for room, x, y, sp in places:
         if not sp or not sp.get('frames') or n.get('posture') == 'identity': continue
         # A man's height in this sheet's pixels: the engine draws figureHeight at the room's man times

@@ -65,7 +65,7 @@ async function record(page, dir, body) {
     while (sampling) {
       const s = await probe(page).catch(() => null);
       if (s) {
-        samples.push({ t: Date.now() / 1000, camera: s.camera, room: s.room, beat: s.beat,
+        samples.push({ t: Date.now() / 1000, camera: s.camera, room: s.room, beat: s.beat, walkers: s.walkers ?? {},
           movers: Object.fromEntries(Object.entries(s.movers ?? {}).map(([id, m]) => [id,
             { bounds: m.bounds, clip: m.clip, moving: m.moving, at: m.at }])) });
       }

@@ -2360,6 +2360,7 @@ export class GameScene extends Phaser.Scene {
       // already arrived. The harness reported 'room stage_road' from its own
       // fallback and looked like a routing failure rather than a probe gap.
       room: this.state.roomId,
+      walkers: this.view.lastWalkerBounds(),
       frame: this.frameCount,
       // ALREADY SECONDS. `lastFrameAt` is `time.now / 1000` and dividing again
       // reported 0.002 for a scene two seconds old -- which nothing would have

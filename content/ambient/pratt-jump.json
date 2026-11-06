@@ -30,31 +30,31 @@
    [
     2,
     2,
-    326,
+    304,
     450
    ],
    [
-    330,
+    308,
     2,
-    326,
+    304,
     450
    ],
    [
-    658,
+    614,
     2,
-    326,
+    304,
     450
    ],
    [
-    986,
+    920,
     2,
-    326,
+    304,
     450
    ],
    [
-    1314,
+    1226,
     2,
-    326,
+    304,
     450
    ]
   ],
@@ -83,11 +83,12 @@
   "breakEvery": 7,
   "frameNote": "0 the mallet resting on the ground · 1 breath (derived) · 2 the mallet on his shoulder · 3 the mallet raised overhead · 4 struck down on the new stake. Every `breakEvery` seconds he drives the stake, or shoulders the mallet (errata 77).",
   "provenance": "reference/cast-unify-17.spec.json",
-  "figureHeight": 405,
+  "figureHeight": 386,
   "stature": 1.03,
   "statureNote": "The bigger man: room-25's master drew him 1.05 of Thad; 1.03 keeps him inside the 5% a standing man is held to (tests/scale.test.ts).",
   "figureHeightNote": "Crown to sole, his hat excluded: 0.913 of the drawn rest frame, as measured on the rake row of the same sheet (the hat-brim reading is thrown here by the mallet's handle).",
-  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 19 (reference/cast-unify-17.txt), full figure, his mallet in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet; its own file."
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 19 (reference/cast-unify-17.txt), full figure, his mallet in every pose so it never appears or vanishes; cut with its own pixels and a clean edge on his feet; its own file.",
+  "buildNote": "LEANER (Tyler, 2026-11-06: \"standing next to Thad Pratt look like a much 'thicker' character\"; he chose \"Leaner, still sturdy\"): redrawn in the same poses, an ordinary working man a little broader than Thad (cast-unify 49), cut by tools/art/cast-unify-cut.py; figureHeight is crown to sole, the hat not counted (tools/art/figure-height.py --hat)."
  },
  "exit": {
   "path": [
@@ -110,43 +111,43 @@
    [
     2,
     2,
-    248,
+    216,
     397
    ],
    [
-    252,
+    220,
     2,
-    248,
+    216,
     397
    ],
    [
-    502,
+    438,
     2,
-    248,
+    216,
     397
    ],
    [
-    752,
+    656,
     2,
-    248,
+    216,
     397
    ],
    [
-    1002,
+    874,
     2,
-    248,
+    216,
     397
    ],
    [
-    1252,
+    1092,
     2,
-    248,
+    216,
     397
    ]
   ],
   "fps": 6,
   "drawnFacing": "right",
-  "figureHeight": 385,
+  "figureHeight": 341,
   "heights": [
    397,
    397,
@@ -154,8 +155,8 @@
    397
   ],
   "note": "Doc 57 D2 sends him back to his own claim; Pratt's claim is next door, past the creek at the right (errata 97 C).",
-  "strideRatio": 0.727,
-  "walkNote": "WALK-C (Tyler, 2026-11-06: \"Pratt is horrible\"): six frames posed on Thad's walk (cast-unify 45): six frames posed on Thad's walk (cast-unify 45), cut by tools/art/walk-c.py; strideRatio MEASURED FROM THESE FRAMES (R5f): the planted foot's travel against the body over a cycle, against the same measure on Thad's walk (whose recorded 0.588 it calibrates); so the cycle advances with the ground he covers and his feet hold it.",
+  "strideRatio": 0.646,
+  "walkNote": "WALK-C: six frames posed on Thad's walk, the leaner Pratt (cast-unify 50; Tyler, 2026-11-06: \"Pratt's gait is kind of awkward because his knee goes so high\" -- briefed with low knees), cut by tools/art/walk-c.py; figureHeight crown to sole on the passing frame, as his standing frames are measured. strideRatio MEASURED FROM THESE FRAMES (R5f), calibrated on Thad's walk.",
   "speedNote": "Tyler, 2026-11-06: \"Pratt walks so slow it's hard to even figure out if his walk could be good.\" Was 80 px/s, a fifth of his height a second. Now Deke's pace, which Tyler passed (\"pretty good\"): half his drawn height a second, 204 px/s for a man of about 408 px here."
  }
 }

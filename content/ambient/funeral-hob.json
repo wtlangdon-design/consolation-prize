@@ -69,7 +69,7 @@
   ],
   "fps": 6,
   "drawnFacing": "right",
-  "figureHeight": 647,
+  "figureHeight": 642,
   "note": "Doc 48 S2 beat 3: 'and he walks.' Off the hill at the right, unhurried, his hat in his hand (room-31 operation 3, cut by tools/art/cut-walk-sheet.py).",
   "redrawn": "His own walk (art/actors/hob-walk-right, cast-unify 37), lantern in hand and hat on, relit once into the night.",
   "strideRatio": 0.709,

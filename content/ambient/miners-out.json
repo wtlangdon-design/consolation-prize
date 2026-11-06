@@ -52,43 +52,79 @@
    [
     2,
     2,
-    419,
-    256
+    436,
+    262
    ],
    [
-    423,
+    440,
     2,
-    419,
-    256
+    436,
+    262
    ],
    [
-    844,
+    878,
     2,
-    419,
-    256
+    436,
+    262
    ],
    [
-    1265,
+    1316,
     2,
-    419,
-    256
+    436,
+    262
    ],
    [
-    1686,
+    1754,
     2,
-    419,
-    256
+    436,
+    262
    ],
    [
-    2107,
+    2192,
     2,
-    419,
-    256
+    436,
+    262
+   ],
+   [
+    2630,
+    2,
+    436,
+    262
+   ],
+   [
+    3068,
+    2,
+    436,
+    262
+   ],
+   [
+    3506,
+    2,
+    436,
+    262
+   ],
+   [
+    3944,
+    2,
+    436,
+    262
+   ],
+   [
+    4382,
+    2,
+    436,
+    262
+   ],
+   [
+    4820,
+    2,
+    436,
+    262
    ]
   ],
   "fps": 5,
   "drawnFacing": "right",
-  "figureHeight": 251,
+  "figureHeight": 249,
   "heights": [
    440,
    360,
@@ -102,8 +138,8 @@
   "pause": 14,
   "offset": 0,
   "note": "Heights per point: the road climbs out of the walk band into the distance (errata 95 E).",
-  "strideRatio": 0.777,
-  "strideNote": "WALK-C (Tyler, 2026-11-06: \"The miners are awful\"): the crowd was four men stepping in unison through four frames. Now four men drawn alone, each a six-frame walk posed on Thad's (cast-unify 47, 48), the crowd composed from them by tools/art/walk-c.py: one behind another, each nearer the camera, each on his own step (phases 0, 3, 1, 4). Stride measured from the four men's own frames (R5f), calibrated on Thad's: 0.777. The crowd walking back is the same men, mirrored (doc 10: 'The same men... Same tools.').",
+  "strideRatio": 0.771,
+  "strideNote": "WALK-C (Tyler, 2026-11-06: \"The miners are awful\"): the crowd was four men stepping in unison through four frames. Now four men drawn alone, each a six-frame walk posed on Thad's (cast-unify 47, 48), the crowd composed from them by tools/art/walk-c.py: one behind another, each nearer the camera, each on his own step and his own beat -- twelve frames a cycle, each man changing pose on his own frame (Tyler: \"all walking in complete unison looks insane\") -- and each a little different in size and spacing. Stride measured from the four men's own frames (R5f), calibrated on Thad's: 0.777. The crowd walking back is the same men, mirrored (doc 10: 'The same men... Same tools.').",
   "pace": 0.5,
   "paceNote": "Tyler, 2026-11-06: \"The miners are awful.\" At a fixed 55 px/s they crawled at an eighth of their height a second near the camera (440 px tall) and raced at one and a half heights a second far up the road (36 px). Now half their own height a second at every point of the road, Deke's pace, which Tyler passed; `speed` is no longer read."
  }

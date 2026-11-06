@@ -17,7 +17,8 @@ the body travels steadily and the legs do the walking -- the method of tools/art
   deke    art/actors/deke-vessel-walk.png
   pratt   art/actors/room-25-pratt-walk.png (both of his exits)
 
-Each exit's figureHeight keeps the drawn size the old walk had (crown to sole, hat not counted,
+It writes each exit's and loop's sheet, frames, figureHeight and facing into content/ambient, then snaps
+what it cut to the one level. Each exit's figureHeight keeps the drawn size the old walk had (crown to sole, hat not counted,
 measured on both). Its `strideRatio` is measured from its own frames (R5f): the planted foot's travel
 against the body over a cycle, against the same measure on Thad's walk, whose recorded stride
 (content/actors/thad.json, 141 / 240 = 0.588) calibrates it -- Hob 0.608, Deke and Pratt 0.600, the
@@ -126,19 +127,30 @@ def body_height(img, frame):
         return float(json.loads(subprocess.check_output([sys.executable, R('tools/art/figure-height.py'), sp, fp, '--hat']))['figureHeight'])
 
 
-SHEETS = {'deke': 'deke-walk-01.png', 'pratt': 'pratt-walk-03.png', 'hob': 'hob-walk-03.png'}
+SHEETS = {'deke': 'deke-walk-01.png', 'pratt': 'pratt-walk-04.png', 'hob': 'hob-walk-03.png'}
 thad = json.load(open(R('content/actors/thad.json')))
 STRIDE = round(thad['strideLength'] / thad['height'], 3)
 report = {'strideRatio': STRIDE}
 
 
-def exit_of(name):
-    return json.load(open(R(f'content/ambient/{name}.json')))['exit']
+# THE WALKS AS THEY WERE before this redraw: every size here is measured against them, never against
+# this tool's own last output -- measured against that, the sizes crept with every run (the miners'
+# frames grew 256, 270, 285 px tall on three runs).
+BEFORE = 'e5e3739'
+
+
+def at_before(path):
+    return subprocess.check_output(['git', '-C', ROOT, 'show', f'{BEFORE}:{path}'])
+
+
+def exit_of(name, kind='exit'):
+    return json.loads(at_before(f'content/ambient/{name}.json'))[kind]
 
 
 def old_body(ex):
-    im = Image.open(R(ex['sheet'])).convert('RGBA')
-    return body_height(im, ex['frames'][0])
+    with tempfile.TemporaryDirectory() as tmp:
+        p = os.path.join(tmp, 'old.png'); open(p, 'wb').write(at_before(ex['sheet']))
+        return body_height(Image.open(p).convert('RGBA'), ex['frames'][0])
 
 
 # ---- Deke and Pratt: ambient exits -----------------------------------------------------------
@@ -150,7 +162,12 @@ for who, ex_name, out_rel in [('deke', 'deke-vessel', 'art/actors/deke-vessel-wa
     w = max(f.width for f in figs) + 16
     frames = strip(seat(figs, w, old_h), R(out_rel))
     nb = body_height(Image.open(R(out_rel)).convert('RGBA'), frames[0])
-    report[who] = {'sheet': out_rel, 'frames': frames, 'figureHeight': round(ex['figureHeight'] * nb / ob), 'drawnFacing': 'right'}
+    fh = round(ex['figureHeight'] * nb / ob)
+    if who == 'pratt':
+        # The leaner Pratt (cast-unify 49-50) is a new man, so his walk is sized as his standing frames
+        # are -- crown to sole, the hat not counted -- on the passing frame, where he stands tallest.
+        fh = round(body_height(Image.open(R(out_rel)).convert('RGBA'), frames[2]))
+    report[who] = {'sheet': out_rel, 'frames': frames, 'figureHeight': fh, 'drawnFacing': 'right'}
 
 # ---- Hob: his walk clip, then the funeral's night copy ----------------------------------------
 stand = Image.open(R('art/actors/hob-stand-right/stand-00.png')).convert('RGBA')
@@ -201,7 +218,6 @@ subprocess.check_call([sys.executable, R('tools/art/room31-relight-one.py'), day
 nb = body_height(Image.open(day_sheet).convert('RGBA'), frames[0])
 report['funeral'] = {'sheet': 'art/actors/room-31-hob-walk-master.png', 'frames': frames, 'figureHeight': round(ex['figureHeight'] * nb / ob), 'drawnFacing': 'right'}
 
-print(json.dumps(report))
 
 
 # ---- The claims road's miners: four men drawn alone (cast-unify 47, 48), a crowd composed from them ----
@@ -232,23 +248,36 @@ for k in ('a', 'b'):
     for path in rows_of(os.path.join(STAGE, f'miners-{k}-walk-01.png')):
         men.append(path)
 assert len(men) == 4, len(men)
-old = exit_of.__globals__['json'].load(open(R('content/ambient/miners-out.json')))['loop']
+old = exit_of('miners-out', 'loop')
 old_h = old['frames'][0][3]
-oim = Image.open(R(old['sheet'])).convert('RGBA'); ob = body_height(oim, old['frames'][0])
+ob = old_body(old)
 MAN_H = old_h - 6
 cycles = [cut(m, MAN_H) for m in men]          # four men, six frames each, one scale per man
-mw = max(f.width for c in cycles for f in c)
-step = int(MAN_H * 0.36)                      # how far each man walks ahead of the one behind
-drop = 4                                      # each man a little nearer the camera than the one behind
-W = mw + 3 * step + 8; H = MAN_H + 3 * drop + 2
-PHASE = [0, 3, 1, 4]
+# NOT IN STEP (Tyler, 2026-11-06, of the first composed crowd: "The miners all walking in complete unison
+# looks insane"). Pose offsets alone did not do it: a pose and the one half a cycle on share a silhouette,
+# so offsets 0 and 3 read as one step, and every man changed pose on the same frame. So the crowd runs
+# TWELVE frames a cycle, each man's pose held for two and changed on his own beat (BEAT), from his own
+# point in the cycle (PHASE); and the men differ a little in size (SCALE) and in how far apart they walk
+# (GAP) and how near the camera (DROP), as four men do.
+PHASE = [0, 2, 4, 1]
+BEAT = [0, 1, 1, 0]
+SCALE = [1.0, 1.04, 0.96, 1.02]
+GAP = [0, 0.40, 0.31, 0.43]                   # each man ahead of the one behind, in man heights
+DROP = [0, 5, 2, 8]
+men_frames = []
+for cyc, k in zip(cycles, SCALE):
+    men_frames.append([f.resize((max(1, round(f.width * k)), max(1, round(f.height * k))), Image.NEAREST) for f in cyc])
+mw = max(f.width for c in men_frames for f in c)
+xs = np.cumsum([g * MAN_H for g in GAP]) + mw / 2
+W = int(xs[-1] + mw / 2 + 8); H = int(max(f.height for c in men_frames for f in c) + max(DROP) + 2)
 frames_out = []
-for i in range(6):
+for i in range(12):
     c = Image.new('RGBA', (W, H), (0, 0, 0, 0))
-    for m, cyc in enumerate(cycles):              # the man furthest back first; each nearer man over him
-        f = cyc[(i + PHASE[m]) % 6]
-        cx = mw / 2 + m * step
-        c.alpha_composite(f, (int(round(cx - torso_x(f))), H - 1 - (3 - m) * drop - f.height + 1))
+    order = sorted(range(4), key=lambda m: DROP[m])       # the man nearest the camera drawn last
+    for m in order:
+        pose = ((i + BEAT[m]) // 2 + PHASE[m]) % 6
+        f = men_frames[m][pose]
+        c.alpha_composite(f, (int(round(xs[m] - torso_x(f))), H - 1 - (max(DROP) - DROP[m]) - f.height + 1))
     frames_out.append(c)
 crowd = 'art/actors/room-22-miners-walk.png'
 frames = strip(frames_out, R(crowd))
@@ -267,4 +296,36 @@ THAD_TRAVEL = travel([Image.open(p).convert('RGBA') for p in sorted(
     os.path.join(R('art/actors/thad-walk-right'), f) for f in os.listdir(R('art/actors/thad-walk-right')) if f.endswith('.png'))])
 stride = round(float(np.mean([travel(c) for c in cycles])) / THAD_TRAVEL * STRIDE, 3)
 report['miners'] = {'sheet': crowd, 'frames': frames, 'figureHeight': round(old['figureHeight'] * nb / ob), 'drawnFacing': 'right', 'strideRatio': stride}
+# Each exit and loop is pointed at what was cut -- sheet, frames, figureHeight, facing -- BEFORE the snap,
+# which reads the frames from the content files; snapped against the old frames, the miners' new crowd was
+# left finer than the level. (Strides, paces and notes are set by hand in the content and left alone.)
+for name, key, kind in [('deke-vessel', 'deke', 'exit'), ('pratt-jump', 'pratt', 'exit'), ('pratt-registrar', 'pratt', 'exit'),
+                        ('funeral-hob', 'funeral', 'exit'), ('miners-out', 'miners', 'loop'), ('miners-back', 'miners', 'loop')]:
+    path = R(f'content/ambient/{name}.json'); j = json.load(open(path)); e = j[kind]; d = report[key]
+    e['sheet'], e['frames'], e['figureHeight'], e['drawnFacing'] = d['sheet'], d['frames'], d['figureHeight'], 'right'
+    open(path, 'w').write(json.dumps(j, indent=1, ensure_ascii=False) + '\n')
+
+# Every sheet this writes is new, so it is snapped to the one level here, on its own (tools/art/one-level.py
+# --only), and Hob's clip despilled. Run without this, walk-c left Deke's and the Hobs' walks unsnapped
+# every time it was rerun for another character, and tests/one-level.test.mjs caught it.
+subprocess.check_call([sys.executable, R('tools/art/one-level.py'), '--only', 'deke-vessel-walk', 'room-25-pratt-walk',
+                       'hob-walk-right/', 'room-31-hob-walk-master', 'room-22-miners-walk'], stdout=subprocess.DEVNULL)
+subprocess.check_call([sys.executable, R('tools/art/despill-frames.py'), R('art/actors/hob-walk-right') + '/'], stdout=subprocess.DEVNULL)
+
+
+# Each exit and loop is pointed at what was cut -- sheet, frames, figureHeight, facing -- BEFORE the snap,
+# which reads the frames from the content files; snapped against the old frames, the miners' new crowd was
+# left finer than the level. (Strides, paces and notes are set by hand in the content and left alone.)
+for name, key, kind in [('deke-vessel', 'deke', 'exit'), ('pratt-jump', 'pratt', 'exit'), ('pratt-registrar', 'pratt', 'exit'),
+                        ('funeral-hob', 'funeral', 'exit'), ('miners-out', 'miners', 'loop'), ('miners-back', 'miners', 'loop')]:
+    path = R(f'content/ambient/{name}.json'); j = json.load(open(path)); e = j[kind]; d = report[key]
+    e['sheet'], e['frames'], e['figureHeight'], e['drawnFacing'] = d['sheet'], d['frames'], d['figureHeight'], 'right'
+    open(path, 'w').write(json.dumps(j, indent=1, ensure_ascii=False) + '\n')
+
+# Every sheet this writes is new, so it is snapped to the one level here, on its own (tools/art/one-level.py
+# --only), and Hob's clip despilled. Run without this, walk-c left Deke's and the Hobs' walks unsnapped
+# every time it was rerun for another character, and tests/one-level.test.mjs caught it.
+subprocess.check_call([sys.executable, R('tools/art/one-level.py'), '--only', 'deke-vessel-walk', 'room-25-pratt-walk',
+                       'hob-walk-right/', 'room-31-hob-walk-master', 'room-22-miners-walk'], stdout=subprocess.DEVNULL)
+subprocess.check_call([sys.executable, R('tools/art/despill-frames.py'), R('art/actors/hob-walk-right') + '/'], stdout=subprocess.DEVNULL)
 print(json.dumps(report))

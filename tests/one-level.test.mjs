@@ -86,6 +86,9 @@ for (const path of manifest.ambient) {
     places.push([room, at.x ?? npc.x, at.y ?? npc.y, at.sprite ?? npc.sprite]);
   }
   if (npc.exit?.sheet) places.push([npc.room, npc.exit.path[0][0], npc.exit.path[0][1], npc.exit]);
+  for (const kind of ['loop', 'arrive']) {
+    if (npc[kind]?.sheet) places.push([npc.room, npc[kind].path[0][0], npc[kind].path[0][1], npc[kind]]);
+  }
   for (const [room, x, y, sprite] of places) {
     if (!sprite?.frames || npc.posture === 'identity') continue;
     const man = sprite.figureHeight ? sprite.figureHeight / (sprite.stature || 1) : manAt(room, x, y);

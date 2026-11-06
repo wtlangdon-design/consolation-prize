@@ -84,6 +84,14 @@ def smooth(v, k=5):
     return out
 
 
+def walker_as_mover(rec, walker):
+    """A departing or looping figure, as the probe reports where he drew, in the shape of a mover."""
+    for s in rec['samples']:
+        b = (s.get('walkers') or {}).get(walker)
+        s['movers'][walker] = {'bounds': b, 'moving': b is not None, 'clip': 'walk'} if b else {}
+    return any((s.get('walkers') or {}).get(walker) for s in rec['samples'])
+
+
 def follow_mover(scene_dir, rec, frames, mover, name, out_dir, results):
     samples = [s for s in rec['samples'] if s['movers'].get(mover, {}).get('bounds')]
     if not samples: return
@@ -91,6 +99,9 @@ def follow_mover(scene_dir, rec, frames, mover, name, out_dir, results):
     for k, (a, b) in enumerate(runs(moving_t)):
         if b - a < 0.8: continue
         sel = [f for f in frames if a - PAD_S <= f['t'] <= b + PAD_S]
+        if rec.get('loop'):   # a loop: the five seconds where he is nearest the camera, drawn tallest
+            near = max((x for x in samples if a <= x['t'] <= b), key=lambda x: x['movers'][mover]['bounds'][3])
+            sel = [f for f in sel if abs(f['t'] - near['t']) <= MAX_S / 2]
         if not sel: continue
         ss = [sample_at(samples, f['t']) for f in sel]
         bw = max(s['movers'][mover]['bounds'][2] for s in ss); bh = max(s['movers'][mover]['bounds'][3] for s in ss)
@@ -189,9 +200,16 @@ def follow_path(scene_dir, rec, frames, name, out_dir, results, walker=None, bac
     pts.append(tuple(route[-1])); pts = np.asarray(pts)
     cam = lambda t: interp(rec['samples'], t, lambda s: s['camera']) if rec['samples'] else 0
     last = background if background is not None else np.asarray(Image.open(os.path.join(scene_dir, frames[-1]['name'])).convert('RGB')).astype(np.int16)[:PLAY_H]
+    # What still changes after he has gone -- a lamp's flicker, a breathing figure -- is not him: the
+    # registrar's lamps took the tracker's eye from Pratt twice.
+    still = np.zeros(last.shape[:2], bool)
+    if background is None:
+        for f in frames[-12:-1]:
+            b = np.asarray(Image.open(os.path.join(scene_dir, f['name'])).convert('RGB')).astype(np.int16)[:PLAY_H]
+            still |= np.abs(b - last).max(-1) > 40
     def mask(f):
         a = np.asarray(Image.open(os.path.join(scene_dir, f['name'])).convert('RGB')).astype(np.int16)[:PLAY_H]
-        return np.abs(a - last).max(-1) > 40
+        return (np.abs(a - last).max(-1) > 40) & ~still
     # His drawn size, from the first frame: what differs around where he stands.
     # His size: where he stands (an exit), or the busiest point of his route (a loop).
     if True:   # where he is busiest on his route: a file's standing point can be off from where he is drawn
@@ -266,6 +284,10 @@ def main():
             ids = sorted({m for s in rec['samples'] for m, v in s['movers'].items() if v.get('moving')})
             for m in ids:
                 follow_mover(d, rec, frames, m, f'{scene}-{m}', out_dir, results)
+        elif rec['track'] == 'path' and all(walker_as_mover(rec, w) for w in (rec.get('walkers') or [rec.get('walker')])):
+            # The probe says where each walker drew: follow that, as a mover is followed.
+            for w in (rec.get('walkers') or [rec['walker']]):
+                follow_mover(d, rec, frames, w, scene if not rec.get('walkers') else f"{scene}-{w.replace('_', '-')}", out_dir, results)
         elif rec['track'] == 'path' and rec.get('walkers'):
             bg = median_background(d, frames)
             for w in rec['walkers']:

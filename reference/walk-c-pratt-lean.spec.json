@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "pratt-lean-standing",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/walk-c-pratt-lean.txt",
+ "out": "art/staging/walk-c/pratt-lean-01.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/walk-c/pratt-board.png",
+  "art/staging/walk-c/pratt-poses-now.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}
