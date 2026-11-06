@@ -141,3 +141,13 @@ test('silence fades out every layer', () => {
   music.play({ src: 'bed.wav', layers: [{ src: 'layer.wav' }] });
   assert.ok(playing('bed.wav') && playing('layer.wav'), 'asking again brings both back');
 });
+
+test('a part joining a bed already playing joins it in time (errata 116)', () => {
+  const music = player();
+  music.play({ src: 'piano.wav', layers: [{ src: 'fiddle.wav' }] });
+  const fiddle = playing('fiddle.wav')!;
+  fiddle.currentTime = 7.25;
+  music.play({ src: 'piano-tuned.wav', layers: [{ src: 'fiddle.wav' }] });
+  assert.equal(playing('fiddle.wav'), fiddle, 'the fiddle plays on');
+  assert.equal(playing('piano-tuned.wav')!.currentTime, 7.25, 'the tuned piano starts where the fiddle is, not at 0');
+});

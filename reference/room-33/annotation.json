@@ -144,7 +144,14 @@
   "completes": "F2",
   "tune": {
    "seconds": 90,
-   "doneFlag": "T_IN_TUNE"
+   "doneFlag": "T_IN_TUNE",
+   "cues": [
+    {
+     "at": 20,
+     "cue": "R33-FIDDLER"
+    }
+   ],
+   "cuesNote": "Doc 07 #11 R_TRUTH: 'In F2, twenty seconds into the tuning arc, he stops mid-phrase, tunes his A, and continues. He is the only character in Consolation who notices anything, and it is never remarked upon.' Doc 06: 'The fiddler in the Nugget corrects first, about twenty seconds in.' Heard far off, under the score, and never remarked upon (errata 116)."
   },
   "fork": {
    "onceFlag": "T_FORK_STRUCK"

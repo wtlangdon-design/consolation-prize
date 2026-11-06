@@ -292,10 +292,24 @@
        "T_NUGGET_PIANO_TUNED": true
       },
       "src": "audio/consolation-nugget-piano-tuned.wav",
-      "gain": 0.75
+      "gain": 0.75,
+      "layers": [
+       {
+        "src": "audio/consolation-nugget-fiddle.wav",
+        "gain": 0.7,
+        "whenPresent": "fiddler"
+       }
+      ]
      }
     ],
-    "why": "Doc 28 Room 3: CONSOLATION played diegetically on the room's own piano, broken C-sharp and all, until Thad tunes it."
+    "why": "Doc 28 Room 3: CONSOLATION played diegetically on the room's own piano, broken C-sharp and all, until Thad tunes it. The fiddler joins it with the theme's own fiddle part while he is in the room (doc 07 #11; doc 28: 'Piano-led, fiddle joining'; errata 116).",
+    "layers": [
+     {
+      "src": "audio/consolation-nugget-fiddle.wav",
+      "gain": 0.7,
+      "whenPresent": "fiddler"
+     }
+    ]
    },
    "assay_office": {
     "src": "audio/winnie.wav",
