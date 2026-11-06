@@ -2864,3 +2864,31 @@ The sounds Tyler approved by ear (errata 102) now play in the game, where doc 45
 - **Invariant 3 holds.** The timesheet's paper is the queue book's paper, file for file; `tests/sounds.test.ts` fails if a load-bearing LISTEN ever gets a sound no other object makes.
 
 **Not wired, and why.** The opening's team, case and Hob cues are beat-timed (errata 28a). R17-BELL has no bell-rope action to hang on. R09-PRESS waits for a documented "operating state". R23/24-MUD, R21-WINDOW, R03-A's crowd and the spittoon have no approved file. U-STAMP and U-ASSAY-PENCIL are OPEN in doc 45 itself.
+
+---
+
+# 106 · EVERY REMAINING SOUND, AND EVERY SOUND IN ITS PLACE — OWNER RULING (Tyler, 2026-11-06)
+
+**"Handle the sounds that aren't hooked up yet. And make sure sfx aren't absurdly loud. The sound level needs to make sure they're background effects not sounds that take center stage."**
+
+**ERRATA 28a's ban on timed sound is reversed for cues.** Tyler was told the opening's sounds waited on exactly that reversal, and asked for them. A cutscene may now carry a `cue` step: a doc 45 cue by id, fired as the beat reaches it, taking no time. The opening carries four: the standing team's breathing from beat 2 (O-02-S2; the coach is placed already halted, so O-02-S1's arrival has nothing to go with), the case into the mud in beat 6 (O-06-S1), the team pulling away in 6b (O-06B-S), and THE STRIKE as Hob crosses in beat 9 (O-09-M).
+
+**The rest of doc 45, wired** (`content/audio/sounds.json`; new sounds rendered by `tools/audio/render-room-sfx.py`):
+
+| Cue | What | How |
+|---|---|---|
+| R01-COACH-2 | the axle squealing away, LISTEN 1–2 | new: stick-slip, each turn quieter |
+| R01-WEST-3 | a distant laugh, LISTEN 3 | new: five formant "ha"s across a street |
+| R03-SPITTOON | LISTEN 1–2; 3 is "I've stopped listening" | new: a small wet arrival and the brass |
+| R03-A | the Nugget's room: talk with no words, glasses, the chandelier ticking | new loop |
+| R02-A | the wind with a handbill in it, and the dog's breathing while the dog is there | wind and paper as approved; new breathing |
+| R07-A | Sump's clock, shuffling, paper | the approved clock and paper, with shuffles |
+| R09-PRESS | the press, running: the room's own LISTEN hears it every time | the approved press, as the Clarion's background |
+| R21-WINDOW | "The street. All of it." | the approved wind, the Nugget's piano faint, a latch |
+| R23/24-MUD | Prosperity's mud, LISTEN 1–2 | new: sucking and settling |
+| U-STAMP | the two places the writing says a stamp lands | the approved stamp, on the line itself |
+| U-ASSAY-PENCIL | each point the judges write down | the approved pencil |
+
+**Not wired: R17-BELL.** It needs "a player action on the bell rope that actually strikes the bell", and the church has none: the rope has LOOK and LISTEN only. Making one would mean writing its lines, which is not the builder's to do.
+
+**THE LEVELS.** The first wiring set gains by eye, and measured against the music the fork in the case was ten decibels over it, the distant bell seven, the hollow board six, the coffin's dirt ten, Room 33's void and fork sixteen. Now every sound has a place under the music as it actually plays (the median room bed), and its gain is set from measurement: footsteps 16 dB under, one-shots 10, doors 13–14, backgrounds 18, the opening's STRIKE (score, not an effect) 8. The coffin and the listening chamber are turned down as rooms (`roomGain`), keeping the shape inside them, so their loudest is no louder than the music. **`tools/check-sound-levels.mjs`** measures all 108 and fails on any sound more than 2 dB above its place.

@@ -242,6 +242,13 @@ export class DialogueRunner {
   private readonly assay: AssayHost | null;
   /** The duel being fought inside the open conversation, if one is. */
   private duel: DuelSession | null = null;
+  /** Points written down in Assay duels, ever: a judge's pencil per mark (doc 45 U-ASSAY-PENCIL). */
+  private marks = 0;
+
+  /** How many points the judges have written down this session. The scene sounds each new one. */
+  get duelMarks(): number {
+    return this.marks;
+  }
 
   constructor(trees: Map<string, DialogueFile>, flags: FlagStore, journals?: JournalSource,
     milestones?: MilestoneStore, assay?: AssayHost) {
@@ -756,7 +763,10 @@ export class DialogueRunner {
     const { resolution } = exchange;
     if (resolution.grants?.length) this.milestones.grant?.([...resolution.grants]);
     if (resolution.duelChoice && this.duel) {
+      const before = this.duel.score;
       const choice = this.duel.commit(resolution.duelChoice);
+      const after = this.duel.score;
+      if (after.player !== before.player || after.opponent !== before.opponent) this.marks += 1;
       if (choice.ended) {
         const called = this.assay?.file.duels[this.duel.id]?.calledByOpponent === true;
         this.duel = null;

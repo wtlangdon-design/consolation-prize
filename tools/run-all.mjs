@@ -4,6 +4,7 @@ import { check as noContentInCode } from './check-no-content-in-code.mjs';
 import { check as contentSchema } from './check-content-schema.mjs';
 import { check as extraction } from './check-extraction.mjs';
 import { check as roomLinesSourced } from './check-room-lines-sourced.mjs';
+import { check as soundLevels } from './check-sound-levels.mjs';
 import { check as stateCoverage } from './check-state-coverage.mjs';
 import { check as sequences } from './check-sequences.mjs';
 import { check as townMap } from './check-map.mjs';
@@ -113,6 +114,7 @@ const CHECKS = [
   contentSchema,
   extraction,
   roomLinesSourced,
+  soundLevels,
   stateCoverage,
   sequences,
   townMap,

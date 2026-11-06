@@ -160,6 +160,7 @@ Every row here shipped past a green suite and was found by Tyler playing, by a r
 | A range document's exits were never read by the compiler | Rooms 5 and 7: doc 25's `## Exits` doors kept the room file's words after the Room 5 voice pass (#153) | `tools/check-room-lines-sourced.mjs`; `rangeDocExits` in `tools/compile-room.mjs` now reads them |
 | A note for the builder is shown to the player as a stage direction | Winnie's "(Wrong. Hard wrong.)", which marks the wrong option (#158) | `tests/stage-directions.test.ts` fails on any line in doc 58's hidden list; **when a new tree's directions start showing, read every one once and hide the notes by name** |
 | A synthesized sound that rings at a pitch reads as a different material: clean tones as a whistle or a drum, resonators as glass | The boardwalk step rang like a drum, then like glass bottles; the batwing hinge sounded like a gull (errata 102) | Taste, and Tyler's ear: build wood from unpitched noise (a low thud, a broad tok under 10 ms, a stick-slip creak), never from anything that rings, and before the audition measure how fast the highs die (wood: above 800 Hz down 30 dB within about 25 ms) |
+| A sound effect at a level picked by eye takes centre stage | The case fork ten decibels over the music, the coffin dirt ten, Room 33's void sixteen (errata 106) | `tools/check-sound-levels.mjs`: every sound measured against the median room bed, against its place in `content/audio/sounds.json` `levels` |
 
 ### Not caught — the process that worked
 
