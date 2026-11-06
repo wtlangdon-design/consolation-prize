@@ -245,52 +245,59 @@ def resonate(excite, table, rnd):
     return out
 
 
-def step_boardwalk(rnd):
-    """TYLER, 2026-11-06: the first boardwalk step did not sound like wood.
-    A boot heel on a raised plank: a hard, dry click; the plank's knock, many
-    inharmonic modes, the low ones dying in 30 ms and the high ones in 10; the
-    loose end of the board slapping its joist a moment later; a little grit
-    under the sole; and a short dull thump from the space underneath that is
-    felt more than heard -- not a pitched boom."""
-    d = 0.4
+def dry_creak(rnd, seconds, rate_from, rate_to, lo, hi):
+    """creak(), on a private random stream: a board flexing on its nails."""
+    n = n_of(seconds)
+    rates = np.geomspace(rate_from, rate_to, n)
+    out = np.zeros(n)
+    phase = 0.0
+    for i in range(n):
+        phase += rates[i] / RATE
+        if phase >= 1:
+            phase -= 1 + rnd.uniform(-0.3, 0.3) * 0.25
+            out[i] = rnd.uniform(0.4, 1.0)
+    body = bandpass(bandpass(out, lo, hi), lo * 0.9, hi * 1.1)
+    return body * np.sin(np.linspace(0, np.pi, n)) ** 0.7
+
+
+def wood_step(rnd, hollow):
+    """TYLER, 2026-11-06, twice. The first boards rang pure sines (a drum);
+    the second rang resonators (glass bottles). "Creaky dry wood that thuds."
+
+    So nothing here rings at a pitch. Dry wood damps itself almost at once,
+    and a footstep on it is three things, all noise, none tonal:
+      the thud    -- the weight landing: low noise, the main body of the sound
+      the tok     -- the heel on the board's face: a broad mid band of noise
+                     that is over in under ten milliseconds
+      the creak   -- the board flexing on its nails as the weight rolls
+                     forward: stick-slip, dry, short
+    The boardwalk is hollow underneath, so its thud is lower and a little
+    longer and it creaks on most steps; the plank floor is laid tight, so
+    its thud is short and muted and it creaks rarely and faintly."""
+    d = 0.5
     x = np.zeros(n_of(d))
-    wood = [(290, 1.0, 0.030), (470, 0.9, 0.024), (760, 0.8, 0.018), (1080, 0.6, 0.014),
-            (1530, 0.45, 0.011), (2150, 0.3, 0.009), (2900, 0.2, 0.007), (3800, 0.12, 0.005)]
+    thud_cut, thud_decay = (170, 0.045) if hollow else (220, 0.022)
     for at, g in ((0.0, 1.0), (rnd.uniform(0.05, 0.075), 0.5)):
-        strike = rnd.normal(0, 1, n_of(0.004)) * np.hanning(n_of(0.004))
-        hit = resonate(np.concatenate([strike, np.zeros(n_of(0.2))]), wood, rnd)
-        place(x, hit, at, 40 * g)
-        place(x, bandpass(rnd.normal(0, 1, n_of(0.012)), 2500, 8000) * np.hanning(n_of(0.012)), at, 0.25 * g)
-        slap = resonate(np.concatenate([strike * 0.6, np.zeros(n_of(0.12))]),
-                        [(520, 1.0, 0.015), (1240, 0.6, 0.008), (2600, 0.3, 0.004)], rnd)
-        place(x, slap, at + rnd.uniform(0.014, 0.026), 18 * g)
-    under = lowpass(rnd.normal(0, 1, n_of(0.08)), 180) * env(n_of(0.08), 0.003, 0.02)
-    place(x, under, 0.002, 0.35)
-    for _ in range(int(rnd.integers(6, 14))):
-        size = int(rnd.integers(30, 120))
-        place(x, rnd.normal(0, 1, size) * np.exp(-np.arange(size) / (size / 5)), rnd.uniform(0.0, 0.09), rnd.uniform(0.02, 0.07))
-    return finish(highpass(x, 120), peak=0.7)
+        thud = lowpass(rnd.normal(0, 1, n_of(0.25)), thud_cut, order=4) * env(n_of(0.25), 0.003, thud_decay)
+        place(x, thud, at, 1.0 * g)
+        tok = bandpass(rnd.normal(0, 1, n_of(0.05)), 350, 1800, order=1) * env(n_of(0.05), 0.0008, 0.007)
+        place(x, tok, at, 0.55 * g)
+    if hollow:
+        place(x, lowpass(rnd.normal(0, 1, n_of(0.2)), 110, order=4) * env(n_of(0.2), 0.01, 0.06), 0.005, 0.5)
+    creaks = rnd.random() < (0.75 if hollow else 0.3)
+    if creaks:
+        dur = rnd.uniform(0.12, 0.22)
+        c = dry_creak(rnd, dur, rnd.uniform(25, 40), rnd.uniform(60, 110), 250, 1100)
+        place(x, c, rnd.uniform(0.08, 0.14), (0.9 if hollow else 0.35) * rnd.uniform(0.8, 1.1))
+    return finish(highpass(lowpass(x, 4500), 50), peak=0.7)
+
+
+def step_boardwalk(rnd):
+    return wood_step(rnd, hollow=True)
 
 
 def step_plank(rnd):
-    """TYLER, 2026-11-06: the plank floor wanted "the same wood sound, just
-    maybe with more of a muted thud vs the boardwalk since the boardwalk is
-    hollow underneath." The boardwalk's wood, struck the same way, but on a
-    floor laid tight over joists: every mode dies faster (nothing under the
-    board to let it ring), the highs are softened, there is no loose end to
-    slap, and the weight lands as a solid, dull thud carried by the floor."""
-    d = 0.35
-    x = np.zeros(n_of(d))
-    wood = [(290, 1.0, 0.016), (470, 0.8, 0.013), (760, 0.6, 0.010), (1080, 0.4, 0.008),
-            (1530, 0.25, 0.006), (2150, 0.14, 0.005), (2900, 0.08, 0.004)]
-    for at, g in ((0.0, 1.0), (rnd.uniform(0.05, 0.075), 0.45)):
-        strike = rnd.normal(0, 1, n_of(0.004)) * np.hanning(n_of(0.004))
-        hit = resonate(np.concatenate([strike, np.zeros(n_of(0.15))]), wood, rnd)
-        place(x, hit, at, 38 * g)
-        place(x, bandpass(rnd.normal(0, 1, n_of(0.01)), 2000, 6000) * np.hanning(n_of(0.01)), at, 0.12 * g)
-        thud = lowpass(rnd.normal(0, 1, n_of(0.12)), 160) * env(n_of(0.12), 0.003, 0.03)
-        place(x, thud, at, 1.1 * g)
-    return finish(lowpass(highpass(x, 60), 5000), peak=0.7)
+    return wood_step(rnd, hollow=False)
 
 
 def step_dirt():
