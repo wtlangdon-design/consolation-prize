@@ -4867,10 +4867,10 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 
 ## Q173 · Room 31, the funeral: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 G, delegated); BUILT, room-31 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
 
-**Built.** Thirteen subjects and eighty-one lines; the service by day, Sowerby's eulogy as his bark; beat 3 on the second LOOK at the grave or at the way back; THE COFFIN · USE into Room 32 (E7); Room 32 hands back to the hill at night, and the line there ends the funeral (E8). Reached by the plot on Boot Hill once the executor is named (`?fixture=r31-a`; after beat 3 `r31-b`; the night `r31-c`). Played in `tests/room-31.test.ts`. Proofs under `renders/proofs/funeral/`.
+**Built.** Thirteen subjects and eighty-one lines; the service at night (errata 99 K), Sowerby's eulogy as his bark; beat 3 on the second LOOK at the grave or at the way back; THE COFFIN · USE into Room 32 (E7); Room 32 hands back to the hill at night, and the line there ends the funeral (E8). Reached by the plot on Boot Hill once the executor is named (`?fixture=r31-a`; after beat 3 `r31-b`; the night `r31-c`). Played in `tests/room-31.test.ts`. Proofs under `renders/proofs/funeral/`.
 
 **For Tyler:**
-- **Day after night.** The funeral is written by day (doc 54's THE SKY), and Boot Hill is drawn at night, so walking up the plot goes from night to a blue sky. Say if the funeral should be another time, or Boot Hill should have a day.
+- **Day after night. RULED (Tyler, 2026-11-06, errata 99 K): night.** The service is relit under operation 4's moon and five daylight lines were rewritten (errata 99 K lists each); every exterior is now checked to be night.
 - **Seven mourners, not nine.** Doc 54 writes "Nine hats, held still"; the master drew seven people with their hats. The room's four operations are spent.
 - **Not staged:** beat 1's procession (the town walking in behind the coffin) -- the service is already gathered when Thad arrives; and the watchman "at Thad's shoulder" -- he speaks from the back, where he stands, and walks off as he says it.
 

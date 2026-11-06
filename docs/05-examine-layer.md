@@ -1173,7 +1173,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE HEADBOARD**
 > **LOOK:** "A board, painted while the paint lasted: my name, one date, and HE TUNED. As epitaphs in Boot Hill run, that is generous and accurate, which puts it in rare company."
-> **LISTEN:** "Wet paint, drying. My legacy, curing in the sun."
+> **LISTEN:** "Wet paint, drying. My legacy, curing in the night air."
 
 **GRIEVANCE, IN BLACK**
 > **LOOK:** "Grievance in the hearse harness, wearing black well, as advertised. She has attended more funerals than the Reverend and behaves better at them."

@@ -811,8 +811,8 @@
 **THE HATS** — LOOK 2 "Hats of every class, held against every chest. A hat is the only formal clothing most of these men own." · 3 "One man is holding two hats. I would like to know whose the other one is, and I am not going to ask at a funeral." | LISTEN 1 "Nothing. Nobody fans himself with a hat at a funeral." · 2 "A brim being turned in nervous fingers, round and round." · 3 "Nothing. Nine hats, held still."
 
 ### THE SKY
-**LOOK** 1 "Clear, very high and very blue. It is a beautiful day to be buried, if one has to be." · 2 "One cloud, keeping to itself over the hills." · 3 "I am going to want to remember this sky in a few minutes. I am trying to look at it properly."
-**LISTEN** 1 "A hawk, very high, one long cry." · 2 "Nothing up there. The sky is not attending." · 3 "Wind, high and thin. The last open-air sound for a while."
+**LOOK** 1 "Clear, very high and full of stars. It is a beautiful night to be buried, if one has to be." · 2 "One cloud, keeping to itself across the moon." · 3 "I am going to want to remember this sky in a few minutes. I am trying to look at it properly."
+**LISTEN** 1 "An owl, somewhere up the hill, asking one long question." · 2 "Nothing up there. The sky is not attending." · 3 "Wind, high and thin. The last open-air sound for a while."
 
 ### BOOT HILL, BEYOND
 **LOOK** 1 "The rest of Boot Hill, rising behind in rows. My new neighbors, keeping a respectful distance." · 2 "Ezra Pike is up there, third row, second from the end. I came a very long way to join him." · 3 "From here the markers look like a crowd that came early and sat down."

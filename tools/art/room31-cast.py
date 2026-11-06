@@ -180,17 +180,19 @@ a, bb = rgba(masks['mule'])
 a = pad(a, PAD); h = a.shape[0]
 w = a.shape[1]
 head = (0, PAD + 125)
-figures['grievance'] = (bb, [a, nod(a, h * 30 // 100, 3, head), nod(a, h * 62 // 100, 14, head),
-                             lean(a, h * 62 // 100, -8, head)],
+figures['grievance'] = (bb, [a, nod(a, h * 30 // 100, 3, head), nod(a, h * 62 // 100, 28, head),
+                             lean(a, h * 62 // 100, -16, head)],
                         '0 rest, in the hearse harness · 1 an ear goes back · 2 her head goes down · '
                         '3 her head turns away from the hill')
 a, bb = rgba(masks['mourners'])
 a = pad(a, PAD); h, w = a.shape[:2]
 # The group's columns, read off the cut: who shifts in which action.
 thirds = [(0, w * 30 // 100), (w * 30 // 100, w * 62 // 100), (w * 62 // 100, w)]
-f2 = lean(lean(a, h * 85 // 100, 6, thirds[0]), h * 85 // 100, -6, thirds[2])
-f3 = nod(lean(a, h * 85 // 100, -6, thirds[1]), h * 25 // 100, 6, thirds[0])
-f4 = lean(nod(a, h * 25 // 100, 6, thirds[2]), h * 85 // 100, 6, thirds[1])
+# Sized for the night (errata 99 K): relit, a shift of 6 changed under a tenth of
+# the group by the movement test's measure, so each shift is a little larger.
+f2 = lean(lean(a, h * 85 // 100, 9, thirds[0]), h * 85 // 100, -9, thirds[2])
+f3 = nod(lean(a, h * 85 // 100, -9, thirds[1]), h * 25 // 100, 8, thirds[0])
+f4 = lean(nod(a, h * 25 // 100, 8, thirds[2]), h * 85 // 100, 9, thirds[1])
 figures['mourners'] = (bb, [a, breath(a, h * 50 // 100), f2, f3, f4],
                        '0 rest, hats held · 1 breath · 2-4 a few of them shifting their weight, a different few each time')
 

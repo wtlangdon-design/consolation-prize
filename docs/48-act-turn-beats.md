@@ -39,7 +39,7 @@ bookends.*
 |---|---|---|
 | 1 | Procession in: Grievance in black, the coffin, the town. Thad at the back, hat pulled low | none |
 | 2 | **Play.** Sowerby's eulogy loops as ambient bark ("…a man of music, taken flat…"); every hotspot live | full |
-| 3 | On LOOK at the grave the second time, or on exit toward Boot Hill: Hob, at Thad's shoulder, not looking at him: "Good turnout." Beat. "Better than mine." — and he walks. First seed, planted in daylight, deniable | none |
+| 3 | On LOOK at the grave the second time, or on exit toward Boot Hill: Hob, at Thad's shoulder, not looking at him: "Good turnout." Beat. "Better than mine." — and he walks. First seed, planted in public, deniable | none |
 | 4 | *(Errata 75 F: replaced.)* THE COFFIN · USE — Thad lies down on the undertaker's promise of a loose lid; Room 32 begins with the nail. `T_FUNERAL_DONE` is set when HOB_C1 ends, doc 57 E7–E8 | none |
 
 Dependencies: Sowerby bark line; Hob mover in room 31; E-series flags.

@@ -21724,6 +21724,44 @@
    "acceptedBy": null,
    "by": "claude, Room 36 builder (doc 55 section 3, errata 72 E)",
    "at": "2026-11-05T23:39:54.613Z"
+  },
+  {
+   "assetId": "room-31",
+   "attempt": 4,
+   "from": "art/staging/room-31/plate-night/candidate-1920x864.png",
+   "derivedFrom": "art/staging/room-31/plate-night/source.png",
+   "provenance": "art/staging/room-31/plate-night/frame.json",
+   "to": "art/backgrounds/room-31-funeral-night.png",
+   "hash": "fcfbf905d81d92fe637eba65db7e51db8b8328f293c9856be2b44979955b6431",
+   "sourceHash": "211a33eed5698ee5b73ebb39041108e013673a72f4d39eb9c2eb6e1146c3538b",
+   "replacedHash": "fcfbf905d81d92fe637eba65db7e51db8b8328f293c9856be2b44979955b6431",
+   "gates": {
+    "passed": true,
+    "kind": "plate"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 31 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-06T00:23:50.273Z"
+  },
+  {
+   "assetId": "room-31",
+   "attempt": 2,
+   "from": "art/staging/room-31/night/plate-1920x864.png",
+   "derivedFrom": "art/staging/room-31/plate-01/source.png",
+   "provenance": "art/staging/room-31/night/night.json",
+   "to": "art/backgrounds/room-31-funeral.png",
+   "hash": "03dd0facf35b8234f8d3b1a0b7e991c62732a2ed84154fcff2dabdd193d45214",
+   "sourceHash": "2127a5ae67a8f202700bfb1d601cbda4aec417df18ab78eea7ac6a61a33f1717",
+   "replacedHash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c",
+   "gates": {
+    "passed": true,
+    "kind": "plate"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 31 builder (doc 55 section 3, errata 72 E)",
+   "at": "2026-11-06T00:23:56.225Z"
   }
  ],
  "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."

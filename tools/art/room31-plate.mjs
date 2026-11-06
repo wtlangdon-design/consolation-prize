@@ -4,8 +4,12 @@
 // THE FRAME. Operation 2 took out every person, the mule and her hearse, and the coffin
 // on its trestles: each is cut from the master by difference and drawn over this plate
 // (tools/art/room31-cast.py). The master painted the whole canvas and stood Thad below
-// the layout's band, so the crop starts at y 200, which keeps his feet. By day (doc 54's
-// THE SKY, errata 99 G).
+// the layout's band, so the crop starts at y 200, which keeps his feet.
+//
+// AT NIGHT (errata 99 K, Tyler 2026-11-06: no night to day and back). The funeral is
+// shipped under operation 4's moon: tools/art/room31-night.py relights this plate and
+// every cast sheet by the ratio of the two pictures, and puts operation 4's sky above
+// the hill. The day plate is the funeral's geometry; the night is its light.
 import { writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { deriveFixedRoomPlate } from './derive.mjs';
@@ -42,11 +46,15 @@ if (process.argv.includes('--promote')) {
     gates: { ...nightGates, kind: 'plate' }, by: 'claude, Room 31 builder (doc 55 section 3, errata 72 E)' });
   console.log('promoted (pending acceptance)', nightDone.to, nightDone.hash.slice(0, 12));
 }
+// The cast is cut from the day picture, then the plate and the cast take the night.
+execFileSync('python3', ['tools/art/room31-cast.py'], { stdio: 'inherit' });
+execFileSync('python3', ['tools/art/room31-night.py'], { stdio: 'inherit' });
+const LIT = 'art/staging/room-31/night';
 if (process.argv.includes('--promote')) {
-  const gates = runGates(`${S}/candidate-lifted-1920x864.png`, { kind: 'plate', expect: '1920x864' });
+  const gates = runGates(`${LIT}/plate-1920x864.png`, { kind: 'plate', expect: '1920x864' });
   if (!gates.passed) throw new Error('the plate fails its gates');
-  const done = promoteProvisional({ assetId: 'room-31', attempt: 2, derived: `${S}/candidate-lifted-1920x864.png`,
-    provenance: `${S}/frame.json`, shippingPath: 'art/backgrounds/room-31-funeral.png',
+  const done = promoteProvisional({ assetId: 'room-31', attempt: 2, derived: `${LIT}/plate-1920x864.png`,
+    provenance: `${LIT}/night.json`, shippingPath: 'art/backgrounds/room-31-funeral.png',
     gates: { ...gates, kind: 'plate' }, by: 'claude, Room 31 builder (doc 55 section 3, errata 72 E)' });
   console.log('promoted (pending acceptance)', done.to, done.hash.slice(0, 12));
 }

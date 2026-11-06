@@ -114,7 +114,7 @@
         "The paint has run on the D's. My name is weeping slightly, which is more than I expected of it."
       ],
       "LISTEN_TO": [
-        "Wet paint, drying. My legacy, curing in the sun.",
+        "Wet paint, drying. My legacy, curing in the night air.",
         "Nothing.",
         "Nothing now. The paint has set. It is official."
       ]
@@ -142,7 +142,7 @@
       ],
       "LOOK_AT": [
         "At the back, not singing: Hob, hat in hand, watching a funeral he knows to be empty with an expression I cannot price. It takes one to know one, I suppose.",
-        "The night watchman, standing at the back, in daylight. I have never seen him in daylight.",
+        "The night watchman, standing at the back, off his rounds. I have never once seen him stand still.",
         "He has not looked at the coffin once. He has looked at me twice."
       ],
       "LISTEN_TO": [
@@ -183,12 +183,12 @@
     {
       "name": "THE SKY",
       "LOOK_AT": [
-        "Clear, very high and very blue. It is a beautiful day to be buried, if one has to be.",
-        "One cloud, keeping to itself over the hills.",
+        "Clear, very high and full of stars. It is a beautiful night to be buried, if one has to be.",
+        "One cloud, keeping to itself across the moon.",
         "I am going to want to remember this sky in a few minutes. I am trying to look at it properly."
       ],
       "LISTEN_TO": [
-        "A hawk, very high, one long cry.",
+        "An owl, somewhere up the hill, asking one long question.",
         "Nothing up there. The sky is not attending.",
         "Wind, high and thin. The last open-air sound for a while."
       ]

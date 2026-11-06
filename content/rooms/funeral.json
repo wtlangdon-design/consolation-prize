@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "funeral",
   "name": "THE FUNERAL",
-  "materialIdentity": "Thad's own plot at the end of Boot Hill's third row, by day, very high and very blue: the town in black at the grave, the pine coffin on its trestles, the hearse and its mule; at night after the burial, the hill empty and the grave dug open (errata 99 G)",
+  "materialIdentity": "Thad's own plot at the end of Boot Hill's third row, at night under a clear sky full of stars and the moon: the town in black at the grave, the pine coffin on its trestles, the hearse and its mule; after the burial, the hill empty and the grave dug open (errata 99 G, K)",
   "note": "Room 31, doc 20: the funeral, reached from Boot Hill once the executor is named (E6). Doc 48 S2 stages it -- the player wanders his own funeral; beat 3 is Hob's 'Good turnout.' on the second LOOK at the grave or at the way back; doc 57 E7's THE COFFIN · USE lies him down and Room 32 begins. When HOB_C1 ends Room 32 hands him back here at night beside the open grave (E8), and T_FUNERAL_DONE is written by his line (errata 99 G).",
   "background": "art/backgrounds/room-31-funeral.png",
   "plates": {
@@ -328,7 +328,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Wet paint, drying. My legacy, curing in the sun.",
+            "say": "Wet paint, drying. My legacy, curing in the night air.",
             "repeat": [
               "Nothing.",
               "Nothing now. The paint has set. It is official."
@@ -478,7 +478,7 @@
           {
             "say": "At the back, not singing: Hob, hat in hand, watching a funeral he knows to be empty with an expression I cannot price. It takes one to know one, I suppose.",
             "repeat": [
-              "The night watchman, standing at the back, in daylight. I have never seen him in daylight.",
+              "The night watchman, standing at the back, off his rounds. I have never once seen him stand still.",
               "He has not looked at the coffin once. He has looked at me twice."
             ]
           }
@@ -608,16 +608,19 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Clear, very high and very blue. It is a beautiful day to be buried, if one has to be.",
+            "say": "Clear, very high and full of stars.",
             "repeat": [
-              "One cloud, keeping to itself over the hills.",
+              "One cloud, keeping to itself across the moon.",
               "I am going to want to remember this sky in a few minutes. I am trying to look at it properly."
+            ],
+            "then": [
+              "It is a beautiful night to be buried, if one has to be."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "A hawk, very high, one long cry.",
+            "say": "An owl, somewhere up the hill, asking one long question.",
             "repeat": [
               "Nothing up there. The sky is not attending.",
               "Wind, high and thin. The last open-air sound for a while."
