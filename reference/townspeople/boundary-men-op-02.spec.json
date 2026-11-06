@@ -1,0 +1,14 @@
+{
+ "assetId": "townspeople-110",
+ "subject": "boundary-men",
+ "role": "other",
+ "promptFile": "reference/townspeople/boundary-men-prompt-02.txt",
+ "out": "art/staging/townspeople-110/boundary-men/sheet-02.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/townspeople/boundary-men-thad-grid.png",
+  "art/staging/townspeople-110/boundary-men/sheet-01.png"
+ ],
+ "derivedFrom": "art/staging/townspeople-110/boundary-men/sheet-01.png",
+ "authorizedBy": "Tyler, 2026-11-06: '+1 op, redraw all 5' (townspeople-110 cap 11), after 'None of the new characters seem to match the pixelation level of the cast we worked really hard on.' Redrawn at Thad's pixel size the way Fanshawe was (errata 84 J)."
+}

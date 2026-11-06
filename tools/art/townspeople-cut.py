@@ -1,5 +1,6 @@
 """Cut errata 110's townspeople (reference/townspeople/brief.md) into their
-shipping sheets. No image operation: the sheets are townspeople-110's, in
+shipping sheets, from the redraws at Thad's pixel size (errata 111: the first
+sheets came back on a finer grid than Thad and the cast). No image operation: the sheets are townspeople-110's, in
 art/staging/townspeople-110/<sheet>/.
 
 Each figure is cut by tools/art/cut-ambient-sheet.py at the height the brief's
@@ -36,16 +37,16 @@ BREATH = os.path.join(ROOT, 'tools/rig/ambient-breath.py')
 # sheet, attempt, cut height, extra cutter args, [(out file, source pose
 # indices in output order, where 'breath' derives from the first)]
 FIGURES = [
-    ('message-boy', 2, 109, ['--min-island', '120'],
+    ('message-boy', 3, 109, ['--min-island', '120'],
      [('message-boy', [0, 'breath', 1, 3, 4])]),             # rest, breath, LOOK, FLIP, TALK
-    ('man-leaving-tomorrow', 1, 152, ['--register', 'right'],
+    ('man-leaving-tomorrow', 2, 152, ['--register', 'right'],
      [('man-leaving-tomorrow', [0, 'breath', 1, 2, 3, 4])]),  # rest, breath, REACH, LIFT, SET DOWN, TALK
-    ('boundary-men', 1, 170, [],
+    ('boundary-men', 2, 170, [],
      [('boundary-a', [0, 'breath', 1, 2]),                    # A: rest, breath, POINT, TALK
       ('boundary-b', [3, 'breath', 4, 5])]),                  # B: the same
-    ('dogs-owner', 1, 317, [],
+    ('dogs-owner', 2, 317, [],
      [('dogs-owner', [0, 'breath', 1, 2, 3, 4, 'breath4'])]), # rest, breath, LOOK, CALL, TALK, GLAD, GLAD breath
-    ('fiddler', 1, 288, [],
+    ('fiddler', 2, 288, [],
      [('fiddler', [0, 2, 1, 3, 4])]),                         # PLAY 1, PLAY 3, PLAY 2, TUNE, TALK
 ]
 

@@ -20503,6 +20503,291 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-06T21:13:03.478Z"
+  },
+  {
+   "attempt": 7,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "boundary-men",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/boundary-men/sheet-01.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/boundary-men-prompt-02.txt",
+   "promptHash": "6d943c924a5284d09d8eb2877304892eb1b3c46f7f5aaba62e9da280a2bf6d0d",
+   "references": [
+    {
+     "path": "reference/townspeople/boundary-men-thad-grid.png",
+     "hash": "a1d7548aab16ee0686ff940b4dbfbb5924e394a7364ccb9b7a0bac7306da729b",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/boundary-men/sheet-01.png",
+     "hash": "21c8f0cc1420e078fa37a878972a4420e11c8ff4c3ad4d6387c3305c2eddea96",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "a1d7548aab16ee0686ff940b4dbfbb5924e394a7364ccb9b7a0bac7306da729b",
+   "sourcePath": "reference/townspeople/boundary-men-thad-grid.png",
+   "out": "art/staging/townspeople-110/boundary-men/sheet-02.png",
+   "outputHash": "75f147bf102874995b0fac5cc7461948531771efb2deba5206233aead9f2f30d",
+   "bytes": 1381462,
+   "usage": {
+    "input_tokens": 3715,
+    "input_tokens_details": {
+     "image_tokens": 3072,
+     "text_tokens": 643
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 5266
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:23:48.955Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: '+1 op, redraw all 5' (townspeople-110 cap 11), after 'None of the new characters seem to match the pixelation level of the cast we worked really hard on.' Redrawn at Thad's pixel size the way Fanshawe was (errata 84 J).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:23:48.959Z"
+  },
+  {
+   "attempt": 8,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "message-boy",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/message-boy/sheet-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/message-boy-prompt-03.txt",
+   "promptHash": "c1746b0736120db58cbb4d66f3ad70c22e870eeda8150baa758afd4a11f4efee",
+   "references": [
+    {
+     "path": "reference/townspeople/message-boy-thad-grid.png",
+     "hash": "a7809c6d10188b9987ff996c677e29b87b50982eaad3f0bf2a08a58f24b5ef0d",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/message-boy/sheet-02.png",
+     "hash": "4ccfbf05d8ecbc34829f59f2dac8ea6e1394fa0c1cee49eb2871cf985056e9b9",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "a7809c6d10188b9987ff996c677e29b87b50982eaad3f0bf2a08a58f24b5ef0d",
+   "sourcePath": "reference/townspeople/message-boy-thad-grid.png",
+   "out": "art/staging/townspeople-110/message-boy/sheet-03.png",
+   "outputHash": "7860879960e85f7db398826d0fd57d7e7e8c531e0cdfb866461eaf9b2ff8a4d2",
+   "bytes": 1329516,
+   "usage": {
+    "input_tokens": 3718,
+    "input_tokens_details": {
+     "image_tokens": 3072,
+     "text_tokens": 646
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 5269
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:24:21.928Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: '+1 op, redraw all 5' (townspeople-110 cap 11), after 'None of the new characters seem to match the pixelation level of the cast we worked really hard on.' Redrawn at Thad's pixel size the way Fanshawe was (errata 84 J).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:24:21.933Z"
+  },
+  {
+   "attempt": 9,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "man-leaving-tomorrow",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-01.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/man-leaving-tomorrow-prompt-02.txt",
+   "promptHash": "57a0f28ab2fd6416ff6e910c7feb063b318d7f2e002dcbd8c81aea40735b0c34",
+   "references": [
+    {
+     "path": "reference/townspeople/man-leaving-tomorrow-thad-grid.png",
+     "hash": "afb72f04c5eb5b505a3686faf33ed41518eb72f5635a00d6e947b4f20c22c374",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-01.png",
+     "hash": "adce400f8de216f9e04924d8cad41264cb3fdfbfa46aba30523054315a1e99f8",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "afb72f04c5eb5b505a3686faf33ed41518eb72f5635a00d6e947b4f20c22c374",
+   "sourcePath": "reference/townspeople/man-leaving-tomorrow-thad-grid.png",
+   "out": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-02.png",
+   "outputHash": "9196b50ba16f7908e70f34baa9992e106c988a413b4041b3dd790b1d9c783c36",
+   "bytes": 1336514,
+   "usage": {
+    "input_tokens": 3697,
+    "input_tokens_details": {
+     "image_tokens": 3072,
+     "text_tokens": 625
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 5248
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:24:45.538Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: '+1 op, redraw all 5' (townspeople-110 cap 11), after 'None of the new characters seem to match the pixelation level of the cast we worked really hard on.' Redrawn at Thad's pixel size the way Fanshawe was (errata 84 J).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:24:45.544Z"
+  },
+  {
+   "attempt": 10,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "dogs-owner",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/dogs-owner/sheet-01.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/dogs-owner-prompt-02.txt",
+   "promptHash": "978ae9d7fec3eadd5dd690f0e6cf986e2a010cdcfa3ad59fa7701d6c03528100",
+   "references": [
+    {
+     "path": "reference/townspeople/dogs-owner-thad-grid.png",
+     "hash": "2d07d3c6915600f71d3a7d79d69b7d9fcd1d703c0b0e31025d1efc407860c36d",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/dogs-owner/sheet-01.png",
+     "hash": "0d1f60cd3bdb60a4a26c7b99fe81b12c73f28574e12a2fb1ab41834dbd72147c",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "2d07d3c6915600f71d3a7d79d69b7d9fcd1d703c0b0e31025d1efc407860c36d",
+   "sourcePath": "reference/townspeople/dogs-owner-thad-grid.png",
+   "out": "art/staging/townspeople-110/dogs-owner/sheet-02.png",
+   "outputHash": "7367353aabb1595e10e6b2c0a888e0518f9557373da952ff55ae51c59a453ae7",
+   "bytes": 1333665,
+   "usage": {
+    "input_tokens": 3678,
+    "input_tokens_details": {
+     "image_tokens": 3072,
+     "text_tokens": 606
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 5229
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:25:11.145Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: '+1 op, redraw all 5' (townspeople-110 cap 11), after 'None of the new characters seem to match the pixelation level of the cast we worked really hard on.' Redrawn at Thad's pixel size the way Fanshawe was (errata 84 J).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:25:11.149Z"
+  },
+  {
+   "attempt": 11,
+   "role": "other",
+   "assetId": "townspeople-110",
+   "subject": "fiddler",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/fiddler/sheet-01.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/townspeople/fiddler-prompt-02.txt",
+   "promptHash": "87f69090308c70fc7dc97d8a60f76448a76a3cf074fc9feb8a312ffb0fa96e00",
+   "references": [
+    {
+     "path": "reference/townspeople/fiddler-thad-grid.png",
+     "hash": "253d1b9e83caa2ad08d75b21ad2ca61738f836da42c3fa75f1cd0a6495286327",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/townspeople-110/fiddler/sheet-01.png",
+     "hash": "b8676f7879ab7326377fa961442436e0bec9d1abf7d042f177d4caeb90491a9d",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "253d1b9e83caa2ad08d75b21ad2ca61738f836da42c3fa75f1cd0a6495286327",
+   "sourcePath": "reference/townspeople/fiddler-thad-grid.png",
+   "out": "art/staging/townspeople-110/fiddler/sheet-02.png",
+   "outputHash": "09a4183e518076ababcd2b76fc93ef88492c8310c04fbbd24ab874b232660599",
+   "bytes": 1408251,
+   "usage": {
+    "input_tokens": 3699,
+    "input_tokens_details": {
+     "image_tokens": 3072,
+     "text_tokens": 627
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 5250
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T21:25:34.105Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06: '+1 op, redraw all 5' (townspeople-110 cap 11), after 'None of the new characters seem to match the pixelation level of the cast we worked really hard on.' Redrawn at Thad's pixel size the way Fanshawe was (errata 84 J).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T21:25:34.110Z"
   }
  ],
  "promotions": [
