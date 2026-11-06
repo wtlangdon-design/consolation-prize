@@ -19,58 +19,58 @@
  "barks": {},
  "barksNote": "Doc 07 writes no barks for Sheng.",
  "sprite": {
-  "sheet": "art/actors/room-28-sheng.png",
+  "sheet": "art/actors/room-28-sheng-master.png",
   "frames": [
    [
     2,
     2,
-    292,
-    307
+    180,
+    310
    ],
    [
-    296,
+    184,
     2,
-    292,
-    307
+    180,
+    310
    ],
    [
-    590,
+    366,
     2,
-    292,
-    307
+    180,
+    310
    ],
    [
-    884,
+    548,
     2,
-    292,
-    307
+    180,
+    310
    ],
    [
-    1178,
+    730,
     2,
-    292,
-    307
+    180,
+    310
    ],
    [
-    1472,
+    912,
     2,
-    292,
-    307
+    180,
+    310
    ],
    [
-    1766,
+    1094,
     2,
-    292,
-    307
+    180,
+    310
    ],
    [
-    2060,
+    1276,
     2,
-    292,
-    307
+    180,
+    310
    ]
   ],
-  "figureHeight": 307,
+  "figureHeight": 304,
   "stature": 0.96,
   "statureNote": "Slight (doc 04 gives no build; the master drew him a little under Thad); inside the 5% a standing man is held to (tests/scale.test.ts).",
   "rate": 0.25,
@@ -103,7 +103,9 @@
   ],
   "breakEvery": 7,
   "talkFrame": 7,
-  "frameNote": "0 rest, ironing · 1 breath · 2 a look up · 3 the stroke · 4 the return · 5 the iron to his face · 6 folding · 7 a dry point, his talk frame. Breathing on 0 and 1; every `breakEvery` seconds one break -- strokes, a look, the heat, the fold (errata 77).",
-  "provenance": "art/staging/room-28/sheng/sheng.json"
+  "frameNote": "0 ironing · 1 breath (derived) · 2 a look up · 3 the stroke · 4 the return · 5 the iron to his cheek, testing its heat · 6 folding, the iron on its heel · 7 a dry point, his talk frame. Breathing on 0 and 1; every `breakEvery` seconds one break -- strokes, a look, the heat, the fold (errata 77).",
+  "provenance": "reference/cast-unify-21.spec.json",
+  "figureHeightNote": "Crown to sole of the rest frame (tools/art/figure-height.py); stature 0.96 as before.",
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master by cast-unify operation 23 (reference/cast-unify-21.txt), at his ironing board, the board, shirt and iron in every pose so nothing vanishes; cut with its own pixels and a clean edge; its own file."
  }
 }

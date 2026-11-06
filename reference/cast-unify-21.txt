@@ -1,0 +1,12 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game, a comedy in an 1850s frontier gold town: the hero (THE STYLE AND THE SCALE) and the man who runs the laundry (and, in practice, the town's bank): in his forties, slim and composed, black hair, a plain dark jacket with cloth buttons. His design is FINAL. Draw him EXACTLY as in Image 1 -- the same face, hair, build, clothes and colours, the same size of square pixel, the same amount of detail, the same soft shading and dark outline. Image 2 shows other characters of this cast drawn for this game last time: draw at that size and in that hand. Image 3 shows his ironing board, shirt and iron as an earlier artist drew them, for WHAT they are only, not for style.
+
+THE SHEET: flat pure magenta (#FF00FF) background. ONE row: him, FULL FIGURE, standing behind his ironing board -- a narrow wooden ironing board on legs, with a white shirt laid on it -- drawn in every pose, the board and shirt in the same place each time, his feet visible under it. A heavy flat iron is in his right hand, or standing on the board, in every pose, so it never vanishes. SEVEN times, side by side, every figure the same size, separated by clear magenta space:
+1. ironing, the iron on the shirt, looking down at it;
+2. looking up from the board, the iron resting on the shirt;
+3. the stroke: the iron pushed forward along the shirt;
+4. the return: the iron drawn back toward him;
+5. the iron raised near his cheek, testing its heat;
+6. folding the shirt with both hands, the iron standing on its heel at the end of the board;
+7. making a dry point: one finger raised, the iron resting on the board.
+
+RULES: only the board, the shirt and the iron. Crisp pixel edges against the magenta, no glow, no blur, no shadows, no ground, no text, no numbers, no border.

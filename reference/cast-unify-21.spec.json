@@ -1,0 +1,16 @@
+{
+ "assetId": "cast-unify",
+ "subject": "sheng",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-28-laundry",
+ "promptFile": "reference/cast-unify-21.txt",
+ "out": "art/staging/cast-unify/batch-21/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-21/board.png",
+  "art/staging/cast-unify/batch-21/last-sheet.png",
+  "art/staging/cast-unify/batch-21/his-board.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}
