@@ -4,7 +4,7 @@
  "room": "church",
  "roomWidth": 1920,
  "branch": "claude/tender-sagan-buz50u",
- "commit": "5e49e9562128e020841e97096ab99469ed7c940e",
+ "commit": "f327a80b6d1da4c3841439383058103e0e9298d5",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -66,7 +66,7 @@
    ],
    "reportedHeight": 391,
    "expected": 391,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-03.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
    "bounds": [
     627,
     350,
@@ -103,7 +103,7 @@
    ],
    "reportedHeight": 469,
    "expected": 469,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-06.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
    "bounds": [
     587,
     388,
@@ -140,7 +140,7 @@
     "height": 188,
     "bottom": 305,
     "right": 1561,
-    "changed": 11337
+    "changed": 11334
    },
    "props": []
   }
@@ -149,7 +149,7 @@
   {
    "panel": "B",
    "room": "church",
-   "clock": 109.2984,
+   "clock": 109.501,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -239,15 +239,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-06T18:13:53.499Z",
+   "capturedAt": "2026-11-06T18:47:22.364Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "9f6e57adb0187193bb715cd0538901e69319cbbf3ce0d58a5aeef62eb1f01222"
+   "hash": "05d90cf551d7693e728ffacdb80f458d0953940fcaf1e818c760d7de9bee1c94"
   },
   {
    "panel": "A",
    "room": "church",
-   "clock": 110.115,
+   "clock": 110.4009,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -290,7 +290,7 @@
       790
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 424,
      "moving": false,
      "drawn": "sprite",
@@ -334,15 +334,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-06T18:13:54.378Z",
+   "capturedAt": "2026-11-06T18:47:23.258Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "d4c7f594f8585b7e87f128bc029558f38994798bb3061ad4de5cd9df3cd1b409"
+   "hash": "3fd9b1d2a83dc0c622ef34dd2daf236834ab15e996364be78dec609665cfc407"
   },
   {
    "panel": "D",
    "room": "church",
-   "clock": 117.9147,
+   "clock": 118.40060000000001,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -386,11 +386,11 @@
       857
      ],
      "facing": "right",
-     "clip": "idle",
+     "clip": "idle-break",
      "height": 469,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-00.png",
+     "from": "art/actors/thad-idlebreak-right/idle-break-05.png",
      "bounds": [
       587,
       388,
@@ -443,10 +443,10 @@
     "cast(true)",
     "flag T_FUNERAL_DAY=true"
    ],
-   "capturedAt": "2026-11-06T18:14:02.260Z",
+   "capturedAt": "2026-11-06T18:47:31.261Z",
    "intent": "principal changed state: T_FUNERAL_DAY (FRA_A1 option 6, Room 9; its route runs through rooms not built, so the flag control sets it). Visible consequence: the pulpit empty.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "37e4635055997f875f737fa11f745f2e52f950ea4163cbedefb3054ece749ace",
+   "hash": "2d546905b70b406bb47f2fc45b62a419a74b3e46b3c865393d256af4f7543b0d",
    "changedBy": "flags"
   }
  ],
@@ -477,11 +477,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-06T18:14:02.260Z",
+ "at": "2026-11-06T18:47:31.262Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 344938,
+  "bytes": 344274,
   "panels": 5,
   "scale": 0.5
  }
