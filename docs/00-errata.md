@@ -2989,3 +2989,67 @@ The figures greet with their bark, like the card sharp, because doc 07 writes no
 - the pie woman's prompt "The pie woman does not look up."
 
 Tyler has played them. Whether they go into doc 07 or come out is his.
+
+# 111 · THE TOWNSPEOPLE DRAWN AT THAD'S PIXEL SIZE, CUT AND CAST — TYLER, 2026-11-06
+
+Errata 110's five townspeople have their pictures, under Tyler's "Go: townspeople, up to 10 images" (`townspeople-110`, `reference/townspeople/brief.md`). He then added one more: "+1 op, redraw all 5". **All 11 operations are spent.** None was refused, and no line was written.
+
+**The first sheets missed, and Tyler caught it:** "None of the new characters seem to match the pixelation level of the cast we worked really hard on."
+- Every first sheet came back on a finer grid than Thad's, the miss errata 84 J corrected four times.
+- The numbers did not catch it. Texture against Thad was under the 1.35× flag for four of the five, and a side-by-side at Thad's own resolution hides a fine grid.
+- The boy, the one the numbers flagged (1.54×), had a correction asking for "Thad's grid" in general words, and it came back almost the same (1.58×).
+
+**What fixed it is what fixed Fanshawe** (`reference/room-11/prompts/fanshawe-02.txt`), applied to all five sheets:
+- Image 1 is Thad beside the figure as first drawn, at the same scale (`tools/art/townspeople-redraw-refs.py`).
+- Image 2 is the figure's own sheet.
+- The prompt asks for Thad's pixel size outright: about 80 big pixels from head to boots (55 for the boy), every pixel a large square block, a face of a few blocks, no fine texture, each pose about two-thirds of the picture's height.
+
+All five came back on Thad's grid at the first try.
+
+**The operations (`art/staging/ledger.json`):**
+
+| # | Sheet | Result |
+|---|---|---|
+| 1–5 | the first sheets: the boy, the man leaving tomorrow, the boundary men (one sheet), the dog's owner, the fiddler | too fine |
+| 6 | the boy's correction, in general words | still too fine |
+| 7–11 | the five redraws at Thad's pixel size: the boundary men first, to prove the asking, then the boy, the man, the dog's owner and the fiddler | **cut** |
+
+**The comparison that shows it** is `renders/townspeople-vs-cast@3x.png` (`tools/art/townspeople-lineup.py`). It draws every figure at the size the game draws it in his own room — Thad, Deke, Sump, Fanshawe, the undertaker, the clerk, then the five — and enlarges the whole line 3× with hard edges.
+
+**What the generator did that the prompts did not ask:**
+- The boundary men point at each other across the forty feet, not away to their own ground. It reads as the argument, and the redraw kept it.
+- The dog's owner looks to the left at rest. That suits a man looking for his dog, and his TALK pose turns to Thad.
+
+**The cut** (`tools/art/townspeople-cut.py`, through `tools/art/cut-ambient-sheet.py`):
+- Each figure is cut at the height the brief gives: the boy at 109 (160 × 0.68), the man leaving tomorrow at 152, the boundary men at 170, the dog's owner at 317, the fiddler at 288.
+- The cutter gains two options; every figure cut before keeps its defaults.
+  - `--min-island` keeps the boy's penny.
+  - `--register right` sets the man leaving tomorrow by the right edge of his boots. His bag sits at his boots in four poses of five and swung the centre of his "legs".
+- Every sprite declares `figureHeight` and `stature`, so the renderer holds the figure to the room's curve wherever he stands. That is how the dog's owner is 317 in the alley and 167 on Main Street from one sheet.
+
+**What moves (errata 77, `tests/movement.test.mjs`):** each has a rest pose, a breath derived from it (`tools/rig/ambient-breath.py`), a pool of breaks and a TALK pose.
+
+| Figure | Breaks | Every |
+|---|---|---|
+| Boy | looks back down the street; flips his penny | 11 s |
+| Man leaving tomorrow | reaches, lifts the bag and sets it down; or looks down the road with a hand on it | 17 s |
+| Boundary men | point; argue | 10 s each, B half a cycle after A, so they never point on the same beat |
+| Dog's owner, alley | shades his eyes and looks; calls | 13 s |
+| Dog's owner, Main Street (his placement's own sprite) | rests on GLAD, smiling down at Bill, and looks up the street now and then | 14 s |
+| Fiddler | TUNE; a busier bowing passage | 19 s |
+
+The fiddler's idle is his playing: two bow positions, about 0.6 s a stroke.
+
+**Not on the duel's visit.** The one visit Fanshawe calls the duel, doc 57's "half the town" stands at the saloon end (`duel-town-left`, `duel-fanshawe`), across the very mud where the man leaving tomorrow waits with his bag and where the dog's owner stands with Bill. `tests/staging-clear.test.ts` found them inside the crowd, at 69% and 74% overlap. Both are absent while `T_DUEL_CROWD` holds (they are in the crowd) and back the next visit. Presence is decided as Thad arrives, so neither vanishes in front of him.
+
+**Cast and seen.**
+- The six files are in the manifest, `awaitingArt` is gone, and Main Street, the Nugget and the back alley are recompiled.
+- In the game, TALK TO opens each figure's doc 07 tree with its own options: the boy, the man leaving tomorrow, the boundary men, the dog's owner in the alley, the fiddler in the Nugget.
+
+**A test that assumed it was alone.** `tests/room-20.test.ts` took the alley's conversation to be the first person there with a tree. The dog's owner stands there now, so it asks for the doc 04 conversation, not a doc 07 micro-tree (`amb_*`).
+
+**Left for the playthrough** (style gate step 3, errata 72): how each figure reads in his room at play speed.
+
+**Open, and not this pass's:**
+- **The fiddler's bowing is not on the music's bar grid** (doc 22). The score has no tempo or bar grid yet, so his rate is fixed. It goes with his playing in the music: faster for R_BORDERS_MOTT, the passing tune for R_DEAD, and retuning first in F2.
+- The message boy's *(pay)*, the bell-ringer and the stage driver remain Tyler's (errata 110).

@@ -2,6 +2,8 @@
 
 **Authorized:** Tyler, 2026-11-06, "Go: townspeople, up to 10 images." This covers asset `townspeople-110` in `art/staging/caps.json`, with **10 operations shared across five sheets**: one sheet per figure, plus corrections. Nothing else may be spent under this asset.
 
+**Status (2026-11-06): drawn, cut and cast -- all 11 operations spent (cap raised from 10 by Tyler, "+1 op, redraw all 5").** The first five sheets came back on a finer grid than Thad and the cast (Tyler: "None of the new characters seem to match the pixelation level of the cast we worked really hard on"), and the boy's correction in general words came back the same. All five were redrawn the way Fanshawe was: `<sheet>-thad-grid.png` (Thad beside the figure at one scale) with the figure's own sheet, and `<sheet>-prompt-02.txt` (the boy's `-03`) asking for Thad's pixel size in numbers. Cut by `tools/art/townspeople-cut.py`; compared in `renders/townspeople-vs-cast@3x.png`. Errata 111 has the record. **The prompts below (`-prompt-01`) are the ones that missed: brief the next figure from the redraw prompts.**
+
 **Already done (errata 110, this branch's PR):**
 - Every word these figures say is extracted from doc 07 by `tools/extract-content.mjs`. That covers their trees in `content/dialogue/amb-*.json` and their barks in `content/ambient/*.json`. The boundary men's barks are a two-voice `barkExchange`.
 - The engine plays two-voice barks and per-room barks.
