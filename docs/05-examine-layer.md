@@ -346,7 +346,7 @@ When Hob digs him out, **the first thing that returns is the verb panel**, befor
 **EVERY ROCK SURFACE — LOOK:**
 > "Rock."
 > "Rock. Identical to the last rock."
-> "This is the same rock. I am confident it is the same rock."
+> "This is the same rock. I'm confident it's the same rock."
 > "Rock. I have stopped drawing distinctions."
 
 *The LOOK verb — the game's comedy engine for twenty hours — is systematically emptied out over about thirty selections. It is the funniest running joke in the game and it exists to teach the player, without a single line of instruction, to stop looking.*
@@ -1193,11 +1193,11 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "My own ears, ringing faintly. Underground, silence has a pitch. I could tune to it."
 
 **THE AIR**
-> **LOOK:** "You cannot see it, and down here that is the most interesting thing about it: the flame leans. The air is going somewhere."
-> **LISTEN:** "Moving. Warmer than the day. I have heard this before, at the top of a hole, and used it to evict a raccoon."
+> **LOOK:** "You can't see it, and down here that's the most interesting thing about it: the flame leans. The air is going somewhere."
+> **LISTEN:** "Moving. Warmer than the day. I've heard this before, at the top of a hole, and used it to evict a raccoon."
 
 **THE WALLS**
-> **LOOK:** "Clay, then rock, then a seam of something the lamp takes an interest in. I am declining to be excited. The territory has trained me thoroughly."
+> **LOOK:** "Clay, then rock, then a seam of something the lamp takes an interest in. I'm declining to be excited. The territory has trained me thoroughly."
 > **LISTEN:** "Water, somewhere inside the stone, going about its business."
 
 **THE TIMBERING**
@@ -1205,19 +1205,19 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "The wood takes the mountain's weight and says so, once in a while, quietly."
 
 **THE SEAM**
-> **LOOK:** "The seam, where the lamp stops being casual. I have seen color in a pan, in a bottle, on a scale. I have never seen it at home before. It is different at home."
-> **LISTEN:** "Nothing. It has been keeping this quiet for longer than there have been ears."
+> **LOOK:** "The seam, where the lamp stops being casual. I've seen color in a pan, in a bottle, on a scale. I've never seen it at home before. It's different at home."
+> **LISTEN:** "Not a sound. It's been keeping this quiet for longer than there have been ears."
 
 **THE OLD LANTERN**
 > **LOOK:** "A lantern, not mine, hung on a spike and burned dry — years dry. Its glass is clean. Someone tended it, once, regularly."
-> **LISTEN:** "Nothing. Long finished. But kept, not abandoned. There is a difference and you can hear it."
+> **LISTEN:** "Nothing. Long finished. But kept, not abandoned. There's a difference, and you can hear it."
 
 **THE FOOTPRINTS**
 > **LOOK:** "Boot prints in the clay, preserved like the creek bank's, but one pair, many visits, all the same stride. Even. He was counting."
 > **LISTEN:** "Nothing. But the silence here is worn smooth, like a path."
 
 **THE WAY BACK UP**
-> **LOOK:** "The rope to the surface, and the coin of gray light at the top of it. Up there this is still the worthless claim. I am in no hurry to correct anyone."
+> **LOOK:** "The rope to the surface, and the coin of gray light at the top of it. Up there this is still the worthless claim. I'm in no hurry to correct anyone."
 > **LISTEN:** "The surface, at a great distance: wind, and the suggestion of a town."
 
 ---
@@ -1254,7 +1254,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "One paper, sliding when the drawer is tried. A single secret, loosely filed."
 
 **THE CHAMPAGNE**
-> **LOOK:** "One bottle, dusty, laid down with a label in Fanshawe's hand: FOR THE DAY. He has never specified which day. I begin to suspect the bottle is the point."
+> **LOOK:** "One bottle, dusty, laid down with a label in Fanshawe's hand: FOR THE DAY. He's never said which day. I begin to suspect the bottle is the point."
 > **LISTEN:** "Nothing. Corked hope."
 
 **THE GAS LAMP, FIXED**
@@ -1263,7 +1263,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE VISITOR'S CHAIR**
 > **LOOK:** "One chair, inside a vault, facing the boxes. Someone sits in here, with the money and the maps, and thinks. The upholstery says: often, and at length."
-> **LISTEN:** "Nothing. What gets thought in here does not leak."
+> **LISTEN:** "Nothing. What gets thought in here doesn't leak."
 
 ---
 

@@ -649,33 +649,33 @@
 
 ## Repeats
 
-**THE DARK** — LOOK 2 "I turned the lamp down once, to see what the dark was like on its own. I turned it back up." · 3 "It is not empty. It is only unlit." | LISTEN 2 "The ringing in my ears, settling on a note. A little flat. Of course it is." · 3 "My own heartbeat, which I have not heard in some years, keeping better time than the town."
+**THE DARK** — LOOK 2 "I turned the lamp down once, to see what the dark was like on its own. I turned it back up." · 3 "It isn't empty. It's only unlit." | LISTEN 2 "The ringing in my ears, settling on a note. A little flat. Of course it is." · 3 "My own heartbeat, which I have not heard in some years, keeping better time than the town."
 
-**THE AIR** — LOOK 3 "There is nothing to see. I keep looking anyway, like a man rereading a letter he knows by heart." | LISTEN 3 "Moving, and warmer. I have stopped being surprised by it and started paying attention."
+**THE AIR** — LOOK 3 "There's nothing to see. I keep looking anyway, like a man rereading a letter he knows by heart." | LISTEN 3 "Moving, and warmer. I've stopped being surprised by it and started paying attention."
 
-**THE WALLS** — LOOK 2 "Rock." · 3 "Rock, mostly." | LISTEN 2 "Water inside the stone again, going about its business." · 3 "Nothing I can name yet. I am listening anyway. It is what I am for."
+**THE WALLS** — LOOK 2 "Rock." · 3 "Rock, mostly." | LISTEN 2 "Water inside the stone again, going about its business." · 3 "Nothing I can name yet. I'm listening anyway. It's what I'm for."
 
 *(THE WALLS' LOOK repeats empty out, as doc 10 asks of this room and doc 05 asks of Room 33's rock. Doc 10's THE ROCK FACE is the face of the tunnel, not these walls, and keeps its own lines.)*
 
-**THE TIMBERING** — LOOK 2 "The joints are pegged, not nailed, by somebody who had more time than nails." · 3 "It has held a town on top of it for twelve years without a word of complaint. I know men who could learn from it." | LISTEN 2 "A long creak overhead, and then the mountain settles back." · 3 "Nothing for a while. Then one small tick, like a clock deciding not to strike."
+**THE TIMBERING** — LOOK 2 "The joints are pegged, not nailed, by somebody who had more time than nails." · 3 "It's held a town on top of it for twelve years without a word of complaint. I know men who could learn from it." | LISTEN 2 "A long creak overhead, and then the mountain settles back." · 3 "Nothing for a while. Then one small tick, like a clock deciding not to strike."
 
-**THE SEAM** — LOOK 2 "It runs at a slant into the dark, wider than my hand and further than the lamp." · 3 "I have looked at it for a long time. It does not do anything. It does not need to." | LISTEN 2 "Nothing. Gold has never had to raise its voice." · 3 "Nothing. Twelve years of a town, built on top of a silence."
+**THE SEAM** — LOOK 2 "It runs at a slant into the dark, wider than my hand and further than the lamp." · 3 "I've looked at it a long time. It doesn't do anything. It doesn't need to." | LISTEN 2 "Silence. Gold has never had to raise its voice." · 3 "Nothing. Twelve years of a town, built on top of a silence."
 
-**THE OLD LANTERN** — LOOK 2 "The wick has been trimmed square, the way a careful man trims one." · 3 "It hangs where it would light the way back up, not the way in. Whoever kept it always meant to leave." | LISTEN 2 "Nothing. Its tin cooled a long time ago." · 3 "Nothing. It is waiting for its keeper, and its keeper is not coming down tonight."
+**THE OLD LANTERN** — LOOK 2 "The wick has been trimmed square, the way a careful man trims one." · 3 "It hangs where it would light the way back up, not the way in. Whoever kept it always meant to leave." | LISTEN 2 "Nothing. Its tin cooled a long time ago." · 3 "Nothing. It's waiting for its keeper, and its keeper isn't coming down tonight."
 
-**THE FOOTPRINTS** — LOOK 2 "The stride never shortens, coming or going. Whoever made these was never in a hurry and never tired." · 3 "Mine cross his now, clumsier and in a hurry. He would not have approved." | LISTEN 2 "Nothing. The clay has kept every step and repeats none of them." · 3 "Nothing. A path nobody walks any more makes exactly this sound."
+**THE FOOTPRINTS** — LOOK 2 "The stride never shortens, coming or going. Whoever made these was never in a hurry and never tired." · 3 "Mine cross his now, clumsier and in a hurry. He wouldn't have approved." | LISTEN 2 "Nothing. The clay has kept every step and repeats none of them." · 3 "Nothing. A path nobody walks any more makes exactly this sound."
 
-**THE WAY BACK UP** — LOOK 3 "The coin of light has moved. It is later up there than I thought." | LISTEN 3 "Somebody up there laughing, very far off. They do not know yet."
+**THE WAY BACK UP** — LOOK 3 "The coin of light has moved. It's later up there than I thought." | LISTEN 3 "Somebody up there laughing, very far off. They don't know yet."
 
-**THE TUNNEL** — LOOK 2 "There is a bend in it where I lost my nerve and a straight stretch after where I found it again." · 3 "My pick marks are everywhere and none of them in a line. It is the most honest piece of work I have ever done." | LISTEN 2 "My own breathing, loud in here. The tunnel keeps nothing to itself." · 3 "A trickle of loose dirt from the roof, then quiet: the tunnel, settling into being a tunnel."
+**THE TUNNEL** — LOOK 2 "There is a bend in it where I lost my nerve and a straight stretch after where I found it again." · 3 "My pick marks are everywhere and none of them in a line. It's the most honest piece of work I've ever done." | LISTEN 2 "My own breathing, loud in here. The tunnel keeps nothing to itself." · 3 "A trickle of loose dirt from the roof, then quiet: the tunnel, settling into being a tunnel."
 
-**THE ROCK FACE** — LOOK 2 "Rock. I have looked at it enough to know it is rock." · 3 "Still rock." | LISTEN 2 "The same small difference. It has not gone away." · 3 "Not much. Not nothing."
+**THE ROCK FACE** — LOOK 2 "Rock. I've looked at it enough to know it's rock." · 3 "Still rock." | LISTEN 2 "The same small difference. It has not gone away." · 3 "Not much. Not nothing."
 
 *(THE ROCK FACE's LISTEN repeats say no more than doc 10's line 1 — "…Different. Not by much." — already says, and point nowhere.)*
 
-**THE LAMP** — LOOK 2 "Three hours of oil now. I am doing the arithmetic more often than I would like." · 3 "It throws my shadow up the wall, three times my size and twice as confident." | LISTEN 2 "A soft hiss as the wick drinks." · 3 "Burning, still. The most reassuring word in the language."
+**THE LAMP** — LOOK 2 "Three hours of oil now. I'm doing the arithmetic more often than I'd like." · 3 "It throws my shadow up the wall, three times my size and twice as confident." | LISTEN 2 "A soft hiss as the wick drinks." · 3 "Burning, still. The most reassuring word in the language."
 
-**THE TUNING FORK** — LOOK 2 "The tines are worn bright at the ends, where I have struck it on ten thousand boot heels." · 3 "It is the only thing I own that is exactly what it claims to be." | LISTEN 2 "I struck it. A, held, ringing down to nothing." · 3 "A. The same A it gave in my father's shop. Some things do not move."
+**THE TUNING FORK** — LOOK 2 "The tines are worn bright at the ends, where I have struck it on ten thousand boot heels." · 3 "It's the only thing I own that's exactly what it claims to be." | LISTEN 2 "I struck it. A, held, ringing down to nothing." · 3 "A. The same A it gave in my father's shop. Some things don't move."
 
 ### THE FLOOR
 **LOOK** 1 "Clay, packed hard by somebody's boots long before mine." · 2 "My own prints, and the drag marks of my pick behind them." · 3 "It is level, more or less, which down here counts as hospitality."
@@ -853,15 +853,15 @@
 
 **THE MAP, PRIVATE** — LOOK 2 "Year by year the pins move outward. The search has been walking politely away from Claim One for twelve years." · 3 "It is beautifully drawn. It would be the best map in the territory, if it were trying to help anyone." | LISTEN 2 "A pin dropping out of the cork and ticking on the floor." · 3 "Nothing. The rigging has done its work."
 
-**THE STRONGBOX** — LOOK 2 "Coin, sorted by denomination, and a great deal of air between the stacks." · 3 "I had expected to want it. I find I do not." | LISTEN 2 "A coin turning over as I set the lid down. A small, embarrassed sound." · 3 "Nothing. Less money than the door suggests, and it knows it."
+**THE STRONGBOX** — LOOK 2 "Coin, sorted by denomination, and a great deal of air between the stacks." · 3 "I'd expected to want it. I find I don't." | LISTEN 2 "A coin turning over as I set the lid down. A small, embarrassed sound." · 3 "Nothing. Less money than the door suggests, and it knows it."
 
-**FANSHAWE'S PRIVATE DRAWER** — LOOK 2 "The key is not here. The Colonel carries it, I imagine, next to the five versions of his war." · 3 "It is the one locked thing in the vault. Everything else he has kept for the Company. This he has kept for himself." | LISTEN 2 "The paper inside sliding again, alone." · 3 "Nothing. Whatever is in there, he has kept it quiet longer than the gold."
+**FANSHAWE'S PRIVATE DRAWER** — LOOK 2 "The key isn't here. The Colonel carries it, I imagine, next to the five versions of his war." · 3 "It's the one locked thing in the vault. Everything else he has kept for the Company. This he has kept for himself." | LISTEN 2 "The paper inside sliding again, alone." · 3 "Nothing. Whatever is in there, he has kept it quiet longer than the gold."
 
-**THE CHAMPAGNE** — LOOK 2 "The dust on it is twelve years thick. I wrote nothing in it, which took some restraint." · 3 "FOR THE DAY. I begin to think he meant the day he would no longer need to lie, and that he never once expected it to come." | LISTEN 2 "A tiny tick from the cork as the vault cools. Hope, pressing." · 3 "Nothing. It has waited this long. It can wait for somebody else's day."
+**THE CHAMPAGNE** — LOOK 2 "The dust on it is twelve years thick. I wrote nothing in it, which took some restraint." · 3 "FOR THE DAY. I begin to think he meant the day he'd no longer need to lie, and that he never once expected it to come." | LISTEN 2 "A tiny tick from the cork as the vault cools. Hope, pressing." · 3 "Nothing. It has waited this long. It can wait for somebody else's day."
 
-**THE GAS LAMP, FIXED** — LOOK 2 "The mantle has never been lit. It is as white as the day it was unpacked." · 3 "There is an oil lamp on the floor beneath it, doing all the work." | LISTEN 2 "The hum again, when the door moves." · 3 "Nothing. It is very good at being unlit."
+**THE GAS LAMP, FIXED** — LOOK 2 "The mantle has never been lit. It's as white as the day it was unpacked." · 3 "There is an oil lamp on the floor beneath it, doing all the work." | LISTEN 2 "The hum again, when the door moves." · 3 "Nothing. It's very good at being unlit."
 
-**THE VISITOR'S CHAIR** — LOOK 2 "It faces the strongbox, not the maps. Whoever sits here sits looking at what he has, not at what he says." · 3 "On the floor beside it, a glass with a finger of whisky in it, untouched. He pours, even here, and does not drink." | LISTEN 2 "Leather settling. It was sat in today." · 3 "Nothing. The thinking done in this chair has never been said aloud anywhere."
+**THE VISITOR'S CHAIR** — LOOK 2 "It faces the strongbox, not the maps. Whoever sits here sits looking at what he has, not at what he says." · 3 "On the floor beside it, a glass with a finger of whisky in it, untouched. He pours, even here, and doesn't drink." | LISTEN 2 "Leather settling. It was sat in today." · 3 "Nothing. The thinking done in this chair has never been said aloud anywhere."
 
 **THE ORIGINAL SUBSCRIPTION** — LOOK 2 "Eleven names, all signed in the same confident ink. Ten of them, I would guess, never saw this territory." · 3 "Fanshawe's signature is the smallest on the page. It is the only modest thing he has ever done, and it was the start of everything." | LISTEN 2 "Nothing. Paper twelve years old, keeping the oldest secret in town." · 3 "The page lifting a little in the draft from the door, then lying back down."
 
@@ -871,7 +871,7 @@
 
 **THE UNSOLD DEEDS** — LOOK 2 "Every one is drawn properly, right side up, with a boundary description. They kept the good paperwork for themselves." · 3 "Two hundred claims, and one gap in the ring around Claim One. The gap is mine." | LISTEN 2 "Nothing. Two hundred claims nobody is allowed to dig, keeping very quiet about it." · 3 "The bundle shifting as I set it down. Paper, heavier than any of it is worth."
 
-**THE CORRESPONDENCE FILE** — LOOK 2 "Each letter is warmer than the last. By the ninth year he writes to Boston like a man writing home." · 3 "The replies are not in the file. Either Boston stopped answering or he stopped keeping what it said." | LISTEN 1 "Nothing. A file of copies keeps its originals to itself." · 2 "Paper sliding inside the folder when I tilt it." · 3 "Nothing. Nine years of the same letter, and not one of them said aloud."
+**THE CORRESPONDENCE FILE** — LOOK 2 "Each letter is warmer than the last. By the ninth year he writes to Boston like a man writing home." · 3 "The replies aren't in the file. Either Boston stopped answering or he stopped keeping what it said." | LISTEN 1 "Nothing. A file of copies keeps its originals to itself." · 2 "Paper sliding inside the folder when I tilt it." · 3 "Nothing. Nine years of the same letter, and not one of them said aloud."
 
 ### THE SHARE CERTIFICATES
 **LOOK** 1 "Shares in the Consolation Improvement Company, beautifully engraved, with a sunrise over a gold field that does not exist." · 2 "These are unsigned. The Company kept its own shares and sold the town everything else." · 3 "Each one has a vignette of a miner holding up a nugget and smiling. He has the same face as Obadiah Mott."

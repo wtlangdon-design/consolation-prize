@@ -133,7 +133,7 @@
 *Eight hotspots. LOOK is beginning to run out; LISTEN is beginning to take over. This room is the transition into the listening chamber.*
 
 **THE TUNNEL**
-> **LOOK:** "Forty feet of my own digging. It is not square and it is not swept and Nickel Pratt would weep."
+> **LOOK:** "Forty feet of my own digging. It isn't square and it isn't swept, and Nickel Pratt would weep."
 > **LISTEN:** "Air. Still moving. Still going somewhere."
 
 **THE ROCK FACE**

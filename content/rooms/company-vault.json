@@ -231,10 +231,10 @@
             "say": "One bottle, dusty, laid down with a label in Fanshawe's hand: FOR THE DAY.",
             "repeat": [
               "The dust on it is twelve years thick. I wrote nothing in it, which took some restraint.",
-              "FOR THE DAY. I begin to think he meant the day he would no longer need to lie, and that he never once expected it to come."
+              "FOR THE DAY. I begin to think he meant the day he'd no longer need to lie, and that he never once expected it to come."
             ],
             "then": [
-              "He has never specified which day. I begin to suspect the bottle is the point."
+              "He's never said which day. I begin to suspect the bottle is the point."
             ]
           }
         ],
@@ -249,7 +249,7 @@
         ]
       },
       "overrides": {
-        "OPEN": "FOR THE DAY, says the label. It is not my day to declare. Though it is closer than the Colonel thinks."
+        "OPEN": "FOR THE DAY, says the label. It isn't my day to declare. Though it is closer than the Colonel thinks."
       },
       "walkTo": {
         "x": 1571,
@@ -272,7 +272,7 @@
           {
             "say": "A fixed lamp, plumbed for gas that does not exist within a thousand miles.",
             "repeat": [
-              "The mantle has never been lit. It is as white as the day it was unpacked.",
+              "The mantle has never been lit. It's as white as the day it was unpacked.",
               "There is an oil lamp on the floor beneath it, doing all the work."
             ],
             "then": [
@@ -285,7 +285,7 @@
             "say": "A hollow pipe. It hums when the vault door moves, an organ note for an empty church.",
             "repeat": [
               "The hum again, when the door moves.",
-              "Nothing. It is very good at being unlit."
+              "Nothing. It's very good at being unlit."
             ]
           }
         ]
@@ -351,7 +351,7 @@
             "say": "The actual money, in the actual box. Less than the town believes.",
             "repeat": [
               "Coin, sorted by denomination, and a great deal of air between the stacks.",
-              "I had expected to want it. I find I do not."
+              "I'd expected to want it. I find I don't."
             ],
             "then": [
               "The Company's fortune is mostly the town's belief, held at interest."
@@ -392,8 +392,8 @@
           {
             "say": "A drawer with its own lock, its own key, and its own smell of good tobacco.",
             "repeat": [
-              "The key is not here. The Colonel carries it, I imagine, next to the five versions of his war.",
-              "It is the one locked thing in the vault. Everything else he has kept for the Company. This he has kept for himself."
+              "The key isn't here. The Colonel carries it, I imagine, next to the five versions of his war.",
+              "It's the one locked thing in the vault. Everything else he has kept for the Company. This he has kept for himself."
             ],
             "then": [
               "Whatever the Colonel keeps from the Company, he keeps here."
@@ -544,7 +544,7 @@
             "say": "Letters to Boston. Nine years of them, copied out in his own hand, all saying the same thing in different words: that the search continues, that hopes are high, and that further funds would be timely.",
             "repeat": [
               "Each letter is warmer than the last. By the ninth year he writes to Boston like a man writing home.",
-              "The replies are not in the file. Either Boston stopped answering or he stopped keeping what it said."
+              "The replies aren't in the file. Either Boston stopped answering or he stopped keeping what it said."
             ]
           }
         ],
@@ -650,13 +650,13 @@
             "say": "One chair, inside a vault, facing the boxes. Someone sits in here, with the money and the maps, and thinks. The upholstery says: often, and at length.",
             "repeat": [
               "It faces the strongbox, not the maps. Whoever sits here sits looking at what he has, not at what he says.",
-              "On the floor beside it, a glass with a finger of whisky in it, untouched. He pours, even here, and does not drink."
+              "On the floor beside it, a glass with a finger of whisky in it, untouched. He pours, even here, and doesn't drink."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. What gets thought in here does not leak.",
+            "say": "Nothing. What gets thought in here doesn't leak.",
             "repeat": [
               "Leather settling. It was sat in today.",
               "Nothing. The thinking done in this chair has never been said aloud anywhere."

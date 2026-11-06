@@ -273,7 +273,10 @@
         "Nothing. Paper guns. The safest kind.",
         "Nothing. Paper guns go off very quietly.",
         "Nothing. The safest page in the book, and the most read after the pianos."
-      ]
+      ],
+      "overrides": {
+        "USE": "I order nothing. A piano tuner has never needed a revolver. Only patience, which ships free."
+      }
     },
     {
       "name": "THE CATALOGUE — MUSICAL INSTRUMENTS",
@@ -350,7 +353,10 @@
         "Nothing.",
         "Nothing. Forty shovels, standing at ease.",
         "A faint scrape as one leans into another."
-      ]
+      ],
+      "overrides": {
+        "PICK_UP": "Forty shovels, two thousand men. I'm not going to be the one who starts that arithmetic."
+      }
     },
     {
       "name": "THE UNSOLD SCALES",
@@ -389,7 +395,10 @@
         "Leather creaking as the pairs turn on their nail.",
         "Nothing. New boots have not been anywhere to talk about.",
         "The laces tapping together, like two people agreeing quietly."
-      ]
+      ],
+      "overrides": {
+        "PICK_UP": "Tied in pairs, so nobody walks off in one. Somebody here was robbed exactly that way, once."
+      }
     },
     {
       "name": "THE NAILS",
@@ -402,7 +411,10 @@
         "A small metallic shifting when the floor moves.",
         "Nothing. Nails keep their points to themselves.",
         "The magnet clicking against the keg's rim as it sways."
-      ]
+      ],
+      "overrides": {
+        "PICK_UP": "A dollar the pound, every size mixed. I'd be buying a pound of problems and sorting them for free."
+      }
     },
     {
       "name": "THE LAMP OIL",
@@ -415,7 +427,10 @@
         "A drip, slow and oily, into the tray.",
         "Nothing. Oil is in no hurry.",
         "The drip again. Somebody should tighten that tap, and somebody never does."
-      ]
+      ],
+      "overrides": {
+        "OPEN": "NO LIGHTS, says the sign. Opening it would be the first half of a very short story."
+      }
     }
   ]
 }

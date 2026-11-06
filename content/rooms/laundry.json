@@ -233,6 +233,9 @@
           }
         ]
       },
+      "overrides": {
+        "USE": "I can sew on a button. I can't sew one on in front of Ah-Lam Sheng."
+      },
       "walkTo": {
         "x": 1655,
         "y": 847,
@@ -310,6 +313,9 @@
             ]
           }
         ]
+      },
+      "overrides": {
+        "OPEN": "Fogged from inside and stuck from outside. It's a wall with ambitions."
       },
       "walkTo": {
         "x": 284,
@@ -463,6 +469,9 @@
             ]
           }
         ]
+      },
+      "overrides": {
+        "USE": "It's angled at the ridge for the ten minutes a day the boilers allow. They aren't my ten minutes."
       },
       "walkTo": {
         "x": 1654,

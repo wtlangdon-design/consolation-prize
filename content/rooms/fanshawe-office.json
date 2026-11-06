@@ -187,6 +187,9 @@
           }
         ]
       },
+      "overrides": {
+        "PICK_UP": "Never taken down, never sharpened. I'll honor both traditions."
+      },
       "walkTo": {
         "x": 1288,
         "y": 855,

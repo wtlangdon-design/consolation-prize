@@ -143,7 +143,10 @@
         "Nothing. Damage, at rest.",
         "Nothing. Torn cloth, waiting its turn.",
         "Nothing. The damage has been sorted by owner."
-      ]
+      ],
+      "overrides": {
+        "USE": "I can sew on a button. I can't sew one on in front of Ah-Lam Sheng."
+      }
     },
     {
       "name": "THE HIGH RIDGE PATH",
@@ -188,7 +191,10 @@
         "The chair is still warm-sounding, if that is a thing. The ten minutes were recent.",
         "Nothing.",
         "Nothing. The chair is empty, and he is at work, which is where he usually is."
-      ]
+      ],
+      "overrides": {
+        "USE": "It's angled at the ridge for the ten minutes a day the boilers allow. They aren't my ten minutes."
+      }
     },
     {
       "name": "THE WINDOW, STEAMED",
@@ -204,7 +210,10 @@
         "A drop of condensation running. The window keeps time in its own way.",
         "Steam ticking against the glass, then running.",
         "The street, muffled to almost nothing. The coppers win."
-      ]
+      ],
+      "overrides": {
+        "OPEN": "Fogged from inside and stuck from outside. It's a wall with ambitions."
+      }
     },
     {
       "name": "THE LEDGER",

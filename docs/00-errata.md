@@ -3389,3 +3389,12 @@ The featured moments (the bells, the hum, the whistle, the tunings, the fiddler'
 Proved: the old `sounds.json` fails it on eleven places.
 
 **D · Heard.** The Themes page's new top section plays Main Street, the Nugget, the registrar, the Clarion and the stage road three ways at one overall volume: before, as now in the game, and 6 dB louder still. Tyler picks by ear; the game ships the middle one until he does.
+
+# 123 · THE POLISH PASS: WRONG ANSWERS WHERE PLAYERS CLICK, AND THE VOICE FINISHED UNDERGROUND — TYLER, 2026-11-06
+
+Tyler, on what else would make the game great: **"Go on all five."** Two of the five are writing, under the permission of errata 113 and 114. The other three are audits, reported to Tyler before anything changes.
+
+**A · Wrong answers where players click most.** Doc 49's doctrine gives each room its "funny diagonal", five to eight authored wrong-verb lines, and the rest fall to the generic refusals. Measured across the game, 28% of hotspot-and-verb pairs have a line of their own. Twenty-four new lines are added in the rooms players spend longest in: the Nugget, the assay office, the Registrar's, the Clarion, Fanshawe's office, the mercantile, the hotel lobby, the back alley and Sheng's laundry. Each goes where a player is most likely to try a verb and get a shrug: opening a window, picking up a spike, sitting on a bench, pushing the patrons. Under doc 49's rules, none hints and none punishes, and no object a puzzle reads is given one.
+
+**B · The voice pass is finished.** Errata 100's pass had reached 31 rooms. The three underground rooms of Act IV (the listening chamber, under Prosperity and the vault) get it now, lightly, because they already had the voice: 36 edits, almost all contractions, plus the seam's bare "Nothing." openers varied. Doc 93 lists every line before and after. No fact a puzzle reads is touched, and nor is the void's line.
+

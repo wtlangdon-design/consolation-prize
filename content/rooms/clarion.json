@@ -88,6 +88,9 @@
           }
         ]
       },
+      "overrides": {
+        "PICK_UP": "Stories that didn't run. I'm leaving them. At least two of them are probably about me."
+      },
       "walkTo": {
         "x": 1108,
         "y": 850,
@@ -162,6 +165,9 @@
             ]
           }
         ]
+      },
+      "overrides": {
+        "USE": "It'd be on my hands for a week. Frame's had it on his for twelve years and calls it a tan."
       }
     },
     {
@@ -418,6 +424,9 @@
             ]
           }
         ]
+      },
+      "overrides": {
+        "OPEN": "There's no drawer. There's only more desk, further down."
       },
       "walkTo": {
         "x": 1178,

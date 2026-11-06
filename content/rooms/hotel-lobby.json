@@ -186,6 +186,9 @@
           }
         ]
       },
+      "overrides": {
+        "PICK_UP": "Not for five dollars. Not for a room. Not for anything this hotel has ever offered."
+      },
       "walkTo": {
         "x": 597,
         "y": 817,
@@ -558,6 +561,9 @@
             ]
           }
         ]
+      },
+      "overrides": {
+        "OPEN": "Painted shut. The street gets in anyway, one draft at a time."
       },
       "walkTo": {
         "x": 393,

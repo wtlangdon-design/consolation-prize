@@ -35,7 +35,10 @@
         "Nothing. It has never left this wall and it has never been sharpened.",
         "Nothing. Steel at rest, and resting comfortably.",
         "A faint ring when the door closes, and then it remembers itself."
-      ]
+      ],
+      "overrides": {
+        "PICK_UP": "Never taken down, never sharpened. I'll honor both traditions."
+      }
     },
     {
       "name": "THE CHAIRS",
