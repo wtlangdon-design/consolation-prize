@@ -87,10 +87,12 @@ for name, fig in cast['figures'].items():
 for name, prop in cast['props'].items():
     relight(os.path.join(ROOT, prop['sheet']), [prop['frame']], prop['x'], prop['y'])
     done.append(prop['sheet'])
-walk = json.load(open(WALK))
-hob = cast['figures']['hob']
-relight(os.path.join(ROOT, 'art/actors/room-31-hob-walk.png'), walk['frames'], hob['x'] + 60, hob['y'])
-done.append('art/actors/room-31-hob-walk.png')
+# NOT THE WALK. Every sheet above is rewritten in day colours by room31-cast.py
+# before this runs; the walk was not, so each run relit the previous run's
+# output and it compounded to solid blue (0,0,136), shipped (found 2026-11-06).
+# Hob's funeral walk is now its own sheet, relit once from its day drawing by
+# tools/art/room31-relight-one.py; a sheet this script relights must be
+# rewritten in day colours on every run.
 with open(f'{out_dir}/night.json', 'w') as f:
     json.dump({'day': os.path.relpath(DAY, ROOT), 'night': os.path.relpath(NIGHT, ROOT), 'sigma': SIGMA,
                'skyPixels': int(day_sky.sum()), 'relit': done,

@@ -21,26 +21,32 @@
    [
     2,
     2,
-    141,
-    336
+    129,
+    400
    ],
    [
-    145,
+    133,
     2,
-    141,
-    336
+    129,
+    400
    ],
    [
-    288,
+    264,
     2,
-    141,
-    336
+    129,
+    400
    ],
    [
-    431,
+    395,
     2,
-    141,
-    336
+    129,
+    400
+   ],
+   [
+    526,
+    2,
+    129,
+    400
    ]
   ],
   "rate": 0.22,
@@ -60,18 +66,18 @@
     0
    ],
    [
-    2,
-    2,
-    2,
-    3,
-    3,
+    4,
+    4,
+    4,
     0
    ]
   ],
   "breakEvery": 7,
   "talkFrame": 0,
-  "frameNote": "0 hands folded · 1 breath (derived) · 2 head bowed · 3 a glance aside, toward the coffin. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77). The drawing's fourth pose came back with another man's face (a grey moustache) and is not used.",
-  "provenance": "reference/cast-unify-15.spec.json",
-  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 17 (reference/cast-unify-15.txt), in day colours, cut with its own pixels and a clean edge, and relit into the funeral's night as the rest of its cast is (tools/art/room31-relight-one.py, CAST_LIGHT of the night's ratio where he stands). Its own file: room31-cast.py and room31-night.py write and relight the old one."
+  "frameNote": "0 hands folded · 1 breath (derived) · 2 head bowed · 3 a glance down to the left, at the coffin · 4 hands folded, looking up.",
+  "provenance": "reference/cast-unify-29.spec.json",
+  "redrawn": "Errata 101 X (Tyler, 2026-11-06: 'The old man is super weirdly short and stout. The man in the blue jacket is a bad cutout.'). Drawn on magenta by cast-unify 31 (reference/cast-unify-29.txt) at ordinary lean proportions, as tall as Thad, cut with its own pixels and a clean edge, and relit into the funeral's night (tools/art/room31-relight-one.py). The undertaker at Thad's height (the brief before had asked for him 'a little shorter than the hero', and he came back squat).",
+  "figureHeight": 400,
+  "stature": 1.0
  }
 }

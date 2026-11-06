@@ -28,64 +28,71 @@
    ]
   ],
   "speed": 70,
-  "sheet": "art/actors/room-31-hob-walk.png",
+  "sheet": "art/actors/room-31-hob-walk-master.png",
   "frames": [
    [
     2,
     2,
-    226,
-    368
+    202,
+    400
    ],
    [
-    230,
+    410,
     2,
-    226,
-    368
+    202,
+    400
    ],
    [
-    458,
+    614,
     2,
-    226,
-    368
+    202,
+    400
    ],
    [
-    686,
+    818,
     2,
-    226,
-    368
+    202,
+    400
    ]
   ],
   "fps": 6,
   "drawnFacing": "right",
-  "figureHeight": 368,
-  "note": "Doc 48 S2 beat 3: 'and he walks.' Off the hill at the right, unhurried, his hat in his hand (room-31 operation 3, cut by tools/art/cut-walk-sheet.py)."
+  "figureHeight": 400,
+  "note": "Doc 48 S2 beat 3: 'and he walks.' Off the hill at the right, unhurried, his hat in his hand (room-31 operation 3, cut by tools/art/cut-walk-sheet.py).",
+  "redrawn": "Cast-unify 31, a four-frame walk to the right, hat in hand, relit once from its day drawing. The walk it replaces had been relit in place by every run of tools/art/room31-night.py until it was solid blue (0,0,136)."
  },
  "sprite": {
-  "sheet": "art/actors/room-31-hob.png",
+  "sheet": "art/actors/room-31-hob-master.png",
   "frames": [
    [
     2,
     2,
-    149,
-    368
+    165,
+    400
    ],
    [
-    153,
+    169,
     2,
-    149,
-    368
+    165,
+    400
    ],
    [
-    304,
+    336,
     2,
-    149,
-    368
+    165,
+    400
    ],
    [
-    455,
+    503,
     2,
-    149,
-    368
+    165,
+    400
+   ],
+   [
+    670,
+    2,
+    165,
+    400
    ]
   ],
   "rate": 0.3,
@@ -104,10 +111,11 @@
   ],
   "breakEvery": 8,
   "talkFrame": 0,
-  "frameNote": "0 rest, hat in hand · 1 breath · 2 his weight shifts · 3 his head goes down. A break every `breakEvery` seconds (errata 77).",
-  "provenance": "art/staging/room-31/cast/cast.json",
-  "figureHeight": 368,
+  "frameNote": "0 watching, hat in hand · 1 breath (derived) · 2 head bowed · 3 a glance down to the left · 4 the hat to his chest.",
+  "provenance": "reference/cast-unify-29.spec.json",
+  "figureHeight": 400,
   "stature": 1.04,
-  "statureNote": "Tall (the master drew him a head over the mourners, 368 where the curve's man is 334); held to 1.04, inside the 5% a standing man is allowed (tests/scale.test.ts), so he is drawn 6% under the master."
+  "statureNote": "Tall (the master drew him a head over the mourners, 368 where the curve's man is 334); held to 1.04, inside the 5% a standing man is allowed (tests/scale.test.ts), so he is drawn 6% under the master.",
+  "redrawn": "Errata 101 X (Tyler, 2026-11-06: 'The old man is super weirdly short and stout. The man in the blue jacket is a bad cutout.'). Drawn on magenta by cast-unify 31 (reference/cast-unify-29.txt) at ordinary lean proportions, as tall as Thad, cut with its own pixels and a clean edge, and relit into the funeral's night (tools/art/room31-relight-one.py). Hob, from his own art: his dark coat, his hat in his hand. The old cut from the composition master kept hillside between his legs and a ragged edge."
  }
 }
