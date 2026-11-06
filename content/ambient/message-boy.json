@@ -35,35 +35,35 @@
    [
     2,
     2,
-    56,
-    109
-   ],
-   [
     60,
-    2,
-    56,
     109
    ],
    [
-    118,
+    64,
     2,
-    56,
+    60,
     109
    ],
    [
-    176,
+    126,
     2,
-    56,
+    60,
     109
    ],
    [
-    234,
+    188,
     2,
-    56,
+    60,
+    109
+   ],
+   [
+    250,
+    2,
+    60,
     109
    ]
   ],
-  "figureHeight": 102,
+  "figureHeight": 98,
   "stature": 0.68,
   "rate": 0.7,
   "phase": 0.31,
@@ -88,6 +88,6 @@
   "breakEvery": 11,
   "talkFrame": 4,
   "frameNote": "0 rest, the note in his hand · 1 breath (derived) · 2 looks back over his shoulder down the street · 3 flips his penny, the coin in the air · 4 TALK, the note raised. A child: stature 0.68 of the room's man (errata 110).",
-  "provenance": "art/staging/townspeople-110/message-boy/sheet-02.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 111)"
+  "provenance": "art/staging/townspeople-110/message-boy/sheet-03.png (townspeople-110, redrawn at Thad's pixel size), cut by tools/art/townspeople-cut.py (errata 111)"
  }
 }

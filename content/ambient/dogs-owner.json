@@ -39,27 +39,27 @@
     "sheet": "art/actors/dogs-owner.png",
     "frames": [
      [
-      667,
+      757,
       2,
-      131,
+      149,
       317
      ],
      [
-      800,
+      908,
       2,
-      131,
+      149,
       317
      ],
      [
       2,
       2,
-      131,
+      149,
       317
      ],
      [
-      534,
+      606,
       2,
-      131,
+      149,
       317
      ]
     ],
@@ -80,7 +80,7 @@
     "breakEvery": 14,
     "talkFrame": 3,
     "frameNote": "MAIN STREET, BESIDE BILL: 0 GLAD, smiling down at the dog, the leash slack · 1 its breath (derived) · 2 looks up the street a moment (the alley's rest pose) · 3 TALK. Same sheet as the alley; the room's curve scales him from 317 to 167 by figureHeight and stature.",
-    "provenance": "art/staging/townspeople-110/dogs-owner/sheet-01.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 111)"
+    "provenance": "art/staging/townspeople-110/dogs-owner/sheet-02.png (townspeople-110, redrawn at Thad's pixel size), cut by tools/art/townspeople-cut.py (errata 111)"
    }
   }
  },
@@ -103,31 +103,31 @@
    [
     2,
     2,
-    131,
+    149,
     317
    ],
    [
-    135,
+    153,
     2,
-    131,
+    149,
     317
    ],
    [
-    268,
+    304,
     2,
-    131,
+    149,
     317
    ],
    [
-    401,
+    455,
     2,
-    131,
+    149,
     317
    ],
    [
-    534,
+    606,
     2,
-    131,
+    149,
     317
    ]
   ],
@@ -156,6 +156,6 @@
   "breakEvery": 13,
   "talkFrame": 4,
   "frameNote": "0 rest, the coiled leash at his side, looking up the alley · 1 breath (derived) · 2 shades his eyes and looks · 3 calls for the dog · 4 TALK, the leash held up · 5 GLAD and 6 its breath, for Main Street (the placement's sprite, once T_BILL_FOUND).",
-  "provenance": "art/staging/townspeople-110/dogs-owner/sheet-01.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 111)"
+  "provenance": "art/staging/townspeople-110/dogs-owner/sheet-02.png (townspeople-110, redrawn at Thad's pixel size), cut by tools/art/townspeople-cut.py (errata 111)"
  }
 }

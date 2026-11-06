@@ -1,79 +1,79 @@
 {
  "message-boy": {
   "sheet": "art/actors/message-boy.png",
-  "source": "art/staging/townspeople-110/message-boy/sheet-02.png",
+  "source": "art/staging/townspeople-110/message-boy/sheet-03.png",
   "frames": [
    [
     2,
     2,
-    56,
-    109
-   ],
-   [
     60,
-    2,
-    56,
     109
    ],
    [
-    118,
+    64,
     2,
-    56,
+    60,
     109
    ],
    [
-    176,
+    126,
     2,
-    56,
+    60,
     109
    ],
    [
-    234,
+    188,
     2,
-    56,
+    60,
+    109
+   ],
+   [
+    250,
+    2,
+    60,
     109
    ]
   ],
-  "figureHeight": 102
+  "figureHeight": 98
  },
  "man-leaving-tomorrow": {
   "sheet": "art/actors/man-leaving-tomorrow.png",
-  "source": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-01.png",
+  "source": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-02.png",
   "frames": [
    [
     2,
     2,
-    75,
+    74,
     152
    ],
    [
-    79,
+    78,
     2,
-    75,
+    74,
     152
    ],
    [
-    156,
+    154,
     2,
-    75,
+    74,
     152
    ],
    [
-    233,
+    230,
     2,
-    75,
+    74,
     152
    ],
    [
-    310,
+    306,
     2,
-    75,
+    74,
     152
    ],
    [
-    387,
+    382,
     2,
-    75,
+    74,
     152
    ]
   ],
@@ -81,30 +81,30 @@
  },
  "boundary-a": {
   "sheet": "art/actors/boundary-a.png",
-  "source": "art/staging/townspeople-110/boundary-men/sheet-01.png",
+  "source": "art/staging/townspeople-110/boundary-men/sheet-02.png",
   "frames": [
    [
     2,
     2,
-    71,
+    72,
     170
    ],
    [
-    75,
+    76,
     2,
-    71,
+    72,
     170
    ],
    [
-    148,
+    150,
     2,
-    71,
+    72,
     170
    ],
    [
-    221,
+    224,
     2,
-    71,
+    72,
     170
    ]
   ],
@@ -112,30 +112,30 @@
  },
  "boundary-b": {
   "sheet": "art/actors/boundary-b.png",
-  "source": "art/staging/townspeople-110/boundary-men/sheet-01.png",
+  "source": "art/staging/townspeople-110/boundary-men/sheet-02.png",
   "frames": [
    [
     2,
     2,
-    83,
+    88,
     170
    ],
    [
-    87,
+    92,
     2,
-    83,
+    88,
     170
    ],
    [
-    172,
+    182,
     2,
-    83,
+    88,
     170
    ],
    [
-    257,
+    272,
     2,
-    83,
+    88,
     170
    ]
   ],
@@ -143,48 +143,48 @@
  },
  "dogs-owner": {
   "sheet": "art/actors/dogs-owner.png",
-  "source": "art/staging/townspeople-110/dogs-owner/sheet-01.png",
+  "source": "art/staging/townspeople-110/dogs-owner/sheet-02.png",
   "frames": [
    [
     2,
     2,
-    131,
+    149,
     317
    ],
    [
-    135,
+    153,
     2,
-    131,
+    149,
     317
    ],
    [
-    268,
+    304,
     2,
-    131,
+    149,
     317
    ],
    [
-    401,
+    455,
     2,
-    131,
+    149,
     317
    ],
    [
-    534,
+    606,
     2,
-    131,
+    149,
     317
    ],
    [
-    667,
+    757,
     2,
-    131,
+    149,
     317
    ],
    [
-    800,
+    908,
     2,
-    131,
+    149,
     317
    ]
   ],
@@ -192,36 +192,36 @@
  },
  "fiddler": {
   "sheet": "art/actors/fiddler.png",
-  "source": "art/staging/townspeople-110/fiddler/sheet-01.png",
+  "source": "art/staging/townspeople-110/fiddler/sheet-02.png",
   "frames": [
    [
     2,
     2,
-    142,
+    144,
     288
    ],
    [
-    146,
+    148,
     2,
-    142,
+    144,
     288
    ],
    [
-    290,
+    294,
     2,
-    142,
+    144,
     288
    ],
    [
-    434,
+    440,
     2,
-    142,
+    144,
     288
    ],
    [
-    578,
+    586,
     2,
-    142,
+    144,
     288
    ]
   ],

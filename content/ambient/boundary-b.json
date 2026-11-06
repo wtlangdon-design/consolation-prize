@@ -24,25 +24,25 @@
    [
     2,
     2,
-    83,
+    88,
     170
    ],
    [
-    87,
+    92,
     2,
-    83,
+    88,
     170
    ],
    [
-    172,
+    182,
     2,
-    83,
+    88,
     170
    ],
    [
-    257,
+    272,
     2,
-    83,
+    88,
     170
    ]
   ],
@@ -70,6 +70,6 @@
   "breakEvery": 10,
   "talkFrame": 3,
   "frameNote": "0 rest, hands on hips, facing A · 1 breath (derived) · 2 points back across the forty feet · 3 argues, one finger up -- TALK. Half a cycle after A (phase 0.5 of the same 10 s), never on his beat.",
-  "provenance": "art/staging/townspeople-110/boundary-men/sheet-01.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 111)"
+  "provenance": "art/staging/townspeople-110/boundary-men/sheet-02.png (townspeople-110, redrawn at Thad's pixel size), cut by tools/art/townspeople-cut.py (errata 111)"
  }
 }
