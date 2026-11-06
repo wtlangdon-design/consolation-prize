@@ -21,31 +21,31 @@
    [
     2,
     2,
-    308,
+    295,
     290
    ],
    [
-    312,
+    299,
     2,
-    308,
+    295,
     290
    ],
    [
-    622,
+    596,
     2,
-    308,
+    295,
     290
    ],
    [
-    932,
+    893,
     2,
-    308,
+    295,
     290
    ],
    [
-    1242,
+    1190,
     2,
-    308,
+    295,
     290
    ]
   ],
@@ -73,6 +73,6 @@
   "provenance": "art/staging/room-02/duel-cast/cast.json",
   "figureHeight": 280,
   "stature": 1.0,
-  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn on magenta in Thad's hand (cast-unify operation 5) and composed by tools/art/cast-unify-duel.py, replacing the subtraction cut."
+  "redrawn": "Tyler, 2026-11-06: six different townspeople, none like the named cast -- cast-unify operation 6, row 3, composed by tools/art/cast-unify-duel.py."
  }
 }

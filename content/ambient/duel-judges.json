@@ -21,32 +21,32 @@
    [
     2,
     2,
-    308,
-    160
+    805,
+    300
    ],
    [
-    312,
+    809,
     2,
-    308,
-    160
+    805,
+    300
    ],
    [
-    622,
+    1616,
     2,
-    308,
-    160
+    805,
+    300
    ],
    [
-    932,
+    2423,
     2,
-    308,
-    160
+    805,
+    300
    ],
    [
-    1242,
+    3230,
     2,
-    308,
-    160
+    805,
+    300
    ]
   ],
   "rate": 0.22,
@@ -67,10 +67,10 @@
    ]
   ],
   "breakEvery": 6,
-  "frameNote": "0 the judges at their table · 1 breath · 2-4 all three at once, each a different action",
+  "frameNote": "0 the judges at their table · 1 breath · 2-4 each judge moving in his own third: a lean, a nod, a glance, all three at once",
   "provenance": "art/staging/room-02/duel-cast/cast.json",
-  "figureHeight": 154,
+  "figureHeight": 417,
   "stature": 1.0,
-  "redrawn": "Tyler, 2026-11-06 (one artist, one game): rebuilt from the redrawn cast by tools/art/cast-unify-duel-table.py."
+  "redrawn": "Tyler, 2026-11-06: the three judges drawn whole at their table, each with his own legs -- cast-unify operation 7, row 2 (tools/art/cast-unify-duel-table.py)."
  }
 }

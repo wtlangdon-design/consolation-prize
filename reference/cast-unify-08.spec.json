@@ -1,0 +1,16 @@
+{
+ "assetId": "cast-unify",
+ "subject": "livery-man",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-15-livery",
+ "promptFile": "reference/cast-unify-08.txt",
+ "out": "art/staging/cast-unify/batch-08/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-08/thad-the-hand.png",
+  "art/staging/cast-unify/batch-06/sheet.png",
+  "art/staging/cast-unify/batch-03/sheet.png",
+  "art/staging/cast-unify/batch-08/old-sheet.png"
+ ]
+}

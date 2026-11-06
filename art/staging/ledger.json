@@ -20789,6 +20789,289 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-06T02:17:36.203Z"
+  },
+  {
+   "attempt": 6,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "judges-and-town-distinct",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/cast-unify-06.txt",
+   "promptHash": "c05ed30a4db76950610594be12ebd05815f1ee699a16377b13b9dca43b0b0f1c",
+   "references": [
+    {
+     "path": "art/staging/cast-unify/batch-06/thad-the-hand.png",
+     "hash": "4a5c5baa2c5e4d19b3d7f4b75bdffc0f1bc94533370225bc49b0d432c0a0cbb0",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-02/sheet.png",
+     "hash": "0ec5c1392641a34b208913f204c9ce967c65d57e681bf03798bc9fdfcbf55833",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-04/sheet.png",
+     "hash": "868659d324156ecd53539903c290e106c4a9c64c87270e3f90f5ba21885f615e",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-06/existing-cast.png",
+     "hash": "c475370a71808df47dd8cb4ddae9aab55e8f958e032fd4271509723df50ce7b9",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-03/deke-02/sheet.png",
+     "hash": "3930e896263cc1b6d7422b9fb0c47048a30bf0a2feca85389ffa1b33c46f8389",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-04-nugget-back",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Deke Vessel, approved by Tyler 2026-11-01)",
+      "path": "art/staging/room-03/deke-02/sheet.png",
+      "hash": "3930e896263cc1b6d7422b9fb0c47048a30bf0a2feca85389ffa1b33c46f8389",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "4a5c5baa2c5e4d19b3d7f4b75bdffc0f1bc94533370225bc49b0d432c0a0cbb0",
+   "sourcePath": "art/staging/cast-unify/batch-06/thad-the-hand.png",
+   "out": "art/staging/cast-unify/batch-06/sheet.png",
+   "outputHash": "aeab6b7a778e434d65c2ce56cecd320c9809c4b0479f91a76f06fd6201d6365f",
+   "bytes": 1785312,
+   "usage": {
+    "input_tokens": 15402,
+    "input_tokens_details": {
+     "image_tokens": 14672,
+     "text_tokens": 730
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 16953
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T02:28:31.193Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T02:28:31.198Z"
+  },
+  {
+   "attempt": 7,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "judges-and-clerk-distinct",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/cast-unify-07.txt",
+   "promptHash": "e06fe630032efc2a027d704462537662f39a4d07b4ab8472bb9c73bc77ccc450",
+   "references": [
+    {
+     "path": "art/staging/cast-unify/batch-07/thad-the-hand.png",
+     "hash": "4a5c5baa2c5e4d19b3d7f4b75bdffc0f1bc94533370225bc49b0d432c0a0cbb0",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-06/sheet.png",
+     "hash": "aeab6b7a778e434d65c2ce56cecd320c9809c4b0479f91a76f06fd6201d6365f",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-07/refs.png",
+     "hash": "7fe8dcb56695e12062bd982ab468973a0c1dc0b043c5133b5194696b89ce27f7",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-03/deke-02/sheet.png",
+     "hash": "3930e896263cc1b6d7422b9fb0c47048a30bf0a2feca85389ffa1b33c46f8389",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-04-nugget-back",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Deke Vessel, approved by Tyler 2026-11-01)",
+      "path": "art/staging/room-03/deke-02/sheet.png",
+      "hash": "3930e896263cc1b6d7422b9fb0c47048a30bf0a2feca85389ffa1b33c46f8389",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "4a5c5baa2c5e4d19b3d7f4b75bdffc0f1bc94533370225bc49b0d432c0a0cbb0",
+   "sourcePath": "art/staging/cast-unify/batch-07/thad-the-hand.png",
+   "out": "art/staging/cast-unify/batch-07/sheet.png",
+   "outputHash": "bdf9e81746a5bec05507ddeb393d6503f7bedcb4cf2b20a6fc538e3673419d7f",
+   "bytes": 1700657,
+   "usage": {
+    "input_tokens": 13831,
+    "input_tokens_details": {
+     "image_tokens": 13136,
+     "text_tokens": 695
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 15382
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T02:31:17.886Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T02:31:17.890Z"
   }
  ],
  "promotions": [

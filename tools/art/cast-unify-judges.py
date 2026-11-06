@@ -21,7 +21,11 @@ import numpy as np
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SHEET = os.path.join(ROOT, 'art/staging/cast-unify/batch-05/sheet.png')
+# Tyler, 2026-11-06: the first redraw made the three judges one face in three
+# coats. Operation 6 drew three different men, and operation 7 replaced two of
+# them who looked like the Registrar and the livery man; row 0 is theirs.
+SHEET = os.path.join(ROOT, 'art/staging/cast-unify/batch-07/sheet.png')
+ROW = 0
 HEIGHT = 174
 
 # THE DERIVATIONS, read from room04-idles.py without running its main loop.
@@ -44,7 +48,7 @@ for y, on in enumerate(busy):
         if y - start > 40:
             bands.append((start, y))
         start = None
-y0, y1 = bands[2]
+y0, y1 = bands[ROW]
 with tempfile.TemporaryDirectory() as tmp:
     part = os.path.join(tmp, 'row.png')
     Image.fromarray(np.asarray(Image.open(SHEET).convert('RGB'))[max(0, y0 - 4):y1 + 4]).save(part)

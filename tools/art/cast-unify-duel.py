@@ -24,6 +24,10 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SHEET = os.path.join(ROOT, 'art/staging/cast-unify/batch-05/sheet.png')
+# The six of the town: operation 6, row 2 -- each a different person, none like
+# the named cast (Tyler, 2026-11-06: "characters all need to look distinct").
+TOWN = os.path.join(ROOT, 'art/staging/cast-unify/batch-06/sheet.png')
+TOWN_ROW = 2
 TALL = 280
 GAP = 2
 PAD = 12
@@ -46,10 +50,23 @@ for y, on in enumerate(busy):
         if y - start > 40:
             bands.append((start, y))
         start = None
-y0, y1 = bands[1]
+im = np.asarray(Image.open(TOWN).convert('RGB')).astype(float)
+dist = np.sqrt((im[..., 0] - 255) ** 2 + im[..., 1] ** 2 + (im[..., 2] - 255) ** 2)
+busy = (dist >= 120).sum(1) > 3
+bands, start = [], None
+for y, on in enumerate(busy):
+    if on and start is None:
+        start = y
+    if not on and start is not None:
+        if y - start > 40:
+            bands.append((start, y))
+        start = None
+if start is not None:
+    bands.append((start, len(busy)))
+y0, y1 = bands[TOWN_ROW]
 with tempfile.TemporaryDirectory() as tmp:
     part = os.path.join(tmp, 'row.png')
-    Image.fromarray(np.asarray(Image.open(SHEET).convert('RGB'))[max(0, y0 - 4):y1 + 4]).save(part)
+    Image.fromarray(np.asarray(Image.open(TOWN).convert('RGB'))[max(0, y0 - 4):y1 + 4]).save(part)
     cut = os.path.join(tmp, 'cut.png')
     info = json.loads(subprocess.check_output([sys.executable, os.path.join(ROOT, 'tools/art/cut-ambient-sheet.py'), part, str(TALL), cut]))
     row = np.asarray(Image.open(cut).convert('RGBA'))

@@ -28,37 +28,37 @@
    [
     2,
     2,
-    177,
+    195,
     174
    ],
    [
-    181,
+    199,
     2,
-    177,
+    195,
     174
    ],
    [
-    360,
+    396,
     2,
-    177,
+    195,
     174
    ],
    [
-    539,
+    593,
     2,
-    177,
+    195,
     174
    ],
    [
-    718,
+    790,
     2,
-    177,
+    195,
     174
    ],
    [
-    897,
+    987,
     2,
-    177,
+    195,
     174
    ]
   ],
@@ -107,6 +107,6 @@
    ]
   ],
   "breakEvery": 7.5,
-  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn in Thad's hand (cast-unify operation 5, row 3); actions derived from the new rest frame by tools/art/cast-unify-judges.py with room04-idles.py's own lean, nod and hand-lift."
+  "redrawn": "Tyler, 2026-11-06: three different men, none like anyone else in the game -- cast-unify operations 6 and 7 (reference/cast-unify-07.txt, row 1); actions derived by tools/art/cast-unify-judges.py."
  }
 }

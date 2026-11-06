@@ -17,31 +17,31 @@
    [
     2,
     2,
-    127,
+    156,
     154
    ],
    [
-    131,
+    160,
     2,
-    127,
+    156,
     154
    ],
    [
-    260,
+    318,
     2,
-    127,
+    156,
     154
    ],
    [
-    389,
+    476,
     2,
-    127,
+    156,
     154
    ],
    [
-    518,
+    634,
     2,
-    127,
+    156,
     154
    ]
   ],
@@ -77,7 +77,7 @@
   ],
   "breakEvery": 7,
   "frameNote": "0 rest (hands on the desk) · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 writing · 3 the watch, held up and read · 4 looking up. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool: he writes, he reads his watch, he looks up (errata 35 and 77: a deliberate action at least every 30 s).",
-  "provenance": "reference/cast-unify-02.spec.json",
-  "redrawn": "Tyler, 2026-11-06 (one artist, one game): redrawn with the other counter clerks in Thad's hand (cast-unify operation 2, reference/cast-unify-02.txt), cut by tools/art/cast-unify-cut.py and registered on the head by tools/art/bust-register.py. Same poses."
+  "provenance": "reference/cast-unify-07.spec.json",
+  "redrawn": "Tyler, 2026-11-06: redrawn as his own man -- the first redraw had Ignatius Frame's face (cast-unify operation 7, row 3). Same poses."
  }
 }

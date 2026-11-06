@@ -1,0 +1,16 @@
+{
+ "assetId": "cast-unify",
+ "subject": "judges-and-town-distinct",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-04-nugget-back",
+ "promptFile": "reference/cast-unify-06.txt",
+ "out": "art/staging/cast-unify/batch-06/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-06/thad-the-hand.png",
+  "art/staging/cast-unify/batch-02/sheet.png",
+  "art/staging/cast-unify/batch-04/sheet.png",
+  "art/staging/cast-unify/batch-06/existing-cast.png"
+ ]
+}

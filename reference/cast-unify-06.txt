@@ -1,0 +1,22 @@
+Image 1 is the hero of my pixel-art adventure game drawn large: THIS IS THE ART STYLE OF THE WHOLE GAME. Images 2 and 3 show townspeople already drawn correctly in that style: match their hand exactly -- the same size of square pixels, flat colour areas, soft simple shading with two or three tones per colour, very little texture, the same muted, slightly dusty palette, realistic proportions, the same dark outline treatment. Image 4 shows the people ALREADY in the game.
+
+EVERY PERSON YOU DRAW MUST BE A DIFFERENT, RECOGNISABLE INDIVIDUAL: a different face, age, build, height, hairline, facial hair, posture and silhouette -- NOT the same man in different coloured clothes. Nobody may look like anyone in image 4.
+
+THE SHEET: flat pure magenta (#FF00FF) background, three rows, everything separated by clear magenta space.
+
+Row 1 -- THREE JUDGES, each drawn ONCE, seen from the WAIST UP sitting behind a table that is NOT drawn: cut off flat in a straight horizontal line just below their hands, which rest on that line; each about 250 pixels from the top of the head to the cut:
+  1. A stout, red-faced old man of seventy, BALD on top, big white mutton-chop side whiskers, no hat, a rumpled brown suit, a gold watch chain, hands folded.
+  2. A thin, sharp-nosed man of forty, CLEAN-SHAVEN, small round spectacles, black hair slicked flat, a narrow black string tie, a black coat, no hat, fingertips pressed together.
+  3. A weathered old miner of sixty with a LONG GREY BEARD to his chest and a battered grey slouch hat, a faded blue work coat, one hand flat on the table and one fist.
+
+Row 2 -- THE SAME THREE JUDGES, the same men exactly, sitting in a row behind ONE plain wooden table, seen from the front, the WHOLE scene drawn: the table with its legs, three wooden chairs, and each judge's own legs and boots visible under the table matching his own body (the stout man's wide legs in brown trousers, the thin man's narrow black trousers, the miner's patched work trousers and boots). About 250 pixels tall in all.
+
+Row 3 -- SIX DIFFERENT TOWNSPEOPLE, each drawn ONCE, FULL FIGURE standing, all at the same scale, about 260 pixels tall, turned three-quarters as if watching something to one side:
+  1. A tall, gaunt, old man with a white goatee and a wide-brimmed pale straw hat, a black coat.
+  2. A plump, round-faced woman in a checked red-brown dress, a white apron and a headscarf.
+  3. A boy of about twelve, bare-headed, untidy fair hair, braces, trousers too short.
+  4. A short, broad Chinese man in a dark quilted jacket and a round cap, arms folded.
+  5. A young woman in a dark green dress with a straw bonnet tied under her chin.
+  6. A lanky miner in a faded red flannel shirt, a dusty grey felt hat and a short dark beard, thumbs in his pockets.
+
+RULES: crisp pixel edges against the magenta, no glow, no blur, no shadow on the ground, no text, no numbers, no border.
