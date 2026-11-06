@@ -189,7 +189,37 @@
     "talkFrame": 2,
     "frameNote": "0 rest, hands on the reading desk · 1 breath (derived) · 2 preaching, a finger raised · 3 counting adjectives on his fingers · 4 a hand on his heart. A break every `breakEvery` seconds (errata 77). He preaches as he talks.",
     "provenance": "reference/cast-unify-18.spec.json",
-    "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one). At the pulpit, cut at the waist with his hands on the pulpit's top either side of the reading desk; the drawing brought a reading desk of its own, and every pixel of the figure where the room's desk (plane 1) stands in front of him is cleared, so the sheet carries none."
+    "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one). At the pulpit, cut at the waist with his hands on the pulpit's top either side of the reading desk; the drawing brought a reading desk of its own, and every pixel of the figure where the room's desk (plane 1) stands in front of him is cleared, so the sheet carries none.",
+    "plateFurniture": {
+     "polygon": [
+      [
+       1455,
+       264
+      ],
+      [
+       1503,
+       261
+      ],
+      [
+       1567,
+       303
+      ],
+      [
+       1567,
+       309
+      ],
+      [
+       1478,
+       309
+      ],
+      [
+       1456,
+       273
+      ]
+     ],
+     "below": 303,
+     "note": "The pulpit's reading desk and top are the PLATE's (errata 112 R): his frames draw nothing there but his hands (tools/art/room17-sowerby-desk.py). Each pose of the sheet had drawn its own desk, so the book-rest jumped when he gestured."
+    }
    },
    "clipPlane": 1
   }
