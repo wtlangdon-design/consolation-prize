@@ -8,8 +8,8 @@
   "T_DUEL_CROWD": true
  },
  "note": "FANSHAWE IN THE STREET, waiting, pleased with himself; he calls the duel (Main Street's accost). Doc 57 F4: 'The first time Thad steps onto the street after T_ASSAY_RUN, Fanshawe is waiting with half the town and the judges' table on the boardwalk, Sowerby holding the pencil.' Cut from room-02 operations 1 and 2 by tools/art/room02-duel-cast.py and laid over Room 2's own street. Present for the visit the duel is called on (T_DUEL_CROWD), and gone the next time.",
- "x": 2800,
- "y": 770,
+ "x": 2790,
+ "y": 792,
  "zone": 1,
  "approachRadius": 40,
  "tree": "FANSHAWE",
