@@ -11,5 +11,16 @@
     "R_WON_DUEL",
     "R_DEAD",
     "R_TRUTH"
-  ]
+  ],
+  "setBy": {
+    "R_SWINDLED": "A3",
+    "R_RACCOON": "A5",
+    "R_SURVEYED": "A7",
+    "R_BORDERS_MOTT": "A9",
+    "R_LOST_DUEL": "B5",
+    "R_WON_DUEL": "B6",
+    "R_DEAD": "E5",
+    "R_TRUTH": "F4"
+  },
+  "setByNote": "EXTRACTED from docs/06-technical-spec.md (The propagation engine) by tools/extract-content.mjs: the puzzle whose headline moves the town to each state. Reputation is the furthest state, in this order, whose puzzle is complete (errata 116)."
 }

@@ -1,7 +1,43 @@
 {
  "schema": 1,
  "room": "nugget",
- "note": "THE NUGGET's PROOF SPEC, written for the locomotion audit: how to get there. No principal change declared here; the room's own proof is not this audit's business.",
+ "note": "THE NUGGET's PROOF SPEC. The route is the locomotion audit's. The room's principal change is the swindle's: once it settles (T_SWINDLED, DEKE VESSEL option 6, doc 27 / doc 57 A3), 'he finishes his drink, collects his hat, and leaves the Nugget' -- so Deke is gone from his place at the bar. Who is in a room is decided as Thad arrives, so the panel steps out to the street and back in (errata 117).",
  "route": "nugget",
- "settleMs": 4000
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "T_SWINDLED. Visible consequence: Deke Vessel no longer at the bar (doc 57 A3). Out to Main Street and back in, so the Nugget is arrived at again with the flag set.",
+  "flags": {
+   "T_SWINDLED": true
+  },
+  "actions": [
+   {
+    "do": "click",
+    "on": "front_doors",
+    "why": "out, so the Nugget is arrived at again with the flag set"
+   },
+   {
+    "do": "waitFor",
+    "room": "main_street",
+    "upTo": 60
+   },
+   {
+    "do": "wait",
+    "seconds": 2
+   },
+   {
+    "do": "click",
+    "on": "to_nugget",
+    "why": "and back in: Deke has gone"
+   },
+   {
+    "do": "waitFor",
+    "room": "nugget",
+    "upTo": 60
+   },
+   {
+    "do": "wait",
+    "seconds": 3
+   }
+  ]
+ }
 }

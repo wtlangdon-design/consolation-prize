@@ -8,7 +8,7 @@ import { ambientFrameAt } from '../engine/render/Renderer.ts';
 
 /**
  * A FIGURE THAT KEEPS TIME WITH THE ROOM'S MUSIC (doc 22: "fiddler idles in
- * time with the musical bar grid"; errata 116). Found open when the
+ * time with the musical bar grid"; errata 117). Found open when the
  * townspeople were cast (errata 115): the fiddler bowed at a fixed rate that
  * had nothing to do with the piano he plays beside.
  *

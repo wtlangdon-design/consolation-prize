@@ -76,7 +76,7 @@ export class GameScene extends Phaser.Scene {
   private readonly controlWrites: string[] = [];
   /** Every named mover in the room, the player among them. Issue X4 defect 3. */
   private actors!: RoomActors;
-  /** The room bed's clock this frame and last, for a figure that keeps time with it (errata 116). */
+  /** The room bed's clock this frame and last, for a figure that keeps time with it (errata 117). */
   private musicNow = 0;
   private musicBefore = 0;
   private readonly music = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
@@ -168,6 +168,7 @@ export class GameScene extends Phaser.Scene {
   private ripples: { x: number; y: number; start: number; end: number; tail: number }[] = [];
   /** Scene ms at Room 33's confirmed void: the score's ninety seconds run from here, control away. */
   private tuneStart: number | null = null;
+  private readonly tuneCuesFired = new Set<string>();
   /**
    * THE ACT CARDS AFTER THE OPENING (errata 84 C). ACT is the one fact; when it
    * rises in play, that act's card (content/act-cards.json, from doc 57) is
@@ -599,8 +600,9 @@ export class GameScene extends Phaser.Scene {
       const fired = !going ? this.ambient.checkApproach(this.actor.x, this.actor.y)
         : host && !host.greetsWithBark ? this.ambient.checkApproach(this.actor.x, this.actor.y, host.id)
           : null;
+      if (fired?.cue) this.fireCue(fired.cue);
       if (fired?.exchange) this.showBarkExchange(fired.exchange);
-      else if (fired) this.showBark(fired.npc.name, fired.line, fired.npc.x, this.barkFoot(fired.npc));
+      else if (fired?.line) this.showBark(fired.npc.name, fired.line, fired.npc.x, this.barkFoot(fired.npc));
     }
     // The tree opens when the walk that was started for it finishes.
     if (this.linesOnArrival && !this.actor.isWalking) {
@@ -886,7 +888,7 @@ export class GameScene extends Phaser.Scene {
 
   /**
    * The tempo of the bed this room plays, or null: what a figure that keeps
-   * time with the music reads (errata 116). The room's own entry, or the
+   * time with the music reads (errata 117). The room's own entry, or the
    * variant its flags select, which plays at the entry's tempo unless it says.
    */
   private bedTempo(): number | null {
@@ -1578,8 +1580,12 @@ export class GameScene extends Phaser.Scene {
     } else if (entry === undefined) {
       this.music.play(declared.title ?? null);
     } else {
-      const state = entry.variants?.find((variant) => this.state.flags.test(variant.when));
-      this.music.play(state ?? entry);
+      const state = entry.variants?.find((variant) => this.state.flags.test(variant.when)) ?? entry;
+      // A LAYER THAT IS SOMEBODY'S PLAYING plays while he is here (errata 116).
+      const here = new Set(this.ambient.present.map((each) => each.id));
+      const layers = (state.layers ?? []).filter((layer) => !layer.whenPresent || here.has(layer.whenPresent))
+        .map((layer) => ({ src: layer.src, gain: layer.gain }));
+      this.music.play({ src: state.src, gain: state.gain, layers });
     }
     // INVARIANT 5: -35 cents until Room 33's ninety seconds, 0 after them.
     if (this.tuneStart === null) {
@@ -1624,6 +1630,14 @@ export class GameScene extends Phaser.Scene {
     if (this.tuneStart === null || !listening) return;
     const fraction = tuneAt(listening, now - this.tuneStart);
     this.music.setTune(fraction);
+    // THE ARC'S OWN SOUNDS, each once, on its clock (errata 116).
+    const elapsed = (now - this.tuneStart) / 1000;
+    for (const one of listening.tune.cues ?? []) {
+      if (elapsed >= one.at && !this.tuneCuesFired.has(one.cue)) {
+        this.tuneCuesFired.add(one.cue);
+        this.fireCue(one.cue);
+      }
+    }
     this.markDirty();
     if (fraction >= 1) {
       this.tuneStart = null;
@@ -2612,6 +2626,11 @@ export class GameScene extends Phaser.Scene {
         this.view.hideCast(!on);
         this.dirty = true;
         this.controlWrites.push(`cast(${on})`);
+      },
+      bystanders: (on: boolean) => {
+        this.view.hideBystanders(!on);
+        this.dirty = true;
+        this.controlWrites.push(`bystanders(${on})`);
       },
       stand: (x: number, y: number) => {
         // REFUSED OFF THE FLOOR, and the refusal is the feature. A depth

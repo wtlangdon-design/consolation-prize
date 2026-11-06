@@ -141,12 +141,20 @@ export class Music {
     // faded out and restarted under itself.
     this.fadeOut(new Set(parts.map(({ element }) => element).filter((e): e is HTMLAudioElement => e !== null)));
     const voices: Voice[] = [];
+    // A PART JOINING ONE ALREADY PLAYING JOINS IT IN TIME (errata 116). The
+    // tuned piano replaces the untuned one under the fiddler, who plays on:
+    // started at 0, the new piano would be bars away from his fiddle. A new
+    // part the same length as one carried on starts where that one is.
+    const carried = parts.map(({ element }) => element)
+      .find((e): e is HTMLAudioElement => e !== null && !e.paused);
     for (const { part, element } of parts) {
       if (!element) continue;
       element.loop = true;
       if (element.paused) {
         element.volume = 0;
-        element.currentTime = 0;
+        const sameLength = carried && Number.isFinite(carried.duration) && Number.isFinite(element.duration)
+          && Math.abs(carried.duration - element.duration) < 0.05;
+        element.currentTime = sameLength ? carried.currentTime % element.duration : 0;
       }
       this.applyTune(element);
       const target = part.gain ?? 1;
@@ -183,7 +191,7 @@ export class Music {
   /**
    * Where the playing bed is, in seconds into its file, or null when nothing
    * is sounding (locked, missing, suspended, silent). The clock a figure that
-   * keeps time with the music is drawn by (errata 116).
+   * keeps time with the music is drawn by (errata 117).
    */
   position(): number | null {
     const first = this.playing?.[0]?.element;

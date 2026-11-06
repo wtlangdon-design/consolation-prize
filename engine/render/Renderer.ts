@@ -442,7 +442,7 @@ export class Renderer {
   private readonly idles: IdleLayer;
   /** Seconds since the scene started, supplied by the caller each frame. */
   private clock = 0;
-  /** The room's music, for a figure that keeps time with it (errata 116): its clock and tempo. */
+  /** The room's music, for a figure that keeps time with it (errata 117): its clock and tempo. */
   private musicClock = 0;
   private musicTempo: number | null = null;
 
@@ -510,7 +510,7 @@ export class Renderer {
   }
 
   /**
-   * THE BED'S CLOCK, for a figure that `keepsTime` (errata 116): where the
+   * THE BED'S CLOCK, for a figure that `keepsTime` (errata 117): where the
    * room's music is, in seconds, and its tempo. Null tempo: the room's bed
    * declares none, and such a figure moves on the scene clock like anyone.
    */
@@ -561,10 +561,23 @@ export class Renderer {
    * generations went by before anybody asked; this is the frame that asks.
    */
   private castHidden = false;
+  private bystandersHidden = false;
 
   /** Suppresses every mover and ambient figure for the next frames drawn. */
   hideCast(hidden: boolean): void {
     this.castHidden = hidden;
+  }
+
+  /**
+   * Draw the room without its BYSTANDERS -- the ambient figures, standing or
+   * walking -- and with everyone else. Render-only, as `hideCast` is. The
+   * proof's depth gates measure the protagonist by differencing a frame with
+   * him against one without; a townsman standing in front of the mark is in
+   * both and over his feet, and the Nugget's far row lies wholly behind Deke
+   * (errata 117).
+   */
+  hideBystanders(hidden: boolean): void {
+    this.bystandersHidden = hidden;
   }
   private readonly shownOverlays = new Map<string, string>();
   private speaker: string | null = null;
@@ -1190,6 +1203,7 @@ export class Renderer {
     for (const figure of depthOrder(roomFigures(this.ambient.present.filter((npc) => !npc.loop),
       this.actors.all(), props, this.ambient.departing))) {
       if (playerHidden && figure.mover?.id === this.state.content.actor.id) continue;
+      if (this.bystandersHidden && (figure.npc || figure.walker)) continue;
       if (figure.walker) {
         this.drawWalker(figure.walker);
         continue;

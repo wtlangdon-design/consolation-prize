@@ -3,7 +3,7 @@
  "id": "fiddler",
  "name": "THE FIDDLER",
  "posture": "standing",
- "note": "Doc 07 #11. 'The Nugget. Tuned to the flat piano, therefore flat. Corrects first in Act IV.' He stands by the piano with his fiddle. HIS BARKS ARE ALL PLAYING (doc 07: 'mostly just playing'): none is a spoken line, so his file has none, and what doc 07 writes for R_BORDERS_MOTT, R_DEAD and R_TRUTH -- something faster, the passing tune, the A tuned in F2 -- is music, not yet made (errata 110). Doc 22: he idles in time with the bar grid.",
+ "note": "Doc 07 #11. 'The Nugget. Tuned to the flat piano, therefore flat. Corrects first in Act IV.' He stands by the piano with his fiddle. HIS BARKS ARE ALL PLAYING (doc 07: 'mostly just playing'): none is a spoken line, so his file has none, and what doc 07 writes for R_BORDERS_MOTT, R_DEAD and R_TRUTH is music: his `barkCues` and Room 33's R33-FIDDLER (errata 116). While he is in the room the Nugget's music carries his fiddle (manifest, `whenPresent`). Doc 22: he idles in time with the bar grid.",
  "room": "nugget",
  "x": 600,
  "y": 600,
@@ -16,7 +16,7 @@
   "facing": "left"
  },
  "barks": {},
- "barksNote": "Doc 07 §11 writes him three barks and all three are directions -- playing -- not words; none is a bark a balloon can carry (errata 110).",
+ "barksNote": "Doc 07 §11 writes him three barks and all three are playing, not words, so he has no balloon. Two are `barkCues`, played on approach as a bark is: R_BORDERS_MOTT, 'something faster'; R_DEAD, 'the passing tune'. The third, R_TRUTH, happens in F2 wherever Thad is, and is Room 33's (R33-FIDDLER on the tuning arc's clock). Errata 116.",
  "sprite": {
   "sheet": "art/actors/fiddler.png",
   "frames": [
@@ -79,9 +79,13 @@
   ],
   "breakEvery": 18.947,
   "talkFrame": 4,
-  "frameNote": "HE KEEPS TIME WITH THE PIANO (doc 22: the fiddler idles in time with the musical bar grid; errata 116): `keepsTime` reads the Nugget bed's own position at its tempo, 152, so 0, the bow out at the start of the stroke, and 1, drawn across to its end, alternate once a beat, and a break comes every twelve bars (18.95 s), on a bar line. 2 mid-stroke, for a busier passage in the second break; 3 TUNE, the fiddle at his chest, a peg turned -- the first break; 4 TALK, fiddle and bow lowered.",
+  "frameNote": "HE KEEPS TIME WITH THE PIANO (doc 22: the fiddler idles in time with the musical bar grid; errata 117): `keepsTime` reads the Nugget bed's own position at its tempo, 152, so 0, the bow out at the start of the stroke, and 1, drawn across to its end, alternate once a beat, and a break comes every twelve bars (18.95 s), on a bar line. 2 mid-stroke, for a busier passage in the second break; 3 TUNE, the fiddle at his chest, a peg turned -- the first break; 4 TALK, fiddle and bow lowered.",
   "provenance": "art/staging/townspeople-110/fiddler/sheet-03.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 115)",
   "figureHeightNote": "Crown to sole (errata 112 L), the brim read by eye from the rest frame's row widths: tools/art/figure-height.py --hat took the fiddle at his chin for the brim (errata 115).",
   "keepsTime": "music"
+ },
+ "barkCues": {
+  "R_BORDERS_MOTT": "FID-FASTER",
+  "R_DEAD": "FID-PASSING"
  }
 }

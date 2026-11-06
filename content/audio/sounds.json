@@ -298,6 +298,50 @@
     "attack": 0.08,
     "release": 2.5
    }
+  },
+  "FID-FASTER": {
+   "why": "Doc 07 #11, the fiddler's R_BORDERS_MOTT bark: \"He plays something faster. Still flat.\" CONSOLATION's tune, once through, at half again the speed (errata 116).",
+   "play": [
+    {
+     "src": "audio/sfx/fiddler-faster.wav",
+     "gain": 0.5,
+     "at": 0.12
+    }
+   ],
+   "duck": {
+    "to": 0.3,
+    "seconds": 8.8,
+    "attack": 0.08,
+    "release": 2.0
+   },
+   "room": "nugget"
+  },
+  "FID-PASSING": {
+   "why": "Doc 07 #11, the fiddler's R_DEAD bark: \"He plays the passing tune. Correctly. Flat.\" The funeral's arrangement, slow and a half step down to the bell, its first half (errata 116).",
+   "play": [
+    {
+     "src": "audio/sfx/fiddler-passing.wav",
+     "gain": 0.26,
+     "at": 0.12
+    }
+   ],
+   "duck": {
+    "to": 0.2,
+    "seconds": 12.8,
+    "attack": 0.08,
+    "release": 2.5
+   },
+   "room": "nugget"
+  },
+  "R33-FIDDLER": {
+   "why": "Doc 07 #11 R_TRUTH: \"In F2, twenty seconds into the tuning arc, he stops mid-phrase, tunes his A, and continues. He is the only character in Consolation who notices anything, and it is never remarked upon.\" Doc 06: \"The fiddler in the Nugget corrects first, about twenty seconds in.\" Far off, under the score, off the music bus so it is in tune while the score is not (errata 116).",
+   "play": [
+    {
+     "src": "audio/sfx/fiddler-retunes.wav",
+     "gain": 0.092
+    }
+   ],
+   "room": "listening_chamber"
   }
  },
  "verbs": [
@@ -621,7 +665,10 @@
    "R02-BELL": 2,
    "LIV-HUM": 4,
    "B3-WHISTLE": 6,
-   "A-TUNING": 6
+   "A-TUNING": 6,
+   "FID-FASTER": 4,
+   "FID-PASSING": 4,
+   "R33-FIDDLER": -8
   },
   "ambience": {
    "nugget": -20
@@ -632,7 +679,9 @@
    "R02-BELL",
    "LIV-HUM",
    "B3-WHISTLE",
-   "A-TUNING"
+   "A-TUNING",
+   "FID-FASTER",
+   "FID-PASSING"
   ]
  },
  "roomGain": {
