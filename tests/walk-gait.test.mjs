@@ -48,6 +48,11 @@ import { readPng } from '../tools/lib/png.mjs';
  *    closed door?"). An exit that ends inside the picture ends at a way out:
  *    it declares the `door` that opens for him, or the opening the plate
  *    already shows (`throughOpening`, Deke's batwing doors).
+ *  - STUTTER STEPPING. A crowd is composed from men drawn alone; the miners'
+ *    eight frames a man were one wide stride drawn eight times (spread 64-92
+ *    against Thad's back walk 18-47), so their legs jittered (Tyler: "still
+ *    stutter stepping"). A crowd loop names each man's own cycle (`men`), and
+ *    each must pass the feet as a walk does.
  *  - THE FEET NEVER CAME TOGETHER. Hob's second drawing held a wide stride in
  *    five frames of six (Tyler: "kind of scooting across air"). In each half
  *    of a cycle the feet pass: their spread at its narrowest is under 60% of
@@ -211,6 +216,18 @@ for (const { id, kind, npc, walk } of walks) {
       assert.ok(walk.pace, `${id}'s ${kind} climbs a road from ${Math.max(...walk.heights)} px to ${Math.min(...walk.heights)} px tall at a fixed speed: give it a pace`);
     }
   });
+  if (npc.posture === 'walking') {
+    test(`${id}'s ${kind}: every man in the crowd walks a real cycle`, () => {
+      assert.ok(Array.isArray(walk.men) && walk.men.length > 0, `${id}'s ${kind} is a crowd and names no man's own cycle (\`men\`): nothing shows his feet pass`);
+      for (const dir of walk.men) {
+        const frames = readdirSync(resolve(ROOT, dir)).filter((f) => f.endsWith('.png')).sort().map((f) => file(`${dir}/${f}`));
+        const spreads = frames.map(footSpread);
+        const widest = Math.max(...spreads);
+        assert.ok(frames.length >= 6, `${dir} is ${frames.length} frames`);
+        assert.ok(Math.min(...spreads) < PASSING * widest, `${dir}: the feet never come together (narrowest ${Math.min(...spreads)} of ${widest}): a stride held, so he stutters`);
+      }
+    });
+  }
   if (npc.posture !== 'walking') {
     test(`${id}'s ${kind} walk is a cycle of six different poses`, () => {
       const png = readPng(readFileSync(resolve(ROOT, walk.sheet)));

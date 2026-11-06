@@ -260,28 +260,51 @@ MAN_H = old_h - 6
 # a little to the right, the way the road climbs (cast-unify 51, 52); the men coming back from the front,
 # turned a little to the left, the way it comes down (53, 54; 53's two men were drawn turned right and
 # are mirrored). Eight frames each, posed on Thad's own back and front walks.
-CROWDS = {
-    'away': (['miners-away-a.png', 'miners-away-b.png'], False, +1),
-    'toward': (['miners-toward-a.png', 'miners-toward-b.png'], True, -1),
-}
+# STUTTER (Tyler, 2026-11-06: "The miners are still stutter stepping"): the generator's eight frames per
+# man (cast-unify 51-54) were one wide stride drawn eight times with small differences -- the feet never
+# came together, so the legs jittered. Each man is now drawn once, standing, from behind and from the
+# front (55, 56), and his walk is made by the same rig and the same arguments as Thad's own back and
+# front walks (tools/rig/character.py --view headon --pose striding, as art/actors/thad-walk-back/rig.json
+# records): the feet pass twice a cycle, as Thad's do. Rigged frames in art/staging/walk-c/rig-miners/.
+RIG = os.path.join(STAGE, 'rig-miners')
+CROWDS = {'away': ('back', +1), 'toward': ('front', -1)}
+
+
+def rigged(view_dir, i):
+    d = os.path.join(RIG, f'{view_dir}-{i}')
+    fs = sorted(f for f in os.listdir(d) if f.endswith('.png'))
+    figs = [Image.open(os.path.join(d, f)).convert('RGBA') for f in fs]
+    # one scale for the cycle: the tallest frame at MAN_H; each frame cropped to the cycle's shared box
+    box = [min(f.getbbox()[0] for f in figs), min(f.getbbox()[1] for f in figs),
+           max(f.getbbox()[2] for f in figs), max(f.getbbox()[3] for f in figs)]
+    k = MAN_H / (box[3] - box[1])
+    out = []
+    for f in figs:
+        c = f.crop(box).crop(f.crop(box).getbbox())
+        c = c.resize((max(1, round(c.width * k)), max(1, round(c.height * k))), Image.LANCZOS)
+        a = np.asarray(c).copy(); a[..., 3] = np.where(a[..., 3] >= 128, 255, 0)
+        # The rig's edges keep a few pixels of the magenta it was cut from; they go (check-key-colour).
+        r, g, b = a[..., 0].astype(int), a[..., 1].astype(int), a[..., 2].astype(int)
+        a[..., 3] = np.where((r > 140) & (b > 140) & (g < 120) & (b > g + 50), 0, a[..., 3])
+        # And the generator drew the dark outlines faintly magenta ((8,0,8)): made neutral, keeping their
+        # darkness, so they are not read as key trapped inside the figure (tools/check-residual-key.mjs).
+        dark = (r < 48) & (np.abs(r - b) <= 3) & (r - g >= 4)
+        a[..., 1] = np.where(dark, np.maximum(g, np.minimum(r, b)), a[..., 1])
+        out.append(Image.fromarray(a))
+    return out
+
+
 # NOT IN STEP: each man holds a pose two frames and changes on his own beat (BEAT) from his own point in
 # the cycle (PHASE), and differs a little in size (SCALE). Along the road the men walk one behind another:
 # the one ahead is further up the road going out (higher, a little smaller) and nearer the camera coming
 # back (lower, a little larger) -- AHEAD, in man heights, and RISE.
-PHASE = [0, 3, 6, 1]
+PHASE = [0, 3, 6, 1]   # rigged frames: 8 a cycle
 BEAT = [0, 1, 1, 0]
 SCALE = [1.0, 1.04, 0.96, 1.02]
 AHEAD = [0, 0.46, 0.40, 0.48]   # wide enough that no man's tool crosses the face of the man beside him
 RISE = 0.07
-for view, (sheets, mirror_first, heading) in CROWDS.items():
-    men = []
-    for i, name in enumerate(sheets):
-        for path in rows_of(os.path.join(STAGE, name)):
-            frames8 = cut(path, MAN_H, 8)
-            if mirror_first and i == 0:
-                frames8 = [f.transpose(Image.FLIP_LEFT_RIGHT) for f in frames8]
-            men.append(frames8)
-    assert len(men) == 4, len(men)
+for view, (view_dir, heading) in CROWDS.items():
+    men = [rigged(view_dir, i) for i in range(4)]
     men = [[f.resize((max(1, round(f.width * k)), max(1, round(f.height * k))), Image.NEAREST) for f in c] for c, k in zip(men, SCALE)]
     mw = max(f.width for c in men for f in c)
     steps = np.cumsum([g * MAN_H for g in AHEAD])

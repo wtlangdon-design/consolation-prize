@@ -52,103 +52,103 @@
    [
     2,
     2,
-    456,
+    429,
     324
    ],
    [
-    460,
+    433,
     2,
-    456,
+    429,
     324
    ],
    [
-    918,
+    864,
     2,
-    456,
+    429,
     324
    ],
    [
-    1376,
+    1295,
     2,
-    456,
+    429,
     324
    ],
    [
-    1834,
+    1726,
     2,
-    456,
+    429,
     324
    ],
    [
-    2292,
+    2157,
     2,
-    456,
+    429,
     324
    ],
    [
-    2750,
+    2588,
     2,
-    456,
+    429,
     324
    ],
    [
-    3208,
+    3019,
     2,
-    456,
+    429,
     324
    ],
    [
-    3666,
+    3450,
     2,
-    456,
+    429,
     324
    ],
    [
-    4124,
+    3881,
     2,
-    456,
+    429,
     324
    ],
    [
-    4582,
+    4312,
     2,
-    456,
+    429,
     324
    ],
    [
-    5040,
+    4743,
     2,
-    456,
+    429,
     324
    ],
    [
-    5498,
+    5174,
     2,
-    456,
+    429,
     324
    ],
    [
-    5956,
+    5605,
     2,
-    456,
+    429,
     324
    ],
    [
-    6414,
+    6036,
     2,
-    456,
+    429,
     324
    ],
    [
-    6872,
+    6467,
     2,
-    456,
+    429,
     324
    ]
   ],
   "fps": 21,
   "drawnFacing": "right",
-  "figureHeight": 295,
+  "figureHeight": 292,
   "heights": [
    440,
    360,
@@ -167,6 +167,13 @@
   "laneNote": "LANES (Tyler, 2026-11-06: \"they weirdly split down the hill and up the hill from the same point\"): the two crowds walked one line, so where they met they merged and parted like one crowd splitting. The men going out keep the left of the road, the men coming back the right, each lane a share of the man's height to the side of the road's old line (0.08 and 0.42), so they pass each other.",
   "view": "away",
   "cadenceNote": "SEEN FROM BEHIND AND FROM THE FRONT, THE LEGS KEEP TIME, NOT DISTANCE (Tyler, 2026-11-06: \"The miners glide. They don't walk.\"). Counted by the ground covered on the screen, a man walking into the picture covers little of it, so his legs barely moved while he slid up the road. So this walk runs on the clock at a walking cadence: 1.3 strides a second (Thad's is 1.38), sixteen frames a stride, 21 frames a second.",
-  "timingNote": "ONE CROWD ON THE ROAD AT A TIME (Tyler, 2026-11-06: \"the ones coming up and the ones going down pass directly through each other like ghosts\"). Each crowd is nearly as wide as the road, so lanes could not keep them apart. Both loops are 64 seconds: the men go out from 0 to about 29 s and come back from 31 to 59 s."
+  "timingNote": "ONE CROWD ON THE ROAD AT A TIME (Tyler, 2026-11-06: \"the ones coming up and the ones going down pass directly through each other like ghosts\"). Each crowd is nearly as wide as the road, so lanes could not keep them apart. Both loops are 64 seconds: the men go out from 0 to about 29 s and come back from 31 to 59 s.",
+  "men": [
+   "art/staging/walk-c/rig-miners/back-0",
+   "art/staging/walk-c/rig-miners/back-1",
+   "art/staging/walk-c/rig-miners/back-2",
+   "art/staging/walk-c/rig-miners/back-3"
+  ],
+  "menNote": "Tyler, 2026-11-06: \"The miners are still stutter stepping.\" The generator's eight frames per man were one wide stride drawn eight times. Each man is now drawn standing (cast-unify 55, 56) and walked by the rig with Thad's own back/front walk arguments; these are his frames, which tests/walk-gait.test.mjs checks pass the feet."
  }
 }
