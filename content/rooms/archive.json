@@ -460,7 +460,7 @@
               "From the top rung you can touch the ceiling and the oldest box in the district at once."
             ],
             "then": [
-              "The wheels are rusted at 1858 and shine at the present."
+              "The wheels are rusted at 1846 and shine at the present."
             ]
           }
         ],
@@ -475,7 +475,7 @@
         ]
       },
       "overrides": {
-        "PUSH": "It rolls to 1858 and stops of its own accord, like a horse that knows the route."
+        "PUSH": "It rolls to 1846 and stops of its own accord, like a horse that knows the route."
       },
       "walkTo": {
         "x": 805,

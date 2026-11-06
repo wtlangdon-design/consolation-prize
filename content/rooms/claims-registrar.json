@@ -210,13 +210,10 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "Running eleven minutes fast.",
+            "say": "Running eleven minutes fast. I know because the church bell disagrees with it, and the church bell is half a step flat.",
             "repeat": [
               "Ticking. Fast.",
               "Ticking. I've stopped hearing it. It took four days."
-            ],
-            "then": [
-              "I know because my watch agrees with it, and I don't trust my watch either."
             ]
           }
         ]

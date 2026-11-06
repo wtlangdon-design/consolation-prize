@@ -50,7 +50,7 @@
 **LISTEN** 2 "C-sharp. Still flat. It's like a stone in my shoe, if my shoe were across the room." · 3 "I could put it right in four minutes. I've started thinking about it at mealtimes."
 
 ## THE CHANDELIER
-**LOOK** 2 "Brass, crystal, and a dirt floor. Somebody made a decision about priorities. I'd like to shake his hand, and then check my pockets." · 3 "It isn't lit. It's never been lit while I've been in here. I think they're saving it for something."
+**LOOK** 2 "Brass, crystal, and a dirt floor. Somebody made a decision about priorities. I'd like to shake his hand, and then check my pockets." · 3 "They light it after I've gone, apparently. It's always cooling when I come in."
 **LISTEN** 2 "Ticking, cooling, hanging over mud." · 3 "Nothing. All that money, and it has nothing to say for itself."
 
 ## THE BAR
@@ -58,7 +58,7 @@
 **LISTEN** 2 "Glasses. Talk. The bear is now eleven feet tall and has a grievance." · 3 "Somebody's being served ahead of somebody else, and it's being noticed."
 
 ## THE MIRROR
-**LOOK** 2 "Still me. I'd hoped for some improvement. The coat is doing its best." · 3 "Eleven weeks, and I'm starting to look like I belong here. That was never the plan."
+**LOOK** 2 "Still me. I'd hoped for some improvement. The coat is doing its best." · 3 "Give it a few weeks and I'll look like I belong here. That was never the plan."
 **LISTEN** 2 "Still quiet. I keep expecting it to say something about the coat." · 3 "Nothing. I keep checking. It keeps not."
 
 ---
