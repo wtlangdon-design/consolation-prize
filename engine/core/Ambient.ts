@@ -178,8 +178,23 @@ export class AmbientLayer {
       }
     }
     this.seen = present;
-    this.departures = this.departures.filter((one) => !departureAt(one.exit, now - one.startedAt).done);
+    // A walker who went out by a door stays on the list, not drawn, until it has shut behind him.
+    this.departures = this.departures.filter((one) => !departureAt(one.exit, now - one.startedAt).done
+      || (one.exit.door !== undefined && now - one.startedAt < walkDuration(one.exit) + one.exit.door.linger));
     return this.departures.length > 0 || this.arrivals.length > 0 || this.present.some((npc) => npc.loop);
+  }
+
+  /** The doors standing open this frame: one a walker is going out by, or has just gone through. */
+  get openDoors(): NonNullable<AmbientExit['door']>[] {
+    const out: NonNullable<AmbientExit['door']>[] = [];
+    for (const { npc, exit, startedAt } of this.departures) {
+      const door = exit.door;
+      if (!door) continue;
+      const pose = departureAt(exit, this.clock - startedAt, this.manAt(npc));
+      const [ex, ey] = exit.path[exit.path.length - 1]!;
+      if (pose.done || Math.hypot(pose.x - ex, pose.y - ey) <= door.within) out.push(door);
+    }
+    return out;
   }
 
   /** A man's drawn height at a floor point, for this figure (his stature): what a stride is measured against. */
@@ -192,7 +207,7 @@ export class AmbientLayer {
   get departing(): Departing[] {
     const out: Departing[] = [...this.departures, ...this.arrivals].map(({ npc, exit, startedAt }) => ({
       npc, exit, pose: departureAt(exit, this.clock - startedAt, this.manAt(npc)),
-    }));
+    })).filter((one) => !one.pose.done);
     for (const npc of this.present) {
       const pose = loopPose(npc, this.clock, this.manAt(npc));
       if (pose && npc.loop) out.push({ npc, exit: npc.loop, pose });

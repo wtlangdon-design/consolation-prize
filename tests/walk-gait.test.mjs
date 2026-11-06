@@ -5,6 +5,7 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 import { departureAt } from '../engine/core/Departure.ts';
+import { loopPose } from '../engine/core/Ambient.ts';
 import { WalkBoxes, heightIn } from '../engine/core/WalkBoxes.ts';
 import { readPng } from '../tools/lib/png.mjs';
 
@@ -35,6 +36,18 @@ import { readPng } from '../tools/lib/png.mjs';
  *    heights: a profile walk stays under 0.1 (the flat walks measure 0 to
  *    0.04; the claims road 0.2). Over that, the walk is drawn `away` (he
  *    shrinks along it) or `toward` (he grows).
+ *  - GLIDING, AND GHOSTS. Seen from behind or the front, the miners' legs counted
+ *    the ground covered on the screen, which a man walking into the picture
+ *    barely covers, so they slid up the road (Tyler: "The miners glide. They
+ *    don't walk."). A walk drawn `away` or `toward` keeps time instead: 1.0-1.7
+ *    strides a second (Thad 1.38). And two crowds on one road walked through
+ *    each other ("like ghosts"): two loops in one room are never on screen at
+ *    the same moment.
+ *  - THROUGH A SHUT DOOR. Pratt walked to the registrar's shut street door and
+ *    vanished in front of it (Tyler: "Does Pratt just disappear through a
+ *    closed door?"). An exit that ends inside the picture ends at a way out:
+ *    it declares the `door` that opens for him, or the opening the plate
+ *    already shows (`throughOpening`, Deke's batwing doors).
  *  - THE FEET NEVER CAME TOGETHER. Hob's second drawing held a wide stride in
  *    five frames of six (Tyler: "kind of scooting across air"). In each half
  *    of a cycle the feet pass: their spread at its narrowest is under 60% of
@@ -143,12 +156,32 @@ const file = (p) => { const png = readPng(readFileSync(resolve(ROOT, p))); retur
 
 for (const { id, kind, npc, walk } of walks) {
   if (npc.posture === 'animal') continue;
-  test(`${id}'s ${kind} walk advances with the ground he covers`, () => {
+  if (walk.view === 'away' || walk.view === 'toward') {
+    test(`${id}'s ${kind} walk, seen ${walk.view === 'away' ? 'from behind' : 'from the front'}, keeps a walking time`, () => {
+      assert.equal(walk.strideRatio, undefined, `${id}'s ${kind} counts strides by screen distance, which a walk into the picture barely covers: he glides`);
+      const strides = walk.fps / walk.frames.length;
+      assert.ok(strides >= 1.0 && strides <= 1.7, `${id}'s ${kind} takes ${strides.toFixed(2)} strides a second`);
+    });
+  } else test(`${id}'s ${kind} walk advances with the ground he covers`, () => {
     assert.ok(typeof walk.strideRatio === 'number',
       `${id}'s ${kind} declares no strideRatio, so his legs run at ${walk.fps} frames a second whatever his speed`);
     assert.ok(walk.strideRatio >= STRIDE[0] && walk.strideRatio <= STRIDE[1],
       `${id}'s ${kind} strideRatio ${walk.strideRatio} is outside a walking man's ${STRIDE.join('-')} of his height`);
   });
+  if (kind === 'exit') {
+    test(`${id}'s exit ends where he can leave`, () => {
+      const room = rooms.get(npc.room);
+      const [w, h] = room.size ?? [1920, 864];
+      const [x, y] = walk.path[walk.path.length - 1];
+      if (x < 0 || x > w || y < 0 || y > h) return;   // off the edge of the picture
+      assert.ok(walk.door || walk.throughOpening, `${id}'s exit ends inside the picture at ${x},${y} with no door to open and no opening: he vanishes there`);
+      if (walk.door) {
+        const [dx, dy] = [walk.door.x, walk.door.y];
+        const [, , dw, dh] = walk.door.frame;
+        assert.ok(x >= dx && x <= dx + dw && y >= dy && y <= dy + dh + 60, `${id}'s exit ends at ${x},${y}, not in the doorway (${dx},${dy} ${dw}x${dh})`);
+      }
+    });
+  }
   test(`${id}'s ${kind} walk faces the way it goes`, () => {
     const room = rooms.get(npc.room);
     const boxes = new WalkBoxes(room.walkBoxes, () => true);
@@ -210,6 +243,17 @@ test('with a stride, the cycle is the ground covered, not the time taken', () =>
   // Without a stride (an animal), the clock: 0.9 s at 6 fps.
   assert.equal(departureAt({ ...walk, strideRatio: undefined }, 0.9, man).frame, 5);
 });
+
+for (const room of new Set(walks.filter((w) => w.kind === 'loop').map((w) => w.npc.room))) {
+  const loops = walks.filter((w) => w.kind === 'loop' && w.npc.room === room);
+  if (loops.length < 2) continue;
+  test(`${room}: its walking crowds are never on screen together`, () => {
+    for (let t = 0; t < 600; t += 0.25) {
+      const on = loops.filter((w) => loopPose(w.npc, t, (x, y, d) => d ?? 300));
+      assert.ok(on.length < 2, `at ${t}s ${on.map((w) => w.id).join(' and ')} are both on the road: they walk through each other`);
+    }
+  });
+}
 
 test('every walking person was found', () => {
   const people = walks.filter((w) => w.npc.posture !== 'animal').map((w) => w.id);

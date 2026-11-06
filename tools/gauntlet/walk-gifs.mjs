@@ -203,7 +203,7 @@ const scenes = {
     await pump(page, (s) => s.room === 'claims_road', 60_000, 'reach the claims road');
     await page.waitForTimeout(1500);
     await pump(page, (s) => idle(s) && !s.movers?.thad?.moving, 30_000, 'arrival');
-    const rec = await record(page, dir, async () => { await page.waitForTimeout(45_000); });
+    const rec = await record(page, dir, async () => { await page.waitForTimeout(66_000); });   // one full 64 s cycle of the two crowds
     return { ...rec, track: 'path', walkers: ['miners_out', 'miners_back'], loop: true };
   },
   'raccoon-leaves': departure('r23-a', 'prosperity', null, { T_WARM_HOLE: true }, 11, 'raccoon'),

@@ -2654,6 +2654,14 @@ export interface AmbientExit {
   view?: 'profile' | 'away' | 'toward';
   /** A walk that leaves the room's depth curve: a man's drawn height at each point of `path`. */
   heights?: number[];
+  /**
+   * THE DOOR HE GOES OUT BY, drawn open while he goes through it (Tyler, 2026-11-06: "Does Pratt just
+   * disappear through a closed door?"; he chose "Door opens for him"). `sheet` and `frame` are the open
+   * doorway, drawn over the plate at `x`,`y` (its top-left, room pixels) as room geometry, before the
+   * people. It opens when he is `within` pixels of the path's end, and shuts `linger` seconds after he
+   * is through.
+   */
+  door?: { sheet: string; frame: [number, number, number, number]; x: number; y: number; within: number; linger: number };
   /** Which way the sheet draws him walking; the other way is mirrored. */
   drawnFacing: 'left' | 'right';
   /** The sheet's figure height, so he is drawn on the room's curve. */

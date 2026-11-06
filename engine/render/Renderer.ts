@@ -684,6 +684,13 @@ export class Renderer {
     this.screen.context.translate(-camera, 0);
     this.drawRoom();
     this.drawObjectStates();
+    // A door a walker is going out by stands open: room geometry, so with the plate, before the people.
+    for (const door of this.ambient.openDoors) {
+      const image = this.sheet(door.sheet);
+      if (!image) continue;
+      const [sx, sy, w, h] = door.frame;
+      this.screen.context.drawImage(image, sx, sy, w, h, door.x, door.y, w, h);
+    }
     // AFTER THE PLATE, BEFORE THE PEOPLE. A lamp lights the room it hangs in;
     // the figures are lit by match-local at cut time, which is a different
     // job done once rather than every frame.

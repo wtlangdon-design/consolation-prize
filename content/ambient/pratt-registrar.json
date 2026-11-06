@@ -90,8 +90,8 @@
     845
    ],
    [
-    40,
-    820
+    96,
+    792
    ]
   ],
   "speed": 258,
@@ -140,6 +140,20 @@
   "note": "Doc 57 D6: attested, he goes -- in front of the queue rope, not through it, and out by the street door at the left.",
   "strideRatio": 0.646,
   "walkNote": "WALK-C: six frames posed on Thad's walk, the leaner Pratt (cast-unify 50; Tyler, 2026-11-06: \"Pratt's gait is kind of awkward because his knee goes so high\" -- briefed with low knees), cut by tools/art/walk-c.py; figureHeight crown to sole on the passing frame, as his standing frames are measured. strideRatio MEASURED FROM THESE FRAMES (R5f), calibrated on Thad's walk.",
-  "speedNote": "Tyler, 2026-11-06: \"His gait is way better though but maybe still weirdly slow.\" Now 0.7 of his height a second (Thad walks 0.81), 258 px/s at his 0.96 stature. Was half his height a second, Deke's pace. Before that 80 px/s: \"Pratt walks so slow it's hard to even figure out if his walk could be good.\""
+  "speedNote": "Tyler, 2026-11-06: \"His gait is way better though but maybe still weirdly slow.\" Now 0.7 of his height a second (Thad walks 0.81), 258 px/s at his 0.96 stature. Was half his height a second, Deke's pace. Before that 80 px/s: \"Pratt walks so slow it's hard to even figure out if his walk could be good.\"",
+  "door": {
+   "sheet": "art/props/room-07-street-door-open.png",
+   "frame": [
+    0,
+    0,
+    130,
+    736
+   ],
+   "x": 32,
+   "y": 65,
+   "within": 320,
+   "linger": 0.8
+  },
+  "doorNote": "Tyler, 2026-11-06: \"Does Pratt just disappear through a closed door?\" -- he walked to the shut street door and vanished in front of it. Asked, Tyler chose \"Door opens for him\": the door stands open while he crosses the last 320 px to it and goes through, and shuts 0.8 s after. The open doorway (room-07 attempt 5, the plate's left end redrawn with the door open) is fitted into the plate's door frame in perspective by tools/art/room07-door.py. His path now ends in the doorway (96,792), not in front of the shut door (40,820)."
  }
 }
