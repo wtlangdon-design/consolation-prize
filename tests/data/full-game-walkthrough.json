@@ -75,6 +75,35 @@
    }
   },
   {
+   "id": "A1.hob.1",
+   "puzzle": "A1",
+   "do": "go",
+   "room": "back_alley",
+   "expect": {
+    "present": [
+     "hob"
+    ],
+    "act": 1
+   }
+  },
+  {
+   "id": "A1.hob.2",
+   "puzzle": "A1",
+   "do": "talk",
+   "npc": "hob",
+   "choose": [
+    "hob3",
+    "hob6"
+   ],
+   "leave": true,
+   "expect": {
+    "flags": {
+     "ASSAY_PAIR_21": true
+    },
+    "dialogue": null
+   }
+  },
+  {
    "id": "A1.1",
    "puzzle": "A1",
    "do": "go",
@@ -1575,9 +1604,11 @@
    "expect": {
     "flags": {
      "T_HOB_IS_MOTT": true,
-     "T_NO_GOLD_EVER": true
+     "T_NO_GOLD_EVER": true,
+     "T_ACT_IV_OPENING": false
     },
-    "act": 4
+    "act": 4,
+    "room": "thads_room"
    }
   },
   {

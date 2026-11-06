@@ -2736,3 +2736,13 @@ What Tyler still decides: acceptance of the art (errata 72 E, at the full playth
 **D · Stage directions are shown (doc 58).** The other half of the same ruling: the italic directions in conversation replies, which the extractor had been dropping, are now performed on screen in parentheses in the beat's quieter ink. Builder notes stay hidden.
 
 **E · Tyler's ruling on the sample (2026-11-05), after playing Room 3:** "The dialogue in Room 3 is so much better… way better." The direction is approved and the pass goes on to the other rooms under doc 59. His one miss was Vessel's "Producing, mind.", which he did not understand. It is rewritten to read on one pass, and the joke underneath it (the claim produces mud) is kept. Doc 59 rule 8 is the reason: period slang that hides the joke fails the one-read test.
+
+---
+
+# 101 · HOB ON HIS ROUNDS IN ACTS I–II, AND HOW ACT IV OPENS — DECIDED (Tyler delegated, 2026-11-05)
+
+*Tyler, 2026-11-05: "You decide on both of the open questions." The full-game playthrough (tests/full-game.test.ts) found both.*
+
+**A · Hob is on his rounds from the first night.** Doc 04 calls HOB_A1 "the whole game": the player who asks him about Mott in Act I gets a four-second pause and forgets it for fifteen hours. Nothing reached HOB_A1 — Hob was placed only from Act III — so that pause could never happen. From the start of the game through Act II he stands on his rounds in the back alley (Room 20), at the spot and in the approved drawing his Act III rounds already use (doc 07: "on his rounds at night (Main Street, the back alley)"; no image operation), and his conversation there opens on HOB_A1. From Act III the existing placements govern unchanged. Doc 04's "Running" lines (every fourth night) need a count of nights the game does not keep, and stay unwired.
+
+**B · Act IV opens in Thad's room.** Doc 57 gives the line and the setting but not the cut. When Act IV begins, after the PART FOUR card, the game cuts to Room 19 and Thad says doc 57's line once, unprompted ("Packed. It took four minutes…"). The packed case on the bed and the morning light are Room 19's Act IV state and wait for the next session with an image budget; until then the room shows as it is, and the line carries the morning.
