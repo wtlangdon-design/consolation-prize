@@ -1,19 +1,80 @@
 {
-  "note": "Which doc 07 bark table goes into which content/ambient file (errata 109). Read by tools/extract-content.mjs and tests/town-barks.test.ts. A single-voice table in doc 07 must be in `extract` or in `notPlaced`: a townsperson written barks and given none is how the hotel clerk went silent.",
+  "note": "Which doc 07 townsperson goes into which content/ambient file and tree (errata 109, 110). Read by tools/extract-content.mjs and tests/town-barks.test.ts. A single-voice bark table in doc 07 must be in `extract` or in `notPlaced`: a townsperson written barks and given none is how the hotel clerk went silent. `exchanges` are bark tables written in two voices; `trees` are the micro-trees extracted from doc 07 (the earlier five were typed in by hand and are not re-derived here).",
   "extract": {
     "1 · THE LETTER-WRITER": "letter-writer",
     "6 · THE PIE WOMAN": "pie-woman",
     "8 · THE HOTEL CLERK": "hotel-clerk",
     "13 · THE ONE-STRIKE MAN": "one-strike-man",
     "16 · THE MAP SELLER": "map-seller",
-    "17 · THE CARD SHARP": "card-sharp"
+    "17 · THE CARD SHARP": "card-sharp",
+    "5 · THE MESSAGE BOY": "message-boy",
+    "7 · THE MAN LEAVING TOMORROW": "man-leaving-tomorrow",
+    "18 · THE DOG'S OWNER": "dogs-owner"
   },
   "notPlaced": {
-    "5 · THE MESSAGE BOY": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision.",
-    "7 · THE MAN LEAVING TOMORROW": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision.",
     "9 · THE BARBER-DENTIST-SURGEON": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision.",
     "10 · THE PHOTOGRAPHER": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision.",
-    "12 · THE STAGE DRIVER": "He is built only as the opening's driver (doc 13); he is not placed in town as an ambient.",
-    "18 · THE DOG'S OWNER": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision."
+    "12 · THE STAGE DRIVER": "He is built only as the opening's driver (doc 17). Doc 07 has him at the coach stop -- 'arrives, complains, departs' -- and no document says when the coach is in town after the opening; Tyler's decision (errata 110)."
+  },
+  "exchanges": {
+    "2 & 3 · THE TWO BOUNDARY MEN": {
+      "file": "boundary-a",
+      "speakers": {
+        "A": "boundary_a",
+        "B": "boundary_b"
+      }
+    }
+  },
+  "trees": {
+    "2 & 3 · THE TWO BOUNDARY MEN": {
+      "tree": "amb_boundary_men",
+      "file": "amb-boundary-men",
+      "speaker": "boundary_a",
+      "speakers": {
+        "A": "boundary_a",
+        "B": "boundary_b"
+      },
+      "prefix": "boundary"
+    },
+    "5 · THE MESSAGE BOY": {
+      "tree": "amb_message_boy",
+      "file": "amb-message-boy",
+      "speaker": "message_boy",
+      "prefix": "message_boy"
+    },
+    "7 · THE MAN LEAVING TOMORROW": {
+      "tree": "amb_man_leaving_tomorrow",
+      "file": "amb-man-leaving-tomorrow",
+      "speaker": "man_leaving_tomorrow",
+      "prefix": "leaving"
+    },
+    "11 · THE FIDDLER": {
+      "tree": "amb_fiddler",
+      "file": "amb-fiddler",
+      "speaker": "fiddler",
+      "prefix": "fiddler"
+    },
+    "18 · THE DOG'S OWNER": {
+      "tree": "amb_dogs_owner",
+      "file": "amb-dogs-owner",
+      "speaker": "dogs_owner",
+      "prefix": "dogs_owner"
+    }
+  },
+  "treeRoutes": {
+    "_note": "What the trees' options do that doc 07 says in prose: the dog's owner goes (doc 07 #18, 'He goes. This is the resolution.'), so the option that sends him ends the conversation and sets T_BILL_FOUND, which moves him to Main Street; 'How's Bill?' is offered '(after)', once that is set. The message boy 'runs off' after the school question, but that option is [COMIC] and a COMIC option is never an exit (tests/resolution.test.ts), so he stays (errata 110).",
+    "18 · THE DOG'S OWNER": {
+      "There's a dog on Main Street.": {
+        "set": {
+          "T_BILL_FOUND": true
+        },
+        "ends": true
+      },
+      "How's Bill?": {
+        "when": {
+          "T_BILL_FOUND": true
+        }
+      }
+    }
   }
 }

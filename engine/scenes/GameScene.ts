@@ -145,6 +145,8 @@ export class GameScene extends Phaser.Scene {
   /** A bark's gap above the head, as a fraction of height -- speech's SPEECH_GAP. */
   private static readonly BARK_GAP = 0.12;
   private static readonly BARK_BLOCK_WIDTH = Math.round(NATIVE_WIDTH * (150 / 320));
+  /** How long a bark stays over a head. */
+  private static readonly BARK_MS = 2600;
 
   private sayLines: string[] = [];
   /** When the line on screen has been up long enough. Null while none is. */
@@ -225,6 +227,7 @@ export class GameScene extends Phaser.Scene {
   private spokenBreak: string | null = null;
   private barkAt: { x: number; y: number } | null = null;
   private barkTimer?: Phaser.Time.TimerEvent;
+  private barkChain?: Phaser.Time.TimerEvent;
   /** A sound written in the world, over the thing that made it. See `showCaption`. */
   private captionLines: string[] = [];
   private captionAt: { x: number; y: number } | null = null;
@@ -588,7 +591,8 @@ export class GameScene extends Phaser.Scene {
       const fired = !going ? this.ambient.checkApproach(this.actor.x, this.actor.y)
         : host && !host.greetsWithBark ? this.ambient.checkApproach(this.actor.x, this.actor.y, host.id)
           : null;
-      if (fired) this.showBark(fired.npc.name, fired.line, fired.npc.x, this.barkFoot(fired.npc));
+      if (fired?.exchange) this.showBarkExchange(fired.exchange);
+      else if (fired) this.showBark(fired.npc.name, fired.line, fired.npc.x, this.barkFoot(fired.npc));
     }
     // The tree opens when the walk that was started for it finishes.
     if (this.linesOnArrival && !this.actor.isWalking) {
@@ -638,9 +642,11 @@ export class GameScene extends Phaser.Scene {
             : this.state.dialogue.openingOf(tree, this.pendingTree.viaAction === true);
           const host = this.pendingTree.npc
             ? this.ambient.present.find((each) => each.id === this.pendingTree?.npc) : undefined;
-          const remark = host?.greetsWithBark ? this.ambient.barkFor(host) : null;
-          if (greeting.length === 0 && host && remark) {
-            greeting = [{ speaker: host.id, line: remark }];
+          // A PAIR GREETS IN BOTH VOICES (errata 110): the boundary men's bark
+          // is an exchange, each line over the man who says it.
+          const remark = host?.greetsWithBark ? this.ambient.barkLinesFor(host) : [];
+          if (greeting.length === 0 && host && remark.length) {
+            greeting = remark.map((one) => ({ speaker: one.speaker, line: one.line }));
             this.ambient.markBarked(host);
           }
           if (greeting.length > 0) {
@@ -2908,11 +2914,27 @@ export class GameScene extends Phaser.Scene {
     return Math.round(npc.y - height - GameScene.BARK_GAP * height);
   }
 
+  /**
+   * A BARK TWO PEOPLE SAY (AmbientFile.barkExchange; errata 110): each line
+   * over its own speaker's head, one after another, each held as a bark is.
+   */
+  private showBarkExchange(lines: { speaker: string; line: string }[]): void {
+    const next = (at: number): void => {
+      const one = lines[at];
+      if (!one) return;
+      const who = this.ambient.present.find((each) => each.id === one.speaker);
+      if (who) this.showBark(who.name, one.line, who.x, this.barkFoot(who));
+      if (at + 1 < lines.length) this.barkChain = this.time.delayedCall(GameScene.BARK_MS, () => next(at + 1));
+    };
+    this.barkChain?.remove();
+    next(0);
+  }
+
   private showBark(_name: string, line: string, x: number, y: number): void {
     this.barkLines = this.font.wrap(line, GameScene.BARK_BLOCK_WIDTH);
     this.barkAt = { x, y };
     this.barkTimer?.remove();
-    this.barkTimer = this.time.delayedCall(2600, () => {
+    this.barkTimer = this.time.delayedCall(GameScene.BARK_MS, () => {
       this.barkLines = [];
       this.barkAt = null;
       this.markDirty();

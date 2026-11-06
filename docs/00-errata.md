@@ -2937,3 +2937,55 @@ The phrase is the town theme's, from the music proof; the voices sit at true pit
 
 **The hotel clerk's barks.** His file said "Doc 07 writes no barks for the clerk". Doc 07 §8 writes him nine -- a different misspelling of Grubb for every reputation but one, which he gets right once and never again. They are in the game now, and the town's barks are **extracted, not typed**: `tools/extract-content.mjs` reads every single-voice doc 07 bark table into its ambient file (`tools/town-barks.json` says which goes where). The five that were typed by hand came out word for word the same; their apostrophes are now the document's own straight ones. The transforms are the ones the hand-typed files already used: directions dropped, emphasis made plain, and an exchange with Thad cut to its first line (the pie woman's R_DEAD). Six doc 07 townspeople are written barks and are in no built room (the message boy, the man leaving tomorrow, the barber, the photographer, the dog's owner, and the stage driver as a town figure); `tools/town-barks.json` names them, and `tests/town-barks.test.ts` fails on any doc 07 table routed nowhere.
 
+
+---
+
+# 110 · FIVE MORE OF DOC 07'S TOWNSPEOPLE, WRITTEN IN AND WAITING ON THEIR PICTURES — TYLER, 2026-11-06
+
+Tyler: **"Go: townspeople, up to 10 images."** That covers the figures doc 07 writes whose place is a room already built: the message boy (#5), the man leaving tomorrow (#7), the two boundary men (#2, #3), the fiddler (#11) and the dog's owner (#18). The cap is `townspeople-110` in `art/staging/caps.json`: 10 operations, five sheets and up to five corrections.
+
+**This session has no image key, so the pictures are made in the image session** from `reference/townspeople/brief.md`. Everything else is done here, and no line was written.
+
+**Their words are extracted, never typed.** `tools/extract-content.mjs` reads each micro-tree from doc 07 into `content/dialogue/amb-*.json`, and each bark table into the figure's ambient file. `tools/town-barks.json` routes them. The notation is doc 07's:
+- ↳ is a follow-up;
+- an indented *Thad:* line is an interjection;
+- **A:** and **B:** name which boundary man speaks;
+- directions are performed or hidden by doc 58's rules.
+
+The figures greet with their bark, like the card sharp, because doc 07 writes no opening line for any of them. Exits are doc 04 part one's pool.
+
+**What doc 07 says in prose, made to happen:**
+- **The dog's owner.** "There's a dog on Main Street" sets `T_BILL_FOUND` and ends the talk ("He goes"). From then on he stands on Main Street beside the dog, with no bark, and "How's Bill?" is offered. Doc 07 writes that R_TRUTH has no bark once he is resolved; it is read as his resolved state in every reputation, because a man beside his dog does not ask whether you have seen one.
+- **The message boy.** He "runs off" after the school question, but that option is [COMIC], and a COMIC option is never an exit (`tests/resolution.test.ts`), so he stays.
+
+**What doc 07 leaves unwritten, and is left out:**
+- **The message boy's *(pay)* option** has no words for Thad to say. It is not on his menu until Tyler writes or rules it.
+- **The fiddler's barks are all playing:** faster for R_BORDERS_MOTT, the passing tune for R_DEAD, his A retuned during F2 (doc 06). That is music, not yet made, so he has no balloon.
+
+**Doc 58's hidden list** gains two builder's notes from these trees: "He goes. This is the resolution…" and "He runs off. This is the only explanation of the schoolhouse…". **Doc 07's "Not a colour"** is now "color", as the one-strike man's was.
+
+**Engine (no content):**
+- A bark may be said by two people (`barkExchange`), each line over its own speaker and one after another. The pair also greets in both voices.
+- A placement may carry its own `barks` (`{}` is none).
+- A figure may be `awaitingArt`: the room compiler casts no one who carries it, so a figure is never a voice with no body. The field comes off when his sheet is cut.
+- A `child` posture is held to the curve at a declared stature between 0.55 and 0.8 (`tests/scale.test.ts`).
+
+**Placed:**
+- the boy on Main Street between the Company and the Clarion;
+- the man leaving tomorrow just east of the hotel's door;
+- the boundary men in mid-street, facing each other;
+- the dog's owner in the alley by the crates, and later on Main Street beside the dog;
+- the fiddler by the Nugget's piano.
+
+`tests/staging-clear.test.ts` proves the stands once the art is cut.
+
+**Not placed, Tyler's decisions:**
+- **The bell-ringer (#4).** Doc 07 puts him on the church steps, which are on Lower Street (errata 43), and that is unbuilt. The pre-playthrough review listed the steps as built; they are not.
+- **The stage driver (#12).** He "arrives, complains, departs", and no document says when the coach is in town after the opening.
+
+**Found, and reported rather than changed.** The other five townspeople's trees (the letter-writer, pie woman, map seller, card sharp and one-strike man, typed in by hand on 2026-07-30) carry six lines no document writes:
+- the letter-writer's prompt "The letter-writer looks up." and his repeat "Once. And I charged him double.";
+- the map seller's prompt "The map seller brightens considerably." and his repeats "Like a man eating his own dinner, sir." and "Still not been disproved.";
+- the pie woman's prompt "The pie woman does not look up."
+
+Tyler has played them. Whether they go into doc 07 or come out is his.

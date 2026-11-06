@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "id": "amb_dogs_owner",
+  "speaker": "dogs_owner",
+  "note": "EXTRACTED from docs/07-ambient-layer.md (## 18 · THE DOG'S OWNER) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one's pool (errata 110).",
+  "start": "root",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "noPrompt": true,
+      "exceptionReason": "Doc 07 writes the micro-tree as options only; the greeting is the bark.",
+      "options": [
+        {
+          "id": "dogs_owner1",
+          "text": "Are you looking for a dog?",
+          "tag": "TOPIC",
+          "say": "Six weeks."
+        },
+        {
+          "id": "dogs_owner2",
+          "text": "There's a dog on Main Street.",
+          "tag": "TOPIC",
+          "set": {
+            "T_BILL_FOUND": true
+          },
+          "ends": true,
+          "say": "…That's Bill?"
+        },
+        {
+          "id": "dogs_owner3",
+          "text": "How's Bill?",
+          "tag": "COMIC",
+          "when": {
+            "T_BILL_FOUND": true
+          },
+          "say": "He'd been on Main Street the whole time. Six weeks. He'd been fine."
+        },
+        {
+          "id": "dogs_ownerx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}
