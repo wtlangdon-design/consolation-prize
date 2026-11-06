@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "church",
  "roomWidth": 1920,
- "branch": "ccr-347d40c6-71r9f9",
- "commit": "c7f05e599d6ad4aca20333dfd5510fa8c92b3f75",
+ "branch": "claude/tender-sagan-buz50u",
+ "commit": "5e49e9562128e020841e97096ab99469ed7c940e",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -66,7 +66,7 @@
    ],
    "reportedHeight": 391,
    "expected": 391,
-   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-03.png",
    "bounds": [
     627,
     350,
@@ -103,7 +103,7 @@
    ],
    "reportedHeight": 469,
    "expected": 469,
-   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-06.png",
    "bounds": [
     587,
     388,
@@ -134,13 +134,13 @@
     "height": 222
    },
    "seen": {
-    "x": 1450,
+    "x": 1457,
     "y": 118,
-    "width": 112,
-    "height": 189,
-    "bottom": 306,
+    "width": 105,
+    "height": 188,
+    "bottom": 305,
     "right": 1561,
-    "changed": 13071
+    "changed": 11337
    },
    "props": []
   }
@@ -149,7 +149,7 @@
   {
    "panel": "B",
    "room": "church",
-   "clock": 112.0167,
+   "clock": 109.2984,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -173,7 +173,11 @@
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -235,15 +239,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-05T04:21:16.344Z",
+   "capturedAt": "2026-11-06T18:13:53.499Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "aec4ee98c8b0b99b2fa2d835a34fe49d122094dd0aee2aebe46d1c2e5b36802d"
+   "hash": "9f6e57adb0187193bb715cd0538901e69319cbbf3ce0d58a5aeef62eb1f01222"
   },
   {
    "panel": "A",
    "room": "church",
-   "clock": 113.31660000000001,
+   "clock": 110.115,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -267,7 +271,11 @@
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -282,7 +290,7 @@
       790
      ],
      "facing": "right",
-     "clip": "idle",
+     "clip": "idle-break",
      "height": 424,
      "moving": false,
      "drawn": "sprite",
@@ -326,15 +334,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T04:21:17.452Z",
+   "capturedAt": "2026-11-06T18:13:54.378Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "796eabe3b2de0b2ba2f19cf9f5fa6c6d2725bce73ca182bf414db9b275c195ad"
+   "hash": "d4c7f594f8585b7e87f128bc029558f38994798bb3061ad4de5cd9df3cd1b409"
   },
   {
    "panel": "D",
    "room": "church",
-   "clock": 121.6497,
+   "clock": 117.9147,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -359,7 +367,11 @@
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -374,11 +386,11 @@
       857
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 469,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-05.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
       587,
       388,
@@ -431,10 +443,10 @@
     "cast(true)",
     "flag T_FUNERAL_DAY=true"
    ],
-   "capturedAt": "2026-11-05T04:21:25.951Z",
+   "capturedAt": "2026-11-06T18:14:02.260Z",
    "intent": "principal changed state: T_FUNERAL_DAY (FRA_A1 option 6, Room 9; its route runs through rooms not built, so the flag control sets it). Visible consequence: the pulpit empty.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "14b9b7a16a2885c6aa56b97dc67e1ad758358c4dc0b327b3d38954e0d361ae8d",
+   "hash": "37e4635055997f875f737fa11f745f2e52f950ea4163cbedefb3054ece749ace",
    "changedBy": "flags"
   }
  ],
@@ -465,11 +477,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T04:21:25.952Z",
+ "at": "2026-11-06T18:14:02.260Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 344624,
+  "bytes": 344938,
   "panels": 5,
   "scale": 0.5
  }
