@@ -1191,6 +1191,33 @@ const ConsolationAudio = (function () {
     parts: STRIKE_LA.parts
   };
 
+  /* THE WOODTICK WAY (Tyler, 2026-11-06; errata 104). Monkey Island 2 gives
+   * every building in Woodtick the town theme on its own instrument; doc 28
+   * already asks for that on the streets. So each building doc 28 does not
+   * name takes CONSOLATION in its own orchestration. Still no new notes: the
+   * tune, the jaw harp's offbeats and the fiddle's counter-line are all
+   * CONSOLATION's own parts, handed to different players. */
+  const CONSOLATION_JAW = THEME_LA.parts.find(p => p.role === 'offbeats').events;
+  const CONSOLATION_FID = THEME_LA.parts.find(p => p.role === 'counter+tune').events;
+  const tune = (inst, gain) => ({ inst: inst, role: 'tune', gain: gain, fromLoop: 0, events: CONSOLATION_MEL });
+
+  /* The laundry: the tune on harmonica, alone. */
+  const CONSOLATION_LAUNDRY_LA = { name: 'CONSOLATION, the laundry (LA)', tempo: TEMPO, loopBeats: LOOP_BEATS,
+    parts: [ tune('harmonicaLA', 1.0) ] };
+  /* The livery: the tune on fiddle over the jaw harp's offbeats. */
+  const CONSOLATION_LIVERY_LA = { name: 'CONSOLATION, the livery (LA)', tempo: TEMPO, loopBeats: LOOP_BEATS,
+    parts: [ tune('fiddleLA', 1.0),
+             { inst: 'jawHarpLA', role: 'offbeats', gain: 0.85, fromLoop: 0, events: CONSOLATION_JAW } ] };
+  /* The Clarion: the tune on harmonica over the jaw harp's offbeats. */
+  const CONSOLATION_CLARION_LA = { name: 'CONSOLATION, the Clarion (LA)', tempo: TEMPO, loopBeats: LOOP_BEATS,
+    parts: [ tune('harmonicaLA', 1.0),
+             { inst: 'jawHarpLA', role: 'offbeats', gain: 0.8, fromLoop: 0, events: CONSOLATION_JAW } ] };
+  /* Madame Ozymandia's tent: the tune on harmonica at half speed, the fiddle's
+   * counter-line against it from the first bar. */
+  const CONSOLATION_TENT_LA = { name: 'CONSOLATION, the tent (LA)', tempo: TEMPO / 2, loopBeats: LOOP_BEATS,
+    parts: [ tune('harmonicaLA', 1.0),
+             { inst: 'fiddleLA', role: 'counter', gain: 0.6, fromLoop: 0, events: CONSOLATION_FID } ] };
+
   /* ---------- audition figures (not content) ---------- */
   const AUDITIONS = {
     piano:     [ {m:74,b:0,d:0.5,v:.85},{m:78,b:0.5,d:0.5,v:.8},{m:81,b:1,d:0.5,v:.8},
@@ -1207,7 +1234,8 @@ const ConsolationAudio = (function () {
     TEMPO, BEAT, LOOP_BEATS, LOOP_SECONDS, ARC_SECONDS, LEAD_SECONDS,
     DETUNE_START, PIANO_CLASS_CENTS, THEME, THEME_LA, THADDEUS, THADDEUS_LA, THADDEUS_COMPLETE_LA,
     STRIKE_LA, ASSAY_LA, WINNIE_LA, COMPANY_LA,
-    CONSOLATION_PIANO_LA, CONSOLATION_DAWN_LA, CONSOLATION_FUNERAL_LA, ASSAY_JAW_LA, STRIKE_LAYER_LA, AUDITIONS,
+    CONSOLATION_PIANO_LA, CONSOLATION_DAWN_LA, CONSOLATION_FUNERAL_LA, ASSAY_JAW_LA, STRIKE_LAYER_LA,
+    CONSOLATION_LAUNDRY_LA, CONSOLATION_LIVERY_LA, CONSOLATION_CLARION_LA, CONSOLATION_TENT_LA, AUDITIONS,
     midiToFreq, createEngine, automateArc
   };
 })();

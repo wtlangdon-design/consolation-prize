@@ -2823,3 +2823,27 @@ With every theme approved (errata 102), each room doc 28 Part Three names now ha
 **THE ENGINE.** A bed may carry `layers` (each its own loop, started with the bed and never re-synced: doc 28's pairs are things that do not share a clock), and `variants` swap a bed on a flag, first match wins. A file in both the outgoing and incoming beds carries on rather than restarting under itself; the coffin's suspend stops every layer and brings each back where *it* would have been. `tests/room-music.test.ts`.
 
 **NOT DONE, AND WHY.** R05-M2 (THE ASSAY layered over WINNIE while Thad is at the counter) needs a counter state the engine does not have. THE STRIKE as Hob crosses in Room 1 (O-09-M) is beat-timed, and errata 28a still stands. Twenty rooms that doc 28 never mentions play the title bed as before, until Tyler says otherwise.
+
+---
+
+# 104 · EVERY OTHER ROOM, THE WOODTICK WAY — OWNER RULING (Tyler, 2026-11-06)
+
+Doc 28 Part Three names seventeen rooms; the eighteen it does not played the title bed by default. Tyler asked how Monkey Island handles it. *The Secret of Monkey Island* gives its main places their own tunes and cuts between them; *Monkey Island 2* (iMUSE) gives each building in a town the town's theme on its own instrument, with transitions that finish their phrase. Doc 28 is the second approach already. Offered the Woodtick way for the rest, **Tyler: "Yes."**
+
+| Room | Music |
+|---|---|
+| Mercantile | CONSOLATION, the tune on fiddle alone (Room 36's stem; out of tune here, in tune there) |
+| Sheng's laundry | the tune on harmonica alone |
+| Livery | fiddle over the jaw harp's offbeats |
+| The Clarion | harmonica over the jaw harp's offbeats |
+| Madame Ozymandia's tent | harmonica at half speed against the fiddle's counter-line |
+| Church | the funeral arrangement without the bell, which tolls only at the graveside |
+| Boot Hill | the funeral's music, bell and all |
+| Nugget back room | the saloon piano through the wall (tuned after `T_NUGGET_PIANO_TUNED`) |
+| Back alley | the saloon piano from the alley behind it (doc 28's Lane: "piano alone") |
+| Company vault | THE COMPANY through the wall from Fanshawe's office |
+| Watchman's shack | THE STRIKE alone, every 29 seconds: Hob's place |
+| Claims road, claim row, creek, high ridge, Mott's site, Pratt's claim | Prosperity's mix: THADDEUS and THE STRIKE on their own clocks |
+| District map | CONSOLATION, full |
+
+Still no new notes: every arrangement hands CONSOLATION's own tune, offbeats and counter-line to different players. **Every playable room now has its music chosen**, and `tests/room-music.test.ts` fails on a room that has none, so a new room cannot fall back to the title bed by omission.

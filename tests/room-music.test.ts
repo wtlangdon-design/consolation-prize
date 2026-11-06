@@ -8,7 +8,7 @@
  * suspend brings every layer back where it would have been.
  */
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
@@ -53,6 +53,19 @@ test('the rooms doc 28 Part Three names all have their own music', () => {
     'funeral', 'listening_chamber', 'main_street_dawn'];
   const missing = named.filter((room) => !(room in manifest.music.rooms));
   assert.deepEqual(missing, []);
+});
+
+test('every room in the game has music chosen for it: none falls back to the title bed by omission (errata 104)', () => {
+  const roomsDir = resolve(ROOT, 'content/rooms');
+  // Engine fixtures, unbuilt candidates and stubs are not rooms a player walks
+  // into; the coffin's music is the room's own `suspend` (doc 45 R32-MUTE).
+  const notPlayed = /^(harness_|.*_candidate$|stub_)/;
+  const ids = readdirSync(roomsDir)
+    .map((file) => (JSON.parse(readFileSync(resolve(roomsDir, file), 'utf8')) as { id?: string; music?: string }))
+    .filter((room) => room.id && !notPlayed.test(room.id) && room.music !== 'suspend')
+    .map((room) => room.id as string);
+  const unchosen = ids.filter((id) => !(id in manifest.music.rooms));
+  assert.deepEqual(unchosen, [], 'a new room needs its music in content/manifest.json, or null for silence');
 });
 
 // ---------------------------------------------------------------- the player

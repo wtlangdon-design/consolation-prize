@@ -127,6 +127,22 @@ const STEMS = [
     note: 'Rooms 7/8 — THE ASSAY, unaccompanied jaw harp.' },
   { file: 'the-strike-layer.wav', piece: 'STRIKE_LAYER_LA', loops: 1,
     note: 'Rooms 23/24 — THE STRIKE every 29 seconds, the layer under THADDEUS.' },
+  // ERRATA 104: the Woodtick way -- the buildings doc 28 does not name, each
+  // with CONSOLATION (or its neighbour's music) in its own orchestration.
+  { file: 'consolation-laundry.wav', piece: 'CONSOLATION_LAUNDRY_LA', loops: 2,
+    note: 'Sheng\'s laundry — the tune on harmonica, alone.' },
+  { file: 'consolation-livery.wav', piece: 'CONSOLATION_LIVERY_LA', loops: 2,
+    note: 'The livery — fiddle over the jaw harp\'s offbeats.' },
+  { file: 'consolation-clarion.wav', piece: 'CONSOLATION_CLARION_LA', loops: 2,
+    note: 'The Clarion — harmonica over the jaw harp\'s offbeats.' },
+  { file: 'consolation-tent.wav', piece: 'CONSOLATION_TENT_LA', loops: 1,
+    note: 'Madame Ozymandia\'s tent — harmonica at half speed, the fiddle\'s counter-line against it.' },
+  { file: 'consolation-nugget-piano-wall.wav', piece: 'CONSOLATION_PIANO_LA', loops: 2, distance: 'wall',
+    note: 'The Nugget back room — the saloon piano through the wall.' },
+  { file: 'consolation-nugget-piano-wall-tuned.wav', piece: 'CONSOLATION_PIANO_LA', loops: 2, distance: 'wall', pianoTuned: true,
+    note: 'The Nugget back room after the piano is tuned.' },
+  { file: 'the-company-wall.wav', piece: 'COMPANY_LA', loops: 2, distance: 'wall',
+    note: 'The Company vault — THE COMPANY through the wall from the offices.' },
 ];
 /** Where a stem is heard from (errata 103): a low-pass, a level, and the room it crosses. */
 const DISTANCE = {
