@@ -69,6 +69,14 @@ export class Music {
   /** A bed stopped dead by `suspend`, and where it was. */
   private suspended: { voices: { element: HTMLAudioElement; gain: number; position: number }[]; key: string | null } | null = null;
 
+  /**
+   * How far the bed is ducked under a featured sound, 0..1 (errata 107). Every
+   * volume this player sets is its gain times this, so a duck holds through a
+   * crossfade and a resume.
+   */
+  private level = 1;
+  private duckTimer: ReturnType<typeof setTimeout> | null = null;
+
   /** How far into tune the score is: 0 is the -35 cents it is rendered at, 1 is in tune. */
   private tune = 0;
 
@@ -197,11 +205,39 @@ export class Music {
         ? voice.element.duration : 0;
       const position = voice.position + elapsedSeconds;
       voice.element.currentTime = length ? position % length : 0;
-      voice.element.volume = voice.gain;
+      voice.element.volume = voice.gain * this.level;
       void voice.element.play().catch(() => undefined);
     }
     this.playing = held.voices.map((voice) => ({ element: voice.element, gain: voice.gain }));
     this.playingKey = held.key;
+  }
+
+  /**
+   * DUCKS THE BED UNDER A SOUND THAT IS THE POINT (Tyler, 2026-11-06: "The
+   * bell is hard to hear over the music"). Down to `to` over a quarter
+   * second, held for `seconds`, back over a second and a half. A second duck
+   * while one is held extends it.
+   */
+  duck(to: number, seconds: number): void {
+    this.rampLevel(Math.max(0, Math.min(1, to)), 0.25);
+    if (this.duckTimer) clearTimeout(this.duckTimer);
+    this.duckTimer = setTimeout(() => {
+      this.duckTimer = null;
+      this.rampLevel(1, 1.5);
+    }, (0.25 + seconds) * 1000);
+  }
+
+  private rampLevel(to: number, seconds: number): void {
+    const from = this.level;
+    const started = Date.now();
+    const step = (): void => {
+      const t = Math.min(1, (Date.now() - started) / (seconds * 1000));
+      this.level = from + (to - from) * t;
+      for (const voice of this.playing ?? []) voice.element.volume = Math.max(0, Math.min(1, voice.gain * this.level));
+      if (t < 1 && typeof requestAnimationFrame !== 'undefined') requestAnimationFrame(step);
+      else if (t < 1) setTimeout(step, 16);
+    };
+    step();
   }
 
   /** Stops everything, immediately. For a hard cut such as quitting to menu. */
@@ -239,7 +275,7 @@ export class Music {
     const from = element.volume;
     const step = (): void => {
       const t = Math.min(1, (Date.now() - started) / (CROSSFADE_SECONDS * 1000));
-      element.volume = Math.max(0, Math.min(1, from + t * (target - from)));
+      element.volume = Math.max(0, Math.min(1, from + t * (target * this.level - from)));
       if (t < 1) requestAnimationFrame(step);
     };
     step();

@@ -71,7 +71,7 @@ const db = (v) => 20 * Math.log10(v + 1e-12);
 const median = (xs) => { const s = [...xs].sort((a, b) => a - b); return s[Math.floor(s.length / 2)]; };
 
 export function check() {
-  const report = new Report('No sound effect is louder than its place under the music');
+  const report = new Report('No sound effect is louder than its place under the music, and a featured one is heard');
   const manifest = readJson('content/manifest.json');
   const sounds = readJson(manifest.sounds);
   const levels = sounds.levels;
@@ -84,13 +84,22 @@ export function check() {
   const beds = Object.values(manifest.music.rooms).filter(Boolean).map((bed) => db(rms(read(bed.src)) * (bed.gain ?? 1)));
   const music = median(beds);
   let checked = 0;
-  const judge = (what, level, target) => {
+  const judge = (what, level, target, reference = music, against = 'the music') => {
     checked += 1;
-    const over = level - music - target;
+    const over = level - reference - target;
     if (over > SLACK_DB) {
-      report.fail(`${what}: ${(level - music).toFixed(1)} dB against the music, its place is ${target} `
+      report.fail(`${what}: ${(level - reference).toFixed(1)} dB against ${against}, its place is ${target} `
         + `(ceiling ${target + SLACK_DB}) -- lower its gain in ${manifest.sounds}`);
     }
+  };
+  // A SOUND THAT DUCKS THE MUSIC (errata 107) is measured against what it
+  // actually plays over: its own room's bed, dipped by the duck.
+  const roomBed = (room) => {
+    const bed = manifest.music.rooms[room];
+    if (!bed) return music;
+    let power = (rms(read(bed.src)) * (bed.gain ?? 1)) ** 2;
+    for (const layer of bed.layers ?? []) power += (rms(read(layer.src)) * (layer.gain ?? 1)) ** 2;
+    return db(Math.sqrt(power));
   };
 
   const steps = sounds.footsteps;
@@ -99,8 +108,30 @@ export function check() {
   }
   for (const [id, cue] of Object.entries(sounds.cues)) {
     const target = levels.cues?.[id] ?? levels.cue;
-    for (const part of cue.play ?? []) judge(`cue ${id} ${part.src}`, db(loudestMoment(read(part.src)) * (part.gain ?? 1)), target);
+    const room = cue.duck ? sounds.verbs.find((rule) => rule.cue === id)?.room : undefined;
+    const reference = cue.duck ? roomBed(room) + db(cue.duck.to) : music;
+    const against = cue.duck ? `${room}'s music, ducked to ${cue.duck.to}` : 'the music';
+    for (const part of cue.play ?? []) {
+      judge(`cue ${id} ${part.src}`, db(loudestMoment(read(part.src)) * (part.gain ?? 1)), target, reference, against);
+    }
     if (cue.bed) judge(`cue ${id} bed ${cue.bed.src}`, db(rms(read(cue.bed.src)) * (cue.bed.gain ?? 1)), levels.cueBed);
+  }
+  // AND A FEATURED SOUND MUST BE HEARD (errata 107: "The bell is hard to hear
+  // over the music"). A cue the room is about -- the bell the line says the
+  // whole town heard -- ducks the music and sits no lower than its place.
+  for (const id of levels.featured ?? []) {
+    const cue = sounds.cues[id];
+    if (!cue?.duck) { report.fail(`cue ${id} is featured and does not duck the music: it will be lost under the score`); continue; }
+    const room = sounds.verbs.find((rule) => rule.cue === id)?.room;
+    const reference = roomBed(room) + db(cue.duck.to);
+    const target = levels.cues?.[id] ?? levels.cue;
+    for (const part of cue.play ?? []) {
+      const level = db(loudestMoment(read(part.src)) * (part.gain ?? 1)) - reference;
+      if (level < target - SLACK_DB) {
+        report.fail(`cue ${id} ${part.src}: ${level.toFixed(1)} dB over ${room}'s ducked music, its place is ${target} `
+          + `(floor ${target - SLACK_DB}) -- it is featured, and too quiet to hear`);
+      }
+    }
   }
   for (const [room, bed] of Object.entries(sounds.ambience)) {
     judge(`background ${room} ${bed.src}`, db(rms(read(bed.src)) * (bed.gain ?? 1)), levels.ambience?.[room] ?? levels.ambienceDefault);
