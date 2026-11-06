@@ -100,6 +100,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "THIS WINDOW CLOSES AT FOUR. In a town built on a story, it's the one sign that's never once exaggerated."
+          },
+          {
             "say": "THIS WINDOW CLOSES AT FOUR. Handwritten. The ink has faded but the sentiment has not.",
             "repeat": [
               "Six years. The ink has gone, and nobody's needed to read it in a long time.",
@@ -437,6 +446,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "The stove, the kettle, the work. My funeral didn't stop any of it, and I find that very reassuring."
+          },
           {
             "say": "A small stove, lit, with a kettle on it that isn't for tea. It's for the work.",
             "repeat": [

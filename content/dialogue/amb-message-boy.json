@@ -24,6 +24,15 @@
         },
         {
           "id": "message_boy3",
+          "text": "Here's your penny. Make it worth it.",
+          "tag": "TOPIC",
+          "after": [
+            "message_boy2"
+          ],
+          "say": "…The Colonel gets a letter from Boston every month and burns it in the stove."
+        },
+        {
+          "id": "message_boy4",
           "text": "Shouldn't you be in school?",
           "tag": "COMIC",
           "say": "There's no teacher. There's a school."

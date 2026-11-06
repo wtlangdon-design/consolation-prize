@@ -40,6 +40,10 @@ An indented ***Asked again:*** line is the REPEAT: what the character says the
 second and every later time the option above it is chosen. Without one, a
 repeat is the first answer again.
 
+An ***Opening:*** line under the micro-tree's heading is the stage line shown over
+the options when the conversation opens, when the character has one (errata
+114: written into the game in July and into this document in November).
+
 An `[EXIT]` line is the option that ends the conversation, and the reply after
 its arrow, if any, is the character's last word.
 
@@ -80,11 +84,13 @@ is the whole of his character.
 **Premise:** he is doing better than anyone in Consolation, because he sells the one thing that never runs out.
 
 **Micro-tree**
+***Opening:*** *The letter-writer looks up.*
 > "What do you charge?" → "Ten cents the page. Fifteen if it's going well."
 > ↳ "Going well?" → "If a man's had a good week I write more."
 >   *Thad:* "And if he has had a bad one?"
 >   → "Much more. Bad weeks are my living."
 > "Do you ever write the truth?" → "Once. Fella insisted. I charged him double and he cried the whole time."
+>   *Asked again:* "Once. And I charged him double."
 > `[COMIC]` "I write my own." → "I know. I've read them over your shoulder."
 >   *Thad:* "You have what?"
 >   → "You're not bad. You're just honest, which is a phase."
@@ -160,7 +166,7 @@ is the whole of his character.
 **Micro-tree**
 > "What do you know?" → "Everything."
 > "Tell me something." → "Penny."
-> *(pay)* → "…The Colonel gets a letter from Boston every month and burns it in the stove." *(This is true, is never followed up, and is not needed for anything.)*
+> ↳ *(pay)* "Here's your penny. Make it worth it." → "…The Colonel gets a letter from Boston every month and burns it in the stove." *(This is true, is never followed up, and is not needed for anything.)*
 > `[COMIC]` "Shouldn't you be in school?" → "There's no teacher. There's a school." *(He runs off. This is the only explanation of the schoolhouse the game ever offers.)*
 
 **Barks**
@@ -182,6 +188,7 @@ is the whole of his character.
 *Main Street. Pies of unstated provenance.*
 
 **Micro-tree**
+***Opening:*** *The pie woman does not look up.*
 > "What's in the pie?" → "Pie's a nickel."
 > ↳ "That isn't what I asked." → "Pie's a nickel."
 > `[COMIC]` "I'll take a pie." → "Course you will."
@@ -389,12 +396,15 @@ is the whole of his character.
 **Premise:** the saddest character in the game, played entirely for laughs, and the truth changes nothing for him at all.
 
 **Micro-tree**
+***Opening:*** *The map seller brightens considerably.*
 > "Where do the maps come from?" → "I draw them."
 > ↳ "From what?" → "From the *accounts*. There's dozens of accounts."
 >   *Thad:* "Dozens."
 >   → "You put them together and a picture comes out."
 > "Have you ever dug where a map says?" → "I'd not dig my own map, sir. That'd be like a man eating his own dinner." *(This makes no sense and he is very firm about it.)*
+>   *Asked again:* "Like a man eating his own dinner, sir."
 > `[COMIC]` "Do they work?" → "They've not been *disproved*."
+>   *Asked again:* "Still not been disproved."
 
 **Barks**
 | State | Line |

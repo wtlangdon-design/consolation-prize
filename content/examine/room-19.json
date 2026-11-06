@@ -3,10 +3,11 @@
   "name": "THAD'S HOTEL ROOM",
   "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
   "sources": [
-    "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM",
+    "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM#1",
     "docs/08-examine-batch-1.md::ROOM 19 — THAD'S HOTEL ROOM",
     "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM",
     "docs/54-batch-c.md::ROOM 19 · THAD'S HOTEL ROOM",
+    "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM#2",
     "docs/49-wrong-answers.md::ROOM 19 — THAD'S HOTEL ROOM"
   ],
   "subjects": [
@@ -23,6 +24,15 @@
         "Nothing.",
         "Nothing.",
         "Nothing. It is a bed and it is waiting, which is what they do."
+      ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "A bed with a valley in it. After a coffin, it's the finest bed in the territory."
+          ],
+          "LISTEN_TO": []
+        }
       ],
       "overrides": {
         "USE": "It is nine in the morning.",
@@ -42,6 +52,15 @@
         "Nothing. Water, when I move it.",
         "Nothing.",
         "Nothing."
+      ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "A basin and a pitcher. I've washed the grave off twice. The pitcher feels once was plenty."
+          ],
+          "LISTEN_TO": []
+        }
       ],
       "overrides": {
         "USE": "I muffled it with a sock. It transposed. The drip has range."
@@ -81,6 +100,15 @@
         "Nothing. The drama is all in what gets written at it.",
         "Nothing. It is the only place in Consolation where nobody is talking.",
         "Nothing."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "One short leg, propped on a claim notice. It's the only claim in town I'm sure is doing any good."
+          ],
+          "LISTEN_TO": []
+        }
       ]
     },
     {
@@ -164,6 +192,32 @@
       ]
     },
     {
+      "name": "THE WALL",
+      "LOOK_AT": [
+        "Boards, papered once, and the paper has given up in two corners.",
+        "Somebody before me wrote a number on the wall beside the bed and crossed it out.",
+        "The number was two hundred. I have not worked out what it was counting and I have stopped trying."
+      ],
+      "LISTEN_TO": [
+        "Two men, next door, discussing where Mott's strike is. They are very sure. They are sure in completely different directions.",
+        "Two men next door, discussing where Mott's strike is. They are very sure, and sure in completely different directions.",
+        "Still sure. Still different.",
+        "One of them has gone to sleep mid-sentence. The other has not noticed."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [],
+          "LISTEN_TO": [
+            "Next door, two men still sure where Mott's strike is."
+          ]
+        }
+      ],
+      "overrides": {
+        "PUSH": "It gives. I am going to stop pushing it."
+      }
+    },
+    {
       "name": "HIS MOTHER'S LETTERS",
       "LOOK_AT": [
         "Three from home. She is proud of me. She has been given no reason to be.",
@@ -239,23 +293,6 @@
       ],
       "overrides": {
         "PICK_UP": "I'm wearing the other one, which is this one."
-      }
-    },
-    {
-      "name": "THE WALL",
-      "LOOK_AT": [
-        "Boards, papered once, and the paper has given up in two corners.",
-        "Somebody before me wrote a number on the wall beside the bed and crossed it out.",
-        "The number was two hundred. I have not worked out what it was counting and I have stopped trying."
-      ],
-      "LISTEN_TO": [
-        "Two men, next door, discussing where Mott's strike is. They are very sure. They are sure in completely different directions.",
-        "Two men next door, discussing where Mott's strike is. They are very sure, and sure in completely different directions.",
-        "Still sure. Still different.",
-        "One of them has gone to sleep mid-sentence. The other has not noticed."
-      ],
-      "overrides": {
-        "PUSH": "It gives. I am going to stop pushing it."
       }
     }
   ]

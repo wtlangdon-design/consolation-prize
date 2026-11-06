@@ -4863,6 +4863,8 @@ function townTrees() {
       if (continuation) {
         const option = options.at(-1);
         if (!option) throw new Error(`doc 07 ${heading}: a continuation with no option above it`);
+        const again = /^\*Asked again:\*\s*"([^"]+)"/.exec(text);
+        if (again) { option.repeat = plain(again[1]); continue; }
         const thad = /^\*Thad:\*\s*"([^"]+)"/.exec(text);
         if (thad) { option.exchange.push({ speaker: 'thad', line: plain(thad[1]) }); continue; }
         const more = /^→\s*(.+)$/.exec(text);
