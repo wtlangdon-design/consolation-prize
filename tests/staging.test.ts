@@ -1171,6 +1171,11 @@ test('a chore with landsAt hands the sequence on at that frame and still plays i
   assert.ok(lands < whole);
   assert.equal(world.chore(player.id, landing.id), lands, 'the next step starts when the clip lands');
   assert.ok(player.isChoring, 'and the clip is still playing');
+  // THE NEXT INTERACTION, STARTED WHILE THE TAIL PLAYS (review on #171): its
+  // walk takes the body, cutting the tail, instead of tripping BODY_ONE_OWNER.
+  assert.doesNotThrow(() => world.walk(player.id, 1100, 780), 'a walk during a landed chore takes the body');
+  assert.equal(player.isChoring, false, 'the tail is cut');
+  assert.equal(bodies.bodyOwner(player.id), 'walk');
   // A world built without choreLands waits for the whole clip, as before.
   const plain = new SequenceWorld({ actors: new RoomActors(state, new Actor(state, content.actor.id, 960, 780, { routed: true })),
     bodies: new BodyOwners(), choreSeconds: () => whole, say: () => 0 });
