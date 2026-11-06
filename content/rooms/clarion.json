@@ -59,6 +59,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "A paper spike, loaded with stories that didn't run. Somewhere in there is the version of me that lived."
+          },
+          {
             "say": "A paper spike, loaded to the hilt with stories that did not run.",
             "repeat": [
               "The top sheet reads CORRECTION in capitals, and nothing else. It was spiked before he could think of one.",
@@ -511,6 +520,15 @@
         ],
         "LISTEN_TO": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Main Street, and someone reading aloud about the Piano Man. Both of them are pleased."
+          },
+          {
             "say": "Main Street, and over it someone reading a headline aloud to someone who cannot read. Both of them are pleased.",
             "repeat": [
               "The bell over the door, waiting. It rings for news and for creditors and cannot tell them apart.",
@@ -537,6 +555,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "The press, running Mott's legend again. Twelve years of front pages, and I've met the man who'd be most embarrassed by them."
+          },
           {
             "say": "A flatbed press of considerable age, operated by a man of considerable enthusiasm.",
             "repeat": [

@@ -5,7 +5,7 @@
  "name": "THE UNDERTAKER'S",
  "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 from the docs for the unattended room pass. 'batch' names the doc 08/09/10 examine section, which the gate's parser does not read.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 13 \u2014 THE UNDERTAKER'S",
+  "primary": "docs/05-examine-layer.md::ROOM 13 \u2014 THE UNDERTAKER'S#1",
   "completions": [
    "docs/26-batch-a.md::ROOM 13 \u00b7 THE UNDERTAKER'S",
    "docs/54-batch-c.md::ROOM 13 \u00b7 THE UNDERTAKER'S"
@@ -17,7 +17,8 @@
   "actVariantsNone": {
    "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
    "why": "Part Two-B, the act-variant pass, wrote no variant for the undertaker's: nothing the town learns changes what Thad sees there. UND_C1 (Act III) is dialogue, not examine."
-  }
+  },
+  "actVariants": "docs/05-examine-layer.md::ROOM 13 \u2014 THE UNDERTAKER'S#2"
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 13 \u2014 THE UNDERTAKER'S",
  "dialogue": {

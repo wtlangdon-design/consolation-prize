@@ -3,9 +3,10 @@
   "name": "THE BACK ALLEY",
   "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
   "sources": [
-    "docs/05-examine-layer.md::ROOM 20 — THE BACK ALLEY",
+    "docs/05-examine-layer.md::ROOM 20 — THE BACK ALLEY#1",
     "docs/09-examine-batch-2.md::ROOM 20 — THE BACK ALLEY",
     "docs/54-batch-c.md::ROOM 20 · THE BACK ALLEY",
+    "docs/05-examine-layer.md::ROOM 20 — THE BACK ALLEY#2",
     "docs/49-wrong-answers.md::ROOM 20 — THE BACK ALLEY"
   ],
   "subjects": [
@@ -20,6 +21,15 @@
         "The street, through two walls. All of the noise and none of the words.",
         "A door somewhere, opened and shut quickly. The alley is where the town comes to do what it would rather not do on the street.",
         "The street noise, cut into slices by the gaps between the buildings."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "The space behind Main Street, where the false fronts stop pretending. I used to come here for the honesty. Now I bring my own."
+          ],
+          "LISTEN_TO": []
+        }
       ]
     },
     {
@@ -79,6 +89,15 @@
         "A clothes-peg creaking, holding on.",
         "The underwear again, flapping. It has found its audience."
       ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "The same shirt and the same long underwear, still at half mast. I've decided to take it personally."
+          ],
+          "LISTEN_TO": []
+        }
+      ],
       "overrides": {
         "PULL": "The long underwear waved. I waved back before I could stop myself."
       }
@@ -99,6 +118,28 @@
         "PICK_UP": "The cat has a firm policy, administered through claws.",
         "TALK_TO": "I explained my circumstances. The cat found them ordinary. It was, strange to say, the most comforting response I have collected."
       }
+    },
+    {
+      "name": "THE MUD",
+      "LOOK_AT": [
+        "Alley mud, which is Main Street's mud without the audience.",
+        "Footprints both ways, mostly to and from the Nugget's back door, and the ones coming back are less straight.",
+        "It is the same mud as the street. I find that reassuring, which tells you how my week has gone."
+      ],
+      "LISTEN_TO": [
+        "Wet, and in no hurry.",
+        "Drips from the eaves, landing in it one at a time.",
+        "Nothing. Even the mud keeps its voice down back here."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "Alley mud. Hob's boots have been through it every night for twelve years, and I never once looked down."
+          ],
+          "LISTEN_TO": []
+        }
+      ]
     },
     {
       "name": "THE BACK OF THE IMPROVEMENT COMPANY",
@@ -137,19 +178,6 @@
         "Empty. All of them. Somebody has stacked forty empty barrels very carefully.",
         "I knocked on one. Empty, and it said so at length.",
         "Nothing. Forty empty barrels and not one rattle."
-      ]
-    },
-    {
-      "name": "THE MUD",
-      "LOOK_AT": [
-        "Alley mud, which is Main Street's mud without the audience.",
-        "Footprints both ways, mostly to and from the Nugget's back door, and the ones coming back are less straight.",
-        "It is the same mud as the street. I find that reassuring, which tells you how my week has gone."
-      ],
-      "LISTEN_TO": [
-        "Wet, and in no hurry.",
-        "Drips from the eaves, landing in it one at a time.",
-        "Nothing. Even the mud keeps its voice down back here."
       ]
     },
     {

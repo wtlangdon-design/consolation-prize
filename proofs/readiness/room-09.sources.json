@@ -5,14 +5,15 @@
  "name": "THE CLARION OFFICE",
  "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54) from docs 02, 04, 05, 48 and 54. Open decisions affecting the room are in doc 36 Q143 where it is named.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 9 \u2014 THE CLARION OFFICE",
+  "primary": "docs/05-examine-layer.md::ROOM 9 \u2014 THE CLARION OFFICE#1",
   "completions": [
    "docs/54-batch-c.md::ROOM 9 \u00b7 THE CLARION OFFICE"
   ],
   "actVariantsNone": {
    "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
    "why": "Part Two-B wrote no variant for the Clarion; Frame's change of heart (E5) is dialogue, FRA_E1, not examine."
-  }
+  },
+  "actVariants": "docs/05-examine-layer.md::ROOM 9 \u2014 THE CLARION OFFICE#2"
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 9 \u2014 THE CLARION OFFICE",
  "dialogue": {

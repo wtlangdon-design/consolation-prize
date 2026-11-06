@@ -3,10 +3,11 @@
   "name": "THE UNDERTAKER'S",
   "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
   "sources": [
-    "docs/05-examine-layer.md::ROOM 13 — THE UNDERTAKER'S",
+    "docs/05-examine-layer.md::ROOM 13 — THE UNDERTAKER'S#1",
     "docs/09-examine-batch-2.md::ROOM 13 — THE UNDERTAKER'S",
     "docs/26-batch-a.md::ROOM 13 · THE UNDERTAKER'S",
     "docs/54-batch-c.md::ROOM 13 · THE UNDERTAKER'S",
+    "docs/05-examine-layer.md::ROOM 13 — THE UNDERTAKER'S#2",
     "docs/49-wrong-answers.md::ROOM 13 — THE UNDERTAKER'S"
   ],
   "subjects": [
@@ -130,6 +131,15 @@
         "Nothing. They are beyond all that.",
         "A faint click when the vase is touched. Wax petals, settling against each other.",
         "Nothing. No bee has been fooled, and no bee has tried."
+      ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "Wax lilies, dusted. They were at my funeral. They'll be at the next one. They don't play favorites."
+          ],
+          "LISTEN_TO": []
+        }
       ]
     },
     {

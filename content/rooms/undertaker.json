@@ -66,6 +66,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Wax lilies, dusted. They were at my funeral. They'll be at the next one. They don't play favorites."
+          },
+          {
             "say": "Wax lilies, used at every service and dusted between them.",
             "repeat": [
               "Dusted so often the wax has worn thin at the tips. Even the permanent arrangements are wearing out.",

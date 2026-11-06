@@ -384,6 +384,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Pickled eggs, the brine still working. It's outlasted me, officially. I suspect it'll outlast everyone."
+          },
+          {
             "say": "Pickled eggs in a jar the size of a christening font. The brine has opinions.",
             "repeat": [
               "A wooden spoon hangs beside it on a string, for fishing. The string is short and the jar is deep. It is a test of character.",
@@ -791,6 +800,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Gold pans to the ceiling. He's never had to reorder. I know why now, and I wish I didn't."
+          },
+          {
             "say": "Gold pans, stacked to the ceiling. He has never had to reorder.",
             "repeat": [
               "The top pan has a dent in the middle the shape of a fist. Somebody returned it.",
@@ -942,6 +960,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "The stove where the town's opinions are formed. This week the opinion is me, and it's very generous, considering."
+          },
+          {
             "say": "The stove around which the town's opinions are formed each evening.",
             "repeat": [
               "A ring of chairs around it, each claimed by habit. Nobody has ever asked who sits where; everybody knows.",
@@ -953,6 +980,15 @@
           }
         ],
         "LISTEN_TO": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Iron ticking, and my name, said kindly."
+          },
           {
             "say": "Iron, ticking as it cools. It talks most after everyone has gone.",
             "repeat": [

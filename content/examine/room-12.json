@@ -92,6 +92,15 @@
         "A slow bubble rising through the brine and arriving with nothing to say.",
         "Nothing. The eggs are waiting, and they have time."
       ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "Pickled eggs, the brine still working. It's outlasted me, officially. I suspect it'll outlast everyone."
+          ],
+          "LISTEN_TO": []
+        }
+      ],
       "overrides": {
         "PICK_UP": "One jar, on my account. I have an account now! I'm told that makes me a resident.",
         "PICK_UP (again)": "One is an account. Two is a habit.",
@@ -173,6 +182,17 @@
         "Iron, ticking as it cools. It talks most after everyone has gone.",
         "A log settling in the firebox, and the chairs going quiet, as if someone important had come in.",
         "Iron ticking. Yesterday's opinions, cooling."
+      ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "The stove where the town's opinions are formed. This week the opinion is me, and it's very generous, considering."
+          ],
+          "LISTEN_TO": [
+            "Iron ticking, and my name, said kindly."
+          ]
+        }
       ],
       "overrides": {
         "TALK_TO": "I addressed it as the true mayor of Consolation. It warmed to the subject."
@@ -285,6 +305,28 @@
       ]
     },
     {
+      "name": "THE PANS",
+      "LOOK_AT": [
+        "Gold pans, stacked to the ceiling. He has never had to reorder.",
+        "The top pan has a dent in the middle the shape of a fist. Somebody returned it.",
+        "They nest perfectly, one inside the next, all the way to the ceiling. It is the most orderly hope in the district."
+      ],
+      "LISTEN_TO": [
+        "They ring, faintly, when the door opens. Tin. Flat, obviously.",
+        "The ring again, a little flat, when a wagon passes.",
+        "Nothing between wagons. Tin, waiting to be disappointed."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "Gold pans to the ceiling. He's never had to reorder. I know why now, and I wish I didn't."
+          ],
+          "LISTEN_TO": []
+        }
+      ]
+    },
+    {
       "name": "THE PRICE LIST",
       "LOOK_AT": [
         "Flour, twelve dollars the barrel. In Providence it is two. I have read this list four times looking for the error and the error is that I came here.",
@@ -308,19 +350,6 @@
         "Nothing.",
         "Nothing. Forty shovels, standing at ease.",
         "A faint scrape as one leans into another."
-      ]
-    },
-    {
-      "name": "THE PANS",
-      "LOOK_AT": [
-        "Gold pans, stacked to the ceiling. He has never had to reorder.",
-        "The top pan has a dent in the middle the shape of a fist. Somebody returned it.",
-        "They nest perfectly, one inside the next, all the way to the ceiling. It is the most orderly hope in the district."
-      ],
-      "LISTEN_TO": [
-        "They ring, faintly, when the door opens. Tin. Flat, obviously.",
-        "The ring again, a little flat, when a wagon passes.",
-        "Nothing between wagons. Tin, waiting to be disappointed."
       ]
     },
     {

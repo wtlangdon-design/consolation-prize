@@ -258,6 +258,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "The same shirt and the same long underwear, still at half mast. I've decided to take it personally."
+          },
+          {
             "say": "A line strung wall to wall, flying one shirt and a set of long underwear at half mast.",
             "repeat": [
               "The shirt has been mended at both elbows by someone who cared, and at the collar by someone who did not.",
@@ -375,6 +384,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "Alley mud. Hob's boots have been through it every night for twelve years, and I never once looked down."
+          },
+          {
             "say": "Alley mud, which is Main Street's mud without the audience.",
             "repeat": [
               "Footprints both ways, mostly to and from the Nugget's back door, and the ones coming back are less straight.",
@@ -441,6 +459,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 4,
+                "atMost": 4
+              }
+            },
+            "say": "The space behind Main Street, where the false fronts stop pretending. I used to come here for the honesty. Now I bring my own."
+          },
           {
             "say": "The space behind Main Street, where the false fronts stop pretending.",
             "repeat": [

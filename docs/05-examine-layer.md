@@ -1435,6 +1435,18 @@ bark budget, not here.
 **THE DYNAMITE CRATE** *(act: "3-4")*
 > **LOOK:** "Still beside the stove. The town has survived twelve years of lies and one crate of dynamite, and I no longer know which is the greater miracle."
 
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE PICKLE JAR** *(act: 3)*
+> **LOOK:** "Pickled eggs, the brine still working. It's outlasted me, officially. I suspect it'll outlast everyone."
+
+**THE STOVE** *(act: 3)*
+> **LOOK:** "The stove where the town's opinions are formed. This week the opinion is me, and it's very generous, considering."
+> **LISTEN:** "Iron ticking, and my name, said kindly."
+
+**THE PANS** *(act: 4)*
+> **LOOK:** "Gold pans to the ceiling. He's never had to reorder. I know why now, and I wish I didn't."
+
 ## ROOM 14 — BOOT HILL
 
 **MY OWN PLOT** *(act: "3-4")*
@@ -1500,6 +1512,49 @@ bark budget, not here.
 
 **THE CHAIRS** *(act: 4)*
 > **LOOK:** "Six chairs, and for the first time in Company history, nobody waiting in any of them. Comfort with no takers. It is the saddest furniture in the territory and I cannot spare it a full minute."
+
+## ROOM 9 — THE CLARION OFFICE
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE SPIKE** *(act: 3)*
+> **LOOK:** "A paper spike, loaded with stories that didn't run. Somewhere in there is the version of me that lived."
+
+**THE PRESS** *(act: 4)*
+> **LOOK:** "The press, running Mott's legend again. Twelve years of front pages, and I've met the man who'd be most embarrassed by them."
+
+**THE WINDOW** *(act: 3)*
+> **LISTEN:** "Main Street, and someone reading aloud about the Piano Man. Both of them are pleased."
+
+## ROOM 13 — THE UNDERTAKER'S
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE FLOWERS, WAXED** *(act: 3)*
+> **LOOK:** "Wax lilies, dusted. They were at my funeral. They'll be at the next one. They don't play favorites."
+
+## ROOM 17 — CHURCH & MEETING HALL
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE NOTICE OF SERVICES** *(act: 3)*
+> **LOOK:** "SERVICES SUNDAY. FUNERALS AS REQUIRED. I was required. I've never felt so needed by a notice."
+
+**THE WINDOW GLASS** *(act: 4)*
+> **LOOK:** "Plain glass. The dawn does the colors for free. In a town that charged for everything, I'd never noticed that."
+
+## ROOM 20 — THE BACK ALLEY
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE WASH LINE** *(act: 3)*
+> **LOOK:** "The same shirt and the same long underwear, still at half mast. I've decided to take it personally."
+
+**THE ALLEY ITSELF** *(act: 4)*
+> **LOOK:** "The space behind Main Street, where the false fronts stop pretending. I used to come here for the honesty. Now I bring my own."
+
+**THE MUD** *(act: 4)*
+> **LOOK:** "Alley mud. Hob's boots have been through it every night for twelve years, and I never once looked down."
 
 # PART THREE — MANIFEST, REMAINING ROOMS
 
