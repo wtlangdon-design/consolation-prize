@@ -2,7 +2,7 @@ import { readFileSync, statSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { loadContent as loadEngineContent } from '../engine/core/ContentLoader.ts';
-import { FIRST_FRAME_CLIPS, planBoot } from '../engine/core/BootAssets.ts';
+import { FIRST_FRAME_CLIPS, planBoot, planNear } from '../engine/core/BootAssets.ts';
 import { ROOT, Report } from './lib/content.mjs';
 
 /**
@@ -133,6 +133,27 @@ export async function check() {
   if (orphans.length > 12) {
     report.fail(`...and ${orphans.length - 12} more declared image(s) in neither list`);
   }
+
+  // AND EVERY DEFERRED IMAGE IS ASKED FOR BY SOME ROOM. The scene no longer
+  // fetches the deferred half wholesale -- it loads by room (planNear), so a
+  // deferred image no room's list carries is declared, planned and still
+  // never loaded: the Hob category one level up (Tyler, 2026-11-05).
+  const asked = new Set();
+  for (const roomId of bundle.rooms.keys()) for (const asset of planNear(bundle, roomId)) asked.add(asset.key);
+  const stranded = plan.deferred.filter((asset) => !asked.has(asset.key));
+  for (const asset of stranded.slice(0, 12)) {
+    report.fail(`${asset.path} is deferred and no room's planNear asks for it -- it will never load. `
+      + 'Name it in the room that shows it, or add it to planNear in engine/core/BootAssets.ts.');
+  }
+  if (stranded.length > 12) report.fail(`...and ${stranded.length - 12} more deferred image(s) no room asks for`);
+  let heaviest = { room: '', bytes: 0 };
+  for (const roomId of bundle.rooms.keys()) {
+    const bytes = planNear(bundle, roomId).reduce((sum, asset) => {
+      try { return sum + statSync(resolve(ROOT, asset.path)).size; } catch { return sum; }
+    }, 0);
+    if (bytes > heaviest.bytes) heaviest = { room: roomId, bytes };
+  }
+  report.note(`loading by room: the heaviest room and its neighbours are ${(heaviest.bytes / 1e6).toFixed(1)} MB (${heaviest.room})`);
 
   if (orphans.length === 0 && !clash) {
     report.note(
