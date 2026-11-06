@@ -24,9 +24,13 @@
    "play": [
     {
      "src": "audio/sfx/church-bell-distant.wav",
-     "gain": 0.114
+     "gain": 0.419
     }
-   ]
+   ],
+   "duck": {
+    "to": 0.5,
+    "seconds": 5
+   }
   },
   "R03-HANDBILL": {
    "why": "doc 45 R03-HANDBILL: one light paper movement",
@@ -232,9 +236,13 @@
    "play": [
     {
      "src": "audio/sfx/church-bell.wav",
-     "gain": 0.08
+     "gain": 0.138
     }
-   ]
+   ],
+   "duck": {
+    "to": 0.35,
+    "seconds": 6
+   }
   }
  },
  "verbs": [
@@ -502,7 +510,7 @@
   "duelMark": "U-ASSAY-PENCIL"
  },
  "levels": {
-  "about": "TYLER, 2026-11-06: \"make sure sfx aren't absurdly loud ... background effects not sounds that take center stage.\" Targets in dB against the median room bed (the music as it plays), and the gains in this file are set from them by measurement, never by ear alone. tools/check-sound-levels.mjs fails on any sound above its ceiling, which is the target plus 2 dB. `roomGain` turns a room's own scripted sounds down together -- the coffin's dirt and the chamber's taps -- whose loudest must sit no higher than the music (`scene`, 0 dB): in the coffin there is no music, and those sounds are the room, but not a slap. The two synthesized human sounds -- the Nugget's talk and the distant laugh -- sit lower than their kinds (20 and 16 dB under), because a voice made by synthesis is most convincing when it is barely there (errata 106).",
+  "about": "TYLER, 2026-11-06: \"make sure sfx aren't absurdly loud ... background effects not sounds that take center stage.\" Targets in dB against the median room bed (the music as it plays), and the gains in this file are set from them by measurement, never by ear alone. tools/check-sound-levels.mjs fails on any sound above its ceiling, which is the target plus 2 dB. `roomGain` turns a room's own scripted sounds down together -- the coffin's dirt and the chamber's taps -- whose loudest must sit no higher than the music (`scene`, 0 dB): in the coffin there is no music, and those sounds are the room, but not a slap. The two synthesized human sounds -- the Nugget's talk and the distant laugh -- sit lower than their kinds (20 and 16 dB under), because a voice made by synthesis is most convincing when it is barely there (errata 106). A cue with a `duck` dips the music under it, and its target is measured against its own room's music as ducked rather than the median: the bells (Tyler: \"The bell is hard to hear over the music\") ring over a dipped score, the near one 6 dB above it, the distant one 2.",
   "footsteps": -16,
   "cue": -10,
   "cueBed": -16,
@@ -517,12 +525,17 @@
    "O-06-S1": -10,
    "R01-WEST-3": -16,
    "R01-COACH-2": -14,
-   "R17-BELL": -8
+   "R17-BELL": 6,
+   "R02-BELL": 2
   },
   "ambience": {
    "nugget": -20
   },
-  "scene": 0
+  "scene": 0,
+  "featured": [
+   "R17-BELL",
+   "R02-BELL"
+  ]
  },
  "roomGain": {
   "coffin": 0.32,

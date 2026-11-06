@@ -2118,7 +2118,9 @@ export interface SoundsFile {
    * held sound such as the standing team -- started (or, when null, stopped)
    * on the cue bed, which also ends when the room does (errata 106).
    */
-  cues: Record<string, { why?: string; play?: SoundRef[]; bed?: SoundRef | null }>;
+  cues: Record<string, { why?: string; play?: SoundRef[]; bed?: SoundRef | null;
+    /** The music dips under this sound: to `to` of its level, for `seconds` (errata 107: the bell). */
+    duck?: { to: number; seconds: number } }>;
   /** A line put on screen fires a cue: a direction such as "stamping" (U-STAMP). Matched exactly. */
   lines?: { line: string; cue: string }[];
   /** A room's own scripted sounds (a timeline's, a puzzle's) all scaled by one number (errata 106). */

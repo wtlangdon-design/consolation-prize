@@ -2772,6 +2772,7 @@ export class GameScene extends Phaser.Scene {
     // it is still counted, and still silent.
     const cue = this.state.content.sounds?.cues[id];
     if (cue && 'bed' in cue) this.cueBed.play(cue.bed ? { src: cue.bed.src, gain: cue.bed.gain } : null);
+    if (cue?.duck) this.music.duck(cue.duck.to, cue.duck.seconds);
     for (const part of cue?.play ?? []) {
       if (part.at) this.time.delayedCall(part.at * 1000, () => this.sfx.play(part.src, part.gain ?? 1));
       else this.sfx.play(part.src, part.gain ?? 1);
