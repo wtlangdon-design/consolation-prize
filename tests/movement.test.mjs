@@ -185,8 +185,23 @@ for (const path of manifest.ambient) {
     const width = room.size?.[0] ?? 1920;
     const height = room.size?.[1] ?? 864;
     const off = ([x, y]) => x < 0 || x > width || y > height;
-    assert.ok(off(walk.path[0]), `${path}: the walk starts at ${walk.path[0]}, on the frame -- it would pop in`);
-    assert.ok(off(walk.path[walk.path.length - 1]), `${path}: the walk ends on the frame -- it would vanish`);
+    // OR BEHIND SOMETHING (errata 102 P: the claims road's miners go behind the cabin at the top of the
+    // road): the end is hidden if the prop the loop names covers the whole walker there and is drawn in
+    // front of him (its base lower than his feet).
+    const hidden = (i) => {
+      const prop = (room.props ?? []).find((one) => one.id === walk.hiddenBehind);
+      if (!prop || !walk.heights) return false;
+      const [x, y] = walk.path[i];
+      const [, , fw, fh] = walk.frames[0];
+      const k = walk.heights[i] / walk.figureHeight;
+      const [, , pw, ph] = prop.frame;
+      const box = [x - (fw * k) / 2, y - fh * k + 1, x + (fw * k) / 2, y];
+      const cover = [prop.x - Math.floor(pw / 2), prop.y - ph + 1, prop.x - Math.floor(pw / 2) + pw, prop.y];
+      return prop.y > y && box[0] >= cover[0] && box[1] >= cover[1] && box[2] <= cover[2] && box[3] <= cover[3];
+    };
+    const last = walk.path.length - 1;
+    assert.ok(off(walk.path[0]) || hidden(0), `${path}: the walk starts at ${walk.path[0]}, on the frame and in the open -- it would pop in`);
+    assert.ok(off(walk.path[last]) || hidden(last), `${path}: the walk ends on the frame and in the open -- it would vanish`);
     if (walk.heights) assert.equal(walk.heights.length, walk.path.length, `${path}: one height per path point`);
   });
 }

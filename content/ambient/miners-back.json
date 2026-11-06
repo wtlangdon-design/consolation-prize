@@ -14,11 +14,11 @@
  "loop": {
   "path": [
    [
-    2005,
-    150
+    1852,
+    194
    ],
    [
-    1808,
+    1811,
     190
    ],
    [
@@ -126,7 +126,7 @@
   "drawnFacing": "left",
   "figureHeight": 315,
   "heights": [
-   36,
+   38,
    42,
    52,
    75,
@@ -135,7 +135,7 @@
    360,
    440
   ],
-  "pause": 36.0,
+  "pause": 44.2,
   "offset": 33,
   "note": "Heights per point: the road climbs out of the walk band into the distance (errata 95 E).",
   "pace": 0.5,
@@ -143,13 +143,15 @@
   "laneNote": "LANES (Tyler, 2026-11-06: \"they weirdly split down the hill and up the hill from the same point\"): the two crowds walked one line, so where they met they merged and parted like one crowd splitting. The men going out keep the left of the road, the men coming back the right, each lane a share of the man's height to the side of the road's old line (0.08 and 0.42), so they pass each other.",
   "view": "toward-left",
   "cadenceNote": "SEEN FROM BEHIND AND FROM THE FRONT, THE LEGS KEEP TIME, NOT DISTANCE (Tyler, 2026-11-06: \"The miners glide. They don't walk.\"). Counted by the ground covered on the screen, a man walking into the picture covers little of it, so his legs barely moved while he slid up the road. So this walk runs on the clock at a walking cadence: 1.3 strides a second (Thad's is 1.38), twelve crowd frames a stride (six poses, each held two), 16 frames a second.",
-  "timingNote": "ONE CROWD ON THE ROAD AT A TIME (Tyler, 2026-11-06: \"the ones coming up and the ones going down pass directly through each other like ghosts\"). Each crowd is nearly as wide as the road, so lanes could not keep them apart. Both loops are 64 seconds: the men go out from 0 to about 29 s and come back from 31 to 59 s.",
+  "timingNote": "ONE CROWD ON THE ROAD AT A TIME (Tyler, 2026-11-06: \"the ones coming up and the ones going down pass directly through each other like ghosts\"). Each crowd is nearly as wide as the road, so lanes could not keep them apart. Both loops are 64 seconds: the men go out from 0 to about 22 s and come back from 31 to about 51 s (paths ending behind the cabin, errata 102 P).",
   "men": [
    "art/staging/walk-c/diag-miners/down-0",
    "art/staging/walk-c/diag-miners/down-1",
    "art/staging/walk-c/diag-miners/down-2",
    "art/staging/walk-c/diag-miners/down-3"
   ],
-  "menNote": "Tyler, 2026-11-06: \"The miners are still stutter stepping.\" The generator's eight frames per man were one wide stride drawn eight times. Each man is now drawn standing (cast-unify 55, 56) and walked by the rig with Thad's own back/front walk arguments; these are his frames, which tests/walk-gait.test.mjs checks pass the feet."
+  "menNote": "Tyler, 2026-11-06: \"The miners are still stutter stepping.\" The generator's eight frames per man were one wide stride drawn eight times. Each man is now drawn standing (cast-unify 55, 56) and walked by the rig with Thad's own back/front walk arguments; these are his frames, which tests/walk-gait.test.mjs checks pass the feet.",
+  "topNote": "BEHIND THE CABIN (Tyler, 2026-11-06, of the men far up the road: \"the little ones at the top just randomly walking across a building\"; he chose \"Behind the cabin\"). The path's last leg ran from the bend straight through the cabin. It now ends at the bend's far side, behind the cabin (1852,194), which the room draws in front of them (the prop cabin_front, base y 201), so they go behind it and are gone; the crowd coming back starts there, hidden, and steps out from behind it.",
+  "hiddenBehind": "cabin_front"
  }
 }

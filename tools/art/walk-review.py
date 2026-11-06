@@ -51,3 +51,35 @@ for p in manifest.get('actors', []):
         name = f"{a['id']}-walk-{c['facing']}"
         if want and not any(w in name for w in want): continue
         print(name, write(name, [Image.open(os.path.join(ROOT, f)).convert('RGBA') for f in c['frames']]))
+
+
+# AND EVERY PATH OVER ITS ROOM (Tyler, 2026-11-06: the miners at the top of the road "just randomly walking
+# across a building" -- the path's last leg ran through the cabin, and nothing showed the path over the
+# picture): renders/walks-every-frame/<walker>-path.png, the plate with the path and, at each point, a
+# box the size the walker is drawn there. Look at where every box stands before a walk is shown.
+from PIL import ImageDraw as _D
+rooms = {json.load(open(os.path.join(ROOT, p)))['id']: json.load(open(os.path.join(ROOT, p))) for p in manifest['rooms']}
+for p in manifest['ambient']:
+    n = json.load(open(os.path.join(ROOT, p)))
+    for kind in ('exit', 'loop', 'arrive'):
+        e = n.get(kind)
+        if not e or len(e.get('frames') or []) < 2: continue
+        name = f"{n['id']}-{kind}"
+        if want and not any(w in name for w in want): continue
+        room = rooms[n['room']]; bg = room.get('background')
+        bg = bg if isinstance(bg, str) else None
+        if not bg: continue
+        im = Image.open(os.path.join(ROOT, bg)).convert('RGB'); d = _D.Draw(im)
+        pts = ([[n['x'], n['y']]] if kind == 'exit' else []) + e['path']
+        d.line([tuple(q) for q in pts], fill=(255, 220, 60), width=3)
+        fw, fh = e['frames'][0][2], e['frames'][0][3]
+        for i, (x, y) in enumerate(pts):
+            hts = e.get('heights')
+            if not hts: continue
+            k = hts[min(i - (1 if kind == 'exit' else 0), len(hts) - 1)] / e['figureHeight']
+            d.rectangle([x - fw * k / 2, y - fh * k, x + fw * k / 2, y], outline=(120, 220, 255))
+        for prop in room.get('props') or []:
+            pw, ph = prop['frame'][2], prop['frame'][3]
+            d.rectangle([prop['x'] - pw // 2, prop['y'] - ph + 1, prop['x'] - pw // 2 + pw, prop['y']], outline=(255, 90, 90))
+        im.save(os.path.join(OUT, f'{name}-path.png'))
+        print(name, 'path drawn')
