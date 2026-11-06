@@ -23907,6 +23907,141 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-06T06:08:18.045Z"
+  },
+  {
+   "attempt": 30,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "funeral-mourners",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/cast-master/master-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/cast-unify-28.txt",
+   "promptHash": "4a6d0af920f909e071ee0b1632ee2b4243801af0dad32358380f8f087a9b1eb8",
+   "references": [
+    {
+     "path": "art/staging/cast-unify/batch-28/board.png",
+     "hash": "8d266049769eb9b1ae1965ca7faccda09cbe41559aac29021e64951188dcac82",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-28/townsfolk.png",
+     "hash": "c6a943e3ffb6d69f944120c07dbd2a1e921f12d2af69bc661f95e0dc6bced73c",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-14-boot-hill.png",
+     "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "reference/room-31/cast-board.png",
+     "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-31-funeral",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-14-boot-hill)",
+      "path": "art/backgrounds/room-14-boot-hill.png",
+      "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the cast already drawn: Sowerby (Room 17), the undertaker (Room 13), Grievance (Room 15), Hob (Room 21))",
+      "path": "reference/room-31/cast-board.png",
+      "hash": "6f8b4c45f732390b79f27d746ad272a3ff90fe514a835fbe702428880e1ff4db",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "8d266049769eb9b1ae1965ca7faccda09cbe41559aac29021e64951188dcac82",
+   "sourcePath": "art/staging/cast-unify/batch-28/board.png",
+   "out": "art/staging/cast-unify/batch-28/sheet.png",
+   "outputHash": "cf95432e2ef0503cf6badb3a525244babe50b8f9b3c5e1af65e82777c2006c1d",
+   "bytes": 1610040,
+   "usage": {
+    "input_tokens": 10254,
+    "input_tokens_details": {
+     "image_tokens": 9840,
+     "text_tokens": 414
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 11805
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-06T06:37:53.316Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-06T06:37:53.320Z"
   }
  ],
  "promotions": [
