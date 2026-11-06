@@ -84,6 +84,7 @@
   "breakEvery": 6,
   "talkFrame": 3,
   "frameNote": "0 rest, hands spread over the ball · 1 breath (derived) · 2 humming · 3 pronouncing, a hand raised · 4 the palm out for the fee. Breathing on 0 and 1; every `breakEvery` seconds one break -- mostly humming (doc 01: 'a great deal of humming'; errata 77). She pronounces as she talks.",
-  "provenance": "art/staging/room-16/ozymandia/ozymandia.json"
+  "provenance": "art/staging/room-16/ozymandia/ozymandia.json",
+  "hands": "on-counter"
  }
 }

@@ -16,6 +16,10 @@ kept the same shortfall), so it is fixed here, where it can be measured:
      size of square pixel, by construction.
 
 Usage: cast-master-sheet.py <master.png> <boxes.json> <out.png> [--labels]
+       cast-master-sheet.py <master.png> <boxes.json> <out.png> --board 0,1,6
+The second form is the REFERENCE BOARD for a pose sheet (errata 101 B): the
+named figures (by index, 0 is Thad) on flat magenta, one scale, one grid, no
+text -- each character drawn from his own master crop and nothing else.
 """
 import json, sys
 import numpy as np
@@ -35,6 +39,7 @@ NOT_ORDINARY = {3, 9, 10, 14, 18}
 
 src, boxes_path, out = sys.argv[1], sys.argv[2], sys.argv[3]
 labels = '--labels' in sys.argv
+board = [int(v) for v in sys.argv[sys.argv.index('--board') + 1].split(',')] if '--board' in sys.argv else None
 im = np.asarray(Image.open(src).convert('RGB')).astype(float)
 boxes = json.load(open(boxes_path))['boxes']
 assert len(boxes) == len(NAMES), f'{len(boxes)} figures, {len(NAMES)} names'
@@ -73,6 +78,19 @@ for row in ROWS:
     for i in row:
         figs.append(lock(cut(boxes[i]), s))
         report.append({'name': NAMES[i], 'drawn': heights[i], 'rowScale': round(s, 3), 'locked': figs[-1].height})
+
+if board is not None:
+    pick = [figs[i] for i in board]
+    gap, pad = 60, 40
+    W = sum(f.width for f in pick) + gap * (len(pick) - 1) + 2 * pad
+    H = max(f.height for f in pick) + 2 * pad
+    sheet = Image.new('RGB', (W, H), (255, 0, 255))
+    x = pad
+    for f in pick:
+        sheet.paste(f, (x, H - pad - f.height), f); x += f.width + gap
+    sheet.save(out)
+    print(json.dumps({'board': [NAMES[i] for i in board], 'size': [W, H]}))
+    sys.exit(0)
 
 BG = (44, 45, 56)
 gap, pad, label_h = 46, 40, 34 if labels else 0

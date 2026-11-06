@@ -4,8 +4,8 @@
  "name": "WINNIE LEDGER",
  "posture": "behind-counter",
  "room": "assay_office",
- "x": 1035,
- "y": 401,
+ "x": 1045,
+ "y": 387,
  "zone": 2,
  "approachRadius": 40,
  "walkTo": {
@@ -24,32 +24,32 @@
    [
     2,
     2,
-    444,
-    184
+    150,
+    168
    ],
    [
-    448,
+    154,
     2,
-    444,
-    184
+    150,
+    168
    ],
    [
-    894,
+    306,
     2,
-    444,
-    184
+    150,
+    168
    ],
    [
-    1340,
+    458,
     2,
-    444,
-    184
+    150,
+    168
    ],
    [
-    1786,
+    610,
     2,
-    444,
-    184
+    150,
+    168
    ]
   ],
   "rate": 0.28,
@@ -123,7 +123,7 @@
   "breakEvery": 9,
   "talkFrame": 4,
   "frameNote": "0 rest (pen in stand) · 1 breath (derived) · 2 writing · 3 writing, hand shifted two display pixels along the line (derived) · 4 looking up from the page. BEHIND-COUNTER SHEET (Tyler's counter-contact corrections 1 and 2, 2026-09-04): the lit five-frame sheet matted per column against the ledger's far edge and the counter's back edge, the working forearms/hands/pen kept whole ABOVE the surface and lifted a few whole pixels so paper shows under the hands, the pen shaft re-angled about its grip in the writing frames, the stand removed into its own prop, frames cropped to what is drawn. No pixel repainted; the slivers of dress the lifted forearms uncovered are filled from the torso column beside them and counted in frames.json.",
-  "provenance": "art/staging/room-05/winnie-02-counter/frames.json",
+  "provenance": "reference/cast-unify-10.spec.json",
   "props": [
    {
     "sheet": "art/objects/room-05/inkstand.png",
@@ -150,6 +150,11 @@
     },
     "note": "THE INK STAND, a counter object: one plate coordinate, base on the counter surface, pen in the stand while she rests (frames 0-1) and out of it while her hand holds it (frames 2-4). Both states are cut from her rest frame by tools/rig/winnie-counter.py; the pot body is identical in both."
    }
-  ]
- }
+  ],
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from her crop of the locked cast master (art/staging/cast-master/master-02.png), cast-unify operation 11 (reference/cast-unify-10.txt), snapped to its 4 px grid (tools/art/cast-unify-cut.py --grid 4), registered on the head (tools/art/bust-register.py), head matched to the drawing it replaces. NOTHING ON THE COUNTER IS HERS but the ink stand: drawn with no ledger and no desk things, cut at the waist where the counter's back edge hides her, forearms forward, hands on the plate's own surface. Same poses: 0 rest, 1 breath, 2-3 writing, 4 looking up, the pen in her hand.",
+  "waistOn": 375,
+  "waistOnNote": "The plate row the figure's waist ends on: the ledger's far edge (the plate's open book, y 375 at x 1035). Whatever lies on the counter in front of the waist is in front of the body, so the body stops at its far edge and only the hands come forward onto it. Tyler, 2026-11-06: 'body is partially on top of the book' -- the waist had been set on the counter's back edge, below the ledger's far edge. Held by tests/counter-surface.test.mjs against the plate.",
+  "hands": "on-counter"
+ },
+ "placedNote": " Moved to x 1045 (2026-11-06): at 1035 the writing pen in frame 3 landed on the ledger cover's left edge, not the page."
 }

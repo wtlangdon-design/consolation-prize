@@ -8,8 +8,14 @@ premultiplied resize to the height the character is drawn at, rim fix), and
 inserts a derived one-pixel breath after the rest pose, so the sheet keeps
 the layout every ambient record already uses: 0 rest, 1 breath, 2-4 actions.
 
-Usage: cast-unify-cut.py <sheet.png> <row> <height> <out.png>
+Usage: cast-unify-cut.py <sheet.png> <row> <height> <out.png> [--grid N]
 Prints the frames as JSON.
+
+--grid N (errata 101 C, one pixel for everyone): before cutting, the row is
+snapped to the square grid the generator drew it on -- N sheet pixels to the
+art pixel, its phase found where the colour steps fall -- by a BOX reduction
+and a NEAREST redraw, so the soft in-between pixels the generator leaves on
+its grid are gone, as on the master.
 """
 import json
 import os
@@ -22,6 +28,46 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 src, row, height, out = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), sys.argv[4]
+grid = int(sys.argv[sys.argv.index('--grid') + 1]) if '--grid' in sys.argv else 0
+
+
+def snap(rgb, n):
+    """Snap an RGB image to its own n-pixel grid, at the phase its colour steps fall on.
+
+    Interior blocks take their MEDIAN colour (a mean blends the outline into
+    its neighbour). EDGE blocks -- any block within one block of the backdrop
+    -- are where the generator's soft edge met the magenta, and a median there
+    is a blend of figure and key that the keyer then keeps: the maroon and
+    purple ring Tyler found on the Registrar's hair, ear and sleeve
+    (2026-11-06). An edge block takes the median of its PURE figure pixels
+    only (far from the key and not magenta-tinted), or, with fewer than a
+    quarter of them, becomes backdrop. Every art pixel is then figure or
+    backdrop, never between.
+    """
+    a = rgb.astype(float)
+    ex = np.abs(np.diff(a, axis=1)).sum(-1).sum(0)
+    ey = np.abs(np.diff(a, axis=0)).sum(-1).sum(1)
+    px = max(range(n), key=lambda p: ex[p::n].sum())
+    py = max(range(n), key=lambda p: ey[p::n].sum())
+    ox, oy = (px + 1) % n, (py + 1) % n
+    H, W = a.shape[:2]
+    out = a.copy()
+    tw, th = (W - ox) // n, (H - oy) // n
+    cells = a[oy:oy + th * n, ox:ox + tw * n].reshape(th, n, tw, n, 3).transpose(0, 2, 1, 3, 4).reshape(th, tw, n * n, 3)
+    key_d = np.sqrt((cells[..., 0] - 255) ** 2 + cells[..., 1] ** 2 + (cells[..., 2] - 255) ** 2)
+    tint = (cells[..., 0] + cells[..., 2]) / 2 - cells[..., 1]
+    pure = (key_d >= 200) & (tint <= 25)
+    backdrop = (key_d < 120).any(-1)
+    near = backdrop.copy()
+    for dy in (-1, 0, 1):
+        for dx in (-1, 0, 1):
+            near |= np.roll(np.roll(backdrop, dy, 0), dx, 1)
+    col = np.median(cells, axis=2)
+    for by, bx in zip(*np.where(near)):
+        keep = pure[by, bx]
+        col[by, bx] = np.median(cells[by, bx][keep], 0) if keep.sum() >= n * n / 4 else (255, 0, 255)
+    out[oy:oy + th * n, ox:ox + tw * n] = np.repeat(np.repeat(col, n, 0), n, 1)
+    return out.astype(np.uint8)
 im = np.asarray(Image.open(src).convert('RGB')).astype(float)
 dist = np.sqrt((im[..., 0] - 255) ** 2 + im[..., 1] ** 2 + (im[..., 2] - 255) ** 2)
 busy = (dist >= 120).sum(1) > 3
@@ -38,7 +84,8 @@ if start is not None:
 y0, y1 = bands[row]
 with tempfile.TemporaryDirectory() as tmp:
     part = os.path.join(tmp, 'row.png')
-    Image.fromarray(np.asarray(Image.open(src).convert('RGB'))[max(0, y0 - 4):y1 + 4]).save(part)
+    rowimg = np.asarray(Image.open(src).convert('RGB'))[max(0, y0 - 4):y1 + 4]
+    Image.fromarray(snap(rowimg, grid) if grid else rowimg).save(part)
     cut = os.path.join(tmp, 'cut.png')
     info = json.loads(subprocess.check_output([sys.executable, os.path.join(ROOT, 'tools/art/cut-ambient-sheet.py'), part, str(height), cut]))
     sheet = np.asarray(Image.open(cut).convert('RGBA'))

@@ -5,7 +5,7 @@
  "posture": "behind-counter",
  "room": "company_lobby",
  "x": 1435,
- "y": 392,
+ "y": 387,
  "zone": 2,
  "approachRadius": 40,
  "note": "THE LOBBY CLERK, at the Improvement Company's high desk. Docs 05, 49 and 54 place him (\"High enough that you address the clerk's collar\"; \"Free, insists the clerk\"; \"The clerk, breathing through his nose with the patience of a professional\") and no document gives him a tree, a bark or an appearance (the readiness gate: he is not spoken to). So he is a neat, thin young clerk of the 1850s -- hair pomaded and parted in the middle, a high stiff collar, sleeve garters, a dark waistcoat (errata 83 B). Drawn first in room-10's composition master beside Thad (style gate step 1), then alone on magenta in five poses (room-10 operation 3), keyed by tools/art/room10-clerk.py. BEHIND THE DESK, as Sump is behind his counter: the sheet stops at the desk top's front edge, so `y` is the row under his resting hands, not his feet. Present in every act: no document removes him. REDRAWN AT THAD'S PIXEL SIZE (Tyler, 2026-11-02: 'Thad is pixelated, not smooth'; 'Bigger pixels'): the five poses regenerated against a side-by-side of Thad beside him (errata 84 J).",
@@ -17,32 +17,32 @@
    [
     2,
     2,
-    156,
-    154
+    133,
+    137
    ],
    [
-    160,
+    137,
     2,
-    156,
-    154
+    133,
+    137
    ],
    [
-    318,
+    272,
     2,
-    156,
-    154
+    133,
+    137
    ],
    [
-    476,
+    407,
     2,
-    156,
-    154
+    133,
+    137
    ],
    [
-    634,
+    542,
     2,
-    156,
-    154
+    133,
+    137
    ]
   ],
   "rate": 0.25,
@@ -77,7 +77,10 @@
   ],
   "breakEvery": 7,
   "frameNote": "0 rest (hands on the desk) · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 writing · 3 the watch, held up and read · 4 looking up. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool: he writes, he reads his watch, he looks up (errata 35 and 77: a deliberate action at least every 30 s).",
-  "provenance": "reference/cast-unify-07.spec.json",
-  "redrawn": "Tyler, 2026-11-06: redrawn as his own man -- the first redraw had Ignatius Frame's face (cast-unify operation 7, row 3). Same poses."
+  "provenance": "reference/cast-unify-10.spec.json",
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from his crop of the locked cast master (art/staging/cast-master/master-02.png), cast-unify operation 11 (reference/cast-unify-10.txt), snapped to its 4 px grid and cut by tools/art/cast-unify-cut.py --grid 4, registered on the head by tools/art/bust-register.py, head matched to the drawing it replaces. NOTHING ON THE COUNTER IS HIS. Operation 10 drew him with his own ledger and it lay on the room's ('That's a book on a book', Tyler) and slid between poses; the room's counter and everything on it are the plate's, so he is drawn with none of it: cut at the waist where the counter's back edge hides him, forearms forward, hands resting on the bare desk top, the plate's own, under its back edge at y 377. `y` is the row under his hands; the waist lands on the back edge.",
+  "waistOn": 377,
+  "waistOnNote": "The plate row the figure's waist ends on: the desk's back edge (y 377 at x 1435); nothing is on the desk. Whatever lies on the counter in front of the waist is in front of the body, so the body stops at its far edge and only the hands come forward onto it. Tyler, 2026-11-06: 'body is partially on top of the book' -- the waist had been set on the counter's back edge, below the ledger's far edge. Held by tests/counter-surface.test.mjs against the plate.",
+  "hands": "on-counter"
  }
 }
