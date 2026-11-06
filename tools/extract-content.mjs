@@ -3187,7 +3187,10 @@ function winnieTree() {
   // A ROW THAT MOVES A PUZZLE: doc 04's State cell "grants assay → C6" on
   // WIN_B2's first row; doc 53 reads it as C6 pending (the assay is granted,
   // its return is off screen and later -- errata 66 F).
-  const PUZZLE_WRITE = { 'WIN_B2:1': { C6: 'pending' } };
+  // C1 AND C2 ARE THE TOPICS ARRIVING. Doc 57: "C1 · WIN_B1 option 1 ->
+  // T_ASSAY_QUEUE. Complete as written." and "C2 · WIN_B1 option 2 ... and
+  // option 6 ... -> T_OFFICE_TOPIC, C2" -- option 6 is the row that writes it.
+  const PUZZLE_WRITE = { 'WIN_B2:1': { C6: 'pending' }, 'WIN_B1:1': { C1: 'complete' }, 'WIN_B1:6': { C2: 'complete' } };
   const unplayed = [];
   const nodes = {};
   let poolIndex = 0;
@@ -3323,7 +3326,10 @@ function winnieTree() {
         option.exchange = [...(option.say ? [{ speaker: SPEAKER, line: option.say }] : []), ...then];
         delete option.say;
       }
-      if (state && !opens && !sets && !req && !puzzleWrite && state !== '—') {
+      // THE SPARRING (doc 57 C6): WIN_B4's teaching row, doc 03's exchange and pairs.
+      if (tag === 'ASSAY' && /\bpairs? \d/.test(`${responseCell} ${state}`)) {
+        teachingRow(option, `${responseCell} | ${state}`, { teacher: 'Winnie', owner: SPEAKER, sparring: 'Winnie' });
+      } else if (state && !opens && !sets && !req && !puzzleWrite && state !== '—') {
         unplayed.push(`${id} option ${number} state "${state}" names no flag; nothing set`);
       }
       options.push(option);
@@ -3502,8 +3508,11 @@ function hobTree() {
       const state = after.join('→');
       const flag = /`(T_[A-Z_0-9]+)`/.exec(state);
       if (flag) option.set = { [flag[1]]: true };
+      // A TEACHING ROW (doc 57: pair 21 is Hob's, HOB_A1 option 6). The flag is
+      // written quietly; the row keeps doc 04's tag and nothing marks it.
       const pair = /pair (\d+)/.exec(state);
-      if (pair) unplayed.push(`${where}: Liar's Assay pair ${pair[1]} -- doc 03's duel machinery is not built; the line plays`);
+      if (pair && option.tag === 'ASSAY') teachingRow(option, state, { teacher: 'Hob', owner: SPEAKER });
+      else if (pair) unplayed.push(`${where}: Liar's Assay pair ${pair[1]} on a ${option.tag} row; nothing set`);
       if (state.trim() && !flag && !pair) unplayed.push(`${where}: state "${plain(state)}" names no flag; nothing set`);
       options.push(option);
     }
@@ -3667,6 +3676,95 @@ function vesselActTwo() {
  * attribution: Vessel and Reply are Vessel in Room 4's two duels; Fanshawe is
  * Fanshawe.
  */
+/**
+ * WHO TEACHES EACH PAIR, from doc 03's own tiers ("## Tier 2 — Learned from
+ * Winnie Ledger (5)"), or the pair's own "(Frame)" note in Tier 4. The pair
+ * table is assay()'s; this is the part a teaching row needs.
+ */
+function docThreeTeachers() {
+  const doc = read('docs/03-liars-assay.md');
+  const two = doc.slice(doc.indexOf('# PART TWO'), doc.indexOf('# PART THREE'));
+  const out = new Map();
+  for (const tier of two.split(/^## Tier /m).slice(1)) {
+    const head = /^(\d) — (.+?) \((\d+)\)/.exec(tier);
+    if (!head) throw new Error(`doc 03: unreadable tier heading "${tier.split('\n')[0]}"`);
+    for (const [, n, who] of tier.matchAll(/^\*\*(\d+)\.\*\*(?: \*\((.+?)\)\*)?\n/gm)) {
+      out.set(Number(n), { who: who ?? plain(head[2]).replace(/^Learned from /, ''), tier: Number(head[1]) });
+    }
+  }
+  return out;
+}
+
+/**
+ * A SPARRING, from doc 03 PART FOUR ("## THE SPARRING — Winnie (C6)"): the
+ * exchange as written, each line by the speaker the document names, and each
+ * italic direction through doc 58's rule (a bare pause is a held "…").
+ */
+function docThreeSparring(name, owner) {
+  const doc = read('docs/03-liars-assay.md');
+  const heading = `## THE SPARRING — ${name}`;
+  const from = doc.indexOf(heading);
+  if (from < 0) throw new Error(`doc 03: no "${heading}"`);
+  const next = doc.indexOf('\n## ', from + heading.length);
+  const lines = [];
+  for (const raw of doc.slice(from, next < 0 ? undefined : next).split('\n')) {
+    const spoken = /^> \*\*([A-Z]+):\*\* (.+)$/.exec(raw);
+    const direction = /^> \*\(([^)]+)\)\*$/.exec(raw);
+    if (spoken) {
+      const speaker = spoken[1] === 'THAD' ? 'thad' : spoken[1].toLowerCase();
+      if (speaker !== 'thad' && speaker !== owner) throw new Error(`doc 03: ${heading} has a line by ${spoken[1]}, not ${owner}`);
+      for (const d of spoken[2].matchAll(/\*\(([^)]+)\)\*/g)) {
+        const shown = performedDirection(d[1]);
+        if (shown) lines.push({ speaker, line: shown.line, ...(shown.direction ? { direction: true } : {}) });
+      }
+      const said = quoted(spoken[2].replace(/\*\([^)]*\)\*/g, ''));
+      if (said.length !== 1) throw new Error(`doc 03: ${heading}: "${spoken[2]}" is not one line`);
+      lines.push({ speaker, line: said[0].trimEnd() });
+    } else if (direction) {
+      const shown = performedDirection(direction[1]);
+      if (shown) lines.push({ speaker: owner, line: shown.line, ...(shown.direction ? { direction: true } : {}) });
+    }
+  }
+  if (lines.length < 2) throw new Error(`doc 03: ${heading} has no exchange`);
+  return lines;
+}
+
+/**
+ * AN [ASSAY] ROW THAT TEACHES (doc 57's pair table; doc 04's own cell says
+ * "pairs 5–9", "pair 21"). The pairs are read from the row, and doc 03 must
+ * agree that this character teaches every one of them; the row then writes
+ * their knowledge flags. Nothing is shown for it -- the row keeps doc 04's tag
+ * and nothing else (invariant 7's rule for a row that sets something quietly).
+ *
+ * A row that names "**the Sparring** (doc 03)" performs that exchange after
+ * the row's own reply; doc 03's sparring may open on the reply itself (Pratt's
+ * "Try me."), which is then said once.
+ */
+function teachingRow(option, cells, { teacher, owner, sparring }) {
+  const range = /\bpairs? (\d+)(?:\s*[–-]\s*(\d+))?/.exec(plain(cells));
+  if (!range) throw new Error(`doc 04: ${owner} row "${option.text}" teaches no pairs it names`);
+  const first = Number(range[1]);
+  const last = Number(range[2] ?? range[1]);
+  const teachers = docThreeTeachers();
+  const set = {};
+  for (let n = first; n <= last; n += 1) {
+    const taught = teachers.get(n);
+    if (!taught || !taught.who.toLowerCase().includes(teacher.toLowerCase())) {
+      throw new Error(`doc 04 says ${teacher} teaches pair ${n}; doc 03 says ${taught?.who ?? 'nobody'}`);
+    }
+    set[`ASSAY_PAIR_${String(n).padStart(2, '0')}`] = true;
+  }
+  option.set = { ...option.set, ...set };
+  if (sparring && /\*\*the Sparring\*\* \(doc 03\)/.test(cells)) {
+    const exchange = docThreeSparring(sparring, owner);
+    const reply = option.say ? [{ speaker: owner, line: option.say }] : (option.exchange ?? []);
+    const opensOnReply = reply.length === 1 && exchange[0].speaker === owner && exchange[0].line === reply[0].line;
+    option.exchange = [...(opensOnReply ? [] : reply), ...exchange];
+    delete option.say;
+  }
+  return option;
+}
+
 function assay() {
   const doc = read('docs/03-liars-assay.md');
   const part = (heading, next) => {
@@ -3889,8 +3987,10 @@ function fanshaweTree() {
   const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
   if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
   const ROUTE = {
-    'FAN_A1:1': { gives: ['company_map'] },
-    'FAN_A1:2': { gives: ['company_map'] },
+    // A4 IS THE MAP ARRIVING (doc 02 A4 yields "Company map"; doc 57 A4: "FAN_A1
+    // gives THE COMPANY MAP ... The map is what finds Prosperity").
+    'FAN_A1:1': { gives: ['company_map'], puzzle: { A4: 'complete' } },
+    'FAN_A1:2': { gives: ['company_map'], puzzle: { A4: 'complete' } },
     'FAN_A2:6': { then: [{ speaker: SPEAKER, line: beat3 }], gives: ['handkerchief'], set: { T_DINED: true },
       puzzle: { A10: 'complete' }, ends: true },
     'FAN_B1:1': { goto: 'FAN_B2' },
@@ -4414,6 +4514,10 @@ function prattTree() {
       if (Object.keys(set).length) option.set = set;
       if (route.puzzle) option.puzzle = route.puzzle;
       if (route.goto) option.goto = route.goto;
+      // THE SPARRING (doc 57 D5): PRA_D6's teaching row, doc 03's exchange and pairs.
+      if (tag[1] === 'ASSAY' && /\bpairs? \d/.test(responseCell)) {
+        teachingRow(option, responseCell, { teacher: 'Pratt', owner: SPEAKER, sparring: 'Pratt' });
+      }
       options.push(option);
     }
     if (!options.length) throw new Error(`doc 04 ${id}: no options`);
