@@ -1,5 +1,5 @@
 {
-  "source": "art/staging/thad-rope-pull/sheet-01.png",
+  "source": "art/staging/thad-rope-pull/sheet-02.png",
   "key": "magenta",
   "clip": "reach",
   "view": "headon",
@@ -9,8 +9,8 @@
     625
   ],
   "padding": 260,
-  "sole_row": 764,
+  "sole_row": 765,
   "lands_at": 2,
   "frames": 6,
-  "note": "Doc 40's reach (PUSH and PULL: 'Same clip, probably'), from behind, for Room 17's bell rope: reach, close, down, lowest, open, done. thad-rope-pull attempt 1 (reference/room-17/rope-pull/brief.md), cut by tools/rig/cut-rope-pull.py at ONE scale from the standing pose, each pose's feet at x 370. The canvas is 829 tall, not 690: raised arms reach far above his crown, so the soles are at row 764 (sole_row). No rope in the art -- the image service refused any picture of a man gripping a rope overhead -- and the church plate's own rope hangs to where his fists come down. lands_at 2: the PULL's line, and the bell with it, starts on the downstroke rather than after he has let go."
+  "note": "Doc 40's reach (PUSH and PULL: 'Same clip, probably'), from behind, for Room 17's bell rope: reach, pull, down, lowest, rise, done. thad-rope-pull attempt 2, the correction (reference/room-17/rope-pull/brief.md): attempt 1's hands were apart and read as a stretch (Tyler, 2026-11-06), so here both fists are stacked on the centre line. Cut by tools/rig/cut-rope-pull.py at ONE scale from the standing pose, each pose's feet at x 370. The canvas is 830 tall, not 690: raised arms reach far above his crown, so the soles are at row 765 (sole_row). No rope in the art -- the image service refused any picture of a man gripping a rope overhead -- and the stacked fists sit on the church plate's own rope (fists at canvas x 371, the rope at screen x 516 with his feet at 515). lands_at 2: the PULL's line, and the bell with it, starts on the downstroke rather than after he has let go."
 }

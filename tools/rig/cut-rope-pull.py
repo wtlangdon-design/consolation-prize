@@ -1,9 +1,19 @@
 """Cut Thad's rope-pull sheet into the back-facing `reach` clip (Room 17's bell rope).
 
-Brief: reference/room-17/rope-pull/brief.md. The sheet is thad-rope-pull attempt 1,
-generated with NO rope (the image service refused any picture of a man gripping a
-rope overhead as "violence, self-harm", twice; Tyler, 2026-11-06, chose "no rope in
-the art": the church plate's own rope is drawn down to his fists in the engine).
+Brief: reference/room-17/rope-pull/brief.md. The sheet is thad-rope-pull attempt 2, the
+correction. Attempt 1 read as a man STRETCHING (Tyler, 2026-11-06: "he's stretching, not
+pulling a rope"): his hands were shoulder-width apart, one either side of the rope, and
+came down onto his head. Attempt 2 was shown that sheet and keeps both fists stacked on
+the centre line, as a ringer grips a rope.
+
+Still NO rope in the art: the image service refused any picture of a man gripping a rope
+overhead as "violence, self-harm", twice. None is needed. With his feet at the bell rope's
+stand (x 515) the stacked fists come out at canvas x 371, which is screen x 516 -- the
+church plate's own rope -- so the plate's rope runs into his top fist and, on the
+downstroke, down behind his head into his hands. A rope drawn into the frames to slide
+with the pull was considered and left out: above his fists a bell rope is a straight
+line whichever way it moves, and its twist, shifted 60-190 px between frames at 7 fps,
+would flicker rather than slide.
 
 WHY NOT tools/rig/cut-sheet.py, which the brief names. Two things it does are wrong
 for this clip:
@@ -37,7 +47,7 @@ from PIL import Image
 from scipy import ndimage as ndi
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SHEET = os.path.join(ROOT, 'art/staging/thad-rope-pull/sheet-01.png')
+SHEET = os.path.join(ROOT, 'art/staging/thad-rope-pull/sheet-02.png')
 OUT = os.path.join(ROOT, 'art/actors/thad-reach-back')
 STAND = os.path.join(ROOT, 'art/actors/thad-stand-back/stand-00.png')
 FIGURE = 625          # a standing Thad at the record's size (content/actors/thad.json)
