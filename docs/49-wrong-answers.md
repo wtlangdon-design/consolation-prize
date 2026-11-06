@@ -57,7 +57,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 ## ROOM 5 — ASSAY OFFICE, FRONT
 
-**THE QUEUE BENCH** · USE — "It seats nine. I have been all nine, on different days."
+**THE QUEUE BENCH** · USE — "It seats nine. I've been all nine, on different days."
 **THE QUEUE BENCH** · PUSH — "Moving the bench does not move the queue. The queue is a spiritual object; the bench is merely where it condenses."
 
 ## ROOM 7 — CLAIMS REGISTRAR

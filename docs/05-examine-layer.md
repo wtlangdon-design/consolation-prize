@@ -156,11 +156,11 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 
 **THE WINDOW SIGN**
 > **LOOK:** "THIS WINDOW CLOSES AT FOUR. Handwritten. The ink has faded but the sentiment has not."
-> **LISTEN:** "Nothing. It has been saying the same thing for six years and requires no assistance."
+> **LISTEN:** "Nothing. It's been saying the same thing for six years, and it needs no help."
 
 **THE SCALES**
 > **LOOK:** "A balance, in a glass case, so accurate that men have wept in front of it. Mostly in the other direction."
-> **LISTEN:** "Nothing at all. It is the only instrument in Consolation that cannot be argued with."
+> **LISTEN:** "Nothing at all. It's the only instrument in Consolation that can't be argued with."
 
 **THE QUEUE BOOK**
 > **LOOK:** "Eight months of names. Two-thirds of them in the same hand."
