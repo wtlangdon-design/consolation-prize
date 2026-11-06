@@ -158,6 +158,15 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "A spindle of numbered tickets. I was ninety-one. The dead don't queue, but I've kept my ticket."
+          },
+          {
             "say": "A spindle of numbered tickets. I'm ninety-one.",
             "repeat": [
               "Ninety-one. The other man is still forty.",
@@ -472,6 +481,15 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "ACT": {
+                "atLeast": 3,
+                "atMost": 3
+              }
+            },
+            "say": "Two roped lines, FILING and INQUIRIES, and no line for the deceased. I'd make a fuss, but who'd write it down?"
+          },
           {
             "say": "Two roped lines, two signs. FILING and INQUIRIES.",
             "repeat": [

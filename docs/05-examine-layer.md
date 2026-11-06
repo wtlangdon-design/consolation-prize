@@ -1382,17 +1382,50 @@ bark budget, not here.
 > **LOOK:** "Tuned, and staying tuned. The room plays it softer now, like it knows what it cost."
 > **LISTEN:** "A. Four hundred and forty. In this town, at last, that's not a foreign language."
 
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE STOVE** *(act: 3)*
+> **LOOK:** "The stove, still lit. I've been buried since I last looked at it, and it's still the warmest thing in here."
+
+**THE MIRROR** *(act: 3)*
+> **LOOK:** "I look like a man who has recently been buried and is being brave about it."
+
+**THE MIRROR** *(act: 4)*
+> **LOOK:** "I look like a man who knows something the whole room doesn't. It's not a good look on me. I'm keeping it."
+
+**THE PATRONS** *(act: 3)*
+> **LISTEN:** "Talk, all at the same volume. I came up once, between a mule and the price of flour."
+
+**THE PATRONS** *(act: 4)*
+> **LOOK:** "Nine men drinking to Mott's strike, up at seven to dig for it. I could tell them. I'm not sure who that would help."
+
 ## ROOM 5 — ASSAY OFFICE, FRONT
 
 **THE QUEUE BENCH** *(act: "2-4")*
 > **LOOK:** "The bench seats nine and holds two. The queue has been on a diet since a certain log was read aloud."
 > **LISTEN:** "Two people shifting. There is room between them."
 
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE STOVE** *(act: 3)*
+> **LOOK:** "The stove, the kettle, the work. My funeral didn't stop any of it, and I find that very reassuring."
+
+**THE WINDOW SIGN** *(act: 4)*
+> **LOOK:** "THIS WINDOW CLOSES AT FOUR. In a town built on a story, it's the one sign that's never once exaggerated."
+
 ## ROOM 7 — CLAIMS REGISTRAR
 
 **THE COUNTER** *(act: 3)*
 > **LOOK:** "Somewhere behind that partition is a certificate asserting my death, filed correctly, in perfect order. It is the best-organized thing that has ever happened to me."
 > **LISTEN:** "Sump, stamping. Every third document is somebody becoming official. I know the weight of it now."
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE NUMBER SPINDLE** *(act: 3)*
+> **LOOK:** "A spindle of numbered tickets. I was ninety-one. The dead don't queue, but I've kept my ticket."
+
+**THE TWO LINES** *(act: 3)*
+> **LOOK:** "Two roped lines, FILING and INQUIRIES, and no line for the deceased. I'd make a fuss, but who'd write it down?"
 
 ## ROOM 12 — THE MERCANTILE
 
@@ -1412,6 +1445,37 @@ bark budget, not here.
 
 **THE REGISTER** *(act: 3)*
 > **LOOK:** "My line is ruled through, respectfully. The clerk did it with a straightedge. In this town even the erasures are filed."
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE KEY RACK** *(act: 3)*
+> **LOOK:** "Forty keys. Mine's still out. The clerk hasn't asked for it back, which is either tact or a backlog."
+
+**THE CLOCK** *(act: 4)*
+> **LOOK:** "The lobby clock, nineteen minutes off the Registrar's. After what I've learned, a lie that small is practically good manners."
+
+**THE SETTEE** *(act: 3)*
+> **LISTEN:** "Horsehair, sighing, same as when I was alive."
+
+**THE ENGRAVING** *(act: 4)*
+> **LOOK:** "The Bay of Naples, carried four hundred miles on purpose. Somebody here believed in something real once. I've started to respect that."
+
+
+## ROOM 19 — THAD'S HOTEL ROOM
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE BED** *(act: 3)*
+> **LOOK:** "A bed with a valley in it. After a coffin, it's the finest bed in the territory."
+
+**THE WASHSTAND** *(act: 3)*
+> **LOOK:** "A basin and a pitcher. I've washed the grave off twice. The pitcher feels once was plenty."
+
+**THE WALL** *(act: 4)*
+> **LISTEN:** "Next door, two men still sure where Mott's strike is."
+
+**THE DESK** *(act: 4)*
+> **LOOK:** "One short leg, propped on a claim notice. It's the only claim in town I'm sure is doing any good."
 
 ## ROOM 23 & 24 — PROSPERITY, AND THE HOLE
 

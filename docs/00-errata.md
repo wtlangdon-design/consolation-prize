@@ -3111,3 +3111,16 @@ To see them on the live site:
 - Act IV: `?fixture=r2-f4&room=main_street`
 
 **C · CLAUDE.md** names this exception beside errata 100's, so a later session does not treat the pass as forbidden.
+
+---
+
+# 114 · THE SAMPLE IS APPROVED, AND THE PERMISSION REACHES THE GAPS — OWNER RULING (Tyler, 2026-11-06)
+
+**"I trust your judgement so proceed with what you wrote. And my permission covers those other things."**
+
+**A · Main Street is approved and the act-change pass goes on** (errata 113, doc 92), room by room, a batch to a pull request. Tyler ruled without playing the sample; his playthrough is where a miss is found and corrected. Batch 1 adds 17 lines across the Nugget, the assay office, the Registrar, the hotel lobby and Thad's room (doc 92 lists them).
+
+**B · The message boy's *(pay)* option is written.** In doc 07, Thad says "Here's your penny. Make it worth it." as a follow-up to "Tell me something.", and the boy's answer is doc 07's own. Nothing is spent: like the pie woman's "I'll take a pie", the purchase is said, not taken from the inventory. Doc 07's note under it ("This is true, is never followed up…") is hidden by name in doc 58.
+
+**C · The six July lines are kept and written into doc 07.** They are the opening lines over three trees (the letter-writer looks up; the pie woman does not; the map seller brightens considerably) and three repeats (the letter-writer's "Once. And I charged him double.", the map seller's "Like a man eating his own dinner, sir." and "Still not been disproved."). Tyler had played them, so they stay as he heard them. Doc 07's NOTATION gains ***Opening:***. `tests/town-trees-sourced.test.ts` now holds every line of every townsperson's tree to doc 07, word for word. It is proved by deleting one of the six, which fails it.
+

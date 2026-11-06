@@ -67,6 +67,15 @@
         "Nothing.",
         "Brass on wood, faintly, when the door goes."
       ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "Forty keys. Mine's still out. The clerk hasn't asked for it back, which is either tact or a backlog."
+          ],
+          "LISTEN_TO": []
+        }
+      ],
       "overrides": {
         "PICK_UP": "Three keys, and mine is one, and the other two belong to men I've never seen. The hotel is fuller of mystery than of guests."
       }
@@ -101,6 +110,15 @@
         "Horsehair, resettling. It sighs longer than furniture should.",
         "Nothing.",
         "Nothing. Nobody is sitting on it and nobody is going to."
+      ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [],
+          "LISTEN_TO": [
+            "Horsehair, sighing, same as when I was alive."
+          ]
+        }
       ],
       "overrides": {
         "USE": "I've sat on it. That's what happened next."
@@ -151,22 +169,6 @@
       ]
     },
     {
-      "name": "THE ENGRAVING",
-      "LOOK_AT": [
-        "An engraving of the Bay of Naples, in a hotel lobby, in a mining camp, four hundred miles from a paved road. Somebody carried this here on purpose.",
-        "The Bay of Naples, in a mining camp, four hundred miles from a paved road.",
-        "It is hung too high, which suggests it was hung by somebody who did not want it looked at closely."
-      ],
-      "LISTEN_TO": [
-        "Nothing.",
-        "Nothing.",
-        "Nothing. It is a long way from home and so am I, and only one of us is framed."
-      ],
-      "overrides": {
-        "PICK_UP": "It is hung too high for a man who has not been invited to touch it."
-      }
-    },
-    {
       "name": "THE CLOCK",
       "LOOK_AT": [
         "A lobby clock. It disagrees with the Registrar's clock by nineteen minutes and neither has ever been challenged.",
@@ -178,8 +180,42 @@
         "Ticking. Slow.",
         "Ticking. I'm still not going to say anything."
       ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "The lobby clock, nineteen minutes off the Registrar's. After what I've learned, a lie that small is practically good manners."
+          ],
+          "LISTEN_TO": []
+        }
+      ],
       "overrides": {
         "USE": "I've been asked not to."
+      }
+    },
+    {
+      "name": "THE ENGRAVING",
+      "LOOK_AT": [
+        "An engraving of the Bay of Naples, in a hotel lobby, in a mining camp, four hundred miles from a paved road. Somebody carried this here on purpose.",
+        "The Bay of Naples, in a mining camp, four hundred miles from a paved road.",
+        "It is hung too high, which suggests it was hung by somebody who did not want it looked at closely."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing.",
+        "Nothing. It is a long way from home and so am I, and only one of us is framed."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "The Bay of Naples, carried four hundred miles on purpose. Somebody here believed in something real once. I've started to respect that."
+          ],
+          "LISTEN_TO": []
+        }
+      ],
+      "overrides": {
+        "PICK_UP": "It is hung too high for a man who has not been invited to touch it."
       }
     },
     {
