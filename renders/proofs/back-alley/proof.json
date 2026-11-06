@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "back_alley",
  "roomWidth": 1920,
- "branch": "ccr-347d40c6-71r9f9",
- "commit": "456d1bfa74243aa089294b63a19ff7f4c481ab3e",
+ "branch": "claude/tender-sagan-buz50u",
+ "commit": "0a5eb074e84f5e1e84a523aeabf673c21482b9b6",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -72,24 +72,24 @@
      960
     ],
     "expect": 259,
-    "x": 565
+    "x": 269
    },
    "at": [
-    565,
+    269,
     706
    ],
    "reportedHeight": 259,
    "expected": 259,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-02.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
    "bounds": [
-    430,
+    134,
     447,
     269,
     286
    ],
    "order": 0,
-   "renderedHeight": 260,
-   "renderedBottom": 706,
+   "renderedHeight": 271,
+   "renderedBottom": 705,
    "file": "raw-captures-ignored/panel-c-mud_far-far.png"
   },
   {
@@ -109,17 +109,17 @@
      1900
     ],
     "expect": 361,
-    "x": 1035
+    "x": 1468
    },
    "at": [
-    1035,
+    1468,
     857
    ],
    "reportedHeight": 361,
    "expected": 361,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-06.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-01.png",
    "bounds": [
-    848,
+    1281,
     496,
     374,
     399
@@ -154,7 +154,59 @@
     "height": 56,
     "bottom": 556,
     "right": 477,
-    "changed": 1190
+    "changed": 1246
+   },
+   "props": []
+  },
+  {
+   "kind": "ambient",
+   "id": "hob",
+   "feet": [
+    1180,
+    790
+   ],
+   "sheet": "art/actors/room-20-hob.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1107,
+    "y": 474,
+    "width": 146,
+    "height": 318
+   },
+   "seen": {
+    "x": 1107,
+    "y": 475,
+    "width": 146,
+    "height": 316,
+    "bottom": 790,
+    "right": 1252,
+    "changed": 18721
+   },
+   "props": []
+  },
+  {
+   "kind": "ambient",
+   "id": "dogs_owner",
+   "feet": [
+    560,
+    792
+   ],
+   "sheet": "art/actors/dogs-owner.png",
+   "clipPlane": null,
+   "box": {
+    "x": 486,
+    "y": 475,
+    "width": 149,
+    "height": 319
+   },
+   "seen": {
+    "x": 492,
+    "y": 480,
+    "width": 106,
+    "height": 313,
+    "bottom": 792,
+    "right": 597,
+    "changed": 18214
    },
    "props": []
   }
@@ -163,7 +215,7 @@
   {
    "panel": "B",
    "room": "back_alley",
-   "clock": 154.66570000000002,
+   "clock": 142.0016,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -187,7 +239,11 @@
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -206,7 +262,7 @@
      "height": 282,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
       114,
       458,
@@ -236,20 +292,36 @@
      "candidate": false,
      "loaded": true,
      "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+    },
+    {
+     "key": "art/actors/dogs-owner.png",
+     "path": "art/actors/dogs-owner.png",
+     "drawn": "art/actors/dogs-owner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "1a21506bc760a20df7b86df364b51167762ce5632aed31ea2f16d9e56a306b23"
+    },
+    {
+     "key": "art/actors/room-20-hob.png",
+     "path": "art/actors/room-20-hob.png",
+     "drawn": "art/actors/room-20-hob.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "aec4426527b2b98bc8b211200dc83b14b6f6307d9c5d79e6b3395a873a4a6aa7"
     }
    ],
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-05T08:37:03.045Z",
+   "capturedAt": "2026-11-06T21:50:22.865Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "1ed8fcd966a69198713fe352310c3637d21f23059acddac8f588f4a6089543c7"
+   "hash": "138ffcc654a374acfaa17e617f6e3f3cc56a71dbc643fa15ab2a4fbde2240c26"
   },
   {
    "panel": "A",
    "room": "back_alley",
-   "clock": 155.91570000000002,
+   "clock": 143.0516,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -273,7 +345,11 @@
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -288,7 +364,7 @@
       740
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 282,
      "moving": false,
      "drawn": "sprite",
@@ -317,6 +393,22 @@
      "candidate": false,
      "loaded": true,
      "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+    },
+    {
+     "key": "art/actors/dogs-owner.png",
+     "path": "art/actors/dogs-owner.png",
+     "drawn": "art/actors/dogs-owner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "1a21506bc760a20df7b86df364b51167762ce5632aed31ea2f16d9e56a306b23"
+    },
+    {
+     "key": "art/actors/room-20-hob.png",
+     "path": "art/actors/room-20-hob.png",
+     "drawn": "art/actors/room-20-hob.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "aec4426527b2b98bc8b211200dc83b14b6f6307d9c5d79e6b3395a873a4a6aa7"
     }
    ],
    "stubs": [],
@@ -324,15 +416,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T08:37:04.135Z",
+   "capturedAt": "2026-11-06T21:50:23.788Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "c48355c05a815d2f1625a20d8862c3b032d3f819768b4a76b343abe97db05643"
+   "hash": "ea07142738d2f2d5134951522604613c0dcc0f48f4a271a23bd73c2f00973873"
   },
   {
    "panel": "D",
    "room": "back_alley",
-   "clock": 172.3316,
+   "clock": 162.1841,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -357,7 +449,11 @@
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -408,6 +504,14 @@
      "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
     },
     {
+     "key": "art/actors/dogs-owner.png",
+     "path": "art/actors/dogs-owner.png",
+     "drawn": "art/actors/dogs-owner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "1a21506bc760a20df7b86df364b51167762ce5632aed31ea2f16d9e56a306b23"
+    },
+    {
      "key": "art/actors/room-20-hob.png",
      "path": "art/actors/room-20-hob.png",
      "drawn": "art/actors/room-20-hob.png",
@@ -422,17 +526,26 @@
     "cast(false)",
     "cast(true)",
     "stand(565,706)",
+    "stand(466,706)",
+    "stand(664,706)",
+    "stand(368,706)",
+    "stand(763,706)",
+    "stand(269,706)",
     "cast(false)",
     "cast(true)",
     "stand(1035,857)",
+    "stand(819,857)",
+    "stand(1251,857)",
+    "stand(603,857)",
+    "stand(1468,857)",
     "cast(false)",
     "cast(true)",
     "flag T_EXECUTOR_RULE=true"
    ],
-   "capturedAt": "2026-11-05T08:37:20.753Z",
+   "capturedAt": "2026-11-06T21:50:42.910Z",
    "intent": "principal changed state: T_EXECUTOR_RULE. Visible consequence: Hob, with his lantern, before the Company's side door. Who is in a room is decided as Thad arrives, so the panel steps out to the street and back in.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "eb141131520e1f1e9b54fa12ca9e1276ac46bd9e781588d080bf6c0edccf4672",
+   "hash": "568e0cae4b140b7676be9716f47436e6b73ad20f2eda4a37a0a9332dbc5af408",
    "changedBy": "flags"
   }
  ],
@@ -463,11 +576,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T08:37:20.754Z",
+ "at": "2026-11-06T21:50:42.911Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 384832,
+  "bytes": 392704,
   "panels": 5,
   "scale": 0.5
  }
