@@ -158,6 +158,7 @@ Every row here shipped past a green suite and was found by Tyler playing, by a r
 | A room line the doc changed never reached the game | The Nugget back-room door's PUSH after the voice pass (#140) | `tools/check-room-lines-sourced.mjs` — every line a room speaks is in /docs |
 | A room built before the compiler kept its own copy of its lines, so rewriting the docs changed nothing | Room 1: only the case was extracted; 54 rewritten lines stayed old, and 12 lived in the extractor's code (#148) | `tools/check-room-lines-sourced.mjs` fails on every stale line; `roomOneLines` in `tools/extract-content.mjs` now reads them. **Before a voice pass on any room, run the check after editing the docs: a line that stays old means the room is not extracted** |
 | A range document's exits were never read by the compiler | Rooms 5 and 7: doc 25's `## Exits` doors kept the room file's words after the Room 5 voice pass (#153) | `tools/check-room-lines-sourced.mjs`; `rangeDocExits` in `tools/compile-room.mjs` now reads them |
+| A note for the builder is shown to the player as a stage direction | Winnie's "(Wrong. Hard wrong.)", which marks the wrong option (#158) | `tests/stage-directions.test.ts` fails on any line in doc 58's hidden list; **when a new tree's directions start showing, read every one once and hide the notes by name** |
 
 ### Not caught — the process that worked
 
