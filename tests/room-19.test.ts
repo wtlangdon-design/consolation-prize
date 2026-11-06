@@ -69,3 +69,26 @@ test('Act IV: the only version offered, four lines, no choice', async () => {
   const letter = doc04.slice(doc04.indexOf('**ACT IV —'));
   for (const line of lines) assert.ok(line && letter.includes(line), `"${line}" is doc 04's`);
 });
+
+test('errata 119: Act IV is the morning -- the packed plate, the lamp out -- and the night until then', async () => {
+  // Errata 101 B: "The packed case on the bed and the morning light are Room
+  // 19's Act IV state." The plate is chosen by ACT; the desk lamp's flicker is
+  // live only while the plate shows it lit.
+  const morning = await inState('r19-b');
+  assert.ok((morning.flags.get('ACT') as number) >= 4);
+  const plate = morning.room.plateWhen?.find((one) => morning.flags.test(one.when))?.plate;
+  assert.equal(plate, 'act4');
+  assert.equal(morning.room.plates?.[plate!], 'art/backgrounds/room-19-thads-room-act4.png');
+  const lamp = morning.room.lamps?.find((one) => one.id === 'desk_lamp');
+  assert.ok(lamp, 'the desk lamp is declared');
+  assert.ok(!morning.flags.test(lamp.when), 'and out in the morning');
+  // The case lies on the bed, inside the bed's hotspot: nothing is over it.
+  const bed = morning.findTarget('bed');
+  assert.ok(bed, 'the bed is still there to LOOK at');
+  assert.equal(morning.targetAt(1620, 500)?.id, 'bed', 'the case on the bed answers as the bed');
+
+  const night = await inState('r19-a');
+  night.flags.set('ACT', 3);
+  assert.equal(night.room.plateWhen?.find((one) => night.flags.test(one.when)), undefined, 'Acts I-III: the night plate');
+  assert.ok(night.flags.test(night.room.lamps?.find((one) => one.id === 'desk_lamp')?.when), 'with the lamp lit');
+});

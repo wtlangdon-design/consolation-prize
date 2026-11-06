@@ -1,0 +1,78 @@
+{
+ "source": "art/staging/room-13/ceiling-01/source.png",
+ "crop": {
+  "x": 8,
+  "y": 170,
+  "width": 1520,
+  "height": 684
+ },
+ "derived": "art/staging/room-13/ceiling-01/derived-1920x864.png",
+ "derivation": {
+  "transform": "errata-63-fixed-room-source-acquisition",
+  "provisional": true,
+  "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+  "source": {
+   "path": "art/staging/room-13/ceiling-01/source.png",
+   "hash": "12d12de6845e8f6ded7e58a8f6a4e56c91d704629194bf43354055cbd9c0bfd6",
+   "width": 1536,
+   "height": 1024,
+   "bytes": 1757055,
+   "kept": true
+  },
+  "crop": {
+   "x": 8,
+   "y": 170,
+   "width": 1520,
+   "height": 684,
+   "aspect": "20:9"
+  },
+  "resample": {
+   "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+   "lobes": 3,
+   "from": [
+    1520,
+    684
+   ],
+   "to": [
+    1920,
+    864
+   ],
+   "factor": 1.263157894736842,
+   "normalisedWeights": true,
+   "premultiplied": true,
+   "rounding": "half-away-from-zero, clamped to 0..255",
+   "forbidden": [
+    "nearest-neighbour",
+    "ai-upscale",
+    "sharpen",
+    "denoise",
+    "recolour",
+    "contrast-enhancement",
+    "generative-second-pass"
+   ]
+  },
+  "derived": {
+   "path": "art/staging/room-13/ceiling-01/derived-1920x864.png",
+   "hash": "fa761edafa6669d0986dac3a09083e9b19c77c9084de9c38720d98a5673f867c",
+   "width": 1920,
+   "height": 864,
+   "bytes": 3039264,
+   "colourType": 2
+  }
+ },
+ "base": {
+  "path": "art/staging/room-13/ceiling-01/before.png",
+  "hash": "d95cb39df5c5594b3ee21b39e88f5610acaa066b70fd307358ac95a6f6ee05e9",
+  "was": "art/backgrounds/room-13-undertakers.png"
+ },
+ "band": {
+  "rows": [
+   0,
+   39
+  ],
+  "from": "derived"
+ },
+ "out": "art/staging/room-13/ceiling-01/candidate-1920x864.png",
+ "outHash": "e6031236702b9daa3d7a165b2c6e0af9f25793cb8979b7096aa74b8023d9994e",
+ "why": "Room 13 ceiling (errata 118): rows 0-39 painted by operation 4; rows 40-863 are the shipping plate unchanged."
+}

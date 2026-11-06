@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "thads_room",
  "roomWidth": 1920,
- "branch": "ccr-347d40c6-71r9f9",
- "commit": "bf5fd7dab3a0164c5da0416b4583886f2d5b0a50",
+ "branch": "claude/tender-sagan-buz50u",
+ "commit": "65501fa00c346bf667d3b504a9593b49304adfcb",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -42,7 +42,10 @@
   "action 28 (click): clicked hotel_lobby/stairs at world 1813,385 -- the stairs, now a way up",
   "action 29 (waitFor): reached {\"room\":\"thads_room\"} in room thads_room",
   "action 30 (wait): waited 3s",
-  "action 1 (wait): waited 2s"
+  "action 1 (wait): waited 1s",
+  "action 2 (enter): entered hotel_lobby by control -- NOT proof that a player can walk there -- the plate is chosen on arrival",
+  "action 3 (enter): entered thads_room by control -- NOT proof that a player can walk there -- back up with Act IV set",
+  "action 4 (wait): waited 3s"
  ],
  "depthMarks": [
   {
@@ -70,11 +73,11 @@
    ],
    "reportedHeight": 451,
    "expected": 451,
-   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
    "bounds": [
-    561,
+    556,
     310,
-    468,
+    478,
     498
    ],
    "order": 0,
@@ -107,11 +110,11 @@
    ],
    "reportedHeight": 516,
    "expected": 516,
-   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
    "bounds": [
-    767,
+    762,
     341,
-    535,
+    546,
     570
    ],
    "order": 0,
@@ -126,7 +129,7 @@
   {
    "panel": "B",
    "room": "thads_room",
-   "clock": 132.18810000000002,
+   "clock": 125.5495,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -152,7 +155,11 @@
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -171,11 +178,11 @@
      "height": 471,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
-      56,
+      50,
       319,
-      488,
+      499,
       520
      ],
      "order": 0,
@@ -201,15 +208,15 @@
     "flag T_TUNES_PIANOS=true",
     "flag T_ROOM_GRANTED=true"
    ],
-   "capturedAt": "2026-11-05T05:30:01.162Z",
+   "capturedAt": "2026-11-06T23:13:57.535Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "b8555c44aeabc1b1322303027c96de10ccb088943c3fff945ced9fdffcb88614"
+   "hash": "180e2dc384a9cbe2ab1857b03b894565f7d71ae92deafc62252e4856a2d549a3"
   },
   {
    "panel": "A",
    "room": "thads_room",
-   "clock": 133.15470000000002,
+   "clock": 126.43289999999999,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -235,7 +242,11 @@
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -280,7 +291,7 @@
     "flag T_ROOM_GRANTED=true",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T05:30:02.093Z",
+   "capturedAt": "2026-11-06T23:13:58.374Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "06acecea87476d97192dacecba75711987d09e5cc63bd09ec49a22cb64776315"
@@ -288,7 +299,7 @@
   {
    "panel": "D",
    "room": "thads_room",
-   "clock": 141.271,
+   "clock": 139.299,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -314,7 +325,11 @@
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -329,15 +344,15 @@
       857
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 516,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-08.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
-      767,
+      762,
       341,
-      535,
+      546,
       570
      ],
      "order": 0,
@@ -364,18 +379,22 @@
     "flag T_ROOM_GRANTED=true",
     "cast(false)",
     "cast(true)",
+    "bystanders(false)",
     "stand(795,761)",
     "cast(false)",
     "cast(true)",
     "stand(1035,857)",
     "cast(false)",
     "cast(true)",
-    "flag ACT=4"
+    "bystanders(true)",
+    "flag ACT=4",
+    "enter(hotel_lobby)",
+    "enter(thads_room)"
    ],
-   "capturedAt": "2026-11-05T05:30:10.200Z",
-   "intent": "principal changed state: ACT 4 (doc 04 Part Three: the only version offered). Visible consequence: none in the picture -- the frame is taken to show the room unchanged.",
+   "capturedAt": "2026-11-06T23:14:11.167Z",
+   "intent": "principal changed state: ACT 4 (doc 04 Part Three: the only version offered; errata 101 B: the packed case on the bed and the morning light). Visible consequence: the morning plate -- the lamp out, pale light through the window, Thad's case strapped on the bed. The plate is chosen as Thad arrives, so the room is entered again by control from the lobby with the act set (errata 119).",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "2690765bfe61ef0c610e4a2b1b7ebe387f3f9aaa93f17da45326e5a40eee2ec9",
+   "hash": "d45835cfd72639acbb378f0669f0fd719757396e3a70584d5f7bb5b96faad67c",
    "changedBy": "counters"
   }
  ],
@@ -406,11 +425,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T05:30:10.200Z",
+ "at": "2026-11-06T23:14:11.168Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 233374,
+  "bytes": 235704,
   "panels": 5,
   "scale": 0.5
  }

@@ -3281,3 +3281,51 @@ Tyler: "Handle all of the open items." Errata 115 left three.
 - **Its spec names a principal change:** the swindle (`T_SWINDLED`; doc 27 DEKE VESSEL option 6, doc 57 A3: "he finishes his drink, collects his hat, and leaves the Nugget"). Deke is gone from the bar.
 - Setting the flag in the room opens what follows the swindle, so the door is not walked to through a conversation. A route may now `enter` a room by control, logged as no evidence that a player can walk there, and panel D re-enters the Nugget that way.
 - The back alley's proof still passes with the change.
+
+---
+
+# 119 · THREE ART FIXES: THAD'S ROOM IN THE MORNING, THE DAWN STREET'S EDGES, THE UNDERTAKER'S CEILING — TYLER, 2026-11-06
+
+Tyler: "Read reference/art-fixes/brief.md and carry it out." Each item fit its room's existing cap (four operations per room, errata 72). Two operations were spent of the five the brief allowed.
+
+**A · Room 19 in Act IV is the morning, packed** (errata 101 B: "The packed case on the bed and the morning light are Room 19's Act IV state").
+- **One operation**, room-19 attempt 3 (`reference/room-19/prompts/act4-01.txt`). Its input was the shipping night plate placed back in plate-01's frame at (8,171). Its second image was Thad's case cut from Room 1.
+  - The brief's rect for the case (1002,745 105×98) holds only mud on today's plate. The case is the `case_mud` object sprite (`art/objects/room-01-case-mud.png`), so that is what was sent.
+- **It came back right**, so the correction operation was not spent: the same room with every object in place, the lamp out, pale light from the window across the floor, and the case closed and strapped on the bed.
+  - It sits within a pixel of the night plate, so every rect read off the night plate holds.
+  - Derived with the night plate's crop (`tools/art/room19-act4-plate.mjs`) and promoted provisionally to `art/backgrounds/room-19-thads-room-act4.png`.
+- **Wired:**
+  - The annotation declares `plates.act4` and `plateWhen` ACT ≥ 4. `tools/compile-room.mjs` now carries both when an annotation declares them; Rooms 31 and 34 keep theirs as before.
+  - The desk lamp's flicker is `when` ACT ≤ 3, so a cold lamp breathes no light.
+  - **No `figureLight`** (errata 109): the morning plate averages 34.9 against the night's 32.1, and the night never needed one.
+- **The case is on the bed, inside the bed's hotspot**, so clicking it answers as the bed. No new hotspot: none is written.
+- **Held by** `tests/room-19.test.ts`, and shown by `thads_room`'s proof. Its panel D was "none in the picture"; it is now the morning, re-entered by control from the lobby with the act set.
+
+**B · The dawn street's glowing edges (Room 36): fixed in the tooling, with no operation.**
+- **Measured, the rims were not the blur.** They were a few pixels of Room 2's night sky that the sky mask missed round every silhouette, because the mask was found on a median-filtered picture. Room 2's faint night ridge lines were also left in. The morning's light multiplied both into bright outlines and blue streaks.
+- **`tools/art/room36-dawn.py` now:**
+  - grows the sky into every neighbour still coloured like the night sky;
+  - counts a piece of night floating free of the ground, inside the search band, as sky;
+  - reads the light from ground pixels only: the normalized convolution the brief asked for.
+  - The mountains above the saloon are morning sky.
+- **Re-promoted** as `room36-plate.mjs --promote` does. Room-36 still has two operations left.
+- **Lesson:** a doc 55 §8 row.
+
+**C · The undertaker's ceiling (Room 13).**
+- **One operation**, room-13 attempt 4, the room's last (`reference/room-13/prompts/ceiling-01.txt`). Its input was the shipping plate placed back at (8,170), with the flat strip marked as missing picture.
+- **Only rows 0–39 are taken from it** (`tools/art/room13-ceiling.mjs`).
+  - Every row from 40 down is the shipping plate's, byte for byte, so no hotspot, walk box or occlusion plane moves.
+  - The painted ceiling meets the top beam where the old plate's picture began, and the lamp's chain now hangs from it.
+- **Promoted** through `promoteProvisional`. The brief named `room13-promote.mjs`, but that promotes the undertaker's sprite, not the plate.
+- **Flat rows at the top:** 38 before, 0 after.
+
+**The lesson is a check.** `tools/check-plate-flat-edges.mjs` is in `run-all`. It fails any room plate or state plate whose top or bottom 12 rows or more barely vary across the width (spread under 1.6).
+- It was calibrated on all 41 plates: the laundry's dark ceiling spreads 3 or more.
+- Room 32 is exempt by name, because its dark is the room (invariant 2).
+- It failed the old Room 13 plate. `tests/plate-flat-edges.test.mjs` puts the band back, at the top and at the bottom, and is caught both times.
+
+**Also: errata 118's fiddler kept time across one loop only** (found by review on #182). The bed's file position wraps to 0 at its end. The Nugget's piano loops every 16 bars, and the fiddler's breaks come every 12. So every wrap restarted his schedule, with an extra break four bars after the last.
+- `Music.position()` now counts the loops (`LoopClock`), so his time runs on continuously.
+- `tests/keeps-time.test.mjs` drives three loops of the real bed's length. The frames now match continuous time, and it shows that reading the file's own time draws other frames.
+
+**Waiting on Tyler:** all three plates are promoted pending his playthrough (errata 72 E).

@@ -1,0 +1,64 @@
+{
+ "source": "art/staging/room-19/act4-01/source.png",
+ "crop": {
+  "x": 8,
+  "y": 171,
+  "width": 1520,
+  "height": 684
+ },
+ "out": "art/staging/room-19/act4-01/candidate-1920x864.png",
+ "derivation": {
+  "transform": "errata-63-fixed-room-source-acquisition",
+  "provisional": true,
+  "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+  "source": {
+   "path": "art/staging/room-19/act4-01/source.png",
+   "hash": "d7920973d1f34726b6dd0919d4cf3bbd7a45e7ae3b575f1d9ef0dcd79a467194",
+   "width": 1536,
+   "height": 1024,
+   "bytes": 1703859,
+   "kept": true
+  },
+  "crop": {
+   "x": 8,
+   "y": 171,
+   "width": 1520,
+   "height": 684,
+   "aspect": "20:9"
+  },
+  "resample": {
+   "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+   "lobes": 3,
+   "from": [
+    1520,
+    684
+   ],
+   "to": [
+    1920,
+    864
+   ],
+   "factor": 1.263157894736842,
+   "normalisedWeights": true,
+   "premultiplied": true,
+   "rounding": "half-away-from-zero, clamped to 0..255",
+   "forbidden": [
+    "nearest-neighbour",
+    "ai-upscale",
+    "sharpen",
+    "denoise",
+    "recolour",
+    "contrast-enhancement",
+    "generative-second-pass"
+   ]
+  },
+  "derived": {
+   "path": "art/staging/room-19/act4-01/candidate-1920x864.png",
+   "hash": "47661cbfda6179298bc86de194dca0056dcc3c068ae37c27a9ad8d3ff241555e",
+   "width": 1920,
+   "height": 864,
+   "bytes": 2545715,
+   "colourType": 2
+  }
+ },
+ "why": "Room 19 Act IV: the night plate placed back at (8,171) in plate-01's frame, so the same 20:9 crop."
+}

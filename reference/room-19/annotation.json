@@ -8,6 +8,20 @@
   1920,
   864
  ],
+ "plates": {
+  "act4": "art/backgrounds/room-19-thads-room-act4.png"
+ },
+ "plateWhen": [
+  {
+   "when": {
+    "ACT": {
+     "atLeast": 4
+    }
+   },
+   "plate": "act4"
+  }
+ ],
+ "plateWhenNote": "Errata 101 B and 118: when Act IV begins the game cuts here, and the room is the morning -- the lamp out, pale light through the window, Thad's case strapped on the bed (room-19 attempt 3, art/staging/room-19/act4-01/frame.json, the night plate's own crop, so every rect below holds on it). No figureLight: the morning plate averages 34.9 against the night's 32.1, inside the +25 margin errata 109 measured Thad at; the night never needed one.",
  "walkModel": "clipped",
  "walkable": [
   [
@@ -182,7 +196,12 @@
    "amount": 0.1,
    "rate": 0.27,
    "phase": 0.3,
-   "note": "The lamp on the desk, the room's one light."
+   "note": "The lamp on the desk, the room's one light. Out in Act IV's morning (errata 119): the plate shows it cold, so it breathes no light.",
+   "when": {
+    "ACT": {
+     "atMost": 3
+    }
+   }
   }
  ],
  "defaultVerbs": {
