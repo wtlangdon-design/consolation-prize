@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "funeral",
- "commit": "09b4e7e57c87cb95a959998b639140d3969e9664",
+ "commit": "ad7f9c5c1597090edf562a485487209a88a558ef",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -13,18 +13,18 @@
  "fixture": "r31-a",
  "warped": false,
  "lifeRoute": "funeral-doors",
- "durationSeconds": 35.22,
+ "durationSeconds": 34.96,
  "events": [
   {
-   "t": 2.74,
+   "t": 2.67,
    "line": "started from fixture r31-a, no entry route"
   },
   {
-   "t": 5.9,
+   "t": 5.77,
    "line": "in funeral; life route: 22 action(s)"
   },
   {
-   "t": 6.49,
+   "t": 6.37,
    "line": "capture 00-arrived: room funeral, says null, options 0, control null"
   },
   {
@@ -32,7 +32,7 @@
    "line": "action 1 (click): clicked funeral/to_boot_hill at world 1330,144 -- toward the rest of the hill: beat 3"
   },
   {
-   "t": 7.92,
+   "t": 7.9,
    "trace": {
     "says": null,
     "control": null,
@@ -40,8 +40,8 @@
     "performing": false,
     "options": 0,
     "thad": [
-     543,
-     795
+     579,
+     794
     ],
     "moving": true
    }
@@ -55,14 +55,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     852,
-     789
+     899,
+     788
     ],
     "moving": true
    }
   },
   {
-   "t": 9.92,
+   "t": 9.91,
    "trace": {
     "says": null,
     "control": null,
@@ -70,22 +70,22 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1160,
-     783
+     1201,
+     782
     ],
     "moving": true
    }
   },
   {
-   "t": 10.82,
+   "t": 10.66,
    "line": "action 1 (waitFor): reached {\"says\":\"hob\"} in room funeral"
   },
   {
-   "t": 10.86,
+   "t": 10.69,
    "line": "action 1 (waitFor): reached {} in room funeral"
   },
   {
-   "t": 11.88,
+   "t": 11.7,
    "trace": {
     "says": "hob",
     "control": null,
@@ -100,7 +100,7 @@
    }
   },
   {
-   "t": 12.88,
+   "t": 12.71,
    "trace": {
     "says": null,
     "control": null,
@@ -115,11 +115,11 @@
    }
   },
   {
-   "t": 13.86,
+   "t": 13.7,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 13.87,
+   "t": 13.72,
    "trace": {
     "says": null,
     "control": null,
@@ -134,23 +134,23 @@
    }
   },
   {
-   "t": 14.37,
+   "t": 14.19,
    "line": "capture 01-beat-three: room funeral, says null, options 0, control null"
   },
   {
-   "t": 14.71,
+   "t": 14.57,
    "line": "action 1 (click): clicked funeral/to_boot_hill at world 1330,144 -- toward the hill again: refused"
   },
   {
-   "t": 14.74,
+   "t": 14.61,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room funeral"
   },
   {
-   "t": 14.77,
+   "t": 14.64,
    "line": "action 1 (waitFor): reached {} in room funeral"
   },
   {
-   "t": 15.78,
+   "t": 15.66,
    "trace": {
     "says": "thad",
     "control": null,
@@ -165,7 +165,7 @@
    }
   },
   {
-   "t": 16.79,
+   "t": 16.66,
    "trace": {
     "says": "thad",
     "control": null,
@@ -180,11 +180,11 @@
    }
   },
   {
-   "t": 17.78,
+   "t": 17.64,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 17.78,
+   "t": 17.66,
    "trace": {
     "says": null,
     "control": null,
@@ -199,23 +199,23 @@
    }
   },
   {
-   "t": 18.3,
+   "t": 18.16,
    "line": "capture 02-refused: room funeral, says null, options 0, control null"
   },
   {
-   "t": 18.39,
+   "t": 18.25,
    "line": "action 1 (click): clicked screen 540,1052 -- the MAP button"
   },
   {
-   "t": 18.45,
+   "t": 18.31,
    "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
   },
   {
-   "t": 19.45,
+   "t": 19.32,
    "line": "action 1 (wait): waited 1s"
   },
   {
-   "t": 19.46,
+   "t": 19.33,
    "trace": {
     "says": null,
     "control": null,
@@ -230,15 +230,15 @@
    }
   },
   {
-   "t": 19.53,
+   "t": 19.39,
    "line": "action 1 (click): clicked screen 1370,95 -- Boot Hill's marker"
   },
   {
-   "t": 19.58,
+   "t": 19.45,
    "line": "action 1 (waitFor): reached {\"room\":\"boot_hill\"} in room boot_hill"
   },
   {
-   "t": 20.61,
+   "t": 20.46,
    "trace": {
     "says": null,
     "control": null,
@@ -253,7 +253,7 @@
    }
   },
   {
-   "t": 21.6,
+   "t": 21.47,
    "trace": {
     "says": null,
     "control": null,
@@ -268,11 +268,11 @@
    }
   },
   {
-   "t": 22.59,
+   "t": 22.45,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 22.6,
+   "t": 22.48,
    "trace": {
     "says": null,
     "control": null,
@@ -287,15 +287,15 @@
    }
   },
   {
-   "t": 23.06,
+   "t": 22.94,
    "line": "capture 03-boot-hill: room boot_hill, says null, options 0, control null"
   },
   {
-   "t": 23.23,
+   "t": 23.08,
    "line": "action 1 (click): clicked boot_hill/to_funeral at world 1730,260 -- up to the plot"
   },
   {
-   "t": 24.26,
+   "t": 24.1,
    "trace": {
     "says": null,
     "control": null,
@@ -303,14 +303,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     561,
+     553,
      800
     ],
     "moving": true
    }
   },
   {
-   "t": 25.25,
+   "t": 25.12,
    "trace": {
     "says": null,
     "control": null,
@@ -318,14 +318,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     798,
+     802,
      800
     ],
     "moving": true
    }
   },
   {
-   "t": 26.23,
+   "t": 26.12,
    "trace": {
     "says": null,
     "control": null,
@@ -333,14 +333,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1038,
+     1042,
      799
     ],
     "moving": true
    }
   },
   {
-   "t": 27.26,
+   "t": 27.1,
    "trace": {
     "says": null,
     "control": null,
@@ -348,14 +348,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1289,
+     1285,
      799
     ],
     "moving": true
    }
   },
   {
-   "t": 28.25,
+   "t": 28.09,
    "trace": {
     "says": null,
     "control": null,
@@ -363,14 +363,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1528,
+     1524,
      798
     ],
     "moving": true
    }
   },
   {
-   "t": 29.26,
+   "t": 29.11,
    "trace": {
     "says": null,
     "control": null,
@@ -379,17 +379,17 @@
     "options": 0,
     "thad": [
      1700,
-     731
+     739
     ],
     "moving": true
    }
   },
   {
-   "t": 29.92,
+   "t": 29.85,
    "line": "action 1 (waitFor): reached {\"room\":\"funeral\"} in room funeral"
   },
   {
-   "t": 30.96,
+   "t": 30.88,
    "trace": {
     "says": null,
     "control": null,
@@ -404,7 +404,7 @@
    }
   },
   {
-   "t": 31.94,
+   "t": 31.88,
    "trace": {
     "says": null,
     "control": null,
@@ -419,11 +419,11 @@
    }
   },
   {
-   "t": 32.94,
+   "t": 32.86,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 32.94,
+   "t": 32.86,
    "trace": {
     "says": null,
     "control": null,
@@ -438,7 +438,7 @@
    }
   },
   {
-   "t": 33.44,
+   "t": 33.38,
    "line": "capture 04-back: room funeral, says null, options 0, control null"
   }
  ],
@@ -446,11 +446,11 @@
   {
    "name": "00-arrived",
    "why": null,
-   "t": 6.48,
+   "t": 6.37,
    "file": "renders/proofs/funeral/doors/raw-captures-ignored/00-arrived.png",
-   "hash": "f490f12bd577ae4a77ab2980884ec113038afcd5c3db5de156c9c917de8bdc90",
+   "hash": "8dff9f8cfe8fc1ef43ae712c2d1ef469c4cce6b7fe3d070b9e182e5006c61817",
    "room": "funeral",
-   "clock": 6.1773,
+   "clock": 6.1579,
    "control": null,
    "says": null,
    "options": 0,
@@ -492,7 +492,8 @@
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
-    "PRATT_OFFERS": 0
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
    },
    "camera": 0,
    "movers": {
@@ -532,7 +533,7 @@
      "drawn": "art/backgrounds/room-31-funeral.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c"
+     "hash": "03dd0facf35b8234f8d3b1a0b7e991c62732a2ed84154fcff2dabdd193d45214"
     },
     {
      "key": "art/actors/room-31-grievance.png",
@@ -540,7 +541,7 @@
      "drawn": "art/actors/room-31-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f87dcd603ebac81cf0b71cffceafaa8a2e4c0ce9acb274463f95aeb67005ac57"
+     "hash": "4d373f6c8024b20ecf48cfdcbacc0b002448e7f7808536880a334914f2ab29ac"
     },
     {
      "key": "art/actors/room-31-hob.png",
@@ -548,7 +549,7 @@
      "drawn": "art/actors/room-31-hob.png",
      "candidate": false,
      "loaded": true,
-     "hash": "92d89f9fe628863f077f63098eeb92e4de28c879838ac8ba4f018a2408a4aa8b"
+     "hash": "942835063b3fe67bf86a45afa473c84131565605a0b71ce4ee39f59de840480b"
     },
     {
      "key": "art/actors/room-31-mourners.png",
@@ -556,7 +557,7 @@
      "drawn": "art/actors/room-31-mourners.png",
      "candidate": false,
      "loaded": true,
-     "hash": "fbf6ab58be1c3014cc3fae0fbd7f964fa82c59408b81d68327ca0b6bf092298a"
+     "hash": "a7dd472e3e1a7c4ea632e34d68c842cbfa5d6ee2860555c9c8a16533546b7e02"
     },
     {
      "key": "art/actors/room-31-sowerby.png",
@@ -564,7 +565,7 @@
      "drawn": "art/actors/room-31-sowerby.png",
      "candidate": false,
      "loaded": true,
-     "hash": "984f09ebd6d3321b856698380c24fa3e5199cdd1fff2b95b1901be105b60ad0a"
+     "hash": "71c21fa8b817e7a6b690d88f5562c515a1f31e8e80391bffd732537299b58a01"
     },
     {
      "key": "art/actors/room-31-undertaker.png",
@@ -572,7 +573,7 @@
      "drawn": "art/actors/room-31-undertaker.png",
      "candidate": false,
      "loaded": true,
-     "hash": "392397c5f6e8db4e59983e8ed389902d3da6925b6ef00ee6d008b389ffd8ebc3"
+     "hash": "e452f40c9ed7c66a958339a60fa9aab31c1ec4af18532be0bde1bc94e6122d00"
     }
    ],
    "stubs": [],
@@ -581,11 +582,11 @@
   {
    "name": "01-beat-three",
    "why": null,
-   "t": 14.36,
+   "t": 14.19,
    "file": "renders/proofs/funeral/doors/raw-captures-ignored/01-beat-three.png",
-   "hash": "c65b0dd838507dbf2fbafaf930ca381d199c7052468608cdae3641d727ff3855",
+   "hash": "cdd8320bc6d9228f2f5b07313b2ddd95968581de1d5aceca599cc4a67dd7546a",
    "room": "funeral",
-   "clock": 14.193700000000002,
+   "clock": 13.9076,
    "control": null,
    "says": null,
    "options": 0,
@@ -628,7 +629,8 @@
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
-    "PRATT_OFFERS": 0
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
    },
    "camera": 0,
    "movers": {
@@ -668,7 +670,7 @@
      "drawn": "art/backgrounds/room-31-funeral.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c"
+     "hash": "03dd0facf35b8234f8d3b1a0b7e991c62732a2ed84154fcff2dabdd193d45214"
     },
     {
      "key": "art/actors/room-31-grievance.png",
@@ -676,7 +678,7 @@
      "drawn": "art/actors/room-31-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f87dcd603ebac81cf0b71cffceafaa8a2e4c0ce9acb274463f95aeb67005ac57"
+     "hash": "4d373f6c8024b20ecf48cfdcbacc0b002448e7f7808536880a334914f2ab29ac"
     },
     {
      "key": "art/actors/room-31-mourners.png",
@@ -684,7 +686,7 @@
      "drawn": "art/actors/room-31-mourners.png",
      "candidate": false,
      "loaded": true,
-     "hash": "fbf6ab58be1c3014cc3fae0fbd7f964fa82c59408b81d68327ca0b6bf092298a"
+     "hash": "a7dd472e3e1a7c4ea632e34d68c842cbfa5d6ee2860555c9c8a16533546b7e02"
     },
     {
      "key": "art/actors/room-31-sowerby.png",
@@ -692,7 +694,7 @@
      "drawn": "art/actors/room-31-sowerby.png",
      "candidate": false,
      "loaded": true,
-     "hash": "984f09ebd6d3321b856698380c24fa3e5199cdd1fff2b95b1901be105b60ad0a"
+     "hash": "71c21fa8b817e7a6b690d88f5562c515a1f31e8e80391bffd732537299b58a01"
     },
     {
      "key": "art/actors/room-31-undertaker.png",
@@ -700,7 +702,7 @@
      "drawn": "art/actors/room-31-undertaker.png",
      "candidate": false,
      "loaded": true,
-     "hash": "392397c5f6e8db4e59983e8ed389902d3da6925b6ef00ee6d008b389ffd8ebc3"
+     "hash": "e452f40c9ed7c66a958339a60fa9aab31c1ec4af18532be0bde1bc94e6122d00"
     }
    ],
    "stubs": [],
@@ -709,11 +711,11 @@
   {
    "name": "02-refused",
    "why": null,
-   "t": 18.29,
+   "t": 18.16,
    "file": "renders/proofs/funeral/doors/raw-captures-ignored/02-refused.png",
-   "hash": "5d74c7e607024a9d9d4e2b7de5e6eff6e21386e15d077a9ded8f8193a2d14547",
+   "hash": "d78c19e4a408c7b7f970e77a29690dd5a74b2d6b41c8f60978a2a4b96661e01d",
    "room": "funeral",
-   "clock": 18.1102,
+   "clock": 17.9907,
    "control": null,
    "says": null,
    "options": 0,
@@ -756,7 +758,8 @@
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
-    "PRATT_OFFERS": 0
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
    },
    "camera": 0,
    "movers": {
@@ -770,7 +773,7 @@
      "height": 374,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-01.png",
+     "from": "art/actors/thad-idle-back/idle-05.png",
      "bounds": [
       1128,
       386,
@@ -796,7 +799,7 @@
      "drawn": "art/backgrounds/room-31-funeral.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c"
+     "hash": "03dd0facf35b8234f8d3b1a0b7e991c62732a2ed84154fcff2dabdd193d45214"
     },
     {
      "key": "art/actors/room-31-grievance.png",
@@ -804,7 +807,7 @@
      "drawn": "art/actors/room-31-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f87dcd603ebac81cf0b71cffceafaa8a2e4c0ce9acb274463f95aeb67005ac57"
+     "hash": "4d373f6c8024b20ecf48cfdcbacc0b002448e7f7808536880a334914f2ab29ac"
     },
     {
      "key": "art/actors/room-31-mourners.png",
@@ -812,7 +815,7 @@
      "drawn": "art/actors/room-31-mourners.png",
      "candidate": false,
      "loaded": true,
-     "hash": "fbf6ab58be1c3014cc3fae0fbd7f964fa82c59408b81d68327ca0b6bf092298a"
+     "hash": "a7dd472e3e1a7c4ea632e34d68c842cbfa5d6ee2860555c9c8a16533546b7e02"
     },
     {
      "key": "art/actors/room-31-sowerby.png",
@@ -820,7 +823,7 @@
      "drawn": "art/actors/room-31-sowerby.png",
      "candidate": false,
      "loaded": true,
-     "hash": "984f09ebd6d3321b856698380c24fa3e5199cdd1fff2b95b1901be105b60ad0a"
+     "hash": "71c21fa8b817e7a6b690d88f5562c515a1f31e8e80391bffd732537299b58a01"
     },
     {
      "key": "art/actors/room-31-undertaker.png",
@@ -828,7 +831,7 @@
      "drawn": "art/actors/room-31-undertaker.png",
      "candidate": false,
      "loaded": true,
-     "hash": "392397c5f6e8db4e59983e8ed389902d3da6925b6ef00ee6d008b389ffd8ebc3"
+     "hash": "e452f40c9ed7c66a958339a60fa9aab31c1ec4af18532be0bde1bc94e6122d00"
     }
    ],
    "stubs": [],
@@ -837,11 +840,11 @@
   {
    "name": "03-boot-hill",
    "why": null,
-   "t": 23.06,
+   "t": 22.93,
    "file": "renders/proofs/funeral/doors/raw-captures-ignored/03-boot-hill.png",
    "hash": "255733a6d4475ac772825ff4e4e6fc544a274a43cc99a109a5286fb49805975d",
    "room": "boot_hill",
-   "clock": 22.7766,
+   "clock": 22.773799999999998,
    "control": null,
    "says": null,
    "options": 0,
@@ -884,7 +887,8 @@
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
-    "PRATT_OFFERS": 0
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
    },
    "camera": 0,
    "movers": {
@@ -933,11 +937,11 @@
   {
    "name": "04-back",
    "why": null,
-   "t": 33.43,
+   "t": 33.38,
    "file": "renders/proofs/funeral/doors/raw-captures-ignored/04-back.png",
-   "hash": "c655b8c2568945655b2d2edabb9521448d9915b4fc225c895082ae8523babab2",
+   "hash": "e010a8b0e81b8d7bd8b952ca93b5357442602d22b1a9e48f5ea5248b1fe7d271",
    "room": "funeral",
-   "clock": 33.2595,
+   "clock": 33.2067,
    "control": null,
    "says": null,
    "options": 0,
@@ -980,7 +984,8 @@
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
-    "PRATT_OFFERS": 0
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0
    },
    "camera": 0,
    "movers": {
@@ -1020,7 +1025,7 @@
      "drawn": "art/backgrounds/room-31-funeral.png",
      "candidate": false,
      "loaded": true,
-     "hash": "e86d226bcff64717de7c86e75c5393cc8075c969fb704a5de1972f90fd812e3c"
+     "hash": "03dd0facf35b8234f8d3b1a0b7e991c62732a2ed84154fcff2dabdd193d45214"
     },
     {
      "key": "art/actors/room-31-grievance.png",
@@ -1028,7 +1033,7 @@
      "drawn": "art/actors/room-31-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f87dcd603ebac81cf0b71cffceafaa8a2e4c0ce9acb274463f95aeb67005ac57"
+     "hash": "4d373f6c8024b20ecf48cfdcbacc0b002448e7f7808536880a334914f2ab29ac"
     },
     {
      "key": "art/actors/room-31-mourners.png",
@@ -1036,7 +1041,7 @@
      "drawn": "art/actors/room-31-mourners.png",
      "candidate": false,
      "loaded": true,
-     "hash": "fbf6ab58be1c3014cc3fae0fbd7f964fa82c59408b81d68327ca0b6bf092298a"
+     "hash": "a7dd472e3e1a7c4ea632e34d68c842cbfa5d6ee2860555c9c8a16533546b7e02"
     },
     {
      "key": "art/actors/room-31-sowerby.png",
@@ -1044,7 +1049,7 @@
      "drawn": "art/actors/room-31-sowerby.png",
      "candidate": false,
      "loaded": true,
-     "hash": "984f09ebd6d3321b856698380c24fa3e5199cdd1fff2b95b1901be105b60ad0a"
+     "hash": "71c21fa8b817e7a6b690d88f5562c515a1f31e8e80391bffd732537299b58a01"
     },
     {
      "key": "art/actors/room-31-undertaker.png",
@@ -1052,7 +1057,7 @@
      "drawn": "art/actors/room-31-undertaker.png",
      "candidate": false,
      "loaded": true,
-     "hash": "392397c5f6e8db4e59983e8ed389902d3da6925b6ef00ee6d008b389ffd8ebc3"
+     "hash": "e452f40c9ed7c66a958339a60fa9aab31c1ec4af18532be0bde1bc94e6122d00"
     }
    ],
    "stubs": [],
@@ -1071,7 +1076,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 35.22s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 34.96s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -1086,5 +1091,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T21:52:40.481Z"
+ "at": "2026-11-06T00:30:17.762Z"
 }
