@@ -1,14 +1,28 @@
 {
+  "invocation": {
+    "source": "reference/casting/thad-stand-right-src.png",
+    "key": "magenta",
+    "view": "profile",
+    "facing": "right",
+    "clip": "idle",
+    "pose": "striding",
+    "pad": 260,
+    "swing": 1.0,
+    "knee": 1.0,
+    "level_limbs": false,
+    "legs_only": false,
+    "breath": 1.0
+  },
   "source": "reference/casting/thad-stand-right-src.png",
   "key": "magenta",
   "clip": "idle",
   "view": "profile",
   "facing": "right",
   "figure": [
-    128,
-    625
+    143,
+    626
   ],
-  "hem_row": 425,
+  "hem_row": 426,
   "padding": 260,
   "breath_px": 9.0,
   "frames": 6

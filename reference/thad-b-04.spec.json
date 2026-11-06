@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "thad-walk-cycles",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/thad-b-04.txt",
+ "out": "art/staging/thad-b/walks-04.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/thad-b/new-profiles.png",
+  "art/staging/thad-b/old-walks.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

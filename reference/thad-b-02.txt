@@ -1,0 +1,9 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game: the hero is on the LEFT. THIS IS THE STYLE AND THE MAN: draw him exactly as there -- face, hair, build, clothes, the level of detail, the soft shading and dark outline.
+
+Image 2 shows, left to right: the hero's two old side views (facing right, facing left), which fix the POSE, and then the hero redrawn last time in the new style, which fixes his LOOK. In the new drawing his legs merged into one column; that is the one thing to correct.
+
+THE POSE, in both views: standing in full side profile, upright and relaxed, arms hanging straight down beside the coat, and the two legs APART -- one foot a short step in front of the other -- so that below the coat's hem there is a clear magenta GAP between the two legs running all the way up from the boots to the hem. Each leg its own separate shape, of roughly equal width. Nothing overlapping.
+
+THE SHEET: flat pure magenta (#FF00FF) background. ONE row of TWO full figures of the hero, the same height, feet on one line, separated by clear magenta space: 1. profile facing RIGHT; 2. profile facing LEFT. As tall as fits the sheet. Nothing in his hands.
+
+RULES: no ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.

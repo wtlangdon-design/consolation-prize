@@ -9,6 +9,8 @@
     "pad": 260,
     "swing": 1.0,
     "knee": 1.0,
+    "level_limbs": false,
+    "legs_only": false,
     "breath": 1.0
   },
   "source": "reference/casting/thad-stand-back-src.png",
@@ -17,10 +19,10 @@
   "view": "headon",
   "facing": "right",
   "figure": [
-    220,
-    625
+    182,
+    627
   ],
-  "shoulder_row": 152,
+  "shoulder_row": 131,
   "padding": 260,
   "step_px": 3,
   "motion": "glance",
