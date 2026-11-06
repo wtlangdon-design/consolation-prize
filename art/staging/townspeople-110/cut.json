@@ -38,7 +38,7 @@
  },
  "man-leaving-tomorrow": {
   "sheet": "art/actors/man-leaving-tomorrow.png",
-  "source": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-02.png",
+  "source": "art/staging/townspeople-110/man-leaving-tomorrow/sheet-03.png",
   "frames": [
    [
     2,
@@ -81,30 +81,30 @@
  },
  "boundary-a": {
   "sheet": "art/actors/boundary-a.png",
-  "source": "art/staging/townspeople-110/boundary-men/sheet-02.png",
+  "source": "art/staging/townspeople-110/boundary-men/sheet-03.png",
   "frames": [
    [
     2,
     2,
-    72,
+    78,
     170
    ],
    [
-    76,
+    82,
     2,
-    72,
+    78,
     170
    ],
    [
-    150,
+    162,
     2,
-    72,
+    78,
     170
    ],
    [
-    224,
+    242,
     2,
-    72,
+    78,
     170
    ]
   ],
@@ -112,30 +112,30 @@
  },
  "boundary-b": {
   "sheet": "art/actors/boundary-b.png",
-  "source": "art/staging/townspeople-110/boundary-men/sheet-02.png",
+  "source": "art/staging/townspeople-110/boundary-men/sheet-03.png",
   "frames": [
    [
     2,
     2,
-    88,
+    87,
     170
    ],
    [
-    92,
+    91,
     2,
-    88,
+    87,
     170
    ],
    [
-    182,
+    180,
     2,
-    88,
+    87,
     170
    ],
    [
-    272,
+    269,
     2,
-    88,
+    87,
     170
    ]
   ],
@@ -143,7 +143,7 @@
  },
  "dogs-owner": {
   "sheet": "art/actors/dogs-owner.png",
-  "source": "art/staging/townspeople-110/dogs-owner/sheet-02.png",
+  "source": "art/staging/townspeople-110/dogs-owner/sheet-03.png",
   "frames": [
    [
     2,
@@ -192,7 +192,7 @@
  },
  "fiddler": {
   "sheet": "art/actors/fiddler.png",
-  "source": "art/staging/townspeople-110/fiddler/sheet-02.png",
+  "source": "art/staging/townspeople-110/fiddler/sheet-03.png",
   "frames": [
    [
     2,

@@ -2990,34 +2990,46 @@ The figures greet with their bark, like the card sharp, because doc 07 writes no
 
 Tyler has played them. Whether they go into doc 07 or come out is his.
 
-# 111 · THE TOWNSPEOPLE DRAWN AT THAD'S PIXEL SIZE, CUT AND CAST — TYLER, 2026-11-06
+# 111 · THE TOWNSPEOPLE DRAWN AT THE CAST'S PIXEL SIZE, CUT AND CAST — TYLER, 2026-11-06
 
-Errata 110's five townspeople have their pictures, under Tyler's "Go: townspeople, up to 10 images" (`townspeople-110`, `reference/townspeople/brief.md`). He then added one more: "+1 op, redraw all 5". **All 11 operations are spent.** None was refused, and no line was written.
+Errata 110's five townspeople have their pictures, under Tyler's "Go: townspeople, up to 10 images" (`townspeople-110`, `reference/townspeople/brief.md`), raised twice on his word: to 11 ("+1 op, redraw all 5") and to 15 (the fiddler and three more "pulled up to about the same level of pixelation which should make sense with the characters in the Nugget"). **All 15 operations are spent.** None was refused, and no line was written.
 
-**The first sheets missed, and Tyler caught it:** "None of the new characters seem to match the pixelation level of the cast we worked really hard on."
-- Every first sheet came back on a finer grid than Thad's, the miss errata 84 J corrected four times.
-- The numbers did not catch it. Texture against Thad was under the 1.35× flag for four of the five, and a side-by-side at Thad's own resolution hides a fine grid.
-- The boy, the one the numbers flagged (1.54×), had a correction asking for "Thad's grid" in general words, and it came back almost the same (1.58×).
+**It took three passes to reach the cast's pixel size, and Tyler's eye called each one:**
 
-**What fixed it is what fixed Fanshawe** (`reference/room-11/prompts/fanshawe-02.txt`), applied to all five sheets:
-- Image 1 is Thad beside the figure as first drawn, at the same scale (`tools/art/townspeople-redraw-refs.py`).
-- Image 2 is the figure's own sheet.
-- The prompt asks for Thad's pixel size outright: about 80 big pixels from head to boots (55 for the boy), every pixel a large square block, a face of a few blocks, no fine texture, each pose about two-thirds of the picture's height.
+| Pass | Grid (blocks, head to boots) | Tyler |
+|---|---|---|
+| Thad, for comparison | **about 104** | |
+| First sheets, briefed in general words | about 200 | "None of the new characters seem to match the pixelation level of the cast we worked really hard on." |
+| Second, Fanshawe's prompt ("about 80 big pixels") | 62–84 | "They all maybe look slightly too pixelated?" The boy was "the best"; "the fiddler looks out of place". |
+| Third: the fiddler, the man leaving tomorrow, the boundary men, the dog's owner | 87–138 | |
 
-All five came back on Thad's grid at the first try.
+The boy keeps his second sheet: 62 blocks at a child's height, which is about 92 for a man.
+
+**Why the second pass overshot.** Fanshawe's prompt says Thad is "about 80 pixels tall". Measured, he is about 104 (`tools/art/measure-grid.py`: the spacing of colour edges inside the figure, on the sheet at its own resolution). The undertaker is 104, and Sump and Fanshawe 84–87. Asking for 80 got 62–84.
+
+**What the third pass showed the generator** (`reference/townspeople/nugget-cast-standard.png`, `-prompt-03.txt`):
+- the Nugget's own cast, close up, as the standard: the card players, the bar men, Deke and Thad, with small pixels, soft warm shading on faces, hands and clothes, and muted, slightly dark colour;
+- the second-pass fiddler beside them, as the miss;
+- the figure's own sheet, for the poses;
+- a request for about 110 pixels tall, shaded like the men in the picture and no sharper than them.
+
+All four came back in that range at the first try.
 
 **The operations (`art/staging/ledger.json`):**
 
 | # | Sheet | Result |
 |---|---|---|
-| 1–5 | the first sheets: the boy, the man leaving tomorrow, the boundary men (one sheet), the dog's owner, the fiddler | too fine |
-| 6 | the boy's correction, in general words | still too fine |
-| 7–11 | the five redraws at Thad's pixel size: the boundary men first, to prove the asking, then the boy, the man, the dog's owner and the fiddler | **cut** |
+| 1–5 | first sheets | too fine |
+| 6 | the boy's correction in general words | too fine |
+| 7–11 | second sheets | the boy kept; the rest too coarse |
+| 12–15 | third sheets: the boundary men (first, to prove the brief), the fiddler, the man leaving tomorrow, the dog's owner | **cut** |
 
-**The comparison that shows it** is `renders/townspeople-vs-cast@3x.png` (`tools/art/townspeople-lineup.py`). It draws every figure at the size the game draws it in his own room — Thad, Deke, Sump, Fanshawe, the undertaker, the clerk, then the five — and enlarges the whole line 3× with hard edges.
+**The comparisons:**
+- `renders/townspeople-vs-cast@3x.png` (`tools/art/townspeople-lineup.py`) draws every figure at the size the game draws it in his own room, beside Thad and the passed cast, enlarged 3× with hard edges.
+- The judgement that settled it was Tyler's, made in the room: the fiddler against the Nugget.
 
 **What the generator did that the prompts did not ask:**
-- The boundary men point at each other across the forty feet, not away to their own ground. It reads as the argument, and the redraw kept it.
+- The boundary men point at each other across the forty feet, not away to their own ground. It reads as the argument, and every pass kept it.
 - The dog's owner looks to the left at rest. That suits a man looking for his dog, and his TALK pose turns to Thad.
 
 **The cut** (`tools/art/townspeople-cut.py`, through `tools/art/cut-ambient-sheet.py`):
