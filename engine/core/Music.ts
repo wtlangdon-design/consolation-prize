@@ -196,8 +196,11 @@ export class Music {
   position(): number | null {
     const first = this.playing?.[0]?.element;
     if (!this.unlocked || !first || first.paused) return null;
-    return first.currentTime;
+    return this.loopClock.read(first, first.currentTime, first.duration);
   }
+
+  /** Counts the bed's loops, so `position()` runs on past the file's end. */
+  private readonly loopClock = new LoopClock();
 
   get isUnlocked(): boolean {
     return this.unlocked;
@@ -326,5 +329,34 @@ export class Music {
       };
       step();
     }
+  }
+}
+
+/**
+ * A LOOPING BED'S TIME, CONTINUOUS ACROSS ITS LOOPS. `currentTime` wraps to 0
+ * at the file's end; a figure that keeps time with the music (errata 118)
+ * reads breaks every N bars from this clock, and a bed whose loop is not a
+ * multiple of N bars -- the Nugget's piano is 16 bars, the fiddler's breaks
+ * twelve -- restarted his schedule at every wrap, an extra break four bars
+ * after the last (found by review on #182; errata 119). This adds a loop's
+ * length each time the position goes backwards, and starts again from the
+ * file's own time when the bed changes.
+ */
+export class LoopClock {
+  private source: unknown = null;
+  private last = 0;
+  private loops = 0;
+
+  read(source: unknown, currentTime: number, duration: number): number {
+    if (source !== this.source) {
+      this.source = source;
+      this.loops = 0;
+      this.last = currentTime;
+    }
+    if (!Number.isFinite(duration) || duration <= 0) return currentTime;
+    // A wrap, not a small step back: the position fell by more than half the file.
+    if (currentTime < this.last - duration / 2) this.loops += 1;
+    this.last = currentTime;
+    return this.loops * duration + currentTime;
   }
 }

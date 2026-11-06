@@ -3324,4 +3324,8 @@ Tyler: "Read reference/art-fixes/brief.md and carry it out." Each item fit its r
 - Room 32 is exempt by name, because its dark is the room (invariant 2).
 - It failed the old Room 13 plate. `tests/plate-flat-edges.test.mjs` puts the band back, at the top and at the bottom, and is caught both times.
 
+**Also: errata 118's fiddler kept time across one loop only** (found by review on #182). The bed's file position wraps to 0 at its end. The Nugget's piano loops every 16 bars, and the fiddler's breaks come every 12. So every wrap restarted his schedule, with an extra break four bars after the last.
+- `Music.position()` now counts the loops (`LoopClock`), so his time runs on continuously.
+- `tests/keeps-time.test.mjs` drives three loops of the real bed's length. The frames now match continuous time, and it shows that reading the file's own time draws other frames.
+
 **Waiting on Tyler:** all three plates are promoted pending his playthrough (errata 72 E).
