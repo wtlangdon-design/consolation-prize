@@ -694,7 +694,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE TEETH**
 > **LOOK:** "A jar of teeth. I asked whose. He said, and I am quoting, 'various.'"
-> **LISTEN:** "They shift when the floor does. I wish they would not."
+> **LISTEN:** "They shift when the floor does. I wish they wouldn't."
 
 **THE MEASURING WALL**
 > **LOOK:** "Heights penciled on the door frame, like a family kitchen, except for what the measurements are for. I am between two men I never met."

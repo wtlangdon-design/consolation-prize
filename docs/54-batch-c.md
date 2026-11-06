@@ -1150,11 +1150,11 @@
 
 **THE PICKLE JAR** — LOOK 2 "A wooden spoon hangs beside it on a string, for fishing. The string is short and the jar is deep. It is a test of character." · 3 "The eggs have been in brine so long they have the color of old ivory and the confidence of old money." | LISTEN 2 "A slow bubble rising through the brine and arriving with nothing to say." · 3 "Nothing. The eggs are waiting, and they have time."
 
-**DR. PURVIS'S TONIC** — LOOK 2 "The label shows Dr. Purvis himself, bearded and benevolent. The same beard is on the hair restorer, the cough syrup and the horse liniment." · 3 "Ingredients: 'Restorative Principles.' I should like to meet the chemist who isolated them." | LISTEN 2 "A faint fizz against the glass when I tilt the shelf." · 3 "Nothing, which is somehow worse."
+**DR. PURVIS'S TONIC** — LOOK 2 "The label shows Dr. Purvis himself, bearded and benevolent. The same beard is on the hair restorer, the cough syrup and the horse liniment." · 3 "Ingredients: 'Restorative Principles.' I'd like to meet the chemist who isolated them." | LISTEN 2 "A faint fizz against the glass when I tilt the shelf." · 3 "Nothing, which is somehow worse."
 
 **THE PICKAXES** — LOOK 3 "The handles are numbered in chalk. Somebody is keeping count of how much optimism has left the store." | LISTEN 3 "The loose one again, clicking on its haft. It is the only one of them that has ever told the truth."
 
-**THE DYNAMITE CRATE** — LOOK 2 "The lid is open, and a newspaper is laid over the sticks. The newspaper is the Clarion. It seems an appropriate use." · 3 "Somebody has chalked FRAGILE on it, and somebody else has added, smaller, BUT FINE." | LISTEN 3 "Nothing. I have listened as long as I am prepared to."
+**THE DYNAMITE CRATE** — LOOK 2 "The lid is open, and a newspaper is laid over the sticks. The newspaper is the Clarion. It seems an appropriate use." · 3 "Somebody has chalked FRAGILE on it, and somebody else has added, smaller, BUT FINE." | LISTEN 3 "Nothing. I've listened as long as I'm prepared to."
 
 **THE STOVE** — LOOK 2 "A ring of chairs around it, each claimed by habit. Nobody has ever asked who sits where; everybody knows." · 3 "A coffee pot on the back has never been washed, on principle. It is said to improve." | LISTEN 2 "A log settling in the firebox, and the chairs going quiet, as if someone important had come in." · 3 "Iron ticking. Yesterday's opinions, cooling."
 
@@ -1184,10 +1184,10 @@
 
 ## Overrides *(errata 68 A)*
 
-> **THE PICKLE JAR** · PICK UP — "One jar, on my account. I have an account now. I am told that makes me a resident." *(→ the pickled eggs)*
+> **THE PICKLE JAR** · PICK UP — "One jar, on my account. I have an account now! I'm told that makes me a resident." *(→ the pickled eggs)*
 > **DR. PURVIS'S TONIC** · PICK UP — "On account, with the eggs. It was wrapped for me as though it might go off, in either sense." *(→ the tonic)*
 > **THE PICKLE JAR** · PICK UP, *again* — "One is an account. Two is a habit."
-> **THE PICKAXES** · PICK UP — "The one with the loose head, on my account. It is the only one I can afford, and the only one honest about itself." *(→ THE PICKAXE; errata 75)*
+> **THE PICKAXES** · PICK UP — "The one with the loose head, on my account. It's the only one I can afford, and the only one honest about itself." *(→ THE PICKAXE; errata 75)*
 > **THE PICKAXES** · PICK UP, *again* — "One pickaxe is equipment. Two is a statement, and I have nothing to say."
 
 ### THE BOOTS
@@ -1290,7 +1290,7 @@
 
 **PIKE'S NEIGHBOR** — LOOK 2 "The spade is still in the spoil heap, waiting for a decision that has already been made." · 3 "Frame's spelling is on the marker in paint. The undertaker has left room to correct it, and will not." | LISTEN 2 "A trickle of dirt into the bottom of it. Practice." · 3 "Nothing yet, for the second time. The yet is doing a great deal of work."
 
-**MY OWN PLOT** *(act: "3-4")* — LOOK 2 "The grass has started over it. I am the first man in Consolation to watch his own grave come in." · 3 "Someone has left a tuning peg on the headboard, a piano's. I know whose piano. I am not going to say." | LISTEN 2 "Nothing. Not from me, and I would know." · 3 "The oats again, and somewhere down the hill, a piano, in tune."
+**MY OWN PLOT** *(act: "3-4")* — LOOK 2 "The grass has started over it. I am the first man in Consolation to watch his own grave come in." · 3 "Someone has left a tuning peg on the headboard, a piano's. I know whose piano. I'm not going to say." | LISTEN 2 "Nothing. Not from me, and I'd know." · 3 "The oats again, and somewhere down the hill, a piano, in tune."
 
 *(MY OWN PLOT is Part Two-B's act 3–4 variant of the fresh plot, after the funeral; its repeats belong to the same acts.)*
 

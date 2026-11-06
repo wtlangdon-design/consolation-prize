@@ -46,7 +46,7 @@
       ],
       "LOOK_AT": [
         "Names, sums, and a column of small marks I decline to interpret. Half the town is in this book, and none of it gets out.",
-        "Every man in town, and a number beside him. The numbers only go one way. He is not worried, because they cannot leave until they pay, and they cannot pay.",
+        "Every man in town, and a number beside him. The numbers only go one way. He isn't worried. They can't leave until they pay, and they can't pay.",
         "The ink changes color halfway down the page, where he ran out and carried on in whatever was nearest."
       ],
       "LISTEN_TO": [
@@ -93,7 +93,7 @@
         "Nothing. The eggs are waiting, and they have time."
       ],
       "overrides": {
-        "PICK_UP": "One jar, on my account. I have an account now. I am told that makes me a resident.",
+        "PICK_UP": "One jar, on my account. I have an account now! I'm told that makes me a resident.",
         "PICK_UP (again)": "One is an account. Two is a habit.",
         "OPEN": "The brine and I regarded each other. I resealed the arrangement."
       }
@@ -103,7 +103,7 @@
       "LOOK_AT": [
         "Restorative Bile Tonic. Restores bile, presumably. The testimonials on the label are all in the same hand.",
         "The label shows Dr. Purvis himself, bearded and benevolent. The same beard is on the hair restorer, the cough syrup and the horse liniment.",
-        "Ingredients: 'Restorative Principles.' I should like to meet the chemist who isolated them."
+        "Ingredients: 'Restorative Principles.' I'd like to meet the chemist who isolated them."
       ],
       "LISTEN_TO": [
         "It settles. Something in it is still deciding.",
@@ -130,7 +130,7 @@
         "The loose one again, clicking on its haft. It is the only one of them that has ever told the truth."
       ],
       "overrides": {
-        "PICK_UP": "The one with the loose head, on my account. It is the only one I can afford, and the only one honest about itself.",
+        "PICK_UP": "The one with the loose head, on my account. It's the only one I can afford, and the only one honest about itself.",
         "PICK_UP (again)": "One pickaxe is equipment. Two is a statement, and I have nothing to say."
       }
     },
@@ -146,8 +146,8 @@
       ],
       "LISTEN_TO": [
         "Nothing. It is either perfectly safe or saving itself.",
-        "…No. I would rather not.",
-        "Nothing. I have listened as long as I am prepared to."
+        "…No. I'd rather not.",
+        "Nothing. I've listened as long as I'm prepared to."
       ],
       "acts": [
         {
@@ -190,7 +190,7 @@
       ],
       "LISTEN_TO": [
         "Cloth. A held breath of a sound.",
-        "Nothing. It is the softest thing within two hundred miles and nobody in here has touched it.",
+        "Nothing. It's the softest thing within two hundred miles, and nobody in here has touched it.",
         "A thread catching on my sleeve and letting go."
       ],
       "overrides": {
@@ -267,7 +267,7 @@
       ],
       "LISTEN_TO": [
         "I can nearly hear it. That is not the same as hearing it.",
-        "Nothing. It's a picture of a piano. I am aware that I am doing this.",
+        "Nothing. It's a picture of a piano. I'm aware I'm doing this.",
         "Nothing. I have stopped pretending otherwise."
       ]
     },
@@ -292,7 +292,7 @@
         "At the bottom: CREDIT EXTENDED TO ESTABLISHED CUSTOMERS. In this town that is everyone."
       ],
       "LISTEN_TO": [
-        "Nothing. It is entirely comfortable with itself.",
+        "Nothing. It's entirely comfortable with itself.",
         "The board ticking against the wall when the door goes.",
         "Nothing. Prices this high have no need to raise their voices."
       ]
@@ -331,7 +331,7 @@
         "He has never marked them down. He is still waiting for the men who would need to weigh things."
       ],
       "LISTEN_TO": [
-        "Nothing. They have never been out of the paper.",
+        "Nothing. They've never been out of the paper.",
         "Nothing. A dozen scales, perfectly balanced, with nothing to weigh.",
         "The paper crackling as I lean on the shelf. That is as close as they have come to being used."
       ]

@@ -92,7 +92,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 **PIKE'S HEADBOARD** · TALK_TO — "I read him my letter of introduction. It seemed only right. He took it as well as anything else I've said here."
 **THE FENCE** · PUSH — "It holds. The undertaker maintains it. His clients do not leave, but their reputation for it must be kept up."
 **THE WILD OATS** · PICK_UP — "Boot Hill's only harvest. I left it. It's theirs."
-**PLOT ELEVEN** · USE — "It is in use. That is the entire and only thing a plot can be."
+**PLOT ELEVEN** · USE — "It's in use. That's the entire and only thing a plot can be."
 
 ## ROOM 21 — THE WATCHMAN'S SHACK
 
@@ -154,7 +154,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 ## ROOM 13 — THE UNDERTAKER'S
 
 **THE TEETH** · PICK_UP — "No."
-**THE TEETH** · USE — "I have teeth. It is among my few unencumbered assets."
+**THE TEETH** · USE — "I have teeth. They're among my few unencumbered assets."
 **THE GOOD SUIT** · USE — "Renting it while alive is, I'm told, 'irregular but not unprecedented.' I did not ask about the precedent."
 **THE COFFINS** · USE — "Trying one for size is free. I know because I asked, which tells you what this town has done to my sense of thrift."
 **THE MEASURING WALL** · TALK_TO — "I congratulated the wall on its discretion. It has the measure of everyone and repeats nothing."
