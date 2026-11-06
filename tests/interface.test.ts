@@ -993,10 +993,9 @@ test("doc 24's three tiers resolve most specific first, and pools rotate", async
   // The target's OWN override is never reached. "On what." answers USE THE
   // MUD and is not the answer to USE THE TUNING FORK ON THE MUD.
   const mud = state.findTarget('mud')!;
-  assert.equal(mud.overrides!.USE, 'On what.');
-  assert.notEqual(
-    state.verbs.resolveWith('USE', 'tuning_fork', mud, 'main_street').say, 'On what.',
-  );
+  const own = mud.overrides!.USE;
+  assert.ok(own, 'the mud has its own USE line');
+  assert.notEqual(state.verbs.resolveWith('USE', 'tuning_fork', mud, 'main_street').say, own);
 });
 
 test('doc 24 rule 4: no authored pair exists without a written line', async () => {
