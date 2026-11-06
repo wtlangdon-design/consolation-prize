@@ -14,12 +14,12 @@
   "R_NOBODY": "Letters home. Ten cents the page.",
   "R_SWINDLED": "Letters home. Might want to leave a bit out.",
   "R_RACCOON": "I could make the raccoon sound better.",
-  "R_SURVEYED": "‘Had my land surveyed by a professional.’ See? Free of charge.",
-  "R_BORDERS_MOTT": "Now you’ve got something to write about. Twenty cents.",
-  "R_LOST_DUEL": "I’d leave the duel out entirely.",
-  "R_WON_DUEL": "Beat Deke Vessel. That’s a page and a half right there.",
+  "R_SURVEYED": "'Had my land surveyed by a professional.' See? Free of charge.",
+  "R_BORDERS_MOTT": "Now you've got something to write about. Twenty cents.",
+  "R_LOST_DUEL": "I'd leave the duel out entirely.",
+  "R_WON_DUEL": "Beat Deke Vessel. That's a page and a half right there.",
   "R_DEAD": "Do you want me to write to her, or would that be strange?",
-  "R_TRUTH": "Twelve years I’ve been making things up on this street and you did it in one afternoon."
+  "R_TRUTH": "Twelve years I've been making things up on this street and you did it in one afternoon."
  },
  "sprite": {
   "note": "Frames 0-1 are the idle: the pose and a derived one-pixel breath. Frames 2-4 are the three poses from the character sheet. `breaks` are SEPARATE actions chosen from a pool, each leaving the idle and returning to it -- not a routine played in order, which is what the eye catches.",
@@ -57,7 +57,7 @@
    ]
   ],
   "rate": 0.9,
-  "phase": 0.0,
+  "phase": 0,
   "breaks": [
    [
     2,
@@ -89,7 +89,7 @@
    "zone": 1,
    "sprite": {
     "sheet": "art/actors/cast-letter-writer.png",
-    "rate": 1.0,
+    "rate": 1,
     "frames": [
      [
       0,
@@ -120,5 +120,6 @@
    },
    "note": "Beside the posted notices at the west end, where doc 07 and his own placeNote put him. SEATED AT HIS WORK now, not standing beside it: on his camp stool, leaning over the board on his knee, pen down on the paper mid-word, the far hand holding the sheet. `stature` 0.72 is a seated man with his boots flat -- anatomy, not taste. The station stands to his right at 1548,658 with the ink, the spare pens and the satchel."
   }
- }
+ },
+ "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 1 · THE LETTER-WRITER) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109)."
 }

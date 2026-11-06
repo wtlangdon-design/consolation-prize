@@ -11,15 +11,15 @@
  "approachRadius": 40,
  "tree": "amb_map_seller",
  "barks": {
-  "R_NOBODY": "Map to Mott’s strike! Dollar!",
+  "R_NOBODY": "Map to Mott's strike! Dollar!",
   "R_SWINDLED": "Map, sir? Turn it round for you?",
-  "R_RACCOON": "Map! Dollar! Nothing about raccoons on it, I’ll be honest.",
-  "R_SURVEYED": "You’ve had a survey! Now you want a map.",
-  "R_BORDERS_MOTT": "Sir — sir — you’ve land on it. You’re on the map. You’re on the map.",
+  "R_RACCOON": "Map! Dollar! Nothing about raccoons on it, I'll be honest.",
+  "R_SURVEYED": "You've had a survey! Now you want a map.",
+  "R_BORDERS_MOTT": "Sir — sir — you've land on it. You're on the map. You're on the map.",
   "R_LOST_DUEL": "Map, sir. Cheer you up.",
   "R_WON_DUEL": "Map for the champion. Ninety cents.",
   "R_DEAD": "…Do you want one for the road?",
-  "R_TRUTH": "Map to Mott’s strike! Dollar!"
+  "R_TRUTH": "Map to Mott's strike! Dollar!"
  },
  "sprite": {
   "note": "Frames 0-1 are the idle: the pose and a derived one-pixel breath. Frames 2-4 are the three poses from the character sheet. `breaks` are SEPARATE actions chosen from a pool, each leaving the idle and returning to it -- not a routine played in order, which is what the eye catches.",
@@ -91,7 +91,7 @@
    "zone": 1,
    "sprite": {
     "sheet": "art/actors/cast-map-seller.png",
-    "rate": 1.0,
+    "rate": 1,
     "frames": [
      [
       0,
@@ -101,10 +101,11 @@
      ]
     ],
     "figureHeight": 231,
-    "stature": 1.0,
+    "stature": 1,
     "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
    },
    "note": "Unmoved: his placeNote already puts him clear of the small office's steps, on legal ground, with the office lantern over him. Only his SIZE was wrong. An adult man: 1.0."
   }
- }
+ },
+ "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 16 · THE MAP SELLER) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109)."
 }

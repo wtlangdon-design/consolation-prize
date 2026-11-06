@@ -1,0 +1,19 @@
+{
+  "note": "Which doc 07 bark table goes into which content/ambient file (errata 109). Read by tools/extract-content.mjs and tests/town-barks.test.ts. A single-voice table in doc 07 must be in `extract` or in `notPlaced`: a townsperson written barks and given none is how the hotel clerk went silent.",
+  "extract": {
+    "1 · THE LETTER-WRITER": "letter-writer",
+    "6 · THE PIE WOMAN": "pie-woman",
+    "8 · THE HOTEL CLERK": "hotel-clerk",
+    "13 · THE ONE-STRIKE MAN": "one-strike-man",
+    "16 · THE MAP SELLER": "map-seller",
+    "17 · THE CARD SHARP": "card-sharp"
+  },
+  "notPlaced": {
+    "5 · THE MESSAGE BOY": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision.",
+    "7 · THE MAN LEAVING TOMORROW": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision.",
+    "9 · THE BARBER-DENTIST-SURGEON": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision.",
+    "10 · THE PHOTOGRAPHER": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision.",
+    "12 · THE STAGE DRIVER": "He is built only as the opening's driver (doc 13); he is not placed in town as an ambient.",
+    "18 · THE DOG'S OWNER": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision."
+  }
+}

@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
-import type { AmbientFile, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep,
+import type { AmbientFile, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep, SoundsFile,
 } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
 import { planNear } from '../core/BootAssets.ts';
@@ -89,6 +89,8 @@ export class GameScene extends Phaser.Scene {
   private readonly cueBed = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
   /** The judges' marks already sounded, so each new one sounds once. */
   private marksHeard = 0;
+  /** The duel whose music is playing, so a duel's start and end each choose the bed once. */
+  private duelPlaying: string | null = null;
   /** The words on screen when they last sounded, so a redraw does not stamp twice. */
   private soundedWords: string | null = null;
   /** The last foot to come down (Actor.gait, in half-cycles), so each plant sounds once. */
@@ -557,6 +559,11 @@ export class GameScene extends Phaser.Scene {
     if (this.state.room.lamps?.length
       && Math.floor(before * GameScene.LAMP_TICKS) !== Math.floor(now * GameScene.LAMP_TICKS)) {
       this.markDirty();
+    }
+    // A DUEL BEGINS OR ENDS: its music comes in or goes (errata 109).
+    if (this.state.dialogue.duelId !== this.duelPlaying) {
+      this.duelPlaying = this.state.dialogue.duelId;
+      this.applyMusic();
     }
     // A POINT WRITTEN DOWN (doc 45 U-ASSAY-PENCIL): the judges' pencil, once a mark.
     const marks = this.state.dialogue.duelMarks;
@@ -1354,8 +1361,15 @@ export class GameScene extends Phaser.Scene {
 
   private applyInteraction(target: Interactable, verb: string): void {
     if (this.listenAt(target, verb)) return;
+    const sounding = this.soundsFor(target, verb);
     const result = this.state.interact(target, verb);
-    this.soundForVerb(target, verb, result.room ?? this.state.room.id, result.variant);
+    for (const rule of sounding) {
+      if (rule.variants && !rule.variants.includes(result.variant ?? 0)) continue;
+      this.fireCue(rule.cue);
+    }
+    // A verb can change what the room plays -- the Nugget's piano, tuned -- so
+    // the bed is chosen again now rather than on the next click.
+    this.applyMusic();
     // ERRATA 28b AS AMENDED (Q74): A VERB CLEARS ON USE.
     //
     // 28b used to say "a selected verb persists until another is chosen. It is
@@ -1517,6 +1531,13 @@ export class GameScene extends Phaser.Scene {
     }
     const declared = this.state.content.manifest.music;
     if (!declared) return;
+    // A DUEL HAS ITS OWN MUSIC (doc 45 R04-DUEL; U-FINAL-DUEL), for as long as it lasts.
+    const duel = this.state.dialogue.duelId;
+    const duelBed = duel ? declared.duels?.[duel] ?? declared.duels?.['default'] : undefined;
+    if (duelBed) {
+      this.music.play({ src: duelBed.src, gain: duelBed.gain });
+      return;
+    }
     const entry = declared.rooms?.[this.state.room.id];
     // ERRATA 103: null is a room's deliberate silence; no entry is the title bed.
     if (entry === null) {
@@ -2808,14 +2829,18 @@ export class GameScene extends Phaser.Scene {
     this.ambience.play(bed ? { src: bed.src, gain: bed.gain, layers } : null);
   }
 
-  /** A verb on a target that doc 45 gives a sound: R02-BELL, R05-QUEUE, R07/08-LOCK and the rest. */
-  private soundForVerb(target: Interactable, verb: string, room: string, variant: number | undefined): void {
-    for (const rule of this.state.content.sounds?.verbs ?? []) {
-      if (rule.room !== room || rule.target !== target.id || rule.verb !== verb) continue;
-      if (rule.variants && !rule.variants.includes(variant ?? 0)) continue;
-      if (rule.when && !this.state.flags.test(rule.when)) continue;
-      this.fireCue(rule.cue);
-    }
+  /**
+   * The sounds a verb on a target will make (R02-BELL, R05-QUEUE, B3's whistle
+   * and the rest), chosen BEFORE it runs: `when` and `item` describe the world
+   * as the player acted on it. Which written line was spoken is known only
+   * after, so `variants` is checked by the caller.
+   */
+  private soundsFor(target: Interactable, verb: string): NonNullable<SoundsFile['verbs']> {
+    const room = this.state.room.id;
+    const held = this.state.heldItem;
+    return (this.state.content.sounds?.verbs ?? []).filter((rule) => rule.room === room && rule.target === target.id
+      && rule.verb === verb && (!rule.item || rule.item === held)
+      && (!rule.when || this.state.flags.test(rule.when as Record<string, boolean>)));
   }
 
   /** Walking through a door that doc 45 hears: the batwings, the assay office's latch. */

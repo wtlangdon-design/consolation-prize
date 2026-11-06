@@ -35,6 +35,16 @@ test('every music file the manifest names is on disk', () => {
   assert.deepEqual(missing, [], 'Music.ts plays a missing file as silence, so a typo here is a silent room');
 });
 
+test('every duel bed is on disk and names a real duel (doc 45 R04-DUEL, U-FINAL-DUEL; errata 109)', () => {
+  const duels = (manifest.music as { duels?: Record<string, Track> }).duels ?? {};
+  assert.ok(duels['default'], 'a duel with no bed of its own needs THE ASSAY');
+  const assay = JSON.parse(readFileSync(resolve(ROOT, 'content/assay/assay.json'), 'utf8')) as { duels: Record<string, unknown> };
+  for (const [id, bed] of Object.entries(duels)) {
+    assert.ok(existsSync(resolve(ROOT, bed.src)), `${id}: ${bed.src} is not on disk`);
+    if (id !== 'default') assert.ok(id in assay.duels, `${id} is not a duel in content/assay/assay.json`);
+  }
+});
+
 test("the undertaker's is silence, on purpose, and says nothing about why in the game (doc 28 Room 13)", () => {
   assert.equal(manifest.music.rooms.undertaker, null);
 });

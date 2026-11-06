@@ -36,10 +36,10 @@ function read(relative) {
 const CHECKING = process.argv.includes('--check');
 const stale = [];
 
-function write(relative, data) {
+function write(relative, data, indent = 2) {
   if (relative.startsWith('content/dialogue/') && data && typeof data === 'object' && data.nodes) data = performDirections(data);
   const path = resolve(ROOT, relative);
-  const wanted = `${JSON.stringify(data, null, 2)}\n`;
+  const wanted = `${JSON.stringify(data, null, indent)}\n`;
   if (CHECKING) {
     let found = null;
     try {
@@ -4746,8 +4746,61 @@ function sowerbyTree() {
   });
 }
 
+// ---------------------------------------------------------------------------
+// THE TOWN'S REPUTATION BARKS (doc 07 Part Two; errata 109). Every single-voice
+// bark table is read here into the `barks` of that townsperson's ambient file.
+// Until errata 109 five were typed in by hand and the hotel clerk's file said
+// "Doc 07 writes no barks for the clerk" while doc 07 section 8 wrote nine.
+//
+// THE TRANSFORMS, all of them, because a bark is one string over a head and
+// carries only words:
+//   - an italic direction -- *(beat)*, *(He shakes his head.)* -- is dropped,
+//     inside the quotes or out;
+//   - emphasis asterisks go, the words stay;
+//   - two quotes from the same mouth are one line, in order;
+//   - an exchange written "A." — "B." — "C." is a conversation with Thad, and
+//     the bark is its first line, the townsperson's (the pie woman's R_DEAD).
+// The quote marks are the document's. Two-voice tables (the boundary men, the
+// boarding-house women) and tables of directions alone (the bell-ringer, the
+// fiddler) are not single barks and are not read here.
+const BARK_SECTIONS = JSON.parse(read('tools/town-barks.json')).extract;
+
+function townBarks() {
+  const doc = read('docs/07-ambient-layer.md');
+  const states = JSON.parse(read('content/reputation.json')).states;
+  const written = [];
+  for (const [heading, file] of Object.entries(BARK_SECTIONS)) {
+    const start = doc.indexOf(`\n## ${heading}\n`);
+    if (start < 0) throw new Error(`doc 07: no section "## ${heading}"`);
+    const end = doc.indexOf('\n## ', start + 4);
+    const body = doc.slice(start, end < 0 ? undefined : end);
+    const table = body.slice(body.indexOf('**Barks**'));
+    const barks = {};
+    for (const row of table.split('\n')) {
+      const match = row.match(/^\| `(R_[A-Z_]+)` \| (.+) \|$/);
+      if (!match) continue;
+      let cell = match[2].replace(/\*\([^)]*\)\*/g, ' ');
+      const exchange = cell.indexOf('" — "');
+      if (exchange >= 0) cell = cell.slice(0, exchange + 1);
+      const words = quoted(cell).map(plain).filter(Boolean);
+      if (!words.length) throw new Error(`doc 07 ${heading} ${match[1]}: no quoted words`);
+      barks[match[1]] = words.join(' ').replace(/\s+/g, ' ').trim();
+    }
+    const missing = states.filter((state) => !(state in barks));
+    if (missing.length) throw new Error(`doc 07 ${heading}: no bark for ${missing.join(', ')}`);
+    const path = `content/ambient/${file}.json`;
+    const npc = JSON.parse(read(path));
+    npc.barks = Object.fromEntries(states.map((state) => [state, barks[state]]));
+    npc.barksNote = `EXTRACTED from docs/07-ambient-layer.md (## ${heading}) by tools/extract-content.mjs. `
+      + 'Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange '
+      + 'with Thad is its first line (errata 109).';
+    written.push(write(path, npc, 1));
+  }
+  return written;
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), ...room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), ...townBarks()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
   // Doc 58 rule 5: a reply whose spoken lines this pass reads differently is
