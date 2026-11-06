@@ -1,5 +1,5 @@
 import type { AmbientExit, AmbientFile, Condition } from './types.ts';
-import { departureAt, type DeparturePose } from './Departure.ts';
+import { departureAt, walkDuration, type DeparturePose, type HeightAt } from './Departure.ts';
 import type { GameState } from './GameState.ts';
 
 export interface FiredBark {
@@ -183,9 +183,9 @@ export class AmbientLayer {
   }
 
   /** A man's drawn height at a floor point, for this figure (his stature): what a stride is measured against. */
-  private manAt(npc: AmbientFile): (x: number, y: number) => number {
+  private manAt(npc: AmbientFile): HeightAt {
     const stature = npc.sprite?.stature ?? 1;
-    return (x, y) => (this.state.stagedHeightAt(x, y) ?? 0) * stature;
+    return (x, y, declared) => (declared ?? this.state.stagedHeightAt(x, y) ?? 0) * stature;
   }
 
   /** Everyone walking out this frame, and everyone walking a loop, and where. */
@@ -275,17 +275,10 @@ export class AmbientLayer {
  * WHERE A LOOPING WALKER IS (AmbientFile.loop), or null while it is off the
  * frame between walks. Pure in the clock, as a departure is.
  */
-export function loopPose(npc: AmbientFile, clock: number,
-                         heightAt?: (x: number, y: number) => number): DeparturePose | null {
+export function loopPose(npc: AmbientFile, clock: number, heightAt?: HeightAt): DeparturePose | null {
   const walk = npc.loop;
-  if (!walk || walk.speed <= 0) return null;
-  let length = 0;
-  for (let index = 1; index < walk.path.length; index += 1) {
-    const [ax, ay] = walk.path[index - 1]!;
-    const [bx, by] = walk.path[index]!;
-    length += Math.hypot(bx - ax, by - ay);
-  }
-  const walking = length / walk.speed;
+  if (!walk || (walk.speed <= 0 && !(walk.pace && walk.pace > 0))) return null;
+  const walking = walkDuration(walk, heightAt);
   const cycle = walking + Math.max(0, walk.pause ?? 0);
   if (cycle <= 0) return null;
   const t = (((clock + (walk.offset ?? 0)) % cycle) + cycle) % cycle;

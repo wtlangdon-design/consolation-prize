@@ -47,36 +47,48 @@
    ]
   ],
   "speed": 55,
-  "sheet": "art/actors/room-22-miners.png",
+  "sheet": "art/actors/room-22-miners-walk.png",
   "frames": [
    [
     2,
     2,
-    378,
-    248
+    419,
+    256
    ],
    [
-    382,
+    423,
     2,
-    378,
-    248
+    419,
+    256
    ],
    [
-    762,
+    844,
     2,
-    378,
-    248
+    419,
+    256
    ],
    [
-    1142,
+    1265,
     2,
-    378,
-    248
+    419,
+    256
+   ],
+   [
+    1686,
+    2,
+    419,
+    256
+   ],
+   [
+    2107,
+    2,
+    419,
+    256
    ]
   ],
   "fps": 5,
   "drawnFacing": "right",
-  "figureHeight": 248,
+  "figureHeight": 251,
   "heights": [
    440,
    360,
@@ -90,7 +102,9 @@
   "pause": 14,
   "offset": 0,
   "note": "Heights per point: the road climbs out of the walk band into the distance (errata 95 E).",
-  "strideRatio": 0.46,
-  "strideNote": "MEASURED FROM THESE FRAMES (R5f; Tyler, 2026-11-06, of the walks recorded in the game: legs that pump faster than the ground they cover read as wrong). The leading man's widest foot spread is 0.39 of his height; on Thad's walk the same measure is 0.495 against his recorded stride of 0.588, so 0.46. At fps 5 the cycle ran every 44 px whatever his height."
+  "strideRatio": 0.777,
+  "strideNote": "WALK-C (Tyler, 2026-11-06: \"The miners are awful\"): the crowd was four men stepping in unison through four frames. Now four men drawn alone, each a six-frame walk posed on Thad's (cast-unify 47, 48), the crowd composed from them by tools/art/walk-c.py: one behind another, each nearer the camera, each on his own step (phases 0, 3, 1, 4). Stride measured from the four men's own frames (R5f), calibrated on Thad's: 0.777. The crowd walking back is the same men, mirrored (doc 10: 'The same men... Same tools.').",
+  "pace": 0.5,
+  "paceNote": "Tyler, 2026-11-06: \"The miners are awful.\" At a fixed 55 px/s they crawled at an eighth of their height a second near the camera (440 px tall) and raced at one and a half heights a second far up the road (36 px). Now half their own height a second at every point of the road, Deke's pace, which Tyler passed; `speed` is no longer read."
  }
 }

@@ -194,7 +194,7 @@ def follow_path(scene_dir, rec, frames, name, out_dir, results, walker=None, bac
         return np.abs(a - last).max(-1) > 40
     # His drawn size, from the first frame: what differs around where he stands.
     # His size: where he stands (an exit), or the busiest point of his route (a loop).
-    if rec.get('loop'):
+    if True:   # where he is busiest on his route: a file's standing point can be off from where he is drawn
         best = (-1, None, None)
         for f in frames[::max(1, len(frames) // 40)]:
             m = mask(f)
@@ -203,8 +203,6 @@ def follow_path(scene_dir, rec, frames, name, out_dir, results, walker=None, bac
                 v = m[max(0, Y - 150):Y + 4, max(0, X - 150):X + 150].sum()
                 if v > best[0]: best = (v, f, (px, py))
         f0, (sx0, sy) = best[1], best[2]; m0 = mask(f0); sx = sx0 - cam(f0['t'])
-    else:
-        m0 = mask(frames[0]); sx, sy = npc['x'] - cam(frames[0]['t']), npc['y']
     x0, x1 = int(max(0, sx - 250)), int(min(m0.shape[1], sx + 250))
     sub = m0[:int(sy) + 12, x0:x1]
     rows = np.where(sub.sum(1) > 2)[0]; cols = np.where(sub.sum(0) > 2)[0]

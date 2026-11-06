@@ -2636,6 +2636,18 @@ export interface AmbientExit {
    * he covered; Deke's ran at two a second and he glided.
    */
   strideRatio?: number;
+  /**
+   * HIS PACE, IN HIS OWN HEIGHTS A SECOND. Present, it replaces `speed`: he
+   * covers the ground at this share of his drawn height at each point, so a
+   * man walking up a road into the distance slows on the screen as he shrinks.
+   * Tyler, 2026-11-06, of the claims road's miners: "awful" -- at a fixed
+   * 55 px/s they crawled at an eighth of their height a second near the
+   * camera, where they are 440 px tall, and raced at one and a half heights a
+   * second far up the road, where they are 36.
+   */
+  pace?: number;
+  /** A walk that leaves the room's depth curve: a man's drawn height at each point of `path`. */
+  heights?: number[];
   /** Which way the sheet draws him walking; the other way is mirrored. */
   drawnFacing: 'left' | 'right';
   /** The sheet's figure height, so he is drawn on the room's curve. */

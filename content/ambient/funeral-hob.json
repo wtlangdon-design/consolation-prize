@@ -27,43 +27,43 @@
     602
    ]
   ],
-  "speed": 70,
+  "speed": 194,
   "sheet": "art/actors/room-31-hob-walk-master.png",
   "frames": [
    [
     2,
     2,
-    339,
+    373,
     668
    ],
    [
-    343,
+    377,
     2,
-    339,
+    373,
     668
    ],
    [
-    684,
+    752,
     2,
-    339,
+    373,
     668
    ],
    [
-    1025,
+    1127,
     2,
-    339,
+    373,
     668
    ],
    [
-    1366,
+    1502,
     2,
-    339,
+    373,
     668
    ],
    [
-    1707,
+    1877,
     2,
-    339,
+    373,
     668
    ]
   ],
@@ -72,8 +72,9 @@
   "figureHeight": 647,
   "note": "Doc 48 S2 beat 3: 'and he walks.' Off the hill at the right, unhurried, his hat in his hand (room-31 operation 3, cut by tools/art/cut-walk-sheet.py).",
   "redrawn": "His own walk (art/actors/hob-walk-right, cast-unify 37), lantern in hand and hat on, relit once into the night.",
-  "strideRatio": 0.584,
-  "walkNote": "WALK-C (Tyler, 2026-11-06: \"Hob at the funeral isn't great\"): six frames posed on Thad's walk (cast-unify 44), cut by tools/art/walk-c.py; strideRatio MEASURED FROM THESE FRAMES (R5f): the planted foot's travel against the body over a cycle, against the same measure on Thad's walk (whose recorded 0.588 it calibrates); so the cycle advances with the ground he covers and his feet hold it."
+  "strideRatio": 0.709,
+  "walkNote": "WALK-C (Tyler, 2026-11-06: \"Hob at the funeral isn't great\"): six frames posed on Thad's walk (cast-unify 46): six frames posed on Thad's walk (cast-unify 44), cut by tools/art/walk-c.py; strideRatio MEASURED FROM THESE FRAMES (R5f): the planted foot's travel against the body over a cycle, against the same measure on Thad's walk (whose recorded 0.588 it calibrates); so the cycle advances with the ground he covers and his feet hold it.",
+  "speedNote": "One Hob, one pace: his own walkSpeed in Room 1 as a share of his height (134 / 240 = 0.558 a second), at the funeral's man (347 px): 194 px/s. Was 70, and his legs scooted."
  },
  "sprite": {
   "sheet": "art/actors/room-31-hob-master.png",

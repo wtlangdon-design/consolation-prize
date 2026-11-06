@@ -181,6 +181,12 @@
    "date": "2026-11-06",
    "kind": "loosened",
    "why": "Not a threshold: the only numbers changed are the errata citation in this test's titles, 101 -> 103. Main's #162 took errata 101 while PR #151's cast rulings held 101 and 102; on merging main, #162's ruling was renumbered 103 and every citation it added was changed with it (docs/00-errata.md 103 says so). The heuristic reads any changed line with a digit in an existing test as a loosened threshold."
+  },
+  {
+   "check": "tests/walk-gait.test.mjs",
+   "date": "2026-11-06",
+   "kind": "loosened",
+   "why": "The walking-stride range was [0.4, 0.75] of a man's height, set from Thad's 0.588 and the first redraws (0.58-0.61). The claims road's miners, redrawn (cast-unify 47-48), measure 0.777 from their own frames -- and a human stride, two steps, is about 0.8 of stature, so the ceiling was below an ordinary walk. Now [0.4, 0.95]; the floor, which caught the clock-driven walks, is unchanged."
   }
  ]
 }

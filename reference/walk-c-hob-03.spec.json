@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "walk-c-hob-frames",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/walk-c-hob-03.txt",
+ "out": "art/staging/walk-c/hob-walk-03.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/walk-c/hob-man.png",
+  "art/staging/walk-c/thad-walk-poses.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

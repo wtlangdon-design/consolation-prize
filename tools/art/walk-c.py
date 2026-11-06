@@ -126,7 +126,7 @@ def body_height(img, frame):
         return float(json.loads(subprocess.check_output([sys.executable, R('tools/art/figure-height.py'), sp, fp, '--hat']))['figureHeight'])
 
 
-SHEETS = {'deke': 'deke-walk-01.png', 'pratt': 'pratt-walk-03.png', 'hob': 'hob-walk-02.png'}
+SHEETS = {'deke': 'deke-walk-01.png', 'pratt': 'pratt-walk-03.png', 'hob': 'hob-walk-03.png'}
 thad = json.load(open(R('content/actors/thad.json')))
 STRIDE = round(thad['strideLength'] / thad['height'], 3)
 report = {'strideRatio': STRIDE}
@@ -172,6 +172,10 @@ for i, c in enumerate(cells):
     # The glow: the brightest warm pixels, below his face (his skin is warm too).
     glow = (a[..., 3] > 128) & (a[..., 0] > 235) & (a[..., 1] > 200) & (a[..., 2] < 200)
     glow[:int(H * 0.4)] = False
+    from scipy import ndimage
+    lab, k = ndimage.label(glow)
+    if k > 1:   # the lamp is the largest bright patch; a lone bright pixel elsewhere is not it
+        sizes = ndimage.sum(glow, lab, range(1, k + 1)); glow = lab == (int(np.argmax(sizes)) + 1)
     ys, xs = np.nonzero(glow)
     # The handle: above the glow's top, at its centre -- where the lantern hangs from.
     anchors.append([int(round(xs.mean())), int(max(0, ys.min() - 0.06 * H))])
@@ -197,4 +201,70 @@ subprocess.check_call([sys.executable, R('tools/art/room31-relight-one.py'), day
 nb = body_height(Image.open(day_sheet).convert('RGBA'), frames[0])
 report['funeral'] = {'sheet': 'art/actors/room-31-hob-walk-master.png', 'frames': frames, 'figureHeight': round(ex['figureHeight'] * nb / ob), 'drawnFacing': 'right'}
 
+print(json.dumps(report))
+
+
+# ---- The claims road's miners: four men drawn alone (cast-unify 47, 48), a crowd composed from them ----
+# Tyler, 2026-11-06: "The miners are awful". Their crowd sheet was four men stepping in unison through
+# four frames. Each man now walks his own six-frame cycle, posed on Thad's, and the crowd is laid out
+# from the four: one behind another along the road, each a little nearer the camera than the man behind,
+# each on his own step of the cycle (phases 0, 3, 1, 4), so they do not march.
+def rows_of(sheet):
+    """The sheet's rows of figures, as separate images (split on the magenta band between them)."""
+    a = np.asarray(Image.open(sheet).convert('RGB')).astype(int)
+    key = (a[..., 0] > 150) & (a[..., 2] > 150) & (a[..., 1] < 110)
+    busy = (~key).sum(1) > 0
+    bands, start = [], None
+    for y, b in enumerate(busy):
+        if b and start is None: start = y
+        if not b and start is not None:
+            if y - start > 40: bands.append((start, y))
+            start = None
+    out = []
+    for y0, y1 in bands:
+        sub = Image.open(sheet).convert('RGB').crop((0, max(0, y0 - 10), a.shape[1], min(a.shape[0], y1 + 10)))
+        tmp = tempfile.mktemp(suffix='.png'); sub.save(tmp); out.append(tmp)
+    return out
+
+
+men = []
+for k in ('a', 'b'):
+    for path in rows_of(os.path.join(STAGE, f'miners-{k}-walk-01.png')):
+        men.append(path)
+assert len(men) == 4, len(men)
+old = exit_of.__globals__['json'].load(open(R('content/ambient/miners-out.json')))['loop']
+old_h = old['frames'][0][3]
+oim = Image.open(R(old['sheet'])).convert('RGBA'); ob = body_height(oim, old['frames'][0])
+MAN_H = old_h - 6
+cycles = [cut(m, MAN_H) for m in men]          # four men, six frames each, one scale per man
+mw = max(f.width for c in cycles for f in c)
+step = int(MAN_H * 0.36)                      # how far each man walks ahead of the one behind
+drop = 4                                      # each man a little nearer the camera than the one behind
+W = mw + 3 * step + 8; H = MAN_H + 3 * drop + 2
+PHASE = [0, 3, 1, 4]
+frames_out = []
+for i in range(6):
+    c = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+    for m, cyc in enumerate(cycles):              # the man furthest back first; each nearer man over him
+        f = cyc[(i + PHASE[m]) % 6]
+        cx = mw / 2 + m * step
+        c.alpha_composite(f, (int(round(cx - torso_x(f))), H - 1 - (3 - m) * drop - f.height + 1))
+    frames_out.append(c)
+crowd = 'art/actors/room-22-miners-walk.png'
+frames = strip(frames_out, R(crowd))
+nb = body_height(Image.open(R(crowd)).convert('RGBA'), frames[0])
+# The stride, from the four men's own frames as for the others (R5f), calibrated on Thad's walk.
+def travel(ims):
+    A = [np.asarray(im)[..., 3] > 128 for im in ims]
+    def ft(a):
+        rows = np.nonzero(a.any(1))[0]; t, b = rows[0], rows[-1]; h = b - t + 1
+        cols = np.nonzero(a[t + int(h * .15):t + int(h * .45)].any(0))[0]; tx = (cols[0] + cols[-1]) / 2
+        band = a[b - int(h * 0.05):b + 1]; c = np.nonzero(band.any(0))[0]
+        return c[0] - tx, c[-1] - tx, h
+    f0, f1 = ft(A[0]), ft(A[3])
+    return ((f0[1] - f1[0]) + (f1[1] - f0[0])) / max(f0[2], f1[2])
+THAD_TRAVEL = travel([Image.open(p).convert('RGBA') for p in sorted(
+    os.path.join(R('art/actors/thad-walk-right'), f) for f in os.listdir(R('art/actors/thad-walk-right')) if f.endswith('.png'))])
+stride = round(float(np.mean([travel(c) for c in cycles])) / THAD_TRAVEL * STRIDE, 3)
+report['miners'] = {'sheet': crowd, 'frames': frames, 'figureHeight': round(old['figureHeight'] * nb / ob), 'drawnFacing': 'right', 'strideRatio': stride}
 print(json.dumps(report))

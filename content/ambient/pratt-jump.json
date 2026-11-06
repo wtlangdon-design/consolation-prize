@@ -104,7 +104,7 @@
     790
    ]
   ],
-  "speed": 80,
+  "speed": 204,
   "sheet": "art/actors/room-25-pratt-walk.png",
   "frames": [
    [
@@ -154,7 +154,8 @@
    397
   ],
   "note": "Doc 57 D2 sends him back to his own claim; Pratt's claim is next door, past the creek at the right (errata 97 C).",
-  "strideRatio": 0.6,
-  "walkNote": "WALK-C (Tyler, 2026-11-06: \"Pratt is horrible\"): six frames posed on Thad's walk (cast-unify 45), cut by tools/art/walk-c.py; strideRatio MEASURED FROM THESE FRAMES (R5f): the planted foot's travel against the body over a cycle, against the same measure on Thad's walk (whose recorded 0.588 it calibrates); so the cycle advances with the ground he covers and his feet hold it."
+  "strideRatio": 0.727,
+  "walkNote": "WALK-C (Tyler, 2026-11-06: \"Pratt is horrible\"): six frames posed on Thad's walk (cast-unify 45): six frames posed on Thad's walk (cast-unify 45), cut by tools/art/walk-c.py; strideRatio MEASURED FROM THESE FRAMES (R5f): the planted foot's travel against the body over a cycle, against the same measure on Thad's walk (whose recorded 0.588 it calibrates); so the cycle advances with the ground he covers and his feet hold it.",
+  "speedNote": "Tyler, 2026-11-06: \"Pratt walks so slow it's hard to even figure out if his walk could be good.\" Was 80 px/s, a fifth of his height a second. Now Deke's pace, which Tyler passed (\"pretty good\"): half his drawn height a second, 204 px/s for a man of about 408 px here."
  }
 }

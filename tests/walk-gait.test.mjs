@@ -5,6 +5,7 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 import { departureAt } from '../engine/core/Departure.ts';
+import { WalkBoxes, heightIn } from '../engine/core/WalkBoxes.ts';
 import { readPng } from '../tools/lib/png.mjs';
 
 /**
@@ -21,6 +22,17 @@ import { readPng } from '../tools/lib/png.mjs';
  *    exit, a loop, an arrival -- declares `strideRatio`, one cycle as a share
  *    of his drawn height, measured from his own frames (R5f), and an actor's
  *    stride lies in the same human range.
+ *  - TOO SLOW TO SEE, OR SLOW HERE AND FAST THERE. Pratt walked a fifth of his
+ *    height a second ("so slow it's hard to even figure out if his walk could
+ *    be good"); the miners at a fixed 55 px/s crawled near the camera and raced
+ *    far up the road. A person covers 0.35-1.2 of his own drawn height a
+ *    second -- Deke, passed, 0.5; Thad 0.81 -- by `pace`, or by `speed` over
+ *    his height where he walks.
+ *  - THE FEET NEVER CAME TOGETHER. Hob's second drawing held a wide stride in
+ *    five frames of six (Tyler: "kind of scooting across air"). In each half
+ *    of a cycle the feet pass: their spread at its narrowest is under 60% of
+ *    the cycle's widest (Thad 54% and 28%, Deke 47% and 26%, that Hob 53% and
+ *    92%).
  *  - THE CYCLE WAS NOT A CYCLE. Hob's and the funeral Hob's walks were four
  *    frames, the same leg leading both strides; Pratt's four were one stride
  *    pumped (consecutive frames sharing 65-74% of the silhouette below the
@@ -42,7 +54,9 @@ import { readPng } from '../tools/lib/png.mjs';
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const read = (p) => JSON.parse(readFileSync(resolve(ROOT, p), 'utf8'));
 const manifest = read('content/manifest.json');
-const STRIDE = [0.4, 0.75];
+// A walking stride (two steps) is about 0.8 of a man's height; Thad's 0.588 is short, the miners'
+// 0.78 long. Was [0.4, 0.75], which the miners' measured stride exceeded (proofs/check-friction.json).
+const STRIDE = [0.4, 0.95];
 const HEM = 0.72;
 
 const walks = [];
@@ -55,6 +69,30 @@ for (const path of manifest.ambient) {
 }
 
 const DISTINCT = 0.6;
+const PACE = [0.35, 1.2];
+const rooms = new Map(manifest.rooms.map((p) => read(p)).map((r) => [r.id, r]));
+/** His drawn height on his walk: its own `heights` where it declares them, else the room's curve at its start. */
+function drawnHeight(npc, walk) {
+  const stature = npc.sprite?.stature ?? 1;
+  if (walk.heights?.length) return (walk.heights.reduce((a, b) => a + b, 0) / walk.heights.length) * stature;
+  const room = rooms.get(npc.room);
+  const [x, y] = walk.path[0];
+  const near = new WalkBoxes(room.walkBoxes, () => true).nearest(x, y);
+  return (near ? heightIn(near.box, y) : 0) * stature;
+}
+const PASSING = 0.6;
+
+/** How far apart the feet are: the width of the figure's lowest 4% of rows. */
+function footSpread(f) {
+  let top = -1; let bottom = -1;
+  for (let y = 0; y < f.height; y += 1) for (let x = 0; x < f.width; x += 1) if (f.alpha(x, y)) { if (top < 0) top = y; bottom = y; break; }
+  const from = bottom - Math.floor((bottom - top + 1) * 0.04);
+  let left = f.width; let right = -1;
+  for (let y = from; y <= bottom; y += 1) for (let x = 0; x < f.width; x += 1) {
+    if (f.alpha(x, y)) { if (x < left) left = x; if (x > right) right = x; }
+  }
+  return right - left;
+}
 
 /** Below-the-hem overlap of two frames, as tools/check-clip-agreement.mjs measures it. */
 function legOverlap(a, b) {
@@ -78,6 +116,14 @@ function legOverlap(a, b) {
 }
 function cycle(who, frames) {
   assert.ok(frames.length >= 6, `${who} is ${frames.length} frames: a walk needs six to show both strides and both passing poses`);
+  const spreads = frames.map(footSpread);
+  const widest = Math.max(...spreads);
+  const half = frames.length / 2;
+  for (const [from, to] of [[0, half], [half, frames.length]]) {
+    const narrowest = Math.min(...spreads.slice(from, to));
+    assert.ok(narrowest < PASSING * widest, `${who}'s feet never pass in frames ${from}-${to - 1}: `
+      + `their spread is at least ${(narrowest / widest * 100).toFixed(0)}% of the widest -- a stride held, so he slides`);
+  }
   const shares = frames.map((f, i) => legOverlap(f, frames[(i + 1) % frames.length]));
   const mean = shares.reduce((a, b) => a + b, 0) / shares.length;
   assert.ok(mean < DISTINCT, `${who}'s consecutive frames share ${(mean * 100).toFixed(0)}% of their silhouette below the hem on average: one pose pumped, not a cycle`);
@@ -94,6 +140,13 @@ for (const { id, kind, npc, walk } of walks) {
       `${id}'s ${kind} declares no strideRatio, so his legs run at ${walk.fps} frames a second whatever his speed`);
     assert.ok(walk.strideRatio >= STRIDE[0] && walk.strideRatio <= STRIDE[1],
       `${id}'s ${kind} strideRatio ${walk.strideRatio} is outside a walking man's ${STRIDE.join('-')} of his height`);
+  });
+  test(`${id}'s ${kind} walk is at a walking pace`, () => {
+    const pace = walk.pace ?? walk.speed / drawnHeight(npc, walk);
+    assert.ok(pace >= PACE[0] && pace <= PACE[1], `${id}'s ${kind} covers ${pace.toFixed(2)} of his height a second`);
+    if (walk.heights && walk.heights.length > 1 && Math.max(...walk.heights) > 2 * Math.min(...walk.heights)) {
+      assert.ok(walk.pace, `${id}'s ${kind} climbs a road from ${Math.max(...walk.heights)} px to ${Math.min(...walk.heights)} px tall at a fixed speed: give it a pace`);
+    }
   });
   if (npc.posture !== 'walking') {
     test(`${id}'s ${kind} walk is a cycle of six different poses`, () => {

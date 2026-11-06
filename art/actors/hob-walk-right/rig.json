@@ -8,32 +8,32 @@
  ],
  "padding": 0,
  "frames": 6,
- "source": "art/staging/walk-c/hob-walk-02.png",
+ "source": "art/staging/walk-c/hob-walk-03.png",
  "authored": true,
  "lantern_anchor": [
   [
-   289,
-   308
-  ],
-  [
-   269,
-   310
-  ],
-  [
-   259,
-   313
-  ],
-  [
-   273,
-   313
-  ],
-  [
-   274,
-   309
+   288,
+   323
   ],
   [
    276,
-   313
+   322
+  ],
+  [
+   252,
+   321
+  ],
+  [
+   292,
+   323
+  ],
+  [
+   267,
+   329
+  ],
+  [
+   255,
+   323
   ]
  ],
  "note": "WALK-C (Tyler, 2026-11-06, of the walks recorded in the game: \"Hob could be better generally\"): six frames posed on Thad's walk (cast-unify 44), cut by tools/art/walk-c.py, colours matched to his standing frame, the legs trading places as Thad's do. Supersedes the four-frame walk whose same leg led every step. lantern_anchor is the lantern's handle per frame, found above its glow."
