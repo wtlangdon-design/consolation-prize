@@ -2769,3 +2769,13 @@ So THE STRIKE, THE ASSAY, WINNIE and THE COMPANY now exist as note data in `proo
 **Measured, because nobody here can listen:** THE STRIKE's three pitches land within 0.3 cents of B-flat, C and E at −35; THE ASSAY's stamp sounds at C (512.8 Hz), a semitone under C-sharp, as the piano's fault requires; WINNIE's held E has zero pitch spread (no vibrato), THE COMPANY's has 17.7 Hz; no loop has a silent run; THE ASSAY's loop seam is an ordinary sample step (80th percentile).
 
 **Not done by this, and next once the themes are heard:** the room mixes doc 28 Part Three asks for (arrangements of these themes per room, including the Nugget's diegetic piano and the hotel's through-the-wall CONSOLATION), wiring them into `manifest.music`, and doc 28 Part Six's SFX. Beat-timed cues still wait on errata 28a, which is Tyler's to reverse.
+
+## 102 (cont.) · The everyday sounds, rendered for the same audition
+
+Tyler asked, the same night, what other sounds he could hear alongside the themes. **`tools/audio/render-everyday-sfx.py`** renders doc 28 Part Six's essential list and the doc 45 cues specified plainly enough to build (footsteps on mud, boardwalk, plank and dirt, four takes each; the batwings, the assay office latch and the locked archive door; the team moving, standing and departing; the case into the mud with the fork at exactly A440; the flat church bell, near and distant; paper, the stamp, the Assay's pencil; the floorboards, the sign, the leather chairs, Sump's clock, the wind, the Clarion's press). Files only: **no cue is wired until Tyler has heard them**, the same rule as the themes.
+
+**The flat bell is cast for D and half a step flat: C-sharp 4, exactly 277.18 Hz**, measured at 277.12 in the render. It bypasses the score's −35 cents (doc 45 §0.2) and is the same pitch every strike. Doc 28 Room 31 then puts CONSOLATION "on the flat church bell's pitch", which is the town's own key lowered by that half step.
+
+**Loops are built to be loops.** The beds (team, clock, wind, press) fold their releases back over the start like the music stems, a continuous noise (the wheels' rumble) is generated exactly one loop long in the frequency domain so its end runs into its start, and the output filter is run in over the loop's own end so sample 0 does not follow silence. Measured seams: clock and press at the 0th percentile of sample steps, the rest between the 70th and 94th: ordinary steps, no click.
+
+**Not made:** R03-A's indistinct talk and R01-WEST-3's laugh are human voices, which want recordings; the spittoon waits on OQ-11.
