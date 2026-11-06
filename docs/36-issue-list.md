@@ -4896,3 +4896,12 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 - **Not staged:** beat 3's picture (the POP. sign repainted upward by a man on a ladder, who nods) and beat 5's credits (errata 55's launch-screen cluster). The close ends over black, with the menu still there.
 - **The dawn plate is a relight of Room 2's,** so where the morning's mountains and Room 2's disagree the ridge is a little ragged in places. Say if it wants a hand-drawn dawn instead.
 
+## Q177 · The puzzle chain through built rooms: C6, D4, D6, E0, E4, E5 — **BUILT 2026-11-06 (errata 99 M), AWAITING TYLER'S PLAYTHROUGH**
+
+**Built.** C6: WIN_B4 on the first TALK TO after asking for the assay and coming back in (Document B). E4: WIN_C1, the death certificate, extracted with doc 04's "relationship scene" exemption from the [COMIC] rule. E5: SUM_C1 records the decease (T_DECEASED), which opens the newspaper's FRA_E1. E0: SUM_B1's Document C row, holding A, B and D, with doc 57's viewing (T_CLAIM1_BLANK). D6: Pratt at the Registrar's counter after PRA_D6 option 5, doc 57's exchange on arrival, THE ATTESTATION; he walks out. D4's first half: on the funeral day with Sheng's task open, Sowerby at Boot Hill's gate, doc 57's exchange, THE LINEN MONEY. Played in tests/c6, e4, e0-e5, d6 and d4; seen in the game by the routes `claims-registrar-attestation` (fixture r7-e) and `boot-hill-plate` (r14-e).
+
+**For Tyler:**
+- **Pratt at the counter** is his Prosperity sheet, mallet in hand (Room 7's four operations are spent). He stands at the far end of the counter, clear of Sump and of where Thad talks to Sump.
+- **Sowerby at the gate** is his funeral sheet (finger raised, lit by the same moon). No sheet of him holds a plate, so the plate is in the performed direction, not the picture.
+- **WIN_C1 option 2's emphasis** ("*never*", "*made of*") was dropped in doc 04, wording kept: the font has no italic (check-no-markdown-emphasis).
+
