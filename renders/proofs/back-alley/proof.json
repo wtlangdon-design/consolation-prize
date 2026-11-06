@@ -4,12 +4,10 @@
  "room": "back_alley",
  "roomWidth": 1920,
  "branch": "claude/tender-sagan-buz50u",
- "commit": "ba7004bb2ecfe59e83b534a2577c6ee3cb194d7a",
- "workingTreeClean": false,
+ "commit": "81556ba4d2c97dbccb37965c85ea81757d4c727b",
+ "workingTreeClean": true,
  "dirtyAllowed": false,
- "uncommitted": [
-  "M art/staging/room-36/dawn-01/frame.json"
- ],
+ "uncommitted": [],
  "visualState": null,
  "candidates": [],
  "route": "back-alley",
@@ -82,7 +80,7 @@
    ],
    "reportedHeight": 259,
    "expected": 259,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-02.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
    "bounds": [
     428,
     447,
@@ -119,7 +117,7 @@
    ],
    "reportedHeight": 361,
    "expected": 361,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-05.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
    "bounds": [
     844,
     496,
@@ -156,7 +154,7 @@
     "height": 56,
     "bottom": 556,
     "right": 478,
-    "changed": 1179
+    "changed": 1198
    },
    "props": []
   },
@@ -202,13 +200,13 @@
     "height": 319
    },
    "seen": {
-    "x": 487,
-    "y": 478,
-    "width": 108,
-    "height": 315,
+    "x": 504,
+    "y": 475,
+    "width": 97,
+    "height": 318,
     "bottom": 792,
-    "right": 594,
-    "changed": 18784
+    "right": 600,
+    "changed": 18431
    },
    "props": []
   }
@@ -217,7 +215,7 @@
   {
    "panel": "B",
    "room": "back_alley",
-   "clock": 142.05329999999998,
+   "clock": 142.68429999999998,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -264,7 +262,7 @@
      "height": 282,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
       110,
       458,
@@ -315,15 +313,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-06T22:55:19.875Z",
+   "capturedAt": "2026-11-06T23:01:26.889Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "4e658716d9a2991b4cfc3b92e598364e3961afc618303a604277ed032e762a16"
+   "hash": "0df4e08533abfd283ce69c17167083970461f0e1bceab0d855192d854fd428b2"
   },
   {
    "panel": "A",
    "room": "back_alley",
-   "clock": 142.97,
+   "clock": 143.58429999999998,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -418,15 +416,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-06T22:55:20.747Z",
+   "capturedAt": "2026-11-06T23:01:27.793Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "57f6e1cee27e6f63838541f1b2627ac226f76311522c28fee803d71986832ef6"
+   "hash": "8730834a5831cb336725fd356ccc643b0a36f23030d9adf6116e4a4162224be6"
   },
   {
    "panel": "D",
    "room": "back_alley",
-   "clock": 158.65279999999998,
+   "clock": 158.9836,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -474,7 +472,7 @@
      "height": 282,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-02.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
       110,
       458,
@@ -537,22 +535,20 @@
     "bystanders(true)",
     "flag T_EXECUTOR_RULE=true"
    ],
-   "capturedAt": "2026-11-06T22:55:36.315Z",
+   "capturedAt": "2026-11-06T23:01:43.184Z",
    "intent": "principal changed state: T_EXECUTOR_RULE. Visible consequence: Hob, with his lantern, before the Company's side door. Who is in a room is decided as Thad arrives, so the panel steps out to the street and back in.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "d9ab25c616a13315be97bea855c2a8ed09fbe762e1d6b18b3250cca8cc02faa2",
+   "hash": "d3651a319c6de1b0bf33bfd3bd1d94241bb10b9c382f21677dca2603165acf41",
    "changedBy": "flags"
   }
  ],
- "failures": [
-  "the working tree is dirty, so these frames do not correspond to ba7004bb. Commit, or re-run with --allow-dirty, which records it."
- ],
- "passed": false,
+ "failures": [],
+ "passed": true,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
  "judgement": {
   "machine": {
-   "passed": false,
+   "passed": true,
    "establishes": [
     "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
     "every asset the room declares loaded; no stub, graybox or fallback was drawn",
@@ -573,11 +569,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-06T22:55:36.315Z",
+ "at": "2026-11-06T23:01:43.184Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 387136,
+  "bytes": 388032,
   "panels": 5,
   "scale": 0.5
  }
