@@ -272,6 +272,27 @@ def step_boardwalk(rnd):
     return finish(highpass(x, 120), peak=0.7)
 
 
+def step_plank(rnd):
+    """TYLER, 2026-11-06: the plank floor wanted "the same wood sound, just
+    maybe with more of a muted thud vs the boardwalk since the boardwalk is
+    hollow underneath." The boardwalk's wood, struck the same way, but on a
+    floor laid tight over joists: every mode dies faster (nothing under the
+    board to let it ring), the highs are softened, there is no loose end to
+    slap, and the weight lands as a solid, dull thud carried by the floor."""
+    d = 0.35
+    x = np.zeros(n_of(d))
+    wood = [(290, 1.0, 0.016), (470, 0.8, 0.013), (760, 0.6, 0.010), (1080, 0.4, 0.008),
+            (1530, 0.25, 0.006), (2150, 0.14, 0.005), (2900, 0.08, 0.004)]
+    for at, g in ((0.0, 1.0), (rnd.uniform(0.05, 0.075), 0.45)):
+        strike = rnd.normal(0, 1, n_of(0.004)) * np.hanning(n_of(0.004))
+        hit = resonate(np.concatenate([strike, np.zeros(n_of(0.15))]), wood, rnd)
+        place(x, hit, at, 38 * g)
+        place(x, bandpass(rnd.normal(0, 1, n_of(0.01)), 2000, 6000) * np.hanning(n_of(0.01)), at, 0.12 * g)
+        thud = lowpass(rnd.normal(0, 1, n_of(0.12)), 160) * env(n_of(0.12), 0.003, 0.03)
+        place(x, thud, at, 1.1 * g)
+    return finish(lowpass(highpass(x, 60), 5000), peak=0.7)
+
+
 def step_dirt():
     """Packed dirt and grit: a dull pat and a crunch of small stones."""
     d = 0.35
@@ -628,7 +649,11 @@ if __name__ == '__main__':
                 step_wood(True)
                 save(f'step-boardwalk-{i}.wav', step_boardwalk(np.random.default_rng(1000 + i)))
                 continue
-            save(f'step-{surface}-{i}.wav', take() if take else step_wood(False))
+            if surface == 'plank':
+                step_wood(False)   # replaced 2026-11-06; still draws its numbers (see the boardwalk)
+                save(f'step-plank-{i}.wav', step_plank(np.random.default_rng(1100 + i)))
+                continue
+            save(f'step-{surface}-{i}.wav', take())
     for i, size in enumerate((1.0, 0.6, 0.3), start=1):
         batwing(size)   # the replaced gull, still drawing its numbers (see the boardwalk)
         save(f'batwing-swing-{i}.wav', batwing_hinge(size, np.random.default_rng(2000 + i)))
