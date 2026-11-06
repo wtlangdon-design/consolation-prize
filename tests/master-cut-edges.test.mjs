@@ -22,7 +22,9 @@ import { readPng } from '../tools/lib/png.mjs';
  * inside it (the median of its solid pixels within 4 px that are not edge).
  * Purple needs blue above green, so a warm skin outline is not key; and real
  * purple -- Ozymandia's hair, which falls to her edge -- continues inward, so
- * it is not key either. Measured: Thad 0; the four first cuts 1.5% to 3.3%; recut
+ * it is not key either. And nowhere in the figure is a pixel more magenta than
+ * POCKET: a pocket of backdrop enclosed by the figure keys as figure and shows
+ * pink where no edge test looks (the undertaker's plane, 116; real purple, 63). Measured: Thad 0; the four first cuts 1.5% to 3.3%; recut
  * 0. Older sheets lit purple all over by a night relight are not master cuts
  * and are replaced from the master as it goes.
  */
@@ -30,6 +32,7 @@ const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const RIM = 2;
 const SHARE = 0.005;
 const OVER = 20;
+const POCKET = 80;
 
 const fromMaster = (npc) => {
   const spec = npc.sprite?.provenance;
@@ -73,11 +76,27 @@ export function keyOnEdge(png) {
   return rim ? key / rim : 0;
 }
 
+/** The most magenta drawn pixel anywhere in a sheet: key caught inside the figure, where no edge test looks. */
+export function mostMagenta(png) {
+  let worst = -255;
+  for (let i = 0; i < png.pixels.length; i += 4) {
+    if (png.pixels[i + 3] <= 128) continue;
+    worst = Math.max(worst, (png.pixels[i] + png.pixels[i + 2]) / 2 - png.pixels[i + 1]);
+  }
+  return worst;
+}
+
 test('figures cut from the master are found', () => assert.ok(figures.length >= 4, `${figures.length}`));
 
 for (const npc of figures) {
   test(`${npc.id}: no magenta key on the edge`, () => {
     const share = keyOnEdge(readPng(readFileSync(resolve(ROOT, npc.sprite.sheet))));
     assert.ok(share <= SHARE, `${(share * 100).toFixed(1)}% of ${npc.sprite.sheet}'s edge is the key`);
+  });
+  test(`${npc.id}: no pocket of key inside the figure`, () => {
+    // Tyler's standard for every frame: a pink fleck between the undertaker's
+    // hands (tint 116) was a pocket of backdrop the keyer took for figure.
+    const worst = mostMagenta(readPng(readFileSync(resolve(ROOT, npc.sprite.sheet))));
+    assert.ok(worst <= POCKET, `a pixel of ${npc.sprite.sheet} is ${worst.toFixed(0)} magenta -- key caught inside the figure`);
   });
 }

@@ -31,6 +31,9 @@ src, row, height, out = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), sys.arg
 grid = int(sys.argv[sys.argv.index('--grid') + 1]) if '--grid' in sys.argv else 0
 
 
+POCKET = 80
+
+
 def snap(rgb, n):
     """Snap an RGB image to its own n-pixel grid, at the phase its colour steps fall on.
 
@@ -45,6 +48,12 @@ def snap(rgb, n):
     backdrop, never between.
     """
     a = rgb.astype(float)
+    # KEY CAUGHT INSIDE THE DRAWING: a pocket of backdrop enclosed by the figure
+    # (between the undertaker's hands on his plane) keys as figure, being far
+    # enough from #FF00FF, and shows pink. Any pixel more magenta than POCKET is
+    # backdrop. Real purple sits well under it (Ozymandia's hair, 63).
+    pocket = (a[..., 0] + a[..., 2]) / 2 - a[..., 1] > POCKET
+    a[pocket] = (255, 0, 255)
     ex = np.abs(np.diff(a, axis=1)).sum(-1).sum(0)
     ey = np.abs(np.diff(a, axis=0)).sum(-1).sum(1)
     px = max(range(n), key=lambda p: ex[p::n].sum())

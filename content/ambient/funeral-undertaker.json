@@ -16,36 +16,30 @@
  "barks": {},
  "barksNote": "Doc 07 writes no barks for the undertaker.",
  "sprite": {
-  "sheet": "art/actors/room-31-undertaker.png",
+  "sheet": "art/actors/room-31-undertaker-master.png",
   "frames": [
    [
     2,
     2,
-    135,
+    141,
     336
    ],
    [
-    139,
+    145,
     2,
-    135,
+    141,
     336
    ],
    [
-    276,
+    288,
     2,
-    135,
+    141,
     336
    ],
    [
-    413,
+    431,
     2,
-    135,
-    336
-   ],
-   [
-    550,
-    2,
-    135,
+    141,
     336
    ]
   ],
@@ -55,22 +49,29 @@
    [
     2,
     2,
+    2,
+    2,
     0
    ],
    [
     3,
     3,
+    3,
     0
    ],
    [
-    4,
-    4,
+    2,
+    2,
+    2,
+    3,
+    3,
     0
    ]
   ],
   "breakEvery": 7,
   "talkFrame": 0,
-  "frameNote": "0 rest, hands folded · 1 breath · 2 a lean toward the coffin · 3 a nod · 4 a lean back. A break every `breakEvery` seconds (errata 77).",
-  "provenance": "art/staging/room-31/cast/cast.json"
+  "frameNote": "0 hands folded · 1 breath (derived) · 2 head bowed · 3 a glance aside, toward the coffin. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77). The drawing's fourth pose came back with another man's face (a grey moustache) and is not used.",
+  "provenance": "reference/cast-unify-15.spec.json",
+  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 17 (reference/cast-unify-15.txt), in day colours, cut with its own pixels and a clean edge, and relit into the funeral's night as the rest of its cast is (tools/art/room31-relight-one.py, CAST_LIGHT of the night's ratio where he stands). Its own file: room31-cast.py and room31-night.py write and relight the old one."
  }
 }
