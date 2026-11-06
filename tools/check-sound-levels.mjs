@@ -158,6 +158,28 @@ export function check() {
       }
     }
   }
+  // A MOMENT MEANT TO BE NOTICED IS SET TO BE NOTICED (errata 117; Tyler,
+  // 2026-11-06: "it needs to really be noticeable if it's supposed to be
+  // noticeable"). The fiddler's played barks went in at 4 dB over a gently
+  // ducked room, and his retune in F2 at 8 dB under the score -- both measured,
+  // both inside their ceilings, both easy to miss. A townsperson's played bark
+  // is his remark: it is featured, at 8 dB or more over the ducked music. A
+  // sound on Room 33's tuning arc sits no more than 4 dB under the score.
+  for (const path of manifest.ambient ?? []) {
+    const npc = readJson(path);
+    for (const [state, id] of Object.entries(npc.barkCues ?? {})) {
+      const target = levels.cues?.[id] ?? levels.cue;
+      if (!(levels.featured ?? []).includes(id)) report.fail(`${npc.id} ${state}: his played bark ${id} is not featured -- a remark nobody hears is not a remark`);
+      if (target < 8) report.fail(`${npc.id} ${state}: his played bark ${id} is placed ${target} dB over the ducked music; a remark sits at 8 or more`);
+    }
+  }
+  for (const roomFile of manifest.rooms) {
+    const room = readJson(roomFile);
+    for (const one of room.listening?.tune?.cues ?? []) {
+      const target = levels.cues?.[one.cue] ?? levels.cue;
+      if (target < -4) report.fail(`${room.id}: ${one.cue} on the tuning arc is placed ${target} dB under the score; it is there to be noticed, no lower than -4`);
+    }
+  }
   for (const [room, bed] of Object.entries(sounds.ambience)) {
     judge(`background ${room} ${bed.src}`, db(rms(read(bed.src)) * (bed.gain ?? 1)), levels.ambience?.[room] ?? levels.ambienceDefault);
     for (const layer of bed.layers ?? []) {

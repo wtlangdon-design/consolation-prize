@@ -304,12 +304,12 @@
    "play": [
     {
      "src": "audio/sfx/fiddler-faster.wav",
-     "gain": 0.5,
+     "gain": 0.47,
      "at": 0.12
     }
    ],
    "duck": {
-    "to": 0.3,
+    "to": 0.15,
     "seconds": 8.8,
     "attack": 0.08,
     "release": 2.0
@@ -321,12 +321,12 @@
    "play": [
     {
      "src": "audio/sfx/fiddler-passing.wav",
-     "gain": 0.26,
+     "gain": 0.32,
      "at": 0.12
     }
    ],
    "duck": {
-    "to": 0.2,
+    "to": 0.12,
     "seconds": 12.8,
     "attack": 0.08,
     "release": 2.5
@@ -338,7 +338,7 @@
    "play": [
     {
      "src": "audio/sfx/fiddler-retunes.wav",
-     "gain": 0.092
+     "gain": 0.184
     }
    ],
    "room": "listening_chamber"
@@ -666,9 +666,9 @@
    "LIV-HUM": 4,
    "B3-WHISTLE": 6,
    "A-TUNING": 6,
-   "FID-FASTER": 4,
-   "FID-PASSING": 4,
-   "R33-FIDDLER": -8
+   "FID-FASTER": 10,
+   "FID-PASSING": 10,
+   "R33-FIDDLER": -2
   },
   "ambience": {
    "nugget": -20
