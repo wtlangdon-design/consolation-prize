@@ -391,7 +391,44 @@
           "tag": "ASSAY",
           "afterUse": "remove",
           "text": "Will you help me practice for the Assay?",
-          "say": "Try me."
+          "set": {
+            "ASSAY_PAIR_10": true,
+            "ASSAY_PAIR_11": true,
+            "ASSAY_PAIR_12": true,
+            "ASSAY_PAIR_13": true,
+            "ASSAY_PAIR_14": true,
+            "ASSAY_PAIR_15": true
+          },
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Try me."
+            },
+            {
+              "speaker": "thad",
+              "line": "There's a mountain named for me."
+            },
+            {
+              "speaker": "pratt",
+              "line": "There's a hole named for you and I've fallen in it."
+            },
+            {
+              "speaker": "pratt",
+              "line": "…"
+            },
+            {
+              "speaker": "pratt",
+              "line": "Where'd that come from?"
+            },
+            {
+              "speaker": "thad",
+              "line": "You."
+            },
+            {
+              "speaker": "pratt",
+              "line": "Huh."
+            }
+          ]
         },
         {
           "id": "pratt5",

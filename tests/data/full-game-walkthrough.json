@@ -1,22 +1,7 @@
 {
  "schema": 1,
  "note": "The continuous playthrough's route, in doc 57's order, ids only (tests/full-game.test.ts). Each step plays one click's worth -- a room reached by exits and the map, a TALK TO and its options, an item used, a verb -- and names what it must have changed. A step that breaks is a finding; `knownBreaks` lists them, with the cause, and a step's `bypass` is applied only after it has broken, so play can go on to the next one.",
- "knownBreaks": [
-  {
-   "step": "C6.4",
-   "puzzle": "C6",
-   "room": "assay_office",
-   "cause": "engine gap",
-   "finding": "Winnie's sparring (WIN_B4 option 1) teaches no pairs: nothing in content writes ASSAY_PAIR_05..09 (doc 36: it 'waits for the sparring runtime'). With Pratt's sparring also empty, the most pairs real play can hold before Duel Two is 9 (1-4 from Duel One, 16-20 from Frame, Sowerby, Sheng, Ozymandia and the livery man; Hob's pair 21 has no writer and Hob is not met until Act III), against the 14 Duel Two needs. B6 cannot be won, so Document A, E0 and the rest of the game are unreachable."
-  },
-  {
-   "step": "D5.3",
-   "puzzle": "D5",
-   "room": "pratts_claim",
-   "cause": "engine gap",
-   "finding": "Pratt's sparring (PRA_D6 option 4) teaches no pairs: nothing in content writes ASSAY_PAIR_10..15 (doc 36 Q-list: 'waits for the sparring runtime, as Winnie's does'). See C6.4: together they are why B6 cannot be won."
-  }
- ],
+ "knownBreaks": [],
  "neverRecorded": [
   {
    "puzzle": "A4",
@@ -1042,16 +1027,6 @@
      "ASSAY_PAIR_08": true,
      "ASSAY_PAIR_09": true
     }
-   },
-   "bypass": {
-    "reason": "Winnie's sparring (WIN_B4 option 1) teaches nothing: no content writes ASSAY_PAIR_05-09 (doc 36: 'waits for the sparring runtime'). Set the five pairs doc 57 says it teaches.",
-    "flags": {
-     "ASSAY_PAIR_05": true,
-     "ASSAY_PAIR_06": true,
-     "ASSAY_PAIR_07": true,
-     "ASSAY_PAIR_08": true,
-     "ASSAY_PAIR_09": true
-    }
    }
   },
   {
@@ -1086,17 +1061,6 @@
     "pratt4"
    ],
    "expect": {
-    "flags": {
-     "ASSAY_PAIR_10": true,
-     "ASSAY_PAIR_11": true,
-     "ASSAY_PAIR_12": true,
-     "ASSAY_PAIR_13": true,
-     "ASSAY_PAIR_14": true,
-     "ASSAY_PAIR_15": true
-    }
-   },
-   "bypass": {
-    "reason": "Pratt's sparring (PRA_D6 option 4) teaches nothing: no content writes ASSAY_PAIR_10-15 (doc 36: 'waits for the sparring runtime'). Set the six pairs doc 57 says it teaches.",
     "flags": {
      "ASSAY_PAIR_10": true,
      "ASSAY_PAIR_11": true,

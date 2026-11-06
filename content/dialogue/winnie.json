@@ -388,7 +388,39 @@
           "tag": "ASSAY",
           "text": "Teach me to answer a boast.",
           "afterUse": "remove",
-          "say": "Sit."
+          "set": {
+            "ASSAY_PAIR_05": true,
+            "ASSAY_PAIR_06": true,
+            "ASSAY_PAIR_07": true,
+            "ASSAY_PAIR_08": true,
+            "ASSAY_PAIR_09": true
+          },
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "Sit."
+            },
+            {
+              "speaker": "winnie",
+              "line": "Say it again. And don't apologize in the middle of it."
+            },
+            {
+              "speaker": "thad",
+              "line": "I've had three fortunes and lost —"
+            },
+            {
+              "speaker": "winnie",
+              "line": "No. You've had one fortune and told it twice. That's the answer. Say the answer."
+            },
+            {
+              "speaker": "thad",
+              "line": "Why do you know this so well?"
+            },
+            {
+              "speaker": "winnie",
+              "line": "Because I sign the paper that says whether men are lying, Mr. Grubb, and I have never once been asked."
+            }
+          ]
         },
         {
           "id": "winnie2",
