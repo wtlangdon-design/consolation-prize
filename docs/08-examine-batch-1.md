@@ -189,7 +189,7 @@
 > **LISTEN:** "Nothing." *(All eleven. The same word, eleven times, and the eleventh lands differently than the first.)*
 
 **THE WORKINGS**
-> **LOOK:** "Eleven holes. Some of them are forty feet deep. Somebody dug forty feet by hand and then stopped and walked away, and I would like to know on which day he decided."
+> **LOOK:** "Eleven holes. Some of them are forty feet deep. Somebody dug forty feet by hand and then stopped and walked away, and I'd like to know which day he decided."
 > **LISTEN:** "Wind, in the holes. It's a low sound. It is almost the same sound as my hole and it is not the same sound at all."
 
 **THE SLUICE FRAMES** · **A BOOT** · **THE PATH**
@@ -203,14 +203,14 @@
 
 **THE GROUND**
 > **LOOK:** "Turned over so many times that it is no longer ground so much as an opinion about where ground used to be."
-> **LISTEN:** "Nothing. Nothing whatsoever. It is the emptiest sound I have heard since I arrived."
+> **LISTEN:** "Nothing. Nothing whatsoever. It's the emptiest sound I've heard since I arrived."
 
 **THE PITS**
 > **LOOK:** "Perhaps four hundred separate diggings, overlapping. Ten thousand men have come here, individually, each certain that the others had looked in the wrong place."
 > **LISTEN:** "Nothing."
 
 **THE OFFERINGS**
-> **LOOK:** "Coins, pressed into the dirt at the center. Men have been leaving money here. I do not know what for and I do not think they do."
+> **LOOK:** "Coins, pressed into the dirt at the center. Men have been leaving money here. I don't know what for, and I don't think they do."
 > **LISTEN:** "Nothing."
 
 **A NEW DIGGING**

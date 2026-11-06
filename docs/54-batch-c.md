@@ -306,7 +306,7 @@
 
 **THE WIND** — LOOK 2 "It leans on me with the full weight of the territory, and the territory is not light." · 3 "My coat has been trying to leave since I arrived. Up here it very nearly manages." | LISTEN 2 "The same long thing. It has never needed a second subject." · 3 "A gust, a low whistle across the cairn, and then the long thing again."
 
-**THE CAIRN** — LOOK 2 "Some of the stones have names scratched on them, some have dates. One has a single word, SORRY, and nobody has put a stone on that one." · 3 "I have added a stone. I did not feel anything in particular. I added it anyway, in case." | LISTEN 2 "A stone settling, very slightly, under the weight of all the others." · 3 "The wind takes its note off the top, as before, and the cairn hums it back lower."
+**THE CAIRN** — LOOK 2 "Some of the stones have names scratched on them, some have dates. One has a single word, SORRY, and nobody has put a stone on that one." · 3 "I've added a stone. I didn't feel anything in particular. I added it anyway, in case." | LISTEN 2 "A stone settling, very slightly, under the weight of all the others." · 3 "The wind takes its note off the top, as before, and the cairn hums it back lower."
 
 **THE SURVEY MARK** — LOOK 2 "Stamped with a number, a year, and a small arrow pointing at nothing in particular with great conviction." · 3 "Every deed in the valley, mine included, is a distance from this pin. It is the most important object in the district, and a goat could stand on it." | LISTEN 2 "Nothing. Brass in rock, holding still for everybody." · 3 "Nothing. It does not hum in the wind. It is the only thing up here that doesn't."
 
@@ -395,7 +395,7 @@
 
 **THE MERCURY FLASK** — LOOK 2 "The chain is newer than the flask. Somebody learned something." · 3 "It is heavier than it looks. It is the only thing out here that is." | LISTEN 2 "A shift inside, slow and heavy, like something turning over in bed." · 3 "Nothing, until the chain moves, and then the slosh again, offended on principle."
 
-**THE BOOT PRINTS** — LOOK 2 "Hobnailed, patched, and one barefoot. That man has my sympathy and my attention." · 3 "Mine are among them now. I have been counted." | LISTEN 2 "Water seeping into the newest prints, filling them one at a time." · 3 "Nothing. Tomorrow's shift will print over today's, and nobody will be counted twice."
+**THE BOOT PRINTS** — LOOK 2 "Hobnailed, patched, and one barefoot. That man has my sympathy and my attention." · 3 "Mine are among them now. I've been counted." | LISTEN 2 "Water seeping into the newest prints, filling them one at a time." · 3 "Nothing. Tomorrow's shift will print over today's, and nobody will be counted twice."
 
 **THE WILLOW** — LOOK 2 "Twenty or thirty sets of initials are cut into the trunk, and not one of them inside a heart. Out here people commit to nothing but their names." · 3 "It leans over the water as though it were panning too, and having about the same luck." | LISTEN 2 "Leaves again. Softer than the water, softer than the men. The willow wins." · 3 "A bird somewhere inside it, saying one note and stopping, like a man who has thought better of it."
 
@@ -492,7 +492,7 @@
 
 **THE SITE** — LOOK 3 "There is a bench at the edge for pilgrims. It faces the diggings the way pews face an altar." | LISTEN 3 "The wind, and under it, faint and far off, somebody's pick. Even here, somebody is still checking."
 
-**THE BEDROCK** — LOOK 2 "There are scratches in it from every tool the Mercantile has ever sold, in roughly the order it sold them." · 3 "It is the cleanest rock in the district and the least interesting. I have looked at it longer than it deserves, in honor of everyone else who did." | LISTEN 2 "Nothing. It has had nothing to hide for twelve years, and has said so, under brushes." · 3 "Nothing. Brushed by ten thousand men, it has nothing left to confide."
+**THE BEDROCK** — LOOK 2 "There are scratches in it from every tool the Mercantile has ever sold, in roughly the order it sold them." · 3 "It is the cleanest rock in the district and the least interesting. I've looked at it longer than it deserves, in honor of everyone else who did." | LISTEN 2 "Nothing. It has had nothing to hide for twelve years, and has said so, under brushes." · 3 "Nothing. Brushed by ten thousand men, it has nothing left to confide."
 
 **THE OLD WINDLASS** — LOOK 2 "The crank is worn to the shape of a hand. Several hands. The same shape." · 3 "The shaft below it is boarded over. Somebody fell in once, I am told, and found nothing there either." | LISTEN 2 "A slow creak as the wind turns the drum half an inch and lets it go." · 3 "The moan again, longer. The frame and the wind have been at this for years."
 
@@ -602,7 +602,7 @@
 
 **CLAIM MARKER — "EUREKA"** — LOOK 2 "Dated the spring of the rush. He was among the first, and the first to be wrong." · 3 "Someone has scratched a small question mark after it. Not the same hand. A later, sadder hand." | LISTEN 2 "The board ticks in the sun. It has dried out, like the word." · 3 "Nothing. Eureka is a word you only get to say once."
 
-**CLAIM MARKER — "PROVIDENCE"** — LOOK 2 "The lettering is careful, the hand schooled. Somebody's mother taught him that hand, in the same town as mine." · 3 "I find I have stood here longer than at the others. I am not going to examine why." | LISTEN 2 "Wind across the face of it. It sounds like a Sunday afternoon a long way off." · 3 "Nothing. The reference is lost on the territory."
+**CLAIM MARKER — "PROVIDENCE"** — LOOK 2 "The lettering is careful, the hand schooled. Somebody's mother taught him that hand, in the same town as mine." · 3 "I find I've stood here longer than at the others. I'm not going to examine why." | LISTEN 2 "Wind across the face of it. It sounds like a Sunday afternoon a long way off." · 3 "Nothing. The reference is lost on the territory."
 
 **CLAIM MARKER — "THE SURE THING"** — LOOK 2 "Beneath the name, smaller, a date, and smaller still, a second date. On the second, he was sure of something else." · 3 "It is the best-made marker in the row. He was sure of the carpentry, at least." | LISTEN 2 "The nail again, ringing when the wind leans." · 3 "The nail, and then nothing. Even the one sure thing is working loose."
 
@@ -1016,7 +1016,7 @@
 
 **THE DRYING LINES** — LOOK 2 "Every shirt is pegged by the tail, shoulders down, so the collar dries straight. There is a method to all of it." · 3 "My own shirt is up there, the better one. It looks more respectable on the line than it has ever looked on me." | LISTEN 2 "A peg snapping shut on a corner as the wind takes it." · 3 "A long gust that fills every shirt at once. A whole congregation, breathing in."
 
-**THE COLLAR ADVERTISEMENT** — LOOK 3 "Up close, the printing is very fine. He has a dimple. I had not noticed the dimple in the Clarion." | LISTEN 3 "The paper lifting at one corner when the door opens, and lying flat again."
+**THE COLLAR ADVERTISEMENT** — LOOK 3 "Up close, the printing is very fine. He has a dimple. I hadn't noticed the dimple in the Clarion." | LISTEN 3 "The paper lifting at one corner when the door opens, and lying flat again."
 
 **THE TICKET RAIL** — LOOK 2 "Each ticket is torn in half. He keeps one half and you keep the other, and the two halves have never once failed to meet." · 3 "My own ticket is on the wire: one shirt, one collar. My entire wardrobe, in Sheng's custody." | LISTEN 2 "The tags sliding as he moves a shirt along the rail." · 3 "Nothing, for a moment. The wire waiting for the next number."
 
@@ -1041,8 +1041,8 @@
 **THE THURSDAY BOOK** — LOOK 2 "The entries are short: a date, a name, a sum. Every date is a Thursday." · 3 "It is shelved a hand's width from the laundry book. A hand's width is the distance between washing and banking in this town." | LISTEN 2 "Nothing. Thursdays are kept quiet." · 3 "The spine creaking as I lean near it. It is not used to visitors on a Monday."
 
 ### THE BACK ROOM
-**LOOK** 1 "A curtain across a doorway, and behind it a room I am not invited into." · 2 "The curtain is clean. Everything here is clean, including, I suspect, the business behind it." · 3 "Once the curtain moved, and I saw a desk and a lamp and a great many papers in very good order. Then it moved back."
-**LISTEN** 1 "Nothing behind the curtain, or nothing I am meant to hear." · 2 "A pen, somewhere back there, adding." · 3 "Nothing. Sheng's back room is where the town's noise goes to be counted."
+**LOOK** 1 "A curtain across a doorway, and behind it a room I'm not invited into." · 2 "The curtain is clean. Everything here is clean, including, I suspect, the business behind it." · 3 "Once the curtain moved, and I saw a desk and a lamp and a great many papers in very good order. Then it moved back."
+**LISTEN** 1 "Nothing behind the curtain, or nothing I'm meant to hear." · 2 "A pen, somewhere back there, adding." · 3 "Nothing. Sheng's back room is where the town's noise goes to be counted."
 
 ### THE SCALE
 **LOOK** 1 "A brass scale for weighing laundry by the pound. It is as accurate as the one at the assay office, and it weighs shirts." · 2 "The weights are stamped and checked. A man who weighs collars this honestly would weigh anything honestly." · 3 "I put my hat on it. Eleven ounces. Sheng did not charge me."

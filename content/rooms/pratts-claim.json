@@ -63,7 +63,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Days worked, cut into the post in fives. I have counted them twice. Two thousand and six.",
+            "say": "Days worked, cut into the post in fives. I've counted them twice. Two thousand and six.",
             "repeat": [
               "Every fifth stroke is cut a little deeper, as though he leaned on that day.",
               "The post is nearly full. A second post stands beside it, already planed, waiting for the next two thousand."
@@ -222,7 +222,7 @@
               "Each tool's outline is painted on the board behind it, so an empty hook would be noticed. None is empty."
             ],
             "then": [
-              "I have never seen tools look forward to anything."
+              "I've never seen tools look forward to anything."
             ]
           }
         ],
@@ -237,7 +237,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "Borrowing from Pratt is simple: you ask, he says yes, and then you are a man who borrowed from Pratt, and the tools come back cleaner than they left. I am not ready for the standard."
+        "PICK_UP": "Borrowing from Pratt is simple: you ask, he says yes, and then you are a man who borrowed from Pratt, and the tools come back cleaner than they left. I'm not ready for the standard."
       },
       "walkTo": {
         "x": 650,

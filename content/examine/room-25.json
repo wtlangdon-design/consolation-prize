@@ -44,7 +44,7 @@
     {
       "name": "THE TOOL RACK",
       "LOOK_AT": [
-        "Pick, shovel, pan, and bar, hung in size order, oiled. They look forward to Monday. I have never seen tools look forward to anything.",
+        "Pick, shovel, pan, and bar, hung in size order, oiled. They look forward to Monday. I've never seen tools look forward to anything.",
         "Tools, hung, oiled, in order of length. Mine are in a pile and one of them is a raccoon's now.",
         "Each tool's outline is painted on the board behind it, so an empty hook would be noticed. None is empty."
       ],
@@ -54,7 +54,7 @@
         "The pan again, one soft note. Pratt's clock, and it keeps better time than the Company's."
       ],
       "overrides": {
-        "PICK_UP": "Borrowing from Pratt is simple: you ask, he says yes, and then you are a man who borrowed from Pratt, and the tools come back cleaner than they left. I am not ready for the standard."
+        "PICK_UP": "Borrowing from Pratt is simple: you ask, he says yes, and then you are a man who borrowed from Pratt, and the tools come back cleaner than they left. I'm not ready for the standard."
       }
     },
     {
@@ -140,7 +140,7 @@
     {
       "name": "THE TALLY POST",
       "LOOK_AT": [
-        "Days worked, cut into the post in fives. I have counted them twice. Two thousand and six.",
+        "Days worked, cut into the post in fives. I've counted them twice. Two thousand and six.",
         "Every fifth stroke is cut a little deeper, as though he leaned on that day.",
         "The post is nearly full. A second post stands beside it, already planed, waiting for the next two thousand."
       ],
