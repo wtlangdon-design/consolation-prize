@@ -3,9 +3,10 @@
   "name": "SHENG'S LAUNDRY & THE HIGH RIDGE PATH",
   "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
   "sources": [
-    "docs/05-examine-layer.md::ROOM 28 — SHENG'S LAUNDRY & THE HIGH RIDGE PATH",
+    "docs/05-examine-layer.md::ROOM 28 — SHENG'S LAUNDRY & THE HIGH RIDGE PATH#1",
     "docs/08-examine-batch-1.md::ROOM 28 — SHENG'S LAUNDRY",
     "docs/54-batch-c.md::ROOM 28 · SHENG'S LAUNDRY",
+    "docs/05-examine-layer.md::ROOM 28 — SHENG'S LAUNDRY & THE HIGH RIDGE PATH#2",
     "docs/49-wrong-answers.md::ROOM 28 — SHENG'S LAUNDRY"
   ],
   "subjects": [
@@ -36,6 +37,15 @@
         "Rollers, waiting. A machine that keeps its promises keeps them quietly.",
         "A slow creak as the crank settles back a quarter turn.",
         "Nothing. It is resting, and it has earned it more than anyone in town."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "A hand-cranked mangle, the most reliable machine in the territory. After this week, I'd add: and the most honest."
+          ],
+          "LISTEN_TO": []
+        }
       ],
       "overrides": {
         "USE": "He let me turn the crank once. It was the most useful thing I've done in the territory, and we both knew it."

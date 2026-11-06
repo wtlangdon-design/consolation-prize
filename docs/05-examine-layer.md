@@ -1513,6 +1513,14 @@ bark budget, not here.
 **THE CHAIRS** *(act: 4)*
 > **LOOK:** "Six chairs, and for the first time in Company history, nobody waiting in any of them. Comfort with no takers. It is the saddest furniture in the territory and I cannot spare it a full minute."
 
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE WINDOW BLINDS** *(act: 3)*
+> **LOOK:** "Half-drawn, at the same angle, as if the building were in mourning. It isn't. It's always like this."
+
+**THE MODEL** *(act: 4)*
+> **LOOK:** "A scale model of a town built on a strike that never was. Beautifully made. Like the strike."
+
 ## ROOM 9 — THE CLARION OFFICE
 
 *New writing, errata 113's act-change pass (doc 92):*
@@ -1555,6 +1563,40 @@ bark budget, not here.
 
 **THE MUD** *(act: 4)*
 > **LOOK:** "Alley mud. Hob's boots have been through it every night for twelve years, and I never once looked down."
+
+## ROOM 15 — THE LIVERY STABLE
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE LIVERY MAN'S CHAIR** *(act: 3)*
+> **LOOK:** "The chair, tipped back at the angle of a man who's seen everything once. Now he's seen me twice."
+
+**THE STALLS** *(act: 4)*
+> **LOOK:** "Six stalls, one occupied, and the town's whole history in the others. I know which parts of it were true now. Not many."
+
+## ROOM 16 — OZYMANDIA'S TENT
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE CRYSTAL BALL** *(act: 3)*
+> **LOOK:** "A glass ball. In it: the tent, upside down, and me, small, and apparently deceased. I look well, considering."
+
+**THE CHART** *(act: 4)*
+> **LOOK:** "A chart of the humors of the earth, entirely invented, and it took somebody weeks. In this town that's practically a founding document."
+
+## ROOM 22 — THE ROAD TO THE CLAIMS
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE VIEW BACK AT TOWN** *(act: 4)*
+> **LOOK:** "From here Consolation is painted fronts under a church spire. Two thousand people living inside a story, and from up here it's lovely."
+
+## ROOM 28 — SHENG'S LAUNDRY & THE HIGH RIDGE PATH
+
+*New writing, errata 113's act-change pass (doc 92):*
+
+**THE MANGLE** *(act: 4)*
+> **LOOK:** "A hand-cranked mangle, the most reliable machine in the territory. After this week, I'd add: and the most honest."
 
 # PART THREE — MANIFEST, REMAINING ROOMS
 

@@ -3,9 +3,10 @@
   "name": "THE ROAD TO THE CLAIMS",
   "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
   "sources": [
-    "docs/05-examine-layer.md::ROOM 22 — THE ROAD TO THE CLAIMS",
+    "docs/05-examine-layer.md::ROOM 22 — THE ROAD TO THE CLAIMS#1",
     "docs/10-examine-batch-3.md::ROOM 22 — THE ROAD TO THE CLAIMS",
     "docs/54-batch-c.md::ROOM 22 · THE ROAD TO THE CLAIMS",
+    "docs/05-examine-layer.md::ROOM 22 — THE ROAD TO THE CLAIMS#2",
     "docs/49-wrong-answers.md::ROOM 22 — THE ROAD TO THE CLAIMS"
   ],
   "subjects": [
@@ -69,6 +70,15 @@
         "The town, reduced to its bell and its hammering.",
         "The bell, and a hammer that keeps a little behind it.",
         "A dog, very small with distance, objecting to something on principle."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "From here Consolation is painted fronts under a church spire. Two thousand people living inside a story, and from up here it's lovely."
+          ],
+          "LISTEN_TO": []
+        }
       ]
     },
     {
