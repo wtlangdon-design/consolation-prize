@@ -2779,3 +2779,11 @@ Tyler asked, the same night, what other sounds he could hear alongside the theme
 **Loops are built to be loops.** The beds (team, clock, wind, press) fold their releases back over the start like the music stems, a continuous noise (the wheels' rumble) is generated exactly one loop long in the frequency domain so its end runs into its start, and the output filter is run in over the loop's own end so sample 0 does not follow silence. Measured seams: clock and press at the 0th percentile of sample steps, the rest between the 70th and 94th: ordinary steps, no click.
 
 **Not made:** R03-A's indistinct talk and R01-WEST-3's laugh are human voices, which want recordings; the spittoon waits on OQ-11.
+
+## 102 (cont.) · Tyler's audition — 2026-11-06
+
+**"I like all of it except the footsteps on the boardwalk and the doors swinging. The footstep need to sound like they're on wood and the swinging doors maybe need a bit of a hinge creakiness or something vs the seagull type sound."**
+
+So **THE STRIKE, THE ASSAY, WINNIE and THE COMPANY are approved as written**, and so is every everyday sound except two, along with Room 32's coffin sounds and Room 33's taps, void and fork (the audition errata 49 and doc 57 F2 required).
+
+Both misses are rebuilt, and the lesson is the same in both: **a clean sine is a tone, and a tone is what Tyler heard as wrong.** The first boardwalk rang pure sine modes (a drum); the first batwing's hinge was a pitched square wave gliding through 700–1,200 Hz (a gull). Both are now modal synthesis: a noise strike, or a stick-slip pulse train, rung through damped resonators, so what rings is the grain of the excitation and not a tone. The boardwalk's strongest energy now sits in wood's 250–750 Hz; the batwing's, which was 1,376 and 2,769 Hz, is now 170–430 Hz, the iron hinge and the leaf. The replaced functions still draw their random numbers, so every approved sound re-renders byte for byte. Doc 55 §8 carries the rule.

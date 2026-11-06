@@ -59,7 +59,7 @@ import wave
 from pathlib import Path
 
 import numpy as np
-from scipy.signal import butter, sosfilt
+from scipy.signal import butter, lfilter, sosfilt
 
 RATE = 44100
 OUT = Path(__file__).resolve().parents[2] / 'audio' / 'sfx'
@@ -231,6 +231,47 @@ def step_wood(hollow):
     return finish(x, peak=0.7)
 
 
+def resonate(excite, table, rnd):
+    """Rings an excitation through a bank of damped two-pole resonators --
+    modal synthesis. Unlike modes(), which adds clean sine waves (and made the
+    first boardwalk sound like a drum), the noise that strikes the board is
+    what rings, so the result has wood's dry, unpitched grain."""
+    out = np.zeros(len(excite))
+    for freq, amp, decay in table:
+        f = freq * rnd.uniform(0.96, 1.04)
+        r = np.exp(-1 / (decay * RATE))
+        w = 2 * np.pi * f / RATE
+        out += amp * (1 - r) * lfilter([1], [1, -2 * r * np.cos(w), r * r], excite)
+    return out
+
+
+def step_boardwalk(rnd):
+    """TYLER, 2026-11-06: the first boardwalk step did not sound like wood.
+    A boot heel on a raised plank: a hard, dry click; the plank's knock, many
+    inharmonic modes, the low ones dying in 30 ms and the high ones in 10; the
+    loose end of the board slapping its joist a moment later; a little grit
+    under the sole; and a short dull thump from the space underneath that is
+    felt more than heard -- not a pitched boom."""
+    d = 0.4
+    x = np.zeros(n_of(d))
+    wood = [(290, 1.0, 0.030), (470, 0.9, 0.024), (760, 0.8, 0.018), (1080, 0.6, 0.014),
+            (1530, 0.45, 0.011), (2150, 0.3, 0.009), (2900, 0.2, 0.007), (3800, 0.12, 0.005)]
+    for at, g in ((0.0, 1.0), (rnd.uniform(0.05, 0.075), 0.5)):
+        strike = rnd.normal(0, 1, n_of(0.004)) * np.hanning(n_of(0.004))
+        hit = resonate(np.concatenate([strike, np.zeros(n_of(0.2))]), wood, rnd)
+        place(x, hit, at, 40 * g)
+        place(x, bandpass(rnd.normal(0, 1, n_of(0.012)), 2500, 8000) * np.hanning(n_of(0.012)), at, 0.25 * g)
+        slap = resonate(np.concatenate([strike * 0.6, np.zeros(n_of(0.12))]),
+                        [(520, 1.0, 0.015), (1240, 0.6, 0.008), (2600, 0.3, 0.004)], rnd)
+        place(x, slap, at + rnd.uniform(0.014, 0.026), 18 * g)
+    under = lowpass(rnd.normal(0, 1, n_of(0.08)), 180) * env(n_of(0.08), 0.003, 0.02)
+    place(x, under, 0.002, 0.35)
+    for _ in range(int(rnd.integers(6, 14))):
+        size = int(rnd.integers(30, 120))
+        place(x, rnd.normal(0, 1, size) * np.exp(-np.arange(size) / (size / 5)), rnd.uniform(0.0, 0.09), rnd.uniform(0.02, 0.07))
+    return finish(highpass(x, 120), peak=0.7)
+
+
 def step_dirt():
     """Packed dirt and grit: a dull pat and a crunch of small stones."""
     d = 0.35
@@ -263,6 +304,40 @@ def batwing(size):
     squeal *= (0.5 + 0.5 * (rng.random(len(hk)) > 0.15))  # it catches
     place(x, lowpass(squeal, 3500), d * 0.1, 0.35 * size ** 1.3)
     place(x, modes(0.2, [(320, 1), (760, 0.4)], 0.03) * env(n_of(0.2), 0.001, 0.2), d * 0.5, 0.3 * size)
+    return finish(x, peak=0.55 * (0.5 + 0.5 * size))
+
+
+def batwing_hinge(size, rnd):
+    """TYLER, 2026-11-06: the first batwings squealed like a gull. A batwing
+    hangs on a spring hinge of iron, dry and a little rusted: as the leaf swings
+    out and back the pin grinds, and that grinding is a creak -- stick-slip,
+    pulses that speed up and slow down with the swing -- rung through the
+    iron's few hard resonances and the leaf's wood. No pitched tone at all.
+    Air moved by the leaf under it, and a soft wooden tap where the two leaves
+    pass. `size` 1..0: each oscillation smaller and shorter than the last."""
+    d = 0.45 + 0.55 * size
+    x = np.zeros(n_of(d))
+    n = n_of(d)
+    k = np.arange(n) / RATE
+    # the swing's speed: out and back, so the creak's rate rises and falls twice
+    speed = np.abs(np.sin(2 * np.pi * k / d))
+    rate = 18 + 70 * size * speed
+    pulses = np.zeros(n)
+    phase = 0.0
+    for i in range(n):
+        phase += rate[i] / RATE
+        if phase >= 1:
+            phase -= 1 + rnd.uniform(-0.25, 0.25) * 0.3
+            pulses[i] = rnd.uniform(0.4, 1.0) * speed[i]
+    iron = resonate(pulses, [(430, 1.0, 0.020), (980, 0.8, 0.014), (1720, 0.5, 0.010),
+                             (2650, 0.3, 0.006)], rnd)
+    leaf = resonate(pulses, [(210, 1.0, 0.012), (520, 0.6, 0.010)], rnd)
+    place(x, iron * 30 + leaf * 15, 0, 0.9 * size ** 0.8)
+    air = bandpass(rnd.normal(0, 1, n), 250, 1500) * speed ** 2
+    place(x, air, 0, 0.06 * size)
+    tap = resonate(np.concatenate([rnd.normal(0, 1, n_of(0.003)), np.zeros(n_of(0.1))]),
+                   [(340, 1.0, 0.02), (820, 0.6, 0.012), (1600, 0.3, 0.007)], rnd)
+    place(x, tap, d * 0.5, 25 * size)
     return finish(x, peak=0.55 * (0.5 + 0.5 * size))
 
 
@@ -546,9 +621,17 @@ if __name__ == '__main__':
     for surface in ('mud', 'boardwalk', 'plank', 'dirt'):
         for i in range(1, 5):
             take = {'mud': step_mud, 'dirt': step_dirt}.get(surface)
-            save(f'step-{surface}-{i}.wav', take() if take else step_wood(surface == 'boardwalk'))
+            if surface == 'boardwalk':
+                # The first boardwalk (step_wood(True)) is replaced, but it still
+                # draws its random numbers here, so every sound after it keeps the
+                # exact bytes Tyler approved on 2026-11-06. The new one has its own.
+                step_wood(True)
+                save(f'step-boardwalk-{i}.wav', step_boardwalk(np.random.default_rng(1000 + i)))
+                continue
+            save(f'step-{surface}-{i}.wav', take() if take else step_wood(False))
     for i, size in enumerate((1.0, 0.6, 0.3), start=1):
-        save(f'batwing-swing-{i}.wav', batwing(size))
+        batwing(size)   # the replaced gull, still drawing its numbers (see the boardwalk)
+        save(f'batwing-swing-{i}.wav', batwing_hinge(size, np.random.default_rng(2000 + i)))
     save('door-latch.wav', door_latch())
     save('door-locked.wav', door_locked())
     save('team-moving.wav', finish(loopable(team(STRIDE * 6), STRIDE * 6), peak=0.7, loop=True))
