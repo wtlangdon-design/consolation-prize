@@ -113,8 +113,8 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 ## ROOM 4 — NUGGET BACK ROOM
 
-**THE JUDGES' PENCIL** · PICK_UP — "Chained, and the chain is newer than the pencil. There is a story and nobody will tell it to a newcomer."
-**THE SPIT LINE** · PUSH — "You cannot move the line. Men have tried. The line is load-bearing, socially."
+**THE JUDGES' PENCIL** · PICK_UP — "Chained, and the chain is newer than the pencil. There's a story there, and nobody will tell it to a newcomer. I'm working on not being a newcomer."
+**THE SPIT LINE** · PUSH — "I can't move the line. Men have tried. The line is load-bearing, socially."
 **THE SCOREBOARD** · USE — "Amending the slate is how the last man lost his chalk privileges, and the story is told as a tragedy."
 **THE CHAIRS** · TALK_TO — "'One day,' I told the champion's chair. It creaked. Not unkindly."
 
