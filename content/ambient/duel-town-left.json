@@ -8,8 +8,8 @@
   "T_DUEL_CROWD": true
  },
  "note": "HALF THE TOWN, watching, at the saloon end. Doc 57 F4: 'The first time Thad steps onto the street after T_ASSAY_RUN, Fanshawe is waiting with half the town and the judges' table on the boardwalk, Sowerby holding the pencil.' Cut from room-02 operations 1 and 2 by tools/art/room02-duel-cast.py and laid over Room 2's own street. Present for the visit the duel is called on (T_DUEL_CROWD), and gone the next time.",
- "x": 2440,
- "y": 796,
+ "x": 2412,
+ "y": 800,
  "zone": 1,
  "approachRadius": 0,
  "tree": "",
@@ -21,32 +21,32 @@
    [
     2,
     2,
-    298,
-    290
+    308,
+    255
    ],
    [
-    302,
+    312,
     2,
-    298,
-    290
+    308,
+    255
    ],
    [
-    602,
+    622,
     2,
-    298,
-    290
+    308,
+    255
    ],
    [
-    902,
+    932,
     2,
-    298,
-    290
+    308,
+    255
    ],
    [
-    1202,
+    1242,
     2,
-    298,
-    290
+    308,
+    255
    ]
   ],
   "rate": 0.22,
@@ -69,11 +69,8 @@
    ]
   ],
   "breakEvery": 6,
-  "frameNote": "0 rest, watching · 1 breath · 2-4 a few of them shifting their weight, a different few each time",
-  "provenance": "art/staging/room-02/duel-cast/cast.json",
-  "figureHeight": 280,
-  "stature": 1.0,
-  "redrawn": "Tyler, 2026-11-06: six different townspeople, none like the named cast -- cast-unify operation 6, row 3, composed by tools/art/cast-unify-duel.py."
- },
- "placedNote": "Moved from x 2559 to 2440 (2026-11-06): the dog lies at x 2572-2684 and the group covered it to the knee."
+  "frameNote": "0 watching · 1 breath (derived) · 2-4 a different few of them leaning to each other.",
+  "provenance": "reference/cast-unify-27.spec.json",
+  "redrawn": "Errata 101 T (Tyler, 2026-11-06: 'all the characters in this scene are still a mess'). Eleven distinct townspeople drawn on magenta by cast-unify 29 (reference/cast-unify-27.txt), lean and in the cast's hand; each placed at his own spot on the street at the street's own scale and composed into this band by tools/art/room02-duel-town.py, drawn 1:1."
+ }
 }

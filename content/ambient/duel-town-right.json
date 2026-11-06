@@ -8,8 +8,8 @@
   "T_DUEL_CROWD": true
  },
  "note": "HALF THE TOWN, watching, at the road end. Doc 57 F4: 'The first time Thad steps onto the street after T_ASSAY_RUN, Fanshawe is waiting with half the town and the judges' table on the boardwalk, Sowerby holding the pencil.' Cut from room-02 operations 1 and 2 by tools/art/room02-duel-cast.py and laid over Room 2's own street. Present for the visit the duel is called on (T_DUEL_CROWD), and gone the next time.",
- "x": 3538,
- "y": 817,
+ "x": 3506,
+ "y": 805,
  "zone": 1,
  "approachRadius": 0,
  "tree": "",
@@ -21,32 +21,32 @@
    [
     2,
     2,
-    295,
-    290
+    307,
+    250
    ],
    [
-    299,
+    311,
     2,
-    295,
-    290
+    307,
+    250
    ],
    [
-    596,
+    620,
     2,
-    295,
-    290
+    307,
+    250
    ],
    [
-    893,
+    929,
     2,
-    295,
-    290
+    307,
+    250
    ],
    [
-    1190,
+    1238,
     2,
-    295,
-    290
+    307,
+    250
    ]
   ],
   "rate": 0.22,
@@ -69,10 +69,8 @@
    ]
   ],
   "breakEvery": 6,
-  "frameNote": "0 rest, watching · 1 breath · 2-4 a few of them shifting their weight, a different few each time",
-  "provenance": "art/staging/room-02/duel-cast/cast.json",
-  "figureHeight": 280,
-  "stature": 1.0,
-  "redrawn": "Tyler, 2026-11-06: six different townspeople, none like the named cast -- cast-unify operation 6, row 3, composed by tools/art/cast-unify-duel.py."
+  "frameNote": "0 watching · 1 breath (derived) · 2-4 a different few of them leaning to each other.",
+  "provenance": "reference/cast-unify-27.spec.json",
+  "redrawn": "Errata 101 T (Tyler, 2026-11-06: 'all the characters in this scene are still a mess'). Eleven distinct townspeople drawn on magenta by cast-unify 29 (reference/cast-unify-27.txt), lean and in the cast's hand; each placed at his own spot on the street at the street's own scale and composed into this band by tools/art/room02-duel-town.py, drawn 1:1."
  }
 }

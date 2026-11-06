@@ -1,0 +1,9 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game, a comedy in an 1850s frontier gold town: the hero on the left (THE STYLE AND THE SCALE), then four townspeople already in the game. Draw NEW townspeople in EXACTLY this style -- the same size of square pixel, the same amount of detail, the same soft shading, dark outline and muted night palette -- but they must NOT look like any of the people in Image 1: every one a different, recognisable individual.
+
+They are ordinary people of the town who have come out at night to watch a bragging duel in the street. Frontier people of ordinary, mostly LEAN build (nobody fat), different ages, men and women, in work clothes, waistcoats, shawls, aprons, bonnets and battered hats -- a miner, a blacksmith in a leather apron, a young woman in a bonnet, an old woman in a shawl, a barber in shirtsleeves, a lanky teenage boy, a Chinese laundry hand, a gambler in a frock coat, a cowhand with a rope over his shoulder, a schoolteacher, a farmer.
+
+THE SHEET: flat pure magenta (#FF00FF) background. Every figure FULL FIGURE, standing, feet on one line in each row, at the SAME SCALE as the hero (an ordinary man as tall as him; women and boys a little shorter), separated by clear magenta space, each watching with interest -- arms folded, hands on hips, a hand at the chin, leaning to say something, hands in pockets.
+- Row 1: SIX people, each turned three-quarters to the RIGHT.
+- Row 2: FIVE people, each turned three-quarters to the LEFT.
+
+RULES: no ground, no shadows, no text, no numbers, no border. Crisp pixel edges against the magenta.

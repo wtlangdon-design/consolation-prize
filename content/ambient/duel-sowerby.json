@@ -8,45 +8,45 @@
   "T_DUEL_CROWD": true
  },
  "note": "SOWERBY AT THE JUDGES' TABLE, holding the pencil. Doc 57 F4: 'The first time Thad steps onto the street after T_ASSAY_RUN, Fanshawe is waiting with half the town and the judges' table on the boardwalk, Sowerby holding the pencil.' Cut from room-02 operations 1 and 2 by tools/art/room02-duel-cast.py and laid over Room 2's own street. Present for the visit the duel is called on (T_DUEL_CROWD), and gone the next time.",
- "x": 3010,
- "y": 602,
+ "x": 2915,
+ "y": 575,
  "zone": 1,
  "approachRadius": 0,
  "tree": "",
  "barks": {},
  "barksNote": "The duel is spoken through the assay (content/assay/assay.json).",
  "sprite": {
-  "sheet": "art/actors/room-04-sowerby-master.png",
+  "sheet": "art/actors/room-02-duel-sowerby-standing.png",
   "frames": [
    [
     2,
     2,
-    222,
-    437
+    194,
+    400
    ],
    [
-    226,
+    198,
     2,
-    222,
-    437
+    194,
+    400
    ],
    [
-    450,
+    394,
     2,
-    222,
-    437
+    194,
+    400
    ],
    [
-    674,
+    590,
     2,
-    222,
-    437
+    194,
+    400
    ],
    [
-    898,
+    786,
     2,
-    222,
-    437
+    194,
+    400
    ]
   ],
   "rate": 0.22,
@@ -68,10 +68,11 @@
    ]
   ],
   "breakEvery": 7,
-  "frameNote": "0 rest, the pencil raised · 1 breath · 2 the pencil lowered · 3 leaning to confer · 4 leaning back",
-  "provenance": "reference/cast-unify-18.spec.json",
-  "figureHeight": 437,
+  "frameNote": "0 the pencil raised · 1 breath (derived) · 2 the pencil lowered · 3 leaning to confer · 4 the pencil held high.",
+  "provenance": "reference/cast-unify-26.spec.json",
+  "figureHeight": 380,
   "stature": 1.0,
-  "redrawn": "Errata 101 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one). The same pencil sheet as the Nugget's back room, drawn at the street's scale."
- }
+  "redrawn": "Errata 101 T (Tyler, 2026-11-06: no table at Duel Three; the gathering composed as one picture). Drawn standing on magenta from the locked cast master by cast-unify operation 28 (reference/cast-unify-26.txt), turned toward the duel, cut with its own pixels and a clean edge; placed where the painted composition (cast-unify 27, art/staging/cast-unify/batch-25/edit-porch.png) stood him, feet on the boards or the street, drawn at the street's man there."
+ },
+ "placedNote": "On the hotel porch's boards right of its corner post (the post is x 2860-2885), well back from the front edge -- not at the porch's corner by the barrel, where Tyler saw him floating ('the guy to the right of the porch is floating off the edge of the porch')."
 }
