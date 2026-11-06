@@ -5,34 +5,24 @@
  "route": "nugget",
  "settleMs": 4000,
  "principalChange": {
-  "note": "T_SWINDLED. Visible consequence: Deke Vessel no longer at the bar (doc 57 A3). Out to Main Street and back in, so the Nugget is arrived at again with the flag set.",
+  "note": "T_SWINDLED. Visible consequence: Deke Vessel no longer at the bar (doc 57 A3). Who is in a room is decided as Thad arrives, so the Nugget is entered again by control with the flag set: setting T_SWINDLED in place opens what follows the swindle, and the front doors are not walked to through a conversation (errata 117).",
   "flags": {
    "T_SWINDLED": true
   },
   "actions": [
    {
-    "do": "click",
-    "on": "front_doors",
-    "why": "out, so the Nugget is arrived at again with the flag set"
-   },
-   {
-    "do": "waitFor",
-    "room": "main_street",
-    "upTo": 60
-   },
-   {
     "do": "wait",
-    "seconds": 2
+    "seconds": 1
    },
    {
-    "do": "click",
-    "on": "to_nugget",
-    "why": "and back in: Deke has gone"
+    "do": "enter",
+    "room": "main_street",
+    "why": "out"
    },
    {
-    "do": "waitFor",
+    "do": "enter",
     "room": "nugget",
-    "upTo": 60
+    "why": "and back in, the swindle settled: Deke has gone"
    },
    {
     "do": "wait",

@@ -308,6 +308,17 @@ export async function runRoute(page, route) {
       // whose writer is not built yet (Room 4's T_VESSEL_FOUND is B3's, in a
       // room that does not exist): the control refuses anything the registry
       // does not declare, so a route cannot invent a state.
+      // A ROOM ENTERED BY CONTROL (errata 117): the room's arrival again, with
+      // whatever flags the route has just set, without walking a door a scene
+      // may stand in front of. Evidence about the room, NOT that a player can
+      // walk this way -- the log says so, as the proof's own entry does.
+      if (action.do === 'enter') {
+        const answer = await page.evaluate((id) => window.__gauntlet?.controls.enter(id), action.room);
+        if (!answer?.ok) throw new Error(`could not enter ${action.room}: ${answer?.why}`);
+        await page.waitForTimeout(1500);
+        log.push(`${where}: entered ${action.room} by control -- NOT proof that a player can walk there -- ${action.why ?? ''}`);
+        continue;
+      }
       if (action.do === 'flags') {
         const answer = await page.evaluate((values) => window.__gauntlet?.controls.flags(values), action.flags);
         if (!answer?.ok) throw new Error(`the flag registry declares no ${answer?.refused?.join(', ')}`);
