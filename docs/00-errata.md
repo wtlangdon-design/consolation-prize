@@ -2791,3 +2791,13 @@ What Tyler still decides: acceptance of the art (errata 72 E, at the full playth
 **X · The funeral's undertaker and Hob (Tyler, 2026-11-06: "The old man is super weirdly short and stout. The man in the blue jacket is a bad cutout. PLEASE catch things like this.").** Cast-unify 31 redrew both at Thad's height and lean proportions -- Hob from his own art, hat in hand, standing and on a four-frame walk off the hill; the undertaker in his black coat -- relit into the night. Hob's old cut from the composition master kept hillside between his legs. Found on the way: his exit walk had been relit in place by every run of `tools/art/room31-night.py` until it was solid blue (0,0,136), and shipped; the script no longer touches it, and `tests/sheet-colour.test.mjs` fails any figure sheet that has lost its colour. Every placed figure was then rendered beside Thad in its room (`renders/figure-audit/`) and looked at; nothing else was out of proportion or badly cut. Thirty-one of thirty-five operations used.
 
 **Y · One Hob (Tyler, 2026-11-06).** The funeral's Hob is drawn from his own in-game frames (cast-unify 32): his face, moustache and coat, his lit lantern (doc 54: the lid opens on Hob's lantern that night) and his hat in his other hand (doc 05). He walks off the hill on his own walk, hat back on. Cast-unify 31's bareheaded Hob is not used. Thirty-two of thirty-five operations used.
+
+# 102 · ONE LEVEL OF PIXELATION FOR THE WHOLE GAME — OWNER RULING (Tyler, 2026-11-06)
+
+*Tyler: "We need consistency throughout the whole game with the level of pixelation." Shown the funeral three ways at game size (renders/pixel-level-options-funeral-*.png) -- as it stood, everyone as chunky as Thad (A), everyone at the cast sheet's finer level (B) -- he chose **B**.*
+
+**A · The level is the cast sheet's.** Every character is drawn at the level of the locked cast master (errata 101) -- the mourners, the duel's people, the counter cast. The figures still drawn coarser are redrawn from their cast-sheet selves: **Thad** (all 33 clips, rebuilt from redrawn sources through the same rig), **Hob** (all four clips, and his alley, shack and funeral placements), **Deke**, and any other figure the pixel line-up (renders/pixel-level-faces-as-drawn.png) shows coarser. Errata 101 F ("Thad, Hob and Deke keep their shipping art") is withdrawn.
+
+**B · Never enlarged.** A figure's sheet is drawn at or above the size the engine shows it, so the engine never enlarges it into bigger blocks.
+
+**C · Budget.** cast-unify raised from 35 to 75 operations.
