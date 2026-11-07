@@ -159,3 +159,21 @@ test('a proof that sets a cut-away\'s state waits for the cut-away before it act
   }
   assert.deepEqual(late, [], 'these set a cut-away\'s state and do not wait for it to end');
 });
+
+test('a fixture past a cut-away\'s moment starts with it played (errata 161)', async () => {
+  // The vault's proof starts from an Act IV fixture and photographed the
+  // Clarion's press instead: every fixture past the swindle opened on it.
+  const content = await loadContent(fsReader);
+  let checked = 0;
+  for (const fixture of content.fixtures.values()) {
+    const state = new GameState(content, new MemoryStorage());
+    assert.ok(state.applyFixture(fixture), fixture.id);
+    for (const cut of content.cutaways) {
+      if (!state.flags.test(cut.when)) continue;
+      if (fixture.flags[cut.done] === false) continue;
+      checked += 1;
+      assert.ok(state.flags.test({ [cut.done]: true }), fixture.id + ' is past ' + cut.id + ' and would play it on load');
+    }
+  }
+  assert.ok(checked > 0, 'no fixture is past any cut-away: the test proves nothing');
+});
