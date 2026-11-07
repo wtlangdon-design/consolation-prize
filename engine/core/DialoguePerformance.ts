@@ -1,5 +1,6 @@
 import type { HeldPose } from './ActedDirections.ts';
 import type { DialogueExchange } from './DialogueRunner.ts';
+import type { UiFile } from './types.ts';
 import { isRest, waitsForClick } from './SpeechPolicy.ts';
 
 /**
@@ -81,6 +82,60 @@ export interface HoldTiming {
   speed?: number;
   /** Tyler, 2026-11-01: the line stays until a click; the hold only guards input. */
   waitForClick?: boolean;
+  /**
+   * TEXT SPEED IS MANUAL (errata 154 A; doc 30 table 2: "Every utterance
+   * remains until the player advances it"). Every line waits for its click,
+   * Thad's echo included; a held beat and a bare pause still keep their time.
+   */
+  manual?: boolean;
+}
+
+/** What the player's Text speed does to a line: its multiplier, and whether it waits (Manual). */
+export interface ReadingSetting {
+  speed: number;
+  manual: boolean;
+}
+
+/**
+ * TEXT SPEED, FROM CONTENT (errata 154 A). `mode` is the value id menu.json's
+ * Text speed row is set to; ui.json `timing.textSpeeds` says what it means.
+ * An unknown mode, or a bundle without the table, reads at Normal: 1x and
+ * timed -- the safe default doc 33 section 7.3 asks for.
+ */
+export function readingSettingFor(timing: UiFile['timing'], mode: string | undefined): ReadingSetting {
+  const entry = mode !== undefined ? timing?.textSpeeds?.[mode] : undefined;
+  return { speed: entry?.multiplier ?? 1, manual: entry?.waitsForClick === true };
+}
+
+/**
+ * Doc 30 section 4.1's constants and the player's Text speed, as one
+ * `HoldTiming`. THE ONE BUILDER: GameScene's examine lines, queued lines,
+ * scripted lines and performed exchanges all take their timing from this,
+ * and so do the tests -- so what a test measures is what the game uses.
+ */
+export function holdTimingFor(timing: UiFile['timing'], mode: string | undefined): HoldTiming {
+  const reading = readingSettingFor(timing, mode);
+  return {
+    base: timing?.holdBaseSeconds ?? 0.45,
+    perGlyph: timing?.holdPerGlyphSeconds ?? 0.055,
+    minimum: timing?.holdMinimumSeconds ?? 1.8,
+    maximum: timing?.holdMaximumSeconds ?? 8.0,
+    speed: reading.speed,
+    waitForClick: timing?.conversationWaitsForClick === true,
+    manual: reading.manual,
+  };
+}
+
+/**
+ * How long a bark stays up, in seconds. A bark is not on the speech channel
+ * and never takes a click -- a bystander's remark that waited for one would
+ * spend the click the player meant for walking, and the idle breaks that
+ * speak would queue them up -- so under Manual it holds for Normal's time.
+ * Otherwise it is scaled by the Text speed multiplier like every reading hold.
+ */
+export function barkHold(timing: UiFile['timing'], mode: string | undefined): number {
+  const reading = readingSettingFor(timing, mode);
+  return (timing?.barkSeconds ?? 2.6) * (reading.manual ? 1 : reading.speed);
 }
 
 /**
@@ -154,7 +209,7 @@ export class DialoguePerformance {
   get waiting(): boolean {
     return !this.done && this.current?.rest === undefined && waitsForClick({
       conversation: true, clickToRead: this.timing.waitForClick === true,
-      rest: isRest(this.current?.line), echo: this.echoing,
+      rest: isRest(this.current?.line), echo: this.echoing, manual: this.timing.manual === true,
     });
   }
   get done(): boolean { return this.state === 'settled'; }

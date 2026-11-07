@@ -4198,3 +4198,21 @@ The triangle was errata 126's continue mark. It is drawn under any line that wai
 **C · In step.** The engine already sounds a take on each foot plant, not on a timer (`GameScene.footsteps`: two plants a gait cycle, doc 45 §3.4), so the step follows Thad's legs at any pace and any depth. What it needed was a sound short enough to fit between plants. The audition clips walked at 0.52 s a step, and the game's walk is 0.36 s.
 
 **What holds it:** `tests/footstep-cadence.test.mjs`. Every take on every floor must fall 30 dB below its peak within half of Thad's plant interval, read from `content/actors/thad.json`. The old mud takes fail it at 0.32 s against 0.18 s; every other floor and the new mud pass at 0.09–0.18 s.
+
+# 154 · TEXT SPEED WORKS, WINDOW SCALE GOES, AND THE BOARDWALK WALKS — TYLER, 2026-11-07
+
+*An outside audit of the build (Tyler, attaching it: "I would like your evaluation of it") found that two rows in OPTIONS did nothing. That is true, and errata 152 had just told Tyler to use one of them to set the reading pace. The audit also found that a click on Main Street's boardwalk read a description instead of walking. Errata 151's harness had worked around that rather than reporting it. Tyler: "Continue".*
+
+**A · Text speed, as doc 33 table 6 specifies it.** The row cycles **SLOW / NORMAL / FAST / MANUAL**, one value per click, wrapping, and the menu stays open. Before, `MenuSystem.select` had no case for the row, which fell through to nothing.
+- **Slow, Normal and Fast** scale every line's reading hold by doc 30's 1.35×, 1× and 0.75× (`ui.json` `timing.textSpeeds`). The 1.8 s minimum and 8 s maximum still hold.
+- **Barks scale too.** They were a fixed 2.6 s in code, which is now `timing.barkSeconds`.
+- **Manual** never moves a line on by itself. Every spoken line waits for a click and shows errata 126's continue mark, conversation or not. A bare pause still keeps its time. The click moves the line on, including a line inside a cutscene or a carried beat (`SequenceRunner.releaseLine`).
+- **It is a machine setting** (doc 33 §7.3). It is stored under its own key, `consolation.settings.v1`, not in a save (`engine/core/MachineSettings.ts`). Loading a slot never changes it, and it is still set the next time the game opens on that machine. A stored value this build does not offer reads as Normal.
+
+**B · Window scale is removed**, as doc 33 §8.3 already said: "Remove the current inert Window scale row." The browser window is the scale, and FULL SCREEN is the control.
+
+**C · A click on walkable ground walks** (errata 28b row 1: "Left click on walkable ground — Walk there. Always."). Main Street's BOARDWALK lies over the walk boxes Thad stands on, but its default verb was LOOK AT. It is now WALK TO, at dawn too, matching the mud beside it. Its LOOK AT line is unchanged and still answers the LOOK AT verb.
+
+**What holds it:**
+- `tests/text-speed.test.ts` requires every enabled OPTIONS row to change what it shows when chosen, and Window scale to be absent. It also checks four things about Text speed: that it cycles in table 6's order; that it survives a load and a new session; that each speed scales a real line by doc 30's factor; and that Manual holds a scripted line until the click. With the old menu, two of the tests fail.
+- `tests/ground-walks.test.ts` covers ground hotspots. Any hotspot at least half over walk boxes and at least a third of the play area wide (640 px) is ground, and it must declare WALK TO. Narrower ones are things lying on the ground, such as the dog, a boot or a survey mark, and they keep LOOK AT. The widest of those is 442 px and the narrowest ground is 785 px. With the old boardwalk, the test fails.

@@ -388,7 +388,7 @@
         1660,
         70
       ],
-      "defaultVerb": "LOOK_AT",
+      "defaultVerb": "WALK_TO",
       "responses": {
         "LOOK_AT": [
           {

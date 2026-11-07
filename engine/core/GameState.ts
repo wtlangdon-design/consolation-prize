@@ -9,6 +9,7 @@ import { DialogueRunner } from './DialogueRunner.ts';
 import { VerbSystem, type ResolvedAction } from './VerbSystem.ts';
 import { SaveManager, type SaveFile, type StorageLike } from './SaveManager.ts';
 import { MenuSystem } from './MenuSystem.ts';
+import { MachineSettings } from './MachineSettings.ts';
 import { pureResolution } from './Assertions.ts';
 
 /** A point that declares no surface has none. Not a name, and not anybody's. */
@@ -254,8 +255,11 @@ export class GameState {
     // A PLAYTEST FIXTURE SAVES UNDER ITS OWN KEY, so a review session's
     // autosaves never overwrite the player's real game.
     this.saves = saveKey ? new SaveManager(storage, saveKey) : new SaveManager(storage);
+    // THE MACHINE'S SETTINGS ARE NOT THE GAME'S (doc 33 section 7.3; errata
+    // 154 A): text speed is kept under its own key in the same storage, and
+    // nothing in save, load or reset below touches it.
     this.menu = new MenuSystem(content.menu, this.saves,
-      (id) => content.rooms.get(id)?.name ?? id);
+      (id) => content.rooms.get(id)?.name ?? id, new MachineSettings(storage));
     this.currentRoomId = content.manifest.startRoom;
     this.inventory = this.startingInventory();
   }

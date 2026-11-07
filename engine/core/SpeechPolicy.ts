@@ -25,6 +25,13 @@
  *   next queued line follows it by itself.
  * - A click outside a conversation is never spent on the speech channel: it
  *   walks, uses a verb or travels, and the lines keep playing.
+ * - UNLESS THE PLAYER HAS SET TEXT SPEED TO MANUAL (errata 154 A; doc 30
+ *   table 2: "Every utterance remains until the player advances it"; doc 33
+ *   table 6: "MANUAL never advances a line automatically"). Then every line
+ *   waits for its click -- in conversation or not, Thad's echo included --
+ *   and the click is spent on it, one line a click (doc 30 section 4.2). A
+ *   bare pause still gives way on its hold: it is an authored pause, and
+ *   doc 30 keeps those "unchanged" at every text speed.
  */
 
 export interface LineContext {
@@ -41,6 +48,8 @@ export interface LineContext {
    * never waits; the answer to it still does.
    */
   echo?: boolean;
+  /** Text speed is MANUAL (errata 154 A): every line but a rest waits. */
+  manual?: boolean;
 }
 
 /**
@@ -56,7 +65,9 @@ export function isRest(line: string | null | undefined): boolean {
 
 /** Whether the line going up now waits for a click (true) or comes down on its hold (false). */
 export function waitsForClick(line: LineContext): boolean {
-  return line.conversation && line.clickToRead && !line.rest && !line.echo;
+  if (line.rest) return false;
+  if (line.manual) return true;
+  return line.conversation && line.clickToRead && !line.echo;
 }
 
 /** A line's hold is over: the next queued line follows, or the channel goes quiet. */

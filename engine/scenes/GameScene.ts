@@ -13,7 +13,7 @@ import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
 import { actOf, heldThrough, performedLine, performersWith, shownText, type HeldPose } from '../core/ActedDirections.ts';
 import { StepTriggers, type StepEvent } from '../core/StepTriggers.ts';
-import { DialoguePerformance, readingHold, type HoldTiming, type Utterance } from '../core/DialoguePerformance.ts';
+import { DialoguePerformance, barkHold, holdTimingFor, readingHold, type HoldTiming, type Utterance } from '../core/DialoguePerformance.ts';
 import { liveCycling, mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
 import { BitmapFont, GLYPH_SCALE, type Face } from '../render/BitmapFont.ts';
 import { appliedCandidates, askedCandidates, resolveAssetPath } from '../dev/CandidateArt.ts';
@@ -179,7 +179,8 @@ export class GameScene extends Phaser.Scene {
   private static readonly BARK_GAP = 0.12;
   private static readonly BARK_BLOCK_WIDTH = Math.round(NATIVE_WIDTH * (150 / 320));
   /** How long a bark stays over a head. */
-  private static readonly BARK_MS = 2600;
+  /** A scripted line's hold under Text speed MANUAL: until its click releases it. */
+  private static readonly HELD_FOR_CLICK = 24 * 60 * 60;
 
   private sayLines: string[] = [];
   /**
@@ -1158,6 +1159,16 @@ export class GameScene extends Phaser.Scene {
     if (this.tuneStart !== null) return;
     if (this.riseIfSeated()) return;
 
+    // TEXT SPEED MANUAL (errata 154 A): a scripted line holding its scene is
+    // released by the click, one line a click, and the click does nothing else.
+    if (this.readsManually && this.sayWaiting && (this.sequence.isRunning || this.carried.isRunning)) {
+      this.setSay(null);
+      this.sequence.releaseLine();
+      this.carried.releaseLine();
+      this.markDirty();
+      return;
+    }
+
     // An act card holds the screen for its time; a click does not cut it.
     if (this.actCardUntil !== null) return;
     // A fade between rooms, and a cutscene beat after control, are not the player's (errata 133).
@@ -2088,6 +2099,9 @@ export class GameScene extends Phaser.Scene {
       return 0;
     }
     this.setSay(step.line ?? null, step.actor ?? null);
+    // UNDER MANUAL A SCRIPTED LINE HOLDS ITS SCENE UNTIL IT IS CLICKED
+    // (errata 154 A): the runner waits on it until the click releases it.
+    if (this.readsManually && step.line && !isRest(step.line)) return GameScene.HELD_FOR_CLICK;
     return this.lineSeconds(step.line ?? '');
   }
 
@@ -2362,14 +2376,19 @@ export class GameScene extends Phaser.Scene {
 
   /** Doc 30 section 4.1's constants, from content. */
   private holdTiming(): HoldTiming {
-    const timing = this.state.content.ui.timing;
-    return {
-      base: timing?.holdBaseSeconds ?? 0.45,
-      perGlyph: timing?.holdPerGlyphSeconds ?? 0.055,
-      minimum: timing?.holdMinimumSeconds ?? 1.8,
-      maximum: timing?.holdMaximumSeconds ?? 8.0,
-      waitForClick: timing?.conversationWaitsForClick === true,
-    };
+    // TEXT SPEED (errata 154 A): the player's Options choice, a machine
+    // setting, scales every reading hold, and MANUAL makes every line wait.
+    return holdTimingFor(this.state.content.ui.timing, this.state.menu.choice('textSpeed'));
+  }
+
+  /** How long a bark stays up: ui.json barkSeconds, scaled by Text speed (errata 154 A). */
+  private barkMs(): number {
+    return barkHold(this.state.content.ui.timing, this.state.menu.choice('textSpeed')) * 1000;
+  }
+
+  /** Text speed is MANUAL: every line waits for its click (errata 154 A). */
+  private get readsManually(): boolean {
+    return this.holdTiming().manual === true;
   }
 
   /**
@@ -2808,6 +2827,8 @@ export class GameScene extends Phaser.Scene {
       rest: isRest(text),
       // THAD'S ECHO OF THE CHOICE MOVES ON BY ITSELF (errata 147), so it shows no waiting mark.
       echo,
+      // Unless Text speed is MANUAL, when every line waits (errata 154 A).
+      manual: this.readsManually,
     });
     this.sayWaiting = waits;
     this.sayUntil = text && !this.state.dialogue.isActive && !waits
@@ -3667,7 +3688,7 @@ export class GameScene extends Phaser.Scene {
       if (!one) return;
       const who = this.ambient.present.find((each) => each.id === one.speaker);
       if (who) this.showBark(who.name, one.line, who.x, this.barkFoot(who));
-      if (at + 1 < lines.length) this.barkChain = this.time.delayedCall(GameScene.BARK_MS, () => next(at + 1));
+      if (at + 1 < lines.length) this.barkChain = this.time.delayedCall(this.barkMs(), () => next(at + 1));
     };
     this.barkChain?.remove();
     next(0);
@@ -3677,7 +3698,7 @@ export class GameScene extends Phaser.Scene {
     this.barkLines = this.font.wrap(line, GameScene.BARK_BLOCK_WIDTH);
     this.barkAt = { x, y };
     this.barkTimer?.remove();
-    this.barkTimer = this.time.delayedCall(GameScene.BARK_MS, () => {
+    this.barkTimer = this.time.delayedCall(this.barkMs(), () => {
       this.barkLines = [];
       this.barkAt = null;
       this.markDirty();

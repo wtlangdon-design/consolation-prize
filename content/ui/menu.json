@@ -67,15 +67,33 @@
    },
    {
     "id": "textSpeed",
-    "label": "Text speed"
-   },
-   {
-    "id": "scale",
-    "label": "Window scale"
+    "label": "Text speed",
+    "type": "choice",
+    "setting": "textMode",
+    "values": [
+     {
+      "id": "slow",
+      "label": "Slow"
+     },
+     {
+      "id": "normal",
+      "label": "Normal"
+     },
+     {
+      "id": "fast",
+      "label": "Fast"
+     },
+     {
+      "id": "manual",
+      "label": "Manual"
+     }
+    ],
+    "default": "normal"
    }
   ],
   "valueTemplate": "{label}  {value}",
-  "musicNote": "Doc 18 note 2's argument for the cycling toggle applies to a music bed for the same reason: it is continuous, it is not information, and a player who wants it off must be able to turn it off without leaving the game. Held with the other display preferences rather than in the save file -- a preference belongs to the machine, not to the game."
+  "musicNote": "Doc 18 note 2's argument for the cycling toggle applies to a music bed for the same reason: it is continuous, it is not information, and a player who wants it off must be able to turn it off without leaving the game. Held with the other display preferences rather than in the save file -- a preference belongs to the machine, not to the game.",
+  "textSpeedNote": "ERRATA 154 A. Doc 33 table 6: TEXT SPEED cycles SLOW / NORMAL / FAST / MANUAL; doc 30 table 2 names the same four settings Slow, Normal, Fast and Manual, in this menu's own case, and those are the labels. A click moves it one value on, wrapping after the last. Its value is a MACHINE SETTING (doc 33 section 7.3, textMode): stored apart from every save slot, so loading a slot, starting a new game or returning to the title never changes it. What each value does to a line is ui.json timing.textSpeeds. ERRATA 154 B. WINDOW SCALE IS GONE (doc 33 section 8.3: 'Remove the current inert Window scale row'). The frame fits the window as errata 54 rules (engine/main.ts); no row here changes it."
  },
  "slots": {
   "count": 3,
