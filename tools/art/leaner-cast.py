@@ -17,7 +17,7 @@ built like Thad: cast-unify 62 (Frame, batch-32) and 63 (the judges, batch-33).
 `figureHeight` of a standing figure is crown to sole (tools/art/figure-height.py; --hat for the
 bearded judge). Each record's frames are written BEFORE the snap to one level, which reads them.
 
-Usage: leaner-cast.py frame|judges
+Usage: leaner-cast.py frame|judges [standing|seated]
 """
 import json, os, subprocess, sys, tempfile
 import numpy as np
@@ -65,9 +65,20 @@ JUDGES = 'art/staging/cast-unify/batch-33/sheet.png'
 STANDING = {1: 'content/ambient/duel-judge-1.json', 2: 'content/ambient/duel-judge-2.json', 3: 'content/ambient/duel-judge-3.json'}
 SEATED = {1: 'content/ambient/room-04-judge-1.json', 2: 'content/ambient/room-04-judge-2.json', 3: 'content/ambient/room-04-judge-3.json'}
 HAT = {3}          # the bearded judge's crown is under his hat
-# THE GAUNT JUDGE SEATED is cast-unify 64's correction (batch-34, one row): 63 drew his first seated pose
-# in a black bow tie and a brown waistcoat; his green cravat is in every pose of 64.
-SEATED_FROM = {1: (JUDGES, 1), 2: ('art/staging/cast-unify/batch-34/sheet.png', 0), 3: (JUDGES, 3)}
+# THE STANDING JUDGES are cast-unify 68 (batch-39): painted over the in-game Thad six times, with only their
+# faces as reference. Every sheet drawn from their full figures or the cast sheet kept the cast sheet's head,
+# about 1.3x the in-game Thad's (errata 139); Tyler, 2026-11-07: "Redraw the full person".
+STANDING_SHEET = 'art/staging/cast-unify/batch-39/sheet.png'
+# Who is mirrored to face the duel. 63 drew the bearded judge looking away (errata 111 V's mirror); 68 drew
+# all three turned toward it, so nobody is (tests/faces.test.mjs).
+MIRROR = set()
+# THE SEATED JUDGES are cast-unify 69 (batch-40): the standing judges of 68, cut off at the waist, repainted
+# seated -- so their heads and shoulders are 68's, at Thad's proportions.
+# A seated judge is cut so his HEAD is Thad's at the table's depth (crown to chin ~58 of a 437 man), not to
+# the bust height of the drawing he replaces: 69 drew the heads a little large for the torso, and cut to the
+# old bust height they came out 1.1-1.2x Thad's (by ruler). The factor is on the old bust's height.
+SEATED_SCALE = {1: 0.85, 2: 0.88, 3: 0.89}
+SEATED_FROM = {1: ('art/staging/cast-unify/batch-40/sheet.png', 0), 2: ('art/staging/cast-unify/batch-40/sheet.png', 1), 3: ('art/staging/cast-unify/batch-40/sheet.png', 2)}
 
 
 def rest_height(sheet, frames):
@@ -79,7 +90,7 @@ def rest_height(sheet, frames):
 def standing_pairs(tmp):
     """Row 1 holds the three judges twice each, left to right: one temporary sheet per judge, holding only
     his pair, so the cutter cuts him alone."""
-    im = np.asarray(Image.open(os.path.join(ROOT, JUDGES)).convert('RGB')).copy()
+    im = np.asarray(Image.open(os.path.join(ROOT, STANDING_SHEET)).convert('RGB')).copy()
     d = np.sqrt((im[..., 0] - 255.) ** 2 + im[..., 1].astype(float) ** 2 + (im[..., 2] - 255.) ** 2)
     busy = (d >= 120).sum(1) > 3
     y0 = int(np.argmax(busy)); y1 = y0
@@ -102,16 +113,16 @@ def standing_pairs(tmp):
     return out
 
 
-def judges():
+def judges(only=None):
     sheets = []
     with tempfile.TemporaryDirectory() as tmp:
         pairs = standing_pairs(tmp)
-        for j, rec_p in STANDING.items():
+        for j, rec_p in (STANDING.items() if only in (None, 'standing') else ()):
             rec = read(rec_p); old = rec['sprite']
             target = old['frames'][0][3]                     # the old frame's drawn height, hat and all
             out = old['sheet']
             cut = json.loads(py('tools/art/cast-unify-cut.py', pairs[j], '0', str(target), os.path.join(ROOT, out), '--grid', '1'))
-            if j == 3:                                      # he faces the duel (errata 111 V)
+            if j in MIRROR:                                 # he faces the duel (errata 111 V)
                 img = Image.open(os.path.join(ROOT, out)).convert('RGBA')
                 a = np.asarray(img).copy()
                 for x, y, w, h in cut['frames']:
@@ -120,9 +131,9 @@ def judges():
             rec['sprite']['frames'] = cut['frames']
             rec['sprite']['figureHeight'] = figure_height(out, cut['frames'], j in HAT)
             write(rec_p, rec); sheets.append(out)
-        for j, rec_p in SEATED.items():
+        for j, rec_p in (SEATED.items() if only in (None, 'seated') else ()):
             rec = read(rec_p); old = rec['sprite']
-            target = rest_height(old['sheet'], old['frames'])
+            target = int(round(rest_height(old['sheet'], old['frames']) * SEATED_SCALE.get(j, 1)))
             out = old['sheet']
             raw = os.path.join(tmp, f'seated-{j}.png')
             src, row = SEATED_FROM[j]
@@ -138,4 +149,5 @@ def judges():
 
 
 if __name__ == '__main__':
-    {'frame': frame, 'judges': judges}[sys.argv[1]]()
+    # `judges standing` re-cuts the porch judges alone: a finished sheet is never snapped twice (one-level.py).
+    {'frame': frame, 'judges': lambda: judges(sys.argv[2] if len(sys.argv) > 2 else None)}[sys.argv[1]]()

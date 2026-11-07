@@ -1,0 +1,9 @@
+Image 1 is a TEMPLATE from my pixel-art adventure game: three judges, A (top row), B (middle) and C (bottom), each drawn from the waist up four times. Their HEADS, FACES, SHOULDERS and CLOTHES are RIGHT and must stay EXACTLY as drawn: the same head size, the same width of shoulders, the same pixel size, soft shading and dark outline. Only the pose changes.
+
+Repaint Image 1 so that every judge SITS behind a long table that is NOT drawn. Each stays cut off in ONE straight horizontal line across the waist where the table's back edge hides him; his forearms now rest forward on the table top, so his hands lie a little BELOW that waist line, with magenta between and around them. In every row, left to right:
+1. hands folded together on the table, solemn, looking straight ahead;
+2. leaning toward his neighbour, head turned, as if to confer, hands still on the table;
+3. nodding, head lowered, hands folded on the table;
+4. hands flat on the table, drumming his fingers, looking up.
+
+Keep every head no bigger than it is in Image 1. Draw no table, no chair, nothing in their hands. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, every figure in a row the same size. No glow, no blur, no shadows, no text, no numbers, no border.

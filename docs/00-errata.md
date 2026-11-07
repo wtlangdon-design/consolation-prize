@@ -3874,3 +3874,16 @@ Two of errata 140's items-audit questions, answered.
 **A · All 26 icons redrawn at slot size.** Seven icons read poorly: the eggs, the linen money, the loan, the blanket, the handkerchief, the pickaxe and the sample. All 26 are 30×21 cells enlarged by ×3.81 into 180×80 slots, so their pixels come out uneven. Tyler chose **"Redraw all 26 at slot size (Recommended)"**. The new icons are 60×40 art pixels, drawn at an integer ×2, in the cast's style, with every paper a different object. `reference/item-icons/brief.md` briefs the image session. The cap is `item-icons`, 2 operations.
 
 **B · The blanket stays with Thad after A5.** Errata 68 A has it come back into his inventory, and that is what is built. Errata 76 D's plan to return it to Grievance's bin instead was never built and is struck. Tyler chose **"Thad keeps it (Recommended)"**.
+
+---
+
+# 144 · THE JUDGES REDRAWN WHOLE, AT THAD'S PROPORTIONS — TYLER, 2026-11-07
+
+Tyler, of 138's leaner judges: **"This head still seems weirdly large."** Then, of a head-shrink tried on their own drawings: **"The heads look messed up. Redraw the full person for each of the oversized characters if you need to."** Errata 139 found why redraws kept coming back big-headed: every board showed the cast sheet's Thad, whose head is about 1.3× the in-game Thad's.
+
+- **Cast-unify 67** (batch-37; reference/cast-unify-37.txt): the standing judges painted over the in-game Thad, with their full figures as reference. Heads still ~1.3×; not used.
+- **Cast-unify 68** (batch-39; reference/cast-unify-39.txt): the same template, but with **only their faces** as reference (head-and-shoulders crops), and figures drawn ~780 px tall. The generator copies body proportions from any full figure it is shown, and this time the only one was Thad. **The standing judges are 68**: by ruler at one man's height, crown to chin ~40-42 against Thad's 40, where 138's were 50-55. All three are drawn turned toward the duel, so none is mirrored now (`tests/faces.test.mjs`); their feet are on the porch boards (`tests/stands-on.test.mjs`).
+- **Cast-unify 69** (batch-40; reference/cast-unify-40.txt): 68's judges cut off at the waist, four times each, repainted seated -- hands folded, conferring, nodding, drumming. Cut to their old bust heights, their heads came out 1.1-1.2× Thad's, because the generator enlarged the head a little for the torso. So **each seated judge is cut so his head is Thad's at the table's depth** (`SEATED_SCALE` in `tools/art/leaner-cast.py`), and they sit as ordinary men at the table (`renders/leaner-cast-seated-judges-three-versions.png`).
+- **The lesson, for every future redraw:** show the generator the in-game Thad as the only full figure, and the character only as a face. Measure heads by ruler against the in-game Thad (`renders/thad-in-game-vs-cast-sheet-heads.png`), never against the cast sheet.
+
+**Operations:** 67-69, 69 of 75 cast-unify spent. Before and after, beside Thad in their rooms, against the drawings before 138: `renders/leaner-cast-duel-judge-*-before-after.png`, `renders/leaner-cast-seated-judge-*-before-after.png`. Left for the playthrough: the bearded judge seated wears a gold watch chain in two of his four poses, which his design does not have.
