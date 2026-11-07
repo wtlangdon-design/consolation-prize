@@ -1,28 +1,42 @@
-# The district map's church: for the session with the image key (errata 163)
+# The district map, redrawn at night with the town as the game has it: for the session with the image key (errata 163)
 
-Written 2026-11-07. **Authorized:** Tyler was told the map draws the church in the middle of Main Street's row, while the game has it at the east end of town on Lower Street (errata 43, 161). He was advised to leave it and said **"I'd rather fix it"**. The cap is `town-map`: **2** in `art/staging/caps.json` (one edit and one correction). `tools/art/room-op.mjs` enforces it and records every operation in `art/staging/ledger.json`.
+Written 2026-11-07. **Authorized:** Tyler, three times that afternoon:
+- of the church, drawn mid-Main Street while the game has it on Lower Street: **"I'd rather fix it"**;
+- **"The map is set during the day. The game is set at night. We should probably have the map set at night too."**;
+- **"The map also doesn't have the larger town square, which is pretty obvious in the game. And it has the fronts of buildings facing the map viewer, not the street that they would open up onto. It's okay to see the backs of buildings if that's what make sense."**
+
+The cap is `town-map`: **4** in `art/staging/caps.json`. `tools/art/room-op.mjs` enforces it and records every operation in `art/staging/ledger.json`.
 
 Never touch `wtlangdon-design/anchorage`.
 
-## What changes
+## If the church edit has already run
 
-Only the town's north row:
-- The church in the middle of the row becomes an ordinary false-front building like its neighbours.
-- The church takes the place of the last building at the row's east end, by the bend in the road and the creek.
+The redraw below supersedes it. If `edit-01` was spent, it counts against the cap and nothing more is done with it. Do not promote it if it is not promoted yet. The redraw starts from whatever map is shipping.
 
-Nothing else on the map may move. The markers and the roads the map's Thad walks are measured off this picture (`content/rooms/town-map.json`), so `tools/art/town-map-edit.py` pastes back **only the north row** from the edit. Everything else stays the shipping map's own pixels.
+## The town, as the game has it
+
+`reference/town-map/town-layout-1920x864.png` blocks the town out over the map. This is errata 43's three streets, read off the plates:
+- **Main Street** (Room 2) is a single row of false fronts along the north side of a wide, open square of mud, facing south onto it. Its plate shows nothing on the near side. The road from the west comes into the square's west end. The alley leaves from the west end (`to_back_alley`), and the road from the east end recedes north-east (`to_claims_road`).
+- **The Lane** (Room 44) runs behind Main Street from that alley. Main Street's backs are on its south side, and five shopfronts face it from the north: the undertaker's, the photographer's, Ozymandia's tent, the barber's and the empty storefront.
+- **Lower Street** (Room 43) is up the east road: the Registrar's, the church with its belfry and the bell on its post, and the livery. The Lane comes out onto it, and its road runs on east over the bridge to the claims road.
+- The boarding house, the bakehouse and the schoolhouse sit on no street (errata 43). They stand on their own south-west of the square.
+
+Outside the town nothing moves. The builder re-places the markers and re-measures the roads for the map's Thad on the result.
 
 ## Steps
 
-1. **Prepare.** `art/staging/town-map/edit-01/input.png` is already written and committed. To rebuild it, run `python3 tools/art/town-map-edit.py prepare`. It is the town at 1:1, drawn up 2× to 1536 × 1024.
-2. **Edit.** Run `NODE_USE_ENV_PROXY=1 node tools/art/room-op.mjs reference/town-map/prompts/edit-01.spec.json`.
-3. **Candidate.** Run `python3 tools/art/town-map-edit.py promote --attempt 1`. It writes `candidate.png` beside the source and prints how much the edit changed inside and outside the row.
+1. **Prepare.** Run `python3 tools/art/town-map-edit.py prepare-redraw`. It writes `art/staging/town-map/redraw-01/input.png` (the shipping map) and `layout.png`, each in the 20:9 window of a 1536 × 1024 canvas.
+2. **Redraw.** Run `NODE_USE_ENV_PROXY=1 node tools/art/room-op.mjs reference/town-map/prompts/redraw-01.spec.json`. Main Street's night plate goes with it, for the palette and for what the square looks like.
+3. **Candidate.** Run `python3 tools/art/town-map-edit.py promote-redraw --attempt 1`. It prints how far the diggings side moved.
 4. **Check the candidate at full size:**
-   - the middle of the north row is a plain building, with no steeple and no gap;
-   - the church, with its steeple, stands at the row's east end;
-   - the seam where the row meets the grass and the road above and below it is invisible;
-   - there is no text anywhere.
+   - it is plainly night, in the street plates' blues, with warm lit windows in town;
+   - Main Street is one row of fronts facing south onto an open square, with no buildings on the square's south side;
+   - the Lane runs behind Main Street, with Main Street's backs on one side and five shopfronts (one a tent) facing it;
+   - Lower Street is up the east road, with the church on it;
+   - the road east crosses the bridge to the diggings;
+   - outside the town, everything is where it was: the shift it prints is within about 6 px;
+   - there is no text and no moon disc.
 
-   If a check misses, the one correction is `edit-02`. Copy the spec and prompt to `-02`, point `images` at `edit-01/input.png`, and state the miss in the prompt.
-5. **Promote.** Run `python3 tools/art/town-map-edit.py promote --attempt N --write`. It replaces `art/backgrounds/room-00-town-map.png`.
-6. **Run** `npm test` and `node tools/run-all.mjs`, then commit the source, the candidate, the shipping map and the ledger row. Open a PR whose description says `Lesson: none -- art for errata 163's map`, and merge it when CI is green.
+   If a check misses, the correction is `redraw-02`, from the same `redraw-01` inputs, with the miss stated in the prompt.
+5. **Promote.** Run `python3 tools/art/town-map-edit.py promote-redraw --attempt N --write`. Then in `reference/global-baseline.json`, set `room-00-town-map`'s `visualType` to `district-map-night` and delete its `daylight` line.
+6. **Run** `npm test` and `node tools/run-all.mjs`. `tools/check-night-exposure.mjs` now holds the map to night. Commit the sources, candidates, layout, shipping map and ledger rows. Open a PR whose description says `Lesson: none -- art for errata 163's map`, and merge it when CI is green.

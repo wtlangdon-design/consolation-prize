@@ -657,7 +657,8 @@
     "note": "D -- the shipping district map itself: the edit moves one building on it and keeps everything else (errata 163)."
    },
    "casting": [],
-   "castingNote": "Nobody is drawn on the map; the map's Thad is derived from his own walk cycle (tools/art/map-thad.py)."
+   "castingNote": "Nobody is drawn on the map; the map's Thad is derived from his own walk cycle (tools/art/map-thad.py).",
+   "daylight": "Pending errata 163's redraw at night (reference/town-map/brief.md): the image session deletes this line when the night map is promoted."
   }
  }
 }

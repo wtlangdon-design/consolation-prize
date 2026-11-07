@@ -9,6 +9,19 @@ the map's Thad walks (content/rooms/town-map.json) stay where they are.
   python3 tools/art/town-map-edit.py prepare
       writes art/staging/town-map/edit-01/input.png: the map's town, REGION at
       1:1, drawn up 2x to the edit's 1536 x 1024.
+  python3 tools/art/town-map-edit.py prepare-redraw
+      THE REDRAW (errata 163 A3), which supersedes the church edit and the
+      night pass: writes art/staging/town-map/redraw-01/input.png (the whole
+      shipping map) and layout.png (reference/town-map/town-layout-1920x864.png,
+      the town as the game has it), each in the 20:9 safe region of a
+      1536 x 1024 canvas, as every room plate is laid out (derive.mjs's
+      window: x 8, y 170, 1520 x 684), the margins a flat light grey.
+  python3 tools/art/town-map-edit.py promote-redraw --attempt N [--write]
+      reads art/staging/town-map/redraw-0N/source.png, crops the same window,
+      Lanczos back to 1920 x 864, and measures how far the drawing moved
+      against the day map outside the town (phase correlation over the
+      edges). Writes candidate.png; --write replaces the shipping map. The
+      builder re-places the markers and the roads on the result.
   python3 tools/art/town-map-edit.py promote --attempt N [--write]
       reads art/staging/town-map/edit-0N/source.png, takes it back down 2x,
       and pastes only ROW (the north row) over the shipping map. Writes
@@ -43,6 +56,66 @@ def prepare():
     print(os.path.relpath(os.path.join(out, 'input.png'), ROOT))
 
 
+WINDOW = (8, 170, 1520, 684)
+
+
+LAYOUT = os.path.join(ROOT, 'reference/town-map/town-layout-1920x864.png')
+
+
+def redraw_stage(n):
+    return os.path.join(ROOT, f'art/staging/town-map/redraw-{n:02d}')
+
+
+def windowed(path):
+    x, y, w, h = WINDOW
+    canvas = Image.new('RGB', (1536, 1024), (150, 150, 150))
+    canvas.paste(Image.open(path).convert('RGB').resize((w, h), Image.LANCZOS), (x, y))
+    return canvas
+
+
+def prepare_redraw():
+    out = redraw_stage(1)
+    os.makedirs(out, exist_ok=True)
+    windowed(MAP).save(os.path.join(out, 'input.png'))
+    windowed(LAYOUT).save(os.path.join(out, 'layout.png'))
+    print(os.path.relpath(out, ROOT))
+
+
+def edges(a):
+    g = a.mean(axis=2)
+    return np.abs(np.diff(g, axis=0))[:, :-1] + np.abs(np.diff(g, axis=1))[:-1, :]
+
+
+def shift(day, night):
+    """How far the night drawing sits from the day one, by phase correlation of their edges."""
+    a, b = edges(day), edges(night)
+    a = (a - a.mean()) / (a.std() + 1e-9)
+    b = (b - b.mean()) / (b.std() + 1e-9)
+    f = np.fft.fft2(a) * np.conj(np.fft.fft2(b))
+    r = np.abs(np.fft.ifft2(f / (np.abs(f) + 1e-9)))
+    dy, dx = np.unravel_index(np.argmax(r), r.shape)
+    if dy > r.shape[0] // 2:
+        dy -= r.shape[0]
+    if dx > r.shape[1] // 2:
+        dx -= r.shape[1]
+    return int(dx), int(dy)
+
+
+def promote_redraw(n, write):
+    x, y, w, h = WINDOW
+    src = Image.open(os.path.join(redraw_stage(n), 'source.png')).convert('RGB')
+    night = src.crop((x, y, x + w, y + h)).resize((1920, 864), Image.LANCZOS)
+    # Measured outside the town, which is redrawn on purpose: the diggings, the hill, the creek.
+    day = np.asarray(Image.open(MAP).convert('RGB')).astype(float)[:, 960:]
+    dx, dy = shift(day, np.asarray(night).astype(float)[:, 960:])
+    print(f'outside the town the new drawing sits {dx:+d},{dy:+d} px from the old one' + ('' if max(abs(dx), abs(dy)) <= 6 else ' -- the diggings moved: check every marker'))
+    night.save(os.path.join(redraw_stage(n), 'candidate.png'))
+    print(os.path.relpath(os.path.join(redraw_stage(n), 'candidate.png'), ROOT))
+    if write:
+        night.save(MAP)
+        print('promoted', os.path.relpath(MAP, ROOT))
+
+
 def promote(n, write):
     x, y, w, h = REGION
     edited = Image.open(os.path.join(stage(n), 'source.png')).convert('RGB').resize((w, h), Image.BOX)
@@ -66,6 +139,10 @@ def promote(n, write):
 if __name__ == '__main__':
     if sys.argv[1:2] == ['prepare']:
         prepare()
+    elif sys.argv[1:2] == ['prepare-redraw']:
+        prepare_redraw()
+    elif sys.argv[1:2] == ['promote-redraw']:
+        promote_redraw(int(sys.argv[sys.argv.index('--attempt') + 1]), '--write' in sys.argv)
     elif sys.argv[1:2] == ['promote']:
         promote(int(sys.argv[sys.argv.index('--attempt') + 1]), '--write' in sys.argv)
     else:

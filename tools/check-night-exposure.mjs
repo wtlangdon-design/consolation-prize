@@ -45,11 +45,26 @@ function meanLuma(path, from, to) {
   return sum / count;
 }
 
+/** A night map's whole frame: the day map averages about 80, the night street plates about 40. */
+const MAP_CEILING = 60;
+
 export function check() {
   const report = new Report('Every exterior is night, and as light to see in as the approved ones');
   const baseline = JSON.parse(readFileSync(resolve(ROOT, 'reference/global-baseline.json'), 'utf8'));
   let checked = 0;
   for (const [id, room] of Object.entries(baseline.rooms ?? {})) {
+    // THE DISTRICT MAP TOO (errata 163 A2; Tyler: "The map is set during the day. The game is set at
+    // night."). It has no sky row to measure, so the whole frame is: a day map is far brighter than
+    // any night plate. It was skipped as not an exterior, which is how it stayed day.
+    if ((room.visualType ?? '').startsWith('district-map')) {
+      const path = `art/backgrounds/${id}.png`;
+      let whole;
+      try { whole = meanLuma(path, 0, 1); } catch { continue; }
+      if (room.daylight) { report.note(`${id}: daylight by ruling -- ${room.daylight}`); continue; }
+      if (whole > MAP_CEILING) report.fail(`${path}: averages ${whole.toFixed(1)}, over ${MAP_CEILING} -- a day map in a night game (errata 163)`);
+      else report.note(`${id}: the map averages ${whole.toFixed(1)}`);
+      continue;
+    }
     if (!(room.visualType ?? '').startsWith('exterior')) continue;
     const path = `art/backgrounds/${id}.png`;
     let sky;
