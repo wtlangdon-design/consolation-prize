@@ -144,7 +144,32 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     : null;
   for (const row of actedDirections?.directions ?? []) {
     if (row.class !== 'A') continue;
-    for (const id of row.performedBy ?? []) {
+    for (const named of row.performedBy ?? []) {
+      // THE PROTAGONIST ACTS IN A CLIP (errata 148): "thad:pick-fit" is his
+      // pick-fit clip, drawn in one facing, and the frames are that clip's.
+      const [id, clipId] = named.split(':') as [string, string | undefined];
+      if (id === actor.id) {
+        if (!clipId) throw new Error(`doc 95 row ${row.n}: ${id} acts in a clip, named as "${id}:<clip>"`);
+        const clips = (actors.get(id) ?? actor).clips.filter((clip) => clip.id === clipId);
+        if (!clips.length) throw new Error(`doc 95 row ${row.n}: ${id} has no clip "${clipId}"`);
+        const facings = [...new Set(clips.map((clip) => clip.facing))];
+        if (facings.length !== 1) throw new Error(`doc 95 row ${row.n}: "${clipId}" is drawn in ${facings.length} facings; an act is drawn in one`);
+        const length = Math.min(...clips.map((clip) => clip.frames.length));
+        const frames = row.frames ?? [];
+        const bad = frames.find((frame) => frame < 0 || frame >= length);
+        if (bad !== undefined) throw new Error(`doc 95 row ${row.n}: ${id}'s ${clipId} has no frame ${bad}`);
+        const act = {
+          ...(frames.length === 1 ? { frame: frames[0]! } : { frames }),
+          seconds: row.seconds ?? 0,
+          ...(row.holds !== undefined ? { holds: row.holds } : {}),
+          ...(row.cue ? { cue: row.cue } : {}),
+          clip: clipId,
+          facing: facings[0]!,
+        };
+        for (const record of new Set([actor, actors.get(id)!])) record.performs = { ...(record.performs ?? {}), [row.words]: act };
+        continue;
+      }
+      if (clipId) throw new Error(`doc 95 row ${row.n}: ${named} -- only the protagonist acts in a clip`);
       const npc = ambient.get(id);
       if (!npc?.sprite) throw new Error(`doc 95 row ${row.n}: "${row.words}" is acted by ${id}, who has no figure`);
       const frames = row.frames ?? [];

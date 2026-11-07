@@ -1,0 +1,8 @@
+Image 1 is a TEMPLATE: Nickel Pratt, a miner in a brown hat in my pixel-art adventure game, EXACTLY as he is drawn in the game. The top row is him three times leaning on his rake; the bottom row is him twice with his mallet resting on the ground. Image 2 is both his current sheets, for his face, clothes, rake and mallet.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE OF EACH ROW EXACTLY AS IT IS. Repaint the others as the SAME man, KEEPING HIS FIGURE -- the same height, the same head size, the same shoulder width and leg length, his feet on the same line -- changing only his arms, hands, head and hat:
+top row, 2. his hat OFF, held flat against his chest in his right hand, his dark hair showing, the rake leaning against his shoulder, its teeth on the ground;
+top row, 3. putting the hat back on: both hands at its brim, the hat just settling onto his head, the rake still leaning on him;
+bottom row, 2. the mallet resting on the ground beside him exactly as in the first figure, his head bowed right down, looking at his own boots.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as Image 1 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No glow, no blur, no shadows, no ground, no text, no numbers, no border.

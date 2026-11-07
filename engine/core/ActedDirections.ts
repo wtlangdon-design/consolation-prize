@@ -1,6 +1,6 @@
 import { figureSpeaking } from './Ambient.ts';
 import type { Utterance } from './DialoguePerformance.ts';
-import type { AmbientFile, PerformedDirection } from './types.ts';
+import type { ActorFile, AmbientFile, Facing, PerformedDirection } from './types.ts';
 
 /**
  * ACTED DIRECTIONS (doc 95; errata 131 B and 141).
@@ -18,9 +18,27 @@ import type { AmbientFile, PerformedDirection } from './types.ts';
 
 /** A figure holding one of his frames. */
 export interface HeldPose {
-  /** The figure's ambient id. */
+  /** The figure's ambient id, or the protagonist's actor id. */
   id: string;
   frame: number;
+  /** The protagonist's: the clip the frame is of, and the facing it is drawn in (errata 148). */
+  clip?: string;
+  facing?: Facing;
+}
+
+/** Whoever can act a direction: an ambient figure, or the protagonist with his acts beside him. */
+export interface Performer {
+  id: string;
+  sprite?: { performs?: Record<string, PerformedDirection> } | undefined;
+}
+
+/**
+ * THE FIGURES PRESENT AND THE PROTAGONIST (errata 148). Thad is in every room
+ * he speaks in, so his acts (doc 95 rows naming him) go with whoever stands
+ * there; an ambient figure acts only where he stands.
+ */
+export function performersWith(present: readonly AmbientFile[], actor: ActorFile): Performer[] {
+  return actor.performs ? [...present, { id: actor.id, sprite: { performs: actor.performs } }] : [...present];
 }
 
 /** One beat of an acted direction: the frames held in it, for how long, and the cue it sounds. */
@@ -38,9 +56,9 @@ export function framesOf(act: PerformedDirection): number[] {
 }
 
 /** The figures present who act these words, each with his act. */
-export function performersOf(present: readonly AmbientFile[], words: string): { npc: AmbientFile; act: PerformedDirection }[] {
+export function performersOf(present: readonly Performer[], words: string): { npc: Performer; act: PerformedDirection }[] {
   const key = words.trim();
-  const out: { npc: AmbientFile; act: PerformedDirection }[] = [];
+  const out: { npc: Performer; act: PerformedDirection }[] = [];
   for (const npc of present) {
     const act = npc.sprite?.performs?.[key];
     if (act) out.push({ npc, act });
@@ -53,7 +71,7 @@ export function performersOf(present: readonly AmbientFile[], words: string): { 
  * which leaves it printed, as doc 58 rules. Every performer steps through his
  * frames together; one with fewer frames holds his last.
  */
-export function actOf(present: readonly AmbientFile[], words: string): ActStep[] | null {
+export function actOf(present: readonly Performer[], words: string): ActStep[] | null {
   const who = performersOf(present, words);
   if (!who.length) return null;
   const steps = Math.max(...who.map(({ act }) => framesOf(act).length));
@@ -62,12 +80,14 @@ export function actOf(present: readonly AmbientFile[], words: string): ActStep[]
   for (let step = 0; step < steps; step += 1) {
     const poses = who.map(({ npc, act }) => {
       const frames = framesOf(act);
-      return { id: npc.id, frame: frames[Math.min(step, frames.length - 1)]! };
+      return { id: npc.id, frame: frames[Math.min(step, frames.length - 1)]!,
+        ...(act.clip ? { clip: act.clip, ...(act.facing ? { facing: act.facing } : {}) } : {}) };
     });
     const cue = who.find(({ act }) => act.cue && act.cue.frame === step + 1)?.act.cue?.id;
     out.push({ seconds: seconds / steps, poses, ...(cue ? { cue } : {}) });
   }
-  const holds = who.filter(({ act }) => act.holds !== undefined).map(({ npc, act }) => ({ id: npc.id, frame: act.holds! }));
+  const holds = who.filter(({ act }) => act.holds !== undefined).map(({ npc, act }) => ({ id: npc.id, frame: act.holds!,
+    ...(act.clip ? { clip: act.clip, ...(act.facing ? { facing: act.facing } : {}) } : {}) }));
   if (holds.length) out[out.length - 1]!.holds = holds;
   return out;
 }
@@ -81,7 +101,7 @@ export type PerformedUtterance = Utterance & { holdsAfter?: HeldPose[] };
  * then nothing is printed, his frames play across the beat it takes, one
  * beat per frame, and no beat can be clicked through (`rest`).
  */
-export function performedLine(present: readonly AmbientFile[], spoken: Utterance,
+export function performedLine(present: readonly Performer[], spoken: Utterance,
                               printed: (words: string) => string): PerformedUtterance[] {
   if (!spoken.direction) return [spoken];
   const steps = actOf(present, spoken.line);

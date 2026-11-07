@@ -223,6 +223,8 @@ export class Actor {
   private path: { x: number; y: number }[] = [];
   /** Clip playing instead of idle or walk, with the moment it started. */
   private special: { clip: string; startedAt: number; seconds: number } | null = null;
+  /** A frame of a clip held for an acted direction (doc 95; errata 148), or null. */
+  private held: { clip: string; frame: number } | null = null;
   /** Errata 38's translation: a constant-rate glide with its own deadline. */
   private glide: { fromX: number; fromY: number; startedAt: number; seconds: number } | null = null;
   /**
@@ -495,8 +497,22 @@ export class Actor {
     this.special = null;
   }
 
+  /**
+   * HOLDS ONE FRAME OF A CLIP while an acted direction plays (doc 95; errata
+   * 148): Thad crouched for the pick's head, then the mended pick held across
+   * him. The scene sets it for each beat and clears it with null after the
+   * last; the facing is the one the clip is drawn in, and it stays when he is
+   * let go, since he was already facing what he acted at.
+   */
+  hold(pose: { clip: string; frame: number; facing?: Facing } | null): void {
+    if (!pose) { this.held = null; return; }
+    this.held = { clip: pose.clip, frame: pose.frame };
+    if (pose.facing) this.facing = pose.facing;
+  }
+
   /** The clip to draw right now, and how far into it we are. */
   get clip(): string {
+    if (this.held) return this.held.clip;
     if (this.special) return this.special.clip;
     if (this.isWalking) return WALK;
     // Doc 40: idle-break plays on a timer WHILE IDLE and RETURNS TO IT. The
@@ -736,6 +752,7 @@ export class Actor {
    */
   frameAt(seconds: number, walkRate: number, reactRate: number, frames: number,
           idleRate = 0): number {
+    if (this.held) return Math.min(frames - 1, this.held.frame);
     if (this.special) {
       const elapsed = seconds - this.special.startedAt;
       return Math.min(frames - 1, Math.floor(elapsed * reactRate));

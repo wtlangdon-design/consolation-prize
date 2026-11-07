@@ -1,0 +1,9 @@
+Image 1 is a TEMPLATE: Winnie, a young woman clerk in my pixel-art adventure game, EXACTLY as she is drawn in the game, four times in a row on magenta. She is seen from the waist up: the straight bottom edge of each figure is where a counter hides the rest of her, and her hands rest on the counter there. Image 2 is her whole current sheet, for her face, hair and dress only.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the other three as the SAME woman, KEEPING HER FIGURE -- the same height, the same head size, the same shoulder width, the same straight waist line at the bottom -- and changing only her arms, hands and the tilt of her head:
+2. a small sheet of paper lying flat on the counter line under her, her LEFT hand holding it flat, her RIGHT hand raising a small dark wooden county stamp (a short round handle on a square block) above it;
+3. the same, the stamp pressed DOWN on the paper, her right hand on its handle;
+4. signing the paper: a thin dip pen in her right hand touching the paper, her left hand holding it flat, her head bent down to it.
+Her hands, the stamp and the paper stay on or above the waist line; nothing of her below it.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as Image 1 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No glow, no blur, no shadows, no ground, no text, no numbers, no border.

@@ -253,6 +253,12 @@
    "date": "2026-11-06",
    "kind": "loosened",
    "why": "Not a misfire: Tyler ruled the behaviour changed (errata 147, \"Echo moves on by itself\"). Its click-to-read test asserted that Thad's echo of the choice waited for a click; the echo now comes down on its hold. The test now asserts the echo advances with no click and the reply still waits until clicked, and tests/speech-pacing.test.ts holds both across every tree."
+  },
+  {
+   "check": "tests/acted-directions.test.ts",
+   "date": "2026-11-07",
+   "kind": "loosened",
+   "why": "Not loosened, and not a misfire of the test: errata 148 EXTENDED it so Thad's acted rows (thad:pick-fit) are held as every figure's are -- his clip exists in one facing with every frame, he performs the words, nothing is printed, every beat holds a clip frame, the row lasts its seconds, and frame 0 is his stand frame byte for byte. No assertion was removed or relaxed. tools/check-friction.mjs counted it because a changed doc-comment line contains a number ('doc 95') and added lines contain numbers."
   }
  ]
 }

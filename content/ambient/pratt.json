@@ -50,6 +50,18 @@
     2,
     355,
     400
+   ],
+   [
+    2,
+    407,
+    355,
+    401
+   ],
+   [
+    359,
+    404,
+    355,
+    404
    ]
   ],
   "rate": 0.25,
@@ -70,7 +82,7 @@
    ]
   ],
   "breakEvery": 8,
-  "frameNote": "0 leaning on the rake · 1 breath (derived) · 2 checking the sky · 3 raking, pulled · 4 raking, pushed. Breathing on 0 and 1; every `breakEvery` seconds one break -- the sky, or two strokes of the rake (errata 77).",
+  "frameNote": "0 leaning on the rake · 1 breath (derived) · 2 checking the sky · 3 raking, pulled · 4 raking, pushed. Breathing on 0 and 1; every `breakEvery` seconds one break -- the sky, or two strokes of the rake (errata 77). · ACTED ONLY (doc 95, errata 148; cast-unify 73): 5 his hat off, held at his chest, the rake leaning on him · 6 the hat going back on. Played by their directions, never as breaks.",
   "provenance": "reference/cast-unify-17.spec.json",
   "figureHeight": 363,
   "stature": 0.96,

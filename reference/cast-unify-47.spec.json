@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "acted-deke",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-03-nugget",
+ "promptFile": "reference/cast-unify-47.txt",
+ "out": "art/staging/cast-unify/batch-47/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-47/template.png",
+  "art/staging/cast-unify/batch-47/current.png"
+ ],
+ "derivedFrom": 74
+}

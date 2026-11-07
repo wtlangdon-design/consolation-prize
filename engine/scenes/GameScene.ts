@@ -11,7 +11,7 @@ import type { Controls, FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
-import { actOf, heldThrough, performedLine, shownText, type HeldPose } from '../core/ActedDirections.ts';
+import { actOf, heldThrough, performedLine, performersWith, shownText, type HeldPose } from '../core/ActedDirections.ts';
 import { StepTriggers, type StepEvent } from '../core/StepTriggers.ts';
 import { DialoguePerformance, readingHold, type HoldTiming, type Utterance } from '../core/DialoguePerformance.ts';
 import { liveCycling, mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
@@ -560,6 +560,11 @@ export class GameScene extends Phaser.Scene {
       this.texture.refresh();
       return;
     }
+
+    // THADDEUS ACTS IN A CLIP (doc 95; errata 148): while a beat holds a frame
+    // of his, the actor draws it; when the beat is over he is let go.
+    this.actor.hold(this.heldPoses()?.find((pose) => pose.id === this.actor.id && pose.clip) as
+      { clip: string; frame: number } | undefined ?? null);
 
     // A LINE THAT HAS BEEN READ COMES DOWN. Its hold is doc 30 section 4.1's,
     // computed by lineSeconds from the rate in ui.json -- the same number a
@@ -1707,7 +1712,7 @@ export class GameScene extends Phaser.Scene {
     // its own, the old lines would otherwise follow the new answer.
     if (result.say || result.then?.length) this.pendingSay = [];
     // A RULE THAT IS ALL DIRECTION AND IS ACTED (doc 95) plays from the queue, where acting is done.
-    if (result.direction && result.say && actOf(this.ambient.present, result.say)) {
+    if (result.direction && result.say && actOf(this.performers(), result.say)) {
       this.setSay(null);
       // A rule's `say` with no `by` is his by definition (doc 57 A9), as below.
       const who = this.state.content.actor.id;
@@ -2338,7 +2343,7 @@ export class GameScene extends Phaser.Scene {
     // A REPLY AS IT IS PERFORMED: a stage direction printed in parentheses
     // (doc 58), or acted by a figure in the room with nothing printed (doc 95).
     const present = this.ambient.present;
-    const act = (spoken: Utterance) => performedLine(present, spoken, GameScene.asDirection);
+    const act = (spoken: Utterance) => performedLine(this.performers(), spoken, GameScene.asDirection);
     const replies = heldThrough(present, [
       ...(said.say ? act({
         speaker: said.sayer,
@@ -2699,7 +2704,7 @@ export class GameScene extends Phaser.Scene {
     // A DIRECTION A FIGURE ACTS (doc 95; errata 141): Sump stamps the deed
     // rather than "(Stamp.)" being printed over him. Its beats go to the front
     // of the queue, each held for its time, with nothing on the speech channel.
-    const steps = next.direction && !next.silent ? actOf(this.ambient.present, next.line) : null;
+    const steps = next.direction && !next.silent ? actOf(this.performers(), next.line) : null;
     if (steps) {
       this.pendingSay.unshift(...steps.map((step) => ({
         speaker: next.speaker, line: next.line, direction: true, silent: true,
@@ -3525,6 +3530,11 @@ export class GameScene extends Phaser.Scene {
     if (!line?.speaker) return null;
     if (line.mark) return { speaker: line.speaker, frame: 'mark' };
     return null;
+  }
+
+  /** Who can act a direction here: the figures present, and Thad (doc 95; errata 148). */
+  private performers() {
+    return performersWith(this.ambient.present, this.state.content.actor);
   }
 
   /** Which figures hold which frames now: an acted direction, in a conversation or queued (doc 95; errata 141). */

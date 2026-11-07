@@ -4,7 +4,7 @@
  "name": "DEKE VESSEL",
  "posture": "standing",
  "room": "nugget",
- "note": "Doc 27, DEKE VESSEL · Room 3: gates A3, the swindle. Drawn from Tyler's approved attempt 2 (art/staging/room-03/deke-02, generated against Thad in this room, 2026-10-31), keyed, despilled, the five poses registered on his legs by tools/art/cut-ambient-sheet.py, BOX-reduced to the bent curve's man where he stands -- 345 at the bar's end (Tyler, 2026-10-31: 312 too small, 375 'way too big', 345 chosen from four), 428 at 1035,815 since 2026-11-01, the same ruling at his depth -- and graded to the bar men beside him (tools/grade/match-neighbours.py) after Tyler: 'Deke's coloring doesn't match anything else around him'.",
+ "note": "Doc 27, DEKE VESSEL · Room 3: gates A3, the swindle. Drawn from Tyler's approved attempt 2 (art/staging/room-03/deke-02, generated against Thad in this room, 2026-10-31), keyed, despilled, the five poses registered on his legs by tools/art/cut-ambient-sheet.py, BOX-reduced to the bent curve's man where he stands -- 345 at the bar's end (Tyler, 2026-10-31: 312 too small, 375 'way too big', 345 chosen from four), 428 at 1035,815 since 2026-11-01, the same ruling at his depth -- and graded to the bar men beside him (tools/grade/match-neighbours.py) after Tyler: 'Deke's coloring doesn't match anything else around him'. ACTED ONLY (doc 95, errata 148; cast-unify 76): 5 his head bent, looking down to his right at the watch Thad holds out, his hands still at his belt. Played by its direction, never as a break.",
  "x": 1046,
  "y": 815,
  "zone": 0,
@@ -121,6 +121,12 @@
    [
     958,
     2,
+    237,
+    428
+   ],
+   [
+    2,
+    432,
     237,
     428
    ]

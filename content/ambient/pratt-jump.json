@@ -56,6 +56,12 @@
     2,
     304,
     450
+   ],
+   [
+    2,
+    454,
+    304,
+    450
    ]
   ],
   "rate": 0.25,
@@ -81,7 +87,7 @@
    ]
   ],
   "breakEvery": 7,
-  "frameNote": "0 the mallet resting on the ground · 1 breath (derived) · 2 the mallet on his shoulder · 3 the mallet raised overhead · 4 struck down on the new stake. Every `breakEvery` seconds he drives the stake, or shoulders the mallet (errata 77).",
+  "frameNote": "0 the mallet resting on the ground · 1 breath (derived) · 2 the mallet on his shoulder · 3 the mallet raised overhead · 4 struck down on the new stake. Every `breakEvery` seconds he drives the stake, or shoulders the mallet (errata 77). · ACTED ONLY (doc 95, errata 148; cast-unify 73): 5 the mallet resting, his head bowed, looking at his boots. Played by its direction, never as a break.",
   "provenance": "reference/cast-unify-17.spec.json",
   "figureHeight": 386,
   "stature": 0.96,

@@ -776,6 +776,21 @@
         526
       ],
       "state": "seated"
+    },
+    {
+      "id": "pick-fit",
+      "facing": "back",
+      "frames": [
+        "art/actors/thad-pick-fit-back/pick-fit-00.png",
+        "art/actors/thad-pick-fit-back/pick-fit-01.png",
+        "art/actors/thad-pick-fit-back/pick-fit-02.png",
+        "art/actors/thad-pick-fit-back/pick-fit-03.png"
+      ],
+      "figureHeight": 627,
+      "anchor": [
+        351,
+        627
+      ]
     }
   ]
 }

@@ -113,6 +113,10 @@ const CLIPS = [
   { id: 'idle', dir: 'seated', prefix: 'seated', state: 'seated' },
   { id: 'idle-break', dir: 'idlebreak-seated', prefix: 'idle-break', state: 'seated' },
   { id: 'stand', dir: 'stand-seated', prefix: 'stand', state: 'seated' },
+  // THE MERCANTILE'S PICKAXE, FROM BEHIND (doc 95 rows 4 and 6; errata 148): 0 standing (his stand-back
+  // frame itself), 1 crouched, feeling the ground for the pick's head, 2 the mended pick held across him.
+  // Played only by its acted directions, a frame at a time (Actor.hold). tools/art/acted-poses.py.
+  { id: 'pick-fit', dir: 'pick-fit', prefix: 'pick-fit' },
   // THE COACH IS A MOVER, not a room layer. errata 38's `move` translates a
   // named mover; a hotspot's state image is drawn by drawPlate and cannot be
   // translated at all, so beat 6b could never have worked from one. Its two

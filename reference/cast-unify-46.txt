@@ -1,0 +1,8 @@
+Image 1 is a TEMPLATE: the hero of my pixel-art adventure game, EXACTLY as he is drawn in the game, SEEN FROM BEHIND, four times in a row on magenta: dark untidy hair, a long blue-grey coat, dark trousers, brown boots. Image 2 is his current poses from behind, for his look and how his arms are drawn from the back.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the other three as the SAME man, STILL SEEN FROM BEHIND, KEEPING HIS FIGURE -- the same head size, the same shoulder width, the same coat -- changing only his pose. He is mending a pickaxe whose iron head has come off its wooden handle:
+2. crouched down low on his heels, his feet on the same line, his left hand flat on the ground feeling for the iron pick head that lies there under his fingers, the bare wooden handle in his right hand;
+3. standing, his elbows out, fitting the iron head back onto the top of the wooden handle in front of him, one piece in each hand, both pieces showing beside his shoulders;
+4. standing, the mended pickaxe held across his body in both hands, its iron head showing over his right shoulder and the end of its handle by his left hip.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as Image 1 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No glow, no blur, no shadows, no ground, no text, no numbers, no border.

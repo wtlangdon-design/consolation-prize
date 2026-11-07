@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "acted-thad-pick",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-33-listening-chamber",
+ "promptFile": "reference/cast-unify-48.txt",
+ "out": "art/staging/cast-unify/batch-48/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-48/template.png",
+  "art/staging/cast-unify/batch-48/current.png"
+ ],
+ "derivedFrom": 75
+}

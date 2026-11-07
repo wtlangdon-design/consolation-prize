@@ -1,0 +1,7 @@
+Image 1 is a TEMPLATE: Registrar Sump, a clerk with spectacles and a waistcoat in my pixel-art adventure game, EXACTLY as he is drawn in the game, three times in a row on magenta. He is seen from the waist up: the straight bottom edge of each figure is where his counter hides the rest of him, and his hands rest on an open ledger there. Image 2 is his current poses, for his face and clothes.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the other two as the SAME man, KEEPING HIS FIGURE -- the same height, head size, shoulder width and straight waist line at the bottom -- changing only his arms, hands and the tilt of his head. He is BLOTTING the ink on the page with a ROCKER BLOTTER: a long low wooden block, as long as his hand is wide, LONG AND FLAT, its underside CURVED like the runner of a rocking chair and covered in white blotting paper, with a small round knob on top. It is NOT a stamp: it is long and low, not tall.
+2. his right hand holds the blotter by its knob, the blotter lying lengthwise across the waist line and rocked down onto its LEFT end, his left hand flat beside it, looking down at it;
+3. the same, the blotter rocked over onto its RIGHT end, a little further to the right along the line.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as Image 1 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No glow, no blur, no shadows, no ground, no text, no numbers, no border.

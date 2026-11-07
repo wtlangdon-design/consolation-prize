@@ -1231,6 +1231,12 @@ export interface ActorFile {
   idleBreakRate?: number;
   idleBreakNote?: string;
   clips: ActorClip[];
+  /**
+   * DOC 95'S ACTED DIRECTIONS THAT HE PERFORMS (errata 148), put here by the
+   * loader from the table's A rows that name him -- never written in the
+   * record. Each plays its clip's frames on him (`PerformedDirection.clip`).
+   */
+  performs?: Record<string, PerformedDirection>;
 }
 
 /**
@@ -2528,6 +2534,13 @@ export interface PerformedDirection {
   seconds: number;
   holds?: number;
   cue?: { id: string; frame: number };
+  /**
+   * THE PROTAGONIST'S ACTS ARE A CLIP, not frames of a sheet (errata 148): doc 95
+   * names him `thad:pick-fit`, and his frames are that clip's, played on the
+   * actor in the facing it is drawn in. Absent for every ambient figure.
+   */
+  clip?: string;
+  facing?: Facing;
 }
 
 /** content/acted-directions.json: doc 95's table, as extracted. */
