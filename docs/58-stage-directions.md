@@ -5,6 +5,8 @@
 
 *From this document on, a direction in a conversation reply is **shown**: in the order the document writes it, over the character, in the quieter ink the game already uses for a beat, in parentheses. Nothing is invented and nothing is retyped — the extractor reads the words from docs 04 and 27 exactly as written.*
 
+*Amended 2026-11-06 (Tyler: "then let's do it? Lol"; errata 141): a physical direction a figure on screen can act is ACTED, and not printed; narration, tones and pauses stay printed as below. `docs/95-acted-directions.md` decides which, direction by direction.*
+
 ---
 
 ## The rules

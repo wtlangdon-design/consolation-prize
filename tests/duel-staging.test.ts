@@ -5,6 +5,7 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 import { AmbientLayer, figureSpeaking } from '../engine/core/Ambient.ts';
+import { framesOf } from '../engine/core/ActedDirections.ts';
 import { DuelSession, type AssayLine } from '../engine/core/Assay.ts';
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
@@ -112,7 +113,7 @@ test('Duel Three\'s release is staged: the silence, the pencil, the verdict, the
     const figure = figureSpeaking(layer.present, line.speaker);
     const act = figure?.sprite?.performs?.[line.line];
     assert.ok(act, `"${line.line}" is printed, not performed, by ${line.speaker}`);
-    assert.ok(act!.frame < figure!.sprite!.frames.length && act!.seconds > 0);
+    assert.ok(framesOf(act!).every((frame) => frame < figure!.sprite!.frames.length) && act!.seconds > 0);
   }
 });
 

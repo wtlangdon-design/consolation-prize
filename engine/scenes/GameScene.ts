@@ -10,7 +10,8 @@ import { RoomActors } from '../core/RoomActors.ts';
 import type { Controls, FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
-import { AmbientLayer, figureSpeaking } from '../core/Ambient.ts';
+import { AmbientLayer } from '../core/Ambient.ts';
+import { actOf, heldThrough, performedLine, shownText, type HeldPose } from '../core/ActedDirections.ts';
 import { StepTriggers, type StepEvent } from '../core/StepTriggers.ts';
 import { DialoguePerformance, readingHold, type HoldTiming, type Utterance } from '../core/DialoguePerformance.ts';
 import { liveCycling, mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
@@ -56,6 +57,22 @@ import {
 
 const NOTICE_MS = 1200;
 // Glyph pixels, like the renderer's copy: x GLYPH_SCALE with the face.
+
+/**
+ * A line waiting its turn on the speech channel. An acted direction's beats
+ * (doc 95; errata 141) are queued as `silent` lines: nothing shown, figures
+ * holding `poses` for `rest` seconds, a `cue` sounding as it starts.
+ */
+interface QueuedLine {
+  speaker: string | null;
+  line: string;
+  overBlack?: boolean;
+  direction?: boolean;
+  silent?: boolean;
+  rest?: number;
+  poses?: HeldPose[];
+  cue?: string;
+}
 
 /**
  * Draws the whole 320x200 frame into one canvas texture and routes input.
@@ -185,7 +202,9 @@ export class GameScene extends Phaser.Scene {
   /** The close's bed is playing out to its end; the title does not start another over it. */
   private musicFinishing = false;
   /** Lines still to come in a multi-speaker response, in order. */
-  private pendingSay: { speaker: string | null; line: string; overBlack?: boolean; direction?: boolean }[] = [];
+  private pendingSay: QueuedLine[] = [];
+  /** The frames an acted direction holds while it plays from the queue (doc 95; errata 141). */
+  private queuedPoses: HeldPose[] | null = null;
   /** A line `overBlack` has blacked out the play area until the room changes (doc 57 B3). */
   private overBlack = false;
   /** A scene's destination, travelled to once its lines have been read (GameState.resolveInteraction). */
@@ -811,6 +830,7 @@ export class GameScene extends Phaser.Scene {
       awaitingClick: this.sayLines.length > 0 && this.sayWaiting,
       direction: this.sayLines.length > 0 && this.sayIsDirection,
       pose: this.performingPose(),
+      poses: this.heldPoses(),
       still: this.stilled,
       tally: this.slateTally(),
       performing: this.performance !== null,
@@ -1631,7 +1651,14 @@ export class GameScene extends Phaser.Scene {
     // new action interrupts the old in SCUMM: with the queue now playing on
     // its own, the old lines would otherwise follow the new answer.
     if (result.say || result.then?.length) this.pendingSay = [];
-    if (result.direction && result.say && result.by) this.setSay(GameScene.asDirection(result.say), result.by, true);
+    // A RULE THAT IS ALL DIRECTION AND IS ACTED (doc 95) plays from the queue, where acting is done.
+    if (result.direction && result.say && actOf(this.ambient.present, result.say)) {
+      this.setSay(null);
+      // A rule's `say` with no `by` is his by definition (doc 57 A9), as below.
+      const who = this.state.content.actor.id;
+      this.pendingSay.push({ speaker: result.by !== undefined ? result.by : who, line: result.say, direction: true });
+      this.advanceSay();
+    } else if (result.direction && result.say && result.by) this.setSay(GameScene.asDirection(result.say), result.by, true);
     else if (result.direction && result.say) this.setSay(GameScene.asDirection(result.say), this.state.content.actor.id, true);
     else if (result.by) this.setSay(result.say, result.by);
     else this.setSay(result.say, this.state.content.actor.id);
@@ -2242,13 +2269,17 @@ export class GameScene extends Phaser.Scene {
     // DOC 30 §6.2's `option.echo when present`: the letters home name a
     // version in the list and speak the letter (doc 04 Part Three).
     const echo = { speaker: this.state.content.actor.id, line: chosen.option.echo ?? chosen.text };
-    const replies = [
-      ...(said.say ? [this.performedLine({
+    // A REPLY AS IT IS PERFORMED: a stage direction printed in parentheses
+    // (doc 58), or acted by a figure in the room with nothing printed (doc 95).
+    const present = this.ambient.present;
+    const act = (spoken: Utterance) => performedLine(present, spoken, GameScene.asDirection);
+    const replies = heldThrough(present, [
+      ...(said.say ? act({
         speaker: said.sayer,
         line: said.say,
         direction: said.direction,
-      })] : []),
-      ...said.rest.map((spoken) => this.performedLine({
+      }) : []),
+      ...said.rest.flatMap((spoken) => act({
         speaker: spoken.speaker,
         line: spoken.line,
         direction: spoken.direction === true,
@@ -2260,24 +2291,10 @@ export class GameScene extends Phaser.Scene {
         ...(spoken.quiet ? { quiet: true } : {}),
         ...(spoken.cue ? { cue: spoken.cue } : {}),
       })),
-    ];
+    ]);
     this.performance = new DialoguePerformance(
       exchange, echo, replies, this.holdTiming(), this.lastFrameAt);
     this.showPerformance();
-  }
-
-  /**
-   * A REPLY AS IT IS PERFORMED. A stage direction is shown in parentheses (doc
-   * 58) -- unless the figure it describes PERFORMS it (`sprite.performs`;
-   * errata 131 B): then nothing is printed, his frame is held for the beat it
-   * takes, and the beat cannot be clicked through.
-   */
-  private performedLine(spoken: Utterance): Utterance {
-    if (!spoken.direction) return spoken;
-    const figure = figureSpeaking(this.ambient.present, spoken.speaker);
-    const act = figure?.sprite?.performs?.[spoken.line.trim()];
-    if (act) return { ...spoken, rest: act.seconds, pose: act.frame };
-    return { ...spoken, line: GameScene.asDirection(spoken.line) };
   }
 
   /** Doc 30 section 4.1's constants, from content. */
@@ -2305,8 +2322,8 @@ export class GameScene extends Phaser.Scene {
     const live = this.performance;
     if (!live) return;
     const line = live.current;
-    // A POSE IN PLACE OF THE WORDS (errata 131 B) shows nothing on the speech channel.
-    this.setSay(line?.pose !== undefined ? '' : line?.line ?? null, line?.speaker ?? null, line?.direction ?? false);
+    // AN ACTED DIRECTION (errata 131 B, 141) shows nothing on the speech channel.
+    this.setSay(line ? shownText(line) : null, line?.speaker ?? null, line?.direction ?? false);
     // THE MUSIC STOPS FOR A HELD SILENCE (errata 131 D: "Silence on Main
     // Street. Long.") and stays down until the exchange is over; everyone holds
     // still until the line that sounds a cue -- the street erupting (131 E).
@@ -2613,6 +2630,26 @@ export class GameScene extends Phaser.Scene {
     if (next.overBlack) this.overBlack = true;
     // THE LETTER BUILDS ON ONE PAGE in a room that ends the game (errata 128).
     if (next.overBlack && this.state.room.endsGame) this.page.push(next.line);
+    // A DIRECTION A FIGURE ACTS (doc 95; errata 141): Sump stamps the deed
+    // rather than "(Stamp.)" being printed over him. Its beats go to the front
+    // of the queue, each held for its time, with nothing on the speech channel.
+    const steps = next.direction && !next.silent ? actOf(this.ambient.present, next.line) : null;
+    if (steps) {
+      this.pendingSay.unshift(...steps.map((step) => ({
+        speaker: next.speaker, line: next.line, direction: true, silent: true,
+        rest: step.seconds, poses: step.poses, ...(step.cue ? { cue: step.cue } : {}),
+      })));
+      return this.advanceSay();
+    }
+    if (next.silent) {
+      this.setSay(null);
+      this.sayingActor = next.speaker;
+      this.queuedPoses = next.poses ?? null;
+      this.sayUntil = this.time.now / 1000 + (next.rest ?? 0);
+      if (next.cue) this.fireCue(next.cue);
+      this.markDirty();
+      return true;
+    }
     this.setSay(next.direction ? GameScene.asDirection(next.line) : next.line, next.speaker, next.direction === true);
     this.markDirty();
     return true;
@@ -2674,6 +2711,8 @@ export class GameScene extends Phaser.Scene {
     }
     // Once per showing: a line redrawn is not a line said again.
     this.soundedWords = words;
+    // Whatever is said next, an acted beat from the queue is over.
+    this.queuedPoses = null;
     this.sayIsDirection = text !== null && direction;
     // DOC 30 SECTION 5'S BLOCK WIDTH, WHICH NOTHING HAD EVER USED. "Spoken
     // text uses a default maximum block width of 240 native pixels." This
@@ -3354,13 +3393,17 @@ export class GameScene extends Phaser.Scene {
     };
   }
 
-  /** Who holds which frame for the beat on now: the judges' mark, or a performed direction (errata 130 B, 131 B). */
+  /** Who holds the judges' mark for the beat on now (errata 130 B). */
   private performingPose(): { speaker: string; frame: number | 'mark' } | null {
     const line = this.performance?.current;
     if (!line?.speaker) return null;
     if (line.mark) return { speaker: line.speaker, frame: 'mark' };
-    if (line.pose !== undefined) return { speaker: line.speaker, frame: line.pose };
     return null;
+  }
+
+  /** Which figures hold which frames now: an acted direction, in a conversation or queued (doc 95; errata 141). */
+  private heldPoses(): HeldPose[] | null {
+    return this.performance?.current?.poses ?? this.queuedPoses;
   }
 
   private fireCue(id: string): void {

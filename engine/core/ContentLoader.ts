@@ -28,6 +28,7 @@ import type {
   MenuFile,
   SequenceFile, PlaytestFixture,
   SoundsFile,
+  ActedDirectionsFile,
 } from './types.ts';
 
 /** Reads and parses one JSON file. Supplied by the host (fetch, or fs in tests). */
@@ -134,6 +135,33 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     ambient.set(npc.id, npc);
   }
 
+  // DOC 95'S ACTED DIRECTIONS (errata 141): each A row is given to the figures
+  // it names, as their `performs`, so the one place a class is decided is the
+  // document. A row naming a figure that does not exist, or a frame he does not
+  // have, is a broken build rather than a direction quietly printed.
+  const actedDirections = manifest.actedDirections
+    ? (await read(manifest.actedDirections)) as ActedDirectionsFile
+    : null;
+  for (const row of actedDirections?.directions ?? []) {
+    if (row.class !== 'A') continue;
+    for (const id of row.performedBy ?? []) {
+      const npc = ambient.get(id);
+      if (!npc?.sprite) throw new Error(`doc 95 row ${row.n}: "${row.words}" is acted by ${id}, who has no figure`);
+      const frames = row.frames ?? [];
+      const bad = frames.find((frame) => frame < 0 || frame >= npc.sprite!.frames.length);
+      if (bad !== undefined) throw new Error(`doc 95 row ${row.n}: ${id} has no frame ${bad}`);
+      npc.sprite.performs = {
+        ...(npc.sprite.performs ?? {}),
+        [row.words]: {
+          ...(frames.length === 1 ? { frame: frames[0]! } : { frames }),
+          seconds: row.seconds ?? 0,
+          ...(row.holds !== undefined ? { holds: row.holds } : {}),
+          ...(row.cue ? { cue: row.cue } : {}),
+        },
+      };
+    }
+  }
+
   const rooms = new Map<string, RoomFile>();
   for (const room of roomFiles) {
     if (rooms.has(room.id)) {
@@ -165,7 +193,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
   return {
     manifest, font, palette, ui, menu, verbs, flags, scaling, reputation,
     verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, carriedLight, sounds, paths,
-    speechColours, assay, items, fixtures, panel, title,
+    speechColours, assay, items, fixtures, panel, title, actedDirections,
     combinations, itemIcons,
     sequences, actCards, actOpenings,
   };

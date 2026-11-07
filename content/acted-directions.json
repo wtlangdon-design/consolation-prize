@@ -1,0 +1,583 @@
+{
+  "schema": 1,
+  "note": "EXTRACTED from docs/95-acted-directions.md by tools/extract-content.mjs (errata 141). Every shown stage direction and its class: A is performed by the figures named, in the frames named, and not printed; B waits for a pose to be drawn and is printed; C is narration and is printed (doc 58). Change a class in doc 95 and re-extract, never here.",
+  "directions": [
+    {
+      "n": 1,
+      "class": "A",
+      "speaker": "fanshawe",
+      "words": "He puts on his hat.",
+      "where": "assay/assay duel_three",
+      "performedBy": [
+        "duel_fanshawe"
+      ],
+      "frames": [
+        4
+      ],
+      "seconds": 1.5
+    },
+    {
+      "n": 2,
+      "class": "A",
+      "speaker": "sump",
+      "words": "Stamp.",
+      "where": "combinations (deed on counter, at the filing)",
+      "performedBy": [
+        "sump"
+      ],
+      "frames": [
+        3,
+        0
+      ],
+      "seconds": 1.2,
+      "cue": {
+        "id": "U-STAMP",
+        "frame": 2
+      }
+    },
+    {
+      "n": 3,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad swings. The head flies off into the dark and lands somewhere he cannot see.",
+      "where": "combinations (pickaxe on every_rock_surface, first)"
+    },
+    {
+      "n": 4,
+      "class": "B",
+      "speaker": "thad",
+      "words": "He finds it and fits it back.",
+      "where": "combinations (pickaxe on every_rock_surface, first)"
+    },
+    {
+      "n": 5,
+      "class": "C",
+      "speaker": "thad",
+      "words": "The head comes off again, gently, as if apologizing.",
+      "where": "combinations (pickaxe on every_rock_surface, second)"
+    },
+    {
+      "n": 6,
+      "class": "B",
+      "speaker": "thad",
+      "words": "He fits it back.",
+      "where": "combinations (pickaxe on every_rock_surface, second)"
+    },
+    {
+      "n": 7,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad holds the head on with one hand and swings with the other. The rock gives. Warm air comes through, and behind it a dark that goes a long way down.",
+      "where": "combinations (pickaxe on every_rock_surface, third)"
+    },
+    {
+      "n": 8,
+      "class": "C",
+      "speaker": "thad",
+      "words": "A piece of the wall comes away in his hand. It is much heavier than a piece of wall should be.",
+      "where": "combinations (pickaxe on every_rock_surface, third)"
+    },
+    {
+      "n": 9,
+      "class": "C",
+      "speaker": "sump",
+      "words": "Stamp. Thad is alive.",
+      "where": "combinations (death_certificate on counter, at the filing)"
+    },
+    {
+      "n": 10,
+      "class": "B",
+      "speaker": "winnie",
+      "words": "She signs beside it.",
+      "where": "combinations (sample on counter, at the filing)"
+    },
+    {
+      "n": 11,
+      "class": "A",
+      "speaker": "boundary_b",
+      "words": "They resume immediately.",
+      "where": "dialogue/amb-boundary-men root option 2",
+      "performedBy": [
+        "boundary_b",
+        "boundary_a"
+      ],
+      "frames": [
+        2,
+        3,
+        2,
+        3
+      ],
+      "seconds": 2
+    },
+    {
+      "n": 12,
+      "class": "B",
+      "speaker": "deke_vessel",
+      "words": "He looks at the watch.",
+      "where": "dialogue/deke-vessel root option 4"
+    },
+    {
+      "n": 13,
+      "class": "A",
+      "speaker": "deke_vessel",
+      "words": "He finishes his drink, collects his hat, and leaves the Nugget.",
+      "where": "dialogue/deke-vessel root option 6",
+      "performedBy": [
+        "deke_vessel"
+      ],
+      "frames": [
+        3
+      ],
+      "seconds": 1
+    },
+    {
+      "n": 14,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "He knows exactly who is in the Nugget.",
+      "where": "dialogue/fanshawe FAN_A0 option 3"
+    },
+    {
+      "n": 15,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "He gives the map anyway. It has Claim Two circled.",
+      "where": "dialogue/fanshawe FAN_A1 option 2"
+    },
+    {
+      "n": 16,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "He will not. Sump is never asked.",
+      "where": "dialogue/fanshawe FAN_A2 option 2"
+    },
+    {
+      "n": 17,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "The subject has gone wherever subjects go at his table.",
+      "where": "dialogue/fanshawe FAN_A2 option 3"
+    },
+    {
+      "n": 18,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "warmly",
+      "where": "dialogue/fanshawe FAN_A2 option 4"
+    },
+    {
+      "n": 19,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "He means it. It is the most dangerous thing he says all evening.",
+      "where": "dialogue/fanshawe FAN_A2 option 5"
+    },
+    {
+      "n": 20,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "Thad has not mentioned the sealed filing. He watches Thad not mention it. Both men note it.",
+      "where": "dialogue/fanshawe FAN_B2 option 1"
+    },
+    {
+      "n": 21,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "He says it with real warmth. It is not a threat. It is worse — it is preparedness.",
+      "where": "dialogue/fanshawe FAN_B2 option 2"
+    },
+    {
+      "n": 22,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "Buena Vista was February 1847.",
+      "where": "dialogue/fanshawe FAN_B2 option 3"
+    },
+    {
+      "n": 23,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "He hands Thad the pen. The pen has no ink.",
+      "where": "dialogue/fanshawe FAN_C1 option 2"
+    },
+    {
+      "n": 24,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "He does not send for any.",
+      "where": "dialogue/fanshawe FAN_C1 option 2"
+    },
+    {
+      "n": 25,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "genuine delight",
+      "where": "dialogue/fanshawe FAN_C1 option 5"
+    },
+    {
+      "n": 26,
+      "class": "C",
+      "speaker": "fanshawe",
+      "words": "It is not.",
+      "where": "dialogue/fanshawe FAN_C1 option 5"
+    },
+    {
+      "n": 27,
+      "class": "C",
+      "speaker": "frame",
+      "words": "He has the type set before Thad has finished the name.",
+      "where": "dialogue/frame FRA_A1 option 6"
+    },
+    {
+      "n": 28,
+      "class": "C",
+      "speaker": "frame",
+      "words": "he savors it",
+      "where": "dialogue/frame FRA_A1 option 7"
+    },
+    {
+      "n": 29,
+      "class": "A",
+      "speaker": "frame",
+      "words": "He looks up. He looks at the stranger for a long moment.",
+      "where": "dialogue/frame FRA_E1 option 3",
+      "performedBy": [
+        "frame"
+      ],
+      "frames": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seconds": 3
+    },
+    {
+      "n": 30,
+      "class": "C",
+      "speaker": "hob",
+      "words": "nothing",
+      "where": "dialogue/hob HOB_A1 option 1"
+    },
+    {
+      "n": 31,
+      "class": "C",
+      "speaker": "hob",
+      "words": "He stops. Then:",
+      "where": "dialogue/hob HOB_A1 option 3"
+    },
+    {
+      "n": 32,
+      "class": "C",
+      "speaker": "hob",
+      "words": "He does not walk on for four seconds.",
+      "where": "dialogue/hob HOB_A1 option 3"
+    },
+    {
+      "n": 33,
+      "class": "C",
+      "speaker": "hob",
+      "words": "He signs Form 31-E against the lamp post, and hands it back.",
+      "where": "dialogue/hob HOB_E6 option 1"
+    },
+    {
+      "n": 34,
+      "class": "C",
+      "speaker": "hob",
+      "words": "He looks at Thad for a long time.",
+      "where": "dialogue/hob HOB_C1 option 4"
+    },
+    {
+      "n": 35,
+      "class": "C",
+      "speaker": "ozymandia",
+      "words": "genuinely puzzled",
+      "where": "dialogue/ozymandia OZY_A1 option 4"
+    },
+    {
+      "n": 36,
+      "class": "A",
+      "speaker": "ozymandia",
+      "words": "she closes her eyes",
+      "where": "dialogue/ozymandia OZY_A1 option 5",
+      "performedBy": [
+        "ozymandia"
+      ],
+      "frames": [
+        0
+      ],
+      "seconds": 1,
+      "holds": 2
+    },
+    {
+      "n": 37,
+      "class": "A",
+      "speaker": "ozymandia",
+      "words": "She opens them.",
+      "where": "dialogue/ozymandia OZY_A1 option 5",
+      "performedBy": [
+        "ozymandia"
+      ],
+      "frames": [
+        4
+      ],
+      "seconds": 0.8,
+      "holds": 4
+    },
+    {
+      "n": 38,
+      "class": "C",
+      "speaker": "pratt",
+      "words": "Of what?",
+      "where": "dialogue/pratt-jump PRA_D2 option 1"
+    },
+    {
+      "n": 39,
+      "class": "C",
+      "speaker": "pratt",
+      "words": "This is true, and it is the entire legal system.",
+      "where": "dialogue/pratt-jump PRA_D2 option 2"
+    },
+    {
+      "n": 40,
+      "class": "B",
+      "speaker": "pratt",
+      "words": "He looks at his feet, checking.",
+      "where": "dialogue/pratt-jump PRA_D2 option 3"
+    },
+    {
+      "n": 41,
+      "class": "C",
+      "speaker": "pratt",
+      "words": "He thinks about it for some time.",
+      "where": "dialogue/pratt PRA_A1 option 1"
+    },
+    {
+      "n": 42,
+      "class": "C",
+      "speaker": "pratt",
+      "words": "He walks over, unhurried, and reaches into the hole. The bite. He withdraws the hand and studies it.",
+      "where": "dialogue/pratt PRA_A1 option 1"
+    },
+    {
+      "n": 43,
+      "class": "C",
+      "speaker": "pratt",
+      "words": "From this moment Pratt dislikes Thad, steadily and without heat, the way he does everything.",
+      "where": "dialogue/pratt PRA_A1 option 1"
+    },
+    {
+      "n": 44,
+      "class": "C",
+      "speaker": "pratt",
+      "words": "He says it as though it were the weather.",
+      "where": "dialogue/pratt PRA_A1 option 2"
+    },
+    {
+      "n": 45,
+      "class": "A",
+      "speaker": "pratt",
+      "words": "He looks up at the sky, checking.",
+      "where": "dialogue/pratt PRA_A1 option 3",
+      "performedBy": [
+        "pratt"
+      ],
+      "frames": [
+        2
+      ],
+      "seconds": 1.5
+    },
+    {
+      "n": 46,
+      "class": "C",
+      "speaker": "pratt",
+      "words": "He does not consider this strange.",
+      "where": "dialogue/pratt PRA_B1 option 1"
+    },
+    {
+      "n": 47,
+      "class": "C",
+      "speaker": "pratt",
+      "words": "It is not his claim either. Nobody has ever had the heart to tell him, and by now it is his the way anything is anybody's here: by upkeep.",
+      "where": "dialogue/pratt PRA_D6 option 2"
+    },
+    {
+      "n": 48,
+      "class": "C",
+      "speaker": "pratt",
+      "words": "a long, respectful pause",
+      "where": "dialogue/pratt PRA_D6 option 3"
+    },
+    {
+      "n": 49,
+      "class": "B",
+      "speaker": "pratt",
+      "words": "He puts his hat on.",
+      "where": "dialogue/pratt PRA_D6 option 5"
+    },
+    {
+      "n": 50,
+      "class": "C",
+      "speaker": "thad",
+      "words": "The raccoon regards him.",
+      "where": "dialogue/raccoon RAC_A1 option 1"
+    },
+    {
+      "n": 51,
+      "class": "C",
+      "speaker": "thad",
+      "words": "The raccoon does not.",
+      "where": "dialogue/raccoon RAC_A1 option 4"
+    },
+    {
+      "n": 52,
+      "class": "A",
+      "speaker": "sheng",
+      "words": "He returns to doing laundry.",
+      "where": "dialogue/sheng SHE_A1 option 3",
+      "performedBy": [
+        "sheng"
+      ],
+      "frames": [
+        3,
+        4,
+        3,
+        4,
+        0
+      ],
+      "seconds": 2.5
+    },
+    {
+      "n": 53,
+      "class": "C",
+      "speaker": "sowerby",
+      "words": "He brightens, and then remembers to be grave.",
+      "where": "dialogue/sowerby SOW_A1 option 5"
+    },
+    {
+      "n": 54,
+      "class": "C",
+      "speaker": "sowerby",
+      "words": "wounded",
+      "where": "dialogue/sowerby SOW_C1 option 2"
+    },
+    {
+      "n": 55,
+      "class": "C",
+      "speaker": "sowerby",
+      "words": "A long, painful pause. He writes it down.",
+      "where": "dialogue/sowerby SOW_C1 option 3"
+    },
+    {
+      "n": 56,
+      "class": "C",
+      "speaker": "sowerby",
+      "words": "His eyes fill.",
+      "where": "dialogue/sowerby SOW_C1 option 4"
+    },
+    {
+      "n": 57,
+      "class": "C",
+      "speaker": "sowerby",
+      "words": "He goes on. He is still going when Thad looks back from the door.",
+      "where": "dialogue/sowerby SOW_C1 option 4"
+    },
+    {
+      "n": 58,
+      "class": "B",
+      "speaker": "sump",
+      "words": "He brings Claim One's filing to the window, under its glass.",
+      "where": "dialogue/sump SUM_B1 option 4"
+    },
+    {
+      "n": 59,
+      "class": "C",
+      "speaker": "sump",
+      "words": "He turns the glass over. The back of the sheet is blank.",
+      "where": "dialogue/sump SUM_B1 option 4"
+    },
+    {
+      "n": 60,
+      "class": "B",
+      "speaker": "winnie",
+      "words": "stamping",
+      "where": "dialogue/sump SUM_F1 option 1"
+    },
+    {
+      "n": 61,
+      "class": "C",
+      "speaker": "sump",
+      "words": "reading, toneless",
+      "where": "dialogue/sump SUM_F1 option 1"
+    },
+    {
+      "n": 62,
+      "class": "B",
+      "speaker": "sump",
+      "words": "He blots it.",
+      "where": "dialogue/sump SUM_F1 option 1"
+    },
+    {
+      "n": 63,
+      "class": "C",
+      "speaker": "winnie",
+      "words": "She stops writing. It is the first time she has stopped writing.",
+      "where": "dialogue/winnie WIN_B1 option 3"
+    },
+    {
+      "n": 64,
+      "class": "A",
+      "speaker": "winnie",
+      "words": "signing",
+      "where": "dialogue/winnie WIN_C1 option 4",
+      "performedBy": [
+        "winnie"
+      ],
+      "frames": [
+        2,
+        3,
+        2,
+        3
+      ],
+      "seconds": 1.6,
+      "holds": 2
+    },
+    {
+      "n": 65,
+      "class": "C",
+      "speaker": "sowerby",
+      "words": "He looks at the collection plate for a long time. Then he counts out of it with his eyes shut.",
+      "where": "rooms/boot-hill arrival scene"
+    },
+    {
+      "n": 66,
+      "class": "C",
+      "speaker": "pratt_registrar",
+      "words": "a very long pause",
+      "where": "rooms/claims-registrar arrival scene"
+    },
+    {
+      "n": 67,
+      "class": "A",
+      "speaker": "sump",
+      "words": "He notarizes it. He stamps it. He does not look up.",
+      "where": "rooms/claims-registrar arrival scene",
+      "performedBy": [
+        "sump"
+      ],
+      "frames": [
+        2,
+        2,
+        3,
+        0,
+        0
+      ],
+      "seconds": 3,
+      "cue": {
+        "id": "U-STAMP",
+        "frame": 4
+      }
+    }
+  ]
+}
