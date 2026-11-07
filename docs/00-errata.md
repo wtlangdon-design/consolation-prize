@@ -3432,3 +3432,11 @@ Each test fails with its fix removed.
 **Left for Tyler (each needs writing, or a ruling on a load-bearing line):**
 - The risky puzzles: A5, A6, B3, D3, E1, E3, E4, E6, E7 and E9 (the audit's list).
 - THE FILING FEE's pool. It is doc 24's FOUR DOLLARS pool, shared under one heading, and says "I have four dollars" while Thad holds two.
+
+# 125 · E6'S THREE MISSING CANDIDATES, WIRED — TYLER, 2026-11-06 ("proceed with your recommendations")
+
+The fairness audit called E6 "an elimination puzzle with nothing to eliminate". Doc 57 E6 writes five refusals under the interest rule, but only Winnie's and Frame's shipped (errata 93 G: "Sheng's waits for his room"). Sheng's, Pratt's and Sowerby's waited for rooms that have since been built: the laundry, Pratt's claim and the church. They are now extracted from doc 57 as pairs on THE EXECUTOR'S FORM. No line is written.
+
+Still open, and Tyler's call: the form exists only after Hob signs it, so these refusals land after the puzzle is solved. Hearing the interest rule bite before Hob would need an "I need an executor" option somewhere, which is new writing.
+
+**What holds it:** `tests/e6-candidates.test.ts`, which requires every person doc 57 answers on the form, other than the registrar, to have a pair. It fails on the old extraction.

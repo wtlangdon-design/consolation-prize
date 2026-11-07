@@ -1412,7 +1412,12 @@ function combinations() {
         { case: 'before T_DECEASED', when: { T_DECEASED: false }, ...said(early) },
       ],
     });
-    for (const [who, tag, speaker, room] of [['WINNIE', 'WINNIE', 'winnie', 'assay_office'], ['IGNATIUS FRAME', 'FRAME', 'frame', 'clarion']]) {
+    // ERRATA 125: Sheng's, Pratt's and Sowerby's refusals waited for their
+    // rooms (errata 93 G); the laundry, Pratt's claim and the church are built.
+    // The fairness audit found E6 "an elimination puzzle with nothing to
+    // eliminate" with only two of doc 57's five refusals shipped.
+    for (const [who, tag, speaker, room] of [['WINNIE', 'WINNIE', 'winnie', 'assay_office'], ['IGNATIUS FRAME', 'FRAME', 'frame', 'clarion'],
+      ['AH-LAM SHENG', 'SHENG', 'sheng', 'laundry'], ['NICKEL PRATT', 'PRATT', 'pratt', 'pratts_claim'], ['REVEREND SOWERBY', 'SOWERBY', 'sowerby', 'church']]) {
       const lines = caseOf(who, null, speaker, tag);
       rebuilt.push({
         item: 'executor_form', room, target: speaker, puzzle: 'E6', say: lines[0].line,
