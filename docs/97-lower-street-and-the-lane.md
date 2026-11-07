@@ -15,7 +15,7 @@
 
 **THE STREET**
 > **LOOK:** "Main Street's mud, continued. Out here it has stopped trying to impress anyone."
-> **LISTEN:** "Quieter than Main Street. The piano is a rumour from here."
+> **LISTEN:** "Quieter than Main Street. The piano is a rumor from here."
 
 **SUMP'S WINDOW**
 > **LOOK:** "The Claims Registrar's window. A lamp, a counter, and behind it a man who has never once been surprised."
@@ -80,7 +80,7 @@
 
 **THE BELL** — LOOK 2 "Brass, gone green at the rim. Somebody polishes the dent and nothing else." · 3 "You can't tune a bell, not properly. I could still have a long talk with it." | LISTEN 2 "I flicked it with a fingernail. Half a step flat, and comfortable there." · 3 "Nothing now. It's resting between insults to the scale."
 
-**THE LIVERY** — LOOK 2 "A hay loft over the doors, the hay coming out of it like stuffing from an old chair." · 3 "I could hire a horse, if I had the price of a horse's afternoon. I have about the price of its nap." | LISTEN 2 "A long, judgemental snort. I'm choosing to believe it was aimed at the street in general." · 3 "A bucket set down, and a horse investigating it."
+**THE LIVERY** — LOOK 2 "A hay loft over the doors, the hay coming out of it like stuffing from an old chair." · 3 "I could hire a horse, if I had the price of a horse's afternoon. I have about the price of its nap." | LISTEN 2 "A long, judgmental snort. I'm choosing to believe it was aimed at the street in general." · 3 "A bucket set down, and a horse investigating it."
 
 **THE TROUGH** — LOOK 2 "Horses drink from it, dogs drink from it, and one man, I suspect, late on Saturdays." · 3 "Mended with a tin patch and a great deal of optimism. The patch is winning." | LISTEN 2 "Nothing. Still water, minding its business." · 3 "A moth on the surface, rowing for shore."
 
@@ -100,11 +100,11 @@
 
 **THE LANE ITSELF** — LOOK 2 "Narrow enough that two men passing have to agree on something first." · 3 "Boot prints in every direction and no wheel ruts at all. Nothing that needs a cart comes down here." | LISTEN 2 "A shutter knocking, then thinking better of it." · 3 "The tent's canvas, breathing, two doors down. The Lane has a pulse and it's hers."
 
-**THE COFFIN BY THE DOOR** — LOOK 2 "Plain pine, nicely planed. Somebody is going to be very comfortable in that." · 3 "Standard length. A tall man would have to be very patient in it." | LISTEN 2 "Nothing inside. I checked by knocking, and then felt I ought to apologise." · 3 "The wind across the open end, making the only sound a coffin is allowed."
+**THE COFFIN BY THE DOOR** — LOOK 2 "Plain pine, nicely planed. Somebody is going to be very comfortable in that." · 3 "Standard length. A tall man would have to be very patient in it." | LISTEN 2 "Nothing inside. I checked by knocking, and then felt I ought to apologize." · 3 "The wind across the open end, making the only sound a coffin is allowed."
 
 **THE PHOTOGRAPHER'S WINDOW** — LOOK 2 "The gentleman in the portrait has a face you would trust with your money, which in this town is a professional qualification." · 3 "Portraits by appointment. I can't afford the appointment, but I could stand here and be photographed by accident." | LISTEN 2 "A clock inside, very slow, as if it were sitting for its portrait." · 3 "Glass plates clinking in the back, being careful with each other."
 
-**OZYMANDIA'S TENT** — LOOK 2 "The flap is tied back and candlelight comes out. It is the most inviting door in Consolation, which is why I keep a hand on my pocket." · 3 "Canvas patched with canvas of another colour, on which the stars do not quite line up. Neither, I suspect, do the predictions." | LISTEN 2 "A brass rod, set down carefully on a table." · 3 "The canvas moving with the wind. It sounds like the tent is thinking about me."
+**OZYMANDIA'S TENT** — LOOK 2 "The flap is tied back and candlelight comes out. It is the most inviting door in Consolation, which is why I keep a hand on my pocket." · 3 "Canvas patched with canvas of another color, on which the stars do not quite line up. Neither, I suspect, do the predictions." | LISTEN 2 "A brass rod, set down carefully on a table." · 3 "The canvas moving with the wind. It sounds like the tent is thinking about me."
 
 **THE BARBER'S POLE** — LOOK 2 "The window's dark. A barber's chair behind it, the leather cracked into a map of somewhere." · 3 "I could do with a shave. I could do with the price of a shave more." | LISTEN 2 "A strop swaying on its hook inside, slapping the chair once." · 3 "Nothing. A barber's shop is never quiet by day; at night it makes up for it."
 
