@@ -1,0 +1,9 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game, a comedy in an 1850s frontier gold town: the hero on the LEFT (THE STYLE, THE SCALE AND THE BUILD), and A, the town's newspaper editor. A's design is FINAL: keep his face, untidy brown hair, the pencil behind his ear, his rolled shirtsleeves, his ink-stained dark printer's apron and his colours EXACTLY as in Image 1.
+
+Image 2 shows A as drawn in the game now, standing beside the hero in his newspaper office at game size. What is wrong: A is far too THICK beside the hero -- his shoulders much broader, his head bigger, his whole body wider -- so he reads short and squat, like a different kind of person. Fix only his BUILD.
+
+DRAW A BUILT LIKE THE HERO: lean and narrow, an ordinary slim young man. His shoulders NO WIDER than the hero's. His head the SAME SIZE as the hero's. The SAME HEIGHT as the hero, crown to sole, with the same long legs. The same size of square pixel, the same soft shading and dark outline as the hero.
+
+THE SHEET: flat pure magenta (#FF00FF) background. One row: A, FULL FIGURE, standing, feet on one line, FOUR times side by side at the same size, separated by clear magenta space. A small notebook in one hand in EVERY pose: 1. standing, the notebook at his side; 2. talking, his free hand held out; 3. writing a quote in the notebook with the pencil from behind his ear; 4. leaning in, curious, the notebook at his chest.
+
+RULES: only the notebook and pencil. Crisp pixel edges against the magenta, no glow, no blur, no shadows, no ground, no text, no numbers, no border.

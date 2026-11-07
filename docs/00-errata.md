@@ -3765,3 +3765,39 @@ They are the duel audit's findings 4, 6, 3a and 9c, recommended in errata 130 an
 Up to 4 operations come from cast-unify's remaining 14 (errata 111, 112 C). The side-by-sides are in the brief's folder. Doc 55 §8 gains the rule: build is judged beside Thad, not only height.
 
 **B · The opening's arrival stays as built.** The coach has already stopped and the case is already in the mud in the first frame, where doc 17 has the coach rolling in and the case falling (the bookends audit, finding 12). Tyler: "no I like it as is." It is not an open item.
+
+---
+
+# 138 · FRAME AND THE THREE JUDGES, LEANER — TYLER, 2026-11-07 (reference/leaner-cast/brief.md)
+
+Tyler, 2026-11-06: "Ignatius and the 3 judges are all really thick compared to Thad. They look like dwarves vs characters from this same universe of characters." Errata 137's brief is done.
+
+**Three operations spent, cast-unify 62-64 of 75:**
+- 62, Frame (`reference/cast-unify-32.txt`, batch-32).
+- 63, the three judges standing and seated on one sheet (`reference/cast-unify-33.txt`, batch-33). The brief asked for two rows. Four were drawn -- one standing row, then one seated row per judge -- so that each face is drawn larger than twelve busts in a row would allow.
+- 64, a correction of the gaunt judge's seated row (`reference/cast-unify-34.txt`, batch-34). 63 drew his first seated pose, his rest and the frame shown most, in a black bow tie and a brown waistcoat; his green cravat is in every pose of 64.
+
+Frame's correction was not spent: he does not plainly miss.
+
+- **Drawn** from the locked master, beside Thad, against the brief's side-by-sides. The faces, hair, clothes and colours are the master's (errata 111 E, L), and every current pose is kept: Frame's notebook is in every pose; the judges watch and confer, nod, and stroke a beard on the porch, and fold their hands, lean to confer, nod and drum their fingers at the table. The build is the hero's: lean, long-legged, the same height.
+- **Cut** (`tools/art/leaner-cast.py`). Frame and each standing judge (cut from his own pair) at their old figure heights with `cast-unify-cut.py --grid 1`; `figureHeight` crown to sole (`--hat` for the bearded judge). The bearded judge is mirrored to face the duel (111 V), with his feet on the porch boards as before (111 U). Each seated judge is cut to the bust height of the drawing he replaces and registered on the head and the hands' row (`bust-register.py --bottom`), with his waist on the table's back edge as before (111 O). Records are written before the snap to one level.
+- **Measured before anyone looks**, at game size beside Thad at the same depth (`tools/art/build-vs-thad.py`; `art/staging/cast-unify/batch-33/build-*.json`). Shoulders, × Thad's:
+
+| | before | after |
+|---|---|---|
+| Frame | (see note) | (see note) |
+| the bald judge, standing / seated | 1.19 / 1.35 | 1.15 / 1.22 |
+| the gaunt judge, standing / seated | 0.96 / 1.21 | 1.04 / 1.08 |
+| the bearded judge, standing / seated | 1.15 / 1.25 | 1.00 / 1.08 |
+
+  **Heads, crown to chin, read by ruler** at one man's height (`renders/leaner-cast-heads-ruler-before-after.png`). The automatic neck-finder fails on beards, hats and the porch's 110-pixel men, and its numbers are not used.
+
+| × Thad's | before | after |
+|---|---|---|
+| Frame | ~1.5 | ~1.12 |
+| the bald judge | ~1.5 | ~1.25 |
+| the gaunt judge | ~1.45 | ~1.3 |
+| the bearded judge, under his hat | — | ~1.2 |
+
+  **Still flagged:** the heads are all outside the brief's 10%, though all smaller; the generator draws older men with bigger heads. The bald judge seated is at 1.22 for the shoulders: he is the thick-set one (111 D). Frame's shoulder number does not read his apron's breadth (the band it measures sits under his old, bigger head). The pictures are the measure: `renders/leaner-cast-*-before-after.png`, each beside Thad in his room.
+- **For Tyler's playthrough:** the four in the Clarion, on the porch for Duel Three, and at the Nugget's back table -- above all, whether the heads now read as this game's people.
