@@ -107,12 +107,12 @@ export interface Frame {
    */
   title?: { items: TitleItem[]; hovered: string | null; theEnd?: boolean } | null;
   /**
-   * THE PANEL IS THERE BUT INERT (errata 133): Room 33's ninety seconds. The
+   * THE PANEL IS THERE BUT INERT (errata 135): Room 33's ninety seconds. The
    * verbs and the inventory are dimmed, not removed, and the sentence line is
    * blank, so the screen says "listen" rather than "broken".
    */
   panelDim?: boolean;
-  /** Black over the play area, 0 to 1: a room handing on by a fade (errata 133). */
+  /** Black over the play area, 0 to 1: a room handing on by a fade (errata 135). */
   fadeBlack?: number;
   /**
    * THE LETTER'S PAGE (errata 128): every line of it said so far, drawn whole
@@ -214,7 +214,7 @@ const TEXT_MARGIN = 6 * GLYPH_SCALE;
 /** The letter's page: doc 30's speech block width, and a gap between its lines (errata 128). */
 const PAGE_WIDTH = Math.round(NATIVE_WIDTH * (240 / 320));
 const PAGE_GAP = 4 * GLYPH_SCALE;
-/** How far Room 33's panel is dimmed during the ninety seconds (errata 133). */
+/** How far Room 33's panel is dimmed during the ninety seconds (errata 135). */
 const PANEL_DIM = 0.6;
 const PAGE_TOP = 40 * GLYPH_SCALE;
 /** The title screen's layout: the logo in the ridge's sky, the menu on the dark ground below. */

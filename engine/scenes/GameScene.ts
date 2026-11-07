@@ -175,7 +175,7 @@ export class GameScene extends Phaser.Scene {
   /** THE LETTER'S PAGE: the lines said over black in a room that ends the game (errata 128). */
   private page: string[] = [];
   private pageAlpha = 1;
-  /** A room handing on by a fade (errata 133): when it began, and whether the new room is in. */
+  /** A room handing on by a fade (errata 135): when it began, and whether the new room is in. */
   private roomFade: { after: { goto: string }; from: number; enteredAt: number | null; upFrom: number | null } | null = null;
   private fadeBlack = 0;
   /** Scene seconds when the close's last line came down; null until it has. */
@@ -559,7 +559,7 @@ export class GameScene extends Phaser.Scene {
       && !this.state.dialogue.isActive && !this.pendingTree && this.performance === null
       && this.sayingActor === null && this.pendingSay.length === 0 && this.travelAfterSay === null
       && this.state.flags.test(after.when) && this.roomFade === null) {
-      // BY A FADE, where the room says so (errata 133; doc 48 S7 beat 1:
+      // BY A FADE, where the room says so (errata 135; doc 48 S7 beat 1:
       // "Fade up on the street"): to black, a held beat, then up on the next.
       if (after.fade) {
         this.roomFade = { after, from: now, enteredAt: null, upFrom: null };
@@ -792,7 +792,7 @@ export class GameScene extends Phaser.Scene {
       // `panel`, so the clicks were going to the list all along. This was
       // never a hit-testing bug; it only looked like one because the thing
       // underneath was still visible and invited the click.
-      // AND NOT DURING A CUTSCENE BEAT AFTER CONTROL (errata 133): doc 17 beat
+      // AND NOT DURING A CUTSCENE BEAT AFTER CONTROL (errata 135): doc 17 beat
       // 11, the walk away under the title, is control `none` like beats 2-7.
       showPanel: this.opening === null && !this.choicesShowing() && !this.panelHidden && !this.carriedCutscene(),
       hoveredLocation: this.hoveredLocation,
@@ -816,7 +816,7 @@ export class GameScene extends Phaser.Scene {
       greeting: this.pendingTree?.greeted ? this.pendingTree.tree : null,
       sceneControls: this.sceneControlsShowing() && !this.state.menu.isOpen,
       title: this.titleMenu ? { items: this.titleMenu, hovered: this.titleHover, theEnd: this.titleTheEnd } : null,
-      // ROOM 33'S NINETY SECONDS: the panel inert and dim, the sentence blank (errata 133).
+      // ROOM 33'S NINETY SECONDS: the panel inert and dim, the sentence blank (errata 135).
       panelDim: this.tuneStart !== null,
       fadeBlack: this.fadeBlack,
       page: this.overBlack && this.page.length ? this.page : null,
@@ -986,13 +986,13 @@ export class GameScene extends Phaser.Scene {
     return variant?.tempo ?? entry.tempo ?? null;
   }
 
-  /** A carried beat with control `none` is playing: doc 17 beat 11 (errata 133). */
+  /** A carried beat with control `none` is playing: doc 17 beat 11 (errata 135). */
   private carriedCutscene(): boolean {
     return this.carried.isRunning && this.carried.current?.control === 'none';
   }
 
   private onPointerMove(pointer: Phaser.Input.Pointer): void {
-    // Nothing to name while the ninety seconds run or a room fades (errata 133).
+    // Nothing to name while the ninety seconds run or a room fades (errata 135).
     if (this.tuneStart !== null || this.roomFade !== null) return;
     if (this.titleMenu && !this.state.menu.isOpen) {
       const { x, y } = this.nativePoint(pointer);
@@ -1090,7 +1090,7 @@ export class GameScene extends Phaser.Scene {
 
     // An act card holds the screen for its time; a click does not cut it.
     if (this.actCardUntil !== null) return;
-    // A fade between rooms, and a cutscene beat after control, are not the player's (errata 133).
+    // A fade between rooms, and a cutscene beat after control, are not the player's (errata 135).
     if (this.roomFade !== null || this.carriedCutscene()) return;
 
     // The menu takes every click while it is open, including clicks on the
@@ -3198,7 +3198,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   /**
-   * THE FADE BETWEEN ROOMS (errata 133): out to black, hold, and in on the
+   * THE FADE BETWEEN ROOMS (errata 135): out to black, hold, and in on the
    * next room. The room changes at the start of the hold, in the black, so
    * nothing of the old room's interface -- the held item, the sentence -- is
    * seen to carry over.

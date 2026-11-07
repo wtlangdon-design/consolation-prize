@@ -174,7 +174,7 @@ export class DialoguePerformance {
     // conversationWaitsForClick). Doc 30's objection was to a line that waited
     // forever because nothing timed it; this one waits because Tyler, playing,
     // lost lines before he had read them. A click advances exactly one, as before.
-    // A BARE PAUSE ("…") IS A REST and gives way on its hold either way (errata 133).
+    // A BARE PAUSE ("…") IS A REST and gives way on its hold either way (errata 135).
     if (this.timing.waitForClick && !isRest(this.current?.line)) return false;
     if (now < this.holdUntil) return false;
     return this.next(now);
