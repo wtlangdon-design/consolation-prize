@@ -661,6 +661,20 @@
         "id": "U-STAMP",
         "frame": 4
       }
+    },
+    {
+      "n": 68,
+      "class": "A",
+      "speaker": "bell_ringer",
+      "words": "He does not move.",
+      "where": "dialogue/amb-bell-ringer root option 2",
+      "performedBy": [
+        "bell_ringer"
+      ],
+      "frames": [
+        0
+      ],
+      "seconds": 2
     }
   ]
 }

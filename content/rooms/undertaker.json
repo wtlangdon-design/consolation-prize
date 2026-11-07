@@ -518,7 +518,7 @@
         560
       ],
       "colour": 0,
-      "to": "town_map",
+      "to": "the_lane",
       "responses": {
         "LOOK_AT": [
           {
@@ -541,7 +541,7 @@
       },
       "fallback": [],
       "defaultVerb": "WALK_TO",
-      "note": "Doc 20: the undertaker's is reached by the map, and its door leads back to it. Doc 54 writes this door's lines.",
+      "note": "Errata 161 (errata 43's three streets): the undertaker's opens off the Lane.",
       "walkTo": {
         "x": 250,
         "y": 780,
@@ -629,7 +629,7 @@
         790
       ],
       "facing": "right",
-      "note": "In by the street door, at left: the map leads here."
+      "note": "In by the street door, at left: the Lane leads here."
     }
   ],
   "walkBoxes": [

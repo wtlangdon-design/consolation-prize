@@ -51,7 +51,7 @@
     800
    ],
    "facing": "right",
-   "note": "In by the flap, at left: the map leads here."
+   "note": "In by the flap, at left: the Lane leads here."
   }
  ],
  "hotspots": {
@@ -167,9 +167,9 @@
  "exitSubjects": {
   "THE FLAP TO OUTSIDE": {
    "id": "flap_to_outside",
-   "to": "town_map",
+   "to": "the_lane",
    "defaultVerb": "WALK_TO",
-   "note": "Doc 20: the tent is reached by the map, and its flap leads back to it. Doc 05 and doc 54 write the flap's LOOK and LISTEN."
+   "note": "Errata 161 (errata 43's three streets): the tent stands in a lot off the Lane."
   }
  },
  "exits": {

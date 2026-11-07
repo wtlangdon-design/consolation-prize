@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "claims_registrar",
- "note": "ROOM 7's PROOF SPEC. The route is Main Street's, then the map. The room has one visual state (errata 80 A); its principal change is the act: in Act III the counter answers with doc 05 Part Two-B's line and Sump opens on SUM_E1. A9's filing needs the survey (A7, Room 16, unbuilt) and is played in tests/room-07.test.ts from fixture r7-b.",
+ "note": "ROOM 7's PROOF SPEC. The route is Main Street's, then Lower Street or the Lane, where its door is (errata 161). The room has one visual state (errata 80 A); its principal change is the act: in Act III the counter answers with doc 05 Part Two-B's line and Sump opens on SUM_E1. A9's filing needs the survey (A7, Room 16, unbuilt) and is played in tests/room-07.test.ts from fixture r7-b.",
  "route": "claims-registrar",
  "settleMs": 4000,
  "principalChange": {

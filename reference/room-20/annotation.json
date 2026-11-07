@@ -86,6 +86,15 @@
    ],
    "facing": "left",
    "note": "Back from the watchman's shack, at the alley's far end."
+  },
+  {
+   "from": "lower_street",
+   "at": [
+    260,
+    740
+   ],
+   "facing": "right",
+   "note": "Errata 161: in through the gap from Lower Street, at left."
   }
  ],
  "hotspots": {

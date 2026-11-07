@@ -749,6 +749,13 @@ export interface AmbientFile {
      */
     breaksThatSpeak?: number[];
     /**
+     * Which breaks SOUND, by index into `breaks` (as a string key): the sound
+     * cue fired as that break begins. The bell-ringer's strike sounds the
+     * flat bell (doc 07 #4; errata 161) -- a blow in silence reads as a fault,
+     * as the pie woman's silent shout did.
+     */
+    breakCues?: Record<string, string>;
+    /**
      * A BEAT instead of a loop: hold frame 0, show the rest briefly, hold again.
      *
      * Tyler, on a four-frame cycle: the motion is right but playing it on a

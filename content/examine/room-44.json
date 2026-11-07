@@ -12,8 +12,8 @@
       "name": "THE LANE ITSELF",
       "LOOK_AT": [
         "The Lane: the street the town keeps for the businesses it doesn't put on the main one.",
-        "Narrow enough that two men passing have to agree on something first.",
-        "Boot prints in every direction and no wheel ruts at all. Nothing that needs a cart comes down here."
+        "Wide enough for two men to pass, provided they have agreed on something first.",
+        "Puddles all the way down, each one holding a lamp. It is the best-lit the Lane will ever be."
       ],
       "LISTEN_TO": [
         "Main Street at one end, Lower Street at the other, and in between a hush you could rent.",
@@ -59,7 +59,7 @@
       "LOOK_AT": [
         "Madame Ozymandia's tent, painted with more stars than the sky can spare.",
         "The flap is tied back and candlelight comes out. It is the most inviting door in Consolation, which is why I keep a hand on my pocket.",
-        "Canvas patched with canvas of another color, on which the stars do not quite line up. Neither, I suspect, do the predictions."
+        "The stars on the canvas don't quite line up with the ones above it. Neither, I suspect, do the predictions."
       ],
       "LISTEN_TO": [
         "Humming, low and long, from inside. Either a lady concentrating or a lady charging.",
@@ -74,7 +74,7 @@
       "name": "THE BARBER'S POLE",
       "LOOK_AT": [
         "A barber's pole, painted to look as though it turns. It doesn't. That is the first lie a barber tells you.",
-        "The window's dark. A barber's chair behind it, the leather cracked into a map of somewhere.",
+        "The window's dark, and so is the door. A barber shuts up shop the way he shaves: close.",
         "I could do with a shave. I could do with the price of a shave more."
       ],
       "LISTEN_TO": [
@@ -90,7 +90,7 @@
       "name": "THE EMPTY STOREFRONT",
       "LOOK_AT": [
         "An empty storefront, boarded, its sign painted out. Somebody's whole idea, closed for good.",
-        "Through a gap in the boards: a counter, a broom, and a calendar stopped on a month nobody has had for years.",
+        "Through a gap in the boards: dark, and a smell of old sawdust. Whatever was sold here, it sold out.",
         "If my claim comes in, I'll buy this and sell something. I don't yet know what. In Consolation that has never stopped anybody."
       ],
       "LISTEN_TO": [

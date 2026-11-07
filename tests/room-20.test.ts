@@ -39,16 +39,16 @@ const inState = async (fixtureId: string) => {
   return state;
 };
 
-test('the alley is reached from the street\'s east end, and leads back to it', async () => {
+test('the alley opens off Lower Street, and leads back to it (errata 161)', async () => {
   const state = await inState('r20-a');
-  const out = (state.room.exits ?? []).find((exit) => exit.to === 'main_street');
+  const out = (state.room.exits ?? []).find((exit) => exit.to === 'lower_street');
   assert.ok(out, 'a way back to the street');
-  const street = state.content.rooms.get('main_street');
+  const street = state.content.rooms.get('lower_street');
   assert.ok(street, 'the street is loaded');
   const lots = (street.exits ?? []).find((exit) => exit.to === state.roomId);
   assert.ok(lots, 'the street has a way into the alley');
   assert.ok((street.entrances ?? []).some((one) => one.from === state.roomId), 'and an arrival from it');
-  assert.ok((state.room.entrances ?? []).some((one) => one.from === 'main_street'), 'the alley has an arrival from the street');
+  assert.ok((state.room.entrances ?? []).some((one) => one.from === 'lower_street'), 'the alley has an arrival from the street');
 });
 
 test('the cat is a figure on the crates, and her written lines are under her', async () => {

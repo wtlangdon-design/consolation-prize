@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "claims_road",
- "note": "A ROUTE to Room 22, the road to the claims: Main Street's route to the letter, then THE ROAD TO THE CLAIMS at the street's west end, where Thad arrives (doc 14).",
+ "note": "A ROUTE to Room 22: Main Street's route to the letter, then Lower Street (Room 43, errata 161: everything in town is walked now) and THE ROAD OUT OF TOWN.",
  "from": "stage_road",
  "actions": [
   {
@@ -113,13 +113,29 @@
   {
    "do": "click",
    "on": "to_claims_road",
-   "why": "THE ROAD TO THE CLAIMS"
+   "why": "LOWER STREET, at Main Street's east end (errata 161)"
+  },
+  {
+   "do": "waitFor",
+   "room": "lower_street",
+   "upTo": 90,
+   "why": "along the road, and Room 43"
+  },
+  {
+   "do": "wait",
+   "seconds": 3,
+   "why": "arrival"
+  },
+  {
+   "do": "click",
+   "on": "to_claims_road",
+   "why": "THE ROAD OUT OF TOWN"
   },
   {
    "do": "waitFor",
    "room": "claims_road",
-   "upTo": 90,
-   "why": "out, and Room 22"
+   "upTo": 60,
+   "why": "in, and Room 22"
   },
   {
    "do": "wait",

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "ozymandias_tent",
- "note": "ROOM 16's PROOF SPEC. The route is Main Street's, then the map. A7 is played in tests/room-16.test.ts.",
+ "note": "ROOM 16's PROOF SPEC. The route is Main Street's, then Lower Street or the Lane, where its door is (errata 161). A7 is played in tests/room-16.test.ts.",
  "route": "ozymandias-tent",
  "settleMs": 4000,
  "principalChange": {

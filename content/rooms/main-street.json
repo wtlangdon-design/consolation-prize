@@ -799,7 +799,7 @@
     },
     {
       "id": "to_claims_road",
-      "name": "THE ROAD TO THE CLAIMS",
+      "name": "LOWER STREET",
       "rect": [
         3290,
         372,
@@ -807,7 +807,7 @@
         190
       ],
       "colour": 12,
-      "to": "claims_road",
+      "to": "lower_street",
       "responses": {
         "LOOK_AT": [
           {
@@ -835,6 +835,7 @@
         "CLOSE": "I've considered it. Several of us have."
       },
       "defaultVerb": "WALK_TO",
+      "note": "Errata 161 (errata 43's three streets): the road east leads to Lower Street, and on from there to the claims road.",
       "walkTo": {
         "x": 3477,
         "y": 603,
@@ -942,7 +943,7 @@
     },
     {
       "id": "to_back_alley",
-      "name": "THE BACK LOTS",
+      "name": "THE LANE",
       "stub": true,
       "rect": [
         0,
@@ -951,11 +952,11 @@
         420
       ],
       "colour": 0,
-      "to": "back_alley",
+      "to": "the_lane",
       "responses": {},
       "fallback": [],
       "defaultVerb": "WALK_TO",
-      "note": "Doc 20: 'East, the back lots | 20 · back alley' -- the street's east end, past the mercantile. NO DOCUMENT WRITES THIS WAY a LOOK or LISTEN. A stub exit (doc 36 Q163, errata 93 C).",
+      "note": "Errata 161 (errata 43's three streets): Main Street's alley is the way into the Lane.",
       "walkTo": {
         "x": 66,
         "y": 700,
@@ -1422,6 +1423,24 @@
       ],
       "facing": "right",
       "note": "Back from the alley, at the street's east end past the mercantile (doc 20: 'East, the back lots')."
+    },
+    {
+      "from": "lower_street",
+      "at": [
+        3477,
+        603
+      ],
+      "facing": "front",
+      "note": "Errata 161: back along the road from Lower Street, at the east end."
+    },
+    {
+      "from": "the_lane",
+      "at": [
+        110,
+        700
+      ],
+      "facing": "right",
+      "note": "Errata 161: back out of the Lane through the alley."
     }
   ],
   "lamps": [

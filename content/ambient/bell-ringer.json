@@ -1,0 +1,102 @@
+{
+ "schema": 1,
+ "id": "bell_ringer",
+ "name": "THE BELL-RINGER",
+ "posture": "standing",
+ "note": "Doc 07 #4: 'Church steps. Strikes the bell by hand, half a step flat, drunk.' Errata 161: he stands at the foot of the church steps on Lower Street, by the bell on its post, and strikes it. His tree and his barks are doc 07's, extracted; doc 97's Overrides answer a wrong verb on him.",
+ "room": "lower_street",
+ "x": 929,
+ "y": 700,
+ "zone": 1,
+ "approachRadius": 60,
+ "tree": "amb_bell_ringer",
+ "walkTo": {
+  "x": 800,
+  "y": 745,
+  "facing": "right"
+ },
+ "barks": {
+  "R_SWINDLED": "Heard you got took. That was for you.",
+  "R_RACCOON": "Raccoon.",
+  "R_SURVEYED": "Surveyed.",
+  "R_TRUTH": "Still flat, ain't it."
+ },
+ "barkCues": {
+  "R_NOBODY": "BR-STRIKE-ONE",
+  "R_SWINDLED": "BR-STRIKE-ONE",
+  "R_RACCOON": "BR-STRIKE-ONE",
+  "R_SURVEYED": "BR-STRIKE-ONE",
+  "R_BORDERS_MOTT": "BR-STRIKE-TWICE",
+  "R_LOST_DUEL": "BR-STRIKE-HALF",
+  "R_WON_DUEL": "BR-STRIKE-FOUR",
+  "R_DEAD": "BR-PASSING",
+  "R_TRUTH": "BR-STRIKE-ONE"
+ },
+ "barkCuesNote": "Doc 07 #4's directions, played: (strikes) once, (strikes twice), (strikes, half-heartedly), (strikes four times), and R_DEAD's passing bell, a slow toll. The bell is the town's flat bell (tools/audio/render-everyday-sfx.py, church-bell.wav), so it is the same note the street hears.",
+ "sprite": {
+  "note": "Frames 0-1 are the idle: the rest pose and its breath. Frames 2-3 are the strike: the mallet up, then down on the bell. Frame 4 is talking. His strike is a break that SOUNDS (`breakCues`): a blow in silence reads as a fault. The other break raises the mallet and thinks better of it.",
+  "sheet": "art/actors/room-43-bell-ringer.png",
+  "frames": [
+   [
+    2,
+    2,
+    143,
+    276
+   ],
+   [
+    147,
+    2,
+    143,
+    276
+   ],
+   [
+    292,
+    2,
+    143,
+    276
+   ],
+   [
+    437,
+    2,
+    143,
+    276
+   ],
+   [
+    582,
+    2,
+    143,
+    276
+   ]
+  ],
+  "rate": 0.45,
+  "phase": 0.3,
+  "breaks": [
+   [
+    2,
+    2,
+    3,
+    3,
+    3,
+    0
+   ],
+   [
+    2,
+    2,
+    2,
+    2,
+    0
+   ]
+  ],
+  "breakCues": {
+   "0": "BR-STRIKE"
+  },
+  "breakEvery": 17,
+  "talkFrame": 4,
+  "provenance": "art/staging/bell-ringer/bell-ringer/bell-ringer.json",
+  "frameNote": "0 rest, the mallet down at his side · 1 breath · 2 the mallet raised · 3 the blow · 4 talking, a hand out.",
+  "figureHeight": 254.6,
+  "stature": 1,
+  "figureHeightNote": "His height without the bowler (the frame is 276 with it, the hat 20 rows): the street's man at his feet, which is the height PR 231 cut and snapped him at (errata 112's one level, 115 art pixels to a man). The engine draws him at the room's man there, so he stands at the curve."
+ },
+ "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 4 · THE BELL-RINGER) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Every row is a blow on the bell: its words, where the row has any, are the bark, and the blow is `barkCues` (errata 161)."
+}

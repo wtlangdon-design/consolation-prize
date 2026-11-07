@@ -87,7 +87,7 @@
         790
       ],
       "facing": "right",
-      "note": "In by the door, at left: the map leads here."
+      "note": "In by the door, at left: Lower Street leads here."
     }
   ],
   "ambient": [
@@ -305,7 +305,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The rope drops through a hole in the ceiling from the only bell in the district.",
+            "say": "The rope drops through a hole in the ceiling from the church's own bell.",
             "repeat": [
               "A rope, going up through a hole in the ceiling to the flattest bell in the territory.",
               "A second knot is tied higher up, for a taller ringer. Nobody has needed it since Sowerby came."
@@ -578,7 +578,7 @@
         540
       ],
       "colour": 0,
-      "to": "town_map",
+      "to": "lower_street",
       "responses": {
         "LOOK_AT": [
           {
@@ -601,7 +601,7 @@
       },
       "fallback": [],
       "defaultVerb": "WALK_TO",
-      "note": "Doc 20: the church is reached by the map, and its door leads back to it. Doc 05 and doc 54 write the door's LOOK and LISTEN.",
+      "note": "Errata 161 (errata 43's three streets): the church opens off Lower Street.",
       "walkTo": {
         "x": 230,
         "y": 780,

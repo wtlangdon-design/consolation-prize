@@ -817,7 +817,7 @@ The only prose line in the entire room, on the correct spot:
 *Ten hotspots. The bell rope. The hymnal.*
 
 **THE BELL ROPE**
-> **LOOK:** "The rope drops through a hole in the ceiling from the only bell in the district. Frayed at pulling height by six years of Reverend Sowerby's mornings."
+> **LOOK:** "The rope drops through a hole in the ceiling from the church's own bell. Frayed at pulling height by six years of Reverend Sowerby's mornings."
 > **LISTEN:** "The rope creaks against the beam. The bell above holds its breath."
 
 **THE BELL** *(heard, not seen)*

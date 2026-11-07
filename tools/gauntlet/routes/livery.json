@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "livery",
- "note": "A ROUTE to Room 15, the livery stable: Main Street's route to the letter, then the panel's MAP and the livery's place on it (doc 20: Room 15 is reached from the map).",
+ "note": "A ROUTE to Room 15: Main Street's route to the letter, then Lower Street (Room 43, errata 161: everything in town is walked now) and THE LIVERY DOORS.",
  "from": "stage_road",
  "actions": [
   {
@@ -107,40 +107,35 @@
   },
   {
    "do": "wait",
-   "seconds": 2,
-   "why": "let the arrival settle"
+   "seconds": 7,
+   "why": "the arrival under the title takes no clicks until it is done"
   },
   {
    "do": "click",
-   "at": [
-    554,
-    1052
-   ],
-   "why": "the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)"
+   "on": "to_claims_road",
+   "why": "LOWER STREET, at Main Street's east end (errata 161)"
   },
   {
    "do": "waitFor",
-   "room": "town_map",
-   "upTo": 20,
-   "why": "the map opens"
+   "room": "lower_street",
+   "upTo": 90,
+   "why": "along the road, and Room 43"
   },
   {
    "do": "wait",
-   "seconds": 1
+   "seconds": 3,
+   "why": "arrival"
   },
   {
    "do": "click",
-   "at": [
-    810,
-    472
-   ],
-   "why": "the livery's place on the map (content/rooms/town-map.json loc_livery: seen from Main Street)"
+   "on": "to_livery",
+   "why": "THE LIVERY DOORS"
   },
   {
    "do": "waitFor",
    "room": "livery",
    "upTo": 60,
-   "why": "travel, and Room 15"
+   "why": "in, and Room 15"
   },
   {
    "do": "wait",

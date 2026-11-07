@@ -1,0 +1,713 @@
+{
+  "schema": 1,
+  "id": "lower_street",
+  "name": "LOWER STREET",
+  "materialIdentity": "Wooden false fronts on a wide mud street at night, Main Street's palette further along: the Registrar's lit window, the white church, the livery's open doors (errata 161)",
+  "note": "Room 43, errata 43's Room 2b: Main Street's east end through the receding road. Built at errata 161 (Tyler: \"Lower Street and the Lane\"). Lines EXTRACTED from doc 97 by tools/extract-examine.mjs and compiled by tools/compile-room.mjs from reference/room-43/annotation.json.",
+  "background": "art/backgrounds/room-43-lower-street.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        40,
+        712,
+        1840,
+        47
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        40,
+        759,
+        1840,
+        46
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        40,
+        805,
+        1840,
+        47
+      ]
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "sump_s_window",
+      "name": "SUMP'S WINDOW",
+      "rect": [
+        398,
+        410,
+        90,
+        115
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The Claims Registrar's window, lit.",
+            "repeat": [
+              "Lamplight through old glass, gone wavy with age. Even the window has been made to wait.",
+              "The lamp is always lit. I have never seen anyone trim it. I suspect it is filed."
+            ],
+            "then": [
+              "Somewhere behind the glare is a man who has never once been surprised."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A pen, scratching, then a long pause, then a stamp.",
+            "repeat": [
+              "A page turning, very slowly. Somewhere in there a claim is being read to the last comma.",
+              "The stamp again. It is the most decisive sound in Consolation."
+            ],
+            "then": [
+              "The rhythm of a form being found incomplete."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "It doesn't open. The Registrar's business is done through the door, in the order received."
+      },
+      "walkTo": {
+        "x": 443,
+        "y": 801,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "trough",
+      "name": "THE TROUGH",
+      "rect": [
+        1525,
+        562,
+        185,
+        82
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A water trough with a skin of dust on it and a square of night sky in the middle.",
+            "repeat": [
+              "Horses drink from it, dogs drink from it, and one man, I suspect, late on Saturdays.",
+              "Planks, pitch and iron bands. It holds water the way this town holds a grudge: completely."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A slow drip from the seam, keeping its own time.",
+            "repeat": [
+              "Nothing. Still water, minding its business.",
+              "A moth on the surface, rowing for shore."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I washed my face in it. Now I'm dusty and wet, which out here passes for clean."
+      },
+      "walkTo": {
+        "x": 1618,
+        "y": 801,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "bell",
+      "name": "THE BELL",
+      "rect": [
+        955,
+        405,
+        85,
+        285
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A bell on a post by the church steps, with a dent where the mallet lands.",
+            "repeat": [
+              "Brass, gone green at the rim. Somebody polishes the dent and nothing else.",
+              "You can't tune a bell, not properly. I could still have a long talk with it."
+            ],
+            "then": [
+              "It was cast to a note, and it has been coming down off it ever since."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "It hums when the wind catches it. Even humming, it's low.",
+            "repeat": [
+              "I flicked it with a fingernail. Half a step flat, and comfortable there.",
+              "Nothing now. It's resting between insults to the scale."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I told it it was flat. It took it better than most of the people I've told things to here.",
+        "USE": "Not without the mallet, and not without the man who owns the mallet, and ideally not at all."
+      },
+      "walkTo": {
+        "x": 998,
+        "y": 801,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "livery",
+      "name": "THE LIVERY",
+      "rect": [
+        1230,
+        230,
+        500,
+        460
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The livery stable. The doors stand open on a lantern and a heap of hay.",
+            "repeat": [
+              "A hay loft over the doors, shut tight, as though the hay might make a run for it.",
+              "I could hire a horse, if I had the price of a horse's afternoon. I have about the price of its nap."
+            ],
+            "then": [
+              "The horses are further in, out of sight and, from the sound of them, out of patience."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Horses, shifting their weight and their opinions.",
+            "repeat": [
+              "A long, judgmental snort. I'm choosing to believe it was aimed at the street in general.",
+              "A bucket set down, and a horse investigating it."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1480,
+        "y": 801,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "church",
+      "name": "THE CHURCH",
+      "rect": [
+        640,
+        160,
+        460,
+        530
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The church, which on weekdays is the meeting hall and on most days is neither.",
+            "repeat": [
+              "The steps up to the doors. One has been replaced; the rest have been worn smooth by people arriving in a hurry and leaving slowly.",
+              "The belfry has a bell of its own, rung from inside on a rope. Out here the ringing is done by hand, from the post, at whatever hour the ringer feels it."
+            ],
+            "then": [
+              "The whitest thing in town, because it is the only thing anyone repaints."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing from inside. The pews are holding their breath for Sunday.",
+            "repeat": [
+              "The doors, ticking as the night cools them. Even the church settles.",
+              "Somewhere inside, a hymnal falling shut. Nobody there to have been reading it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I said a short word for my claim. It was received the way the Registrar receives things: in silence, and filed."
+      },
+      "walkTo": {
+        "x": 870,
+        "y": 801,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "street",
+      "name": "THE STREET",
+      "rect": [
+        0,
+        690,
+        1920,
+        174
+      ],
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Main Street's mud, continued. Out here it has stopped trying to impress anyone.",
+            "repeat": [
+              "Wheel ruts, swinging wide around the corner. Every wagon in town takes it the long way, out of respect.",
+              "The far end of town. In Providence this is where the better houses would be. Here it is where the street gives up and becomes a road."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Quieter than Main Street. The piano is a rumor from here.",
+            "repeat": [
+              "Hooves in the livery, and the mud settling after them.",
+              "A dog, two streets over, objecting to something on principle."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "Lower Street's mud is Main Street's, only less looked at. I'll leave it its privacy."
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_main_street",
+      "name": "THE ROAD BACK TO MAIN STREET",
+      "rect": [
+        0,
+        300,
+        150,
+        390
+      ],
+      "colour": 0,
+      "to": "main_street",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 43: west, back along the receding road to Main Street's east end.",
+      "stub": true,
+      "walkTo": {
+        "x": 60,
+        "y": 790,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "to_claims_registrar",
+      "name": "THE REGISTRAR'S DOOR",
+      "rect": [
+        248,
+        395,
+        104,
+        295
+      ],
+      "colour": 0,
+      "to": "claims_registrar",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 43: the Claims Registrar opens off Lower Street.",
+      "stub": true,
+      "walkTo": {
+        "x": 300,
+        "y": 720,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "to_back_alley",
+      "name": "THE ALLEY",
+      "rect": [
+        530,
+        330,
+        90,
+        360
+      ],
+      "colour": 0,
+      "to": "back_alley",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 43: Room 20, the back alley, opens off Lower Street.",
+      "stub": true,
+      "walkTo": {
+        "x": 575,
+        "y": 718,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "to_church",
+      "name": "THE CHURCH DOORS",
+      "rect": [
+        812,
+        360,
+        116,
+        300
+      ],
+      "colour": 0,
+      "to": "church",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 43: the church and meeting hall.",
+      "stub": true,
+      "walkTo": {
+        "x": 870,
+        "y": 718,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "to_the_lane",
+      "name": "THE PASSAGE TO THE LANE",
+      "rect": [
+        1120,
+        360,
+        90,
+        330
+      ],
+      "colour": 0,
+      "to": "the_lane",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 43: the Lane connects through to Lower Street at its far end.",
+      "stub": true,
+      "walkTo": {
+        "x": 1165,
+        "y": 718,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "to_livery",
+      "name": "THE LIVERY DOORS",
+      "rect": [
+        1380,
+        370,
+        135,
+        320
+      ],
+      "colour": 0,
+      "to": "livery",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 43: the livery stable.",
+      "stub": true,
+      "walkTo": {
+        "x": 1448,
+        "y": 722,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "to_claims_road",
+      "name": "THE ROAD OUT OF TOWN",
+      "rect": [
+        1760,
+        330,
+        160,
+        360
+      ],
+      "colour": 0,
+      "to": "claims_road",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 161: the road out to the claims, which Main Street's east road was before.",
+      "stub": true,
+      "walkTo": {
+        "x": 1860,
+        "y": 790,
+        "facing": "right"
+      }
+    }
+  ],
+  "entrances": [
+    {
+      "from": "main_street",
+      "at": [
+        120,
+        790
+      ],
+      "facing": "right",
+      "note": "In along the road from Main Street, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        120,
+        790
+      ],
+      "facing": "right",
+      "note": "In from Main Street."
+    },
+    {
+      "from": "claims_registrar",
+      "at": [
+        300,
+        740
+      ],
+      "facing": "front",
+      "note": "Out of the Registrar's door."
+    },
+    {
+      "from": "back_alley",
+      "at": [
+        575,
+        735
+      ],
+      "facing": "front",
+      "note": "Out of the alley mouth."
+    },
+    {
+      "from": "church",
+      "at": [
+        870,
+        740
+      ],
+      "facing": "front",
+      "note": "Down the church steps."
+    },
+    {
+      "from": "the_lane",
+      "at": [
+        1165,
+        735
+      ],
+      "facing": "front",
+      "note": "Out of the passage from the Lane."
+    },
+    {
+      "from": "livery",
+      "at": [
+        1448,
+        745
+      ],
+      "facing": "front",
+      "note": "Out of the livery's doors."
+    },
+    {
+      "from": "claims_road",
+      "at": [
+        1830,
+        800
+      ],
+      "facing": "left",
+      "note": "In along the road from the claims, at right."
+    }
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "ambient": [
+    "bell_ringer"
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-43.json",
+      "reference/room-43/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkableOutline": [
+    [
+      40,
+      712
+    ],
+    [
+      1880,
+      712
+    ],
+    [
+      1880,
+      852
+    ],
+    [
+      40,
+      852
+    ]
+  ],
+  "entrance": [
+    120,
+    790
+  ],
+  "peopleResponses": {
+    "bell_ringer": {
+      "PICK_UP": [
+        {
+          "say": "I am not going to pick up the bell-ringer. He is the only thing holding the bell up, morally."
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "He sways enough on his own. I'm not going to add a vote."
+        }
+      ],
+      "USE": [
+        {
+          "say": "He has one use, and he is already putting it to work, half a step flat."
+        }
+      ]
+    }
+  },
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 40,
+          "y": 712
+        },
+        {
+          "x": 1880,
+          "y": 712
+        },
+        {
+          "x": 1880,
+          "y": 759
+        },
+        {
+          "x": 40,
+          "y": 759
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 705,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 40,
+          "y": 759
+        },
+        {
+          "x": 1880,
+          "y": 759
+        },
+        {
+          "x": 1880,
+          "y": 805
+        },
+        {
+          "x": 40,
+          "y": 805
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 705,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 40,
+          "y": 805
+        },
+        {
+          "x": 1880,
+          "y": 805
+        },
+        {
+          "x": 1880,
+          "y": 852
+        },
+        {
+          "x": 40,
+          "y": 852
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 705,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "registrar_window",
+      "at": [
+        415,
+        485
+      ],
+      "radius": 300,
+      "amount": 0.09,
+      "rate": 0.27,
+      "phase": 0.1,
+      "note": "Sump's lamp."
+    },
+    {
+      "id": "livery_doors",
+      "at": [
+        1490,
+        520
+      ],
+      "radius": 380,
+      "amount": 0.08,
+      "rate": 0.21,
+      "phase": 0.6,
+      "note": "The stable's lamplight through the open doors."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-43/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

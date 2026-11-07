@@ -329,6 +329,7 @@ export class GameScene extends Phaser.Scene {
   private barkLines: string[] = [];
   /** The last break that spoke, so a clock-derived break fires its line once. */
   private spokenBreak: string | null = null;
+  private soundedBreak: string | null = null;
   private barkAt: { x: number; y: number } | null = null;
   private barkTimer?: Phaser.Time.TimerEvent;
   private barkChain?: Phaser.Time.TimerEvent;
@@ -859,6 +860,7 @@ export class GameScene extends Phaser.Scene {
     }
 
     this.speakingBreaks();
+    this.soundingBreaks();
 
     // A CONVERSATION THAT CLOSES HANDS THE POINTER BACK TO THE ROOM (errata
     // 143): the sentence line names what is under it now, not what it named
@@ -3775,6 +3777,27 @@ export class GameScene extends Phaser.Scene {
       this.spokenBreak = token;
       const line = this.ambient.barkFor(npc);
       if (line) this.showBark(npc.name, line, npc.x, this.barkFoot(npc));
+    }
+  }
+
+  /**
+   * An ambient character whose break makes a sound, making it (sprite.breakCues):
+   * the bell-ringer's strike sounds the bell (doc 07 #4; errata 161). Fired once
+   * as the break begins, by which cycle it is, as a speaking break is; the
+   * cue's own `at` lands it on the frame the blow falls.
+   */
+  private soundingBreaks(): void {
+    for (const npc of this.ambient.present) {
+      const cues = npc.sprite?.breakCues;
+      if (!cues) continue;
+      const playing = this.view.ambientBreak(npc);
+      if (!playing || playing.step !== 0) continue;
+      const cue = cues[String(playing.index)];
+      if (!cue) continue;
+      const token = npc.id + ':' + String(Math.floor(this.time.now / 1000));
+      if (this.soundedBreak === token) continue;
+      this.soundedBreak = token;
+      this.fireCue(cue);
     }
   }
 

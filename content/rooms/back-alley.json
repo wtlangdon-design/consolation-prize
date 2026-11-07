@@ -505,7 +505,7 @@
   "exits": [
     {
       "id": "to_main_street",
-      "name": "MAIN STREET",
+      "name": "LOWER STREET",
       "stub": true,
       "rect": [
         150,
@@ -514,11 +514,11 @@
         440
       ],
       "colour": 0,
-      "to": "main_street",
+      "to": "lower_street",
       "responses": {},
       "fallback": [],
       "defaultVerb": "WALK_TO",
-      "note": "Doc 20: the one way back, to Main Street's east end. NO DOCUMENT WRITES THIS WAY OUT from the alley. A stub exit, as Rooms 6, 8, 9 and 10's are (doc 36 Q163).",
+      "note": "Errata 161 (errata 43's three streets): the alley opens off Lower Street.",
       "walkTo": {
         "x": 200,
         "y": 720,
@@ -575,6 +575,15 @@
       ],
       "facing": "left",
       "note": "Back from the watchman's shack, at the alley's far end."
+    },
+    {
+      "from": "lower_street",
+      "at": [
+        260,
+        740
+      ],
+      "facing": "right",
+      "note": "Errata 161: in through the gap from Lower Street, at left."
     }
   ],
   "size": [

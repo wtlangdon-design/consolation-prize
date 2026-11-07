@@ -128,18 +128,6 @@
    "note": "Doc 20: Mott's supposed site, 'via 22'. On the map once Thad has walked the road to the claims (errata 99 A)."
   },
   {
-   "id": "loc_undertaker",
-   "room": "undertaker",
-   "at": [
-    330,
-    345
-   ],
-   "when": {
-    "T_UNDERTAKER_NAMED": true
-   },
-   "note": "ERRATA 31b and doc 20 rule 3: heard of, not visited. The driver names him and nobody else in Act I does. Room 13 is composed now, so the label comes from the room's own name."
-  },
-  {
    "id": "loc_boot_hill",
    "room": "boot_hill",
    "at": [
@@ -150,74 +138,6 @@
     "T_PIKE_DEAD": true
    },
    "note": "ERRATA 31b. Doc 20's 'once Pike is mentioned' is VOID: Thad names Ezra Pike to the driver in the opening, and gating on that would put Boot Hill on the map at the coach stop and break 30c's floor of two. It gates on the undertaker saying he is dead."
-  },
-  {
-   "id": "loc_registrar",
-   "room": "claims_registrar",
-   "at": [
-    700,
-    345
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   }
-  },
-  {
-   "id": "loc_livery",
-   "room": "livery",
-   "at": [
-    810,
-    472
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   }
-  },
-  {
-   "id": "loc_tent",
-   "room": "ozymandias_tent",
-   "at": [
-    950,
-    585
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   }
-  },
-  {
-   "id": "loc_church",
-   "room": "church",
-   "at": [
-    600,
-    350
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   }
-  },
-  {
-   "id": "loc_back_alley",
-   "room": "back_alley",
-   "at": [
-    770,
-    500
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   }
-  },
-  {
-   "id": "loc_barber",
-   "room": "barber",
-   "at": [
-    350,
-    462
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   },
-   "label": "THE BARBER'S",
-   "unbuilt": true
   },
   {
    "id": "loc_boarding_house",
@@ -233,19 +153,6 @@
    "unbuilt": true
   },
   {
-   "id": "loc_photographer",
-   "room": "photographer",
-   "at": [
-    570,
-    535
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   },
-   "label": "THE PHOTOGRAPHER'S",
-   "unbuilt": true
-  },
-  {
    "id": "loc_bakehouse",
    "room": "bakehouse",
    "at": [
@@ -256,19 +163,6 @@
     "T_SEEN_MAIN_STREET": true
    },
    "label": "THE BAKEHOUSE",
-   "unbuilt": true
-  },
-  {
-   "id": "loc_storefront",
-   "room": "empty_storefront",
-   "at": [
-    720,
-    462
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   },
-   "label": "THE EMPTY STOREFRONT",
    "unbuilt": true
   },
   {
@@ -286,5 +180,17 @@
   }
  ],
  "pendingLocations": [],
- "locationsNote": "MARKERS RE-PLACED against the 1920x864 district map. The old positions were authored on the 320x144 plan errata 54 retired, so on the new drawing boot_hill sat out among the mine works while the graveyard is fenced at the top, back_alley and storefront were up on the diggings, and half the town stood in open grass. Every check passed on that: nothing can verify a marker lands on a building.\n\nPlaced from doc 20's graph and the drawing rather than by eye alone. The two that are not judgement calls: the church is the white steeple, and Boot Hill is the fenced graveyard. The rest follow the script -- the back alley is behind Main Street's EAST end because that is where doc 20 puts the back lots; the six ancillary interiors sit along the side lane south of the street; the empty storefront is at the street's end, which is where an empty one would be; the livery is at the road out, because horses need the road; Ozymandia's tent is on open flat outside town, because a showman pitches off the street; and the claims road is the fork where the road divides for the diggings.\n\nINFERRED, NOT AUTHORED. Which particular facade is the barber's is not written anywhere. tools/map/place-markers.html moves any of them."
+ "locationsNote": "MARKERS RE-PLACED against the 1920x864 district map. The old positions were authored on the 320x144 plan errata 54 retired, so on the new drawing boot_hill sat out among the mine works while the graveyard is fenced at the top, back_alley and storefront were up on the diggings, and half the town stood in open grass. Every check passed on that: nothing can verify a marker lands on a building.\n\nPlaced from doc 20's graph and the drawing rather than by eye alone. The two that are not judgement calls: the church is the white steeple, and Boot Hill is the fenced graveyard. The rest follow the script -- the back alley is behind Main Street's EAST end because that is where doc 20 puts the back lots; the six ancillary interiors sit along the side lane south of the street; the empty storefront is at the street's end, which is where an empty one would be; the livery is at the road out, because horses need the road; Ozymandia's tent is on open flat outside town, because a showman pitches off the street; and the claims road is the fork where the road divides for the diggings.\n\nINFERRED, NOT AUTHORED. Which particular facade is the barber's is not written anywhere. tools/map/place-markers.html moves any of them.",
+ "removedLocations": [
+  "loc_back_alley",
+  "loc_barber",
+  "loc_church",
+  "loc_livery",
+  "loc_photographer",
+  "loc_registrar",
+  "loc_storefront",
+  "loc_tent",
+  "loc_undertaker"
+ ],
+ "removedLocationsNote": "Errata 161 (errata 43): everything in town is walked now. The Registrar's, the church, the livery and the back alley open off Lower Street; the undertaker's and the tent off the Lane, where the barber's, the photographer's and the empty storefront are shopfronts. The map keeps long-distance travel and the interiors that sit on no street (the boarding house, the bakehouse, the schoolhouse)."
 }

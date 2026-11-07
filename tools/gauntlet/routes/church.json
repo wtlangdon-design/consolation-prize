@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "church",
- "note": "A ROUTE to Room 17, the church: Main Street's route to the letter, then the panel's MAP and the church's place on it (doc 20).",
+ "note": "A ROUTE to Room 17: Main Street's route to the letter, then Lower Street (Room 43, errata 161: everything in town is walked now) and THE CHURCH DOORS.",
  "from": "stage_road",
  "actions": [
   {
@@ -107,40 +107,35 @@
   },
   {
    "do": "wait",
-   "seconds": 2,
-   "why": "let the arrival settle"
+   "seconds": 7,
+   "why": "the arrival under the title takes no clicks until it is done"
   },
   {
    "do": "click",
-   "at": [
-    554,
-    1052
-   ],
-   "why": "the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)"
+   "on": "to_claims_road",
+   "why": "LOWER STREET, at Main Street's east end (errata 161)"
   },
   {
    "do": "waitFor",
-   "room": "town_map",
-   "upTo": 20,
-   "why": "the map opens"
+   "room": "lower_street",
+   "upTo": 90,
+   "why": "along the road, and Room 43"
   },
   {
    "do": "wait",
-   "seconds": 1
+   "seconds": 3,
+   "why": "arrival"
   },
   {
    "do": "click",
-   "at": [
-    600,
-    350
-   ],
-   "why": "the church's place on the map (content/rooms/town-map.json loc_church)"
+   "on": "to_church",
+   "why": "THE CHURCH DOORS"
   },
   {
    "do": "waitFor",
    "room": "church",
    "upTo": 60,
-   "why": "travel, and Room 17"
+   "why": "in, and Room 17"
   },
   {
    "do": "wait",

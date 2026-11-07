@@ -87,7 +87,7 @@
         800
       ],
       "facing": "right",
-      "note": "In by the flap, at left: the map leads here."
+      "note": "In by the flap, at left: the Lane leads here."
     }
   ],
   "ambient": [
@@ -793,7 +793,7 @@
         620
       ],
       "colour": 0,
-      "to": "town_map",
+      "to": "the_lane",
       "responses": {
         "LOOK_AT": [
           {
@@ -816,7 +816,7 @@
       },
       "fallback": [],
       "defaultVerb": "WALK_TO",
-      "note": "Doc 20: the tent is reached by the map, and its flap leads back to it. Doc 05 and doc 54 write the flap's LOOK and LISTEN.",
+      "note": "Errata 161 (errata 43's three streets): the tent stands in a lot off the Lane.",
       "walkTo": {
         "x": 240,
         "y": 790,

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "ozymandias_tent",
- "note": "A ROUTE to Room 16, Madame Ozymandia's tent: Main Street's route to the letter, then the panel's MAP and the tent's place on it (doc 20).",
+ "note": "A ROUTE to Room 16: Main Street's route to the letter, then the Lane (Room 44, errata 161: everything in town is walked now) and THE TENT FLAP.",
  "from": "stage_road",
  "actions": [
   {
@@ -107,40 +107,107 @@
   },
   {
    "do": "wait",
-   "seconds": 2,
-   "why": "let the arrival settle"
+   "seconds": 7,
+   "why": "the arrival under the title takes no clicks until it is done"
   },
   {
    "do": "click",
-   "at": [
-    554,
-    1052
+   "world": [
+    1900,
+    830
    ],
-   "why": "the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)"
-  },
-  {
-   "do": "waitFor",
-   "room": "town_map",
-   "upTo": 20,
-   "why": "the map opens"
+   "why": "west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
   },
   {
    "do": "wait",
    "seconds": 1
   },
   {
+   "do": "waitFor",
+   "still": "thad",
+   "upTo": 60,
+   "why": "until he stops, and the camera with him"
+  },
+  {
    "do": "click",
-   "at": [
-    950,
-    585
+   "world": [
+    1300,
+    830
    ],
-   "why": "the tent's place on the map (content/rooms/town-map.json loc_tent)"
+   "why": "west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "waitFor",
+   "still": "thad",
+   "upTo": 60,
+   "why": "until he stops, and the camera with him"
+  },
+  {
+   "do": "click",
+   "world": [
+    700,
+    830
+   ],
+   "why": "west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "waitFor",
+   "still": "thad",
+   "upTo": 60,
+   "why": "until he stops, and the camera with him"
+  },
+  {
+   "do": "click",
+   "world": [
+    150,
+    830
+   ],
+   "why": "west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "waitFor",
+   "still": "thad",
+   "upTo": 60,
+   "why": "until he stops, and the camera with him"
+  },
+  {
+   "do": "click",
+   "on": "to_back_alley",
+   "why": "THE LANE, at Main Street's west end (errata 161)"
+  },
+  {
+   "do": "waitFor",
+   "room": "the_lane",
+   "upTo": 90,
+   "why": "through, and Room 44"
+  },
+  {
+   "do": "wait",
+   "seconds": 3,
+   "why": "arrival"
+  },
+  {
+   "do": "click",
+   "on": "to_ozymandias_tent",
+   "why": "THE TENT FLAP"
   },
   {
    "do": "waitFor",
    "room": "ozymandias_tent",
    "upTo": 60,
-   "why": "travel, and Room 16"
+   "why": "in, and Room 16"
   },
   {
    "do": "wait",

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "claims_registrar",
- "note": "A ROUTE to Room 7, the claims registrar: Main Street's route to the letter, then the panel's MAP and the registrar's place on it (doc 20: Room 7 is reached from the map; errata 43's Lower Street is not built).",
+ "note": "A ROUTE to Room 7: Main Street's route to the letter, then Lower Street (Room 43, errata 161: everything in town is walked now) and THE REGISTRAR'S DOOR.",
  "from": "stage_road",
  "actions": [
   {
@@ -107,45 +107,40 @@
   },
   {
    "do": "wait",
-   "seconds": 2,
-   "why": "let the arrival settle"
+   "seconds": 7,
+   "why": "the arrival under the title takes no clicks until it is done"
   },
   {
    "do": "click",
-   "at": [
-    554,
-    1052
-   ],
-   "why": "the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)"
+   "on": "to_claims_road",
+   "why": "LOWER STREET, at Main Street's east end (errata 161)"
   },
   {
    "do": "waitFor",
-   "room": "town_map",
-   "upTo": 20,
-   "why": "the map opens"
+   "room": "lower_street",
+   "upTo": 90,
+   "why": "along the road, and Room 43"
   },
   {
    "do": "wait",
-   "seconds": 1
+   "seconds": 3,
+   "why": "arrival"
   },
   {
    "do": "click",
-   "at": [
-    700,
-    345
-   ],
-   "why": "the registrar's place on the map (content/rooms/town-map.json loc_registrar)"
+   "on": "to_claims_registrar",
+   "why": "THE REGISTRAR'S DOOR"
   },
   {
    "do": "waitFor",
    "room": "claims_registrar",
    "upTo": 60,
-   "why": "travel, and Room 7"
+   "why": "in, and Room 7"
   },
   {
    "do": "wait",
    "seconds": 3,
-   "why": "arrival by the street door"
+   "why": "arrival"
   }
  ]
 }

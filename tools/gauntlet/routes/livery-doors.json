@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "livery",
- "note": "DOC 46 4.13's GAMEPLAY PASS for Room 15: in by the map (the spec's entry route), then out by the stable doors, which open the map, and back by the map, twice. Each capture asserts the room it should be in.",
+ "note": "DOC 46 4.13's GAMEPLAY PASS for Room 15: in from Lower Street (errata 161), then out to it and back in, twice. Each capture asserts the room it should be in.",
  "actions": [
   {
    "do": "capture",
@@ -10,29 +10,26 @@
   {
    "do": "click",
    "on": "stable_doors",
-   "why": "THE STABLE DOORS -- out, to the map"
+   "why": "out, to Lower Street"
   },
   {
    "do": "waitFor",
-   "room": "town_map",
+   "room": "lower_street",
    "upTo": 60
   },
   {
    "do": "wait",
-   "seconds": 1
+   "seconds": 2
   },
   {
    "do": "capture",
    "name": "01-out",
-   "room": "town_map"
+   "room": "lower_street"
   },
   {
    "do": "click",
-   "at": [
-    810,
-    472
-   ],
-   "why": "the livery's marker"
+   "on": "to_livery",
+   "why": "and back in by THE LIVERY DOORS"
   },
   {
    "do": "waitFor",
@@ -50,29 +47,26 @@
   {
    "do": "click",
    "on": "stable_doors",
-   "why": "THE STABLE DOORS -- out, to the map"
+   "why": "out, to Lower Street"
   },
   {
    "do": "waitFor",
-   "room": "town_map",
+   "room": "lower_street",
    "upTo": 60
   },
   {
    "do": "wait",
-   "seconds": 1
+   "seconds": 2
   },
   {
    "do": "capture",
    "name": "02-out",
-   "room": "town_map"
+   "room": "lower_street"
   },
   {
    "do": "click",
-   "at": [
-    810,
-    472
-   ],
-   "why": "the livery's marker"
+   "on": "to_livery",
+   "why": "and back in by THE LIVERY DOORS"
   },
   {
    "do": "waitFor",

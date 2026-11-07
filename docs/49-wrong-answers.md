@@ -251,7 +251,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE BELL** · USE — "Not without the mallet, and not without the man who owns the mallet, and ideally not at all."
 **THE CHURCH** · TALK_TO — "I said a short word for my claim. It was received the way the Registrar receives things: in silence, and filed."
 **SUMP'S WINDOW** · OPEN — "It doesn't open. The Registrar's business is done through the door, in the order received."
-**THE TROUGH** · USE — "I washed my face in it. The moon came off on my hands."
+**THE TROUGH** · USE — "I washed my face in it. Now I'm dusty and wet, which out here passes for clean."
 **THE STREET** · PICK_UP — "Lower Street's mud is Main Street's, only less looked at. I'll leave it its privacy."
 
 ## ROOM 44 — THE LANE

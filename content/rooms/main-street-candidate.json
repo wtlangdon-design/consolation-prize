@@ -588,7 +588,7 @@
     },
     {
       "id": "to_claims_road",
-      "name": "THE ROAD TO THE CLAIMS",
+      "name": "LOWER STREET",
       "rect": [
         3390,
         380,
@@ -596,7 +596,7 @@
         240
       ],
       "colour": 12,
-      "to": "claims_road",
+      "to": "lower_street",
       "responses": {
         "LOOK_AT": [
           {
@@ -628,7 +628,8 @@
         "x": 3480,
         "y": 640,
         "facing": "right"
-      }
+      },
+      "note": "Errata 161 (errata 43's three streets): as main_street."
     },
     {
       "id": "to_assay_office",
@@ -1284,6 +1285,15 @@
         620
       ],
       "facing": "front"
+    },
+    {
+      "from": "lower_street",
+      "at": [
+        3480,
+        640
+      ],
+      "facing": "front",
+      "note": "Errata 161: as main_street."
     }
   ],
   "lamps": [
