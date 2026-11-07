@@ -1,0 +1,13 @@
+{
+ "assetId": "fanshawe-closeup",
+ "subject": "fanshawe-closeup",
+ "role": "canonical-design",
+ "promptFile": "reference/fanshawe-closeup/op-1.txt",
+ "out": "art/staging/fanshawe-closeup/rest-source.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/fanshawe-closeup/fanshawe-rest-frame-x3.png",
+  "reference/fanshawe-closeup/fanshawe-in-his-office-at-game-size.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-07: 'Fanshawe only (Recommended)' and 'Go ahead' to the blink -- fanshawe-closeup, cap 3 (errata 159, 160)"
+}

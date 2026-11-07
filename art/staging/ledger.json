@@ -32184,6 +32184,166 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-07T05:39:28.569Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "fanshawe-closeup",
+   "subject": "fanshawe-closeup",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/fanshawe-closeup/op-1.txt",
+   "promptHash": "5dee91068905d98ec5a7760dcf0f62abce667446dc4cd0522dfba3efe12d4a82",
+   "references": [
+    {
+     "path": "reference/fanshawe-closeup/fanshawe-rest-frame-x3.png",
+     "hash": "483bde2f902cf3287080f50c3f993519c7b0ddf68d426dd1859d7119a293b12d",
+     "transmitted": true
+    },
+    {
+     "path": "reference/fanshawe-closeup/fanshawe-in-his-office-at-game-size.png",
+     "hash": "9074fcc96771f6003d5179633bc9c3629126a6c761fc51502b660a8f4a5acf70",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "483bde2f902cf3287080f50c3f993519c7b0ddf68d426dd1859d7119a293b12d",
+   "sourcePath": "reference/fanshawe-closeup/fanshawe-rest-frame-x3.png",
+   "out": "art/staging/fanshawe-closeup/rest-source.png",
+   "outputHash": "90fde8e76cee6f856a62ce0c66498970582f8821e356802182415029c6306c96",
+   "bytes": 1599306,
+   "usage": {
+    "input_tokens": 2809,
+    "input_tokens_details": {
+     "image_tokens": 2340,
+     "text_tokens": 469
+    },
+    "output_tokens": 158,
+    "output_tokens_details": {
+     "image_tokens": 158,
+     "text_tokens": 0
+    },
+    "total_tokens": 2967
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-07T20:50:32.078Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-07: 'Fanshawe only (Recommended)' and 'Go ahead' to the blink -- fanshawe-closeup, cap 3 (errata 159, 160)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-07T20:50:32.092Z"
+  },
+  {
+   "attempt": 2,
+   "role": "derived-state",
+   "assetId": "fanshawe-closeup",
+   "subject": "fanshawe-closeup",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 1,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/fanshawe-closeup/op-2.txt",
+   "promptHash": "ea19dceefaaf6b39f991c5aaf564cbb4cb93856867c4d5f3f183553bf791db15",
+   "references": [
+    {
+     "path": "art/staging/fanshawe-closeup/rest-source.png",
+     "hash": "90fde8e76cee6f856a62ce0c66498970582f8821e356802182415029c6306c96",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "90fde8e76cee6f856a62ce0c66498970582f8821e356802182415029c6306c96",
+   "sourcePath": "art/staging/fanshawe-closeup/rest-source.png",
+   "out": "art/staging/fanshawe-closeup/talk-source.png",
+   "outputHash": "b974f0cb0338efccf6088ac9b9f5ddceb722dd2017620518682446e4d77df003",
+   "bytes": 1727169,
+   "usage": {
+    "input_tokens": 1619,
+    "input_tokens_details": {
+     "image_tokens": 1536,
+     "text_tokens": 83
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 3170
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-07T20:51:52.237Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-07: 'Fanshawe only (Recommended)' and 'Go ahead' to the blink -- fanshawe-closeup, cap 3 (errata 159, 160)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-07T20:51:52.245Z"
+  },
+  {
+   "attempt": 3,
+   "role": "derived-state",
+   "assetId": "fanshawe-closeup",
+   "subject": "fanshawe-closeup",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 1,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/fanshawe-closeup/op-3.txt",
+   "promptHash": "47c51b48c572248eb13f28dc0686cc1e9a4f665e0d1ac198bb56740bba0e8243",
+   "references": [
+    {
+     "path": "art/staging/fanshawe-closeup/rest-source.png",
+     "hash": "90fde8e76cee6f856a62ce0c66498970582f8821e356802182415029c6306c96",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "90fde8e76cee6f856a62ce0c66498970582f8821e356802182415029c6306c96",
+   "sourcePath": "art/staging/fanshawe-closeup/rest-source.png",
+   "out": "art/staging/fanshawe-closeup/blink-source.png",
+   "outputHash": "303f7a96eabb7f4e2330ce5e898f6598f232c227452a2693a0fa413c1b72112e",
+   "bytes": 1556575,
+   "usage": {
+    "input_tokens": 1602,
+    "input_tokens_details": {
+     "image_tokens": 1536,
+     "text_tokens": 66
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 2035
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-07T20:52:34.920Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-07: 'Fanshawe only (Recommended)' and 'Go ahead' to the blink -- fanshawe-closeup, cap 3 (errata 159, 160)",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-07T20:52:34.927Z"
   }
  ],
  "promotions": [

@@ -104,6 +104,25 @@
         "gain": 0.6,
         "rate": 0.84
       },
+      "closeup": {
+        "frames": [
+          "art/cutaways/fanshawe-closeup-rest.png",
+          "art/cutaways/fanshawe-closeup-talk.png",
+          "art/cutaways/fanshawe-closeup-blink.png"
+        ],
+        "push": 0.06,
+        "pushSeconds": 22,
+        "focus": [
+          955,
+          355
+        ],
+        "lamp": {
+          "x": 1690,
+          "y": 698,
+          "radius": 620,
+          "strength": 0.22
+        }
+      },
       "lines": [
         {
           "speaker": "fanshawe",
