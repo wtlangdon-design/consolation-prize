@@ -31,22 +31,22 @@
 
 ## The directions
 
-Counts: **A 19 · B 1 · C 47** — 67 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 20 · B 0 · C 47** — 67 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
 | 1 | A | fanshawe | He puts on his hat. | assay/assay duel_three | duel_fanshawe | 4 | 1.5 |  |  | His frame 4 is the hat (errata 131 B). Already acted; now read from here. |
 | 2 | A | sump | Stamp. | combinations (deed on counter, at the filing) | sump | 3 0 | 1.2 |  | U-STAMP @2 | Frame 3 raises the stamp; it comes down on 0, with the approved stamp (doc 45 U-STAMP: "where the writing says one does"). |
 | 3 | C | thad | Thad swings. The head flies off into the dark and lands somewhere he cannot see. | combinations (pickaxe on every_rock_surface, first) |  |  |  |  |  | The swing is physical, but the joke is where the head goes: into a dark the player cannot see either. Acting it would show a man swinging at nothing. |
-| 4 | A | thad | He finds it and fits it back. | combinations (pickaxe on every_rock_surface, first) | thad:pick-fit | 1 1 2 0 | 2.0 |  |  | Crouched in the dark, feeling the ground for the head with the bare handle in his other hand (1), then the mended pick held across him (2), and standing again (0, his stand-back frame) for his line. Cast-unify 75 (errata 148); its fitting pose lost the handle and is not used, so the fit itself happens between 1 and 2. |
+| 4 | A | thad | He finds it and fits it back. | combinations (pickaxe on every_rock_surface, first) | thad:pick-fit | 1 1 2 3 0 | 2.5 |  |  | Crouched in the dark, feeling the ground for the head with the bare handle in his other hand (1), fitting the head onto the upright handle (2), the pick whole (3), and standing again (0, his stand-back frame) for his line. Cast-unify 75 and 77 (errata 148). |
 | 5 | C | thad | The head comes off again, gently, as if apologizing. | combinations (pickaxe on every_rock_surface, second) |  |  |  |  |  | "As if apologizing" is the joke, and it is the pick's, not a figure's. |
-| 6 | A | thad | He fits it back. | combinations (pickaxe on every_rock_surface, second) | thad:pick-fit | 2 0 | 1.2 |  |  | The mended pick held across him (2), and standing again (0). As the first fit, cast-unify 75. |
+| 6 | A | thad | He fits it back. | combinations (pickaxe on every_rock_surface, second) | thad:pick-fit | 2 3 0 | 1.5 |  |  | Fitting the head on again (2), the pick whole (3), and standing (0). As the first fit. |
 | 7 | C | thad | Thad holds the head on with one hand and swings with the other. The rock gives. Warm air comes through, and behind it a dark that goes a long way down. | combinations (pickaxe on every_rock_surface, third) |  |  |  |  |  | Mostly what the rock does, and Room 34's second state already shows the result. |
 | 8 | C | thad | A piece of the wall comes away in his hand. It is much heavier than a piece of wall should be. | combinations (pickaxe on every_rock_surface, third) |  |  |  |  |  | "Much heavier than a piece of wall should be" is the clue and the joke; no pose shows weight. |
 | 9 | C | sump | Stamp. Thad is alive. | combinations (death_certificate on counter, at the filing) |  |  |  |  |  | "Thad is alive." is the punchline, and a stamp cannot say it. |
 | 10 | A | winnie | She signs beside it. | combinations (sample on counter, at the filing) | winnie_registrar | 7 7 0 | 1.5 |  |  | Her frame 7 signs a paper on the closed book at her end of the counter, head bent (cast-unify 71, errata 148). |
 | 11 | A | boundary_b | They resume immediately. | dialogue/amb-boundary-men root option 2 | boundary_b, boundary_a | 2 3 2 3 | 2.0 |  |  | Both men point and argue again at once (their frames 2 and 3). "Immediately" is what the player sees. |
-| 12 | B | deke_vessel | He looks at the watch. | dialogue/deke-vessel root option 4 | deke_vessel |  |  |  |  | None of Deke's five frames looks down at a watch. Cast-unify 74 drew the look with the watch in his own hand and another man's face, and the cap was spent; it waits for Tyler (errata 148). |
+| 12 | A | deke_vessel | He looks at the watch. | dialogue/deke-vessel root option 4 | deke_vessel | 5 | 1.2 |  |  | His head bent to the watch Thad holds out across the barrel, his hands still at his belt (frame 5; cast-unify 76, errata 148). |
 | 13 | A | deke_vessel | He finishes his drink, collects his hat, and leaves the Nugget. | dialogue/deke-vessel root option 6 | deke_vessel | 3 | 1.0 |  |  | His hat (frame 3), then the walk out of the Nugget he already has when T_SWINDLED lands (doc 57 A3). The drink is not shown. |
 | 14 | C | fanshawe | He knows exactly who is in the Nugget. | dialogue/fanshawe FAN_A0 option 3 |  |  |  |  |  | Narration: what he knows. |
 | 15 | C | fanshawe | He gives the map anyway. It has Claim Two circled. | dialogue/fanshawe FAN_A1 option 2 |  |  |  |  |  | "Claim Two circled" is information the player needs, and only words carry it. |

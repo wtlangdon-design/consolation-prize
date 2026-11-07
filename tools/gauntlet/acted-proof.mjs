@@ -39,6 +39,7 @@ const scenarios = {
   'pratt-hat': { fixture: 'r25-b', steps: [{ talk: 'pratt' }, { option: 'pratt7' }, { option: 'pratt5' }], burst: 14 },
   'pratt-boots': { fixture: 'r25-c', steps: [{ enter: 'prosperity' }, { talk: 'pratt_jump' }, { option: 'pratt3' }], burst: 12 },
   'pick-fit': { fixture: 'r33-b', steps: [{ use: 'pickaxe', on: 'every_rock_surface' }], burst: 24 },
+  'deke-watch': { fixture: 'r5-a', steps: [{ enter: 'nugget' }, { talk: 'deke_vessel' }, { option: 'deke_vessel2' }, { option: 'deke_vessel3' }, { option: 'deke_vessel4' }], burst: 12 },
   'deke': { fixture: 'r5-a', steps: [{ enter: 'nugget' }, { talk: 'deke_vessel' }, { option: 'deke_vessel2' }, { option: 'deke_vessel3' }, { option: 'deke_vessel4' }, { option: 'deke_vessel6' }], burst: 12 },
 };
 

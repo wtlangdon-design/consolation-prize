@@ -1,6 +1,6 @@
 """The acted directions' poses (reference/acted-directions/brief.md, errata 148), cut and appended.
 
-Cast-unify 71-75 drew each character's new poses ON A TEMPLATE OF HIS OWN SHIPPING REST FRAME, repeated
+Cast-unify 71-75, and 76-78 after Tyler raised the cap to finish (2026-11-07), drew each character's new poses ON A TEMPLATE OF HIS OWN SHIPPING REST FRAME, repeated
 (errata 144's method: the generator keeps the proportions of the figure it is handed, so it was handed
 the figure it has to match). The first figure of each row is that rest frame redrawn, and it is the ruler:
 
@@ -20,9 +20,12 @@ Thad's poses are a clip, `pick-fit` from the back (art/actors/thad-pick-fit-back
 stand-back frame itself, so the clip begins and ends on him standing, then the new poses on his canvas
 (soles at 627, centre 351), and a rig.json for tools/build-actor-record.mjs.
 
-DEKE IS NOT CUT. Cast-unify 74 put something in his raised hand (the brief keeps his hands at his belt)
-and drew a different face; laying its bent head on his rest frame gave a different man again. With the
-cap spent, doc 95 row 12 stays printed until Tyler rules (errata 148).
+Each new frame names the sheet, row and figure it comes from. Operation 74 (Deke, the watch in his own
+hand and another face) is not used; 76 drew his look again. 75's fitting pose lost the handle; 77 drew the
+fit. 72's blotter read as his stamp; 78 drew a rocker blotter. (Errata 148.)
+
+RE-RUNNABLE: every sheet is rebuilt from its five shipping frames (0-4) -- anything below them is
+the strip this tool wrote, and is written again.
 
 Usage: acted-poses.py [--write]   (without --write, prints the measurements and writes nothing)
 """
@@ -38,15 +41,17 @@ ns = {'__file__': os.path.join(ROOT, 'tools/art/one-level.py')}
 exec(src[src.index('import json'):src.index('def man_at')], ns)        # snap() and recut(), nothing else
 snap, recut, N = ns['snap'], ns['recut'], 115.0
 
-# who: (record, batch, row, the generated figures to append, in order, registration)
+# who: (record, registration, the new frames in order as (batch, row, figure in that row))
 WHO = {
-    'winnie_registrar': ('content/ambient/winnie-registrar.json', 42, 0, [1, 2, 3], 'waist'),
-    'sump': ('content/ambient/sump.json', 43, 0, [1, 2, 3], 'waist'),
-    'pratt': ('content/ambient/pratt.json', 44, 0, [1, 2], 'legs'),
-    'pratt_jump': ('content/ambient/pratt-jump.json', 44, 1, [1], 'legs'),
+    'winnie_registrar': ('content/ambient/winnie-registrar.json', 'waist', [(42, 0, 1), (42, 0, 2), (42, 0, 3)]),
+    'sump': ('content/ambient/sump.json', 'waist', [(49, 0, 1), (49, 0, 2), (43, 0, 3)]),
+    'pratt': ('content/ambient/pratt.json', 'legs', [(44, 0, 1), (44, 0, 2)]),
+    'pratt_jump': ('content/ambient/pratt-jump.json', 'legs', [(44, 1, 1)]),
+    'deke_vessel': ('content/ambient/deke-vessel.json', 'legs', [(47, 0, 1)]),
 }
-THAD = 46               # the crouch (1) and the mended pick held across him (3); 2 lost the handle
-THAD_POSES = [1, 3]
+SHIPPED = 5             # frames 0-4 are the shipping sheet's; the rest are this tool's
+# Thad's clip after his stand-back frame: crouched (75), fitting the head on (77), the pick whole (77).
+THAD_POSES = [(46, 0, 1), (48, 0, 1), (48, 0, 2)]
 
 
 def read(p): return json.load(open(os.path.join(ROOT, p)))
@@ -154,23 +159,27 @@ def grow_and_paste(boxes_wh, pose, ox, oy):
 
 report = {}
 with tempfile.TemporaryDirectory() as tmp:
-    for who, (rec_p, batch, row, picks, how) in WHO.items():
+    for who, (rec_p, how, picks) in WHO.items():
         rec = read(rec_p); s = rec['sprite']
+        s['frames'] = s['frames'][:SHIPPED]
         sheet = np.asarray(Image.open(os.path.join(ROOT, s['sheet'])).convert('RGBA')).copy()
+        sheet = sheet[:max(fy + fh for _, fy, _, fh in s['frames']) + 2].copy()
         x, y, w, h = s['frames'][0]
         rest_cell = sheet[y:y + h, x:x + w].copy()
         target = int(rows(rest_cell)[-1] - rows(rest_cell)[0] + 1)
-        figs, height, got = cut_row(batch, row, target, tmp)
+        rows_cut = {}
         b = man(rec) / N
         new = []
-        for i in picks:
+        for batch, row, i in picks:
+            if (batch, row) not in rows_cut: rows_cut[(batch, row)] = cut_row(batch, row, target, tmp)
+            figs = rows_cut[(batch, row)][0]
             pose = figs[i]; ox, oy = place(rest_cell, s['frames'][0], figs[0], pose, how)
             cell = grow_and_paste((w, h), pose, ox, oy)
             snapped = snap(cell, b) if b > 1.05 else cell
             if s.get('waistOn') is not None: snapped = recut(snapped, cell, b)
             new.append(snapped)
-        report[who] = {'cutHeight': height, 'restRows': [target, got], 'block': round(b, 2),
-                       'new': [list(n.shape[1::-1]) for n in new]}
+        report[who] = {'cut': {f'{k[0]}/{k[1]}': [v[1], v[2]] for k, v in rows_cut.items()}, 'restRows': target,
+                       'block': round(b, 2), 'new': [list(n.shape[1::-1]) for n in new]}
         if not WRITE: continue
         # APPEND: the old sheet untouched, the new frames in a strip below it
         H2 = max(n.shape[0] for n in new)
@@ -193,13 +202,15 @@ with tempfile.TemporaryDirectory() as tmp:
     rig = read('art/actors/thad-stand-back/rig.json')
     fw, fh = rig['figure']; pad = rig['padding']
     target = int(rows(stand)[-1] - rows(stand)[0] + 1)
-    figs, height, got = cut_row(THAD, 0, target, tmp)
     m = alpha(stand); r = np.nonzero(m.any(1))[0]; c = np.nonzero(m.any(0))[0]
     shipped = stand[r[0]:r[-1] + 1, c[0]:c[-1] + 1]
-    gx, gy = register(shipped, figs[0], 'feet')
     b = fh / N
     clip = [stand]
-    for i in THAD_POSES:
+    rows_cut = {}
+    for batch, row, i in THAD_POSES:
+        if (batch, row) not in rows_cut: rows_cut[(batch, row)] = cut_row(batch, row, target, tmp)
+        figs = rows_cut[(batch, row)][0]
+        gx, gy = register(shipped, figs[0], 'feet')
         px, py_ = register(figs[0], figs[i], 'feet')
         ox, oy = c[0] + gx + px, r[0] + gy + py_
         canvas = np.zeros_like(stand)
@@ -208,7 +219,8 @@ with tempfile.TemporaryDirectory() as tmp:
         sub = pose[ys.start - oy:ys.stop - oy, xs.start - ox:xs.stop - ox]
         keep = alpha(sub); canvas[ys, xs][keep] = sub[keep]
         clip.append(snap(canvas, b))
-    report['thad'] = {'cutHeight': height, 'restRows': [target, got], 'block': round(b, 2), 'frames': len(clip)}
+    report['thad'] = {'cut': {f'{k[0]}/{k[1]}': [v[1], v[2]] for k, v in rows_cut.items()}, 'restRows': target,
+                      'block': round(b, 2), 'frames': len(clip)}
     if WRITE:
         d = os.path.join(ROOT, 'art/actors/thad-pick-fit-back'); os.makedirs(d, exist_ok=True)
         for f in os.listdir(d):
@@ -217,8 +229,8 @@ with tempfile.TemporaryDirectory() as tmp:
         json.dump({'clip': 'pick-fit', 'facing': 'back', 'figure': [fw, fh], 'frames': len(clip), 'padding': pad,
                    'note': "Doc 95 rows 4 and 6, the Mercantile's pickaxe in Room 33 (errata 148): 0 standing (his "
                            "stand-back frame itself, so the clip cannot pop at either end), 1 crouched, feeling the "
-                           "ground for the pick's head, the bare handle in his other hand, 2 the mended pick held "
-                           "across him. Cast-unify 75 (reference/cast-unify-46.txt), cut by tools/art/acted-poses.py "
-                           "on his stand-back scale; its third pose (fitting) lost the handle and is not used."},
+                           "ground for the pick's head, the bare handle in his other hand (cast-unify 75), 2 fitting the "
+                           "head onto the upright handle, 3 the pick whole and upright in front of him (cast-unify 77). "
+                           "Cut by tools/art/acted-poses.py on his stand-back scale."},
                   open(os.path.join(d, 'rig.json'), 'w'), indent=2)
 print(json.dumps(report, indent=1))

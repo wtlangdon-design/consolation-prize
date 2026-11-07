@@ -20,7 +20,7 @@ from scipy import ndimage as ndi
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 WHO = ['content/ambient/winnie-registrar.json', 'content/ambient/sump.json',
-       'content/ambient/pratt.json', 'content/ambient/pratt-jump.json']
+       'content/ambient/pratt.json', 'content/ambient/pratt-jump.json', 'content/ambient/deke-vessel.json']
 OUT = 'renders/acted-poses-beside-thad.png'
 FLAG = 1.35
 

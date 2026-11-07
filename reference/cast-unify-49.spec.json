@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "acted-sump",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-07-claims-registrar",
+ "promptFile": "reference/cast-unify-49.txt",
+ "out": "art/staging/cast-unify/batch-49/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-49/template.png",
+  "art/staging/cast-unify/batch-49/current.png"
+ ],
+ "derivedFrom": 72
+}
