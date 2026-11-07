@@ -1,0 +1,397 @@
+{
+ "room": 43,
+ "id": "lower_street",
+ "note": "Ruling 22 steps 1-6 for LOWER STREET, written by tools/streets-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 161).",
+ "thadAnchors": {
+  "dark": 24.7,
+  "light": 121.9,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 705,
+   "height": 258
+  },
+  "near": {
+   "y": 858,
+   "height": 362
+  },
+  "from": "Room 20's exterior depth"
+ },
+ "walkable": [
+  160,
+  712,
+  1610,
+  140
+ ],
+ "exits": [
+  {
+   "hotspot": "THE ROAD BACK TO MAIN STREET",
+   "to": "main_street",
+   "rect": [
+    0,
+    300,
+    150,
+    390
+   ]
+  },
+  {
+   "hotspot": "THE REGISTRAR'S DOOR",
+   "to": "claims_registrar",
+   "rect": [
+    225,
+    380,
+    95,
+    310
+   ]
+  },
+  {
+   "hotspot": "THE ALLEY MOUTH",
+   "to": "back_alley",
+   "rect": [
+    530,
+    330,
+    90,
+    360
+   ]
+  },
+  {
+   "hotspot": "THE CHURCH DOOR",
+   "to": "church",
+   "rect": [
+    812,
+    360,
+    116,
+    300
+   ]
+  },
+  {
+   "hotspot": "THE PASSAGE TO THE LANE",
+   "to": "the_lane",
+   "rect": [
+    1120,
+    360,
+    90,
+    330
+   ]
+  },
+  {
+   "hotspot": "THE LIVERY DOORS",
+   "to": "livery",
+   "rect": [
+    1380,
+    330,
+    220,
+    360
+   ]
+  },
+  {
+   "hotspot": "THE ROAD OUT",
+   "to": "claims_road",
+   "rect": [
+    1760,
+    330,
+    160,
+    360
+   ]
+  }
+ ],
+ "marks": {
+  "from_main_street": {
+   "x": 120,
+   "y": 790,
+   "facing": "right"
+  },
+  "by_the_steps": {
+   "x": 900,
+   "y": 740,
+   "facing": "left"
+  },
+  "from_the_road_out": {
+   "x": 1820,
+   "y": 800,
+   "facing": "left"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE ROAD BACK TO MAIN STREET",
+   "rect": [
+    0,
+    300,
+    150,
+    390
+   ]
+  },
+  {
+   "name": "THE REGISTRAR'S",
+   "rect": [
+    170,
+    300,
+    340,
+    390
+   ]
+  },
+  {
+   "name": "THE REGISTRAR'S DOOR",
+   "rect": [
+    225,
+    380,
+    95,
+    310
+   ]
+  },
+  {
+   "name": "SUMP'S WINDOW",
+   "rect": [
+    355,
+    420,
+    120,
+    130
+   ]
+  },
+  {
+   "name": "THE ALLEY MOUTH",
+   "rect": [
+    530,
+    330,
+    90,
+    360
+   ]
+  },
+  {
+   "name": "THE CHURCH",
+   "rect": [
+    640,
+    160,
+    460,
+    530
+   ]
+  },
+  {
+   "name": "THE BELFRY",
+   "rect": [
+    810,
+    60,
+    120,
+    140
+   ]
+  },
+  {
+   "name": "THE CHURCH DOOR",
+   "rect": [
+    812,
+    360,
+    116,
+    300
+   ]
+  },
+  {
+   "name": "THE CHURCH STEPS",
+   "rect": [
+    780,
+    660,
+    180,
+    30
+   ]
+  },
+  {
+   "name": "THE BELL",
+   "rect": [
+    985,
+    470,
+    85,
+    220
+   ]
+  },
+  {
+   "name": "THE PASSAGE TO THE LANE",
+   "rect": [
+    1120,
+    360,
+    90,
+    330
+   ]
+  },
+  {
+   "name": "THE LIVERY",
+   "rect": [
+    1230,
+    230,
+    500,
+    460
+   ]
+  },
+  {
+   "name": "THE LIVERY DOORS",
+   "rect": [
+    1380,
+    330,
+    220,
+    360
+   ]
+  },
+  {
+   "name": "THE HAY LOFT",
+   "rect": [
+    1445,
+    240,
+    90,
+    80
+   ]
+  },
+  {
+   "name": "THE TROUGH",
+   "rect": [
+    1620,
+    610,
+    120,
+    70
+   ]
+  },
+  {
+   "name": "THE ROAD OUT",
+   "rect": [
+    1760,
+    330,
+    160,
+    360
+   ]
+  }
+ ],
+ "otherFigures": "the bell-ringer, on the church steps beside the bell (doc 07 #4)",
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the steps, the bell post and the trough stand behind it, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "the fronts",
+   "p10": 52.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 27.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "the street",
+   "p10": 92.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 67.3,
+   "lightAnchorMargin": 29.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE ROAD BACK TO MAIN STREET",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 79.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE REGISTRAR'S",
+   "p10": 52.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 27.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE REGISTRAR'S DOOR",
+   "p10": 52.0,
+   "p90": 52.0,
+   "darkAnchorMargin": 27.3,
+   "lightAnchorMargin": 69.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "SUMP'S WINDOW",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 79.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE ALLEY MOUTH",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 71.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CHURCH",
+   "p10": 56.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 31.3,
+   "lightAnchorMargin": 25.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CHURCH DOOR",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 31.3,
+   "lightAnchorMargin": 65.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CHURCH STEPS",
+   "p10": 100.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 75.3,
+   "lightAnchorMargin": 21.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE BELL",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 35.3,
+   "lightAnchorMargin": 61.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PASSAGE TO THE LANE",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 71.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE LIVERY",
+   "p10": 52.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 27.3,
+   "lightAnchorMargin": 51.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE LIVERY DOORS",
+   "p10": 52.0,
+   "p90": 52.0,
+   "darkAnchorMargin": 27.3,
+   "lightAnchorMargin": 69.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TROUGH",
+   "p10": 62.0,
+   "p90": 62.0,
+   "darkAnchorMargin": 37.3,
+   "lightAnchorMargin": 59.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE ROAD OUT",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 79.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

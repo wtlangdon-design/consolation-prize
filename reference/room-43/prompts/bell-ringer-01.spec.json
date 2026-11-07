@@ -1,0 +1,14 @@
+{
+ "assetId": "bell-ringer",
+ "subject": "bell-ringer",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-43-lower-street",
+ "promptFile": "reference/room-43/prompts/bell-ringer-01.txt",
+ "out": "art/staging/bell-ringer/sheet-01.png",
+ "size": "1536x1024",
+ "images": [
+  "art/actors/thad-stand-front/stand-00.png",
+  "art/backgrounds/room-43-lower-street.png"
+ ]
+}
