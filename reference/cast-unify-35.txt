@@ -1,0 +1,9 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game: left to right the hero (THE STYLE AND THE PROPORTIONS), then three judges, A, B and C. Their faces, hair, clothes and colours are FINAL.
+
+Image 2 shows the three judges just drawn for the game, standing, each twice: A hands folded, watching; A leaning to confer; B hands behind his back, watching; B nodding; C arms folded, watching; C stroking his beard. Their builds and poses are RIGHT. Image 3 shows A in the game beside the hero, the same height: what is still wrong is that A's HEAD IS TOO BIG -- much bigger than the hero's -- and B's and C's are too big too.
+
+Draw the same six figures again, the same men in the same poses and builds, with SMALLER HEADS: each head, crown to chin, exactly the size of the hero's head in Image 1, about ONE EIGHTH of the man's height, and no wider than the hero's. The hair, whiskers, moustache and beard shrink with the head. Each man the SAME HEIGHT as the hero, crown to sole, with long legs. The same size of square pixel, soft shading and dark outline as the hero.
+
+THE SHEET: flat pure magenta (#FF00FF) background. ONE row of six FULL FIGURES, standing, feet on one line, in the order of Image 2, turned slightly to the RIGHT, separated by clear magenta space, all at the same scale.
+
+RULES: nothing in their hands. Crisp pixel edges against the magenta, no glow, no blur, no shadows, no ground, no text, no numbers, no border.
