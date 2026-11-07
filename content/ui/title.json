@@ -1,22 +1,47 @@
 {
   "schema": 1,
-  "note": "The title screen. Mouse-driven: every item is clickable and no key is required. CONTINUE greys out with no save rather than disappearing, so the menu is the same length every time. There is no music -- the score does not exist, and errata invariant 5 makes its detuning the emotional arc of the whole game, so a placeholder would be actively misleading. musicCue is the hook and nothing plays it.",
+  "note": "The title screen (errata 128). Mouse-driven: every item is clickable and no key is required. CONTINUE greys out with no save rather than disappearing, so the menu is the same length every time; it also greys out when the newest save was taken after the close, because there is nothing left to continue. CREDITS is drawn dim and does nothing: Tyler ruled no credits list for now (2026-11-06, \"Title + THE END only\"), and no document has one (doc 48 S7 beat 5, doc 45 OQ-08). The bed is the manifest's `music.title`, O-01-M; it starts with the first click, which a browser requires. NEW GAME is that click when nothing else was clicked first, and the opening then plays with sound from its first frame.",
   "title": {
     "note": "Doc 17, revised. HIERARCHY, not uniform sizing: the 1990 reference sets its connective words small and its key word enormous, and fitting five words at one size was the wrong problem. CLAIM is the word carrying the double meaning the title rests on -- a mining claim and an assertion -- so it is the largest thing on the screen. The sizes are content because the layout is a design decision, not a rendering detail.",
     "lines": [
-      { "text": "THE LAST", "size": "small" },
-      { "text": "CLAIM", "size": "huge" },
-      { "text": "IN CONSOLATION", "size": "small" }
+      {
+        "text": "THE LAST",
+        "size": "small"
+      },
+      {
+        "text": "CLAIM",
+        "size": "huge"
+      },
+      {
+        "text": "IN CONSOLATION",
+        "size": "small"
+      }
     ]
   },
   "menu": {
     "items": [
-      { "id": "new", "label": "NEW GAME" },
-      { "id": "continue", "label": "CONTINUE" },
-      { "id": "options", "label": "OPTIONS" },
-      { "id": "credits", "label": "CREDITS" }
+      {
+        "id": "new",
+        "label": "NEW GAME"
+      },
+      {
+        "id": "continue",
+        "label": "CONTINUE"
+      },
+      {
+        "id": "options",
+        "label": "OPTIONS"
+      },
+      {
+        "id": "credits",
+        "label": "CREDITS"
+      }
     ]
   },
   "background": "art/backgrounds/room-29-high-ridge.png",
-  "musicCue": "title.theme"
+  "musicCue": "title.theme",
+  "logo": "art/ui/title-logo.png",
+  "logoNote": "The drawn title (art/ui/title-logo.png, the one doc 17 beat 11 raises over the mountains). `title.lines` are the same words in the game's face, drawn only if the logo has not loaded.",
+  "theEnd": "THE END",
+  "theEndNote": "Tyler, 2026-11-06, asked what the ending should say, chose \"Title + THE END only (Recommended)\": after the letter, the game fades to this title over the ridge with these words under the drawn title, and there is no credits list for now. Shown only when the title is reached through the close (errata 128). CREDITS stays on the menu, dim and inert."
 }

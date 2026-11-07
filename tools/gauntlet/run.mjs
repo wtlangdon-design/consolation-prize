@@ -284,6 +284,13 @@ async function sample(page, script, state, armed) {
       continue;
     }
     const now = (Date.now() - started) / 1000;
+    // A PLAIN BOOT OPENS ON THE TITLE (errata 128): NEW GAME, as a player clicks it.
+    if (frame.title) {
+      const item = await page.evaluate(() => window.__gauntlet?.titleItem('new') ?? null);
+      if (item) await clickPlayArea(page, item.x + item.width / 2, item.y + item.height / 2);
+      await page.waitForTimeout(SAMPLE_MS);
+      continue;
+    }
     if (readsByClick) {
       const line = frame.performing === true ? `${frame.says ?? ''}` : null;
       if (line === null) lineSince = null;

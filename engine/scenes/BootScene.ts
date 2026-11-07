@@ -42,12 +42,18 @@ export class BootScene extends Phaser.Scene {
     const fixtureRoom = fixtureId ? bundle.fixtures.get(fixtureId)?.room : undefined;
     const opening = (warp && bundle.rooms.has(warp) ? warp : null) ?? fixtureRoom ?? state.roomId;
 
+    // THE TITLE'S PLATE AND DRAWN TITLE, on a plain boot (errata 128): the
+    // first frame is the title, so it waits for them, as a room waits for its plate.
+    const titled = !fixtureId && !(warp && bundle.rooms.has(warp)) && bundle.title;
+    const titleArt = titled ? [bundle.title!.background, bundle.title!.logo]
+      .filter((path): path is string => Boolean(path)).map((path) => ({ key: path, path })) : [];
+
     const pending: Promise<void>[] = [];
     // ONE PLACE A CONTENT PATH BECOMES A URL. Ruling 10's candidate override
     // is applied here and in GameScene.loadNear, and nowhere else, so no
     // plate can reach the screen by a route the override cannot see.
     const swaps = askedCandidates();
-    for (const { key, path } of planBoot(bundle, opening).required) {
+    for (const { key, path } of [...planBoot(bundle, opening).required, ...titleArt]) {
       if (this.textures.exists(key)) continue;
       this.load.image(key, new URL(resolveAssetPath(path, swaps), document.baseURI).toString());
       pending.push(new Promise((resolve) => this.load.once(`filecomplete-image-${key}`, () => resolve())));

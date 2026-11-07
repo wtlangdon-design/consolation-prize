@@ -39,6 +39,7 @@ import {
 } from '../core/Opening.ts';
 import { tapAt, tuneAt } from '../core/Listening.ts';
 import { clickOnSpeech, holdOver, waitsForClick } from '../core/SpeechPolicy.ts';
+import { endingAt, titleItems, type TitleItem } from '../core/Bookends.ts';
 import {
   CYCLING_OPTION,
   MUSIC_OPTION,
@@ -165,6 +166,18 @@ export class GameScene extends Phaser.Scene {
   private sayUntil: number | null = null;
   /** The line on screen waits for a click (a conversation's, under click-to-read), and shows that it does. */
   private sayWaiting = false;
+  /** THE TITLE SCREEN, while it is up: its items (errata 128). Null in play. */
+  private titleMenu: TitleItem[] | null = null;
+  private titleHover: string | null = null;
+  /** The title was reached through the close: THE END is under it (Tyler, 2026-11-06). */
+  private titleTheEnd = false;
+  /** THE LETTER'S PAGE: the lines said over black in a room that ends the game (errata 128). */
+  private page: string[] = [];
+  private pageAlpha = 1;
+  /** Scene seconds when the close's last line came down; null until it has. */
+  private endingFrom: number | null = null;
+  /** The close's bed is playing out to its end; the title does not start another over it. */
+  private musicFinishing = false;
   /** Lines still to come in a multi-speaker response, in order. */
   private pendingSay: { speaker: string | null; line: string; overBlack?: boolean; direction?: boolean }[] = [];
   /** A line `overBlack` has blacked out the play area until the room changes (doc 57 B3). */
@@ -429,7 +442,12 @@ export class GameScene extends Phaser.Scene {
       this.state.setState(target, wanted);
     }
 
-    this.beginOpening();
+    // THE TITLE FIRST (errata 128), on a plain boot: NEW GAME is the click
+    // that unlocks audio, so the opening then plays with sound from its first
+    // frame. A `?room=` warp or a `?fixture=` is a review link and goes
+    // straight into the game, as it always has.
+    if (!fixtureId && !warp && this.state.content.title) this.toTitle();
+    else this.beginOpening();
     this.markDirty();
     this.loadNear();
   }
@@ -481,6 +499,19 @@ export class GameScene extends Phaser.Scene {
     if (IdleLayer.changed(this.state.room, before, now)) this.markDirty();
     this.lastFrameAt = now;
 
+    // THE TITLE IS UP (errata 128): the game behind it does not run -- no
+    // scene, no act turn, no accost -- and only the title is drawn.
+    if (this.titleMenu) {
+      if (!this.dirty) return;
+      this.dirty = false;
+      this.frameCount += 1;
+      this.view.drawFrame({ hoveredTarget: null, hoveredTargetName: null, sayLines: [], notice: this.notice,
+        barkLines: [], barkAt: null, captionLines: [], captionAt: null,
+        title: { items: this.titleMenu, hovered: this.titleHover, theEnd: this.titleTheEnd } });
+      this.texture.refresh();
+      return;
+    }
+
     // A LINE THAT HAS BEEN READ COMES DOWN. Its hold is doc 30 section 4.1's,
     // computed by lineSeconds from the rate in ui.json -- the same number a
     // cutscene already waits out before its next step, now also the number
@@ -531,6 +562,7 @@ export class GameScene extends Phaser.Scene {
       this.markDirty();
     }
     this.tickListening();
+    this.tickEnding(now);
     // AN EXIT'S BEAT, PLAYED WHERE IT WENT (errata 121 B): its first line once the pause is over.
     if (this.sayAt !== null && now >= this.sayAt) {
       this.sayAt = null;
@@ -768,6 +800,9 @@ export class GameScene extends Phaser.Scene {
       // for their open tree.
       greeting: this.pendingTree?.greeted ? this.pendingTree.tree : null,
       sceneControls: this.sceneControlsShowing() && !this.state.menu.isOpen,
+      title: this.titleMenu ? { items: this.titleMenu, hovered: this.titleHover, theEnd: this.titleTheEnd } : null,
+      page: this.overBlack && this.page.length ? this.page : null,
+      pageAlpha: this.pageAlpha,
     });
     this.texture.refresh();
   }
@@ -934,6 +969,13 @@ export class GameScene extends Phaser.Scene {
   }
 
   private onPointerMove(pointer: Phaser.Input.Pointer): void {
+    if (this.titleMenu && !this.state.menu.isOpen) {
+      const { x, y } = this.nativePoint(pointer);
+      const hit = this.view.titleHitboxes(this.titleMenu).find((box) => pointInRect(x, y, box));
+      const id = hit && this.titleMenu.find((item) => item.id === hit.id)?.enabled ? hit.id : null;
+      if (id !== this.titleHover) { this.titleHover = id; this.markDirty(); }
+      return;
+    }
     if (this.state.dialogue.isActive || this.state.menu.isOpen) return;
     if (this.panelHidden) {
       this.revealSceneControls();
@@ -1004,8 +1046,16 @@ export class GameScene extends Phaser.Scene {
     this.music.unlock();
     this.ambience.unlock();
     this.cueBed.unlock();
-    this.applyMusic();
     const { x, y } = this.nativePoint(pointer);
+    // THE TITLE TAKES ITS OWN CLICKS (errata 128), and chooses the music
+    // after the click has decided where the game is going: NEW GAME's bed is
+    // Room 1's, not the title's for a frame first.
+    if (this.titleMenu && !this.state.menu.isOpen) {
+      this.onTitleClick(x, y);
+      this.applyMusic();
+      return;
+    }
+    this.applyMusic();
     const secondary = pointer.rightButtonDown();
 
     // DOC 48 S5 BEAT 3: the ninety seconds are not his. He sits in the dark
@@ -1035,7 +1085,7 @@ export class GameScene extends Phaser.Scene {
           this.markDirty();
           return;
         }
-        const skip = this.panel.mapButton;
+        const skip = this.state.room.timeline?.length ? this.panel.mapButton : null;
         if (skip && pointInRect(x, y, skip)) {
           this.sceneControlsUntil = null;
           this.skipScene();
@@ -1619,6 +1669,17 @@ export class GameScene extends Phaser.Scene {
    * none -- which is every room today, because THADDEUS has not been written.
    */
   private applyMusic(): void {
+    // THE TITLE'S BED is O-01-M, detuned like the rest of the score
+    // (invariant 5) -- unless the close's bed is still playing out to its end,
+    // which nothing may cut or extend (doc 45; errata 128).
+    if (this.titleMenu) {
+      this.ambience.play(null);
+      this.cueBed.play(null);
+      if (this.musicFinishing) return;
+      this.music.setTune(0);
+      this.music.play(this.state.content.manifest.music?.title ?? null);
+      return;
+    }
     this.applyAmbience();
     // DOC 45 R32-MUTE: the coffin stops the score dead and carries its place.
     if (this.state.room.music === 'suspend') {
@@ -2465,6 +2526,8 @@ export class GameScene extends Phaser.Scene {
       return false;
     }
     if (next.overBlack) this.overBlack = true;
+    // THE LETTER BUILDS ON ONE PAGE in a room that ends the game (errata 128).
+    if (next.overBlack && this.state.room.endsGame) this.page.push(next.line);
     this.setSay(next.direction ? GameScene.asDirection(next.line) : next.line, next.speaker, next.direction === true);
     this.markDirty();
     return true;
@@ -2697,6 +2760,9 @@ export class GameScene extends Phaser.Scene {
       camera: Math.round(this.state.cameraX),
       pending: this.pendingSay.length,
       waiting: this.sayLines.length > 0 && this.sayWaiting,
+      title: this.titleMenu !== null,
+      ending: this.endingFrom === null ? null
+        : endingAt(this.lastFrameAt - this.endingFrom, this.endingTiming()).phase,
       performing: this.performance !== null,
       handedOver: this.opening === null,
       segment: this.playingSegment(),
@@ -2779,6 +2845,10 @@ export class GameScene extends Phaser.Scene {
    */
   inventorySlot(id: string): { id: string; x: number; y: number; width: number; height: number } | null {
     return this.view.inventoryHitboxes().find((box) => box.id === id) ?? null;
+  }
+
+  titleItem(id: string): { id: string; x: number; y: number; width: number; height: number } | null {
+    return this.titleMenu ? this.view.titleHitboxes(this.titleMenu).find((box) => box.id === id) ?? null : null;
   }
 
   optionRow(index: number): { id: string; y: number; height: number } | null {
@@ -2943,13 +3013,123 @@ export class GameScene extends Phaser.Scene {
     } else if (action.kind === 'fullscreen') {
       this.toggleFullscreen();
     } else if (action.kind === 'quit') {
-      // No title scene is wired in yet, so quitting resets to the start
-      // room. Marked here because it is the one menu route that does not
-      // yet do what its label says.
-      this.state.reset();
-      this.afterLoad();
+      // TO THE TITLE (errata 128; doc 33 table 5): "Title appears without
+      // resetting world or deleting any save." CONTINUE there is the autosave.
+      this.toTitle();
     }
+    // The title's OPTIONS opens the options page alone: its Back is the title.
+    if (this.titleMenu && this.state.menu.page === 'root') this.state.menu.close();
     this.afterMenu();
+  }
+
+  /**
+   * THE TITLE SCREEN (errata 128). Everything the room was doing stops -- its
+   * scenes, its lines, its conversation, its clocks -- and the title is drawn
+   * instead of it. The state is left as it is: nothing is reset and no save is
+   * touched until NEW GAME or CONTINUE says so.
+   */
+  private toTitle(): void {
+    this.performance = null;
+    this.pendingTree = null;
+    if (this.state.dialogue.isActive) this.state.dialogue.end();
+    this.leaveLines();
+    this.page = [];
+    this.pageAlpha = 1;
+    this.endingFrom = null;
+    this.overBlack = false;
+    this.sequence.cancel();
+    this.carried.cancel();
+    this.world.abandon();
+    this.timeline.stop();
+    this.panelHidden = false;
+    this.sceneControlsUntil = null;
+    this.tuneStart = null;
+    this.opening = null;
+    this.actCard = null;
+    this.actCardUntil = null;
+    this.pendingActCard = null;
+    this.accostTimer?.remove();
+    this.accostTimer = undefined;
+    this.sfx.stopAll();
+    this.state.menu.close();
+    this.titleMenu = titleItems(this.state.content.title!, this.state.canContinue);
+    this.titleTheEnd = false;
+    // Its plate and drawn title, if boot did not fetch them (a review link quit to the title).
+    const file = this.state.content.title!;
+    let queued = 0;
+    for (const path of [file.background, file.logo]) {
+      if (!path || this.textures.exists(path)) continue;
+      this.load.image(path, new URL(path, document.baseURI).toString());
+      this.load.once(`filecomplete-image-${path}`, () => this.markDirty());
+      queued += 1;
+    }
+    if (queued) this.load.start();
+    this.titleHover = null;
+    this.hovered = null;
+    this.hoveredName = null;
+    this.applyMusic();
+    this.markDirty();
+  }
+
+  private onTitleClick(x: number, y: number): void {
+    const items = this.titleMenu;
+    if (!items) return;
+    const hit = this.view.titleHitboxes(items).find((box) => pointInRect(x, y, box));
+    const item = hit ? items.find((each) => each.id === hit.id) : undefined;
+    if (!item?.enabled) return;
+    if (item.id === 'new') {
+      this.titleMenu = null;
+      this.musicFinishing = false;
+      this.state.reset();
+      this.lastAct = null;
+      this.actor.placeIn(this.state.roomId);
+      this.enterRoomPerformance(null);
+      this.beginOpening();
+    } else if (item.id === 'continue') {
+      if (!this.state.load()) return;
+      this.titleMenu = null;
+      this.musicFinishing = false;
+      this.afterLoad();
+    } else if (item.id === 'options') {
+      this.state.menu.openOn('options');
+    }
+    this.markDirty();
+  }
+
+  /**
+   * THE CLOSE, ONCE ITS LINES ARE SAID (errata 128). In a room that ends the
+   * game, when nothing is left to say and the room's `blackWhen` holds, the
+   * letter's page holds, fades, the screen stays black, and the title returns.
+   * The bed is let play out to the end of its loop rather than cut (doc 45).
+   * A game loaded after the close has no page, and goes straight to black and
+   * the title.
+   */
+  private tickEnding(now: number): void {
+    const room = this.state.room;
+    if (!room.endsGame || this.titleMenu) return;
+    if (this.endingFrom === null) {
+      const quiet = this.sayingActor === null && this.pendingSay.length === 0 && this.sayAt === null
+        && this.performance === null && !this.state.dialogue.isActive;
+      if (!quiet || !room.blackWhen || !this.state.flags.test(room.blackWhen)) return;
+      const timing = this.endingTiming();
+      this.endingFrom = this.page.length ? now : now - timing.hold - timing.fade;
+      this.state.autosave();
+      this.music.finish();
+      this.musicFinishing = true;
+    }
+    const { phase, pageAlpha } = endingAt(now - this.endingFrom, this.endingTiming());
+    this.pageAlpha = pageAlpha;
+    if (phase === 'title') {
+      this.toTitle();
+      this.titleTheEnd = true;
+    }
+    this.markDirty();
+  }
+
+  private endingTiming(): { hold: number; fade: number; black: number } {
+    const timing = this.state.content.ui.timing;
+    return { hold: timing?.endingHoldSeconds ?? 7, fade: timing?.endingFadeSeconds ?? 3,
+      black: timing?.endingBlackSeconds ?? 2 };
   }
 
   /**
