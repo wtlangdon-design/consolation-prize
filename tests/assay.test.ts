@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 import { DuelSession, duelOrder, rightSlot, type AssayFile } from '../engine/core/Assay.ts';
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
+import { DialoguePerformance } from '../engine/core/DialoguePerformance.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
 
@@ -82,9 +83,10 @@ test('Duel One: every mutter is followed by his notebook line, pairs 1-4 (errata
   const writer = file.duels.duel_one!.notebook!['1']!.speaker;
   for (const pair of [1, 2, 3, 4]) {
     const choice = duel.commit('w0');
-    const speakers = choice.lines.map((l) => l.speaker);
+    const spoken = choice.lines.filter((l) => !l.mark);
+    const speakers = spoken.map((l) => l.speaker);
     assert.deepEqual(speakers.slice(0, 3), [file.duels.duel_one!.opponent, file.bystander, writer], `pair ${pair}`);
-    assert.equal(choice.lines[2]!.line, file.duels.duel_one!.notebook![String(pair)]!.line);
+    assert.equal(spoken[2]!.line, file.duels.duel_one!.notebook![String(pair)]!.line);
   }
   const repeat = duel.commit('w0');
   assert.ok(!repeat.lines.some((l) => l.speaker === file.bystander), 'nobody mutters on the repeat of pair 1');
@@ -124,12 +126,92 @@ test('Duel Two won yields Document A and the watch, and closes the rematch', asy
   assert.equal(result.lines.at(-1)?.speaker, 'deke_vessel');
 });
 
-test('a lost Duel Two ends on the reply that lost it and writes nothing (errata 73 H)', async () => {
+test('a lost Duel Two ends on the reply that lost it and the judges\' mark (errata 73 H, 130 B)', async () => {
   const file = await assayFile();
   const result = playBest(file, 'duel_two', new Set([1, 2, 3, 4]));
   assert.equal(result.outcome, 'lost');
-  assert.deepEqual(result.sets, {});
-  assert.equal(result.lines.length, 1, 'only the reply');
+  assert.equal(result.sets.T_DUEL_TWO_WON, undefined, 'nothing is won');
+  const said = result.lines.filter((l) => l.rest === undefined);
+  assert.equal(said.length, 2, 'the reply, and the ring muttering the counter he lacked');
+  assert.equal(said[0]!.speaker, 'deke_vessel');
+  assert.equal(said[1]!.speaker, file.bystander);
+});
+
+test('losing Duel Two teaches what he could not answer, and every retry throws boasts he has not heard (doc 03 Learning; errata 130 A)', async () => {
+  // Found by the duel audit: only Duel One muttered, so a lost Duel Two taught
+  // nothing and every retry was the same thirty-three lines. Doc 03 Part One's
+  // rule is for every duel: "When an opponent uses a boast he has no answer
+  // to, he hears the correct counter from the crowd."
+  const file = await assayFile();
+  let known = new Set([1, 2, 3, 4]);
+  const heard: number[][] = [];
+  let won = false;
+  for (let attempt = 1; attempt <= 3 && !won; attempt += 1) {
+    const duel = new DuelSession(file, 'duel_two', known);
+    const thrown: number[] = [];
+    let result: ReturnType<DuelSession['commit']> | undefined;
+    for (let guard = 0; guard < 30 && !result?.ended; guard += 1) {
+      thrown.push(duel.currentPair);
+      const offers = duel.offered();
+      result = duel.commit((offers.find((o) => o.id === 'right') ?? offers[0]!).id);
+    }
+    heard.push(thrown);
+    if (result!.outcome === 'won') { won = true; break; }
+    const learned = Object.keys(result!.sets).filter((flag) => flag.startsWith('ASSAY_PAIR_'))
+      .map((flag) => Number(flag.slice(-2)));
+    assert.ok(learned.length > 0, `attempt ${attempt} was lost and taught nothing`);
+    for (const n of learned) {
+      assert.ok(thrown.includes(n) && !known.has(n), `pair ${n} joined without being thrown at him unanswered`);
+    }
+    known = new Set([...known, ...learned]);
+  }
+  assert.ok(won, 'a player who only ever loses has won by the third attempt');
+  for (let a = 1; a < heard.length; a += 1) {
+    assert.notDeepEqual(heard[a]!.slice(4), heard[a - 1]!.slice(4), 'a retry is not the same duel again');
+  }
+});
+
+test('every scored exchange is written down in a held beat after the line that won it, before the next boast (doc 45 U-ASSAY-PENCIL; errata 130 B)', async () => {
+  // Found by the duel audit: the pencil sounded when the exchange settled,
+  // which was after the NEXT boast had been read, as the new options appeared.
+  const file = await assayFile();
+  const boasts = new Set(file.pairs.map((p) => p.boast));
+  const all = new Set(Array.from({ length: 21 }, (_, i) => i + 1));
+  const runs: [string, Set<number>][] = [['duel_one', new Set()], ['duel_two', new Set([1, 2, 3, 4])],
+    ['duel_two', all], ['duel_three', new Set([22, 23])]];
+  for (const [duelId, known] of runs) {
+    const duel = new DuelSession(file, duelId, known);
+    for (let guard = 0; guard < 30; guard += 1) {
+      const offers = duel.offered();
+      const pick = (guard % 2 === 0 ? offers.find((o) => o.id === 'right') : undefined) ?? offers[0]!;
+      const choice = duel.commit(pick.id);
+      const marks = choice.lines.map((l, i) => (l.mark ? i : -1)).filter((i) => i >= 0);
+      assert.equal(marks.length, 1, `${duelId}: one point, one mark`);
+      assert.equal(marks[0], choice.correct ? 0 : 1, `${duelId}: the mark follows ${choice.correct ? 'his counter' : 'the reply'}`);
+      assert.ok((choice.lines[marks[0]!]!.rest ?? 0) > 0, 'the mark is a held beat');
+      const boastAt = choice.lines.findIndex((l) => boasts.has(l.line));
+      if (boastAt >= 0) assert.ok(boastAt > marks[0]!, `${duelId}: the next boast waits for the pencil`);
+      if (choice.ended) break;
+    }
+  }
+});
+
+test('a held beat cannot be clicked through and ends on its own, even when lines wait for a click (errata 130)', async () => {
+  const state = await inBackRoom({ T_VESSEL_FOUND: true });
+  state.dialogue.select('ves_b1_6');
+  const exchange = state.dialogue.beginSelection('w0');
+  const said = exchange.presentation;
+  const replies = [...(said.say ? [{ speaker: said.sayer, line: said.say }] : []), ...said.rest];
+  const timing = { base: 0.45, perGlyph: 0.055, minimum: 1.8, maximum: 8, waitForClick: true };
+  const performance = new DialoguePerformance(exchange, { speaker: state.content.actor.id, line: 'echo' }, replies, timing, 0);
+  let now = 0;
+  while (performance.current && performance.current.rest === undefined) { now += 1; performance.skip(now); }
+  const beat = performance.current!;
+  assert.ok(beat.mark && (beat.rest ?? 0) > 0, 'the judges\' beat comes after the reply');
+  assert.equal(performance.skip(now + 0.2), false, 'a click does not cut the beat short');
+  assert.equal(performance.current, beat);
+  assert.equal(performance.tick(now + beat.rest! + 0.01), true, 'the beat ends by itself');
+  assert.notEqual(performance.current, beat);
 });
 
 async function inBackRoom(flags: Record<string, boolean>) {
@@ -143,7 +225,8 @@ test('VES_B1 opens once Vessel is found; option 6 is B4 and Duel One; B5 when it
   const state = await inBackRoom({ T_VESSEL_FOUND: true });
   assert.equal(state.dialogue.positionSnapshot().node, 'VES_B1');
   const ids = () => state.dialogue.presentOptions().map((o) => o.option.id);
-  assert.ok(ids().includes('ves_b1_6') && ids().includes('ves_b1_3'));
+  assert.ok(ids().includes('ves_b1_6'));
+  assert.ok(!ids().includes('ves_b1_3'), 'option 3 is the replay: offered once Duel One is lost (errata 76 A, 130 D)');
   assert.ok(!ids().includes('ves_b1_5'), 'the rematch is offered once Duel One is lost');
 
   const opened = state.dialogue.select('ves_b1_6');
@@ -186,7 +269,7 @@ test('a duel saved mid-fight resumes at the same boast (save/load restores parti
   const writer = new GameState(await loadContent(fsReader), storage);
   writer.flags.set('T_VESSEL_FOUND', true);
   writer.dialogue.start('DEKE_VESSEL');
-  writer.dialogue.select('ves_b1_3');
+  writer.dialogue.select('ves_b1_6');
   writer.dialogue.select('w0');
   writer.dialogue.select('w1');
   writer.save(1);
@@ -201,11 +284,57 @@ test('a duel saved mid-fight resumes at the same boast (save/load restores parti
 
 test('a duel dropped mid-fight leaves Duel One on offer (invariant 6)', async () => {
   const state = await inBackRoom({ T_VESSEL_FOUND: true });
-  state.dialogue.select('ves_b1_3');
+  state.dialogue.select('ves_b1_6');
   state.dialogue.select('w0');
   state.dialogue.end();
   state.dialogue.start('DEKE_VESSEL');
-  assert.ok(state.dialogue.presentOptions().some((o) => o.option.id === 'ves_b1_3'));
+  assert.ok(state.dialogue.presentOptions().some((o) => o.option.id === 'ves_b1_6'));
+});
+
+test('Duel One cannot be reached without B4, nor fought once the Assay is over (duel audit 9a, 9b; errata 130 D)', async () => {
+  // Found by the duel audit: option 3 started Duel One first and completed B5
+  // with B4 never done; and whichever of options 3 and 6 the player had not
+  // taken stayed on offer for ever -- after Duel Two was won and the judges
+  // had gone home, Vessel would still be asked to sign what he had signed.
+  const duelOne = (state: GameState) => state.dialogue.presentOptions()
+    .filter((o) => (o.option as { duel?: string }).duel === 'duel_one').map((o) => o.option.id);
+  const loseDuelOne = (state: GameState) => {
+    for (let n = 0; n < 5 && state.dialogue.inDuel; n += 1) state.dialogue.select(state.dialogue.presentOptions()[0]!.option.id);
+  };
+  const pairs = Object.fromEntries(Array.from({ length: 14 }, (_, i) => [`ASSAY_PAIR_${String(i + 1).padStart(2, '0')}`, true]));
+  const winDuelTwo = (state: GameState) => {
+    for (const [flag, value] of Object.entries(pairs)) state.flags.set(flag, value);
+    state.dialogue.select('ves_b1_5');
+    for (let n = 0; n < 5; n += 1) state.dialogue.select('right');
+    assert.equal(state.flags.getBoolean('T_DUEL_TWO_WON'), true);
+  };
+  const state = await inBackRoom({ T_VESSEL_FOUND: true });
+  assert.deepEqual(duelOne(state), ['ves_b1_6'], 'before Duel One, only the affidavit starts it (B4)');
+  state.dialogue.select('ves_b1_6');
+  loseDuelOne(state);
+  assert.ok(state.puzzleComplete('B4') && state.puzzleComplete('B5'));
+  assert.deepEqual(duelOne(state), ['ves_b1_3'], 'after Duel One, the replay and only the replay');
+  winDuelTwo(state);
+  assert.deepEqual(duelOne(state), [], 'no Duel One once Duel Two is won');
+  // And with the replay taken first.
+  const other = await inBackRoom({ T_VESSEL_FOUND: true });
+  other.dialogue.select('ves_b1_6');
+  loseDuelOne(other);
+  other.dialogue.select('ves_b1_3');
+  loseDuelOne(other);
+  assert.deepEqual(duelOne(other), [], 'twice if asked, and then no more');
+});
+
+test('the rematch stays at full weight while one is owed (duel audit 2d; errata 130 E)', async () => {
+  // A greyed row reads as "already asked". After a lost Duel Two the rematch
+  // is the only way on, and it went grey.
+  const state = await inBackRoom({ T_VESSEL_FOUND: true, T_DUEL_ONE_LOST: true });
+  state.dialogue.select('ves_b1_5');
+  for (let n = 0; n < 30 && state.dialogue.inDuel; n += 1) state.dialogue.select(state.dialogue.presentOptions()[0]!.option.id);
+  assert.notEqual(state.flags.getBoolean('T_DUEL_TWO_WON'), true);
+  const rematch = state.dialogue.presentOptions().find((o) => o.option.id === 'ves_b1_5');
+  assert.ok(rematch, 'the rematch is offered again');
+  assert.equal(rematch!.exhausted, false, 'and is not greyed');
 });
 
 test('the Assay stays sitting until the player walks out after Duel Two, and is gone when he returns', async () => {

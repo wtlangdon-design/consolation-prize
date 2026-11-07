@@ -26,6 +26,15 @@ export interface AssayLine {
   line: string;
   /** A performed stage direction (doc 58), not speech: Fanshawe "puts on his hat". */
   direction?: boolean;
+  /**
+   * A HELD BEAT, NOT A LINE: nothing is shown, the beat lasts this many
+   * seconds whatever the player clicks, and then the next line comes. The
+   * judges' pencil is one (`mark`); Duel Three's "Silence on Main Street.
+   * Long." is another.
+   */
+  rest?: number;
+  /** The judges write a point down here (doc 45 U-ASSAY-PENCIL): the pencil sounds and its holder marks it. */
+  mark?: boolean;
 }
 
 export interface AssayWrong {
@@ -63,6 +72,14 @@ export interface DuelDefinition {
   threshold?: number;
   notebook?: Record<string, AssayLine>;
   learns?: number[];
+  /**
+   * DOC 03 PART ONE'S LEARNING RULE, for every boast he cannot answer: "When an
+   * opponent uses a boast Thad has no answer to, Thad hears the correct counter
+   * from the crowd -- some bystander mutters it." The first time such a boast
+   * is thrown in this duel the ring mutters its counter, and it joins his
+   * repertoire when the duel is over, won or lost (errata 130 A).
+   */
+  learnsByLosing?: boolean;
   sets?: Record<string, FlagValue>;
   setsOnWin?: Record<string, FlagValue>;
   loss?: AssayLine[];
@@ -86,6 +103,10 @@ export interface AssayFile {
   id: string;
   exchangesToWin: number;
   bystander: string;
+  /** Who holds the judges' pencil (doc 03: "Sowerby holds the pencil"): the mark beat is his. */
+  pencil?: string;
+  /** How long the judges take to write a point down, in seconds: the beat after each scored exchange. */
+  markSeconds?: number;
   pairs: AssayPair[];
   mockery: string[];
   duels: Record<string, DuelDefinition>;
@@ -164,7 +185,10 @@ export function duelOrder(file: AssayFile, duelId: string, known: ReadonlySet<nu
   const held = pool.filter((n) => known.has(n)).length;
   const first = pool.filter((n) => tierOf(n) === 1);
   const later = pool.filter((n) => tierOf(n) !== 1);
-  const held2 = later.filter((n) => known.has(n));
+  // THE PAIRS HE HOLDS, LATEST TIER FIRST (errata 130 C). Ascending, a winning
+  // player only ever heard pair 5 after Tier 1, and the town's pairs -- "the
+  // reward for talking to everyone" (doc 03) -- were never thrown at him.
+  const held2 = later.filter((n) => known.has(n)).reverse();
   const unheld = later.filter((n) => !known.has(n));
   // Tier 1 always first (doc 57 B6); what follows is what decides it.
   return held >= (duel.threshold ?? 0) ? [...first, ...held2, ...unheld] : [...first, ...unheld, ...held2];
@@ -228,6 +252,11 @@ export class DuelSession {
     return [...(this.duel.opening ?? []), this.boastLine(this.currentPair)];
   }
 
+  /** The judges writing a point down: a held beat, the pencil's (errata 130 B). */
+  private markBeat(): AssayLine {
+    return { speaker: this.file.pencil ?? this.duel.opponent, line: '', rest: this.file.markSeconds ?? 0.6, mark: true };
+  }
+
   private boastLine(n: number): AssayLine {
     return { speaker: this.duel.opponent, line: this.pair(n).boast };
   }
@@ -270,14 +299,23 @@ export class DuelSession {
     const muttered = new Set(this.muttered);
     if (correct) {
       player += 1;
+      // His counter was the scoring line: the pencil goes down after it.
+      lines.push(this.markBeat());
     } else {
       opponent += 1;
       const wrong = pair.wrong[Number(optionId.slice(1))];
       if (!wrong) throw new Error(`No wrong answer ${optionId} on pair ${pair.n}`);
       lines.push({ speaker: wrong.attribution === 'Reply' ? this.duel.opponent : wrong.by, line: wrong.reply });
+      // THE POINT IS WRITTEN DOWN when the reply that won it is over (errata
+      // 130 B), before anything else is said.
+      lines.push(this.markBeat());
       // Errata 73 D and F: in Duel One, a voice from the ring mutters the
-      // right counter the first time each pair is thrown; the player writes it down.
-      if ((this.duel.learns ?? []).includes(pair.n) && !muttered.has(pair.n)) {
+      // right counter the first time each pair is thrown; the player writes it
+      // down. Doc 03's rule for every duel that learns by losing (errata 130 A):
+      // the same, for any boast he could not answer.
+      const mutters = (this.duel.learns ?? []).includes(pair.n)
+        || (this.duel.learnsByLosing === true && !this.known.has(pair.n));
+      if (mutters && !muttered.has(pair.n)) {
         muttered.add(pair.n);
         lines.push({ speaker: this.file.bystander, line: pair.counter });
         const note = this.duel.notebook?.[String(pair.n)];
@@ -304,7 +342,8 @@ export class DuelSession {
     let yields: string[] = [];
     let completes: string | null = null;
     if (ended) {
-      for (const n of this.duel.learns ?? []) {
+      const learned = [...(this.duel.learns ?? []), ...(this.duel.learnsByLosing ? muttered : [])];
+      for (const n of learned) {
         const flag = this.pair(n).flag;
         if (flag) sets[flag] = true;
       }

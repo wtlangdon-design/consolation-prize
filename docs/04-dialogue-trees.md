@@ -797,7 +797,7 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 | 2 | "I want my four dollars back." | `[TOPIC · counted-repeat]` | "They're working, son. Money *works* out here." *(second)* "They've been promoted." *(third)* "They're in hospitality now." |
 | 3 | "Teach me to lie like that." | `[ASSAY · remove]` | "Can't teach it. Can *demonstrate* it." → **Duel One.** He teaches Tier 1 by beating Thad with it, cheerfully, twice if asked |
 | 4 | "You'll answer for this someday." | `[COMIC · retain]` | "I answer for it *constantly*. Nobody accepts the answer." |
-| 5 | "I'd like a rematch." | `[ASSAY · retain]` | "Course you would. They all would. Pull up the chair, son, the judges are getting bored." → **Duel Two** *(offered once Duel One is lost; errata 73 H)* |
+| 5 | "I'd like a rematch." | `[ASSAY · counted-repeat]` | "Course you would. They all would. Pull up the chair, son, the judges are getting bored." → **Duel Two** *(offered once Duel One is lost; errata 73 H. Counted-repeat, not greyed, while a rematch is still owed: errata 130 E)* |
 | 6 | "I need you to sign an affidavit." | `[PROGRESS · remove]` | "Sign a paper saying I sold you mud under false pretenses? Son, that's a confession with a stamp on it." *(beat)* "Tell you what. We'll settle it the local way." *(He pulls out the chair.)* → **B4**; **Duel One** *(errata 75)* |
 
 **`VES_F1` (Act IV — the hotel):** he has bought the hotel. With, he explains proudly, Thad's four dollars, "and some other fellows' several thousand." One option, `[COMIC · retain]`: "Was it worth it?" — "The four dollars? Son, your four dollars *built the mezzanine*."

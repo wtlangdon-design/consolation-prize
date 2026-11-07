@@ -35,6 +35,15 @@ export interface Utterance {
   direction?: boolean;
   /** A sound the line makes when it is shown (doc 48 S6's county seal). */
   sound?: { src: string; gain?: number; rest?: number };
+  /**
+   * A HELD BEAT (errata 130): nothing is said, it lasts this many seconds, and
+   * no click shortens it -- a silence the writing asks for ("Silence on Main
+   * Street. Long.") is not one the player can skip by reflex. It then moves on
+   * by itself, even when lines wait for a click.
+   */
+  rest?: number;
+  /** The judges write a point down in this beat (doc 45 U-ASSAY-PENCIL). */
+  mark?: boolean;
 }
 
 /**
@@ -131,11 +140,14 @@ export class DialoguePerformance {
   /** When the current line will clear itself. Doc 30 section 4.1. */
   get holdUntil(): number {
     const line = this.current;
-    return line === null ? this.shownAt : this.shownAt + readingHold(line.line, this.timing);
+    if (line === null) return this.shownAt;
+    if (line.rest !== undefined) return this.shownAt + line.rest;
+    return this.shownAt + readingHold(line.line, this.timing);
   }
 
   /** Whether input may dismiss the current line yet. Doc 30 section 4.2. */
   acceptsInput(now: number): boolean {
+    if (this.current?.rest !== undefined) return false;
     return !this.done && now >= this.shownAt + INPUT_GUARD;
   }
 
@@ -149,6 +161,8 @@ export class DialoguePerformance {
    */
   tick(now: number): boolean {
     if (this.done) return false;
+    // A HELD BEAT ENDS ON ITS OWN CLOCK, whatever the reading setting.
+    if (this.current?.rest !== undefined) return now >= this.holdUntil ? this.next(now) : false;
     // UNLESS THE PLAYER HAS ASKED TO READ AT HIS OWN PACE (ui.json,
     // conversationWaitsForClick). Doc 30's objection was to a line that waited
     // forever because nothing timed it; this one waits because Tyler, playing,

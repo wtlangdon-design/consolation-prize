@@ -205,6 +205,12 @@
    "date": "2026-11-06",
    "kind": "loosened",
    "why": "Its 'no topic flag stands in for C5' assertion required T_QUEUE_PADDED to be unset after C5. It held only because fixture r5-c gave Thad the log without the flag the log's own pickup writes; errata 124 makes C5 wait on that flag, so the assertion now checks that the C5 pair itself writes no flag. Not a loosening of what C5 is: the new test in the same file is stricter (the log works with the drawer unopened)."
+  },
+  {
+   "check": "tests/assay.test.ts",
+   "date": "2026-11-06",
+   "kind": "loosened",
+   "why": "Not a misfire: the design changed under it (errata 130, from the duel audit). \"A lost Duel Two writes nothing\" and \"only the reply\" asserted errata 73 H, which 130 A amends: a lost Duel Two now teaches the counters the ring muttered, and every point gets the judges' held beat. Duel One's mutter test now skips the mark beat, and the save and drop tests start Duel One by option 6 because option 3 is now the replay (130 D). Each old property is still asserted in its new form, and five new tests hold the changes."
   }
  ]
 }
