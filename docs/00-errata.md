@@ -4084,3 +4084,21 @@ Tyler: "Read reference/item-icons/brief.md … and do it: redraw all 26 item ico
 - no keyboard scrolling (the arrows and the wheel only).
 
 Doc 30's affected lines carry a bracketed note pointing here: §1, §6.1, §6.2, §16, and Tables 1 and 8.
+
+# 149 · THE STAMP AND THE STREET ERUPTING, PICKED BY EAR — TYLER, 2026-11-06
+
+*Tyler, of the two: "Erupts in applause, or what? I couldn't even tell what I was listening to." and "The stamp doesn't sound like a stamp."*
+
+**A · Why they failed.** The eruption (errata 131 E) was the Nugget's crowd murmur, layered and swelled, so nothing in it cheered. The stamp (errata 106) was three resonant modes, so it rang like a small wood block. Both passed every level check.
+
+**B · What he chose.** Three new versions of each were played to him, alone and in the scene, with the old one beside them for comparison. He chose **"B and B"**:
+- The stamp is "Ink pad, then stamp": a soft dab on the pad, then a dull thump of rubber on paper on a wooden counter, then the lift. It has no pitched ring.
+- The eruption is "Cheering": applause, two-finger whistles, whoops and shouts, and boots on the boardwalk.
+
+`tools/audio/render-picked-sfx.py` renders all six candidates in the order they were auditioned, from one seed, and writes only the two picked. The committed files are byte-identical to what he heard.
+- Gains are set as he heard them: U-STAMP 0.429 and F4-ERUPTS 0.155.
+- U-STAMP's place is -10. The 400 ms window reads a short dab-and-thump quieter than the old ringing stamp at the same peak.
+
+**C · What holds it.**
+- `tests/sfx-one-renderer.test.mjs`: no two audio scripts write the same file. The old renderers no longer write `stamp.wav` or `crowd-erupts.wav`, so re-running them cannot put back the rejected sounds.
+- Doc 55 §8 gains the rule: a sound has to say what it is, heard on its own.

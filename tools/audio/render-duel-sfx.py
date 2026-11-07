@@ -57,4 +57,6 @@ def crowd_erupts():
 
 
 if __name__ == '__main__':
-    save('crowd-erupts.wav', crowd_erupts())
+    # Errata 149: crowd-erupts.wav is render-picked-sfx.py's (Tyler chose "B · Cheering" by ear;
+    # of this one: "Erupts in applause, or what? I couldn't even tell what I was listening to.").
+    raise SystemExit('crowd-erupts.wav is rendered by tools/audio/render-picked-sfx.py since errata 149')

@@ -217,11 +217,11 @@
    ]
   },
   "U-STAMP": {
-   "why": "doc 45 U-STAMP: a stamp landing on paper, where the writing says one does",
+   "why": "doc 45 U-STAMP: a stamp landing on paper, where the writing says one does Errata 149: Tyler's pick by ear, \"B · Ink pad, then stamp\"; gain as he heard it.",
    "play": [
     {
      "src": "audio/sfx/stamp.wav",
-     "gain": 0.373
+     "gain": 0.429
     }
    ]
   },
@@ -344,11 +344,11 @@
    "room": "listening_chamber"
   },
   "F4-ERUPTS": {
-   "why": "doc 03 Duel Four: \"The street erupts.\" Errata 131 E: the town roars on the line after Sowerby's verdict, over the silence that held before it (the music stays down until the duel is over).",
+   "why": "doc 03 Duel Four: \"The street erupts.\" Errata 131 E: the town roars on the line after Sowerby's verdict, over the silence that held before it (the music stays down until the duel is over). Errata 149: Tyler's pick by ear, \"B · Cheering\"; gain as he heard it.",
    "play": [
     {
      "src": "audio/sfx/crowd-erupts.wav",
-     "gain": 0.5
+     "gain": 0.155
     }
    ]
   },
@@ -665,7 +665,7 @@
   "duelMark": "U-ASSAY-PENCIL"
  },
  "levels": {
-  "about": "TYLER, 2026-11-06: \"make sure sfx aren't absurdly loud ... background effects not sounds that take center stage.\" Targets in dB against the median room bed (the music as it plays), and the gains in this file are set from them by measurement, never by ear alone. tools/check-sound-levels.mjs fails on any sound above its ceiling, which is the target plus 2 dB. `roomGain` turns a room's own scripted sounds down together -- the coffin's dirt and the chamber's taps -- whose loudest must sit no higher than the music (`scene`, 0 dB): in the coffin there is no music, and those sounds are the room, but not a slap. The two synthesized human sounds -- the Nugget's talk and the distant laugh -- sit lower than their kinds (20 and 16 dB under), because a voice made by synthesis is most convincing when it is barely there (errata 106). A cue with a `duck` dips the music under it, and its target is measured against its own room's music as ducked rather than the median: the bells (Tyler: \"The bell is hard to hear over the music\") ring over a dipped score, the near one 6 dB above it, the distant one 2. ERRATA 122 (Tyler, 2026-11-06, listening to every room at its real level: \"you can't hear really any of the background sounds and noises. The music completely overpowers everything.\"): the places were set too low, 16-20 dB under the score. Backgrounds now sit 8 under (the Nugget's synthesized crowd 12), their layers 10, footsteps 10 (the loudest step of each floor), one-offs 4, and every per-cue place 6 higher than it was; the featured moments, the Strike and the tuning arc's fiddler keep their places. The check now has a floor as well as a ceiling: no place lower than -12, and no sound more than 6 dB under its place. The coffin's and the chamber's scripted sounds keep a ceiling only: their distance is the scene. The Nugget's crowd and the registrar's bed were re-rendered nearer full scale (tools/audio/render-room-sfx.py) so their gains stay under 1.",
+  "about": "TYLER, 2026-11-06: \"make sure sfx aren't absurdly loud ... background effects not sounds that take center stage.\" Targets in dB against the median room bed (the music as it plays), and the gains in this file are set from them by measurement, never by ear alone. tools/check-sound-levels.mjs fails on any sound above its ceiling, which is the target plus 2 dB. `roomGain` turns a room's own scripted sounds down together -- the coffin's dirt and the chamber's taps -- whose loudest must sit no higher than the music (`scene`, 0 dB): in the coffin there is no music, and those sounds are the room, but not a slap. The two synthesized human sounds -- the Nugget's talk and the distant laugh -- sit lower than their kinds (20 and 16 dB under), because a voice made by synthesis is most convincing when it is barely there (errata 106). A cue with a `duck` dips the music under it, and its target is measured against its own room's music as ducked rather than the median: the bells (Tyler: \"The bell is hard to hear over the music\") ring over a dipped score, the near one 6 dB above it, the distant one 2. ERRATA 122 (Tyler, 2026-11-06, listening to every room at its real level: \"you can't hear really any of the background sounds and noises. The music completely overpowers everything.\"): the places were set too low, 16-20 dB under the score. Backgrounds now sit 8 under (the Nugget's synthesized crowd 12), their layers 10, footsteps 10 (the loudest step of each floor), one-offs 4, and every per-cue place 6 higher than it was; the featured moments, the Strike and the tuning arc's fiddler keep their places. The check now has a floor as well as a ceiling: no place lower than -12, and no sound more than 6 dB under its place. The coffin's and the chamber's scripted sounds keep a ceiling only: their distance is the scene. The Nugget's crowd and the registrar's bed were re-rendered nearer full scale (tools/audio/render-room-sfx.py) so their gains stay under 1. ERRATA 148: U-STAMP's place is -10, measured on the 400 ms window: the stamp Tyler chose by ear is a short dab and thump, quieter on that window than the old ringing one at the same peak, and it is set at the level he heard and picked.",
   "footsteps": -10,
   "cue": -4,
   "cueBed": -8,
@@ -689,7 +689,8 @@
    "FID-PASSING": 10,
    "R33-FIDDLER": -2,
    "F4-ERUPTS": 0,
-   "F4-DOOR": -10
+   "F4-DOOR": -10,
+   "U-STAMP": -10
   },
   "ambience": {
    "nugget": -12
