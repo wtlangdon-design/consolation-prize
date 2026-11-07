@@ -3102,6 +3102,13 @@ export interface Cutaway {
   when: Condition;
   done: string;
   lines: { speaker: string; line: string }[];
+  /**
+   * ERRATA 159: a close-up drawn for the scene, Monkey Island's way, shown
+   * over the room: `frames[0]` at rest, `frames[1]` mid-word, swapped while
+   * a line is said. Shown only if both have arrived; otherwise the scene
+   * plays in the room as it did before the drawings existed.
+   */
+  closeup?: { frames: [string, string] };
 }
 
 export interface CutawaysFile {

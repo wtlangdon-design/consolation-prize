@@ -4328,3 +4328,17 @@ The input, the hover and the menu key are closed while one plays. The only thing
 - every speaker is a figure in that room, or the one unseen voice;
 - no cut-away contains Hob or his shack, the Pratt scene names no money, and Fanshawe's cut-away is gated to Part Three;
 - a visit is not an arrival: no flag changes, and a save taken during one loads in the room he is really in, where he stood.
+
+# 159 · FANSHAWE'S CLOSE-UP, MONKEY ISLAND'S WAY — TYLER, 2026-11-07
+
+*Tyler, of errata 158's cut-aways: "One of the things I remember most about the LaChuck cutaway from MI was that it played like a video with a much better drawn version of LaChuck. Is that something to consider instead of just a played out scene in the same style as the game's already drawn?" He was offered close-ups for Fanshawe only, for all three, or none, and chose **"Fanshawe only (Recommended)"**, whose option read "About 2 images".*
+
+**A · The engine.** A cut-away may declare a `closeup`: two frames, at rest and mid-word. It is drawn over the whole play area, over the room the scene is set in, so the room's music and its other sounds stay. The mid-word frame alternates with the rest frame about three times a second while a line is up, as a mouth does (`GameScene.closeupFrame`). The scene shows the close-up only when both frames have arrived. Otherwise it plays in the room, as errata 158 built it.
+
+**B · Declared only once drawn.** The extractor writes Fanshawe's `closeup` into `content/cutaways.json` only when both `art/cutaways/fanshawe-closeup-rest.png` and `art/cutaways/fanshawe-closeup-talk.png` are in the repository. So the game never waits on a file that is not there. When the frames land, re-extracting switches the close-up on, and `--check` calls the file stale until somebody does. Until then, the scene plays in his office.
+
+**C · The art.** `reference/fanshawe-closeup/brief.md` is for the session with the image key. Asset `fanshawe-closeup` is capped at 2 in `caps.json`, under this ruling (attemptsTotal 290 → 292), with no correction without Tyler's word. The close-up is the one place the game draws a figure larger and more detailed than Thad's look, on purpose. It keeps the game's palette, its soft shading and its outline.
+
+**D · Seen.** Both paths were run in a real browser. With stand-in frames, the close-up covered the office and showed its mid-word frame while a line was up. With no frames, the scene played in the office.
+
+**What holds it:** `tests/cutaways.test.ts` requires the close-up to be declared exactly when both frames exist, and each frame to be 1920 × 864. The two comic scenes stay in their rooms.

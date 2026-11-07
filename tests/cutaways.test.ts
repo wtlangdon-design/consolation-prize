@@ -81,3 +81,21 @@ test('a visit is not an arrival: it changes nothing, and a save in one lands whe
   assert.equal(again.roomId, 'main_street', 'the save is where he was, not where the camera went');
   assert.deepEqual(again.resumeStanding(null) ?? again['standing']?.get?.('main_street'), [1234, 760]);
 });
+
+test('a close-up is declared exactly when both its frames are drawn, at the play area\'s size (errata 159)', async () => {
+  const { existsSync, readdirSync, readFileSync } = await import('node:fs');
+  const content = await loadContent(fsReader);
+  const colonel = content.cutaways[2]!;
+  // The frames are whatever the image session delivered into art/cutaways/: a rest and a talk.
+  const dir = resolve(ROOT, 'art/cutaways');
+  const files = existsSync(dir) ? readdirSync(dir) : [];
+  const drawn = files.some((name) => name.endsWith('-closeup-rest.png')) && files.some((name) => name.endsWith('-closeup-talk.png'));
+  assert.equal(Boolean(colonel.closeup), drawn, 'declared only once the image session has delivered both');
+  if (!drawn) return;
+  for (const path of colonel.closeup!.frames) {
+    const bytes = readFileSync(resolve(ROOT, path));
+    assert.equal(bytes.readUInt32BE(16), 1920, `${path} width`);
+    assert.equal(bytes.readUInt32BE(20), 864, `${path} height`);
+  }
+  assert.ok(content.cutaways.slice(0, 2).every((one) => !one.closeup), 'the two comic scenes play in their rooms');
+});

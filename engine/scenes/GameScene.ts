@@ -234,7 +234,7 @@ export class GameScene extends Phaser.Scene {
    * held until that room is whole, and up. Null otherwise.
    */
   private cut: { cutaway: Cutaway; phase: 'out' | 'black' | 'show' | 'leave' | 'back' | 'up'; at: number;
-    back?: { x: number; y: number; facing: Facing } } | null = null;
+    back?: { x: number; y: number; facing: Facing }; closeup?: boolean } | null = null;
   /** Assets the loader could not fetch: a room waits for each to arrive OR fail, never for ever. */
   private readonly loadFailed = new Set<string>();
   /** Scene seconds when the close's last line came down; null until it has. */
@@ -936,6 +936,7 @@ export class GameScene extends Phaser.Scene {
       pan: this.panFrame(),
       // ERRATA 158: in a cut-away's room he is not there, nor anyone who moves with him.
       moversHidden: this.state.inCutaway,
+      closeup: this.closeupFrame(),
       page: this.overBlack && this.page.length ? this.page : null,
       pageAlpha: this.pageAlpha,
     });
@@ -3491,6 +3492,14 @@ export class GameScene extends Phaser.Scene {
       if (!due) return;
       // Written as it starts, so nothing can play it twice.
       this.state.flags.applyWrites({ [due.done]: true });
+      // ERRATA 159: its close-up, if it has one, fetched under the fade.
+      let queued = 0;
+      for (const path of due.closeup?.frames ?? []) {
+        if (this.textures.exists(path) || this.loadFailed.has(path)) continue;
+        this.load.image(path, new URL(path, document.baseURI).toString());
+        queued += 1;
+      }
+      if (queued) this.load.start();
       this.cut = { cutaway: due, phase: 'out', at: now };
       this.markDirty();
       return;
@@ -3508,7 +3517,11 @@ export class GameScene extends Phaser.Scene {
       }
     } else if (cut.phase === 'black') {
       this.fadeBlack = 1;
-      if (this.roomWhole() || t >= limit) {
+      const frames = cut.cutaway.closeup?.frames ?? [];
+      const settled = frames.every((path) => this.textures.exists(path) || this.loadFailed.has(path));
+      if ((this.roomWhole() && settled) || t >= limit) {
+        // The close-up only if every frame of it is here: half a close-up is worse than the room.
+        cut.closeup = frames.length > 0 && frames.every((path) => this.textures.exists(path));
         // The lines, as a scene: each holds its reading time, Text speed and all.
         this.sequence.start([
           { kind: 'wait', seconds: 0.8 },
@@ -3542,6 +3555,19 @@ export class GameScene extends Phaser.Scene {
       if (t >= up) this.cut = null;
     }
     this.markDirty();
+  }
+
+  /**
+   * ERRATA 159: the close-up frame to draw over the room, or null. Mid-word
+   * while a line is up, swapping a few times a second as a mouth does; at
+   * rest between lines and while the screen fades.
+   */
+  private closeupFrame(): string | null {
+    const cut = this.cut;
+    const frames = cut?.cutaway.closeup?.frames;
+    if (!cut?.closeup || !frames || !this.state.inCutaway) return null;
+    const talking = this.sayLines.length > 0 && Math.floor(this.time.now / 160) % 2 === 1;
+    return talking ? frames[1] : frames[0];
   }
 
   /**

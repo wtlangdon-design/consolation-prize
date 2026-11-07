@@ -5186,7 +5186,13 @@ function cutaways() {
     // Part Three, and only Part Three: E0b writes ACT 3. He is in his office
     // only on a day that is not a funeral day (content/ambient/fanshawe.json).
     3: { id: 'fanshawe_chairs', room: 'fanshawe_office', when: { ACT: { atLeast: 3, atMost: 3 }, T_FUNERAL_DAY: false },
-      done: 'T_CUTAWAY_FANSHAWE' },
+      done: 'T_CUTAWAY_FANSHAWE',
+      // ERRATA 159: MONKEY ISLAND'S CLOSE-UP. Tyler, of LeChuck's scenes: "it
+      // played like a video with a much better drawn version". Two frames,
+      // at rest and mid-word, drawn by the image session from
+      // reference/fanshawe-closeup/brief.md. Until both are here the scene
+      // plays in the office, as it always has.
+      closeup: { frames: ['art/cutaways/fanshawe-closeup-rest.png', 'art/cutaways/fanshawe-closeup-talk.png'] } },
   };
   const sections = doc.split(/^## /m).slice(1).filter((part) => /^\d+ · /.test(part));
   const out = sections.map((part) => {
@@ -5202,7 +5208,13 @@ function cutaways() {
       lines.push({ speaker, line: cell[3] });
     }
     if (!lines.length) throw new Error(`doc 96 section ${number}: no lines`);
-    return { ...route, lines };
+    // ERRATA 159: A CLOSE-UP IS DECLARED ONLY ONCE ITS FRAMES ARE IN THE
+    // REPOSITORY, so the game never waits in the dark on a file that does not
+    // exist; when the image session's frames land, re-extracting adds it, and
+    // --check calls this file stale until somebody does.
+    const { closeup, ...rest } = route;
+    const drawn = closeup && closeup.frames.every((path) => existsSync(resolve(ROOT, path)));
+    return { ...rest, ...(drawn ? { closeup } : {}), lines };
   });
   if (out.length !== Object.keys(ROUTE).length) throw new Error(`doc 96: ${out.length} cut-aways, ${Object.keys(ROUTE).length} routed`);
   return write('content/cutaways.json', {

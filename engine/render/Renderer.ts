@@ -126,6 +126,8 @@ export interface Frame {
   pan?: { offset: number; sky: string; clock?: number } | null;
   /** Errata 158: a cut-away's room, where the player and everyone moving with him are not. */
   moversHidden?: boolean;
+  /** Errata 159: a cut-away's close-up, drawn over the whole play area, by path. */
+  closeup?: string | null;
   /**
    * THE LETTER'S PAGE (errata 128): every line of it said so far, drawn whole
    * over black and held, at `pageAlpha` while it fades. Replaces the speech
@@ -1027,6 +1029,11 @@ export class Renderer {
     this.drawForeground();
     this.screen.context.restore();
     if (frame.pan && frame.pan.offset > 0) this.drawPan(frame.pan);
+    // ERRATA 159: a close-up covers the room it is set in; the lines go over it.
+    if (frame.closeup) {
+      const image = this.sheet(frame.closeup);
+      if (image) this.screen.context.drawImage(image, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+    }
     if (frame.overBlack) this.screen.fill(0, 0, NATIVE_WIDTH, PLAY_HEIGHT, this.screen.role('overlayBg'));
     // The response to an option is drawn above the option list, not instead
     // of it -- otherwise picking an option appears to do nothing.
