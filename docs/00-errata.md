@@ -4410,6 +4410,28 @@ The input, the hover and the menu key are closed while one plays. The only thing
 
   No correction was needed. The sheet is `art/actors/room-43-bell-ringer.png`: frames [[2,2,143,276], [147,2,143,276], [292,2,143,276], [437,2,143,276], [582,2,143,276]], 0 rest · 1 breath · 2 strike-up · 3 strike · 4 talk, top-left 858,424 and anchor 929,700 in the plate. The builder writes his ambient file.
 
+
+**THE LINES (part 2, PR 230).** `docs/97-lower-street-and-the-lane.md` writes six subjects per street, each with three LOOKs and three LISTENs. It also writes three overrides for the bell-ringer. Doc 49 gains six wrong answers per street. Both rooms are `BUILDABLE WITHOUT INVENTION: YES`. PR 232 corrected four British spellings, and `tools/check-american-english.mjs` now reads extracted examine files, which is why it had missed them.
+
+**BUILT (part 3, 2026-11-07).**
+- **Fitted to the plates.** Every hotspot, door and arrival point is read off the image session's plates (`reference/room-43|44/annotation.json`, `plateShippingHash` set). The walk band and the depth are the graybox plan's, which the plates were painted against.
+- **The lines, read against the plates.** Doc 97 was written before the plates. Thirteen lines described what they do not show: a horse in the livery doorway, hay spilling from the loft, the moon in the trough, a tin patch, bare footprints, a man at Sump's counter and a spike of papers in his window, three church steps where the plate has four, a narrow lane, boot prints, a patched tent, a barber's chair, and a counter and calendar behind the storefront's boards. Each was rewritten to what the plate shows, in the same voice, as doc 97's own rule ("nothing the plate does not show") requires. One of doc 49's lines had the moon too ("The moon came off on my hands"); it was rewritten the same way. Doc 55 §8 gains the row.
+- **The bell — Tyler, 2026-11-07: "1".** The brief asked for a hand bell on a post, and the plate painted one. But doc 05's bell rope in Room 17 drops "from the only bell in the district". Offered three options, Tyler chose the first: change that line. It now reads "from the church's own bell". Doc 97's bell and church lines speak of two bells, the belfry's on its rope and the post's by hand.
+- **The rewiring (C).**
+  - Main Street's east road (`to_claims_road`, now named LOWER STREET) leads to Lower Street.
+  - Main Street's alley (`to_back_alley`, now named THE LANE) leads to the Lane.
+  - The claims road, the back alley, the Registrar's, the church and the livery lead back to Lower Street.
+  - The undertaker's and the tent lead back to the Lane.
+  - Each room's annotation carries its new door and arrival, so a recompile keeps them.
+  - The map drops the nine in-town places (`removedLocations` in `content/rooms/town-map.json`).
+  - The gauntlet's entry and doors routes for the seven rooms, and the archive and Boot Hill routes that began at them, walk the streets now. `proofs/spec/lower-street.json` and `the-lane.json` are new.
+- **Sound.** Footsteps on both streets are mud. Doc 28 gives the streets "CONSOLATION, varying orchestration by street — Main Street full, the Lane down to piano alone". Lower Street plays Main Street's piece, quieter (0.5), because there is no separate arrangement for it. The Lane plays the back alley's distant piano, tuned when the Nugget's piano is.
+- **The bell-ringer (doc 07 #4).** `content/ambient/bell-ringer.json` stands him at 929,700, drawn at the street's man.
+  - **His tree.** It is extracted from doc 07 (`tools/town-barks.json` `trees`). Its "(He does not move.)" is acted, as doc 95 row 68.
+  - **His barks.** A new `struck` routing reads them: the words where a row has any, the blow as `barkCues` on the town's flat bell (BR-STRIKE-ONE, -TWICE, -HALF, -FOUR, BR-PASSING; featured and measured). `tests/town-barks.test.ts` holds that every row both plays and says what it writes.
+  - **His idle.** He has two breaks. One is a strike, which sounds through the new `sprite.breakCues`: a blow in silence reads as a fault, as the pie woman's silent shout did. The other raises the mallet and thinks better of it.
+  - **Known risk.** His swing lands about hip height, below the bell on its post. Tyler flags it in the playthrough if it reads wrong.
+
 ---
 
 # 162 · FANSHAWE'S CLOSE-UP, DRAWN — TYLER, 2026-11-07 (reference/fanshawe-closeup/brief.md)
