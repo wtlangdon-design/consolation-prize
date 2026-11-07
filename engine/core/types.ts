@@ -3108,7 +3108,28 @@ export interface Cutaway {
    * a line is said. Shown only if both have arrived; otherwise the scene
    * plays in the room as it did before the drawings existed.
    */
-  closeup?: { frames: [string, string] };
+  closeup?: CutawayCloseup;
+  /**
+   * ERRATA 160: a shot BEFORE the scene, Monkey Island's ghost ship before
+   * LeChuck: `image` (a room's plate) from `x`, held `seconds` while the view
+   * creeps in toward `focus`, then a hard cut to the scene.
+   */
+  establishing?: { image: string; x: number; seconds: number; push: number; focus: [number, number] };
+  /** Errata 160: the scene's own music, in place of its room's bed while it plays. */
+  music?: { src: string; gain?: number; rate?: number };
+}
+
+/**
+ * Errata 159-160: the close-up. `frames` are rest, mid-word and (optional)
+ * blink. The view creeps in by `push` (0.06 = six per cent) toward `focus`
+ * over `pushSeconds`; `lamp` breathes a warm light at that point.
+ */
+export interface CutawayCloseup {
+  frames: string[];
+  push?: number;
+  pushSeconds?: number;
+  focus?: [number, number];
+  lamp?: { x: number; y: number; radius: number; strength: number };
 }
 
 export interface CutawaysFile {

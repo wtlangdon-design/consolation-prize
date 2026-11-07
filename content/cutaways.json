@@ -89,6 +89,21 @@
         "T_FUNERAL_DAY": false
       },
       "done": "T_CUTAWAY_FANSHAWE",
+      "establishing": {
+        "image": "art/backgrounds/room-02-main-street.png",
+        "x": 0,
+        "seconds": 4,
+        "push": 0.08,
+        "focus": [
+          690,
+          470
+        ]
+      },
+      "music": {
+        "src": "audio/the-company.wav",
+        "gain": 0.6,
+        "rate": 0.84
+      },
       "lines": [
         {
           "speaker": "fanshawe",

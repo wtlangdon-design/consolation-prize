@@ -5192,7 +5192,19 @@ function cutaways() {
       // at rest and mid-word, drawn by the image session from
       // reference/fanshawe-closeup/brief.md. Until both are here the scene
       // plays in the office, as it always has.
-      closeup: { frames: ['art/cutaways/fanshawe-closeup-rest.png', 'art/cutaways/fanshawe-closeup-talk.png'] } },
+      closeup: { frames: ['art/cutaways/fanshawe-closeup-rest.png', 'art/cutaways/fanshawe-closeup-talk.png'],
+        // ERRATA 160 (Tyler: "Go ahead" to making it play like a film): a blink
+        // between lines, when drawn; a slow push of six per cent toward his face
+        // over the scene; and the desk lamp, at the right of the frame as the
+        // brief asks, breathing on him.
+        blink: 'art/cutaways/fanshawe-closeup-blink.png',
+        push: 0.06, pushSeconds: 22, focus: [960, 360], lamp: { x: 1500, y: 430, radius: 620, strength: 0.22 } },
+      // ERRATA 160: THE GHOST SHIP BEFORE LECHUCK. Main Street at night, the
+      // Improvement Company's front (its sign spans x535-800, its door x652),
+      // the view creeping toward the door; then a hard cut inside.
+      establishing: { image: 'art/backgrounds/room-02-main-street.png', x: 0, seconds: 4, push: 0.08, focus: [690, 470] },
+      // The Company's own theme, slower and lower: THE COMPANY, darkened (doc 28 Rooms 10/11).
+      music: { src: 'audio/the-company.wav', gain: 0.6, rate: 0.84 } },
   };
   const sections = doc.split(/^## /m).slice(1).filter((part) => /^\d+ · /.test(part));
   const out = sections.map((part) => {
@@ -5214,7 +5226,10 @@ function cutaways() {
     // --check calls this file stale until somebody does.
     const { closeup, ...rest } = route;
     const drawn = closeup && closeup.frames.every((path) => existsSync(resolve(ROOT, path)));
-    return { ...rest, ...(drawn ? { closeup } : {}), lines };
+    // The blink is the third frame, and only once it too is drawn.
+    const { blink, ...shape } = closeup ?? {};
+    const declared = drawn ? { ...shape, frames: [...closeup.frames, ...(blink && existsSync(resolve(ROOT, blink)) ? [blink] : [])] } : null;
+    return { ...rest, ...(declared ? { closeup: declared } : {}), lines };
   });
   if (out.length !== Object.keys(ROUTE).length) throw new Error(`doc 96: ${out.length} cut-aways, ${Object.keys(ROUTE).length} routed`);
   return write('content/cutaways.json', {
