@@ -22,7 +22,7 @@ import { askedObjectStates } from '../dev/ObjectStates.ts';
 import { askedFont, PreviewFont } from '../render/PreviewFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
 import { IdleLayer } from '../render/IdleLayer.ts';
-import { CHOICE_ARROW_X, Renderer, ambientFrameAt, choiceLines, panelShows, type ChoiceView } from '../render/Renderer.ts';
+import { CHOICE_ARROW_X, Renderer, ambientFrameAt, choiceLines, panelShows, type ChoiceView, type ShotFrame } from '../render/Renderer.ts';
 import {
   NATIVE_HEIGHT,
   NATIVE_WIDTH,
@@ -233,8 +233,8 @@ export class GameScene extends Phaser.Scene {
    * in black until it is whole, its lines, out again, back to where he stood,
    * held until that room is whole, and up. Null otherwise.
    */
-  private cut: { cutaway: Cutaway; phase: 'out' | 'black' | 'show' | 'leave' | 'back' | 'up'; at: number;
-    back?: { x: number; y: number; facing: Facing }; closeup?: boolean } | null = null;
+  private cut: { cutaway: Cutaway; phase: 'out' | 'black' | 'establish' | 'show' | 'leave' | 'back' | 'up'; at: number;
+    back?: { x: number; y: number; facing: Facing }; closeup?: boolean; cutIn?: boolean; showFrom?: number } | null = null;
   /** Assets the loader could not fetch: a room waits for each to arrive OR fail, never for ever. */
   private readonly loadFailed = new Set<string>();
   /** Scene seconds when the close's last line came down; null until it has. */
@@ -936,7 +936,7 @@ export class GameScene extends Phaser.Scene {
       pan: this.panFrame(),
       // ERRATA 158: in a cut-away's room he is not there, nor anyone who moves with him.
       moversHidden: this.state.inCutaway,
-      closeup: this.closeupFrame(),
+      shot: this.cutawayShot(),
       page: this.overBlack && this.page.length ? this.page : null,
       pageAlpha: this.pageAlpha,
     });
@@ -1910,6 +1910,12 @@ export class GameScene extends Phaser.Scene {
       // Until the timeline's resume; after it the returned bed plays on, and
       // a click that calls this must not stop it again.
       if (!this.musicResumed) this.music.suspend();
+      return;
+    }
+    // ERRATA 160: A CUT-AWAY MAY HAVE ITS OWN MUSIC, for as long as its room is showing.
+    const scored = this.state.inCutaway ? this.cut?.cutaway.music : undefined;
+    if (scored) {
+      this.music.play({ src: scored.src, gain: scored.gain, rate: scored.rate });
       return;
     }
     const declared = this.state.content.manifest.music;
@@ -3492,9 +3498,9 @@ export class GameScene extends Phaser.Scene {
       if (!due) return;
       // Written as it starts, so nothing can play it twice.
       this.state.flags.applyWrites({ [due.done]: true });
-      // ERRATA 159: its close-up, if it has one, fetched under the fade.
+      // ERRATA 159-160: its close-up and its opening shot, fetched under the fade.
       let queued = 0;
-      for (const path of due.closeup?.frames ?? []) {
+      for (const path of [...(due.closeup?.frames ?? []), ...(due.establishing ? [due.establishing.image] : [])]) {
         if (this.textures.exists(path) || this.loadFailed.has(path)) continue;
         this.load.image(path, new URL(path, document.baseURI).toString());
         queued += 1;
@@ -3518,20 +3524,22 @@ export class GameScene extends Phaser.Scene {
     } else if (cut.phase === 'black') {
       this.fadeBlack = 1;
       const frames = cut.cutaway.closeup?.frames ?? [];
-      const settled = frames.every((path) => this.textures.exists(path) || this.loadFailed.has(path));
+      const shot = cut.cutaway.establishing?.image;
+      const wanted = [...frames, ...(shot ? [shot] : [])];
+      const settled = wanted.every((path) => this.textures.exists(path) || this.loadFailed.has(path));
       if ((this.roomWhole() && settled) || t >= limit) {
         // The close-up only if every frame of it is here: half a close-up is worse than the room.
         cut.closeup = frames.length > 0 && frames.every((path) => this.textures.exists(path));
-        // The lines, as a scene: each holds its reading time, Text speed and all.
-        this.sequence.start([
-          { kind: 'wait', seconds: 0.8 },
-          ...cut.cutaway.lines.map((spoken) => ({ kind: 'say' as const, actor: spoken.speaker, line: spoken.line })),
-          { kind: 'wait', seconds: 1.2 },
-        ]);
-        this.cut = { ...cut, phase: 'show', at: now };
+        // ERRATA 160: the opening shot first, if it has one and it arrived.
+        if (shot && this.textures.exists(shot)) this.cut = { ...cut, phase: 'establish', at: now };
+        else this.beginCutawayLines(cut, now, false);
       }
-    } else if (cut.phase === 'show') {
+    } else if (cut.phase === 'establish') {
       this.fadeBlack = Math.max(0, 1 - t / up);
+      // A HARD CUT inside, as a film does: no fade between the two shots.
+      if (t >= (cut.cutaway.establishing?.seconds ?? 0)) this.beginCutawayLines(cut, now, true);
+    } else if (cut.phase === 'show') {
+      this.fadeBlack = cut.cutIn ? 0 : Math.max(0, 1 - t / up);
       if (t >= up && !this.sequence.isRunning && this.sayLines.length === 0) this.cut = { ...cut, phase: 'leave', at: now };
     } else if (cut.phase === 'leave') {
       this.fadeBlack = Math.min(1, t / out);
@@ -3557,17 +3565,41 @@ export class GameScene extends Phaser.Scene {
     this.markDirty();
   }
 
+  /** The scene's lines, as a scene: each holds its reading time, Text speed and all. */
+  private beginCutawayLines(cut: NonNullable<GameScene['cut']>, now: number, cutIn: boolean): void {
+    this.sequence.start([
+      { kind: 'wait', seconds: 0.8 },
+      ...cut.cutaway.lines.map((spoken) => ({ kind: 'say' as const, actor: spoken.speaker, line: spoken.line })),
+      { kind: 'wait', seconds: 1.2 },
+    ]);
+    this.cut = { ...cut, phase: 'show', at: now, cutIn, showFrom: now };
+  }
+
   /**
-   * ERRATA 159: the close-up frame to draw over the room, or null. Mid-word
-   * while a line is up, swapping a few times a second as a mouth does; at
-   * rest between lines and while the screen fades.
+   * WHAT A CUT-AWAY SHOWS OVER ITS ROOM (errata 159-160), or null for the
+   * room itself. The opening shot, creeping in; or the close-up, creeping in,
+   * mid-word while a line is up (swapping as a mouth does), blinking now and
+   * then between lines, its lamp breathing.
    */
-  private closeupFrame(): string | null {
+  private cutawayShot(): ShotFrame | null {
     const cut = this.cut;
-    const frames = cut?.cutaway.closeup?.frames;
-    if (!cut?.closeup || !frames || !this.state.inCutaway) return null;
+    if (!cut || !this.state.inCutaway) return null;
+    const now = this.time.now / 1000;
+    const ease = (t: number) => { const u = Math.min(1, Math.max(0, t)); return u * u * (3 - 2 * u); };
+    if (cut.phase === 'establish' && cut.cutaway.establishing) {
+      const shot = cut.cutaway.establishing;
+      return { image: shot.image, sx: shot.x, zoom: 1 + shot.push * ease((now - cut.at) / shot.seconds), focus: shot.focus,
+        clock: now };
+    }
+    const close = cut.cutaway.closeup;
+    if (!cut.closeup || !close || cut.phase === 'black' || cut.phase === 'out') return null;
+    const since = now - (cut.showFrom ?? now);
     const talking = this.sayLines.length > 0 && Math.floor(this.time.now / 160) % 2 === 1;
-    return talking ? frames[1] : frames[0];
+    // A blink: 0.14 s in every 4.3, never while he is talking.
+    const blinking = !talking && this.sayLines.length === 0 && close.frames[2] !== undefined && (since % 4.3) > 4.16;
+    const image = talking ? close.frames[1] : blinking ? close.frames[2] : close.frames[0];
+    return { image: image ?? close.frames[0]!, sx: 0, zoom: 1 + (close.push ?? 0) * ease(since / (close.pushSeconds ?? 20)),
+      focus: close.focus ?? [960, 432], lamp: close.lamp, clock: now };
   }
 
   /**

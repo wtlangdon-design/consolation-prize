@@ -37,6 +37,17 @@ import {
   Screen,
 } from './Screen.ts';
 
+/** Errata 159-160: what a cut-away shows over its room. See `Renderer.drawShot`. */
+export interface ShotFrame {
+  image: string;
+  /** Where the shot starts in its image, for a crop of a wider plate. */
+  sx: number;
+  zoom: number;
+  focus: [number, number];
+  lamp?: { x: number; y: number; radius: number; strength: number };
+  clock: number;
+}
+
 export interface Frame {
   /**
    * ROOM 33's RIPPLES (doc 45 R33-RIPPLE): each tap drawn where it landed,
@@ -126,8 +137,8 @@ export interface Frame {
   pan?: { offset: number; sky: string; clock?: number } | null;
   /** Errata 158: a cut-away's room, where the player and everyone moving with him are not. */
   moversHidden?: boolean;
-  /** Errata 159: a cut-away's close-up, drawn over the whole play area, by path. */
-  closeup?: string | null;
+  /** Errata 159-160: a cut-away's close-up or opening shot, drawn over the whole play area. */
+  shot?: ShotFrame | null;
   /**
    * THE LETTER'S PAGE (errata 128): every line of it said so far, drawn whole
    * over black and held, at `pageAlpha` while it fades. Replaces the speech
@@ -1029,11 +1040,8 @@ export class Renderer {
     this.drawForeground();
     this.screen.context.restore();
     if (frame.pan && frame.pan.offset > 0) this.drawPan(frame.pan);
-    // ERRATA 159: a close-up covers the room it is set in; the lines go over it.
-    if (frame.closeup) {
-      const image = this.sheet(frame.closeup);
-      if (image) this.screen.context.drawImage(image, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
-    }
+    // ERRATA 159-160: a close-up or an opening shot covers the room it is set in; the lines go over it.
+    if (frame.shot) this.drawShot(frame.shot);
     if (frame.overBlack) this.screen.fill(0, 0, NATIVE_WIDTH, PLAY_HEIGHT, this.screen.role('overlayBg'));
     // The response to an option is drawn above the option list, not instead
     // of it -- otherwise picking an option appears to do nothing.
@@ -2444,6 +2452,42 @@ export class Renderer {
   }
 
   private panBuffer: HTMLCanvasElement | null = null;
+
+  /**
+   * ERRATA 159-160: a full-frame picture for a cut-away. `zoom` above 1 crops
+   * in toward `focus`, which stays where it is on screen -- the slow push of
+   * a film camera -- drawn nearest-neighbour like everything else. `lamp`
+   * adds a warm light there that breathes: two slow waves and a quick one,
+   * never quite repeating, so the frame is never perfectly still.
+   */
+  private drawShot(shot: ShotFrame): void {
+    const image = this.sheet(shot.image) as (CanvasImageSource & { width?: number; height?: number }) | null;
+    if (!image?.width || !image.height) return;
+    const ctx = this.screen.context;
+    const zoom = Math.max(1, shot.zoom);
+    const [fx, fy] = shot.focus;
+    const width = NATIVE_WIDTH / zoom;
+    const height = PLAY_HEIGHT / zoom;
+    const sx = shot.sx + fx - fx / zoom;
+    const sy = fy - fy / zoom;
+    ctx.drawImage(image, sx, sy, width, height, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+    const lamp = shot.lamp;
+    if (lamp) {
+      const t = shot.clock;
+      const breathe = 0.78 + 0.12 * Math.sin(t * 1.7) + 0.06 * Math.sin(t * 4.3 + 1.1) + 0.04 * Math.sin(t * 11.9 + 0.4);
+      // The lamp's place moves with the push, as the lamp itself does.
+      const lx = (lamp.x - sx + shot.sx) * zoom;
+      const ly = (lamp.y - sy) * zoom;
+      const glow = ctx.createRadialGradient(lx, ly, 0, lx, ly, lamp.radius * zoom);
+      glow.addColorStop(0, `rgba(255, 196, 120, ${(lamp.strength * breathe).toFixed(3)})`);
+      glow.addColorStop(1, 'rgba(255, 196, 120, 0)');
+      const was = ctx.globalCompositeOperation;
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.fillStyle = glow;
+      ctx.fillRect(0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+      ctx.globalCompositeOperation = was;
+    }
+  }
   /** Errata 158: set per frame from `Frame.moversHidden`. */
   private moversHidden = false;
 

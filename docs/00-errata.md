@@ -4342,3 +4342,23 @@ The input, the hover and the menu key are closed while one plays. The only thing
 **D · Seen.** Both paths were run in a real browser. With stand-in frames, the close-up covered the office and showed its mid-word frame while a line was up. With no frames, the scene played in the office.
 
 **What holds it:** `tests/cutaways.test.ts` requires the close-up to be declared exactly when both frames exist, and each frame to be 1920 × 864. The two comic scenes stay in their rooms.
+
+# 160 · FANSHAWE'S SCENE, PLAYED LIKE A FILM — TYLER, 2026-11-07
+
+*Tyler, of errata 159's close-up: "And this will play like a movie like in MI when LaCHuck is first intro'd?" He was told honestly that it would be closer to a talking portrait: one still shot whose mouth and hand move. Four things would bring it nearer Monkey Island's ghost ship and LeChuck, all in code, plus one more picture for a blink. He answered: "Go ahead".*
+
+**A · The opening shot** (`establishing`). It is the ghost ship before LeChuck: Main Street at night, the Improvement Company's front, for 4 seconds. It is the street's own plate, no new art, and the view creeps 8% toward the Company's door. Then there is a hard cut inside, with no fade between the two shots. It plays now, before the close-up exists. Until then it cuts to the office as errata 158 built it.
+
+**B · The push-in** (`closeup.push`, `pushSeconds`, `focus`). Over the close-up the view creeps 6% toward his face across 22 seconds. It is drawn nearest-neighbour like everything else (`Renderer.drawShot`).
+
+**C · The lamp** (`closeup.lamp`). A warm light at the desk lamp breathes on two slow waves and a quick one, never quite repeating, so the frame is never perfectly still. It is an additive glow, like errata 54's lantern. It is decorative: nothing about it changes with the game (invariant 9).
+
+**D · His music** (`music`). THE COMPANY (doc 28 Rooms 10/11) is played at 0.84 of its speed, slower and lower, on top of the score's detune, for as long as his scene's room is showing (`MusicTrack.rate`). The room's bed returns when the scene ends.
+
+**E · A blink.** A third close-up frame, eyes closed, is shown for a moment every 4.3 seconds between lines, never while he talks. It is declared only once it is drawn. The asset `fanshawe-closeup` goes from 2 to 3 under this ruling (attemptsTotal 292 → 293). The brief has its third operation, and asks for the placements the game relies on: the face near x 960, y 360, and the lamp flame near x 1500, y 430.
+
+**F · Seen.** Two runs in a real browser:
+- **With stand-in frames:** the street shot, the cut, the talking frames, the lamp's light, the darker theme (`the-company.wav@0.84`), and the room's own bed back afterwards. There were no page errors.
+- **With none, as it ships today:** the street shot, then the office.
+
+**What holds it:** `tests/cutaways.test.ts`. It checks that the opening shot and the music are files the game has, that the shot is held and creeps rather than zooming, that the music plays slower than written, and that the comic scenes have neither. It also checks that a bed played at a rate is slowed on top of the detune and is told apart from the same file played as written.

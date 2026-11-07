@@ -99,3 +99,38 @@ test('a close-up is declared exactly when both its frames are drawn, at the play
   }
   assert.ok(content.cutaways.slice(0, 2).every((one) => !one.closeup), 'the two comic scenes play in their rooms');
 });
+
+test('the Colonel\'s scene opens on the Company from the street, under its own darker music (errata 160)', async () => {
+  const { existsSync } = await import('node:fs');
+  const content = await loadContent(fsReader);
+  const colonel = content.cutaways[2]!;
+  const shot = colonel.establishing!;
+  assert.ok(shot && existsSync(resolve(ROOT, shot.image)), 'the opening shot is a picture the game has');
+  assert.ok(shot.seconds >= 2 && shot.seconds <= 8 && shot.push > 0 && shot.push <= 0.15, 'a held shot, creeping, not zooming');
+  const music = colonel.music!;
+  assert.ok(music && existsSync(resolve(ROOT, music.src)), 'its music is a file the game has');
+  assert.ok(music.rate! > 0.6 && music.rate! < 1, 'played slower and lower than written');
+  assert.ok(content.cutaways.slice(0, 2).every((one) => !one.establishing && !one.music), 'the comic scenes play in their rooms');
+});
+
+test('a bed played at a rate is slowed on top of the score\'s detune, and is a different bed', async () => {
+  const { Music } = await import('../engine/core/Music.ts');
+  const made: { src: string; playbackRate: number; paused: boolean }[] = [];
+  class FakeAudio {
+    volume = 1; currentTime = 0; paused = true; loop = false; playbackRate = 1; preservesPitch = true; preload = ''; duration = 30;
+    readonly dataset: Record<string, string> = {};
+    readonly src: string;
+    constructor(src: string) { this.src = src; made.push(this); }
+    play(): Promise<void> { this.paused = false; return Promise.resolve(); }
+    pause(): void { this.paused = true; }
+    addEventListener(): void { /* no errors */ }
+  }
+  Object.assign(globalThis, { Audio: FakeAudio, requestAnimationFrame: () => 0 });
+  const music = new Music(() => true);
+  music.unlock();
+  music.play({ src: 'theme.wav' });
+  const plain = made.find((one) => one.src === 'theme.wav')!.playbackRate;
+  music.play({ src: 'theme.wav', rate: 0.84 });
+  assert.equal(music.bed, 'theme.wav@0.84', 'a different bed, so the room bed and the scene bed are told apart');
+  assert.ok(Math.abs(made.find((one) => one.src === 'theme.wav')!.playbackRate - plain * 0.84) < 1e-9);
+});

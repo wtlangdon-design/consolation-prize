@@ -48,12 +48,19 @@ export interface MusicLayer {
  */
 export interface MusicTrack extends MusicLayer {
   layers?: MusicLayer[];
+  /**
+   * ERRATA 160: played this much slower and lower than written, on top of the
+   * score's detune -- the Company's theme darkened under Fanshawe's scene.
+   * Omitted: as written.
+   */
+  rate?: number;
 }
 
-type Voice = { element: HTMLAudioElement; gain: number };
+type Voice = { element: HTMLAudioElement; gain: number; rate: number };
 
-/** Two requests are the same bed when the bed and all its layers are. */
-const keyOf = (track: MusicTrack): string => [track.src, ...(track.layers ?? []).map((l) => l.src)].join('|');
+/** Two requests are the same bed when the bed, its layers and its rate are. */
+const keyOf = (track: MusicTrack): string =>
+  [track.src, ...(track.layers ?? []).map((l) => l.src)].join('|') + (track.rate && track.rate !== 1 ? `@${track.rate}` : '');
 
 import { rateForTune } from './Listening.ts';
 
@@ -96,12 +103,12 @@ export class Music {
    */
   setTune(fraction: number): void {
     this.tune = Math.max(0, Math.min(1, fraction));
-    for (const voice of this.playing ?? []) this.applyTune(voice.element);
+    for (const voice of this.playing ?? []) this.applyTune(voice.element, voice.rate);
   }
 
-  private applyTune(element: HTMLAudioElement): void {
+  private applyTune(element: HTMLAudioElement, rate = 1): void {
     (element as HTMLAudioElement & { preservesPitch?: boolean }).preservesPitch = false;
-    element.playbackRate = rateForTune(this.tune);
+    element.playbackRate = rateForTune(this.tune) * rate;
   }
 
   /**
@@ -180,14 +187,14 @@ export class Music {
           && Math.abs(carried.duration - element.duration) < 0.05;
         element.currentTime = sameLength ? carried.currentTime % element.duration : 0;
       }
-      this.applyTune(element);
+      this.applyTune(element, track.rate ?? 1);
       const target = part.gain ?? 1;
       void element.play().then(() => this.fadeIn(element, target)).catch(() => {
         // Autoplay refused, or the file is not there. Either way: silence, and
         // the request is still remembered, so a later gesture retries it.
         this.missing.add(part.src);
       });
-      voices.push({ element, gain: target });
+      voices.push({ element, gain: target, rate: track.rate ?? 1 });
     }
     if (!voices.length) return;
     this.playing = voices;
@@ -254,7 +261,7 @@ export class Music {
       voice.element.volume = voice.gain * this.level;
       void voice.element.play().catch(() => undefined);
     }
-    this.playing = held.voices.map((voice) => ({ element: voice.element, gain: voice.gain }));
+    this.playing = held.voices.map((voice) => ({ element: voice.element, gain: voice.gain, rate: voice.element.playbackRate / rateForTune(this.tune) }));
     this.playingKey = held.key;
   }
 

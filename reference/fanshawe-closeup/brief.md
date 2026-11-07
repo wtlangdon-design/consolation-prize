@@ -1,6 +1,6 @@
 # Fanshawe's close-up, for his cut-away: for the session with the image key (errata 159)
 
-Written 2026-11-07. **Authorized:** Tyler chose "Fanshawe only (Recommended)", whose option read "About 2 images". The asset is `fanshawe-closeup`, capped at **2** in `art/staging/caps.json`: one close-up at rest and one mid-word. **There is no correction attempt without Tyler's word.** Check `art/staging/ledger.json` before each operation, and record each one there.
+Written 2026-11-07. **Authorized:** Tyler chose "Fanshawe only (Recommended)", whose option read "About 2 images". Then he said "Go ahead" to one more picture, for a blink (errata 160). The asset is `fanshawe-closeup`, capped at **3** in `art/staging/caps.json`: one close-up at rest, one mid-word and one blinking. **There is no correction attempt without Tyler's word.** Check `art/staging/ledger.json` before each operation, and record each one there.
 
 ## Why
 
@@ -20,12 +20,16 @@ Never touch `wtlangdon-design/anchorage`.
 A close-up of COLONEL ABSALOM FANSHAWE at his desk at night, from just below eye level.
 - **Him:** a portly, prosperous gentleman of about sixty, with silver hair, silver whiskers and the portrait's moustache. He wears a black frock coat, a brown waistcoat with a watch chain, and a white shirt with a black cravat. He is exactly the man in `fanshawe-rest-frame-x3.png` and in the office frame, at about four times the size.
 - **Framing:** from the desk top up. His head and shoulders fill the middle of the frame.
+- **Placement, which the game relies on.** In the final 1920 × 864 frame:
+  - his face is centred near **x 960, y 360**, because the camera creeps in toward that point;
+  - the lit brass desk lamp is at the right, its flame near **x 1500, y 430**, because the game adds a breathing warm light there.
 - **Lighting:** the brass desk lamp warms one side of his face. The red damask wall and the gilt edge of his own giant portrait sit behind him, out of focus in the pixel-art sense: simpler, darker, with less detail than he has.
 - **Mood:** pleased, settled and courteous, with menace that comes only from how comfortable he is. No sneer, no villain's grin.
 
-Two frames, **identical except for his face and one hand:**
+Three frames, **identical except for his face and one hand:**
 1. **At rest** (`art/cutaways/fanshawe-closeup-rest.png`): he leans back a little, hands folded on his waistcoat, mouth closed in a small satisfied smile.
 2. **Mid-word** (`art/cutaways/fanshawe-closeup-talk.png`): the same frame, his mouth open on a word and one hand lifted a little from the waistcoat. Make it by editing frame 1, so everything else matches pixel for pixel. The game swaps between the two while he speaks.
+3. **Blinking** (`art/cutaways/fanshawe-closeup-blink.png`): frame 1 with his eyes closed and nothing else changed. The game shows it for a moment every few seconds between lines.
 
 ## Operation 1: the close-up at rest
 
@@ -41,9 +45,15 @@ Two frames, **identical except for his face and one hand:**
 - **Prompt:** an edit of this image only. Open his mouth on a word, and lift his right hand a few inches from the waistcoat as a man does when making a point gently. Change nothing else: not the light, the background, the colours, the framing or any other pixel.
 - **Derive** as frame 1. Write `art/cutaways/fanshawe-closeup-talk.png`. Then check the difference between the two frames: it must be confined to his face and the hand. If anything else moved, keep frame 1 and tell Tyler rather than spending a third operation.
 
+## Operation 3: the blink
+
+- **Images:** the derived frame 1.
+- **Prompt:** an edit of this image only. Close his eyes, as in the middle of a blink. Change nothing else.
+- **Derive** as frame 1. Write `art/cutaways/fanshawe-closeup-blink.png`. Check the difference: it must be confined to his eyes.
+
 ## Then
 
 1. `node tools/extract-content.mjs`. The extractor declares the close-up in `content/cutaways.json` only once both files exist, so this is the step that switches it on. Until it runs, `--check` calls the file stale.
 2. `npm test`, `node tools/run-all.mjs`.
-3. Look at the scene in the game: a review link to any room with `ACT` 3 set through `__gauntlet.controls.flags`, as errata 158 E did. Send Tyler a frame of each line.
-4. Commit the two PNGs, the regenerated `content/cutaways.json` and the ledger rows. The PR says `Lesson: none -- art for errata 159's declared close-up`.
+3. Look at the scene in the game: a review link to any room with `ACT` 3 set through `__gauntlet.controls.flags`, as errata 158 E did. Send Tyler a frame of each line. If the face or the lamp are not where the placement asks, move `focus` and `lamp` in the extractor's route for this cut-away (`tools/extract-content.mjs`, errata 160) to where they are, rather than redrawing.
+4. Commit the three PNGs, the regenerated `content/cutaways.json` and the ledger rows. The PR says `Lesson: none -- art for errata 159's declared close-up`.
