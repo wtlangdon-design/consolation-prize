@@ -50,20 +50,13 @@
   "back": "Back",
   "items": [
    {
-    "id": "cycling",
-    "label": "Background motion",
-    "type": "toggle",
-    "on": "On",
-    "off": "Off",
-    "default": true
-   },
-   {
     "id": "music",
     "label": "Music",
     "type": "toggle",
     "on": "On",
     "off": "Off",
-    "default": true
+    "default": true,
+    "note": "Errata 156 (Tyler, 2026-11-07: \"Music only\"): the score and nothing else. Off fades the playing bed out at once and On brings this room's back; footsteps, doors and the rooms' own background sounds are not music and keep playing. Before, this switch silenced the sound effects and left the music playing."
    },
    {
     "id": "textSpeed",
@@ -93,7 +86,8 @@
   ],
   "valueTemplate": "{label}  {value}",
   "musicNote": "Doc 18 note 2's argument for the cycling toggle applies to a music bed for the same reason: it is continuous, it is not information, and a player who wants it off must be able to turn it off without leaving the game. Held with the other display preferences rather than in the save file -- a preference belongs to the machine, not to the game.",
-  "textSpeedNote": "ERRATA 154 A. Doc 33 table 6: TEXT SPEED cycles SLOW / NORMAL / FAST / MANUAL; doc 30 table 2 names the same four settings Slow, Normal, Fast and Manual, in this menu's own case, and those are the labels. A click moves it one value on, wrapping after the last. Its value is a MACHINE SETTING (doc 33 section 7.3, textMode): stored apart from every save slot, so loading a slot, starting a new game or returning to the title never changes it. What each value does to a line is ui.json timing.textSpeeds. ERRATA 154 B. WINDOW SCALE IS GONE (doc 33 section 8.3: 'Remove the current inert Window scale row'). The frame fits the window as errata 54 rules (engine/main.ts); no row here changes it."
+  "textSpeedNote": "ERRATA 154 A. Doc 33 table 6: TEXT SPEED cycles SLOW / NORMAL / FAST / MANUAL; doc 30 table 2 names the same four settings Slow, Normal, Fast and Manual, in this menu's own case, and those are the labels. A click moves it one value on, wrapping after the last. Its value is a MACHINE SETTING (doc 33 section 7.3, textMode): stored apart from every save slot, so loading a slot, starting a new game or returning to the title never changes it. What each value does to a line is ui.json timing.textSpeeds. ERRATA 154 B. WINDOW SCALE IS GONE (doc 33 section 8.3: 'Remove the current inert Window scale row'). The frame fits the window as errata 54 rules (engine/main.ts); no row here changes it.",
+  "cyclingNote": "Errata 156: the BACKGROUND MOTION row is removed. It switched palette cycling, which errata 54 retired: no room has a live cycling element (stage_road's two are dormant), so the row changed nothing anywhere -- the false affordance doc 33 section 8.3 removed Window scale for. The engine still reads the toggle and finds it off, which is what every room already showed."
  },
  "slots": {
   "count": 3,

@@ -4229,3 +4229,26 @@ The triangle was errata 126's continue mark. It is drawn under any line that wai
 **What holds it:**
 - The opening gauntlet (`tools/gauntlet/run.mjs`, in CI) requires two things before it clicks NEW GAME: that the card was there, and that the title's own bed was sounding. With the card removed it fails on both, "the title with no card in front of it" and "no bed sounding". That is the fault Tyler heard.
 - `tests/bookends.test.ts` holds the content half: the words, and the rule for when the card shows.
+
+# 156 · OPTIONS: MUSIC SWITCHES THE MUSIC, AND BACKGROUND MOTION GOES — TYLER, 2026-11-07
+
+*From the first-player sweep Tyler asked for before his playthrough ("little things like what we're fixing are the small polish fixes that I wanted to all be done before I played it"), which looked at every control, every room's default clicks and, in a real browser, every room's music and empty-spot clicks.*
+
+**A · MUSIC did the opposite of its name.** The switch gated the sound effects, the rooms' background sounds and the cue beds. It also only refused to START a bed, so the bed already playing went on playing. Off silenced the footsteps and left the music on. Asked which it should control, Tyler chose **"Music only (Recommended)"**.
+- Off now fades the playing bed out at once (`Music.refresh`, called when the row is chosen).
+- A new room stays silent while the switch is off, and On brings back the bed for the room he is in.
+- Footsteps, doors, the rooms' backgrounds and the cue beds are not under it.
+
+**B · BACKGROUND MOTION is removed.** It switched palette cycling. Errata 54 retired palette cycling, and no room has a live element: stage_road's two are dormant. So the row changed nothing anywhere: the false affordance that doc 33 §8.3 removed Window scale for. It passed errata 154's check because its On/Off label still flipped, and a label is not an effect. The engine still asks for the toggle, finds it missing, and reads it as off, which is what every room showed anyway. Doc 33 §235's rename to PALETTE CYCLING is moot.
+
+**C · What the sweep found to be right.**
+- **Doors:** every door that a plain click looks at is scenery with no use, and every way out walks or opens.
+- **Clicks on empty spots:** in all 37 played rooms, each one walked Thad. The exceptions are deliberate. The coffin and the dawn close have no interface (invariant 2; errata 128). On the town map only places answer. The few that seemed to do nothing landed where he already stood, at the nearest walkable point the click before had taken him to.
+- **Music:** every room's bed sounds as doc 28 and errata 104 assign it, and the undertaker keeps his deliberate silence (errata 103).
+
+**What holds it:** `tests/options-effects.test.ts`:
+- Every Options row must act on something that exists in the shipped game: a row no engine code reads, or one that switches nothing present, fails.
+- Music Off must silence the bed already playing, and On must restore the room's bed.
+- Only the score may be built under the Music switch.
+
+With the old menu and wiring, all three fail. `tests/interface.test.ts`'s background-motion test now requires the row to be gone.

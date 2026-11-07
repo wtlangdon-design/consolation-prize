@@ -99,19 +99,21 @@ export class GameScene extends Phaser.Scene {
   /** The room bed's clock this frame and last, for a figure that keeps time with it (errata 118). */
   private musicNow = 0;
   private musicBefore = 0;
+  /** The score. Options › Music switches it, and only it (errata 156: Tyler, "Music only"). */
   private readonly music = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
-  /** Errata 70 G: one-shots, under the same switch and the same unlock as the beds. */
+  /** Errata 70 G: one-shots, under the beds' unlock. Not under the Music switch: footsteps are not music (errata 156). */
   /** The performed line whose sound has been played, so it plays once. */
   private soundedLine: Utterance | null = null;
-  private readonly sfx = new Sfx(() => this.state.menu.toggle(MUSIC_OPTION), () => this.music.isUnlocked);
+  private readonly sfx = new Sfx(() => true, () => this.music.isUnlocked);
   /**
    * DOC 45'S ROOM BACKGROUNDS (`R02-A`, `R07-A`; errata 105): a second bed
    * player beside the score. It is never detuned -- wind is not the score --
-   * and it is silent wherever the score is suspended.
+   * and it is silent wherever the score is suspended. Not under the Music
+   * switch: wind and a crowd are the room's sound, not its music (errata 156).
    */
-  private readonly ambience = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
+  private readonly ambience = new Music(() => true);
   /** A cue's held sound -- the standing team in the opening -- until a cue or the room ends it (errata 106). */
-  private readonly cueBed = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
+  private readonly cueBed = new Music(() => true);
   /** The judges' mark beat already sounded, so a redraw does not write the point twice. */
   private markedLine: Utterance | null = null;
   /** The pencil has gone down for the exchange being performed, so the slate shows its point (errata 136 A). */
@@ -3301,6 +3303,8 @@ export class GameScene extends Phaser.Scene {
     if (!rows.find((row) => row.id === hit.id)?.enabled) return;
 
     const action = this.state.menu.select(hit.id);
+    // Options › Music takes effect at once, both ways (errata 156).
+    if (hit.id === MUSIC_OPTION) this.music.refresh();
     if (action.kind === 'save') {
       this.state.save(action.slot ?? QUICK_SLOT);
     } else if (action.kind === 'load') {

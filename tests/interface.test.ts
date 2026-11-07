@@ -835,23 +835,18 @@ test('palette cycling: rotate wraps, pingpong turns round, pulse clamps', async 
   assert.ok(sameMapping(mappingAt([lamp], 0), mappingAt([lamp], 2 / lamp.rate + 0.01)));
 });
 
-test('background motion is an option, on by default, and reversible', async () => {
+test('background motion is not an option: what it switched is retired (errata 156)', async () => {
+  // Doc 18 note 2 made palette cycling disableable, defaulting on. Errata 54
+  // voided palette cycling, no room has a live element, and the row changed
+  // nothing a player could see; so it is gone, as doc 33 section 8.3 removed
+  // Window scale. tests/options-effects.test.ts fails any row that comes back
+  // without a live effect. The engine reads the missing toggle as off.
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());
-
-  // Doc 18 note 2: decorative, disableable, defaulting on.
-  assert.equal(state.menu.toggle('cycling'), true);
-
   state.menu.open();
   state.menu.select('options');
-  const before = state.menu.rows().find((row) => row.id === 'cycling')!;
-  state.menu.select('cycling');
+  assert.equal(state.menu.rows().some((row) => row.id === 'cycling'), false);
   assert.equal(state.menu.toggle('cycling'), false);
-  const after = state.menu.rows().find((row) => row.id === 'cycling')!;
-  assert.notEqual(after.label, before.label, 'the row says which way it is set');
-
-  state.menu.select('cycling');
-  assert.equal(state.menu.toggle('cycling'), true);
 });
 
 test('a stub exit still transits, and ruling 20 keeps the landing man still', async () => {

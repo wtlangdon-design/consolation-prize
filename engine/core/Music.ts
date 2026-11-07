@@ -128,16 +128,31 @@ export class Music {
     if (this.wanted) this.play(this.wanted);
   }
 
+  /**
+   * The switch changed (Options › Music, errata 156): off fades the bed out at
+   * once; on starts the bed this room wants. A suspended bed (the coffin) is
+   * left to `resume`, and a bed playing out to its end (the close) is not
+   * restarted, because it is no longer wanted.
+   */
+  refresh(): void {
+    if (this.suspended) return;
+    if (!this.enabled()) { this.fadeOut(); return; }
+    if (this.wanted) this.play(this.wanted);
+  }
+
   /** Requests a bed. Idempotent: asking for the one already playing is free. */
   play(track: MusicTrack | null): void {
     // Nothing starts over a suspended bed; the return is `resume`'s alone.
     if (this.suspended) return;
     this.wanted = track;
-    if (!track) {
+    // OFF IS SILENCE NOW (errata 156): with the switch off the bed fades out,
+    // and the request is kept so `refresh` can bring it back. Before, an off
+    // switch only refused to START a bed, so the one already playing played on.
+    if (!track || !this.enabled()) {
       this.fadeOut();
       return;
     }
-    if (!this.unlocked || !this.enabled()) return;
+    if (!this.unlocked) return;
     if (this.missing.has(track.src)) return;
     const key = keyOf(track);
     if (this.playing && this.playingKey === key) return;
