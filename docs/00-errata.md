@@ -4474,4 +4474,18 @@ There were no page errors. One frame of each line is in `renders/cutaways/fansha
 
 **After.** The builder re-places the markers and re-measures the roads on the result.
 
+**The art (the image session, 2026-11-07).** Three operations of four.
+- **Operation 1, the church edit (`edit-01`),** was spent before the redraw brief reached main. As the brief says, it counts against the cap and was not promoted. PR #234, which promoted it on its own branch, is closed unmerged.
+- **Operation 2, `redraw-01`, is promoted** as `art/backgrounds/room-00-town-map.png`.
+  - It is plainly night, in the street plates' blues, with lit windows in town and lanterns at the workings and on the bridges.
+  - Main Street is eight fronts with the saloon's balcony, facing south onto an open square that has only a trough on its south side.
+  - The Lane runs behind it.
+  - Lower Street is east of the square with the office, the church with its belfry, and the livery.
+  - The road east crosses the bridge to the diggings, and the three houses stand south-west of the square.
+  - There is no text and no moon.
+  - The generator drew the framed map a little larger and lower than its 20:9 window (x 1–1534, y 148–839), so the fixed window cut it 19 px off. `town-map-edit.py promote-redraw --fit` takes the drawn frame instead. Outside the town it then sits +1, −1 px from the old map, inside the 6 px the brief allows.
+  - **The one miss:** the Lane has six shopfronts, counting the tent, not five.
+- **Operation 3, `redraw-02`, the correction,** fixed the Lane but lost the livery from Lower Street and Main Street's eighth front. The livery is a place the player goes (Room 15) and needs its marker, so redraw 1 ships and the correction is kept as a record.
+- `reference/global-baseline.json`: `visualType` is now `district-map-night`, and the `daylight` line is gone. The builder re-places the markers and re-measures the roads on the night map.
+
 **B · The map's Thad** lands with Lower Street and the Lane (errata 161, part 3), on the branch where it was built, and is recorded here when it merges.

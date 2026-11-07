@@ -22,6 +22,8 @@ the map's Thad walks (content/rooms/town-map.json) stay where they are.
       against the day map outside the town (phase correlation over the
       edges). Writes candidate.png; --write replaces the shipping map. The
       builder re-places the markers and the roads on the result.
+  python3 tools/art/town-map-edit.py promote-redraw --attempt N [--fit] [--write]
+      --fit crops to the map's drawn frame rather than the fixed window.
   python3 tools/art/town-map-edit.py promote --attempt N [--write]
       reads art/staging/town-map/edit-0N/source.png, takes it back down 2x,
       and pastes only ROW (the north row) over the shipping map. Writes
@@ -101,9 +103,20 @@ def shift(day, night):
     return int(dx), int(dy)
 
 
-def promote_redraw(n, write):
+def promote_redraw(n, write, fit=False):
     x, y, w, h = WINDOW
     src = Image.open(os.path.join(redraw_stage(n), 'source.png')).convert('RGB')
+    if fit:
+        # --fit: THE DRAWN FRAME, NOT THE WINDOW. Redraw 1 painted the whole framed map a little larger and
+        # lower than the window it was handed (x 1-1534, y 148-839 for x 8-1527, y 170-853), so the fixed
+        # window cut it 19 px off and showed the grey canvas along its foot. The map's frame is found
+        # against the canvas grey and taken whole (errata 163).
+        a = np.asarray(src).astype(int)
+        grey = np.abs(a - a[3, 3]).sum(-1) < 25
+        rows = np.nonzero(grey[:, 200:1300].mean(1) < 0.5)[0]
+        cols = np.nonzero(grey[300:700].mean(0) < 0.5)[0]
+        x, y, w, h = int(cols.min()), int(rows.min()), int(cols.max() - cols.min() + 1), int(rows.max() - rows.min() + 1)
+        print(f'fitted to the drawn frame: {w} x {h} from {x},{y}')
     night = src.crop((x, y, x + w, y + h)).resize((1920, 864), Image.LANCZOS)
     # Measured outside the town, which is redrawn on purpose: the diggings, the hill, the creek.
     day = np.asarray(Image.open(MAP).convert('RGB')).astype(float)[:, 960:]
@@ -142,7 +155,7 @@ if __name__ == '__main__':
     elif sys.argv[1:2] == ['prepare-redraw']:
         prepare_redraw()
     elif sys.argv[1:2] == ['promote-redraw']:
-        promote_redraw(int(sys.argv[sys.argv.index('--attempt') + 1]), '--write' in sys.argv)
+        promote_redraw(int(sys.argv[sys.argv.index('--attempt') + 1]), '--write' in sys.argv, '--fit' in sys.argv)
     elif sys.argv[1:2] == ['promote']:
         promote(int(sys.argv[sys.argv.index('--attempt') + 1]), '--write' in sys.argv)
     else:
