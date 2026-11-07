@@ -3505,3 +3505,26 @@ Played in the browser from `r4-a`: B4, Duel One lost, then Duel Two lost 4-5. Th
 - **The sparrings performing every pair they grant** (3a), **the notebook as an item** (3b), and **Duel One's repeat offering the counter just written down** (9c, against 73 D): each needs Tyler's ruling or his words.
 - **The memory game** (5e, against 73 C): the player's whole repertoire offered against each boast. Also Tyler's ruling.
 - **The standing mockery pool** (finding 6): placing "Son, you've told the truth. In front of people." is a writing decision.
+
+---
+
+# 131 · THE FIDDLER, DRAWN AS CHARLIE — TYLER, 2026-11-07
+
+Tyler: "Read reference/fiddler-charlie/brief.md and do it." He attached the photograph of Charlie, his husband (errata 123).
+
+- **One operation of the two** (`fiddler-charlie` attempt 1, `reference/fiddler-charlie/op-01.spec.json`). Its three images, in the brief's order:
+  - the fiddler's own sheet;
+  - the Nugget cast standard;
+  - the photograph.
+- **It came back keeping everything the brief keeps:** the five poses in order and place, the costume, the hat, the fiddle and bow, and the height. Only the face, hair and build changed, to Charlie's: dark hair, stubble and a warm, slightly crooked smile. The correction was not spent.
+- **The photograph never entered the repository.** It is at `art/staging/private/charlie.png`, which `.gitignore` excludes. The ledger records its path and hash, not the picture. No render was made from it, and nothing under `renders/` shows it.
+- **Cut as errata 115 cut him.**
+  - `tools/art/townspeople-cut.py --only fiddler` reads the new sheet, at the same 288 px figure height and in the same frame order.
+  - The new drawing cut one pixel narrower, so the frames are padded to the 144 px the sprite declares. `content/ambient/fiddler.json` stands unchanged: frames, breaks, `keepsTime` and talk frame.
+  - Snapped by `one-level.py --only`. `--only` leaves the other townspeople's cuts and their `cut.json` entries alone.
+- **Checked:**
+  - `npm test` and `run-all` pass, including the one-level, movement, keeps-time and key-edge checks.
+  - The Nugget's proof passes.
+  - `renders/fiddler-charlie-beside-thad-in-the-nugget@1x.png` and `@2x.png` show him beside Thad at game size.
+
+**Waiting on Tyler:** this is a likeness, so his eye is the test, before the merge. One correction remains under the cap.
