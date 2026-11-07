@@ -520,7 +520,8 @@
         {
           "case": "after T_OZY_PAID",
           "when": {
-            "T_OZY_PAID": true
+            "T_OZY_PAID": true,
+            "T_SURVEY_LODGED": false
           },
           "by": "ozymandia",
           "say": "The earth has spoken. The earth was brief.",
@@ -1087,6 +1088,26 @@
       ]
     },
     {
+      "item": "filing_fee",
+      "room": "claims_registrar",
+      "target": "counter",
+      "puzzle": "F5",
+      "otherwise": "pool",
+      "note": "Doc 57 F5 beat 1: laid on the counter at the filing; otherwise the item's own pool answers (doc 24 tier 2).",
+      "rules": [
+        {
+          "case": "at the filing",
+          "when": {
+            "T_FANSHAWE_BEATEN": true,
+            "T_FILED": false
+          },
+          "by": "sump",
+          "say": "Already on file, Mr. Grubb. Everything you have ever given me is already on file.",
+          "then": []
+        }
+      ]
+    },
+    {
       "item": "document_a",
       "room": "claims_registrar",
       "target": "counter",
@@ -1128,6 +1149,26 @@
     },
     {
       "item": "document_d",
+      "room": "claims_registrar",
+      "target": "counter",
+      "puzzle": "F5",
+      "otherwise": "pool",
+      "note": "Doc 57 F5 beat 1: laid on the counter at the filing; otherwise the item's own pool answers (doc 24 tier 2).",
+      "rules": [
+        {
+          "case": "at the filing",
+          "when": {
+            "T_FANSHAWE_BEATEN": true,
+            "T_FILED": false
+          },
+          "by": "sump",
+          "say": "Already on file, Mr. Grubb. Everything you have ever given me is already on file.",
+          "then": []
+        }
+      ]
+    },
+    {
+      "item": "executor_form",
       "room": "claims_registrar",
       "target": "counter",
       "puzzle": "F5",

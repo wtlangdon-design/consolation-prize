@@ -1303,20 +1303,24 @@ export class GameScene extends Phaser.Scene {
     // money last; then the read-back). It resolves through GameState.interact
     // like an item on any object -- the pair names the person's id as its
     // target -- instead of falling through to the people pool.
+    //
+    // AND AN ITEM USED ON A PERSON WITH NO PAIR AT ALL IS STILL AN ITEM USED.
+    // Doc 24's tiers -- the pair, then this item's own pool, then the global
+    // pool -- are for "this item on anything unhandled". This once resolved
+    // only when a pair existed and otherwise fell to the people pool, which is
+    // written for USE on a person with nothing in hand: THE TUNING FORK on
+    // Winnie said "I would not know where to begin" (the items audit, errata
+    // 137). VerbSystem.resolveWith answers every case, a spent evidence pair
+    // included.
     if (person && held && chosen !== null) {
-      const room = this.state.room.id;
-      const plain = this.state.content.combinations?.pairs.some((one) => one.item === held
-        && one.room === room && one.target === person.id && !one.opens);
-      if (plain) {
-        const [hx, hy, hw, hh] = this.ambient.hitBox(person);
-        this.applyInteraction({
-          id: person.id, name: person.name, rect: [hx, hy, hw, hh], colour: 0, responses: {},
-          // He walks to where a conversation with this person stands, as TALK TO does.
-          ...(person.walkTo ? { walkTo: person.walkTo } : {}),
-        } as Interactable, chosen);
-        this.markDirty();
-        return;
-      }
+      const [hx, hy, hw, hh] = this.ambient.hitBox(person);
+      this.applyInteraction({
+        id: person.id, name: person.name, rect: [hx, hy, hw, hh], colour: 0, responses: {},
+        // He walks to where a conversation with this person stands, as TALK TO does.
+        ...(person.walkTo ? { walkTo: person.walkTo } : {}),
+      } as Interactable, chosen);
+      this.markDirty();
+      return;
     }
     // THE ROOM'S LINES FOR THIS PERSON FIRST (doc 54's per-room overrides):
     // any verb, and TALK TO too for a person with no tree to open. Only a
@@ -2092,7 +2096,7 @@ export class GameScene extends Phaser.Scene {
   private onInventoryClick(x: number, y: number): boolean {
     const arrow = this.view.arrowHitboxes().find((box) => pointInRect(x, y, box));
     if (arrow) {
-      this.state.scrollInventory(arrow.direction === 'up' ? -1 : 1, this.panel.visibleRows);
+      this.state.scrollInventory(arrow.direction === 'up' ? -1 : 1, this.panel.visibleRows, this.panel.perRow);
       this.markDirty();
       return true;
     }
@@ -2118,8 +2122,14 @@ export class GameScene extends Phaser.Scene {
     // appeared and nothing downstream could tell. `interact` is the same path
     // a room object takes: resolve, reserve, perform, commit, in errata 48's
     // order. Q13 was filed as a dropped write; it was also a missing response.
-    if (target && verb && !this.state.verbs.carries(verb)) {
+    //
+    // ITEM ON ITEM (GameState.inventoryClick, errata 140): with USE selected
+    // and another item in hand, the click finishes "Use X on Y" through doc
+    // 24's tiers rather than swapping what is held.
+    const action = this.state.inventoryClick(slot.id);
+    if (target && verb && action !== 'hold') {
       this.applyInteraction(target, verb);
+      this.markDirty();
       return true;
     }
     this.state.holdItem(slot.id);

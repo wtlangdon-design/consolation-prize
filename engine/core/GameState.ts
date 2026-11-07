@@ -197,6 +197,13 @@ export class GameState {
   private enteredWith: { room: string; flags: ReturnType<FlagStore['snapshot']> } | null = null;
   /** The item the next verb applies WITH, not the item it applies TO. */
   private held: string | null = null;
+  /**
+   * THE TARGETS `itemTarget` MADE, so an item is told from a room object by
+   * what it IS rather than by its id. Room 34's THE TUNING FORK and Room 11's
+   * THE HANDKERCHIEF are hotspots whose ids are item ids; keyed by id alone
+   * they shared the item's line cursor and state (the items audit, errata 140).
+   */
+  private readonly itemTargets = new WeakSet<Interactable>();
   /** First visible inventory row. Errata ruling 26's scrollable list. */
   private scroll = 0;
   private boxCache: WalkBoxes | null = null;
@@ -317,10 +324,20 @@ export class GameState {
     return this.scroll;
   }
 
-  /** Moves the inventory window, clamped to what is actually carried. */
-  scrollInventory(by: number, visible: number): void {
-    const last = Math.max(0, this.carried.length - visible);
-    this.scroll = Math.max(0, Math.min(last, this.scroll + by));
+  /**
+   * Moves the inventory window, clamped to what is actually carried.
+   *
+   * BY WHOLE ROWS when the panel says how wide a row is (`perRow`). The grid
+   * is four across (errata 29), and moving it one item at a time slid every
+   * icon one cell along and wrapped the first of each row onto the row above,
+   * so nothing stayed where the player had just seen it (the items audit,
+   * errata 140). A row at a time, the bottom row comes up to the top.
+   */
+  scrollInventory(by: number, visible: number, perRow = 1): void {
+    const rows = Math.ceil(Math.max(0, this.carried.length - visible) / perRow);
+    const last = rows * perRow;
+    const row = Math.round(this.scroll / perRow) * perRow;
+    this.scroll = Math.max(0, Math.min(last, row + by * perRow));
   }
 
   /**
@@ -334,7 +351,7 @@ export class GameState {
   itemTarget(id: string): Interactable | undefined {
     const item = this.content.items.get(id);
     if (!item) return undefined;
-    return {
+    const target: Interactable = {
       id: item.id,
       name: item.name,
       rect: [0, 0, 0, 0],
@@ -342,6 +359,30 @@ export class GameState {
       responses: item.responses,
       overrides: item.overrides,
     };
+    this.itemTargets.add(target);
+    return target;
+  }
+
+  /**
+   * WHAT A CLICK ON AN INVENTORY ITEM DOES, decided here so a test can hold it
+   * (GameScene.onInventoryClick performs it). A verb that does not carry
+   * answers about the item where it is. With USE selected and a DIFFERENT
+   * item already in hand, the click finishes the sentence the line has been
+   * reading out -- "Use THE TUNING FORK on THE LETTER" -- through doc 24's
+   * tiers (doc 22: "item-to-item sentences"). It used to swap the held item,
+   * so that sentence was never performed (the items audit, errata 140).
+   * Otherwise the item is picked up, or put down if it is the one in hand.
+   */
+  inventoryClick(id: string): 'answer' | 'apply' | 'hold' {
+    const verb = this.verbs.selectedVerb;
+    if (verb && !this.verbs.carries(verb)) return 'answer';
+    if (verb && this.held !== null && this.held !== id) return 'apply';
+    return 'hold';
+  }
+
+  /** True for a target `itemTarget` made: an inventory item, not a room object that shares its id. */
+  isItemTarget(target: Interactable): boolean {
+    return this.itemTargets.has(target);
   }
 
   /** The declared arrival point for entering `roomId` out of `from`. */
@@ -408,8 +449,13 @@ export class GameState {
     );
   }
 
-  private key(objectId: string): string {
-    return `${this.scopeOf(objectId)}/${objectId}`;
+  private key(objectId: string, item = false): string {
+    return `${this.scopeOf(item)}/${objectId}`;
+  }
+
+  /** A target's key: an item's in the inventory's scope, anything else in the room's. */
+  private keyOf(target: Interactable): string {
+    return this.key(target.id, this.isItemTarget(target));
   }
 
   /**
@@ -420,14 +466,20 @@ export class GameState {
    * happened to be standing would reset a letter's repeat lines every time he
    * walked through a door -- and would give one letter as many independent
    * histories as there are rooms.
+   *
+   * AND A ROOM OBJECT IS NOT AN ITEM BECAUSE IT SHARES AN ID WITH ONE. This
+   * once asked `content.items.has(id)`, so Room 34's THE TUNING FORK -- a
+   * hotspot -- was keyed into the inventory, and the response cursor that
+   * should have been the item's was the ROOM's: the letter's repeat lines
+   * started again in every room (the items audit, errata 140).
    */
-  private scopeOf(objectId: string): string {
-    return this.content.items.has(objectId) ? 'inventory' : this.currentRoomId;
+  private scopeOf(item: boolean): string {
+    return item ? 'inventory' : this.currentRoomId;
   }
 
   /** The object's current state, or its declared initial one. */
   stateOf(target: Interactable): string | undefined {
-    return this.objectStates.get(this.key(target.id)) ?? target.state;
+    return this.objectStates.get(this.keyOf(target)) ?? target.state;
   }
 
   /**
@@ -458,7 +510,7 @@ export class GameState {
   }
 
   setState(target: Interactable, state: string): void {
-    this.objectStates.set(this.key(target.id), state);
+    this.objectStates.set(this.keyOf(target), state);
   }
 
   /**
@@ -756,7 +808,8 @@ export class GameState {
 
   private resolvePure(target: Interactable, verb: string): InteractionResolution {
     const room = this.currentRoomId;
-    const objectKey = this.key(target.id);
+    const item = this.isItemTarget(target);
+    const objectKey = this.keyOf(target);
 
     // Going through a door is not a question about the door. Checked before
     // the verb resolves, so no line is produced and no pool is consumed --
@@ -858,7 +911,10 @@ export class GameState {
     // was written for.
     const action = this.held && this.verbs.carries(verb)
       ? this.verbs.resolveWith(verb, this.held, target, room, this.carried)
-      : this.verbs.resolve(verb, target, room);
+      // An item's lines are the item's wherever he stands: its cursor is in
+      // the inventory's scope, so its repeat variants do not start over in
+      // every room, and a room object that shares its id keeps its own.
+      : this.verbs.resolve(verb, target, item ? 'inventory' : room);
 
     // World state first, then flags, then inventory -- errata 48's order, as
     // the order the bundle is built in. Commit.ts groups by phase, so this is
@@ -946,9 +1002,16 @@ export class GameState {
    * no longer changes before the line exists.
    */
   interact(target: Interactable, verb: string): InteractionResult {
+    const used = this.held !== null && this.verbs.carries(verb);
     const interaction = this.beginInteraction(target, verb);
     interaction.presentLine();
     const result = interaction.settle();
+    // AND THE ITEM IN THE SENTENCE IS PUT DOWN WITH IT (the items audit,
+    // errata 140). "Use THE TUNING FORK on THE COUNTER" is one sentence; the
+    // verb cleared when it finished and the fork stayed in hand, so the next
+    // hover read "Look at THE TUNING FORK on THE COUNTER", a sentence no click
+    // would perform, and USE on another item then carried the stale one.
+    if (used) this.held = null;
     // ERRATA 28b AS AMENDED (Q74): A VERB CLEARS ON USE.
     //
     // 28b used to say "a selected verb persists until another is chosen. It is

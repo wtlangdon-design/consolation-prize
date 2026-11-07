@@ -3,7 +3,7 @@
   "id": "document_c",
   "name": "The Certificate of Contiguity",
   "short": "THE CERTIFICATE",
-  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Document C, the Certificate of Contiguity. Issued at E0. Kept. Errata 66 ruling A: shown to the character at C5 and kept; never consumed.",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Document C, the Certificate of Contiguity. Issued at E0. Kept.",
   "responses": {
     "LOOK_AT": [
       {

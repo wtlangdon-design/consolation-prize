@@ -3,7 +3,7 @@
   "id": "survey",
   "name": "Madame Ozymandia's survey of Prosperity",
   "short": "THE SURVEY",
-  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Divined A7, on Form 12-C. Lodged with Sump at A9. Errata 66 ruling A: shown to the character at C5 and kept; never consumed.",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Divined A7, on Form 12-C. Lodged with Sump at A9.",
   "responses": {
     "LOOK_AT": [
       {

@@ -7,7 +7,7 @@
   "responses": {
     "LOOK_AT": [
       {
-        "say": "A deed to forty feet of ground, drawn by hand, the boundary described as ‘from the stake, thereabouts.’",
+        "say": "A deed to forty feet of ground, drawn by hand, the boundary described as 'from the stake, thereabouts.'",
         "repeat": [
           "Claim Two. I have written Prosperity across the top myself, in pencil, which I am aware changes nothing.",
           "Signed by Deke Vessel and witnessed by nobody at all."
@@ -16,7 +16,7 @@
     ],
     "LISTEN_TO": [
       {
-        "say": "Paper. It cost me four dollars and my father’s watch.",
+        "say": "Paper. It cost me four dollars and my father's watch.",
         "repeat": [
           "Nothing.",
           "Nothing. It is a legal document and it is not going to help me."

@@ -192,10 +192,16 @@ export class VerbSystem {
     carried: readonly string[] = [],
   ): ResolvedAction {
     const table = this.combinations;
+    // AN EVIDENCE PAIR IS NOT ANSWERED HERE. A pair that `opens` a tree (C5's
+    // log on Winnie) is the scene's walk-and-open while it is live
+    // (GameState.evidencePairFor), and once it is not, "the pair yields to the
+    // ordinary pools" (its own note, doc 36 Q113). Found here it answered with
+    // nothing at all, because it has no line of its own (errata 140).
     const pair = table?.pairs.find(
       (candidate) => candidate.item === itemId
         && candidate.room === roomId
-        && candidate.target === target.id,
+        && candidate.target === target.id
+        && !candidate.opens,
     );
     // THE FIRST CASE WHOSE CIRCUMSTANCES HOLD (CombinationPair.rules).
     const rule = pair?.rules?.find((one) => this.flags.test(one.when)
