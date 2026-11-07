@@ -113,7 +113,9 @@ export function check() {
       report.fail(`${what}: ${(level - reference).toFixed(1)} dB against ${against}, its place is ${target} `
         + `(ceiling ${target + SLACK_DB}) -- lower its gain in ${manifest.sounds}`);
     }
-    if (floor && over < -FLOOR_DB) {
+    // The coffin's and the chamber's scripted sounds (their place is `scene`)
+    // keep a ceiling only: their distance is the scene.
+    if (floor && target !== levels.scene && over < -FLOOR_DB) {
       report.fail(`${what}: ${(level - reference).toFixed(1)} dB against ${against}, its place is ${target} `
         + `(floor ${target - FLOOR_DB}) -- lost under the music; raise its gain in ${manifest.sounds}`);
     }
@@ -223,14 +225,14 @@ export function check() {
     const scale = roomGain[room.id] ?? 1;
     const steps = (room.timeline?.steps ?? room.timeline ?? []);
     for (const step of Array.isArray(steps) ? steps : []) {
-      if (step.do === 'sound' && step.src) judge(`${room.id} timeline ${step.src}`, db(loudestMoment(read(step.src)) * (step.gain ?? 1) * scale), levels.scene, music, 'the music', false);
+      if (step.do === 'sound' && step.src) judge(`${room.id} timeline ${step.src}`, db(loudestMoment(read(step.src)) * (step.gain ?? 1) * scale), levels.scene);
     }
   }
   if (manifest.listening || sounds.roomGain?.listening_chamber) {
     const taps = readJson('content/audio/r33-taps.json');
     const scale = roomGain.listening_chamber ?? 1;
     for (const one of [...taps.taps, taps.void, taps.fork].filter(Boolean)) {
-      judge(`listening_chamber ${one.src}`, db(loudestMoment(read(one.src)) * scale), levels.scene, music, 'the music', false);
+      judge(`listening_chamber ${one.src}`, db(loudestMoment(read(one.src)) * scale), levels.scene);
     }
   }
   report.note(`${checked} sounds measured against the music (median room bed ${music.toFixed(1)} dBFS)`);
