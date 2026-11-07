@@ -669,6 +669,13 @@
         "USE": [
           {
             "when": {
+              "T_GOOD_TURNOUT": false
+            },
+            "say": "Not yet. I should stand at my own graveside a moment first. A man only gets the one.",
+            "sceneLine": true
+          },
+          {
+            "when": {
               "T_GOOD_TURNOUT": true,
               "T_LAID_IN": false
             },

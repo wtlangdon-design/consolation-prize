@@ -406,6 +406,14 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "T_PRATT_PAID": true,
+              "T_SHENG_HOLDS_PAPER": false
+            },
+            "say": "Forty feet, raked, and somebody pays him two dollars a week to jump mine. Money that regular gets written down, and Sheng writes everything down.",
+            "sceneLine": true
+          },
+          {
             "say": "Nickel Pratt's forty feet, raked, edged, and swept.",
             "repeat": [
               "There is not a weed on it. The weeds have heard about him.",

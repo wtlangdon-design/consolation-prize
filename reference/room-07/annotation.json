@@ -260,5 +260,33 @@
    "T_FILED": true
   },
   "note": "Doc 48 S6 beat 5 and doc 57 F5: 'T_FILED, F5. Room 36.' Once the read-back is over, the dawn."
- }
+ },
+ "verbRules": [
+  {
+   "hotspot": "sealed_archive_door",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "when": {
+    "ACT": 3,
+    "T_SAME_HAND": false
+   },
+   "ref": "docs/94-clue-pass.md::### E1 · why the archive",
+   "startsWith": "**THE ARCHIVE DOOR** · LOOK",
+   "note": "Doc 94 (errata 127): why Thad wants the archive, Act III until E9."
+  },
+  {
+   "hotspot": "forms_rack",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "when": {
+    "T_NEED_TO_DIE": true,
+    "T_DEATH_CERTIFIED": false
+   },
+   "ref": "docs/94-clue-pass.md::### E4 · who certifies a death",
+   "startsWith": "**THE FORMS RACK** · LOOK",
+   "note": "Doc 94 (errata 127): who certifies a death, from E2 until E4."
+  }
+ ]
 }
