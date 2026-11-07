@@ -3866,3 +3866,11 @@ The whole game, played through, ends carrying exactly what doc 23 keeps, and not
 - the end state;
 - the fixture equal to play;
 - scrolling by rows.
+
+# 142 · THE ITEM ICONS, AND THE BLANKET — TYLER, 2026-11-06
+
+Two of errata 140's items-audit questions, answered.
+
+**A · All 26 icons redrawn at slot size.** Seven icons read poorly: the eggs, the linen money, the loan, the blanket, the handkerchief, the pickaxe and the sample. All 26 are 30×21 cells enlarged by ×3.81 into 180×80 slots, so their pixels come out uneven. Tyler chose **"Redraw all 26 at slot size (Recommended)"**. The new icons are 60×40 art pixels, drawn at an integer ×2, in the cast's style, with every paper a different object. `reference/item-icons/brief.md` briefs the image session. The cap is `item-icons`, 2 operations.
+
+**B · The blanket stays with Thad after A5.** Errata 68 A has it come back into his inventory, and that is what is built. Errata 76 D's plan to return it to Grievance's bin instead was never built and is struck. Tyler chose **"Thad keeps it (Recommended)"**.
