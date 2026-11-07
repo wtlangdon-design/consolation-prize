@@ -344,6 +344,55 @@ export class AmbientLayer {
     return line ? [{ speaker: npc.id, line }] : [];
   }
 
+  /**
+   * THE PERSON A CLICK (OR THE POINTER) IS ON, with a verb selected: the one
+   * precedence the sentence line and the click share. A hotspot rect under
+   * the point names the hotspot, not the person over it, unless the verb is
+   * TALK TO or the hotspot is the bigger of the two -- otherwise the sentence
+   * line promised "Pick up WINNIE" for a click that picked up her pen.
+   * Moved here from GameScene so a test can ask it (errata 151).
+   */
+  personAt(wx: number, y: number, verb: string | null): AmbientFile | undefined {
+    const npc = this.npcAt(wx, y);
+    if (!npc) return undefined;
+    const object = this.state.targetAt(wx, y);
+    // A FIGURE WHO CANNOT TALK, UNDER A HOTSPOT THAT ANSWERS TALK TO, IS THAT
+    // HOTSPOT (errata 96 E): the raccoon is spoken to through THE RACCOON,
+    // which opens his naming and then carries his name.
+    // Its TALK TO may be an override (doc 49's THE MOURNERS · TALK_TO), which
+    // answers as surely as a rule does.
+    if (object && verb === 'TALK_TO' && !npc.tree
+      && (object.responses?.TALK_TO?.length || object.overrides?.TALK_TO)) return undefined;
+    if (!object || verb === 'TALK_TO') return npc;
+    if (!npc.tree) return undefined;
+    const [, , ow, oh] = this.state.presentation(object)?.bounds ?? object.rect;
+    const [, , pw, ph] = this.hitBox(npc);
+    return ow * oh > pw * ph ? npc : undefined;
+  }
+
+  /**
+   * THE PERSON A HELD ITEM IS USED ON, when the click lands on one (errata
+   * 151): the person `personAt` names -- the one the sentence line says the
+   * item is going to -- or one this item has a written pair with in this
+   * room, whatever scenery stands behind them (A9's fee on Sump, C5's log on
+   * Winnie). Otherwise nobody: the scenery under the click answers.
+   *
+   * THE CLICK USED TO TAKE WHOEVER'S BOX THE POINT WAS IN. The Nugget's
+   * fiddler stands in front of the piano, and USE THE TUNING FORK on the
+   * piano -- the sentence line reading "Use THE TUNING FORK on THE PIANO" --
+   * used it on the fiddler: A8 could not be played by clicking the piano
+   * (the browser full-game run).
+   */
+  itemTakerAt(wx: number, y: number, verb: string | null, item: string): AmbientFile | undefined {
+    const under = this.npcAt(wx, y);
+    if (!under) return undefined;
+    const room = this.state.room.id;
+    const paired = (this.state.content.combinations?.pairs ?? [])
+      .some((pair) => pair.item === item && pair.room === room && pair.target === under.id);
+    if (paired) return under;
+    return this.personAt(wx, y, verb)?.id === under.id ? under : undefined;
+  }
+
   /** The rect a character answers the pointer in: the box npcAt tests. */
   hitBox(npc: AmbientFile): [number, number, number, number] {
     const height = npc.sprite?.frames?.[0]?.[3] ?? this.state.heightForZone(npc.zone);

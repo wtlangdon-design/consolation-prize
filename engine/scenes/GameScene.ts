@@ -1004,22 +1004,9 @@ export class GameScene extends Phaser.Scene {
    * takes a hotspot's place, so THE PATRONS' authored LOOK and LISTEN still
    * play on the generic men.
    */
+  /** The person under a point with a verb selected (AmbientLayer.personAt: the sentence line's and the click's one rule). */
   private personAt(wx: number, y: number, verb: string | null): AmbientFile | undefined {
-    const npc = this.ambient.npcAt(wx, y);
-    if (!npc) return undefined;
-    const object = this.state.targetAt(wx, y);
-    // A FIGURE WHO CANNOT TALK, UNDER A HOTSPOT THAT ANSWERS TALK TO, IS THAT
-    // HOTSPOT (errata 96 E): the raccoon is spoken to through THE RACCOON,
-    // which opens his naming and then carries his name.
-    // Its TALK TO may be an override (doc 49's THE MOURNERS · TALK_TO), which
-    // answers as surely as a rule does.
-    if (object && verb === 'TALK_TO' && !npc.tree
-      && (object.responses?.TALK_TO?.length || object.overrides?.TALK_TO)) return undefined;
-    if (!object || verb === 'TALK_TO') return npc;
-    if (!npc.tree) return undefined;
-    const [, , ow, oh] = this.state.presentation(object)?.bounds ?? object.rect;
-    const [, , pw, ph] = this.ambient.hitBox(npc);
-    return ow * oh > pw * ph ? npc : undefined;
+    return this.ambient.personAt(wx, y, verb);
   }
 
   /**
@@ -1392,7 +1379,12 @@ export class GameScene extends Phaser.Scene {
     // Winnie said "I would not know where to begin" (the items audit, errata
     // 137). VerbSystem.resolveWith answers every case, a spent evidence pair
     // included.
-    if (person && held && chosen !== null) {
+    // THE PERSON THE SENTENCE LINE NAMED, or one the item has a written pair
+    // with (AmbientLayer.itemTakerAt, errata 151): the fiddler in front of
+    // the Nugget's piano does not take the fork meant for the piano.
+    const taker = person && held && chosen !== null ? this.ambient.itemTakerAt(wx, y, chosen, held) : undefined;
+    if (taker && held && chosen !== null) {
+      const person = taker;
       const [hx, hy, hw, hh] = this.ambient.hitBox(person);
       this.applyInteraction({
         id: person.id, name: person.name, rect: [hx, hy, hw, hh], colour: 0, responses: {},
@@ -2971,6 +2963,14 @@ export class GameScene extends Phaser.Scene {
       optionsShown: this.state.dialogue.isActive && this.performance === null
         ? this.view.dialogueHitboxes(this.state.dialogue.presentOptions(), this.choiceScroll()).filter((box) => box.shown).length : 0,
       handedOver: this.opening === null,
+      verb: this.state.verbs.selectedVerb,
+      present: this.ambient.present.map((npc) => npc.id),
+      targets: this.state.targets.map((target) => target.id),
+      duel: this.state.dialogue.inDuel,
+      theEnd: this.titleMenu !== null && this.titleTheEnd,
+      hovered: this.hovered?.id ?? null,
+      card: this.actCard !== null || this.actCardUntil !== null,
+      fading: this.roomFade !== null,
       segment: this.playingSegment(),
     };
   }

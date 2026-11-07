@@ -13,6 +13,7 @@
     "check": "npm run typecheck && npm run validate && npm run test",
     "renders": "node tools/render-all.mjs",
     "gauntlet": "node tools/gauntlet/run.mjs",
+    "gauntlet:full": "node --experimental-strip-types --no-warnings tools/gauntlet/full-game.mjs",
     "proof": "node tools/gauntlet/proof.mjs",
     "art:gates": "node tools/art/gates.mjs",
     "art:staging": "node tools/art/staging.mjs"

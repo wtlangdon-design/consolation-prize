@@ -4147,3 +4147,29 @@ Doc 30's affected lines carry a bracketed note pointing here: §1, §6.1, §6.2,
 **B · The credits: "Keep as is (Recommended)."** Doc 48 S7 beat 5 is not built. The close ends as errata 128 built it: the title, with THE END under it. CREDITS on the menu stays dim and inert. Their words are his, and none are written here.
 
 Both are recorded in doc 36 Q173 and Q176. Nothing in the game changes.
+
+---
+
+# 151 · THE WHOLE GAME, PLAYED IN A REAL BROWSER — `npm run gauntlet:full` (Tyler, 2026-11-06: "Whole game in a real browser")
+
+*Tyler chose "Whole game in a real browser (Recommended)": "The 145-step run, played through the actual game on screen, not just its logic. Catches anything that only breaks on screen."*
+
+**A · What it is.** `tools/gauntlet/full-game.mjs`. It boots the dev build in Chromium, clicks NEW GAME on the title, and plays `tests/data/full-game-walkthrough.json` -- the 145 steps `tests/full-game.test.ts` plays headless through GameState -- through the real game by real input:
+- `go`: the exits and the map, clicked; the way is chosen over the exits and map places open now, as the headless player chooses it;
+- `talk`: TALK TO, then the person; `choose`: the option's row, scrolled to; `leave`: the open node's EXIT row;
+- `verb`: the verb's cell, then the target; `use`: USE, the item's inventory slot, then the target;
+- `duel`: the right counter when it is on the list, else the first;
+- `tap`: LISTEN TO on the rock at the void; `wait`: the timeline runs out on its own clock.
+
+Lines are read as a player reads them: a line waiting for a click is clicked after doc 30's minimum hold, and every other line plays out. Nothing is written into the game. Each step's `expect` is checked against the live probe; a break is recorded with a frame and the whole probe, and the run goes on. Frames are kept at every act turn, every break, and THE END. It also records any request that fails, any console error, any asset the room declares that did not load, any figure drawn as a fallback or graybox, the panel drawn inside the coffin, a black play area, and any target no point of which the sentence line names.
+
+**B · What the probe gained** (`engine/dev/Probe.ts`, dev-only; ids only, never words): `verb` (the selected verb), `present` (who is in the room), `targets`, `duel`, `theEnd`, `hovered` (what the sentence line names), `card` (an act card is up) and `fading` (a room fade).
+
+**C · What it found.**
+1. **The fork went to the fiddler (A8, the Nugget).** The fiddler stands in front of the piano. With THE TUNING FORK held over the piano the sentence line read "Use THE TUNING FORK on THE PIANO", and the click used it on the fiddler: a held item went to whoever's box the click was in. The click and the pointer now share one rule (`AmbientLayer.personAt`, moved from GameScene), and a held item goes to a person only when that rule names them or the item has a written pair with them in that room (`AmbientLayer.itemTakerAt`): A9's fee on Sump and C5's log on Winnie still go to them. Held by `tests/full-game-browser.test.ts` (proved by putting the old rule back).
+2. **A route aimed at a person's file, not their place in the room.** `tools/gauntlet/route.mjs` `targetRect` ignored `placements`, so Hob in the watchman's shack was aimed at his alley spot. It now takes the room's placement, as the runtime does. Held by the same test file.
+3. **The rest were the harness learning to play, and are written into it**, because each is something a player does without thinking: point until the sentence line names the thing (the registrar's counter's centre is SUMP'S PEN); walk a wide room on ground the line names nothing on (a click on THE BOARDWALK looks at it); wait out a cutscene beat, an act card and a room fade, under which a click is spent on nothing; and click again after the listening chamber's seated rise, which spends the first click by design (doc 48 S5).
+
+**D · The first clean run.** From NEW GAME to THE END on the title, all 145 steps at the game's own pace, no bypass: 0 breaks and nothing that looked wrong (no failed request, console error, unloaded asset, fallback figure, panel in the coffin or black frame), in 3,851 s -- 64 minutes. The coffin is the longest step (about four minutes), then the arrivals that walk Main Street's length.
+
+**E · Not in CI.** It plays the coffin's minutes and the listening chamber's ninety seconds in real time, far over the gauntlet job's fifteen-minute limit. It is the manual run before a playthrough (doc 55 §8).
