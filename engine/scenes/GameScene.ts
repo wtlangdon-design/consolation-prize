@@ -40,6 +40,7 @@ import {
 import { tapAt, tuneAt } from '../core/Listening.ts';
 import { clickOnSpeech, holdOver, waitsForClick } from '../core/SpeechPolicy.ts';
 import { endingAt, titleItems, type TitleItem } from '../core/Bookends.ts';
+import { clearOfFigures } from '../core/Standing.ts';
 import {
   CYCLING_OPTION,
   MUSIC_OPTION,
@@ -1029,7 +1030,7 @@ export class GameScene extends Phaser.Scene {
       ? { id: npc.id, name: this.state.nameOf(npc),
           defaultVerb: this.state.content.verbs.npcVerb }
       : y < PLAY_HEIGHT
-        ? (this.state.targetAt(wx, y) ?? null)
+        ? (this.targetUnder(wx, y) ?? null)
         : null;
     const changed = (found?.id ?? null) !== (this.hovered?.id ?? null);
     if (changed) {
@@ -1362,7 +1363,7 @@ export class GameScene extends Phaser.Scene {
     //   right button on an object  -> its defaultVerb, whatever is selected
     //
     // Double-click is gone entirely, along with the click tracker it needed.
-    const target = this.state.targetAt(wx, y);
+    const target = this.targetUnder(wx, y);
     this.lastClick = { x: wx, y };
     const verb = this.state.verbs.verbFor(target, secondary);
 
@@ -1379,7 +1380,11 @@ export class GameScene extends Phaser.Scene {
     // whole street and declares WALK TO as its default, so clicking the road
     // moves the player rather than examining the ground they are standing on.
     if (!target || verb === this.state.verbs.walkVerbId) {
-      if (this.world.walkPlayer(wx, y)) this.markDirty();
+      // NEVER ONTO SOMEBODY (errata 129): the floor under a click may be where
+      // a figure stands -- Room 1's gap in the fence is Hob's spot.
+      const floor = this.state.nearestFloor(Math.round(wx), Math.round(y)) ?? { x: wx, y };
+      const clear = this.clearOfStanding(floor);
+      if (this.world.walkPlayer(wx, y, clear)) this.markDirty();
       return;
     }
 
@@ -1475,9 +1480,48 @@ export class GameScene extends Phaser.Scene {
     const travel = gap - radius;
     const wantX = this.actor.x + ((nearX - this.actor.x) / gap) * travel;
     const wantY = this.actor.y + ((nearY - this.actor.y) / gap) * travel;
-    const stand = this.state.nearestFloor(Math.round(wantX), Math.round(wantY));
-    if (!stand) return null;
+    const floor = this.state.nearestFloor(Math.round(wantX), Math.round(wantY));
+    if (!floor) return null;
+    // Not on whoever is standing there: the lamp is in Hob's hand (errata 129).
+    const stand = this.clearOfStanding(floor);
     return { x: stand.x, y: stand.y, facing: this.actor.facingToward(nearX, nearY) };
+  }
+
+  /** A walk's end, moved off any mover standing on it (engine/core/Standing.ts; errata 129). */
+  private clearOfStanding(to: { x: number; y: number }): { x: number; y: number } {
+    const standing = this.actors.all()
+      .filter((mover) => mover.id !== this.actors.playerId && !mover.isWalking)
+      .map((mover) => ({ x: mover.x, y: mover.y, height: mover.height }));
+    return clearOfFigures(to, { x: this.actor.x, y: this.actor.y }, standing, this.actor.height);
+  }
+
+  /**
+   * THE TARGET UNDER A POINT, the figure who carries one included (errata 129;
+   * the bookends audit, finding 4). Hob has no rect -- movers are not targets
+   * (doc 36 Q60) -- so LOOK and TALK TO on his body did nothing at all, and
+   * his written TALK TO override could not be reached. A hotspot that names
+   * him in `heldBy` answers for his drawn figure; he wins over scenery larger
+   * than himself (the mud he stands in), as a person does in `personAt`.
+   */
+  private targetUnder(wx: number, y: number): Interactable | undefined {
+    const plain = this.state.targetAt(wx, y);
+    for (const target of this.state.targets) {
+      if (!target.heldBy) continue;
+      const figure = this.actors.all().find((mover) => mover.id === target.heldBy);
+      if (!figure) continue;
+      // HIS BODY, from his feet and drawn height: a quarter of his height each
+      // side, as the people's hit box is reckoned (AmbientLayer.hitBox). The
+      // renderer's own rectangles are kept only while the dev watch runs.
+      const bw = Math.round(figure.height * 0.5);
+      const bh = Math.round(figure.height);
+      const bx = Math.round(figure.x - bw / 2);
+      const by = Math.round(figure.y - bh);
+      if (wx < bx || wx >= bx + bw || y < by || y >= by + bh) continue;
+      if (!plain || plain === target) return target;
+      const [, , pw, ph] = this.state.presentation(plain)?.bounds ?? plain.rect;
+      return pw * ph > bw * bh ? target : plain;
+    }
+    return plain;
   }
 
   private faceTarget(target: Interactable): void {

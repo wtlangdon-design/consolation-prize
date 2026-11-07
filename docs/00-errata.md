@@ -3570,6 +3570,27 @@ Duel audit findings 4, 5 and 7, and bookends audit finding 7 ("Duel Three's vict
 
 ---
 
+# 135 · THE UNDERTAKER AND MADAME OZYMANDIA, SOFTER — TYLER, 2026-11-07 (reference/cast-softer/brief.md)
+
+Tyler, of the pre-playthrough art check: the undertaker "too detailed compared to Thad's", with shoulders too broad; "Ozymandia has too much detail compared to Thad." The brief's recommendation, one softer redraw of both, is done. **One operation spent: cast-unify 61 of 75** (`reference/cast-unify-31.txt`, `art/staging/cast-unify/batch-31/`). The redraw did not plainly miss, so no correction operation was spent.
+
+- **The drawing.** The undertaker and Ozymandia from their own crops of the locked master, on a board beside Thad's cast-sheet self, and against the two side-by-sides that showed the miss. Their poses are unchanged: the undertaker turning his plane, sighting along it, thumbing the blade, looking up; Ozymandia at her temples, humming, pronouncing, the palm out for the fee. Flat shading, simple faces, the undertaker's shoulders a lean man's, and Ozymandia's necklace a few plain beads, with no pendant and no rings.
+- **The cut** (`tools/art/cast-softer.py`): `cast-unify-cut.py --grid 1`; every pose registered on the waist line (its lowest row and that row's middle, the fixed thing behind a bench or a table -- `bust-register.py`'s head finder took Ozymandia's raised hand for her head and slid her half her width); each re-cut so the rest frame's bust is as tall as the drawing it replaces (the undertaker 190, Ozymandia 184); the undertaker's waist matted along the bench's slanted back edge (y 494 at x 1430 to y 516 at x 1650), so he now stands at y 509; one level. Ozymandia's placement and plane 1 are unchanged: in the game the ball, the box and the tea pot stand in front of her.
+- **Measured** (`tools/art/cast-softer-measure.py`, at game size, Thad drawn nearest-neighbour as the engine draws him; `art/staging/cast-unify/batch-31/measure-*.json`):
+
+| | texture (× Thad's) | head (× Thad's) | shoulders (× Thad's) |
+|---|---|---|---|
+| the undertaker, before | 6.64 (1.80) | 1.09 | 0.95 |
+| the undertaker, after | 6.58 (1.78) | 1.09 | 0.78 |
+| Ozymandia, before | 4.86 (1.26) | — | 0.89 |
+| Ozymandia, after | 4.88 (1.27) | — | 0.82 |
+
+  **The texture number did not move, and the pictures did.** The metric is the mean brightness step between neighbouring pixels. A waist-up figure has a cream shirt against dark outlines, hands and a wooden plane in a small area, and those boundaries dominate it, so the undertaker stays over the 1.35 flag. As the style gate says, numbers flag but do not decide. The before-and-after beside Thad in each room is `renders/cast-softer-undertaker-before-after.png` and `renders/cast-softer-ozymandia-before-after.png`. Tyler, 2026-11-07: "I think they're both better now." The undertaker's head is within the brief's 10% of Thad's at that depth. Ozymandia's is not measured: her hands are at her temples.
+- **What carried a lesson.** The first before-and-after showed Ozymandia in front of her ball, because it was composited without her occlusion plane (Tyler caught it). The game was right. `tools/art/figure-audit-sheets.mjs` had the same gap and now punches each figure out by its `clipPlane`'s mask, as the renderer does; a row in doc 55 §8 records it.
+- **For Tyler's playthrough:** both at their benches and tables, in all five frames.
+
+---
+
 # 128 · A TITLE SCREEN AND AN ENDING — the bookends audit, findings 2 and 3 (Tyler, 2026-11-06: "proceed with your recommendations")
 
 **The faults.**
@@ -3632,21 +3653,16 @@ Tyler: "Read reference/fiddler-charlie/brief.md and do it." He attached the phot
 
 ---
 
-# 135 · THE UNDERTAKER AND MADAME OZYMANDIA, SOFTER — TYLER, 2026-11-07 (reference/cast-softer/brief.md)
+# 129 · HOB IS CLICKABLE, AND NOBODY IS WALKED ONTO HIM — the bookends audit, finding 4 (Tyler, 2026-11-06: "proceed with your recommendations")
 
-Tyler, of the pre-playthrough art check: the undertaker "too detailed compared to Thad's", with shoulders too broad; "Ozymandia has too much detail compared to Thad." The brief's recommendation, one softer redraw of both, is done. **One operation spent: cast-unify 61 of 75** (`reference/cast-unify-31.txt`, `art/staging/cast-unify/batch-31/`). The redraw did not plainly miss, so no correction operation was spent.
+**The fault.** At control in Room 1, Hob stands in front of the only exit. The exit opens on `T_HOB_GONE`, which needs `T_HOB_SPOKEN`, which only LOOK or LISTEN on his 60×73 lamp wrote.
+- **His body was not a target** (movers carry no rect; doc 36 Q60). Hovering him showed a bare "Look at", and LOOK and TALK TO on him did nothing at all. Doc 17's written TALK TO override, "He's walking. I'll let him walk…", could not be reached.
+- **A click on the gap behind him walked Thad into him.** The floor under the gap is where Hob stands, so the two were left overlapping: "nobody stands on anybody", broken by the first free click of the game.
 
-- **The drawing.** The undertaker and Ozymandia from their own crops of the locked master, on a board beside Thad's cast-sheet self, and against the two side-by-sides that showed the miss. Their poses are unchanged: the undertaker turning his plane, sighting along it, thumbing the blade, looking up; Ozymandia at her temples, humming, pronouncing, the palm out for the fee. Flat shading, simple faces, the undertaker's shoulders a lean man's, and Ozymandia's necklace a few plain beads, with no pendant and no rings.
-- **The cut** (`tools/art/cast-softer.py`): `cast-unify-cut.py --grid 1`; every pose registered on the waist line (its lowest row and that row's middle, the fixed thing behind a bench or a table -- `bust-register.py`'s head finder took Ozymandia's raised hand for her head and slid her half her width); each re-cut so the rest frame's bust is as tall as the drawing it replaces (the undertaker 190, Ozymandia 184); the undertaker's waist matted along the bench's slanted back edge (y 494 at x 1430 to y 516 at x 1650), so he now stands at y 509; one level. Ozymandia's placement and plane 1 are unchanged: in the game the ball, the box and the tea pot stand in front of her.
-- **Measured** (`tools/art/cast-softer-measure.py`, at game size, Thad drawn nearest-neighbour as the engine draws him; `art/staging/cast-unify/batch-31/measure-*.json`):
+**The fix: routing and geometry, no new lines.**
+- **The lamp declares who carries it** (`"heldBy": "hob"`, written by `tools/extract-content.mjs`). A click on that figure is a click on the lamp. Hovering him names THE WATCHMAN'S LAMP. LOOK and LISTEN on him speak to him exactly as the lamp does (`T_HOB_SPOKEN`). TALK TO plays the override. He wins over scenery larger than himself (the mud he stands in), by the rule `personAt` already uses for people. His body is reckoned from his feet and drawn height (`GameScene.targetUnder`), not from the renderer's dev-only rectangles.
+- **A walk never ends on a standing mover** (`engine/core/Standing.ts`). If a walk's end, after it is snapped to the floor, falls inside a standing figure's footprint, it moves to his side, the side Thad is coming from, a body's width clear. The same holds for the point an object's approach walks to. Only movers count (Hob, the coach's team); the town's ambient figures keep their authored stands.
 
-| | texture (× Thad's) | head (× Thad's) | shoulders (× Thad's) |
-|---|---|---|---|
-| the undertaker, before | 6.64 (1.80) | 1.09 | 0.95 |
-| the undertaker, after | 6.58 (1.78) | 1.09 | 0.78 |
-| Ozymandia, before | 4.86 (1.26) | — | 0.89 |
-| Ozymandia, after | 4.88 (1.27) | — | 0.82 |
+**Not done, and why.** Doc 17 beat 9 stages the lamp *crossing* the road, and the lamp's lines say "crossing" while Hob stands still. Staging the crossing as written was the other option. It changes Q63's ruled standing gate (Hob blocks the exit until addressed), so it is left for Tyler.
 
-  **The texture number did not move, and the pictures did.** The metric is the mean brightness step between neighbouring pixels. A waist-up figure has a cream shirt against dark outlines, hands and a wooden plane in a small area, and those boundaries dominate it, so the undertaker stays over the 1.35 flag. As the style gate says, numbers flag but do not decide. The before-and-after beside Thad in each room is `renders/cast-softer-undertaker-before-after.png` and `renders/cast-softer-ozymandia-before-after.png`. Tyler, 2026-11-07: "I think they're both better now." The undertaker's head is within the brief's 10% of Thad's at that depth. Ozymandia's is not measured: her hands are at her temples.
-- **What carried a lesson.** The first before-and-after showed Ozymandia in front of her ball, because it was composited without her occlusion plane (Tyler caught it). The game was right. `tools/art/figure-audit-sheets.mjs` had the same gap and now punches each figure out by its `clipPlane`'s mask, as the renderer does; a row in doc 55 §8 records it.
-- **For Tyler's playthrough:** both at their benches and tables, in all five frames.
+**What holds it:** `tests/hob-gate.test.ts`. A walk that would end on Hob ends beside him on the near side. A walk clear of him, or at another depth, is untouched. The lamp names Hob as its carrier, and keeps its TALK TO override and its `T_HOB_SPOKEN` writes. Removing `heldBy` or the clearance fails it.

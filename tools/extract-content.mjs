@@ -2717,6 +2717,13 @@ function openingCase() {
     + 'already sits where he now stands. Looking at it or listening to it is speaking to him, and '
     + 'the exchange follows. Added by tools/extract-content.mjs: the lines are the document\'s, '
     + 'the write is routing.';
+  // HIS BODY IS THE LAMP'S TOO (the bookends audit, finding 4; errata 129).
+  // A click on him answers through this hotspot, so TALK TO plays the
+  // override doc 17 wrote for him instead of nothing at all.
+  lamp.heldBy = 'hob';
+  lamp.heldByNote = 'A click on the figure who carries this (Hob, a mover with no rect of his own) is a '
+    + 'click on it: LOOK and LISTEN speak to him as the lamp does, and TALK TO plays his written '
+    + "override. Hovering him names the lamp. Errata 129.";
 
   return write(path, room);
 }

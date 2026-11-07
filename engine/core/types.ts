@@ -168,6 +168,11 @@ export interface Interactable {
   rect: [number, number, number, number];
   colour: number;
   /**
+   * THE FIGURE WHO CARRIES IT, by mover id (errata 129): a click on him is a
+   * click on this. Room 1's lamp, carried by Hob, who has no rect of his own.
+   */
+  heldBy?: string;
+  /**
    * WHAT THAT TARGET NEEDS IN HAND to be there at all, by item id: true, held;
    * false, not held. Doc 57 A4: "Room 22 offers the way to it, only while Thad
    * holds the map" (errata 95 F). Absent means either.
