@@ -7,6 +7,10 @@
   "offerRuling": "errata 73 C: a boast whose counter Thad has not learned offers its three wrong answers; a learned one adds the right counter as a fourth, in a slot that varies by pair.",
   "bystander": "assay_ring",
   "bystanderRuling": "errata 73 F: a voice from the ring of chairs, unnamed.",
+  "pencil": "sowerby",
+  "pencilRuling": "doc 03 Part Four: \"Sowerby holds the pencil\"; doc 45 U-ASSAY-PENCIL: each point the judges write down.",
+  "markSeconds": 0.6,
+  "markRuling": "errata 130 B: a point is written down in a held beat after the line that won it and before the next boast.",
   "pairs": [
     {
       "n": 1,
@@ -831,7 +835,9 @@
         }
       ],
       "openingRuling": "doc 03 Duel Two (errata 75): Sowerby, Vessel, Sowerby, and then \"(He reads all five.)\".",
-      "orderRuling": "errata 73 E, doc 57 B6 and errata 76 A: Tier 1 first, never repeating. Then, holding fourteen or more, the pairs Thad knows before the rest; holding fewer, the rest first (doc 02 B6: \">=14 pairs\").",
+      "orderRuling": "errata 73 E, doc 57 B6 and errata 76 A: Tier 1 first, never repeating. Then, holding fourteen or more, the pairs Thad knows before the rest; holding fewer, the rest first (doc 02 B6: \">=14 pairs\"). The pairs he knows are thrown latest tier first (errata 130 C).",
+      "learnsByLosing": true,
+      "learnsByLosingRuling": "doc 03 Part One, \"Learning\": \"When an opponent uses a boast Thad has no answer to, Thad hears the correct counter from the crowd.\" The ring mutters each counter he lacks the first time it is thrown, and it joins his repertoire when the duel is over, won or lost (errata 130 A).",
       "win": [
         {
           "speaker": "deke_vessel",
@@ -861,7 +867,7 @@
         "document_a",
         "watch"
       ],
-      "lossRuling": "errata 73 H: a lost Duel Two ends on the reply that lost it; nothing more is said."
+      "lossRuling": "errata 73 H: a lost Duel Two ends on the reply that lost it and the judges' mark; nothing more is said."
     },
     "duel_three": {
       "puzzle": "F4",

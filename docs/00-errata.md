@@ -3463,3 +3463,45 @@ Still open, and Tyler's call: the form exists only after Hob signs it, so these 
 **Tooling.** `tools/gauntlet/route.mjs`'s `flush` used to click queued lines through. Such a click now walks, so it waits them out and clicks only a line the probe reports `waiting`. The probe gains `waiting`.
 
 **What holds it:** `tests/speech-pacing.test.ts`. A line outside a conversation never waits and never takes a click. A conversation's line waits and takes one. A hold that runs out brings up the next queued line. Every multi-line scene in the content (onEnter, arrival scenes, every `then`, every transit scene) plays to its last line with no click. Making `holdOver` answer `down` with lines queued fails it.
+
+---
+
+# 130 · LOSING DUEL TWO TEACHES; THE PENCIL MARKS THE POINT; DUEL ONE NEEDS B4 — FROM THE DUEL AUDIT (Tyler, 2026-11-06: "proceed with your recommendations")
+
+The duel audit played Room 4's two duels as a first-time player. Its findings 2, 3, 4 and 9 included five that need no new words. No line is written below. Every change is structure, mechanism or staging, and each can be struck by its letter.
+
+**A · A lost Duel Two teaches (audit finding 2). Errata 73 H is amended.**
+- **Before:** only Duel One muttered counters. A player short of fourteen pairs lost Duel Two 4-5 every time. Each retry was the same 33 lines and taught nothing.
+- **Doc 03 Part One's "Learning" is written for every duel:** "When an opponent uses a boast Thad has no answer to, Thad hears the correct counter from the crowd -- some bystander mutters it."
+- **So Duel Two learns by losing (`learnsByLosing`).** The first time Vessel throws a boast Thad cannot answer, the voice from the ring mutters its counter. The counter joins his repertoire when the duel ends, won or lost, as Duel One's notebook does (73 D). Only Duel One has notebook lines, so Duel Two has the mutter alone.
+- **The cost, accepted as the audit put it:** fourteen pairs can now be reached by losing. From Duel One's four, a player wins on the third attempt at the latest, and each retry throws boasts he has not heard. Errata 76 A's property stands within any one duel: fourteen can win and thirteen cannot.
+- **What stays the faster and funnier route:** Winnie, Pratt and the town.
+
+**B · The pencil marks the point when it is won (audit finding 4).**
+- **Before:** the judges' pencil (doc 45 U-ASSAY-PENCIL) sounded when the exchange settled. That was after the *next* boast had been read, and it sounded the same whoever scored.
+- **Now each point is written down in a held beat** after the line that won it (Thad's counter, or the reply to a wrong one) and before anything else is said. The beat is 0.6 s with nothing on screen, Sowerby's (`pencil`, doc 03: "Sowerby holds the pencil"). A click does not cut it short, and it ends by itself even when lines wait for a click.
+- **This is also the beat the audit asked for after a right counter.** Before, Vessel threw his next boast on the next click, and the punchline got no reaction.
+- **The duel's music now starts when the duel is chosen,** under Sowerby's rules, not after them (doc 45 R04-DUEL: "Any Liar's Assay duel begins").
+
+**C · Duel Two throws the pairs he holds latest tier first (audit finding 3c).** Thrown in ascending order, a winning player heard only pair 5 after Tier 1. The town's pairs, "the reward for talking to everyone" (doc 03), were never thrown at him. Tier 1 still comes first (doc 57 B6). Held pairs still come before unheld ones, so `tests/assay.test.ts`'s 131,072-set proof is unchanged.
+
+**D · Duel One needs B4, and ends with the Assay (audit findings 9a, 9b).**
+- **Option 3 is now offered only after Duel One is lost, and option 6 is always the way in.** Errata 76 A calls option 3 "the replay", and doc 57 B5 says it "replays it for anyone who enjoys losing". But option 3 was on offer from the start. Taking it first played Duel One and completed B5 without B4.
+- **Option 3 is not offered once Duel Two is won.** Once the judges have gone home there is no Assay to sit. On the other route, Vessel was still being asked to sign an affidavit he had already signed.
+
+**E · The rematch is not greyed (audit finding 2d).** Doc 04's VES_B1 option 5 is now `counted-repeat`, not `retain`. A greyed row reads as "already asked", and after a lost Duel Two it is the only way on. It still closes when Duel Two is won.
+
+**What holds it:** `tests/assay.test.ts`. Each new test was proved by putting its defect back, and each failed:
+- a lost Duel Two teaches only what was thrown at him unanswered, and he wins by the third attempt with no two retries the same;
+- every scored exchange has exactly one mark, after the scoring line and before the next boast;
+- a held beat ignores clicks and ends by itself under `conversationWaitsForClick`;
+- Duel One is reachable only through B4, and not once Duel Two is won;
+- the rematch is never greyed.
+
+Played in the browser from `r4-a`: B4, Duel One lost, then Duel Two lost 4-5. The pencil sounded in the beat after each reply or counter, and pairs 5-9 joined.
+
+**Not done here, and why:**
+- **A score on screen** (audit 4): no document puts a running tally anywhere. The chalk's own LISTEN says it "speaks once a duel, on slate, and then it's done", so this is Tyler's to rule on.
+- **The sparrings performing every pair they grant** (3a), **the notebook as an item** (3b), and **Duel One's repeat offering the counter just written down** (9c, against 73 D): each needs Tyler's ruling or his words.
+- **The memory game** (5e, against 73 C): the player's whole repertoire offered against each boast. Also Tyler's ruling.
+- **The standing mockery pool** (finding 6): placing "Son, you've told the truth. In front of people." is a writing decision.

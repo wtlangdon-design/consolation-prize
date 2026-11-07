@@ -205,7 +205,11 @@
           "text": "Teach me to lie like that.",
           "afterUse": "remove",
           "say": "Can't teach it. Can demonstrate it.",
-          "duel": "duel_one"
+          "duel": "duel_one",
+          "when": {
+            "T_DUEL_ONE_LOST": true,
+            "T_DUEL_TWO_WON": false
+          }
         },
         {
           "id": "ves_b1_4",
@@ -218,7 +222,7 @@
           "id": "ves_b1_5",
           "tag": "ASSAY",
           "text": "I'd like a rematch.",
-          "afterUse": "retain",
+          "afterUse": "counted-repeat",
           "say": "Course you would. They all would. Pull up the chair, son, the judges are getting bored.",
           "duel": "duel_two",
           "when": {

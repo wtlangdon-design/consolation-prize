@@ -3661,6 +3661,12 @@ function vesselActTwo() {
     const duel = /\*\*Duel (One|Two)\.?\*\*/.exec(state);
     if (duel) option.duel = duel[1] === 'One' ? 'duel_one' : 'duel_two';
     if (duel?.[1] === 'Two') option.when = { T_DUEL_ONE_LOST: true, T_DUEL_TWO_WON: false };
+    // OPTION 3 IS THE REPLAY (errata 76 A: "Option 3 is the replay ('twice if
+    // asked')"; doc 57 B5: "replays it for anyone who enjoys losing"). So it is
+    // offered once Duel One is lost, which keeps B4 -- option 6 -- the way in
+    // (errata 130 D), and not after Duel Two is won, when the judges have gone
+    // home and there is no Assay left to sit.
+    if (duel?.[1] === 'One' && !/\*\*B\d\*\*/.test(state)) option.when = { T_DUEL_ONE_LOST: true, T_DUEL_TWO_WON: false };
     // A PUZZLE THE ROW COMPLETES: option 6's "-> **B4**; **Duel One**" (errata 75).
     const puzzle = /\*\*(B\d)\*\*/.exec(state);
     if (puzzle) option.puzzle = { [puzzle[1]]: 'complete' };
@@ -3935,6 +3941,10 @@ function assay() {
       + 'one adds the right counter as a fourth, in a slot that varies by pair.',
     bystander: 'assay_ring',
     bystanderRuling: 'errata 73 F: a voice from the ring of chairs, unnamed.',
+    pencil: 'sowerby',
+    pencilRuling: 'doc 03 Part Four: "Sowerby holds the pencil"; doc 45 U-ASSAY-PENCIL: each point the judges write down.',
+    markSeconds: 0.6,
+    markRuling: 'errata 130 B: a point is written down in a held beat after the line that won it and before the next boast.',
     pairs,
     mockery,
     duels: {
@@ -3961,11 +3971,16 @@ function assay() {
         opening: [...duelTwoPreamble, ...rules],
         openingRuling: 'doc 03 Duel Two (errata 75): Sowerby, Vessel, Sowerby, and then "(He reads all five.)".',
         orderRuling: 'errata 73 E, doc 57 B6 and errata 76 A: Tier 1 first, never repeating. Then, holding fourteen '
-          + 'or more, the pairs Thad knows before the rest; holding fewer, the rest first (doc 02 B6: ">=14 pairs").',
+          + 'or more, the pairs Thad knows before the rest; holding fewer, the rest first (doc 02 B6: ">=14 pairs"). '
+          + 'The pairs he knows are thrown latest tier first (errata 130 C).',
+        learnsByLosing: true,
+        learnsByLosingRuling: 'doc 03 Part One, "Learning": "When an opponent uses a boast Thad has no answer to, Thad hears '
+          + 'the correct counter from the crowd." The ring mutters each counter he lacks the first time it is thrown, and it '
+          + 'joins his repertoire when the duel is over, won or lost (errata 130 A).',
         win: duelTwoWin,
         setsOnWin: { T_DUEL_TWO_WON: true },
         yields: ['document_a', 'watch'],
-        lossRuling: 'errata 73 H: a lost Duel Two ends on the reply that lost it; nothing more is said.',
+        lossRuling: 'errata 73 H: a lost Duel Two ends on the reply that lost it and the judges\' mark; nothing more is said.',
       },
       duel_three: duelThree,
     },

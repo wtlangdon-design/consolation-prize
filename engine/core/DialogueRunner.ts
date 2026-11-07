@@ -30,6 +30,19 @@ export interface PresentedOption {
   selections: number;
 }
 
+/**
+ * One line of a response as it is performed. A duel adds held beats to the
+ * words (errata 130): `rest` is a silence of so many seconds that the player
+ * cannot click through, and `mark` is the judges writing a point down in it.
+ */
+export interface PerformedLine {
+  speaker: string;
+  line: string;
+  direction?: boolean;
+  rest?: number;
+  mark?: boolean;
+}
+
 export interface SelectionResult {
   /** Response line to show, or null if the option had none. */
   say: string | null;
@@ -38,7 +51,7 @@ export interface SelectionResult {
    * option carries an exchange rather than a single line. `say` is the first
    * of them; these are shown one at a time after it.
    */
-  rest: { speaker: string; line: string; direction?: boolean }[];
+  rest: PerformedLine[];
   /**
    * Who says `say`.
    *
@@ -242,17 +255,20 @@ export class DialogueRunner {
   private readonly assay: AssayHost | null;
   /** The duel being fought inside the open conversation, if one is. */
   private duel: DuelSession | null = null;
-  /** Points written down in Assay duels, ever: a judge's pencil per mark (doc 45 U-ASSAY-PENCIL). */
-  private marks = 0;
 
   /** The duel being fought, if one is: the scene plays its music while it lasts (doc 45 R04-DUEL, U-FINAL-DUEL). */
   get duelId(): string | null {
     return this.duel?.id ?? null;
   }
 
-  /** How many points the judges have written down this session. The scene sounds each new one. */
-  get duelMarks(): number {
-    return this.marks;
+  /**
+   * The duel that is playing or about to: the one a pending selection starts
+   * counts from the moment it is chosen, so its music comes in under Sowerby's
+   * rules rather than after them (doc 45 R04-DUEL: "Any Liar's Assay duel
+   * begins"; errata 130 B).
+   */
+  get duelSounding(): string | null {
+    return this.duel?.id ?? this.pending?.resolution.duelStart ?? null;
   }
 
   constructor(trees: Map<string, DialogueFile>, flags: FlagStore, journals?: JournalSource,
@@ -678,7 +694,11 @@ export class DialogueRunner {
   private resolveDuelChoice(optionId: string): DialogueResolution {
     const duel = this.duel as DuelSession;
     const choice = duel.resolve(optionId);
-    const [first, ...rest] = choice.lines;
+    // A HELD BEAT IS NOT A LINE: when the choice opens on one (the pencil after
+    // a right counter) everything goes in `rest`, so the beat is performed too.
+    const opensOnBeat = choice.lines[0]?.rest !== undefined;
+    const first = opensOnBeat ? undefined : choice.lines[0];
+    const rest = opensOnBeat ? choice.lines : choice.lines.slice(1);
     const prefix = `assay/${duel.id}/${duel.snapshot().index}/${optionId}`;
     return {
       optionId,
@@ -768,10 +788,7 @@ export class DialogueRunner {
     const { resolution } = exchange;
     if (resolution.grants?.length) this.milestones.grant?.([...resolution.grants]);
     if (resolution.duelChoice && this.duel) {
-      const before = this.duel.score;
       const choice = this.duel.commit(resolution.duelChoice);
-      const after = this.duel.score;
-      if (after.player !== before.player || after.opponent !== before.opponent) this.marks += 1;
       if (choice.ended) {
         const called = this.assay?.file.duels[this.duel.id]?.calledByOpponent === true;
         this.duel = null;

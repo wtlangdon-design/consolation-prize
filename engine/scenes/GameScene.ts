@@ -93,8 +93,8 @@ export class GameScene extends Phaser.Scene {
   private readonly ambience = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
   /** A cue's held sound -- the standing team in the opening -- until a cue or the room ends it (errata 106). */
   private readonly cueBed = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
-  /** The judges' marks already sounded, so each new one sounds once. */
-  private marksHeard = 0;
+  /** The judges' mark beat already sounded, so a redraw does not write the point twice. */
+  private markedLine: Utterance | null = null;
   /** The duel whose music is playing, so a duel's start and end each choose the bed once. */
   private duelPlaying: string | null = null;
   /** The words on screen when they last sounded, so a redraw does not stamp twice. */
@@ -601,17 +601,10 @@ export class GameScene extends Phaser.Scene {
       this.markDirty();
     }
     // A DUEL BEGINS OR ENDS: its music comes in or goes (errata 109).
-    if (this.state.dialogue.duelId !== this.duelPlaying) {
-      this.duelPlaying = this.state.dialogue.duelId;
+    if (this.state.dialogue.duelSounding !== this.duelPlaying) {
+      this.duelPlaying = this.state.dialogue.duelSounding;
       this.applyMusic();
     }
-    // A POINT WRITTEN DOWN (doc 45 U-ASSAY-PENCIL): the judges' pencil, once a mark.
-    const marks = this.state.dialogue.duelMarks;
-    if (marks > this.marksHeard) {
-      const cue = this.state.content.sounds?.events?.duelMark;
-      if (cue) this.fireCue(cue);
-    }
-    this.marksHeard = marks;
     if (this.actor.isWalking) {
       this.markDirty();
       this.footsteps();
@@ -923,7 +916,7 @@ export class GameScene extends Phaser.Scene {
    * variant its flags select, which plays at the entry's tempo unless it says.
    */
   private bedTempo(): number | null {
-    if (this.state.room.music === 'suspend' || this.state.dialogue.duelId) return null;
+    if (this.state.room.music === 'suspend' || this.state.dialogue.duelSounding) return null;
     const entry = this.state.content.manifest.music?.rooms?.[this.state.room.id];
     if (!entry) return null;
     const variant = entry.variants?.find((one) => this.state.flags.test(one.when));
@@ -1627,7 +1620,7 @@ export class GameScene extends Phaser.Scene {
     const declared = this.state.content.manifest.music;
     if (!declared) return;
     // A DUEL HAS ITS OWN MUSIC (doc 45 R04-DUEL; U-FINAL-DUEL), for as long as it lasts.
-    const duel = this.state.dialogue.duelId;
+    const duel = this.state.dialogue.duelSounding;
     const duelBed = duel ? declared.duels?.[duel] ?? declared.duels?.['default'] : undefined;
     if (duelBed) {
       this.music.play({ src: duelBed.src, gain: duelBed.gain });
@@ -2106,6 +2099,9 @@ export class GameScene extends Phaser.Scene {
         line: spoken.direction ? GameScene.asDirection(spoken.line) : spoken.line,
         direction: spoken.direction === true,
         ...((spoken as { sound?: Utterance['sound'] }).sound ? { sound: (spoken as { sound?: Utterance['sound'] }).sound } : {}),
+        // A duel's held beats (errata 130): a silence, and the judges' pencil in it.
+        ...(spoken.rest !== undefined ? { rest: spoken.rest } : {}),
+        ...(spoken.mark ? { mark: true } : {}),
       })),
     ];
     this.performance = new DialoguePerformance(
@@ -2148,6 +2144,13 @@ export class GameScene extends Phaser.Scene {
         this.music.suspend();
         this.time.delayedCall(line.sound.rest * 1000, () => { if (this.music.isSuspended) this.music.resume(0); });
       }
+    }
+    // A POINT WRITTEN DOWN (doc 45 U-ASSAY-PENCIL; errata 130 B): the judges'
+    // pencil, in the beat after the line that won it and before the next boast.
+    if (line?.mark && this.markedLine !== line) {
+      this.markedLine = line;
+      const cue = this.state.content.sounds?.events?.duelMark;
+      if (cue) this.fireCue(cue);
     }
     if (!live.done) { this.markDirty(); return; }
     this.performance = null;
