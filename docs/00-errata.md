@@ -4392,6 +4392,24 @@ The input, the hover and the menu key are closed while one plays. The only thing
 
 **D · The art.** `reference/streets/brief.md` is for the session with the image key. It covers both streets' composition masters and plates, in Room 20's manner, and the bell-ringer's five-pose sheet against Thad. `reference/global-baseline.json` gains both rooms. `tools/art/room43-plate.mjs` and `room44-plate.mjs` derive and promote the plates.
 
+
+**THE ART (part 2, the image session, 2026-11-07; reference/streets/brief.md).** Eight operations of ten.
+- **Lower Street, room-43: 2 of 4.** The composition master (1) and the plate with Thad removed (2), promoted as `art/backgrounds/room-43-lower-street.png`.
+  - The master painted 682 clean rows (171–852), one short of a 1520 × 684 crop, so every such crop kept a grey margin row. `tools/art/room43-plate.mjs` (and `room44-plate.mjs`) now take `--crop x,y,w,h`. The plate is the 20:9 window 1500 × 675 from 18,174, the same transform inset about 1%. The first promotion, with the grey row, is superseded in the ledger by the second.
+  - Exits against `proofs/room-43/graybox.json`: church door +2 px, passage −25, livery about 0, both roads exact, registrar's door +41, alley mouth +42. The trough, which is not an exit, is about 60 px left of plan.
+- **The Lane, room-44: 4 of 4.** The first master (1) drew the middle of the lane about 100 px left of its layout: the undertaker's door −105, the tent flap −98. That missed, so the one correction the brief allows was spent: a second master with the layout's positions written into the prompt (3, `composition-master-02.txt`), then its plate (4).
+  - Exits now: undertaker's door −28, tent flap −48, both passages exact. The barber's pole is still about 100 px left of plan; it is not an exit.
+  - `room44-plate.mjs --plate plate-02`. The plate is the window 1500 × 675 from 18,172.
+  - **Lifted by 1.15** (`--lift`, `tools/art/plate-lift.py`, as Rooms 23 and 25 were). It came out at 26.2 in its lower half, under `tools/check-night-exposure.mjs`'s floor of 28; it is now 30.2, level with the back alley's 30.1. Lower Street, at 29.4, is not lifted.
+- **Both streets:** every door's top stands above the head of a Thad at the street's far edge, and there is no readable text. The signs are blank shapes, and the tent's crescent is a moon.
+- **The bell-ringer: 1 of 2.** Five poses: rest, breath (derived from rest), strike-up, strike and talk. `tools/art/room43-bell-ringer.py` cuts him with `room20-cat.py`'s own functions, snapped to one level (errata 112). He stands at the foot of the church steps, left of the bell post, his soles at y 700, where the curve gives 255; that is his height crown to sole without the bowler. Measured before anyone looked:
+  - edges crisp, alpha 0 or 255 only;
+  - luminance p10/p50/p90 of 20/51/117 against Thad's 21/57/92;
+  - texture 0.67× Thad's;
+  - pixel runs the same as Thad's.
+
+  No correction was needed. The sheet is `art/actors/room-43-bell-ringer.png`: frames [[2,2,143,276], [147,2,143,276], [292,2,143,276], [437,2,143,276], [582,2,143,276]], 0 rest · 1 breath · 2 strike-up · 3 strike · 4 talk, top-left 858,424 and anchor 929,700 in the plate. The builder writes his ambient file.
+
 ---
 
 # 162 · FANSHAWE'S CLOSE-UP, DRAWN — TYLER, 2026-11-07 (reference/fanshawe-closeup/brief.md)

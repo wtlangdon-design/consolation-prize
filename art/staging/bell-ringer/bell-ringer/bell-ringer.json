@@ -1,0 +1,55 @@
+{
+ "sheet": "art/actors/room-43-bell-ringer.png",
+ "frames": [
+  [
+   2,
+   2,
+   143,
+   276
+  ],
+  [
+   147,
+   2,
+   143,
+   276
+  ],
+  [
+   292,
+   2,
+   143,
+   276
+  ],
+  [
+   437,
+   2,
+   143,
+   276
+  ],
+  [
+   582,
+   2,
+   143,
+   276
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "strike-up",
+  "strike",
+  "talk"
+ ],
+ "topLeft": {
+  "x": 858,
+  "y": 424
+ },
+ "anchor": {
+  "x": 929,
+  "y": 700
+ },
+ "height": 276,
+ "man": 254.6,
+ "hatRows": 20,
+ "posture": "standing",
+ "source": "bell-ringer attempt 1 (art/staging/bell-ringer/sheet-01.png)"
+}
