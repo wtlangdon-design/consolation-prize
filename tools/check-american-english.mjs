@@ -14,7 +14,10 @@
  * hotspot in every room carries one, so this checks quoted lines -- `say`,
  * `line`, `text` -- and never a key.
  */
-import { Report, loadContent } from './lib/content.mjs';
+import { readdirSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+import { ROOT, Report, loadContent, readJson } from './lib/content.mjs';
 
 const BRITISH = {
   storey: 'story', storeys: 'stories', colour: 'color', colours: 'colors',
@@ -37,6 +40,9 @@ const BRITISH = {
   favourite: 'favorite', honoured: 'honored', colourful: 'colorful',
   draughts: 'drafts', centred: 'centered', jewellery: 'jewelry', tyre: 'tire',
   kerb: 'curb', aluminium: 'aluminum', catalogue: 'catalog', analyse: 'analyze',
+  // Errata 161's two streets: doc 97 shipped four of these, unread, because
+  // its rooms were not compiled yet and the walk read only compiled rooms.
+  judgemental: 'judgmental',
 };
 
 /**
@@ -77,6 +83,26 @@ export function check() {
     ...(content.sequences ?? []).map(({ path, data }) => [path, data]),
     ...(content.ambient ?? []).map(({ path, data }) => [path, data]),
   ];
+
+  // THE EXTRACTED EXAMINE FILES TOO. A room's lines are extracted from the
+  // documents before the room is compiled, and errata 161's doc 97 merged with
+  // "rumour", "apologise" and "colour" in it because only compiled rooms were
+  // read. Each subject's verbs are arrays of spoken lines; overrides are
+  // strings under their verb.
+  for (const file of readdirSync(resolve(ROOT, 'content/examine')).filter((name) => name.endsWith('.json')).sort()) {
+    const path = `content/examine/${file}`;
+    const data = readJson(path);
+    const said = [];
+    for (const subject of data.subjects ?? []) {
+      for (const [key, value] of Object.entries(subject)) {
+        if (!/^[A-Z_]+$/.test(key)) continue;
+        if (typeof value === 'string') said.push(value);
+        else if (Array.isArray(value)) said.push(...value.filter((one) => typeof one === 'string'));
+      }
+      for (const value of Object.values(subject.overrides ?? {})) if (typeof value === 'string') said.push(value);
+    }
+    sources.push([path, { lines: said }]);
+  }
 
   for (const [path, data] of sources) {
     for (const line of spoken(data)) {
