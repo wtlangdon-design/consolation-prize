@@ -246,7 +246,7 @@ export interface ChoiceLine {
   y: number;
   role: 'ink' | 'inkDim';
   /**
-   * THE OPTION AS DRAWN, wrapped (errata 132): its first row carries the
+   * THE OPTION AS DRAWN, wrapped (errata 134): its first row carries the
    * prefix and the rest hang under the text. One row when nothing wraps.
    */
   rows: string[];
@@ -262,7 +262,7 @@ export interface ChoiceFit {
   width: number;
 }
 
-/** The most rows one option may take before the list is a wall of text (errata 132). */
+/** The most rows one option may take before the list is a wall of text (errata 134). */
 export const OPTION_MAX_ROWS = 3;
 /** The width an option row may use: the play area's width less the speech margins. */
 export const CHOICE_WIDTH = NATIVE_WIDTH - 2 * 6 * GLYPH_SCALE;
@@ -708,7 +708,7 @@ export class Renderer {
     // drawn then either; both read `performing`, so there is no state in which
     // a row can be hit without being visible.
     if (this.performing) return [];
-    // From the same layout the list is drawn from, wrapped rows and all (errata 132).
+    // From the same layout the list is drawn from, wrapped rows and all (errata 134).
     const { lines } = choiceLines(options, this.state.content.ui.dialogue, this.choiceFit());
     return options.map((presented, index) => ({
       id: presented.option.id,
@@ -2413,7 +2413,7 @@ export class Renderer {
     }
   }
 
-  /** The panel face and the width an option row may use (errata 132). */
+  /** The panel face and the width an option row may use (errata 134). */
   choiceFit(): ChoiceFit {
     return { wrap: (text, width) => this.panelFont.wrap(text, width),
       measure: (text) => this.panelFont.measure(text), width: CHOICE_WIDTH };

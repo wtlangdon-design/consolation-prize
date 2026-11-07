@@ -3648,7 +3648,7 @@ Tyler: "Read reference/fiddler-charlie/brief.md and do it." He attached the phot
 
 ---
 
-# 132 · DIALOGUE OPTIONS WRAP, AND EVERY ONE FITS THE PANEL — the bookends audit, finding 6 (Tyler, 2026-11-06: "proceed with your recommendations")
+# 134 · DIALOGUE OPTIONS WRAP, AND EVERY ONE FITS THE PANEL — the bookends audit, finding 6 (Tyler, 2026-11-06: "proceed with your recommendations")
 
 **The fault.** Option rows did not wrap. The truth option in Duel Three, the most important choice in the game, ran off the right edge mid-word: "There is no gold in Mott's claim. There never was. Obadiah Mott invented it to rai". Pair 9's counter alone is 1,884 px at the panel's scale, against 1,848 px of room.
 

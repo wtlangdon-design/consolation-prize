@@ -1,5 +1,5 @@
 /**
- * EVERY DIALOGUE OPTION FITS THE PANEL (errata 132; the bookends audit,
+ * EVERY DIALOGUE OPTION FITS THE PANEL (errata 134; the bookends audit,
  * finding 6). Option rows did not wrap, so the most important choice in the
  * game -- Duel Three's truth -- ran off the right edge mid-word: "...Obadiah
  * Mott invented it to rai". Rows now wrap, and every option the content can
