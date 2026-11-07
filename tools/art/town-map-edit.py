@@ -22,6 +22,9 @@ the map's Thad walks (content/rooms/town-map.json) stay where they are.
       against the day map outside the town (phase correlation over the
       edges). Writes candidate.png; --write replaces the shipping map. The
       builder re-places the markers and the roads on the result.
+  python3 tools/art/town-map-edit.py prepare-pass --attempt N
+      THE PASS (errata 163 A3): writes art/staging/town-map/redraw-0N/input.png,
+      the shipping night map alone in the same window, for an edit of it.
   python3 tools/art/town-map-edit.py promote-redraw --attempt N [--fit] [--write]
       --fit crops to the map's drawn frame rather than the fixed window.
   python3 tools/art/town-map-edit.py promote --attempt N [--write]
@@ -73,6 +76,13 @@ def windowed(path):
     canvas = Image.new('RGB', (1536, 1024), (150, 150, 150))
     canvas.paste(Image.open(path).convert('RGB').resize((w, h), Image.LANCZOS), (x, y))
     return canvas
+
+
+def prepare_pass(n):
+    out = redraw_stage(n)
+    os.makedirs(out, exist_ok=True)
+    windowed(MAP).save(os.path.join(out, 'input.png'))
+    print(os.path.relpath(os.path.join(out, 'input.png'), ROOT))
 
 
 def prepare_redraw():
@@ -154,6 +164,8 @@ if __name__ == '__main__':
         prepare()
     elif sys.argv[1:2] == ['prepare-redraw']:
         prepare_redraw()
+    elif sys.argv[1:2] == ['prepare-pass']:
+        prepare_pass(int(sys.argv[sys.argv.index('--attempt') + 1]))
     elif sys.argv[1:2] == ['promote-redraw']:
         promote_redraw(int(sys.argv[sys.argv.index('--attempt') + 1]), '--write' in sys.argv, '--fit' in sys.argv)
     elif sys.argv[1:2] == ['promote']:

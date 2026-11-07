@@ -4488,4 +4488,13 @@ There were no page errors. One frame of each line is in `renders/cutaways/fansha
 - **Operation 3, `redraw-02`, the correction,** fixed the Lane but lost the livery from Lower Street and Main Street's eighth front. The livery is a place the player goes (Room 15) and needs its marker, so redraw 1 ships and the correction is kept as a record.
 - `reference/global-baseline.json`: `visualType` is now `district-map-night`, and the `daylight` line is gone. The builder re-places the markers and re-measures the roads on the night map.
 
+**A3 · The mountain pass.** Tyler, after the night map landed: **"at the beginning of the game I clearly walk out of a mountain pass into town. That's noticeable."** The builder read every exterior plate against the map:
+- Room 1's coach stop is a mountain road above the town's lamps, and Thad arrives at Main Street's east end.
+- Every plate shows a valley ringed by mountains.
+- The claims road, Boot Hill, the high ridge, the creek, the laundry and Mott's site all agree with the map.
+- The map had no pass, no coach stop and no ring of mountains, and its one road out ran west, where nobody goes.
+- One thing cannot be squared: Main Street's plate shows a tall steeple behind its west half, while the church Thad walks to is on Lower Street, east. The map follows the walking layout.
+
+He answered **"That all sounds good"** to one more pass: a pass at the top with the coach road and the coach stop down to the square's east end, mountains on the north and west, and the west road removed. The cap rises to 5, the pass and a correction (attemptsTotal 307 → 308). The brief's third part covers it.
+
 **B · The map's Thad** lands with Lower Street and the Lane (errata 161, part 3), on the branch where it was built, and is recorded here when it merges.
