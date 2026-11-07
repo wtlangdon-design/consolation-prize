@@ -4135,3 +4135,15 @@ Doc 30's affected lines carry a bracketed note pointing here: §1, §6.1, §6.2,
 **C · What holds it.**
 - `tests/sfx-one-renderer.test.mjs`: no two audio scripts write the same file. The old renderers no longer write `stamp.wav` or `crowd-erupts.wav`, so re-running them cannot put back the rejected sounds.
 - Doc 55 §8 gains the rule: a sound has to say what it is, heard on its own.
+
+---
+
+# 150 · THE FUNERAL STAYS GATHERED, AND THERE ARE NO CREDITS — OWNER RULINGS (Tyler, 2026-11-07)
+
+*Asked about the two staging extras left open (doc 36 Q173 and Q176), Tyler chose:*
+
+**A · The funeral's procession: "Leave it gathered."** Doc 48 S6 beat 1 (the town walking in behind the coffin, Thad at the back) is not built. The service is already gathered when Thad arrives, as it is now. No image operation is spent on it.
+
+**B · The credits: "Keep as is (Recommended)."** Doc 48 S7 beat 5 is not built. The close ends as errata 128 built it: the title, with THE END under it. CREDITS on the menu stays dim and inert. Their words are his, and none are written here.
+
+Both are recorded in doc 36 Q173 and Q176. Nothing in the game changes.

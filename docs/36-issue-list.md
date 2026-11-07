@@ -4872,7 +4872,7 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **For Tyler:**
 - **Day after night. RULED (Tyler, 2026-11-06, errata 99 K): night.** The service is relit under operation 4's moon and five daylight lines were rewritten (errata 99 K lists each); every exterior is now checked to be night.
 - **Seven mourners, not nine. RULED (Tyler, 2026-11-06): "7 is fine."** The three lines that counted nine now count seven (errata 99 P).
-- **Not staged:** beat 1's procession (the town walking in behind the coffin) -- the service is already gathered when Thad arrives; and the watchman "at Thad's shoulder" -- he speaks from the back, where he stands, and walks off as he says it.
+- **Not staged, RULED (Tyler, 2026-11-07, errata 150): "Leave it gathered."** Beat 1's procession (the town walking in behind the coffin) is not built -- the service is already gathered when Thad arrives; and the watchman "at Thad's shoulder" -- he speaks from the back, where he stands, and walks off as he says it.
 
 ## Q174 · Rooms 34 and 33, under Prosperity and the listening chamber: built, awaiting Tyler's playthrough — **RULED 2026-11-05 (errata 99 H, delegated); BUILT, room-34 3 of 4 and room-33 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
 
@@ -4894,7 +4894,7 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **For Tyler:**
 - **The way in: BUILT 2026-11-06 (Q179).** F4 and F5 are built; filing hands on to the dawn.
 - **Beat 3's picture: BUILT 2026-11-06 (errata 121 B), room-36 4 of 4 operations.** The coach stop exit goes to Room 1 at first light, where a man on a ladder at the town sign nods, and the line and the letter are said there.
-- **Not staged:** beat 5's credits (errata 55's launch-screen cluster): their words are Tyler's. The close ends over black, with the menu still there.
+- **Not staged, RULED (Tyler, 2026-11-07, errata 150): "Keep as is."** Beat 5's credits: no credits list. The close ends on the title with THE END, and the menu's CREDITS stays dim and inert (errata 128).
 - **The dawn plate is a relight of Room 2's,** so where the morning's mountains and Room 2's disagree the ridge is a little ragged in places. Say if it wants a hand-drawn dawn instead.
 
 ## Q177 · The puzzle chain through built rooms: C6, D4, D6, E0, E4, E5 — **BUILT 2026-11-06 (errata 99 M), AWAITING TYLER'S PLAYTHROUGH**
