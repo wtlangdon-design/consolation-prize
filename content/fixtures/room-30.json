@@ -72,7 +72,8 @@
     "T_NO_GOLD_EVER": true,
     "T_WARM_HOLE": true,
     "T_PICKAXE_ON_ACCOUNT": true,
-    "T_SEEN_CLAIMS_ROAD": true
+    "T_SEEN_CLAIMS_ROAD": true,
+    "T_FUNERAL_DONE": true
    },
    "inventory": [
     "tuning_fork",

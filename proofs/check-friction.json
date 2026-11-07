@@ -199,6 +199,12 @@
    "date": "2026-11-06",
    "kind": "exception",
    "why": "A seated pose never stands, so no frame of Thad's seated clips (Room 33, doc 48 S5 beat 3) can prove his declared 526px figure, and clause one/two refused them. A rig may now name `scale_from`: the clip that does stand (his `sit`, frame 0 his chore stand), held to that clip's figure and to its soles on the declared row. Only the three seated rigs use it; tests/thad-sits.test.mjs holds their frames to the sit's last, byte for byte."
+  },
+  {
+   "check": "tests/c5.test.ts",
+   "date": "2026-11-06",
+   "kind": "loosened",
+   "why": "Its 'no topic flag stands in for C5' assertion required T_QUEUE_PADDED to be unset after C5. It held only because fixture r5-c gave Thad the log without the flag the log's own pickup writes; errata 124 makes C5 wait on that flag, so the assertion now checks that the C5 pair itself writes no flag. Not a loosening of what C5 is: the new test in the same file is stricter (the log works with the drawer unopened)."
   }
  ]
 }

@@ -1316,6 +1316,7 @@ export class GameState {
       && one.room === this.currentRoomId && one.target === npcId && one.opens && one.completes);
     if (!pair) return null;
     if ((pair.requiresPuzzles ?? []).some((id) => this.puzzles.get(id) !== 'complete')) return null;
+    if (Object.entries(pair.requiresFlags ?? {}).some(([flag, value]) => (this.flags.get(flag) === true) !== value)) return null;
     if (this.puzzles.get(pair.completes as string) === 'complete') return null;
     return pair;
   }

@@ -49,7 +49,8 @@
     "T_IN_TUNE": true,
     "PICK_SWINGS": 2,
     "T_BROKE_THROUGH": true,
-    "T_STRIKE_FOUND": true
+    "T_STRIKE_FOUND": true,
+    "T_FUNERAL_DONE": true
    },
    "inventory": [
     "tuning_fork",

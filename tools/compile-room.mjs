@@ -1213,7 +1213,19 @@ for (const [id, spec] of Object.entries(ann.opensTree ?? {})) {
   if (spec.lastLetter) {
     const lines = tree[spec.lastLetter.field];
     if (!Array.isArray(lines) || !lines.length) fail(`opensTree: ${spec.file} has no ${spec.lastLetter.field} lines`);
-    rules.push({ when: { ACT: spec.lastLetter.act }, say: lines[0], ...(lines.length > 1 ? { then: lines.slice(1) } : {}) });
+    // ERRATA 124 (the bookends audit): the Act IV letter says "The gold is
+    // real", and Act IV opens here before any gold is found, so a player who
+    // had used the letters in every act read the ending in its first minute.
+    // `until` holds it back to the state that makes it true; before that, the
+    // subject answers with one of its own LOOK lines (`before`), never a new one.
+    const until = spec.lastLetter.until ?? {};
+    rules.push({ when: { ACT: spec.lastLetter.act, ...until }, say: lines[0], ...(lines.length > 1 ? { then: lines.slice(1) } : {}) });
+    if (spec.lastLetter.before) {
+      const own = hotspot.responses[spec.lastLetter.before.verb]?.find((rule) => !rule.when);
+      const said = own ? [own.say, ...(own.repeat ?? [])][spec.lastLetter.before.line] : undefined;
+      if (!said) fail(`opensTree: ${id} has no ${spec.lastLetter.before.verb} line ${spec.lastLetter.before.line} to answer with before the last letter`);
+      rules.push({ when: { ACT: spec.lastLetter.act }, say: said });
+    }
   }
   hotspot.responses[spec.verb] = [...rules, ...(hotspot.responses[spec.verb] ?? [])];
 }

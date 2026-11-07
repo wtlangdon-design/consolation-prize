@@ -74,7 +74,8 @@
     "T_HOB_IS_MOTT": true,
     "T_NO_GOLD_EVER": true,
     "T_WARM_HOLE": true,
-    "T_PICKAXE_ON_ACCOUNT": true
+    "T_PICKAXE_ON_ACCOUNT": true,
+    "T_FUNERAL_DONE": true
    },
    "inventory": [
     "tuning_fork",

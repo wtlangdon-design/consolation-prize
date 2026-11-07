@@ -33,7 +33,8 @@
     "T_EXECUTOR_NAMED": true,
     "T_DECEASED": true,
     "T_SAME_HAND": true,
-    "T_HOB_HANDWRITING": true
+    "T_HOB_HANDWRITING": true,
+    "T_FUNERAL_DONE": true
    },
    "inventory": [
     "tuning_fork",

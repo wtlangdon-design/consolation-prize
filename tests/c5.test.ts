@@ -76,7 +76,7 @@ test('contact commits C5 exactly once, keeps the item, and the tree then opens t
 });
 
 test('WIN_B2\'s rows move the world as doc 04 says, through W1, and the states stay apart', async () => {
-  const { state, pair, tree } = await setup('r5-c-post');
+  const { content, state, pair, tree } = await setup('r5-c-post');
   state.dialogue.start(tree);
   assert.equal(state.dialogue.positionSnapshot().node, 'WIN_B2');
   const rows = state.dialogue.presentOptions().map((p) => p.option.id);
@@ -99,9 +99,10 @@ test('WIN_B2\'s rows move the world as doc 04 says, through W1, and the states s
   assert.ok(state.carried.includes(pair.item), 'the log is still held');
   // Apart: puzzle progress, topic flags, inventory, counts.
   assert.deepEqual(Object.keys(state.puzzleProgress()).sort(), ['C1', 'C2', 'C3', 'C4', 'C5', 'C6']);
-  // T_QUEUE_PADDED is C4's -- the log taken from the empty office (doc 57 C4,
-  // Room 11) -- and nothing at Winnie's window writes it: C5 is puzzle progress.
-  assert.notEqual(state.flags.get('T_QUEUE_PADDED'), true, 'no topic flag stands in for C5');
+  // T_QUEUE_PADDED is the log's -- written when it is taken from the empty
+  // office (doc 57 C4, Room 11), before the window ever sees it, and what the pair
+  // now waits on (errata 124) -- so no flag stands in for C5: C5 is puzzle progress.
+  assert.equal(Object.keys(content.combinations?.pairs.find((one) => one.completes === 'C5')?.set ?? {}).length, 0, 'the pair writes no topic flag for C5');
   assert.deepEqual(state.dialogue.progressSnapshot()[tree], { 'WIN_B1:winnie1': 1, 'WIN_B2:winnie1': 1, 'WIN_B2:winnie2': 1, 'WIN_B2:winnie3': 1, 'WIN_B2:winnie4': 1 });
 });
 
@@ -131,4 +132,15 @@ test('T_SECOND_LEDGER does not route to WIN_B3: the tree has no such node yet, a
   assert.equal(content.dialogue.get(tree)?.nodes.WIN_B3, undefined, 'WIN_B3 is not extracted in this slice');
   state.dialogue.start(tree);
   assert.equal(state.dialogue.positionSnapshot().node, 'WIN_B2');
+});
+
+test('the log on its person works once the log is held, whether or not the portrait drawer was opened (errata 124)', async () => {
+  // The fairness audit: gated on C4, which completes only on the stock-portrait
+  // drawer, the right item on the right person answered "That accomplishes
+  // nothing I can see." It waits on the log itself.
+  const { content, state, npc, pair } = await setup('r5-c');
+  const noDrawer = new GameState(content, new MemoryStorage());
+  noDrawer.applyFixture({ id: 'x', label: 'x', room: state.roomId, flags: { T_QUEUE_PADDED: true }, inventory: [pair.item] });
+  assert.equal(noDrawer.puzzleComplete('C4'), false, 'the drawer was never opened');
+  assert.ok(noDrawer.evidencePairFor(pair.item, npc.id), 'the log still opens the tree');
 });

@@ -29,7 +29,8 @@
     "T_NEED_TO_DIE": true,
     "T_EXECUTOR_RULE": true,
     "ACT": 3,
-    "T_EXECUTOR_NAMED": true
+    "T_EXECUTOR_NAMED": true,
+    "T_FUNERAL_DONE": true
    },
    "inventory": [
     "tuning_fork",
@@ -90,7 +91,8 @@
     "T_EXECUTOR_RULE": true,
     "ACT": 3,
     "T_EXECUTOR_NAMED": true,
-    "T_HOB_HANDWRITING": true
+    "T_HOB_HANDWRITING": true,
+    "T_FUNERAL_DONE": true
    },
    "inventory": [
     "tuning_fork",

@@ -223,7 +223,11 @@ export class VerbSystem {
     }
     // A PAIR THAT IS ONLY CASES (doc 57 F5's counter) says nothing of its own
     // when none holds: the item's pool answers, as if there were no pair.
-    if (pair && pair.otherwise !== 'pool') {
+    // ERRATA 124 (the fairness audit, A7): that holds for EVERY pair of cases.
+    // Their pair-level `say` is a copy of the first case's success line, and
+    // spoken out of state it told the player he had paid Ozymandia when
+    // nothing was taken. Only a pair with no cases speaks its own `say` here.
+    if (pair && pair.otherwise !== 'pool' && !pair.rules?.length) {
       return {
         say: pair.say ?? null,
         dialogue: null,

@@ -3402,3 +3402,33 @@ Tyler, on what else would make the game great: **"Go on all five."** Two of the 
 **Two art briefs for the session with the image key (Tyler, 2026-11-06: "proceed with your recommendations on the items that are still open").**
 - **The fiddler, drawn as Charlie.** Tyler: "I think the fiddler is perfect to look like Charlie" (his husband, who asked to be a character). `reference/fiddler-charlie/brief.md` changes only the fiddler's face, hair and build; it keeps his poses, costume and pixel level, and recuts to the same frames. Cap `fiddler-charlie`, 2 operations. **The photograph never enters the repository:** it is attached in the image session and saved under `art/staging/private/`, which `.gitignore` now excludes.
 - **The undertaker and Ozymandia, softer.** `reference/cast-softer/brief.md` is one cast-unify operation for both, plus a correction if it misses. It answers Tyler's notes that both are "too detailed compared to Thad", which still hold in part after errata 111 and 112 (the side-by-sides are in the brief's folder). No new cap: cast-unify has 15 of its 75 left.
+
+# 124 · FOUR UNFAIR GATES, FROM THE FAIRNESS AND BOOKENDS AUDITS — TYLER, 2026-11-06 ("proceed with your recommendations on the items that are still open")
+
+The puzzle-fairness audit and the first-and-last-ten-minutes audit found these. Each fix moves a gate and writes no line.
+
+**A · C5 waits on the log, not the drawer.** THE SUBMISSION LOG on Winnie was gated on C4. C4 completes only on the stock-portrait drawer in Fanshawe's office, which opens only on a funeral day and which nothing connects to Winnie. So the right item on the right person answered "That accomplishes nothing I can see", while the log's own LOOK says "Winnie is going to want to see this." The `requiresPuzzles: [C4]` was an artifact of doc 36's first reading of C4 ("search the office, get the log"), from before doc 57 put C4's completion on the drawer.
+- The pair now waits on `T_QUEUE_PADDED`, the flag the log's PICK UP writes. Pairs gain `requiresFlags` for this.
+- The photograph keeps its own uses.
+- Fixtures `r5-c` and `r5-c-post` now hold the flag their log implies.
+
+**B · The archive waits for the funeral.** Doc 02 makes E9 depend on E8. The archive door opened on `T_EXECUTOR_NAMED` alone, so a player who went straight there after Sump's "Accepted." could compare the hands and hear the confession before the funeral. Act IV would then open with the coffin (invariant 2's scene) never played. The door's executor exchange now also waits for `T_FUNERAL_DONE`; until then the door's own OPEN override answers. Every later fixture that holds `T_SAME_HAND` now holds `T_FUNERAL_DONE`, which its story implies.
+
+**C · The last letter waits for the gold.** Doc 04's Act IV letter ("The gold is real. The story is better.") was the Room 19 letter's USE for the whole of Act IV, and Act IV opens in Room 19 before any gold is found. A player who had used the letters in every act read the ending in its first minute.
+- It now waits for `T_STRIKE_FOUND` (F3), so it is true when read.
+- Before that, the letter answers with its own fourth LOOK line: "It goes out Thursday, with whatever is on it by Thursday."
+- Nothing is set or tracked (invariant 10). `tools/compile-room.mjs` `opensTree.lastLetter` gains `until` and `before`.
+
+**D · A pair out of state does not say its success.** Fourteen pairs consist only of cases, and each one's pair-level `say` is a copy of its first case's success line. When no case held, the engine spoke that line and did nothing. The filing fee offered to Ozymandia before she named her price answered "That was the filing fee. It is now a divining fee." while taking nothing, so the player believed he had paid. The same happened with the letter on Sowerby before the memorial was asked for. Out of state, every pair of cases now yields to the item's pool, as `otherwise: "pool"` already did (`engine/core/VerbSystem.ts`).
+
+**What holds them:**
+- `tests/c5.test.ts`: the log works with the drawer unopened.
+- `tests/archive-after-funeral.test.ts`.
+- `tests/last-letter.test.ts`: no room says "The gold is real" except behind `T_STRIKE_FOUND`.
+- `tests/pair-out-of-state.test.ts`.
+
+Each test fails with its fix removed.
+
+**Left for Tyler (each needs writing, or a ruling on a load-bearing line):**
+- The risky puzzles: A5, A6, B3, D3, E1, E3, E4, E6, E7 and E9 (the audit's list).
+- THE FILING FEE's pool. It is doc 24's FOUR DOLLARS pool, shared under one heading, and says "I have four dollars" while Thad holds two.

@@ -42,7 +42,8 @@
     "T_DUG_DOWN": true,
     "T_FORK_STRUCK": true,
     "T_PRATT_JUMP_SEEN": true,
-    "T_PRATT_STAKE": true
+    "T_PRATT_STAKE": true,
+    "T_FUNERAL_DONE": true
    },
    "inventory": [
     "tuning_fork",
@@ -116,7 +117,8 @@
     "T_VOID_FOUND": true,
     "T_IN_TUNE": true,
     "T_PRATT_JUMP_SEEN": true,
-    "T_PRATT_STAKE": true
+    "T_PRATT_STAKE": true,
+    "T_FUNERAL_DONE": true
    },
    "inventory": [
     "tuning_fork",
