@@ -11,6 +11,21 @@
   },
   "actions": [
    {
+    "do": "wait",
+    "seconds": 2,
+    "why": "ACT 3 plays Fanshawe's cut-away (errata 158) the moment it is set, and a click inside it is swallowed"
+   },
+   {
+    "do": "waitFor",
+    "room": "claims_registrar",
+    "upTo": 120,
+    "why": "back from the cut-away, so the panel is the room and not Fanshawe's office"
+   },
+   {
+    "do": "wait",
+    "seconds": 2
+   },
+   {
     "do": "verb",
     "verb": "LOOK_AT"
    },

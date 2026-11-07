@@ -3,15 +3,26 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "claims_registrar",
  "roomWidth": 1920,
- "branch": "ccr-347d40c6-71r9f9",
- "commit": "74a8bc6fed903c13b41d45d4b7f2f95afc93a16e",
- "workingTreeClean": true,
- "dirtyAllowed": false,
- "uncommitted": [],
+ "branch": "feat/streets-build",
+ "commit": "ca9cd64dfc48d243ef11146494c71519a03d949e",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "uncommitted": [
+  "M renders/proofs/archive/contact-sheet.webp",
+  " M renders/proofs/archive/index.html",
+  " M renders/proofs/archive/proof.json",
+  "M  renders/proofs/boot-hill/contact-sheet.webp",
+  "M  renders/proofs/boot-hill/index.html",
+  "M  renders/proofs/boot-hill/proof.json",
+  "M  renders/proofs/ozymandias-tent/doors/contact-sheet.webp",
+  "M  renders/proofs/ozymandias-tent/doors/life.json",
+  "MM tools/gauntlet/routes/archive.json"
+ ],
  "visualState": null,
  "candidates": [],
  "route": "claims-registrar",
  "routeLog": [
+  "the title: clicked NEW GAME",
   "action 1 (wait): waited 2.5s",
   "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
   "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
@@ -31,16 +42,13 @@
   "action 17 (wait): waited 6s",
   "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger",
   "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street",
-  "action 20 (wait): waited 2s",
-  "action 21 (click): clicked screen 554,1052 -- the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)",
-  "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map",
-  "action 23 (wait): waited 1s",
-  "action 24 (click): clicked screen 700,345 -- the registrar's place on the map (content/rooms/town-map.json loc_registrar)",
+  "action 20 (wait): waited 7s",
+  "action 21 (click): clicked main_street/to_claims_road at world 3450,467 -- LOWER STREET, at Main Street's east end (errata 161)",
+  "action 22 (waitFor): reached {\"room\":\"lower_street\"} in room lower_street",
+  "action 23 (wait): waited 3s",
+  "action 24 (click): clicked lower_street/to_claims_registrar at world 300,543 -- THE REGISTRAR'S DOOR",
   "action 25 (waitFor): reached {\"room\":\"claims_registrar\"} in room claims_registrar",
-  "action 26 (wait): waited 3s",
-  "action 1 (verb): chose verb LOOK_AT -- ",
-  "action 2 (click): clicked claims_registrar/counter at world 1418,490 -- the counter, which has an Act III line",
-  "action 3 (waitFor): reached {\"says\":\"thad\"} in room claims_registrar"
+  "action 26 (wait): waited 3s"
  ],
  "depthMarks": [
   {
@@ -68,11 +76,11 @@
    ],
    "reportedHeight": 481,
    "expected": 481,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-04.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
    "bounds": [
-    365,
+    360,
     272,
-    499,
+    509,
     531
    ],
    "order": 0,
@@ -105,11 +113,11 @@
    ],
    "reportedHeight": 546,
    "expected": 546,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-08.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
    "bounds": [
-    332,
+    326,
     303,
-    566,
+    578,
     603
    ],
    "order": 0,
@@ -124,25 +132,25 @@
    "kind": "ambient",
    "id": "sump",
    "feet": [
-    1278,
-    450
+    1290,
+    440
    ],
    "sheet": "art/actors/room-07-sump.png",
    "clipPlane": null,
    "box": {
-    "x": 1188,
-    "y": 228,
-    "width": 180,
-    "height": 224
+    "x": 1177,
+    "y": 233,
+    "width": 226,
+    "height": 209
    },
    "seen": {
-    "x": 1188,
-    "y": 256,
-    "width": 180,
-    "height": 195,
-    "bottom": 450,
-    "right": 1367,
-    "changed": 17443
+    "x": 1215,
+    "y": 234,
+    "width": 186,
+    "height": 207,
+    "bottom": 440,
+    "right": 1400,
+    "changed": 19598
    },
    "props": []
   }
@@ -151,7 +159,7 @@
   {
    "panel": "B",
    "room": "claims_registrar",
-   "clock": 109.7627,
+   "clock": 158.83020000000002,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -172,7 +180,15 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
-    "T_NUGGET_PIANO_PAID": 0
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -191,11 +207,11 @@
      "height": 513,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
-      64,
+      58,
       287,
-      532,
+      543,
       566
      ],
      "order": 0,
@@ -220,21 +236,21 @@
      "drawn": "art/actors/room-07-sump.png",
      "candidate": false,
      "loaded": true,
-     "hash": "46eede4422a3c1b34e1d8c174d992aab4e8437990ec0a2069bd551b7b51315b9"
+     "hash": "9e017fa2cc71e4cc11c3ace59423ef6d5c10febdca662418a5d03d268507c140"
     }
    ],
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-01T21:55:34.471Z",
+   "capturedAt": "2026-11-07T22:35:11.002Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "3c1abd606f3629b747d9d8c5b6d6d0a5d8da192e785e21b001a077ac9fbcfd72"
+   "hash": "8ae7d352b4202f28233069ff59ce8347027bd45161c8393f710f0555edb5f100"
   },
   {
    "panel": "A",
    "room": "claims_registrar",
-   "clock": 110.56269999999999,
+   "clock": 160.7801,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -255,7 +271,15 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
-    "T_NUGGET_PIANO_PAID": 0
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -270,7 +294,7 @@
       800
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 513,
      "moving": false,
      "drawn": "sprite",
@@ -298,7 +322,7 @@
      "drawn": "art/actors/room-07-sump.png",
      "candidate": false,
      "loaded": true,
-     "hash": "46eede4422a3c1b34e1d8c174d992aab4e8437990ec0a2069bd551b7b51315b9"
+     "hash": "9e017fa2cc71e4cc11c3ace59423ef6d5c10febdca662418a5d03d268507c140"
     }
    ],
    "stubs": [],
@@ -306,15 +330,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-01T21:55:35.458Z",
+   "capturedAt": "2026-11-07T22:35:12.821Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "b24536edcddc2328b2545eeec40fe6bfa1873091f2dee3501832d1ffa8392bf5"
+   "hash": "832c6b2c23adf8e779c6d359988091f87def377bfc6b423b19db45c0298d0c14"
   },
   {
    "panel": "D",
    "room": "claims_registrar",
-   "clock": 117.5124,
+   "clock": 200.5118,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -329,13 +353,22 @@
     "T_OPENING_DONE",
     "T_SEEN_MAIN_STREET",
     "T_CASE_DOWN",
-    "T_CASE_TAKEN"
+    "T_CASE_TAKEN",
+    "T_CUTAWAY_FANSHAWE"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 3,
-    "T_NUGGET_PIANO_PAID": 0
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -354,11 +387,11 @@
      "height": 546,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-00.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
-      332,
+      326,
       303,
-      566,
+      578,
       603
      ],
      "order": 0,
@@ -366,7 +399,7 @@
      "fallback": false
     }
    },
-   "says": "thad",
+   "says": null,
    "options": 0,
    "assets": [
     {
@@ -383,7 +416,7 @@
      "drawn": "art/actors/room-07-sump.png",
      "candidate": false,
      "loaded": true,
-     "hash": "46eede4422a3c1b34e1d8c174d992aab4e8437990ec0a2069bd551b7b51315b9"
+     "hash": "9e017fa2cc71e4cc11c3ace59423ef6d5c10febdca662418a5d03d268507c140"
     }
    ],
    "stubs": [],
@@ -391,28 +424,32 @@
    "controlWrites": [
     "cast(false)",
     "cast(true)",
+    "bystanders(false)",
     "stand(615,753)",
     "cast(false)",
     "cast(true)",
     "stand(615,849)",
     "cast(false)",
     "cast(true)",
+    "bystanders(true)",
     "flag ACT=3"
    ],
-   "capturedAt": "2026-11-01T21:55:42.540Z",
+   "capturedAt": "2026-11-07T22:35:53.132Z",
    "intent": "principal changed state: ACT 3 (errata 75 H: set at E0b's card, in rooms not built, so the flag control sets it). Visible consequence: LOOK AT the counter speaks the Act III line.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "7961db4f9b74361ade23597318fff235e4ea316db098a61991eeacb7161f3bf4",
-   "changedBy": "counters"
+   "hash": "7d15250cde979334043c2a1a817bd64a6bc0d7655eed49eb00782f34c1f4bc28",
+   "changedBy": "flags, counters"
   }
  ],
- "failures": [],
- "passed": true,
+ "failures": [
+  "panel D: reaching the changed state failed -- route: waitFor {\"do\":\"waitFor\",\"says\":\"thad\",\"upTo\":30} timed out after 30s. It saw: room claims_registrar, control null, beat -, 0 option(s), handedOver true"
+ ],
+ "passed": false,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
  "judgement": {
   "machine": {
-   "passed": true,
+   "passed": false,
    "establishes": [
     "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
     "every asset the room declares loaded; no stub, graybox or fallback was drawn",
@@ -433,11 +470,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-01T21:55:42.541Z",
+ "at": "2026-11-07T22:35:53.132Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 316846,
+  "bytes": 301070,
   "panels": 5,
   "scale": 0.5
  }

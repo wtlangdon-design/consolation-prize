@@ -5,7 +5,7 @@
  h1{font-size:17px;margin:0 0 4px}
  p.lede{color:#9a9aae;margin:0 0 8px;max-width:64em}
  .verdict{font:13px ui-monospace,monospace;padding:8px 10px;border-radius:5px;margin:12px 0;
-   background:#12331e;border:1px solid #2c6b40}
+   background:#3a1620;border:1px solid #7a2c3c}
  figure{margin:0 0 22px}
  img{width:100%;display:block;border-radius:5px;border:1px solid #2c2c38}
  figcaption{padding:7px 2px;font-size:13px}
@@ -17,7 +17,7 @@
 </style>
 <h1>claims_registrar — four-panel live-runtime proof</h1>
 <p class="lede">Every frame below is the full play area as the renderer drew it, in the running
-game, at <code>74a8bc6f</code> on <code>ccr-347d40c6-71r9f9</code>.
+game, at <code>ca9cd64d</code> on <code>feat/streets-build</code>.
 No crop, isolated sprite or source image appears here: those are for diagnosing what a full
 frame has already shown.</p>
 <p class="lede"><b>These panels establish technical admissibility only.</b> Nothing here says the
@@ -29,7 +29,10 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     downscaled, never cropped. The full-resolution captures are reproducible test artifacts
     and are not in git; their hashes are below.</span></figcaption>
 </figure>
-<div class="verdict">PASS — technically admissible</div>
+<div class="verdict">FAIL — 1 failure(s):
+  panel D: reaching the changed state failed -- route: waitFor {"do":"waitFor","says":"thad","upTo":30} timed out after 30s. It saw: room claims_registrar, control null, beat -, 0 option(s), handedOver true
+
+! working tree was dirty: these frames do not correspond to the commit above.</div>
 
   <figure>
     <img src="raw-captures-ignored/panel-b-populated.png" alt="" onerror="this.replaceWith(Object.assign(
@@ -59,7 +62,7 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
       'raw capture not committed -- regenerate with: npm run proof ' + "claims_registrar" }))">
     <figcaption><b>PANEL D &mdash; principal changed state: ACT 3 (errata 75 H: set at E0b's card, in rooms not built, so the flag control sets it). Visible consequence: LOOK AT the counter speaks the Act III line.</b>
       <span>room claims_registrar &middot; camera 0 &middot;
-        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN &middot;
+        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN T_CUTAWAY_FANSHAWE &middot;
         inventory letter tuning_fork four_dollars watch</span>
       <span>thad @615,849 546px sprite</span>
     </figcaption>
@@ -69,7 +72,7 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     <figcaption><b>PANEL C &mdash; mud_far far, authored y753</b>
       <span>expected 481px &middot; runtime 481px &middot;
         silhouette 481px, bottom y752</span>
-      <span>art/actors/thad-idlebreak-right/idle-break-04.png</span>
+      <span>art/actors/thad-idle-right/idle-01.png</span>
     </figcaption>
   </figure>
   <figure>
@@ -77,6 +80,6 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     <figcaption><b>PANEL C &mdash; mud_near near, authored y849</b>
       <span>expected 546px &middot; runtime 546px &middot;
         silhouette 547px, bottom y849</span>
-      <span>art/actors/thad-idlebreak-right/idle-break-08.png</span>
+      <span>art/actors/thad-idle-right/idle-03.png</span>
     </figcaption>
   </figure>
