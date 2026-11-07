@@ -10,12 +10,17 @@ import { promoteProvisional } from './staging.mjs';
 
 const S = 'art/staging/room-43/plate-01';
 const at = process.argv.indexOf('--y');
-const CROP = { x: 8, y: at > 0 ? Number(process.argv[at + 1]) : 170, width: 1520, height: 684 };
+// --crop x,y,w,h: a smaller 20:9 window, for a band painted SHORTER than 684 rows. Room 43's master
+// painted 682 clean rows (171-852), so every 1520 x 684 crop kept a grey margin row (errata 161).
+const cropAt = process.argv.indexOf('--crop');
+const [cx, cy, cw, ch] = cropAt > 0 ? process.argv[cropAt + 1].split(',').map(Number) : [];
+const CROP = cropAt > 0 ? { x: cx, y: cy, width: cw, height: ch }
+  : { x: 8, y: at > 0 ? Number(process.argv[at + 1]) : 170, width: 1520, height: 684 };
 const attempt = Number(process.argv[process.argv.indexOf('--attempt') + 1] || 2);
 const record = deriveFixedRoomPlate({ source: `${S}/source.png`, out: `${S}/candidate-1920x864.png`, crop: CROP });
 writeFileSync(`${S}/frame.json`, `${JSON.stringify({
   source: `${S}/source.png`, crop: CROP, out: `${S}/candidate-1920x864.png`, derivation: record,
-  why: `Room 43 takes a 20:9 crop from y ${CROP.y} (tools/art/room43-plate.mjs).`,
+  why: `Room 43 takes a 20:9 crop of ${CROP.width} x ${CROP.height} from ${CROP.x},${CROP.y} (tools/art/room43-plate.mjs).`,
 }, null, 1)}\n`);
 console.log('derived', record.derived.path, record.derived.hash.slice(0, 12));
 if (process.argv.includes('--promote')) {
