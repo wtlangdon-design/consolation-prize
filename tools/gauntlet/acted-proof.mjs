@@ -33,8 +33,9 @@ const scenarios = {
   // Errata 148's poses: the filing's stamp, signature and blot, the filing under glass, Pratt's hat and
   // boots, and Thad fitting the Mercantile's pickaxe back together in the dark.
   'filing-sample': { fixture: 'r7-f5', steps: [{ use: 'sample', world: [1000, 520] }], burst: 12 },
-  'filing-sump': { fixture: 'r7-f5', steps: [{ flags: { F5_LAID: 4 } }, { talk: 'sump' }, { option: 'sump1' }], burst: 22 },
-  'sump-glass': { fixture: 'r7-c', steps: [{ talk: 'sump' }, { option: 'sump1c' }], burst: 12 },
+  'filing-sump': { fixture: 'r7-f5', steps: [{ flags: { F5_LAID: 4 } }, { talk: 'sump' }, { option: 'sump1' }], burst: 48 },
+  // Documents A, B and D in hand (the held filing save), Act II's tree: About Document C.
+  'sump-glass': { fixture: 'r7-f5-held', steps: [{ flags: { ACT: 2, F5_LAID: 0, T_DEATH_CERTIFIED: false, T_FILED: false } }, { talk: 'sump' }, { option: 'sump1c' }], burst: 12 },
   'pratt-hat': { fixture: 'r25-b', steps: [{ talk: 'pratt' }, { option: 'pratt7' }, { option: 'pratt5' }], burst: 14 },
   'pratt-boots': { fixture: 'r25-c', steps: [{ enter: 'prosperity' }, { talk: 'pratt_jump' }, { option: 'pratt3' }], burst: 12 },
   'pick-fit': { fixture: 'r33-b', steps: [{ use: 'pickaxe', on: 'every_rock_surface' }], burst: 24 },
