@@ -40,3 +40,27 @@ Outside the town nothing moves. The builder re-places the markers and re-measure
    If a check misses, the correction is `redraw-02`, from the same `redraw-01` inputs, with the miss stated in the prompt.
 5. **Promote.** Run `python3 tools/art/town-map-edit.py promote-redraw --attempt N --write`. Then in `reference/global-baseline.json`, set `room-00-town-map`'s `visualType` to `district-map-night` and delete its `daylight` line.
 6. **Run** `npm test` and `node tools/run-all.mjs`. `tools/check-night-exposure.mjs` now holds the map to night. Commit the sources, candidates, layout, shipping map and ledger rows. Open a PR whose description says `Lesson: none -- art for errata 163's map`, and merge it when CI is green.
+
+## Then: the mountain pass (redraw-03)
+
+Written the same afternoon, after `redraw-01` was promoted (PR 234). Tyler said: **"at the beginning of the game I clearly walk out of a mountain pass into town. That's noticeable."** The builder compared every exterior plate with the night map:
+- Room 1's coach stop is on a mountain road above the town's lamps, and Thad walks down it to Main Street's east end (the room's `stage_road` arrival, x 3660).
+- Every plate shows the town in a valley ringed by mountains.
+- The map had no pass, no coach stop and no mountains on its north and west, and its only road out ran west, where nobody in the game goes.
+
+Tyler: **"That all sounds good."** The cap rises to 5: this pass, and one correction.
+
+1. **Prepare.** Run `python3 tools/art/town-map-edit.py prepare-pass --attempt 3`. The committed `art/staging/town-map/redraw-03/input.png` is already this.
+2. **Edit.** Run `NODE_USE_ENV_PROXY=1 node tools/art/room-op.mjs reference/town-map/prompts/redraw-03.spec.json`. Room 1's plate goes with it, as the coach stop to draw small.
+3. **Candidate.** Run `python3 tools/art/town-map-edit.py promote-redraw --attempt 3`, with `--fit` if the frame drifts as it did before.
+4. **Check the candidate at full size:**
+   - there is a pass in mountains at the top edge, left of the graveyard;
+   - the coach road comes down from it, past a small coach stop, to the east end of the square;
+   - mountains ring the valley on the north and west;
+   - the west road is gone;
+   - everything else is where it was, including the Lane, the church and the diggings;
+   - the shift outside the town is within about 6 px;
+   - there is no text.
+
+   If a check misses, the correction is `redraw-04`: copy the spec and prompt, point `images` at `redraw-03/input.png`, and state the miss.
+5. **Promote** with `--write`. Run `npm test` and `node tools/run-all.mjs`. Commit, then open a PR whose description says `Lesson: none -- art for errata 163's map`, and merge it when CI is green. The builder re-places the markers and the roads on the result.
