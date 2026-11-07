@@ -1,0 +1,16 @@
+{
+ "assetId": "cast-unify",
+ "subject": "judges-leaner",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/cast-unify-37.txt",
+ "out": "art/staging/cast-unify/batch-37/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-37/template.png",
+  "art/staging/cast-unify/batch-37/judges-as-drawn.png",
+  "art/staging/cast-unify/batch-33/board.png"
+ ],
+ "derivedFrom": 63
+}
