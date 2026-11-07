@@ -109,7 +109,7 @@ export interface Frame {
    * THE TITLE SCREEN (errata 128): its items, and which one the pointer is
    * on. While it is up nothing of the room is drawn.
    */
-  title?: { items: TitleItem[]; hovered: string | null; theEnd?: boolean } | null;
+  title?: { items: TitleItem[]; hovered: string | null; theEnd?: boolean; begin?: boolean } | null;
   /**
    * THE PANEL IS THERE BUT INERT (errata 133): Room 33's ninety seconds. The
    * verbs and the inventory are dimmed, not removed, and the sentence line is
@@ -2322,10 +2322,18 @@ export class Renderer {
    * menu in the game's face on the dark ground below it. The panel band stays
    * black. Every word is content/ui/title.json's.
    */
-  private drawTitleScreen(title: { items: TitleItem[]; hovered: string | null; theEnd?: boolean }): void {
+  private drawTitleScreen(title: { items: TitleItem[]; hovered: string | null; theEnd?: boolean; begin?: boolean }): void {
     const file = this.state.content.title;
     if (!file) return;
     const ctx = this.screen.context;
+    // THE BEGIN CARD (errata 155): its words alone, on black, in the middle of
+    // the play area. The title, and its music, come with the click.
+    if (title.begin && file.begin) {
+      this.screen.fill(0, 0, NATIVE_WIDTH, PLAY_HEIGHT, this.screen.role('overlayBg'));
+      this.font.drawCentredOutlined(ctx, file.begin, NATIVE_WIDTH / 2, Math.round(PLAY_HEIGHT / 2 - SPEECH_LINE_HEIGHT / 2),
+        this.screen.roleColour('ink'), this.screen.roleColour('overlayBg'));
+      return;
+    }
     const plate = this.sheet(file.background);
     if (plate) ctx.drawImage(plate, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
     else this.screen.fill(0, 0, NATIVE_WIDTH, PLAY_HEIGHT, this.screen.role('overlayBg'));

@@ -285,6 +285,34 @@ async function sample(page, script, state, armed) {
     }
     const now = (Date.now() - started) / 1000;
     // A PLAIN BOOT OPENS ON THE TITLE (errata 128): NEW GAME, as a player clicks it.
+    // ERRATA 155: "Click to begin" comes first on a plain boot, and its click
+    // starts the title's bed. The lesson it carries: before it, the first
+    // click was NEW GAME and O-01-M was never heard, so the run requires the
+    // card to have been there and the title's own bed to be SOUNDING before
+    // NEW GAME is clicked.
+    if (frame.begin) {
+      state.sawBegin = true;
+      await clickPlayArea(page, NATIVE.width / 2, NATIVE.height / 2 - 108);
+      await page.waitForTimeout(SAMPLE_MS);
+      continue;
+    }
+    if (frame.title && !state.titleBedHeard) {
+      const titleBed = readJson('content/manifest.json').music?.title?.src;
+      let bed = frame.bed;
+      for (let tries = 0; tries < 20 && !(bed ?? '').includes(titleBed); tries += 1) {
+        await page.waitForTimeout(100);
+        bed = (await page.evaluate(() => window.__gauntlet?.probe() ?? null))?.bed ?? null;
+      }
+      state.titleBedHeard = true;
+      if (!state.sawBegin) {
+        state.failures.push({ beat: '-', who: '-', field: 'title', note: '',
+          expected: '"Click to begin" before the title (errata 155)', got: 'the title with no card in front of it' });
+      }
+      if (!(bed ?? '').includes(titleBed)) {
+        state.failures.push({ beat: '-', who: '-', field: 'title', note: '',
+          expected: `the title's bed ${titleBed} sounding before NEW GAME (errata 155)`, got: bed ?? 'no bed sounding' });
+      }
+    }
     if (frame.title) {
       const item = await page.evaluate(() => window.__gauntlet?.titleItem('new') ?? null);
       if (item) await clickPlayArea(page, item.x + item.width / 2, item.y + item.height / 2);

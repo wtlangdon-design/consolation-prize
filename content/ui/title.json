@@ -43,5 +43,7 @@
   "logo": "art/ui/title-logo.png",
   "logoNote": "The drawn title (art/ui/title-logo.png, the one doc 17 beat 11 raises over the mountains). `title.lines` are the same words in the game's face, drawn only if the logo has not loaded.",
   "theEnd": "THE END",
-  "theEndNote": "Tyler, 2026-11-06, asked what the ending should say, chose \"Title + THE END only (Recommended)\": after the letter, the game fades to this title over the ridge with these words under the drawn title, and there is no credits list for now. Shown only when the title is reached through the close (errata 128). CREDITS stays on the menu, dim and inert."
+  "theEndNote": "Tyler, 2026-11-06, asked what the ending should say, chose \"Title + THE END only (Recommended)\": after the letter, the game fades to this title over the ridge with these words under the drawn title, and there is no credits list for now. Shown only when the title is reached through the close (errata 128). CREDITS stays on the menu, dim and inert.",
+  "begin": "Click to begin",
+  "beginNote": "Tyler, 2026-11-07, asked why the title had no music, chose \"Click to begin\" (errata 155). A browser plays nothing before the page is clicked, and the first click was nearly always NEW GAME, so O-01-M never sounded. On a plain boot these words stand alone on black; the click on them unlocks audio, and the title comes up over the ridge with its bed playing. Not shown on a return to the title (Quit to Title, the close), when sound is already unlocked, nor on a review link."
 }

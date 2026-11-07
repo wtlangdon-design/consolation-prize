@@ -177,6 +177,10 @@ export interface FrameReport {
   waiting: boolean;
   /** The title screen is up (errata 128). A harness clicks NEW GAME through `titleItem`. */
   title: boolean;
+  /** "Click to begin" is up in front of the title (errata 155); `titleItem` is null until it is clicked. */
+  begin: boolean;
+  /** The music bed playing, by its files, or null: errata 155's title bed is heard, not only requested. */
+  bed: string | null;
   /** The close's phase once the game is ending: hold, fade, black; null otherwise (errata 128). */
   ending: string | null;
   /**

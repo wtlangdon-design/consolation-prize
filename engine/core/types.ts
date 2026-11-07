@@ -2635,6 +2635,8 @@ export interface TitleFile {
   musicCue?: string;
   /** Under the drawn title when the title is reached through the close (Tyler, 2026-11-06). */
   theEnd?: string;
+  /** Errata 155: the words alone on black before a plain boot's first click. */
+  begin?: string;
 }
 
 /**
