@@ -1,0 +1,11 @@
+{
+  "clip": "pick-fit",
+  "facing": "back",
+  "figure": [
+    182,
+    627
+  ],
+  "frames": 3,
+  "padding": 260,
+  "note": "Doc 95 rows 4 and 6, the Mercantile's pickaxe in Room 33 (errata 148): 0 standing (his stand-back frame itself, so the clip cannot pop at either end), 1 crouched, feeling the ground for the pick's head, the bare handle in his other hand, 2 the mended pick held across him. Cast-unify 75 (reference/cast-unify-46.txt), cut by tools/art/acted-poses.py on his stand-back scale; its third pose (fitting) lost the handle and is not used."
+}

@@ -22,6 +22,7 @@
 `tools/extract-content.mjs` reads the table below into `content/acted-directions.json`, and the game loads it. Nothing about a direction's class lives anywhere else. For a row of class A:
 
 - **Performed by** names the figure, or figures, that act it (their ambient ids). Every figure named that is in the room performs it, whoever the line is written for: "They resume immediately." is both boundary men.
+- **Thad acts in a clip** (errata 148). He is named with the clip, `thad:pick-fit`, and his **Frames** are that clip's frames, played on him in the facing the clip is drawn in. He is in every room he speaks in, so his rows need no figure standing there.
 - **Frames** are the figure's own frame indices, played in order across **Seconds**. The beat cannot be clicked through, as a duel's held beats cannot (errata 130).
 - **Holds** is a frame the figure keeps while he goes on speaking in the same exchange, until his next acted direction: Ozymandia speaks with her eyes still closed.
 - **Cue** is a doc 45 sound cue and the frame (counted from 1) it lands on.
@@ -30,22 +31,22 @@
 
 ## The directions
 
-Counts: **A 11 · B 9 · C 47** — 67 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 19 · B 1 · C 47** — 67 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
 | 1 | A | fanshawe | He puts on his hat. | assay/assay duel_three | duel_fanshawe | 4 | 1.5 |  |  | His frame 4 is the hat (errata 131 B). Already acted; now read from here. |
 | 2 | A | sump | Stamp. | combinations (deed on counter, at the filing) | sump | 3 0 | 1.2 |  | U-STAMP @2 | Frame 3 raises the stamp; it comes down on 0, with the approved stamp (doc 45 U-STAMP: "where the writing says one does"). |
 | 3 | C | thad | Thad swings. The head flies off into the dark and lands somewhere he cannot see. | combinations (pickaxe on every_rock_surface, first) |  |  |  |  |  | The swing is physical, but the joke is where the head goes: into a dark the player cannot see either. Acting it would show a man swinging at nothing. |
-| 4 | B | thad | He finds it and fits it back. | combinations (pickaxe on every_rock_surface, first) | thad |  |  |  |  | Thad has no pickaxe in any clip; see the brief. Kept printed until drawn. |
+| 4 | A | thad | He finds it and fits it back. | combinations (pickaxe on every_rock_surface, first) | thad:pick-fit | 1 1 2 0 | 2.0 |  |  | Crouched in the dark, feeling the ground for the head with the bare handle in his other hand (1), then the mended pick held across him (2), and standing again (0, his stand-back frame) for his line. Cast-unify 75 (errata 148); its fitting pose lost the handle and is not used, so the fit itself happens between 1 and 2. |
 | 5 | C | thad | The head comes off again, gently, as if apologizing. | combinations (pickaxe on every_rock_surface, second) |  |  |  |  |  | "As if apologizing" is the joke, and it is the pick's, not a figure's. |
-| 6 | B | thad | He fits it back. | combinations (pickaxe on every_rock_surface, second) | thad |  |  |  |  | As the first fit: needs Thad with the pickaxe. |
+| 6 | A | thad | He fits it back. | combinations (pickaxe on every_rock_surface, second) | thad:pick-fit | 2 0 | 1.2 |  |  | The mended pick held across him (2), and standing again (0). As the first fit, cast-unify 75. |
 | 7 | C | thad | Thad holds the head on with one hand and swings with the other. The rock gives. Warm air comes through, and behind it a dark that goes a long way down. | combinations (pickaxe on every_rock_surface, third) |  |  |  |  |  | Mostly what the rock does, and Room 34's second state already shows the result. |
 | 8 | C | thad | A piece of the wall comes away in his hand. It is much heavier than a piece of wall should be. | combinations (pickaxe on every_rock_surface, third) |  |  |  |  |  | "Much heavier than a piece of wall should be" is the clue and the joke; no pose shows weight. |
 | 9 | C | sump | Stamp. Thad is alive. | combinations (death_certificate on counter, at the filing) |  |  |  |  |  | "Thad is alive." is the punchline, and a stamp cannot say it. |
-| 10 | B | winnie | She signs beside it. | combinations (sample on counter, at the filing) | winnie_registrar |  |  |  |  | Winnie waits arms folded in Room 7 (errata 111 G); she has no pen there. |
+| 10 | A | winnie | She signs beside it. | combinations (sample on counter, at the filing) | winnie_registrar | 7 7 0 | 1.5 |  |  | Her frame 7 signs a paper on the closed book at her end of the counter, head bent (cast-unify 71, errata 148). |
 | 11 | A | boundary_b | They resume immediately. | dialogue/amb-boundary-men root option 2 | boundary_b, boundary_a | 2 3 2 3 | 2.0 |  |  | Both men point and argue again at once (their frames 2 and 3). "Immediately" is what the player sees. |
-| 12 | B | deke_vessel | He looks at the watch. | dialogue/deke-vessel root option 4 | deke_vessel |  |  |  |  | None of Deke's five frames looks down at a watch. |
+| 12 | B | deke_vessel | He looks at the watch. | dialogue/deke-vessel root option 4 | deke_vessel |  |  |  |  | None of Deke's five frames looks down at a watch. Cast-unify 74 drew the look with the watch in his own hand and another man's face, and the cap was spent; it waits for Tyler (errata 148). |
 | 13 | A | deke_vessel | He finishes his drink, collects his hat, and leaves the Nugget. | dialogue/deke-vessel root option 6 | deke_vessel | 3 | 1.0 |  |  | His hat (frame 3), then the walk out of the Nugget he already has when T_SWINDLED lands (doc 57 A3). The drink is not shown. |
 | 14 | C | fanshawe | He knows exactly who is in the Nugget. | dialogue/fanshawe FAN_A0 option 3 |  |  |  |  |  | Narration: what he knows. |
 | 15 | C | fanshawe | He gives the map anyway. It has Claim Two circled. | dialogue/fanshawe FAN_A1 option 2 |  |  |  |  |  | "Claim Two circled" is information the player needs, and only words carry it. |
@@ -73,7 +74,7 @@ Counts: **A 11 · B 9 · C 47** — 67 directions, every one flagged `"direction
 | 37 | A | ozymandia | She opens them. | dialogue/ozymandia OZY_A1 option 5 | ozymandia | 4 | 0.8 | 4 |  | Frame 4 is her eyes open and her palm out, which is where "Two dollars." goes. |
 | 38 | C | pratt | Of what? | dialogue/pratt-jump PRA_D2 option 1 |  |  |  |  |  | Narration. |
 | 39 | C | pratt | This is true, and it is the entire legal system. | dialogue/pratt-jump PRA_D2 option 2 |  |  |  |  |  | Narration. |
-| 40 | B | pratt | He looks at his feet, checking. | dialogue/pratt-jump PRA_D2 option 3 | pratt_jump |  |  |  |  | At Prosperity he has only the mallet poses. |
+| 40 | A | pratt | He looks at his feet, checking. | dialogue/pratt-jump PRA_D2 option 3 | pratt_jump | 5 | 1.5 |  |  | Head bowed over his boots, the mallet resting as it rests on his rest frame (frame 5; cast-unify 73, errata 148). |
 | 41 | C | pratt | He thinks about it for some time. | dialogue/pratt PRA_A1 option 1 |  |  |  |  |  | A pause, worded; pauses stay printed. |
 | 42 | C | pratt | He walks over, unhurried, and reaches into the hole. The bite. He withdraws the hand and studies it. | dialogue/pratt PRA_A1 option 1 |  |  |  |  |  | The hole is on Claim Two, in Prosperity; Pratt says it on his own claim, where there is no hole to walk to. See the list for Tyler. |
 | 43 | C | pratt | From this moment Pratt dislikes Thad, steadily and without heat, the way he does everything. | dialogue/pratt PRA_A1 option 1 |  |  |  |  |  | Narration. |
@@ -82,7 +83,7 @@ Counts: **A 11 · B 9 · C 47** — 67 directions, every one flagged `"direction
 | 46 | C | pratt | He does not consider this strange. | dialogue/pratt PRA_B1 option 1 |  |  |  |  |  | Narration. |
 | 47 | C | pratt | It is not his claim either. Nobody has ever had the heart to tell him, and by now it is his the way anything is anybody's here: by upkeep. | dialogue/pratt PRA_D6 option 2 |  |  |  |  |  | Narration. |
 | 48 | C | pratt | a long, respectful pause | dialogue/pratt PRA_D6 option 3 |  |  |  |  |  | A pause, worded; pauses stay printed. |
-| 49 | B | pratt | He puts his hat on. | dialogue/pratt PRA_D6 option 5 | pratt |  |  |  |  | Pratt wears his hat in every frame; he needs it off and going on. |
+| 49 | A | pratt | He puts his hat on. | dialogue/pratt PRA_D6 option 5 | pratt | 5 6 0 | 1.5 |  |  | His hat off at his chest (5), going back on (6), and on (0). Cast-unify 73, errata 148. |
 | 50 | C | thad | The raccoon regards him. | dialogue/raccoon RAC_A1 option 1 |  |  |  |  |  | The raccoon already faces Thad on his rest frame, so acting it shows nothing new. |
 | 51 | C | thad | The raccoon does not. | dialogue/raccoon RAC_A1 option 4 |  |  |  |  |  | Something not done. |
 | 52 | A | sheng | He returns to doing laundry. | dialogue/sheng SHE_A1 option 3 | sheng | 3 4 3 4 0 | 2.5 |  |  | Two strokes of the iron and back to ironing (frames 3, 4, 0). |
@@ -91,11 +92,11 @@ Counts: **A 11 · B 9 · C 47** — 67 directions, every one flagged `"direction
 | 55 | C | sowerby | A long, painful pause. He writes it down. | dialogue/sowerby SOW_C1 option 3 |  |  |  |  |  | Mostly a pause, worded ("painful"). See the list for Tyler. |
 | 56 | C | sowerby | His eyes fill. | dialogue/sowerby SOW_C1 option 4 |  |  |  |  |  | Too small to see at game size. |
 | 57 | C | sowerby | He goes on. He is still going when Thad looks back from the door. | dialogue/sowerby SOW_C1 option 4 |  |  |  |  |  | Narration: it happens after Thad has gone. |
-| 58 | B | sump | He brings Claim One's filing to the window, under its glass. | dialogue/sump SUM_B1 option 4 | sump |  |  |  |  | Sump has no pose holding the framed filing. |
+| 58 | A | sump | He brings Claim One's filing to the window, under its glass. | dialogue/sump SUM_B1 option 4 | sump | 7 | 1.2 | 7 |  | Frame 7 holds the filing up in its glazed frame at the window, and he keeps it there through the next line (cast-unify 72, errata 148). |
 | 59 | C | sump | He turns the glass over. The back of the sheet is blank. | dialogue/sump SUM_B1 option 4 |  |  |  |  |  | "The back of the sheet is blank" is the clue, and only words carry it. |
-| 60 | B | winnie | stamping | dialogue/sump SUM_F1 option 1 | winnie_registrar |  |  |  |  | Winnie waits arms folded in Room 7 (errata 111 G); she has no stamp there. |
+| 60 | A | winnie | stamping | dialogue/sump SUM_F1 option 1 | winnie_registrar | 5 6 0 | 1.2 |  | U-STAMP @2 | The stamp raised over the paper (5), down on it (6) with the approved stamp, and back to waiting (0). Cast-unify 71, errata 148. |
 | 61 | C | sump | reading, toneless | dialogue/sump SUM_F1 option 1 |  |  |  |  |  | A tone. |
-| 62 | B | sump | He blots it. | dialogue/sump SUM_F1 option 1 | sump |  |  |  |  | Sump has a pen and a stamp, but no blotter. |
+| 62 | A | sump | He blots it. | dialogue/sump SUM_F1 option 1 | sump | 5 6 5 0 | 1.6 |  |  | The rocker blotter rocked one way (5), the other (6), back (5), and his hands back on the ledger (0). Cast-unify 72, errata 148. |
 | 63 | C | winnie | She stops writing. It is the first time she has stopped writing. | dialogue/winnie WIN_B1 option 3 |  |  |  |  |  | "It is the first time" is the joke, and it is narration. |
 | 64 | A | winnie | signing | dialogue/winnie WIN_C1 option 4 | winnie | 2 3 2 3 | 1.6 | 2 |  | Her writing frames in Room 5 (2, 3); she says her line still writing. |
 | 65 | C | sowerby | He looks at the collection plate for a long time. Then he counts out of it with his eyes shut. | rooms/boot-hill arrival scene |  |  |  |  |  | The joke is "with his eyes shut", too small to read at game size. See the list for Tyler. |
@@ -116,7 +117,7 @@ Nothing else changes. The engine reads the class from here.
 
 Each item is a direction kept printed because acting it would lose something. Each has a recommendation.
 
-1. **Thad's pickaxe in Room 33 (rows 3–8).** The three swings stay printed. Their jokes are where the head goes ("lands somewhere he cannot see", "as if apologizing") and what the wall weighs, and a pose shows none of that. The two fits ("He finds it and fits it back.", "He fits it back.") are B. Thad has no clip with a pickaxe in his hands, and none of his back-facing clips (reach, strain, tug, wrench) can stand in for one. **Recommendation:** draw the fits (one sheet in the brief) and keep the swings printed. The beat would then read as printed swing, acted fit, Thad's line.
+1. **Thad's pickaxe in Room 33 (rows 3–8).** The three swings stay printed. Their jokes are where the head goes ("lands somewhere he cannot see", "as if apologizing") and what the wall weighs, and a pose shows none of that. The two fits ("He finds it and fits it back.", "He fits it back.") are B. Thad has no clip with a pickaxe in his hands, and none of his back-facing clips (reach, strain, tug, wrench) can stand in for one. **Recommendation:** draw the fits (one sheet in the brief) and keep the swings printed. The beat would then read as printed swing, acted fit, Thad's line. *Done (errata 148): the fits are acted from his `pick-fit` clip, the swings stay printed.*
 2. **"Stamp. Thad is alive." (row 9).** The stamp is physical, but "Thad is alive." is the punchline. **Recommendation:** keep it printed as it is.
 3. **Hob's "He does not walk on for four seconds." (row 32).** Hob is standing anyway, so acting it would be four seconds of nothing, and "four seconds" is the joke as written. **Recommendation:** keep it printed.
 4. **Hob signing "against the lamp post" (row 33).** The back alley's plate has no lamp post. Acting it would have Hob sign against a wall or a barrel the words never name. **Recommendation:** keep it printed. If you want it acted, say what he signs against, and it becomes one more sheet.

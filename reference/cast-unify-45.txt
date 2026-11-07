@@ -1,0 +1,5 @@
+Image 1 is a TEMPLATE: Deke Vessel, a swaggering man in a brown coat in my pixel-art adventure game, EXACTLY as he is drawn in the game, twice side by side on magenta. Image 2 is his whole current sheet, for his face, hair and clothes.
+
+Repaint Image 1. LEAVE THE FIRST FIGURE EXACTLY AS IT IS. Repaint the second as the SAME man, KEEPING HIS FIGURE -- the same height, the same head size, the same shoulder width and leg length, his feet on the same line -- with his hands staying at his belt exactly as they are, and changing only his head: bent forward and turned toward the LEFT side of the picture, looking DOWN at something held out at his waist height there, his eyes narrowed on it.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as Image 1 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No glow, no blur, no shadows, no ground, no text, no numbers, no border.

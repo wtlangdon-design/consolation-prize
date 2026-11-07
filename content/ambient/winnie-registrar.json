@@ -48,6 +48,24 @@
     2,
     129,
     193
+   ],
+   [
+    2,
+    197,
+    135,
+    193
+   ],
+   [
+    139,
+    197,
+    129,
+    193
+   ],
+   [
+    270,
+    197,
+    137,
+    193
    ]
   ],
   "rate": 0.28,
@@ -76,7 +94,7 @@
   ],
   "breakEvery": 9,
   "talkFrame": 2,
-  "frameNote": "0 arms folded, looking along the counter at the Registrar · 1 breath (derived) · 2 looking out, her talk frame · 3 one eyebrow raised · 4 tugging a cuff straight. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
+  "frameNote": "0 arms folded, looking along the counter at the Registrar · 1 breath (derived) · 2 looking out, her talk frame · 3 one eyebrow raised · 4 tugging a cuff straight. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77). · ACTED ONLY (doc 95, errata 148; cast-unify 71): 5 the county stamp raised over a paper on the closed book · 6 the stamp down on it · 7 signing it, her head bent. Played by their directions, never as breaks.",
   "provenance": "reference/cast-unify-11b.spec.json",
   "redrawn": "Errata 111 (Tyler, 2026-11-06): WAITING, ARMS FOLDED, as the master draws her. Her writing poses had nothing to write on at this end of the counter -- Tyler: 'What is she writing on here?' -- her hands span 131 px and the closed book there is 125, and the only other thing is a tall stack of paper. Doc 57 F5 has her at the end of the counter while the Registrar takes the documents; her signing and stamping are performed as directions on screen (doc 58), not drawn. Cast-unify operation 13 (reference/cast-unify-11b.txt), drawn against her master crop AND her Room 5 drawing for colour and pixel size (operation 12 came back in a black dress, darker skin and a coarser grain, and was not used). Cut on its own 7 px grid (tools/art/cast-unify-cut.py --grid 7), head matched to Room 7's scale by face width. Her ink stand is gone from this room: she holds no pen here.",
   "waistOn": 439,

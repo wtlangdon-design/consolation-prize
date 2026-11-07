@@ -30,6 +30,14 @@ const scenarios = {
   'frame': { fixture: 'r9-b', steps: [{ talk: 'frame' }, { option: 'frame3' }], burst: 10 },
   'boundary': { fixture: 'r5-a', steps: [{ enter: 'main_street' }, { wait: 4 }, { walk: [300, 780] }, { walk: [600, 800] }, { walk: [150, 820] }, { talk: 'boundary_a', world: [1640, 680] }, { option: 'boundary2' }], burst: 16 },
   'winnie': { fixture: 'r5-a', steps: [{ flags: { T_FUNERAL_BOOKED: true } }, { talk: 'winnie' }, { option: 'winnie4' }], burst: 22 },
+  // Errata 148's poses: the filing's stamp, signature and blot, the filing under glass, Pratt's hat and
+  // boots, and Thad fitting the Mercantile's pickaxe back together in the dark.
+  'filing-sample': { fixture: 'r7-f5', steps: [{ use: 'sample', world: [1000, 520] }], burst: 12 },
+  'filing-sump': { fixture: 'r7-f5', steps: [{ flags: { F5_LAID: 4 } }, { talk: 'sump' }, { option: 'sump1' }], burst: 22 },
+  'sump-glass': { fixture: 'r7-c', steps: [{ talk: 'sump' }, { option: 'sump1c' }], burst: 12 },
+  'pratt-hat': { fixture: 'r25-b', steps: [{ talk: 'pratt' }, { option: 'pratt7' }, { option: 'pratt5' }], burst: 14 },
+  'pratt-boots': { fixture: 'r25-c', steps: [{ enter: 'prosperity' }, { talk: 'pratt_jump' }, { option: 'pratt3' }], burst: 12 },
+  'pick-fit': { fixture: 'r33-b', steps: [{ use: 'pickaxe', on: 'every_rock_surface' }], burst: 24 },
   'deke': { fixture: 'r5-a', steps: [{ enter: 'nugget' }, { talk: 'deke_vessel' }, { option: 'deke_vessel2' }, { option: 'deke_vessel3' }, { option: 'deke_vessel4' }, { option: 'deke_vessel6' }], burst: 12 },
 };
 

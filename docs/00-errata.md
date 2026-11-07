@@ -4084,3 +4084,33 @@ Tyler: "Read reference/item-icons/brief.md … and do it: redraw all 26 item ico
 - no keyboard scrolling (the arrows and the wheel only).
 
 Doc 30's affected lines carry a bracketed note pointing here: §1, §6.1, §6.2, §16, and Tables 1 and 8.
+
+---
+
+# 148 · THE ACTED DIRECTIONS' POSES: SEVEN DRAWN, ONE STILL PRINTED — TYLER, 2026-11-07 (reference/acted-directions/brief.md)
+
+*Tyler, told that some directions were still printed because acting them needed new poses (errata 141): "then let's do it? Lol". The brief drew them; eight of doc 95's nine B rows are now A.*
+
+**A · The operations.** Five, one sheet a character: cast-unify 71 to 75 (`reference/cast-unify-42.txt` to `-46.txt`). That spends the cast-unify cap of 75. The brief counted 9 left; 70 had been spent (errata 145), so 5 were, and no correction was possible.
+
+**B · How they were drawn.** Not from the board the brief names. Errata 144 found the generator copies the proportions of any full figure it is shown, and every board carries the master crop, whose heads are larger than the shipping sheets'. So each sheet's first image was a TEMPLATE: the character's own shipping rest frame repeated, the first copy left as it is, the others repainted into the new poses (errata 144's method). The second image was his current sheet, for identity. The new frames are therefore the size and build of the frames beside them, and the template's first figure is the ruler they are cut by.
+
+**C · What was cut** (`tools/art/acted-poses.py`). Each row is cut at the height that makes its first figure as tall as the shipping rest frame. Each new pose is registered to that figure (on the waist line and the torso behind a counter, errata 111 G and H; on the soles and the legs standing), snapped to one level (errata 112), and APPENDED: every existing frame keeps its index and its pixels.
+- **Winnie at the Registrar's** (71): 5 the stamp raised over a paper on the closed book, 6 the stamp down, 7 signing it. Rows 60 (`stamping`, U-STAMP on her frame 6) and 10 (`She signs beside it.`).
+- **Sump** (72): 5 and 6 the rocker blotter at either end of its rock, 7 Claim One's filing in its glazed frame, held up at the window. Rows 62 (`He blots it.`) and 58 (the filing under glass, held through the next line).
+- **Pratt on his claim** (73): 5 his hat off at his chest, the rake leaning on him, 6 the hat going back on. Row 49.
+- **Pratt at Prosperity** (73): 5 head bowed over his boots, the mallet resting. Row 40.
+- **Thad, from the back** (75): a clip, `pick-fit` (`art/actors/thad-pick-fit-back/`): 0 his stand-back frame itself, 1 crouched, feeling the ground for the head with the bare handle in his other hand, 2 the mended pick held across him. Rows 4 (`1 1 2 0`) and 6 (`2 0`). The sheet's third pose, fitting the head on, came back without the handle and is not used: the fit itself happens between frames 1 and 2.
+
+**D · Thad acts in a clip.** Only an ambient figure could act a direction. Doc 95 now names the protagonist with his clip, `thad:pick-fit`, and the frames are that clip's.
+- the loader puts his rows on `content.actor.performs`, and refuses a clip he does not have, a frame it does not have, or a clip drawn in more than one facing;
+- `performersWith` adds him to whoever stands in the room, wherever he speaks;
+- the scene holds the beat's frame on him (`Actor.hold`), in the clip's facing, and lets him go after.
+- `tests/acted-directions.test.ts` holds his rows as it holds everyone's: the clip exists and has every frame, he performs the words in that clip and facing, nothing is printed, every beat holds a frame of the clip, the row lasts its seconds, and the clip's frame 0 is his stand frame byte for byte, so it cannot pop.
+
+**E · Still printed: Deke's look at the watch (row 12).** Cast-unify 74 drew him looking down with the watch in his own raised hand, where the brief keeps his hands at his belt, and with another man's face. Laying its bent head on his rest frame gave a third face. With the cap spent, it stays B. **For Tyler:** one more operation would draw it (raising the cast-unify cap is his to give), or it stays printed.
+
+**F · Measured before anyone looks** (`tools/art/acted-poses-measure.py`, `renders/acted-poses-beside-thad.png`). These flag; they do not decide.
+- **Texture** against Thad at each figure's depth (the flag is 1.35×): Winnie 1.15–1.24 (her rest frame 1.10); Pratt 0.98–1.06 (rest 1.10); Pratt at Prosperity 0.81 (rest 0.93); **Sump 1.48–1.67, flagged**. His shipping rest frame is already 1.36, and his frame 7 is the highest because the filing under its glass has written lines on it. They are 1.1–1.2× his own rest frame.
+- **Heads, by ruler** (errata 139): each new frame's head is its own rest frame's, crown to chin within an art pixel or two, as the template method intends. These characters keep the head sizes Tyler accepted for them on 2026-11-07.
+- **Left for the playthrough:** Sump's blotter reads more like his stamp than a rocker blotter; the paper in Winnie's poses and the pick in Thad's appear only while acted; Pratt's rake changes hands while his hat is off.

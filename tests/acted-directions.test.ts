@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
-import { actOf, framesOf, heldThrough, performedLine, shownText } from '../engine/core/ActedDirections.ts';
+import { actOf, framesOf, heldThrough, performedLine, performersWith, shownText } from '../engine/core/ActedDirections.ts';
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import type { AmbientFile, ContentBundle } from '../engine/core/types.ts';
 
@@ -17,7 +17,9 @@ import type { AmbientFile, ContentBundle } from '../engine/core/types.ts';
  * What this holds, each proved by putting its defect back:
  * - every direction in the content is in doc 95's table, and every row is in the content;
  * - every acted (A) direction has a figure, in the room it is said in, that acts it, and nothing is printed;
- * - no waiting (B) or narration (C) direction is acted by anyone, and no figure acts words doc 95 did not give him.
+ * - no waiting (B) or narration (C) direction is acted by anyone, and no figure acts words doc 95 did not give him;
+ * - THADDEUS'S acted rows (errata 148) are held as theirs are: named `thad:<clip>`, his clip is drawn in one
+ *   facing and has every frame named, he performs them in the room they are said in, and nothing is printed.
  */
 
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
@@ -95,7 +97,37 @@ test('every acted direction is acted by a figure in its room, and prints nothing
   const acted = table.directions.filter((row) => row.class === 'A');
   assert.ok(acted.length > 0, 'doc 95 acts something');
   for (const row of acted) {
-    const figures = (row.performedBy ?? []).map((id) => content.ambient.get(id));
+    // THADDEUS ACTS IN A CLIP (errata 148), wherever he speaks.
+    const own = (row.performedBy ?? []).filter((named) => named.split(':')[0] === content.actor.id);
+    for (const named of own) {
+      const clipId = named.split(':')[1];
+      assert.ok(clipId, `doc 95 row ${row.n}: ${named} names no clip`);
+      const clips = content.actor.clips.filter((clip) => clip.id === clipId);
+      assert.ok(clips.length, `doc 95 row ${row.n}: ${content.actor.id} has no clip ${clipId}`);
+      const act = content.actor.performs?.[row.words];
+      assert.ok(act && act.clip === clipId, `${content.actor.id} does not perform "${row.words}" in ${clipId}`);
+      assert.equal(act!.facing, clips[0]!.facing, 'in the facing the clip is drawn in');
+      for (const frame of framesOf(act!)) assert.ok(clips.every((clip) => frame < clip.frames.length), `${clipId} has no frame ${frame}`);
+      const at = found.find((one) => one.speaker === row.speaker && one.words === row.words)!;
+      const room = at.rooms ? [...at.rooms][0]! : null;
+      const present = [...content.ambient.values()].filter((npc) => npc.room === room);
+      const lines = performedLine(performersWith(present, content.actor), { speaker: row.speaker, line: row.words, direction: true }, printed);
+      for (const line of lines) {
+        assert.equal(shownText(line), '', `doc 95 row ${row.n}: "${row.words}" is acted and still printed`);
+        assert.ok(line.silent && (line.rest ?? 0) > 0, 'an acted beat is held and cannot be clicked through');
+        const pose = line.poses?.find((one) => one.id === content.actor.id);
+        assert.ok(pose && pose.clip === clipId, `doc 95 row ${row.n}: he holds a frame of ${clipId} in every beat`);
+      }
+      const total = lines.reduce((sum, line) => sum + (line.rest ?? 0), 0);
+      assert.ok(Math.abs(total - (row.seconds ?? 0)) < 1e-9, `doc 95 row ${row.n} lasts its seconds`);
+      // His clip begins on him standing, so it cannot pop: its frame 0 is his stand frame in that facing.
+      const stand = content.actor.clips.find((clip) => clip.id === 'stand' && clip.facing === clips[0]!.facing && !clip.state);
+      const first = await readFile(resolve(ROOT, clips[0]!.frames[0]!));
+      assert.ok(stand && first.equals(await readFile(resolve(ROOT, stand.frames[0]!))),
+        `${clipId}'s frame 0 is his ${clips[0]!.facing} stand frame, byte for byte`);
+    }
+    if (own.length === (row.performedBy ?? []).length) continue;
+    const figures = (row.performedBy ?? []).filter((named) => !own.includes(named)).map((id) => content.ambient.get(id));
     assert.ok(figures.length && figures.every(Boolean), `doc 95 row ${row.n}: "${row.words}" names no figure that exists`);
     const at = found.find((one) => one.speaker === row.speaker && one.words === row.words)!;
     for (const npc of figures as AmbientFile[]) {
@@ -127,14 +159,19 @@ test('every acted direction is acted by a figure in its room, and prints nothing
 });
 
 test('no narration and no waiting direction is acted, and no figure acts what doc 95 did not give him', async () => {
-  const { table, figures } = await load();
+  const { content, table, figures } = await load();
+  const everyone = performersWith(figures, content.actor);
   for (const row of table.directions.filter((one) => one.class !== 'A')) {
-    assert.equal(actOf(figures, row.words), null, `doc 95 row ${row.n} is class ${row.class}, and a figure acts "${row.words}"`);
-    const lines = performedLine(figures, { speaker: row.speaker, line: row.words, direction: true }, printed);
+    assert.equal(actOf(everyone, row.words), null, `doc 95 row ${row.n} is class ${row.class}, and a figure acts "${row.words}"`);
+    const lines = performedLine(everyone, { speaker: row.speaker, line: row.words, direction: true }, printed);
     assert.deepEqual(lines.map(shownText), [printed(row.words)], `doc 95 row ${row.n} stays printed, as doc 58 prints it`);
   }
   const given = new Set(table.directions.filter((row) => row.class === 'A')
     .flatMap((row) => (row.performedBy ?? []).map((id) => `${id}::${row.words}`)));
+  for (const words of Object.keys(content.actor.performs ?? {})) {
+    const clip = content.actor.performs![words]!.clip;
+    assert.ok(given.has(`${content.actor.id}:${clip}::${words}`), `${content.actor.id} performs "${words}", which doc 95 does not give him`);
+  }
   for (const npc of figures) {
     for (const words of Object.keys(npc.sprite?.performs ?? {})) {
       assert.ok(given.has(`${npc.id}::${words}`), `${npc.id} performs "${words}", which doc 95 does not give him`);
