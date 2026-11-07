@@ -1438,7 +1438,7 @@ export class GameState {
   }
 
   /**
-   * A ROOM THAT IS OVER HANDS ON (RoomFile.afterTimeline; errata 135): the
+   * A ROOM THAT IS OVER HANDS ON (RoomFile.afterTimeline; errata 133): the
    * held item is put down and the verb cleared, so nothing of the last room's
    * sentence carries into the next, and the room changes. (The filing's
    * documents leave by their own `lostWhen`, T_FILED.)

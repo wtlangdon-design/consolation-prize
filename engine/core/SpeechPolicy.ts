@@ -35,7 +35,7 @@ export interface LineContext {
 }
 
 /**
- * A BARE PAUSE IS A REST, NOT A LINE TO CLICK THROUGH (errata 135; the
+ * A BARE PAUSE IS A REST, NOT A LINE TO CLICK THROUGH (errata 133; the
  * bookends audit, finding 9). Doc 58 rule 2 shows `(beat)` and `(pause)` as
  * the character saying "…"; under click-to-read each one stood on screen as
  * a floating ellipsis waiting for a click. It is still shown, and now it

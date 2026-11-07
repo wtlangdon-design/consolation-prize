@@ -2782,7 +2782,7 @@ function actTwoItems() {
 }
 
 /**
- * WHAT IS LAID ON THE COUNTER AT F5 IS ON FILE AFTER IT (errata 135; the
+ * WHAT IS LAID ON THE COUNTER AT F5 IS ON FILE AFTER IT (errata 133; the
  * bookends audit, finding 10, which Tyler agreed): items follow the flag, as
  * the watch and the four dollars do, so a save restores it by restoring
  * T_FILED. THE DEED is hand-written (content/items/deed.json) and says the
@@ -2790,7 +2790,7 @@ function actTwoItems() {
  */
 const FILED_AT_F5 = new Set(['death_certificate', 'document_c', 'sample']);
 const FILED_NOTE = 'Laid on the counter at the filing (doc 57 F5) and on file after it: it leaves the inventory '
-  + 'with T_FILED (Tyler agreed, 2026-11-06; errata 135).';
+  + 'with T_FILED (Tyler agreed, 2026-11-06; errata 133).';
 
 /**
  * The lines of a response cell, in order, with their speakers: an italic

@@ -1627,7 +1627,7 @@ export interface RoomFile {
    */
   afterTimeline?: {
     goto: string; when?: Condition; note?: string;
-    /** Fade to black, hold, and fade up on the next room (doc 48 S7 beat 1; errata 135). */
+    /** Fade to black, hold, and fade up on the next room (doc 48 S7 beat 1; errata 133). */
     fade?: boolean;
   };
   /** Room 33's listening (F2). See ListeningRoom and engine/core/Listening.ts. */
@@ -2146,7 +2146,7 @@ export interface UiFile {
     conversationWaitsForClick?: boolean;
     /** The close (errata 128): the letter's page held, its fade, and the black before the title. */
     endingHoldSeconds?: number;
-    /** A room handing on by a fade (errata 135): out, held black, and up. */
+    /** A room handing on by a fade (errata 133): out, held black, and up. */
     roomFadeOutSeconds?: number;
     roomFadeHoldSeconds?: number;
     roomFadeInSeconds?: number;

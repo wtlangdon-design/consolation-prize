@@ -3666,7 +3666,7 @@ Each must fit in at most three rows (`OPTION_MAX_ROWS`), each row within the wid
 
 ---
 
-# 135 · THE QUIET MOMENTS: ROOM 33'S NINETY SECONDS, THE FADE INTO DAWN, BEAT 11, AND PAUSES — the bookends audit, findings 8, 9, 10 and 15 (Tyler, 2026-11-06: "proceed with your recommendations")
+# 133 · THE QUIET MOMENTS: ROOM 33'S NINETY SECONDS, THE FADE INTO DAWN, BEAT 11, AND PAUSES — the bookends audit, findings 8, 9, 10 and 15 (Tyler, 2026-11-06: "proceed with your recommendations")
 
 **A · Room 33's ninety seconds no longer look like a hang (finding 8).**
 - **The fault.** The full verb panel and inventory stayed lit, and the sentence line still read "Look at EVERY ROCK SURFACE", over a frame in which nothing could be done.
