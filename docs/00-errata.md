@@ -3959,6 +3959,53 @@ Tyler, of 138's leaner judges: **"This head still seems weirdly large."** Then, 
 
 ---
 
+# 143 · CONVERSATIONS AS MONKEY ISLAND DREW THEM, AND EVERY PROMPT REVEALED WHEN ITS GATES SAY — the dialogue audit (Tyler, 2026-11-06: "Can you make sure the way the dialogue trees are presented the same way they're presented in MI and that they look as good as possible and that prompts are revealed correctly?")
+
+Checked against both SCUMM games and against this project's own rulings: doc 30, errata 37 and 57 (used rows), 126 (click-to-read and the waiting mark), 134 (wrapping), and 54 and 62 (panel and face). Where a ruling differs from MI, the ruling stands: a used row greys and stays unless its aftermath says otherwise (errata 57), and every conversation line waits for a click (Tyler, 2026-11-01).
+
+**A · What was off, seen in the running game** (before and after frames for each, from `tools/gauntlet/dialogue-proof.mjs` and a capture pass):
+- **The verb panel came back for every answer performed between choices.** The verbs, the inventory and a sentence line still reading "Talk to THE LIVERY MAN" appeared under each line and went again when the list returned. Nothing on it could be used, since a click then only reads the line on. In MI the area belongs to the conversation from the greeting to its last word, and now it does here: from the greeting, through the list and every answer, until the conversation closes.
+- **A long list grew up out of the panel over the room.** The list was bottom-anchored by row and grew a row upward per option, so the livery man's eight options covered Thad's feet. In MI the choices fill the interface area from its top and scroll. Now the list is set from the top of the panel, one row's breadth below its edge, and holds five rows at the panel's pitch (`CHOICE_ROWS`). A longer list scrolls by whole options with two arrows at the frame's right. They are the inventory arrows' width and inset, and the one that cannot move is dimmed (doc 30 §6.1). The mouse wheel scrolls too. Arrows appear only when the list is longer than the panel. The list goes back to its top whenever it is rebuilt. The room keeps all 864 rows.
+- **Nothing lit under the pointer.** `optionPrefixSelected` was in ui.json and never drawn. The row under the pointer is now drawn in the bright ink with "> ". A used row keeps its dim ink and gets the bright marker, as doc 30 §6.1 says. A list that comes back under a resting pointer lights that row at once.
+- **A wrapped option's continuation started 8 pixels left of its text.** It was indented with spaces, and a space is 4 units in this face where "-" is 6. Every row of an option is now drawn from the same x, after the marker.
+- **The waiting triangle was cut off at the frame's edge.** Thad's echo by the coach is clamped at the right margin, and the clamp measured the words without the triangle (errata 126) after them. The clamp now measures both.
+- **After a conversation closed, the sentence line named what had been hovered before it opened**, until the pointer moved. It now names what is under the pointer.
+
+**Rulings the build makes, for Tyler to keep or strike:**
+- **Five rows, not doc 30's four.** Doc 30 calls its four a starting value for a 56-pixel panel. At this scale five fill the panel, and four would make every five-option tree scroll; seventeen nodes have five options.
+- **Top-anchored, not doc 30's "bottom-anchored".** Doc 30 bottom-anchored the list so it could grow into the play area by as few rows as possible. It no longer grows into the play area, and MI sets the choices from the top.
+
+**B · What was already right and is unchanged:** the choices replace the panel, in the panel's face at `PANEL_GLYPH_SCALE`. Choosing hides the list. Thad says the line over his head in his colour, the other speaker answers over theirs in theirs, and the list returns after (doc 30 §16, re-proved). Rows are in authored order. Exits are last in every list the content can offer. No row's look depends on its tag or what it does: invariants 1 and 7, HOB_C1 option 4 included.
+
+**C · Prompts revealed correctly — `tests/dialogue-reveal.test.ts`.** It walks every node of every tree. It tries every combination of the values the node's gates test, or a sample of them for a node that reads more than a few flags. It follows every order of choices, with counts capped where more choices change nothing, and comes back to the tree after an option ends it. At every list it checks:
+- the list against an oracle read from the data (`when`, `whenAny`, `holds`, `after`, and `remove`/`replace`/`retain`/`counted-repeat`), in authored order;
+- the list is never empty and no option shows twice;
+- EXIT is last, and an ungated exit is always there;
+- no state traps the player: some order of choices always leaves the node (the stage driver's exit waits for his three questions, by design);
+- the k-th answer of a repeating option is the authored repeat for k, clamped;
+- every option is offered somewhere and every node is reached.
+
+**Result: no option is unrevealable, and none appears when its gates say it should not.** All 302 options, and every node, are offered or reached. Option text against its documents is `tools/extract-content.mjs --check`, which reports 0 stale.
+
+`tools/check-flag-order.mjs` now also reads `whenAny` alternatives and a tree's `entries`. Both are gates, and neither was checked for a writable passing value. Both pass. And `DialogueRunner` now refuses a selection whose `whenAny` fails, as the list already did.
+
+**D · Tooling.**
+- `route.mjs`'s `option` scrolls to a row out of the window by clicking the arrows, as a player would.
+- Its waits now read past any line that is waiting for a click. A wait for Thad's reply in Winnie's greeting sat on her first line until it timed out. The dialogue proof had failed there on main.
+- `GAUNTLET_PORT` moves `proof.mjs`'s server. A second session proving at the same time otherwise ran against the first session's checkout.
+- The probe reports `panel`, `optionsShown` and `optionArrow`.
+- The dialogue proof now checks that the panel stays away through a conversation, and scrolls to the livery man's exit.
+
+**What holds it:**
+- `tests/dialogue-presentation.test.ts` gains six tests: the room keeps its height and every option can be scrolled to, with arrows exactly when needed; the hanging indent; the hover; no row styled by its tag; the triangle in the frame; and the panel staying away. Each fails with its defect put back.
+- `tests/dialogue-reveal.test.ts` fails when the runner keeps a `remove` row, ignores `after` or `whenAny`, greys a `counted-repeat`, fails to clamp a repeat, or puts the exit first. It also fails on an `after` naming an option that does not exist. Each case was proved by putting it in.
+
+**Still Tyler's (unchanged here):**
+- Whether Thad's echo of a chosen line should advance on its reading hold rather than wait for a click (errata 126, finding 11's second suggestion).
+- Whether the stage driver's exit should wait for his three questions (errata 65).
+
+---
+
 # 145 · FRAME REDRAWN WHOLE, AT THAD'S PROPORTIONS — TYLER, 2026-11-07
 
 Tyler, offered Frame by errata 144's method: **"Yes do it."** 138's leaner Frame (cast-unify 62) still had the cast sheet's head, about 1.12× the in-game Thad's by ruler. **Cast-unify 70** (batch-41; `reference/cast-unify-41.txt`) painted him over the in-game Thad four times, with only his face as reference: the same editor -- untidy brown hair, pencil, rolled sleeves, ink-stained apron -- with his notebook in every pose (rest, talking, writing a quote, leaning in). By ruler at one man's height his head is now Thad's: crown to chin ~40, against Thad's 40, the live 62's ~45 and the original's ~60 (`renders/leaner-cast-frame-heads-ruler.png`). He is cut as before (`tools/art/leaner-cast.py frame`), at the same crown-to-sole height. Before and after beside Thad in the Clarion: `renders/leaner-cast-frame-before-after.png`. **Seventy of seventy-five cast-unify operations spent.**

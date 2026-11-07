@@ -5,6 +5,8 @@
 
 *It amends doc 58 (Tyler, 2026-11-05), which made every conversation direction SHOWN, in parentheses, in the quieter ink. Doc 58 still decides which directions are notes and are never shown, and how a bare pause is shown. This document decides, for every direction that is shown, whether a figure acts it instead.*
 
+*Confirmed the same evening. Asked whether the physical directions whose wording carries the joke should stay printed (Thad's three pick swings, "Stamp. Thad is alive.", Hob's "He does not walk on for four seconds.", the Reverend's "A long, painful pause."), Tyler chose **"Yes, keep those printed (Recommended)"**. The other recommendations in the catalogue stand as written.*
+
 ---
 
 ## The rules

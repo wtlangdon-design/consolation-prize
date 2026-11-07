@@ -241,6 +241,12 @@
    "kind": "loosened",
    "date": "2026-11-07",
    "why": "Not a misfire, and nothing it holds is weaker: errata 141 lets a performed direction name a run of frames (`frames`) as well as errata 131's single `frame`, so the hat's assertion `act.frame < frames.length` became `framesOf(act).every(frame < frames.length)`. The hat is still asserted performed, with a frame the figure has and a positive hold; it now comes from doc 95 rather than a hand entry."
+  },
+  {
+   "check": "tests/dialogue-presentation.test.ts",
+   "date": "2026-11-06",
+   "kind": "loosened",
+   "why": "Not a misfire: the layout it pinned was changed on purpose (errata 143, Tyler 2026-11-06: present the trees as Monkey Island does). It asserted the list was bottom-anchored by count (dialogueTop(n)) and grew up over the room; the list is now set from the top of the panel and scrolls. The two lines now assert CHOICE_LIST_TOP and that the backing is the panel band, and six new tests hold the scroll window, the arrows, the hover, the hanging indent, the panel staying away, and that no row is styled by what it does."
   }
  ]
 }

@@ -22,7 +22,7 @@ import { askedObjectStates } from '../dev/ObjectStates.ts';
 import { askedFont, PreviewFont } from '../render/PreviewFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
 import { IdleLayer } from '../render/IdleLayer.ts';
-import { Renderer, ambientFrameAt, choiceLines } from '../render/Renderer.ts';
+import { CHOICE_ARROW_X, Renderer, ambientFrameAt, choiceLines, panelShows, type ChoiceView } from '../render/Renderer.ts';
 import {
   NATIVE_HEIGHT,
   NATIVE_WIDTH,
@@ -182,6 +182,24 @@ export class GameScene extends Phaser.Scene {
   private static readonly BARK_MS = 2600;
 
   private sayLines: string[] = [];
+  /**
+   * THE CHOICE LIST'S WINDOW AND THE ROW UNDER THE POINTER (errata 143).
+   * `optionScroll` is the first option in view; it goes back to the top
+   * whenever the list is rebuilt -- a new tree, a new node, or the return
+   * after an answer -- as a SCUMM list did. `optionListKey` is what tells a
+   * rebuilt list from the same one redrawn. `pointerAt` is where the pointer
+   * last was, in native pixels, so a list that comes back under a resting
+   * pointer lights the row it is on without waiting for the pointer to move.
+   */
+  private optionScroll = 0;
+  private optionListKey: string | null = null;
+  private pointerAt: { x: number; y: number } | null = null;
+  /** The row lit on the last frame drawn, so a pointer move redraws only when it changes. */
+  private lastHoveredOption: string | null = null;
+  /** Whether a conversation held the interface on the last tick. */
+  private wasTalking = false;
+  /** Whether the verb panel was drawn in the last frame composed. For the probe. */
+  private panelDrawn = false;
   /** When the line on screen has been up long enough. Null while none is. */
   private sayUntil: number | null = null;
   /** The line on screen waits for a click (a conversation's, under click-to-read), and shows that it does. */
@@ -426,6 +444,12 @@ export class GameScene extends Phaser.Scene {
 
     this.input.on(Phaser.Input.Events.POINTER_MOVE, this.onPointerMove, this);
     this.input.on(Phaser.Input.Events.POINTER_DOWN, this.onPointerDown, this);
+    // DOC 30 SECTION 6.1's CONVENIENCE: the wheel or a trackpad scrolls a long
+    // choice list, one option a notch. The arrows remain the way to do it.
+    this.input.on(Phaser.Input.Events.POINTER_WHEEL,
+      (_pointer: Phaser.Input.Pointer, _over: unknown, _dx: number, dy: number) => {
+        if (dy !== 0 && !this.state.menu.isOpen) this.scrollChoices(Math.sign(dy));
+      }, this);
     this.input.keyboard?.on(`keydown-${KEY_MENU}`, this.onMenuKey, this);
     // Doc 30 section 4.2. The same one-utterance advance a click gives, so a
     // player who is reading rather than clicking is not stuck at the mouse.
@@ -787,6 +811,16 @@ export class GameScene extends Phaser.Scene {
 
     this.speakingBreaks();
 
+    // A CONVERSATION THAT CLOSES HANDS THE POINTER BACK TO THE ROOM (errata
+    // 143): the sentence line names what is under it now, not what it named
+    // before the conversation opened, and not nothing until the pointer moves.
+    const talking = this.conversationOpen();
+    if (this.wasTalking && !talking && !this.panelHidden) {
+      this.onPointerMove(this.input.activePointer);
+      this.markDirty();
+    }
+    this.wasTalking = talking;
+
     if (!this.dirty) return;
     this.dirty = false;
     this.frameCount += 1;
@@ -815,7 +849,14 @@ export class GameScene extends Phaser.Scene {
       // underneath was still visible and invited the click.
       // AND NOT DURING A CUTSCENE BEAT AFTER CONTROL (errata 133): doc 17 beat
       // 11, the walk away under the title, is control `none` like beats 2-7.
-      showPanel: this.opening === null && !this.choicesShowing() && !this.panelHidden && !this.carriedCutscene(),
+      // AND NOT FOR ANY OF A CONVERSATION (errata 143). The panel came back
+      // for every line performed between choices -- the verbs, the inventory
+      // and a sentence line still reading "Talk to THE LIVERY MAN" -- and went
+      // again when the list returned: a flash of an interface nobody could
+      // use, since a click then only reads the line on. In both SCUMM games
+      // the area stays the conversation's from the greeting to the last word.
+      showPanel: this.panelDrawn = panelShows({ opening: this.opening !== null, conversation: this.conversationOpen(),
+        panelHidden: this.panelHidden, cutscene: this.carriedCutscene() }),
       hoveredLocation: this.hoveredLocation,
       ripples: this.ripples.map((one) => ({ x: one.x, y: one.y, tail: one.tail,
         age: Math.max(0, Math.min(1, (this.time.now - one.start) / Math.max(1, one.end - one.start))) })),
@@ -834,6 +875,7 @@ export class GameScene extends Phaser.Scene {
       still: this.stilled,
       tally: this.slateTally(),
       performing: this.performance !== null,
+      choiceView: this.choicesShowing() ? this.choiceViewNow() : {},
       // Whose greeting is being said, so they hold still for it as they do
       // for their open tree.
       greeting: this.pendingTree?.greeted ? this.pendingTree.tree : null,
@@ -1024,6 +1066,19 @@ export class GameScene extends Phaser.Scene {
       if (id !== this.titleHover) { this.titleHover = id; this.markDirty(); }
       return;
     }
+    // THE ROW UNDER THE POINTER LIGHTS (errata 143; MI's highlight). Only
+    // the pointer's place is kept here; which row that is, is worked out when
+    // the frame is drawn, from the same layout the list is drawn from.
+    this.pointerAt = this.nativePoint(pointer);
+    if (this.state.dialogue.isActive && !this.state.menu.isOpen) {
+      // NOTHING IN THE ROOM IS UNDER THE POINTER WHILE IT IS ON THE LIST, so
+      // the sentence line cannot come back naming what was hovered before the
+      // conversation opened.
+      this.hovered = null;
+      this.hoveredName = null;
+      if (this.choicesShowing() && this.optionUnderPointer() !== this.lastHoveredOption) this.markDirty();
+      return;
+    }
     if (this.state.dialogue.isActive || this.state.menu.isOpen) return;
     if (this.panelHidden) {
       this.revealSceneControls();
@@ -1169,7 +1224,7 @@ export class GameScene extends Phaser.Scene {
         return;
       }
       if (this.advanceSay()) return;
-      this.onDialogueClick(y);
+      this.onDialogueClick(x, y);
       return;
     }
 
@@ -2251,12 +2306,23 @@ export class GameScene extends Phaser.Scene {
    * this project: doc 30 specified it, errata 45 corrected it,
    * `DialogueExchange` implements it, and the caller fast-forwarded.
    */
-  private onDialogueClick(y: number): void {
+  private onDialogueClick(x: number, y: number): void {
     const options = this.state.dialogue.presentOptions();
+    const scroll = this.choiceScroll(options);
+    // THE ARROWS FIRST: they sit in their own column beside the rows.
+    const arrow = this.view.dialogueArrows(options, scroll).find((box) => pointInRect(x, y, box));
+    if (arrow) {
+      this.scrollChoices(arrow.direction === 'up' ? -1 : 1);
+      return;
+    }
+    if (x >= CHOICE_ARROW_X && this.view.dialogueArrows(options, scroll).length > 0) return;
     const hit = this.view
-      .dialogueHitboxes(options)
-      .find((box) => y >= box.y && y < box.y + box.height);
+      .dialogueHitboxes(options, scroll)
+      .find((box) => box.shown && y >= box.y && y < box.y + box.height);
     if (!hit) return;
+    // The list that comes back after the answer starts from its top again.
+    this.optionScroll = 0;
+    this.optionListKey = null;
     const chosen = options.find((each) => each.option.id === hit.id);
     if (!chosen) return;
 
@@ -2690,6 +2756,11 @@ export class GameScene extends Phaser.Scene {
     return this.state.dialogue.isActive && this.performance === null;
   }
 
+  /** A conversation holds the interface: its greeting being said, its list up, or an answer being performed. */
+  private conversationOpen(): boolean {
+    return this.state.dialogue.isActive || this.pendingTree?.greeted === true;
+  }
+
   /**
    * A stage direction as the documents print it: in parentheses. Doc 07 kept
    * its brackets through extraction and docs 04 and 27 lost theirs, so the
@@ -2889,6 +2960,9 @@ export class GameScene extends Phaser.Scene {
       ending: this.endingFrom === null ? null
         : endingAt(this.lastFrameAt - this.endingFrom, this.endingTiming()).phase,
       performing: this.performance !== null,
+      panel: this.panelDrawn,
+      optionsShown: this.state.dialogue.isActive && this.performance === null
+        ? this.view.dialogueHitboxes(this.state.dialogue.presentOptions(), this.choiceScroll()).filter((box) => box.shown).length : 0,
       handedOver: this.opening === null,
       segment: this.playingSegment(),
     };
@@ -2976,11 +3050,61 @@ export class GameScene extends Phaser.Scene {
     return this.titleMenu ? this.view.titleHitboxes(this.titleMenu).find((box) => box.id === id) ?? null : null;
   }
 
-  optionRow(index: number): { id: string; y: number; height: number } | null {
+  optionRow(index: number): { id: string; y: number; height: number; shown: boolean } | null {
     if (!this.state.dialogue.isActive) return null;
     const options = this.state.dialogue.presentOptions();
     if (index < 1 || index > options.length) return null;
-    return this.view.dialogueHitboxes(options)[index - 1] ?? null;
+    return this.view.dialogueHitboxes(options, this.choiceScroll(options))[index - 1] ?? null;
+  }
+
+  optionArrow(direction: 'up' | 'down'): { x: number; y: number; width: number; height: number; live: boolean } | null {
+    if (!this.state.dialogue.isActive) return null;
+    const options = this.state.dialogue.presentOptions();
+    const arrow = this.view.dialogueArrows(options, this.choiceScroll(options)).find((one) => one.direction === direction);
+    return arrow ? { x: arrow.x, y: arrow.y, width: arrow.width, height: arrow.height, live: arrow.live } : null;
+  }
+
+  /**
+   * The first option in view, for the list on offer now: back to the top when
+   * the list is not the one it was (a new tree, node or set of rows), and
+   * clamped to what the rows allow (errata 143).
+   */
+  private choiceScroll(options = this.state.dialogue.presentOptions()): number {
+    const key = `${this.state.dialogue.activeTreeId}/${this.state.dialogue.positionSnapshot().node}/`
+      + options.map((each) => `${each.option.id}:${each.selections}`).join(',');
+    if (key !== this.optionListKey) {
+      this.optionListKey = key;
+      this.optionScroll = 0;
+    }
+    this.optionScroll = this.view.dialogueScroll(options, this.optionScroll);
+    return this.optionScroll;
+  }
+
+  /** What the list draws this frame: its window, and the row the pointer is on. */
+  private choiceViewNow(): ChoiceView {
+    const hovered = this.optionUnderPointer();
+    this.lastHoveredOption = hovered;
+    return { scroll: this.choiceScroll(), hovered };
+  }
+
+  /** Moves the list's window by whole options: an arrow, or the wheel. */
+  private scrollChoices(by: number): void {
+    if (!this.choicesShowing()) return;
+    const options = this.state.dialogue.presentOptions();
+    const was = this.choiceScroll(options);
+    this.optionScroll = this.view.dialogueScroll(options, was + by);
+    if (this.optionScroll !== was) this.markDirty();
+  }
+
+  /** The option the pointer rests on, if the list is up and the pointer is on a row in view. */
+  private optionUnderPointer(): string | null {
+    if (!this.pointerAt || !this.choicesShowing()) return null;
+    const { x, y } = this.pointerAt;
+    const options = this.state.dialogue.presentOptions();
+    const scroll = this.choiceScroll(options);
+    if (x >= CHOICE_ARROW_X && this.view.dialogueArrows(options, scroll).length > 0) return null;
+    return this.view.dialogueHitboxes(options, scroll)
+      .find((box) => box.shown && y >= box.y && y < box.y + box.height)?.id ?? null;
   }
 
   /**
