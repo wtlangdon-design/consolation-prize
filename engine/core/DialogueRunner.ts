@@ -41,6 +41,8 @@ export interface PerformedLine {
   direction?: boolean;
   rest?: number;
   mark?: boolean;
+  quiet?: boolean;
+  cue?: string;
 }
 
 export interface SelectionResult {

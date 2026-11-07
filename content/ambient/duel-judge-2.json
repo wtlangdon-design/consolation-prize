@@ -5,7 +5,8 @@
  "posture": "standing",
  "room": "main_street",
  "when": {
-  "T_DUEL_CROWD": true
+  "T_DUEL_CROWD": true,
+  "T_FANSHAWE_BEATEN": false
  },
  "x": 2800,
  "y": 597,
@@ -38,7 +39,7 @@
    ]
   ],
   "figureHeight": 400,
-  "stature": 1.0,
+  "stature": 1,
   "rate": 0.5,
   "phase": 0.4,
   "breaks": [
@@ -78,5 +79,12 @@
   "note": "The hotel porch's boards, measured on the plate (renders/main-street-porch-floor@6x.png): from the foot of the wall (y 584-594) to the front edge (y 604-606). Feet are inside it, so he stands ON the boards -- first placed at y 572, on the foot of the wall, and he hovered in front of it (Tyler: 'They're floating over the porch')."
  },
  "faces": "right",
- "facesNote": "Toward the duel: Fanshawe and Thad below, Thad to the right. Measured on the rest frame by tests/faces.test.mjs."
+ "facesNote": "Toward the duel: Fanshawe and Thad below, Thad to the right. Measured on the rest frame by tests/faces.test.mjs.",
+ "stirsOn": [
+  "F4-ERUPTS"
+ ],
+ "leaves": {
+  "fade": 2.5,
+  "note": "Errata 131 F: after the hat (doc 03, Duel Four), the crowd and the judges go. They have no walk (errata 99 N), so they fade rather than vanish (Tyler, 2026-11-01: never just disappear)."
+ }
 }

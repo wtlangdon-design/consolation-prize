@@ -3905,6 +3905,21 @@ function assay() {
   if (said.length !== 10) throw new Error(`doc 03 Duel Four: ${said.length} spoken lines, not 10`);
   const [challenge, again1, again2, again3, fifth, truth, ...ending] = said;
   const jokes = three.slice(three.indexOf('**Duel Three, the fifth exchange**'), three.indexOf('**Standing mockery'));
+  // THE RELEASE, AS DOC 03 STAGES IT (errata 131 D, E). Two prose directions
+  // around the verdict are performed, not shown: "Silence on Main Street. Long.
+  // Fanshawe does not move." is a held silence before Sowerby, with the duel's
+  // music cut and everyone still; "The street erupts." is the crowd's cue on
+  // the line after his verdict. Read from the document so they cannot drift.
+  const silence = /^(Silence on Main Street\. Long\. .+)$/m.exec(four)?.[1];
+  const erupts = /^(The street erupts\.)/m.exec(four)?.[1];
+  if (!silence || !erupts) throw new Error('doc 03 Duel Four: the silence or the eruption is not where it was');
+  const [verdict, ...afterVerdict] = ending.flatMap(spoken3);
+  const release = [
+    { speaker: verdict.speaker, line: '', rest: 3, quiet: true, staging: `doc 03: "${silence}"` },
+    verdict,
+    { ...afterVerdict[0], cue: 'F4-ERUPTS', staging: `doc 03: "${erupts}"` },
+    ...afterVerdict.slice(1),
+  ];
   const pair24 = {
     n: 24, tier: 6, learnedFrom: 'the ending', learnedAt: 'E10', boast: fifth.line, counter: truth.line,
     wrong: [...jokes.matchAll(WRONG)].map(([, text, by, reply]) => ({ text: plain(text), reply: plain(reply), by: BY[by], attribution: by })),
@@ -3914,8 +3929,9 @@ function assay() {
   const duelThree = {
     puzzle: 'F4',
     opponent: 'fanshawe',
-    opening: spoken3(challenge),
-    openingRuling: 'doc 57 F4: "doc 03\'s challenge plays".',
+    opening: [...spoken3(challenge), ...rules],
+    openingRuling: 'doc 57 F4: "doc 03\'s challenge plays"; then doc 03 Part One: Sowerby reads the handbill "at unbearable '
+      + 'length before every match", Rule 3 among them (errata 131 D).',
     sequence: [4, 9, 22, 23, 24],
     sequenceRuling: 'errata 75 and doc 57 F4: "in the order 4, 9, 22, 23, then the fifth".',
     rethrow: [again1, again2, again3].flatMap(spoken3),
@@ -3924,7 +3940,9 @@ function assay() {
     knowsRuling: 'doc 03: "The player is offered four counters. Three are jokes. The fourth is pair 24, and it is not a lie." It is always on offer. '
       + 'Pairs 4 and 9 too: errata 75 I calls them "guaranteed in Act II", and pair 9\'s one source (WIN_B4) can be walked past for good, '
       + 'after which a re-thrown exchange 2 never ends (invariant 6; errata 120).',
-    win: ending.flatMap(spoken3),
+    win: release,
+    winRuling: 'errata 131 D, E: the silence held before the verdict (3 s, nothing clickable, the music cut), the judges\' '
+      + 'pencil in it, and the street erupting as the verdict lands.',
     setsOnWin: { T_FANSHAWE_BEATEN: true },
     calledByOpponent: true,
     calledRuling: 'doc 03: "Fanshawe calls the duel himself"; doc 57 F4: on Main Street after T_ASSAY_RUN, Fanshawe is waiting.',

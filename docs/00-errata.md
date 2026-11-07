@@ -3508,7 +3508,51 @@ Played in the browser from `r4-a`: B4, Duel One lost, then Duel Two lost 4-5. Th
 
 ---
 
-# 131 · THE FIDDLER, DRAWN AS CHARLIE — TYLER, 2026-11-07
+# 131 · THE DUELS STAGED: THE RING'S VOICE, DUEL THREE'S SPEAKERS, AND THE RELEASE — FROM THE DUEL AND BOOKENDS AUDITS (Tyler, 2026-11-06: "proceed with your recommendations")
+
+Duel audit findings 4, 5 and 7, and bookends audit finding 7 ("Duel Three's victory is not staged; it is just the next line"). Everything below is staging and mechanism around lines doc 03 already wrote. No line is written, and each change can be struck by its letter.
+
+**A · The ring's mutter comes from the ring.** Errata 73 F calls it "a voice from the ring of chairs, unnamed", and it had no figure, so it fell back to the top of the frame. Doc 30 section 3.1 forbids that fallback. A room may now declare where a voice with no figure speaks from (`voices`, carried from the annotation by `tools/compile-room.mjs`). Room 4's ring speaks low over the right-hand chairs, below the duellists' heads, in its own dim ink.
+
+**B · The judges' pencil is seen, and a direction can be performed instead of printed.**
+- **The pencil.** In the mark beat (errata 130 B), the pencil's holder holds the frame his sheet names for it (`markFrame`): Sowerby lowers the pencil to his chest, in Room 4 and on Main Street. That is the hit made visible without a word.
+- **Directions.** A figure's sheet may name stage directions it performs (`performs`, keyed by the direction's words as the document writes them). Such a direction is not printed. The figure holds that frame for a beat that cannot be clicked through. Doc 03's "(He puts on his hat.)" is the first: Fanshawe's frame 4, his hat, for 1.5 s.
+- **Doc 58's default is unchanged** for every direction no figure performs.
+
+**C · Duel Three's speakers stand where they are.** The assay speaks as `fanshawe` and `sowerby`, but Main Street's figures are `duel_fanshawe` and `duel_sowerby`. Their lines hung over Fanshawe's office x and the back room's, which on the 3700-wide street is off-screen left, so every line was clamped to the left edge. A figure may now speak as another id (`speaksAs`). Any speaker in a conversation takes his talk frame, in his own tree or not, so Sowerby now leans in to read the rules.
+
+**D · Sowerby reads the handbill before Duel Three, and the silence before his verdict is held.**
+- **The handbill.** Doc 03 Part One: he reads it "at unbearable length before every match". Duel Three had only the challenge, so Rule 3 ("Truth is admissible but has never been raised") was last heard an act earlier. The five rules now follow the challenge.
+- **The silence.** "Silence on Main Street. Long. Fanshawe does not move." is now a held silence after the truth: 3 s, nothing on screen, nothing clickable, the duel's music stopped, every figure on its rest frame. The pencil goes down in it, and then Sowerby gives his verdict.
+- The two prose directions are read from doc 03 by the extractor, so they cannot drift.
+
+**E · The street erupts.** "The street erupts." is a cue (`F4-ERUPTS`) on the line after Sowerby's verdict, Thad's "It's true.", which is where doc 03 puts it.
+- **The sound** is the approved Nugget crowd, cut and shaped: three windows of `nugget-crowd.wav` laid together and swelled up and away over six seconds (`tools/audio/render-duel-sfx.py`, nothing synthesized). It plays over the silence, because the music stays down until the duel is over.
+- **Its place** is 0 dB against the music, the music being off, and `tools/check-sound-levels.mjs` holds it there, ceiling and floor.
+- **The crowd and the judges** play their break poses for three seconds (`stirsOn`).
+- **Pending Tyler's ear,** like every sound errata 102 auditioned.
+
+**F · After the hat, they go.** When `T_FANSHAWE_BEATEN` lands, Duel Three's cast leaves: Fanshawe, Sowerby, the three judges and the two crowd groups. Before this they stood frozen and the player was handed the panel among statues. None of them has a walk (errata 99 N), and nobody may just vanish (Tyler, 2026-11-01). So a figure may now leave by fading (`leaves`): each fades over 2.5 s. Once Fanshawe has gone, his office door closes off the frame (`F4-DOOR`, the approved latch, 10 dB under the music).
+- Doc 03: "He walks back up the street to his office, and for the first time in twelve years, he closes the door."
+- `tests/lessons.test.ts`'s "nobody vanishes" rule is unchanged. A fading figure is present until its fade is over.
+
+**What holds it:** `tests/duel-staging.test.ts`, each test proved by putting its defect back. Ten defects were reintroduced, one at a time, and each was caught:
+- every voice in every duel resolves to a figure in the duel's room, or to a declared voice;
+- the pencil's holder has a mark frame;
+- the handbill is read before Duel Three;
+- the release is ordered silence, pencil, verdict, eruption, with the hat performed by the figure present;
+- the cast fades rather than vanishing, and the door sounds once, after Fanshawe has gone.
+
+**Played in the browser from `r2-f4`:** the challenge and the five rules over Fanshawe and Sowerby; the truth; 3 s of silence; the pencil; the verdict over Sowerby on the porch; the eruption on "It's true."; Fanshawe tipping his hat with nothing printed; "Well played"; the cast fading; and the door 2.5 s later.
+
+**Not done, and why:**
+- **The spit line as a position meter** (duel audit 5a) needs step clips the cast does not have.
+- **A score on screen** (audit 4) is in no document (errata 130).
+- **Two different marks for the two sides** needs a second pencil sound, which no approved file has.
+
+---
+
+# 132 · THE FIDDLER, DRAWN AS CHARLIE — TYLER, 2026-11-07
 
 Tyler: "Read reference/fiddler-charlie/brief.md and do it." He attached the photograph of Charlie, his husband (errata 123).
 

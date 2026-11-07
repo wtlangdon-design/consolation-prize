@@ -488,6 +488,28 @@ export interface AmbientFile {
    */
   exit?: AmbientExit;
   /**
+   * HOW HE LEAVES WHEN THERE IS NO WALK TO LEAVE BY (errata 131 F): when `when`
+   * stops holding while Thad is in the room, he fades out over `fade` seconds
+   * rather than vanishing, and `cue` (a doc 45 cue id) sounds once he has gone
+   * -- Fanshawe's office door closing, off the frame. Doc 03: "He walks back up
+   * the street to his office, and for the first time in twelve years, he
+   * closes the door." Duel Three's cast has no walk cycle (errata 99 N).
+   */
+  leaves?: { fade: number; cue?: string; note?: string };
+  /**
+   * WHOSE WORDS THIS FIGURE SPEAKS, when they are written under another id
+   * (errata 131 C). Duel Three's Fanshawe and Sowerby are their own figures on
+   * Main Street (`duel_fanshawe`, `duel_sowerby`), and the assay speaks as
+   * `fanshawe` and `sowerby`: their lines hung over the other rooms' records,
+   * off the left edge of the street.
+   */
+  speaksAs?: string;
+  /**
+   * CUES THIS FIGURE STIRS ON (errata 131 E): for a few seconds after one
+   * fires, the figure plays its break frames. Doc 03's "The street erupts."
+   */
+  stirsOn?: string[];
+  /**
    * WALKING, NOT STANDING (errata 95 E; Tyler, 2026-11-05: the road's two
    * crowds "walk the road"). The figure walks `path` again and again, drawn on
    * the room's curve like a departure, and between walks is off the frame for
@@ -675,6 +697,18 @@ export interface AmbientFile {
      * frame 0 -- the rest pose -- which is what the sway returns to anyway.
      */
     talkFrame?: number;
+    /**
+     * THE FRAME HELD WHILE THE JUDGES WRITE A POINT DOWN (errata 131 B): the
+     * holder of the pencil lowers it to mark the score (doc 45 U-ASSAY-PENCIL).
+     */
+    markFrame?: number;
+    /**
+     * STAGE DIRECTIONS THIS FIGURE PERFORMS INSTEAD OF HAVING THEM PRINTED
+     * (doc 58; errata 131 B), keyed by the direction's words as the document
+     * writes them: the frame held, for how many seconds, with nothing shown.
+     * Duel Three's "(He puts on his hat.)" was printed over Fanshawe as text.
+     */
+    performs?: Record<string, { frame: number; seconds: number }>;
     /**
      * PROPS THAT STAY PUT WHILE THE FIGURE ANIMATES. Room 5's ink stand: a
      * counter object, drawn at ONE room coordinate, whose picture depends on
@@ -1391,6 +1425,14 @@ export interface RoomFile {
    */
   /** Doc 18's flicker, by a mechanism that works on a generated plate. */
   lamps?: RoomLamp[];
+  /**
+   * WHERE A VOICE WITH NO FIGURE SPEAKS FROM, by speaker id (errata 131 A).
+   * Doc 30 section 3.1: "a speaker who is offscreen must use an explicit fixed
+   * anchor or be staged onscreen. Do not silently fall back to top-centre." The
+   * ring's mutter (errata 73 F, "a voice from the ring of chairs, unnamed") sits
+   * over the chairs; its words end just above (`x`, `y`).
+   */
+  voices?: Record<string, { x: number; y: number; note?: string }>;
   /**
    * THE ROOM'S LIGHT ON THE FIGURES THAT DO NOT CARRY IT (Tyler, 2026-11-01:
    * Thad and Deke "look different from the rest of the characters in the

@@ -101,13 +101,14 @@
     0
    ]
   ],
-  "breakEvery": 4.0,
+  "breakEvery": 4,
   "frameNote": "0 rest, the pencil raised · 1 breath (derived) · 2 the pencil lowered to his chest · 3 leaning to confer · 4 leaning back, the pencil up. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
   "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one).",
   "figureHeight": 437,
-  "stature": 1.0,
+  "stature": 1,
   "provenance": "reference/cast-unify-18.spec.json",
-  "figureHeightNote": "Crown to sole of the rest frame; the room's man where he stands is 437, as he was drawn."
+  "figureHeightNote": "Crown to sole of the rest frame; the room's man where he stands is 437, as he was drawn.",
+  "markFrame": 2
  },
  "placements": {
   "church": {

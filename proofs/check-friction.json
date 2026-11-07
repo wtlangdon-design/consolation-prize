@@ -211,6 +211,12 @@
    "date": "2026-11-06",
    "kind": "loosened",
    "why": "Not a misfire: the design changed under it (errata 130, from the duel audit). \"A lost Duel Two writes nothing\" and \"only the reply\" asserted errata 73 H, which 130 A amends: a lost Duel Two now teaches the counters the ring muttered, and every point gets the judges' held beat. Duel One's mutter test now skips the mark beat, and the save and drop tests start Duel One by option 6 because option 3 is now the replay (130 D). Each old property is still asserted in its new form, and five new tests hold the changes."
+  },
+  {
+   "check": "tests/assay.test.ts",
+   "date": "2026-11-06",
+   "kind": "loosened",
+   "why": "Not a misfire: the mark-beat test required the pencil first after a right counter. Errata 131 D holds Duel Three's doc 03 silence before the pencil when a won ending opens on one, so the mark is second there and first everywhere else; the test now says exactly that, and tests/duel-staging.test.ts asserts the whole order."
   }
  ]
 }
