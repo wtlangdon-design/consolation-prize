@@ -1,0 +1,106 @@
+{
+  "room": 44,
+  "name": "THE LANE",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/97-lower-street-and-the-lane.md::ROOM 44 — THE LANE",
+    "docs/97-lower-street-and-the-lane.md::ROOM 44 · THE LANE",
+    "docs/49-wrong-answers.md::ROOM 44 — THE LANE"
+  ],
+  "subjects": [
+    {
+      "name": "THE LANE ITSELF",
+      "LOOK_AT": [
+        "The Lane: the street the town keeps for the businesses it doesn't put on the main one.",
+        "Narrow enough that two men passing have to agree on something first.",
+        "Boot prints in every direction and no wheel ruts at all. Nothing that needs a cart comes down here."
+      ],
+      "LISTEN_TO": [
+        "Main Street at one end, Lower Street at the other, and in between a hush you could rent.",
+        "A shutter knocking, then thinking better of it.",
+        "The tent's canvas, breathing, two doors down. The Lane has a pulse and it's hers."
+      ]
+    },
+    {
+      "name": "THE COFFIN BY THE DOOR",
+      "LOOK_AT": [
+        "A pine coffin standing on end by the undertaker's door, like a man waiting to be let in.",
+        "Plain pine, nicely planed. Somebody is going to be very comfortable in that.",
+        "Standard length. A tall man would have to be very patient in it."
+      ],
+      "LISTEN_TO": [
+        "Hollow. A good coffin rings like a cello, and this one rings like a cheap cello.",
+        "Nothing inside. I checked by knocking, and then felt I ought to apologise.",
+        "The wind across the open end, making the only sound a coffin is allowed."
+      ],
+      "overrides": {
+        "PICK_UP": "It's stock. Taking it would be stealing from the one merchant whose customers never complain.",
+        "OPEN": "Empty, and planed smooth inside. I closed it gently. You do."
+      }
+    },
+    {
+      "name": "THE PHOTOGRAPHER'S WINDOW",
+      "LOOK_AT": [
+        "The photographer's window. In the middle of it, a portrait of a distinguished gentleman in a very good collar, lit like a saint.",
+        "The gentleman in the portrait has a face you would trust with your money, which in this town is a professional qualification.",
+        "Portraits by appointment. I can't afford the appointment, but I could stand here and be photographed by accident."
+      ],
+      "LISTEN_TO": [
+        "Nothing. The gentleman in the window has been holding very still for a long time.",
+        "A clock inside, very slow, as if it were sitting for its portrait.",
+        "Glass plates clinking in the back, being careful with each other."
+      ],
+      "overrides": {
+        "TALK_TO": "I asked the gentleman in the portrait for directions. He kept his counsel, and his collar."
+      }
+    },
+    {
+      "name": "OZYMANDIA'S TENT",
+      "LOOK_AT": [
+        "Madame Ozymandia's tent, painted with more stars than the sky can spare.",
+        "The flap is tied back and candlelight comes out. It is the most inviting door in Consolation, which is why I keep a hand on my pocket.",
+        "Canvas patched with canvas of another colour, on which the stars do not quite line up. Neither, I suspect, do the predictions."
+      ],
+      "LISTEN_TO": [
+        "Humming, low and long, from inside. Either a lady concentrating or a lady charging.",
+        "A brass rod, set down carefully on a table.",
+        "The canvas moving with the wind. It sounds like the tent is thinking about me."
+      ],
+      "overrides": {
+        "PUSH": "You don't push a fortune-teller's tent. She'll have seen it coming, and she'll charge."
+      }
+    },
+    {
+      "name": "THE BARBER'S POLE",
+      "LOOK_AT": [
+        "A barber's pole, painted to look as though it turns. It doesn't. That is the first lie a barber tells you.",
+        "The window's dark. A barber's chair behind it, the leather cracked into a map of somewhere.",
+        "I could do with a shave. I could do with the price of a shave more."
+      ],
+      "LISTEN_TO": [
+        "The pole creaking in its bracket. It would turn if it could.",
+        "A strop swaying on its hook inside, slapping the chair once.",
+        "Nothing. A barber's shop is never quiet by day; at night it makes up for it."
+      ],
+      "overrides": {
+        "TALK_TO": "I asked for a trim. The pole said nothing, which is more than most barbers manage."
+      }
+    },
+    {
+      "name": "THE EMPTY STOREFRONT",
+      "LOOK_AT": [
+        "An empty storefront, boarded, its sign painted out. Somebody's whole idea, closed for good.",
+        "Through a gap in the boards: a counter, a broom, and a calendar stopped on a month nobody has had for years.",
+        "If my claim comes in, I'll buy this and sell something. I don't yet know what. In Consolation that has never stopped anybody."
+      ],
+      "LISTEN_TO": [
+        "Mice, running the business now.",
+        "A loose board, lifting and settling with the wind.",
+        "Nothing. The quiet of a shop with nothing to sell and nobody to sell it."
+      ],
+      "overrides": {
+        "OPEN": "Boarded with long nails, by somebody who meant it."
+      }
+    }
+  ]
+}

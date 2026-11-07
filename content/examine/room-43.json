@@ -1,0 +1,113 @@
+{
+  "room": 43,
+  "name": "LOWER STREET",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/97-lower-street-and-the-lane.md::ROOM 43 — LOWER STREET",
+    "docs/97-lower-street-and-the-lane.md::ROOM 43 · LOWER STREET",
+    "docs/49-wrong-answers.md::ROOM 43 — LOWER STREET"
+  ],
+  "subjects": [
+    {
+      "name": "THE STREET",
+      "LOOK_AT": [
+        "Main Street's mud, continued. Out here it has stopped trying to impress anyone.",
+        "Wheel ruts, hoof prints, and one set of bare footprints going somewhere in a hurry.",
+        "The far end of town. In Providence this is where the better houses would be. Here it is where the street gives up and becomes a road."
+      ],
+      "LISTEN_TO": [
+        "Quieter than Main Street. The piano is a rumour from here.",
+        "Hooves in the livery, and the mud settling after them.",
+        "A dog, two streets over, objecting to something on principle."
+      ],
+      "overrides": {
+        "PICK_UP": "Lower Street's mud is Main Street's, only less looked at. I'll leave it its privacy."
+      }
+    },
+    {
+      "name": "SUMP'S WINDOW",
+      "LOOK_AT": [
+        "The Claims Registrar's window. A lamp, a counter, and behind it a man who has never once been surprised.",
+        "Behind the glass, a spike of filed papers, every one of them somebody's hopes, pierced in the order received.",
+        "The lamp is always lit. I have never seen anyone trim it. I suspect it is filed."
+      ],
+      "LISTEN_TO": [
+        "A pen, scratching, then a long pause, then a stamp. The rhythm of a form being found incomplete.",
+        "A page turning, very slowly. Somewhere in there a claim is being read to the last comma.",
+        "The stamp again. It is the most decisive sound in Consolation."
+      ],
+      "overrides": {
+        "OPEN": "It doesn't open. The Registrar's business is done through the door, in the order received."
+      }
+    },
+    {
+      "name": "THE CHURCH",
+      "LOOK_AT": [
+        "The church, which on weekdays is the meeting hall and on most days is neither. The whitest thing in town, because it is the only thing anyone repaints.",
+        "Three steps up to the doors. The middle one has been replaced; the other two have been worn smooth by people arriving in a hurry and leaving slowly.",
+        "The belfry on the roof keeps its own counsel. The ringing in this town is done from the post out front, by hand."
+      ],
+      "LISTEN_TO": [
+        "Nothing from inside. The pews are holding their breath for Sunday.",
+        "The doors, ticking as the night cools them. Even the church settles.",
+        "Somewhere inside, a hymnal falling shut. Nobody there to have been reading it."
+      ],
+      "overrides": {
+        "TALK_TO": "I said a short word for my claim. It was received the way the Registrar receives things: in silence, and filed."
+      }
+    },
+    {
+      "name": "THE BELL",
+      "LOOK_AT": [
+        "A hand bell on a post, with a dent where the mallet lands. It is the town's one public note, and it is flat.",
+        "Brass, gone green at the rim. Somebody polishes the dent and nothing else.",
+        "You can't tune a bell, not properly. I could still have a long talk with it."
+      ],
+      "LISTEN_TO": [
+        "It hums when the wind catches it. Even humming, it's low.",
+        "I flicked it with a fingernail. Half a step flat, and comfortable there.",
+        "Nothing now. It's resting between insults to the scale."
+      ],
+      "overrides": {
+        "TALK_TO": "I told it it was flat. It took it better than most of the people I've told things to here.",
+        "USE": "Not without the mallet, and not without the man who owns the mallet, and ideally not at all."
+      }
+    },
+    {
+      "name": "THE LIVERY",
+      "LOOK_AT": [
+        "The livery stable. The doors stand open on lamplight, hay and the back end of a horse.",
+        "A hay loft over the doors, the hay coming out of it like stuffing from an old chair.",
+        "I could hire a horse, if I had the price of a horse's afternoon. I have about the price of its nap."
+      ],
+      "LISTEN_TO": [
+        "Horses, shifting their weight and their opinions.",
+        "A long, judgemental snort. I'm choosing to believe it was aimed at the street in general.",
+        "A bucket set down, and a horse investigating it."
+      ]
+    },
+    {
+      "name": "THE TROUGH",
+      "LOOK_AT": [
+        "A water trough with a skin of dust on it and the moon in the middle.",
+        "Horses drink from it, dogs drink from it, and one man, I suspect, late on Saturdays.",
+        "Mended with a tin patch and a great deal of optimism. The patch is winning."
+      ],
+      "LISTEN_TO": [
+        "A slow drip from the seam, keeping its own time.",
+        "Nothing. Still water, minding its business.",
+        "A moth on the surface, rowing for shore."
+      ],
+      "overrides": {
+        "USE": "I washed my face in it. The moon came off on my hands."
+      }
+    }
+  ],
+  "exitsAndUnplaced": {
+    "THE BELL-RINGER": {
+      "PICK_UP": "I am not going to pick up the bell-ringer. He is the only thing holding the bell up, morally.",
+      "PUSH": "He sways enough on his own. I'm not going to add a vote.",
+      "USE": "He has one use, and he is already putting it to work, half a step flat."
+    }
+  }
+}
