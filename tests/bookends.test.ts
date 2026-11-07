@@ -16,7 +16,7 @@ import { resolve } from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
-import { endingAt, titleItems } from '../engine/core/Bookends.ts';
+import { bootsToBeginCard, endingAt, titleItems } from '../engine/core/Bookends.ts';
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
@@ -33,6 +33,19 @@ test('the title is content: its plate, its drawn title and its four items exist'
   assert.deepEqual(title.menu.items.map((item) => item.id), ['new', 'continue', 'options', 'credits']);
   // Tyler, 2026-11-06: "Title + THE END only". The words are content, never code.
   assert.ok(title.theEnd, 'the ending says THE END under the title');
+});
+
+test('a fresh page shows "Click to begin" before the title, so the title\'s bed is heard (errata 155)', async () => {
+  // The fault: a browser plays nothing before the page is clicked, and the
+  // title's first click was NEW GAME, so O-01-M never sounded. The card's
+  // click unlocks sound and the title then comes up with its bed. The browser
+  // half -- the card shown, the bed SOUNDING before NEW GAME -- is asserted by
+  // the opening gauntlet (tools/gauntlet/run.mjs).
+  const content = await loadContent(fsReader);
+  assert.equal(content.title!.begin, 'Click to begin', 'Tyler\'s words, from content');
+  assert.equal(bootsToBeginCard(content.title!, false), true, 'sound still locked: the card first');
+  assert.equal(bootsToBeginCard(content.title!, true), false, 'sound already unlocked (Quit to Title, the close): no card');
+  assert.ok(content.manifest.music?.title?.src && existsSync(resolve(ROOT, content.manifest.music.title.src)), 'the title bed exists');
 });
 
 test('CONTINUE is there and dim with no save; CREDITS is there and inert, because no document writes them', async () => {

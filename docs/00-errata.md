@@ -4216,3 +4216,16 @@ The triangle was errata 126's continue mark. It is drawn under any line that wai
 **What holds it:**
 - `tests/text-speed.test.ts` requires every enabled OPTIONS row to change what it shows when chosen, and Window scale to be absent. It also checks four things about Text speed: that it cycles in table 6's order; that it survives a load and a new session; that each speed scales a real line by doc 30's factor; and that Manual holds a scripted line until the click. With the old menu, two of the tests fail.
 - `tests/ground-walks.test.ts` covers ground hotspots. Any hotspot at least half over walk boxes and at least a third of the play area wide (640 px) is ground, and it must declare WALK TO. Narrower ones are things lying on the ground, such as the dog, a boot or a survey mark, and they keep LOOK AT. The widest of those is 442 px and the narrowest ground is 785 px. With the old boardwalk, the test fails.
+
+# 155 · "CLICK TO BEGIN", SO THE TITLE'S MUSIC IS HEARD — TYLER, 2026-11-07
+
+*Tyler, opening the game: "The main menu when the game first pulls up doesn't have any music. Should it?" It should: doc 45 gives the title O-01-M, CONSOLATION in its title mix. A browser plays nothing until the page has been clicked, and the title's first click was nearly always NEW GAME. That click went straight to the opening and its own bed, so the title theme was never heard. He was offered a "Click to begin" card, or leaving it as it was, and chose **"Click to begin"**.*
+
+- **On a plain boot, the words "Click to begin" stand alone on black** in the game's face (`content/ui/title.json` `begin`). The click on them unlocks sound. It goes no further, so it cannot also land on a menu item. The title then comes up over the ridge with O-01-M playing. NEW GAME hands over to the opening's bed as errata 128 built it.
+- **No card when sound is already unlocked.** That covers Quit to Title and the close's return to the title (`Bookends.bootsToBeginCard`). A `?room=` or `?fixture=` review link goes straight into the game, as before.
+- While the card is up, the title neither highlights nor accepts its items, and the menu key does nothing.
+- **The probe reports `begin`, and `bed`, the music actually sounding.** A bed the browser refused reads as null. `titleItem` is null while the card is up. Every harness that boots onto the title clicks the card first: `route.mjs` `pastTitle`, the opening gauntlet and the full-game run.
+
+**What holds it:**
+- The opening gauntlet (`tools/gauntlet/run.mjs`, in CI) requires two things before it clicks NEW GAME: that the card was there, and that the title's own bed was sounding. With the card removed it fails on both, "the title with no card in front of it" and "no bed sounding". That is the fault Tyler heard.
+- `tests/bookends.test.ts` holds the content half: the words, and the rule for when the card shows.

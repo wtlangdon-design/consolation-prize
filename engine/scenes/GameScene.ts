@@ -40,7 +40,7 @@ import {
 } from '../core/Opening.ts';
 import { tapAt, tuneAt } from '../core/Listening.ts';
 import { clickOnSpeech, holdOver, isRest, waitsForClick } from '../core/SpeechPolicy.ts';
-import { endingAt, titleItems, type TitleItem } from '../core/Bookends.ts';
+import { bootsToBeginCard, endingAt, titleItems, type TitleItem } from '../core/Bookends.ts';
 import { clearOfFigures } from '../core/Standing.ts';
 import {
   CYCLING_OPTION,
@@ -207,6 +207,8 @@ export class GameScene extends Phaser.Scene {
   private sayWaiting = false;
   /** THE TITLE SCREEN, while it is up: its items (errata 128). Null in play. */
   private titleMenu: TitleItem[] | null = null;
+  /** Errata 155: "Click to begin" is up, in front of the title, until the first click. */
+  private beginCard = false;
   private titleHover: string | null = null;
   /** The title was reached through the close: THE END is under it (Tyler, 2026-11-06). */
   private titleTheEnd = false;
@@ -496,8 +498,12 @@ export class GameScene extends Phaser.Scene {
     // that unlocks audio, so the opening then plays with sound from its first
     // frame. A `?room=` warp or a `?fixture=` is a review link and goes
     // straight into the game, as it always has.
-    if (!fixtureId && !warp && this.state.content.title) this.toTitle();
-    else this.beginOpening();
+    if (!fixtureId && !warp && this.state.content.title) {
+      this.toTitle();
+      // ERRATA 155: sound is still locked on a fresh page, so the title waits
+      // behind "Click to begin" and that click is the one that starts its bed.
+      this.beginCard = bootsToBeginCard(this.state.content.title, this.music.isUnlocked);
+    } else this.beginOpening();
     this.markDirty();
     this.loadNear();
   }
@@ -557,7 +563,7 @@ export class GameScene extends Phaser.Scene {
       this.frameCount += 1;
       this.view.drawFrame({ hoveredTarget: null, hoveredTargetName: null, sayLines: [], notice: this.notice,
         barkLines: [], barkAt: null, captionLines: [], captionAt: null,
-        title: { items: this.titleMenu, hovered: this.titleHover, theEnd: this.titleTheEnd } });
+        title: { items: this.titleMenu, hovered: this.titleHover, theEnd: this.titleTheEnd, begin: this.beginCard } });
       this.texture.refresh();
       return;
     }
@@ -886,7 +892,7 @@ export class GameScene extends Phaser.Scene {
       // for their open tree.
       greeting: this.pendingTree?.greeted ? this.pendingTree.tree : null,
       sceneControls: this.sceneControlsShowing() && !this.state.menu.isOpen,
-      title: this.titleMenu ? { items: this.titleMenu, hovered: this.titleHover, theEnd: this.titleTheEnd } : null,
+      title: this.titleMenu ? { items: this.titleMenu, hovered: this.titleHover, theEnd: this.titleTheEnd, begin: this.beginCard } : null,
       // ROOM 33'S NINETY SECONDS: the panel inert and dim, the sentence blank (errata 133).
       panelDim: this.tuneStart !== null,
       fadeBlack: this.fadeBlack,
@@ -1052,6 +1058,7 @@ export class GameScene extends Phaser.Scene {
   private onPointerMove(pointer: Phaser.Input.Pointer): void {
     // Nothing to name while the ninety seconds run or a room fades (errata 133).
     if (this.tuneStart !== null || this.roomFade !== null) return;
+    if (this.beginCard) return;
     if (this.titleMenu && !this.state.menu.isOpen) {
       const { x, y } = this.nativePoint(pointer);
       const hit = this.view.titleHitboxes(this.titleMenu).find((box) => pointInRect(x, y, box));
@@ -1142,6 +1149,15 @@ export class GameScene extends Phaser.Scene {
     this.music.unlock();
     this.ambience.unlock();
     this.cueBed.unlock();
+    // THE BEGIN CARD TAKES THE FIRST CLICK WHOLE (errata 155): it has just
+    // unlocked sound, above, and the title comes up with its bed playing. The
+    // click goes no further, so it cannot also land on a title item.
+    if (this.beginCard) {
+      this.beginCard = false;
+      this.applyMusic();
+      this.markDirty();
+      return;
+    }
     const { x, y } = this.nativePoint(pointer);
     // THE TITLE TAKES ITS OWN CLICKS (errata 128), and chooses the music
     // after the click has decided where the game is going: NEW GAME's bed is
@@ -2843,7 +2859,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private onMenuKey(): void {
-    if (this.state.dialogue.isActive) return;
+    if (this.state.dialogue.isActive || this.beginCard) return;
     this.state.menu.escape();
     this.afterMenu();
   }
@@ -2977,6 +2993,8 @@ export class GameScene extends Phaser.Scene {
       pending: this.pendingSay.length,
       waiting: this.sayLines.length > 0 && this.sayWaiting,
       title: this.titleMenu !== null,
+      begin: this.beginCard,
+      bed: this.music.bed,
       ending: this.endingFrom === null ? null
         : endingAt(this.lastFrameAt - this.endingFrom, this.endingTiming()).phase,
       performing: this.performance !== null,
@@ -3075,7 +3093,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   titleItem(id: string): { id: string; x: number; y: number; width: number; height: number } | null {
-    return this.titleMenu ? this.view.titleHitboxes(this.titleMenu).find((box) => box.id === id) ?? null : null;
+    return this.titleMenu && !this.beginCard ? this.view.titleHitboxes(this.titleMenu).find((box) => box.id === id) ?? null : null;
   }
 
   optionRow(index: number): { id: string; y: number; height: number; shown: boolean } | null {

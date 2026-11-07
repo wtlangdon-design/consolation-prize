@@ -586,6 +586,8 @@ async function main() {
     await page.goto(`${server.url}/${PACE ? `?pace=${PACE}` : ''}`);
     if (FROM) {
       for (let tries = 0; tries < 200; tries += 1) {
+        // ERRATA 155: past "Click to begin" first.
+        if ((await probe(page))?.begin) { await clickScreen(page, 960, 432); await page.waitForTimeout(200); continue; }
         const item = await page.evaluate(() => window.__gauntlet?.titleItem('continue') ?? null);
         if (item) { await clickScreen(page, item.x + item.width / 2, item.y + item.height / 2); break; }
         await page.waitForTimeout(200);

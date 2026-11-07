@@ -112,6 +112,15 @@ export class Music {
    * so on the web the title theme begins at the moment the sheet has it
    * ending. Recorded rather than hidden.
    */
+  /**
+   * The bed actually sounding, by its files, or null: what the probe reports.
+   * A voice the browser refused to play (no gesture yet) is paused again once
+   * its play() rejects, so a requested bed that is not heard reads as null.
+   */
+  get bed(): string | null {
+    return this.playing?.some((voice) => !voice.element.paused) ? this.playingKey : null;
+  }
+
   unlock(): void {
     if (this.unlocked) return;
     this.unlocked = true;

@@ -32,6 +32,18 @@ export function titleItems(file: TitleFile, canContinue: boolean): TitleItem[] {
   }));
 }
 
+/**
+ * THE BEGIN CARD (errata 155). A browser plays nothing until the page has been
+ * clicked, and the title's first click was nearly always NEW GAME -- so its
+ * bed, O-01-M, was never heard. A boot onto the title with sound still locked
+ * shows `begin` alone first; the click on it unlocks sound, and the title
+ * comes up with its bed playing. With sound already unlocked (Quit to Title,
+ * the close) there is nothing to wait for and no card.
+ */
+export function bootsToBeginCard(file: TitleFile, soundUnlocked: boolean): boolean {
+  return Boolean(file.begin) && !soundUnlocked;
+}
+
 export interface EndingTiming {
   hold: number;
   fade: number;

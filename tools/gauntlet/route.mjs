@@ -150,6 +150,12 @@ export async function pastTitle(page, upTo = 60) {
   for (;;) {
     const state = await probe(page);
     if (state && !state.title) return false;
+    // ERRATA 155: "Click to begin" first, the click that starts the title's bed.
+    if (state?.begin) {
+      await clickScreen(page, 960, 432);
+      await page.waitForTimeout(200);
+      continue;
+    }
     if (state?.title) {
       const item = await page.evaluate(() => window.__gauntlet?.titleItem('new') ?? null);
       if (item) {
