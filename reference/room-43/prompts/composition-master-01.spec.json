@@ -1,0 +1,17 @@
+{
+ "assetId": "room-43",
+ "subject": "room-43-lower-street",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-43-lower-street",
+ "promptFile": "reference/room-43/prompts/composition-master-01.txt",
+ "out": "art/staging/room-43/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-43/layout-1536x1024.png",
+  "art/backgrounds/room-02-main-street.png",
+  "renders/room-01-in-engine-1920x1080.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

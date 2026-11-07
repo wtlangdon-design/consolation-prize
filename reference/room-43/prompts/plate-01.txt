@@ -1,0 +1,6 @@
+Image 1 is a finished background from my pixel-art adventure game: the far end of a town's main street at night, with a man in a blue coat standing in the mud.
+
+Make exactly this change:
+1. Remove the man. Paint what is behind him, exactly as the street would look with nobody in it: the building behind him and the mud.
+
+Change nothing else. Same camera, same pixel grid, same colours, same light, same objects in the same places: the opening back to the main street at the far left, the registrar's office with its door and lit window, the alley gap, the church with its belfry, its steps and its doors, the hand bell on its post, the passage gap, the livery stable with its open doors, hay-loft door and trough, the street running out of town at the far right, the night sky. The light grey margins at the very top and bottom stay light grey. No people, no shadows of people, no animals, no text, no numerals.

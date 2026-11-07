@@ -4362,3 +4362,32 @@ The input, the hover and the menu key are closed while one plays. The only thing
 - **With none, as it ships today:** the street shot, then the office.
 
 **What holds it:** `tests/cutaways.test.ts`. It checks that the opening shot and the music are files the game has, that the shot is held and creeps rather than zooming, that the music plays slower than written, and that the comic scenes have neither. It also checks that a bed played at a rate is slowed on top of the detune and is told apart from the same file played as written.
+
+# 161 · LOWER STREET AND THE LANE, BUILT — TYLER, 2026-11-07
+
+*Tyler asked what Lower Street was, then: "Wait so why wouldn't we build it then? It sounds like the game needs it?" He was told what it takes: a picture, new lines, rewiring the town, and a full re-check. He was told that the sister street, the Lane, is equally unbuilt. Offered Lower Street, both, or waiting until after his playthrough, he chose **"Lower Street and the Lane"**. That choice is the permission for their new lines, which will be written in /docs in one voice under doc 59. It is also the authority for their art: caps of 4, 4 and 2 for the bell-ringer (attemptsTotal 293 → 303).*
+
+**A · Numbers.** Errata 43's Room 2b and Room 2c are **Room 43, Lower Street** (`lower_street`) and **Room 44, the Lane** (`the_lane`). Rooms 37 to 42 are already the ancillary interiors (doc 12).
+
+**B · The plan, before any art (ruling 22 steps 1–6).** `tools/streets-graybox.py` writes both grayboxes, their layouts and `proofs/room-43|44/graybox.json`. Both pass the legibility gate. They are night (errata 64a), one screen each at 1920 × 864, at Room 20's exterior depth (258 at y 705, 362 at y 858). Every position is a staging decision under the standing delegation.
+- **Lower Street,** left to right:
+  - the way back to Main Street;
+  - the Claims Registrar's door and Sump's lit window;
+  - the back-alley mouth;
+  - the church, its belfry, steps and doors;
+  - the hand bell on its post, where the bell-ringer stands (doc 07 #4);
+  - the passage to the Lane;
+  - the livery's doors, hay loft and trough;
+  - the road out of town, to the claims road.
+- **The Lane,** left to right:
+  - the way back to Main Street;
+  - the undertaker's door, with a coffin standing by it;
+  - the photographer's window, with the Mott photograph in it (doc 06);
+  - Ozymandia's tent, its flap open;
+  - the barber's pole;
+  - the boarded storefront;
+  - the passage through to Lower Street.
+
+**C · The topology (errata 43 kept).** Main Street's east road leads to Lower Street, and Lower Street's road out leads on to the claims road. The registrar's, the church, the livery and the back alley open off Lower Street. Main Street's alley leads to the Lane, and the undertaker's and the tent open off it. The Lane and Lower Street join at their far ends, so the three streets are a loop. The map keeps long-distance travel and the interiors that sit on no street. The rewiring lands with the rooms, once their plates do, and is recorded under this number.
+
+**D · The art.** `reference/streets/brief.md` is for the session with the image key. It covers both streets' composition masters and plates, in Room 20's manner, and the bell-ringer's five-pose sheet against Thad. `reference/global-baseline.json` gains both rooms. `tools/art/room43-plate.mjs` and `room44-plate.mjs` derive and promote the plates.

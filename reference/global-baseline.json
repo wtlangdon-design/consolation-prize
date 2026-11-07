@@ -616,6 +616,38 @@
     }
    ],
    "castingNote": "The dog, on his back in the road (doc 48 S7 beat 1). Nobody else."
+  },
+  "room-43-lower-street": {
+   "visualType": "exterior-street-night",
+   "comparable": {
+    "id": "room-02-main-street",
+    "path": "art/backgrounds/room-02-main-street.png",
+    "note": "D -- the approved street at night. Lower Street is the same street further along (errata 43): the same false fronts, mud and lamplight, the same palette."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "The bell-ringer is drawn on magenta against Thad from the plate (errata 161); nobody is painted into the plate."
+  },
+  "room-44-the-lane": {
+   "visualType": "exterior-street-night",
+   "comparable": {
+    "id": "room-02-main-street",
+    "path": "art/backgrounds/room-02-main-street.png",
+    "note": "D -- the approved street at night. The Lane is the town's narrow back street off Main Street's alley (errata 43): the same boards, mud and lamplight, cramped."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody stands in the Lane (errata 161); nobody is painted into the plate."
   }
  }
 }

@@ -1,0 +1,13 @@
+{
+ "assetId": "room-43",
+ "subject": "room-43-lower-street",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-43-lower-street",
+ "promptFile": "reference/room-43/prompts/plate-01.txt",
+ "out": "art/staging/room-43/plate-01/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-43/plate-01/input.png"
+ ]
+}
