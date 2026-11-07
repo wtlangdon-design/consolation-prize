@@ -62,8 +62,15 @@ export function targetRect(room, id) {
   // (Ambient.ts NPC_HALF_WIDTH), and the click a person makes is on the
   // body; aim at the box's middle. Room 5's Winnie is the first ambient a
   // route has needed to talk to.
+  // A PER-ROOM PLACEMENT WINS over the file's own x,y in that room, as it
+  // does in the runtime (Ambient.ts `live`, doc 36 Q117): Hob stands in the
+  // alley by his file and in the watchman's shack by his placement, and a
+  // click aimed at the file's spot in the shack found nobody (the browser
+  // full-game run, errata 151).
   if (!found && (room.ambient ?? []).includes(id)) {
-    const npc = readJson(`content/ambient/${id.replace(/_/g, '-')}.json`);
+    const file = readJson(`content/ambient/${id.replace(/_/g, '-')}.json`);
+    const placed = file.placements?.[room.id];
+    const npc = placed ? { ...file, x: placed.x, y: placed.y, sprite: placed.sprite ?? file.sprite } : file;
     const height = npc.sprite?.frames?.[0]?.[3] ?? 240;
     const half = Math.round(height * 0.2);
     return [npc.x - half, npc.y - height, half * 2, height];
@@ -97,7 +104,7 @@ export function verbRect(verbId) {
 }
 
 /** Where a native point lands on the letterboxed canvas. */
-async function toScreen(page, x, y) {
+export async function toScreen(page, x, y) {
   return page.evaluate(([nx, ny, w, h]) => {
     const canvas = document.querySelector('canvas');
     if (!canvas) return null;
@@ -118,20 +125,20 @@ async function toScreen(page, x, y) {
  * and is very often not on screen at all. The route asks the probe where the
  * camera is, walks the actor into range if it must, and only then clicks.
  */
-async function clickWorld(page, wx, wy) {
+export async function clickWorld(page, wx, wy) {
   const cameraX = await page.evaluate(() => window.__gauntlet?.probe()?.camera ?? 0);
   const point = await toScreen(page, wx - cameraX, wy);
   if (!point) throw new Error('route: no canvas to click on');
   await page.mouse.click(point.x, point.y);
 }
 
-async function clickScreen(page, x, y) {
+export async function clickScreen(page, x, y) {
   const point = await toScreen(page, x, y);
   if (!point) throw new Error('route: no canvas to click on');
   await page.mouse.click(point.x, point.y);
 }
 
-const probe = (page) => page.evaluate(() => window.__gauntlet?.probe() ?? null);
+export const probe = (page) => page.evaluate(() => window.__gauntlet?.probe() ?? null);
 
 /**
  * A PLAIN BOOT OPENS ON THE TITLE (errata 128), so a route that starts there
@@ -163,7 +170,7 @@ export async function pastTitle(page, upTo = 60) {
  * timed out after 60s" sends whoever reads it back to the browser; "...still in
  * stage_road, control none, beat 3, no dialogue" is most of a diagnosis.
  */
-async function waitFor(page, want, upTo, why) {
+export async function waitFor(page, want, upTo, why) {
   const deadline = Date.now() + upTo * 1000;
   let last = null;
   let lineSince = Date.now();
@@ -256,7 +263,7 @@ async function waitFor(page, want, upTo, why) {
  * Only a line that is waiting for a click (`waiting`, a conversation's under
  * click-to-read) is clicked; every other is waited out.
  */
-async function flush(page) {
+export async function flush(page) {
   const deadline = Date.now() + 90_000;
   for (;;) {
     const state = await probe(page);
@@ -279,7 +286,7 @@ async function flush(page) {
 const TIMING = readJson('content/ui/ui.json').timing ?? {};
 const READS_BY_CLICK = TIMING.conversationWaitsForClick === true;
 const READ_MS = (TIMING.holdMinimumSeconds ?? 1.8) * 1000;
-async function settle(page, upTo = 60) {
+export async function settle(page, upTo = 60) {
   const deadline = Date.now() + upTo * 1000;
   let lineSince = Date.now();
   for (;;) {
@@ -293,6 +300,55 @@ async function settle(page, upTo = 60) {
     }
     await page.waitForTimeout(120);
   }
+}
+
+/**
+ * Clicks a dialogue option, by id (or 1-based index), once the list is up:
+ * queued lines flushed, the exchange performed, the row scrolled into the
+ * list's window if it must be. Returns the id clicked.
+ *
+ * BY ID WHERE THE CALLER GIVES ONE, and the id is why a route survives a
+ * list that changes shape. The stage driver's exit is gated on the other
+ * three having been asked, so his list is three rows and then four; an index
+ * means a different question before and after, and a text match would put
+ * dialogue in a tool.
+ */
+export async function chooseOption(page, wanted) {
+  await flush(page);
+  await settle(page);
+  let row = await page.evaluate((want) => {
+    for (let index = 1; index <= 12; index += 1) {
+      const found = window.__gauntlet?.optionRow(index);
+      if (!found) continue;
+      if (typeof want === 'number' ? index === want : found.id === want) return { ...found, index };
+    }
+    return null;
+  }, wanted);
+  if (!row) {
+    const state = await probe(page);
+    throw new Error(`option "${wanted}" is not on the list. `
+      + `${state?.options ?? 0} option(s) are offered`
+      + `${state?.performing ? ' but an exchange is performing' : ''}. A gated option `
+      + 'needs the ones that open it asked first, and the route\'s order is load-bearing.');
+  }
+  // A ROW SCROLLED OUT OF THE LIST'S WINDOW IS SCROLLED TO, by its
+  // arrows, as a player would (errata 143): the panel holds five rows.
+  for (let tries = 0; row && row.shown === false && tries < 12; tries += 1) {
+    const wantedIndex = row.index;
+    const firstShown = await page.evaluate(() => {
+      for (let index = 1; index <= 12; index += 1) if (window.__gauntlet?.optionRow(index)?.shown) return index;
+      return 1;
+    });
+    const direction = wantedIndex < firstShown ? 'up' : 'down';
+    const arrow = await page.evaluate((way) => window.__gauntlet?.optionArrow(way), direction);
+    if (!arrow?.live) break;
+    await clickScreen(page, arrow.x + arrow.width / 2, arrow.y + arrow.height / 2);
+    await page.waitForTimeout(120);
+    row = { ...(await page.evaluate((at) => window.__gauntlet?.optionRow(at), wantedIndex)), index: wantedIndex };
+  }
+  if (row.shown === false) throw new Error(`option "${wanted}" could not be scrolled into view`);
+  await clickScreen(page, NATIVE.width / 2, row.y + row.height / 2);
+  return row.id;
 }
 
 /**
@@ -378,46 +434,8 @@ export async function runRoute(page, route) {
         continue;
       }
       if (action.do === 'option') {
-        await flush(page);
-        await settle(page);
-        // BY ID WHERE THE ROUTE GIVES ONE, and the id is why the route survives
-        // a list that changes shape. The stage driver's exit is gated on the
-        // other three having been asked, so his list is three rows and then
-        // four; an index means a different question before and after, and a
-        // text match would put dialogue in this file.
-        let row = await page.evaluate((wanted) => {
-          for (let index = 1; index <= 12; index += 1) {
-            const found = window.__gauntlet?.optionRow(index);
-            if (!found) continue;
-            if (typeof wanted === 'number' ? index === wanted : found.id === wanted) return { ...found, index };
-          }
-          return null;
-        }, action.option);
-        if (!row) {
-          const state = await probe(page);
-          throw new Error(`option "${action.option}" is not on the list. `
-            + `${state?.options ?? 0} option(s) are offered`
-            + `${state?.performing ? ' but an exchange is performing' : ''}. A gated option `
-            + 'needs the ones that open it asked first, and the route\'s order is load-bearing.');
-        }
-        // A ROW SCROLLED OUT OF THE LIST'S WINDOW IS SCROLLED TO, by its
-        // arrows, as a player would (errata 143): the panel holds five rows.
-        for (let tries = 0; row && row.shown === false && tries < 12; tries += 1) {
-          const wantedIndex = row.index;
-          const firstShown = await page.evaluate(() => {
-            for (let index = 1; index <= 12; index += 1) if (window.__gauntlet?.optionRow(index)?.shown) return index;
-            return 1;
-          });
-          const direction = wantedIndex < firstShown ? 'up' : 'down';
-          const arrow = await page.evaluate((way) => window.__gauntlet?.optionArrow(way), direction);
-          if (!arrow?.live) break;
-          await clickScreen(page, arrow.x + arrow.width / 2, arrow.y + arrow.height / 2);
-          await page.waitForTimeout(120);
-          row = { ...(await page.evaluate((at) => window.__gauntlet?.optionRow(at), wantedIndex)), index: wantedIndex };
-        }
-        if (row.shown === false) throw new Error(`option "${action.option}" could not be scrolled into view`);
-        await clickScreen(page, NATIVE.width / 2, row.y + row.height / 2);
-        log.push(`${where}: chose option ${row.id} -- ${action.why ?? ''}`);
+        const id = await chooseOption(page, action.option);
+        log.push(`${where}: chose option ${id} -- ${action.why ?? ''}`);
         continue;
       }
       throw new Error(`unknown route action "${action.do}"`);

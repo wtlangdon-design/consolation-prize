@@ -200,6 +200,35 @@ export interface FrameReport {
   /** True once the opening has handed control to the player. */
   handedOver: boolean;
   /**
+   * The verb selected in the panel, or null for none (a click then performs
+   * the target's own default). Ids only. A driver that clicks an exit needs
+   * it: with OPEN still selected a road is opened, not walked down.
+   */
+  verb: string | null;
+  /** The ambient characters present in the room now, by id (AmbientLayer.present). */
+  present: string[];
+  /** Every target the room offers now -- hotspots and exits whose conditions hold -- by id. */
+  targets: string[];
+  /** A duel is being fought: the list is counters, and there is no EXIT row. */
+  duel: boolean;
+  /**
+   * What the sentence line names under the pointer: a target's or a person's
+   * id, or null. A driver points until the line names what it means to click,
+   * as a player does -- a rect's centre can sit on a smaller thing (the
+   * registrar's counter's centre is SUMP'S PEN).
+   */
+  hovered: string | null;
+  /**
+   * An act card is up, or a room fade is running: the screen is not
+   * the player's and a click is spent on nothing (GameScene.onPointerDown). A
+   * driver waits these out; the full-game run clicked MAP under PART THREE's
+   * card and waited ninety seconds for a map that was never asked for.
+   */
+  card: boolean;
+  fading: boolean;
+  /** The title is up after the close, reading THE END (errata 128). */
+  theEnd: boolean;
+  /**
    * The opening segment now playing, when one is.
    *
    * A BEAT IS NOT ALWAYS OBSERVABLE AND A SEGMENT ALWAYS IS. Errata 30b makes
