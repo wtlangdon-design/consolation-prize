@@ -4475,7 +4475,7 @@ There were no page errors. One frame of each line is in `renders/cutaways/fansha
 **After.** The builder re-places the markers and re-measures the roads on the result.
 
 **The art (the image session, 2026-11-07).** Three operations of four.
-- **Operation 1, the church edit (`edit-01`),** was spent before the redraw brief reached main. As the brief says, it counts against the cap and was not promoted. PR #234, which promoted it on its own branch, is closed unmerged.
+- **Operation 1, the church edit (`edit-01`),** was spent before the redraw brief reached main. As the brief says, it counts against the cap and was never promoted on main. PR #234 first carried it, and now carries the redraw instead.
 - **Operation 2, `redraw-01`, is promoted** as `art/backgrounds/room-00-town-map.png`.
   - It is plainly night, in the street plates' blues, with lit windows in town and lanterns at the workings and on the bridges.
   - Main Street is eight fronts with the saloon's balcony, facing south onto an open square that has only a trough on its south side.
