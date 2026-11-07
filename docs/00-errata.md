@@ -4458,4 +4458,20 @@ There were no page errors. One frame of each line is in `renders/cutaways/fansha
 
 **A · The church (this part).** One image edit moves the church to the east end of the town's north row and puts an ordinary false-front building where it stood. `tools/art/town-map-edit.py` takes back only that row, so every marker and road keeps its place. `reference/town-map/brief.md` is for the session with the image key. The cap is `town-map`: 2, an edit and a correction (attemptsTotal 303 → 305). `reference/global-baseline.json` gains `room-00-town-map`, with the map itself as its comparable.
 
+**A2 · The map redrawn at night, with the town as the game has it.** Tyler said the same afternoon:
+- **"The map is set during the day. The game is set at night. We should probably have the map set at night too."** Monkey Island's map is night as well.
+- **"The map also doesn't have the larger town square, which is pretty obvious in the game. And it has the fronts of buildings facing the map viewer, not the street that they would open up onto. It's okay to see the backs of buildings if that's what make sense."**
+
+**What changes.** One image edit redraws the whole map at night, with Main Street's night plate as the palette reference. It lays the town out as errata 43's three streets are built:
+- Main Street is one row of fronts facing south onto a wide, open square;
+- the Lane runs behind it, from its west-end alley, with Main Street's backs on one side and five shopfronts on the other;
+- Lower Street is up the east road, with the Registrar's, the church and the livery, and its road runs on over the bridge;
+- the three interiors on no street stand apart.
+
+`reference/town-map/town-layout-1920x864.png` blocks the town out, and the brief carries the rest. The redraw supersedes the church edit in A. The cap is 4, a redraw and a correction after it (attemptsTotal 305 → 307).
+
+**Held.** `tools/check-night-exposure.mjs` now holds the district map to night as well. It had skipped the map as not an exterior, which is how it stayed day. The baseline's `daylight` line holds that check until the redraw is promoted.
+
+**After.** The builder re-places the markers and re-measures the roads on the result.
+
 **B · The map's Thad** lands with Lower Street and the Lane (errata 161, part 3), on the branch where it was built, and is recorded here when it merges.
