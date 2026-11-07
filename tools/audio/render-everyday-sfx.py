@@ -216,6 +216,39 @@ def step_mud():
     return finish(x, peak=0.7)
 
 
+MUD_LEVEL = 0.1213   # the old mud step's loudest 400 ms, so the new one sits where it did
+
+
+def step_mud_damp(r):
+    """MUD, AS TYLER PICKED IT BY EAR (2026-11-07, errata 153): "B · Damp earth"
+    -- a dull step on soft, damp ground with a little grit, and nothing pitched
+    in it. Of step_mud above: "It sounded like bubbles popping and no one would
+    know what its supposed to represent in the game." Its bubbles were chirps
+    and its tail ran 0.55 s, longer than the 0.36 s between Thad's foot plants
+    (194 px/s over a 141 px stride, two plants a cycle), so steps smeared into
+    one another. This one is spent in under 0.15 s, so every plant is its own,
+    at any pace; the engine sounds it on each foot plant (GameScene.footsteps)."""
+    def bp(x, lo, hi): return sosfilt(butter(2, [lo, hi], btype='band', fs=RATE, output='sos'), x)
+    def lp(x, hz): return sosfilt(butter(4, hz, fs=RATE, output='sos'), x)
+    def hp(x, hz): return sosfilt(butter(2, hz, btype='high', fs=RATE, output='sos'), x)
+    def ev(n, att, tau):
+        k = np.arange(n) / RATE
+        return np.minimum(1, k / att) * np.exp(-k / tau)
+    x = np.zeros(n_of(0.3))
+    v = r.uniform(0.85, 1.15)
+    n = n_of(0.1)
+    place(x, lp(hp(r.normal(0, 1, n), 45), 300 * v) * ev(n, 0.003, 0.022), 0, 1.0)
+    n = n_of(0.08)
+    grit = bp(r.normal(0, 1, n), 1200, 4200) * ev(n, 0.002, 0.018) * (r.random(n) < 0.25)
+    place(x, grit, 0.004, 0.35)
+    # As loud as the old step on the 400 ms window the levels check reads, but
+    # never clipped: a short thump reaches full scale before it reaches the
+    # old step's energy, so its peak stops at 0.95.
+    x = finish(x, peak=0.8)
+    loud = np.sqrt(np.sum(x ** 2) / n_of(0.4))
+    return x * min(MUD_LEVEL / loud, 0.95 / np.max(np.abs(x)))
+
+
 def step_wood(hollow):
     """Heel, then toe, on a board. A boardwalk is raised over the mud, so it
     rings lower and longer than a floor laid on joists indoors."""
@@ -690,6 +723,10 @@ if __name__ == '__main__':
             if surface == 'plank':
                 step_wood(False)   # replaced 2026-11-06; still draws its numbers (see the boardwalk)
                 save(f'step-plank-{i}.wav', step_plank(np.random.default_rng(1100 + i)))
+                continue
+            if surface == 'mud':
+                step_mud()   # replaced 2026-11-07 (errata 153); still draws its numbers (see the boardwalk)
+                save(f'step-mud-{i}.wav', step_mud_damp(np.random.default_rng(1200 + i)))
                 continue
             save(f'step-{surface}-{i}.wav', take())
     for i, size in enumerate((1.0, 0.6, 0.3), start=1):

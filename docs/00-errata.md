@@ -4186,3 +4186,15 @@ The triangle was errata 126's continue mark. It is drawn under any line that wai
 - Errata 147's echo rule is now the rule for every line. This reverses the 2026-11-01 ruling.
 
 **What holds it:** `tests/speech-pacing.test.ts` and `tests/follow-ups.test.ts` now require the shipped game to read conversations on the hold. Every tree's first exchange must come down by the clock alone, and a click must move it one line on. Both fail with the flag back on. The two assertions they replace are recorded in `proofs/check-friction.json`.
+
+# 153 · THE MUD UNDERFOOT, PICKED BY EAR, IN STEP WITH THAD — TYLER, 2026-11-07
+
+*Tyler, playing the opening: "Thad walking through the mud was a really bad sound effect. It sounded like bubbles popping and no one would know what its supposed to represent in the game." He heard three new versions, each alone and walking on the stage road, and chose **B** ("Damp earth": a dull step on soft, damp ground with a little grit), adding: "but we need to make sure it matches the speed that Thad walks".*
+
+**A · Why it failed.** `step_mud` in `tools/audio/render-everyday-sfx.py` laid three to five rising chirps over its suction, and those were the bubbles. It also rang on for 0.32 s. Thad plants a foot every 0.36 s (194 px/s over a 141 px stride, two plants a cycle), so each step ran into the next.
+
+**B · The new mud.** `step_mud_damp` is a low thud with sparse grit and nothing pitched in it, spent in about 0.1 s. It is rendered four times into `audio/sfx/step-mud-{1..4}.wav`, each from its own seed. The old function still draws its random numbers, so every other sound in that script keeps its bytes. It is used for the stage road, Main Street and its dawn, the coach stop, the claims road, the creek and Prosperity. Its level is the old step's on the 400 ms window, capped so its peak never clips.
+
+**C · In step.** The engine already sounds a take on each foot plant, not on a timer (`GameScene.footsteps`: two plants a gait cycle, doc 45 §3.4), so the step follows Thad's legs at any pace and any depth. What it needed was a sound short enough to fit between plants. The audition clips walked at 0.52 s a step, and the game's walk is 0.36 s.
+
+**What holds it:** `tests/footstep-cadence.test.mjs`. Every take on every floor must fall 30 dB below its peak within half of Thad's plant interval, read from `content/actors/thad.json`. The old mud takes fail it at 0.32 s against 0.18 s; every other floor and the new mud pass at 0.09–0.18 s.
