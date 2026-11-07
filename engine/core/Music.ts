@@ -268,6 +268,17 @@ export class Music {
     step();
   }
 
+  /**
+   * THE CLOSE (errata 128; doc 45: the close governs, and nothing extends it).
+   * The bed stops looping and plays to the end of its file -- a loop is whole
+   * bars -- and stops there. Nothing replaces it; a later `play` takes over
+   * as usual.
+   */
+  finish(): void {
+    this.wanted = null;
+    for (const voice of this.playing ?? []) voice.element.loop = false;
+  }
+
   /** Stops everything, immediately. For a hard cut such as quitting to menu. */
   stop(): void {
     this.wanted = null;
