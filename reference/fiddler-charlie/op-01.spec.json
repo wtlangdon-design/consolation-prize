@@ -1,0 +1,15 @@
+{
+ "assetId": "fiddler-charlie",
+ "subject": "fiddler",
+ "role": "other",
+ "promptFile": "reference/fiddler-charlie/prompt-01.txt",
+ "out": "art/staging/fiddler-charlie/sheet-01.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/townspeople-110/fiddler/sheet-03.png",
+  "reference/townspeople/nugget-cast-standard.png",
+  "art/staging/private/charlie.png"
+ ],
+ "derivedFrom": "art/staging/townspeople-110/fiddler/sheet-03.png",
+ "authorizedBy": "Tyler, 2026-11-06 (fiddler-charlie cap 2): \"I think the fiddler is perfect to look like Charlie\"; \"proceed with your recommendations\". Photo attached 2026-11-07, kept under art/staging/private/ (ignored); only its hash is recorded."
+}
