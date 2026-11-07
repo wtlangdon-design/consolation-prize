@@ -1,0 +1,16 @@
+{
+ "assetId": "cast-unify",
+ "subject": "undertaker-and-diviner-softer",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-13-undertakers",
+ "promptFile": "reference/cast-unify-31.txt",
+ "out": "art/staging/cast-unify/batch-31/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-31/board.png",
+  "art/staging/cast-unify/batch-31/undertaker-beside-thad.png",
+  "art/staging/cast-unify/batch-31/ozymandia-beside-thad.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

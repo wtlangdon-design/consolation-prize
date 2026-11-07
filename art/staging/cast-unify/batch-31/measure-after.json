@@ -1,0 +1,43 @@
+{
+ "label": "after",
+ "flag": 1.35,
+ "undertaker": {
+  "man": 462.0,
+  "figure": {
+   "texture": 6.58,
+   "head": 62,
+   "shoulders": 110,
+   "height": 190
+  },
+  "thad": {
+   "texture": 3.69,
+   "head": 57,
+   "shoulders": 141,
+   "height": 462
+  },
+  "textureRatio": 1.78,
+  "headRatio": 1.09,
+  "shoulderRatio": 0.78
+ },
+ "ozymandia": {
+  "man": 448.0,
+  "figure": {
+   "texture": 4.88,
+   "head": null,
+   "shoulders": 113,
+   "height": 184
+  },
+  "thad": {
+   "texture": 3.85,
+   "head": 55,
+   "shoulders": 137,
+   "height": 448
+  },
+  "textureRatio": 1.27,
+  "headRatio": null,
+  "shoulderRatio": 0.82
+ },
+ "flags": [
+  "undertaker: texture 6.58 is 1.78x Thad's"
+ ]
+}
