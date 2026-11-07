@@ -244,6 +244,26 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE BARRELS** · PUSH — "Forty empty barrels, stacked very carefully. I will not be the man who un-stacks them."
 **THE BACK DOORS** · OPEN — "Bolted, every one. The town keeps its second mouth shut."
 
+## ROOM 43 — LOWER STREET
+
+*New lines, errata 161 (Tyler, 2026-11-07: "Lower Street and the Lane"), written with doc 97.*
+**THE BELL** · TALK_TO — "I told it it was flat. It took it better than most of the people I've told things to here."
+**THE BELL** · USE — "Not without the mallet, and not without the man who owns the mallet, and ideally not at all."
+**THE CHURCH** · TALK_TO — "I said a short word for my claim. It was received the way the Registrar receives things: in silence, and filed."
+**SUMP'S WINDOW** · OPEN — "It doesn't open. The Registrar's business is done through the door, in the order received."
+**THE TROUGH** · USE — "I washed my face in it. The moon came off on my hands."
+**THE STREET** · PICK_UP — "Lower Street's mud is Main Street's, only less looked at. I'll leave it its privacy."
+
+## ROOM 44 — THE LANE
+
+*New lines, errata 161, written with doc 97.*
+**THE COFFIN BY THE DOOR** · PICK_UP — "It's stock. Taking it would be stealing from the one merchant whose customers never complain."
+**THE COFFIN BY THE DOOR** · OPEN — "Empty, and planed smooth inside. I closed it gently. You do."
+**THE BARBER'S POLE** · TALK_TO — "I asked for a trim. The pole said nothing, which is more than most barbers manage."
+**THE EMPTY STOREFRONT** · OPEN — "Boarded with long nails, by somebody who meant it."
+**OZYMANDIA'S TENT** · PUSH — "You don't push a fortune-teller's tent. She'll have seen it coming, and she'll charge."
+**THE PHOTOGRAPHER'S WINDOW** · TALK_TO — "I asked the gentleman in the portrait for directions. He kept his counsel, and his collar."
+
 ## ROOM 22 — THE ROAD TO THE CLAIMS
 
 **THE BOOT** · PICK_UP — "You do not move the boot. I knew that before anyone told me. Some monuments explain themselves."
