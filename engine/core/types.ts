@@ -2218,6 +2218,8 @@ export interface ManifestFile {
   menu: string;
   /** The act cards shown after the opening, by the ACT they announce. Optional. */
   actCards?: string;
+  /** Errata 158: Monkey Island's cut-aways, extracted from doc 96. */
+  cutaways?: string;
   schema: number;
   font: string;
   scaling: string;
@@ -2612,6 +2614,8 @@ export interface ContentBundle {
    * 84 C). Extracted from doc 57. Empty when the manifest declares none.
    */
   actCards: Map<number, string>;
+  /** Errata 158: the cut-aways, in doc 96's order. Empty when the manifest names none. */
+  cutaways: Cutaway[];
   /** Act openings, by act (ActCardsFile.openings). */
   actOpenings: Map<number, ActOpening>;
   /** Head overlays by id. Empty until something declares one. */
@@ -3084,6 +3088,27 @@ export type RoomTimelineStep = {
    */
   | { do: 'dialogue'; tree: string; completes?: string }
 );
+
+/**
+ * A CUT-AWAY (errata 158; doc 96): the screen leaves Thad and shows `room`,
+ * where `lines` are said by the people there (or by a voice nobody sees),
+ * then comes back exactly where it was. It plays once, when `when` holds and
+ * `done` does not, at the first quiet moment with Thad in another room.
+ * Watching it writes `done` and nothing else.
+ */
+export interface Cutaway {
+  id: string;
+  room: string;
+  when: Condition;
+  done: string;
+  lines: { speaker: string; line: string }[];
+}
+
+export interface CutawaysFile {
+  schema: number;
+  note?: string;
+  cutaways: Cutaway[];
+}
 
 /** content/act-cards.json: the card shown when ACT rises to a key in play. */
 export interface ActCardsFile {

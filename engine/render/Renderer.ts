@@ -124,6 +124,8 @@ export interface Frame {
    * above it. Offset 864 is all sky; 0 is the room as it always is.
    */
   pan?: { offset: number; sky: string; clock?: number } | null;
+  /** Errata 158: a cut-away's room, where the player and everyone moving with him are not. */
+  moversHidden?: boolean;
   /**
    * THE LETTER'S PAGE (errata 128): every line of it said so far, drawn whole
    * over black and held, at `pageAlpha` while it fades. Replaces the speech
@@ -934,6 +936,7 @@ export class Renderer {
     this.performing = frame.performing === true;
     this.choiceView = frame.choiceView ?? {};
     this.greeting = frame.greeting ?? null;
+    this.moversHidden = frame.moversHidden === true;
     // THE PANEL BAND IS CLEARED EVERY FRAME, WHETHER OR NOT A PANEL GOES IN IT.
     //
     // Nothing else repaints it. `drawPlate` covers the PLAY AREA -- rows 0 to
@@ -1502,11 +1505,13 @@ export class Renderer {
     // ERRATA 70 G: a room that hides the player (Room 32 -- he is lying in
     // the dark he is looking at) draws everyone but him.
     const playerHidden = this.state.room.actor === 'hidden';
+    const moversHidden = this.moversHidden;
     const props = (this.state.room.props ?? []).filter((prop) => this.state.flags.test(prop.when));
     // A figure on a loop is drawn where its walk has reached, not standing.
     for (const figure of depthOrder(roomFigures(this.ambient.present.filter((npc) => !npc.loop),
       this.actors.all(), props, this.ambient.departing))) {
       if (playerHidden && figure.mover?.id === this.state.content.actor.id) continue;
+      if (moversHidden && figure.mover) continue;
       if (this.bystandersHidden && (figure.npc || figure.walker)) continue;
       if (figure.walker) {
         this.drawWalker(figure.walker);
@@ -2432,6 +2437,8 @@ export class Renderer {
   }
 
   private panBuffer: HTMLCanvasElement | null = null;
+  /** Errata 158: set per frame from `Frame.moversHidden`. */
+  private moversHidden = false;
 
   /** Where each title item is clickable: its row, a little wider than its words. */
   titleHitboxes(items: TitleItem[]): { id: string; x: number; y: number; width: number; height: number }[] {

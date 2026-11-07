@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "note": "EXTRACTED from docs/96-cutaways.md by tools/extract-content.mjs (errata 158). Each cut-away shows `room` without Thad, says its lines, and comes back exactly where it was; it plays once, at the first quiet moment after `when` holds, with Thad in another room, and writes `done` and nothing else. Change a line in doc 96 and re-extract.",
+  "cutaways": [
+    {
+      "id": "clarion_press",
+      "room": "clarion",
+      "when": {
+        "T_SWINDLED": true
+      },
+      "done": "T_CUTAWAY_CLARION",
+      "lines": [
+        {
+          "speaker": "frame",
+          "line": "‘Eastern gentleman buys Claim Two.’"
+        },
+        {
+          "speaker": "frame",
+          "line": "‘Is delighted.’"
+        },
+        {
+          "speaker": "frame",
+          "line": "Grubb."
+        },
+        {
+          "speaker": "frame",
+          "line": "No. Grubb looks like a misprint."
+        },
+        {
+          "speaker": "frame",
+          "line": "Grubbs. Now it looks like a family."
+        },
+        {
+          "speaker": "frame",
+          "line": "‘Mr. T. Grubbs of Providence.’ Front page. Within the hour."
+        }
+      ]
+    },
+    {
+      "id": "pratts_voice",
+      "room": "pratts_claim",
+      "when": {
+        "T_PRATT_STAKE": true
+      },
+      "done": "T_CUTAWAY_PRATT",
+      "lines": [
+        {
+          "speaker": "cutaway_voice",
+          "line": "Still on it?"
+        },
+        {
+          "speaker": "pratt",
+          "line": "Yep."
+        },
+        {
+          "speaker": "cutaway_voice",
+          "line": "And the Easterner?"
+        },
+        {
+          "speaker": "pratt",
+          "line": "Says it's his claim."
+        },
+        {
+          "speaker": "cutaway_voice",
+          "line": "Keep standing on it."
+        },
+        {
+          "speaker": "pratt",
+          "line": "Who is this?"
+        },
+        {
+          "speaker": "pratt",
+          "line": "…"
+        },
+        {
+          "speaker": "pratt",
+          "line": "Nobody ever says."
+        }
+      ]
+    },
+    {
+      "id": "fanshawe_chairs",
+      "room": "fanshawe_office",
+      "when": {
+        "ACT": {
+          "atLeast": 3,
+          "atMost": 3
+        },
+        "T_FUNERAL_DAY": false
+      },
+      "done": "T_CUTAWAY_FANSHAWE",
+      "lines": [
+        {
+          "speaker": "fanshawe",
+          "line": "He said no."
+        },
+        {
+          "speaker": "fanshawe",
+          "line": "They do, at first. It's the coat. A man in a good coat still thinks he's in Providence."
+        },
+        {
+          "speaker": "fanshawe",
+          "line": "Eleven chairs. Every one of them sat in by a man who said no."
+        },
+        {
+          "speaker": "fanshawe",
+          "line": "Most of them are still looking."
+        },
+        {
+          "speaker": "fanshawe",
+          "line": "Good. Let him look."
+        }
+      ]
+    }
+  ]
+}

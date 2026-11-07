@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
-import type { AmbientFile, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep, SoundsFile,
+import type { AmbientFile, Cutaway, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep, SoundsFile,
 } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
 import { planNear, planRoom } from '../core/BootAssets.ts';
@@ -228,6 +228,13 @@ export class GameScene extends Phaser.Scene {
   private entry: { phase: 'out' | 'black' | 'up'; at: number } | null = null;
   /** Errata 157's pan down from the sky: when it began and how long it runs. */
   private panning: { from: number | null; seconds: number } | null = null;
+  /**
+   * ERRATA 158: a cut-away in progress -- out to black, the other room held
+   * in black until it is whole, its lines, out again, back to where he stood,
+   * held until that room is whole, and up. Null otherwise.
+   */
+  private cut: { cutaway: Cutaway; phase: 'out' | 'black' | 'show' | 'leave' | 'back' | 'up'; at: number;
+    back?: { x: number; y: number; facing: Facing } } | null = null;
   /** Assets the loader could not fetch: a room waits for each to arrive OR fail, never for ever. */
   private readonly loadFailed = new Set<string>();
   /** Scene seconds when the close's last line came down; null until it has. */
@@ -658,6 +665,7 @@ export class GameScene extends Phaser.Scene {
     }
     this.tickRoomFade(now);
     this.tickEntry(now);
+    this.tickCutaway(now);
     if (this.panning) this.markDirty();
     this.tickListening();
     this.tickEnding(now);
@@ -756,7 +764,8 @@ export class GameScene extends Phaser.Scene {
       // Nothing a bystander had to say is consumed: he says it next time.
       const going = this.pendingTree;
       const host = going?.npc ? this.ambient.present.find((each) => each.id === going.npc) : undefined;
-      const fired = !going ? this.ambient.checkApproach(this.actor.x, this.actor.y)
+      const fired = this.cut !== null ? null
+        : !going ? this.ambient.checkApproach(this.actor.x, this.actor.y)
         : host && !host.greetsWithBark ? this.ambient.checkApproach(this.actor.x, this.actor.y, host.id)
           : null;
       if (fired?.cue) this.fireCue(fired.cue);
@@ -925,6 +934,8 @@ export class GameScene extends Phaser.Scene {
       panelDim: this.tuneStart !== null,
       fadeBlack: this.fadeBlack,
       pan: this.panFrame(),
+      // ERRATA 158: in a cut-away's room he is not there, nor anyone who moves with him.
+      moversHidden: this.state.inCutaway,
       page: this.overBlack && this.page.length ? this.page : null,
       pageAlpha: this.pageAlpha,
     });
@@ -1086,7 +1097,7 @@ export class GameScene extends Phaser.Scene {
 
   private onPointerMove(pointer: Phaser.Input.Pointer): void {
     // Nothing to name while the ninety seconds run or a room fades (errata 133).
-    if (this.tuneStart !== null || this.roomFade !== null || this.entry !== null) return;
+    if (this.tuneStart !== null || this.roomFade !== null || this.entry !== null || this.cut !== null) return;
     if (this.beginCard) return;
     if (this.titleMenu && !this.state.menu.isOpen) {
       const { x, y } = this.nativePoint(pointer);
@@ -1217,7 +1228,7 @@ export class GameScene extends Phaser.Scene {
     // An act card holds the screen for its time; a click does not cut it.
     if (this.actCardUntil !== null) return;
     // A fade between rooms, and a cutscene beat after control, are not the player's (errata 133).
-    if (this.roomFade !== null || this.entry !== null || this.carriedCutscene()) return;
+    if (this.roomFade !== null || this.entry !== null || this.cut !== null || this.carriedCutscene()) return;
 
     // The menu takes every click while it is open, including clicks on the
     // verb panel behind it.
@@ -2888,7 +2899,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private onMenuKey(): void {
-    if (this.state.dialogue.isActive || this.beginCard) return;
+    if (this.state.dialogue.isActive || this.beginCard || this.cut !== null) return;
     this.state.menu.escape();
     this.afterMenu();
   }
@@ -3026,6 +3037,7 @@ export class GameScene extends Phaser.Scene {
       entering: this.entry?.phase ?? null,
       black: this.fadeBlack,
       whole: this.roomWhole(),
+      cutaway: this.cut ? { id: this.cut.cutaway.id, phase: this.cut.phase } : null,
       pan: this.panning ? this.panFrame()?.offset ?? null : null,
       bed: this.music.bed,
       ending: this.endingFrom === null ? null
@@ -3458,6 +3470,118 @@ export class GameScene extends Phaser.Scene {
    * nothing of the old room's interface -- the held item, the sentence -- is
    * seen to carry over.
    */
+  /**
+   * THE CUT-AWAYS (errata 158; doc 96; Tyler, 2026-11-07: "You decide, and I
+   * want them included now"). Monkey Island's LeChuck scenes: the screen
+   * leaves Thad, shows somewhere else, and comes back exactly where it was.
+   * One plays once, at the first quiet moment after its `when` holds, with
+   * Thad in some other room. Watching it writes its `done` flag and nothing
+   * else: the visit is `GameState.cutTo`, not an arrival.
+   */
+  private tickCutaway(now: number): void {
+    const timing = this.state.content.ui.timing;
+    const out = timing?.roomFadeOutSeconds ?? 1;
+    const up = timing?.roomFadeInSeconds ?? 1.5;
+    const limit = timing?.roomReadyLimitSeconds ?? 12;
+    const cut = this.cut;
+    if (!cut) {
+      if (!this.quietForCutaway(now)) return;
+      const due = this.state.content.cutaways.find((one) => one.room !== this.state.roomId
+        && this.state.flags.test(one.when) && !this.state.flags.test({ [one.done]: true }));
+      if (!due) return;
+      // Written as it starts, so nothing can play it twice.
+      this.state.flags.applyWrites({ [due.done]: true });
+      this.cut = { cutaway: due, phase: 'out', at: now };
+      this.markDirty();
+      return;
+    }
+    const t = now - cut.at;
+    if (cut.phase === 'out') {
+      this.fadeBlack = Math.min(1, t / out);
+      if (t >= out) {
+        this.fadeBlack = 1;
+        cut.back = { x: this.actor.x, y: this.actor.y, facing: this.actor.facing };
+        this.state.cutTo(cut.cutaway.room);
+        this.showQuietly();
+        this.panelHidden = true;
+        this.cut = { ...cut, phase: 'black', at: now };
+      }
+    } else if (cut.phase === 'black') {
+      this.fadeBlack = 1;
+      if (this.roomWhole() || t >= limit) {
+        // The lines, as a scene: each holds its reading time, Text speed and all.
+        this.sequence.start([
+          { kind: 'wait', seconds: 0.8 },
+          ...cut.cutaway.lines.map((spoken) => ({ kind: 'say' as const, actor: spoken.speaker, line: spoken.line })),
+          { kind: 'wait', seconds: 1.2 },
+        ]);
+        this.cut = { ...cut, phase: 'show', at: now };
+      }
+    } else if (cut.phase === 'show') {
+      this.fadeBlack = Math.max(0, 1 - t / up);
+      if (t >= up && !this.sequence.isRunning && this.sayLines.length === 0) this.cut = { ...cut, phase: 'leave', at: now };
+    } else if (cut.phase === 'leave') {
+      this.fadeBlack = Math.min(1, t / out);
+      if (t >= out) {
+        this.fadeBlack = 1;
+        this.setSay(null);
+        this.state.cutBack();
+        this.showQuietly();
+        if (cut.back) {
+          this.actor.placeAt(cut.back.x, cut.back.y);
+          this.actor.setFacing(cut.back.facing);
+        }
+        this.panelHidden = this.state.room.interface === 'none';
+        this.cut = { ...cut, phase: 'back', at: now };
+      }
+    } else if (cut.phase === 'back') {
+      this.fadeBlack = 1;
+      if (this.roomWhole() || t >= limit) this.cut = { ...cut, phase: 'up', at: now };
+    } else {
+      this.fadeBlack = Math.max(0, 1 - t / up);
+      if (t >= up) this.cut = null;
+    }
+    this.markDirty();
+  }
+
+  /**
+   * Nothing is happening that a cut-away would interrupt (errata 158): no
+   * title, fade, conversation, scene, line, card, accost or walk, a room
+   * with its panel and no clock of its own, and a few seconds since he came in.
+   */
+  private quietForCutaway(now: number): boolean {
+    const room = this.state.room;
+    return !this.titleMenu && this.entry === null && this.roomFade === null && this.opening === null
+      && !this.state.dialogue.isActive && !this.pendingTree && !this.state.menu.isOpen
+      && !this.sequence.isRunning && !this.carried.isRunning && this.performance === null
+      && this.sayLines.length === 0 && this.pendingSay.length === 0 && this.sayAt === null
+      && this.actCard === null && this.actCardUntil === null && this.pendingActCard === null
+      && this.tuneStart === null && !this.panelHidden && !room.timeline?.length && !room.endsGame
+      && room.kind !== 'map' && this.accostTimer === undefined && !this.actor.isWalking
+      && this.panning === null && now - (this.arrivedAt ?? 0) >= 3;
+  }
+
+  /**
+   * A ROOM SHOWN, NOT ENTERED (errata 158): what is drawn and heard changes
+   * to the room the state now names, and nothing else does. No arrival lines,
+   * no accost, no entry sound, no timeline, no mover cleared or placed:
+   * `enterRoomPerformance` is an arrival and a cut-away is not one.
+   */
+  private showQuietly(): void {
+    this.leaveLines();
+    this.loadNear();
+    this.arrivedAt = this.time.now / 1000;
+    this.view.setArrivedAt(this.arrivedAt);
+    this.sayAt = null;
+    this.ambient.arrived();
+    this.musicResumed = false;
+    this.applyMusic();
+    this.cueBed.play(null);
+    this.plate = null;
+    this.hovered = null;
+    this.hoveredName = null;
+  }
+
   /**
    * NEW GAME'S WAY IN (errata 157; Tyler, 2026-11-07: "It needs something
    * other than an immediate jump from the main menu into Thad starting his

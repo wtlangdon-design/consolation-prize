@@ -1464,6 +1464,33 @@
     "dialogue:amb_dogs_owner:root:dogs_owner2"
    ],
    "note": "Thad has told the dog's owner there is a dog on Main Street, and he has gone to it (doc 07 #18: 'This is the resolution. It is worth nothing.'). From then on he stands on Main Street with Bill and has no bark, and 'How's Bill?' is offered. Nothing else reads it, on purpose (errata 110)."
+  },
+  {
+   "id": "T_CUTAWAY_CLARION",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "cutaway:clarion_press"
+   ],
+   "note": "Errata 158 (doc 96): the cut-away to the Clarion, after the swindle has played. Its only effect on the game: it plays once."
+  },
+  {
+   "id": "T_CUTAWAY_PRATT",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "cutaway:pratts_voice"
+   ],
+   "note": "Errata 158 (doc 96): the cut-away to Pratt's claim, after the stake has played. Its only effect on the game: it plays once."
+  },
+  {
+   "id": "T_CUTAWAY_FANSHAWE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "cutaway:fanshawe_chairs"
+   ],
+   "note": "Errata 158 (doc 96): the cut-away to Fanshawe's office, as Part Three opens has played. Its only effect on the game: it plays once."
   }
  ]
 }

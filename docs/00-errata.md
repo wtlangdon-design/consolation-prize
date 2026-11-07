@@ -4293,3 +4293,38 @@ No picture was painted. It is `art/backgrounds/room-01-stage-road-sky.png`, whic
 - `tests/opening-pan.test.ts` checks the order: the sky before any line, the voices under it, and the pan before Thad moves or introduces himself. It also checks that a pan holds the runner, that the sky is the plate's width and joins it with no step, and that Room 1 is not whole without it.
 - The opening gauntlet (`run.mjs`) checks the browser half: no frame of the room is seen before it is whole, the first sight is the sky, and the first line after the voices comes only once the pan has settled. With the sky and the pan stripped out, the last three fail by name; that was run, and the result is recorded in the PR. The in-pieces check could not be made to fail on a local server, because the room arrives too fast to be caught in pieces. It guards the slow connection Tyler saw, and it is unproven here.
 - `tests/sounds.test.ts` now places O-02-S2 in beat 1b. `tests/resolution.test.ts`'s retime arithmetic is over the opening as it was when the formulas merged (errata 61), so it excludes beat 1b.
+
+# 158 · THE CUT-AWAYS — TYLER, 2026-11-07
+
+*Tyler asked whether the game had room for Monkey Island's cut-aways ("like when La Chuck is in the under world ... I think it would be a nice touch"). Three were offered, and he answered: "You decide, and I want them included now so that they're part of my play through." Shown the lines, he answered: "I trust your judgement on the wording since I haven't played through anything yet." This entry is the permission for the new lines. They are written in doc 96, in one voice, under doc 59.*
+
+**A · What a cut-away is.** The screen leaves Thad and fades to black. It holds there until the other room is whole (errata 157's rule), then fades up on that room with nobody's hand on the controls. The lines are said, each on its reading hold, so Text speed applies. Then it fades again and comes back to the room Thad is in. He is exactly where he stood, facing as he faced, with the panel back.
+
+**B · When one plays.** Each plays once, at the first quiet moment after its `when` holds, with Thad in some other room. A quiet moment means none of these: the title, any fade, a conversation or a tree pending, a scene, a carried beat, a line said or queued, an act card, an accost waiting, a walk, the pan, a timeline room, a room without a panel, the map, or the close. He must also have been in the room three seconds (`GameScene.quietForCutaway`).
+
+The three cut-aways, and when each plays:
+- **The Clarion**, after the swindle (`T_SWINDLED`, A3). Frame sets the edition the headline board already shows.
+- **Pratt's claim**, after Thad has caught him pulling up the stake (`T_PRATT_STAKE`, D2). Pratt talks with a voice whose owner is never seen. The voice has its own slate-grey speech colour, `cutaway_voice`.
+- **Fanshawe's office**, in Part Three only (`ACT` 3, which E0b writes), on a day that is not a funeral day, so that he is there.
+
+**C · A visit, not an arrival.** `GameState.cutTo` changes which room is drawn and nothing else:
+- no `onEnter` writes, no first-sight lines, no accost, no entry sound, no timeline;
+- no mover is cleared, and Thad and anyone moving with him are not drawn (`Frame.moversHidden`);
+- no bark fires while it plays, and his standing place and the camera are not touched;
+- a save taken during one, if one ever were, records the room he is really in.
+
+The input, the hover and the menu key are closed while one plays. The only thing a cut-away changes in the story is its own once-only flag: `T_CUTAWAY_CLARION`, `T_CUTAWAY_PRATT` or `T_CUTAWAY_FANSHAWE`. The flag is written as it starts, so nothing can play it twice.
+
+**D · What they will not do (doc 96).**
+- They never hint (invariant 4). The Pratt scene names no money, because D5 is solved by working out how he is paid.
+- Hob is never in one.
+- Fanshawe is in none before the Act II turn.
+- No line assumes a choice the player might not have made.
+
+**E · Seen.** All three were run in a real browser by a review link with their flags set. In each, the cut-away fades out, shows its room and figure, says its lines and comes back: Thad is where he stood, the panel is back, and there are no page errors. Frames: the Clarion with Frame by his press, Pratt by his claim at night, and Fanshawe at his desk under the portrait.
+
+**What holds it:** `tests/cutaways.test.ts` checks four things:
+- the three extracted cut-aways, each with a room, a declared once-only flag written only by the cut-away, and flags it reads that exist;
+- every speaker is a figure in that room, or the one unseen voice;
+- no cut-away contains Hob or his shack, the Pratt scene names no money, and Fanshawe's cut-away is gated to Part Three;
+- a visit is not an arrival: no flag changes, and a save taken during one loads in the room he is really in, where he stood.

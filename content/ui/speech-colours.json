@@ -30,6 +30,10 @@
     "assay_ring": {
       "colour": "#b0a898",
       "note": "The voice from the ring of chairs: a dim, warm grey, a murmur rather than a person -- anonymous by design, and visibly NOT the fallback ink, so an unattributed line still looks unattributed. Chosen by the Room 4 builder from three sets rendered on the room in the game at x6 with the game's own face and outline (Tyler, 2026-11-01: no official playthrough until the game is ready for one, and until then 'I'm expecting you to get everything to its best possible place'). Adjust freely; check-speech-colours keeps it off the fallback."
+    },
+    "cutaway_voice": {
+      "colour": "#8fa0ae",
+      "note": "Errata 158: the voice in Pratt's cut-away, whose owner is never seen. A cool slate grey, darker and bluer than the assay ring's murmur (#b0a898): nobody's colour, and visibly not the fallback ink."
     }
   }
 }

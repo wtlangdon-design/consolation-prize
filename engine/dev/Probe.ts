@@ -187,6 +187,8 @@ export interface FrameReport {
   whole: boolean;
   /** Errata 157's pan: how far above the room the view is, in play-area pixels, or null. */
   pan: number | null;
+  /** Errata 158: the cut-away showing, by id, and its phase; null when none is. */
+  cutaway: { id: string; phase: string } | null;
   /** The music bed playing, by its files, or null: errata 155's title bed is heard, not only requested. */
   bed: string | null;
   /** The close's phase once the game is ending: hold, fade, black; null otherwise (errata 128). */
