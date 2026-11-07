@@ -146,9 +146,25 @@
    "do": "flags",
    "flags": {
     "T_EXECUTOR_NAMED": true,
-    "ACT": 3
+    "ACT": 3,
+    "T_FUNERAL_DONE": true
    },
-   "why": "E6 names the executor (doc 57), in rooms not built; the flag control stands in for it"
+   "why": "E6 names the executor (doc 57), in rooms not built; the flag control stands in for it; and the funeral done, which the door has asked for since its scene was gated on it (doc 57 E9) -- the route never set it, so it stopped arriving"
+  },
+  {
+   "do": "wait",
+   "seconds": 2,
+   "why": "ACT 3 plays Fanshawe's cut-away (errata 158) as soon as it is set; a click during it is swallowed, which is where the door's OPEN went"
+  },
+  {
+   "do": "waitFor",
+   "room": "claims_registrar",
+   "upTo": 120,
+   "why": "back from the cut-away"
+  },
+  {
+   "do": "wait",
+   "seconds": 2
   },
   {
    "do": "verb",

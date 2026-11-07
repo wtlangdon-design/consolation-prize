@@ -3,15 +3,23 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "archive",
  "roomWidth": 1920,
- "branch": "ccr-347d40c6-71r9f9",
- "commit": "bfd085c7ec895887008204b6601844a251189a95",
- "workingTreeClean": true,
- "dirtyAllowed": false,
- "uncommitted": [],
+ "branch": "feat/streets-build",
+ "commit": "ca9cd64dfc48d243ef11146494c71519a03d949e",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "uncommitted": [
+  "M  renders/proofs/boot-hill/contact-sheet.webp",
+  "M  renders/proofs/boot-hill/index.html",
+  "M  renders/proofs/boot-hill/proof.json",
+  "M  renders/proofs/ozymandias-tent/doors/contact-sheet.webp",
+  "M  renders/proofs/ozymandias-tent/doors/life.json",
+  "MM tools/gauntlet/routes/archive.json"
+ ],
  "visualState": null,
  "candidates": [],
  "route": "archive",
  "routeLog": [
+  "the title: clicked NEW GAME",
   "action 1 (wait): waited 2.5s",
   "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
   "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
@@ -31,18 +39,21 @@
   "action 17 (wait): waited 6s",
   "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger",
   "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street",
-  "action 20 (wait): waited 2s",
-  "action 21 (click): clicked screen 554,1052 -- the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)",
-  "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map",
-  "action 23 (wait): waited 1s",
-  "action 24 (click): clicked screen 700,345 -- the registrar's place on the map (content/rooms/town-map.json loc_registrar)",
+  "action 20 (wait): waited 7s",
+  "action 21 (click): clicked main_street/to_claims_road at world 3450,467 -- LOWER STREET, at Main Street's east end (errata 161)",
+  "action 22 (waitFor): reached {\"room\":\"lower_street\"} in room lower_street",
+  "action 23 (wait): waited 3s",
+  "action 24 (click): clicked lower_street/to_claims_registrar at world 300,543 -- THE REGISTRAR'S DOOR",
   "action 25 (waitFor): reached {\"room\":\"claims_registrar\"} in room claims_registrar",
   "action 26 (wait): waited 3s",
-  "action 27 (flags): set {\"T_EXECUTOR_NAMED\":true,\"ACT\":3} -- E6 names the executor (doc 57), in rooms not built; the flag control stands in for it",
-  "action 28 (verb): chose verb OPEN -- ",
-  "action 29 (click): clicked claims_registrar/sealed_archive_door at world 1780,283 -- THE ARCHIVE DOOR, with the executor named: the clerk's exchange, and in (doc 57 E9)",
-  "action 30 (waitFor): reached {\"room\":\"archive\"} in room archive",
-  "action 31 (wait): waited 3s",
+  "action 27 (flags): set {\"T_EXECUTOR_NAMED\":true,\"ACT\":3,\"T_FUNERAL_DONE\":true} -- E6 names the executor (doc 57), in rooms not built; the flag control stands in for it; and the funeral done, which the door has asked for since its scene was gated on it (doc 57 E9) -- the route never set it, so it stopped arriving",
+  "action 28 (wait): waited 2s",
+  "action 29 (waitFor): reached {\"room\":\"claims_registrar\"} in room claims_registrar",
+  "action 30 (wait): waited 2s",
+  "action 31 (verb): chose verb OPEN -- ",
+  "action 32 (click): clicked claims_registrar/sealed_archive_door at world 1780,283 -- THE ARCHIVE DOOR, with the executor named: the clerk's exchange, and in (doc 57 E9)",
+  "action 33 (waitFor): reached {\"room\":\"archive\"} in room archive",
+  "action 34 (wait): waited 3s",
   "action 1 (verb): chose verb LOOK_AT -- ",
   "action 2 (click): clicked archive/mott_file at world 1080,575 -- THE MOTT FILE",
   "action 3 (waitFor): reached {\"says\":\"thad\"} in room archive"
@@ -73,16 +84,16 @@
    ],
    "reportedHeight": 498,
    "expected": 498,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-00.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
    "bounds": [
-    717,
+    711,
     248,
-    516,
+    527,
     550
    ],
    "order": 0,
-   "renderedHeight": 498,
-   "renderedBottom": 745,
+   "renderedHeight": 499,
+   "renderedBottom": 746,
    "file": "raw-captures-ignored/panel-c-mud_far-far.png"
   },
   {
@@ -110,11 +121,11 @@
    ],
    "reportedHeight": 569,
    "expected": 569,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-04.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
    "bounds": [
-    680,
+    673,
     280,
-    590,
+    603,
     628
    ],
    "order": 0,
@@ -129,7 +140,7 @@
   {
    "panel": "B",
    "room": "archive",
-   "clock": 117.9697,
+   "clock": 205.7703,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -145,13 +156,23 @@
     "T_SEEN_MAIN_STREET",
     "T_CASE_DOWN",
     "T_CASE_TAKEN",
-    "T_EXECUTOR_NAMED"
+    "T_EXECUTOR_NAMED",
+    "T_FUNERAL_DONE",
+    "T_CUTAWAY_FANSHAWE"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 3,
-    "T_NUGGET_PIANO_PAID": 0
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -172,9 +193,9 @@
      "drawn": "sprite",
      "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
-      30,
+      24,
       259,
-      540,
+      552,
       575
      ],
      "order": 0,
@@ -198,17 +219,18 @@
    "missingAssets": [],
    "controlWrites": [
     "flag T_EXECUTOR_NAMED=true",
-    "flag ACT=3"
+    "flag ACT=3",
+    "flag T_FUNERAL_DONE=true"
    ],
-   "capturedAt": "2026-11-01T22:31:11.641Z",
+   "capturedAt": "2026-11-07T22:32:06.416Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "aa3eda9b61810ce841f5cb604ce7498d9b56b09cae26d43380070a1575a4503c"
+   "hash": "d6769f4a7cab9109d02648e56e543c840bd3d50204b6ae2584d35f2b08fb030e"
   },
   {
    "panel": "A",
    "room": "archive",
-   "clock": 118.73639999999999,
+   "clock": 206.7869,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -224,13 +246,23 @@
     "T_SEEN_MAIN_STREET",
     "T_CASE_DOWN",
     "T_CASE_TAKEN",
-    "T_EXECUTOR_NAMED"
+    "T_EXECUTOR_NAMED",
+    "T_FUNERAL_DONE",
+    "T_CUTAWAY_FANSHAWE"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 3,
-    "T_NUGGET_PIANO_PAID": 0
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -273,17 +305,18 @@
    "controlWrites": [
     "flag T_EXECUTOR_NAMED=true",
     "flag ACT=3",
+    "flag T_FUNERAL_DONE=true",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-01T22:31:12.542Z",
+   "capturedAt": "2026-11-07T22:32:07.604Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "320cbc092af56d83fca07886abbe8e094bd1cce373a32517e20af4e87755c728"
+   "hash": "4d267cb8da37c04298f5ddf6f33cfa80ffdf5375d59da4e661e0b99546b2ee73"
   },
   {
    "panel": "D",
    "room": "archive",
-   "clock": 126.00269999999999,
+   "clock": 216.8531,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -301,13 +334,23 @@
     "T_CASE_TAKEN",
     "T_HOB_HANDWRITING",
     "T_EXECUTOR_NAMED",
-    "T_SAME_HAND"
+    "T_SAME_HAND",
+    "T_FUNERAL_DONE",
+    "T_CUTAWAY_FANSHAWE"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 3,
-    "T_NUGGET_PIANO_PAID": 0
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -326,11 +369,11 @@
      "height": 570,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-02.png",
+     "from": "art/actors/thad-idle-back/idle-04.png",
      "bounds": [
-      742,
+      761,
       280,
-      675,
+      638,
       629
      ],
      "order": 0,
@@ -355,20 +398,23 @@
    "controlWrites": [
     "flag T_EXECUTOR_NAMED=true",
     "flag ACT=3",
+    "flag T_FUNERAL_DONE=true",
     "cast(false)",
     "cast(true)",
+    "bystanders(false)",
     "stand(975,746)",
     "cast(false)",
     "cast(true)",
     "stand(975,849)",
     "cast(false)",
     "cast(true)",
+    "bystanders(true)",
     "flag T_HOB_HANDWRITING=true"
    ],
-   "capturedAt": "2026-11-01T22:31:19.684Z",
+   "capturedAt": "2026-11-07T22:32:17.544Z",
    "intent": "principal changed state: E9 BY LOOKING (doc 57 E9, invariant 7). Prerequisite: T_HOB_HANDWRITING, set by the flag control. Visible consequence: the file's line is the one about its owner; T_SAME_HAND is written.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "dfa0abe83f9b1bc83315c0d5c26c6ba52db799997a19cc86cbc77e2cf470e349",
+   "hash": "7765c4da01beadd1a763cf75e63563aa286bdb19e6468408698683a62dbe4b26",
    "changedBy": "flags"
   }
  ],
@@ -399,11 +445,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-01T22:31:19.684Z",
+ "at": "2026-11-07T22:32:17.544Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 265380,
+  "bytes": 264982,
   "panels": 5,
   "scale": 0.5
  }
