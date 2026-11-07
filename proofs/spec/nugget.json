@@ -12,6 +12,17 @@
   "actions": [
    {
     "do": "wait",
+    "seconds": 2,
+    "why": "T_SWINDLED plays the Clarion's cut-away (errata 158) the moment it is set"
+   },
+   {
+    "do": "waitFor",
+    "room": "nugget",
+    "upTo": 120,
+    "why": "back from the cut-away"
+   },
+   {
+    "do": "wait",
     "seconds": 1
    },
    {
