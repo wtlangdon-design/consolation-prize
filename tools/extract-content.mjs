@@ -5169,8 +5169,53 @@ function actedDirections() {
   });
 }
 
+// ---------------------------------------------------------------------------
+// THE CUT-AWAYS (errata 158; doc 96). Tyler, 2026-11-07: "You decide, and I
+// want them included now so that they're part of my play through." The lines
+// are doc 96's tables and nowhere else; WHERE and WHEN each plays is routing,
+// and lives here, as the opening's staging does, so no .ts file names a flag
+// and no prose document carries one.
+function cutaways() {
+  const doc = read('docs/96-cutaways.md');
+  const SPEAKER = { FRAME: 'frame', PRATT: 'pratt', FANSHAWE: 'fanshawe', VOICE: 'cutaway_voice' };
+  const ROUTE = {
+    // After the swindle, which is the edition GRUBBS (errata 9).
+    1: { id: 'clarion_press', room: 'clarion', when: { T_SWINDLED: true }, done: 'T_CUTAWAY_CLARION' },
+    // After Thad has caught him pulling up the stake: D2 is open.
+    2: { id: 'pratts_voice', room: 'pratts_claim', when: { T_PRATT_STAKE: true }, done: 'T_CUTAWAY_PRATT' },
+    // Part Three, and only Part Three: E0b writes ACT 3. He is in his office
+    // only on a day that is not a funeral day (content/ambient/fanshawe.json).
+    3: { id: 'fanshawe_chairs', room: 'fanshawe_office', when: { ACT: { atLeast: 3, atMost: 3 }, T_FUNERAL_DAY: false },
+      done: 'T_CUTAWAY_FANSHAWE' },
+  };
+  const sections = doc.split(/^## /m).slice(1).filter((part) => /^\d+ · /.test(part));
+  const out = sections.map((part) => {
+    const number = Number(part.match(/^(\d+)/)[1]);
+    const route = ROUTE[number];
+    if (!route) throw new Error(`doc 96 section ${number}: no route for it in the extractor`);
+    const lines = [];
+    for (const row of part.split('\n')) {
+      const cell = row.match(/^\| (\d+) \| ([A-Z]+) \| "(.+)" \|$/);
+      if (!cell) continue;
+      const speaker = SPEAKER[cell[2]];
+      if (!speaker) throw new Error(`doc 96 section ${number} row ${cell[1]}: unknown speaker ${cell[2]}`);
+      lines.push({ speaker, line: cell[3] });
+    }
+    if (!lines.length) throw new Error(`doc 96 section ${number}: no lines`);
+    return { ...route, lines };
+  });
+  if (out.length !== Object.keys(ROUTE).length) throw new Error(`doc 96: ${out.length} cut-aways, ${Object.keys(ROUTE).length} routed`);
+  return write('content/cutaways.json', {
+    schema: 1,
+    note: 'EXTRACTED from docs/96-cutaways.md by tools/extract-content.mjs (errata 158). Each cut-away shows `room` without '
+      + 'Thad, says its lines, and comes back exactly where it was; it plays once, at the first quiet moment after `when` '
+      + 'holds, with Thad in another room, and writes `done` and nothing else. Change a line in doc 96 and re-extract.',
+    cutaways: out,
+  });
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), ...room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), ...townBarks(), ...townTrees(), reputation(), actedDirections()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), ...townBarks(), ...townTrees(), reputation(), actedDirections(), cutaways()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
   // Doc 58 rule 5: a reply whose spoken lines this pass reads differently is

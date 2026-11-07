@@ -1,6 +1,7 @@
 import type { AssayFile } from './Assay.ts';
 import type {
   ActCardsFile,
+  CutawaysFile,
   ActOpening,
   ActorFile,
   CarriedLightFile,
@@ -211,6 +212,12 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     for (const [act, opening] of Object.entries(file.openings ?? {})) actOpenings.set(Number(act), opening);
   }
 
+  // ERRATA 158: the cut-aways, each checked against the rooms it names.
+  const cutaways = manifest.cutaways ? ((await read(manifest.cutaways)) as CutawaysFile).cutaways : [];
+  for (const cut of cutaways) {
+    if (!rooms.has(cut.room)) throw new Error(`Cut-away ${cut.id}: no room ${cut.room}`);
+  }
+
   if (!rooms.has(manifest.startRoom)) {
     throw new Error(`Start room not found: ${manifest.startRoom}`);
   }
@@ -220,7 +227,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, carriedLight, sounds, paths,
     speechColours, assay, items, fixtures, panel, title, actedDirections,
     combinations, itemIcons,
-    sequences, actCards, actOpenings,
+    sequences, actCards, actOpenings, cutaways,
   };
 }
 

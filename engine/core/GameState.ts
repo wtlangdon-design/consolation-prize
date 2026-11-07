@@ -577,6 +577,13 @@ export class GameState {
    * so a beat that forgets to hand it back cannot strand a later room.
    */
   private cameraFollows: string | null = null;
+  /**
+   * ERRATA 158: the room a cut-away left, and the view there, while one is
+   * showing. A cut-away is NOT AN ARRIVAL: `cutTo` changes which room is
+   * drawn and nothing else -- no `onEnter` writes, no first-sight lines, no
+   * autosave -- and `cutBack` puts the room and the view back as they were.
+   */
+  private cutawayFrom: { room: string; camera: number; follows: string | null } | null = null;
 
   /**
    * Where the followed mover is standing, once a tick.
@@ -586,8 +593,39 @@ export class GameState {
    * coach, and a coach's position is not a resumed standing position.
    */
   followCamera(actor: string, x: number): void {
-    if (this.isMap || this.cameraFollows !== actor) return;
+    if (this.isMap || this.cutawayFrom || this.cameraFollows !== actor) return;
     this.camera = cameraFollow(x, this.roomWidth, this.camera);
+  }
+
+  /** Whether a cut-away is showing (errata 158). */
+  get inCutaway(): boolean {
+    return this.cutawayFrom !== null;
+  }
+
+  /**
+   * ERRATA 158: shows `roomId` without arriving in it, the view at its middle.
+   * The player is not there; the scene draws nobody of his.
+   */
+  cutTo(roomId: string): void {
+    if (!this.content.rooms.has(roomId)) throw new Error(`Unknown room: ${roomId}`);
+    if (this.cutawayFrom) return;
+    this.cutawayFrom = { room: this.currentRoomId, camera: this.camera, follows: this.cameraFollows };
+    this.currentRoomId = roomId;
+    this.boxCache = null;
+    this.cameraFollows = null;
+    const width = roomWidth(this.content.rooms.get(roomId)?.size);
+    this.camera = cameraAt(width / 2, width);
+  }
+
+  /** Errata 158: back to the room the cut-away left, and the view as it was. */
+  cutBack(): void {
+    const from = this.cutawayFrom;
+    if (!from) return;
+    this.cutawayFrom = null;
+    this.currentRoomId = from.room;
+    this.boxCache = null;
+    this.camera = from.camera;
+    this.cameraFollows = from.follows;
   }
 
   /** Who the view is tracking. The scene reads it to know whose x to send. */
@@ -597,7 +635,8 @@ export class GameState {
 
   /** Called every frame by the scene. Never while the map is up. */
   rememberStanding(x: number, y: number): void {
-    if (this.isMap) return;
+    // He is not in a cut-away's room, so where he stands is not its fact.
+    if (this.isMap || this.cutawayFrom) return;
     this.standing.set(this.currentRoomId, [Math.round(x), Math.round(y)]);
   }
 
@@ -1304,8 +1343,10 @@ export class GameState {
   }
 
   save(slot: number | null = null): void {
+    // A SAVE NEVER LANDS IN A CUT-AWAY (errata 158): he was never there.
+    const room = this.cutawayFrom?.room ?? this.currentRoomId;
     this.saves.write({
-      room: this.currentRoomId,
+      room,
       inventory: [...this.inventory],
       reputation: this.reputation,
       objectStates: Object.fromEntries(this.objectStates),
@@ -1315,7 +1356,7 @@ export class GameState {
       dialogueProgress: this.dialogue.progressSnapshot(),
       dialoguePosition: this.dialogue.positionSnapshot(),
       duel: this.dialogue.duelSnapshot(),
-      position: this.standing.get(this.currentRoomId),
+      position: this.standing.get(room),
     }, slot);
   }
 
@@ -1472,6 +1513,7 @@ export class GameState {
   }
 
   private restoreFrom(save: SaveFile): boolean {
+    this.cutawayFrom = null;
     if (!this.content.rooms.has(save.room)) return false;
 
     this.flags.restore(save.flags);
@@ -1533,6 +1575,7 @@ export class GameState {
   }
 
   reset(): void {
+    this.cutawayFrom = null;
     this.standing.clear();
     this.flags.reset();
     this.puzzles = new Map();
