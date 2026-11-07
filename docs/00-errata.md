@@ -3754,3 +3754,14 @@ They are the duel audit's findings 4, 6, 3a and 9c, recommended in errata 130 an
 - the repeat offers the counter and the duel is still lost;
 - both sparrings perform every pair they grant, each boast by Thad and answered by the teacher;
 - the runner says whom each point is for, and Room 4's slate holds five marks a side within THE SCOREBOARD.
+
+# 137 · FRAME AND THE THREE JUDGES ARE TOO THICK; THE OPENING STAYS AS IT IS — TYLER, 2026-11-06
+
+**A · Leaner.** Tyler: "Ignatius and the 3 judges are all really thick compared to Thad. They look like dwarves vs characters from this same universe of characters." All four are within 5% of the room's man in height. They fail on build: broader shoulders than Thad, and a larger head at the same height. `reference/leaner-cast/brief.md` briefs the image session:
+- one cast-unify sheet for Frame;
+- one sheet for the three judges, standing (Duel Three's porch) and seated (the Nugget's back room);
+- one correction each if a sheet plainly misses.
+
+Up to 4 operations come from cast-unify's remaining 14 (errata 111, 112 C). The side-by-sides are in the brief's folder. Doc 55 §8 gains the rule: build is judged beside Thad, not only height.
+
+**B · The opening's arrival stays as built.** The coach has already stopped and the case is already in the mud in the first frame, where doc 17 has the coach rolling in and the case falling (the bookends audit, finding 12). Tyler: "no I like it as is." It is not an open item.
