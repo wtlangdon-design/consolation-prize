@@ -1,0 +1,13 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game, a comedy in an 1850s frontier gold town: left to right, the hero (THE STYLE), then A (the undertaker) and B (the gold diviner). Their designs are FINAL: keep each one's face, hair, age, clothes and colours EXACTLY as in Image 1.
+
+Images 2 and 3 show A and B as drawn for the game now, each in their own room beside the hero at game size. What is wrong: both are drawn with MORE DETAIL than the hero -- harder shading, fine lines in the faces, B's beaded necklace with its pendant and her rings -- and A's shoulders are broader than the hero's. Keep their poses; change only how they are drawn.
+
+DRAW THEM AS SIMPLY AS THE HERO IS DRAWN: flat, soft shading with only one or two tones on each surface; no fine lines or wrinkles in the faces, the eyes and mouth as simple as the hero's; the same size of square pixel as the hero and no smaller detail than his; the same dark outline. A's shoulders no wider than an ordinary lean man's, as the hero's are. B's necklace is just a few plain beads, no pendant; no rings.
+
+Both are drawn from the WAIST UP, cut off in ONE straight horizontal line across the waist where their furniture's back edge hides them (the furniture is already painted: draw none). Nothing of them comes below that line.
+
+THE SHEET: flat pure magenta (#FF00FF) background. Two rows, one character per row, each shown FOUR times side by side, every figure in a row the same size, separated by clear magenta space:
+- Row 1, A, the undertaker, in his apron, holding a wooden woodworking hand plane UP AT HIS CHEST in both hands in EVERY pose, the plane level: 1. looking down at the plane, turning it in his hands; 2. holding it up to his eye, sighting along its sole; 3. running his thumb along the edge of its blade, carefully; 4. looking up at the viewer, the plane at his chest.
+- Row 2, B, the gold diviner. Her hands are up at her head: 1. the fingertips of both hands touching her temples, eyes closed; 2. the same, humming, lips rounded; 3. one hand raised high above her head, eyes wide, pronouncing, the other fingertips still at her temple; 4. one hand held out toward the viewer at chest height, palm up, for the fee, the other fingertips at her temple.
+
+RULES: only the plane, in his hands. Crisp pixel edges against the magenta, no glow, no blur, no shadows, no text, no numbers, no border.

@@ -3,7 +3,8 @@
 // man is super weirdly short and stout. The man in the blue jacket is a bad
 // cutout. PLEASE catch things like this."). Drawn as the engine draws them --
 // bottom-centre on x, y, scaled by the room's man over figureHeight -- on the
-// room's plate, with Thad standing beside each at the same depth for scale.
+// room's plate, with Thad standing beside each at the same depth for scale, and
+// punched out by the occlusion plane the figure is assigned (clipPlane).
 //
 //   node --experimental-strip-types tools/art/figure-audit-sheets.mjs <out dir>
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -26,7 +27,13 @@ for (const p of m.ambient) {
     let man = 0;
     if (r.walkBoxes) { const near = new WalkBoxes(r.walkBoxes, () => true).nearest(pl.x, pl.y); man = near ? heightIn(near.box, pl.y) : 0; }
     const scale = pl.sprite.figureHeight ? man * (pl.sprite.stature ?? 1) / pl.sprite.figureHeight : 1;
-    jobs.push({ id: n.id, room: pl.room, plate: r.background, sheet: pl.sprite.sheet, frame: pl.sprite.frames[0], x: pl.x, y: pl.y, scale, man });
+    // AND WHAT STANDS IN FRONT OF HIM (errata 135): a figure assigned an occlusion plane (clipPlane) is
+    // punched out by that plane's mask, as Renderer.drawOccluded does -- Ozymandia's ball is in front of
+    // her. Drawn without it, a sheet showed her in front of the ball, which the game never does.
+    const plane = n.clipPlane !== undefined
+      ? (r.occlusionPlanes ?? []).find((one) => one.level === n.clipPlane && !one.maskPending) : undefined;
+    jobs.push({ id: n.id, room: pl.room, plate: r.background, sheet: pl.sprite.sheet, frame: pl.sprite.frames[0], x: pl.x, y: pl.y, scale, man,
+      ...(plane ? { mask: plane.mask } : {}) });
   }
 }
 const out = process.argv[2];
@@ -50,7 +57,11 @@ for j in jobs:
         if tx<0: tx=left+W+12
         plate.alpha_composite(t,(tx,j['y']-t.height+1)); l2=min(left,tx); r2=max(left+W,tx+t.width)
     else: l2,r2=left,left+W
-    plate.alpha_composite(f,(left,top))
+    layer=Image.new('RGBA',plate.size,(0,0,0,0)); layer.alpha_composite(f,(left,top))
+    if j.get('mask'):
+        hole=Image.open(j['mask']).convert('L')
+        a=layer.getchannel('A'); a.paste(0,(0,0),hole); layer.putalpha(a)
+    plate.alpha_composite(layer)
     box=(max(0,l2-20),max(0,top-20),min(plate.width,r2+20),min(plate.height,j['y']+24))
     c=plate.crop(box); c=c.resize((c.width*2,c.height*2),Image.NEAREST)
     d=ImageDraw.Draw(c); d.rectangle((0,0,c.width,22),fill=(0,0,0)); d.text((4,4),j['id']+' / '+j['room'],fill=(255,255,0))

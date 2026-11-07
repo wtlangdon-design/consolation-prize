@@ -29791,6 +29791,134 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-07T01:07:29.034Z"
+  },
+  {
+   "attempt": 61,
+   "role": "canonical-design",
+   "assetId": "cast-unify",
+   "subject": "undertaker-and-diviner-softer",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/cast-master/master-02.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/cast-unify-31.txt",
+   "promptHash": "f6a39290c72361b24170f976524bd7ad1ed54e699fc3e250417f93553b16508f",
+   "references": [
+    {
+     "path": "art/staging/cast-unify/batch-31/board.png",
+     "hash": "41a4b6387d16840366bf728d87dc9390d031f779c50c53f60339ccdf0f62eca9",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-31/undertaker-beside-thad.png",
+     "hash": "6d531b8038025f0f13427be5856de8774a641428b14be957e396091a814bc805",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-31/ozymandia-beside-thad.png",
+     "hash": "e206484de9ea3c6be24be849fa7eadb79dde750d8efb6128209afa90b91188f9",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-13-undertakers",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "41a4b6387d16840366bf728d87dc9390d031f779c50c53f60339ccdf0f62eca9",
+   "sourcePath": "art/staging/cast-unify/batch-31/board.png",
+   "out": "art/staging/cast-unify/batch-31/sheet.png",
+   "outputHash": "bcabd97d1f7987f5a96a4e31ec41098ce395c01a878fee46420145ed1b2b5453",
+   "bytes": 1505270,
+   "usage": {
+    "input_tokens": 10052,
+    "input_tokens_details": {
+     "image_tokens": 9456,
+     "text_tokens": 596
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 11603
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-07T01:08:59.044Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-07T01:08:59.067Z"
   }
  ],
  "promotions": [
