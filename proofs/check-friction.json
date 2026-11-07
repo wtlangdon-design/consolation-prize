@@ -217,6 +217,12 @@
    "date": "2026-11-06",
    "kind": "loosened",
    "why": "Not a misfire: the mark-beat test required the pencil first after a right counter. Errata 131 D holds Duel Three's doc 03 silence before the pencil when a won ending opens on one, so the mark is second there and first everywhere else; the test now says exactly that, and tests/duel-staging.test.ts asserts the whole order."
+  },
+  {
+   "check": "tests/room-31.test.ts",
+   "date": "2026-11-06",
+   "kind": "loosened",
+   "why": "It required the coffin's refusal before the turnout to be doc 49's line. Errata 127 (Tyler: 'Yes, write and ship them') puts doc 94's 'not yet' line there, because the fairness audit found doc 49's ('It is in use… The paperwork is immaculate.') read as a final no. The test now requires doc 94's line; nothing about when the coffin opens is loosened."
   }
  ]
 }
