@@ -3629,3 +3629,19 @@ Tyler: "Read reference/fiddler-charlie/brief.md and do it." He attached the phot
   - `renders/fiddler-charlie-beside-thad-in-the-nugget@1x.png` and `@2x.png` show him beside Thad at game size.
 
 **Waiting on Tyler:** this is a likeness, so his eye is the test, before the merge. One correction remains under the cap.
+
+---
+
+# 129 · HOB IS CLICKABLE, AND NOBODY IS WALKED ONTO HIM — the bookends audit, finding 4 (Tyler, 2026-11-06: "proceed with your recommendations")
+
+**The fault.** At control in Room 1, Hob stands in front of the only exit. The exit opens on `T_HOB_GONE`, which needs `T_HOB_SPOKEN`, which only LOOK or LISTEN on his 60×73 lamp wrote.
+- **His body was not a target** (movers carry no rect; doc 36 Q60). Hovering him showed a bare "Look at", and LOOK and TALK TO on him did nothing at all. Doc 17's written TALK TO override, "He's walking. I'll let him walk…", could not be reached.
+- **A click on the gap behind him walked Thad into him.** The floor under the gap is where Hob stands, so the two were left overlapping: "nobody stands on anybody", broken by the first free click of the game.
+
+**The fix: routing and geometry, no new lines.**
+- **The lamp declares who carries it** (`"heldBy": "hob"`, written by `tools/extract-content.mjs`). A click on that figure is a click on the lamp. Hovering him names THE WATCHMAN'S LAMP. LOOK and LISTEN on him speak to him exactly as the lamp does (`T_HOB_SPOKEN`). TALK TO plays the override. He wins over scenery larger than himself (the mud he stands in), by the rule `personAt` already uses for people. His body is reckoned from his feet and drawn height (`GameScene.targetUnder`), not from the renderer's dev-only rectangles.
+- **A walk never ends on a standing mover** (`engine/core/Standing.ts`). If a walk's end, after it is snapped to the floor, falls inside a standing figure's footprint, it moves to his side, the side Thad is coming from, a body's width clear. The same holds for the point an object's approach walks to. Only movers count (Hob, the coach's team); the town's ambient figures keep their authored stands.
+
+**Not done, and why.** Doc 17 beat 9 stages the lamp *crossing* the road, and the lamp's lines say "crossing" while Hob stands still. Staging the crossing as written was the other option. It changes Q63's ruled standing gate (Hob blocks the exit until addressed), so it is left for Tyler.
+
+**What holds it:** `tests/hob-gate.test.ts`. A walk that would end on Hob ends beside him on the near side. A walk clear of him, or at another depth, is untouched. The lamp names Hob as its carrier, and keeps its TALK TO override and its `T_HOB_SPOKEN` writes. Removing `heldBy` or the clearance fails it.
