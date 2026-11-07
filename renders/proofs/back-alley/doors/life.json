@@ -2,9 +2,9 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "back_alley",
- "commit": "3607ecda58c2e339720789e4219092b073192373",
- "workingTreeClean": true,
- "dirtyAllowed": false,
+ "commit": "12cc65cfdc13b29d09355636eac876732498ffc2",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
  "visualState": null,
  "objectStates": null,
  "pace": 1,
@@ -12,170 +12,138 @@
  "entryRoute": "back-alley",
  "warped": false,
  "lifeRoute": "back-alley-doors",
- "durationSeconds": 170.75,
+ "durationSeconds": 175.34,
  "events": [
   {
-   "t": 4.73,
-   "line": "entry route back-alley: 35 action(s)"
+   "t": 6.24,
+   "line": "entry route back-alley: 26 action(s)"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
+   "line": "the title: clicked NEW GAME"
+  },
+  {
+   "t": 156.61,
    "line": "action 1 (wait): waited 2.5s"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 13 (wait): waited 3s"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 17 (wait): waited 6s"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
   },
   {
-   "t": 151.67,
+   "t": 156.61,
    "line": "action 20 (wait): waited 7s"
   },
   {
-   "t": 151.67,
-   "line": "action 21 (click): clicked world 1900,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+   "t": 156.61,
+   "line": "action 21 (click): clicked main_street/to_claims_road at world 3450,467 -- LOWER STREET, at Main Street's east end (errata 161)"
   },
   {
-   "t": 151.67,
-   "line": "action 22 (wait): waited 1s"
+   "t": 156.61,
+   "line": "action 22 (waitFor): reached {\"room\":\"lower_street\"} in room lower_street"
   },
   {
-   "t": 151.67,
-   "line": "action 23 (waitFor): reached {} in room main_street"
+   "t": 156.61,
+   "line": "action 23 (wait): waited 3s"
   },
   {
-   "t": 151.67,
-   "line": "action 24 (click): clicked world 1300,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+   "t": 156.61,
+   "line": "action 24 (click): clicked lower_street/to_back_alley at world 575,510 -- THE ALLEY"
   },
   {
-   "t": 151.67,
-   "line": "action 25 (wait): waited 1s"
+   "t": 156.61,
+   "line": "action 25 (waitFor): reached {\"room\":\"back_alley\"} in room back_alley"
   },
   {
-   "t": 151.67,
-   "line": "action 26 (waitFor): reached {} in room main_street"
+   "t": 156.61,
+   "line": "action 26 (wait): waited 3s"
   },
   {
-   "t": 151.67,
-   "line": "action 27 (click): clicked world 700,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
-  },
-  {
-   "t": 151.67,
-   "line": "action 28 (wait): waited 1s"
-  },
-  {
-   "t": 151.67,
-   "line": "action 29 (waitFor): reached {} in room main_street"
-  },
-  {
-   "t": 151.67,
-   "line": "action 30 (click): clicked world 150,830 -- down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
-  },
-  {
-   "t": 151.67,
-   "line": "action 31 (wait): waited 1s"
-  },
-  {
-   "t": 151.67,
-   "line": "action 32 (waitFor): reached {} in room main_street"
-  },
-  {
-   "t": 151.67,
-   "line": "action 33 (click): clicked main_street/to_back_alley at world 29,510 -- THE BACK LOTS"
-  },
-  {
-   "t": 151.67,
-   "line": "action 34 (waitFor): reached {\"room\":\"back_alley\"} in room back_alley"
-  },
-  {
-   "t": 151.67,
-   "line": "action 35 (wait): waited 3s"
-  },
-  {
-   "t": 151.73,
+   "t": 156.63,
    "line": "in back_alley; life route: 17 action(s)"
   },
   {
-   "t": 152.43,
+   "t": 157.41,
    "line": "capture 00-arrived: room back_alley, says null, options 0, control null"
   },
   {
-   "t": 152.83,
-   "line": "action 1 (click): clicked back_alley/to_main_street at world 190,480 -- the gap -- out"
+   "t": 158,
+   "line": "action 1 (click): clicked back_alley/to_main_street at world 190,480 -- out, to Lower Street"
   },
   {
-   "t": 153.25,
-   "line": "action 1 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+   "t": 158.54,
+   "line": "action 1 (waitFor): reached {\"room\":\"lower_street\"} in room lower_street"
   },
   {
-   "t": 154.29,
+   "t": 159.74,
    "trace": {
     "says": null,
     "control": null,
@@ -183,45 +151,45 @@
     "performing": false,
     "options": 0,
     "thad": [
-     110,
-     700
+     575,
+     735
     ],
     "moving": false
    }
   },
   {
-   "t": 155.25,
+   "t": 160.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     575,
+     735
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 160.6,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 155.28,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     110,
-     700
-    ],
-    "moving": false
-   }
+   "t": 161.32,
+   "line": "capture 01-out: room lower_street, says null, options 0, control null"
   },
   {
-   "t": 155.94,
-   "line": "capture 01-out: room main_street, says null, options 0, control null"
+   "t": 161.98,
+   "line": "action 1 (click): clicked lower_street/to_back_alley at world 575,510 -- and back in by THE ALLEY"
   },
   {
-   "t": 156.23,
-   "line": "action 1 (click): clicked main_street/to_back_alley at world 29,510 -- and back by THE BACK LOTS"
-  },
-  {
-   "t": 156.81,
+   "t": 162.38,
    "line": "action 1 (waitFor): reached {\"room\":\"back_alley\"} in room back_alley"
   },
   {
-   "t": 157.84,
+   "t": 163.47,
    "trace": {
     "says": null,
     "control": null,
@@ -236,38 +204,38 @@
    }
   },
   {
-   "t": 158.81,
+   "t": 164.47,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 164.5,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 158.84,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     740
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 159.37,
+   "t": 165.11,
    "line": "capture 01-in: room back_alley, says null, options 0, control null"
   },
   {
-   "t": 159.71,
-   "line": "action 1 (click): clicked back_alley/to_main_street at world 190,480 -- the gap -- out"
+   "t": 165.74,
+   "line": "action 1 (click): clicked back_alley/to_main_street at world 190,480 -- out, to Lower Street"
   },
   {
-   "t": 160.08,
-   "line": "action 1 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+   "t": 166.26,
+   "line": "action 1 (waitFor): reached {\"room\":\"lower_street\"} in room lower_street"
   },
   {
-   "t": 161.13,
+   "t": 167.44,
    "trace": {
     "says": null,
     "control": null,
@@ -275,45 +243,45 @@
     "performing": false,
     "options": 0,
     "thad": [
-     110,
-     700
+     575,
+     735
     ],
     "moving": false
    }
   },
   {
-   "t": 162.08,
+   "t": 168.36,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     575,
+     735
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.39,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 162.11,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     110,
-     700
-    ],
-    "moving": false
-   }
+   "t": 169.01,
+   "line": "capture 02-out: room lower_street, says null, options 0, control null"
   },
   {
-   "t": 162.68,
-   "line": "capture 02-out: room main_street, says null, options 0, control null"
+   "t": 169.51,
+   "line": "action 1 (click): clicked lower_street/to_back_alley at world 575,510 -- and back in by THE ALLEY"
   },
   {
-   "t": 163.01,
-   "line": "action 1 (click): clicked main_street/to_back_alley at world 29,510 -- and back by THE BACK LOTS"
-  },
-  {
-   "t": 163.53,
+   "t": 169.98,
    "line": "action 1 (waitFor): reached {\"room\":\"back_alley\"} in room back_alley"
   },
   {
-   "t": 164.56,
+   "t": 171.05,
    "trace": {
     "says": null,
     "control": null,
@@ -328,26 +296,26 @@
    }
   },
   {
-   "t": 165.54,
+   "t": 171.99,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     260,
+     740
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.07,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 165.58,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     260,
-     740
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 166.11,
+   "t": 172.69,
    "line": "capture 02-in: room back_alley, says null, options 0, control null"
   }
  ],
@@ -355,11 +323,11 @@
   {
    "name": "00-arrived",
    "why": null,
-   "t": 152.4,
+   "t": 157.4,
    "file": "renders/proofs/back-alley/doors/raw-captures-ignored/00-arrived.png",
-   "hash": "73c8e555744aec70f9e8cc92c1c1fa319b1241499276c71664487153b13cf1aa",
+   "hash": "a86d6f5a19a9170e3d41767d694d1b01266ba17fabc7def882f70aa2d19c8605",
    "room": "back_alley",
-   "clock": 151.83960000000002,
+   "clock": 156.7668,
    "control": null,
    "says": null,
    "options": 0,
@@ -380,10 +348,15 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "camera": 0,
    "movers": {
@@ -399,9 +372,9 @@
      "drawn": "sprite",
      "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
-      114,
+      110,
       458,
-      292,
+      299,
       311
      ],
      "order": 0,
@@ -411,8 +384,8 @@
    },
    "states": {},
    "cues": {
-    "last": null,
-    "count": 0
+    "last": "O-09-M",
+    "count": 3
    },
    "steps": {},
    "caption": false,
@@ -431,7 +404,23 @@
      "drawn": "art/actors/room-20-cat.png",
      "candidate": false,
      "loaded": true,
-     "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+     "hash": "f675de9e41efd264e8a83981681eeec624b5ae5fbd564fd4575d1b1223ec336a"
+    },
+    {
+     "key": "art/actors/dogs-owner.png",
+     "path": "art/actors/dogs-owner.png",
+     "drawn": "art/actors/dogs-owner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ad0fefa8e68f6f8d13e7fced019c0decb14cd6200573a1adfc916c50922ff912"
+    },
+    {
+     "key": "art/actors/room-20-hob.png",
+     "path": "art/actors/room-20-hob.png",
+     "drawn": "art/actors/room-20-hob.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e1c4483b567cfff129a9e4ce289c494a33aabaa08da3eda2e45fab5831c4fb52"
     }
    ],
    "stubs": [],
@@ -440,11 +429,11 @@
   {
    "name": "01-out",
    "why": null,
-   "t": 155.91,
+   "t": 161.24,
    "file": "renders/proofs/back-alley/doors/raw-captures-ignored/01-out.png",
-   "hash": "87311c32a32cd90110313a80a096f4d445ac3dcf2e2eb76d75cb3687c395335d",
-   "room": "main_street",
-   "clock": 155.3727,
+   "hash": "ab718dd5d4d25cea340cf3ddd59a6bd604e3fb942febe7e2b5ebab2892a605a8",
+   "room": "lower_street",
+   "clock": 160.4834,
    "control": null,
    "says": null,
    "options": 0,
@@ -465,118 +454,63 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "camera": 0,
    "movers": {
     "thad": {
      "at": [
-      110,
-      700
+      575,
+      735
      ],
-     "facing": "right",
+     "facing": "front",
      "clip": "idle",
-     "height": 148,
+     "height": 278,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-00.png",
+     "from": "art/actors/thad-idle-front/idle-01.png",
      "bounds": [
-      33,
-      552,
-      153,
-      163
+      417,
+      457,
+      315,
+      307
      ],
      "order": 0,
-     "clipLevel": 2,
+     "clipLevel": 0,
      "fallback": false
     }
    },
-   "states": {
-    "to_assay_office": "shut",
-    "posted_notices": "ordinary",
-    "company_sign": "weathered"
-   },
+   "states": {},
    "cues": {
-    "last": null,
-    "count": 0
+    "last": "O-09-M",
+    "count": 3
    },
    "steps": {},
    "caption": false,
    "assets": [
     {
-     "key": "bg:main_street",
-     "path": "art/backgrounds/room-02-main-street.png",
-     "drawn": "art/backgrounds/room-02-main-street.png",
+     "key": "bg:lower_street",
+     "path": "art/backgrounds/room-43-lower-street.png",
+     "drawn": "art/backgrounds/room-43-lower-street.png",
      "candidate": false,
      "loaded": true,
-     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+     "hash": "8252cedddf50a1906613c16e1390cd230ba8527449b2732784bb02e795f018e5"
     },
     {
-     "key": "art/masks/room-02-plane-1.png",
-     "path": "art/masks/room-02-plane-1.png",
-     "drawn": "art/masks/room-02-plane-1.png",
+     "key": "art/actors/room-43-bell-ringer.png",
+     "path": "art/actors/room-43-bell-ringer.png",
+     "drawn": "art/actors/room-43-bell-ringer.png",
      "candidate": false,
      "loaded": true,
-     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
-    },
-    {
-     "key": "art/masks/room-02-plane-2.png",
-     "path": "art/masks/room-02-plane-2.png",
-     "drawn": "art/masks/room-02-plane-2.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
-    },
-    {
-     "key": "art/actors/ambient-dog.png",
-     "path": "art/actors/ambient-dog.png",
-     "drawn": "art/actors/ambient-dog.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
-    },
-    {
-     "key": "art/actors/ambient-letter-writer.png",
-     "path": "art/actors/ambient-letter-writer.png",
-     "drawn": "art/actors/ambient-letter-writer.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
-    },
-    {
-     "key": "art/actors/ambient-map-seller.png",
-     "path": "art/actors/ambient-map-seller.png",
-     "drawn": "art/actors/ambient-map-seller.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
-    },
-    {
-     "key": "art/actors/ambient-pie-woman.png",
-     "path": "art/actors/ambient-pie-woman.png",
-     "drawn": "art/actors/ambient-pie-woman.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
-    },
-    {
-     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
-     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
-     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
-    },
-    {
-     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
-     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
-     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+     "hash": "bd1e94f76e2aed2da9d556856d98ac70c324e3d0aef29c4cacfc814a83745bea"
     }
    ],
    "stubs": [],
@@ -585,11 +519,11 @@
   {
    "name": "01-in",
    "why": null,
-   "t": 159.35,
+   "t": 165.1,
    "file": "renders/proofs/back-alley/doors/raw-captures-ignored/01-in.png",
-   "hash": "86c0cad27dd1da930adbf6731680b20a79551d66f5114468d87667af6a97ed46",
+   "hash": "921fbcf17a43341d05ed30839bb9bd2515ca9522b9cf16269c9f576111401ebb",
    "room": "back_alley",
-   "clock": 158.8893,
+   "clock": 164.3666,
    "control": null,
    "says": null,
    "options": 0,
@@ -610,10 +544,15 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "camera": 0,
    "movers": {
@@ -627,11 +566,11 @@
      "height": 282,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-03.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
-      114,
+      110,
       458,
-      292,
+      299,
       311
      ],
      "order": 0,
@@ -641,8 +580,8 @@
    },
    "states": {},
    "cues": {
-    "last": null,
-    "count": 0
+    "last": "O-09-M",
+    "count": 3
    },
    "steps": {},
    "caption": false,
@@ -661,7 +600,23 @@
      "drawn": "art/actors/room-20-cat.png",
      "candidate": false,
      "loaded": true,
-     "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+     "hash": "f675de9e41efd264e8a83981681eeec624b5ae5fbd564fd4575d1b1223ec336a"
+    },
+    {
+     "key": "art/actors/dogs-owner.png",
+     "path": "art/actors/dogs-owner.png",
+     "drawn": "art/actors/dogs-owner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ad0fefa8e68f6f8d13e7fced019c0decb14cd6200573a1adfc916c50922ff912"
+    },
+    {
+     "key": "art/actors/room-20-hob.png",
+     "path": "art/actors/room-20-hob.png",
+     "drawn": "art/actors/room-20-hob.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e1c4483b567cfff129a9e4ce289c494a33aabaa08da3eda2e45fab5831c4fb52"
     }
    ],
    "stubs": [],
@@ -670,11 +625,11 @@
   {
    "name": "02-out",
    "why": null,
-   "t": 162.65,
+   "t": 169,
    "file": "renders/proofs/back-alley/doors/raw-captures-ignored/02-out.png",
-   "hash": "c8d814c812700ca721104ff54cb7c7733998e07d945b4f4789cd0b1bb0639383",
-   "room": "main_street",
-   "clock": 162.1725,
+   "hash": "5e4ac59be7cbd72ed33d73f1ef69553d4af2e9b304f15b13ac373d50b4826574",
+   "room": "lower_street",
+   "clock": 168.24970000000002,
    "control": null,
    "says": null,
    "options": 0,
@@ -695,118 +650,63 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "camera": 0,
    "movers": {
     "thad": {
      "at": [
-      110,
-      700
+      575,
+      735
      ],
-     "facing": "right",
+     "facing": "front",
      "clip": "idle",
-     "height": 148,
+     "height": 278,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-front/idle-01.png",
      "bounds": [
-      33,
-      552,
-      153,
-      163
+      417,
+      457,
+      315,
+      307
      ],
      "order": 0,
-     "clipLevel": 2,
+     "clipLevel": 0,
      "fallback": false
     }
    },
-   "states": {
-    "to_assay_office": "shut",
-    "posted_notices": "ordinary",
-    "company_sign": "weathered"
-   },
+   "states": {},
    "cues": {
-    "last": null,
-    "count": 0
+    "last": "O-09-M",
+    "count": 3
    },
    "steps": {},
    "caption": false,
    "assets": [
     {
-     "key": "bg:main_street",
-     "path": "art/backgrounds/room-02-main-street.png",
-     "drawn": "art/backgrounds/room-02-main-street.png",
+     "key": "bg:lower_street",
+     "path": "art/backgrounds/room-43-lower-street.png",
+     "drawn": "art/backgrounds/room-43-lower-street.png",
      "candidate": false,
      "loaded": true,
-     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+     "hash": "8252cedddf50a1906613c16e1390cd230ba8527449b2732784bb02e795f018e5"
     },
     {
-     "key": "art/masks/room-02-plane-1.png",
-     "path": "art/masks/room-02-plane-1.png",
-     "drawn": "art/masks/room-02-plane-1.png",
+     "key": "art/actors/room-43-bell-ringer.png",
+     "path": "art/actors/room-43-bell-ringer.png",
+     "drawn": "art/actors/room-43-bell-ringer.png",
      "candidate": false,
      "loaded": true,
-     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
-    },
-    {
-     "key": "art/masks/room-02-plane-2.png",
-     "path": "art/masks/room-02-plane-2.png",
-     "drawn": "art/masks/room-02-plane-2.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
-    },
-    {
-     "key": "art/actors/ambient-dog.png",
-     "path": "art/actors/ambient-dog.png",
-     "drawn": "art/actors/ambient-dog.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
-    },
-    {
-     "key": "art/actors/ambient-letter-writer.png",
-     "path": "art/actors/ambient-letter-writer.png",
-     "drawn": "art/actors/ambient-letter-writer.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
-    },
-    {
-     "key": "art/actors/ambient-map-seller.png",
-     "path": "art/actors/ambient-map-seller.png",
-     "drawn": "art/actors/ambient-map-seller.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
-    },
-    {
-     "key": "art/actors/ambient-pie-woman.png",
-     "path": "art/actors/ambient-pie-woman.png",
-     "drawn": "art/actors/ambient-pie-woman.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
-    },
-    {
-     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
-     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
-     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
-    },
-    {
-     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
-     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
-     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+     "hash": "bd1e94f76e2aed2da9d556856d98ac70c324e3d0aef29c4cacfc814a83745bea"
     }
    ],
    "stubs": [],
@@ -815,11 +715,11 @@
   {
    "name": "02-in",
    "why": null,
-   "t": 166.09,
+   "t": 172.68,
    "file": "renders/proofs/back-alley/doors/raw-captures-ignored/02-in.png",
-   "hash": "3acdd33301032ed73784c6a6e3b089ff4005b1ff55585a8b3d61950e8c405a9c",
+   "hash": "88e344577127e63c007cf72044d49835939c9078823bf74bc204e89965f52600",
    "room": "back_alley",
-   "clock": 165.6056,
+   "clock": 171.96620000000001,
    "control": null,
    "says": null,
    "options": 0,
@@ -840,10 +740,15 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
-    "SOWERBY_ADJECTIVES": 0
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "camera": 0,
    "movers": {
@@ -857,11 +762,11 @@
      "height": 282,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
-      114,
+      110,
       458,
-      292,
+      299,
       311
      ],
      "order": 0,
@@ -871,8 +776,8 @@
    },
    "states": {},
    "cues": {
-    "last": null,
-    "count": 0
+    "last": "O-09-M",
+    "count": 3
    },
    "steps": {},
    "caption": false,
@@ -891,7 +796,23 @@
      "drawn": "art/actors/room-20-cat.png",
      "candidate": false,
      "loaded": true,
-     "hash": "b4f629125942f1f3095f0e85c7c58aa4f239da4cd5e6d69f1bbbf57045157218"
+     "hash": "f675de9e41efd264e8a83981681eeec624b5ae5fbd564fd4575d1b1223ec336a"
+    },
+    {
+     "key": "art/actors/dogs-owner.png",
+     "path": "art/actors/dogs-owner.png",
+     "drawn": "art/actors/dogs-owner.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ad0fefa8e68f6f8d13e7fced019c0decb14cd6200573a1adfc916c50922ff912"
+    },
+    {
+     "key": "art/actors/room-20-hob.png",
+     "path": "art/actors/room-20-hob.png",
+     "drawn": "art/actors/room-20-hob.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e1c4483b567cfff129a9e4ce289c494a33aabaa08da3eda2e45fab5831c4fb52"
     }
    ],
    "stubs": [],
@@ -910,7 +831,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 170.75s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 175.34s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -925,5 +846,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T08:33:52.335Z"
+ "at": "2026-11-07T21:56:14.457Z"
 }
