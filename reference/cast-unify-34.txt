@@ -1,0 +1,9 @@
+Image 1 is from the locked cast sheet of my pixel-art adventure game: left to right the hero, then three judges; the THIRD figure, B, is the gaunt judge -- waxed black moustache, black hair pomaded flat with a centre parting, a high collar and a GREEN CRAVAT, a black coat.
+
+Image 2 shows B just drawn for the game, seated behind a table (not drawn), from the waist up, four times. Poses 2, 3 and 4 are RIGHT. Pose 1 is WRONG: it gave him a black bow tie and a brown waistcoat; he wears his green cravat and his black waistcoat, as in poses 2, 3 and 4.
+
+Draw the same row again, FOUR times, exactly as Image 2 draws him in poses 2, 3 and 4 -- the same face, size, lean build, pixel size and shading -- with the GREEN CRAVAT and BLACK WAISTCOAT in EVERY pose: 1. hands folded together on the table, solemn, looking straight ahead; 2. leaning toward his neighbour, head turned, as if to confer, hands still on the table; 3. nodding, head lowered, hands folded; 4. hands flat on the table, drumming his fingers, looking up.
+
+Each from the WAIST UP, cut off in ONE straight horizontal line across the waist where the table's back edge hides him; his forearms rest forward on the table top, so his hands lie a little BELOW that line, with magenta between and around them.
+
+THE SHEET: flat pure magenta (#FF00FF) background, ONE row of four, separated by clear magenta space, every figure the same size. Nothing in his hands; no table, no chair. Crisp pixel edges against the magenta, no glow, no blur, no shadows, no text, no numbers, no border.

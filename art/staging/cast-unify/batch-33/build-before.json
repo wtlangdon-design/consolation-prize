@@ -1,0 +1,112 @@
+{
+ "ref": "HEAD",
+ "flags": [
+  "frame: head 0.44x Thad's",
+  "duel_judge_1: shoulders 1.19x Thad's",
+  "duel_judge_2: head 1.43x Thad's",
+  "duel_judge_3: head 3.29x Thad's",
+  "room_04_judge_1: head 0.87x Thad's",
+  "room_04_judge_1: shoulders 1.35x Thad's",
+  "room_04_judge_2: shoulders 1.21x Thad's",
+  "room_04_judge_3: head 0.3x Thad's",
+  "room_04_judge_3: shoulders 1.25x Thad's"
+ ],
+ "frame": {
+  "room": "clarion",
+  "man": 521.0,
+  "figure": {
+   "head": 28,
+   "shoulders": 118
+  },
+  "thad": {
+   "head": 64,
+   "shoulders": 132
+  },
+  "head": 0.44,
+  "shoulders": 0.89
+ },
+ "duel_judge_1": {
+  "room": "main_street",
+  "man": 110.0,
+  "figure": {
+   "head": 15,
+   "shoulders": 31
+  },
+  "thad": {
+   "head": 14,
+   "shoulders": 26
+  },
+  "head": 1.07,
+  "shoulders": 1.19
+ },
+ "duel_judge_2": {
+  "room": "main_street",
+  "man": 110.0,
+  "figure": {
+   "head": 20,
+   "shoulders": 25
+  },
+  "thad": {
+   "head": 14,
+   "shoulders": 26
+  },
+  "head": 1.43,
+  "shoulders": 0.96
+ },
+ "duel_judge_3": {
+  "room": "main_street",
+  "man": 110.0,
+  "figure": {
+   "head": 46,
+   "shoulders": 30
+  },
+  "thad": {
+   "head": 14,
+   "shoulders": 26
+  },
+  "head": 3.29,
+  "shoulders": 1.15
+ },
+ "room_04_judge_1": {
+  "room": "nugget_back",
+  "man": 437.0,
+  "figure": {
+   "head": 47,
+   "shoulders": 149
+  },
+  "thad": {
+   "head": 54,
+   "shoulders": 110
+  },
+  "head": 0.87,
+  "shoulders": 1.35
+ },
+ "room_04_judge_2": {
+  "room": "nugget_back",
+  "man": 437.0,
+  "figure": {
+   "head": 58,
+   "shoulders": 133
+  },
+  "thad": {
+   "head": 54,
+   "shoulders": 110
+  },
+  "head": 1.07,
+  "shoulders": 1.21
+ },
+ "room_04_judge_3": {
+  "room": "nugget_back",
+  "man": 437.0,
+  "figure": {
+   "head": 16,
+   "shoulders": 138
+  },
+  "thad": {
+   "head": 54,
+   "shoulders": 110
+  },
+  "head": 0.3,
+  "shoulders": 1.25
+ }
+}
