@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "ozymandias_tent",
  "roomWidth": 1920,
- "branch": "ccr-347d40c6-71r9f9",
- "commit": "7ded2e3bd949152190b6fb7274a594562263340b",
+ "branch": "feat/streets-build",
+ "commit": "0e31f92154f047e45caea642bf11d833c1f8c6d7",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -12,6 +12,7 @@
  "candidates": [],
  "route": "ozymandias-tent",
  "routeLog": [
+  "the title: clicked NEW GAME",
   "action 1 (wait): waited 2.5s",
   "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
   "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
@@ -31,13 +32,25 @@
   "action 17 (wait): waited 6s",
   "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger",
   "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street",
-  "action 20 (wait): waited 2s",
-  "action 21 (click): clicked screen 554,1052 -- the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)",
-  "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map",
-  "action 23 (wait): waited 1s",
-  "action 24 (click): clicked screen 950,585 -- the tent's place on the map (content/rooms/town-map.json loc_tent)",
-  "action 25 (waitFor): reached {\"room\":\"ozymandias_tent\"} in room ozymandias_tent",
-  "action 26 (wait): waited 3s"
+  "action 20 (wait): waited 7s",
+  "action 21 (click): clicked world 1900,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge",
+  "action 22 (wait): waited 1s",
+  "action 23 (waitFor): reached {} in room main_street",
+  "action 24 (click): clicked world 1300,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge",
+  "action 25 (wait): waited 1s",
+  "action 26 (waitFor): reached {} in room main_street",
+  "action 27 (click): clicked world 700,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge",
+  "action 28 (wait): waited 1s",
+  "action 29 (waitFor): reached {} in room main_street",
+  "action 30 (click): clicked world 150,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge",
+  "action 31 (wait): waited 1s",
+  "action 32 (waitFor): reached {} in room main_street",
+  "action 33 (click): clicked main_street/to_back_alley at world 29,510 -- THE LANE, at Main Street's west end (errata 161)",
+  "action 34 (waitFor): reached {\"room\":\"the_lane\"} in room the_lane",
+  "action 35 (wait): waited 3s",
+  "action 36 (click): clicked the_lane/to_ozymandias_tent at world 1025,540 -- THE TENT FLAP",
+  "action 37 (waitFor): reached {\"room\":\"ozymandias_tent\"} in room ozymandias_tent",
+  "action 38 (wait): waited 3s"
  ],
  "depthMarks": [
   {
@@ -65,11 +78,11 @@
    ],
    "reportedHeight": 449,
    "expected": 449,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-04.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
    "bounds": [
-    817,
+    812,
     307,
-    466,
+    476,
     496
    ],
    "order": 0,
@@ -102,16 +115,16 @@
    ],
    "reportedHeight": 518,
    "expected": 518,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-08.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-02.png",
    "bounds": [
-    781,
+    775,
     339,
-    537,
+    549,
     572
    ],
    "order": 0,
-   "renderedHeight": 535,
-   "renderedBottom": 856,
+   "renderedHeight": 519,
+   "renderedBottom": 857,
    "file": "raw-captures-ignored/panel-c-mud_near-near.png"
   }
  ],
@@ -122,34 +135,40 @@
    "id": "ozymandia",
    "feet": [
     966,
-    530
+    500
    ],
    "sheet": "art/actors/room-16-ozymandia.png",
    "clipPlane": 1,
    "box": {
-    "x": 852,
-    "y": 289,
-    "width": 228,
-    "height": 243
+    "x": 881,
+    "y": 281,
+    "width": 171,
+    "height": 221
    },
    "seen": {
-    "x": 853,
-    "y": 322,
-    "width": 227,
-    "height": 201,
-    "bottom": 522,
-    "right": 1079,
-    "changed": 14493
+    "x": 898,
+    "y": 317,
+    "width": 153,
+    "height": 184,
+    "bottom": 500,
+    "right": 1050,
+    "changed": 12803
    },
    "props": [],
-   "maskedAbove": 522
+   "contact": {
+    "expected": [
+     492,
+     508
+    ],
+    "lowestDrawnRow": 500
+   }
   }
  ],
  "panels": [
   {
    "panel": "B",
    "room": "ozymandias_tent",
-   "clock": 113.1216,
+   "clock": 195.94,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -170,9 +189,15 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
-    "WAR_CONTRADICTIONS": 0
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -191,11 +216,11 @@
      "height": 479,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
+     "from": "art/actors/thad-idle-right/idle-02.png",
      "bounds": [
-      51,
+      46,
       321,
-      497,
+      507,
       529
      ],
      "order": 0,
@@ -228,21 +253,21 @@
      "drawn": "art/actors/room-16-ozymandia.png",
      "candidate": false,
      "loaded": true,
-     "hash": "84ea53f0fb6714e5c660390eab89ffe021d443bb35cc40a5614b04953be48525"
+     "hash": "b0b788af6ace296b5e98ffadd62a835661f41df6997408486c3b534ddf9b3f4f"
     }
    ],
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-05T04:00:19.442Z",
+   "capturedAt": "2026-11-07T23:31:05.991Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "1a5169bca58aae22ea48b947f4ae8ebfab24606cbc10d70ecbabaabb080b181e"
+   "hash": "a6c58de9730cbce06a0bb6efb132ab976c59d0b2584bca0e14b77cb54db83c21"
   },
   {
    "panel": "A",
    "room": "ozymandias_tent",
-   "clock": 114.1382,
+   "clock": 197.4232,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -263,9 +288,15 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
-    "WAR_CONTRADICTIONS": 0
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -280,7 +311,7 @@
       800
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 479,
      "moving": false,
      "drawn": "sprite",
@@ -316,7 +347,7 @@
      "drawn": "art/actors/room-16-ozymandia.png",
      "candidate": false,
      "loaded": true,
-     "hash": "84ea53f0fb6714e5c660390eab89ffe021d443bb35cc40a5614b04953be48525"
+     "hash": "b0b788af6ace296b5e98ffadd62a835661f41df6997408486c3b534ddf9b3f4f"
     }
    ],
    "stubs": [],
@@ -324,10 +355,10 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T04:00:20.427Z",
+   "capturedAt": "2026-11-07T23:31:07.282Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "4ce7bea75e563ba9772fa024bff3b6990455207543e90dbec73428a77bdc78da"
+   "hash": "92731e8435e258501a467ff328840fefb39d7a7f0980408a09662306ac3d9308"
   }
  ],
  "failures": [],
@@ -357,11 +388,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T04:00:25.369Z",
+ "at": "2026-11-07T23:31:13.948Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 277236,
+  "bytes": 276418,
   "panels": 4,
   "scale": 0.5
  }
