@@ -705,7 +705,8 @@ if __name__ == '__main__':
     save('church-bell-distant.wav', bell(True))
     for weight in ('light', 'ordinary', 'substantial'):
         save(f'paper-{weight}.wav', paper(weight))
-    save('stamp.wav', stamp())
+    # stamp.wav is render-picked-sfx.py's since errata 149 (Tyler chose a new stamp by ear);
+    # stamp() stays as the record of the one he heard ring like a wood block.
     save('pencil.wav', pencil())
     save('floorboard-creak.wav', floorboard_creak())
     save('floorboard-hollow.wav', floorboard_hollow())

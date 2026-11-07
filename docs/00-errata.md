@@ -4115,3 +4115,23 @@ Doc 30's affected lines carry a bracketed note pointing here: §1, §6.1, §6.2,
 - **Texture** against Thad at each figure's depth (the flag is 1.35×): Winnie 1.15–1.24 (her rest frame 1.10); Pratt 0.98–1.06 (rest 1.10); Pratt at Prosperity 0.81 (rest 0.93); Deke 0.94 (rest 1.00); **Sump 1.37–1.67, flagged**. His shipping rest frame is already 1.36; the blotter frames (78) are 1.37 and 1.40, and his frame 7 is 1.67 because the filing under its glass has written lines on it.
 - **Heads, by ruler** (errata 139): each new frame's head is its own rest frame's, crown to chin within an art pixel or two, as the template method intends. These characters keep the head sizes Tyler accepted for them on 2026-11-07.
 - **Left for the playthrough:** the paper in Winnie's poses and the pick in Thad's appear only while acted; Pratt's rake changes hands while his hat is off.
+
+---
+
+# 149 · THE STAMP AND THE STREET ERUPTING, PICKED BY EAR — TYLER, 2026-11-06
+
+*Tyler, of the two: "Erupts in applause, or what? I couldn't even tell what I was listening to." and "The stamp doesn't sound like a stamp."*
+
+**A · Why they failed.** The eruption (errata 131 E) was the Nugget's crowd murmur, layered and swelled, so nothing in it cheered. The stamp (errata 106) was three resonant modes, so it rang like a small wood block. Both passed every level check.
+
+**B · What he chose.** Three new versions of each were played to him, alone and in the scene, with the old one beside them for comparison. He chose **"B and B"**:
+- The stamp is "Ink pad, then stamp": a soft dab on the pad, then a dull thump of rubber on paper on a wooden counter, then the lift. It has no pitched ring.
+- The eruption is "Cheering": applause, two-finger whistles, whoops and shouts, and boots on the boardwalk.
+
+`tools/audio/render-picked-sfx.py` renders all six candidates in the order they were auditioned, from one seed, and writes only the two picked. The committed files are byte-identical to what he heard.
+- Gains are set as he heard them: U-STAMP 0.429 and F4-ERUPTS 0.155.
+- U-STAMP's place is -10. The 400 ms window reads a short dab-and-thump quieter than the old ringing stamp at the same peak.
+
+**C · What holds it.**
+- `tests/sfx-one-renderer.test.mjs`: no two audio scripts write the same file. The old renderers no longer write `stamp.wav` or `crowd-erupts.wav`, so re-running them cannot put back the rejected sounds.
+- Doc 55 §8 gains the rule: a sound has to say what it is, heard on its own.
