@@ -18,7 +18,9 @@
  * THE RULE NOW:
  * - A conversation's lines (its greeting, its exchanges) wait for a click when
  *   Tyler's click-to-read ruling is on (ui.json conversationWaitsForClick,
- *   2026-11-01), and stay on screen while they wait.
+ *   2026-11-01), and stay on screen while they wait -- all but Thad's echo of
+ *   the option just chosen, which comes down on its reading hold (Tyler,
+ *   2026-11-06, errata 147).
  * - Every other line comes down on doc 30 section 4.1's reading hold, and the
  *   next queued line follows it by itself.
  * - A click outside a conversation is never spent on the speech channel: it
@@ -32,6 +34,13 @@ export interface LineContext {
   clickToRead: boolean;
   /** The line is a bare pause, "…" (doc 58 rule 2). */
   rest?: boolean;
+  /**
+   * The line is THAD'S ECHO of the option just chosen (doc 30 section 6.2).
+   * Tyler, 2026-11-06 (errata 147): "Echo moves on by itself". The player
+   * has just picked those words, so the echo advances on its reading hold and
+   * never waits; the answer to it still does.
+   */
+  echo?: boolean;
 }
 
 /**
@@ -47,7 +56,7 @@ export function isRest(line: string | null | undefined): boolean {
 
 /** Whether the line going up now waits for a click (true) or comes down on its hold (false). */
 export function waitsForClick(line: LineContext): boolean {
-  return line.conversation && line.clickToRead && !line.rest;
+  return line.conversation && line.clickToRead && !line.rest && !line.echo;
 }
 
 /** A line's hold is over: the next queued line follows, or the channel goes quiet. */

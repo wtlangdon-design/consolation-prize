@@ -27,7 +27,7 @@ Selecting a choice first makes Thad speak the selected wording, then plays the r
 Reading duration and comic pause are different data. Text-speed settings change reading duration; they do not erase an authored deadpan beat.
 A click, Space, or Enter skips one current utterance. Escape or the explicit cutscene-skip action skips an entire cutscene and must apply its canonical final state.
 Spoken text wraps by measured pixel width, never by character count. A speech block may use at most three lines; longer writing must be split into multiple utterances.
-Choice order is authored order. The viewport holds four physical text rows and scrolls when more are needed; wrapping consumes rows.
+Choice order is authored order. The viewport holds four physical text rows and scrolls when more are needed; wrapping consumes rows. **[Errata 143, standing per errata 147: five rows, the panel's full height at this scale.]**
 Errata 37 is preserved exactly: spent PROGRESS disappears; TOPIC and COMIC remain dim and selectable; EXIT remains available.
 Ambient barks use the same speech channel and speaker presentation data. They defer to dialogue, cutscenes, and player-driven lines rather than drawing through them.
 Interactive trees and cutscenes share the same utterance renderer and timing calculation. They differ only in who chooses the next beat and whether whole-sequence skipping is legal.
@@ -85,17 +85,18 @@ Authoring rule  A long sentence is not solved by making the interface smaller. S
 6. Interactive option list
 
 ## 6.1 Position, order, and scrolling
-Replace the verbs/inventory area while choosing. Keep the room image at full height. The list is bottom-anchored and may cover only the minimum additional playfield rows required by wrapped choices.
+Replace the verbs/inventory area while choosing. Keep the room image at full height. The list is bottom-anchored and may cover only the minimum additional playfield rows required by wrapped choices. **[Errata 143, standing per errata 147: the list is set from the top of the panel, as Monkey Island sets it, and never covers the playfield; it scrolls instead. The panel stays away for the whole conversation, answers included.]**
 Preserve authored order after gating and exhaustion filtering. Do not sort by tag, novelty, or progress value.
-The viewport budget is four physical text rows. A two-line option consumes two rows. When additional rows exist, show clickable up/down triangles at frame right and support mouse wheel, trackpad scroll, and keyboard up/down as conveniences.
+The viewport budget is four physical text rows. A two-line option consumes two rows. When additional rows exist, show clickable up/down triangles at frame right and support mouse wheel, trackpad scroll, and keyboard up/down as conveniences. **[Errata 143, standing per errata 147: five rows; arrows and the wheel only, no keyboard scrolling -- the game is played with the mouse.]**
 Scroll by option, not by half a wrapped option. The top visible item always begins with its first line. Hitboxes use the actual wrapped height.
 Dim scroll controls when they cannot move; do not hide them. Scrolling changes presentation only and must not mutate exhaustion or selection state.
-Hover or keyboard focus uses optionPrefixSelected. Exhausted TOPIC/COMIC options remain dim even when focused, with a bright marker or outline so focus remains visible.
+Hover or keyboard focus uses optionPrefixSelected. Exhausted TOPIC/COMIC options remain dim even when focused, with a bright marker or outline so focus remains visible. **[Built as written (errata 143), and standing per errata 147: a used row under the pointer stays dim with a bright "> ". Used rows grey and stay unless their `afterUse` says otherwise -- errata 57 and 37, confirmed by Tyler, 2026-11-06.]**
 This four-row scrolling viewport is a Consolation requirement because authored nodes can contain six options, including HOB_A1. Do not claim it is a measured reproduction of a universal MI1 four-option limit.
 
 ## 6.2 Selected-option echo
 The original manual's instruction is literal: the player selects what Guybrush says. Consolation must do the same. On selection, hide the list and enqueue a Thad utterance using option.echo when present, otherwise option.text. Use echo: false only for an explicitly nonverbal beat; the content validator must require a reason.
 State writes may be reserved immediately in a DialogueTransaction, but the node must not visibly advance and EXIT must not hand control to the next sequence until the echo, reply, and post-beat finish. This prevents the coach from starting to depart under 'Wasn't for you.'
+**[Errata 147, Tyler, 2026-11-06: the echo moves on by itself. Under the click-to-read ruling (ui.json `conversationWaitsForClick`) every conversation line waits for a click except this one: Thad's echo of the chosen option comes down on its reading hold and shows no waiting mark. The replies still wait.]**
 
 # 
 
@@ -241,7 +242,7 @@ The options menu already names Text speed, so accessibility can be connected wit
 # 
 
 16. Binding Room 1 proof: the stage driver
-Room 1 is the acceptance scene because its existing four-option tree includes progress, comic, exit, and a three-line two-speaker exchange.
+Room 1 is the acceptance scene because its existing four-option tree includes progress, comic, exit, and a three-line two-speaker exchange. **[Errata 65, confirmed by Tyler per errata 147: the tree opens with three choices and the exit, "Thank you for the ride.", arrives once the three have been asked; "four choices" is the full set.]**
 The tree opens with four choices in the lower interface. No stale prompt is drawn in the sentence line.
 Selecting 'Where am I supposed to sleep?' hides the choices. Thad first says that selected line over himself in Thad's colour.
 After the default reply beat, the driver says 'Hotel's five dollars.' over the driver in the driver's colour.
@@ -357,8 +358,8 @@ Evidence boundary: Sources establish interface and engine behavior; named millis
 
 | Moment | What is visible | What accepts input |
 |---|---|---|
-| Choosing | Up to four option rows in the lower interface | Option rows and scroll controls |
-| Thad echoes choice | Thad's text over Thad; options hidden | Skip-current-line only |
+| Choosing | Up to four option rows in the lower interface (five: errata 143, 147) | Option rows and scroll controls |
+| Thad echoes choice | Thad's text over Thad; options hidden; comes down on its hold (errata 147) | Skip-current-line only |
 | Reply pause | No speech text; actor/chore may continue | Skip-current-line only after the input guard |
 | NPC response | NPC text over NPC in NPC colour | Skip-current-line only |
 | Exchange complete | No speech text; options return or tree closes | Options, or ordinary play after EXIT |
@@ -443,7 +444,7 @@ Evidence boundary: Sources establish interface and engine behavior; named millis
 | Speech lines | 1-3 | Never exceed; split the utterance |
 | Reading hold | 0.45 + glyphs x 0.055; 1.8-8.0s | User text-speed setting applies |
 | Input guard | 150ms | Accidental double-clicks remain reproducible |
-| Option viewport | 4 physical text rows | Wrapped options consume more than one row |
+| Option viewport | 4 physical text rows (5: errata 143, 147) | Wrapped options consume more than one row |
 | Neutral reply gap | 180ms | Exchange is intentionally fast or deadpan |
 | Deadpan reply gap | 350-550ms | The pause attracts more attention than the line |
 | Punchline pre-beat | 450-700ms | A story-specific beat is explicitly authored |

@@ -2389,7 +2389,7 @@ export class GameScene extends Phaser.Scene {
     if (!live) return;
     const line = live.current;
     // AN ACTED DIRECTION (errata 131 B, 141) shows nothing on the speech channel.
-    this.setSay(line ? shownText(line) : null, line?.speaker ?? null, line?.direction ?? false);
+    this.setSay(line ? shownText(line) : null, line?.speaker ?? null, line?.direction ?? false, live.echoing);
     // THE MUSIC STOPS FOR A HELD SILENCE (errata 131 D: "Silence on Main
     // Street. Long.") and stays down until the exchange is over; everyone holds
     // still until the line that sounds a cue -- the street erupting (131 E).
@@ -2772,7 +2772,7 @@ export class GameScene extends Phaser.Scene {
     return trimmed.startsWith('(') ? trimmed : '(' + trimmed + ')';
   }
 
-  private setSay(text: string | null, speaker: string | null = null, direction = false): void {
+  private setSay(text: string | null, speaker: string | null = null, direction = false, echo = false): void {
     // A LINE THAT SOUNDS (errata 106): "He notarizes it. He stamps it." Matched
     // on the words as the document wrote them, without the parentheses a
     // direction is shown in.
@@ -2809,6 +2809,8 @@ export class GameScene extends Phaser.Scene {
       conversation: this.state.dialogue.isActive || this.pendingTree?.greeted === true,
       clickToRead: this.state.content.ui.timing?.conversationWaitsForClick === true,
       rest: isRest(text),
+      // THAD'S ECHO OF THE CHOICE MOVES ON BY ITSELF (errata 147), so it shows no waiting mark.
+      echo,
     });
     this.sayWaiting = waits;
     this.sayUntil = text && !this.state.dialogue.isActive && !waits

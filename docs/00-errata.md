@@ -2057,6 +2057,8 @@ GATE PENDING, WITH REQUIRED NIGHT VARIANT BEFORE SHIPPING.
 
 Doc 30 §16 opens its binding Room 1 proof with "the tree opens with four choices in the lower interface." Doc 17 v3.1 writes the driver's four options with no gate. **The build does not open with four.** Since the tree was extracted (`tools/extract-content.mjs`, `room01Driver`), "Thank you for the ride." is gated on `T_DRIVER_ASKED` reaching 3 — a counter each of the other three rows adds to on every selection — so the tree opens with three rows and the exit arrives once three questions have been asked, in any combination. The extractor's stated reason: nothing is removed once present (errata 37 revoked), so the three are always askable and the fourth always arrives; the count is the tree's one reachability condition, and it keeps the exit from being taken before the opening has taught what it exists to teach. **That rule lives only in the extractor and its commit; no document ruled it.** This entry records it, and reads §16's "four choices" as the tree's full set, reached once the three are spent. It changes no runtime behaviour. Tyler confirms it as the rule or strikes it, in which case the extractor drops the gate and §16 stands as written.
 
+**CONFIRMED (Tyler, 2026-11-06; errata 147): "Keep it". The exit arrives after the three questions. No longer open.**
+
 §16's other older line — "the used PROGRESS option is gone" — is already superseded: errata 57 authors every option's aftermath, and until W1's trees land every existing option behaves as `retain` (kept and dimmed). Nothing to add there.
 
 # 66 · ROOM 5'S LATER STATES — OWNER RULINGS A TO K (2026-09-05), AND DOC 08'S RECORDS-ROOM FLOORBOARD SUPERSEDED
@@ -3458,7 +3460,7 @@ Still open, and Tyler's call: the form exists only after Hob signs it, so these 
 - **A new answer replaces what was still to be said of the last one,** as a new action interrupts the old in SCUMM.
 - **A room change drops lines still queued in the room left,** and any travel a scene was waiting to make. An arrival scene's owed outcome lands at once, so leaving mid-scene can never lose a flag, an item or a puzzle (invariant 6).
 
-**Not changed:** a conversation still waits for its click, Thad's echo of the chosen option included. Whether the echo should advance on its hold (finding 11's second suggestion) touches Tyler's 2026-11-01 ruling, and is his to make.
+**Not changed:** a conversation still waits for its click, Thad's echo of the chosen option included. Whether the echo should advance on its hold (finding 11's second suggestion) touches Tyler's 2026-11-01 ruling, and is his to make. **Ruled in errata 147: the echo advances on its hold.**
 
 **Tooling.** `tools/gauntlet/route.mjs`'s `flush` used to click queued lines through. Such a click now walks, so it waits them out and clicks only a line the probe reports `waiting`. The probe gains `waiting`.
 
@@ -4049,3 +4051,34 @@ Tyler: "Read reference/item-icons/brief.md … and do it: redraw all 26 item ico
   - `renders/inventory-icons-r7-f5-held.png` is the panel in the game on fixture `r7-f5-held`.
 - **Not changed:** `tools/gauntlet/snap.mjs` hangs here when it closes the browser, after the page has loaded and the probe has answered. The in-game frame was taken through the game's own `snapshot()`, as the proofs take theirs.
 - **Waiting on Tyler:** the icons are cut into the game, and he judges them in the playthrough (errata 72). FOUR DOLLARS (three coins) and THE FILING FEE (two coins) are the closest pair. Both are silver coin, as doc 23 makes them, and they differ in count and arrangement.
+
+---
+
+# 147 · THAD'S ECHO MOVES ON BY ITSELF; USED OPTIONS STAY GREY; THE DRIVER'S EXIT IS CONFIRMED — OWNER RULINGS (Tyler, 2026-11-06, on errata 143's list)
+
+**A · The echo moves on by itself.** Asked: "Should Thad's echo of your choice move on by itself, while the other character's reply still waits for your click?" Tyler chose **"Echo moves on by itself (Recommended)"**.
+- Thad's echo of the chosen option now comes down on its reading hold (doc 30 §4.1). It never waits for a click and shows no waiting triangle.
+- Every other conversation line still waits for its click: the greeting and every reply. This narrows the 2026-11-01 click-to-read ruling (ui.json `conversationWaitsForClick`, unchanged) by exactly one line, and closes errata 126's open question.
+- A click during the echo still reads it on, as doc 30 §4.2 says.
+- **Built:**
+  - `SpeechPolicy.waitsForClick` takes `echo`;
+  - `DialoguePerformance` gains `echoing` and `waiting`, and its clock passes the echo;
+  - `GameScene` gives the echo no waiting mark;
+  - the gauntlet's waits (`route.mjs`, `run.mjs`) click only a line the probe reports `waiting`. A click aimed at the echo would otherwise land on the reply that replaced it, and skip it unread.
+- **What holds it** (`tests/speech-pacing.test.ts`):
+  - the policy itself;
+  - an exchange from every tree, performed on a clock: the echo comes down with no click, and every reply holds until clicked.
+  - `tests/follow-ups.test.ts`'s click-to-read test now asserts the same.
+  - Making the echo wait, or letting a reply come down by itself, fails them (both proved).
+
+**B · Used options stay grey.** Tyler chose **"Keep grey-and-stay (Recommended)"**. Errata 57 and 37 are unchanged. A used option greys and stays unless its `afterUse` says otherwise. This includes the 112 options in trees whose documents predate errata 57 and author no aftermath.
+
+**C · The stage driver's exit arrives after his three questions.** Tyler chose **"Keep it (Recommended)"**. Errata 65 is confirmed and no longer open. Doc 30 §16's "four choices" is the tree's full set.
+
+**D · Errata 143's other choices stand.** Tyler did not overrule them:
+- five rows in the list;
+- the list set from the top of the panel;
+- a used row under the pointer staying dim with a bright marker;
+- no keyboard scrolling (the arrows and the wheel only).
+
+Doc 30's affected lines carry a bracketed note pointing here: §1, §6.1, §6.2, §16, and Tables 1 and 8.
