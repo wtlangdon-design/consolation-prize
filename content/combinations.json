@@ -632,6 +632,51 @@
       ]
     },
     {
+      "item": "executor_form",
+      "room": "laundry",
+      "target": "sheng",
+      "puzzle": "E6",
+      "say": "I hold paper on your claim's neighbors. I would be executing myself.",
+      "note": "Doc 57 E6: asked to be executor, ah-lam sheng is answered by the interest rule. The form stays with Thad.",
+      "rules": [
+        {
+          "case": "any time",
+          "by": "sheng",
+          "say": "I hold paper on your claim's neighbors. I would be executing myself."
+        }
+      ]
+    },
+    {
+      "item": "executor_form",
+      "room": "pratts_claim",
+      "target": "pratt",
+      "puzzle": "E6",
+      "say": "Eleven dollars for the claim.",
+      "note": "Doc 57 E6: asked to be executor, nickel pratt is answered by the interest rule. The form stays with Thad.",
+      "rules": [
+        {
+          "case": "any time",
+          "by": "pratt",
+          "say": "Eleven dollars for the claim."
+        }
+      ]
+    },
+    {
+      "item": "executor_form",
+      "room": "church",
+      "target": "sowerby",
+      "puzzle": "E6",
+      "say": "I am to be paid out of the estate, Mr. Grubb. It would be indecent. Also impossible.",
+      "note": "Doc 57 E6: asked to be executor, reverend sowerby is answered by the interest rule. The form stays with Thad.",
+      "rules": [
+        {
+          "case": "any time",
+          "by": "sowerby",
+          "say": "I am to be paid out of the estate, Mr. Grubb. It would be indecent. Also impossible."
+        }
+      ]
+    },
+    {
       "item": "eggs",
       "room": "prosperity",
       "target": "hole",
