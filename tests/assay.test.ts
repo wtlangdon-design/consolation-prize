@@ -54,7 +54,7 @@ test('every pair the player can learn has three wrong answers, none reused (doc 
   assert.equal(file.pairs.filter((p) => p.flag).length, 21, 'Tiers 1-5 are learnable; Tier 6 belongs to the final duel');
 });
 
-test('Duel One: pairs 1-4 then 1 again, wrong answers only, lost five straight (errata 73 C, D)', async () => {
+test('Duel One: pairs 1-4 then 1 again, wrong answers only until the repeat, lost five straight (errata 73 C, D; 136 D)', async () => {
   const file = await assayFile();
   assert.deepEqual(duelOrder(file, 'duel_one', new Set()), [1, 2, 3, 4, 1]);
   const duel = new DuelSession(file, 'duel_one', new Set());
@@ -62,8 +62,9 @@ test('Duel One: pairs 1-4 then 1 again, wrong answers only, lost five straight (
   let last;
   for (let exchange = 0; exchange < 5; exchange += 1) {
     const offers = duel.offered();
-    assert.equal(offers.length, 3, 'nothing but wrong answers');
-    assert.ok(!offers.some((o) => o.id === 'right'));
+    // The repeat of pair 1 offers the counter he has just written down (errata 136 D).
+    assert.equal(offers.length, exchange < 4 ? 3 : 4, exchange < 4 ? 'nothing but wrong answers' : 'and the counter just learned');
+    assert.equal(offers.some((o) => o.id === 'right'), exchange === 4);
     const pair = duel.currentPair;
     last = duel.commit(offers[exchange % 3]!.id);
     if (last.lines.some((l) => l.speaker === file.bystander)) mutters.push(pair);
@@ -131,10 +132,131 @@ test('a lost Duel Two ends on the reply that lost it and the judges\' mark (erra
   const result = playBest(file, 'duel_two', new Set([1, 2, 3, 4]));
   assert.equal(result.outcome, 'lost');
   assert.equal(result.sets.T_DUEL_TWO_WON, undefined, 'nothing is won');
-  const said = result.lines.filter((l) => l.rest === undefined);
-  assert.equal(said.length, 2, 'the reply, and the ring muttering the counter he lacked');
-  assert.equal(said[0]!.speaker, 'deke_vessel');
-  assert.equal(said[1]!.speaker, file.bystander);
+  // TUNED (proofs/check-friction.json, reviewed 2026-11-07): ORDER AND
+  // PRESENCE, NOT A COUNT. Three rulings in two weeks each added a beat here
+  // (the mark, the jeer) and each broke an exact length. What the rulings
+  // protect is that the reply that lost it comes first, and that what follows
+  // is in the order they set: the judges' mark, the jeer, then the lesson.
+  const lines = result.lines;
+  const opponent = file.duels['duel_two']!.opponent;
+  const reply = lines.findIndex((l) => l.rest === undefined);
+  assert.equal(lines[reply]!.speaker, opponent, 'it ends first on the reply that lost it (errata 73 H)');
+  const order = (what: string, at: number) => { assert.ok(at > reply, `${what} comes after the losing reply`); return at; };
+  const mark = order('the judges\' mark (errata 130 B)', lines.findIndex((l) => l.mark));
+  const jeer = order('the jeer (errata 136 B)', lines.findIndex((l) => file.mockery.includes(l.line)));
+  const mutter = order('the ring\'s mutter (errata 130 A)', lines.findIndex((l) => l.speaker === file.bystander));
+  assert.ok(mark < jeer && jeer < mutter, 'mark, then jeer, then the lesson');
+  assert.equal(lines[jeer]!.speaker, opponent, 'the jeer is the opponent\'s');
+  assert.ok(!lines.some((l) => l.speaker === opponent && file.pairs.some((p) => p.boast === l.line)), 'and no boast follows: the duel is over');
+});
+
+test('the standing mockery is heard: in turn after each lost Duel Two, and its last line closes Duel One (doc 03 Part Three; errata 136 B)', async () => {
+  // Tyler, 2026-11-06 ("Use the unused mockery lines"): the five lines were
+  // extracted and nothing ever read them, so the Act IV plant never landed.
+  const file = await assayFile();
+  const plant = file.mockery[file.mockery.length - 1]!;
+  const one = new DuelSession(file, 'duel_one', new Set());
+  let end;
+  for (let n = 0; n < 5; n += 1) end = one.commit('w0');
+  assert.equal(end!.lines.at(-1)?.line, plant, 'Duel One\'s loss ends on the plant');
+  assert.equal(end!.lines.at(-2)?.speaker, 'deke_vessel', 'after "That\'s the trouble."');
+  const heard: string[] = [];
+  for (let losses = 0; losses < 5; losses += 1) {
+    const duel = new DuelSession(file, 'duel_two', new Set([1, 2, 3, 4]), undefined, losses);
+    let result: ReturnType<DuelSession['commit']> | undefined;
+    for (let guard = 0; guard < 30 && !result?.ended; guard += 1) result = duel.commit(duel.offered()[0]!.id);
+    assert.equal(result!.outcome, 'lost');
+    const jeers = result!.lines.filter((l) => file.mockery.includes(l.line));
+    assert.equal(jeers.length, 1, 'one jeer a loss');
+    heard.push(jeers[0]!.line);
+    assert.equal(Object.values(result!.adds).reduce((a, b) => a + b, 0), 1, 'and the turn moves on');
+  }
+  assert.equal(new Set(heard.slice(0, 4)).size, 4, 'four different jeers in four losses');
+  assert.equal(heard[4], heard[0], 'and round again');
+  assert.ok(!heard.includes(plant), 'the plant is Duel One\'s alone');
+  // Through the conversation: the counter is written, and the next rematch turns.
+  const state = await inBackRoom({ T_VESSEL_FOUND: true, T_DUEL_ONE_LOST: true });
+  const jeerOf = () => {
+    state.dialogue.select('ves_b1_5');
+    let said: string | null = null;
+    for (let n = 0; n < 30 && state.dialogue.inDuel; n += 1) {
+      const result = state.dialogue.select(state.dialogue.presentOptions()[0]!.option.id);
+      for (const line of [result.say, ...result.rest.map((r) => r.line)]) if (line && file.mockery.includes(line)) said = line;
+    }
+    return said;
+  };
+  const first = jeerOf();
+  for (const flag of Object.keys(Object.fromEntries(Object.entries(state.flags.snapshot()).filter(([f]) => f.startsWith('ASSAY_PAIR_'))))) state.flags.set(flag, false);
+  for (const n of [1, 2, 3, 4]) state.flags.set(`ASSAY_PAIR_0${n}`, true);
+  const second = jeerOf();
+  assert.ok(first && second && first !== second, 'a second loss jeers differently');
+});
+
+test('the repeat of pair 1 offers the counter just written down, and Duel One still cannot be won (errata 136 D)', async () => {
+  // Tyler, 2026-11-06 ("Offer the counter just learned"): Thad had just
+  // written "Malnourished. Bishop. Yes." and was offered only wrong answers.
+  const file = await assayFile();
+  const duel = new DuelSession(file, 'duel_one', new Set());
+  for (let n = 0; n < 4; n += 1) duel.commit('w0');
+  assert.equal(duel.currentPair, 1);
+  const right = duel.offered().find((o) => o.id === 'right');
+  assert.equal(right?.text, file.pairs.find((p) => p.n === 1)!.counter);
+  const end = duel.commit('right');
+  assert.ok(end.ended && end.outcome === 'lost', 'one point is not five');
+  assert.deepEqual(duel.score, { player: 1, opponent: 4 });
+  const fresh = new DuelSession(file, 'duel_two', new Set([1, 2, 3, 4]));
+  assert.equal(fresh.offered().length, 4, 'Duel Two is unchanged: what he knows is offered');
+});
+
+test('the sparrings perform every pair they grant, each boast by him and each counter by the teacher, in doc 03\'s words (errata 136 C)', async () => {
+  // Tyler, 2026-11-06 ("Sparrings show every pair"): Winnie's granted five
+  // pairs and performed one, Pratt's six and one.
+  const content = await loadContent(fsReader);
+  const file = await assayFile();
+  let rows = 0;
+  for (const tree of content.dialogue.values()) {
+    for (const node of Object.values(tree.nodes)) {
+      for (const option of node.options) {
+        const taught = Object.keys(option.set ?? {}).filter((flag) => flag.startsWith('ASSAY_PAIR_'));
+        if (taught.length < 2 || !option.exchange) continue;
+        rows += 1;
+        const lines = option.exchange;
+        for (const flag of taught) {
+          const pair = file.pairs.find((p) => p.flag === flag)!;
+          const at = lines.findIndex((l) => l.speaker === content.actor.id
+            && l.line.length > 0 && pair.boast.startsWith(l.line.replace(/\s*[—–-]+\s*$/, '')));
+          assert.ok(at >= 0, `${tree.id} ${option.id}: pair ${pair.n}'s boast is never said`);
+          assert.equal(lines[at + 1]?.speaker, tree.speaker, `${tree.id} ${option.id}: pair ${pair.n} is answered by the teacher`);
+        }
+      }
+    }
+  }
+  assert.equal(rows, 2, 'the two sparrings doc 03 writes');
+});
+
+test('the slate chalks the score: the runner says who each point is for, and Room 4\'s slate holds five marks a side (errata 136 A)', async () => {
+  // Tyler, 2026-11-06 ("Chalk score on the slate"): the player was never told the score.
+  const content = await loadContent(fsReader);
+  const state = await inBackRoom({ T_VESSEL_FOUND: true, T_DUEL_ONE_LOST: true, ASSAY_PAIR_01: true });
+  state.dialogue.select('ves_b1_5');
+  assert.deepEqual(state.dialogue.duelScore, { player: 0, opponent: 0 });
+  const right = state.dialogue.beginSelection('right');
+  assert.equal(right.resolution.duelPoint, 'player');
+  right.settle();
+  assert.deepEqual(state.dialogue.duelScore, { player: 1, opponent: 0 });
+  const rooms = [...content.rooms.values()].filter((room) => room.tally);
+  assert.ok(rooms.some((room) => room.id === state.room.id || room.ambient?.includes('room_04_judge_1')), 'the back room has a slate');
+  for (const room of rooms) {
+    const slate = room.tally!;
+    const board = room.hotspots.find((h) => /SCOREBOARD/.test(h.name ?? ''))!;
+    assert.ok(board, `${room.id}: a tally needs the slate it is chalked on`);
+    const [bx, by, bw, bh] = board.rect;
+    for (const [x, y] of slate.rows) {
+      const right2 = x + 4 * slate.step + 3 * slate.block;
+      assert.ok(x - slate.block >= bx && right2 <= bx + bw && y >= by && y + slate.height <= by + bh,
+        `${room.id}: five marks at ${x},${y} run off the slate`);
+    }
+  }
 });
 
 test('losing Duel Two teaches what he could not answer, and every retry throws boasts he has not heard (doc 03 Learning; errata 130 A)', async () => {

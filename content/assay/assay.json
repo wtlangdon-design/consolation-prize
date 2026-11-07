@@ -769,8 +769,15 @@
         {
           "speaker": "deke_vessel",
           "line": "That's the trouble."
+        },
+        {
+          "speaker": "deke_vessel",
+          "line": "Son, you've told the truth. In front of people."
         }
       ],
+      "lossRuling": "doc 03 Duel One's loss dialogue, then the standing mockery's last line (errata 136 B; Tyler, 2026-11-06: \"Son, you've told the truth. In front of people.\" closes Duel One's loss after \"That's the trouble.\").",
+      "offersMuttered": true,
+      "offersMutteredRuling": "errata 136 D (Tyler, 2026-11-06, \"Offer the counter just learned\"): the repeat of pair 1 offers the counter he has just written down. Five boasts are thrown, so the duel still cannot be won.",
       "winnable": false
     },
     "duel_two": {
@@ -867,7 +874,16 @@
         "document_a",
         "watch"
       ],
-      "lossRuling": "errata 73 H: a lost Duel Two ends on the reply that lost it and the judges' mark; nothing more is said."
+      "lossRuling": "errata 73 H, amended by errata 136 B: a lost Duel Two ends on the reply that lost it, the judges' mark, and Vessel's jeer -- doc 03's standing mockery, \"rotated on any loss\" -- before the ring teaches what he lacked.",
+      "mocks": {
+        "pool": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "counter": "T_DUEL_TWO_LOSSES"
+      }
     },
     "duel_three": {
       "puzzle": "F4",

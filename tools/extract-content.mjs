@@ -3817,10 +3817,47 @@ function teachingRow(option, cells, { teacher, owner, sparring }) {
     const exchange = docThreeSparring(sparring, owner);
     const reply = option.say ? [{ speaker: owner, line: option.say }] : (option.exchange ?? []);
     const opensOnReply = reply.length === 1 && exchange[0].speaker === owner && exchange[0].line === reply[0].line;
-    option.exchange = [...(opensOnReply ? [] : reply), ...exchange];
+    // EVERY PAIR THE ROW GRANTS IS PERFORMED (errata 136 C; Tyler, 2026-11-06,
+    // "Sparrings show every pair": the practice rounds perform each boast and
+    // counter they grant, using existing lines only). Doc 03's sparring
+    // performs one; the others are run through first, as the sparring itself
+    // has them: Thad says the boast, the teacher says the counter. Every word
+    // is doc 03 Part Two's. They come after the row's reply -- or after the
+    // sparring's own first line where the sparring opens on it (Pratt's "Try
+    // me.") -- and before the rest of the sparring, so Winnie's "Say it again."
+    // and Pratt's astonishment land where doc 03 wrote them, at the end.
+    const pairs = assayPairs();
+    const said = exchange.filter((line) => line.speaker === 'thad').map((line) => line.line.replace(/\s*[—–-]+\s*$/, ''));
+    const performed = (pair) => said.some((line) => line.length > 0 && pair.boast.startsWith(line));
+    const run = [];
+    for (let n = first; n <= last; n += 1) {
+      const pair = pairs.find((one) => one.n === n);
+      if (!pair) throw new Error(`doc 03: no pair ${n} to run through`);
+      if (performed(pair)) continue;
+      run.push({ speaker: 'thad', line: pair.boast }, { speaker: owner, line: pair.counter });
+    }
+    if (!pairs.some((pair) => pair.n >= first && pair.n <= last && performed(pair))) {
+      throw new Error(`doc 03: ${heading(sparring)} performs none of pairs ${first}-${last}`);
+    }
+    option.exchange = opensOnReply
+      ? [exchange[0], ...run, ...exchange.slice(1)]
+      : [...reply, ...run, ...exchange];
     delete option.say;
   }
   return option;
+}
+
+/** A sparring's heading, for messages. */
+function heading(name) {
+  return `## THE SPARRING — ${name}`;
+}
+
+/** Doc 03 Part Two's pairs, boast and counter, as assay() reads them. */
+function assayPairs() {
+  const doc = read('docs/03-liars-assay.md');
+  const two = doc.slice(doc.indexOf('# PART TWO'), doc.indexOf('# PART THREE'));
+  return [...two.matchAll(/^\*\*(\d+)\.\*\*(?: \*\((.+?)\)\*)?\n> \*"(.+?)"\*\n> \*\*"(.+?)"\*\*/gm)]
+    .map(([, n, , boast, counter]) => ({ n: Number(n), boast: plain(boast), counter: plain(counter) }));
 }
 
 function assay() {
@@ -3884,6 +3921,13 @@ function assay() {
   const mockery = [...three.slice(three.indexOf('**Standing mockery lines**')).matchAll(/^- \*"(.+?)"\*$/gm)]
     .map((m) => plain(m[1]));
   if (mockery.length !== 5) throw new Error(`doc 03: ${mockery.length} mockery lines, not 5`);
+  // THE LAST OF THEM IS THE PLANT (doc 03: "That last one lands very differently
+  // in Act IV."). Tyler, 2026-11-06 ("Use the unused mockery lines"): it closes
+  // Duel One's loss, after "That's the trouble."; the other four turn, one per
+  // lost Duel Two, after the reply that lost it (errata 136 B).
+  if (!/That last one lands very differently in Act IV/.test(three)) throw new Error('doc 03: the mockery plant note has moved');
+  const plant = mockery.length - 1;
+  const jeers = mockery.map((_, i) => i).filter((i) => i !== plant);
 
   // PART FOUR: the spoken scenes, as groups of quoted lines.
   const SAYS = { VESSEL: 'deke_vessel', THAD: 'thad', SOWERBY: 'sowerby' };
@@ -3997,7 +4041,12 @@ function assay() {
           + 'repertoire when the duel is over.',
         learns: [1, 2, 3, 4],
         sets: { T_DUEL_ONE_LOST: true },
-        loss: duelOneLoss,
+        loss: [...duelOneLoss, { speaker: 'deke_vessel', line: mockery[plant] }],
+        lossRuling: 'doc 03 Duel One\'s loss dialogue, then the standing mockery\'s last line (errata 136 B; Tyler, '
+          + '2026-11-06: "Son, you\'ve told the truth. In front of people." closes Duel One\'s loss after "That\'s the trouble.").',
+        offersMuttered: true,
+        offersMutteredRuling: 'errata 136 D (Tyler, 2026-11-06, "Offer the counter just learned"): the repeat of pair 1 offers '
+          + 'the counter he has just written down. Five boasts are thrown, so the duel still cannot be won.',
         winnable: false,
       },
       duel_two: {
@@ -4017,7 +4066,9 @@ function assay() {
         win: duelTwoWin,
         setsOnWin: { T_DUEL_TWO_WON: true },
         yields: ['document_a', 'watch'],
-        lossRuling: 'errata 73 H: a lost Duel Two ends on the reply that lost it and the judges\' mark; nothing more is said.',
+        lossRuling: 'errata 73 H, amended by errata 136 B: a lost Duel Two ends on the reply that lost it, the judges\' mark, and '
+          + 'Vessel\'s jeer -- doc 03\'s standing mockery, "rotated on any loss" -- before the ring teaches what he lacked.',
+        mocks: { pool: jeers, counter: 'T_DUEL_TWO_LOSSES' },
       },
       duel_three: duelThree,
     },

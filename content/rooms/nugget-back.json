@@ -749,5 +749,22 @@
       "y": 720,
       "note": "Errata 73 F: \"a voice from the ring of chairs, unnamed\". Errata 131 A: its words sit over the right-hand ring (THE RING OF CHAIRS), low over the empty seats, below the standing duellists' heads so it is not taken for Vessel's, instead of falling back to the top of the frame (doc 30 section 3.1)."
     }
+  },
+  "tally": {
+    "rows": [
+      [
+        735,
+        14
+      ],
+      [
+        735,
+        60
+      ]
+    ],
+    "height": 30,
+    "step": 7,
+    "block": 3,
+    "colour": "#8c8b7e",
+    "note": "Errata 136 A (Tyler, 2026-11-06, \"Chalk score on the slate\"): the duel's score, the player's row above Vessel's, chalked on the right of the slate (THE SCOREBOARD, 400,0 405x255) between the lamp chain and the frame, clear of Sowerby's head in every frame (he leans back to x 720) and above the judges' (y 150). Strokes 3 px blocks and 30 tall, matching the plate's painted tallies; a little brighter than them, because these are today's."
   }
 }

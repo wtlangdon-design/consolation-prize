@@ -1983,6 +1983,9 @@ if (MERGED) {
   // Where a voice with no figure speaks from (errata 131 A: the ring of chairs).
   if (ann.voices) built.voices = ann.voices;
   else delete built.voices;
+  // The slate a duel's score is chalked on (errata 136 A).
+  if (ann.tally) built.tally = ann.tally;
+  else delete built.tally;
   // Tyler, 2026-11-01: the room's light on the figures drawn apart from it.
   if (ann.figureLight) built.figureLight = ann.figureLight;
   if (ann.props) built.props = ann.props;

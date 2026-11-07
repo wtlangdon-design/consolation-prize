@@ -101,6 +101,8 @@ export interface Frame {
   pose?: { speaker: string; frame: number | 'mark' } | null;
   /** A held silence (errata 131 D): every figure holds its rest frame, save whoever speaks or poses. */
   still?: boolean;
+  /** The duel's score as the judges have written it, chalked on the room's slate (errata 136 A). Null outside a duel. */
+  tally?: { player: number; opponent: number } | null;
   /**
    * THE TITLE SCREEN (errata 128): its items, and which one the pointer is
    * on. While it is up nothing of the room is drawn.
@@ -826,6 +828,8 @@ export class Renderer {
     this.screen.context.translate(-camera, 0);
     this.drawRoom();
     this.drawObjectStates();
+    // ON THE SLATE, under the lamp and behind the people (errata 136 A).
+    this.drawTally(frame.tally ?? null);
     // A door a walker is going out by stands open: room geometry, so with the plate, before the people.
     for (const door of this.ambient.openDoors) {
       const image = this.sheet(door.sheet);
@@ -1874,6 +1878,46 @@ export class Renderer {
     context.imageSmoothingEnabled = false;
     this.scratchContext = context;
     return context;
+  }
+
+  /**
+   * THE SCORE IN CHALK (errata 136 A; Tyler, 2026-11-06: tally marks on the
+   * slate show the score, with no words). Each side's row is the slate's own
+   * way of counting -- the plate's old tallies are fours with a fifth struck
+   * across -- in square blocks so the marks keep the plate's pixel grain. Each
+   * upright leans one block to the right at the top, as a hand makes them.
+   */
+  private drawTally(score: { player: number; opponent: number } | null): void {
+    const slate = this.state.room.tally;
+    if (!slate || !score) return;
+    const context = this.screen.context;
+    context.fillStyle = slate.colour;
+    const b = slate.block;
+    const counts = [score.player, score.opponent];
+    slate.rows.forEach(([x0, y0], row) => {
+      const count = counts[row] ?? 0;
+      for (let mark = 0; mark < count; mark += 1) {
+        const group = Math.floor(mark / 5);
+        const gx = x0 + group * (5 * slate.step + 2 * b);
+        const within = mark % 5;
+        const blocks = Math.max(1, Math.round(slate.height / b));
+        if (within < 4) {
+          const x = gx + within * slate.step;
+          for (let k = 0; k < blocks; k += 1) {
+            const lean = k < blocks / 3 ? b : 0;
+            context.fillRect(Math.round(x + lean), Math.round(y0 + k * b), b, b);
+          }
+        } else {
+          // THE FIFTH, struck across the four from low left to high right.
+          const width = 3 * slate.step + 3 * b;
+          const steps = Math.max(blocks, Math.round(width / b));
+          for (let k = 0; k <= steps; k += 1) {
+            const t = k / steps;
+            context.fillRect(Math.round(gx - b + t * width), Math.round(y0 + slate.height - 2 * b - t * (slate.height - 3 * b)), b, b);
+          }
+        }
+      }
+    });
   }
 
   /**

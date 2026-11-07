@@ -3718,3 +3718,39 @@ Each must fit in at most three rows (`OPTION_MAX_ROWS`), each row within the wid
 - a pause never waits for a click, while a reply still does.
 
 Removing the sample's `lostWhen`, or treating "…" as a line, fails it.
+
+---
+
+# 136 · THE SCORE IN CHALK, THE MOCKERY HEARD, THE SPARRINGS WHOLE, THE COUNTER JUST LEARNED — OWNER RULING (Tyler, 2026-11-06)
+
+Tyler was asked: "Four more improvements need your OK… Which should I do?" He selected all four:
+- **"Chalk score on the slate (Recommended)"**
+- **"Use the unused mockery lines (Recommended)"**
+- **"Sparrings show every pair (Recommended)"**
+- **"Offer the counter just learned (Recommended)"**
+
+They are the duel audit's findings 4, 6, 3a and 9c, recommended in errata 130 and 131 as his to rule on. No line is written. Every word below is doc 03's, extracted.
+
+**A · The score is chalked on the slate.** In Room 4, while a duel runs, the score is shown as tally marks on the right of THE SCOREBOARD (`tally`, carried from the annotation by `tools/compile-room.mjs`). There are no words.
+- **The layout:** the player's row is above Vessel's. Each row is four uprights with a fifth struck across, in the slate's own way of counting and at the plate's painted tallies' size. The marks are a little brighter than the old ones, because they are today's.
+- **When a mark appears:** as the judges' pencil goes down (errata 130 B), not when the exchange lands, which is after the next boast.
+- **When the slate clears:** when the duel is over.
+- **Duel Three has no slate.** The street has none, and the duel cannot be lost.
+
+**B · The standing mockery is heard. Errata 73 H is amended again.** Doc 03 Part Three's five lines were extracted and never read.
+- **The plant.** "Son, you've told the truth. In front of people." ("That last one lands very differently in Act IV") now closes Duel One's loss, after "That's the trouble.", in Vessel's voice, as Tyler chose.
+- **The other four.** They are said in turn, one per lost Duel Two ("rotated on any loss"). Vessel says his jeer after the reply that lost it and the judges' mark, before the ring teaches what Thad lacked (errata 130 A). `T_DUEL_TWO_LOSSES` keeps the turn, and a duel saved mid-fight keeps it too.
+
+**C · The sparrings perform every pair they grant.**
+- **Before:** Winnie's lesson set pairs 5-9 and performed 6; Pratt's set 10-15 and performed 13.
+- **Now each other pair is run through:** Thad says the boast, the teacher says the counter, in doc 03 Part Two's words.
+- **Placement:** after Winnie's "Sit." and Pratt's "Try me.", and before the rest of doc 03's sparring. So Winnie's "Say it again." and Pratt's "Where'd that come from?" still close their scenes, as written.
+- **The extractor reads it all from doc 03,** and fails if a sparring performs none of the pairs its row grants.
+
+**D · The repeat of pair 1 offers the counter just written down. Errata 73 D is amended.** Duel One's fifth boast offers "I've seen your bishop. He was malnourished." beside its three wrong answers (`offersMuttered`). Thad has just written "Malnourished. Bishop. Yes." The duel still cannot be won: one point is not five, and it ends lost 1-4. Duel Two is unchanged. Errata 73 C stands as it is.
+
+**What holds it:** `tests/assay.test.ts`. Each new test was proved by putting its defect back, and each failed:
+- the jeers turn across losses, the plant closes Duel One, and the counter moves;
+- the repeat offers the counter and the duel is still lost;
+- both sparrings perform every pair they grant, each boast by Thad and answered by the teacher;
+- the runner says whom each point is for, and Room 4's slate holds five marks a side within THE SCOREBOARD.

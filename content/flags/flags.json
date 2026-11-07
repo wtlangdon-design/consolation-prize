@@ -336,6 +336,15 @@
    "note": "B5. Written by the duel runner when Duel One ends (it always ends lost, by design). Gates VES_B1 option 5, the rematch (errata 73 H)."
   },
   {
+   "id": "T_DUEL_TWO_LOSSES",
+   "type": "integer",
+   "initial": 0,
+   "writtenBy": [
+    "engine:assay:duel_two"
+   ],
+   "note": "How many times Duel Two has been lost. Errata 136 B: it turns the standing mockery (doc 03, \"rotated on any loss\") Vessel says after the reply that loses it."
+  },
+  {
    "id": "T_DUEL_TWO_WON",
    "type": "boolean",
    "initial": false,

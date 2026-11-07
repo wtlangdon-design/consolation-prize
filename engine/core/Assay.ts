@@ -86,6 +86,21 @@ export interface DuelDefinition {
    * repertoire when the duel is over, won or lost (errata 130 A).
    */
   learnsByLosing?: boolean;
+  /**
+   * THE COUNTER HE HAS JUST WRITTEN DOWN IS OFFERED (errata 136 D; Tyler,
+   * 2026-11-06, "Offer the counter just learned"): a boast thrown again after
+   * the ring muttered its counter offers that counter, though the duel cannot
+   * be won. Duel One's repeat of pair 1.
+   */
+  offersMuttered?: boolean;
+  /**
+   * THE STANDING MOCKERY (doc 03 Part Three: "rotated on any loss"; errata 136
+   * B; Tyler, 2026-11-06, "Use the unused mockery lines"): when this duel is
+   * lost, the opponent says the next of these lines from `AssayFile.mockery`
+   * (by index), in turn across losses, after the reply that lost it. `counter`
+   * is the integer flag that keeps the turn.
+   */
+  mocks?: { pool: number[]; counter: string };
   sets?: Record<string, FlagValue>;
   setsOnWin?: Record<string, FlagValue>;
   loss?: AssayLine[];
@@ -135,6 +150,8 @@ export interface DuelChoice {
   outcome: DuelOutcome | null;
   /** Flag writes that land when this choice settles. Empty until the duel ends. */
   sets: Record<string, FlagValue>;
+  /** Counters raised when this choice settles: the mockery's turn after a loss (errata 136 B). */
+  adds: Record<string, number>;
   /**
    * The puzzle this choice completes: Duel One's (B5) when it ends, since it
    * cannot be won; Duel Two's (B6) only when it is won (doc 57 B5, B6).
@@ -153,6 +170,8 @@ export interface DuelSnapshot {
   player: number;
   opponent: number;
   muttered: number[];
+  /** Losses before this duel began, which choose its mockery (errata 136 B). */
+  losses?: number;
 }
 
 const RIGHT = 'right';
@@ -216,8 +235,10 @@ export class DuelSession {
   private player = 0;
   private opponent = 0;
   private muttered = new Set<number>();
+  private readonly losses: number;
 
-  constructor(file: AssayFile, duelId: string, known: ReadonlySet<number>, from?: DuelSnapshot) {
+  /** `losses`: how many times this duel has been lost before, which turns its mockery (errata 136 B). */
+  constructor(file: AssayFile, duelId: string, known: ReadonlySet<number>, from?: DuelSnapshot, losses = 0) {
     const duel = file.duels[duelId];
     if (!duel) throw new Error(`Unknown duel: ${duelId}`);
     this.id = duelId;
@@ -231,7 +252,9 @@ export class DuelSession {
       this.player = from.player;
       this.opponent = from.opponent;
       this.muttered = new Set(from.muttered);
+      this.losses = from.losses ?? 0;
     } else {
+      this.losses = losses;
       this.known = new Set([...known, ...(duel.knows ?? [])]);
       this.sequence = duelOrder(file, duelId, this.known);
     }
@@ -271,7 +294,8 @@ export class DuelSession {
   offered(): DuelOffer[] {
     const pair = this.pair(this.currentPair);
     const offers: DuelOffer[] = pair.wrong.map((w, i) => ({ id: `w${i}`, text: w.text }));
-    if (this.known.has(pair.n)) {
+    // Errata 136 D: and the one he has just written down, where this duel offers it.
+    if (this.known.has(pair.n) || (this.duel.offersMuttered === true && this.muttered.has(pair.n))) {
       offers.splice(Math.min(rightSlot(pair.n), offers.length), 0, { id: RIGHT, text: pair.counter });
     }
     return offers;
@@ -334,7 +358,7 @@ export class DuelSession {
       lines.push(rethrow[(opponent - 1) % rethrow.length]!);
       lines.push(this.boastLine(pair.n));
       return {
-        choice: { optionId, correct, lines, ended: false, outcome: null, sets: {}, yields: [], completes: null },
+        choice: { optionId, correct, lines, ended: false, outcome: null, sets: {}, adds: {}, yields: [], completes: null },
         next: { index: this.index, player, opponent, muttered },
       };
     }
@@ -345,6 +369,7 @@ export class DuelSession {
       : player >= toWin || opponent >= toWin || index >= this.sequence.length;
     const outcome: DuelOutcome | null = !ended ? null : (rethrow?.length || player >= toWin ? 'won' : 'lost');
     const sets: Record<string, FlagValue> = {};
+    const adds: Record<string, number> = {};
     let yields: string[] = [];
     let completes: string | null = null;
     if (ended) {
@@ -372,12 +397,23 @@ export class DuelSession {
         // Errata 73 H: a lost Duel Two ends on the reply that lost it. Duel
         // One's loss has its own scene.
         lines.push(...(this.duel.loss ?? []));
+        // THE STANDING MOCKERY, in turn (errata 136 B): the opponent's jeer
+        // follows the reply that lost it and the judges' mark, before anything
+        // the ring has to teach.
+        const mocks = this.duel.mocks;
+        if (mocks?.pool.length) {
+          const jeer = this.file.mockery[mocks.pool[this.losses % mocks.pool.length]!];
+          if (jeer === undefined) throw new Error(`${this.id}: no standing mockery line ${mocks.pool[this.losses % mocks.pool.length]}`);
+          const markAt = lines.findIndex((line) => line.mark);
+          lines.splice(markAt + 1, 0, { speaker: this.duel.opponent, line: jeer });
+          adds[mocks.counter] = 1;
+        }
       }
     } else {
       lines.push(this.boastLine(this.sequence[index] as number));
     }
     return {
-      choice: { optionId, correct, lines, ended, outcome, sets, yields, completes },
+      choice: { optionId, correct, lines, ended, outcome, sets, adds, yields, completes },
       next: { index, player, opponent, muttered },
     };
   }
@@ -391,6 +427,7 @@ export class DuelSession {
       player: this.player,
       opponent: this.opponent,
       muttered: [...this.muttered].sort((a, b) => a - b),
+      losses: this.losses,
     };
   }
 }
