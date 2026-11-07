@@ -4009,3 +4009,43 @@ Checked against both SCUMM games and against this project's own rulings: doc 30,
 # 145 · FRAME REDRAWN WHOLE, AT THAD'S PROPORTIONS — TYLER, 2026-11-07
 
 Tyler, offered Frame by errata 144's method: **"Yes do it."** 138's leaner Frame (cast-unify 62) still had the cast sheet's head, about 1.12× the in-game Thad's by ruler. **Cast-unify 70** (batch-41; `reference/cast-unify-41.txt`) painted him over the in-game Thad four times, with only his face as reference: the same editor -- untidy brown hair, pencil, rolled sleeves, ink-stained apron -- with his notebook in every pose (rest, talking, writing a quote, leaning in). By ruler at one man's height his head is now Thad's: crown to chin ~40, against Thad's 40, the live 62's ~45 and the original's ~60 (`renders/leaner-cast-frame-heads-ruler.png`). He is cut as before (`tools/art/leaner-cast.py frame`), at the same crown-to-sole height. Before and after beside Thad in the Clarion: `renders/leaner-cast-frame-before-after.png`. **Seventy of seventy-five cast-unify operations spent.**
+
+---
+
+# 146 · ALL 26 ITEM ICONS, REDRAWN AT SLOT SIZE — TYLER, 2026-11-07
+
+Tyler: "Read reference/item-icons/brief.md … and do it: redraw all 26 item icons at 60×40, cut, test and merge as the brief says." The brief is errata 142's.
+
+- **One operation of the two** (`item-icons` attempt 1, `reference/item-icons/op-01.spec.json`). Its two images:
+  - `icons-before.png`, for what each icon is;
+  - `style-reference.png`, Thad, Deke and the cast at game size (cropped from `renders/townspeople-vs-cast@3x.png`), for the style.
+- **Each item is described from its own doc 23 LOOK lines.** The thirteen papers are thirteen different objects:
+  - a sealed envelope; a folded printed map; a hand-drawn deed with its stake; a dark-spined ledger;
+  - a sheet with a signature running off the edge; a bordered form; a sealed and ribboned certificate; an X with a pressed stamp; a black-bordered certificate;
+  - a purple-inked survey; a gilt card standing up; a small numbered form; a folded newspaper.
+- **It came back right.** All 26 are in order and each reads as its object, so the correction was not spent. The seven errata 140 found poor now read:
+  - a jar of eggs in yellow brine;
+  - copper coin with one bone button;
+  - Sheng's coins in a paper twist;
+  - a folded striped blanket;
+  - a white lace handkerchief;
+  - a pickaxe with its shim;
+  - grey rock veined with gold.
+- **Cut by `tools/art/item-icons-cut.py`.** The brief asked for each object scaled to fit 60×40, nearest-neighbour. Instead, all 26 share one factor (4.395 sheet pixels to an art pixel, the one that fits the largest object in 58×38), so they stay one scale family. The reduction is `one-level.py`'s premultiplied BOX, then a crisp alpha.
+  - The magenta is taken out at the outline and wherever a pixel sits at the key's own hue (about 300°). The survey's violet ink (about 265°) keeps its colour.
+  - A neighbour's edge reaching over the grid line (the jar's lid into the survey's cell) is left out.
+  - It writes `art/ui/item-icons.png` (4 across, 240×280) and `content/ui/item-icons.json`, with `"cell": [60, 40]`.
+- **Every icon now draws at exactly ×2** into the 180×80 slot, where the old cells came to ×3.81.
+- **Found by review on #211, fixed before merging:** the first cut premultiplied colour, resized it as RGBA, and divided by alpha again. Pillow already premultiplies an RGBA resize, so part-covered edge pixels came out up to twice as bright and the outlines went pale. The cut now hands Pillow straight colour, and it fails if any art pixel is brighter than everything drawn under it; the old reduction trips that on all 26 icons. A doc 55 §8 row carries the lesson.
+- **The old generator refuses.** `tools/pixelart/item_icons.py` is on `npm run renders`' list and would have written the 30×21 sheet and its JSON straight back. Both paths are now in `tools/pixelart/superseded.py`, and the module stops and names them, as the other superseded composers do (CLAUDE.md, Renders).
+- **The lesson is a test.** `tests/item-icons-scale.test.ts` holds three things:
+  - every cell fits its slot at a whole-number scale;
+  - the declared cell is 60×40;
+  - no icon pixel sits at the magenta key's hue.
+
+  On the old sheet it fails.
+- **Shown:**
+  - `reference/item-icons/icons-after.png` has all 26 at game size beside their names, as `icons-before.png` did.
+  - `renders/inventory-icons-r7-f5-held.png` is the panel in the game on fixture `r7-f5-held`.
+- **Not changed:** `tools/gauntlet/snap.mjs` hangs here when it closes the browser, after the page has loaded and the probe has answered. The in-game frame was taken through the game's own `snapshot()`, as the proofs take theirs.
+- **Waiting on Tyler:** the icons are cut into the game, and he judges them in the playthrough (errata 72). FOUR DOLLARS (three coins) and THE FILING FEE (two coins) are the closest pair. Both are silver coin, as doc 23 makes them, and they differ in count and arrangement.

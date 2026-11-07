@@ -31125,6 +31125,62 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-07T04:05:23.175Z"
+  },
+  {
+   "attempt": 1,
+   "role": "other",
+   "assetId": "item-icons",
+   "subject": "item-icons",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/item-icons/prompt-01.txt",
+   "promptHash": "ad163b2ac887393463843f5d6841993965397d679dd038aa962cca6dff9e764d",
+   "references": [
+    {
+     "path": "reference/item-icons/icons-before.png",
+     "hash": "9c694595799bfeda7a2c9ef44b95a0bab6d16f7d112248671409b8eea28c183f",
+     "transmitted": true
+    },
+    {
+     "path": "reference/item-icons/style-reference.png",
+     "hash": "02f33e56890fc19ff1cb4d0385e1a11134c8a96f26ec9c38e62c887dbf45555e",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "9c694595799bfeda7a2c9ef44b95a0bab6d16f7d112248671409b8eea28c183f",
+   "sourcePath": "reference/item-icons/icons-before.png",
+   "out": "art/staging/item-icons/sheet-01.png",
+   "outputHash": "80cdb4a67076887ece07ed05fc82ffcea5690e2e1b6f5c2b2bb55f18f92f91a5",
+   "bytes": 1736820,
+   "usage": {
+    "input_tokens": 3711,
+    "input_tokens_details": {
+     "image_tokens": 3004,
+     "text_tokens": 707
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 5262
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-07T03:53:52.354Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06 (item-icons cap 2): \"Redraw all 26 at slot size (Recommended)\" -- one sheet of all 26 and one correction (errata 142).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-07T03:53:52.363Z"
   }
  ],
  "promotions": [

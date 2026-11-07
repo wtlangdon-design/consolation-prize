@@ -1,0 +1,32 @@
+Image 1 shows the 26 inventory items of my pixel-art adventure game as they are now, each beside its name: it tells you WHAT each object is. Image 2 shows three characters from the same game: it is the STYLE to match -- soft-shaded pixel art, low texture, a dark outline, warm muted 1850s colours, readable against a dark ground.
+
+Draw a new sheet of all 26 inventory icons in Image 2's style. Flat pure magenta (#FF00FF) background. A grid of 6 across and 5 rows, read left to right, top to bottom, in exactly this order (the last row has only two, at the left). Each object alone, centred in its cell, a little wider than tall, all at the same scale family, with clear magenta between them. Each must read at a glance on a dark panel at a small size, so give every object a light or warm face and a dark outline. No two may look alike: the papers in particular must be clearly different objects, not one paper with different marks.
+
+1. a steel tuning fork, two tines on a short stem
+2. a sealed letter: a cream envelope with a red wax seal
+3. four silver dollar coins in a small stack
+4. a hand-drawn deed: a sheet with a rough boundary sketch and a wooden stake drawn on it, a pencil word across the top
+5. a folded printed district map with roads and one place circled in red
+6. a pickaxe whose iron head sits loose on the wooden handle, with a small pine shim
+7. two silver dollar coins, side by side
+8. a thick ledger book with a dark cloth spine, lying closed
+9. a silver pocket watch on a short chain, lid open
+10. a sworn affidavit: a sheet with a huge looping signature that runs off the edge
+11. an official assay form with a printed grey border and a heavy black signature at the foot
+12. a certificate with a gold seal and a short ribbon
+13. a notarized paper with a big X and a pressed round stamp beside it
+14. a black-bordered death certificate, a narrow mourning border all round
+15. a survey written in purple ink with a curving boundary line drawn on it
+16. a gilt-edged engraved dinner invitation card, stiff, standing a little tilted
+17. a small official printed form with a numbered box at the top and a tiny neat signature
+18. a folded newspaper page, newsprint grey, with columns and a heading
+19. a fine white silk handkerchief with a lace edge, folded, catching the light
+20. a stiff photograph card in a cardboard mount: a formal portrait of a man in a high collar
+21. a glass jar of pickled eggs in yellow brine, with a lid
+22. a brown medicine bottle with a paper label and a wired cork
+23. a few coins wrapped in a twist of brown paper, the paper open at the top
+24. a folded horse blanket, thick striped wool, red and cream
+25. a small heap of copper coins and one bone button
+26. a heavy grey rock with veins of bright yellow gold in it
+
+Same pixel size and soft shading as Image 2. Crisp pixel edges. No glow, no text, no numbers, no labels, no shadows, no ground.

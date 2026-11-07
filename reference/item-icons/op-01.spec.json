@@ -1,0 +1,13 @@
+{
+ "assetId": "item-icons",
+ "subject": "item-icons",
+ "role": "other",
+ "promptFile": "reference/item-icons/prompt-01.txt",
+ "out": "art/staging/item-icons/sheet-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/item-icons/icons-before.png",
+  "reference/item-icons/style-reference.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-06 (item-icons cap 2): \"Redraw all 26 at slot size (Recommended)\" -- one sheet of all 26 and one correction (errata 142)."
+}
