@@ -650,11 +650,11 @@
    "castingNote": "Nobody stands in the Lane (errata 161); nobody is painted into the plate."
   },
   "room-00-town-map": {
-   "visualType": "district-map",
+   "visualType": "district-map-night",
    "comparable": {
     "id": "room-00-town-map",
     "path": "art/backgrounds/room-00-town-map.png",
-    "note": "D -- the shipping district map itself: the edit moves one building on it and keeps everything else (errata 163)."
+    "note": "D -- the shipping district map itself, redrawn at night with the town as the game has it (errata 163)."
    },
    "casting": [],
    "castingNote": "Nobody is drawn on the map; the map's Thad is derived from his own walk cycle (tools/art/map-thad.py).",
