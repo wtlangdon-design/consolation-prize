@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "frame-leaner",
+ "role": "derived-state",
+ "purpose": "room-art",
+ "baselineRoom": "room-09-clarion",
+ "promptFile": "reference/cast-unify-41.txt",
+ "out": "art/staging/cast-unify/batch-41/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-41/template.png",
+  "art/staging/cast-unify/batch-41/face.png"
+ ],
+ "derivedFrom": 62
+}

@@ -3956,3 +3956,9 @@ Tyler, of 138's leaner judges: **"This head still seems weirdly large."** Then, 
 - **The lesson, for every future redraw:** show the generator the in-game Thad as the only full figure, and the character only as a face. Measure heads by ruler against the in-game Thad (`renders/thad-in-game-vs-cast-sheet-heads.png`), never against the cast sheet.
 
 **Operations:** 67-69, 69 of 75 cast-unify spent. Before and after, beside Thad in their rooms, against the drawings before 138: `renders/leaner-cast-duel-judge-*-before-after.png`, `renders/leaner-cast-seated-judge-*-before-after.png`. Left for the playthrough: the bearded judge seated wears a gold watch chain in two of his four poses, which his design does not have.
+
+---
+
+# 145 · FRAME REDRAWN WHOLE, AT THAD'S PROPORTIONS — TYLER, 2026-11-07
+
+Tyler, offered Frame by errata 144's method: **"Yes do it."** 138's leaner Frame (cast-unify 62) still had the cast sheet's head, about 1.12× the in-game Thad's by ruler. **Cast-unify 70** (batch-41; `reference/cast-unify-41.txt`) painted him over the in-game Thad four times, with only his face as reference: the same editor -- untidy brown hair, pencil, rolled sleeves, ink-stained apron -- with his notebook in every pose (rest, talking, writing a quote, leaning in). By ruler at one man's height his head is now Thad's: crown to chin ~40, against Thad's 40, the live 62's ~45 and the original's ~60 (`renders/leaner-cast-frame-heads-ruler.png`). He is cut as before (`tools/art/leaner-cast.py frame`), at the same crown-to-sole height. Before and after beside Thad in the Clarion: `renders/leaner-cast-frame-before-after.png`. **Seventy of seventy-five cast-unify operations spent.**

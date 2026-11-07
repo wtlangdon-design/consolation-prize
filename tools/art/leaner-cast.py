@@ -49,7 +49,9 @@ def figure_height(sheet, frames, hat=False):
 
 
 def frame():
-    sheet = 'art/staging/cast-unify/batch-32/sheet.png'
+    # Cast-unify 70 (batch-41): painted over the in-game Thad with only his face as reference (errata 144's
+    # method; 62, batch-32, kept the cast sheet's head, ~1.12x the in-game Thad's).
+    sheet = 'art/staging/cast-unify/batch-41/sheet.png'
     rec_p = 'content/ambient/frame.json'; rec = read(rec_p)
     out = 'art/actors/room-09-frame-master.png'
     cut = json.loads(py('tools/art/cast-unify-cut.py', sheet, '0', str(rec['sprite']['figureHeight']),
