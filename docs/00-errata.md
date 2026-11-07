@@ -4173,3 +4173,16 @@ Lines are read as a player reads them: a line waiting for a click is clicked aft
 **D · The first clean run.** From NEW GAME to THE END on the title, all 145 steps at the game's own pace, no bypass: 0 breaks and nothing that looked wrong (no failed request, console error, unloaded asset, fallback figure, panel in the coffin or black frame), in 3,851 s -- 64 minutes. The coffin is the longest step (about four minutes), then the arrivals that walk Main Street's length.
 
 **E · Not in CI.** It plays the coffin's minutes and the listening chamber's ninety seconds in real time, far over the gauntlet job's fifteen-minute limit. It is the manual run before a playthrough (doc 55 §8).
+
+# 152 · LINES MOVE ON BY THEMSELVES, THE MONKEY ISLAND WAY; NO ARROW — TYLER, 2026-11-07
+
+*Playing the opening on the live site, of the small triangle under "You've all got four.": "Why does the dialogue have that weird down arrow next to it?"*
+
+The triangle was errata 126's continue mark. It is drawn under any line that waits for a click, and conversation lines waited under Tyler's click-to-read ruling of 2026-11-01 (`ui.json` `conversationWaitsForClick`). He was offered three choices: Monkey Island's way, where a line comes down after its reading time and a click skips ahead; waiting with no mark; or as it was. He chose **"Monkey Island way, no arrow (Recommended)"**.
+
+- `conversationWaitsForClick` is now **false**. Every line, in conversation or not, comes down on doc 30 §4.1's reading hold, and a click skips ahead (`DialoguePerformance.skip`).
+- Nothing waits, so no mark is drawn. The mark's code stays for a line that ever waits again.
+- Text speed in OPTIONS scales the hold.
+- Errata 147's echo rule is now the rule for every line. This reverses the 2026-11-01 ruling.
+
+**What holds it:** `tests/speech-pacing.test.ts` and `tests/follow-ups.test.ts` now require the shipped game to read conversations on the hold. Every tree's first exchange must come down by the clock alone, and a click must move it one line on. Both fail with the flag back on. The two assertions they replace are recorded in `proofs/check-friction.json`.

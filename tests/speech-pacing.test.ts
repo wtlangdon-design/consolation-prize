@@ -56,16 +56,16 @@ test("the protagonist's echo of the choice never waits for a click; the answer t
   assert.equal(waitsForClick({ conversation: true, clickToRead: true }), true, 'a greeting waits');
 });
 
-test('in a performed exchange the echo advances on its hold, and every reply holds for its click', async () => {
+test('in a performed exchange every line comes down on its hold, nothing waits, and a click skips ahead (errata 152)', async () => {
+  // Tyler, 2026-11-07, of the waiting mark: "Why does the dialogue have that
+  // weird down arrow next to it?" -- he chose "Monkey Island way, no arrow".
   const content = await loadContent(fsReader);
   const ui = content.ui.timing;
-  assert.equal(ui?.conversationWaitsForClick, true, 'the shipped game reads conversations by click');
+  assert.equal(ui?.conversationWaitsForClick, false, 'the shipped game reads conversations on the hold');
   const timing: HoldTiming = {
     base: ui?.holdBaseSeconds ?? 0.45, perGlyph: ui?.holdPerGlyphSeconds ?? 0.055,
-    minimum: ui?.holdMinimumSeconds ?? 1.8, maximum: ui?.holdMaximumSeconds ?? 8, waitForClick: true,
+    minimum: ui?.holdMinimumSeconds ?? 1.8, maximum: ui?.holdMaximumSeconds ?? 8, waitForClick: false,
   };
-  // Every tree's every first-offered option with an exchange of two or more
-  // replies: the echo, then each reply.
   let checked = 0;
   for (const treeId of content.dialogue.keys()) {
     const state = new GameState(content, new MemoryStorage());
@@ -79,15 +79,21 @@ test('in a performed exchange the echo advances on its hold, and every reply hol
     if (!replies.length) continue;
     const echo = { speaker: content.actor.id, line: chosen.text };
     const performance = new DialoguePerformance(exchange, echo, replies, timing, 0);
-    assert.equal(performance.echoing, true, `${treeId}: the echo is up first`);
     assert.equal(performance.waiting, false, `${treeId}: the echo does not wait`);
-    performance.tick(readingHold(echo.line, timing) + 0.01);
-    assert.equal(performance.echoing, false, `${treeId}: the echo came down on its hold, with no click`);
-    for (let at = 0; at < replies.length; at += 1) {
-      assert.equal(performance.waiting, true, `${treeId}: reply ${at + 1} waits for its click`);
-      assert.equal(performance.tick(1000 + at), false, `${treeId}: the clock alone never clears reply ${at + 1}`);
-      performance.skip(1000 + at + 1);
-    }
+    let now = readingHold(echo.line, timing) + 0.01;
+    performance.tick(now);
+    assert.equal(performance.echoing, false, `${treeId}: the echo came down on its hold`);
+    // The first reply comes down on its hold with no click at all.
+    assert.equal(performance.waiting, false, `${treeId}: reply 1 does not wait (no arrow)`);
+    // A click skips ahead before the hold is out.
+    const before = performance.done;
+    now += 1.0;
+    performance.skip(now);
+    if (replies.length > 1) assert.equal(performance.done, false, `${treeId}: a click moved one line on`);
+    else assert.notEqual(before, performance.done, `${treeId}: a click on the last reply ends the exchange`);
+    // And the clock alone finishes the rest.
+    for (let i = 0; i < replies.length + 2 && !performance.done; i += 1) { now += timing.maximum + 0.1; performance.tick(now); }
+    assert.equal(performance.done, true, `${treeId}: every line came down by itself`);
     checked += 1;
   }
   assert.ok(checked > 10, `exchanges checked: ${checked}`);

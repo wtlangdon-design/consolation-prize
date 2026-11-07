@@ -259,6 +259,18 @@
    "date": "2026-11-07",
    "kind": "loosened",
    "why": "Not loosened, and not a misfire of the test: errata 148 EXTENDED it so Thad's acted rows (thad:pick-fit) are held as every figure's are -- his clip exists in one facing with every frame, he performs the words, nothing is printed, every beat holds a clip frame, the row lasts its seconds, and frame 0 is his stand frame byte for byte. No assertion was removed or relaxed. tools/check-friction.mjs counted it because a changed doc-comment line contains a number ('doc 95') and added lines contain numbers."
+  },
+  {
+   "check": "tests/speech-pacing.test.ts",
+   "date": "2026-11-07",
+   "kind": "loosened",
+   "why": "Tyler reversed his 2026-11-01 click-to-read ruling (errata 152: 'Monkey Island way, no arrow'). The assertions that conversation replies wait for a click now assert the opposite: every line comes down on its hold, nothing waits, and a click skips ahead. A ruling changed, not a threshold."
+  },
+  {
+   "check": "tests/follow-ups.test.ts",
+   "date": "2026-11-07",
+   "kind": "loosened",
+   "why": "Tyler reversed his 2026-11-01 click-to-read ruling (errata 152: 'Monkey Island way, no arrow'). The assertions that conversation replies wait for a click now assert the opposite: every line comes down on its hold, nothing waits, and a click skips ahead. A ruling changed, not a threshold."
   }
  ]
 }
