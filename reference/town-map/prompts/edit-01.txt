@@ -1,0 +1,7 @@
+Image 1 is part of a finished map from my pixel-art adventure game: a top-down, slightly angled drawn plan of a small 1850s gold-rush town in grass, with dirt roads, a creek and a bridge. The town is three rows of wooden false-front buildings along the roads. The other images are references for the game's style only; do not copy anything from them into the map.
+
+Make exactly these two changes, in the map's own style, pixel grid and colours:
+1. In the top row of buildings, the white church with the tall black steeple stands in the middle of the row. Replace the church with an ordinary two-storey wooden false-front building like its neighbours in that row, the same size as them, so the row reads as one continuous street of shops with no gap and no steeple.
+2. At the far right end of the same top row, replace the last building (the one nearest the bend in the road and the creek) with the white wooden church with its tall black steeple and cross, the same church as before, the same size it was. It now stands at the east end of town.
+
+Change nothing else. The other buildings, the two other rows, every road, the creek, the bridges, the trees, the grass and the woodpile stay exactly where they are and exactly as they are drawn. Same camera, same scale, same light. No text, no labels, no numerals, no people.

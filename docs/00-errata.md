@@ -4447,3 +4447,15 @@ Tyler asked for his face near y 360, so the frames are derived by the same trans
 There were no page errors. One frame of each line is in `renders/cutaways/fanshawe-closeup-line-1.png` to `-5.png`.
 
 **For Tyler:** the lamp sits further right than the brief planned, near the frame's edge, and his folded hands are mostly below the frame at rest.
+
+---
+
+# 163 · THE MAP'S THAD, AND THE MAP'S CHURCH — TYLER, 2026-11-07
+
+*Tyler asked whether the district map has a small Thad who walks when a place is clicked, as Monkey Island's does. He was told it does not: errata 25 and 44a withdrew the character token, once because travel was instant and nothing could draw a figure that small, and again because the town was now walked. He was told what one would take: a small Thad, paths along the drawn roads, and a click to skip. He answered **"Do it"**. That reverses errata 25 and 44a.*
+
+*He then asked whether the map shows where everything is. He was told the long-distance places are in the realm of correct, but the church is drawn in the middle of Main Street's row, while the game has it at the east end of town on Lower Street (errata 43, 161). He was advised to leave it and answered **"I'd rather fix it"**.*
+
+**A · The church (this part).** One image edit moves the church to the east end of the town's north row and puts an ordinary false-front building where it stood. `tools/art/town-map-edit.py` takes back only that row, so every marker and road keeps its place. `reference/town-map/brief.md` is for the session with the image key. The cap is `town-map`: 2, an edit and a correction (attemptsTotal 303 → 305). `reference/global-baseline.json` gains `room-00-town-map`, with the map itself as its comparable.
+
+**B · The map's Thad** lands with Lower Street and the Lane (errata 161, part 3), on the branch where it was built, and is recorded here when it merges.
