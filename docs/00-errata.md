@@ -4003,3 +4003,9 @@ Checked against both SCUMM games and against this project's own rulings: doc 30,
 **Still Tyler's (unchanged here):**
 - Whether Thad's echo of a chosen line should advance on its reading hold rather than wait for a click (errata 126, finding 11's second suggestion).
 - Whether the stage driver's exit should wait for his three questions (errata 65).
+
+---
+
+# 145 · FRAME REDRAWN WHOLE, AT THAD'S PROPORTIONS — TYLER, 2026-11-07
+
+Tyler, offered Frame by errata 144's method: **"Yes do it."** 138's leaner Frame (cast-unify 62) still had the cast sheet's head, about 1.12× the in-game Thad's by ruler. **Cast-unify 70** (batch-41; `reference/cast-unify-41.txt`) painted him over the in-game Thad four times, with only his face as reference: the same editor -- untidy brown hair, pencil, rolled sleeves, ink-stained apron -- with his notebook in every pose (rest, talking, writing a quote, leaning in). By ruler at one man's height his head is now Thad's: crown to chin ~40, against Thad's 40, the live 62's ~45 and the original's ~60 (`renders/leaner-cast-frame-heads-ruler.png`). He is cut as before (`tools/art/leaner-cast.py frame`), at the same crown-to-sole height. Before and after beside Thad in the Clarion: `renders/leaner-cast-frame-before-after.png`. **Seventy of seventy-five cast-unify operations spent.**

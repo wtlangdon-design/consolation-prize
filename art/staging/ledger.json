@@ -31002,6 +31002,129 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-07T03:52:15.665Z"
+  },
+  {
+   "attempt": 70,
+   "role": "derived-state",
+   "assetId": "cast-unify",
+   "subject": "frame-leaner",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 62,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/cast-unify-41.txt",
+   "promptHash": "a00f542e7eced64c330a831031847ad296a60a7321832f3660c0c2315d38ebeb",
+   "references": [
+    {
+     "path": "art/staging/cast-unify/batch-41/template.png",
+     "hash": "6b1beab31894e391ff468eabcfb381c9ef8fb32acd6350240ff72157c763e667",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/cast-unify/batch-41/face.png",
+     "hash": "14dedd9d154bd7c8973ec2e1f5033be74b487c629fb8ebe56a4d9c53ac90f41e",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-09-clarion",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "6b1beab31894e391ff468eabcfb381c9ef8fb32acd6350240ff72157c763e667",
+   "sourcePath": "art/staging/cast-unify/batch-41/template.png",
+   "out": "art/staging/cast-unify/batch-41/sheet.png",
+   "outputHash": "c795a2b255626a5219cc42a1b7ffad880d7dfaf9d0df12b43a28e638fe8e2e14",
+   "bytes": 1382502,
+   "usage": {
+    "input_tokens": 9976,
+    "input_tokens_details": {
+     "image_tokens": 9584,
+     "text_tokens": 392
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 10409
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-07T04:05:23.167Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-07T04:05:23.175Z"
   }
  ],
  "promotions": [
