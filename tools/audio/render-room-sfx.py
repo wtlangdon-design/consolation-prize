@@ -285,7 +285,7 @@ def nugget_crowd():
     for at in rnd.uniform(0.5, d, 6):
         tick = bandpass(rnd.normal(0, 1, n_of(0.006)), 3000, 7000) * np.hanning(n_of(0.006))
         place(x, tick, at, 0.25)
-    return finish(loop_seam(x[:n_of(d + 0.4)]), peak=0.5, loop=True)
+    return finish(loop_seam(x[:n_of(d + 0.4)]), peak=0.98, loop=True)
 
 
 def dog_breathing():
@@ -332,7 +332,7 @@ def registrar_bed():
     paper = load('paper-light.wav')
     for at in (6.2, 14.6):
         place(x, paper, at, 0.25)
-    return finish(x, peak=0.4, loop=True)
+    return finish(x, peak=0.95, loop=True)
 
 
 def church_bell_toll():

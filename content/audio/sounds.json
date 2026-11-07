@@ -6,7 +6,7 @@
    "play": [
     {
      "src": "audio/sfx/sign-creak.wav",
-     "gain": 0.482
+     "gain": 0.962
     }
    ]
   },
@@ -15,7 +15,7 @@
    "play": [
     {
      "src": "audio/sfx/r33-fork.wav",
-     "gain": 0.049
+     "gain": 0.098
     }
    ]
   },
@@ -40,7 +40,7 @@
    "play": [
     {
      "src": "audio/sfx/paper-light.wav",
-     "gain": 0.184
+     "gain": 0.368
     }
    ]
   },
@@ -49,17 +49,17 @@
    "play": [
     {
      "src": "audio/sfx/batwing-swing-1.wav",
-     "gain": 0.222,
+     "gain": 0.444,
      "at": 0.0
     },
     {
      "src": "audio/sfx/batwing-swing-2.wav",
-     "gain": 0.222,
+     "gain": 0.53,
      "at": 0.95
     },
     {
      "src": "audio/sfx/batwing-swing-3.wav",
-     "gain": 0.222,
+     "gain": 0.724,
      "at": 1.7
     }
    ]
@@ -69,7 +69,7 @@
    "play": [
     {
      "src": "audio/sfx/paper-ordinary.wav",
-     "gain": 0.186
+     "gain": 0.372
     }
    ]
   },
@@ -78,7 +78,7 @@
    "play": [
     {
      "src": "audio/sfx/floorboard-hollow.wav",
-     "gain": 0.116
+     "gain": 0.231
     }
    ]
   },
@@ -87,7 +87,7 @@
    "play": [
     {
      "src": "audio/sfx/floorboard-creak.wav",
-     "gain": 0.237
+     "gain": 0.474
     }
    ]
   },
@@ -96,7 +96,7 @@
    "play": [
     {
      "src": "audio/sfx/door-latch.wav",
-     "gain": 0.172
+     "gain": 0.344
     }
    ]
   },
@@ -105,7 +105,7 @@
    "play": [
     {
      "src": "audio/sfx/door-locked.wav",
-     "gain": 0.231
+     "gain": 0.461
     }
    ]
   },
@@ -114,7 +114,7 @@
    "play": [
     {
      "src": "audio/sfx/paper-ordinary.wav",
-     "gain": 0.186
+     "gain": 0.372
     }
    ]
   },
@@ -123,7 +123,7 @@
    "play": [
     {
      "src": "audio/sfx/paper-substantial.wav",
-     "gain": 0.157
+     "gain": 0.312
     }
    ]
   },
@@ -132,7 +132,7 @@
    "play": [
     {
      "src": "audio/sfx/leather-settle.wav",
-     "gain": 0.171
+     "gain": 0.34
     }
    ]
   },
@@ -140,7 +140,7 @@
    "why": "doc 45 O-02-S2: the halted team, breathing, harness moving, held until the first stride (the coach is placed already standing, so O-02-S1's arrival has nothing to go with)",
    "bed": {
     "src": "audio/sfx/team-halted.wav",
-    "gain": 0.119
+    "gain": 0.299
    }
   },
   "O-06-S1": {
@@ -148,7 +148,7 @@
    "play": [
     {
      "src": "audio/sfx/case-in-mud.wav",
-     "gain": 0.151
+     "gain": 0.302
     }
    ]
   },
@@ -158,7 +158,7 @@
    "play": [
     {
      "src": "audio/sfx/team-departing.wav",
-     "gain": 0.064
+     "gain": 0.128
     }
    ]
   },
@@ -176,7 +176,7 @@
    "play": [
     {
      "src": "audio/sfx/axle-receding.wav",
-     "gain": 0.207
+     "gain": 0.412
     }
    ]
   },
@@ -185,7 +185,7 @@
    "play": [
     {
      "src": "audio/sfx/laugh-distant.wav",
-     "gain": 0.145
+     "gain": 0.29
     }
    ]
   },
@@ -194,7 +194,7 @@
    "play": [
     {
      "src": "audio/sfx/spittoon.wav",
-     "gain": 0.386
+     "gain": 0.771
     }
    ]
   },
@@ -203,7 +203,7 @@
    "play": [
     {
      "src": "audio/sfx/mud-working.wav",
-     "gain": 0.257
+     "gain": 0.514
     }
    ]
   },
@@ -212,7 +212,7 @@
    "play": [
     {
      "src": "audio/sfx/street-distant.wav",
-     "gain": 0.174
+     "gain": 0.348
     }
    ]
   },
@@ -221,7 +221,7 @@
    "play": [
     {
      "src": "audio/sfx/stamp.wav",
-     "gain": 0.187
+     "gain": 0.373
     }
    ]
   },
@@ -230,7 +230,7 @@
    "play": [
     {
      "src": "audio/sfx/pencil.wav",
-     "gain": 0.197
+     "gain": 0.393
     }
    ]
   },
@@ -528,7 +528,7 @@
   }
  ],
  "footsteps": {
-  "gain": 0.079,
+  "gain": 0.157,
   "surfaces": {
    "mud": [
     "audio/sfx/step-mud-1.wav",
@@ -603,29 +603,29 @@
  "ambience": {
   "main_street": {
    "src": "audio/sfx/main-street-bed.wav",
-   "gain": 0.128,
+   "gain": 0.403,
    "why": "doc 45 R02-A: wind through the false fronts, posted paper in it, and the dog breathing while the dog is there",
    "layers": [
     {
      "src": "audio/sfx/dog-breathing.wav",
-     "gain": 0.14,
+     "gain": 0.444,
      "whenPresent": "dog"
     }
    ]
   },
   "claims_registrar": {
    "src": "audio/sfx/registrar-bed.wav",
-   "gain": 0.399,
+   "gain": 0.531,
    "why": "doc 45 R07-A: patient shuffling, paper settling, Sump's clock ticking"
   },
   "nugget": {
    "src": "audio/sfx/nugget-crowd.wav",
-   "gain": 0.612,
+   "gain": 0.784,
    "why": "doc 45 R03-A: glasses, indistinct talk, the chandelier cooling"
   },
   "clarion": {
    "src": "audio/sfx/press-cycle.wav",
-   "gain": 0.142,
+   "gain": 0.45,
    "why": "doc 45 R09-PRESS: the press in its operating state -- the room's own LISTEN hears it running every time (\"It knocks on the return stroke.\")"
   }
  },
@@ -647,21 +647,21 @@
   "duelMark": "U-ASSAY-PENCIL"
  },
  "levels": {
-  "about": "TYLER, 2026-11-06: \"make sure sfx aren't absurdly loud ... background effects not sounds that take center stage.\" Targets in dB against the median room bed (the music as it plays), and the gains in this file are set from them by measurement, never by ear alone. tools/check-sound-levels.mjs fails on any sound above its ceiling, which is the target plus 2 dB. `roomGain` turns a room's own scripted sounds down together -- the coffin's dirt and the chamber's taps -- whose loudest must sit no higher than the music (`scene`, 0 dB): in the coffin there is no music, and those sounds are the room, but not a slap. The two synthesized human sounds -- the Nugget's talk and the distant laugh -- sit lower than their kinds (20 and 16 dB under), because a voice made by synthesis is most convincing when it is barely there (errata 106). A cue with a `duck` dips the music under it, and its target is measured against its own room's music as ducked rather than the median: the bells (Tyler: \"The bell is hard to hear over the music\") ring over a dipped score, the near one 6 dB above it, the distant one 2.",
-  "footsteps": -16,
-  "cue": -10,
-  "cueBed": -16,
-  "ambienceDefault": -18,
-  "ambienceLayer": -20,
+  "about": "TYLER, 2026-11-06: \"make sure sfx aren't absurdly loud ... background effects not sounds that take center stage.\" Targets in dB against the median room bed (the music as it plays), and the gains in this file are set from them by measurement, never by ear alone. tools/check-sound-levels.mjs fails on any sound above its ceiling, which is the target plus 2 dB. `roomGain` turns a room's own scripted sounds down together -- the coffin's dirt and the chamber's taps -- whose loudest must sit no higher than the music (`scene`, 0 dB): in the coffin there is no music, and those sounds are the room, but not a slap. The two synthesized human sounds -- the Nugget's talk and the distant laugh -- sit lower than their kinds (20 and 16 dB under), because a voice made by synthesis is most convincing when it is barely there (errata 106). A cue with a `duck` dips the music under it, and its target is measured against its own room's music as ducked rather than the median: the bells (Tyler: \"The bell is hard to hear over the music\") ring over a dipped score, the near one 6 dB above it, the distant one 2. ERRATA 122 (Tyler, 2026-11-06, listening to every room at its real level: \"you can't hear really any of the background sounds and noises. The music completely overpowers everything.\"): the places were set too low, 16-20 dB under the score. Backgrounds now sit 8 under (the Nugget's synthesized crowd 12), their layers 10, footsteps 10 (the loudest step of each floor), one-offs 4, and every per-cue place 6 higher than it was; the featured moments, the Strike and the tuning arc's fiddler keep their places. The check now has a floor as well as a ceiling: no place lower than -12, and no sound more than 6 dB under its place. The coffin's and the chamber's scripted sounds keep a ceiling only: their distance is the scene. The Nugget's crowd and the registrar's bed were re-rendered nearer full scale (tools/audio/render-room-sfx.py) so their gains stay under 1.",
+  "footsteps": -10,
+  "cue": -4,
+  "cueBed": -8,
+  "ambienceDefault": -8,
+  "ambienceLayer": -10,
   "cues": {
-   "R03-DOOR": -13,
-   "R05/06-LATCH": -14,
-   "U-ASSAY-PENCIL": -14,
+   "R03-DOOR": -7,
+   "R05/06-LATCH": -8,
+   "U-ASSAY-PENCIL": -8,
    "O-09-M": -8,
-   "O-06B-S": -12,
-   "O-06-S1": -10,
-   "R01-WEST-3": -16,
-   "R01-COACH-2": -14,
+   "O-06B-S": -6,
+   "O-06-S1": -4,
+   "R01-WEST-3": -10,
+   "R01-COACH-2": -8,
    "R17-BELL": 10,
    "R02-BELL": 2,
    "LIV-HUM": 4,
@@ -672,7 +672,7 @@
    "R33-FIDDLER": -2
   },
   "ambience": {
-   "nugget": -20
+   "nugget": -12
   },
   "scene": 0,
   "featured": [
