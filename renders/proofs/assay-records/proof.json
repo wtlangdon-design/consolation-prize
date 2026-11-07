@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "assay_records",
  "roomWidth": 1920,
- "branch": "dialogue-presentation-mi",
- "commit": "97c759c99a478f38736b10d8c9fe993adc8ef3ce",
+ "branch": "echo-advances",
+ "commit": "b4ec8bbb38502af36196fee198d5c2b876a6fcaf",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -66,7 +66,7 @@
    ],
    "reportedHeight": 434,
    "expected": 434,
-   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
    "bounds": [
     480,
     222,
@@ -103,7 +103,7 @@
    ],
    "reportedHeight": 528,
    "expected": 528,
-   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
    "bounds": [
     430,
     316,
@@ -122,7 +122,7 @@
   {
    "panel": "B",
    "room": "assay_records",
-   "clock": 124.3413,
+   "clock": 116.4249,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -170,7 +170,7 @@
      "height": 451,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
       141,
       239,
@@ -197,15 +197,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-07T03:48:43.147Z",
+   "capturedAt": "2026-11-07T04:34:49.097Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "60c7e77ad3f2d24312eda6287b3e369c69d39e5a6769d9fd67ed90d1e8113da1"
+   "hash": "c0505eaa6c4ffd26fc86ce0ed4e9e6cbd79e46714769f9cca4695f70e41c2612"
   },
   {
    "panel": "A",
    "room": "assay_records",
-   "clock": 125.5745,
+   "clock": 117.5248,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -277,10 +277,10 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-07T03:48:44.176Z",
+   "capturedAt": "2026-11-07T04:34:50.145Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "b9122f230c0f68ba014c590fcd960a0b4708ad5b5606ac6bb524931f01175867"
+   "hash": "80dd105f7fd8660c3e3ddc9ad46e9aaffe1a89dd16d23c9ed7e3d1d5d2707e14"
   }
  ],
  "failures": [],
@@ -310,11 +310,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-07T03:48:49.299Z",
+ "at": "2026-11-07T04:34:55.392Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 239990,
+  "bytes": 240570,
   "panels": 4,
   "scale": 0.5
  }

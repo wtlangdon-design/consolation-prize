@@ -189,8 +189,10 @@ async function waitFor(page, want, upTo, why) {
     // on her first line for its whole deadline, because a greeting is neither
     // performing nor a wait for the list (found re-running the dialogue proof,
     // errata 143).
-    const reading = last?.performing || last?.waiting
-      || (want.dialogue === true && last?.says && !last?.options);
+    // ONLY A LINE THAT IS WAITING (errata 147): Thad's echo of the choice now
+    // comes down on its own hold, and a click aimed at it landed on the reply
+    // that replaced it a moment later, skipping it unread.
+    const reading = last?.waiting === true;
     if ((want.says === undefined || (last?.says && last.says !== want.says)) && READS_BY_CLICK
       && reading && Date.now() - lineSince >= READ_MS) {
       await clickScreen(page, NATIVE.width / 2, PLAY.height / 2);
@@ -284,7 +286,8 @@ async function settle(page, upTo = 60) {
     const state = await probe(page);
     if (!state?.performing) return;
     if (Date.now() > deadline) throw new Error(`route: an exchange has been performing for ${upTo}s`);
-    if (READS_BY_CLICK && Date.now() - lineSince >= READ_MS) {
+    // Only a line that waits is clicked; the echo and the rests move on by themselves (errata 147).
+    if (READS_BY_CLICK && state.waiting && Date.now() - lineSince >= READ_MS) {
       await clickScreen(page, NATIVE.width / 2, PLAY.height / 2);
       lineSince = Date.now();
     }

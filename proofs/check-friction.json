@@ -247,6 +247,12 @@
    "date": "2026-11-06",
    "kind": "loosened",
    "why": "Not a misfire: the layout it pinned was changed on purpose (errata 143, Tyler 2026-11-06: present the trees as Monkey Island does). It asserted the list was bottom-anchored by count (dialogueTop(n)) and grew up over the room; the list is now set from the top of the panel and scrolls. The two lines now assert CHOICE_LIST_TOP and that the backing is the panel band, and six new tests hold the scroll window, the arrows, the hover, the hanging indent, the panel staying away, and that no row is styled by what it does."
+  },
+  {
+   "check": "tests/follow-ups.test.ts",
+   "date": "2026-11-06",
+   "kind": "loosened",
+   "why": "Not a misfire: Tyler ruled the behaviour changed (errata 147, \"Echo moves on by itself\"). Its click-to-read test asserted that Thad's echo of the choice waited for a click; the echo now comes down on its hold. The test now asserts the echo advances with no click and the reply still waits until clicked, and tests/speech-pacing.test.ts holds both across every tree."
   }
  ]
 }

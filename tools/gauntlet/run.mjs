@@ -292,7 +292,8 @@ async function sample(page, script, state, armed) {
       continue;
     }
     if (readsByClick) {
-      const line = frame.performing === true ? `${frame.says ?? ''}` : null;
+      // Only a line that waits for its click; Thad's echo moves on by itself (errata 147).
+      const line = frame.performing === true && frame.waiting === true ? `${frame.says ?? ''}` : null;
       if (line === null) lineSince = null;
       else if (lineSince === null) lineSince = Date.now();
       else if (Date.now() - lineSince >= readMs) {

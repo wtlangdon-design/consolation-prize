@@ -20,7 +20,9 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
-import { readingHold, type HoldTiming } from '../engine/core/DialoguePerformance.ts';
+import { DialoguePerformance, readingHold, type HoldTiming } from '../engine/core/DialoguePerformance.ts';
+import { GameState } from '../engine/core/GameState.ts';
+import { MemoryStorage } from '../engine/core/SaveManager.ts';
 import { clickOnSpeech, holdOver, waitsForClick } from '../engine/core/SpeechPolicy.ts';
 import type { ResponseRule } from '../engine/core/types.ts';
 
@@ -40,6 +42,55 @@ test("a conversation's line waits for its click under Tyler's ruling, stays up, 
   assert.equal(waiting, true);
   assert.equal(clickOnSpeech({ waiting }), 'advance');
   assert.equal(waitsForClick({ conversation: true, clickToRead: false }), false, 'timed conversation, when it is off');
+});
+
+/**
+ * THAD'S ECHO MOVES ON BY ITSELF; EVERY OTHER CONVERSATION LINE STILL WAITS
+ * (Tyler, 2026-11-06, errata 147: "Echo moves on by itself", narrowing the
+ * 2026-11-01 click-to-read ruling). Make the echo wait again, or let a reply
+ * come down on its hold, and these fail.
+ */
+test("the protagonist's echo of the choice never waits for a click; the answer to it does", () => {
+  assert.equal(waitsForClick({ conversation: true, clickToRead: true, echo: true }), false, 'the echo comes down on its hold');
+  assert.equal(waitsForClick({ conversation: true, clickToRead: true, echo: false }), true, 'a reply waits');
+  assert.equal(waitsForClick({ conversation: true, clickToRead: true }), true, 'a greeting waits');
+});
+
+test('in a performed exchange the echo advances on its hold, and every reply holds for its click', async () => {
+  const content = await loadContent(fsReader);
+  const ui = content.ui.timing;
+  assert.equal(ui?.conversationWaitsForClick, true, 'the shipped game reads conversations by click');
+  const timing: HoldTiming = {
+    base: ui?.holdBaseSeconds ?? 0.45, perGlyph: ui?.holdPerGlyphSeconds ?? 0.055,
+    minimum: ui?.holdMinimumSeconds ?? 1.8, maximum: ui?.holdMaximumSeconds ?? 8, waitForClick: true,
+  };
+  // Every tree's every first-offered option with an exchange of two or more
+  // replies: the echo, then each reply.
+  let checked = 0;
+  for (const treeId of content.dialogue.keys()) {
+    const state = new GameState(content, new MemoryStorage());
+    state.dialogue.start(treeId);
+    const chosen = state.dialogue.presentOptions().find((p) => !p.option.duel);
+    if (!chosen) continue;
+    const exchange = state.dialogue.beginSelection(chosen.option.id);
+    const said = exchange.presentation;
+    const replies = [...(said.say ? [{ speaker: said.sayer ?? 'other', line: said.say }] : []), ...said.rest]
+      .filter((line) => !line.rest && line.line && !/^\s*(…|\.\.\.)\s*$/.test(line.line));
+    if (!replies.length) continue;
+    const echo = { speaker: content.actor.id, line: chosen.text };
+    const performance = new DialoguePerformance(exchange, echo, replies, timing, 0);
+    assert.equal(performance.echoing, true, `${treeId}: the echo is up first`);
+    assert.equal(performance.waiting, false, `${treeId}: the echo does not wait`);
+    performance.tick(readingHold(echo.line, timing) + 0.01);
+    assert.equal(performance.echoing, false, `${treeId}: the echo came down on its hold, with no click`);
+    for (let at = 0; at < replies.length; at += 1) {
+      assert.equal(performance.waiting, true, `${treeId}: reply ${at + 1} waits for its click`);
+      assert.equal(performance.tick(1000 + at), false, `${treeId}: the clock alone never clears reply ${at + 1}`);
+      performance.skip(1000 + at + 1);
+    }
+    checked += 1;
+  }
+  assert.ok(checked > 10, `exchanges checked: ${checked}`);
 });
 
 test('a hold that runs out brings up the next queued line, and only an empty queue goes quiet', () => {

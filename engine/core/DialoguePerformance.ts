@@ -1,6 +1,6 @@
 import type { HeldPose } from './ActedDirections.ts';
 import type { DialogueExchange } from './DialogueRunner.ts';
-import { isRest } from './SpeechPolicy.ts';
+import { isRest, waitsForClick } from './SpeechPolicy.ts';
 
 /**
  * A selection, PERFORMED over time instead of resolved in three lines.
@@ -117,6 +117,8 @@ export class DialoguePerformance {
   private at = 0;
   private shownAt: number;
   private state: DialoguePhase = 'thadLine';
+  /** Whether the queue opens on Thad's echo of the choice (it may not: `echo: false`). */
+  private readonly echoed: boolean;
 
   /**
    * @param echo    Thad speaking the wording he was made to choose. Doc 30
@@ -130,6 +132,7 @@ export class DialoguePerformance {
     this.exchange = exchange;
     this.timing = timing;
     this.queue = echo ? [echo, ...replies] : [...replies];
+    this.echoed = echo !== null;
     this.shownAt = now;
     // AN EXCHANGE WITH NOTHING TO SAY STILL HAS TO SETTLE. A silent option is
     // rare and legal -- doc 30 allows `echo: false` for a nonverbal beat --
@@ -143,6 +146,17 @@ export class DialoguePerformance {
   }
 
   get phase(): DialoguePhase { return this.state; }
+
+  /** The line up is Thad's echo of the choice, which never waits for a click (errata 147). */
+  get echoing(): boolean { return this.echoed && this.at === 0 && this.state === 'thadLine'; }
+
+  /** Whether the line up waits for a click rather than coming down on its hold. SpeechPolicy decides. */
+  get waiting(): boolean {
+    return !this.done && this.current?.rest === undefined && waitsForClick({
+      conversation: true, clickToRead: this.timing.waitForClick === true,
+      rest: isRest(this.current?.line), echo: this.echoing,
+    });
+  }
   get done(): boolean { return this.state === 'settled'; }
 
   /** The utterance owning the speech channel, or null once it is over. */
@@ -181,7 +195,10 @@ export class DialoguePerformance {
     // forever because nothing timed it; this one waits because Tyler, playing,
     // lost lines before he had read them. A click advances exactly one, as before.
     // A BARE PAUSE ("…") IS A REST and gives way on its hold either way (errata 133).
-    if (this.timing.waitForClick && !isRest(this.current?.line)) return false;
+    // AND THAD'S ECHO OF THE CHOICE comes down on its hold (Tyler, 2026-11-06,
+    // errata 147: "Echo moves on by itself"): the player picked those words
+    // a moment ago, so a click to read them was a click for nothing.
+    if (this.waiting) return false;
     if (now < this.holdUntil) return false;
     return this.next(now);
   }

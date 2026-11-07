@@ -64,7 +64,7 @@ test('a follow-up is offered only once the question that raises it has been aske
 
 const TIMING: HoldTiming = { base: 0.45, perGlyph: 0.055, minimum: 1.8, maximum: 8.0 };
 
-test('with waitForClick a line stays until a click, and a click advances exactly one', async () => {
+test('with waitForClick a reply stays until a click, and a click advances exactly one', async () => {
   const state = await fresh();
   state.dialogue.start('STAGE_DRIVER');
   const chosen = state.dialogue.presentOptions()[0]!;
@@ -73,13 +73,15 @@ test('with waitForClick a line stays until a click, and a click advances exactly
   const reply = { speaker: 'other', line: 'A reply.' };
   const performance = new DialoguePerformance(exchange, echo, [reply], { ...TIMING, waitForClick: true }, 0);
 
-  assert.equal(performance.tick(1000), false, 'the clock alone never clears it');
   assert.deepEqual(performance.current, echo);
   assert.equal(performance.acceptsInput(0.05), false, 'the selecting click does not also dismiss');
-  performance.skip(1000);
+  // THE ECHO MOVES ON BY ITSELF (Tyler, 2026-11-06, errata 147); the reply does not.
+  performance.tick(1000);
   assert.deepEqual(performance.current, reply);
-  assert.equal(performance.tick(5000), false);
+  assert.equal(performance.tick(5000), false, 'the clock alone never clears the reply');
   assert.deepEqual(performance.current, reply);
+  performance.skip(5000);
+  assert.equal(performance.done, true, 'a click advances exactly one'); 
 });
 
 test('the shipped ui waits for the click', async () => {
