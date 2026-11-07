@@ -235,6 +235,12 @@
    "kind": "reviewed",
    "date": "2026-11-07",
    "why": "TUNED. Its three loosenings (errata 130, 131, 136) were not misfires: Tyler's rulings each added a performed beat to a duel exchange (the judges' mark, the held silence, the jeer), and assertions that pinned an exchange's exact line count or a line's exact index broke every time. The lost-Duel-Two test now asserts order and presence -- the losing reply first, then the mark, the jeer and the lesson in that order, and no boast after -- so a further beat does not break it while every ruling it holds still fails it (each re-proved by deleting the mark and the jeer). The duel tests duplicate nothing else and stay; no retirement proposed."
+  },
+  {
+   "check": "tests/duel-staging.test.ts",
+   "kind": "loosened",
+   "date": "2026-11-07",
+   "why": "Not a misfire, and nothing it holds is weaker: errata 141 lets a performed direction name a run of frames (`frames`) as well as errata 131's single `frame`, so the hat's assertion `act.frame < frames.length` became `framesOf(act).every(frame < frames.length)`. The hat is still asserted performed, with a frame the figure has and a positive hold; it now comes from doc 95 rather than a hand entry."
   }
  ]
 }
