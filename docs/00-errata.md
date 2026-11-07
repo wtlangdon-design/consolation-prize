@@ -4425,6 +4425,7 @@ The input, the hover and the menu key are closed while one plays. The only thing
   - Each room's annotation carries its new door and arrival, so a recompile keeps them.
   - The map drops the nine in-town places (`removedLocations` in `content/rooms/town-map.json`).
   - The gauntlet's entry and doors routes for the seven rooms, and the archive and Boot Hill routes that began at them, walk the streets now. `proofs/spec/lower-street.json` and `the-lane.json` are new.
+  - **The archive's route had not arrived since errata 158.** Setting ACT 3 plays Fanshawe's cut-away at once, and the route's OPEN on the archive door landed inside it, where a click is swallowed. The route now waits for the cut-away to end. It also sets T_FUNERAL_DONE, which the door has needed since errata 124.
 - **Sound.** Footsteps on both streets are mud. Doc 28 gives the streets "CONSOLATION, varying orchestration by street — Main Street full, the Lane down to piano alone". Lower Street plays Main Street's piece, quieter (0.5), because there is no separate arrangement for it. The Lane plays the back alley's distant piano, tuned when the Nugget's piano is.
 - **The bell-ringer (doc 07 #4).** `content/ambient/bell-ringer.json` stands him at 929,700, drawn at the street's man.
   - **His tree.** It is extracted from doc 07 (`tools/town-barks.json` `trees`). Its "(He does not move.)" is acted, as doc 95 row 68.
