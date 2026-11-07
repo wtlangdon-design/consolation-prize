@@ -3645,3 +3645,21 @@ Tyler: "Read reference/fiddler-charlie/brief.md and do it." He attached the phot
 **Not done, and why.** Doc 17 beat 9 stages the lamp *crossing* the road, and the lamp's lines say "crossing" while Hob stands still. Staging the crossing as written was the other option. It changes Q63's ruled standing gate (Hob blocks the exit until addressed), so it is left for Tyler.
 
 **What holds it:** `tests/hob-gate.test.ts`. A walk that would end on Hob ends beside him on the near side. A walk clear of him, or at another depth, is untouched. The lamp names Hob as its carrier, and keeps its TALK TO override and its `T_HOB_SPOKEN` writes. Removing `heldBy` or the clearance fails it.
+
+---
+
+# 132 · DIALOGUE OPTIONS WRAP, AND EVERY ONE FITS THE PANEL — the bookends audit, finding 6 (Tyler, 2026-11-06: "proceed with your recommendations")
+
+**The fault.** Option rows did not wrap. The truth option in Duel Three, the most important choice in the game, ran off the right edge mid-word: "There is no gold in Mott's claim. There never was. Obadiah Mott invented it to rai". Pair 9's counter alone is 1,884 px at the panel's scale, against 1,848 px of room.
+
+**The fix** (`Renderer.choiceLines` / `optionRows`):
+- **A row that does not fit wraps,** in the panel's face at `PANEL_GLYPH_SCALE`, within the play area's width less the speech margins (`CHOICE_WIDTH`). Its continuation hangs under the text, not under the "- ".
+- **The list is bottom-anchored by rows, not by options,** so a wrapped option is taller.
+- **The click boxes are taken from the same layout,** so a click anywhere on a wrapped option's rows chooses it.
+- The probe's `choiceLines` still counts options, one per option, as doc 30 §14's checks expect.
+
+**What holds it:** `tests/option-fit.test.ts` checks every option the content can offer at the panel's scale:
+- every tree option and its rephrasing;
+- every counter, wrong answer and offer in the Assay.
+
+Each must fit in at most three rows (`OPTION_MAX_ROWS`), each row within the width, every word kept in order. Taking the wrapping out fails it on pair 9's counter.

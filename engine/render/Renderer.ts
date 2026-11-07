@@ -245,6 +245,39 @@ export interface ChoiceLine {
   text: string;
   y: number;
   role: 'ink' | 'inkDim';
+  /**
+   * THE OPTION AS DRAWN, wrapped (errata 132): its first row carries the
+   * prefix and the rest hang under the text. One row when nothing wraps.
+   */
+  rows: string[];
+  /** Where its click lands: from its first row's top through its last. */
+  hitY: number;
+  hitHeight: number;
+}
+
+/** How the choice list wraps an option: the panel face and the width it may use. */
+export interface ChoiceFit {
+  wrap(text: string, maxWidth: number): string[];
+  measure(text: string): number;
+  width: number;
+}
+
+/** The most rows one option may take before the list is a wall of text (errata 132). */
+export const OPTION_MAX_ROWS = 3;
+/** The width an option row may use: the play area's width less the speech margins. */
+export const CHOICE_WIDTH = NATIVE_WIDTH - 2 * 6 * GLYPH_SCALE;
+
+/**
+ * An option's rows. THE TRUTH IN DUEL THREE RAN OFF THE SCREEN MID-WORD (the
+ * bookends audit, finding 6): "...Obadiah Mott invented it to rai". A row
+ * that does not fit now wraps, its continuation hanging under the text and
+ * not the prefix.
+ */
+export function optionRows(prefix: string, text: string, fit?: ChoiceFit): string[] {
+  if (!fit) return [`${prefix}${text}`];
+  const indent = ' '.repeat(prefix.length);
+  const rows = fit.wrap(text, fit.width - fit.measure(prefix));
+  return rows.map((row, index) => (index === 0 ? prefix : indent) + row);
 }
 
 /**
@@ -264,14 +297,27 @@ export interface ChoiceLine {
 export function choiceLines(
   options: PresentedOption[],
   ui: { optionPrefix: string; exhaustedPrefix: string },
+  fit?: ChoiceFit,
 ): { top: number; backingTop: number; lines: ChoiceLine[] } {
-  const top = dialogueTop(options.length);
+  const wrapped = options.map((presented) => optionRows(
+    presented.exhausted ? ui.exhaustedPrefix : ui.optionPrefix, presented.text, fit));
+  // BOTTOM-ANCHORED BY ROWS, not by options: a wrapped option is taller.
+  const top = dialogueTop(wrapped.reduce((sum, rows) => sum + rows.length, 0));
   const backingTop = Math.min(top - 2 * GLYPH_SCALE, PANEL_Y);
-  const lines = options.map((presented, index) => ({
-    text: `${presented.exhausted ? ui.exhaustedPrefix : ui.optionPrefix}${presented.text}`,
-    y: top + index * DIALOGUE_LINE_HEIGHT + PANEL_GLYPH_SCALE,
-    role: (presented.exhausted ? 'inkDim' : 'ink') as ChoiceLine['role'],
-  }));
+  let row = 0;
+  const lines = options.map((presented, index) => {
+    const rows = wrapped[index] as string[];
+    const hitY = top + row * DIALOGUE_LINE_HEIGHT;
+    row += rows.length;
+    return {
+      text: `${presented.exhausted ? ui.exhaustedPrefix : ui.optionPrefix}${presented.text}`,
+      y: hitY + PANEL_GLYPH_SCALE,
+      role: (presented.exhausted ? 'inkDim' : 'ink') as ChoiceLine['role'],
+      rows,
+      hitY,
+      hitHeight: rows.length * DIALOGUE_LINE_HEIGHT,
+    };
+  });
   return { top, backingTop, lines };
 }
 
@@ -662,11 +708,12 @@ export class Renderer {
     // drawn then either; both read `performing`, so there is no state in which
     // a row can be hit without being visible.
     if (this.performing) return [];
-    const top = dialogueTop(options.length);
+    // From the same layout the list is drawn from, wrapped rows and all (errata 132).
+    const { lines } = choiceLines(options, this.state.content.ui.dialogue, this.choiceFit());
     return options.map((presented, index) => ({
       id: presented.option.id,
-      y: top + index * DIALOGUE_LINE_HEIGHT,
-      height: DIALOGUE_LINE_HEIGHT,
+      y: lines[index]!.hitY,
+      height: lines[index]!.hitHeight,
     }));
   }
 
@@ -2355,12 +2402,21 @@ export class Renderer {
     // collided with the list's third row -- Tyler photographed it twice); doc
     // 30 says it is not interface text at all, and the greeting it duplicates
     // has already been spoken by its speaker before this list exists.
-    const { backingTop, lines } = choiceLines(this.state.dialogue.presentOptions(), ui);
+    const { backingTop, lines } = choiceLines(this.state.dialogue.presentOptions(), ui, this.choiceFit());
     this.screen.fill(0, backingTop, NATIVE_WIDTH,
       NATIVE_HEIGHT - backingTop, this.screen.role('overlayBg'));
     for (const line of lines) {
-      this.panelFont.draw(ctx, line.text, TEXT_MARGIN, line.y, this.screen.roleColour(line.role));
+      line.rows.forEach((row, index) => {
+        this.panelFont.draw(ctx, row, TEXT_MARGIN, line.y + index * DIALOGUE_LINE_HEIGHT,
+          this.screen.roleColour(line.role));
+      });
     }
+  }
+
+  /** The panel face and the width an option row may use (errata 132). */
+  choiceFit(): ChoiceFit {
+    return { wrap: (text, width) => this.panelFont.wrap(text, width),
+      measure: (text) => this.panelFont.measure(text), width: CHOICE_WIDTH };
   }
 
   /**
