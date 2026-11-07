@@ -876,9 +876,29 @@
         {
           "speaker": "fanshawe",
           "line": "No hard feelings, Mr. Grubb. It's simply how we settle things here. You'll find it very fair."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "1. A man may not be interrupted in his account."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "2. A man's account may be doubted only by a better one."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "3. Truth is admissible but has never been raised."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "4. The judges' decision is final, and may be appealed to the same judges."
+        },
+        {
+          "speaker": "sowerby",
+          "line": "5. No firearms. No knives. No arithmetic."
         }
       ],
-      "openingRuling": "doc 57 F4: \"doc 03's challenge plays\".",
+      "openingRuling": "doc 57 F4: \"doc 03's challenge plays\"; then doc 03 Part One: Sowerby reads the handbill \"at unbearable length before every match\", Rule 3 among them (errata 131 D).",
       "sequence": [
         4,
         9,
@@ -911,11 +931,20 @@
       "win": [
         {
           "speaker": "sowerby",
+          "line": "",
+          "rest": 3,
+          "quiet": true,
+          "staging": "doc 03: \"Silence on Main Street. Long. Fanshawe does not move.\""
+        },
+        {
+          "speaker": "sowerby",
           "line": "...That's the biggest one I ever heard."
         },
         {
           "speaker": "thad",
-          "line": "It's true."
+          "line": "It's true.",
+          "cue": "F4-ERUPTS",
+          "staging": "doc 03: \"The street erupts.\""
         },
         {
           "speaker": "sowerby",
@@ -931,6 +960,7 @@
           "line": "Well played, Mr. Grubb."
         }
       ],
+      "winRuling": "errata 131 D, E: the silence held before the verdict (3 s, nothing clickable, the music cut), the judges' pencil in it, and the street erupting as the verdict lands.",
       "setsOnWin": {
         "T_FANSHAWE_BEATEN": true
       },

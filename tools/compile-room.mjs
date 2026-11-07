@@ -1980,6 +1980,9 @@ if (MERGED) {
   else delete built.population;
   // Doc 18's flicker, by the mechanism that works on a generated plate.
   if (ann.lamps) built.lamps = ann.lamps;
+  // Where a voice with no figure speaks from (errata 131 A: the ring of chairs).
+  if (ann.voices) built.voices = ann.voices;
+  else delete built.voices;
   // Tyler, 2026-11-01: the room's light on the figures drawn apart from it.
   if (ann.figureLight) built.figureLight = ann.figureLight;
   if (ann.props) built.props = ann.props;

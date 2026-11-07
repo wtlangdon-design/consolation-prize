@@ -32,7 +32,7 @@
     "to": 0.45,
     "seconds": 5,
     "attack": 0.08,
-    "release": 2.0
+    "release": 2
    }
   },
   "R03-HANDBILL": {
@@ -50,7 +50,7 @@
     {
      "src": "audio/sfx/batwing-swing-1.wav",
      "gain": 0.444,
-     "at": 0.0
+     "at": 0
     },
     {
      "src": "audio/sfx/batwing-swing-2.wav",
@@ -263,7 +263,7 @@
     "to": 0.25,
     "seconds": 5,
     "attack": 0.08,
-    "release": 2.0
+    "release": 2
    },
    "room": "livery"
   },
@@ -294,7 +294,7 @@
    ],
    "duck": {
     "to": 0.15,
-    "seconds": 9.0,
+    "seconds": 9,
     "attack": 0.08,
     "release": 2.5
    }
@@ -312,7 +312,7 @@
     "to": 0.15,
     "seconds": 8.8,
     "attack": 0.08,
-    "release": 2.0
+    "release": 2
    },
    "room": "nugget"
   },
@@ -342,6 +342,24 @@
     }
    ],
    "room": "listening_chamber"
+  },
+  "F4-ERUPTS": {
+   "why": "doc 03 Duel Four: \"The street erupts.\" Errata 131 E: the town roars on the line after Sowerby's verdict, over the silence that held before it (the music stays down until the duel is over).",
+   "play": [
+    {
+     "src": "audio/sfx/crowd-erupts.wav",
+     "gain": 0.5
+    }
+   ]
+  },
+  "F4-DOOR": {
+   "why": "doc 03 Duel Four: \"He walks back up the street to his office, and for the first time in twelve years, he closes the door.\" Errata 131 F: the approved latch, off the frame, once Fanshawe has gone.",
+   "play": [
+    {
+     "src": "audio/sfx/door-latch.wav",
+     "gain": 0.27
+    }
+   ]
   }
  },
  "verbs": [
@@ -669,7 +687,9 @@
    "A-TUNING": 6,
    "FID-FASTER": 10,
    "FID-PASSING": 10,
-   "R33-FIDDLER": -2
+   "R33-FIDDLER": -2,
+   "F4-ERUPTS": 0,
+   "F4-DOOR": -10
   },
   "ambience": {
    "nugget": -12

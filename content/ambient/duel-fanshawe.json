@@ -5,7 +5,8 @@
  "posture": "standing",
  "room": "main_street",
  "when": {
-  "T_DUEL_CROWD": true
+  "T_DUEL_CROWD": true,
+  "T_FANSHAWE_BEATEN": false
  },
  "note": "FANSHAWE IN THE STREET, waiting, pleased with himself; he calls the duel (Main Street's accost). Doc 57 F4: 'The first time Thad steps onto the street after T_ASSAY_RUN, Fanshawe is waiting with half the town and the judges' table on the boardwalk, Sowerby holding the pencil.' Cut from room-02 operations 1 and 2 by tools/art/room02-duel-cast.py and laid over Room 2's own street. Present for the visit the duel is called on (T_DUEL_CROWD), and gone the next time.",
  "x": 2790,
@@ -71,9 +72,16 @@
   "frameNote": "0 thumbs in his waistcoat, turned to Thad · 1 breath (derived) · 2 a hand held out · 3 the watch · 4 tipping his hat.",
   "provenance": "reference/cast-unify-26.spec.json",
   "figureHeight": 352,
-  "stature": 1.0,
+  "stature": 1,
   "redrawn": "Errata 111 T (Tyler, 2026-11-06: no table at Duel Three; the gathering composed as one picture). Drawn standing on magenta from the locked cast master by cast-unify operation 28 (reference/cast-unify-26.txt), turned toward the duel, cut with its own pixels and a clean edge; placed where the painted composition (cast-unify 27, art/staging/cast-unify/batch-25/edit-porch.png) stood him, feet on the boards or the street, drawn at the street's man there.",
-  "figureHeightNote": "Crown to sole, his top hat excluded (tools/art/figure-height.py --hat)."
+  "figureHeightNote": "Crown to sole, his top hat excluded (tools/art/figure-height.py --hat).",
+  "performs": {
+   "He puts on his hat.": {
+    "frame": 4,
+    "seconds": 1.5
+   }
+  },
+  "performsNote": "Errata 131 B: doc 03 Duel Four, \"(He puts on his hat.)\", performed on frame 4 (his hat) for a beat, not printed (doc 58; bookends audit finding 9)."
  },
  "walkTo": {
   "x": 3000,
@@ -82,5 +90,11 @@
  },
  "walkToNote": "Facing him across the street, as the master stood them.",
  "faces": "right",
- "facesNote": "Toward the duel: Fanshawe and Thad below, Thad to the right. Measured on the rest frame by tests/faces.test.mjs."
+ "facesNote": "Toward the duel: Fanshawe and Thad below, Thad to the right. Measured on the rest frame by tests/faces.test.mjs.",
+ "speaksAs": "fanshawe",
+ "leaves": {
+  "fade": 2.5,
+  "cue": "F4-DOOR",
+  "note": "Doc 03: \"He walks back up the street to his office, and for the first time in twelve years, he closes the door.\" Errata 131 F: he has no walk (errata 99 N), so he fades, and the door closes off the frame once he has gone."
+ }
 }

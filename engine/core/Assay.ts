@@ -35,6 +35,12 @@ export interface AssayLine {
   rest?: number;
   /** The judges write a point down here (doc 45 U-ASSAY-PENCIL): the pencil sounds and its holder marks it. */
   mark?: boolean;
+  /** The music stops here and stays stopped until a line with a `cue` (errata 131 D: "Silence on Main Street."). */
+  quiet?: boolean;
+  /** A doc 45 cue the line sounds as it is shown (errata 131 E: "The street erupts."). */
+  cue?: string;
+  /** The document's own words for what is performed here, quoted. Never shown. */
+  staging?: string;
 }
 
 export interface AssayWrong {
@@ -352,7 +358,16 @@ export class DuelSession {
       if (outcome === 'won') {
         Object.assign(sets, this.duel.setsOnWin ?? {});
         yields = [...(this.duel.yields ?? [])];
-        lines.push(...(this.duel.win ?? []));
+        const win = this.duel.win ?? [];
+        // A WIN THAT OPENS ON A HELD SILENCE (Duel Three's "Silence on Main
+        // Street. Long.") holds it first; the pencil goes down in it, before
+        // the verdict, since Sowerby is the one holding it (errata 131 D).
+        if (win[0]?.rest !== undefined && lines[0]?.mark) {
+          lines.unshift(win[0]);
+          lines.push(...win.slice(1));
+        } else {
+          lines.push(...win);
+        }
       } else {
         // Errata 73 H: a lost Duel Two ends on the reply that lost it. Duel
         // One's loss has its own scene.
