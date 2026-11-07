@@ -179,6 +179,14 @@ export interface FrameReport {
   title: boolean;
   /** "Click to begin" is up in front of the title (errata 155); `titleItem` is null until it is clicked. */
   begin: boolean;
+  /** NEW GAME's way in (errata 157): 'out', 'black' or 'up', or null when it is over. */
+  entering: string | null;
+  /** How black the play area is, 0..1: a room is SEEN only below 1. */
+  black: number;
+  /** Every picture this room needs has arrived or failed (errata 157): a room is never seen otherwise. */
+  whole: boolean;
+  /** Errata 157's pan: how far above the room the view is, in play-area pixels, or null. */
+  pan: number | null;
   /** The music bed playing, by its files, or null: errata 155's title bed is heard, not only requested. */
   bed: string | null;
   /** The close's phase once the game is ending: hold, fade, black; null otherwise (errata 128). */

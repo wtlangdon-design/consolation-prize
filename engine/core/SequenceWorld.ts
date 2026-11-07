@@ -83,6 +83,10 @@ export interface SequenceWorldParts {
   camera?: (to: number | undefined, follow: string | undefined) => void;
   /** Fires a doc 45 cue (errata 106). Injected; a world with no audio has none. */
   cue?: (id: string) => void;
+  /** Errata 157: the pan down from the sky. Injected; a world with no view has none. */
+  pan?: (seconds: number) => void;
+  /** Errata 157: hold the view in the sky. */
+  sky?: () => void;
 }
 
 /**
@@ -120,6 +124,8 @@ export class SequenceWorld implements SequenceHost {
   private readonly paths: Map<string, PathFile>;
   private readonly travelThrough: (through: string) => void;
   private readonly pointCamera: (to: number | undefined, follow: string | undefined) => void;
+  private readonly startPan: (seconds: number) => void;
+  private readonly holdSky: () => void;
   /** A missing cue is a no-op, like a missing camera: a world with no audio is still a world. */
   private readonly fire: (id: string) => void;
 
@@ -140,6 +146,8 @@ export class SequenceWorld implements SequenceHost {
     // playable, and every room but one fits the window and has nowhere to
     // point it. A world built without one is a test that does not care.
     this.pointCamera = parts.camera ?? (() => {});
+    this.startPan = parts.pan ?? (() => {});
+    this.holdSky = parts.sky ?? (() => {});
     this.fire = parts.cue ?? (() => {});
   }
 
@@ -243,6 +251,14 @@ export class SequenceWorld implements SequenceHost {
 
   camera(to: number | undefined, follow: string | undefined): void {
     this.pointCamera(to, follow);
+  }
+
+  pan(seconds: number): void {
+    this.startPan(seconds);
+  }
+
+  sky(): void {
+    this.holdSky();
   }
 
   say(step: Extract<SequenceStep, { kind: 'say' }>): number {

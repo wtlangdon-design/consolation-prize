@@ -1667,6 +1667,10 @@ export interface RoomFile {
   navigation?: RoomNavigation;
   /** Composed background, relative to the manifest. */
   background?: string;
+  /** Errata 157: a screen of sky above the plate, for a `pan` step's first shot. Same width as the plate. */
+  sky?: string;
+  /** Errata 157: stars in `sky` (sky coordinates) that flicker while it is on screen. Decorative only. */
+  skyStars?: [number, number][];
   /**
    * Ruling 21a's near plane: an RGBA overlay drawn after the actor. Kept for
    * rooms not yet converted to z-planes; a room declaring `occlusionPlanes`
@@ -2178,6 +2182,11 @@ export interface UiFile {
     endingFadeSeconds?: number;
     endingBlackSeconds?: number;
     conversationNote?: string;
+    /** Errata 157: NEW GAME's title fades to black over this, and the opening fades up over the next. */
+    newGameFadeOutSeconds?: number;
+    newGameFadeInSeconds?: number;
+    /** Errata 157: the longest a room is held in black waiting to arrive whole, so a stalled load never strands the player. */
+    roomReadyLimitSeconds?: number;
   };
 }
 
@@ -2798,6 +2807,10 @@ export type SequenceStagingStep =
    * still until he leaves the room.
    */
   | { do: 'camera'; to?: number; follow?: string }
+  /** Errata 157: the view glides down from the room's `sky` onto the room, over `seconds`. Holds the beat. */
+  | { do: 'pan'; seconds: number }
+  /** Errata 157: the view held at the top of the room's sky until a `pan`. Instant. */
+  | { do: 'sky' }
   /**
    * A verb applied to a target, from a beat. NOT A NEW STEP KIND.
    *

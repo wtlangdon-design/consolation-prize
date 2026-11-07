@@ -823,7 +823,9 @@ test('there is one reading hold, and a scripted line gets the same one as an utt
   // did to the opening rather than only to a conversation.
   const opening = state.content.sequences.get(state.content.manifest.openingSequence as string)
     ?? [...state.content.sequences.values()][0]!;
-  const lines = (opening.beats ?? []).flatMap((beat) => (beat.lines ?? []))
+  // The opening AS IT WAS when the formulas merged: errata 157's lines in the
+  // dark (beat 1b) came later and are not part of this retime's arithmetic.
+  const lines = (opening.beats ?? []).filter((beat) => beat.beat !== '1b').flatMap((beat) => (beat.lines ?? []))
     .map((spoken) => spoken.line).filter((line): line is string => !!line);
   assert.ok(lines.length >= 15, `${lines.length} spoken lines in the opening`);
 

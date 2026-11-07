@@ -73,6 +73,11 @@
       "unscripted": "the title screen. Nothing is staged and no mover exists yet"
     },
     {
+      "beat": "1b",
+      "control": "none",
+      "unscripted": "errata 157's stars: the view held in the sky above Room 1 and five lines in the dark. Held by run.mjs's way-in checks (the room seen only whole, the first sight the sky, these lines under it, beat 3 after the pan), not by marks"
+    },
+    {
       "beat": "2",
       "control": "none",
       "seconds": 8,

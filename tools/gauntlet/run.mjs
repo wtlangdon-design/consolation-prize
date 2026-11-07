@@ -319,6 +319,30 @@ async function sample(page, script, state, armed) {
       await page.waitForTimeout(SAMPLE_MS);
       continue;
     }
+    // ERRATA 157, THE WAY IN. Tyler: Room 1 "loads in pieces", then Thad
+    // speaks at once. So: no frame of the room is seen (black under 1) before
+    // the room is whole; the first sight of it is the sky, the view at least
+    // four-fifths of a screen above the room; beat 1b's voices are said in the
+    // dark, the view still up there; and beat 3 -- "My name is Thaddeus
+    // Grubb" -- comes only after the pan has settled. Each fails once, by name.
+    const failOnce = (key, expected, got) => {
+      if (state[key]) return;
+      state[key] = true;
+      state.failures.push({ beat: previous ?? '-', who: '-', field: 'way in', note: '', expected, got });
+    };
+    if (frame.black < 1 && frame.whole === false) failOnce('seenInPieces', 'the room seen only once it is whole (errata 157)', 'a frame of it shown while its pictures were still arriving');
+    if (frame.black < 1 && !state.seenRoom) {
+      state.seenRoom = true;
+      if (!(frame.pan >= NATIVE.height * 0.8)) failOnce('noSky', 'the first sight of Room 1 is the sky above it (errata 157)', `the view ${frame.pan ?? 'not panning'}`);
+    }
+    if (frame.pan !== null && frame.pan !== undefined) state.panned = true;
+    if (frame.says && frame.beat === '1b' && !(frame.pan >= NATIVE.height * 0.8)) {
+      failOnce('voicesNotInDark', 'beat 1b\'s voices said under the stars (errata 157)', `the view ${frame.pan ?? 'not in the sky'}`);
+    }
+    if (frame.says && frame.beat === '3' && !state.introSeen) {
+      state.introSeen = true;
+      if (!state.panned || (frame.pan ?? 0) > 0) failOnce('spokeInSky', 'beat 3 after the pan has settled (errata 157)', state.panned ? 'his first line while the view was still coming down' : 'no pan before it');
+    }
     if (readsByClick) {
       // Only a line that waits for its click; Thad's echo moves on by itself (errata 147).
       const line = frame.performing === true && frame.waiting === true ? `${frame.says ?? ''}` : null;

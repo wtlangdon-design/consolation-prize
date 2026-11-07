@@ -107,7 +107,7 @@ export function segmentsOf(file: SequenceFile): Segment[] {
  */
 function stagingTakesTime(beat: SequenceBeat): boolean {
   return (beat.staging ?? []).some((staged) => {
-    if (staged.do === 'walk' || staged.do === 'chore' || staged.do === 'path') return true;
+    if (staged.do === 'walk' || staged.do === 'chore' || staged.do === 'path' || staged.do === 'pan') return true;
     // A `setState` swaps a picture. Like a `face`, it is instantaneous.
     if (staged.do !== 'move') return false;
     return !staged.from
@@ -236,6 +236,10 @@ function lower(staged: SequenceStagingStep, beat: SequenceBeat): SequenceStep[] 
       return [{ kind: 'path', actor: staged.actor, path: staged.path }];
     case 'travel':
       return [{ kind: 'travel', through: staged.through }];
+    case 'pan':
+      return [{ kind: 'pan', seconds: staged.seconds }];
+    case 'sky':
+      return [{ kind: 'sky' }];
     case 'camera':
       // A cut, so nothing waits on it. Both fields pass through as authored:
       // `to` and `follow` together are legal and mean "look here, then track

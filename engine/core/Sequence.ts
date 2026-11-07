@@ -140,7 +140,16 @@ export type SequenceStep =
    * INSTANT, AND IT HOLDS NOTHING. A `to` is a cut, not a pan, so there is no
    * duration for the runner to wait out and no `waitForActor` after it.
    */
-  | { kind: 'camera'; to?: number; follow?: string };
+  | { kind: 'camera'; to?: number; follow?: string }
+  /**
+   * ERRATA 157: the opening's first shot. The view starts in the room's
+   * `sky`, the screen of night above the plate, and glides down onto the
+   * room over `seconds`. It HOLDS the runner for its length, as a path does:
+   * nothing that follows may start under it.
+   */
+  | { kind: 'pan'; seconds: number }
+  /** Errata 157: the view held at the top of the room's sky, until a `pan` brings it down. Instant. */
+  | { kind: 'sky' };
 
 /** What the runner needs the world to be able to do. */
 /**
@@ -206,6 +215,10 @@ export interface SequenceHost {
    * dispatches, and a hand-back takes effect on the following tick's follow.
    */
   camera(to: number | undefined, follow: string | undefined): void;
+  /** Starts errata 157's pan down from the sky. Optional: a host with no view ignores it. */
+  pan?(seconds: number): void;
+  /** Holds the view at the top of the sky (errata 157). Optional, as `pan` is. */
+  sky?(): void;
 }
 
 export class SequenceRunner {
@@ -363,6 +376,20 @@ export class SequenceRunner {
       }
       if (step.kind === 'camera') {
         host.camera(step.to, step.follow);
+        this.index += 1;
+        moved = true;
+        continue;
+      }
+      if (step.kind === 'sky') {
+        host.sky?.();
+        this.index += 1;
+        moved = true;
+        continue;
+      }
+      if (step.kind === 'pan') {
+        host.pan?.(step.seconds);
+        this.waitUntil = seconds + step.seconds;
+        this.waiting = true;
         this.index += 1;
         moved = true;
         continue;

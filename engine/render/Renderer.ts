@@ -119,6 +119,12 @@ export interface Frame {
   /** Black over the play area, 0 to 1: a room handing on by a fade (errata 133). */
   fadeBlack?: number;
   /**
+   * ERRATA 157'S PAN DOWN FROM THE STARS: the room drawn `offset` play-area
+   * pixels lower than it stands, with the bottom of `sky` filling the space
+   * above it. Offset 864 is all sky; 0 is the room as it always is.
+   */
+  pan?: { offset: number; sky: string; clock?: number } | null;
+  /**
    * THE LETTER'S PAGE (errata 128): every line of it said so far, drawn whole
    * over black and held, at `pageAlpha` while it fades. Replaces the speech
    * line while it is up.
@@ -959,6 +965,14 @@ export class Renderer {
     if (frame.title) {
       this.drawTitleScreen(frame.title);
       this.drawMenu();
+      // NEW GAME fades the title to black (errata 157), the whole screen.
+      if ((frame.fadeBlack ?? 0) > 0) {
+        const ctx = this.screen.context;
+        const was = ctx.globalAlpha;
+        ctx.globalAlpha = was * Math.min(1, frame.fadeBlack ?? 0);
+        this.screen.fill(0, 0, NATIVE_WIDTH, NATIVE_HEIGHT, this.screen.role('overlayBg'));
+        ctx.globalAlpha = was;
+      }
       return;
     }
     if (this.state.isMap) {
@@ -1009,6 +1023,7 @@ export class Renderer {
     this.drawPeople();
     this.drawForeground();
     this.screen.context.restore();
+    if (frame.pan && frame.pan.offset > 0) this.drawPan(frame.pan);
     if (frame.overBlack) this.screen.fill(0, 0, NATIVE_WIDTH, PLAY_HEIGHT, this.screen.role('overlayBg'));
     // The response to an option is drawn above the option list, not instead
     // of it -- otherwise picking an option appears to do nothing.
@@ -2362,6 +2377,61 @@ export class Renderer {
         this.screen.roleColour(ink), this.screen.roleColour('overlayBg'));
     }
   }
+
+  /**
+   * ERRATA 157: the play area as composed, moved down by `offset`, under the
+   * bottom `offset` rows of the room's sky. Everything in the room -- plate,
+   * coach, people, lamps -- moves together because it is the composed frame
+   * that moves. A sky that has not loaded draws nothing and the room shows
+   * as it stands, rather than a black band.
+   */
+  private drawPan(pan: { offset: number; sky: string; clock?: number }): void {
+    const sky = this.sheet(pan.sky) as (CanvasImageSource & { width?: number; height?: number }) | null;
+    if (!sky?.width || !sky.height) return;
+    const ctx = this.screen.context;
+    const offset = Math.min(PLAY_HEIGHT, pan.offset);
+    if (!this.panBuffer && typeof document !== 'undefined') {
+      this.panBuffer = document.createElement('canvas');
+      this.panBuffer.width = NATIVE_WIDTH;
+      this.panBuffer.height = PLAY_HEIGHT;
+    }
+    const buffer = this.panBuffer?.getContext('2d');
+    if (!buffer || !this.panBuffer) return;
+    buffer.imageSmoothingEnabled = false;
+    buffer.clearRect(0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+    buffer.drawImage(ctx.canvas, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+    if (offset < PLAY_HEIGHT) {
+      ctx.drawImage(this.panBuffer, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT - offset, 0, offset, NATIVE_WIDTH, PLAY_HEIGHT - offset);
+    }
+    const rows = Math.min(offset, sky.height);
+    ctx.drawImage(sky, 0, sky.height - rows, NATIVE_WIDTH, rows, 0, offset - rows, NATIVE_WIDTH, rows);
+    // THE STARS FLICKER (Tyler: "with stars flickering in a few places").
+    // Each declared star flares briefly at its own irregular moments: two
+    // incommensurate waves multiplied and raised to a high power are near
+    // zero most of the time and peak rarely. A soft cross of light in the
+    // stars' own warm colour, never a sprite; nothing about it is
+    // information (invariant 9).
+    const clock = pan.clock ?? 0;
+    const was = ctx.globalAlpha;
+    const glow = 'rgb(255, 226, 170)';
+    for (const [index, [sx, sy]] of (this.state.room.skyStars ?? []).entries()) {
+      const y = sy - (sky.height - offset);
+      if (y < 0 || y >= offset) continue;
+      const a = Math.sin(clock * (0.9 + index * 0.137) + index * 2.1);
+      const b = Math.sin(clock * (0.53 + index * 0.071) + index * 0.7);
+      const flare = Math.max(0, a * b) ** 6;
+      if (flare < 0.02) continue;
+      ctx.fillStyle = glow;
+      ctx.globalAlpha = was * Math.min(1, flare * 1.4);
+      ctx.fillRect(sx - 3, y - 3, 6, 6);
+      ctx.globalAlpha = was * flare * 0.45;
+      ctx.fillRect(sx - 9, y - 1, 18, 2);
+      ctx.fillRect(sx - 1, y - 9, 2, 18);
+    }
+    ctx.globalAlpha = was;
+  }
+
+  private panBuffer: HTMLCanvasElement | null = null;
 
   /** Where each title item is clickable: its row, a little wider than its words. */
   titleHitboxes(items: TitleItem[]): { id: string; x: number; y: number; width: number; height: number }[] {

@@ -207,7 +207,11 @@ function drawTimeline(sequence) {
                               ? `camera ${[s.to !== undefined ? `to ${s.to}` : null,
                                 s.follow ? `follow ${s.follow}` : null]
                                 .filter(Boolean).join(' · ')}`
-                              : `UNDRAWN: ${s.do}`;
+                              // The fourteenth and fifteenth (errata 157): the
+                              // view held in the sky, and brought down from it.
+                              : s.do === 'sky' ? 'view held in the sky'
+                                : s.do === 'pan' ? `pan down from the sky ${s.seconds}s`
+                                  : `UNDRAWN: ${s.do}`;
         parts.push(`<circle cx="${x + 14}" cy="${y}" r="7" fill="${places && k === 0 ? colour : '#14141c'}"`
           + ` stroke="${colour}" stroke-width="3"/>`);
         parts.push(`<text x="${x + 28}" y="${y + 6 + k * 20 - (here.length - 1) * 10}" fill="${colour}"`

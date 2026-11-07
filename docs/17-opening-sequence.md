@@ -36,6 +36,7 @@ That is the whole engine of the game in two exchanges: Thad believes he has arri
 | # | Beat | Interactive | Notes |
 |---|---|---|---|
 | 1 | **Title** over the ridge at night. Consolation below as scattered lamps in a great deal of darkness | menu | Longing, not comedy. **No act card here** |
+| 1b | **The stars.** Black sky over the road, a few stars flickering, the team breathing; nobody on screen yet. Voices in the dark: "This is your stop, kid." — "Already? I had hoped to see it coming." — "I put your case over there." — "In the mud?" — "Where else would I put it?" | no | **Errata 157 (Tyler, 2026-11-07).** The view holds in the sky above the road, then beat 2 brings it down. The driver speaks first and last; Thad asks. The case is already in the mud when we get there, so the driver is telling him where. **Thad is sincere: "In the mud?" is a question, not a complaint** |
 | 2 | **The coach arrives and halts with Thad visibly aboard.** He climbs down, straightens his coat, looks at the town. The driver gets up on the wheel to reach the roof rack | no · ~8s | **Player-audit fix: we never saw Thad arrive, so there was no reason to think the man he is talking to drove him.** The arrival must be seen |
 | 3 | **"My name is Thaddeus Grubb. I have come to Consolation to make my fortune."** — *"Course you have."* | no | Sincere, then punctured |
 | 4 | *"Four dollars?"* — Thad checks — *"Four dollars."* — **"You've all got four."** | no | The predatory machinery, unexplained |
