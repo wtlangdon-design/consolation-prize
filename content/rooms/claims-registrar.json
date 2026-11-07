@@ -245,6 +245,16 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "ACT": 3,
+              "T_SAME_HAND": false
+            },
+            "say": "The archive. Mott's own file is behind this door: the whole of Claim One, not just the blank page.",
+            "repeat": [
+              "Fanshawe wants Claim One kept quiet. I'd like to know what it's being quiet about."
+            ]
+          },
+          {
             "say": "A door, locked, with a statute posted beside it explaining precisely who may pass through. I am not among them.",
             "repeat": [
               "The statute beside it lists four persons who may pass. I'm none of them, and neither is Mr Sump.",
@@ -304,6 +314,14 @@
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
+          {
+            "when": {
+              "T_NEED_TO_DIE": true,
+              "T_DEATH_CERTIFIED": false
+            },
+            "say": "Form 31-D, Certificate of Death: 'to be signed by the assayer of record.' That's Winnie. She's going to love this.",
+            "sceneLine": true
+          },
           {
             "say": "Forms in triplicate, and a sign explaining that the third copy is for the applicant.",
             "repeat": [

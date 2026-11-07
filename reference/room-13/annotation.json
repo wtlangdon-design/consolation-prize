@@ -196,5 +196,20 @@
    "USE": "docs/26-batch-a.md::# ROOM 13 · THE UNDERTAKER'S"
   }
  },
- "overrideFromNote": "Doc 26 writes THE COFFINS · USE as 'Not yet.' and forbids a variant; doc 49 writes another line for the same verb. Doc 26's is the one the game has always shipped and check-fixed-lines holds; doc 49's is reported (doc 36 Q156, errata 86 C)."
+ "overrideFromNote": "Doc 26 writes THE COFFINS · USE as 'Not yet.' and forbids a variant; doc 49 writes another line for the same verb. Doc 26's is the one the game has always shipped and check-fixed-lines holds; doc 49's is reported (doc 36 Q156, errata 86 C).",
+ "verbRules": [
+  {
+   "hotspot": "price_board",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "when": {
+    "T_NEED_TO_DIE": true,
+    "T_FUNERAL_BOOKED": false
+   },
+   "ref": "docs/94-clue-pass.md::### E3 · what a funeral costs",
+   "startsWith": "**THE PRICE BOARD** · LOOK",
+   "note": "Doc 94 (errata 127): the funeral costs more than Thad has, from E2 until E3."
+  }
+ ]
 }
