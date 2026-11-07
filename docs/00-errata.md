@@ -4142,7 +4142,7 @@ Doc 30's affected lines carry a bracketed note pointing here: §1, §6.1, §6.2,
 
 *Asked about the two staging extras left open (doc 36 Q173 and Q176), Tyler chose:*
 
-**A · The funeral's procession: "Leave it gathered."** Doc 48 S6 beat 1 (the town walking in behind the coffin, Thad at the back) is not built. The service is already gathered when Thad arrives, as it is now. No image operation is spent on it.
+**A · The funeral's procession: "Leave it gathered."** Doc 48 S2 beat 1 (the town walking in behind the coffin, Thad at the back) is not built. The service is already gathered when Thad arrives, as it is now. No image operation is spent on it.
 
 **B · The credits: "Keep as is (Recommended)."** Doc 48 S7 beat 5 is not built. The close ends as errata 128 built it: the title, with THE END under it. CREDITS on the menu stays dim and inert. Their words are his, and none are written here.
 
