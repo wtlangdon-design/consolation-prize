@@ -326,6 +326,9 @@
           }
         ]
       },
+      "overrides": {
+        "PUSH": "Forty empty barrels, stacked very carefully. I will not be the man who un-stacks them."
+      },
       "walkTo": {
         "x": 1635,
         "y": 858,
@@ -364,6 +367,9 @@
             ]
           }
         ]
+      },
+      "overrides": {
+        "OPEN": "Bolted, every one. The town keeps its second mouth shut."
       },
       "walkTo": {
         "x": 450,

@@ -55,10 +55,19 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE RACCOON** · TALK_TO — "He knows his name now. He answers to it the way the town answers to 'prosperous' — inconsistently, and only for food."
 **THE RACCOON** · PICK_UP — "He permits it for exactly four seconds. I have learned the number precisely."
 
+*New lines, errata 123 (Tyler, 2026-11-06, the permission of errata 113-114, for the rooms players click most):*
+**THE MIRROR** · USE — "I check my teeth. All present. In this room that is worth a toast, and somebody is already proposing one."
+**THE WINDOW** · OPEN — "Swollen shut. The street stays out there, and the smell of the Nugget stays in here, and both seem to prefer it."
+**THE PATRONS** · PUSH — "Nine men who swing a pick for a living. I am going to push none of them, in any order."
+
 ## ROOM 5 — ASSAY OFFICE, FRONT
 
 **THE QUEUE BENCH** · USE — "It seats nine. I've been all nine, on different days."
 **THE QUEUE BENCH** · PUSH — "Moving the bench does not move the queue. The queue is a spiritual object; the bench is merely where it condenses."
+
+*New lines, errata 123 (Tyler, 2026-11-06, the permission of errata 113-114, for the rooms players click most):*
+**THE HANGING LAMP** · PULL — "It's hung dead center over her ledger. Moving it an inch would be a personal remark."
+**THE WINDOW SIGN** · TALK_TO — "I ask the sign whether it ever stays open late. It doesn't answer. It doesn't need to."
 
 ## ROOM 7 — CLAIMS REGISTRAR
 
@@ -69,6 +78,11 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE STATUTE BOOK** · OPEN — "It opens to the page about who may open it."
 **THE PARTITION** · PUSH — "The public side is this side. The partition exists so that fact needs no discussing."
 
+*New lines, errata 123 (Tyler, 2026-11-06, the permission of errata 113-114, for the rooms players click most):*
+**THE BENCH** · USE — "I sit. The bench seats nine and was built expecting all of them. That's a lot of expectation for one man."
+**THE COUNTER** · TALK_TO — "I clear my throat at the counter. The counter refers me to the appropriate line."
+**THE TWO LINES** · USE — "I stand in INQUIRIES, then in FILING. I am the entire queue in both, and I'm still not at the front."
+
 ## ROOM 9 — THE CLARION OFFICE
 
 **THE PRESS** · USE — "Frame offered to let me. Then he described the last man's sleeve. I withdrew the request and he printed that I had."
@@ -76,6 +90,11 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE TYPE CASE** · PICK_UP — "The letter B, I notice, is nearly worn out. My name has been spending it."
 **BACK ISSUES** · PULL — "The stack is structural. Frame's filing system is masonry."
 **THE HEADLINE BOARD** · CLOSE — "Tomorrow's headline is chalked and facing the street. There is no closing the news. I have asked."
+
+*New lines, errata 123 (Tyler, 2026-11-06, the permission of errata 113-114, for the rooms players click most):*
+**THE INK** · USE — "It'd be on my hands for a week. Frame's had it on his for twelve years and calls it a tan."
+**THE SPIKE** · PICK_UP — "Stories that didn't run. I'm leaving them. At least two of them are probably about me."
+**FRAME'S DESK** · OPEN — "There's no drawer. There's only more desk, further down."
 
 ## ROOM 11 — FANSHAWE'S OFFICE
 
@@ -85,6 +104,9 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE PORTRAIT** · TALK_TO — "The painted one listens exactly as well and commits to less. I prefer him slightly."
 **THE CONTRACT DRAWER** · OPEN — "Locked. The only locked thing in a room full of open ones, which is the room's one honest sentence."
 **THE PEN (NO INK)** · USE — "Still no ink. The pen is not broken. The pen is policy."
+
+*New lines, errata 123 (Tyler, 2026-11-06, the permission of errata 113-114, for the rooms players click most):*
+**THE SABRE** · PICK_UP — "Never taken down, never sharpened. I'll honor both traditions."
 
 ## ROOM 14 — BOOT HILL
 
@@ -151,6 +173,13 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE STOVE** · TALK_TO — "I addressed it as the true mayor of Consolation. It warmed to the subject."
 **THE CALICO** · PULL — "Forty yards would come off that bolt at a tug, and the proprietor knows the sound a tug makes from the back room."
 
+*New lines, errata 123 (Tyler, 2026-11-06, the permission of errata 113-114, for the rooms players click most):*
+**THE BOOTS** · PICK_UP — "Tied in pairs, so nobody walks off in one. Somebody here was robbed exactly that way, once."
+**THE NAILS** · PICK_UP — "A dollar the pound, every size mixed. I'd be buying a pound of problems and sorting them for free."
+**THE SHOVELS** · PICK_UP — "Forty shovels, two thousand men. I'm not going to be the one who starts that arithmetic."
+**THE LAMP OIL** · OPEN — "NO LIGHTS, says the sign. Opening it would be the first half of a very short story."
+**THE CATALOGUE — FIREARMS** · USE — "I order nothing. A piano tuner has never needed a revolver. Only patience, which ships free."
+
 ## ROOM 13 — THE UNDERTAKER'S
 
 **THE TEETH** · PICK_UP — "No."
@@ -191,6 +220,10 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE STAIRS** · PUSH — "The fourth step and I have an arrangement: I skip it, and it tells no one my hours."
 **THE PAINTING** · PULL — "Behind it: wall. I don't know what I expected. More wall, perhaps, but honest about it."
 
+*New lines, errata 123 (Tyler, 2026-11-06, the permission of errata 113-114, for the rooms players click most):*
+**THE SPITTOON** · PICK_UP — "Not for five dollars. Not for a room. Not for anything this hotel has ever offered."
+**THE FRONT WINDOW** · OPEN — "Painted shut. The street gets in anyway, one draft at a time."
+
 ## ROOM 19 — THAD'S HOTEL ROOM
 
 **THE BED** · PUSH — "I moved it off the valley. I woke in the valley. The bed and the floor have seniority."
@@ -206,6 +239,10 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE RAIN BARREL** · USE — "Whatever lives in it surfaced to watch me reconsider."
 **THE CRATES** · PUSH — "The stack is load-bearing for at least one wall and possibly one business."
 **THE WASH LINE** · PULL — "The long underwear waved. I waved back before I could stop myself."
+
+*New lines, errata 123 (Tyler, 2026-11-06, the permission of errata 113-114, for the rooms players click most):*
+**THE BARRELS** · PUSH — "Forty empty barrels, stacked very carefully. I will not be the man who un-stacks them."
+**THE BACK DOORS** · OPEN — "Bolted, every one. The town keeps its second mouth shut."
 
 ## ROOM 22 — THE ROAD TO THE CLAIMS
 
@@ -242,6 +279,11 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE TICKET RAIL** · PULL — "The district's one uncorrupted ledger, on a wire. I withdrew my hand with the reverence it was owed."
 **THE COLLAR ADVERTISEMENT** · TALK_TO — "I asked the gentleman who he really was. He kept his jaw square and his counsel. He is the most consistent man in Consolation and he does not exist."
 **THE PAYMENT TIN** · OPEN — "It does not rattle and it does not open for customers. Sheng's bank has one teller and no robberies. The Company should take the tour."
+
+*New lines, errata 123 (Tyler, 2026-11-06, the permission of errata 113-114, for the rooms players click most):*
+**THE MENDING BASKET** · USE — "I can sew on a button. I can't sew one on in front of Ah-Lam Sheng."
+**SHENG'S CHAIR** · USE — "It's angled at the ridge for the ten minutes a day the boilers allow. They aren't my ten minutes."
+**THE WINDOW, STEAMED** · OPEN — "Fogged from inside and stuck from outside. It's a wall with ambitions."
 
 ## ROOM 29 — THE HIGH RIDGE
 
@@ -284,7 +326,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 ## ROOM 35 — THE COMPANY VAULT
 
 **THE STRONGBOX** · PICK_UP — "Lighter than its reputation, which is the Company entire. I put it down before the metaphor could finish."
-**THE CHAMPAGNE** · OPEN — "FOR THE DAY, says the label. It is not my day to declare. Though it is closer than the Colonel thinks."
+**THE CHAMPAGNE** · OPEN — "FOR THE DAY, says the label. It isn't my day to declare. Though it is closer than the Colonel thinks."
 **THE PRIVATE MAP** · USE — "A map of where gold must never be found. I checked one spot. My claim is not marked. Nobody ever thought to steer anyone away from Prosperity. Nobody ever had to."
 **FANSHAWE'S DRAWER** · PULL — "Locked, and the lock is better than the vault's. Whatever the Colonel keeps from the Company matters more to him than the money he keeps for it."
 **THE GAS LAMP** · USE — "Plumbed for gas that does not exist within a thousand miles. I turned the key. Nothing, magnificently."

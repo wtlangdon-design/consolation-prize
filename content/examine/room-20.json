@@ -75,7 +75,10 @@
         "Bolts, in their brackets. The town, latched.",
         "A bolt shot home somewhere along the row. Someone has decided against visitors.",
         "Nothing. Every door in the row is listening for the same thing I am."
-      ]
+      ],
+      "overrides": {
+        "OPEN": "Bolted, every one. The town keeps its second mouth shut."
+      }
     },
     {
       "name": "THE WASH LINE",
@@ -178,7 +181,10 @@
         "Empty. All of them. Somebody has stacked forty empty barrels very carefully.",
         "I knocked on one. Empty, and it said so at length.",
         "Nothing. Forty empty barrels and not one rattle."
-      ]
+      ],
+      "overrides": {
+        "PUSH": "Forty empty barrels, stacked very carefully. I will not be the man who un-stacks them."
+      }
     },
     {
       "name": "THE SIDE DOOR",

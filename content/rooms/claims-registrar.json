@@ -407,6 +407,9 @@
           }
         ]
       },
+      "overrides": {
+        "USE": "I sit. The bench seats nine and was built expecting all of them. That's a lot of expectation for one man."
+      },
       "walkTo": {
         "x": 420,
         "y": 847,
@@ -462,6 +465,9 @@
           }
         ]
       },
+      "overrides": {
+        "TALK_TO": "I clear my throat at the counter. The counter refers me to the appropriate line."
+      },
       "walkTo": {
         "x": 875,
         "y": 847,
@@ -510,6 +516,9 @@
             ]
           }
         ]
+      },
+      "overrides": {
+        "USE": "I stand in INQUIRIES, then in FILING. I am the entire queue in both, and I'm still not at the front."
       }
     }
   ],

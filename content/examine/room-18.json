@@ -137,7 +137,10 @@
         "Nothing, mercifully.",
         "Nothing.",
         "Nothing. We have both been spared."
-      ]
+      ],
+      "overrides": {
+        "PICK_UP": "Not for five dollars. Not for a room. Not for anything this hotel has ever offered."
+      }
     },
     {
       "name": "THE PAINTING",
@@ -166,7 +169,10 @@
         "The street, muffled. The glass keeps out the words and lets the arguing through.",
         "A wagon, a dog, a man insisting. The glass lets the insisting through.",
         "Somebody laughing on the boardwalk. Through the window it sounds like an opinion."
-      ]
+      ],
+      "overrides": {
+        "OPEN": "Painted shut. The street gets in anyway, one draft at a time."
+      }
     },
     {
       "name": "THE CLOCK",

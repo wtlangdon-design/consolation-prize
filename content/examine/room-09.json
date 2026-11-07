@@ -91,7 +91,10 @@
         "Paper, shifting whenever the press runs. The desk is in a permanent state of mild landslide.",
         "A pencil rolling slowly toward the edge. It has done this before, and nobody has stopped it.",
         "Nothing, for once. The quietest place in the building is where he does his thinking, which may explain the paper."
-      ]
+      ],
+      "overrides": {
+        "OPEN": "There's no drawer. There's only more desk, further down."
+      }
     },
     {
       "name": "THE INK",
@@ -104,7 +107,10 @@
         "A thick, slow settle when the floor moves. It does not slosh. It considers.",
         "Nothing. It's waiting to be turned into opinions.",
         "The lid comes up with a reluctant kiss. I put it back down."
-      ]
+      ],
+      "overrides": {
+        "USE": "It'd be on my hands for a week. Frame's had it on his for twelve years and calls it a tan."
+      }
     },
     {
       "name": "THE SPIKE",
@@ -126,7 +132,10 @@
           ],
           "LISTEN_TO": []
         }
-      ]
+      ],
+      "overrides": {
+        "PICK_UP": "Stories that didn't run. I'm leaving them. At least two of them are probably about me."
+      }
     },
     {
       "name": "THE WINDOW",

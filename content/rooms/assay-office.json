@@ -126,6 +126,9 @@
           }
         ]
       },
+      "overrides": {
+        "TALK_TO": "I ask the sign whether it ever stays open late. It doesn't answer. It doesn't need to."
+      },
       "walkTo": {
         "x": 358,
         "y": 828,
@@ -255,6 +258,9 @@
             ]
           }
         ]
+      },
+      "overrides": {
+        "PULL": "It's hung dead center over her ledger. Moving it an inch would be a personal remark."
       },
       "walkTo": {
         "x": 973,

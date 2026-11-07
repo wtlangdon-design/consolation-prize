@@ -410,6 +410,9 @@
           }
         ]
       },
+      "overrides": {
+        "OPEN": "Swollen shut. The street stays out there, and the smell of the Nugget stays in here, and both seem to prefer it."
+      },
       "walkTo": {
         "x": 431,
         "y": 630,
@@ -552,7 +555,8 @@
         ]
       },
       "overrides": {
-        "TALK_TO": "I've tried. They're very friendly. They want to know what I know. I know nothing, and it disappoints them fresh every time."
+        "TALK_TO": "I've tried. They're very friendly. They want to know what I know. I know nothing, and it disappoints them fresh every time.",
+        "PUSH": "Nine men who swing a pick for a living. I am going to push none of them, in any order."
       },
       "walkTo": {
         "x": 873,
@@ -608,6 +612,9 @@
             ]
           }
         ]
+      },
+      "overrides": {
+        "USE": "I check my teeth. All present. In this room that is worth a toast, and somebody is already proposing one."
       },
       "walkTo": {
         "x": 1475,

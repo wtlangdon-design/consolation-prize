@@ -93,3 +93,6 @@ art/staging/**
 # could not recut a figure.
 !art/staging/townspeople-110/
 !art/staging/townspeople-110/**
+
+# A real person's photo used as a likeness reference never enters the repository (errata 123).
+art/staging/private/

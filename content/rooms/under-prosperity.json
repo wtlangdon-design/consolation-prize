@@ -36,10 +36,10 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The rope to the surface, and the coin of gray light at the top of it. Up there this is still the worthless claim. I am in no hurry to correct anyone.",
+            "say": "The rope to the surface, and the coin of gray light at the top of it. Up there this is still the worthless claim. I'm in no hurry to correct anyone.",
             "repeat": [
               "Daylight, a long way up, the size of a coin.",
-              "The coin of light has moved. It is later up there than I thought."
+              "The coin of light has moved. It's later up there than I thought."
             ]
           }
         ],
@@ -48,7 +48,7 @@
             "say": "The surface, at a great distance: wind, and the suggestion of a town.",
             "repeat": [
               "The town. Very faint. Somebody is arguing about a boundary.",
-              "Somebody up there laughing, very far off. They do not know yet."
+              "Somebody up there laughing, very far off. They don't know yet."
             ]
           }
         ]
@@ -222,7 +222,7 @@
             "say": "My father thought this was a sensible investment. He was, on the evidence, the only person in my family who has ever been right about anything.",
             "repeat": [
               "The tines are worn bright at the ends, where I have struck it on ten thousand boot heels.",
-              "It is the only thing I own that is exactly what it claims to be."
+              "It's the only thing I own that's exactly what it claims to be."
             ]
           }
         ],
@@ -231,7 +231,7 @@
             "say": "A. Four hundred and forty. It is still the only correct thing within a hundred miles.",
             "repeat": [
               "I struck it. A, held, ringing down to nothing.",
-              "A. The same A it gave in my father's shop. Some things do not move."
+              "A. The same A it gave in my father's shop. Some things don't move."
             ]
           }
         ]
@@ -257,7 +257,7 @@
           {
             "say": "One lamp, and about four hours of oil in it.",
             "repeat": [
-              "Three hours of oil now. I am doing the arithmetic more often than I would like.",
+              "Three hours of oil now. I'm doing the arithmetic more often than I'd like.",
               "It throws my shadow up the wall, three times my size and twice as confident."
             ]
           }
@@ -309,10 +309,10 @@
             "say": "Nothing. Long finished. But kept, not abandoned.",
             "repeat": [
               "Nothing. Its tin cooled a long time ago.",
-              "Nothing. It is waiting for its keeper, and its keeper is not coming down tonight."
+              "Nothing. It's waiting for its keeper, and its keeper isn't coming down tonight."
             ],
             "then": [
-              "There is a difference and you can hear it."
+              "There's a difference, and you can hear it."
             ]
           }
         ]
@@ -339,10 +339,10 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "You cannot see it, and down here that is the most interesting thing about it: the flame leans. The air is going somewhere.",
+            "say": "You can't see it, and down here that's the most interesting thing about it: the flame leans. The air is going somewhere.",
             "repeat": [
               "Nothing to look at. There has never been anything to look at.",
-              "There is nothing to see. I keep looking anyway, like a man rereading a letter he knows by heart."
+              "There's nothing to see. I keep looking anyway, like a man rereading a letter he knows by heart."
             ]
           }
         ],
@@ -351,10 +351,10 @@
             "say": "Moving. Warmer than the day.",
             "repeat": [
               "Warmer. It has been warmer every foot.",
-              "Moving, and warmer. I have stopped being surprised by it and started paying attention."
+              "Moving, and warmer. I've stopped being surprised by it and started paying attention."
             ],
             "then": [
-              "I have heard this before, at the top of a hole, and used it to evict a raccoon."
+              "I've heard this before, at the top of a hole, and used it to evict a raccoon."
             ]
           }
         ]
@@ -384,7 +384,7 @@
             "say": "Boot prints in the clay, preserved like the creek bank's, but one pair, many visits, all the same stride. Even. He was counting.",
             "repeat": [
               "The stride never shortens, coming or going. Whoever made these was never in a hurry and never tired.",
-              "Mine cross his now, clumsier and in a hurry. He would not have approved."
+              "Mine cross his now, clumsier and in a hurry. He wouldn't have approved."
             ]
           }
         ],
@@ -420,7 +420,7 @@
             "say": "Dark with a texture to it.",
             "repeat": [
               "I turned the lamp down once, to see what the dark was like on its own. I turned it back up.",
-              "It is not empty. It is only unlit."
+              "It isn't empty. It's only unlit."
             ],
             "then": [
               "The lamp makes a room the size of the lamp, and the rest of the underworld waits its turn."
@@ -454,18 +454,18 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The seam, where the lamp stops being casual. I have seen color in a pan, in a bottle, on a scale. I have never seen it at home before. It is different at home.",
+            "say": "The seam, where the lamp stops being casual. I've seen color in a pan, in a bottle, on a scale. I've never seen it at home before. It's different at home.",
             "repeat": [
               "It runs at a slant into the dark, wider than my hand and further than the lamp.",
-              "I have looked at it for a long time. It does not do anything. It does not need to."
+              "I've looked at it a long time. It doesn't do anything. It doesn't need to."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. It has been keeping this quiet for longer than there have been ears.",
+            "say": "Not a sound. It's been keeping this quiet for longer than there have been ears.",
             "repeat": [
-              "Nothing. Gold has never had to raise its voice.",
+              "Silence. Gold has never had to raise its voice.",
               "Nothing. Twelve years of a town, built on top of a silence."
             ]
           }
@@ -496,10 +496,10 @@
             "say": "Forty feet of my own digging.",
             "repeat": [
               "There is a bend in it where I lost my nerve and a straight stretch after where I found it again.",
-              "My pick marks are everywhere and none of them in a line. It is the most honest piece of work I have ever done."
+              "My pick marks are everywhere and none of them in a line. It's the most honest piece of work I've ever done."
             ],
             "then": [
-              "It is not square and it is not swept and Nickel Pratt would weep."
+              "It isn't square and it isn't swept, and Nickel Pratt would weep."
             ]
           }
         ],
@@ -538,7 +538,7 @@
               "Rock, mostly."
             ],
             "then": [
-              "I am declining to be excited. The territory has trained me thoroughly."
+              "I'm declining to be excited. The territory has trained me thoroughly."
             ]
           }
         ],
@@ -547,7 +547,7 @@
             "say": "Water, somewhere inside the stone, going about its business.",
             "repeat": [
               "Water inside the stone again, going about its business.",
-              "Nothing I can name yet. I am listening anyway. It is what I am for."
+              "Nothing I can name yet. I'm listening anyway. It's what I'm for."
             ]
           }
         ]
@@ -573,7 +573,7 @@
           {
             "say": "Rock.",
             "repeat": [
-              "Rock. I have looked at it enough to know it is rock.",
+              "Rock. I've looked at it enough to know it's rock.",
               "Still rock."
             ]
           }
@@ -641,7 +641,7 @@
             "say": "Old timbering, not mine, not recent. Someone was down here before the town was up there, and shored it like they meant to come back.",
             "repeat": [
               "The joints are pegged, not nailed, by somebody who had more time than nails.",
-              "It has held a town on top of it for twelve years without a word of complaint. I know men who could learn from it."
+              "It's held a town on top of it for twelve years without a word of complaint. I know men who could learn from it."
             ]
           }
         ],

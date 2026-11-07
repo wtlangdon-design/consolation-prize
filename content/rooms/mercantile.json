@@ -119,6 +119,9 @@
           }
         ]
       },
+      "overrides": {
+        "USE": "I order nothing. A piano tuner has never needed a revolver. Only patience, which ships free."
+      },
       "walkTo": {
         "x": 1359,
         "y": 854,
@@ -545,6 +548,9 @@
           }
         ]
       },
+      "overrides": {
+        "PICK_UP": "Tied in pairs, so nobody walks off in one. Somebody here was robbed exactly that way, once."
+      },
       "walkTo": {
         "x": 360,
         "y": 854,
@@ -749,6 +755,9 @@
             ]
           }
         ]
+      },
+      "overrides": {
+        "PICK_UP": "A dollar the pound, every size mixed. I'd be buying a pound of problems and sorting them for free."
       }
     },
     {
@@ -780,6 +789,9 @@
             ]
           }
         ]
+      },
+      "overrides": {
+        "PICK_UP": "Forty shovels, two thousand men. I'm not going to be the one who starts that arithmetic."
       },
       "walkTo": {
         "x": 370,
@@ -903,6 +915,9 @@
             ]
           }
         ]
+      },
+      "overrides": {
+        "OPEN": "NO LIGHTS, says the sign. Opening it would be the first half of a very short story."
       }
     },
     {

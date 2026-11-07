@@ -88,7 +88,7 @@
       "LOOK_AT": [
         "The actual money, in the actual box. Less than the town believes. The Company's fortune is mostly the town's belief, held at interest.",
         "Coin, sorted by denomination, and a great deal of air between the stacks.",
-        "I had expected to want it. I find I do not."
+        "I'd expected to want it. I find I don't."
       ],
       "LISTEN_TO": [
         "Coin, but thinly. An echo with good posture.",
@@ -103,8 +103,8 @@
       "name": "FANSHAWE'S PRIVATE DRAWER",
       "LOOK_AT": [
         "A drawer with its own lock, its own key, and its own smell of good tobacco. Whatever the Colonel keeps from the Company, he keeps here.",
-        "The key is not here. The Colonel carries it, I imagine, next to the five versions of his war.",
-        "It is the one locked thing in the vault. Everything else he has kept for the Company. This he has kept for himself."
+        "The key isn't here. The Colonel carries it, I imagine, next to the five versions of his war.",
+        "It's the one locked thing in the vault. Everything else he has kept for the Company. This he has kept for himself."
       ],
       "LISTEN_TO": [
         "One paper, sliding when the drawer is tried. A single secret, loosely filed.",
@@ -118,9 +118,9 @@
     {
       "name": "THE CHAMPAGNE",
       "LOOK_AT": [
-        "One bottle, dusty, laid down with a label in Fanshawe's hand: FOR THE DAY. He has never specified which day. I begin to suspect the bottle is the point.",
+        "One bottle, dusty, laid down with a label in Fanshawe's hand: FOR THE DAY. He's never said which day. I begin to suspect the bottle is the point.",
         "The dust on it is twelve years thick. I wrote nothing in it, which took some restraint.",
-        "FOR THE DAY. I begin to think he meant the day he would no longer need to lie, and that he never once expected it to come."
+        "FOR THE DAY. I begin to think he meant the day he'd no longer need to lie, and that he never once expected it to come."
       ],
       "LISTEN_TO": [
         "Nothing. Corked hope.",
@@ -128,7 +128,7 @@
         "Nothing. It has waited this long. It can wait for somebody else's day."
       ],
       "overrides": {
-        "OPEN": "FOR THE DAY, says the label. It is not my day to declare. Though it is closer than the Colonel thinks."
+        "OPEN": "FOR THE DAY, says the label. It isn't my day to declare. Though it is closer than the Colonel thinks."
       }
     },
     {
@@ -138,13 +138,13 @@
       ],
       "LOOK_AT": [
         "A fixed lamp, plumbed for gas that does not exist within a thousand miles. Installed for how it looks unlit. The whole Company, in one fitting.",
-        "The mantle has never been lit. It is as white as the day it was unpacked.",
+        "The mantle has never been lit. It's as white as the day it was unpacked.",
         "There is an oil lamp on the floor beneath it, doing all the work."
       ],
       "LISTEN_TO": [
         "A hollow pipe. It hums when the vault door moves, an organ note for an empty church.",
         "The hum again, when the door moves.",
-        "Nothing. It is very good at being unlit."
+        "Nothing. It's very good at being unlit."
       ],
       "overrides": {
         "USE": "Plumbed for gas that does not exist within a thousand miles. I turned the key. Nothing, magnificently."
@@ -155,10 +155,10 @@
       "LOOK_AT": [
         "One chair, inside a vault, facing the boxes. Someone sits in here, with the money and the maps, and thinks. The upholstery says: often, and at length.",
         "It faces the strongbox, not the maps. Whoever sits here sits looking at what he has, not at what he says.",
-        "On the floor beside it, a glass with a finger of whisky in it, untouched. He pours, even here, and does not drink."
+        "On the floor beside it, a glass with a finger of whisky in it, untouched. He pours, even here, and doesn't drink."
       ],
       "LISTEN_TO": [
-        "Nothing. What gets thought in here does not leak.",
+        "Nothing. What gets thought in here doesn't leak.",
         "Leather settling. It was sat in today.",
         "Nothing. The thinking done in this chair has never been said aloud anywhere."
       ]
@@ -220,7 +220,7 @@
       "LOOK_AT": [
         "Letters to Boston. Nine years of them, copied out in his own hand, all saying the same thing in different words: that the search continues, that hopes are high, and that further funds would be timely.",
         "Each letter is warmer than the last. By the ninth year he writes to Boston like a man writing home.",
-        "The replies are not in the file. Either Boston stopped answering or he stopped keeping what it said."
+        "The replies aren't in the file. Either Boston stopped answering or he stopped keeping what it said."
       ],
       "LISTEN_TO": [
         "Nothing. A file of copies keeps its originals to itself.",
