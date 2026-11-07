@@ -300,7 +300,8 @@ export class SequenceWorld implements SequenceHost {
   }
 
   /** A player-driven walk, claiming the body the same way a scripted one does. */
-  walkPlayer(x: number, y: number): boolean {
+  /** `instead`: where the walk really ends, when the click's own floor point is somebody's (errata 129). */
+  walkPlayer(x: number, y: number, instead?: { x: number; y: number }): boolean {
     const player = this.actors.playerActor;
     // The player clicking during his own chore is ordinary play, not an
     // engine error: the performance is abandoned first, which releases the
@@ -310,7 +311,7 @@ export class SequenceWorld implements SequenceHost {
       this.bodies.releaseBody(player.id, CHORE_OWNER);
       this.landed.delete(player.id);
     }
-    const walking = player.walkTo(x, y);
+    const walking = player.walkTo(instead?.x ?? x, instead?.y ?? y);
     if (walking) this.bodies.claimBody(player.id, WALK_OWNER);
     return walking;
   }
