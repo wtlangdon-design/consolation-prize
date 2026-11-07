@@ -5,6 +5,7 @@ import type { AmbientFile, Cutaway, Exit, Facing, Interactable, CombinationPair,
 } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
 import { planNear, planRoom } from '../core/BootAssets.ts';
+import { MapWalk, homeLocation, mapPath, placePoint } from '../core/MapWalk.ts';
 import { Music } from '../core/Music.ts';
 import { RoomActors } from '../core/RoomActors.ts';
 import type { Controls, FrameReport, MoverReport } from '../dev/Probe.ts';
@@ -330,6 +331,8 @@ export class GameScene extends Phaser.Scene {
   /** The last break that spoke, so a clock-derived break fires its line once. */
   private spokenBreak: string | null = null;
   private soundedBreak: string | null = null;
+  /** Errata 163: the map's Thad on his way to a place; travel happens when he arrives. */
+  private mapWalk: { walk: MapWalk; startedAt: number; location: import('../core/types.ts').MapLocation } | null = null;
   private barkAt: { x: number; y: number } | null = null;
   private barkTimer?: Phaser.Time.TimerEvent;
   private barkChain?: Phaser.Time.TimerEvent;
@@ -861,6 +864,12 @@ export class GameScene extends Phaser.Scene {
 
     this.speakingBreaks();
     this.soundingBreaks();
+    // Errata 163: the map's Thad walking. Redrawn every frame he moves; travel when he arrives.
+    if (this.mapWalk) {
+      if (!this.state.isMap) this.mapWalk = null;
+      else if (this.time.now / 1000 - this.mapWalk.startedAt >= this.mapWalk.walk.seconds) this.arriveByMap();
+      else this.markDirty();
+    }
 
     // A CONVERSATION THAT CLOSES HANDS THE POINTER BACK TO THE ROOM (errata
     // 143): the sentence line names what is under it now, not what it named
@@ -909,6 +918,7 @@ export class GameScene extends Phaser.Scene {
       showPanel: this.panelDrawn = panelShows({ opening: this.opening !== null, conversation: this.conversationOpen(),
         panelHidden: this.panelHidden, cutscene: this.carriedCutscene() }),
       hoveredLocation: this.hoveredLocation,
+      mapToken: this.mapTokenPose(),
       ripples: this.ripples.map((one) => ({ x: one.x, y: one.y, tail: one.tail,
         age: Math.max(0, Math.min(1, (this.time.now - one.start) / Math.max(1, one.end - one.start))) })),
       lampStill: this.lampStillness(),
@@ -2303,6 +2313,7 @@ export class GameScene extends Phaser.Scene {
    * it must be able to close it without going anywhere.
    */
   private toggleMap(): void {
+    this.mapWalk = null;
     const target = this.state.isMap ? this.state.previousRoomId : this.mapRoomId();
     if (!target || !this.state.content.rooms.has(target)) return;
     this.state.enterRoom(target);
@@ -2322,14 +2333,63 @@ export class GameScene extends Phaser.Scene {
     return null;
   }
 
+  /**
+   * ERRATA 163: where the map's Thad is drawn, and in which frame. Walking, he
+   * is wherever his walk has reached; otherwise he stands at the place of the
+   * room the map was opened from.
+   */
+  private mapTokenPose(): { x: number; y: number; frame: number; left: boolean } | null {
+    const map = this.state.room;
+    if (!this.state.isMap || !map.mapToken) return null;
+    if (this.mapWalk) {
+      const pose = this.mapWalk.walk.at(this.time.now / 1000 - this.mapWalk.startedAt);
+      return { x: pose.x, y: pose.y, frame: pose.frame, left: pose.left };
+    }
+    const home = homeLocation(map, this.state.previousRoomId);
+    if (!home) return null;
+    const [x, y] = placePoint(map, home);
+    return { x, y, frame: map.mapToken.rest, left: false };
+  }
+
+  /** The walk ends, or is skipped by a click: the travel the click asked for. */
+  private arriveByMap(): void {
+    const location = this.mapWalk?.location;
+    this.mapWalk = null;
+    if (!location || !this.state.travelTo(location)) return;
+    this.hovered = null;
+    this.hoveredName = null;
+    this.hoveredLocation = null;
+    this.setSay(null);
+    this.enterRoomPerformance();
+    this.markDirty();
+  }
+
   private onMapClick(x: number, y: number): void {
+    // A CLICK WHILE HE WALKS SKIPS THE WALK (errata 163): a player who is
+    // backtracking never waits on a road he has walked before.
+    if (this.mapWalk) {
+      this.arriveByMap();
+      return;
+    }
     const hit = this.view.mapHitAt(x, y);
     // An unbuilt destination is drawn and does not travel. Silently: doc 17
     // v3.1's constraint is that nothing announces itself, and a notice saying
     // "not implemented" is the loudest possible announcement.
     if (!hit?.built) return;
     const location = (this.state.room.locations ?? []).find((entry) => entry.id === hit.id);
-    if (!location || !this.state.travelTo(location)) return;
+    if (!location) return;
+    // ERRATA 163: Thad walks the roads there first, when the map has him.
+    const map = this.state.room;
+    const home = map.mapToken ? homeLocation(map, this.state.previousRoomId) : undefined;
+    if (map.mapToken && home && home.id !== location.id && this.state.content.rooms.has(location.room)) {
+      const walk = new MapWalk(mapPath(map, home, location), map.mapToken);
+      if (walk.seconds > 0) {
+        this.mapWalk = { walk, startedAt: this.time.now / 1000, location };
+        this.markDirty();
+        return;
+      }
+    }
+    if (!this.state.travelTo(location)) return;
     this.hovered = null;
     this.hoveredName = null;
     this.hoveredLocation = null;
@@ -3047,6 +3107,7 @@ export class GameScene extends Phaser.Scene {
       black: this.fadeBlack,
       whole: this.roomWhole(),
       cutaway: this.cut ? { id: this.cut.cutaway.id, phase: this.cut.phase } : null,
+      mapWalk: this.mapWalk ? { to: this.mapWalk.location.id, seconds: this.mapWalk.walk.seconds } : null,
       pan: this.panning ? this.panFrame()?.offset ?? null : null,
       bed: this.music.bed,
       ending: this.endingFrom === null ? null

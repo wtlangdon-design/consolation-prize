@@ -189,6 +189,8 @@ export interface FrameReport {
   pan: number | null;
   /** Errata 158: the cut-away showing, by id, and its phase; null when none is. */
   cutaway: { id: string; phase: string } | null;
+  /** Errata 163: the map's Thad walking to a place, by its id, and how long the walk is; null when he stands. */
+  mapWalk: { to: string; seconds: number } | null;
   /** The music bed playing, by its files, or null: errata 155's title bed is heard, not only requested. */
   bed: string | null;
   /** The close's phase once the game is ending: hold, fade, black; null otherwise (errata 128). */

@@ -89,6 +89,8 @@ export interface Frame {
   sceneControls?: boolean;
   /** The map location under the pointer, so it can draw as the live one. */
   hoveredLocation?: string | null;
+  /** Errata 163: the map's Thad, where he is and in which frame of `mapToken`; null off the map. */
+  mapToken?: { x: number; y: number; frame: number; left: boolean } | null;
   /**
    * Who is speaking, so a head overlay can answer to it. Doc 43 line 97.
    *
@@ -1237,6 +1239,34 @@ export class Renderer {
         this.screen.context, label, labelX, y - GLYPH_SCALE * 2, ink,
         this.screen.roleColour('overlayBg'),
       );
+    }
+    // On top of the markers: he stands on the place he is at.
+    this.drawMapToken(frame);
+  }
+
+  /**
+   * ERRATA 163: THE MAP'S THAD, feet on the road, under the markers' labels.
+   * The sheet faces right; walking left he is mirrored about his own centre.
+   */
+  private drawMapToken(frame: Frame): void {
+    const pose = frame.mapToken;
+    const token = this.state.room.mapToken;
+    if (!pose || !token) return;
+    const image = this.sheet(token.sheet);
+    const rect = token.frames[pose.frame];
+    if (!image || !rect) return;
+    const [sx, sy, w, h] = rect;
+    const ctx = this.screen.context;
+    const left = Math.round(pose.x - w / 2);
+    const top = Math.round(pose.y - h);
+    if (pose.left) {
+      ctx.save();
+      ctx.translate(left + w, top);
+      ctx.scale(-1, 1);
+      ctx.drawImage(image, sx, sy, w, h, 0, 0, w, h);
+      ctx.restore();
+    } else {
+      ctx.drawImage(image, sx, sy, w, h, left, top, w, h);
     }
   }
 
