@@ -1,4 +1,4 @@
-"""Cut errata 143's item icons, redrawn at slot size, into the shipping sheet.
+"""Cut errata 146's item icons, redrawn at slot size, into the shipping sheet.
 
 The inventory slot is 180x80 (content/ui/panel.json) and Renderer.drawInventory
 fits each icon by min(180/w, 80/h). The old 30x21 cells came to an uneven
@@ -172,7 +172,7 @@ def main():
     table['cell'] = list(CELL)
     table['icons'] = cells
     table['sheet'] = SHEET
-    table['errata143'] = ('Redrawn at slot size: 60x40 cells, drawn at a whole x2 into the 180x80 inventory slot '
+    table['errata146'] = ('Redrawn at slot size: 60x40 cells, drawn at a whole x2 into the 180x80 inventory slot '
                           '(tests/item-icons-scale.test.ts). Cut by tools/art/item-icons-cut.py from '
                           'art/staging/item-icons/sheet-01.png, item-icons attempt 1; one factor for all 26 '
                           f'({factor:.3f} source pixels to an art pixel).')

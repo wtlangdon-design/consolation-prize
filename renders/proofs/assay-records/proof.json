@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "assay_records",
  "roomWidth": 1920,
- "branch": "ccr-347d40c6-71r9f9",
- "commit": "099fb557d7262888a10f6eb8a9bd397e9913b2f7",
+ "branch": "dialogue-presentation-mi",
+ "commit": "97c759c99a478f38736b10d8c9fe993adc8ef3ce",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -12,6 +12,7 @@
  "candidates": [],
  "route": "assay-records",
  "routeLog": [
+  "the title: clicked NEW GAME",
   "action 1 (wait): waited 2.5s",
   "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
   "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
@@ -65,11 +66,11 @@
    ],
    "reportedHeight": 434,
    "expected": 434,
-   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
    "bounds": [
-    485,
+    480,
     222,
-    450,
+    460,
     479
    ],
    "order": 0,
@@ -102,16 +103,16 @@
    ],
    "reportedHeight": 528,
    "expected": 528,
-   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
    "bounds": [
-    436,
+    430,
     316,
-    547,
+    559,
     583
    ],
    "order": 0,
-   "renderedHeight": 528,
-   "renderedBottom": 843,
+   "renderedHeight": 529,
+   "renderedBottom": 844,
    "file": "raw-captures-ignored/panel-c-mud_near-near.png"
   }
  ],
@@ -121,7 +122,7 @@
   {
    "panel": "B",
    "room": "assay_records",
-   "clock": 122.6901,
+   "clock": 124.3413,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -142,7 +143,15 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
-    "T_NUGGET_PIANO_PAID": 0
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -161,11 +170,11 @@
      "height": 451,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-00.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
-      146,
+      141,
       239,
-      468,
+      478,
       498
      ],
      "order": 0,
@@ -188,15 +197,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-01T20:50:25.298Z",
+   "capturedAt": "2026-11-07T03:48:43.147Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "d0cc946a63385850182a079253997af60b58d85a53b9f06dda88b0d0335783a8"
+   "hash": "60c7e77ad3f2d24312eda6287b3e369c69d39e5a6769d9fd67ed90d1e8113da1"
   },
   {
    "panel": "A",
    "room": "assay_records",
-   "clock": 123.7567,
+   "clock": 125.5745,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -217,7 +226,15 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
-    "T_NUGGET_PIANO_PAID": 0
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "letter",
@@ -260,10 +277,10 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-01T20:50:26.384Z",
+   "capturedAt": "2026-11-07T03:48:44.176Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "da5afdfbfc0e0da91fb47aa262f832735b1e03357ce4a83d03f3aa557ebab9be"
+   "hash": "b9122f230c0f68ba014c590fcd960a0b4708ad5b5606ac6bb524931f01175867"
   }
  ],
  "failures": [],
@@ -293,11 +310,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-01T20:50:32.059Z",
+ "at": "2026-11-07T03:48:49.299Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 242930,
+  "bytes": 239990,
   "panels": 4,
   "scale": 0.5
  }

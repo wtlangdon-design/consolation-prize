@@ -3867,6 +3867,75 @@ The whole game, played through, ends carrying exactly what doc 23 keeps, and not
 - the fixture equal to play;
 - scrolling by rows.
 
+---
+
+# 141 · PHYSICAL DIRECTIONS ARE ACTED, NARRATION STAYS PRINTED — OWNER RULING (Tyler, 2026-11-06)
+
+Tyler was told: "a few directions are still printed rather than acted, such as '(stamping)' during the filing. Acting them out needs new poses." He answered: **"then let's do it? Lol"**. This amends doc 58 (Tyler, 2026-11-05), under which every shown direction was printed in parentheses.
+
+**A · The ruling.**
+- **A physical direction is acted.** A visible action by a figure on screen is performed in a pose or a short run of poses, and its text is not printed.
+- **Narration stays printed,** exactly as doc 58 rules: meaning, tones and pauses.
+- **When in doubt, it stays printed.** A direction whose joke would be lost by acting it is kept printed and listed for Tyler.
+
+**B · The decision lives in `docs/95-acted-directions.md`.** It catalogues all 67 shown directions:
+- **A, acted now:** 11;
+- **B, physical but waiting for a pose:** 9;
+- **C, printed:** 47.
+
+`tools/extract-content.mjs` reads the table into `content/acted-directions.json`, and the loader gives each A row to the figures it names as `sprite.performs`. Fanshawe's hat (errata 131 B) now comes from there too. His hand-written entry is gone.
+
+**C · How a direction is acted.** Errata 131 B's mechanism is extended, and nothing about a direction's words is in code:
+- **Any figure that acts it.** Every figure in the room that acts the words acts them, whoever the line is written for. "They resume immediately." is both boundary men.
+- **Every channel.** The same reading serves a conversation's exchange, a verb's queued lines (Sump's "Stamp." at the filing) and a room's arrival scene (the notarizing on D6's arrival).
+- **A run of frames,** across the row's seconds. No beat of it can be clicked through.
+- **A frame held through speech.** Ozymandia says "'You have never seen breakfast.'" with her eyes still closed, then opens them with her palm out for "Two dollars."
+- **A cue on a frame.** The approved stamp lands as Sump's stamp comes down: doc 45 U-STAMP, "where the writing says one does".
+
+**D · What is acted now.**
+- Fanshawe's hat (Duel Three).
+- Sump's stamp on the deed at the filing.
+- Sump notarizing and stamping on Pratt's attestation, without looking up.
+- The boundary men resuming.
+- Deke tipping his hat and walking out of the Nugget. The drink is not shown.
+- Frame looking up from his notebook and holding the look.
+- Ozymandia's eyes, closed and opened.
+- Pratt checking the sky.
+- Sheng returning to his ironing.
+- Winnie signing the death certificate.
+
+Each was played in the browser (`tools/gauntlet/acted-proof.mjs`). The filing, before and after, is `renders/acted-directions-filing-before-after.png`.
+
+**E · What waits for a pose (B).** `reference/acted-directions/brief.md` briefs five sheets, one per character, for:
+- Winnie's stamping and signing at the Registrar's;
+- Sump's blotting and the filing under glass;
+- Pratt's hat, and his look at his feet at Prosperity;
+- Deke's look at the watch;
+- Thad finding and fitting the pick's head in Room 33.
+
+The budget is five operations plus at most three corrections, from cast-unify's nine left (66 of 75 spent). Each board is the in-game Thad (errata 139), with the character's master crop (`tools/art/acted-boards.py`). Thad's rows also need the actor, not only an ambient figure, to act; the brief says how.
+
+**F · For Tyler.** Doc 95's list has eight items, each with a recommendation:
+- the pickaxe swings stay printed, and the fits are drawn;
+- "Stamp. Thad is alive." stays printed;
+- Hob's four seconds stays printed;
+- Hob's lamp post stays printed, because the alley has none;
+- Pratt's bite stays printed, because the hole is in another room;
+- Sowerby's painful pause stays printed;
+- Sowerby's shut eyes at Boot Hill stay printed;
+- Deke's drink goes unshown.
+
+Invariant 7 holds: HOB_C1 option 4's look is C and is presented exactly as before.
+
+**What holds it:** `tests/acted-directions.test.ts`. Five defects were put back one at a time, and each was caught:
+- a direction missing from doc 95;
+- an acted direction given to a figure in another room;
+- a figure acting narration by a hand-written `performs`;
+- the engine printing an acted beat;
+- a held frame lost.
+
+---
+
 # 142 · THE ITEM ICONS, AND THE BLANKET — TYLER, 2026-11-06
 
 Two of errata 140's items-audit questions, answered.
@@ -3877,7 +3946,73 @@ Two of errata 140's items-audit questions, answered.
 
 ---
 
-# 143 · ALL 26 ITEM ICONS, REDRAWN AT SLOT SIZE — TYLER, 2026-11-07
+# 144 · THE JUDGES REDRAWN WHOLE, AT THAD'S PROPORTIONS — TYLER, 2026-11-07
+
+Tyler, of 138's leaner judges: **"This head still seems weirdly large."** Then, of a head-shrink tried on their own drawings: **"The heads look messed up. Redraw the full person for each of the oversized characters if you need to."** Errata 139 found why redraws kept coming back big-headed: every board showed the cast sheet's Thad, whose head is about 1.3× the in-game Thad's.
+
+- **Cast-unify 67** (batch-37; reference/cast-unify-37.txt): the standing judges painted over the in-game Thad, with their full figures as reference. Heads still ~1.3×; not used.
+- **Cast-unify 68** (batch-39; reference/cast-unify-39.txt): the same template, but with **only their faces** as reference (head-and-shoulders crops), and figures drawn ~780 px tall. The generator copies body proportions from any full figure it is shown, and this time the only one was Thad. **The standing judges are 68**: by ruler at one man's height, crown to chin ~40-42 against Thad's 40, where 138's were 50-55. All three are drawn turned toward the duel, so none is mirrored now (`tests/faces.test.mjs`); their feet are on the porch boards (`tests/stands-on.test.mjs`).
+- **Cast-unify 69** (batch-40; reference/cast-unify-40.txt): 68's judges cut off at the waist, four times each, repainted seated -- hands folded, conferring, nodding, drumming. Cut to their old bust heights, their heads came out 1.1-1.2× Thad's, because the generator enlarged the head a little for the torso. So **each seated judge is cut so his head is Thad's at the table's depth** (`SEATED_SCALE` in `tools/art/leaner-cast.py`), and they sit as ordinary men at the table (`renders/leaner-cast-seated-judges-three-versions.png`).
+- **The lesson, for every future redraw:** show the generator the in-game Thad as the only full figure, and the character only as a face. Measure heads by ruler against the in-game Thad (`renders/thad-in-game-vs-cast-sheet-heads.png`), never against the cast sheet.
+
+**Operations:** 67-69, 69 of 75 cast-unify spent. Before and after, beside Thad in their rooms, against the drawings before 138: `renders/leaner-cast-duel-judge-*-before-after.png`, `renders/leaner-cast-seated-judge-*-before-after.png`. Left for the playthrough: the bearded judge seated wears a gold watch chain in two of his four poses, which his design does not have.
+
+---
+
+# 143 · CONVERSATIONS AS MONKEY ISLAND DREW THEM, AND EVERY PROMPT REVEALED WHEN ITS GATES SAY — the dialogue audit (Tyler, 2026-11-06: "Can you make sure the way the dialogue trees are presented the same way they're presented in MI and that they look as good as possible and that prompts are revealed correctly?")
+
+Checked against both SCUMM games and against this project's own rulings: doc 30, errata 37 and 57 (used rows), 126 (click-to-read and the waiting mark), 134 (wrapping), and 54 and 62 (panel and face). Where a ruling differs from MI, the ruling stands: a used row greys and stays unless its aftermath says otherwise (errata 57), and every conversation line waits for a click (Tyler, 2026-11-01).
+
+**A · What was off, seen in the running game** (before and after frames for each, from `tools/gauntlet/dialogue-proof.mjs` and a capture pass):
+- **The verb panel came back for every answer performed between choices.** The verbs, the inventory and a sentence line still reading "Talk to THE LIVERY MAN" appeared under each line and went again when the list returned. Nothing on it could be used, since a click then only reads the line on. In MI the area belongs to the conversation from the greeting to its last word, and now it does here: from the greeting, through the list and every answer, until the conversation closes.
+- **A long list grew up out of the panel over the room.** The list was bottom-anchored by row and grew a row upward per option, so the livery man's eight options covered Thad's feet. In MI the choices fill the interface area from its top and scroll. Now the list is set from the top of the panel, one row's breadth below its edge, and holds five rows at the panel's pitch (`CHOICE_ROWS`). A longer list scrolls by whole options with two arrows at the frame's right. They are the inventory arrows' width and inset, and the one that cannot move is dimmed (doc 30 §6.1). The mouse wheel scrolls too. Arrows appear only when the list is longer than the panel. The list goes back to its top whenever it is rebuilt. The room keeps all 864 rows.
+- **Nothing lit under the pointer.** `optionPrefixSelected` was in ui.json and never drawn. The row under the pointer is now drawn in the bright ink with "> ". A used row keeps its dim ink and gets the bright marker, as doc 30 §6.1 says. A list that comes back under a resting pointer lights that row at once.
+- **A wrapped option's continuation started 8 pixels left of its text.** It was indented with spaces, and a space is 4 units in this face where "-" is 6. Every row of an option is now drawn from the same x, after the marker.
+- **The waiting triangle was cut off at the frame's edge.** Thad's echo by the coach is clamped at the right margin, and the clamp measured the words without the triangle (errata 126) after them. The clamp now measures both.
+- **After a conversation closed, the sentence line named what had been hovered before it opened**, until the pointer moved. It now names what is under the pointer.
+
+**Rulings the build makes, for Tyler to keep or strike:**
+- **Five rows, not doc 30's four.** Doc 30 calls its four a starting value for a 56-pixel panel. At this scale five fill the panel, and four would make every five-option tree scroll; seventeen nodes have five options.
+- **Top-anchored, not doc 30's "bottom-anchored".** Doc 30 bottom-anchored the list so it could grow into the play area by as few rows as possible. It no longer grows into the play area, and MI sets the choices from the top.
+
+**B · What was already right and is unchanged:** the choices replace the panel, in the panel's face at `PANEL_GLYPH_SCALE`. Choosing hides the list. Thad says the line over his head in his colour, the other speaker answers over theirs in theirs, and the list returns after (doc 30 §16, re-proved). Rows are in authored order. Exits are last in every list the content can offer. No row's look depends on its tag or what it does: invariants 1 and 7, HOB_C1 option 4 included.
+
+**C · Prompts revealed correctly — `tests/dialogue-reveal.test.ts`.** It walks every node of every tree. It tries every combination of the values the node's gates test, or a sample of them for a node that reads more than a few flags. It follows every order of choices, with counts capped where more choices change nothing, and comes back to the tree after an option ends it. At every list it checks:
+- the list against an oracle read from the data (`when`, `whenAny`, `holds`, `after`, and `remove`/`replace`/`retain`/`counted-repeat`), in authored order;
+- the list is never empty and no option shows twice;
+- EXIT is last, and an ungated exit is always there;
+- no state traps the player: some order of choices always leaves the node (the stage driver's exit waits for his three questions, by design);
+- the k-th answer of a repeating option is the authored repeat for k, clamped;
+- every option is offered somewhere and every node is reached.
+
+**Result: no option is unrevealable, and none appears when its gates say it should not.** All 302 options, and every node, are offered or reached. Option text against its documents is `tools/extract-content.mjs --check`, which reports 0 stale.
+
+`tools/check-flag-order.mjs` now also reads `whenAny` alternatives and a tree's `entries`. Both are gates, and neither was checked for a writable passing value. Both pass. And `DialogueRunner` now refuses a selection whose `whenAny` fails, as the list already did.
+
+**D · Tooling.**
+- `route.mjs`'s `option` scrolls to a row out of the window by clicking the arrows, as a player would.
+- Its waits now read past any line that is waiting for a click. A wait for Thad's reply in Winnie's greeting sat on her first line until it timed out. The dialogue proof had failed there on main.
+- `GAUNTLET_PORT` moves `proof.mjs`'s server. A second session proving at the same time otherwise ran against the first session's checkout.
+- The probe reports `panel`, `optionsShown` and `optionArrow`.
+- The dialogue proof now checks that the panel stays away through a conversation, and scrolls to the livery man's exit.
+
+**What holds it:**
+- `tests/dialogue-presentation.test.ts` gains six tests: the room keeps its height and every option can be scrolled to, with arrows exactly when needed; the hanging indent; the hover; no row styled by its tag; the triangle in the frame; and the panel staying away. Each fails with its defect put back.
+- `tests/dialogue-reveal.test.ts` fails when the runner keeps a `remove` row, ignores `after` or `whenAny`, greys a `counted-repeat`, fails to clamp a repeat, or puts the exit first. It also fails on an `after` naming an option that does not exist. Each case was proved by putting it in.
+
+**Still Tyler's (unchanged here):**
+- Whether Thad's echo of a chosen line should advance on its reading hold rather than wait for a click (errata 126, finding 11's second suggestion).
+- Whether the stage driver's exit should wait for his three questions (errata 65).
+
+---
+
+# 145 · FRAME REDRAWN WHOLE, AT THAD'S PROPORTIONS — TYLER, 2026-11-07
+
+Tyler, offered Frame by errata 144's method: **"Yes do it."** 138's leaner Frame (cast-unify 62) still had the cast sheet's head, about 1.12× the in-game Thad's by ruler. **Cast-unify 70** (batch-41; `reference/cast-unify-41.txt`) painted him over the in-game Thad four times, with only his face as reference: the same editor -- untidy brown hair, pencil, rolled sleeves, ink-stained apron -- with his notebook in every pose (rest, talking, writing a quote, leaning in). By ruler at one man's height his head is now Thad's: crown to chin ~40, against Thad's 40, the live 62's ~45 and the original's ~60 (`renders/leaner-cast-frame-heads-ruler.png`). He is cut as before (`tools/art/leaner-cast.py frame`), at the same crown-to-sole height. Before and after beside Thad in the Clarion: `renders/leaner-cast-frame-before-after.png`. **Seventy of seventy-five cast-unify operations spent.**
+
+---
+
+# 146 · ALL 26 ITEM ICONS, REDRAWN AT SLOT SIZE — TYLER, 2026-11-07
 
 Tyler: "Read reference/item-icons/brief.md … and do it: redraw all 26 item icons at 60×40, cut, test and merge as the brief says." The brief is errata 142's.
 

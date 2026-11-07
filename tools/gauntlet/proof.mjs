@@ -58,7 +58,11 @@ import { browser } from '../lib/chromium.mjs';
 import { ROOT, readJson, roomWidth } from '../lib/content.mjs';
 import { runRoute } from './route.mjs';
 
-const PORT = 5198;
+// GAUNTLET_PORT moves it: two sessions proving at once each need their own
+// server, and the second one's `serve()` otherwise answers from the FIRST
+// session's checkout -- its fetch succeeds before its own --strictPort child
+// has exited, so a proof runs against somebody else's code (errata 143).
+const PORT = Number(process.env.GAUNTLET_PORT ?? 5198);
 const WINDOW = { width: 1920, height: 1080 };
 const NATIVE = { width: 1920, height: 1080 };
 

@@ -193,6 +193,10 @@ export interface FrameReport {
    * SCREEN, not whether they exist.
    */
   performing: boolean;
+  /** The verb panel was drawn in the last frame: never while a conversation holds the interface (errata 143). */
+  panel: boolean;
+  /** How many of the offered options are in the list's scrolled window (errata 143); `choiceLines` counts them all. */
+  optionsShown: number;
   /** True once the opening has handed control to the player. */
   handedOver: boolean;
   /**
@@ -239,8 +243,14 @@ export interface Probeable {
    */
   snapshot(): string | null;
   report(): FrameReport;
-  /** Where option `index` (1-based, as a player counts) is drawn, if it is. */
-  optionRow(index: number): { id: string; y: number; height: number } | null;
+  /**
+   * Where option `index` (1-based, as a player counts) is drawn, if it is.
+   * `shown` is false for a row scrolled out of the list's window (errata
+   * 143): it is on the list and not on screen, and a driver scrolls to it.
+   */
+  optionRow(index: number): { id: string; y: number; height: number; shown: boolean } | null;
+  /** The choice list's scroll arrow, when the list has more than the panel holds (errata 143). */
+  optionArrow(direction: 'up' | 'down'): { x: number; y: number; width: number; height: number; live: boolean } | null;
   /** Where an inventory item's slot draws, by id, or null when it is not held. Geometry only. */
   inventorySlot(id: string): { id: string; x: number; y: number; width: number; height: number } | null;
   /** Where a title item is drawn, by id, or null when the title is not up. Geometry only. */
@@ -336,7 +346,9 @@ export interface Gauntlet {
    * and the list is not drawn at all -- which is the same answer the renderer
    * gives a real cursor, and is why a harness must not click through it.
    */
-  optionRow(index: number): { id: string; y: number; height: number } | null;
+  optionRow(index: number): { id: string; y: number; height: number; shown: boolean } | null;
+  /** The choice list's scroll arrow, or null when the list fits (errata 143). Geometry only. */
+  optionArrow(direction: 'up' | 'down'): { x: number; y: number; width: number; height: number; live: boolean } | null;
   /** Where an inventory item's slot draws, by id, or null when it is not held. Geometry only. */
   inventorySlot(id: string): { id: string; x: number; y: number; width: number; height: number } | null;
   /** Where a title item is drawn, so a driver can click NEW GAME (errata 128). */
@@ -374,6 +386,10 @@ export function installGauntlet(target: Record<string, unknown>,
     optionRow: (index) => {
       const live = scene();
       return live?.probeReady ? live.optionRow(index) : null;
+    },
+    optionArrow: (direction) => {
+      const live = scene();
+      return live?.probeReady ? live.optionArrow(direction) : null;
     },
     titleItem: (id) => {
       const live = scene();

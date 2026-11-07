@@ -1,3 +1,4 @@
+import type { HeldPose } from './ActedDirections.ts';
 import type { DialogueExchange } from './DialogueRunner.ts';
 import { isRest } from './SpeechPolicy.ts';
 
@@ -49,8 +50,13 @@ export interface Utterance {
   quiet?: boolean;
   /** A doc 45 cue sounded as the line is shown (errata 131 E). */
   cue?: string;
-  /** A figure's frame held in place of the words (errata 131 B: a direction performed, not printed). */
-  pose?: number;
+  /**
+   * A DIRECTION ACTED, NOT PRINTED (doc 95; errata 131 B, 141): nothing is
+   * shown on the speech channel, and `rest` says how long the beat lasts.
+   */
+  silent?: boolean;
+  /** Figures holding one of their frames through this line: an acted beat, or a frame kept while speaking (doc 95 Holds). */
+  poses?: HeldPose[];
 }
 
 /**

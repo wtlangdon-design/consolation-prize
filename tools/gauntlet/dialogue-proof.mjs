@@ -43,10 +43,16 @@ for (let at = 0; at < process.argv.length; at += 1) {
 const outDir = 'renders/proofs/dialogue-prompt'; const rawDir = `${outDir}/raw-captures-ignored`;
 mkdirSync(resolve(ROOT, rawDir), { recursive: true });
 
-/** The band above a list of `count` rows: from the backing's top to the first row. Flat when nothing is drawn there. */
+/**
+ * The band above the list: from the panel's edge to the first row. Flat when
+ * nothing is drawn there. The list is top-anchored in the panel now (errata
+ * 143), so the band is the same whatever the count; `count` is kept so the
+ * captures read as they did.
+ */
 function bandAboveList(png, count) {
-  const top = BOTTOM - count * LINE;
-  const y0 = Math.min(top - 2 * GLYPH, PANEL_Y) + 2; const y1 = top - 2;
+  void count; void BOTTOM; void LINE;
+  const top = PANEL_Y + 2 * PANEL_GLYPH;
+  const y0 = PANEL_Y + 1; const y1 = top;
   const seen = new Set();
   for (let y = y0; y < y1; y += 1) {
     for (let x = 0; x < png.width; x += 4) {
@@ -73,7 +79,11 @@ async function main() {
     if (!url || !f) { failures.push(`${name}: no frame`); return; }
     const bytes = Buffer.from(url.split(',')[1], 'base64');
     const file = `${rawDir}/${name}.png`; writeFileSync(resolve(ROOT, file), bytes);
-    const record = { name, why, t: stamp(), file, hash: sha(bytes), room: f.room, says: f.says, options: f.options, choiceLines: f.choiceLines, performing: f.performing, pending: f.pending };
+    const record = { name, why, t: stamp(), file, hash: sha(bytes), room: f.room, says: f.says, options: f.options, choiceLines: f.choiceLines, optionsShown: f.optionsShown, panel: f.panel, performing: f.performing, pending: f.pending };
+    // THE PANEL STAYS AWAY FOR ALL OF A CONVERSATION (errata 143): it came
+    // back for every line performed between choices.
+    if (assert.panel !== undefined && f.panel !== assert.panel) failures.push(`${name}: the verb panel is ${f.panel ? '' : 'not '}drawn, expected ${assert.panel ? 'drawn' : 'away'}`);
+    if (assert.optionsShown !== undefined && f.optionsShown !== assert.optionsShown) failures.push(`${name}: ${f.optionsShown} option(s) in the list's window, expected ${assert.optionsShown}`);
     if (assert.options !== undefined && f.options !== assert.options) failures.push(`${name}: ${f.options} option(s), expected ${assert.options}`);
     if (assert.choiceLines !== undefined && f.choiceLines !== assert.choiceLines) failures.push(`${name}: the choice interface draws ${f.choiceLines} line(s), expected ${assert.choiceLines}`);
     if (assert.speaker !== undefined && f.says !== assert.speaker) failures.push(`${name}: speaker ${JSON.stringify(f.says)}, expected ${JSON.stringify(assert.speaker)}`);
@@ -121,17 +131,34 @@ async function main() {
     await page.waitForFunction(() => Boolean(window.__gauntlet?.probe?.()), { timeout: 60_000 });
     await page.evaluate(() => window.__gauntlet?.arm?.({}));
     await run([{ do: 'wait', seconds: 2 }, { do: 'verb', verb: 'TALK_TO' }, { do: 'click', on: 'winnie' }, { do: 'waitFor', says: 'winnie', upTo: 40 }]);
-    await capture('r5-01-opening-1', 'her first line, over her', { speaker: 'winnie', choiceLines: 0 });
+    await capture('r5-01-opening-1', 'her first line, over her; the panel away for the conversation', { speaker: 'winnie', choiceLines: 0, panel: false });
     await run([{ do: 'waitFor', says: 'thad', upTo: 20 }]);
     await capture('r5-02-opening-2', 'his reply, over him', { speaker: 'thad', choiceLines: 0 });
     await run([{ do: 'waitFor', says: 'winnie', upTo: 20 }]);
     await capture('r5-03-opening-3', 'her last line of the opening, over her -- the line the prompt duplicates', { speaker: 'winnie', choiceLines: 0 });
     await run([{ do: 'waitFor', dialogue: true, upTo: 30 }]);
-    await capture('r5-04-win-a1-choices', 'WIN_A1: three choices and nothing above them', { options: 3, choiceLines: 3, speaker: null, listOpen: true });
-    await run([{ do: 'option', option: 'winnie1' }, { do: 'waitFor', dialogue: true, upTo: 30 }]);
+    await capture('r5-04-win-a1-choices', 'WIN_A1: three choices and nothing above them', { options: 3, choiceLines: 3, speaker: null, listOpen: true, panel: false });
+    await run([{ do: 'option', option: 'winnie1' }, { do: 'waitFor', says: 'thad', upTo: 20 }]);
+    await capture('r5-04b-echo', 'the chosen line performed: no list, and no verb panel come back under it', { choiceLines: 0, panel: false });
+    await run([{ do: 'waitFor', dialogue: true, upTo: 30 }]);
     await capture('r5-05-win-a2-choices', 'WIN_A2 (noPrompt): four rows, unchanged', { options: 4, choiceLines: 4, speaker: null, listOpen: true });
     await run([{ do: 'option', option: 'winnie4' }, { do: 'waitFor', says: null, upTo: 30 }]);
-    await capture('r5-06-after', 'control returned', { options: 0, choiceLines: 0 });
+    await capture('r5-06-after', 'control returned, and the panel with it', { options: 0, choiceLines: 0, panel: true });
+
+    // ---- ROOM 15, the livery man at r15-b: eight choices, more than the
+    // panel's five rows (errata 143). The list scrolls inside the panel and
+    // the room keeps its height; the exit, last, is reached by the arrows.
+    page = await chrome.newPage();
+    await page.goto(`${server.url}/?${query(['fixture=r15-b'])}`);
+    await page.waitForFunction(() => Boolean(window.__gauntlet?.probe?.()), { timeout: 60_000 });
+    await page.evaluate(() => window.__gauntlet?.arm?.({}));
+    await run([{ do: 'wait', seconds: 2 }, { do: 'verb', verb: 'TALK_TO' }, { do: 'click', on: 'livery_man' }, { do: 'waitFor', dialogue: true, upTo: 40 }]);
+    await capture('r15-01-eight-choices', 'eight on offer, five in the panel, the arrows at the right: nothing over the room', { options: 8, choiceLines: 8, optionsShown: 5, speaker: null, listOpen: true, panel: false });
+    const arrow = await page.evaluate(() => window.__gauntlet?.optionArrow('down'));
+    if (!arrow?.live) failures.push('r15: the list has more than fits and no live down arrow');
+    await run([{ do: 'option', option: 'livery_manx' }]);
+    await page.waitForTimeout(600);
+    await capture('r15-02-exit-chosen', 'the exit, scrolled to and chosen: Thad says it', { speaker: 'thad', choiceLines: 0, panel: false });
 
     // ---- MAIN STREET, the map seller's micro-tree: its prompt is a stage
     // direction with no opening, so the only change here is that the

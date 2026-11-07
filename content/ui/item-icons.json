@@ -164,5 +164,5 @@
       40
     ]
   },
-  "errata143": "Redrawn at slot size: 60x40 cells, drawn at a whole x2 into the 180x80 inventory slot (tests/item-icons-scale.test.ts). Cut by tools/art/item-icons-cut.py from art/staging/item-icons/sheet-01.png, item-icons attempt 1; one factor for all 26 (4.395 source pixels to an art pixel)."
+  "errata146": "Redrawn at slot size: 60x40 cells, drawn at a whole x2 into the 180x80 inventory slot (tests/item-icons-scale.test.ts). Cut by tools/art/item-icons-cut.py from art/staging/item-icons/sheet-01.png, item-icons attempt 1; one factor for all 26 (4.395 source pixels to an art pixel)."
 }

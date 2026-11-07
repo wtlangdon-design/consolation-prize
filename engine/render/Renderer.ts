@@ -99,6 +99,8 @@ export interface Frame {
    * a point down in. Null when nobody is posing.
    */
   pose?: { speaker: string; frame: number | 'mark' } | null;
+  /** Figures holding one of their frames: an acted direction (doc 95; errata 141), by figure id. */
+  poses?: { id: string; frame: number }[] | null;
   /** A held silence (errata 131 D): every figure holds its rest frame, save whoever speaks or poses. */
   still?: boolean;
   /** The duel's score as the judges have written it, chalked on the room's slate (errata 136 A). Null outside a duel. */
@@ -128,6 +130,8 @@ export interface Frame {
    * clickable. Doc 30 section 1.
    */
   performing?: boolean;
+  /** The choice list's scroll and the option under the pointer (errata 143). */
+  choiceView?: ChoiceView;
   /**
    * The tree whose opening exchange is being spoken on arrival, before it
    * opens. Its owner holds their talk frame for it exactly as for the open
@@ -239,32 +243,106 @@ const ACT_CARD_LINE_HEIGHT = 11 * GLYPH_SCALE;
  * the actor's scale, so the gap must too.
  */
 const SPEECH_GAP = 0.12;
+/** The waiting line's triangle (errata 126): its height, and its gap after the last word. */
+const CONTINUE_MARK_ROWS = 3 * GLYPH_SCALE;
+const CONTINUE_MARK_GAP = 3 * GLYPH_SCALE;
+/** How far the triangle, outline and all, reaches past the last line's right end. */
+export const CONTINUE_MARK_EXTENT = CONTINUE_MARK_GAP + 2 * CONTINUE_MARK_ROWS + GLYPH_SCALE;
+
+/**
+ * A speech block's centre, kept inside the frame's side margins: `half` is
+ * how far the block reaches left of its centre, `right` how far right --
+ * further than `half` when the waiting triangle hangs after the last line
+ * (errata 143). Rounded, as every drawn coordinate is.
+ */
+export function clampSpeechX(screenX: number, half: number, right = half): number {
+  return Math.round(Math.max(TEXT_MARGIN + half, Math.min(NATIVE_WIDTH - TEXT_MARGIN - right, screenX)));
+}
 const MAP_MARKER = 3 * GLYPH_SCALE;
 const MAP_LABEL_HEIGHT = 11 * GLYPH_SCALE;
 
 /**
- * Where the first option row sits, for a node with this many options.
- *
- * Bottom-anchored, and it only reaches above the panel when the options
- * genuinely do not fit in it -- which for every tree in Act I they do.
+ * Where the first option row sits, for a list of this many rows, as the list
+ * USED to be laid out: bottom-anchored, growing up out of the panel into the
+ * picture. Kept for the dialogue proof's history; nothing draws from it now.
  */
 export function dialogueTop(count: number): number {
   return DIALOGUE_BOTTOM - count * DIALOGUE_LINE_HEIGHT;
 }
 
+/**
+ * THE CHOICES TAKE THE PANEL'S PLACE AND NOTHING MORE (errata 143; Tyler,
+ * 2026-11-06: "the same way they're presented in MI"). In both SCUMM games the
+ * sentence line, the verbs and the inventory give way to the choices, which
+ * are set from the top of that area down, and when there are more than fit
+ * the list scrolls; the room keeps every pixel of its height. The list here
+ * used to grow up out of the panel by a row per option, so an eight-option
+ * tree covered Thad's feet and a ninth would have reached his knees.
+ *
+ * Top-anchored, a row's breadth below the panel's edge, and as many whole
+ * rows as the panel holds at the panel's own pitch -- five. Doc 30's "four
+ * physical text rows" was a starting value for a 56-pixel panel; at this
+ * scale four would scroll every five-option tree, of which there are
+ * seventeen, and leave a row's height of panel empty under them.
+ */
+export const CHOICE_LIST_TOP = PANEL_Y + 2 * PANEL_GLYPH_SCALE;
+export const CHOICE_ROWS = Math.floor(
+  (NATIVE_HEIGHT - 2 * PANEL_GLYPH_SCALE - CHOICE_LIST_TOP) / DIALOGUE_LINE_HEIGHT);
+/**
+ * THE SCROLL ARROWS' COLUMN, at the frame's right (doc 30 section 6.1): the
+ * same width and the same right-hand inset as the inventory's arrows, so the
+ * panel's furniture does not move when a conversation opens. Reserved
+ * whether or not the list scrolls, so an option wraps the same way in a
+ * short list and a long one.
+ */
+export const CHOICE_ARROW_WIDTH = 10 * GLYPH_SCALE;
+export const CHOICE_ARROW_X = NATIVE_WIDTH - 4 * GLYPH_SCALE - CHOICE_ARROW_WIDTH;
+
 /** One line of the choice interface: the text, its baseline, and its ink role. */
 export interface ChoiceLine {
+  /** The option as one string, marker and all, unwrapped. */
   text: string;
+  /** Its first row's baseline. Meaningless for a row scrolled out of view. */
   y: number;
-  role: 'ink' | 'inkDim';
+  /**
+   * THE INK, decided by two things and nothing else: whether the option has
+   * been used (dim) and whether the pointer is on it (bright). Never by its
+   * tag or what it does -- invariant 7, HOB_C1 option 4 looks like its
+   * neighbours -- which `tests/dialogue-presentation.test.ts` holds.
+   */
+  role: 'ink' | 'inkDim' | 'inkBright';
+  /** The marker before the text: `optionPrefix`, `exhaustedPrefix` or, under the pointer, `optionPrefixSelected`. */
+  marker: string;
+  markerRole: 'ink' | 'inkDim' | 'inkBright';
   /**
    * THE OPTION AS DRAWN, wrapped (errata 134): its first row carries the
    * prefix and the rest hang under the text. One row when nothing wraps.
    */
   rows: string[];
+  /** The wrapped text alone, without the marker: what is drawn at `textX`. */
+  body: string[];
+  /**
+   * WHERE THE TEXT STARTS, and every continuation row with it. The hanging
+   * indent was spaces, and a space is four units in this face where "-" is
+   * six, so the continuation started eight pixels left of the line it
+   * continued (errata 143).
+   */
+  textX: number;
   /** Where its click lands: from its first row's top through its last. */
   hitY: number;
   hitHeight: number;
+  /** In the scrolled window. A row out of it is neither drawn nor clickable. */
+  shown: boolean;
+}
+
+/** A scroll arrow of the choice list: where it is and whether it would move the list. */
+export interface ChoiceArrow {
+  direction: 'up' | 'down';
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  live: boolean;
 }
 
 /** How the choice list wraps an option: the panel face and the width it may use. */
@@ -274,22 +352,33 @@ export interface ChoiceFit {
   width: number;
 }
 
+/** Which option is first in the scrolled window, and which the pointer is on. */
+export interface ChoiceView {
+  scroll?: number;
+  hovered?: string | null;
+}
+
 /** The most rows one option may take before the list is a wall of text (errata 134). */
 export const OPTION_MAX_ROWS = 3;
-/** The width an option row may use: the play area's width less the speech margins. */
-export const CHOICE_WIDTH = NATIVE_WIDTH - 2 * 6 * GLYPH_SCALE;
+/** The width an option row may use: from the left margin to a gap short of the arrows. */
+export const CHOICE_WIDTH = CHOICE_ARROW_X - 6 * GLYPH_SCALE - 4 * GLYPH_SCALE;
+
+/** How far a string moves the pen: its measure plus the gap after its last glyph. */
+function advanceOf(fit: ChoiceFit, text: string): number {
+  return fit.measure(`${text}x`) - fit.measure('x');
+}
 
 /**
  * An option's rows. THE TRUTH IN DUEL THREE RAN OFF THE SCREEN MID-WORD (the
  * bookends audit, finding 6): "...Obadiah Mott invented it to rai". A row
  * that does not fit now wraps, its continuation hanging under the text and
- * not the prefix.
+ * not the prefix -- drawn at the text's own x (`ChoiceLine.textX`), so the
+ * continuation rows carry no indent of their own.
  */
 export function optionRows(prefix: string, text: string, fit?: ChoiceFit): string[] {
   if (!fit) return [`${prefix}${text}`];
-  const indent = ' '.repeat(prefix.length);
-  const rows = fit.wrap(text, fit.width - fit.measure(prefix));
-  return rows.map((row, index) => (index === 0 ? prefix : indent) + row);
+  const rows = fit.wrap(text, fit.width - advanceOf(fit, prefix));
+  return rows.map((row, index) => (index === 0 ? prefix + row : row));
 }
 
 /**
@@ -308,29 +397,81 @@ export function optionRows(prefix: string, text: string, fit?: ChoiceFit): strin
  */
 export function choiceLines(
   options: PresentedOption[],
-  ui: { optionPrefix: string; exhaustedPrefix: string },
+  ui: { optionPrefix: string; exhaustedPrefix: string; optionPrefixSelected?: string },
   fit?: ChoiceFit,
-): { top: number; backingTop: number; lines: ChoiceLine[] } {
-  const wrapped = options.map((presented) => optionRows(
-    presented.exhausted ? ui.exhaustedPrefix : ui.optionPrefix, presented.text, fit));
-  // BOTTOM-ANCHORED BY ROWS, not by options: a wrapped option is taller.
-  const top = dialogueTop(wrapped.reduce((sum, rows) => sum + rows.length, 0));
-  const backingTop = Math.min(top - 2 * GLYPH_SCALE, PANEL_Y);
+  view: ChoiceView = {},
+): { top: number; backingTop: number; lines: ChoiceLine[]; scroll: number; arrows: ChoiceArrow[] } {
+  const selected = ui.optionPrefixSelected ?? ui.optionPrefix;
+  // ONE INDENT FOR EVERY MARKER, so pointing at a row never re-wraps it.
+  const indent = fit
+    ? Math.max(...[ui.optionPrefix, ui.exhaustedPrefix, selected].map((marker) => advanceOf(fit, marker)))
+    : 0;
+  const bodies = options.map((presented) => (fit
+    ? fit.wrap(presented.text, fit.width - indent)
+    : [presented.text]));
+  const heights = bodies.map((body) => body.length);
+  // THE WINDOW. Scrolled by whole options, never by half a wrapped one (doc
+  // 30 section 6.1), and never past the point where the last option is in it.
+  const fits = (from: number): number => {
+    let rows = 0;
+    let to = from;
+    while (to < options.length && rows + (heights[to] as number) <= CHOICE_ROWS) {
+      rows += heights[to] as number;
+      to += 1;
+    }
+    return Math.max(to, Math.min(from + 1, options.length));
+  };
+  let lastFirst = 0;
+  while (lastFirst < options.length - 1 && fits(lastFirst) < options.length) lastFirst += 1;
+  const scroll = Math.max(0, Math.min(lastFirst, Math.floor(view.scroll ?? 0)));
+  const end = fits(scroll);
   let row = 0;
   const lines = options.map((presented, index) => {
-    const rows = wrapped[index] as string[];
-    const hitY = top + row * DIALOGUE_LINE_HEIGHT;
-    row += rows.length;
+    const body = bodies[index] as string[];
+    const shown = index >= scroll && index < end;
+    const hitY = CHOICE_LIST_TOP + row * DIALOGUE_LINE_HEIGHT;
+    if (shown) row += body.length;
+    const pointed = shown && view.hovered != null && view.hovered === presented.option.id;
+    const marker = pointed ? selected : (presented.exhausted ? ui.exhaustedPrefix : ui.optionPrefix);
+    // A USED OPTION STAYS DIM UNDER THE POINTER, with the marker bright (doc
+    // 30 section 6.1): "Exhausted TOPIC/COMIC options remain dim even when
+    // focused, with a bright marker so focus remains visible."
+    const role: ChoiceLine['role'] = presented.exhausted ? 'inkDim' : (pointed ? 'inkBright' : 'ink');
+    const markerRole: ChoiceLine['role'] = pointed ? 'inkBright' : role;
     return {
-      text: `${presented.exhausted ? ui.exhaustedPrefix : ui.optionPrefix}${presented.text}`,
+      text: `${marker}${presented.text}`,
       y: hitY + PANEL_GLYPH_SCALE,
-      role: (presented.exhausted ? 'inkDim' : 'ink') as ChoiceLine['role'],
-      rows,
-      hitY,
-      hitHeight: rows.length * DIALOGUE_LINE_HEIGHT,
+      role,
+      marker,
+      markerRole,
+      rows: body.map((each, at) => (at === 0 ? marker + each : each)),
+      body,
+      textX: TEXT_MARGIN + indent,
+      hitY: shown ? hitY : -1,
+      hitHeight: shown ? body.length * DIALOGUE_LINE_HEIGHT : 0,
+      shown,
     };
   });
-  return { top, backingTop, lines };
+  // THE ARROWS APPEAR ONLY WHEN THE LIST IS LONGER THAN THE PANEL, and then
+  // both: the one that cannot move is dimmed rather than hidden (doc 30 6.1).
+  const half = Math.floor((CHOICE_ROWS * DIALOGUE_LINE_HEIGHT) / 2);
+  const arrows: ChoiceArrow[] = scroll === 0 && end >= options.length ? [] : [
+    { direction: 'up', x: CHOICE_ARROW_X, y: CHOICE_LIST_TOP, width: CHOICE_ARROW_WIDTH, height: half - PANEL_GLYPH_SCALE, live: scroll > 0 },
+    { direction: 'down', x: CHOICE_ARROW_X, y: CHOICE_LIST_TOP + half + PANEL_GLYPH_SCALE, width: CHOICE_ARROW_WIDTH, height: half - PANEL_GLYPH_SCALE, live: end < options.length },
+  ];
+  return { top: CHOICE_LIST_TOP, backingTop: PANEL_Y, lines, scroll, arrows };
+}
+
+/**
+ * WHETHER THE VERB PANEL IS DRAWN. Doc 17 beat 8: not before control. Doc 30
+ * section 6.1: the choices replace it. And not for any of a conversation --
+ * its greeting, its list, or an answer being performed (errata 143): the
+ * panel used to come back for every line between choices and go again when
+ * the list returned. Nor in a timeline room that keeps it away, nor during a
+ * cutscene beat after control (errata 133).
+ */
+export function panelShows(at: { opening: boolean; conversation: boolean; panelHidden: boolean; cutscene: boolean }): boolean {
+  return !at.opening && !at.conversation && !at.panelHidden && !at.cutscene;
 }
 
 /** One figure standing in the room, whatever kind of thing it is. */
@@ -684,6 +825,7 @@ export class Renderer {
   private readonly shownOverlays = new Map<string, string>();
   private speaker: string | null = null;
   private pose: { speaker: string; frame: number | 'mark' } | null = null;
+  private poses: { id: string; frame: number }[] | null = null;
   private still = false;
   private direction = false;
   /**
@@ -694,6 +836,7 @@ export class Renderer {
    * player could not see what they had hit.
    */
   private performing = false;
+  private choiceView: ChoiceView = {};
   /** The tree being greeted into, if any -- see `FrameArgs.greeting`. */
   private greeting: string | null = null;
   private frameIndex = 0;
@@ -714,19 +857,32 @@ export class Renderer {
   }
 
   /** Options currently drawn, so the scene can hit-test them. */
-  dialogueHitboxes(options: PresentedOption[]): { id: string; y: number; height: number }[] {
+  dialogueHitboxes(options: PresentedOption[], scroll = 0): { id: string; y: number; height: number; shown: boolean }[] {
     // NOTHING IS CLICKABLE WHILE AN EXCHANGE PLAYS, and this is the half that
     // makes doc 30 step 2 true rather than merely look true. The list is not
     // drawn then either; both read `performing`, so there is no state in which
     // a row can be hit without being visible.
     if (this.performing) return [];
-    // From the same layout the list is drawn from, wrapped rows and all (errata 134).
-    const { lines } = choiceLines(options, this.state.content.ui.dialogue, this.choiceFit());
+    // From the same layout the list is drawn from, wrapped rows and all (errata 134),
+    // in the same scrolled window (errata 143): a row scrolled out is not hit.
+    const { lines } = choiceLines(options, this.state.content.ui.dialogue, this.choiceFit(), { scroll });
     return options.map((presented, index) => ({
       id: presented.option.id,
       y: lines[index]!.hitY,
       height: lines[index]!.hitHeight,
+      shown: lines[index]!.shown,
     }));
+  }
+
+  /** The choice list's scroll arrows, when it has any (errata 143). Empty while an exchange plays. */
+  dialogueArrows(options: PresentedOption[], scroll = 0): ChoiceArrow[] {
+    if (this.performing) return [];
+    return choiceLines(options, this.state.content.ui.dialogue, this.choiceFit(), { scroll }).arrows;
+  }
+
+  /** The scroll the list would settle on: `scroll` clamped to what the options allow. */
+  dialogueScroll(options: PresentedOption[], scroll: number): number {
+    return choiceLines(options, this.state.content.ui.dialogue, this.choiceFit(), { scroll }).scroll;
   }
 
   /**
@@ -766,9 +922,11 @@ export class Renderer {
     }
     this.speaker = frame.speaker ?? null;
     this.pose = frame.pose ?? null;
+    this.poses = frame.poses ?? null;
     this.still = frame.still === true;
     this.direction = frame.direction ?? false;
     this.performing = frame.performing === true;
+    this.choiceView = frame.choiceView ?? {};
     this.greeting = frame.greeting ?? null;
     // THE PANEL BAND IS CLEARED EVERY FRAME, WHETHER OR NOT A PANEL GOES IN IT.
     //
@@ -1940,7 +2098,9 @@ export class Renderer {
     // errata 131 C): Sowerby reading the rules in Vessel's duel stood on his idle.
     const speaks = (who: string | null) => who !== null && (who === npc.id || who === npc.speaksAs);
     const speaking = speaks(this.speaker) && (this.state.dialogue.isActive || this.performing || this.greeting !== null);
-    const posed = this.pose && speaks(this.pose.speaker) ? this.pose.frame : null;
+    // AN ACTED DIRECTION (doc 95; errata 141) names the figure itself, whoever the line is written for.
+    const acting = this.poses?.find((one) => one.id === npc.id)?.frame;
+    const posed = acting !== undefined ? acting : this.pose && speaks(this.pose.speaker) ? this.pose.frame : null;
     const stirring = this.ambient.stirring(npc);
     const index = posed !== null
       ? (posed === 'mark' ? declared.markFrame ?? declared.talkFrame ?? 0 : posed)
@@ -2115,7 +2275,7 @@ export class Renderer {
    */
   private drawSay(lines: string[], awaitingClick = false): void {
     const ink = this.speechColour();
-    const anchor = this.speechAnchor(lines);
+    const anchor = this.speechAnchor(lines, awaitingClick && lines.length > 0);
     lines.forEach((line, index) => {
       this.font.drawCentredOutlined(
         this.screen.context,
@@ -2217,8 +2377,8 @@ export class Renderer {
    */
   private drawContinueMark(anchor: { x: number; y: number }, lines: string[]): void {
     const last = lines[lines.length - 1] ?? '';
-    const rows = 3 * GLYPH_SCALE;
-    const left = anchor.x + Math.ceil(this.font.measure(last) / 2) + 3 * GLYPH_SCALE;
+    const rows = CONTINUE_MARK_ROWS;
+    const left = anchor.x + Math.ceil(this.font.measure(last) / 2) + CONTINUE_MARK_GAP;
     const top = anchor.y + (lines.length - 1) * SPEECH_LINE_HEIGHT + 3 * GLYPH_SCALE;
     const ctx = this.screen.context;
     const was = ctx.fillStyle;
@@ -2241,9 +2401,16 @@ export class Renderer {
    * BitmapFont.measure(); do not estimate from string length", and the block's
    * width is the widest line in it.
    */
-  private speechAnchor(lines: string[]): { x: number; y: number } {
+  private speechAnchor(lines: string[], marked = false): { x: number; y: number } {
     const height = lines.length * SPEECH_LINE_HEIGHT;
     const half = Math.max(...lines.map((line) => this.font.measure(line)), 0) / 2;
+    // THE WAITING MARK IS PART OF THE BLOCK (errata 143). It hangs after the
+    // last line, and the clamp measured the words alone, so a line said near
+    // the right edge -- Thad's echo by the coach -- had its triangle sliced
+    // off by the frame.
+    const right = marked
+      ? Math.max(half, this.font.measure(lines[lines.length - 1] ?? '') / 2 + CONTINUE_MARK_EXTENT)
+      : half;
     // CUTSCENE CAPTIONS SIT AT THE TOP; ONLY AN EXCHANGE ANCHORS OVER A HEAD.
     //
     // Doc 30 governs DIALOGUE presentation. Anchoring every line over its
@@ -2284,8 +2451,7 @@ export class Renderer {
     // line at the right-hand clamp regardless of who was speaking.
     const screenX = at.x - this.state.cameraX;
     return {
-      x: Math.round(Math.max(TEXT_MARGIN + half,
-        Math.min(NATIVE_WIDTH - TEXT_MARGIN - half, screenX))),
+      x: clampSpeechX(screenX, half, right),
       // Two native pixels from the top, x GLYPH_SCALE, and never into the
       // panel: doc 30 section 3.1's two clamps, in one expression.
       y: Math.round(Math.max(2 * GLYPH_SCALE,
@@ -2471,14 +2637,23 @@ export class Renderer {
     // collided with the list's third row -- Tyler photographed it twice); doc
     // 30 says it is not interface text at all, and the greeting it duplicates
     // has already been spoken by its speaker before this list exists.
-    const { backingTop, lines } = choiceLines(this.state.dialogue.presentOptions(), ui, this.choiceFit());
+    const { backingTop, lines, arrows } = choiceLines(this.state.dialogue.presentOptions(), ui,
+      this.choiceFit(), this.choiceView);
+    // On the same black the band shows while an answer is performed, so the
+    // area does not change colour each time the list goes and comes back.
     this.screen.fill(0, backingTop, NATIVE_WIDTH,
       NATIVE_HEIGHT - backingTop, this.screen.role('overlayBg'));
     for (const line of lines) {
-      line.rows.forEach((row, index) => {
-        this.panelFont.draw(ctx, row, TEXT_MARGIN, line.y + index * DIALOGUE_LINE_HEIGHT,
+      if (!line.shown) continue;
+      this.panelFont.draw(ctx, line.marker, TEXT_MARGIN, line.y, this.screen.roleColour(line.markerRole));
+      line.body.forEach((row, index) => {
+        this.panelFont.draw(ctx, row, line.textX, line.y + index * DIALOGUE_LINE_HEIGHT,
           this.screen.roleColour(line.role));
       });
+    }
+    for (const arrow of arrows) {
+      this.screen.fill(arrow.x, arrow.y, arrow.width, arrow.height, this.screen.role('buttonBg'));
+      this.drawTriangle(arrow, this.screen.role(arrow.live ? 'ink' : 'inkDim'));
     }
   }
 

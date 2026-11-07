@@ -1,0 +1,10 @@
+Image 1 is a TEMPLATE: the hero of my pixel-art adventure game, exactly as he is drawn in the game, standing, six times in a row on magenta. HIS BODY IS THE STANDARD FOR EVERY MAN IN THIS GAME: a SMALL head (crown to chin about one eighth of his height), narrow shoulders, a long torso and long legs, a realistic adult figure -- not a cartoon, not chunky.
+
+Image 2 shows ONLY THE FACES of three judges, A, B and C, left to right. Take from it their faces, hair, whiskers, moustache, beard, hat and the colours of their clothes -- NOTHING ELSE. Their faces are drawn there larger than they should be: in your picture each face is the SIZE OF THE HERO'S FACE in Image 1.
+- A: bald on top, white mutton-chop whiskers; a brown frock coat, brown waistcoat with a gold watch chain, brown trousers.
+- B: gaunt, waxed black moustache, black pomaded hair; a high white collar and a green cravat, a black frock coat and black trousers.
+- C: a full dark beard going grey, a low-crowned grey felt hat; a dark-red flannel shirt under a worn black coat, dark trousers, a belt.
+
+Repaint Image 1: replace each hero figure with a judge, KEEPING THE HERO'S FIGURE -- the same height, head size, shoulder width and leg length -- and changing only the face, hair, hat, clothes and the arms' pose. Left to right: 1. A, hands folded in front, watching; 2. A, leaning a little to his left as if to confer; 3. B, hands behind his back, watching; 4. B, nodding, head lowered; 5. C, arms folded, watching; 6. C, one hand stroking his beard. All turned slightly to the RIGHT.
+
+The same size of square pixel, the same soft, flat shading and dark outline as the hero. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, feet on the same line as Image 1. Nothing in their hands. No glow, no blur, no shadows, no ground, no text, no numbers, no border.
