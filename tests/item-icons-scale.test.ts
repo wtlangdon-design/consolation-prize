@@ -17,6 +17,7 @@ import { resolve } from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
+// @ts-expect-error -- a plain .mjs module with no declarations; it reads 8-bit RGBA PNGs.
 import { readPng } from '../tools/lib/png.mjs';
 
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
@@ -49,7 +50,7 @@ test('the old 30x21 cell is what this catches', () => {
 test('the sheet holds every cell, and no icon pixel is at the key colour\'s hue', () => {
   const png = readPng(readFileSync(resolve(ROOT, table.sheet)));
   let keyed = 0;
-  for (const [id, [x, y, w, h]] of Object.entries(table.icons as Record<string, number[]>)) {
+  for (const [id, [x, y, w, h]] of Object.entries(table.icons as Record<string, [number, number, number, number]>)) {
     assert.ok(x + w <= png.width && y + h <= png.height, `${id}'s cell lies inside the sheet`);
     let drawn = 0;
     for (let yy = y; yy < y + h; yy += 1) {
