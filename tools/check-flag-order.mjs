@@ -88,6 +88,21 @@ function collectReads(content) {
     for (const [id, expected] of Object.entries(option.when ?? {})) {
       reads.push({ id, expected, where: `${treeId}/${nodeId}/${option.id}` });
     }
+    // A `whenAny` ALTERNATIVE IS A GATE TOO, and a tree's entries decide which
+    // node it opens on (errata 143: the dialogue reveal audit). Neither was
+    // read, so an option or a node behind an unwritable flag passed.
+    for (const [index, any] of (option.whenAny ?? []).entries()) {
+      for (const [id, expected] of Object.entries(any)) {
+        reads.push({ id, expected, where: `${treeId}/${nodeId}/${option.id} (whenAny ${index + 1})` });
+      }
+    }
+  }
+  for (const { data } of content.dialogue) {
+    for (const [index, entry] of (data.entries ?? []).entries()) {
+      for (const [id, expected] of Object.entries(entry.when ?? {})) {
+        reads.push({ id, expected, where: `${data.id}/entries[${index}] -> ${entry.node}` });
+      }
+    }
   }
   for (const { data } of content.rooms) {
     for (const [id, expected] of Object.entries(data.onEnter?.accost?.when ?? {})) {
