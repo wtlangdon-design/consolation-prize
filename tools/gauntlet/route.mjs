@@ -134,6 +134,29 @@ async function clickScreen(page, x, y) {
 const probe = (page) => page.evaluate(() => window.__gauntlet?.probe() ?? null);
 
 /**
+ * A PLAIN BOOT OPENS ON THE TITLE (errata 128), so a route that starts there
+ * clicks NEW GAME, as a player does. Waits for the scene to come up first.
+ * Returns whether it clicked.
+ */
+export async function pastTitle(page, upTo = 60) {
+  const deadline = Date.now() + upTo * 1000;
+  for (;;) {
+    const state = await probe(page);
+    if (state && !state.title) return false;
+    if (state?.title) {
+      const item = await page.evaluate(() => window.__gauntlet?.titleItem('new') ?? null);
+      if (item) {
+        await clickScreen(page, item.x + item.width / 2, item.y + item.height / 2);
+        await page.waitForTimeout(200);
+        return true;
+      }
+    }
+    if (Date.now() > deadline) throw new Error('route: the title never came up, nor the game');
+    await page.waitForTimeout(120);
+  }
+}
+
+/**
  * Waits for a CONDITION, and says what it saw when it gives up.
  *
  * A TIMEOUT REPORTS THE STATE, NOT JUST THE DEADLINE. "waitFor room=main_street
@@ -274,6 +297,7 @@ async function settle(page, upTo = 60) {
 export async function runRoute(page, route) {
   const rooms = roomFiles();
   const log = [];
+  if (await pastTitle(page)) log.push('the title: clicked NEW GAME');
   for (const [index, action] of route.actions.entries()) {
     const where = `action ${index + 1} (${action.do})`;
     try {

@@ -175,6 +175,10 @@ export interface FrameReport {
   pending: number;
   /** The line on screen is waiting for a click, and shows the continue mark (SpeechPolicy). */
   waiting: boolean;
+  /** The title screen is up (errata 128). A harness clicks NEW GAME through `titleItem`. */
+  title: boolean;
+  /** The close's phase once the game is ending: hold, fade, black; null otherwise (errata 128). */
+  ending: string | null;
   /**
    * An exchange is being PERFORMED, so the choice list is hidden and nothing
    * in it can be clicked. Doc 30 section 1.
@@ -239,6 +243,8 @@ export interface Probeable {
   optionRow(index: number): { id: string; y: number; height: number } | null;
   /** Where an inventory item's slot draws, by id, or null when it is not held. Geometry only. */
   inventorySlot(id: string): { id: string; x: number; y: number; width: number; height: number } | null;
+  /** Where a title item is drawn, by id, or null when the title is not up. Geometry only. */
+  titleItem(id: string): { id: string; x: number; y: number; width: number; height: number } | null;
   /** Backs `Controls`. Implemented by the scene, which owns the state. */
   readonly controls: Controls;
 }
@@ -333,6 +339,8 @@ export interface Gauntlet {
   optionRow(index: number): { id: string; y: number; height: number } | null;
   /** Where an inventory item's slot draws, by id, or null when it is not held. Geometry only. */
   inventorySlot(id: string): { id: string; x: number; y: number; width: number; height: number } | null;
+  /** Where a title item is drawn, so a driver can click NEW GAME (errata 128). */
+  titleItem(id: string): { id: string; x: number; y: number; width: number; height: number } | null;
   /** The short, enumerated control surface. Never a general setter. */
   controls: Controls;
 }
@@ -366,6 +374,10 @@ export function installGauntlet(target: Record<string, unknown>,
     optionRow: (index) => {
       const live = scene();
       return live?.probeReady ? live.optionRow(index) : null;
+    },
+    titleItem: (id) => {
+      const live = scene();
+      return live?.probeReady ? live.titleItem(id) : null;
     },
     // A FRESH SCENE EVERY CALL, like `probe`. A control captured at boot would
     // drive the scene a load restarted out from under the harness -- the same

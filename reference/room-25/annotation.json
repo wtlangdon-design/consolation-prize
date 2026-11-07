@@ -200,5 +200,20 @@
    "mud_near": 0
   },
   "planes": []
- }
+ },
+ "verbRules": [
+  {
+   "hotspot": "claim",
+   "verbs": [
+    "LOOK_AT"
+   ],
+   "when": {
+    "T_PRATT_PAID": true,
+    "T_SHENG_HOLDS_PAPER": false
+   },
+   "ref": "docs/94-clue-pass.md::### D3 · where the money goes",
+   "startsWith": "**THE CLAIM** · LOOK",
+   "note": "Doc 94 (errata 127): the money trail points outward, from D2 until SHE_A1 option 1."
+  }
+ ]
 }

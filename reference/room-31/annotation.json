@@ -369,5 +369,19 @@
   ],
   "brightness": 0.85,
   "note": "Errata 109, from the pre-playthrough art audit: the graveside is moonlit, and its whole cast -- Sowerby, the undertaker, the mourners -- was drawn in that cold light, while Thad, drawn in even neutral light for every room, stood among them warm, as if lit by a different lamp. A cool multiply and a little less brightness put him under the same moon. A measurement, not a verdict: Tyler's playthrough decides."
- }
+ },
+ "verbRules": [
+  {
+   "hotspot": "coffin",
+   "verbs": [
+    "USE"
+   ],
+   "when": {
+    "T_GOOD_TURNOUT": false
+   },
+   "ref": "docs/94-clue-pass.md::### E7 · the coffin, before the turnout",
+   "startsWith": "**THE COFFIN** · USE",
+   "note": "Doc 94 (errata 127): not yet, and where to stand first."
+  }
+ ]
 }

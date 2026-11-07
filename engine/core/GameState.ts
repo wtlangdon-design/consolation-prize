@@ -1437,6 +1437,22 @@ export class GameState {
     return true;
   }
 
+  /**
+   * WHETHER THE TITLE'S CONTINUE HAS A GAME TO GO BACK TO (errata 128): the
+   * newest save exists, and was not taken after the close. A save in a room
+   * that is over once its `blackWhen` holds is a finished game -- continuing
+   * it would open on black with nothing left to do.
+   */
+  get canContinue(): boolean {
+    const save = this.saves.read();
+    if (!save) return false;
+    const over = this.content.rooms.get(save.room)?.blackWhen;
+    if (!over) return true;
+    const flags = new FlagStore(this.content.flags);
+    flags.restore(save.flags ?? {});
+    return !flags.test(over);
+  }
+
   reset(): void {
     this.standing.clear();
     this.flags.reset();

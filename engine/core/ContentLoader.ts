@@ -7,6 +7,7 @@ import type {
   OverlayFile,
   PathFile,
   SpeechColoursFile,
+  TitleFile,
   AmbientFile,
   ContentBundle,
   CombinationsFile,
@@ -53,6 +54,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
   ]);
 
   const menu = (await read(manifest.menu)) as MenuFile;
+  const title = manifest.title ? (await read(manifest.title)) as TitleFile : null;
   const actor = (await read(manifest.actor)) as ActorFile;
   // EVERY declared record, keyed by its own id. The list is explicit in the
   // manifest rather than discovered from the directory -- a directory listing
@@ -163,7 +165,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
   return {
     manifest, font, palette, ui, menu, verbs, flags, scaling, reputation,
     verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, carriedLight, sounds, paths,
-    speechColours, assay, items, fixtures, panel,
+    speechColours, assay, items, fixtures, panel, title,
     combinations, itemIcons,
     sequences, actCards, actOpenings,
   };
