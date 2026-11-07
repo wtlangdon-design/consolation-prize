@@ -264,7 +264,8 @@
         "OPEN": [
           {
             "when": {
-              "T_EXECUTOR_NAMED": true
+              "T_EXECUTOR_NAMED": true,
+              "T_FUNERAL_DONE": true
             },
             "say": "The executor of the late Mr. Grubb.",
             "by": "sump",

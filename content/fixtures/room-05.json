@@ -124,7 +124,8 @@
         "T_BORDERS_MOTT": true,
         "T_SWINDLED": true,
         "ACT": 2,
-        "T_ASSAY_QUEUE": true
+        "T_ASSAY_QUEUE": true,
+        "T_QUEUE_PADDED": true
       },
       "inventory": [
         "tuning_fork",
@@ -185,7 +186,8 @@
         "T_BORDERS_MOTT": true,
         "T_SWINDLED": true,
         "ACT": 2,
-        "T_ASSAY_QUEUE": true
+        "T_ASSAY_QUEUE": true,
+        "T_QUEUE_PADDED": true
       },
       "inventory": [
         "tuning_fork",

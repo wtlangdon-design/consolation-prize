@@ -227,7 +227,15 @@
    "acts": "1-3",
    "lastLetter": {
     "act": 4,
-    "field": "actFour"
+    "field": "actFour",
+    "until": {
+     "T_STRIKE_FOUND": true
+    },
+    "before": {
+     "verb": "LOOK_AT",
+     "line": 3
+    },
+    "note": "Errata 124: the only version offered says 'The gold is real', so it waits for T_STRIKE_FOUND (F3); earlier in Act IV the letter answers with its own fourth LOOK line, 'It goes out Thursday, with whatever is on it by Thursday.' Nothing is set or tracked (invariant 10)."
    },
    "note": "Doc 04 Part Three: the letters home are 'available in Thad's hotel room in every act'. USE on the letter he is writing opens the act's three versions in Acts I-III, and in Act IV reads the only version offered, 'No choice. Four lines.' Nothing is set (invariant 10)."
   }

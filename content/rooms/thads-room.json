@@ -168,7 +168,8 @@
           },
           {
             "when": {
-              "ACT": 4
+              "ACT": 4,
+              "T_STRIKE_FOUND": true
             },
             "say": "Dear Mother.",
             "then": [
@@ -176,6 +177,12 @@
               "The gold is real. The story is better. I will tell you both in the spring.",
               "— Your Thaddeus."
             ]
+          },
+          {
+            "when": {
+              "ACT": 4
+            },
+            "say": "It goes out Thursday, with whatever is on it by Thursday."
           }
         ]
       },

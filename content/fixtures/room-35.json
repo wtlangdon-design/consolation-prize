@@ -41,7 +41,8 @@
     "T_DINED": true,
     "T_EXCAVATION_CLAUSE": true,
     "T_PRATT_JUMP_SEEN": true,
-    "T_PRATT_STAKE": true
+    "T_PRATT_STAKE": true,
+    "T_FUNERAL_DONE": true
    },
    "inventory": [
     "tuning_fork",

@@ -223,12 +223,13 @@
     "SUMP": "sump"
    },
    "when": {
-    "T_EXECUTOR_NAMED": true
+    "T_EXECUTOR_NAMED": true,
+    "T_FUNERAL_DONE": true
    },
    "goto": "archive"
   }
  ],
- "sceneLinesNote": "Doc 57 E9: with T_EXECUTOR_NAMED (E6), OPEN on the archive door is Sump's exchange and the door unlocks into Room 8 (doc 20: 'reachable only as an executor'). Before it, the door's own OPEN override answers.",
+ "sceneLinesNote": "Doc 57 E9: with T_EXECUTOR_NAMED (E6), OPEN on the archive door is Sump's exchange and the door unlocks into Room 8 (doc 20: 'reachable only as an executor'). Before it, the door's own OPEN override answers. ERRATA 124 (the fairness audit): it also waits for T_FUNERAL_DONE (E8). Doc 02 makes E9 depend on E8 and doc 57 assumes it; gated on the executor alone, a player who went to the archive straight after Sump's 'Accepted.' could compare the hands and hear the confession before the funeral, opening Act IV with the coffin (invariant 2's scene) never played. Until then the door's own OPEN override answers.",
  "onEnterScenes": [
   {
    "fromRef": "docs/57-puzzle-completion.md::## D6 · The attestation",

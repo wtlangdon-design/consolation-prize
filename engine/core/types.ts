@@ -993,6 +993,8 @@ export interface CombinationPair {
   set?: FlagWrites;
   /** Canonical puzzles that must be complete before the pair fires; otherwise the pools answer. */
   requiresPuzzles?: string[];
+  /** Flags that must hold their values before the pair fires (errata 124: C5 waits on the log Thad was sent for, not on a drawer). */
+  requiresFlags?: Record<string, boolean>;
   /** The canonical puzzle this pair completes. Fires once: complete already, the pools answer. */
   completes?: string;
   /** The tree the action opens on completion, its opening performed by the action (errata 66 C). */

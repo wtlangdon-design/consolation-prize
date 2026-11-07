@@ -1030,7 +1030,12 @@ function combinations() {
   const OPENING_PAIRS = {
     'C5|THE SUBMISSION LOG|Winnie': {
       item: 'padded_log', room: 'assay_office', target: 'winnie', puzzle: 'C5',
-      requiresPuzzles: ['C4'], completes: 'C5', opens: 'WINNIE',
+      // ERRATA 124 (the fairness audit): it waits on THE LOG -- what Winnie
+      // was promised and the log's own LOOK says she will want -- not on C4,
+      // which completes only on the portrait drawer, a funeral-day search
+      // nothing points at. Gated on C4 the right item on the right person was
+      // refused with "That accomplishes nothing I can see."
+      requiresFlags: { T_QUEUE_PADDED: true }, completes: 'C5', opens: 'WINNIE',
       note: 'ERRATA 66 A-C: SHOW / USE the submission log on Winnie is C5. The target is the room\'s ambient character, not a hotspot. No `say`: the pair\'s line is WIN_B2\'s opening, which the action launches at once. The log is kept. With C5 complete the pair yields to the ordinary pools (doc 36 Q113).',
     },
   };

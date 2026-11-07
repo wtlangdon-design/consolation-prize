@@ -60,8 +60,14 @@ for (const act of [1, 2, 3]) {
   });
 }
 
-test('Act IV: the only version offered, four lines, no choice', async () => {
+test('Act IV: the only version offered, four lines, no choice -- once the strike is found (errata 124)', async () => {
   const state = await inState('r19-b');
+  // Act IV opens here before the gold is found, and the letter says it is
+  // real: until then the letter answers with one of its own LOOK lines.
+  const early = state.interact(sheet(state), 'USE');
+  assert.ok(!early.enteredDialogue && !(early.then ?? []).length, 'one line before the strike');
+  assert.ok(!doc04.slice(doc04.indexOf('**ACT IV —')).includes(early.say ?? '-'), 'and not the letter');
+  state.flags.set('T_STRIKE_FOUND', true);
   const read = state.interact(sheet(state), 'USE');
   assert.ok(!read.enteredDialogue, 'no choice');
   const lines = [read.say, ...(read.then ?? []).map((line) => (typeof line === 'string' ? line : line.line))];
