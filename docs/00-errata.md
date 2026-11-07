@@ -3867,6 +3867,75 @@ The whole game, played through, ends carrying exactly what doc 23 keeps, and not
 - the fixture equal to play;
 - scrolling by rows.
 
+---
+
+# 141 · PHYSICAL DIRECTIONS ARE ACTED, NARRATION STAYS PRINTED — OWNER RULING (Tyler, 2026-11-06)
+
+Tyler was told: "a few directions are still printed rather than acted, such as '(stamping)' during the filing. Acting them out needs new poses." He answered: **"then let's do it? Lol"**. This amends doc 58 (Tyler, 2026-11-05), under which every shown direction was printed in parentheses.
+
+**A · The ruling.**
+- **A physical direction is acted.** A visible action by a figure on screen is performed in a pose or a short run of poses, and its text is not printed.
+- **Narration stays printed,** exactly as doc 58 rules: meaning, tones and pauses.
+- **When in doubt, it stays printed.** A direction whose joke would be lost by acting it is kept printed and listed for Tyler.
+
+**B · The decision lives in `docs/95-acted-directions.md`.** It catalogues all 67 shown directions:
+- **A, acted now:** 11;
+- **B, physical but waiting for a pose:** 9;
+- **C, printed:** 47.
+
+`tools/extract-content.mjs` reads the table into `content/acted-directions.json`, and the loader gives each A row to the figures it names as `sprite.performs`. Fanshawe's hat (errata 131 B) now comes from there too. His hand-written entry is gone.
+
+**C · How a direction is acted.** Errata 131 B's mechanism is extended, and nothing about a direction's words is in code:
+- **Any figure that acts it.** Every figure in the room that acts the words acts them, whoever the line is written for. "They resume immediately." is both boundary men.
+- **Every channel.** The same reading serves a conversation's exchange, a verb's queued lines (Sump's "Stamp." at the filing) and a room's arrival scene (the notarizing on D6's arrival).
+- **A run of frames,** across the row's seconds. No beat of it can be clicked through.
+- **A frame held through speech.** Ozymandia says "'You have never seen breakfast.'" with her eyes still closed, then opens them with her palm out for "Two dollars."
+- **A cue on a frame.** The approved stamp lands as Sump's stamp comes down: doc 45 U-STAMP, "where the writing says one does".
+
+**D · What is acted now.**
+- Fanshawe's hat (Duel Three).
+- Sump's stamp on the deed at the filing.
+- Sump notarizing and stamping on Pratt's attestation, without looking up.
+- The boundary men resuming.
+- Deke tipping his hat and walking out of the Nugget. The drink is not shown.
+- Frame looking up from his notebook and holding the look.
+- Ozymandia's eyes, closed and opened.
+- Pratt checking the sky.
+- Sheng returning to his ironing.
+- Winnie signing the death certificate.
+
+Each was played in the browser (`tools/gauntlet/acted-proof.mjs`). The filing, before and after, is `renders/acted-directions-filing-before-after.png`.
+
+**E · What waits for a pose (B).** `reference/acted-directions/brief.md` briefs five sheets, one per character, for:
+- Winnie's stamping and signing at the Registrar's;
+- Sump's blotting and the filing under glass;
+- Pratt's hat, and his look at his feet at Prosperity;
+- Deke's look at the watch;
+- Thad finding and fitting the pick's head in Room 33.
+
+The budget is five operations plus at most three corrections, from cast-unify's nine left (66 of 75 spent). Each board is the in-game Thad (errata 139), with the character's master crop (`tools/art/acted-boards.py`). Thad's rows also need the actor, not only an ambient figure, to act; the brief says how.
+
+**F · For Tyler.** Doc 95's list has eight items, each with a recommendation:
+- the pickaxe swings stay printed, and the fits are drawn;
+- "Stamp. Thad is alive." stays printed;
+- Hob's four seconds stays printed;
+- Hob's lamp post stays printed, because the alley has none;
+- Pratt's bite stays printed, because the hole is in another room;
+- Sowerby's painful pause stays printed;
+- Sowerby's shut eyes at Boot Hill stay printed;
+- Deke's drink goes unshown.
+
+Invariant 7 holds: HOB_C1 option 4's look is C and is presented exactly as before.
+
+**What holds it:** `tests/acted-directions.test.ts`. Five defects were put back one at a time, and each was caught:
+- a direction missing from doc 95;
+- an acted direction given to a figure in another room;
+- a figure acting narration by a hand-written `performs`;
+- the engine printing an acted beat;
+- a held frame lost.
+
+---
+
 # 142 · THE ITEM ICONS, AND THE BLANKET — TYLER, 2026-11-06
 
 Two of errata 140's items-audit questions, answered.

@@ -5105,8 +5105,51 @@ function reputation() {
   });
 }
 
+// ---------------------------------------------------------------------------
+// ACTED DIRECTIONS (doc 95; Tyler, 2026-11-06: "then let's do it? Lol"). Doc
+// 95's table decides, for every shown stage direction, whether a figure acts
+// it (A), whether it waits for a pose to be drawn (B), or whether it stays
+// printed (C), and for an A row which figures act it with which frames. The
+// class lives in the document and nowhere else; this carries it to the game.
+function actedDirections() {
+  const doc = read('docs/95-acted-directions.md');
+  const cells = (row) => row.replace(/^\|/, '').replace(/\|\s*$/, '').split(/(?<!\\)\|/).map((cell) => cell.trim().replace(/\\\|/g, '|'));
+  const directions = [];
+  for (const row of doc.split('\n')) {
+    if (!/^\| \d+ \| [ABC] \|/.test(row)) continue;
+    const [n, kind, speaker, words, where, by, frames, seconds, holds, cue] = cells(row);
+    const entry = { n: Number(n), class: kind, speaker, words, where };
+    if (kind === 'A') {
+      const figures = by.split(',').map((one) => one.trim()).filter(Boolean);
+      const sequence = frames.split(/\s+/).filter(Boolean).map(Number);
+      const length = Number(seconds);
+      if (!figures.length || !sequence.length || sequence.some((one) => !Number.isInteger(one)) || !(length > 0)) {
+        throw new Error(`doc 95 row ${n}: an A row names its figures, its frames and its seconds ("${words}")`);
+      }
+      const sound = cue ? /^([A-Z0-9-]+) @(\d+)$/.exec(cue) : null;
+      if (cue && !sound) throw new Error(`doc 95 row ${n}: the cue "${cue}" is not "<CUE> @<frame>"`);
+      entry.performedBy = figures;
+      entry.frames = sequence;
+      entry.seconds = length;
+      if (holds) entry.holds = Number(holds);
+      if (sound) entry.cue = { id: sound[1], frame: Number(sound[2]) };
+    } else if (frames || seconds || holds || cue) {
+      throw new Error(`doc 95 row ${n}: a ${kind} row is not acted, and names no frames ("${words}")`);
+    }
+    directions.push(entry);
+  }
+  if (!directions.length) throw new Error('doc 95: no directions table');
+  return write('content/acted-directions.json', {
+    schema: 1,
+    note: 'EXTRACTED from docs/95-acted-directions.md by tools/extract-content.mjs (errata 141). Every shown stage direction '
+      + 'and its class: A is performed by the figures named, in the frames named, and not printed; B waits for a pose to be drawn '
+      + 'and is printed; C is narration and is printed (doc 58). Change a class in doc 95 and re-extract, never here.',
+    directions,
+  });
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), ...room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), ...townBarks(), ...townTrees(), reputation()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), ...townBarks(), ...townTrees(), reputation(), actedDirections()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
   // Doc 58 rule 5: a reply whose spoken lines this pass reads differently is

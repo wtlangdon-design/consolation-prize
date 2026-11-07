@@ -99,6 +99,8 @@ export interface Frame {
    * a point down in. Null when nobody is posing.
    */
   pose?: { speaker: string; frame: number | 'mark' } | null;
+  /** Figures holding one of their frames: an acted direction (doc 95; errata 141), by figure id. */
+  poses?: { id: string; frame: number }[] | null;
   /** A held silence (errata 131 D): every figure holds its rest frame, save whoever speaks or poses. */
   still?: boolean;
   /** The duel's score as the judges have written it, chalked on the room's slate (errata 136 A). Null outside a duel. */
@@ -684,6 +686,7 @@ export class Renderer {
   private readonly shownOverlays = new Map<string, string>();
   private speaker: string | null = null;
   private pose: { speaker: string; frame: number | 'mark' } | null = null;
+  private poses: { id: string; frame: number }[] | null = null;
   private still = false;
   private direction = false;
   /**
@@ -766,6 +769,7 @@ export class Renderer {
     }
     this.speaker = frame.speaker ?? null;
     this.pose = frame.pose ?? null;
+    this.poses = frame.poses ?? null;
     this.still = frame.still === true;
     this.direction = frame.direction ?? false;
     this.performing = frame.performing === true;
@@ -1940,7 +1944,9 @@ export class Renderer {
     // errata 131 C): Sowerby reading the rules in Vessel's duel stood on his idle.
     const speaks = (who: string | null) => who !== null && (who === npc.id || who === npc.speaksAs);
     const speaking = speaks(this.speaker) && (this.state.dialogue.isActive || this.performing || this.greeting !== null);
-    const posed = this.pose && speaks(this.pose.speaker) ? this.pose.frame : null;
+    // AN ACTED DIRECTION (doc 95; errata 141) names the figure itself, whoever the line is written for.
+    const acting = this.poses?.find((one) => one.id === npc.id)?.frame;
+    const posed = acting !== undefined ? acting : this.pose && speaks(this.pose.speaker) ? this.pose.frame : null;
     const stirring = this.ambient.stirring(npc);
     const index = posed !== null
       ? (posed === 'mark' ? declared.markFrame ?? declared.talkFrame ?? 0 : posed)

@@ -713,7 +713,7 @@ export interface AmbientFile {
      * writes them: the frame held, for how many seconds, with nothing shown.
      * Duel Three's "(He puts on his hat.)" was printed over Fanshawe as text.
      */
-    performs?: Record<string, { frame: number; seconds: number }>;
+    performs?: Record<string, PerformedDirection>;
     /**
      * PROPS THAT STAY PUT WHILE THE FIGURE ANIMATES. Room 5's ink stand: a
      * counter object, drawn at ONE room coordinate, whose picture depends on
@@ -2236,6 +2236,9 @@ export interface ManifestFile {
   carriedLight?: string;
   /** Doc 45's everyday sounds: cues, footsteps, room ambience (errata 105). */
   sounds?: string;
+  /** Doc 95's acted directions (errata 141), extracted to content/acted-directions.json. */
+  actedDirections?: string;
+  actedDirectionsNote?: string;
   /** A colour per speaker for spoken lines. Absent draws in the default ink. */
   speechColours?: string;
   /** The title screen's content (content/ui/title.json). */
@@ -2512,7 +2515,42 @@ export interface SpeechColoursFile {
   speakers: Record<string, { colour: string; note?: string }>;
 }
 
+/**
+ * A STAGE DIRECTION A FIGURE ACTS (doc 95; errata 131 B, 141): his frames,
+ * played in order across `seconds`, with nothing printed. `frame` is the
+ * single-frame form errata 131 wrote. `holds` is the frame he keeps while he
+ * goes on speaking in the same exchange; `cue` sounds on the frame it names
+ * (counted from 1).
+ */
+export interface PerformedDirection {
+  frame?: number;
+  frames?: number[];
+  seconds: number;
+  holds?: number;
+  cue?: { id: string; frame: number };
+}
+
+/** content/acted-directions.json: doc 95's table, as extracted. */
+export interface ActedDirectionsFile {
+  schema: number;
+  note?: string;
+  directions: {
+    n: number;
+    class: 'A' | 'B' | 'C';
+    speaker: string;
+    words: string;
+    where: string;
+    performedBy?: string[];
+    frames?: number[];
+    seconds?: number;
+    holds?: number;
+    cue?: { id: string; frame: number };
+  }[];
+}
+
 export interface ContentBundle {
+  /** Doc 95's table, or null when the manifest names none. Its A rows are already on the figures' `performs`. */
+  actedDirections: ActedDirectionsFile | null;
   menu: MenuFile;
   manifest: ManifestFile;
   font: FontFile;
