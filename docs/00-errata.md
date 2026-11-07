@@ -3392,6 +3392,8 @@ Proved: the old `sounds.json` fails it on eleven places.
 
 **D · Heard.** The Themes page's new top section plays Main Street, the Nugget, the registrar, the Clarion and the stage road three ways at one overall volume: before, as now in the game, and 6 dB louder still. Tyler picks by ear; the game ships the middle one until he does.
 
+**E · Approved (Tyler, 2026-11-06, having listened): "The now in the game sound level is perfect."** These are the levels. `tools/check-sound-levels.mjs` holds them in both directions: a ceiling, and a floor.
+
 # 123 · THE POLISH PASS: WRONG ANSWERS WHERE PLAYERS CLICK, AND THE VOICE FINISHED UNDERGROUND — TYLER, 2026-11-06
 
 Tyler, on what else would make the game great: **"Go on all five."** Two of the five are writing, under the permission of errata 113 and 114. The other three are audits, reported to Tyler before anything changes.
