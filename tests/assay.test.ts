@@ -187,7 +187,9 @@ test('every scored exchange is written down in a held beat after the line that w
       const choice = duel.commit(pick.id);
       const marks = choice.lines.map((l, i) => (l.mark ? i : -1)).filter((i) => i >= 0);
       assert.equal(marks.length, 1, `${duelId}: one point, one mark`);
-      assert.equal(marks[0], choice.correct ? 0 : 1, `${duelId}: the mark follows ${choice.correct ? 'his counter' : 'the reply'}`);
+      // A won ending that opens on a held silence holds it first; the pencil goes down in it (errata 131 D).
+      const silenceFirst = choice.lines[0]?.rest !== undefined && !choice.lines[0]?.mark;
+      assert.equal(marks[0], choice.correct && !silenceFirst ? 0 : 1, `${duelId}: the mark follows ${choice.correct ? 'his counter' : 'the reply'}`);
       assert.ok((choice.lines[marks[0]!]!.rest ?? 0) > 0, 'the mark is a held beat');
       const boastAt = choice.lines.findIndex((l) => boasts.has(l.line));
       if (boastAt >= 0) assert.ok(boastAt > marks[0]!, `${duelId}: the next boast waits for the pencil`);

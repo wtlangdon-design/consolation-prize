@@ -61,6 +61,19 @@ export function ambientHere(npc: AmbientFile, roomId: string, test: (when?: Cond
   return test(npc.when) && (!npc.whenAny?.length || npc.whenAny.some((one) => test(one)));
 }
 
+/**
+ * THE FIGURE WHO SAYS `speaker`'s LINES, among those present: his own id
+ * first, else a figure that speaks as him (AmbientFile.speaksAs; errata 131
+ * C). The one reading of it, so the renderer, the scene and the tests agree.
+ */
+export function figureSpeaking(present: readonly AmbientFile[], speaker: string | null): AmbientFile | undefined {
+  if (speaker === null) return undefined;
+  return present.find((npc) => npc.id === speaker) ?? present.find((npc) => npc.speaksAs === speaker);
+}
+
+/** How long a figure stirs after a cue it stirs on (AmbientFile.stirsOn), in seconds. */
+export const STIR_SECONDS = 3;
+
 export class AmbientLayer {
   private readonly fired = new Set<string>();
   /** Who was present last frame, in which room: how a departure is noticed. */
@@ -74,6 +87,13 @@ export class AmbientLayer {
   /** Who was in the room when Thad arrived in it. See `present`. */
   private latched: Map<string, AmbientFile> | null = null;
   private latchedRoom: string | null = null;
+  /** Figures fading out (AmbientFile.leaves): id to when the fade began. */
+  private fadings = new Map<string, number>();
+  /** The `leaves` cues owed: sounded once the figure has gone. */
+  private cuesOwed: string[] = [];
+  private readonly cued = new Set<string>();
+  /** When a cue last fired, by id, for the figures that stir on it. */
+  private stirredAt = new Map<string, number>();
 
   private readonly state: GameState;
 
@@ -86,6 +106,8 @@ export class AmbientLayer {
   /** Thad has arrived in a room (or a save has put him there): who is here is decided afresh. */
   arrived(): void {
     this.latched = null;
+    this.fadings.clear();
+    this.cued.clear();
   }
 
   /**
@@ -107,9 +129,44 @@ export class AmbientLayer {
     }
     const out = live.filter((npc) => this.latched!.has(npc.id));
     for (const [id, npc] of this.latched) {
-      if (!npc.exit && !out.some((one) => one.id === id)) out.push(npc);
+      if (npc.exit || out.some((one) => one.id === id)) continue;
+      // ONE WHO FADES (AmbientFile.leaves) is drawn until the fade is over.
+      if (npc.leaves) {
+        const began = this.fadings.get(id);
+        if (began !== undefined && this.clock - began >= npc.leaves.fade) continue;
+      }
+      out.push(npc);
     }
     return out;
+  }
+
+  /** How opaque a figure is drawn: 1, or less while it fades out (AmbientFile.leaves). */
+  opacity(id: string): number {
+    const began = this.fadings.get(id);
+    const npc = this.latched?.get(id);
+    if (began === undefined || !npc?.leaves) return 1;
+    return Math.max(0, 1 - (this.clock - began) / Math.max(0.01, npc.leaves.fade));
+  }
+
+  /** The cues owed by figures that have finished leaving, once each. The scene sounds them. */
+  takeCues(): string[] {
+    const out = this.cuesOwed;
+    this.cuesOwed = [];
+    return out;
+  }
+
+  /** A cue has fired: figures that stir on it (AmbientFile.stirsOn) stir. */
+  heard(cue: string): void {
+    this.stirredAt.set(cue, this.clock);
+  }
+
+  /** Whether this figure is stirring now, and for how long it has been. */
+  stirring(npc: AmbientFile): number | null {
+    for (const cue of npc.stirsOn ?? []) {
+      const at = this.stirredAt.get(cue);
+      if (at !== undefined && this.clock - at < STIR_SECONDS) return this.clock - at;
+    }
+    return null;
   }
 
   /** Who the conditions place here right now. */
@@ -165,7 +222,20 @@ export class AmbientLayer {
       this.seenRoom = room;
       this.departures = [];
       this.arrivals = [];
+      this.fadings.clear();
+      this.cued.clear();
     } else {
+      // ONE WHOSE CONDITION HAS ENDED AND WHO HAS NO WALK fades (AmbientFile.leaves).
+      const liveIds = new Set(this.live.map((npc) => npc.id));
+      for (const [id, npc] of this.latched ?? new Map<string, AmbientFile>()) {
+        if (!npc.leaves || npc.exit || liveIds.has(id)) continue;
+        const began = this.fadings.get(id);
+        if (began === undefined) this.fadings.set(id, now);
+        else if (now - began >= npc.leaves.fade && npc.leaves.cue && !this.cued.has(id)) {
+          this.cuesOwed.push(npc.leaves.cue);
+          this.cued.add(id);
+        }
+      }
       // ONE WHO COMES IN WHILE THAD WATCHES walks in (AmbientFile.arrive),
       // and is latched present when he reaches his place.
       for (const npc of this.live) {
@@ -189,7 +259,10 @@ export class AmbientLayer {
     // A walker who went out by a door stays on the list, not drawn, until it has shut behind him.
     this.departures = this.departures.filter((one) => !departureAt(one.exit, now - one.startedAt).done
       || (one.exit.door !== undefined && now - one.startedAt < walkDuration(one.exit) + one.exit.door.linger));
-    return this.departures.length > 0 || this.arrivals.length > 0 || this.present.some((npc) => npc.loop);
+    const fading = [...this.fadings].some(([id, began]) => now - began < (this.latched?.get(id)?.leaves?.fade ?? 0) + 0.1);
+    const stirring = [...this.stirredAt.values()].some((at) => now - at < STIR_SECONDS + 0.1);
+    return this.departures.length > 0 || this.arrivals.length > 0 || fading || stirring
+      || this.present.some((npc) => npc.loop);
   }
 
   /** The doors standing open this frame: one a walker is going out by, or has just gone through. */

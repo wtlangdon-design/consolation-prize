@@ -10,7 +10,7 @@ import { RoomActors } from '../core/RoomActors.ts';
 import type { Controls, FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
-import { AmbientLayer } from '../core/Ambient.ts';
+import { AmbientLayer, figureSpeaking } from '../core/Ambient.ts';
 import { StepTriggers, type StepEvent } from '../core/StepTriggers.ts';
 import { DialoguePerformance, readingHold, type HoldTiming, type Utterance } from '../core/DialoguePerformance.ts';
 import { liveCycling, mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
@@ -95,6 +95,12 @@ export class GameScene extends Phaser.Scene {
   private readonly cueBed = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
   /** The judges' mark beat already sounded, so a redraw does not write the point twice. */
   private markedLine: Utterance | null = null;
+  /** The line whose cue has sounded, so a redraw does not sound it twice. */
+  private cuedLine: Utterance | null = null;
+  /** A held silence has stopped the music (errata 131 D), and the room is still. */
+  private hushed = false;
+  /** Everyone holds still for the silence, until the street erupts (errata 131 D, E). */
+  private stilled = false;
   /** The duel whose music is playing, so a duel's start and end each choose the bed once. */
   private duelPlaying: string | null = null;
   /** The words on screen when they last sounded, so a redraw does not stamp twice. */
@@ -584,6 +590,8 @@ export class GameScene extends Phaser.Scene {
     if (this.carried.update(now, this.world)) this.markDirty();
     // A character walking out (AmbientFile.exit) moves every frame he walks.
     if (this.ambient.noteDepartures(now)) this.markDirty();
+    // A FIGURE WHO HAS FADED OUT may owe a sound (AmbientFile.leaves): Fanshawe's door.
+    for (const cue of this.ambient.takeCues()) this.fireCue(cue);
     if (this.sequence.isRunning || this.carried.isRunning) this.markDirty();
     // The opening's automatic segment has played out. Bank its flag writes
     // and move on -- to the driver's tree, or to control.
@@ -753,6 +761,8 @@ export class GameScene extends Phaser.Scene {
       // THE LINE IS WAITING FOR A CLICK, and says so with a small mark (finding 11).
       awaitingClick: this.sayLines.length > 0 && this.sayWaiting,
       direction: this.sayLines.length > 0 && this.sayIsDirection,
+      pose: this.performingPose(),
+      still: this.stilled,
       performing: this.performance !== null,
       // Whose greeting is being said, so they hold still for it as they do
       // for their open tree.
@@ -2089,24 +2099,41 @@ export class GameScene extends Phaser.Scene {
     // version in the list and speak the letter (doc 04 Part Three).
     const echo = { speaker: this.state.content.actor.id, line: chosen.option.echo ?? chosen.text };
     const replies = [
-      ...(said.say ? [{
+      ...(said.say ? [this.performedLine({
         speaker: said.sayer,
-        line: said.direction ? GameScene.asDirection(said.say) : said.say,
+        line: said.say,
         direction: said.direction,
-      }] : []),
-      ...said.rest.map((spoken) => ({
+      })] : []),
+      ...said.rest.map((spoken) => this.performedLine({
         speaker: spoken.speaker,
-        line: spoken.direction ? GameScene.asDirection(spoken.line) : spoken.line,
+        line: spoken.line,
         direction: spoken.direction === true,
         ...((spoken as { sound?: Utterance['sound'] }).sound ? { sound: (spoken as { sound?: Utterance['sound'] }).sound } : {}),
         // A duel's held beats (errata 130): a silence, and the judges' pencil in it.
         ...(spoken.rest !== undefined ? { rest: spoken.rest } : {}),
         ...(spoken.mark ? { mark: true } : {}),
+        // Duel Three's release (errata 131 D, E): the music cut, and the street erupting.
+        ...(spoken.quiet ? { quiet: true } : {}),
+        ...(spoken.cue ? { cue: spoken.cue } : {}),
       })),
     ];
     this.performance = new DialoguePerformance(
       exchange, echo, replies, this.holdTiming(), this.lastFrameAt);
     this.showPerformance();
+  }
+
+  /**
+   * A REPLY AS IT IS PERFORMED. A stage direction is shown in parentheses (doc
+   * 58) -- unless the figure it describes PERFORMS it (`sprite.performs`;
+   * errata 131 B): then nothing is printed, his frame is held for the beat it
+   * takes, and the beat cannot be clicked through.
+   */
+  private performedLine(spoken: Utterance): Utterance {
+    if (!spoken.direction) return spoken;
+    const figure = figureSpeaking(this.ambient.present, spoken.speaker);
+    const act = figure?.sprite?.performs?.[spoken.line.trim()];
+    if (act) return { ...spoken, rest: act.seconds, pose: act.frame };
+    return { ...spoken, line: GameScene.asDirection(spoken.line) };
   }
 
   /** Doc 30 section 4.1's constants, from content. */
@@ -2134,7 +2161,21 @@ export class GameScene extends Phaser.Scene {
     const live = this.performance;
     if (!live) return;
     const line = live.current;
-    this.setSay(line?.line ?? null, line?.speaker ?? null, line?.direction ?? false);
+    // A POSE IN PLACE OF THE WORDS (errata 131 B) shows nothing on the speech channel.
+    this.setSay(line?.pose !== undefined ? '' : line?.line ?? null, line?.speaker ?? null, line?.direction ?? false);
+    // THE MUSIC STOPS FOR A HELD SILENCE (errata 131 D: "Silence on Main
+    // Street. Long.") and stays down until the exchange is over; everyone holds
+    // still until the line that sounds a cue -- the street erupting (131 E).
+    if (line?.quiet && !this.hushed) {
+      this.hushed = true;
+      this.stilled = true;
+      if (!this.music.isSuspended) this.music.suspend();
+    }
+    if (line?.cue && this.cuedLine !== line) {
+      this.cuedLine = line;
+      this.stilled = false;
+      this.fireCue(line.cue);
+    }
     // A LINE THAT MAKES A SOUND makes it once, as it is shown; the score rests
     // under it and comes back where it stopped (doc 48 S6 beat 3).
     if (line?.sound && this.soundedLine !== line) {
@@ -2154,6 +2195,16 @@ export class GameScene extends Phaser.Scene {
     }
     if (!live.done) { this.markDirty(); return; }
     this.performance = null;
+    this.stilled = false;
+    if (this.hushed) {
+      this.hushed = false;
+      if (this.music.isSuspended) this.music.resume(0);
+      // The duel is over: the room's own music comes straight back, not the duel's bed for a frame.
+      if (this.state.dialogue.duelSounding !== this.duelPlaying) {
+        this.duelPlaying = this.state.dialogue.duelSounding;
+        this.applyMusic();
+      }
+    }
     if (!this.state.dialogue.isActive) {
       this.state.autosave();
       // A tree that was carrying a run of beats hands the sheet back when it
@@ -2984,8 +3035,19 @@ export class GameScene extends Phaser.Scene {
    * carries the room score and no SFX), and a cue that is fired and logged is
    * the hook the audio layer will take when it exists.
    */
+  /** Who holds which frame for the beat on now: the judges' mark, or a performed direction (errata 130 B, 131 B). */
+  private performingPose(): { speaker: string; frame: number | 'mark' } | null {
+    const line = this.performance?.current;
+    if (!line?.speaker) return null;
+    if (line.mark) return { speaker: line.speaker, frame: 'mark' };
+    if (line.pose !== undefined) return { speaker: line.speaker, frame: line.pose };
+    return null;
+  }
+
   private fireCue(id: string): void {
     this.cuesFired = { last: id, count: this.cuesFired.count + 1 };
+    // Figures that stir on it do (AmbientFile.stirsOn; errata 131 E).
+    this.ambient.heard(id);
     // ERRATA 105: the audio layer exists now. A cue with no sound written for
     // it is still counted, and still silent.
     const cue = this.state.content.sounds?.cues[id];

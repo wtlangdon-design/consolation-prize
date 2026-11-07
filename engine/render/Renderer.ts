@@ -4,6 +4,7 @@ import type { PresentedOption } from '../core/DialogueRunner.ts';
 import { FAR_WALK, IDLE_BREAK, type Actor } from '../core/Actor.ts';
 import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer, Departing } from '../core/Ambient.ts';
+import { figureSpeaking } from '../core/Ambient.ts';
 import { askedState } from '../dev/RoomState.ts';
 import { applyTint, moverTint, type MoverTint } from './LightFields.ts';
 
@@ -91,6 +92,14 @@ export interface Frame {
    * audit, finding 11: with no mark a player sat on a line for 25 seconds.
    */
   awaitingClick?: boolean;
+  /**
+   * A POSE PERFORMED IN PLACE OF A LINE (errata 131 B, D): whose figure, and
+   * which frame -- a number, or `mark` for the frame its pencil holder writes
+   * a point down in. Null when nobody is posing.
+   */
+  pose?: { speaker: string; frame: number | 'mark' } | null;
+  /** A held silence (errata 131 D): every figure holds its rest frame, save whoever speaks or poses. */
+  still?: boolean;
   /**
    * An exchange is being PERFORMED, so the choice list is neither drawn nor
    * clickable. Doc 30 section 1.
@@ -593,6 +602,8 @@ export class Renderer {
   }
   private readonly shownOverlays = new Map<string, string>();
   private speaker: string | null = null;
+  private pose: { speaker: string; frame: number | 'mark' } | null = null;
+  private still = false;
   private direction = false;
   /**
    * Set from the frame, read by BOTH the draw and the hit test.
@@ -672,6 +683,8 @@ export class Renderer {
       watch.frame(this.frameIndex, this.clock, frame.beat ?? null);
     }
     this.speaker = frame.speaker ?? null;
+    this.pose = frame.pose ?? null;
+    this.still = frame.still === true;
     this.direction = frame.direction ?? false;
     this.performing = frame.performing === true;
     this.greeting = frame.greeting ?? null;
@@ -1776,9 +1789,23 @@ export class Renderer {
     // work stops on the talk frame; any other conversation leaves her be.
     const inConversation = (this.state.dialogue.isActive
       && this.state.dialogue.activeTreeId === npc.tree) || this.greeting === npc.tree;
-    const index = inConversation
-      ? conversationFrameAt(declared, phase, this.clock, this.speaker === npc.id)
-      : this.ambientFrame(declared, phase);
+    // WHOEVER IS SPEAKING IN A CONVERSATION TAKES HIS TALK FRAME, his own tree
+    // or not, and under whichever id his words are written (AmbientFile.speaksAs;
+    // errata 131 C): Sowerby reading the rules in Vessel's duel stood on his idle.
+    const speaks = (who: string | null) => who !== null && (who === npc.id || who === npc.speaksAs);
+    const speaking = speaks(this.speaker) && (this.state.dialogue.isActive || this.performing || this.greeting !== null);
+    const posed = this.pose && speaks(this.pose.speaker) ? this.pose.frame : null;
+    const stirring = this.ambient.stirring(npc);
+    const index = posed !== null
+      ? (posed === 'mark' ? declared.markFrame ?? declared.talkFrame ?? 0 : posed)
+      // STIRRING (AmbientFile.stirsOn; errata 131 E): his break poses, in turn.
+      : stirring !== null && declared.frames.length > 2
+        ? 2 + (Math.floor(stirring * 4) % (declared.frames.length - 2))
+        : speaking && this.still ? declared.talkFrame ?? 0
+          : this.still ? 0
+            : inConversation || speaking
+              ? conversationFrameAt(declared, phase, this.clock, speaking)
+              : this.ambientFrame(declared, phase);
     const [sx, sy, width, height] = declared.frames[
       (index + declared.frames.length) % declared.frames.length
     ] as [number, number, number, number];
@@ -1791,8 +1818,13 @@ export class Renderer {
     const tint = this.tintAt(npc.x, npc.y);
     const grade = this.gradeFor(npc.id);
     const draw = () => this.screen.context.drawImage(image, sx, sy, width, height, left, top, drawW, drawH);
+    // FADING OUT (AmbientFile.leaves; errata 131 F): drawn fainter until gone.
+    const opacity = this.ambient.opacity(npc.id);
+    const was = this.screen.context.globalAlpha;
+    if (opacity < 1) this.screen.context.globalAlpha = was * opacity;
     if (tint || grade) this.drawTinted(tint, [left, top, drawW, drawH], draw, grade);
     else draw();
+    this.screen.context.globalAlpha = was;
     return index;
   }
 
@@ -2067,7 +2099,11 @@ export class Renderer {
     // WHERE THIS ROOM PUTS HER, NOT WHERE HER FILE DOES. Room 4's Vessel is a
     // placement of his Nugget record; read from the file, his words hung over
     // his place at the Nugget's bar, which in the back room is empty floor.
-    const npc = this.ambient.present.find((each) => each.id === this.speaker)
+    // A FIGURE IN THE ROOM WHO SPEAKS AS HIM COMES BEFORE HIS OWN RECORD
+    // ELSEWHERE (AmbientFile.speaksAs; errata 131 C). Duel Three's Fanshawe and
+    // Sowerby are their own figures on Main Street, and their lines hung over
+    // Fanshawe's office x and the back room's, clamped to the street's left edge.
+    const npc = figureSpeaking(this.ambient.present, this.speaker)
       ?? [...this.state.content.ambient.values()].find((each) => each.id === this.speaker);
     if (npc) {
       const height = this.state.heightForZone(npc.zone);
@@ -2105,6 +2141,10 @@ export class Renderer {
         height: rh * place.scale,
       };
     }
+    // A VOICE WITH NO FIGURE, STAGED WHERE IT COMES FROM (RoomFile.voices;
+    // errata 131 A): the ring's mutter, from the chairs, not the top of the frame.
+    const voice = this.state.room.voices?.[this.speaker];
+    if (voice) return { x: voice.x, headY: voice.y, height: 0 };
     return null;
   }
 

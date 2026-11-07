@@ -44,6 +44,12 @@ export interface Utterance {
   rest?: number;
   /** The judges write a point down in this beat (doc 45 U-ASSAY-PENCIL). */
   mark?: boolean;
+  /** The music stops here, until a line with a `cue` (errata 131 D). */
+  quiet?: boolean;
+  /** A doc 45 cue sounded as the line is shown (errata 131 E). */
+  cue?: string;
+  /** A figure's frame held in place of the words (errata 131 B: a direction performed, not printed). */
+  pose?: number;
 }
 
 /**
