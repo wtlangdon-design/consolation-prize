@@ -38,7 +38,7 @@ import {
   actCardOf, playfieldClick, segmentsOf, stepsFor, writesOf, type Segment,
 } from '../core/Opening.ts';
 import { tapAt, tuneAt } from '../core/Listening.ts';
-import { clickOnSpeech, holdOver, waitsForClick } from '../core/SpeechPolicy.ts';
+import { clickOnSpeech, holdOver, isRest, waitsForClick } from '../core/SpeechPolicy.ts';
 import { endingAt, titleItems, type TitleItem } from '../core/Bookends.ts';
 import { clearOfFigures } from '../core/Standing.ts';
 import {
@@ -175,6 +175,9 @@ export class GameScene extends Phaser.Scene {
   /** THE LETTER'S PAGE: the lines said over black in a room that ends the game (errata 128). */
   private page: string[] = [];
   private pageAlpha = 1;
+  /** A room handing on by a fade (errata 133): when it began, and whether the new room is in. */
+  private roomFade: { after: { goto: string }; from: number; enteredAt: number | null; upFrom: number | null } | null = null;
+  private fadeBlack = 0;
   /** Scene seconds when the close's last line came down; null until it has. */
   private endingFrom: number | null = null;
   /** The close's bed is playing out to its end; the title does not start another over it. */
@@ -555,13 +558,22 @@ export class GameScene extends Phaser.Scene {
     if (after && (!this.state.room.timeline?.length || !this.timeline.isRunning)
       && !this.state.dialogue.isActive && !this.pendingTree && this.performance === null
       && this.sayingActor === null && this.pendingSay.length === 0 && this.travelAfterSay === null
-      && this.state.flags.test(after.when)) {
-      this.state.enterRoom(after.goto);
-      this.hovered = null;
-      this.hoveredName = null;
-      this.enterRoomPerformance();
+      && this.state.flags.test(after.when) && this.roomFade === null) {
+      // BY A FADE, where the room says so (errata 133; doc 48 S7 beat 1:
+      // "Fade up on the street"): to black, a held beat, then up on the next.
+      if (after.fade) {
+        this.roomFade = { after, from: now, enteredAt: null, upFrom: null };
+        this.hovered = null;
+        this.hoveredName = null;
+      } else {
+        this.state.handOn(after);
+        this.hovered = null;
+        this.hoveredName = null;
+        this.enterRoomPerformance();
+      }
       this.markDirty();
     }
+    this.tickRoomFade(now);
     this.tickListening();
     this.tickEnding(now);
     // AN EXIT'S BEAT, PLAYED WHERE IT WENT (errata 121 B): its first line once the pause is over.
@@ -780,7 +792,9 @@ export class GameScene extends Phaser.Scene {
       // `panel`, so the clicks were going to the list all along. This was
       // never a hit-testing bug; it only looked like one because the thing
       // underneath was still visible and invited the click.
-      showPanel: this.opening === null && !this.choicesShowing() && !this.panelHidden,
+      // AND NOT DURING A CUTSCENE BEAT AFTER CONTROL (errata 133): doc 17 beat
+      // 11, the walk away under the title, is control `none` like beats 2-7.
+      showPanel: this.opening === null && !this.choicesShowing() && !this.panelHidden && !this.carriedCutscene(),
       hoveredLocation: this.hoveredLocation,
       ripples: this.ripples.map((one) => ({ x: one.x, y: one.y, tail: one.tail,
         age: Math.max(0, Math.min(1, (this.time.now - one.start) / Math.max(1, one.end - one.start))) })),
@@ -802,6 +816,9 @@ export class GameScene extends Phaser.Scene {
       greeting: this.pendingTree?.greeted ? this.pendingTree.tree : null,
       sceneControls: this.sceneControlsShowing() && !this.state.menu.isOpen,
       title: this.titleMenu ? { items: this.titleMenu, hovered: this.titleHover, theEnd: this.titleTheEnd } : null,
+      // ROOM 33'S NINETY SECONDS: the panel inert and dim, the sentence blank (errata 133).
+      panelDim: this.tuneStart !== null,
+      fadeBlack: this.fadeBlack,
       page: this.overBlack && this.page.length ? this.page : null,
       pageAlpha: this.pageAlpha,
     });
@@ -969,7 +986,14 @@ export class GameScene extends Phaser.Scene {
     return variant?.tempo ?? entry.tempo ?? null;
   }
 
+  /** A carried beat with control `none` is playing: doc 17 beat 11 (errata 133). */
+  private carriedCutscene(): boolean {
+    return this.carried.isRunning && this.carried.current?.control === 'none';
+  }
+
   private onPointerMove(pointer: Phaser.Input.Pointer): void {
+    // Nothing to name while the ninety seconds run or a room fades (errata 133).
+    if (this.tuneStart !== null || this.roomFade !== null) return;
     if (this.titleMenu && !this.state.menu.isOpen) {
       const { x, y } = this.nativePoint(pointer);
       const hit = this.view.titleHitboxes(this.titleMenu).find((box) => pointInRect(x, y, box));
@@ -1066,6 +1090,8 @@ export class GameScene extends Phaser.Scene {
 
     // An act card holds the screen for its time; a click does not cut it.
     if (this.actCardUntil !== null) return;
+    // A fade between rooms, and a cutscene beat after control, are not the player's (errata 133).
+    if (this.roomFade !== null || this.carriedCutscene()) return;
 
     // The menu takes every click while it is open, including clicks on the
     // verb panel behind it.
@@ -2657,6 +2683,7 @@ export class GameScene extends Phaser.Scene {
     const waits = text !== null && waitsForClick({
       conversation: this.state.dialogue.isActive || this.pendingTree?.greeted === true,
       clickToRead: this.state.content.ui.timing?.conversationWaitsForClick === true,
+      rest: isRest(text),
     });
     this.sayWaiting = waits;
     this.sayUntil = text && !this.state.dialogue.isActive && !waits
@@ -3166,6 +3193,44 @@ export class GameScene extends Phaser.Scene {
     if (phase === 'title') {
       this.toTitle();
       this.titleTheEnd = true;
+    }
+    this.markDirty();
+  }
+
+  /**
+   * THE FADE BETWEEN ROOMS (errata 133): out to black, hold, and in on the
+   * next room. The room changes at the start of the hold, in the black, so
+   * nothing of the old room's interface -- the held item, the sentence -- is
+   * seen to carry over.
+   */
+  private tickRoomFade(now: number): void {
+    const fade = this.roomFade;
+    if (!fade) return;
+    const timing = this.state.content.ui.timing;
+    const out = timing?.roomFadeOutSeconds ?? 1;
+    const hold = timing?.roomFadeHoldSeconds ?? 1;
+    const up = timing?.roomFadeInSeconds ?? 1.5;
+    if (fade.enteredAt === null) {
+      const t = now - fade.from;
+      this.fadeBlack = Math.min(1, t / out);
+      if (t >= out) {
+        this.fadeBlack = 1;
+        this.state.handOn(fade.after);
+        this.hovered = null;
+        this.hoveredName = null;
+        this.enterRoomPerformance();
+        // Timed from AFTER the room change: loading the next plate can stall a frame for the whole hold.
+        fade.enteredAt = this.time.now / 1000;
+      }
+    } else if (fade.upFrom === null) {
+      this.fadeBlack = 1;
+      // HELD IN THE BLACK until the hold is over and the street's plate has arrived, so it fades UP on it.
+      const ready = this.textures.exists(`bg:${this.state.roomId}`) || !this.state.room.background;
+      if (now - fade.enteredAt >= hold && ready) fade.upFrom = now;
+    } else {
+      const t = now - fade.upFrom;
+      this.fadeBlack = Math.max(0, 1 - t / up);
+      if (t >= up) this.roomFade = null;
     }
     this.markDirty();
   }

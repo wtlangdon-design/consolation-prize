@@ -30,11 +30,24 @@ export interface LineContext {
   conversation: boolean;
   /** ui.json `conversationWaitsForClick`. */
   clickToRead: boolean;
+  /** The line is a bare pause, "…" (doc 58 rule 2). */
+  rest?: boolean;
+}
+
+/**
+ * A BARE PAUSE IS A REST, NOT A LINE TO CLICK THROUGH (errata 133; the
+ * bookends audit, finding 9). Doc 58 rule 2 shows `(beat)` and `(pause)` as
+ * the character saying "…"; under click-to-read each one stood on screen as
+ * a floating ellipsis waiting for a click. It is still shown, and now it
+ * holds for its reading hold and gives way by itself, as a pause does.
+ */
+export function isRest(line: string | null | undefined): boolean {
+  return typeof line === 'string' && /^\s*(…|\.\.\.)\s*$/.test(line);
 }
 
 /** Whether the line going up now waits for a click (true) or comes down on its hold (false). */
 export function waitsForClick(line: LineContext): boolean {
-  return line.conversation && line.clickToRead;
+  return line.conversation && line.clickToRead && !line.rest;
 }
 
 /** A line's hold is over: the next queued line follows, or the channel goes quiet. */

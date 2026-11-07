@@ -42,7 +42,11 @@
     "endingHoldSeconds": 7,
     "endingFadeSeconds": 3,
     "endingBlackSeconds": 2,
-    "endingNote": "THE CLOSE (errata 128; the bookends audit, finding 2). After the letter's last line has been read, the whole letter holds on its page for endingHoldSeconds, fades to black over endingFadeSeconds, and the screen stays black for endingBlackSeconds before the title returns. Interface timing of the same class as the act card's: a number to change after watching it, not something doc 48 should have to state."
+    "endingNote": "THE CLOSE (errata 128; the bookends audit, finding 2). After the letter's last line has been read, the whole letter holds on its page for endingHoldSeconds, fades to black over endingFadeSeconds, and the screen stays black for endingBlackSeconds before the title returns. Interface timing of the same class as the act card's: a number to change after watching it, not something doc 48 should have to state.",
+    "roomFadeOutSeconds": 1,
+    "roomFadeHoldSeconds": 1,
+    "roomFadeInSeconds": 1.5,
+    "roomFadeNote": "A ROOM THAT HANDS ON BY A FADE (errata 133; the bookends audit, finding 10): the filing's office fades to black over roomFadeOutSeconds, holds black for roomFadeHoldSeconds while the room changes, and the dawn street fades up over roomFadeInSeconds -- doc 48 S7 beat 1, 'Fade up on the street'. Interface timing, to change after watching it."
   },
   "fullscreen": {
     "note": "Interface grammar, the same class as the map's. Two words rather than one because the button is a TOGGLE and has to say which way it goes -- 'FULL' when windowed, 'WINDOW' when full. Both fit the 336-unit cell at the scaled face: six glyphs is 216 units.",

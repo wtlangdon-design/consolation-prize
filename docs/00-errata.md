@@ -3663,3 +3663,37 @@ Tyler: "Read reference/fiddler-charlie/brief.md and do it." He attached the phot
 - every counter, wrong answer and offer in the Assay.
 
 Each must fit in at most three rows (`OPTION_MAX_ROWS`), each row within the width, every word kept in order. Taking the wrapping out fails it on pair 9's counter.
+
+---
+
+# 133 · THE QUIET MOMENTS: ROOM 33'S NINETY SECONDS, THE FADE INTO DAWN, BEAT 11, AND PAUSES — the bookends audit, findings 8, 9, 10 and 15 (Tyler, 2026-11-06: "proceed with your recommendations")
+
+**A · Room 33's ninety seconds no longer look like a hang (finding 8).**
+- **The fault.** The full verb panel and inventory stayed lit, and the sentence line still read "Look at EVERY ROCK SURFACE", over a frame in which nothing could be done.
+- **The fix.** For the arc, the panel and inventory are **dimmed, not removed**: drawn as always under black at 60%. They stay as inert as they already were. The sentence line is blank, and the pointer names nothing.
+- **Nothing is added.** No text and no motion; invariants 8 and 9 stand, and the lamp is still the only moving thing in the frame.
+- Thad's sit is errata 121 A's, unchanged.
+
+**B · The filing fades into the dawn (finding 10).**
+- **The fault.** `afterTimeline` cut from the night registrar straight to the dawn street. The held item and the sentence line ("Look at THE SAMPLE") carried over.
+- **The fix.** Room 7 declares `"fade": true` in its annotation, through `tools/compile-room.mjs`. The office fades to black, holds there, and the dawn street fades up: doc 48 S7 beat 1, "Fade up on the street". The hold waits for the street's plate, so the fade comes up on it. Timings are ui.json's `roomFadeOutSeconds` 1, `roomFadeHoldSeconds` 1 and `roomFadeInSeconds` 1.5.
+- **Nothing carries over.** As the room hands on (`GameState.handOn`), the held item is put down and the verb is cleared.
+- **The four filed documents leave the inventory once filed** (Tyler agreed, 2026-11-06). THE DEED, THE DEATH CERTIFICATE, THE CERTIFICATE and THE SAMPLE now have `lostWhen: { T_FILED: true }`. They follow the flag, as the watch and the four dollars do, so a save restores it. The deed's file is hand-written; the other three are written by `tools/extract-content.mjs`.
+
+**C · Beat 11 hides the panel (finding 15).** Doc 17 beat 11 is the walk away under the title, and it is control `none` like beats 2–7. While a carried beat with control `none` plays, the panel is not drawn and a click does nothing, so a stale "Walk to CONSOLATION" no longer sits under the title.
+
+**D · A bare pause is a rest (finding 9).**
+- **The fault.** Doc 58 rule 2 shows `(beat)` and `(pause)` as the character saying "…". Under click-to-read, each one stood on screen as a floating ellipsis waiting for a click.
+- **The fix.** It is still shown, and now it holds for its reading hold and gives way by itself, in a conversation too (`SpeechPolicy.isRest`, `DialoguePerformance.tick`). Sump's "…" in the filing's read-back is a pair's line, and already plays on its hold (errata 126).
+
+**Not done, and why.**
+- **Parenthetical directions are still shown as text.** That includes "(stamping)", "(He blots it.)" and "(Stamp. Thad is alive.)". Doc 58, ruled by Tyler on 2026-11-05, says a direction in a reply is shown in the quieter ink. Performing one instead needs a pose or a picture: a stamp frame for Sump or Winnie, or the dawn coach stop, which errata 121 B has since drawn. This session has no image API.
+- The duel's "(He puts on his hat.)" belongs to the session doing the duels.
+
+**What holds it:** `tests/r33-dawn.test.ts`:
+- the filing fades, and the room-fade timings exist;
+- from fixture `r7-f5`, the four documents are carried before T_FILED and gone after it;
+- `handOn` puts the held item down;
+- a pause never waits for a click, while a reply still does.
+
+Removing the sample's `lostWhen`, or treating "…" as a line, fails it.
