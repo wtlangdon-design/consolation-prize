@@ -3,165 +3,166 @@
   "note": "Errata 29. Where each item's icon sits in the sheet. Declared here rather than computed in two places, for the same reason the room idle sheets are: the builder and the engine must not be able to disagree about a rectangle. check-item-names reads the PNG itself and fails if two of these cells are pixel-identical -- an icon nobody can tell from another icon is the running gag dying quietly, which is what that check has always existed to stop.",
   "sheet": "art/ui/item-icons.png",
   "cell": [
-    30,
-    21
+    60,
+    40
   ],
   "icons": {
     "tuning_fork": [
       0,
       0,
-      30,
-      21
+      60,
+      40
     ],
     "letter": [
-      30,
-      0,
-      30,
-      21
-    ],
-    "four_dollars": [
       60,
       0,
-      30,
-      21
+      60,
+      40
+    ],
+    "four_dollars": [
+      120,
+      0,
+      60,
+      40
     ],
     "deed": [
-      90,
+      180,
       0,
-      30,
-      21
+      60,
+      40
     ],
     "company_map": [
       0,
-      21,
-      30,
-      21
+      40,
+      60,
+      40
     ],
     "pickaxe": [
-      30,
-      21,
-      30,
-      21
+      60,
+      40,
+      60,
+      40
     ],
     "filing_fee": [
+      120,
+      40,
       60,
-      21,
-      30,
-      21
+      40
     ],
     "padded_log": [
-      90,
-      21,
-      30,
-      21
+      180,
+      40,
+      60,
+      40
     ],
     "watch": [
       0,
-      42,
-      30,
-      21
+      80,
+      60,
+      40
     ],
     "document_a": [
-      30,
-      42,
-      30,
-      21
+      60,
+      80,
+      60,
+      40
     ],
     "document_b": [
+      120,
+      80,
       60,
-      42,
-      30,
-      21
+      40
     ],
     "document_c": [
-      90,
-      42,
-      30,
-      21
+      180,
+      80,
+      60,
+      40
     ],
     "document_d": [
       0,
-      63,
-      30,
-      21
+      120,
+      60,
+      40
     ],
     "death_certificate": [
-      30,
-      63,
-      30,
-      21
+      60,
+      120,
+      60,
+      40
     ],
     "survey": [
+      120,
+      120,
       60,
-      63,
-      30,
-      21
+      40
     ],
     "invitation": [
-      90,
-      63,
-      30,
-      21
+      180,
+      120,
+      60,
+      40
     ],
     "executor_form": [
       0,
-      84,
-      30,
-      21
+      160,
+      60,
+      40
     ],
     "obituary": [
-      30,
-      84,
-      30,
-      21
+      60,
+      160,
+      60,
+      40
     ],
     "handkerchief": [
+      120,
+      160,
       60,
-      84,
-      30,
-      21
+      40
     ],
     "photograph": [
-      90,
-      84,
-      30,
-      21
+      180,
+      160,
+      60,
+      40
     ],
     "eggs": [
       0,
-      105,
-      30,
-      21
+      200,
+      60,
+      40
     ],
     "tonic": [
-      30,
-      105,
-      30,
-      21
+      60,
+      200,
+      60,
+      40
     ],
     "loan": [
+      120,
+      200,
       60,
-      105,
-      30,
-      21
+      40
     ],
     "blanket": [
-      90,
-      105,
-      30,
-      21
+      180,
+      200,
+      60,
+      40
     ],
     "linen_money": [
       0,
-      126,
-      30,
-      21
+      240,
+      60,
+      40
     ],
     "sample": [
-      30,
-      126,
-      30,
-      21
+      60,
+      240,
+      60,
+      40
     ]
-  }
+  },
+  "errata143": "Redrawn at slot size: 60x40 cells, drawn at a whole x2 into the 180x80 inventory slot (tests/item-icons-scale.test.ts). Cut by tools/art/item-icons-cut.py from art/staging/item-icons/sheet-01.png, item-icons attempt 1; one factor for all 26 (4.395 source pixels to an art pixel)."
 }

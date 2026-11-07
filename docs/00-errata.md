@@ -3874,3 +3874,42 @@ Two of errata 140's items-audit questions, answered.
 **A · All 26 icons redrawn at slot size.** Seven icons read poorly: the eggs, the linen money, the loan, the blanket, the handkerchief, the pickaxe and the sample. All 26 are 30×21 cells enlarged by ×3.81 into 180×80 slots, so their pixels come out uneven. Tyler chose **"Redraw all 26 at slot size (Recommended)"**. The new icons are 60×40 art pixels, drawn at an integer ×2, in the cast's style, with every paper a different object. `reference/item-icons/brief.md` briefs the image session. The cap is `item-icons`, 2 operations.
 
 **B · The blanket stays with Thad after A5.** Errata 68 A has it come back into his inventory, and that is what is built. Errata 76 D's plan to return it to Grievance's bin instead was never built and is struck. Tyler chose **"Thad keeps it (Recommended)"**.
+
+---
+
+# 143 · ALL 26 ITEM ICONS, REDRAWN AT SLOT SIZE — TYLER, 2026-11-07
+
+Tyler: "Read reference/item-icons/brief.md … and do it: redraw all 26 item icons at 60×40, cut, test and merge as the brief says." The brief is errata 142's.
+
+- **One operation of the two** (`item-icons` attempt 1, `reference/item-icons/op-01.spec.json`). Its two images:
+  - `icons-before.png`, for what each icon is;
+  - `style-reference.png`, Thad, Deke and the cast at game size (cropped from `renders/townspeople-vs-cast@3x.png`), for the style.
+- **Each item is described from its own doc 23 LOOK lines.** The thirteen papers are thirteen different objects:
+  - a sealed envelope; a folded printed map; a hand-drawn deed with its stake; a dark-spined ledger;
+  - a sheet with a signature running off the edge; a bordered form; a sealed and ribboned certificate; an X with a pressed stamp; a black-bordered certificate;
+  - a purple-inked survey; a gilt card standing up; a small numbered form; a folded newspaper.
+- **It came back right.** All 26 are in order and each reads as its object, so the correction was not spent. The seven errata 140 found poor now read:
+  - a jar of eggs in yellow brine;
+  - copper coin with one bone button;
+  - Sheng's coins in a paper twist;
+  - a folded striped blanket;
+  - a white lace handkerchief;
+  - a pickaxe with its shim;
+  - grey rock veined with gold.
+- **Cut by `tools/art/item-icons-cut.py`.** The brief asked for each object scaled to fit 60×40, nearest-neighbour. Instead, all 26 share one factor (4.395 sheet pixels to an art pixel, the one that fits the largest object in 58×38), so they stay one scale family. The reduction is `one-level.py`'s premultiplied BOX, then a crisp alpha.
+  - The magenta is taken out at the outline and wherever a pixel sits at the key's own hue (about 300°). The survey's violet ink (about 265°) keeps its colour.
+  - A neighbour's edge reaching over the grid line (the jar's lid into the survey's cell) is left out.
+  - It writes `art/ui/item-icons.png` (4 across, 240×280) and `content/ui/item-icons.json`, with `"cell": [60, 40]`.
+- **Every icon now draws at exactly ×2** into the 180×80 slot, where the old cells came to ×3.81.
+- **The old generator refuses.** `tools/pixelart/item_icons.py` is on `npm run renders`' list and would have written the 30×21 sheet and its JSON straight back. Both paths are now in `tools/pixelart/superseded.py`, and the module stops and names them, as the other superseded composers do (CLAUDE.md, Renders).
+- **The lesson is a test.** `tests/item-icons-scale.test.ts` holds three things:
+  - every cell fits its slot at a whole-number scale;
+  - the declared cell is 60×40;
+  - no icon pixel sits at the magenta key's hue.
+
+  On the old sheet it fails.
+- **Shown:**
+  - `reference/item-icons/icons-after.png` has all 26 at game size beside their names, as `icons-before.png` did.
+  - `renders/inventory-icons-r7-f5-held.png` is the panel in the game on fixture `r7-f5-held`.
+- **Not changed:** `tools/gauntlet/snap.mjs` hangs here when it closes the browser, after the page has loaded and the probe has answered. The in-game frame was taken through the game's own `snapshot()`, as the proofs take theirs.
+- **Waiting on Tyler:** the icons are cut into the game, and he judges them in the playthrough (errata 72). FOUR DOLLARS (three coins) and THE FILING FEE (two coins) are the closest pair. Both are silver coin, as doc 23 makes them, and they differ in count and arrangement.

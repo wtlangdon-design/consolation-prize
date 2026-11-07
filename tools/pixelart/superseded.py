@@ -59,6 +59,14 @@ SUPERSEDED = {
         "320x144, the resolution errata 54 voided. Doc 17 beat 1 puts the title "
         "'over the ridge', so this is the plate a title screen would be built on and "
         "it has to exist at 1920x864 first. Q59",
+    "art/ui/item-icons.png":
+        "errata 143 redrew all 26 icons at slot size, 60x40 cells drawn at a whole x2 "
+        "into the 180x80 inventory slot, cut by tools/art/item-icons-cut.py from "
+        "art/staging/item-icons/sheet-01.png. This module draws the old 30x21 cells, "
+        "which the slot enlarges by an uneven x3.81; writing them back undoes the redraw",
+    "content/ui/item-icons.json":
+        "written by tools/art/item-icons-cut.py with the 60x40 cells of errata 143. "
+        "This module would put back the 30x21 rectangles of the old sheet",
 }
 
 

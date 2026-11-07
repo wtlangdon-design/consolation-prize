@@ -34,6 +34,7 @@ from pathlib import Path
 from canvas import IndexedCanvas
 from palette import Palette
 from renders import RENDERS
+from superseded import refuse_if_superseded
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -517,6 +518,10 @@ def main() -> None:
     palette = Palette.load()
     sheet, cells = build(palette)
     out = ROOT / "art" / "ui" / "item-icons.png"
+    # Errata 143: the icons are redrawn at slot size and cut by
+    # tools/art/item-icons-cut.py. This module's 30x21 cells are retired.
+    refuse_if_superseded(out)
+    refuse_if_superseded(ROOT / "content" / "ui" / "item-icons.json")
     out.parent.mkdir(parents=True, exist_ok=True)
     sheet.save_rgba(out, palette, transparent=TRANSPARENT)
 
