@@ -3,7 +3,7 @@
   "id": "handkerchief",
   "name": "Colonel Fanshawe's handkerchief",
   "short": "THE HANDKERCHIEF",
-  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Pocketed absently at A10. Kept. Room 11's own handkerchief is hidden once it is taken. Errata 66 ruling A: shown to the character at C5 and kept; never consumed.",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Pocketed absently at A10. Kept. Room 11's own handkerchief is hidden once it is taken.",
   "responses": {
     "LOOK_AT": [
       {

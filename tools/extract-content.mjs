@@ -1370,7 +1370,11 @@ function combinations() {
     item: 'company_map', room: 'ozymandias_tent', target: 'ozymandia', puzzle: 'A7', say: a7.map[0].line,
     note: 'Doc 57 A7: the map divined -- THE SURVEY, on Form 12-C. She hands the map back.',
     rules: [
-      { case: 'after T_OZY_PAID', when: { T_OZY_PAID: true }, ...spokenBy(a7.map), items: ['survey'], completes: 'A7' },
+      // NOT ONCE THE SURVEY IS LODGED (the items audit, errata 140): Sump
+      // keeps it at A9, and with no bound here the map on her again handed
+      // a second survey back after the first was on file. After that she has
+      // no case, and the map's own pool answers.
+      { case: 'after T_OZY_PAID', when: { T_OZY_PAID: true, T_SURVEY_LODGED: false }, ...spokenBy(a7.map), items: ['survey'], completes: 'A7' },
       { case: 'not yet paid', when: { T_OZY_PAID: false }, ...spokenBy(a7.unpaid) },
     ],
   });
@@ -1614,7 +1618,11 @@ function combinations() {
       clean({ case: 'at the filing, already down', when: { T_FANSHAWE_BEATEN: true, T_FILED: false }, ...asCase(onFile) }),
     );
   }
-  for (const item of ['survey', 'document_a', 'document_b', 'document_d']) {
+  // EVERYTHING HE HAS GIVEN THE OFFICE BEFORE: the survey and the fee (A9),
+  // the three documents (E0), and the executor's form (E6, accepted and
+  // handed back). The form and a second fee fell to a pool here (the items
+  // audit, errata 140).
+  for (const item of ['survey', 'filing_fee', 'document_a', 'document_b', 'document_d', 'executor_form']) {
     const pair = counterPair(item);
     pair.rules.unshift(Object.fromEntries(Object.entries({ case: 'at the filing', when: { T_FANSHAWE_BEATEN: true, T_FILED: false }, ...asCase(onFile) }).filter(([, v]) => v !== undefined)));
   }
@@ -2772,10 +2780,14 @@ function actTwoItems() {
       id,
       name: fullName,
       short: display,
-      note: `EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. ${acquired} Errata 66 ruling A: shown to the character at C5 and kept; never consumed.`,
+      // Errata 66 A is the submission log's ruling, and was stamped on every
+      // item here -- the loan and the linen money among them, which are spent
+      // and given (the items audit, errata 140).
+      note: `EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. ${acquired}${id === 'padded_log' ? ' Errata 66 ruling A: shown to the character at C5 and kept; never consumed.' : ''}`,
       responses,
       ...held,
       ...(FILED_AT_F5.has(id) ? { lostWhen: { T_FILED: true }, lostNote: FILED_NOTE } : {}),
+      ...(GIVEN_AWAY[id] ?? {}),
     }));
   }
   return out;
@@ -2789,6 +2801,19 @@ function actTwoItems() {
  * same; these three are written here.
  */
 const FILED_AT_F5 = new Set(['death_certificate', 'document_c', 'sample']);
+
+/**
+ * WHAT IS HANDED OVER IN CONVERSATION FOLLOWS THE FLAG THE HANDING WRITES. A
+ * tree may not write inventory (doc 36 Q141 route 1), so an item a character
+ * takes in a conversation leaves by the flag that exchange sets, as the four
+ * dollars leave by T_SWINDLED. Doc 23: THE LINEN MONEY is "Given to Sheng";
+ * doc 57 D4: "SHE_D1 option 1′ — Sheng takes it", which writes T_PRATT_TRAIL.
+ * It stayed in the inventory to the end of the game (the items audit, errata 140).
+ */
+const GIVEN_AWAY = {
+  linen_money: { lostWhen: { T_PRATT_TRAIL: true },
+    lostNote: 'Given to Sheng at SHE_D1 option 1′ (doc 23; doc 57 D4), which writes T_PRATT_TRAIL: it leaves the inventory with that flag (errata 140).' },
+};
 const FILED_NOTE = 'Laid on the counter at the filing (doc 57 F5) and on file after it: it leaves the inventory '
   + 'with T_FILED (Tyler agreed, 2026-11-06; errata 133).';
 

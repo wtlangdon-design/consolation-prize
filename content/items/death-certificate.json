@@ -3,7 +3,7 @@
   "id": "death_certificate",
   "name": "The certificate of my death",
   "short": "THE DEATH CERTIFICATE",
-  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. E4. Used at E5 and E6 (via SUM_C1) and at F5. Cannot be lost. Errata 66 ruling A: shown to the character at C5 and kept; never consumed.",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. E4. Used at E5 and E6 (via SUM_C1) and at F5. Cannot be lost.",
   "responses": {
     "LOOK_AT": [
       {

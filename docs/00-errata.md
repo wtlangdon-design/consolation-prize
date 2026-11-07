@@ -3814,3 +3814,55 @@ Tyler, of the bald judge after errata 138: **"This head still seems weirdly larg
 **Why it keeps missing.** The template, like every cast-unify board, is Thad's **cast-sheet** drawing. Measured at one man's height, its head (crown to chin) is about **1.3× the in-game Thad's** (`renders/thad-in-game-vs-cast-sheet-heads.png`: in-game ~40/300, cast sheet ~52/300). Op 66's bald judge matches the cast-sheet head, at ~1.45× the in-game Thad's. So "a head the size of the hero's" has been asked against the wrong hero all along. Every figure drawn from these boards inherits that head, and the in-game Thad, redrawn smaller-headed (errata 112), is the outlier the cast is measured against.
 
 **Next, when a redraw is wanted:** build the board from the in-game Thad (`art/actors/thad-stand-front/stand-00.png`), not his cast-sheet self, and measure heads against him. What is live is unchanged: 138's leaner judges. Sixty-six of seventy-five cast-unify operations are spent.
+
+---
+
+# 140 · EVERY ITEM AUDITED: WHAT IT IS, HOW IT IS GOT, WHAT IT IS FOR, WHEN IT LEAVES — the items audit (Tyler, 2026-11-06: "Are all items in the inventory (and items that can be picked up) crafted correctly, able to be picked up, combined if/when they need to be, etc?")
+
+Twenty-six items (doc 23's rows; the fixture token is not one). Each was checked against docs 02, 23, 24, 57 and this errata, and against the running game on a new fixture, `r7-f5-held`: the state continuous play from a fresh save is in at the filing, nineteen items in hand. No line was written, and no art was made.
+
+**A · Data and extraction.**
+- **THE LINEN MONEY stayed in the inventory for the rest of the game.** Doc 23 says "Given to Sheng"; doc 57 D4 says "Sheng takes it". A tree may not write inventory, so it now follows the flag that exchange writes, as the four dollars follow T_SWINDLED: `lostWhen: { T_PRATT_TRAIL: true }`, written by `tools/extract-content.mjs`.
+- **A second survey.** THE COMPANY MAP on Madame Ozymandia had no bound after A7. Once Sump had lodged the survey at A9, it handed a fresh one back. The case now also needs `T_SURVEY_LODGED: false`; after that, the map's own pool answers.
+- **"Already on file" missed two papers.** Doc 57 F5: "USE anything else Thad has given the office before". THE EXECUTOR'S FORM (accepted at E6) and THE FILING FEE (paid at A9, and earned again at the piano) fell to a pool. Both now have the case.
+- **The deed and the letter were retyped.** Doc 23's Act I items were written by hand, and three apostrophes and quotes had been curled; the document has them straight. They now match the document character for character.
+- **The note on every Act II item** said "Errata 66 ruling A: shown to the character at C5 and kept; never consumed". That includes the loan and the linen money, which are spent and given. It now stays on the submission log only.
+
+**B · Engine.**
+- **An item's repeat lines started again in every room.** The cursor was keyed to the room he stood in. It is now keyed to the inventory, as `GameState.scopeOf` always said it was.
+- **A room object that shares an item's id shared its lines.** Room 34's THE TUNING FORK is a hotspot. LOOK at the fork in the inventory twice, then at the one in the room, and the room's fork spoke its third line first. Room 11's THE HANDKERCHIEF was keyed the same way. Items are now told apart by what made them (`GameState.isItemTarget`), not by id.
+- **An item on a person with no pair got the people pool.** THE TUNING FORK on Winnie said "I would not know where to begin, and the beginning is the part people object to.", which is written for USE on a person with nothing in hand. Doc 24's tiers are for "this item on anything unhandled", so it now goes to the pair, then the item's pool, then the global pool. THE SUBMISSION LOG on Winnie after C5 is the same: "the pair yields to the ordinary pools" (its own note). Before, it said nothing.
+- **Item on item was impossible.** Holding THE LETTER and pointing at THE TUNING FORK, the sentence read "Use THE LETTER on THE TUNING FORK", and the click swapped which item was held. Doc 22 asks for "item-to-item sentences". With USE selected and an item in hand, a click on a different item now performs that sentence through doc 24's tiers (`GameState.inventoryClick`). The global pool's "They are two separate objects and I should like them to remain so." is finally reachable. Clicking the held item still puts it down.
+- **The item stayed in hand after the sentence.** The verb cleared when "Use X on Y" finished, but the item did not. The next hover read "Look at THE TUNING FORK on THE COUNTER", and the next USE on an item carried the stale one. The item is now put down with the verb.
+- **The inventory scrolled one icon at a time** in a grid four wide. Every icon slid a cell and the first of each row wrapped onto the row above. It now moves a row at a time, so the bottom row comes up to the top.
+
+**C · Checked and sound.** Every item is in the manifest, with an icon that loads and draws, and its doc 23 LOOK and LISTEN, three each. Every item has a source:
+- **Pick-ups:** the case's three take the case; the eggs, tonic and pickaxe are once each on account; the photograph comes once, from a drawer of forty.
+- **Room objects that hide:** the log's hotspot goes with the log; Room 11's handkerchief is gone after the dinner; Grievance's blanket is not in her bin while it is lent.
+
+Every USE doc 57 writes is a pair, and every spend in doc 23 takes its item:
+- **Spent or lodged:** the four dollars, the survey, the fee twice, the loan, the eggs and the tonic.
+- **Filed:** the four papers at T_FILED (errata 133).
+
+The whole game, played through, ends carrying exactly what doc 23 keeps, and nothing it needs had left before it was needed.
+
+**D · For Tyler (not changed).**
+- **The blanket.** Errata 68 A has it "come back into inventory" after A5, and that is what happens. Errata 76 D read doc 23's "comes back after it" as back to the livery, "which clears the flag when Rooms 23/24 are built". That was never done, and doing it alone would draw a blanket in the bin while Thad still carries one.
+- **The icons.** See the session report: the eggs, linen money, loan, blanket and handkerchief icons read poorly. Every icon is magnified from a 30×21 cell by 3.8, a non-integer step, so its pixels are uneven.
+- **THE EXECUTOR'S FORM on Sump after E6** replays the acceptance in full. Doc 57 has no line for after.
+
+**What holds it:** `tests/items.test.ts`, over every item the manifest loads. Each defect above was put back and failed it:
+- doc 23 verbatim;
+- an icon drawn;
+- a source, and carried in play;
+- bounded sources;
+- the second survey;
+- doc 57's USEs;
+- "Already on file";
+- spends take;
+- pools on people and items;
+- item-on-item pairs both ways;
+- an item's lines kept across rooms and apart from a room object's;
+- the end state;
+- the fixture equal to play;
+- scrolling by rows.

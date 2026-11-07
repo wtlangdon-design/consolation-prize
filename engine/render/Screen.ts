@@ -105,6 +105,11 @@ export class PanelLayout {
     return cols * rows;
   }
 
+  /** Icons in one row of the grid: what one press of an arrow moves the list by. */
+  get perRow(): number {
+    return this.file.inventory.cols;
+  }
+
   /** The nth visible icon cell, filling left to right then down. */
   inventoryRow(index: number): Rect {
     const { x, y, cell, cols } = this.file.inventory;
