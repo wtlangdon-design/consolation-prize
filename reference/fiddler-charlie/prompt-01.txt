@@ -1,0 +1,9 @@
+Image 1 is a saloon fiddler from my pixel-art adventure game, five poses on magenta. Image 2 shows the
+level of pixelation and detail every character in the game is drawn at. Image 3 is a photograph of a
+real man. Redraw the fiddler in Image 1 so that he is recognisably the man in Image 3: his face, his
+short dark hair, his stubble, his build and his warm, slightly crooked smile. Keep EVERYTHING else from
+Image 1 exactly: the same five poses in the same order and places, the same clothes (shirtsleeves,
+waistcoat, string tie, hat tipped back), the same fiddle and bow, the same height, the same pixel size
+and soft shading as Image 2, feet on one line, flat pure magenta (#FF00FF) background, clear magenta
+between poses, crisp pixel edges, no text, no ground, no shadows. He is an 1850s frontier musician,
+not a modern man in a costume: no sunglasses, no modern clothes.

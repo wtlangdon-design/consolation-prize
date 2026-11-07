@@ -3609,6 +3609,29 @@ Removing `endsGame` from the coach stop fails it.
 
 ---
 
+# 132 · THE FIDDLER, DRAWN AS CHARLIE — TYLER, 2026-11-07
+
+Tyler: "Read reference/fiddler-charlie/brief.md and do it." He attached the photograph of Charlie, his husband (errata 123).
+
+- **One operation of the two** (`fiddler-charlie` attempt 1, `reference/fiddler-charlie/op-01.spec.json`). Its three images, in the brief's order:
+  - the fiddler's own sheet;
+  - the Nugget cast standard;
+  - the photograph.
+- **It came back keeping everything the brief keeps:** the five poses in order and place, the costume, the hat, the fiddle and bow, and the height. Only the face, hair and build changed, to Charlie's: dark hair, stubble and a warm, slightly crooked smile. The correction was not spent.
+- **The photograph never entered the repository.** It is at `art/staging/private/charlie.png`, which `.gitignore` excludes. The ledger records its path and hash, not the picture. No render was made from it, and nothing under `renders/` shows it.
+- **Cut as errata 115 cut him.**
+  - `tools/art/townspeople-cut.py --only fiddler` reads the new sheet, at the same 288 px figure height and in the same frame order.
+  - The new drawing cut one pixel narrower, so the frames are padded to the 144 px the sprite declares. `content/ambient/fiddler.json` stands unchanged: frames, breaks, `keepsTime` and talk frame.
+  - Snapped by `one-level.py --only`. `--only` leaves the other townspeople's cuts and their `cut.json` entries alone.
+- **Checked:**
+  - `npm test` and `run-all` pass, including the one-level, movement, keeps-time and key-edge checks.
+  - The Nugget's proof passes.
+  - `renders/fiddler-charlie-beside-thad-in-the-nugget@1x.png` and `@2x.png` show him beside Thad at game size.
+
+**Waiting on Tyler:** this is a likeness, so his eye is the test, before the merge. One correction remains under the cap.
+
+---
+
 # 135 · THE UNDERTAKER AND MADAME OZYMANDIA, SOFTER — TYLER, 2026-11-07 (reference/cast-softer/brief.md)
 
 Tyler, of the pre-playthrough art check: the undertaker "too detailed compared to Thad's", with shoulders too broad; "Ozymandia has too much detail compared to Thad." The brief's recommendation, one softer redraw of both, is done. **One operation spent: cast-unify 61 of 75** (`reference/cast-unify-31.txt`, `art/staging/cast-unify/batch-31/`). The redraw did not plainly miss, so no correction operation was spent.

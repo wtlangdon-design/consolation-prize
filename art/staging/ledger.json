@@ -29731,6 +29731,68 @@
    "recordedAt": "2026-11-06T22:58:32.910Z"
   },
   {
+   "attempt": 1,
+   "role": "other",
+   "assetId": "fiddler-charlie",
+   "subject": "fiddler",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/townspeople-110/fiddler/sheet-03.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/fiddler-charlie/prompt-01.txt",
+   "promptHash": "9326339cd46a414b9047a426d859b341c48fb57825d4a4805efe98cdeb75d0d3",
+   "references": [
+    {
+     "path": "art/staging/townspeople-110/fiddler/sheet-03.png",
+     "hash": "fc4919d6e96fc8f9586b21c98781b2c6bf3dba465940a0aba4df0831944a910a",
+     "transmitted": true
+    },
+    {
+     "path": "reference/townspeople/nugget-cast-standard.png",
+     "hash": "1eeb5ef19383873b4534696b2c637984f2b1e507f9e5b9305b1725c20a90267c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/private/charlie.png",
+     "hash": "03918f21e92f83c1f0782ba2e5bc463234f7c9feba1ef67dcae9759bf346e1d3",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "fc4919d6e96fc8f9586b21c98781b2c6bf3dba465940a0aba4df0831944a910a",
+   "sourcePath": "art/staging/townspeople-110/fiddler/sheet-03.png",
+   "out": "art/staging/fiddler-charlie/sheet-01.png",
+   "outputHash": "fcf9f8b3cdc6d56d52129237036a6a25acd1819cfa64b1c04147d9c2ab83bd1f",
+   "bytes": 1503264,
+   "usage": {
+    "input_tokens": 4794,
+    "input_tokens_details": {
+     "image_tokens": 4563,
+     "text_tokens": 231
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 6345
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-07T01:07:29.023Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-06 (fiddler-charlie cap 2): \"I think the fiddler is perfect to look like Charlie\"; \"proceed with your recommendations\". Photo attached 2026-11-07, kept under art/staging/private/ (ignored); only its hash is recorded.",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-07T01:07:29.034Z"
+  },
+  {
    "attempt": 61,
    "role": "canonical-design",
    "assetId": "cast-unify",
