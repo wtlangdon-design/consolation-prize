@@ -1481,6 +1481,12 @@ export interface RoomFile {
    * with nothing left to do in it.
    */
   blackWhen?: Condition;
+  /**
+   * THE GAME ENDS HERE (errata 128): once the room's lines have been said,
+   * the letter's page holds, fades, and the title returns. The bed is let
+   * finish rather than cut.
+   */
+  endsGame?: boolean;
   onEnter?: {
     note?: string;
     set?: FlagWrites;
@@ -2129,6 +2135,10 @@ export interface UiFile {
      * and its greeting; examine lines and barks keep their reading holds.
      */
     conversationWaitsForClick?: boolean;
+    /** The close (errata 128): the letter's page held, its fade, and the black before the title. */
+    endingHoldSeconds?: number;
+    endingFadeSeconds?: number;
+    endingBlackSeconds?: number;
     conversationNote?: string;
   };
 }
@@ -2207,6 +2217,8 @@ export interface ManifestFile {
   sounds?: string;
   /** A colour per speaker for spoken lines. Absent draws in the default ink. */
   speechColours?: string;
+  /** The title screen's content (content/ui/title.json). */
+  title?: string;
   /** Doc 03's Liar's Assay, as content/assay/assay.json. Optional so a manifest without duels still loads. */
   assay?: string;
   speechColoursNote?: string;
@@ -2521,6 +2533,25 @@ export interface ContentBundle {
   speechColours: SpeechColoursFile | null;
   /** The Liar's Assay, or null when the manifest names none. */
   assay: AssayFile | null;
+  /** The title screen (content/ui/title.json), or null when the manifest names none. */
+  title: TitleFile | null;
+}
+
+/**
+ * THE TITLE SCREEN (doc 36 Q59; doc 33 table 5; errata 128). Every word on it
+ * is here. `lines` are the title in the game's face, drawn when the logo has
+ * not loaded; `background` is the plate behind it.
+ */
+export interface TitleFile {
+  schema: number;
+  note?: string;
+  title: { note?: string; lines: { text: string; size: 'small' | 'huge' }[] };
+  menu: { items: { id: string; label: string }[] };
+  background: string;
+  logo?: string;
+  musicCue?: string;
+  /** Under the drawn title when the title is reached through the close (Tyler, 2026-11-06). */
+  theEnd?: string;
 }
 
 /**

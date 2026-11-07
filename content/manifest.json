@@ -220,6 +220,7 @@
  "verbFallbacks": "content/ui/verb-fallbacks.json",
  "duplicateAllowlist": "content/ui/duplicate-allowlist.json",
  "menu": "content/ui/menu.json",
+ "title": "content/ui/title.json",
  "actCards": "content/act-cards.json",
  "combinations": "content/combinations.json",
  "itemIcons": "content/ui/item-icons.json",

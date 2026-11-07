@@ -8,6 +8,9 @@
  "ambient": [
   "sign_painter"
  ],
+ "interface": "none",
+ "endsGame": true,
+ "interfaceNote": "Doc 48 S7 beats 3 to 5 are control `none`: no panel here, from his arrival to the end (errata 128). The game ends in this room: once the letter has been read it holds as one page, fades, and the title returns (`endsGame`).",
  "colours": {
   "sky": 237,
   "ground": 181

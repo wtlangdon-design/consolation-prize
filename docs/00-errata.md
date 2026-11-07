@@ -3570,6 +3570,45 @@ Duel audit findings 4, 5 and 7, and bookends audit finding 7 ("Duel Three's vict
 
 ---
 
+# 128 · A TITLE SCREEN AND AN ENDING — the bookends audit, findings 2 and 3 (Tyler, 2026-11-06: "proceed with your recommendations")
+
+**The faults.**
+- **No title screen (finding 3).** Boot went straight into Room 1. A browser plays nothing before a click, and none was possible until the driver's tree, about 14 s in. So the coach, Room 1's THADDEUS bed, "My name is Thaddeus Grubb…" and "Course you have." all played in silence, after 2.8 s of black.
+- **"Quit to Title" did not go to a title.** It silently started a new game.
+- **No ending (finding 2).** After "— Your Thaddeus." the play area stayed black for ever, and the bed looped on.
+
+**The title** (`content/ui/title.json`, now named by the manifest; drawn by `Renderer.drawTitleScreen`; the menu's rules are in `engine/core/Bookends.ts`):
+- It is what doc 36 Q59 specified: the ridge plate, the drawn title (`art/ui/title-logo.png`) in its sky, and NEW GAME / CONTINUE / OPTIONS / CREDITS in the game's face on the dark ground below.
+- **NEW GAME is the click that unlocks audio,** so the opening plays with sound from its first frame. The title's own bed is O-01-M (`music.title`), detuned like the rest of the score. A browser starts it only after a click anywhere on the title.
+- **CONTINUE** loads the newest save (the autosave). It is visible and dim with no save (doc 33 table 5). It is also dim when that save was taken after the close, because a finished game has nothing to continue (`GameState.canContinue`).
+- **OPTIONS** opens the options page alone; its Back returns to the title.
+- **CREDITS stays on the menu, drawn dim and inert.** Tyler ruled that there is no credits list for now (below), and no document has one (doc 48 S7 beat 5, doc 45 OQ-08). Inert was the simpler of the two choices he allowed; the other was showing only "THE END".
+- **Boot goes to the title.** A `?room=` or `?fixture=` review link still goes straight into the game.
+- **"Quit to Title" goes to the title.** Per doc 33 table 5, it neither resets the world nor deletes a save.
+- While the title is up, nothing of the game runs behind it.
+
+**The close** (Room 36's exit into `coach_stop_dawn`, errata 121 B):
+- **No panel from his arrival at the coach stop.** Doc 48 S7 beats 3–5 are control `none`, so the room declares `"interface": "none"`. Its scene controls offer MENU only: SKIP SCENE is shown only in a room with a timeline to skip.
+- **The letter is one page.** Each line joins the page under the one before, rather than four subtitles each erasing the last. Then the page holds whole.
+- **Then it fades, the screen stays black a moment, and the title returns over the ridge, with THE END under the drawn title.** Tyler's ruling, 2026-11-06: asked what the ending should say, he chose **"Title + THE END only (Recommended)"**. The words are `content/ui/title.json` `theEnd`, and they show only when the title is reached through the close. The timings are `endingHoldSeconds` 7, `endingFadeSeconds` 3 and `endingBlackSeconds` 2 in ui.json, interface timing to change after watching it.
+- **The dawn bed is let finish** (`Music.finish`): it stops looping and plays to the end of its file, which is whole bars, then stops. Nothing replaces or extends it (doc 45). The title does not start its own bed over it.
+- **A game loaded after the close** goes straight to black and the title.
+- The room declares this with `"endsGame": true`.
+
+**Tooling.** The probe reports `title` and `ending`, and `__gauntlet.titleItem(id)` says where an item is drawn. The opening gauntlet (`run.mjs`) and every route (`route.mjs` `pastTitle`) click NEW GAME, as a player does. The opening gauntlet passes with the title in front of it.
+
+**What holds it:** `tests/bookends.test.ts`:
+- the title's plate, logo and four items exist;
+- CONTINUE is dim with no save and with a finished one, and CREDITS is inert;
+- exactly one room ends the game, with no panel, and its letter is entirely over black;
+- the ending's phases run hold → fade → black → title.
+
+Removing `endsGame` from the coach stop fails it.
+
+**For Tyler, later:** a credits list, if he wants one, and what it plays over (doc 45 OQ-08).
+
+---
+
 # 135 · THE UNDERTAKER AND MADAME OZYMANDIA, SOFTER — TYLER, 2026-11-07 (reference/cast-softer/brief.md)
 
 Tyler, of the pre-playthrough art check: the undertaker "too detailed compared to Thad's", with shoulders too broad; "Ozymandia has too much detail compared to Thad." The brief's recommendation, one softer redraw of both, is done. **One operation spent: cast-unify 61 of 75** (`reference/cast-unify-31.txt`, `art/staging/cast-unify/batch-31/`). The redraw did not plainly miss, so no correction operation was spent.

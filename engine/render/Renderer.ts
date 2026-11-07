@@ -22,6 +22,7 @@ import type { ActorFile, AmbientFile, FigureLight, Interactable, OverlayFile, Ro
 import { ActorSprite, type DrawnFrame } from './ActorSprite.ts';
 import { depthTies, watch } from '../dev/Watch.ts';
 import type { DrawRecord } from '../dev/Probe.ts';
+import type { TitleItem } from '../core/Bookends.ts';
 import { GLYPH_SCALE, PANEL_GLYPH_SCALE, BitmapFont, type Face } from './BitmapFont.ts';
 import { IdleLayer } from './IdleLayer.ts';
 import { askedFont, PreviewFont } from './PreviewFont.ts';
@@ -100,6 +101,18 @@ export interface Frame {
   pose?: { speaker: string; frame: number | 'mark' } | null;
   /** A held silence (errata 131 D): every figure holds its rest frame, save whoever speaks or poses. */
   still?: boolean;
+  /**
+   * THE TITLE SCREEN (errata 128): its items, and which one the pointer is
+   * on. While it is up nothing of the room is drawn.
+   */
+  title?: { items: TitleItem[]; hovered: string | null; theEnd?: boolean } | null;
+  /**
+   * THE LETTER'S PAGE (errata 128): every line of it said so far, drawn whole
+   * over black and held, at `pageAlpha` while it fades. Replaces the speech
+   * line while it is up.
+   */
+  page?: string[] | null;
+  pageAlpha?: number;
   /**
    * An exchange is being PERFORMED, so the choice list is neither drawn nor
    * clickable. Doc 30 section 1.
@@ -190,6 +203,16 @@ const DIALOGUE_LINE_HEIGHT = 10 * PANEL_GLYPH_SCALE;
 const SPEECH_LINE_HEIGHT = 10 * GLYPH_SCALE;
 const SAY_TOP = 8 * GLYPH_SCALE;
 const TEXT_MARGIN = 6 * GLYPH_SCALE;
+/** The letter's page: doc 30's speech block width, and a gap between its lines (errata 128). */
+const PAGE_WIDTH = Math.round(NATIVE_WIDTH * (240 / 320));
+const PAGE_GAP = 4 * GLYPH_SCALE;
+const PAGE_TOP = 40 * GLYPH_SCALE;
+/** The title screen's layout: the logo in the ridge's sky, the menu on the dark ground below. */
+const TITLE_SCREEN_LOGO_WIDTH = 940;
+const TITLE_SCREEN_LOGO_Y = 36;
+const TITLE_MENU_Y = 540;
+const TITLE_THE_END_Y = 392;
+const TITLE_MENU_STEP = 11 * GLYPH_SCALE;
 /**
  * Doc 17 beat 7's card, on the view rather than across the man standing
  * in it. At 118 it crossed Thad's chest; the band above the horizon is the
@@ -716,6 +739,11 @@ export class Renderer {
     // would have put a grey bar under the opening that nobody asked for.
     // `drawPanel` paints `panelBg` over this the moment a panel exists.
     this.screen.fill(0, PANEL_Y, NATIVE_WIDTH, PANEL_HEIGHT, this.screen.role('overlayBg'));
+    if (frame.title) {
+      this.drawTitleScreen(frame.title);
+      this.drawMenu();
+      return;
+    }
     if (this.state.isMap) {
       this.drawRoom();
       this.drawMap(frame);
@@ -765,7 +793,8 @@ export class Renderer {
     if (frame.overBlack) this.screen.fill(0, 0, NATIVE_WIDTH, PLAY_HEIGHT, this.screen.role('overlayBg'));
     // The response to an option is drawn above the option list, not instead
     // of it -- otherwise picking an option appears to do nothing.
-    this.drawSay(frame.sayLines, frame.awaitingClick === true);
+    if (frame.page?.length) this.drawPage(frame.page, frame.pageAlpha ?? 1);
+    else this.drawSay(frame.sayLines, frame.awaitingClick === true);
     if (frame.barkAt) {
       this.drawBark(frame.barkLines, frame.barkAt);
     }
@@ -803,7 +832,8 @@ export class Renderer {
     const ctx = this.screen.context;
     const cells: [Rect | null, string][] = [
       [this.panel.menuButton, this.state.menu.buttonLabel],
-      [this.panel.mapButton, this.state.content.menu.sceneControls?.skip ?? ''],
+      // SKIP SCENE only where there is a scene to skip: a timeline (the close has none; errata 128).
+      [this.panel.mapButton, this.state.room.timeline?.length ? this.state.content.menu.sceneControls?.skip ?? '' : ''],
     ];
     for (const [rect, label] of cells) {
       if (!rect || !label) continue;
@@ -1981,6 +2011,86 @@ export class Renderer {
       );
     });
     if (awaitingClick && lines.length > 0) this.drawContinueMark(anchor, lines);
+  }
+
+  /**
+   * THE LETTER, AS ONE PAGE (errata 128; the bookends audit, finding 2). Doc
+   * 48 S7 beat 4: "The letter, Act IV, over black". The bible calls it very
+   * short, and it was shown as four subtitles each erasing the last; now each
+   * line joins the page under the one before, centred in the play area, in
+   * the letter-writer's ink, and the page holds whole.
+   */
+  private drawPage(lines: string[], alpha: number): void {
+    if (alpha <= 0) return;
+    const writer = this.state.content.actor.id;
+    const ink = this.state.content.speechColours?.speakers[writer]?.colour ?? this.screen.roleColour('inkBright');
+    const blocks = lines.map((line) => this.font.wrap(line, PAGE_WIDTH));
+    // A FIXED TOP, so the page grows downward and a line once placed never moves.
+    let y = PAGE_TOP;
+    const ctx = this.screen.context;
+    const was = ctx.globalAlpha;
+    ctx.globalAlpha = was * Math.min(1, alpha);
+    for (const block of blocks) {
+      for (const row of block) {
+        this.font.drawCentredOutlined(ctx, row, NATIVE_WIDTH / 2, y, ink, this.screen.roleColour('overlayBg'));
+        y += SPEECH_LINE_HEIGHT;
+      }
+      y += PAGE_GAP;
+    }
+    ctx.globalAlpha = was;
+  }
+
+  /**
+   * THE TITLE SCREEN (errata 128; doc 36 Q59, doc 17 beat 1: "Title over the
+   * ridge at night"). The ridge plate, the drawn title in its sky, and the
+   * menu in the game's face on the dark ground below it. The panel band stays
+   * black. Every word is content/ui/title.json's.
+   */
+  private drawTitleScreen(title: { items: TitleItem[]; hovered: string | null; theEnd?: boolean }): void {
+    const file = this.state.content.title;
+    if (!file) return;
+    const ctx = this.screen.context;
+    const plate = this.sheet(file.background);
+    if (plate) ctx.drawImage(plate, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+    else this.screen.fill(0, 0, NATIVE_WIDTH, PLAY_HEIGHT, this.screen.role('overlayBg'));
+    const logo = file.logo ? this.sheet(file.logo) as { width?: number; height?: number } | null : null;
+    if (logo?.width && logo.height) {
+      const height = Math.round((logo.height / logo.width) * TITLE_SCREEN_LOGO_WIDTH);
+      ctx.drawImage(logo as CanvasImageSource, Math.round((NATIVE_WIDTH - TITLE_SCREEN_LOGO_WIDTH) / 2),
+        TITLE_SCREEN_LOGO_Y, TITLE_SCREEN_LOGO_WIDTH, height);
+    } else {
+      // The same words in the game's face, if the drawing has not loaded.
+      file.title.lines.forEach((line, index) => {
+        this.font.drawCentredOutlined(ctx, line.text, NATIVE_WIDTH / 2,
+          TITLE_SCREEN_LOGO_Y + index * SPEECH_LINE_HEIGHT * 2,
+          this.screen.roleColour('inkBright'), this.screen.roleColour('overlayBg'));
+      });
+    }
+    // THE END, under the title, when the game has just ended (Tyler, 2026-11-06:
+    // "Title + THE END only"). The words are title.json's.
+    if (title.theEnd && file.theEnd) {
+      this.font.drawCentredOutlined(ctx, file.theEnd, NATIVE_WIDTH / 2, TITLE_THE_END_Y,
+        this.screen.roleColour('inkBright'), this.screen.roleColour('overlayBg'));
+    }
+    for (const [index, item] of title.items.entries()) {
+      const ink = !item.enabled ? 'inkDim' : item.id === title.hovered ? 'inkBright' : 'ink';
+      this.font.drawCentredOutlined(ctx, item.label, NATIVE_WIDTH / 2, TITLE_MENU_Y + index * TITLE_MENU_STEP,
+        this.screen.roleColour(ink), this.screen.roleColour('overlayBg'));
+    }
+  }
+
+  /** Where each title item is clickable: its row, a little wider than its words. */
+  titleHitboxes(items: TitleItem[]): { id: string; x: number; y: number; width: number; height: number }[] {
+    return items.map((item, index) => {
+      const width = this.font.measure(item.label) + 8 * GLYPH_SCALE;
+      return {
+        id: item.id,
+        x: Math.round(NATIVE_WIDTH / 2 - width / 2),
+        y: TITLE_MENU_Y + index * TITLE_MENU_STEP - 2 * GLYPH_SCALE,
+        width,
+        height: TITLE_MENU_STEP,
+      };
+    });
   }
 
   /**

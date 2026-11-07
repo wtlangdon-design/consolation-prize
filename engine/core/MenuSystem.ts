@@ -88,6 +88,11 @@ export class MenuSystem {
     this.current = 'closed';
   }
 
+  /** Opens straight onto a page: the title's OPTIONS (errata 128). */
+  openOn(page: Exclude<MenuPage, 'closed'>): void {
+    this.current = page;
+  }
+
   /** ESC steps back one level rather than closing outright from a subpage. */
   escape(): void {
     this.current = this.current === 'closed' ? 'root'
