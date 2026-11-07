@@ -4587,4 +4587,10 @@ He answered **"That all sounds good"** to one more pass: a pass at the top with 
 
 **The method.** `tools/art/town-map-pieces.py` cuts the pieces sheet on its magenta key, clears and refills the plan's boxes, and sets each piece in its box. A masked finishing pass may repaint only those boxes, and only those are taken back. The brief's fifth part covers it.
 
-**B · The map's Thad** lands with Lower Street and the Lane (errata 161, part 3), on the branch where it was built, and is recorded here when it merges.
+**B · The map's Thad (with errata 161, part 3).** A small Thad stands on the map at the place of the room it was opened from, or Main Street for a room with none of its own (`mapToken.homes` names the rest). A click on a place walks him there along the drawn roads, the shortest way, and the room changes when he arrives (`engine/core/MapWalk.ts`).
+- **Timing.** He walks at 260 pixels a second, and never for longer than 4.5 seconds: a long walk is walked faster.
+- **Skipping.** A second click skips the walk, so backtracking never waits.
+- **Closing the map.** Closing it mid-walk goes nowhere, as closing the map always has (doc 20 rule 5).
+- **The roads** are a graph read off the drawing: `content/rooms/town-map.json` `roads`, a node at each bend and each place. Pratt's claim and the high ridge are walked to across the ground from the nearest bend.
+- **The figure** is derived from his own walk cycle and rest pose by `tools/art/map-thad.py`: 30 pixels tall, a dark one-pixel outline, mirrored to walk left. No image operation was spent on it. Errata 25's "needs its own drawn asset" was true of the decimation curve, not of an area reduction from his own frames.
+- **Tests and render.** `tests/map-walk.test.ts` holds that every place is on the roads, every walk ends where it was going and within its time, and the sheet holds his frames. `renders/map-thad-walking.png` shows him mid-walk, from the creek into town.
