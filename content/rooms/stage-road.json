@@ -5,6 +5,59 @@
   "materialIdentity": "cold indigo, grey and sky, with warm ochre and gold only where the lamp and the windows reach -- ruling 17a. The only night exterior in the game.",
   "note": "Doc 05 Room 1 plus doc 17 v2, with errata ruling 19a's canonical per-state line sets. Doc 17 note 3: THE ROAD EAST's LISTEN variants 2 and 3 are identical to each other AND to the line at the high ridge in Act IV -- three uses of 'Nothing coming', a hundred yards and fifteen hours apart. Do not vary them. THE COACH, THE TEAM and THE WATCHMAN'S LAMP are state-gated: the coach becomes THE ROAD WEST OUT once it has gone, the team exists only while it is here, and there is no lamp at all until Hob walks onto the road.",
   "background": "art/backgrounds/room-01-stage-road.png",
+  "sky": "art/backgrounds/room-01-stage-road-sky.png",
+  "skyNote": "Errata 157 (Tyler, 2026-11-07, choosing the pan down from the stars): a screen of night sky ABOVE the plate, for the opening's first shot -- the camera starts in it and glides down to the coach (the `pan` step in beat 2). Built from the plate's own sky by tools/pixelart/room01_sky_extension.py; no new picture was painted.",
+  "skyStars": [
+    [
+      48,
+      174
+    ],
+    [
+      518,
+      276
+    ],
+    [
+      887,
+      161
+    ],
+    [
+      1231,
+      362
+    ],
+    [
+      1412,
+      197
+    ],
+    [
+      1754,
+      164
+    ],
+    [
+      72,
+      696
+    ],
+    [
+      443,
+      608
+    ],
+    [
+      786,
+      707
+    ],
+    [
+      1209,
+      790
+    ],
+    [
+      1445,
+      802
+    ],
+    [
+      1750,
+      602
+    ]
+  ],
+  "skyStarsNote": "Errata 157 (Tyler: \"with stars flickering in a few places\"): twelve of the sky's own brightest stars, one to each cell of a 6 x 2 grid, in sky coordinates; printed by tools/pixelart/room01_sky_extension.py. Each flares briefly at its own irregular moments while the sky is on screen. Decorative: nothing about them changes with the game (invariant 9).",
   "colours": {
     "sky": 237,
     "ground": 181

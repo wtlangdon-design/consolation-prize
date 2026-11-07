@@ -4,7 +4,7 @@ import type { GameState } from '../core/GameState.ts';
 import type { AmbientFile, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep, SoundsFile,
 } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
-import { planNear } from '../core/BootAssets.ts';
+import { planNear, planRoom } from '../core/BootAssets.ts';
 import { Music } from '../core/Music.ts';
 import { RoomActors } from '../core/RoomActors.ts';
 import type { Controls, FrameReport, MoverReport } from '../dev/Probe.ts';
@@ -220,6 +220,16 @@ export class GameScene extends Phaser.Scene {
   /** A room handing on by a fade (errata 133): when it began, and whether the new room is in. */
   private roomFade: { after: { goto: string }; from: number; enteredAt: number | null; upFrom: number | null } | null = null;
   private fadeBlack = 0;
+  /**
+   * NEW GAME'S WAY IN (errata 157): the title fades to black ('out'), the
+   * screen holds black until Room 1 has arrived whole ('black'), and then the
+   * opening begins as the black lifts ('up'). Null otherwise.
+   */
+  private entry: { phase: 'out' | 'black' | 'up'; at: number } | null = null;
+  /** Errata 157's pan down from the sky: when it began and how long it runs. */
+  private panning: { from: number | null; seconds: number } | null = null;
+  /** Assets the loader could not fetch: a room waits for each to arrive OR fail, never for ever. */
+  private readonly loadFailed = new Set<string>();
   /** Scene seconds when the close's last line came down; null until it has. */
   private endingFrom: number | null = null;
   /** The close's bed is playing out to its end; the title does not start another over it. */
@@ -438,7 +448,18 @@ export class GameScene extends Phaser.Scene {
         this.state.moveCamera(to, follow);
         this.markDirty();
       },
+      // ERRATA 157: the first shot starts in the sky and glides down.
+      pan: (seconds) => {
+        this.panning = { from: this.time.now / 1000, seconds };
+        this.markDirty();
+      },
+      // ERRATA 157: held at the top of the sky, the voices in the dark, until the pan.
+      sky: () => {
+        this.panning = { from: null, seconds: 0 };
+        this.markDirty();
+      },
     });
+    this.load.on('loaderror', (file: { key: string }) => { this.loadFailed.add(file.key); this.markDirty(); });
     this.ambient = new AmbientLayer(this.state);
     this.panel = new PanelLayout(this.state.content.panel);
     this.view = new Renderer(this.screen, this.font, this.state, this.actors, this.ambient,
@@ -560,11 +581,14 @@ export class GameScene extends Phaser.Scene {
     // THE TITLE IS UP (errata 128): the game behind it does not run -- no
     // scene, no act turn, no accost -- and only the title is drawn.
     if (this.titleMenu) {
+      if (this.entry?.phase === 'out') this.tickEntry(now);
+    }
+    if (this.titleMenu) {
       if (!this.dirty) return;
       this.dirty = false;
       this.frameCount += 1;
       this.view.drawFrame({ hoveredTarget: null, hoveredTargetName: null, sayLines: [], notice: this.notice,
-        barkLines: [], barkAt: null, captionLines: [], captionAt: null,
+        barkLines: [], barkAt: null, captionLines: [], captionAt: null, fadeBlack: this.fadeBlack,
         title: { items: this.titleMenu, hovered: this.titleHover, theEnd: this.titleTheEnd, begin: this.beginCard } });
       this.texture.refresh();
       return;
@@ -633,6 +657,8 @@ export class GameScene extends Phaser.Scene {
       this.markDirty();
     }
     this.tickRoomFade(now);
+    this.tickEntry(now);
+    if (this.panning) this.markDirty();
     this.tickListening();
     this.tickEnding(now);
     // AN EXIT'S BEAT, PLAYED WHERE IT WENT (errata 121 B): its first line once the pause is over.
@@ -898,6 +924,7 @@ export class GameScene extends Phaser.Scene {
       // ROOM 33'S NINETY SECONDS: the panel inert and dim, the sentence blank (errata 133).
       panelDim: this.tuneStart !== null,
       fadeBlack: this.fadeBlack,
+      pan: this.panFrame(),
       page: this.overBlack && this.page.length ? this.page : null,
       pageAlpha: this.pageAlpha,
     });
@@ -1059,7 +1086,7 @@ export class GameScene extends Phaser.Scene {
 
   private onPointerMove(pointer: Phaser.Input.Pointer): void {
     // Nothing to name while the ninety seconds run or a room fades (errata 133).
-    if (this.tuneStart !== null || this.roomFade !== null) return;
+    if (this.tuneStart !== null || this.roomFade !== null || this.entry !== null) return;
     if (this.beginCard) return;
     if (this.titleMenu && !this.state.menu.isOpen) {
       const { x, y } = this.nativePoint(pointer);
@@ -1190,7 +1217,7 @@ export class GameScene extends Phaser.Scene {
     // An act card holds the screen for its time; a click does not cut it.
     if (this.actCardUntil !== null) return;
     // A fade between rooms, and a cutscene beat after control, are not the player's (errata 133).
-    if (this.roomFade !== null || this.carriedCutscene()) return;
+    if (this.roomFade !== null || this.entry !== null || this.carriedCutscene()) return;
 
     // The menu takes every click while it is open, including clicks on the
     // verb panel behind it.
@@ -2996,6 +3023,10 @@ export class GameScene extends Phaser.Scene {
       waiting: this.sayLines.length > 0 && this.sayWaiting,
       title: this.titleMenu !== null,
       begin: this.beginCard,
+      entering: this.entry?.phase ?? null,
+      black: this.fadeBlack,
+      whole: this.roomWhole(),
+      pan: this.panning ? this.panFrame()?.offset ?? null : null,
       bed: this.music.bed,
       ending: this.endingFrom === null ? null
         : endingAt(this.lastFrameAt - this.endingFrom, this.endingTiming()).phase,
@@ -3377,13 +3408,9 @@ export class GameScene extends Phaser.Scene {
     const item = hit ? items.find((each) => each.id === hit.id) : undefined;
     if (!item?.enabled) return;
     if (item.id === 'new') {
-      this.titleMenu = null;
-      this.musicFinishing = false;
-      this.state.reset();
-      this.lastAct = null;
-      this.actor.placeIn(this.state.roomId);
-      this.enterRoomPerformance(null);
-      this.beginOpening();
+      // ERRATA 157: not at once. The title fades to black first; `tickEntry`
+      // starts the game in the black and lifts it only on a room that is whole.
+      if (this.entry === null) this.entry = { phase: 'out', at: this.time.now / 1000 };
     } else if (item.id === 'continue') {
       if (!this.state.load()) return;
       this.titleMenu = null;
@@ -3431,6 +3458,70 @@ export class GameScene extends Phaser.Scene {
    * nothing of the old room's interface -- the held item, the sentence -- is
    * seen to carry over.
    */
+  /**
+   * NEW GAME'S WAY IN (errata 157; Tyler, 2026-11-07: "It needs something
+   * other than an immediate jump from the main menu into Thad starting his
+   * first line"). Out: the title under a rising black. Black: the new game
+   * starts underneath, and the black holds until Room 1 is whole -- its plate,
+   * its sky, its cast -- so nothing arrives in pieces. Up: the opening begins
+   * as the black lifts, on the first frame of its pan down from the stars.
+   */
+  private tickEntry(now: number): void {
+    const entry = this.entry;
+    if (!entry) return;
+    const timing = this.state.content.ui.timing;
+    const out = timing?.newGameFadeOutSeconds ?? 1;
+    const up = timing?.newGameFadeInSeconds ?? 1.5;
+    const t = now - entry.at;
+    if (entry.phase === 'out') {
+      this.fadeBlack = Math.min(1, t / out);
+      if (t >= out) {
+        this.fadeBlack = 1;
+        this.titleMenu = null;
+        this.musicFinishing = false;
+        this.state.reset();
+        this.lastAct = null;
+        this.actor.placeIn(this.state.roomId);
+        this.enterRoomPerformance(null);
+        this.loadNear();
+        this.entry = { phase: 'black', at: now };
+      }
+    } else if (entry.phase === 'black') {
+      this.fadeBlack = 1;
+      if (this.roomWhole() || t >= (timing?.roomReadyLimitSeconds ?? 12)) {
+        this.beginOpening();
+        this.entry = { phase: 'up', at: now };
+      }
+    } else {
+      this.fadeBlack = Math.max(0, 1 - t / up);
+      if (t >= up) this.entry = null;
+    }
+    this.markDirty();
+  }
+
+  /**
+   * Every picture this room needs to be seen whole has arrived, or failed
+   * (errata 157). Asked before a room is shown out of black, so a room never
+   * appears in pieces while its sheets stream in.
+   */
+  private roomWhole(): boolean {
+    return planRoom(this.state.content, this.state.roomId)
+      .every((asset) => this.textures.exists(asset.key) || this.loadFailed.has(asset.key));
+  }
+
+  /** How far above the room the view is during errata 157's pan, in play-area pixels; null when not panning. */
+  private panFrame(): { offset: number; sky: string; clock: number } | null {
+    const pan = this.panning;
+    const sky = this.state.room.sky;
+    if (!pan || !sky) return null;
+    if (pan.from === null) return { offset: PLAY_HEIGHT, sky, clock: this.time.now / 1000 };
+    const t = Math.min(1, Math.max(0, (this.time.now / 1000 - pan.from) / Math.max(0.001, pan.seconds)));
+    if (t >= 1) { this.panning = null; return null; }
+    // Eased in and out: the camera starts and settles, it does not lurch.
+    const eased = t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2;
+    return { offset: Math.round(PLAY_HEIGHT * (1 - eased)), sky, clock: this.time.now / 1000 };
+  }
+
   private tickRoomFade(now: number): void {
     const fade = this.roomFade;
     if (!fade) return;
@@ -3453,7 +3544,9 @@ export class GameScene extends Phaser.Scene {
     } else if (fade.upFrom === null) {
       this.fadeBlack = 1;
       // HELD IN THE BLACK until the hold is over and the street's plate has arrived, so it fades UP on it.
-      const ready = this.textures.exists(`bg:${this.state.roomId}`) || !this.state.room.background;
+      // AND THE WHOLE ROOM, not only its plate (errata 157): the cast arriving
+      // a beat after the street is the same pieces Tyler saw out of the title.
+      const ready = this.roomWhole() || now - fade.enteredAt >= (timing?.roomReadyLimitSeconds ?? 12);
       if (now - fade.enteredAt >= hold && ready) fade.upFrom = now;
     } else {
       const t = now - fade.upFrom;

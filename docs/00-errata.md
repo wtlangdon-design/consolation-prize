@@ -4252,3 +4252,44 @@ The triangle was errata 126's continue mark. It is drawn under any line that wai
 - Only the score may be built under the Music switch.
 
 With the old menu and wiring, all three fail. `tests/interface.test.ts`'s background-motion test now requires the row to be gone.
+# 157 · THE WAY IN: FROM THE STARS, NEVER IN PIECES — TYLER, 2026-11-07
+
+*Tyler, coming out of the title: "it takes a moment for it to load, and it loads in pieces ... It needs something other than an immediate jump from the main menu into Thad starting his first line." Offered a fade, a longer beat or a pan down from the stars, he asked how hard the pan would be ("I feel like that would be the coolest way to start") and then asked for voices in the dark before it: "This is your stop, kid." ... "I put your case over there." ... "Where else would I put it?" ... "I'm open to your creative take." He approved the lines as drafted: "I like all of it."*
+
+**A · The faults.** Two separate faults.
+- **NEW GAME cut straight into Room 1.** The room was drawn while its sheets were still arriving, so it appeared in pieces.
+- **Beat 2 held 0.73 s of doc 17's ~8 s.** So Thad's first line came at once.
+
+**B · The way in.** NEW GAME no longer jumps.
+- **The title fades to black** over `newGameFadeOutSeconds` (1).
+- **The new game starts underneath, and the screen holds black until Room 1 is whole.** Whole means its plate, its sky, its cast and the player's frames (`BootAssets.planRoom`, `GameScene.roomWhole`). The hold is never longer than `roomReadyLimitSeconds` (12): an asset that fails counts as arrived, so a load never strands anyone.
+- **The opening then fades up** over `newGameFadeInSeconds` (1.5).
+- **Every fade between rooms (errata 133) now waits for the whole room too**, not only its plate, under the same limit.
+
+**C · Beat 1b, the stars (doc 17, new row).** The view starts in a screen of night sky above Room 1. Twelve of its stars flicker at irregular moments (`skyStars`). The team breathes: O-02-S2 moves here from beat 2, because the coach has already halted. Nobody is on screen. Then the voices:
+- DRIVER: "This is your stop, kid."
+- THAD: "Already? I had hoped to see it coming."
+- DRIVER: "I put your case over there."
+- THAD: "In the mud?"
+- DRIVER: "Where else would I put it?"
+
+The case is already in the mud when the view arrives, as it always was (`case_mud`: "on the ground from the first frame"), so the driver is telling Thad where it is. Thad stays sincere (doc 59): "In the mud?" is a question. The lines are new writing, made under Tyler's permission in this ruling. They live in doc 17 and are extracted like every other line.
+
+**D · Beat 2, the pan.** The view glides down onto the room over 5.5 s, eased in and out, then Thad steps down. Beat 3 keeps its 1.4 s before "My name is Thaddeus Grubb." There are two new staging kinds, both legal only in a `control: none` beat:
+- **`sky`** holds the view at the top of the sky.
+- **`pan`** brings it down, and holds the runner for its length.
+
+The room is drawn as it stands and then moved down under the sky (`Renderer.drawPan`), so the coach, the people and the lamp come down with it.
+
+**E · The sky is the plate's own.** `tools/pixelart/room01_sky_extension.py` builds it from the plate's sky band, deterministically:
+- the band's stars are lifted out;
+- its gradient is levelled to the plate's top row, so there is no step at the join;
+- it is stacked with random shifts and flips;
+- it is re-starred with the plate's own stars, at the plate's density of visible stars.
+
+No picture was painted. It is `art/backgrounds/room-01-stage-road-sky.png`, which Room 1 declares as `sky`.
+
+**What holds it:**
+- `tests/opening-pan.test.ts` checks the order: the sky before any line, the voices under it, and the pan before Thad moves or introduces himself. It also checks that a pan holds the runner, that the sky is the plate's width and joins it with no step, and that Room 1 is not whole without it.
+- The opening gauntlet (`run.mjs`) checks the browser half: no frame of the room is seen before it is whole, the first sight is the sky, and the first line after the voices comes only once the pan has settled. With the sky and the pan stripped out, the last three fail by name; that was run, and the result is recorded in the PR. The in-pieces check could not be made to fail on a local server, because the room arrives too fast to be caught in pieces. It guards the slow connection Tyler saw, and it is unproven here.
+- `tests/sounds.test.ts` now places O-02-S2 in beat 1b. `tests/resolution.test.ts`'s retime arithmetic is over the opening as it was when the formulas merged (errata 61), so it excludes beat 1b.

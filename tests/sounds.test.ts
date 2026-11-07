@@ -65,7 +65,10 @@ test('the opening plays its sounds where doc 45 puts them (errata 106)', () => {
     { beats: { beat: string; staging?: { do: string; cue?: string }[] }[] };
   const where = Object.fromEntries(opening.beats.flatMap((beat) =>
     (beat.staging ?? []).filter((step) => step.do === 'cue').map((step) => [step.cue!, beat.beat])));
-  assert.deepEqual(where, { 'O-02-S2': '2', 'O-06-S1': '6', 'O-06B-S': '6b', 'O-09-M': '9' });
+  // O-02-S2, the team at the halt, starts in errata 157's stars (beat 1b): the
+  // coach has halted before the view comes down, and Tyler approved "the
+  // horses breathe" in the dark.
+  assert.deepEqual(where, { 'O-02-S2': '1b', 'O-06-S1': '6', 'O-06B-S': '6b', 'O-09-M': '9' });
 });
 
 test('every verb the sounds hear is a real target and verb in its room', async () => {

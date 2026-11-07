@@ -31,14 +31,10 @@
       "note": "Longing, not comedy. No act card here"
     },
     {
-      "beat": "2",
-      "description": "The coach arrives and halts with Thad visibly aboard. He climbs down, straightens his coat, looks at the town. The driver gets up on the wheel to reach the roof rack",
+      "beat": "1b",
+      "description": "The stars. Black sky over the road, a few stars flickering, the team breathing; nobody on screen yet. Voices in the dark: \"This is your stop, kid.\" — \"Already? I had hoped to see it coming.\" — \"I put your case over there.\" — \"In the mud?\" — \"Where else would I put it?\"",
       "control": "none",
-      "seconds": 8,
-      "note": "Player-audit fix: we never saw Thad arrive, so there was no reason to think the man he is talking to drove him. The arrival must be seen",
-      "set": {
-        "T_HOB_CROSSING": true
-      },
+      "note": "Errata 157 (Tyler, 2026-11-07). The view holds in the sky above the road, then beat 2 brings it down. The driver speaks first and last; Thad asks. The case is already in the mud when we get there, so the driver is telling him where. Thad is sincere: \"In the mud?\" is a question, not a complaint",
       "staging": [
         {
           "do": "cue",
@@ -92,6 +88,75 @@
           "do": "face",
           "actor": "thad",
           "facing": "front"
+        },
+        {
+          "do": "sky"
+        },
+        {
+          "do": "wait",
+          "seconds": 2.5
+        },
+        {
+          "do": "say",
+          "line": 0
+        },
+        {
+          "do": "say",
+          "line": 1
+        },
+        {
+          "do": "say",
+          "line": 2
+        },
+        {
+          "do": "say",
+          "line": 3
+        },
+        {
+          "do": "say",
+          "line": 4
+        },
+        {
+          "do": "wait",
+          "seconds": 0.8
+        }
+      ],
+      "lines": [
+        {
+          "speaker": "stage_driver",
+          "line": "This is your stop, kid."
+        },
+        {
+          "speaker": "thad",
+          "line": "Already? I had hoped to see it coming."
+        },
+        {
+          "speaker": "stage_driver",
+          "line": "I put your case over there."
+        },
+        {
+          "speaker": "thad",
+          "line": "In the mud?"
+        },
+        {
+          "speaker": "stage_driver",
+          "line": "Where else would I put it?"
+        }
+      ]
+    },
+    {
+      "beat": "2",
+      "description": "The coach arrives and halts with Thad visibly aboard. He climbs down, straightens his coat, looks at the town. The driver gets up on the wheel to reach the roof rack",
+      "control": "none",
+      "seconds": 8,
+      "note": "Player-audit fix: we never saw Thad arrive, so there was no reason to think the man he is talking to drove him. The arrival must be seen",
+      "set": {
+        "T_HOB_CROSSING": true
+      },
+      "staging": [
+        {
+          "do": "pan",
+          "seconds": 5.5
         },
         {
           "do": "walk",

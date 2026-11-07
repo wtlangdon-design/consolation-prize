@@ -113,6 +113,8 @@ function firstFrameStaging(bundle: ContentBundle): Map<string, Set<string>> {
 function roomImages(room: RoomFile): BootAsset[] {
   const out: BootAsset[] = [];
   if (room.background) out.push({ key: `bg:${room.id}`, path: room.background });
+  // Errata 157: the sky the opening's pan starts in, keyed by its path.
+  if (room.sky) out.push({ key: room.sky, path: room.sky });
   // Whole-plate animation frames, keyed by index. Same half of the boot split
   // as the plate they belong to: a room that arrives one frame at a time would
   // stutter on entry, which is worse than arriving a moment later.
@@ -309,6 +311,23 @@ export function planBoot(bundle: ContentBundle, opening: string = bundle.manifes
  * list for SOME room: an asset that no room ever asks for is the
  * declared-and-never-loaded category again, one level up.
  */
+/**
+ * WHAT ONE ROOM NEEDS TO BE SEEN WHOLE (errata 157): its own pictures, its
+ * cast's frames and the player's -- not its neighbours'. A room is not shown
+ * until every one of these has arrived (or failed), so it never appears in
+ * pieces, which is what Tyler saw on the way out of the title.
+ */
+export function planRoom(bundle: ContentBundle, roomId: string): BootAsset[] {
+  const out = new Map<string, BootAsset>();
+  const here = bundle.rooms.get(roomId);
+  if (here) {
+    for (const asset of roomImages(here)) if (!out.has(asset.key)) out.set(asset.key, asset);
+    for (const id of castOf(bundle, here)) for (const asset of actorFrames(bundle, id)) if (!out.has(asset.key)) out.set(asset.key, asset);
+  }
+  for (const asset of actorFrames(bundle, bundle.actor.id)) if (!out.has(asset.key)) out.set(asset.key, asset);
+  return [...out.values()];
+}
+
 export function planNear(bundle: ContentBundle, roomId: string): BootAsset[] {
   const out = new Map<string, BootAsset>();
   const add = (asset: BootAsset) => { if (!out.has(asset.key)) out.set(asset.key, asset); };

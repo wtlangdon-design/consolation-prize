@@ -257,6 +257,9 @@ function opening() {
   const THAD = 'thad';
   const HOB = 'hob';
   const speech = {
+    // ERRATA 157's stars: the doc's note says the driver speaks first and
+    // last and Thad asks, so the five alternate from the driver.
+    '1b': [[DRIVER, 0], [THAD, 1], [DRIVER, 2], [THAD, 3], [DRIVER, 4]],
     3: [[THAD, canonical[1]], [DRIVER, punctured[1]]],
     4: [[DRIVER, 0], [THAD, 1], [DRIVER, 2]],
     5: [[DRIVER, 0]],
@@ -390,17 +393,35 @@ function opening() {
     // not driven in -- so the team's sound starts at the halt: breathing and
     // harness, held until the first stride of 6b. O-02-S1, the moving team, has
     // no arrival to go with and is not played.
-    2: [
+    // ERRATA 157: THE FIRST SHOT IS THE SKY. Tyler, 2026-11-07, of the jump
+    // from the title straight into the first line: "maybe the camera pans
+    // down from a starry sky to find Thad standing there in the mud ... that
+    // would be the coolest way to start", with voices in the dark before it.
+    // Everyone is placed first, under the sky, so the view comes down onto a
+    // scene that is standing there waiting; the team's breathing (O-02-S2,
+    // moved here from beat 2) is heard from the stars.
+    '1b': [
       { do: 'cue', cue: 'O-02-S2' },
       { do: 'move', actor: 'hob', from: [600, 720], to: [600, 720], seconds: 0.1 },
       { do: 'move', actor: 'coach', from: [1390, 742], to: [1390, 742], seconds: 0.1 },
       { do: 'setState', object: 'coach', state: 'door-open' },
-      // HE WALKS A FEW STEPS FORWARD BEFORE HE SPEAKS. Placed at the door and
-      // then coming toward us gives the beat something to be -- it held 0.86s
-      // of nothing while the player waited for a line, which is the first thing
-      // anybody sees in the whole game.
       { do: 'move', actor: 'thad', from: [1180, 762], to: [1180, 762], seconds: 0.1 },
       { do: 'face', actor: 'thad', facing: 'front' },
+      { do: 'sky' },
+      // The stars, a moment, before anyone speaks.
+      { do: 'wait', seconds: 2.5 },
+      { do: 'say', line: 0 },
+      { do: 'say', line: 1 },
+      { do: 'say', line: 2 },
+      { do: 'say', line: 3 },
+      { do: 'say', line: 4 },
+      { do: 'wait', seconds: 0.8 },
+    ],
+    2: [
+      // HE WALKS A FEW STEPS FORWARD BEFORE HE SPEAKS, once the view has come
+      // down: errata 157's pan holds the beat, so he steps down only once the
+      // camera has settled, and beat 3 keeps its 1.4 s before the first line.
+      { do: 'pan', seconds: 5.5 },
       { do: 'walk', actor: 'thad', to: [1170, 812] },
       { do: 'face', actor: 'thad', facing: 'front' },
     ],

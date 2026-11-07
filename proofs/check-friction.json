@@ -271,6 +271,12 @@
    "date": "2026-11-07",
    "kind": "loosened",
    "why": "Tyler reversed his 2026-11-01 click-to-read ruling (errata 152: 'Monkey Island way, no arrow'). The assertions that conversation replies wait for a click now assert the opposite: every line comes down on its hold, nothing waits, and a click skips ahead. A ruling changed, not a threshold."
+  },
+  {
+   "check": "tests/sounds.test.ts",
+   "date": "2026-11-07",
+   "kind": "loosened",
+   "why": "Errata 157 moved O-02-S2, the team breathing at the halt, from beat 2 into the new beat 1b (the stars), because the coach has halted before the view comes down and Tyler approved the horses breathing in the dark. The assertion now expects '1b' for that cue; every other cue's beat is unchanged. A ruling changed what is right, not a threshold."
   }
  ]
 }
