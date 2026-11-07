@@ -582,7 +582,11 @@ export class DialogueRunner {
     if (!option) {
       throw new Error(`Unknown option: ${optionId}`);
     }
+    // THE SAME GATE THE LIST USES, `whenAny` included (errata 143): the list
+    // never offered a row whose alternatives all failed, but a selection of
+    // one by id was let through.
     if (!this.flags.test(option.when) || !this.carries(option)
+      || (option.whenAny && !option.whenAny.some((one) => this.flags.test(one)))
       || !this.followsAsked(option, this.activeTree.id, this.activeNodeId as string)) {
       throw new Error(`Gated option selected: ${optionId}`);
     }

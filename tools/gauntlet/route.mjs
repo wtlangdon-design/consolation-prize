@@ -184,7 +184,13 @@ async function waitFor(page, want, upTo, why) {
     // And a wait for the conversation's list reads through its GREETING: an
     // opening exchange (Frame's) is a line up and not an exchange performing,
     // and it waits for its clicks too.
-    const reading = last?.performing || (want.dialogue === true && last?.says && !last?.options);
+    // AND ANY LINE THAT SAYS IT IS WAITING FOR A CLICK (`waiting`): a wait for
+    // Thad's reply in a greeting -- Winnie's opening, Thad's line second -- sat
+    // on her first line for its whole deadline, because a greeting is neither
+    // performing nor a wait for the list (found re-running the dialogue proof,
+    // errata 143).
+    const reading = last?.performing || last?.waiting
+      || (want.dialogue === true && last?.says && !last?.options);
     if ((want.says === undefined || (last?.says && last.says !== want.says)) && READS_BY_CLICK
       && reading && Date.now() - lineSince >= READ_MS) {
       await clickScreen(page, NATIVE.width / 2, PLAY.height / 2);
@@ -376,11 +382,11 @@ export async function runRoute(page, route) {
         // other three having been asked, so his list is three rows and then
         // four; an index means a different question before and after, and a
         // text match would put dialogue in this file.
-        const row = await page.evaluate((wanted) => {
+        let row = await page.evaluate((wanted) => {
           for (let index = 1; index <= 12; index += 1) {
             const found = window.__gauntlet?.optionRow(index);
             if (!found) continue;
-            if (typeof wanted === 'number' ? index === wanted : found.id === wanted) return found;
+            if (typeof wanted === 'number' ? index === wanted : found.id === wanted) return { ...found, index };
           }
           return null;
         }, action.option);
@@ -391,6 +397,22 @@ export async function runRoute(page, route) {
             + `${state?.performing ? ' but an exchange is performing' : ''}. A gated option `
             + 'needs the ones that open it asked first, and the route\'s order is load-bearing.');
         }
+        // A ROW SCROLLED OUT OF THE LIST'S WINDOW IS SCROLLED TO, by its
+        // arrows, as a player would (errata 143): the panel holds five rows.
+        for (let tries = 0; row && row.shown === false && tries < 12; tries += 1) {
+          const wantedIndex = row.index;
+          const firstShown = await page.evaluate(() => {
+            for (let index = 1; index <= 12; index += 1) if (window.__gauntlet?.optionRow(index)?.shown) return index;
+            return 1;
+          });
+          const direction = wantedIndex < firstShown ? 'up' : 'down';
+          const arrow = await page.evaluate((way) => window.__gauntlet?.optionArrow(way), direction);
+          if (!arrow?.live) break;
+          await clickScreen(page, arrow.x + arrow.width / 2, arrow.y + arrow.height / 2);
+          await page.waitForTimeout(120);
+          row = { ...(await page.evaluate((at) => window.__gauntlet?.optionRow(at), wantedIndex)), index: wantedIndex };
+        }
+        if (row.shown === false) throw new Error(`option "${action.option}" could not be scrolled into view`);
         await clickScreen(page, NATIVE.width / 2, row.y + row.height / 2);
         log.push(`${where}: chose option ${row.id} -- ${action.why ?? ''}`);
         continue;
