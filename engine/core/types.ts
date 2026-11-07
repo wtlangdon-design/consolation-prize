@@ -1439,6 +1439,14 @@ export interface RoomFile {
    */
   voices?: Record<string, { x: number; y: number; note?: string }>;
   /**
+   * THE SLATE THE SCORE IS CHALKED ON, during a duel (errata 136 A; Tyler,
+   * 2026-11-06, "Chalk score on the slate": tally marks show the score, with no
+   * words). `rows` are where each side's marks start, the player's first: a
+   * group of four upright strokes and a fifth across them, in `colour`, built of
+   * `block`-pixel squares, `height` tall and `step` apart.
+   */
+  tally?: { rows: [[number, number], [number, number]]; height: number; step: number; block: number; colour: string; note?: string };
+  /**
    * THE ROOM'S LIGHT ON THE FIGURES THAT DO NOT CARRY IT (Tyler, 2026-11-01:
    * Thad and Deke "look different from the rest of the characters in the
    * room… the other characters all seem to have more detail and are a little

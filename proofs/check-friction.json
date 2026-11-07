@@ -223,6 +223,18 @@
    "date": "2026-11-06",
    "kind": "loosened",
    "why": "It required the coffin's refusal before the turnout to be doc 49's line. Errata 127 (Tyler: 'Yes, write and ship them') puts doc 94's 'not yet' line there, because the fairness audit found doc 49's ('It is in use… The paperwork is immaculate.') read as a final no. The test now requires doc 94's line; nothing about when the coffin opens is loosened."
+  },
+  {
+   "check": "tests/assay.test.ts",
+   "date": "2026-11-07",
+   "kind": "loosened",
+   "why": "Not a misfire: Tyler ruled the design changed (errata 136, 2026-11-06). Duel One's \"wrong answers only\" now holds for the first four boasts and the repeat of pair 1 offers the counter just written down (136 D); a lost Duel Two's lines gain Vessel's jeer (136 B). Each old property is asserted in its new form, and five new tests hold the four rulings."
+  },
+  {
+   "check": "tests/assay.test.ts",
+   "kind": "reviewed",
+   "date": "2026-11-07",
+   "why": "TUNED. Its three loosenings (errata 130, 131, 136) were not misfires: Tyler's rulings each added a performed beat to a duel exchange (the judges' mark, the held silence, the jeer), and assertions that pinned an exchange's exact line count or a line's exact index broke every time. The lost-Duel-Two test now asserts order and presence -- the losing reply first, then the mark, the jeer and the lesson in that order, and no boast after -- so a further beat does not break it while every ruling it holds still fails it (each re-proved by deleting the mark and the jeer). The duel tests duplicate nothing else and stay; no retirement proposed."
   }
  ]
 }

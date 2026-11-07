@@ -97,6 +97,8 @@ export class GameScene extends Phaser.Scene {
   private readonly cueBed = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
   /** The judges' mark beat already sounded, so a redraw does not write the point twice. */
   private markedLine: Utterance | null = null;
+  /** The pencil has gone down for the exchange being performed, so the slate shows its point (errata 136 A). */
+  private pointWritten = false;
   /** The line whose cue has sounded, so a redraw does not sound it twice. */
   private cuedLine: Utterance | null = null;
   /** A held silence has stopped the music (errata 131 D), and the room is still. */
@@ -810,6 +812,7 @@ export class GameScene extends Phaser.Scene {
       direction: this.sayLines.length > 0 && this.sayIsDirection,
       pose: this.performingPose(),
       still: this.stilled,
+      tally: this.slateTally(),
       performing: this.performance !== null,
       // Whose greeting is being said, so they hold still for it as they do
       // for their open tree.
@@ -2321,11 +2324,13 @@ export class GameScene extends Phaser.Scene {
     // pencil, in the beat after the line that won it and before the next boast.
     if (line?.mark && this.markedLine !== line) {
       this.markedLine = line;
+      this.pointWritten = true;
       const cue = this.state.content.sounds?.events?.duelMark;
       if (cue) this.fireCue(cue);
     }
     if (!live.done) { this.markDirty(); return; }
     this.performance = null;
+    this.pointWritten = false;
     this.stilled = false;
     if (this.hushed) {
       this.hushed = false;
@@ -3324,6 +3329,21 @@ export class GameScene extends Phaser.Scene {
    * carries the room score and no SFX), and a cue that is fired and logged is
    * the hook the audio layer will take when it exists.
    */
+  /**
+   * THE SCORE THE SLATE SHOWS (errata 136 A): the judges' count, and the point
+   * being performed once its pencil has gone down -- the exchange lands only
+   * when its last line is read, which is after the next boast.
+   */
+  private slateTally(): { player: number; opponent: number } | null {
+    const score = this.state.dialogue.duelScore;
+    if (!score) return null;
+    const point = this.pointWritten ? this.state.dialogue.pendingExchange?.resolution.duelPoint : undefined;
+    return {
+      player: score.player + (point === 'player' ? 1 : 0),
+      opponent: score.opponent + (point === 'opponent' ? 1 : 0),
+    };
+  }
+
   /** Who holds which frame for the beat on now: the judges' mark, or a performed direction (errata 130 B, 131 B). */
   private performingPose(): { speaker: string; frame: number | 'mark' } | null {
     const line = this.performance?.current;

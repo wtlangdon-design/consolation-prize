@@ -105,6 +105,8 @@ export interface DialogueResolution {
   readonly duelStart?: string;
   /** A counter chosen in a running duel: the duel advances when this settles. */
   readonly duelChoice?: string;
+  /** Who that counter scores for, so the slate can chalk it as the pencil goes down (errata 136 A). */
+  readonly duelPoint?: 'player' | 'opponent';
   /** Items the option hands over when this settles (its `gives`, first selection only). */
   readonly grants?: readonly string[];
 }
@@ -307,13 +309,13 @@ export class DialogueRunner {
   startDuel(treeId: string, duelId: string): void {
     if (!this.assay) throw new Error(`${duelId} is called and no assay is loaded`);
     this.start(treeId);
-    this.duel = new DuelSession(this.assay.file, duelId, this.knownPairs());
+    this.duel = this.newDuel(duelId);
   }
 
   /** The challenge and first boast of a duel the opponent calls: spoken as he opens on Thad. */
   duelIntro(duelId: string): { speaker: string; line: string; direction?: boolean }[] {
     if (!this.assay) throw new Error(`${duelId} is called and no assay is loaded`);
-    return new DuelSession(this.assay.file, duelId, this.knownPairs()).intro();
+    return this.newDuel(duelId).intro();
   }
 
   start(treeId: string): void {
@@ -421,6 +423,24 @@ export class DialogueRunner {
   /** Whether every option this one follows has been asked in this node. See DialogueOption.after. */
   private followsAsked(option: DialogueOption, treeId: string, nodeId: string): boolean {
     return (option.after ?? []).every((id) => this.countOf(treeId, nodeId, id) > 0);
+  }
+
+  /**
+   * A duel as it starts now: what he knows, and how often it has been lost,
+   * which turns its mockery (errata 136 B).
+   */
+  private newDuel(duelId: string): DuelSession {
+    const file = (this.assay as AssayHost).file;
+    const counter = file.duels[duelId]?.mocks?.counter;
+    return new DuelSession(file, duelId, this.knownPairs(), undefined, counter ? this.flags.getNumber(counter) : 0);
+  }
+
+  /**
+   * THE SCORE AS THE JUDGES HAVE IT, before the exchange being performed lands
+   * (errata 136 A: the slate chalks it). Null outside a duel.
+   */
+  get duelScore(): { player: number; opponent: number } | null {
+    return this.duel?.score ?? null;
   }
 
   private knownPairs(): Set<number> {
@@ -627,7 +647,7 @@ export class DialogueRunner {
     if (option.duel) {
       if (!this.assay) throw new Error(`Option ${option.id} starts ${option.duel} and no assay is loaded`);
       duelStart = option.duel;
-      const intro = new DuelSession(this.assay.file, option.duel, this.knownPairs()).intro();
+      const intro = this.newDuel(option.duel).intro();
       if (say === null && intro.length) {
         say = intro[0]!.line;
         sayer = intro[0]!.speaker;
@@ -716,13 +736,14 @@ export class DialogueRunner {
       goto: null,
       ends: false,
       effects: [
-        ...flagEffects(prefix, choice.sets),
+        ...flagEffects(prefix, choice.sets, choice.adds),
         ...(choice.completes ? [{
           id: `${prefix}#puzzle:${choice.completes}`, kind: 'puzzleProgress' as const,
           puzzle: choice.completes, status: 'complete' as const,
         }] : []),
       ],
       duelChoice: optionId,
+      duelPoint: choice.correct ? 'player' : 'opponent',
     };
   }
 
@@ -805,7 +826,7 @@ export class DialogueRunner {
       return;
     }
     if (resolution.duelStart && this.assay) {
-      this.duel = new DuelSession(this.assay.file, resolution.duelStart, this.knownPairs());
+      this.duel = this.newDuel(resolution.duelStart);
     }
     if (resolution.ends) {
       this.activeTree = null;
