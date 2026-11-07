@@ -27,5 +27,9 @@
   "heldWhen": {
     "T_SWINDLED": true
   },
-  "heldNote": "Doc 57 A3, items follow the flag (doc 36 Q141 route 1): held once Vessel has sold it, and never lost (doc 02's ledger)."
+  "heldNote": "Doc 57 A3, items follow the flag (doc 36 Q141 route 1): held once Vessel has sold it, and never lost (doc 02's ledger).",
+  "lostWhen": {
+    "T_FILED": true
+  },
+  "lostNote": "Laid on the counter at the filing (doc 57 F5) and on file after it: it leaves the inventory with T_FILED (Tyler agreed, 2026-11-06; errata 133). Not lost in doc 02's sense -- it is where a deed belongs."
 }

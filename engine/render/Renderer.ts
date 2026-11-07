@@ -107,6 +107,14 @@ export interface Frame {
    */
   title?: { items: TitleItem[]; hovered: string | null; theEnd?: boolean } | null;
   /**
+   * THE PANEL IS THERE BUT INERT (errata 133): Room 33's ninety seconds. The
+   * verbs and the inventory are dimmed, not removed, and the sentence line is
+   * blank, so the screen says "listen" rather than "broken".
+   */
+  panelDim?: boolean;
+  /** Black over the play area, 0 to 1: a room handing on by a fade (errata 133). */
+  fadeBlack?: number;
+  /**
    * THE LETTER'S PAGE (errata 128): every line of it said so far, drawn whole
    * over black and held, at `pageAlpha` while it fades. Replaces the speech
    * line while it is up.
@@ -206,6 +214,8 @@ const TEXT_MARGIN = 6 * GLYPH_SCALE;
 /** The letter's page: doc 30's speech block width, and a gap between its lines (errata 128). */
 const PAGE_WIDTH = Math.round(NATIVE_WIDTH * (240 / 320));
 const PAGE_GAP = 4 * GLYPH_SCALE;
+/** How far Room 33's panel is dimmed during the ninety seconds (errata 133). */
+const PANEL_DIM = 0.6;
 const PAGE_TOP = 40 * GLYPH_SCALE;
 /** The title screen's layout: the logo in the ridge's sky, the menu on the dark ground below. */
 const TITLE_SCREEN_LOGO_WIDTH = 940;
@@ -864,7 +874,22 @@ export class Renderer {
     // commenting on.
     if (frame.actCard) this.drawActCard(frame.actCard);
     this.drawTitle();
+    if ((frame.fadeBlack ?? 0) > 0) {
+      const ctx = this.screen.context;
+      const was = ctx.globalAlpha;
+      ctx.globalAlpha = was * Math.min(1, frame.fadeBlack ?? 0);
+      this.screen.fill(0, 0, NATIVE_WIDTH, PLAY_HEIGHT, this.screen.role('overlayBg'));
+      ctx.globalAlpha = was;
+    }
     if (frame.showPanel !== false) this.drawPanel(frame);
+    if (frame.showPanel !== false && frame.panelDim) {
+      // Dimmed, not removed: the same panel under the overlay's black at half strength.
+      const ctx = this.screen.context;
+      const was = ctx.globalAlpha;
+      ctx.globalAlpha = was * PANEL_DIM;
+      this.screen.fill(0, PANEL_Y, NATIVE_WIDTH, PANEL_HEIGHT, this.screen.role('overlayBg'));
+      ctx.globalAlpha = was;
+    }
     else if (frame.sceneControls) this.drawSceneControls();
     // Last, so it sits over everything including the panel.
     this.drawMenu();
@@ -2439,7 +2464,7 @@ export class Renderer {
 
     const words = this.state.content.ui.map;
     const travelling = this.state.isMap && frame.hoveredTargetName && words;
-    const sentence = frame.notice ?? (travelling
+    const sentence = frame.panelDim ? '' : frame.notice ?? (travelling
       ? format(words.travelTemplate, { target: frame.hoveredTargetName as string })
       : (this.state.isMap ? '' : this.sentenceText(frame.hoveredTarget, frame.hoveredTargetName)));
     const { x: sx, y: sy } = this.panel.sentence;

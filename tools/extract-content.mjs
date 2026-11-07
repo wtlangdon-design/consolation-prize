@@ -2775,10 +2775,22 @@ function actTwoItems() {
       note: `EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. ${acquired} Errata 66 ruling A: shown to the character at C5 and kept; never consumed.`,
       responses,
       ...held,
+      ...(FILED_AT_F5.has(id) ? { lostWhen: { T_FILED: true }, lostNote: FILED_NOTE } : {}),
     }));
   }
   return out;
 }
+
+/**
+ * WHAT IS LAID ON THE COUNTER AT F5 IS ON FILE AFTER IT (errata 133; the
+ * bookends audit, finding 10, which Tyler agreed): items follow the flag, as
+ * the watch and the four dollars do, so a save restores it by restoring
+ * T_FILED. THE DEED is hand-written (content/items/deed.json) and says the
+ * same; these three are written here.
+ */
+const FILED_AT_F5 = new Set(['death_certificate', 'document_c', 'sample']);
+const FILED_NOTE = 'Laid on the counter at the filing (doc 57 F5) and on file after it: it leaves the inventory '
+  + 'with T_FILED (Tyler agreed, 2026-11-06; errata 133).';
 
 /**
  * The lines of a response cell, in order, with their speakers: an italic
