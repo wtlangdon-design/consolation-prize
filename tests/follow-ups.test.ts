@@ -84,7 +84,7 @@ test('with waitForClick a reply stays until a click, and a click advances exactl
   assert.equal(performance.done, true, 'a click advances exactly one'); 
 });
 
-test('the shipped ui waits for the click', async () => {
+test('the shipped ui reads conversations the Monkey Island way: on the hold, a click skips (errata 152)', async () => {
   const state = await fresh();
-  assert.equal(state.content.ui.timing?.conversationWaitsForClick, true);
+  assert.equal(state.content.ui.timing?.conversationWaitsForClick, false);
 });
