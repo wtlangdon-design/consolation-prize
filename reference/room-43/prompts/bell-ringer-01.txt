@@ -1,0 +1,22 @@
+Image 1 shows the hero of my pixel-art adventure game, Thad: he is the style standard. Look at his pixels: BIG square blocks, a few flat tones, soft shading, very little texture.
+
+Image 2 is a frame from the game: Lower Street at night, with the church steps and the hand bell on its post beside them.
+
+I need ONE new character drawn on his own as a sheet of five poses, in THAD'S PIXEL SIZE and at THAD'S HEIGHT: the town BELL-RINGER. A middle-aged man, lean and ordinary like the hero, unshaven, in a shabby waistcoat over a collarless shirt, sleeves rolled, a battered bowler hat. A little unsteady -- he has been drinking -- but content. He holds a small wooden mallet in his right hand.
+
+THE SHEET -- one image, five poses of this same man, side by side, left to right, each showing him WHOLE, hat to boots, standing on the same baseline, facing the viewer and a little to his left:
+1. REST: standing, slightly swaying, mallet hanging at his side.
+2. BREATH: identical to pose 1 except his chest very slightly raised. Nothing else changes.
+3. STRIKE-UP: his right arm raised to strike, mallet up by his shoulder.
+4. STRIKE: his arm swung across and down, as if the mallet has just hit a bell to his left.
+5. TALK: as pose 1, but his head tilted and his free hand lifted, saying something unimpressed.
+
+STYLE: exactly as coarse as Thad; every pixel a large, crisp square block the size of Thad's; simple shapes and flat colour areas; the same soft shading and dark outline. Not sharp, not detailed.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No bell, no steps, no floor, no shadow.
+- All five poses the same size, boots on the same baseline, each about two thirds of the height of the picture.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens.
+- Crisp pixel edges against the magenta. No soft glow or blur.
+- No text, labels, numbers or borders.

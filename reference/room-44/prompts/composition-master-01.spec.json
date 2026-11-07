@@ -1,0 +1,17 @@
+{
+ "assetId": "room-44",
+ "subject": "room-44-the-lane",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-44-the-lane",
+ "promptFile": "reference/room-44/prompts/composition-master-01.txt",
+ "out": "art/staging/room-44/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-44/layout-1536x1024.png",
+  "art/backgrounds/room-02-main-street.png",
+  "renders/room-01-in-engine-1920x1080.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

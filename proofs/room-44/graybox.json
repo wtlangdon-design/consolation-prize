@@ -1,0 +1,315 @@
+{
+ "room": 44,
+ "id": "the_lane",
+ "note": "Ruling 22 steps 1-6 for THE LANE, written by tools/streets-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 161).",
+ "thadAnchors": {
+  "dark": 24.7,
+  "light": 121.9,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 705,
+   "height": 258
+  },
+  "near": {
+   "y": 858,
+   "height": 362
+  },
+  "from": "Room 20's exterior depth"
+ },
+ "walkable": [
+  150,
+  720,
+  1640,
+  132
+ ],
+ "exits": [
+  {
+   "hotspot": "THE WAY BACK TO MAIN STREET",
+   "to": "main_street",
+   "rect": [
+    0,
+    300,
+    140,
+    400
+   ]
+  },
+  {
+   "hotspot": "THE UNDERTAKER'S DOOR",
+   "to": "undertaker",
+   "rect": [
+    285,
+    390,
+    100,
+    310
+   ]
+  },
+  {
+   "hotspot": "THE TENT FLAP",
+   "to": "ozymandias_tent",
+   "rect": [
+    1010,
+    430,
+    110,
+    270
+   ]
+  },
+  {
+   "hotspot": "THE PASSAGE TO LOWER STREET",
+   "to": "lower_street",
+   "rect": [
+    1780,
+    320,
+    140,
+    380
+   ]
+  }
+ ],
+ "marks": {
+  "from_main_street": {
+   "x": 110,
+   "y": 800,
+   "facing": "right"
+  },
+  "by_the_tent": {
+   "x": 1060,
+   "y": 760,
+   "facing": "left"
+  },
+  "from_lower_street": {
+   "x": 1840,
+   "y": 800,
+   "facing": "left"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE WAY BACK TO MAIN STREET",
+   "rect": [
+    0,
+    300,
+    140,
+    400
+   ]
+  },
+  {
+   "name": "THE UNDERTAKER'S",
+   "rect": [
+    160,
+    260,
+    360,
+    440
+   ]
+  },
+  {
+   "name": "THE UNDERTAKER'S DOOR",
+   "rect": [
+    285,
+    390,
+    100,
+    310
+   ]
+  },
+  {
+   "name": "THE COFFIN BY THE DOOR",
+   "rect": [
+    405,
+    420,
+    75,
+    280
+   ]
+  },
+  {
+   "name": "THE PHOTOGRAPHER'S",
+   "rect": [
+    540,
+    240,
+    320,
+    460
+   ]
+  },
+  {
+   "name": "THE PHOTOGRAPHER'S WINDOW",
+   "rect": [
+    575,
+    400,
+    180,
+    170
+   ]
+  },
+  {
+   "name": "OZYMANDIA'S TENT",
+   "rect": [
+    890,
+    330,
+    340,
+    370
+   ]
+  },
+  {
+   "name": "THE TENT FLAP",
+   "rect": [
+    1010,
+    430,
+    110,
+    270
+   ]
+  },
+  {
+   "name": "THE BARBER'S",
+   "rect": [
+    1260,
+    270,
+    240,
+    430
+   ]
+  },
+  {
+   "name": "THE BARBER'S POLE",
+   "rect": [
+    1270,
+    420,
+    30,
+    200
+   ]
+  },
+  {
+   "name": "THE EMPTY STOREFRONT",
+   "rect": [
+    1520,
+    270,
+    240,
+    430
+   ]
+  },
+  {
+   "name": "THE PASSAGE TO LOWER STREET",
+   "rect": [
+    1780,
+    320,
+    140,
+    380
+   ]
+  }
+ ],
+ "otherFigures": "nobody",
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "the fronts",
+   "p10": 50.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "the lane",
+   "p10": 90.0,
+   "p90": 90.0,
+   "darkAnchorMargin": 65.3,
+   "lightAnchorMargin": 31.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WAY BACK TO MAIN STREET",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 79.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE UNDERTAKER'S",
+   "p10": 48.0,
+   "p90": 84.0,
+   "darkAnchorMargin": 23.3,
+   "lightAnchorMargin": 37.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE UNDERTAKER'S DOOR",
+   "p10": 48.0,
+   "p90": 48.0,
+   "darkAnchorMargin": 23.3,
+   "lightAnchorMargin": 73.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE COFFIN BY THE DOOR",
+   "p10": 84.0,
+   "p90": 84.0,
+   "darkAnchorMargin": 59.3,
+   "lightAnchorMargin": 37.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PHOTOGRAPHER'S",
+   "p10": 66.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 41.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE PHOTOGRAPHER'S WINDOW",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 79.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "OZYMANDIA'S TENT",
+   "p10": 64.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 39.3,
+   "lightAnchorMargin": 21.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE TENT FLAP",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 39.3,
+   "lightAnchorMargin": 57.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE BARBER'S",
+   "p10": 72.0,
+   "p90": 72.0,
+   "darkAnchorMargin": 47.3,
+   "lightAnchorMargin": 49.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE BARBER'S POLE",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 79.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE EMPTY STOREFRONT",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 33.3,
+   "lightAnchorMargin": 63.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PASSAGE TO LOWER STREET",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 71.9,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

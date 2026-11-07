@@ -5198,7 +5198,7 @@ function cutaways() {
         // over the scene; and the desk lamp, at the right of the frame as the
         // brief asks, breathing on him.
         blink: 'art/cutaways/fanshawe-closeup-blink.png',
-        // WHERE THEY ARE DRAWN (errata 161). The face is where the brief asked, because the frames are
+        // WHERE THEY ARE DRAWN (errata 162). The face is where the brief asked, because the frames are
         // cropped from y 20 to put it there (tools/art/fanshawe-closeup.py); the lamp was drawn further
         // right and lower than 1500,430, and the brief says to move this to the drawing rather than
         // redraw it. Measured on the derived frames: between the eyes and the mouth, the flame's core.
