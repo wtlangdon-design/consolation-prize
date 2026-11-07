@@ -38,6 +38,7 @@ import {
   actCardOf, playfieldClick, segmentsOf, stepsFor, writesOf, type Segment,
 } from '../core/Opening.ts';
 import { tapAt, tuneAt } from '../core/Listening.ts';
+import { clickOnSpeech, holdOver, waitsForClick } from '../core/SpeechPolicy.ts';
 import {
   CYCLING_OPTION,
   MUSIC_OPTION,
@@ -156,6 +157,8 @@ export class GameScene extends Phaser.Scene {
   private sayLines: string[] = [];
   /** When the line on screen has been up long enough. Null while none is. */
   private sayUntil: number | null = null;
+  /** The line on screen waits for a click (a conversation's, under click-to-read), and shows that it does. */
+  private sayWaiting = false;
   /** Lines still to come in a multi-speaker response, in order. */
   private pendingSay: { speaker: string | null; line: string; overBlack?: boolean; direction?: boolean }[] = [];
   /** A line `overBlack` has blacked out the play area until the room changes (doc 57 B3). */
@@ -482,8 +485,17 @@ export class GameScene extends Phaser.Scene {
       // follows when the last has been read, as a performed exchange's lines
       // do. So does an arrival scene with an outcome (onEnter.sayAfter, doc 57
       // D6): several voices in turn, and nothing for the player to answer.
-      // Every other queued line keeps waiting for the click it always waited for.
-      if (!((this.pendingTree?.greeted || this.afterArrival) && this.advanceSay())) this.setSay(null);
+      // AND SO DOES EVERY OTHER QUEUED LINE (the bookends audit, finding 1):
+      // a verb's `then`, a first sight, a door's beat, the filing, the close.
+      // They used to come down and wait, blank, for a click nobody was asked
+      // for -- and the click that came was spent on them. SpeechPolicy.
+      if (holdOver(this.pendingSay.length) === 'next') {
+        this.advanceSay();
+      } else {
+        // Empty: settles an arrival scene's outcome, if one is owed.
+        this.advanceSay();
+        this.setSay(null);
+      }
       this.markDirty();
     }
     // THE SCENE'S LAST LINE HAS BEEN READ: now the room changes.
@@ -745,6 +757,8 @@ export class GameScene extends Phaser.Scene {
       // Doc 43 line 97: the driver's head answers to who is speaking. Null
       // when nobody is, which selects the overlay's default.
       speaker: this.sayLines.length > 0 ? this.sayingActor : null,
+      // THE LINE IS WAITING FOR A CLICK, and says so with a small mark (finding 11).
+      awaitingClick: this.sayLines.length > 0 && this.sayWaiting,
       direction: this.sayLines.length > 0 && this.sayIsDirection,
       performing: this.performance !== null,
       // Whose greeting is being said, so they hold still for it as they do
@@ -1057,8 +1071,11 @@ export class GameScene extends Phaser.Scene {
     }
 
     // A GREETING BEING READ TAKES THE CLICK: the next line, or, after the
-    // last, nothing -- which lets the conversation's list open.
-    if (this.pendingTree?.greeted && this.sayLines.length > 0 && !this.performance) {
+    // last, nothing -- which lets the conversation's list open. ONLY A LINE
+    // THAT IS WAITING FOR ONE takes a click (SpeechPolicy.clickOnSpeech); any
+    // other line keeps playing on its hold while the click walks, acts or travels.
+    if (this.sayLines.length > 0 && !this.performance
+      && clickOnSpeech({ waiting: this.sayWaiting || this.pendingTree?.greeted === true }) === 'advance') {
       if (!this.advanceSay()) this.setSay(null);
       this.markDirty();
       return;
@@ -1078,7 +1095,9 @@ export class GameScene extends Phaser.Scene {
       return;
     }
 
-    if (this.advanceSay()) return;
+    // NO `advanceSay()` HERE ANY MORE. It took the click for the next queued
+    // line before the map, the panel or the room could have it -- Main Street's
+    // first click did not walk him, and the map's undertaker went nowhere.
 
     // Doc 20 rule 5: the map is a menu that looks like a place. A click on a
     // location travels, instantly, whatever verb happens to be selected --
@@ -1248,6 +1267,7 @@ export class GameScene extends Phaser.Scene {
       }
       const pool = this.state.content.verbFallbacks?.people?.[chosen];
       if (Array.isArray(pool) && pool.length) {
+        this.pendingSay = [];
         this.setSay(pool[0]!, this.state.content.actor.id);
         this.state.verbs.resetToDefault();
         this.markDirty();
@@ -1477,6 +1497,10 @@ export class GameScene extends Phaser.Scene {
       this.markDirty();
       return;
     }
+    // A NEW ANSWER REPLACES WHAT WAS STILL TO BE SAID of the last one, as a
+    // new action interrupts the old in SCUMM: with the queue now playing on
+    // its own, the old lines would otherwise follow the new answer.
+    if (result.say || result.then?.length) this.pendingSay = [];
     if (result.direction && result.say && result.by) this.setSay(GameScene.asDirection(result.say), result.by, true);
     else if (result.direction && result.say) this.setSay(GameScene.asDirection(result.say), this.state.content.actor.id, true);
     else if (result.by) this.setSay(result.say, result.by);
@@ -1718,6 +1742,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private enterRoomPerformance(from: string | null = this.state.previousRoomId): void {
+    this.leaveLines();
     this.loadNear();
     // A room over once its ending is said stays over black, after a load too (errata 121 B).
     const black = this.state.room.blackWhen;
@@ -2353,6 +2378,25 @@ export class GameScene extends Phaser.Scene {
     this.advanceSay();
   }
 
+  /**
+   * A ROOM CHANGE DROPS WHAT WAS STILL TO BE SAID IN THE ROOM LEFT (the
+   * bookends audit, finding 1): a line queued on Main Street was carried onto
+   * the map, drawn nowhere, and spent the next click there. What a scene OWES
+   * is not dropped with its words -- an arrival scene's outcome lands now, so
+   * leaving mid-scene can never lose a flag, an item or a puzzle.
+   */
+  private leaveLines(): void {
+    if (this.afterArrival) {
+      const owed = this.afterArrival;
+      this.afterArrival = null;
+      for (const done of owed) this.state.afterArrival(done);
+    }
+    this.pendingSay = [];
+    this.linesOnArrival = null;
+    this.travelAfterSay = null;
+    this.setSay(null);
+  }
+
   private advanceSay(): boolean {
     const next = this.pendingSay.shift();
     if (next === undefined) {
@@ -2446,10 +2490,15 @@ export class GameScene extends Phaser.Scene {
       this.barkAt = null;
     }
     this.sayingActor = text ? speaker : null;
-    // A GREETING WAITS FOR ITS CLICK too, when conversations do (ui.json).
-    const greetingWaits = this.pendingTree?.greeted === true
-      && this.state.content.ui.timing?.conversationWaitsForClick === true;
-    this.sayUntil = text && !this.state.dialogue.isActive && !greetingWaits
+    // A CONVERSATION'S LINE -- its greeting too -- WAITS FOR ITS CLICK when
+    // conversations do (ui.json), and stays up while it waits. Every other
+    // line comes down on its hold, and the next follows (SpeechPolicy).
+    const waits = text !== null && waitsForClick({
+      conversation: this.state.dialogue.isActive || this.pendingTree?.greeted === true,
+      clickToRead: this.state.content.ui.timing?.conversationWaitsForClick === true,
+    });
+    this.sayWaiting = waits;
+    this.sayUntil = text && !this.state.dialogue.isActive && !waits
       ? this.time.now / 1000 + this.lineSeconds(text)
       : null;
   }
@@ -2593,6 +2642,7 @@ export class GameScene extends Phaser.Scene {
       puzzles: this.state.puzzleProgress(),
       camera: Math.round(this.state.cameraX),
       pending: this.pendingSay.length,
+      waiting: this.sayLines.length > 0 && this.sayWaiting,
       performing: this.performance !== null,
       handedOver: this.opening === null,
       segment: this.playingSegment(),

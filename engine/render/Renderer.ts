@@ -86,6 +86,12 @@ export interface Frame {
   /** The line on screen is a stage direction: same place, quieter ink. */
   direction?: boolean;
   /**
+   * The line on screen is waiting for a click (a conversation's, under ui.json
+   * conversationWaitsForClick), so a small mark under it says so. The bookends
+   * audit, finding 11: with no mark a player sat on a line for 25 seconds.
+   */
+  awaitingClick?: boolean;
+  /**
    * An exchange is being PERFORMED, so the choice list is neither drawn nor
    * clickable. Doc 30 section 1.
    */
@@ -746,7 +752,7 @@ export class Renderer {
     if (frame.overBlack) this.screen.fill(0, 0, NATIVE_WIDTH, PLAY_HEIGHT, this.screen.role('overlayBg'));
     // The response to an option is drawn above the option list, not instead
     // of it -- otherwise picking an option appears to do nothing.
-    this.drawSay(frame.sayLines);
+    this.drawSay(frame.sayLines, frame.awaitingClick === true);
     if (frame.barkAt) {
       this.drawBark(frame.barkLines, frame.barkAt);
     }
@@ -1929,7 +1935,7 @@ export class Renderer {
    * mover in this room at all, which today means an unattributed line, and the
    * watch records it by name.
    */
-  private drawSay(lines: string[]): void {
+  private drawSay(lines: string[], awaitingClick = false): void {
     const ink = this.speechColour();
     const anchor = this.speechAnchor(lines);
     lines.forEach((line, index) => {
@@ -1942,6 +1948,32 @@ export class Renderer {
         this.screen.roleColour('overlayBg'),
       );
     });
+    if (awaitingClick && lines.length > 0) this.drawContinueMark(anchor, lines);
+  }
+
+  /**
+   * THE CONTINUE MARK: a small still triangle after the block's last line, in
+   * the line's own ink with the outline the words have. Interface grammar, not
+   * words; it does not blink, because nothing on this screen moves to ask for
+   * attention.
+   */
+  private drawContinueMark(anchor: { x: number; y: number }, lines: string[]): void {
+    const last = lines[lines.length - 1] ?? '';
+    const rows = 3 * GLYPH_SCALE;
+    const left = anchor.x + Math.ceil(this.font.measure(last) / 2) + 3 * GLYPH_SCALE;
+    const top = anchor.y + (lines.length - 1) * SPEECH_LINE_HEIGHT + 3 * GLYPH_SCALE;
+    const ctx = this.screen.context;
+    const was = ctx.fillStyle;
+    const draw = (colour: string, grow: number): void => {
+      ctx.fillStyle = colour;
+      for (let row = -grow; row < rows + grow; row += 1) {
+        const spread = Math.max(0, rows - 1 - Math.max(0, row)) + grow;
+        ctx.fillRect(left + rows - spread, top + row, spread * 2 + 1, 1);
+      }
+    };
+    draw(this.screen.roleColour('overlayBg'), GLYPH_SCALE);
+    draw(this.speechColour(), 0);
+    ctx.fillStyle = was;
   }
 
   /**

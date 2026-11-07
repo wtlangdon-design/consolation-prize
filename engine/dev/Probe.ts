@@ -173,6 +173,8 @@ export interface FrameReport {
    * not advance. This is what tells it to flush first.
    */
   pending: number;
+  /** The line on screen is waiting for a click, and shows the continue mark (SpeechPolicy). */
+  waiting: boolean;
   /**
    * An exchange is being PERFORMED, so the choice list is hidden and nothing
    * in it can be clicked. Doc 30 section 1.

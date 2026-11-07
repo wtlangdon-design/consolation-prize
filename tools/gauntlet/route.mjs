@@ -214,13 +214,25 @@ async function waitFor(page, want, upTo, why) {
   }
 }
 
-/** Flushes queued lines, so a click meant for an option is not eaten by one. */
+/**
+ * Lets queued lines finish before the next click, so the route's click lands
+ * on what it names and not in the middle of a scene.
+ *
+ * IT USED TO CLICK THEM THROUGH, because a queued line ate the next click
+ * whatever it was meant for. That is gone (SpeechPolicy, the bookends audit's
+ * finding 1): a queued line outside a conversation plays on its own reading
+ * hold, and a click on the play area WALKS -- so clicking here would move Thad.
+ * Only a line that is waiting for a click (`waiting`, a conversation's under
+ * click-to-read) is clicked; every other is waited out.
+ */
 async function flush(page) {
-  for (let guard = 0; guard < 20; guard += 1) {
+  const deadline = Date.now() + 90_000;
+  for (;;) {
     const state = await probe(page);
     if (!state || state.pending === 0) return;
-    await clickScreen(page, NATIVE.width / 2, PLAY.height / 2);
-    await page.waitForTimeout(140);
+    if (Date.now() > deadline) throw new Error(`route: ${state.pending} queued line(s) never played out`);
+    if (state.waiting) await clickScreen(page, NATIVE.width / 2, PLAY.height / 2);
+    await page.waitForTimeout(state.waiting ? 140 : 250);
   }
 }
 

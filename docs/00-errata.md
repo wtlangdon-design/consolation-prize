@@ -3440,3 +3440,26 @@ The fairness audit called E6 "an elimination puzzle with nothing to eliminate". 
 Still open, and Tyler's call: the form exists only after Hob signs it, so these refusals land after the puzzle is solved. Hearing the interest rule bite before Hob would need an "I need an executor" option somewhere, which is new writing.
 
 **What holds it:** `tests/e6-candidates.test.ts`, which requires every person doc 57 answers on the form, other than the registrar, to have a pair. It fails on the old extraction.
+
+---
+
+# 126 · QUEUED LINES PLAY ON THEIR OWN AND NEVER EAT A CLICK; A WAITING LINE SAYS SO — the bookends audit, findings 1 and 11 (Tyler, 2026-11-06: "proceed with your recommendations")
+
+**The fault.** Only a conversation's greeting and an arrival scene with an outcome chained from line to line. Every other queued line showed its first line for its reading hold, went blank, and waited for a click that nothing asked for. That covered a verb's `then`, Main Street's first sight, a door's beat, the filing's read-backs, and the close and its letter. The click that came was spent on the next line, not on what it was for:
+- the first click on Main Street did not walk Thad;
+- on the map, the undertaker's marker silently went nowhere;
+- after "Dear Mother." the letter waited on a black screen, one click per line.
+
+**The rule now** (`engine/core/SpeechPolicy.ts`, used by `GameScene`):
+- **A conversation's lines wait for a click.** That covers its greeting and its exchanges, under Tyler's click-to-read ruling (ui.json `conversationWaitsForClick`, 2026-11-01, unchanged). They stay on screen while they wait.
+- **A waiting line shows a small still triangle after its last word** (finding 11). It is interface grammar, not words, and it does not blink.
+- **Every other line comes down on doc 30 §4.1's reading hold,** and the next queued line follows by itself, as greetings always did.
+- **A click outside a conversation is never spent on the speech channel.** It walks, uses a verb or travels, and the lines keep playing.
+- **A new answer replaces what was still to be said of the last one,** as a new action interrupts the old in SCUMM.
+- **A room change drops lines still queued in the room left,** and any travel a scene was waiting to make. An arrival scene's owed outcome lands at once, so leaving mid-scene can never lose a flag, an item or a puzzle (invariant 6).
+
+**Not changed:** a conversation still waits for its click, Thad's echo of the chosen option included. Whether the echo should advance on its hold (finding 11's second suggestion) touches Tyler's 2026-11-01 ruling, and is his to make.
+
+**Tooling.** `tools/gauntlet/route.mjs`'s `flush` used to click queued lines through. Such a click now walks, so it waits them out and clicks only a line the probe reports `waiting`. The probe gains `waiting`.
+
+**What holds it:** `tests/speech-pacing.test.ts`. A line outside a conversation never waits and never takes a click. A conversation's line waits and takes one. A hold that runs out brings up the next queued line. Every multi-line scene in the content (onEnter, arrival scenes, every `then`, every transit scene) plays to its last line with no click. Making `holdOver` answer `down` with lines queued fails it.
