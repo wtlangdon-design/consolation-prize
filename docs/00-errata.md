@@ -3901,6 +3901,7 @@ Tyler: "Read reference/item-icons/brief.md … and do it: redraw all 26 item ico
   - A neighbour's edge reaching over the grid line (the jar's lid into the survey's cell) is left out.
   - It writes `art/ui/item-icons.png` (4 across, 240×280) and `content/ui/item-icons.json`, with `"cell": [60, 40]`.
 - **Every icon now draws at exactly ×2** into the 180×80 slot, where the old cells came to ×3.81.
+- **Found by review on #211, fixed before merging:** the first cut premultiplied colour, resized it as RGBA, and divided by alpha again. Pillow already premultiplies an RGBA resize, so part-covered edge pixels came out up to twice as bright and the outlines went pale. The cut now hands Pillow straight colour, and it fails if any art pixel is brighter than everything drawn under it; the old reduction trips that on all 26 icons. A doc 55 §8 row carries the lesson.
 - **The old generator refuses.** `tools/pixelart/item_icons.py` is on `npm run renders`' list and would have written the 30×21 sheet and its JSON straight back. Both paths are now in `tools/pixelart/superseded.py`, and the module stops and names them, as the other superseded composers do (CLAUDE.md, Renders).
 - **The lesson is a test.** `tests/item-icons-scale.test.ts` holds three things:
   - every cell fits its slot at a whole-number scale;

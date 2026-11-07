@@ -73,6 +73,7 @@ def despill(rgba):
     return out.astype(np.uint8)
 
 
+LUMA = np.array([0.299, 0.587, 0.114])
 GAP = 12  # source pixels of empty space a single object may contain
 
 
@@ -114,21 +115,41 @@ def objects(rgb, mask, ids):
 
 
 def reduce(rgb, mask, box, factor):
+    """One object to art pixels: a BOX over straight colour with the key's mask as
+    alpha. Pillow premultiplies an RGBA image itself when it resizes and returns
+    straight colour, so the result is used as it comes. Premultiplying first and
+    dividing by alpha again (the first cut, found by review on #211) brightened
+    every part-covered edge pixel by up to 2x and lightened the dark outlines."""
     _, x, y, w, h = box
-    a = mask[y:y + h, x:x + w].astype(float)
-    c = rgb[y:y + h, x:x + w].astype(float) * a[..., None]
+    a = mask[y:y + h, x:x + w]
+    src = np.dstack([rgb[y:y + h, x:x + w], np.where(a, 255, 0)]).astype(np.uint8)
     tw, th = max(1, round(w / factor)), max(1, round(h / factor))
-    pre = Image.fromarray(np.dstack([c, a * 255]).clip(0, 255).astype(np.uint8), 'RGBA')
-    # BOX on premultiplied colour, so transparent magenta adds nothing.
-    small = np.asarray(pre.resize((tw, th), Image.BOX)).astype(float)
-    alpha = small[..., 3] / 255
-    keep = alpha >= 0.5
-    colour = np.where(alpha[..., None] > 0, small[..., :3] / np.maximum(alpha[..., None], 1e-6), 0)
-    out = np.zeros((th, tw, 4), np.uint8)
-    out[..., :3] = colour.clip(0, 255).astype(np.uint8)
-    out[..., 3] = np.where(keep, 255, 0)
-    out[~keep, :3] = 0
-    return despill(out)
+    small = np.asarray(Image.fromarray(src, 'RGBA').resize((tw, th), Image.BOX)).copy()
+    keep = small[..., 3] >= 128
+    small[..., 3] = np.where(keep, 255, 0)
+    small[~keep, :3] = 0
+    no_brighter(src, small, factor, box[0])
+    return despill(small)
+
+
+def no_brighter(src, small, factor, item):
+    """A box average can never be brighter than the brightest drawn pixel it read.
+    Fails the cut if one is -- the double un-premultiply this cutter once had."""
+    drawn = src[..., 3] > 0
+    for yy, xx in zip(*np.where(small[..., 3] > 0)):
+        y0, x0 = max(0, int(yy * factor) - 1), max(0, int(xx * factor) - 1)
+        y1, x1 = int(np.ceil((yy + 1) * factor)) + 1, int(np.ceil((xx + 1) * factor)) + 1
+        foot = drawn[y0:y1, x0:x1]
+        if not foot.any():
+            continue
+        # Luminance, not each channel: a key-tinted edge pixel is low in green
+        # alone, and the defect this guards doubles brightness as a whole.
+        top = (src[y0:y1, x0:x1, :3][foot].astype(float) @ LUMA).max()
+        got = small[yy, xx, :3].astype(float) @ LUMA
+        # A margin for where BOX's footprint edges fall; the defect is up to 2x.
+        if got > top * 1.1 + 4:
+            raise SystemExit(f'{item}: art pixel ({xx},{yy}) is luminance {got:.0f}, brighter than anything '
+                             f'drawn under it ({top:.0f}): alpha divided twice?')
 
 
 def main():
