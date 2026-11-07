@@ -4391,3 +4391,41 @@ The input, the hover and the menu key are closed while one plays. The only thing
 **C · The topology (errata 43 kept).** Main Street's east road leads to Lower Street, and Lower Street's road out leads on to the claims road. The registrar's, the church, the livery and the back alley open off Lower Street. Main Street's alley leads to the Lane, and the undertaker's and the tent open off it. The Lane and Lower Street join at their far ends, so the three streets are a loop. The map keeps long-distance travel and the interiors that sit on no street. The rewiring lands with the rooms, once their plates do, and is recorded under this number.
 
 **D · The art.** `reference/streets/brief.md` is for the session with the image key. It covers both streets' composition masters and plates, in Room 20's manner, and the bell-ringer's five-pose sheet against Thad. `reference/global-baseline.json` gains both rooms. `tools/art/room43-plate.mjs` and `room44-plate.mjs` derive and promote the plates.
+
+---
+
+# 162 · FANSHAWE'S CLOSE-UP, DRAWN — TYLER, 2026-11-07 (reference/fanshawe-closeup/brief.md)
+
+*The art for errata 159's close-up and errata 160's blink. Three operations under asset `fanshawe-closeup` (cap 3), all spent, none a correction:*
+
+**A · What was drawn.** All three use `tools/art/char-op.mjs`, which sends only the images the brief names.
+- **Operation 1, at rest:** from `fanshawe-rest-frame-x3.png` and `fanshawe-in-his-office-at-game-size.png`, prompt `reference/fanshawe-closeup/op-1.txt`. The same man, the game's palette, soft shading and dark outline; hands folded, a small satisfied smile; the lamp at the right.
+- **Operation 2, mid-word:** an edit of operation 1's source (`op-2.txt`). His mouth is open on a word, and his right hand is lifted in a gentle point; the other hand comes to rest on the desk.
+- **Operation 3, the blink:** an edit of operation 1's source (`op-3.txt`). Only his eyes changed.
+
+**B · The edits are laid on frame 1** (`tools/art/fanshawe-closeup.py`). An edit returns a whole new picture. What it was asked to change changed, and everything else carries a faint re-encoding difference (mean 8 and 7 summed RGB, no movement). The game swaps the frames while he talks, so that noise would shimmer. Each edit is kept only where it really changed, and only inside the regions the brief allows:
+- the face and hands for the mid-word frame;
+- the eyes for the blink.
+
+Everywhere else is frame 1's pixel. The script fails if a change falls outside those regions. None did.
+
+**C · The crop is moved, not the drawing.** Operation 1 drew his face at y ~300 of the 1536 × 1024 source, not the ~455 the prompt asked for. Derived as the brief says (crop from y 170), the frame cut the top of his hair and put his face at y ~165. In the game, the cut-away's speech, drawn across the top, then lay over his eyes.
+
+Tyler asked for his face near y 360, so the frames are derived by the same transform (`tools/art/derive.mjs`, a 20:9 window resampled to 1920 × 864) from y 20 instead. That puts his face at ~(955, 355), lays the speech over his hair, and shows his folded hands just in at the bottom edge. Nothing is redrawn.
+
+**D · Focus and lamp moved to the drawing,** as the brief says:
+- `focus` is [955, 355];
+- `lamp` is at 1690, 698, the flame's core, since the lamp was drawn further right and lower than 1500, 430.
+
+`node tools/extract-content.mjs` declared the close-up, so it is on.
+
+**E · Seen.** It was run in a real browser by a review link to Main Street with `ACT` 3 and `T_FUNERAL_DAY` false. In order:
+1. the fade;
+2. Main Street at night creeping toward the Company's door;
+3. the cut to the close-up;
+4. his five lines, each spoken on the mid-word frame and resting on frame 1 between lines;
+5. back to Main Street.
+
+There were no page errors. One frame of each line is in `renders/cutaways/fanshawe-closeup-line-1.png` to `-5.png`.
+
+**For Tyler:** the lamp sits further right than the brief planned, near the frame's edge, and his folded hands are mostly below the frame at rest.

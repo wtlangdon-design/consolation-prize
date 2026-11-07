@@ -1,0 +1,11 @@
+Image 1 is Colonel Absalom Fanshawe as he is drawn in my pixel-art adventure game, enlarged three times. Image 2 is his office in the game, at game size, with him at his desk under his own giant portrait: that is the game's style.
+
+Draw a CLOSE-UP of COLONEL ABSALOM FANSHAWE at his desk at night, seen from just below eye level, in the style of Image 2's room and figure: the same pixel-art look, the same palette, the same soft, flat shading and the same dark outline, at close-up scale. NOT sharper, NOT more detailed in texture than Image 2 -- just larger. It is a different shot of the same game, not a different artist.
+
+HIM: exactly the man in Image 1 and Image 2, about four times larger: a portly, prosperous gentleman of about sixty, silver hair, silver whiskers and the portrait's full silver moustache; a black frock coat, a brown waistcoat with a gold watch chain, a white shirt with a black cravat. He leans back a little, hands folded on his waistcoat, mouth closed in a small satisfied smile. Pleased, settled and courteous; any menace comes only from how comfortable he is. No sneer, no villain's grin.
+
+FRAMING: from the green desk top up; his head and shoulders fill the middle of the frame. His FACE is at the exact horizontal centre of the picture, a little below its vertical middle (about x 768, y 455 of a 1536 x 1024 picture). A lit brass desk lamp stands on the desk at the RIGHT, its flame at about x 1195, y 510. The lamp warms the right side of his face.
+
+BEHIND HIM: the red damask wall and the gilt edge of his own giant portrait, simpler and darker than he is, with less detail -- out of focus in the pixel-art sense.
+
+Landscape. Keep his face and hands inside the middle band of the picture (between y 220 and y 800): the top and bottom 170 rows will be cropped, so put only wall above and desk below. No text, no signature, no frame border.

@@ -5198,7 +5198,11 @@ function cutaways() {
         // over the scene; and the desk lamp, at the right of the frame as the
         // brief asks, breathing on him.
         blink: 'art/cutaways/fanshawe-closeup-blink.png',
-        push: 0.06, pushSeconds: 22, focus: [960, 360], lamp: { x: 1500, y: 430, radius: 620, strength: 0.22 } },
+        // WHERE THEY ARE DRAWN (errata 162). The face is where the brief asked, because the frames are
+        // cropped from y 20 to put it there (tools/art/fanshawe-closeup.py); the lamp was drawn further
+        // right and lower than 1500,430, and the brief says to move this to the drawing rather than
+        // redraw it. Measured on the derived frames: between the eyes and the mouth, the flame's core.
+        push: 0.06, pushSeconds: 22, focus: [955, 355], lamp: { x: 1690, y: 698, radius: 620, strength: 0.22 } },
       // ERRATA 160: THE GHOST SHIP BEFORE LECHUCK. Main Street at night, the
       // Improvement Company's front (its sign spans x535-800, its door x652),
       // the view creeping toward the door; then a hard cut inside.

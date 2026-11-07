@@ -1,0 +1,13 @@
+{
+ "assetId": "fanshawe-closeup",
+ "subject": "fanshawe-closeup",
+ "role": "derived-state",
+ "derivedFrom": 1,
+ "promptFile": "reference/fanshawe-closeup/op-2.txt",
+ "out": "art/staging/fanshawe-closeup/talk-source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/fanshawe-closeup/rest-source.png"
+ ],
+ "authorizedBy": "Tyler, 2026-11-07: 'Fanshawe only (Recommended)' and 'Go ahead' to the blink -- fanshawe-closeup, cap 3 (errata 159, 160)"
+}
