@@ -3107,6 +3107,9 @@ export class GameScene extends Phaser.Scene {
       black: this.fadeBlack,
       whole: this.roomWhole(),
       cutaway: this.cut ? { id: this.cut.cutaway.id, phase: this.cut.phase } : null,
+      // Due AND the scene would let it start (bar the arrival's settle): never true inside a conversation.
+      cutawayDue: !this.cut && this.quietForCutaway(Number.MAX_SAFE_INTEGER) && this.state.content.cutaways.some((one) => one.room !== this.state.roomId
+        && this.state.flags.test(one.when) && !this.state.flags.test({ [one.done]: true })),
       mapWalk: this.mapWalk ? { to: this.mapWalk.location.id, seconds: this.mapWalk.walk.seconds } : null,
       pan: this.panning ? this.panFrame()?.offset ?? null : null,
       bed: this.music.bed,
