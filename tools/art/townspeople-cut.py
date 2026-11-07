@@ -21,7 +21,13 @@ Writes art/actors/<file>.png and art/staging/townspeople-110/cut.json (each
 sheet's frames and the rest pose's own height, which the sprite declares as
 `figureHeight`).
 
-usage: python3 tools/art/townspeople-cut.py
+The fiddler is cut from errata 123's redraw as Charlie
+(art/staging/fiddler-charlie/sheet-01.png, the fiddler-charlie cap): only his
+face, hair and build changed, so the same height, order and frames.
+
+usage: python3 tools/art/townspeople-cut.py [--only <sheet>]
+  --only recuts one sheet and leaves the others, and their entries in
+  cut.json, as they are (each was snapped afterwards by one-level.py).
 """
 import json
 import os
@@ -51,6 +57,13 @@ FIGURES = [
     ('fiddler', 3, 288, [],
      [('fiddler', [0, 2, 1, 3, 4])]),                         # PLAY 1, PLAY 3, PLAY 2, TUNE, TALK
 ]
+# A sheet drawn under another asset's cap, by sheet name.
+SOURCE = {
+    'fiddler': os.path.join(ROOT, 'art/staging/fiddler-charlie/sheet-01.png'),  # errata 123: Charlie
+}
+# A frame width the shipping sprite already declares, kept when a redraw cuts
+# narrower, so content/ambient/<file>.json's frames stand unchanged (errata 123).
+FRAME_WIDTH = {'fiddler': 144}
 
 
 def cut(sheet, height, extra, tmp):
@@ -107,9 +120,14 @@ def standing_height(frame):
 
 
 def main():
-    report = {}
+    import sys
+    only = sys.argv[sys.argv.index('--only') + 1] if '--only' in sys.argv else None
+    cut_json = os.path.join(STAGE, 'cut.json')
+    report = json.load(open(cut_json)) if only and os.path.exists(cut_json) else {}
     for name, attempt, height, extra, outs in FIGURES:
-        src = os.path.join(STAGE, name, f'sheet-{attempt:02d}.png')
+        if only and name != only:
+            continue
+        src = SOURCE.get(name) or os.path.join(STAGE, name, f'sheet-{attempt:02d}.png')
         with tempfile.TemporaryDirectory() as tmp:
             if name == 'boundary-men':
                 a, b = split_pair(src, tmp)
@@ -127,7 +145,7 @@ def main():
                         frames.append(poses[k])
                 # Frames from two halves of one sheet are cut separately and
                 # may differ in width; pad to the widest, feet kept centred.
-                w = max(f.width for f in frames)
+                w = max([f.width for f in frames] + [FRAME_WIDTH.get(out, 0)])
                 hh = max(f.height for f in frames)
                 padded = []
                 for f in frames:
@@ -139,7 +157,7 @@ def main():
                 report[out] = {'sheet': f'art/actors/{out}.png', 'source': os.path.relpath(src, ROOT),
                                'frames': rects, 'figureHeight': standing_height(padded[0])}
                 print(out, len(rects), 'frames', rects[0][2:], 'standing', report[out]['figureHeight'])
-    with open(os.path.join(STAGE, 'cut.json'), 'w') as f:
+    with open(cut_json, 'w') as f:
         json.dump(report, f, indent=1)
 
 
