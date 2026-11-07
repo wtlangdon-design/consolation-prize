@@ -3,7 +3,7 @@
   "id": "loan",
   "name": "Two dollars and sixty cents from Mr. Sheng",
   "short": "SHENG'S LOAN",
-  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Act III, from SHE_D1 once D4 is done. Spent at the undertaker's (E3). Errata 66 ruling A: shown to the character at C5 and kept; never consumed.",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Act III, from SHE_D1 once D4 is done. Spent at the undertaker's (E3).",
   "responses": {
     "LOOK_AT": [
       {

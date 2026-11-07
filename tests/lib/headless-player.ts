@@ -423,19 +423,13 @@ export class HeadlessPlayer {
         this.state.dialogue.start(npc.tree);
         return { say: null };
       }
-      const plain = this.state.content.combinations?.pairs.some((one) => one.item === item
-        && one.room === this.state.room.id && one.target === npc.id && !one.opens);
-      if (plain) {
-        const result = this.state.interact({ id: npc.id, name: npc.name, rect: [0, 0, 1, 1], colour: 0, responses: {},
-          ...(npc.walkTo ? { walkTo: npc.walkTo } : {}) } as Interactable, 'USE');
-        this.note(`USE ${item} ON ${npc.id}`);
-        this.afterInteraction(result, from);
-        return result;
-      }
-      const out = this.verbOnPerson(npc, 'USE');
-      this.state.holdItem(null);
-      this.note(`USE ${item} ON ${npc.id} (no pair: the people pool)`);
-      return out;
+      // Any other item on a person resolves as an item on anything does: the
+      // pair, the item's pool, the global pool (doc 24; errata 140).
+      const result = this.state.interact({ id: npc.id, name: npc.name, rect: [0, 0, 1, 1], colour: 0, responses: {},
+        ...(npc.walkTo ? { walkTo: npc.walkTo } : {}) } as Interactable, 'USE');
+      this.note(`USE ${item} ON ${npc.id}`);
+      this.afterInteraction(result, from);
+      return result;
     }
     const target = this.state.findTarget(targetId);
     if (!target) {
@@ -445,6 +439,24 @@ export class HeadlessPlayer {
     const result = this.state.interact(target, 'USE');
     this.state.holdItem(null);
     this.note(`USE ${item} ON ${targetId}`);
+    this.afterInteraction(result, from);
+    return result;
+  }
+
+  /** USE one carried item on another (GameScene.onInventoryClick with an item held). */
+  useOnItem(item: string, other: string): { say: string | null } {
+    this.requireIdle(`USE ${item} ON ${other}`);
+    for (const id of [item, other]) {
+      if (!this.state.carried.includes(id)) throw new PlayError(`he is not carrying "${id}"`);
+    }
+    const from = this.state.roomId;
+    this.state.holdItem(null);
+    this.state.verbs.selectVerb('USE');
+    if (this.state.inventoryClick(item) !== 'hold') throw new PlayError(`a USE click on ${item} does not pick it up`);
+    this.state.holdItem(item);
+    if (this.state.inventoryClick(other) !== 'apply') throw new PlayError(`a USE click on ${other} with ${item} in hand does not apply it`);
+    const result = this.state.interact(this.state.itemTarget(other)!, 'USE');
+    this.note(`USE ${item} ON ${other}`);
     this.afterInteraction(result, from);
     return result;
   }
