@@ -1,4 +1,5 @@
 import type { MenuFile } from './types.ts';
+import type { MachineSettings } from './MachineSettings.ts';
 import type { SaveManager, SlotSummary } from './SaveManager.ts';
 
 export type MenuPage = 'closed' | 'root' | 'save' | 'load' | 'options';
@@ -40,17 +41,39 @@ export class MenuSystem {
    * file -- a display preference belongs to the machine, not to the game.
    */
   private readonly toggles = new Map<string, boolean>();
+  /**
+   * Choice options, by id: the value id each is set to. TEXT SPEED is one
+   * (errata 154 A; doc 33 table 6). A choice that names a `setting` is a
+   * MACHINE setting (doc 33 section 7.3): read from and written to
+   * `MachineSettings`, never to a save, so loading a slot cannot change it.
+   */
+  private readonly choices = new Map<string, string>();
+  private readonly settings: MachineSettings | null;
 
   private readonly roomName: (id: string) => string;
 
-  constructor(file: MenuFile, saves: SaveManager, roomName: (id: string) => string = (id) => id) {
+  constructor(file: MenuFile, saves: SaveManager, roomName: (id: string) => string = (id) => id,
+              settings: MachineSettings | null = null) {
     this.file = file;
     this.saves = saves;
+    this.settings = settings;
     // Injected rather than looked up: the menu must not know what a room is.
     this.roomName = roomName;
     for (const item of file.options.items) {
       if (item.type === 'toggle') this.toggles.set(item.id, item.default ?? true);
+      if (item.type === 'choice') {
+        // FIELD BY FIELD, WITH A SAFE DEFAULT (doc 33 section 7.3): a stored
+        // value this build does not offer is the default, not an error.
+        const stored = item.setting ? settings?.read(item.setting) : undefined;
+        const known = item.values.some((value) => value.id === stored);
+        this.choices.set(item.id, known ? stored as string : item.default);
+      }
     }
+  }
+
+  /** The value id a choice option is set to, or undefined for an id that is not a choice. */
+  choice(id: string): string | undefined {
+    return this.choices.get(id);
   }
 
   /** Whether a toggle option is on. Unknown ids are off. */
@@ -131,12 +154,12 @@ export class MenuSystem {
         return [
           ...this.file.options.items.map((item) => ({
             id: item.id,
-            label: item.type === 'toggle'
-              ? fill(this.file.options.valueTemplate, {
-                label: item.label,
-                value: (this.toggle(item.id) ? item.on : item.off) ?? '',
-              })
-              : item.label,
+            label: fill(this.file.options.valueTemplate, {
+              label: item.label,
+              value: item.type === 'toggle'
+                ? (this.toggle(item.id) ? item.on : item.off) ?? ''
+                : item.values.find((value) => value.id === this.choice(item.id))?.label ?? '',
+            }),
             enabled: true,
           })),
           { id: 'back', label: this.file.options.back, enabled: true },
@@ -186,6 +209,19 @@ export class MenuSystem {
     }
     if (this.toggles.has(rowId)) {
       this.toggles.set(rowId, !this.toggles.get(rowId));
+      return { kind: 'none' };
+    }
+    // A CHOICE MOVES ONE VALUE ON, wrapping after the last: doc 33 table 6's
+    // SLOW / NORMAL / FAST / MANUAL, in that order. It does not close the
+    // menu, for the toggle's reason: the player is looking at what changed.
+    if (this.choices.has(rowId)) {
+      const item = this.file.options.items.find((each) => each.id === rowId);
+      if (item?.type === 'choice' && item.values.length) {
+        const at = item.values.findIndex((value) => value.id === this.choices.get(rowId));
+        const next = item.values[(at + 1) % item.values.length]!.id;
+        this.choices.set(rowId, next);
+        if (item.setting) this.settings?.write(item.setting, next);
+      }
       return { kind: 'none' };
     }
     switch (rowId) {

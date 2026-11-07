@@ -256,6 +256,22 @@ export class SequenceRunner {
    * watched the screen. A trailing `chore` had the same fault.
    */
   private waiting = false;
+  /**
+   * The wait in progress is a LINE's, not a chore's, a walk's or a timed
+   * `wait`'s. Only such a wait is ended by a click (`releaseLine`): under
+   * Text speed MANUAL (errata 154 A) the host answers a line with an
+   * unbounded hold, and the player's click on the line is what ends it.
+   */
+  private onLine = false;
+
+  /**
+   * The line this runner is holding on has been clicked: the runner moves on
+   * at its next tick. Does nothing when the runner is not waiting on a line --
+   * a click never cuts a chore, a walk or an authored pause short.
+   */
+  releaseLine(): void {
+    if (this.waiting && this.onLine) this.waitUntil = 0;
+  }
 
   get isRunning(): boolean {
     return this.started && (this.index < this.steps.length || this.waiting);
@@ -267,6 +283,7 @@ export class SequenceRunner {
     this.index = 0;
     this.waitUntil = 0;
     this.waiting = false;
+    this.onLine = false;
     this.started = true;
     // Before the first tick, the beat about to play is the one that owns the
     // first step -- otherwise anything sampling on the frame a segment starts
@@ -280,6 +297,7 @@ export class SequenceRunner {
     this.index = 0;
     this.waitUntil = 0;
     this.waiting = false;
+    this.onLine = false;
     this.started = false;
     this.playing = undefined;
   }
@@ -302,6 +320,7 @@ export class SequenceRunner {
     if (this.waiting) {
       if (seconds < this.waitUntil) return false;
       this.waiting = false;
+      this.onLine = false;
       moved = true;
     }
 
@@ -398,6 +417,7 @@ export class SequenceRunner {
       if (hold > 0) {
         this.waitUntil = seconds + hold;
         this.waiting = true;
+        this.onLine = true;
       }
       this.index += 1;
       moved = true;

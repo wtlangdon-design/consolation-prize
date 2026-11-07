@@ -85,6 +85,11 @@ export class CarriedBeats {
     this.at = 0;
   }
 
+  /** The line a carried beat is holding on was clicked (Text speed MANUAL, errata 154 A). */
+  releaseLine(): void {
+    this.runner.releaseLine();
+  }
+
   update(seconds: number, host: SequenceHost): boolean {
     if (this.beats.length === 0) return false;
     // A HELD BEAT IS RE-ASKED EVERY TICK, and this is the whole of the hold.

@@ -2152,6 +2152,17 @@ export interface UiFile {
     holdMaximumSeconds?: number;
     holdNote?: string;
     /**
+     * TEXT SPEED (errata 154 A; doc 30 table 2, doc 33 table 6), keyed by the
+     * value ids of menu.json's `textSpeed` row. `multiplier` scales the reading
+     * hold before it is clamped again (doc 30 section 4.1); `waitsForClick`
+     * is Manual: every line waits for its click.
+     */
+    textSpeeds?: Record<string, { multiplier: number; waitsForClick?: boolean }>;
+    textSpeedsNote?: string;
+    /** A bark's hold at Normal text speed, in seconds (was GameScene's BARK_MS). */
+    barkSeconds?: number;
+    barkNote?: string;
+    /**
      * A CONVERSATION LINE STAYS UNTIL IT IS CLICKED (Tyler, 2026-11-01: "some
      * of it disappears before I have a chance to read it… it shouldn't
      * disappear until I click the screen"). Applies to a conversation's lines
@@ -2856,6 +2867,24 @@ export type SequenceStagingStep =
   | { do: 'say'; line: number };
 
 
+/**
+ * A row on the OPTIONS page. Every one DOES something (errata 154 B): a
+ * toggle flips, a choice moves one value on. A row with neither is the inert
+ * row doc 33 section 8.3 removed, and `tests/options.test.ts` refuses it.
+ */
+export type MenuOptionItem =
+  | { id: string; label: string; type: 'toggle'; on: string; off: string; default?: boolean }
+  | {
+      id: string;
+      label: string;
+      type: 'choice';
+      /** The value ids in the order a click cycles through them, with their labels. */
+      values: { id: string; label: string }[];
+      default: string;
+      /** The machine-settings field it is kept in (doc 33 section 7.3), apart from every save. */
+      setting?: string;
+    };
+
 /** content/ui/menu.json -- every string the pause menu can draw. */
 export interface MenuFile {
   schema: number;
@@ -2870,14 +2899,9 @@ export interface MenuFile {
     back: string;
     /** How a toggle draws its label and its current value. */
     valueTemplate: string;
-    items: {
-      id: string;
-      label: string;
-      type?: 'toggle';
-      on?: string;
-      off?: string;
-      default?: boolean;
-    }[];
+    items: MenuOptionItem[];
+    textSpeedNote?: string;
+    musicNote?: string;
   };
   slots: {
     count: number;

@@ -280,9 +280,9 @@ async function bringIntoView(page, wx) {
     const feet = me?.at?.[1] ?? 760;
     const west = wx < p.camera;
     // GROUND, ASKED OF THE SENTENCE LINE. With nothing selected a click on a
-    // hotspot performs its default verb, so a click on THE BOARDWALK looks at
-    // it rather than walking (Main Street's west end); and a click on a
-    // doorway travels, on a person speaks. A point is ground when the line
+    // hotspot performs its default verb: a click on ground scenery walks
+    // (THE BOARDWALK looked until errata 154 C), on a doorway travels, on a
+    // person speaks. A point is ground when the line
     // names nothing there, or names scenery whose default is to walk on it.
     let clicked = false;
     for (const dy of [-10, 30, -60, 60]) {
