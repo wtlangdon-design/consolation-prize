@@ -3801,3 +3801,16 @@ Frame's correction was not spent: he does not plainly miss.
 
   **Still flagged:** the heads are all outside the brief's 10%, though all smaller; the generator draws older men with bigger heads. The bald judge seated is at 1.22 for the shoulders: he is the thick-set one (111 D). Frame's shoulder number does not read his apron's breadth (the band it measures sits under his old, bigger head). The pictures are the measure: `renders/leaner-cast-*-before-after.png`, each beside Thad in his room.
 - **For Tyler's playthrough:** the four in the Clarion, on the porch for Duel Three, and at the Nugget's back table -- above all, whether the heads now read as this game's people.
+
+---
+
+# 139 · THE JUDGES' HEADS: TWO MORE OPERATIONS MISSED, AND WHY — TYLER, 2026-11-07
+
+Tyler, of the bald judge after errata 138: **"This head still seems weirdly large."** Measured by ruler at one man's height, the standing judges' heads were still about 1.25-1.3× Thad's (138).
+
+- **Cast-unify 65** (`reference/cast-unify-35.txt`, batch-35, within 138's brief, its fourth operation): the standing row again, with the heads asked for at the hero's size and one eighth of the man. It drew the six men smaller overall and kept the same proportion: not used.
+- **Cast-unify 66** (`reference/cast-unify-36.txt`, batch-36; Tyler: "One more try, Thad as template"): Thad's own figure six times as the picture edited, each to become a judge with the hero's proportions. Not used.
+
+**Why it keeps missing.** The template, like every cast-unify board, is Thad's **cast-sheet** drawing. Measured at one man's height, its head (crown to chin) is about **1.3× the in-game Thad's** (`renders/thad-in-game-vs-cast-sheet-heads.png`: in-game ~40/300, cast sheet ~52/300). Op 66's bald judge matches the cast-sheet head, at ~1.45× the in-game Thad's. So "a head the size of the hero's" has been asked against the wrong hero all along. Every figure drawn from these boards inherits that head, and the in-game Thad, redrawn smaller-headed (errata 112), is the outlier the cast is measured against.
+
+**Next, when a redraw is wanted:** build the board from the in-game Thad (`art/actors/thad-stand-front/stand-00.png`), not his cast-sheet self, and measure heads against him. What is live is unchanged: 138's leaner judges. Sixty-six of seventy-five cast-unify operations are spent.
