@@ -114,6 +114,14 @@
       "responses": {
         "LOOK_AT": [
           {
+            "when": {
+              "T_NEED_TO_DIE": true,
+              "T_FUNERAL_BOOKED": false
+            },
+            "say": "My funeral, priced in chalk, with the Reverend's words to come on top. I can't afford to die. I'm going to need a lender.",
+            "sceneLine": true
+          },
+          {
             "say": "Prices, chalked: the suit, the plate, the words said over you at three grades of sincerity.",
             "repeat": [
               "Plain, Respectable, and Handsome. The Handsome is four times the Plain and the difference is a handle.",

@@ -20,6 +20,7 @@ import { MemoryStorage } from '../engine/core/SaveManager.ts';
 
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(ROOT, path), 'utf8'));
+const clues = await readFile(resolve(ROOT, 'docs/94-clue-pass.md'), 'utf8');
 const docs = (await Promise.all(['docs/05-examine-layer.md', 'docs/10-examine-batch-3.md', 'docs/54-batch-c.md',
   'docs/48-act-turn-beats.md', 'docs/57-puzzle-completion.md', 'docs/49-wrong-answers.md']
   .map((path) => readFile(resolve(ROOT, path), 'utf8')))).join('\n');
@@ -82,7 +83,9 @@ test('or at the way back, which then refuses: he stays for his own funeral', asy
 test('the coffin refuses until beat 3, then lies him down and leads into the coffin', async () => {
   const before = await inState(DAY);
   const refusal = before.interact(target(before, 'coffin'), 'USE');
-  assert.ok(refusal.say && docs.includes(refusal.say), 'doc 49\'s refusal');
+  // Errata 127 (doc 94): before the turnout the refusal is doc 94's "not yet",
+  // which says where to stand first; doc 49's stays in the ordinary chain.
+  assert.ok(refusal.say && clues.includes(refusal.say), 'doc 94\'s "not yet"');
   assert.equal(refusal.goesTo ?? null, null);
   const state = await inState(AFTER_BEAT);
   const lie = state.interact(target(state, 'coffin'), 'USE');

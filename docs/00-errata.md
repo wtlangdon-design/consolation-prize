@@ -3466,6 +3466,24 @@ Still open, and Tyler's call: the form exists only after Hob signs it, so these 
 
 ---
 
+# 127 · THE CLUE PASS — OWNER RULING (Tyler, 2026-11-06)
+
+*Asked: "Nine puzzles are solvable but rely on a guess, each missing one clue line … May I write them, under the same rules as the act-change lines, and show you before anything ships?" Tyler chose **"Yes, write and ship them."***
+
+**A · The permission.** New lines that answer the fairness audit's missing clues, written in `docs/94-clue-pass.md` under its rules: a line in a state the player is already in, never the solving action, no hint system (invariant 4), no LISTEN, nothing marked (invariant 3), true whenever read, and doc 59's voice from one writer. CLAUDE.md records it as the third exception to "never generate written content". It covers doc 94's lines and no others.
+
+**B · What was written** (each wired by `verbRules`, `ref` to doc 94):
+- **E1:** the archive door, Act III until E9, says why Thad wants in.
+- **E4:** the forms rack, from E2 until certification, says the assayer of record signs a death.
+- **D3:** Pratt's claim, from D2 until Sheng names his debtor, points the money toward Sheng.
+- **E3:** the undertaker's price board, from E2 until the funeral is booked, says Thad can't afford it. It gives no total, so Sheng still knows the figure first.
+- **E7:** the coffin, until Hob's "Good turnout.", says "not yet" and where to stand.
+- **THE FILING FEE** gets its own pool in doc 24. It had shared FOUR DOLLARS' pool and said "I have four dollars".
+
+**C · Not written** (doc 94 says why): A5, A6, E6, E9 and B3.
+
+**What holds it:** `tests/clue-pass.test.ts`. Every doc 94 line must be in a room, behind a gate, and the filing fee's pool must not call it four dollars.
+
 # 130 · LOSING DUEL TWO TEACHES; THE PENCIL MARKS THE POINT; DUEL ONE NEEDS B4 — FROM THE DUEL AUDIT (Tyler, 2026-11-06: "proceed with your recommendations")
 
 The duel audit played Room 4's two duels as a first-time player. Its findings 2, 3, 4 and 9 included five that need no new words. No line is written below. Every change is structure, mechanism or staging, and each can be struck by its letter.

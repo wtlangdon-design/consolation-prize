@@ -58,9 +58,14 @@ Thad strikes the fork against things. It is his whole character in one gesture, 
 ## THE LETTER
 > "It is sealed and it is addressed to a dead man. I am not opening it for this."
 
-## FOUR DOLLARS · THE FILING FEE
+## FOUR DOLLARS
 > "That is money, and that is not a thing money buys."
 > "I have four dollars. I am not spending them on that."
+
+## THE FILING FEE
+*Its own pool from errata 127 (doc 94): it had shared FOUR DOLLARS', and said "I have four dollars" while Thad held two.*
+> "That's the filing fee. It has one job, and this isn't it."
+> "Two dollars, promised to a number in a book. I don't break promises to books."
 
 ## THE PICKAXE
 > "I could. I have thought about it. I am not going to."
