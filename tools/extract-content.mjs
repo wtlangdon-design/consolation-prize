@@ -5463,7 +5463,14 @@ function actedDirections() {
     const entry = { n: Number(n), class: kind, speaker, words, where };
     if (kind === 'A') {
       const figures = by.split(',').map((one) => one.trim()).filter(Boolean);
-      const sequence = frames.split(/\s+/).filter(Boolean).map(Number);
+      // ONE GROUP PER FIGURE when they act differently (errata 192: Grievance looks while her other self
+      // waits, then she is out): "0 0 2 3 ; 0 0 0 1", in the order the figures are named. Holds alike.
+      const groups = frames.split(';').map((group) => group.split(/\s+/).filter(Boolean).map(Number));
+      if (groups.length > 1 && groups.length !== figures.length) throw new Error(`doc 95 row ${n}: ${groups.length} frame groups for ${figures.length} figures`);
+      if (groups.some((group) => !group.length || group.some((one) => !Number.isInteger(one)))) throw new Error(`doc 95 row ${n}: a frame group does not read ("${words}")`);
+      const holdGroups = holds ? holds.split(';').map((one) => Number(one.trim())) : [];
+      if (holdGroups.length > 1 && holdGroups.length !== figures.length) throw new Error(`doc 95 row ${n}: ${holdGroups.length} holds for ${figures.length} figures`);
+      const sequence = groups[0];
       const length = Number(seconds);
       if (!figures.length || !sequence.length || sequence.some((one) => !Number.isInteger(one)) || !(length > 0)) {
         throw new Error(`doc 95 row ${n}: an A row names its figures, its frames and its seconds ("${words}")`);
@@ -5472,8 +5479,10 @@ function actedDirections() {
       if (cue && !sound) throw new Error(`doc 95 row ${n}: the cue "${cue}" is not "<CUE> @<frame>"`);
       entry.performedBy = figures;
       entry.frames = sequence;
+      if (groups.length > 1) entry.framesBy = groups;
       entry.seconds = length;
-      if (holds) entry.holds = Number(holds);
+      if (holdGroups.length === 1) entry.holds = holdGroups[0];
+      if (holdGroups.length > 1) entry.holdsBy = holdGroups;
       if (sound) entry.cue = { id: sound[1], frame: Number(sound[2]) };
     } else if (frames || seconds || holds || cue) {
       throw new Error(`doc 95 row ${n}: a ${kind} row is not acted, and names no frames ("${words}")`);

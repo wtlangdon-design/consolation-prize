@@ -36431,6 +36431,63 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-08T21:40:25.113Z"
+  },
+  {
+   "attempt": 6,
+   "role": "derived-state",
+   "assetId": "room-15",
+   "subject": "grievance",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 4,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/unacted-moments/grievance-prompt-01.txt",
+   "promptHash": "5f8461ef6718f6e9d8d5e8fe5b58ddd96b692af4916bb64c2c8d0fc2800579d4",
+   "references": [
+    {
+     "path": "art/staging/room-15/grievance-out-01/livery-with-thad.png",
+     "hash": "710dcf9ea3228c405d1dcf6064a86f5b1e0391f99c81a711abf9f8bdf7e41078",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-15/grievance-01/sheet.png",
+     "hash": "ed8195c8949e58ffa5fe3f812f682ec990920cc26b35dacbc1ec4da898176a04",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "710dcf9ea3228c405d1dcf6064a86f5b1e0391f99c81a711abf9f8bdf7e41078",
+   "sourcePath": "art/staging/room-15/grievance-out-01/livery-with-thad.png",
+   "out": "art/staging/room-15/grievance-out-01/sheet.png",
+   "outputHash": "e62c1fa4196483ec10966b166150e0ba8208c27026d0974a4c27bbac920c14f9",
+   "bytes": 1299357,
+   "usage": {
+    "input_tokens": 3542,
+    "input_tokens_details": {
+     "image_tokens": 3044,
+     "text_tokens": 498
+    },
+    "output_tokens": 780,
+    "output_tokens_details": {
+     "image_tokens": 780,
+     "text_tokens": 0
+    },
+    "total_tokens": 4322
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T22:25:07.404Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-08: \"Yes, one more op\" (room-15 cap raised to 6) for Grievance walking out of her stall, doc 54 B3",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T22:25:07.410Z"
   }
  ],
  "promotions": [

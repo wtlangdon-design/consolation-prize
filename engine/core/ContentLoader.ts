@@ -146,7 +146,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     : null;
   for (const row of actedDirections?.directions ?? []) {
     if (row.class !== 'A') continue;
-    for (const named of row.performedBy ?? []) {
+    for (const [index, named] of (row.performedBy ?? []).entries()) {
       // THE PROTAGONIST ACTS IN A CLIP (errata 148): "thad:pick-fit" is his
       // pick-fit clip, drawn in one facing, and the frames are that clip's.
       // "thad:recoil/back@claim_marker": the clip, in one of its facings, and a hotspot he then walks to.
@@ -160,13 +160,13 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
         const facings = [...new Set(clips.map((clip) => clip.facing))];
         if (facings.length !== 1) throw new Error(`doc 95 row ${row.n}: "${clipId}" is drawn in ${facings.length} facings; an act is drawn in one`);
         const length = Math.min(...clips.map((clip) => clip.frames.length));
-        const frames = row.frames ?? [];
+        const frames = row.framesBy?.[index] ?? row.frames ?? [];
         const bad = frames.find((frame) => frame < 0 || frame >= length);
         if (bad !== undefined) throw new Error(`doc 95 row ${row.n}: ${id}'s ${clipId} has no frame ${bad}`);
         const act = {
           ...(frames.length === 1 ? { frame: frames[0]! } : { frames }),
           seconds: row.seconds ?? 0,
-          ...(row.holds !== undefined ? { holds: row.holds } : {}),
+          ...((row.holdsBy?.[index] ?? row.holds) !== undefined ? { holds: (row.holdsBy?.[index] ?? row.holds)! } : {}),
           ...(row.cue ? { cue: row.cue } : {}),
           clip: clipId,
           facing: facings[0]!,
@@ -178,7 +178,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
       if (clipName || walkTo) throw new Error(`doc 95 row ${row.n}: ${named} -- only the protagonist acts in a clip or walks`);
       const npc = ambient.get(id);
       if (!npc?.sprite) throw new Error(`doc 95 row ${row.n}: "${row.words}" is acted by ${id}, who has no figure`);
-      const frames = row.frames ?? [];
+      const frames = row.framesBy?.[index] ?? row.frames ?? [];
       const bad = frames.find((frame) => frame < 0 || frame >= npc.sprite!.frames.length);
       if (bad !== undefined) throw new Error(`doc 95 row ${row.n}: ${id} has no frame ${bad}`);
       npc.sprite.performs = {
@@ -186,7 +186,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
         [row.words]: {
           ...(frames.length === 1 ? { frame: frames[0]! } : { frames }),
           seconds: row.seconds ?? 0,
-          ...(row.holds !== undefined ? { holds: row.holds } : {}),
+          ...((row.holdsBy?.[index] ?? row.holds) !== undefined ? { holds: (row.holdsBy?.[index] ?? row.holds)! } : {}),
           ...(row.cue ? { cue: row.cue } : {}),
         },
       };

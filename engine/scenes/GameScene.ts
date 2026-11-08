@@ -76,6 +76,8 @@ interface QueuedLine {
   cue?: string;
   /** His frame while this (spoken) line is up (ResponseRule.holds). */
   pose?: HeldPose;
+  /** Frames kept once this acted beat is over, through the rest of the lines (doc 95 Holds). */
+  holdsAfter?: HeldPose[];
   /** An acted beat in which he walks to a hotspot's stand (doc 54 A5's retreat; ActStep.walk). */
   walk?: { id: string; to: string };
 }
@@ -255,9 +257,13 @@ export class GameScene extends Phaser.Scene {
   private actWalking = false;
   /** His frame while a line of a rule that `holds` is up (ResponseRule.holds). */
   private spokenPose: HeldPose | null = null;
+  /** Frames an acted beat left held, kept until the queued lines are over (doc 95 Holds; errata 192). */
+  private lingering: HeldPose[] | null = null;
   /** The accost's seat he is walking to, and the state he is in once he sits (errata 192). */
-  private seatDue: { facing: Facing; state: string } | null = null;
+  private seatDue: { facing: Facing; state: string; sitAt?: { x: number; y: number }; from: { x: number; y: number } } | null = null;
   private seatedState: string | null = null;
+  /** Where he stood before he was set down at the table, and goes back to when he rises. */
+  private seatedFrom: { x: number; y: number } | null = null;
   /** A line `overBlack` has blacked out the play area until the room changes (doc 57 B3). */
   private overBlack = false;
   /** A scene's destination, travelled to once its lines have been read (GameState.resolveInteraction). */
@@ -842,6 +848,9 @@ export class GameScene extends Phaser.Scene {
         }
         // AND SITS, when the accost gave him a chair (errata 192): his seated clips until it ends.
         if (this.seatDue) {
+          // ON THE CHAIR AT THE TABLE'S END (Tyler, 2026-11-08: "his hands out on nothing"): set down where
+          // his forearms meet the cloth, off the walked floor, and put back on it when he rises.
+          if (this.seatDue.sitAt) { this.actor.placeAt(this.seatDue.sitAt.x, this.seatDue.sitAt.y); this.seatedFrom = this.seatDue.from; }
           this.actor.setFacing(this.seatDue.facing);
           this.state.setMoverState(this.actor.id, this.seatDue.state);
           this.seatedState = this.seatDue.state;
@@ -922,6 +931,7 @@ export class GameScene extends Phaser.Scene {
     if (this.wasTalking && !talking && this.seatedState !== null) {
       if (this.state.moverState(this.actor.id) === this.seatedState) this.state.setMoverState(this.actor.id, undefined);
       this.seatedState = null;
+      if (this.seatedFrom) { this.actor.placeAt(this.seatedFrom.x, this.seatedFrom.y); this.seatedFrom = null; }
       this.markDirty();
     }
     if (this.wasTalking && !talking && !this.panelHidden) {
@@ -2114,6 +2124,7 @@ export class GameScene extends Phaser.Scene {
     // A picture held over a beat's lines stays in the room it was said in (ResponseRule.holds).
     if (this.spokenPose) this.actor.hold(null);
     this.spokenPose = null;
+    this.lingering = null;
     this.loadNear();
     // A room over once its ending is said stays over black, after a load too (errata 121 B).
     const black = this.state.room.blackWhen;
@@ -2226,7 +2237,7 @@ export class GameScene extends Phaser.Scene {
       const seat = accost.seat && this.state.flags.test(accost.seat.when) ? accost.seat : null;
       if (seat) {
         // `seat`: to the chair instead, and he sits as the conversation opens (doc 48 S1 beat 1).
-        this.seatDue = { facing: seat.facing, state: seat.state };
+        this.seatDue = { facing: seat.facing, state: seat.state, ...(seat.sitAt ? { sitAt: seat.sitAt } : {}), from: { x: seat.x, y: seat.y } };
         this.actor.walkTo(seat.x, seat.y);
       } else if (accost.approach && npc.walkTo) this.actor.walkTo(npc.walkTo.x, npc.walkTo.y);
       this.markDirty();
@@ -2894,9 +2905,11 @@ export class GameScene extends Phaser.Scene {
   private advanceSay(): boolean {
     const next = this.pendingSay.shift();
     if (next === undefined) {
-      // The last line is down: a picture held over the lines is let go (ResponseRule.holds).
+      // The last line is down: a picture held over the lines is let go (ResponseRule.holds), and so is
+      // whatever an acted beat left held.
       if (this.spokenPose) this.actor.hold(null);
       this.spokenPose = null;
+      this.lingering = null;
       // AN ARRIVAL SCENE IS OVER when its last line comes off: only now does
       // it hand over, complete, and write (so a figure in it walks out after).
       if (this.afterArrival) {
@@ -2919,6 +2932,7 @@ export class GameScene extends Phaser.Scene {
         speaker: next.speaker, line: next.line, direction: true, silent: true,
         rest: step.seconds, poses: step.poses, ...(step.cue ? { cue: step.cue } : {}),
         ...(step.walk ? { walk: step.walk } : {}),
+        ...(step.holds ? { holdsAfter: step.holds } : {}),
       })));
       return this.advanceSay();
     }
@@ -2926,6 +2940,8 @@ export class GameScene extends Phaser.Scene {
       this.setSay(null);
       this.sayingActor = next.speaker;
       this.queuedPoses = next.poses ?? null;
+      // AND WHAT IT LEAVES HELD (doc 95 Holds): Grievance out of her stall through "Twelve years." (errata 192).
+      if (next.holdsAfter) this.lingering = next.holdsAfter;
       this.sayUntil = this.time.now / 1000 + (next.rest ?? 0);
       // HE RETREATS (ActStep.walk): to the hotspot's own stand, and the beat holds until he is there.
       if (next.walk && next.walk.id === this.actor.id) {
@@ -4034,7 +4050,9 @@ export class GameScene extends Phaser.Scene {
 
   /** Which figures hold which frames now: an acted direction, in a conversation or queued (doc 95; errata 141). */
   private heldPoses(): HeldPose[] | null {
-    return this.performance?.current?.poses ?? this.queuedPoses ?? (this.spokenPose ? [this.spokenPose] : null);
+    const now = this.performance?.current?.poses ?? this.queuedPoses ?? (this.spokenPose ? [this.spokenPose] : null);
+    if (!this.lingering) return now;
+    return [...(now ?? []), ...this.lingering.filter((pose) => !now?.some((one) => one.id === pose.id))];
   }
 
   private fireCue(id: string): void {

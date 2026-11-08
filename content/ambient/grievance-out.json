@@ -1,0 +1,48 @@
+{
+ "schema": 1,
+ "id": "grievance_out",
+ "name": "GRIEVANCE",
+ "posture": "animal",
+ "room": "livery",
+ "x": 960,
+ "y": 690,
+ "zone": 2,
+ "approachRadius": 0,
+ "scenery": true,
+ "tree": "",
+ "note": "GRIEVANCE OUT OF HER STALL (doc 54 B3: \"Then she walks out of her stall\"; errata 192). Draws nothing until the fork's act (doc 95 row 78), when her own figure goes empty and this one shows the half door open, the stall dark behind it, and her stepping out and walking off to the left. Composed by tools/art/grievance-out.py from room-15 attempt 6 and her canonical sheet. Scenery: the pointer passes through it, so GRIEVANCE is still clicked as she always was.",
+ "barksNote": "A mule; no barks.",
+ "movementException": "Tyler, 2026-11-08, of Grievance walking out of her stall: \"Yes, one more op\". This figure is drawn only in that act (frames 1-3) and is empty otherwise; her own figure, grievance.json, carries her movement in the stall.",
+ "sprite": {
+  "sheet": "art/actors/room-15-grievance-out.png",
+  "frames": [
+   [
+    2,
+    2,
+    680,
+    460
+   ],
+   [
+    684,
+    2,
+    680,
+    460
+   ],
+   [
+    1366,
+    2,
+    680,
+    460
+   ],
+   [
+    2048,
+    2,
+    680,
+    460
+   ]
+  ],
+  "rate": 0,
+  "frameNote": "0 nothing · 1 the door open, the stall dark, her stepping out of it, facing us · 2 out and walking left · 3 further left, the other stride. Frames 1-3 are acted only (doc 95 row 78), and held through the livery man's line.",
+  "provenance": "reference/unacted-moments/grievance-op-01.spec.json"
+ }
+}

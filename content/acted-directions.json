@@ -785,7 +785,8 @@
       "words": "Thad strikes the fork on his boot heel and listens to it. Then he whistles the livery man's tune, corrected: the fourth bar lifted where the livery man let it sag. Grievance's ears come round. She looks at Thad for a long moment. Then she walks out of her stall.",
       "where": "combinations (tuning_fork on grievance, with both)",
       "performedBy": [
-        "grievance"
+        "grievance",
+        "grievance_out"
       ],
       "frames": [
         0,
@@ -801,9 +802,53 @@
         3,
         3,
         3,
+        5,
+        5,
+        5
+      ],
+      "framesBy": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          3,
+          3,
+          3,
+          3,
+          5,
+          5,
+          5
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "seconds": 12,
+      "holdsBy": [
+        5,
         3
       ],
-      "seconds": 10.5,
       "cue": {
         "id": "B3-WHISTLE",
         "frame": 1

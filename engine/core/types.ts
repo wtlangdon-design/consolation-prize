@@ -1659,7 +1659,9 @@ export interface RoomFile {
        * While `when` holds, he walks to this point instead, turns to `facing`, and takes the mover
        * state `state` (his seated clips) as the conversation opens; it is cleared when it ends.
        */
-      seat?: { x: number; y: number; facing: Facing; state: string; when?: Condition; note?: string };
+      seat?: { x: number; y: number; facing: Facing; state: string; when?: Condition; note?: string;
+        /** Where he is drawn once seated, when the chair is off the floor he walks (at a table's end). */
+        sitAt?: { x: number; y: number } };
     };
   };
   /** Destinations doc 20 names but whose appearance rule nobody has stated. */
@@ -2669,6 +2671,10 @@ export interface ActedDirectionsFile {
     where: string;
     performedBy?: string[];
     frames?: number[];
+    /** Each figure's own frames, in the order `performedBy` names them, when they act differently. */
+    framesBy?: number[][];
+    /** Each figure's own held frame, in the same order. */
+    holdsBy?: number[];
     seconds?: number;
     holds?: number;
     cue?: { id: string; frame: number };

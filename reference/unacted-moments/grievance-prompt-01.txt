@@ -1,0 +1,16 @@
+Image 1 is a frame of my pixel-art adventure game at exact game size: the livery stable, with Thad (the hero, in a blue coat) and, behind a closed wooden half door in the middle of the picture, GRIEVANCE, a brown mule, looking out over the door. Image 2 is Grievance's own design sheet: the same mule, whole, from the front. Keep her exactly as in Image 2: same brown coat "the color of a wet saddle", dark mane, pale muzzle, long ears, dark hooves, same size of pixels, same soft flat shading.
+
+I need ONE sheet on flat pure magenta (#FF00FF) with THREE separate things, side by side, left to right, with clear magenta space between them:
+
+1. THE HALF DOOR, OPEN: the same wooden half door as in Image 1 (vertical planks, a diagonal brace, two iron strap hinges on its LEFT edge), swung fully open toward the viewer on its left-hand hinges, so it is seen almost edge-on: a narrow, tall wooden panel at a steep angle, its iron hinges at its left. Only the door. No post, no frame, no stall.
+2. GRIEVANCE WALKING, side-on, facing LEFT, full body, her near foreleg and far hind leg forward: mid-stride, unhurried, her head carried level, ears forward.
+3. GRIEVANCE WALKING, side-on, facing LEFT, full body: the other half of the same stride (the other pair of legs forward). Exactly four legs in each pose, each leg whole.
+
+STYLE: exactly as coarse as Images 1 and 2. Every pixel a large crisp square block. Flat soft shading, few tones, low texture. Not sharper than Image 1. Plain even light.
+
+RULES -- these matter more than anything else:
+- Background: flat pure magenta everywhere. No floor, no shadow, no straw, no stall, nothing else.
+- Poses 2 and 3: the same mule, the same size as in Image 2 (full height to the tips of her ears), hooves on the same baseline.
+- Clear magenta space between the three. Nothing touches.
+- Crisp pixel edges against the magenta. No glow, blur or halo.
+- No text, labels, numbers or borders.
