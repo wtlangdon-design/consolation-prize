@@ -325,6 +325,12 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 174: flagged because the line reading a second answer changed. It reads more, not less: a second answer written as an exchange (Winnie's \"I said don't.\" inside Sump's tree, spoken by her) was invisible to it and would have counted as no answer at all. Nothing it caught before passes now, and the list of trees it covers grew to every tree but Hob's."
+  },
+  {
+   "check": "tests/act-openings.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 177: flagged because a list of numbers changed. It is not loosened: the acts that must open with a line went from II and IV to II, III and IV, and a fourth test now holds the dialogue option that turns Act III to owing its opening. It checks more than before."
   }
  ]
 }
