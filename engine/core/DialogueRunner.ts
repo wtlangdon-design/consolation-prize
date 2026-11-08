@@ -700,6 +700,23 @@ export class DialogueRunner {
     if (goto && !this.activeTree.nodes[goto]) {
       throw new Error(`Unknown goto target: ${goto}`);
     }
+    // A NODE REACHED BY GOTO SAYS ITS OPENING (errata 181). An opening was performed only when a tree was
+    // started on its node, so four nodes reached from a row never said theirs: Frame's terms for the trade,
+    // the Colonel's card, Sheng's "You want money." and the second ledger's whole scene. It is said after the
+    // row's own reply, in the same performance, and once where the node says once.
+    let openingOnceAdd: Record<string, boolean> | undefined;
+    if (goto) {
+      const target = this.activeTree.nodes[goto]!;
+      const heard = target.openingOnce !== undefined && this.flags.get(target.openingOnce) === true;
+      if (target.opening?.length && !heard) {
+        const spoken = target.opening.map((line) => ({ speaker: line.speaker, line: line.line }));
+        if (say === null) {
+          say = spoken[0]!.line; sayer = spoken[0]!.speaker; direction = false;
+          rest = [...rest, ...spoken.slice(1)];
+        } else rest = [...rest, ...spoken];
+        if (target.openingOnce) openingOnceAdd = { [target.openingOnce]: true };
+      }
+    }
 
     // State changes apply on every selection, not only the first, so a
     // counter-style option keeps counting.
@@ -707,6 +724,7 @@ export class DialogueRunner {
     const effects: DurableEffect[] = [
       { id: `${prefix}#taken`, kind: 'dialogueTaken', tree: treeId, node: nodeId, option: option.id },
       ...flagEffects(prefix, option.set, option.add),
+      ...(openingOnceAdd ? flagEffects(`${prefix}#opening`, openingOnceAdd) : []),
       ...(closingAdd ? flagEffects(`${prefix}#closing`, undefined, closingAdd) : []),
       ...(option.universal && this.exitWording() !== null ? flagEffects(`${prefix}#exit`, undefined, { [EXIT_TURN]: 1 }) : []),
       // PUZZLE PROGRESS A ROW WRITES (doc 53): reserved with the rest, landed

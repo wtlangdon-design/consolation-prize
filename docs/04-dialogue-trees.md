@@ -129,7 +129,7 @@ The queue ledger, chained to the sill. *(Errata 75: getting in the book is not d
 |---|---|---|---|---|
 | 1 | "Will you run my assay?" | `[PROGRESS · remove]` | "I'll run your assay. I'd run your assay if it were a bucket of rain." | grants assay → C6 |
 | 2 | "Now can I ask about Mott gold?" | `[PROGRESS · remove]` | "No Mott gold has ever crossed this window. Not one flake. Not in nine years. Not one." | sets `T_NO_MOTT_GOLD` |
-| 3 | "Has nobody ever noticed?" | `[PROGRESS · remove]` | "I noticed. I wrote it down. I've been writing it down since eighteen and forty-nine, in a book that is not this book." *(She produces it from under the floor.)* | sets `T_SECOND_LEDGER`; opens `WIN_B3` *(errata 180)* |
+| 3 | "Has nobody ever noticed?" | `[PROGRESS · remove]` | "I noticed. I wrote it down. I've been writing it down since eighteen and forty-nine, in a book that is not this book." *(She produces it from under the floor.)* | sets `T_SECOND_LEDGER`; opens `WIN_B3` *(errata 181)* |
 | 4 | "Are you all right?" | `[COMIC · retain]` | "I am professionally offended, Mr. Grubb. It is the worst kind." *(second)* "Still offended. I'll tell you when it stops. It won't." | — |
 
 ## ACT II — `WIN_B3`: the second ledger
@@ -148,7 +148,7 @@ Available only with `T_SECOND_LEDGER`. She produces it from under the floor. Thi
 |---|---|---|---|
 | 1 | "Am I in the book?" | `[COMIC · retain]` | "You've been in the book since Tuesday." *(second)* "Since Tuesday. The twentieth. Keep coming to the window, Mr. Grubb." |
 
-*Built, errata 180 (Tyler, 2026-11-08: "Yes"): WIN_B2 option 3 opens it, so the scene plays the moment she says the book exists, and her retrieval is that row's direction (doc 95, class B until her pose and the lifted board are drawn). One row and the exit pool; doc 04 rules 1 and 2 are waived for it (errata 66 E). The second answer is new: she counts him, and says one word too many (doc 99).*
+*Built, errata 181 (Tyler, 2026-11-08: "Yes"): WIN_B2 option 3 opens it, so the scene plays the moment she says the book exists, and her retrieval is that row's direction (doc 95, class B until her pose and the lifted board are drawn). One row and the exit pool; doc 04 rules 1 and 2 are waived for it (errata 66 E). The second answer is new: she counts him, and says one word too many (doc 99).*
 
 ## ACT II — `WIN_B4`: the assay returns (C6) *(errata 75)*
 

@@ -4,7 +4,7 @@
   "id": "WINNIE",
   "speaker": "winnie",
   "name": "WINNIE LEDGER",
-  "note": "EXTRACTED from docs/04-dialogue-trees.md (WINNIE LEDGER) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a response are Winnie; the opening exchange is carried whole as `opening` and the prompt is its last Winnie line. WIN_B3 is reached from WIN_B2 option 3 (errata 180). Universal exit lines are doc 04 part one's pool.",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (WINNIE LEDGER) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a response are Winnie; the opening exchange is carried whole as `opening` and the prompt is its last Winnie line. WIN_B3 is reached from WIN_B2 option 3 (errata 181). Universal exit lines are doc 04 part one's pool.",
   "entries": [
     {
       "when": {
@@ -471,6 +471,8 @@
     },
     "WIN_B3": {
       "id": "WIN_B3",
+      "fewOptions": true,
+      "fewOptionsReason": "Errata 66 E: \"a scene with one row, as written\"; doc 04 rules 1 and 2 do not bar it.",
       "prompt": "That's all I know. I write down what I know. It's the entire discipline.",
       "opening": [
         {

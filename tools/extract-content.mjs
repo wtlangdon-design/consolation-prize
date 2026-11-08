@@ -3293,7 +3293,7 @@ function winnieTree() {
     .map((m) => m[1]);
   if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
 
-  // WIN_B3 IS BUILT (errata 180): one [COMIC] row and the exit pool, rules 1 and 2 waived by errata 66 E,
+  // WIN_B3 IS BUILT (errata 181): one [COMIC] row and the exit pool, rules 1 and 2 waived by errata 66 E,
   // reached from WIN_B2 option 3 ("opens `WIN_B3`"), not from an entry -- so WIN_B2's other rows stay reachable.
   const SKIP = {};
   const ONE_ROW = { WIN_B3: 'Errata 66 E: "a scene with one row, as written"; doc 04 rules 1 and 2 do not bar it.' };
@@ -3535,7 +3535,7 @@ function winnieTree() {
     note: 'EXTRACTED from docs/04-dialogue-trees.md (WINNIE LEDGER) by tools/extract-content.mjs. '
       + 'Do not edit: change doc 04 and re-run. Plain quotes in a response are Winnie; the '
       + 'opening exchange is carried whole as `opening` and the prompt is its last Winnie line. '
-      + 'WIN_B3 is reached from WIN_B2 option 3 (errata 180). Universal exit lines are doc '
+      + 'WIN_B3 is reached from WIN_B2 option 3 (errata 181). Universal exit lines are doc '
       + '04 part one\'s pool.',
     entries,
     start: 'WIN_A1',

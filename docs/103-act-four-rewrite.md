@@ -67,4 +67,34 @@ The Act II and III rows were written in their own passes (docs 101 and 102).
 - **The four dollars, paid off** (doc 99 rule 8): "your four dollars *built the mezzanine*", and, asked again, "Every time you climb those stairs, son, you're walking on your own four dollars."
 - **`?fixture=r18-b`** starts in the lobby in Act IV, for Tyler to see it.
 
-**The read that found it now runs as a test.** `tests/doc04-nodes.test.ts` fails on any node doc 04 names that is not in the game, unless `tests/data/doc04-nodes-not-built.json` gives the reason. Two were already known: FAN_D1, which cannot be reached (errata 84 I), and the superseded VES_A1 and UND_A1. **It also found one more, WIN_B3, the second ledger** ("Nineteen names. Men who came to this window with a question about Claim One."). Doc 04 calls it "the scene where the game turns from comedy to mystery", and it has never been built. It is listed with that reason and reported to Tyler.
+**The read that found it now runs as a test.** `tests/doc04-nodes.test.ts` fails on any node doc 04 names that is not in the game, unless `tests/data/doc04-nodes-not-built.json` gives the reason. Two were already known: FAN_D1, which cannot be reached (errata 84 I), and the superseded VES_A1 and UND_A1. **It also found one more, WIN_B3, the second ledger** ("Nineteen names. Men who came to this window with a question about Claim One."). Doc 04 calls it "the scene where the game turns from comedy to mystery", and it has never been built. It was reported to Tyler, who said "Yes" to building it (errata 181, below).
+
+## The second ledger, built (errata 181)
+
+Tyler, 2026-11-08, asked whether to build WIN_B3, the scene doc 04 calls "the scene where the game turns from comedy to mystery": "Yes".
+
+**How it plays now:**
+1. WIN_B2's "Has nobody ever noticed?" ends on "…in a book that is not this book."
+2. The direction is printed: (She produces it from under the floor.)
+3. Then the scene plays:
+   - "Nineteen names. Men who came to this window with a question about Claim One."
+   - "What happened to them?"
+   - "They stopped coming to the window."
+   - "That's all it says."
+   - "That's all I know. I write down what I know. It's the entire discipline."
+4. Then it has one row, "Am I in the book?", answered "You've been in the book since Tuesday." Asked again: "Since Tuesday. The twentieth. Keep coming to the window, Mr. Grubb."
+
+**How it is wired:**
+- It is reached from that row, never from an entry, so WIN_B2's other rows (the assay among them) are never stranded.
+- It is one row and the exit, as errata 66 E rules. `check-dialogue-nodes` now reads a node's declared `fewOptions` with its reason, as it already read `noComic`.
+- WIN_C1's "Nineteen names, Miss Ledger." in Act III now refers to a scene the player has seen.
+
+**Found while building it: a node reached from a row never said its opening.** Openings were performed only when a conversation started on their node. Four nodes are reached from a row:
+- Frame's trade, whose terms ("Money doesn't PRINT … Tell me something humiliating about yourself", doc 101) were never heard;
+- the Colonel's index card;
+- Sheng's "You want money.", heard only if the player came back later;
+- this scene.
+
+`DialogueRunner` now says the target's opening after the row's reply, once where the node says once. `tests/goto-opening.test.ts` holds every such row.
+
+**Not yet drawn:** her retrieval and the lifted board. The direction is printed until they are (doc 95 row 74, class B). `reference/second-ledger/brief.md` is the image session's brief, and it needs a cap from Tyler first. The ledger's after-state (back under the board, or left on the counter with the nineteen names readable) is his call when that is drawn.

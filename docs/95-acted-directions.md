@@ -108,7 +108,7 @@ Counts: **A 22 · B 2 · C 48** — 72 directions, every one flagged `"direction
 | 71 | C | frame | He reaches for his pencil, then puts it down. | dialogue/frame FRA_A1 option 8 |  |  |  |  |  | Errata 172: the one story Frame will not write down, and the only time he doesn't. The joke is the restraint, which a pose can't show, so it stays printed. |
 | 72 | A | pratt | He rakes for a while. | dialogue/pratt PRA_A1 option 5 | pratt | 3 4 3 4 | 2.0 |  |  | Errata 172: his two rake strokes (frames 3 and 4, the ones his idle breaks with), twice, before he answers. |
 | 73 | A | pratt | He rakes. | dialogue/pratt PRA_A1 option 6 | pratt | 3 4 | 1.0 |  |  | Errata 172: one stroke, the short version of the pause above. |
-| 74 | B | winnie | She produces it from under the floor. | dialogue/winnie WIN_B2 option 3 |  |  |  |  |  | Errata 180, WIN_B3 built: her retrieval of the second ledger from Room 5's loose board (errata 66 D, E). Physical, and needs a pose she has not got (round the counter, down to the board) and the board's lifted state, so it stays printed until both are drawn (rule 4; reference/second-ledger/brief.md). |
+| 74 | B | winnie | She produces it from under the floor. | dialogue/winnie WIN_B2 option 3 |  |  |  |  |  | Errata 181, WIN_B3 built: her retrieval of the second ledger from Room 5's loose board (errata 66 D, E). Physical, and needs a pose she has not got (round the counter, down to the board) and the board's lifted state, so it stays printed until both are drawn (rule 4; reference/second-ledger/brief.md). |
 
 ## When a B pose is drawn
 
