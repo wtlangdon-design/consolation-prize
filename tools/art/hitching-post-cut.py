@@ -16,7 +16,16 @@ otherwise in place. So:
   2  frame 1 with frame 3's changes: the black tosses its head, the paint looks round
      -- the pixels that differ from frame 1, widened by four, in those horses' bands;
   3  the palomino chews again, 7 px.
-Frames 2 and 4 of the sheet are not used.
+Frame 2 of the sheet is not used.
+
+THE PAINT PONY'S HEAD IS FRAME 4'S (Tyler, 2026-11-08: "The horse on the right
+has its head/neck through the hitching post"). In frames 1 to 3 the pony grazes
+below the rail with the rail drawn across its neck. In frame 4 it stands with
+its head up over the rail: frame 4 moved it, with the right post, 33 px left
+and 20 up, so the rest takes everything right of x 520 from frame 4 shifted
+back by that, and the palomino's hind legs where the old lowered head hung
+(x 440-520, y 296-452) from frame 4 shifted by the palomino's own offset (4, 19).
+The head toss then takes only the black's change from frame 3.
 
 Then: crop to the union of every frame, take the magenta out of the outline and
 anything at the key's hue (as tools/art/item-icons-cut.py does), and lay the
@@ -39,6 +48,10 @@ RECORD = os.path.join(ROOT, 'art/staging/room-02/hitching-03/cut.json')
 CELL_W, CELL_H = 768, 512
 EDGE = 4          # the cells' faint borders
 DROP = 19         # sheet frame 3 sits this many rows higher than frame 1
+PONY = (33, 20)   # sheet frame 4's pony and right post, back onto frame 1
+LEGS = (4, 19)    # sheet frame 4's palomino, back onto frame 1
+CUT = 520         # right of this column the rest is frame 4's pony
+LEGS_BOX = (440, 296, 520, 452)   # where frame 1's pony hung its head: frame 4's palomino legs
 
 
 def fgmask(rgb, min_area=150):
@@ -83,14 +96,20 @@ def shift(img, dx, dy, fill):
 def frames():
     sheet = np.asarray(Image.open(SOURCE).convert('RGB'))
     cell = lambda i: sheet[(i // 2) * CELL_H:(i // 2 + 1) * CELL_H, (i % 2) * CELL_W:(i % 2 + 1) * CELL_W]
-    one = cell(0)
+    first = cell(0)
+    four = cell(3)
+    one = first.copy()
+    pony = shift(four, PONY[0], PONY[1], np.array([255, 0, 255], np.uint8))
+    legs = shift(four, LEGS[0], LEGS[1], np.array([255, 0, 255], np.uint8))
+    one[LEGS_BOX[1]:LEGS_BOX[3], LEGS_BOX[0]:LEGS_BOX[2]] = legs[LEGS_BOX[1]:LEGS_BOX[3], LEGS_BOX[0]:LEGS_BOX[2]]
+    one[:, CUT:] = pony[:, CUT:]
     m1 = fgmask(one)
     three = shift(cell(2), 0, DROP, np.array([255, 0, 255], np.uint8))
     m3 = fgmask(three)
     yy, xx = np.mgrid[0:CELL_H, 0:CELL_W]
     rest = np.dstack([one, np.where(m1, 255, 0)]).astype(np.uint8)
-    # The black's head (left of the palomino, above the rail) and the paint pony.
-    band = ((xx < 300) & (yy < 330)) | (xx >= 470)
+    # The black's head, left of the palomino and above the rail.
+    band = (xx < 300) & (yy < 330)
     moved = (np.abs(three.astype(int) - one.astype(int)).sum(-1) > 60) & (m3 | m1) & band
     region = ndimage.binary_dilation(moved, iterations=4) & band
     toss = np.dstack([np.where(region[..., None], three, one),
@@ -129,9 +148,8 @@ def main():
     rows = np.where(rest.any(1))[0]
     record = {'sheet': os.path.relpath(OUT, ROOT), 'source': os.path.relpath(SOURCE, ROOT), 'frames': rects,
               'figureHeight': int(rows.max() - rows.min() + 1),
-              'frameNote': '0 rest: the palomino eating, the black looking out, the paint dozing · '
-                           '1 the palomino chews · 2 the black tosses its head, the paint looks round · '
-                           '3 the palomino chews'}
+              'frameNote': '0 rest: the palomino eating, the black looking out, the paint pony with its head up over the rail · '
+                           '1 the palomino chews · 2 the black tosses its head · 3 the palomino chews'}
     with open(RECORD, 'w') as f:
         json.dump(record, f, indent=1)
     print(os.path.relpath(OUT, ROOT), sheet.size, 'frames', len(rects), 'frame', (int(w), int(h)),

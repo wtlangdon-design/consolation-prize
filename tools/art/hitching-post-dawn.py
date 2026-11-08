@@ -19,7 +19,7 @@ NIGHT = 'art/backgrounds/room-02-main-street.png'
 DAWN = 'art/backgrounds/room-36-main-street-dawn.png'
 SHEET = 'art/actors/room-02-horses.png'
 OUT = 'art/actors/room-36-horses-dawn.png'
-GROUND = (slice(586, 858), slice(1333, 1757))   # the group's drawn rect at 1545,850
+GROUND = (slice(586, 858), slice(1321, 1769))   # the group's drawn rect at 1545,850
 
 
 def main():

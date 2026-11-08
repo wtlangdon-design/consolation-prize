@@ -4818,17 +4818,21 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
   - **Attempt 5, the group redrawn**, as four frames of one sheet, with the street and Thad for scale and the first group shown as what to move away from. The rail is now at chest height, and the three horses are plainly different animals:
     - a heavy black with a blaze, looking out;
     - a palomino with its head down, eating from a pile of hay;
-    - a shaggy paint pony in a striped blanket.
+    - a shaggy paint pony in a striped blanket, its head up over the rail.
   - Attempts 3 and 4's sheets are kept in staging; nothing of them ships. **One operation remains.**
 - **Cut by `tools/art/hitching-post-cut.py`.**
   - Only frames 1 and 3 of the sheet agree. In frames 2 and 4 the generator moved two horses about 30 px sideways, so neither can be laid over the rest; frame 3 is the whole group 19 px higher and otherwise in place.
-  - Frame 0 is the rest. Frame 2 is the rest with frame 3's changes: the black tosses its head and the paint pony looks round. Frames 1 and 3 are the rest with the palomino's lowered head lifted 4 and 7 px off the hay, chewing.
+  - **Tyler, on the redraw:** "The horse on the right has its head/neck through the hitching post." In frames 1 to 3 the paint pony grazes below the rail, with the rail drawn across its neck. Frame 4 has it standing with its head up over the rail, moved (with the right post) 33 px left and 20 up.
+    - So the rest takes everything right of x 520 from frame 4, shifted back.
+    - Where the old lowered head hung, between the palomino's legs, it takes frame 4's palomino, shifted by its own offset (4, 19).
+    - No operation was spent on this.
+  - Frame 0 is the rest. Frame 2 is the rest with frame 3's black tossing its head. Frames 1 and 3 are the rest with the palomino's lowered head lifted 4 and 7 px off the hay, chewing.
   - The magenta is taken out of the outline, the hue's spill and the generator's plum-black outline ink, which `check-residual-key` reads as keyed background. Then the sheet is snapped to the cast's grid (`one-level.py --only`).
 - **An ambient animal, `hitching_horses`, at 1545,850:** 535 px left of where it first stood, in the near mud between the letter-writer and the boundary men.
   - `posture: "animal"`, `figureHeight` 389, `stature` 1.21. The black's withers come to Thad's shoulder.
   - It rests on frame 0, and every 7 s one of the three plays for 2.4 s, rotating. The head toss changes 19% of the group, every 21 s (errata 77).
 - **The rail is part of the sprite**, so it is depth-sorted with the horses. Thad passes behind them, and nothing passes in front, so no occlusion plane is needed.
-- **An obstacle in both streets.** `hitching_post`, [1341, 808, 408, 50], is the footprint of the hooves, hay and posts, with the ground behind it kept walkable (`keepsGroundAbove`), as the dog's is. Rooms 2 and 36 are recompiled.
+- **An obstacle in both streets.** `hitching_post`, [1329, 808, 407, 50], is the footprint of the hooves, hay and posts, with the ground behind it kept walkable (`keepsGroundAbove`), as the dog's is. Rooms 2 and 36 are recompiled.
 - **The day is Room 36.** Room 2 is night in every act (errata 64), and Main Street's only daylight is Room 36's dawn. The horses are there too, as a placement with their own sheet (`art/actors/room-36-horses-dawn.png`). `tools/art/hitching-post-dawn.py` relights the night sheet by the dawn plate's ratio to the night's over the ground they stand on.
 - **Scenery until its lines exist.** The brief says it has no lines and is not a hotspot.
   - A new field, `scenery`, keeps an ambient figure out of `npcAt`, so the pointer passes through the horses to the mud beneath.

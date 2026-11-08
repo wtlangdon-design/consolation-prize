@@ -10,7 +10,7 @@
  "approachRadius": 0,
  "scenery": true,
  "sceneryNote": "Scenery until its lines are written (reference/hitching-post/brief.md): the pointer passes through to the mud under it, so it answers no verb and names nothing. Its LOOK and LISTEN lines go in the documents first; then this goes and a hotspot is laid over it.",
- "note": "Tyler, 2026-11-07, on Main Street: \"maybe we add a hitching post front and center of the camera with a few horses tied to it so that it's not just a bunch of empty space?\" Then, 2026-11-08, on the first group: \"It just looks essentially like three copies of the same horse ... maybe one is eating? And are hitching posts that low? And I think they should all be moved quite a bit to the left\". A hitching rail at chest height with three different horses -- a black with a blaze, a palomino eating hay, a paint pony in a striped blanket -- in the near mud between the letter-writer and the boundary men. Room-02 attempt 5.",
+ "note": "Tyler, 2026-11-07, on Main Street: \"maybe we add a hitching post front and center of the camera with a few horses tied to it so that it's not just a bunch of empty space?\" Then, 2026-11-08, on the first group: \"It just looks essentially like three copies of the same horse ... maybe one is eating? And are hitching posts that low? And I think they should all be moved quite a bit to the left\". A hitching rail at chest height with three different horses -- a black with a blaze, a palomino eating hay, a paint pony in a striped blanket with its head up over the rail -- in the near mud between the letter-writer and the boundary men. Room-02 attempt 5.",
  "barks": {},
  "barksNote": "Horses; no barks.",
  "sprite": {
@@ -19,25 +19,25 @@
    [
     2,
     2,
-    679,
+    716,
     422
    ],
    [
-    683,
+    720,
     2,
-    679,
+    716,
     422
    ],
    [
-    1364,
+    1438,
     2,
-    679,
+    716,
     422
    ],
    [
-    2045,
+    2156,
     2,
-    679,
+    716,
     422
    ]
   ],
@@ -48,7 +48,7 @@
   "beatSeconds": 2.4,
   "phase": 0.3,
   "rate": 0.2,
-  "frameNote": "0 rest: the palomino eating, the black looking out, the paint dozing · 1 the palomino chews · 2 the black tosses its head, the paint looks round · 3 the palomino chews. At rest on 0; every 7 s one of the three plays for 2.4 s, rotating, so the black tosses its head every 21 s (errata 77).",
+  "frameNote": "0 rest: the palomino eating, the black looking out, the paint pony with its head up over the rail · 1 the palomino chews · 2 the black tosses its head · 3 the palomino chews. At rest on 0; every 7 s one of the three plays for 2.4 s, rotating, so the black tosses its head every 21 s (errata 77).",
   "provenance": "art/staging/room-02/hitching-03/cut.json"
  },
  "placements": {
@@ -62,25 +62,25 @@
      [
       2,
       2,
-      679,
+      716,
       422
      ],
      [
-      683,
+      720,
       2,
-      679,
+      716,
       422
      ],
      [
-      1364,
+      1438,
       2,
-      679,
+      716,
       422
      ],
      [
-      2045,
+      2156,
       2,
-      679,
+      716,
       422
      ]
     ],
@@ -91,7 +91,7 @@
     "beatSeconds": 2.4,
     "phase": 0.3,
     "rate": 0.2,
-    "frameNote": "0 rest: the palomino eating, the black looking out, the paint dozing · 1 the palomino chews · 2 the black tosses its head, the paint looks round · 3 the palomino chews. At rest on 0; every 7 s one of the three plays for 2.4 s, rotating, so the black tosses its head every 21 s (errata 77).",
+    "frameNote": "0 rest: the palomino eating, the black looking out, the paint pony with its head up over the rail · 1 the palomino chews · 2 the black tosses its head · 3 the palomino chews. At rest on 0; every 7 s one of the three plays for 2.4 s, rotating, so the black tosses its head every 21 s (errata 77).",
     "provenance": "tools/art/hitching-post-dawn.py: the night sheet under the dawn plate's light (errata 178)"
    }
   }
