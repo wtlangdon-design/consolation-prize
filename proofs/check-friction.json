@@ -349,6 +349,12 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 181: a node may now declare `fewOptions` with a reason, as it could already declare `noComic`. One node uses it, WIN_B3, which errata 66 E rules 'a scene with one row, as written'. A declaration without a reason fails."
+  },
+  {
+   "check": "tests/c5.test.ts",
+   "date": "2026-11-08",
+   "kind": "reviewed",
+   "why": "TUNED. All three loosenings had one cause: the test held a later state's absence as if it were the rule (no T_QUEUE_PADDED declared; T_QUEUE_PADDED unset after C5; WIN_B3 not extracted), and each broke when that state was built. The one assumption of that kind left -- 'the board is untouched' after the second ledger is revealed, which the retrieval's staging will change -- is replaced by errata 66 E's own rule: nothing gives the ledger to Thad. What it asserts now is rules from the errata and the data, not the build's current gaps. Not retired."
   }
  ]
 }
