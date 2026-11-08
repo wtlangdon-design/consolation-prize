@@ -157,7 +157,13 @@
           "tag": "COMIC",
           "afterUse": "retain",
           "text": "Could you make it roomy?",
-          "say": "Everybody asks for roomy. Nobody's ever come back to complain."
+          "say": "Everybody asks for roomy. Nobody's ever come back to complain.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Roomy's extra. Nobody's ever come back for that either."
+            }
+          ]
         },
         {
           "id": "undertaker_cx",

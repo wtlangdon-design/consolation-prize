@@ -17,8 +17,8 @@ const cards = JSON.parse(readFileSync(new URL('../content/act-cards.json', impor
 const flags = (JSON.parse(readFileSync(new URL('../content/flags/flags.json', import.meta.url), 'utf8')) as
   { flags: Flag[] }).flags;
 
-test('the second act and the fourth open with a line, in a room, the morning after their turn', () => {
-  for (const act of ['2', '4']) {
+test('every act after the first opens with a line, in a room, after its turn', () => {
+  for (const act of ['2', '3', '4']) {
     const opening = cards.openings[act];
     assert.ok(opening, `act ${act} has no opening: the card goes down and he is left where the last act ended`);
     assert.ok(opening.say.length && opening.say.every((line) => line.trim().length > 0), `act ${act}'s opening says nothing`);
@@ -50,4 +50,22 @@ test('the place that turns the second act owes its opening when it sets the act'
   assert.equal(turns.length, 1, `the second act turns in ${turns.length} places`);
   const due = cards.openings['2']?.due ?? '(no opening)';
   assert.equal(turns[0]?.[due], true, 'the act turns without owing its opening');
+});
+
+test('the conversation that turns the third act owes its opening when it sets the act', async () => {
+  const { readdirSync } = await import('node:fs');
+  const dir = new URL('../content/dialogue/', import.meta.url);
+  const due = cards.openings['3']?.due ?? '(no opening)';
+  const turns: Record<string, unknown>[] = [];
+  const walk = (value: unknown): void => {
+    if (Array.isArray(value)) value.forEach(walk);
+    else if (value && typeof value === 'object') {
+      const set = (value as { set?: Record<string, unknown> }).set;
+      if (set && set.ACT === 3) turns.push(set);
+      Object.values(value).forEach(walk);
+    }
+  };
+  for (const name of readdirSync(dir).filter((n) => n.endsWith('.json'))) walk(JSON.parse(readFileSync(new URL(name, dir), 'utf8')));
+  assert.equal(turns.length, 1, `the third act turns in ${turns.length} places`);
+  assert.equal(turns[0]?.[due], true, 'the third act turns without owing its opening');
 });
