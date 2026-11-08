@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "note": "Errata 163 A5: the town on the district map, placed by code from the game's own plates (Tyler, 2026-11-07: \"I really want it to look as similar to the actual game as possible\"). Every box is in the shipping map's 1920 x 864 pixels, read off the L map (PR 239). tools/art/town-map-pieces.py reads this. The image model draws buildings, never the layout.",
+ "plates": {
+  "main_street": "Room 2: the long row of fronts along the back of the square, in order the mercantile, the Improvement Company, the Clarion, the fronts between, then the Nugget (the largest, a balcony over its porch), the hotel and the assay office coming forward down the square's east side; the road out leaves past the assay office.",
+  "the_lane": "Room 44: west to east, the undertaker's, the photographer's, Ozymandia's tent, the barber's, the empty storefront, all facing the Lane; Main Street's backs opposite.",
+  "lower_street": "Room 43: the Registrar's, the church with its belfry and the bell on its post, the livery; already right on the map and not touched."
+ },
+ "keep": {
+  "note": "The long row stays as drawn: six fronts facing south, x 220-612. The Lane's road, Lower Street, the houses, the creek, the pass and the diggings are not touched.",
+  "row": [
+   220,
+   355,
+   392,
+   103
+  ]
+ },
+ "clear": [
+  {
+   "what": "the old east arm, refilled with the square's mud",
+   "box": [
+    614,
+    350,
+    134,
+    224
+   ],
+   "from": [
+    220,
+    462,
+    150,
+    64
+   ]
+  },
+  {
+   "what": "the Lane's westmost shopfront, so it has five with the tent third, refilled with the grass and fence west of it",
+   "box": [
+    292,
+    278,
+    58,
+    72
+   ],
+   "from": [
+    232,
+    278,
+    58,
+    72
+   ]
+  }
+ ],
+ "pieces": {
+  "note": "The pieces sheet (art/staging/town-map/pieces-0N/source.png): three buildings on flat magenta, left to right the Nugget, the hotel, the assay office, each turned to face west (left). Each is cut on its key, scaled to its box's height, and set with its bottom on the box's bottom and its left edge on the box's left. Larger to smaller, as the plate has them.",
+  "order": [
+   "nugget",
+   "hotel",
+   "assay_office"
+  ],
+  "boxes": {
+   "nugget": [
+    614,
+    348,
+    122,
+    104
+   ],
+   "hotel": [
+    622,
+    452,
+    112,
+    70
+   ],
+   "assay_office": [
+    632,
+    524,
+    100,
+    46
+   ]
+  }
+ },
+ "finish": {
+  "note": "The finishing pass may repaint only these, padded by 6 px: the three pieces' boxes and the two cleared boxes. Everything else is taken back from the assembly unchanged.",
+  "pad": 6
+ }
+}

@@ -85,3 +85,35 @@ This is an edit of the town only, pasted back like the church edit, so nothing e
 
    If a check misses, the correction is `town-02`: run `prepare-town --attempt 2`, copy the spec and prompt, and state the miss.
 5. **Promote** with `--write`, then run `npm test` and `node tools/run-all.mjs`. Commit, then open a PR whose description says `Lesson: none -- art for errata 163's map`, and merge it when CI is green. The builder re-places the markers and the roads.
+
+## Then: the town placed by code (pieces-01)
+
+Written after the L map was promoted (PR 239). Tyler said: **"I really want it to look as similar to the actual game as possible ... Why wouldn't we give cc more specific instructions to do it totally right?"** Four tries showed the model will not follow a layout: asked to rearrange the town, it redrew everything or dropped half. So the model draws only buildings, and `tools/art/town-map-pieces.py` places them where `reference/town-map/town-plan.json` says. The plan is read off the game's plates. He said **"Yes"**; the cap is 13 (the pieces, the finishing pass, and one correction for each).
+
+**What the plan fixes:**
+- the east arm turned to face west onto the square, the saloon (the Nugget) largest, at the corner, with no gap after the long row;
+- the hotel and the assay office below it, smaller;
+- the Lane with five shopfronts, the tent third.
+
+The long row, the Lane's road, Lower Street and everything else stay the shipping map's own pixels.
+
+1. **Pieces.** `art/staging/town-map/pieces-01/town-2x.png` is committed. Run `NODE_USE_ENV_PROXY=1 node tools/art/room-op.mjs reference/town-map/prompts/pieces-01.spec.json`. Check the sheet:
+   - three buildings on flat magenta, left to right the saloon, the hotel and the assay office;
+   - each turned with its front facing left;
+   - the map's view and pixel style;
+   - sizes falling off left to right;
+   - no text.
+
+   If it misses, the correction is `pieces-02`: copy the spec and prompt to `-02`, keep `town-2x.png` from `pieces-01`, and state the miss.
+2. **Assemble.** Run `python3 tools/art/town-map-pieces.py assemble --attempt N`. It cuts the sheet on its key, refuses unless it finds exactly three buildings, clears the plan's boxes, and sets each piece in its box. It writes `assembled.png`, `finish-input.png` and `finish-mask.png`. Look at `assembled.png` at full size: the buildings in place, the patches' edges showing. If a piece reads wrong in place, adjust its box in the plan (a few pixels) and re-assemble. That costs nothing.
+3. **Finish.** Copy `reference/town-map/prompts/finish-01.spec.json` and change `pieces-01` to `pieces-0N` in its paths if N is not 1. Then run `room-op.mjs` on it. It is masked: only the pieces' boxes and the cleared boxes may change.
+4. **Candidate.** Run `python3 tools/art/town-map-pieces.py finish --attempt N`. It pastes back only the masked boxes over the assembly.
+5. **Check the candidate at full size:**
+   - the buildings are where the plan put them and still face west;
+   - the ground and the road meet them with no seam and no repeated pattern;
+   - the Lane has five shopfronts with the tent third;
+   - nothing outside the boxes changed;
+   - there is no text.
+
+   If it misses, the correction is a second finishing pass (`finish-02`, with the miss stated).
+6. **Promote.** Run `finish --attempt N --write`, then `npm test` and `node tools/run-all.mjs`. Commit, then open a PR whose description says `Lesson: none -- art for errata 163's map`, and merge it when CI is green. The builder re-places the markers and the roads.

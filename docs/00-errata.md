@@ -4554,4 +4554,14 @@ He answered **"That all sounds good"** to one more pass: a pass at the top with 
   - the map still measures as night (26.5).
 - The builder re-places the markers and the roads.
 
+**A5 · The town placed by code.** Tyler, of the L map: **"I really want it to look as similar to the actual game as possible, though. Why wouldn't we give cc more specific instructions to do it totally right?"** He was told the instructions were not the trouble: on four tries the model would not follow a layout. Asked to rearrange the town, it redrew everything or dropped half, and the L was assembled by hand. He was offered a change of method: the model draws only buildings, and code places them. He answered **"Yes"**, and the cap rises by 4 to 13.
+
+**The plan.** `reference/town-map/town-plan.json` is read off the plates:
+- the long row stays;
+- the east arm is turned to face west, with the Nugget largest at the corner and no gap after the row;
+- the hotel and the assay office stand below it;
+- the Lane has five shopfronts with the tent third.
+
+**The method.** `tools/art/town-map-pieces.py` cuts the pieces sheet on its magenta key, clears and refills the plan's boxes, and sets each piece in its box. A masked finishing pass may repaint only those boxes, and only those are taken back. The brief's fifth part covers it.
+
 **B · The map's Thad** lands with Lower Street and the Lane (errata 161, part 3), on the branch where it was built, and is recorded here when it merges.
