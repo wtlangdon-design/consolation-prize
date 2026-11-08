@@ -191,6 +191,32 @@ export function check() {
       }
     }
   }
+  // THE LOUDEST SOUND IN THE GAME IS THE ONE THE WRITING SAYS IS (doc 48 S6 beat 3: "The county seal
+  // comes down. One stamp. It is the loudest sound in the game"). `levels.loudest` names one cue, the
+  // single exception to "background effects, not centre stage" (errata 106): against the music, its
+  // loudest moment is at least `overNext` dB over every other sound's -- every cue's every part and
+  // every footstep. A bell turned up past it, or the seal turned down to a bell, fails here.
+  if (levels.loudest) {
+    const named = sounds.cues[levels.loudest.cue];
+    if (!named?.play?.length) report.fail(`levels.loudest names ${levels.loudest.cue}, which is no cue that plays`);
+    else {
+      const levelOf = (part) => db(loudestMoment(read(part.src)) * (part.gain ?? 1)) - music;
+      const seal = Math.max(...named.play.map(levelOf));
+      let next = -Infinity; let nextWhat = '';
+      for (const [id, cue] of Object.entries(sounds.cues)) {
+        if (id === levels.loudest.cue) continue;
+        for (const part of cue.play ?? []) { const l = levelOf(part); if (l > next) { next = l; nextWhat = `cue ${id} ${part.src}`; } }
+      }
+      for (const files of Object.values(steps.surfaces)) {
+        for (const file of files) { const l = db(loudestMoment(read(file)) * steps.gain) - music; if (l > next) { next = l; nextWhat = `footstep ${file}`; } }
+      }
+      checked += 1;
+      if (seal - next < levels.loudest.overNext) {
+        report.fail(`${levels.loudest.cue} is ${seal.toFixed(1)} dB against the music and ${nextWhat} is ${next.toFixed(1)}: `
+          + `the loudest sound in the game must be ${levels.loudest.overNext} dB over every other`);
+      }
+    }
+  }
   // A MOMENT MEANT TO BE NOTICED IS SET TO BE NOTICED (errata 117; Tyler,
   // 2026-11-06: "it needs to really be noticeable if it's supposed to be
   // noticeable"). The fiddler's played barks went in at 4 dB over a gently

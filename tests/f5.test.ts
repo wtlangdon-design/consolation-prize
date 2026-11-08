@@ -89,9 +89,16 @@ test('before the duel is won, the counter answers as it always has', async () =>
 test('the county seal is one sound, the score resting under it, between the certification and the read-back', async () => {
   const { content, tree } = await setup();
   const filing = content.dialogue.get(tree)!.nodes.SUM_F1!.options.find((one) => one.puzzle?.F5)!;
-  const sounded = (filing.exchange ?? []).filter((line) => line.sound);
-  assert.equal(sounded.length, 1, 'one stamp');
-  const seal = sounded[0]!.sound!;
-  assert.ok((seal.rest ?? 0) > 0, 'the score rests under it');
-  await readFile(resolve(ROOT, seal.src));
+  const lines = filing.exchange ?? [];
+  const sounds = JSON.parse(await readFile(resolve(ROOT, 'content/audio/sounds.json'), 'utf8'));
+  const loudest = sounds.levels.loudest.cue as string;
+  const sealed = lines.filter((line) => (line as { cue?: string }).cue === loudest);
+  assert.equal(sealed.length, 1, 'one stamp, and it is the sound named the loudest in the game');
+  assert.ok(!lines.some((line) => (line as { sound?: unknown }).sound), 'no raw sound beside it');
+  const at = lines.indexOf(sealed[0]!);
+  assert.ok(lines.slice(0, at).some((line) => line.speaker === 'winnie'), 'after the certification');
+  assert.ok(lines.slice(at + 1).some((line) => line.speaker === 'sump'), 'before the read-back');
+  const cue = sounds.cues[loudest];
+  assert.ok(cue.duck && cue.duck.to < 0.5, 'the score rests under it');
+  for (const part of cue.play) await readFile(resolve(ROOT, part.src));
 });
