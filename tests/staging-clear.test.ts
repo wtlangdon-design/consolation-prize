@@ -174,10 +174,26 @@ for (const roomId of built) {
     assert.deepEqual(faults, [], `${roomId}: move a figure`);
   });
 
+  // AN ANIMAL ON THE GROUND IS WALKED AROUND (Tyler, 2026-11-07, Main Street: "He shouldn't be able to walk on or
+  // through the dog."). The bands ran straight through the sleeping dog; the room's annotation now carves him out as
+  // it carves the trough. Just above an animal's feet is never floor.
+  test(`${roomId}: nobody walks through an animal lying in the street`, () => {
+    const faults = placed(roomId).filter((one) => one.posture === 'animal')
+      .filter((one) => boxes.boxAt(one.x, one.y - 10) !== null && boxes.boxAt(one.x, one.y - 10) !== undefined)
+      .map((one) => `${one.npc.id} at ${one.x},${one.y} lies on walkable floor`);
+    assert.deepEqual(faults, [], `${roomId}: carve the animal out of the walk boxes (annotation obstacles)`);
+  });
+
   test(`${roomId}: where the player comes in, he stands on nobody`, () => {
     const faults: string[] = [];
     const image = sheet(playerStand);
-    for (const entrance of (room.entrances ?? []) as { from: string; at: [number, number]; facing?: string }[]) {
+    // WHERE HE WALKS TO ON ARRIVING IS WHERE HE COMES IN, TOO (Tyler, 2026-11-07, Main Street: "When Thad enters
+    // this room for the first time from room 1, he lands on the newspaper guy"). The entrance at the street's edge
+    // was clear; the room's onEnter then walked him to 3300,706, thirty pixels from the map seller's feet.
+    const arrivals = [...(room.entrances ?? []) as { from: string; at: [number, number]; facing?: string }[]];
+    const walkIn = (room.onEnter as { walkTo?: [number, number] } | undefined)?.walkTo;
+    if (walkIn) arrivals.push({ from: 'the walk in on arriving', at: walkIn, facing: 'left' });
+    for (const entrance of arrivals) {
       const [x, y] = entrance.at;
       const height = man(x, y);
       if (!height) continue;

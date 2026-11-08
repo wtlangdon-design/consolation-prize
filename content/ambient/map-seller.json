@@ -5,8 +5,8 @@
  "posture": "standing",
  "note": "Doc 07 #16. Sells maps to Mott's strike. Unknowingly employed by the Improvement Company. Genuinely believes in them. The saddest character in the game and he is played entirely for laughs.",
  "room": "main_street",
- "x": 3270,
- "y": 706,
+ "x": 3185,
+ "y": 668,
  "zone": 1,
  "approachRadius": 40,
  "tree": "amb_map_seller",
@@ -138,5 +138,5 @@
   }
  },
  "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 16 · THE MAP SELLER) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109).",
- "placedNote": "x 3270, right of the assay office steps (2026-11-06). At x 3140 he stood in front of the assay office door, and Thad, coming out, stood behind him with the map across him -- on every visit (Tyler, of Duel Three: 'The main street scene is a MESS'). Held by tests/staging-clear.test.ts: where the player comes in, he stands on nobody."
+ "placedNote": "x 3185, at the right-hand foot of the assay office steps (Tyler, 2026-11-07: \"the map seller should be closer to the stairs of the assay office\"). The left-hand foot stood him on Sowerby at Duel Three and on the stand for talking to the man leaving tomorrow. Before that: x 3270 (2026-11-06), under the spot the street's first arrival walked Thad to, so Thad landed on him; and x 3140, in front of the door, where Thad coming out stood behind him with the map across him. Held by tests/staging-clear.test.ts."
 }
