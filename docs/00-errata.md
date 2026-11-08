@@ -5196,3 +5196,4 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
   - Duel One on the bar has THE ASSAY on jaw harp alone.
   - The rule-keeper's bad fiddling is a one-shot sound effect, not a theme.
   - Three new stems are needed. Everything else reuses existing files. Nothing is rendered until the rooms are built.
+- **The builder's brief is `reference/fiddlers-gulch/brief.md`.** It covers the ten rooms, the figures, what the engine needs, and the order of the build. It also asks for a check that fails if the mine's four rooms differ in sound.
