@@ -35198,6 +35198,58 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-08T17:42:39.486Z"
+  },
+  {
+   "attempt": 6,
+   "role": "other",
+   "assetId": "room-02",
+   "subject": "hitching-post-full-size",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/room-02/hitching-03/sheet.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/hitching-post/prompt-04.txt",
+   "promptHash": "4719a979482a16dc9227769fbcbbd01745f262aaddd72a77817cbf4b2419d583",
+   "references": [
+    {
+     "path": "art/staging/room-02/hitching-04/input.png",
+     "hash": "c0b60cddaca9f32d34df144562c1423389ccb0c346c8b75214fd506d4b75077e",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "c0b60cddaca9f32d34df144562c1423389ccb0c346c8b75214fd506d4b75077e",
+   "sourcePath": "art/staging/room-02/hitching-04/input.png",
+   "out": "art/staging/room-02/hitching-04/sheet.png",
+   "outputHash": "e04055c09df244578f04e782620f322c5b9f05225906dc9b4c538c2fc29414fa",
+   "bytes": 1950618,
+   "usage": {
+    "input_tokens": 1900,
+    "input_tokens_details": {
+     "image_tokens": 1536,
+     "text_tokens": 364
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 2333
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T18:21:06.165Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-07 (room-02 cap 6, errata 168); the brief's last correction. Tyler, 2026-11-08: \"The horse on the right is so tiny compared to the horse on the left, to the point where the tinier horse looks miniature, which means no one would be riding it. The horses all look more distinct which is good, but they all need to look like full sized ride able horses\".",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T18:21:06.171Z"
   }
  ],
  "promotions": [

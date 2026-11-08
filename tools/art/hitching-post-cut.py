@@ -1,33 +1,26 @@
 """Cut Main Street's hitching rail and its three horses into an ambient sheet
 (reference/hitching-post/brief.md, errata 178). No image operation.
 
-Source: art/staging/room-02/hitching-03/sheet.png, room-02 attempt 5 -- the
-group redrawn after Tyler's first look ("three copies of the same horse ...
-maybe one is eating? And are hitching posts that low?"): a black with a blaze,
-a palomino eating from a pile of hay, a paint pony in a striped blanket, the
-rail at chest height. Four frames on one sheet, 2 x 2.
+Source: art/staging/room-02/hitching-04/sheet.png, room-02 attempt 6 -- four
+frames of one group on a 2 x 2 sheet: a black with a blaze, a palomino eating
+hay, a full-sized paint saddle horse with its head up over the rail, the rail
+at chest height. The generator was given four copies of the group in place,
+and kept every quarter where it was (the posts agree to a pixel).
 
-THE REST IS FRAME 4, WHOLE. It is the one quarter drawn as a single clean
-picture of what Tyler asked for: the black looking out, the palomino eating,
-the paint pony standing with its head up over the rail (Tyler, 2026-11-08,
-of frame 1's pony: "The horse on the right has its head/neck through the
-hitching post"). An earlier cut stitched frame 4's pony onto frame 1 and
-shipped a sliced muzzle and a third hind leg ("The far right horse has his
-whole snout cut off"; "The middle horse has three back legs"): the generator
-had moved two horses between those frames, and every seam cut a horse. Nothing
-is stitched now except the moving part of each action frame:
-  0  frame 4, the rest;
-  1  the palomino chews: its lowered head lifted 4 px off the hay (from frame 4);
-  2  frame 4 with frame 3's black tossing its head -- frame 3 lined up on the
-     black's legs (2 px left, 1 up), its changed pixels widened by four, in the
-     black's band only;
-  3  the palomino chews again, 7 px.
-Frames 1 and 2 of the sheet are not used.
+EVERY FRAME IS ONE OF THE GENERATOR'S QUARTERS, WHOLE. Nothing is stitched.
+Three earlier cuts stitched one quarter of a sheet onto another, where the
+generator had moved horses between them, and each shipped a fault Tyler found
+-- a neck through the rail, a sliced muzzle, a third hind leg (errata 178). A
+whole quarter is a whole drawing: each horse has its own four legs and head.
+  0  sheet frame 1, the rest: the black looking out, the palomino eating, the paint over the rail;
+  1  sheet frame 2: the black tosses its head;
+  2  sheet frame 3: the palomino lifts its head from the hay;
+  3  sheet frame 4: the paint turns its head toward the black and swishes its tail.
 
-Then: crop to the union of every frame, take the magenta out of the outline and
-anything at the key's hue (as tools/art/item-icons-cut.py does), and lay the
-frames out the way the other ambient sheets are. tools/art/one-level.py --only
-snaps it to the cast's grid afterwards.
+Then: crop to the union of every frame, take the magenta out of the outline, the
+key's hue and the outline ink, give the hay's magenta-blended wisps the hay's
+colour, and lay the frames out the way the other ambient sheets are.
+tools/art/one-level.py --only snaps it to the cast's grid afterwards.
 
 usage: python3 tools/art/hitching-post-cut.py
 """
@@ -39,16 +32,12 @@ from PIL import Image, ImageDraw
 from scipy import ndimage
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SOURCE = os.path.join(ROOT, 'art/staging/room-02/hitching-03/sheet.png')
+SOURCE = os.path.join(ROOT, 'art/staging/room-02/hitching-04/sheet.png')
 OUT = os.path.join(ROOT, 'art/actors/room-02-horses.png')
-RECORD = os.path.join(ROOT, 'art/staging/room-02/hitching-03/cut.json')
+RECORD = os.path.join(ROOT, 'art/staging/room-02/hitching-04/cut.json')
 CELL_W, CELL_H = 768, 512
 EDGE = 4          # the cells' faint borders
-TOSS = (-2, -1)   # frame 3 onto frame 4, on the black's legs
-BLACK = (300, 350)    # the black's band in frame 4: left of x, above y
-# The palomino's lowered head in frame 4, and the muzzle where it reaches into the hay.
-HEAD = (298, 300, 375, 405)
-MUZZLE = (316, 405, 354, 422)
+HAY_ROWS = 395    # the hay pile lies below this row in each quarter
 
 
 def fgmask(rgb, min_area=150):
@@ -61,9 +50,9 @@ def fgmask(rgb, min_area=150):
     return np.isin(lab, [i + 1 for i, a in enumerate(areas) if a >= min_area])
 
 
-def despill(rgba):
+def despill(rgba, hay_from=None):
     out = rgba.astype(int)
-    pink = pink_edge(out)
+    pink = pink_edge(out, hay_from)
     opaque = out[..., 3] > 0
     near = ndimage.binary_dilation(~opaque, iterations=2) & opaque
     mx, mn = out[..., :3].max(-1), out[..., :3].min(-1)
@@ -88,15 +77,20 @@ def despill(rgba):
     return out.astype(np.uint8)
 
 
-def pink_edge(out):
-    """Pixels within 3 of the edge that are gold or brown blended with the magenta
+def pink_edge(out, hay_from=None):
+    """Pixels within 6 of the edge that are gold or brown blended with the magenta
     they were drawn on: red above green, and blue not far below it (hay has blue
     far below green). Marked on the colours as
     generated, before the despill turns them red."""
     opaque = out[..., 3] > 0
-    edge = ndimage.binary_dilation(~opaque, iterations=3) & opaque
+    edge = ndimage.binary_dilation(~opaque, iterations=6) & opaque
     r, g, b = out[..., 0], out[..., 1], out[..., 2]
-    return edge & (r - g > 12) & (b - g > -10)
+    # And the hay band at ground level, where the pile shows whole: nothing else
+    # down there is that red (the paint's red stripes are on its back).
+    hay = np.zeros_like(opaque)
+    if hay_from is not None:
+        hay[max(0, hay_from):, :] = True   # HAY_ROWS in the cropped frame's rows
+    return (edge | (hay & opaque)) & (r - g > 12) & (b - g > -10)
 
 
 def inpaint(out, pink):
@@ -131,39 +125,11 @@ def shift(img, dx, dy, fill):
 
 def frames():
     sheet = np.asarray(Image.open(SOURCE).convert('RGB'))
-    cell = lambda i: sheet[(i // 2) * CELL_H:(i // 2 + 1) * CELL_H, (i % 2) * CELL_W:(i % 2 + 1) * CELL_W]
-    four = cell(3)
-    m4 = fgmask(four)
-    three = shift(cell(2), TOSS[0], TOSS[1], np.array([255, 0, 255], np.uint8))
-    m3 = fgmask(three)
-    yy, xx = np.mgrid[0:CELL_H, 0:CELL_W]
-    rest = np.dstack([four, np.where(m4, 255, 0)]).astype(np.uint8)
-    band = (xx < BLACK[0]) & (yy < BLACK[1])
-    moved = (np.abs(three.astype(int) - four.astype(int)).sum(-1) > 60) & (m3 | m4) & band
-    region = ndimage.binary_dilation(moved, iterations=4) & band
-    toss = np.dstack([np.where(region[..., None], three, four),
-                      np.where(np.where(region, m3, m4), 255, 0)]).astype(np.uint8)
-    head = (((xx >= HEAD[0]) & (xx < HEAD[2]) & (yy >= HEAD[1]) & (yy < HEAD[3]))
-            | ((xx >= MUZZLE[0]) & (xx < MUZZLE[2]) & (yy >= MUZZLE[1]) & (yy < MUZZLE[3]))) & m4
-
-    def chew(up):
-        out = rest.copy()
-        out[head] = 0
-        lifted = np.zeros_like(rest)
-        lifted[head] = rest[head]
-        lifted = shift(lifted, 0, -up, np.array([0, 0, 0, 0], np.uint8))
-        keep = lifted[..., 3] > 0
-        out[keep] = lifted[keep]
-        # Where the muzzle lay in the hay, the hay beside it: no hole under the nose.
-        under = head & ~keep & (yy >= MUZZLE[1] - up)
-        for dx in (40, -40, 52, -52):
-            src = shift(rest, -dx, 0, np.array([0, 0, 0, 0], np.uint8))
-            fill = under & (src[..., 3] > 0) & ~np.roll(head, -dx, axis=1)
-            out[fill] = src[fill]
-            under &= ~fill
-        return out
-
-    return [rest, chew(4), toss, chew(7)]
+    out = []
+    for i in range(4):
+        cell = sheet[(i // 2) * CELL_H:(i // 2 + 1) * CELL_H, (i % 2) * CELL_W:(i % 2 + 1) * CELL_W]
+        out.append(np.dstack([cell, np.where(fgmask(cell), 255, 0)]).astype(np.uint8))
+    return out
 
 
 def main():
@@ -177,15 +143,16 @@ def main():
     sheet = Image.new('RGBA', (len(fr) * (w + 2) + 2, h + 4), (0, 0, 0, 0))
     rects = []
     for i, f in enumerate(fr):
-        sheet.alpha_composite(Image.fromarray(despill(f[y0:y1, x0:x1]), 'RGBA'), (2 + i * (w + 2), 2))
+        sheet.alpha_composite(Image.fromarray(despill(f[y0:y1, x0:x1], HAY_ROWS - y0), 'RGBA'), (2 + i * (w + 2), 2))
         rects.append([2 + i * (w + 2), 2, int(w), int(h)])
     sheet.save(OUT)
     rest = fr[0][y0:y1, x0:x1, 3] > 0
     rows = np.where(rest.any(1))[0]
     record = {'sheet': os.path.relpath(OUT, ROOT), 'source': os.path.relpath(SOURCE, ROOT), 'frames': rects,
               'figureHeight': int(rows.max() - rows.min() + 1),
-              'frameNote': '0 rest (sheet frame 4): the palomino eating, the black looking out, the paint pony with its head up over the rail · '
-                           '1 the palomino chews · 2 the black tosses its head · 3 the palomino chews'}
+              'frameNote': '0 rest: the black looking out, the palomino eating, the paint over the rail · '
+                           '1 the black tosses its head · 2 the palomino lifts its head from the hay · '
+                           '3 the paint turns its head and swishes its tail'}
     with open(RECORD, 'w') as f:
         json.dump(record, f, indent=1)
     print(os.path.relpath(OUT, ROOT), sheet.size, 'frames', len(rects), 'frame', (int(w), int(h)),
