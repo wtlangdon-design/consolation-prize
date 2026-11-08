@@ -5333,6 +5333,10 @@ function townTrees() {
       if (continuation) {
         const option = options.at(-1);
         if (!option) throw new Error(`doc 07 ${heading}: a continuation with no option above it`);
+        // AN ASKED-AGAIN IN A NAMED VOICE (errata 183): the boarding-house women's is B's, as her first answer was,
+        // so it is an exchange in the pair's voices, the engine's authored `repeats` form, not the one-voice `repeat`.
+        const voiced = /^\*Asked again:\*\s*(\*\*[AB]:\*\*.+)$/.exec(text);
+        if (voiced) { option.repeats = [{ selection: 2, exchange: spoken(voiced[1], speakers, spec.speaker) }]; continue; }
         const again = /^\*Asked again:\*\s*"([^"]+)"/.exec(text);
         if (again) { option.repeat = plain(again[1]); continue; }
         const thad = /^\*Thad:\*\s*"([^"]+)"/.exec(text);
@@ -5463,7 +5467,7 @@ function actedDirections() {
     const entry = { n: Number(n), class: kind, speaker, words, where };
     if (kind === 'A') {
       const figures = by.split(',').map((one) => one.trim()).filter(Boolean);
-      // ONE GROUP PER FIGURE when they act differently (errata 192: Grievance looks while her other self
+      // ONE GROUP PER FIGURE when they act differently (errata 194: Grievance looks while her other self
       // waits, then she is out): "0 0 2 3 ; 0 0 0 1", in the order the figures are named. Holds alike.
       const groups = frames.split(';').map((group) => group.split(/\s+/).filter(Boolean).map(Number));
       if (groups.length > 1 && groups.length !== figures.length) throw new Error(`doc 95 row ${n}: ${groups.length} frame groups for ${figures.length} figures`);

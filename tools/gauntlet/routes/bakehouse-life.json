@@ -1,0 +1,139 @@
+{
+ "schema": 1,
+ "room": "bakehouse",
+ "note": "ROOM 39's LIFE ROUTE, ruling 47: about a minute and a half in the bakehouse, starting inside it. The boy hitches his tray and wipes his brow on his own beats and never looks up. LOOKs, a LISTEN and doc 105's overrides, his TALK TO among them (he does not speak).",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-arrived"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "02-the-boy"
+  },
+  {
+   "do": "wait",
+   "seconds": 7
+  },
+  {
+   "do": "capture",
+   "name": "03-the-boy-later"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "boy",
+   "why": "doc 105's TALK TO on the boy: Thad's line, and the boy keeps counting"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "04-talk-boy",
+   "why": "where the words land, and Thad beside him"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "oven",
+   "why": "LOOK at the oven"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "05-look-oven"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "back_door",
+   "why": "LISTEN at the back door"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "06-listen-back-door"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "PICK_UP"
+  },
+  {
+   "do": "click",
+   "on": "table",
+   "why": "doc 105's PICK UP on the table"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "07-pickup-table",
+   "why": "where Thad stands, and clear of the boy"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "OPEN"
+  },
+  {
+   "do": "click",
+   "on": "oven",
+   "why": "doc 105's OPEN on the oven"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "08-open-oven"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  }
+ ]
+}

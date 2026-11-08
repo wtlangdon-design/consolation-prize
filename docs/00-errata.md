@@ -4885,7 +4885,7 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
 *Errata 180's new check found WIN_B3, the second ledger, written and never built. Asked whether to build it, Tyler said "Yes". Doc 103's last section records it.*
 
 - **WIN_B3 is built, verbatim, from WIN_B2 option 3** ("opens `WIN_B3`"). It is never an entry, so the assay row is never stranded. It has one `[COMIC]` row with a new second answer, and the exit pool. Rules 1 and 2 are waived (errata 66 E), declared in content as `fewOptions` with a reason, which `check-dialogue-nodes` now reads beside `noComic`.
-- **Her retrieval is printed until it is drawn:** doc 95 row 74, class B. `reference/second-ledger/brief.md` is for the image session, after Tyler sets a cap. The after-state (errata 66 E) waits for the drawing and for Tyler.
+- **Her retrieval is printed until it is drawn:** doc 95 row 74, class B. `reference/second-ledger/brief.md` is for the image session, after Tyler sets a cap. The after-state (errata 66 E) waits for the drawing and for Tyler. *Ruled below: it stays out, on her counter.*
 - **A node reached by `goto` now says its opening** after the row's reply, once where `openingOnce` says once (`DialogueRunner`). This applies to four rows:
   - Frame's trade terms (doc 101), which no one had ever heard;
   - the Colonel's card;
@@ -4894,6 +4894,25 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
 
   `tests/goto-opening.test.ts` holds it. It failed on this scene before the change.
 - `tests/doc04-nodes.test.ts`'s not-built list loses WIN_B3.
+
+
+**The art (the image session, 2026-11-08; `reference/second-ledger/brief.md`).** Tyler approved 3 operations; asset `room-05-second-ledger` (cap 3) is in `art/staging/caps.json` with that ruling. Two operations were spent, and one is left.
+- **Winnie's retrieval** (operation 1, `reference/second-ledger/winnie-01.txt`) was painted over the in-game Thad from her counter face (errata 144's method). She is in her dark charcoal blouse and a long dark skirt, with Thad in Room 5 attached for the style.
+  - `tools/art/second-ledger.py winnie` cuts it into `art/actors/winnie-second-ledger.png` at Room 5's height where the board is: the man is 518 px, and she stands 0.95 of him. It is snapped to one level.
+  - Frames: 0 standing, hands folded, looking down · 1 breath (derived) · 2 kneeling, hands at the board's end · 3 crouched, reaching down under the boards · 4 standing, the ledger open in her hands · 5 standing, the ledger closed against her chest.
+  - The frames and her `figureHeight` (492), `stature` (0.95) and `posture` are in `art/staging/room-05/second-ledger/winnie-second-ledger.json`.
+- **The ledger** is in her hands in frames 4 and 5: small, with a faded green cloth cover and worn corners, plainly not the counter's book.
+- **The board, lifted** (`tools/art/second-ledger.py board`; no image operation) is the plank's own pixels between `floorboard.py`'s seams. It is raised to 30 rows at its free end and hinged at the other, with its edge showing and a dark hollow where it lay. Night is `art/objects/room-05/board-lifted.png` (from the shipping plate, the base image as `rest`'s is); day is `art/staging/room-05/floorboard/board-lifted.png`. `rest` and `pressed` are untouched.
+- `renders/room-05-second-ledger-retrieval.png` shows her frames in the room, beside Thad, with the board lifted.
+- **Still the builder's:** her staging (round the counter's end, down at the board), doc 95 row 74 from B to A, the board's `lifted` state in the room.
+
+**The after-state: it stays out — Tyler, 2026-11-08** (errata 66 E's open question): *"After Winnie takes it from under the floorboard, the ledger lies on her counter for the rest of the game. Draw it lying there too -- a closed or open ledger on the counter, matching the one she holds -- as a prop image I can show from T_SECOND_LEDGER on."*
+- **The ledger on the counter** (operation 2, `reference/second-ledger/counter-02.txt`) is a masked edit of a 6.4× close-up of the night plate's counter. It lays the same small green cloth ledger, closed, flat on the counter top between the grille's two brass posts, at x 793–847, y 383–406. That spot is left of her working ledger and her ink stand (x 915), and clear of her figure (x 970–1120).
+- **`tools/art/second-ledger-counter.py`** keeps only the book and the shadow under its front edge. Those are the edit's pixels unlike its own counter top, inside the book's box, because the edit re-laid the counter and the post bases around it a little smoother. The cover's cloth is scaled to the green of the book in her hands, (60, 69, 32), because the edit drew it darker.
+  - Night: `art/objects/room-05/second-ledger.png`, a full-plate overlay on the shipping plate.
+  - Day: `art/staging/room-05/second-ledger/second-ledger-day.png`, the same pixels at one gain per channel measured on the counter top round it.
+- `renders/room-05-second-ledger-on-counter.png` shows it in the room, night and day, with Winnie at the counter and Thad on the floor.
+- **Still the builder's:** showing it from `T_SECOND_LEDGER` on, and THE SECOND LEDGER and THE NAMES (the nineteen entries) as hotspots on it. Their lines are doc 04's or are absent; none is written here.
 
 # 182 · WRITTEN VERSUS BUILT: THE AUDIT, THE CHECK, AND FIVE GAPS FOR TYLER — TYLER, 2026-11-08 ("Yes")
 
@@ -4939,6 +4958,114 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
 - **Caps:** `room-37` to `room-42`, four operations each (errata 72's rule), recorded in `art/staging/caps.json` with Tyler's words. `attemptsTotal` goes up by 24.
 - **The builder's brief is `reference/ancillary-interiors/brief.md`.** The build order is 42, 38, 37, 39, 40, 41.
 - **`tools/check-written-vs-built.mjs` reads doc 105.** Its 163 lines join the `ancillary-interiors` group in `proofs/written-not-built.json` until each room is built.
+
+**BUILT — ROOM 42, THE BARBER'S (the builder, 2026-11-08; `reference/ancillary-interiors/brief.md`).** The brief was on `feat/ancillary-interiors`, not yet on main, and was built from there. `BUILDABLE WITHOUT INVENTION: YES`. room-42: 3 of 4 operations.
+
+- **A · The gate.** `proofs/readiness/room-42.sources.json` points at doc 105 (primary and completions), doc 07 #9 (the barber) and doc 07 Part Three ("No required items, no puzzle gates") for the puzzles. Doc 49 writes no section for the six; doc 105's Overrides stand in, as the brief says. The gate's wrong-verb count read only doc 49's bare form (`**X** · VERB —`) and counted 0 for doc 105's quoted refusals (`> **X** · VERB —`, as docs 25, 26 and 54 write theirs). It now counts both; recorded in `proofs/check-friction.json`.
+- **B · The plan** (`tools/interiors-graybox.py 42`, one tool for the six). Room 13's camera, Room 5's interior depth. Left to right: the door to the Lane; the price board; the strop on its hook; the cracked mirror over the chair, its bucket beside it; the lamp over the chair; the jar on its shelf above the tray of instruments on its stand. The legibility gate passes.
+- **C · The art.**
+  - Operation 1, the composition master. It painted the whole canvas, and everything a third larger than the plan.
+  - Operation 2, the plate. The master at 0.8 with its walls extended, both men out, and the jar made cloudy. This is Room 6's re-framing, done in one edit as Room 8's was.
+  - The plate is cropped from y 150 (`tools/art/interiors-plate.mjs`). It is lifted 1.35, from 23.9 to 32.2 in its lower half, level with the approved night interiors (31.5–34.5).
+  - Thad stands 532 px at y 791. The depth curve is 497 to 576 across the band, from the master's man.
+- **D · The barber** (operation 3, errata 144's method: painted over the in-game Thad, his face from the master). Five frames: rest, razor and cloth at his sides · breath · wiping the blade, twice · talking, palm up.
+  - `tools/art/interiors-people.py` cuts him at the room's man where he stands: 493 px, soles at y 735, left of the chair where the master stood him. It snaps him to one level.
+  - Measured before anyone looked: alpha 0 or 255, no key; texture 0.90–1.01× Thad's; luminance p10/p50/p90 29/69/147 against Thad's 21/56/91 (his pale shirt and cloth).
+  - Thad's talk spot is beside him at his depth, on the door's side.
+  - He breathes, and every 17 s he wipes the razor (errata 77).
+  - His speech colour is the builder's (#e8a8a8); Tyler rules on it in the playthrough.
+- **E · The price board.** Its words are its first LOOK in doc 105 ("SHAVE 2 BITS. TOOTH 4 BITS. LIMB $1."), drawn in the shipping face by `tools/art/room42-price-board.py`, as Room 25's sign is. LIMB sits above the scratch the plate paints, which the board's third LOOK is about.
+- **F · The way in.** The Lane gains THE BARBER'S DOOR, beside the pole: a stub exit with no lines (the pole keeps doc 97's), and an arrival at the door for coming back out. The barber's door back to the Lane is a stub exit too: doc 105 writes no lines for it (errata 72 F; doc 36 Q180).
+- **G · Sound.** Plank footsteps. The Lane's distant piano, quieter (0.4 against 0.6), tuned when the Nugget's is, as Lower Street plays Main Street's piece quieter. Not silence: doc 28 keeps the undertaker's the only silent room until the coffin.
+- **H · A repeat with a beat in it lost its second half.** Doc 105's jar writes `2 "I looked in the jar." *(beat)* "I'd like to go back to not having looked in the jar."`. `tools/extract-examine.mjs` kept the first quote only, so the punchline was gone.
+  - A repeat is now spoken whole, every quote in order, as a split first line is (errata 92). Quotes inside an italic note (an editor's *(Corrected — "…")*) are not lines and are left out.
+  - `tools/check-room-lines-sourced.mjs` reads a beat between two quotes the same way.
+  - Proved by reverting: `check-written-vs-built` fails on the lost half. `tests/room-42.test.ts` holds it.
+- **I · Three second answers — Tyler, 2026-11-08: "Write them (doc 07)".** Errata 178's rule needs a second answer for every joke option left on a menu. Doc 07 wrote none for the barber's, the photographer's or the boarding-house women's, and Tyler authorized one line under each (CLAUDE.md, the sixth exception). The barber's plays now; the other two wait in `proofs/written-not-built.json` for their rooms.
+- **J · American English.** Doc 105's three "draught"s are "draft" (`check-american-english`, as PR 232's corrections).
+- **K · Room 40 — Tyler, 2026-11-08: "Use the Lane's store".** The district map has no building for a storefront off the Lane; the brief made that a stop. Tyler chose to make Room 40 the Lane's boarded storefront after all: its boards come down and its door opens. This reverses "shut for good" above. Doc 97's storefront lines are read against it when Room 40 is built.
+
+**BUILT — ROOM 38, THE PHOTOGRAPHER'S STUDIO (the builder, 2026-11-08).** `BUILDABLE WITHOUT INVENTION: YES`. room-38: 4 of 4 operations.
+
+- **A · The plan** (`tools/interiors-graybox.py 38`). The window and its display have to be seen from inside, so the front wall is the left. Left to right:
+  - the door to the Lane and the window, with the portrait's back on its easel;
+  - the colonnade backdrop beside that window, the carved chair and its little table in front of it, the headrest clamp beside the chair;
+  - the camera on its tripod facing the chair, the photographer behind it;
+  - the chemicals shelf, the box of portrait cards on a table, and the pinned price card.
+
+  The backdrop failed the legibility gate at 118 (a pale canvas against Thad's lit side) and was re-blocked to 96, not re-lit (ruling 22).
+- **B · The art.**
+  - Operation 1, the master.
+  - Operation 2, the plate. The master at 0.9 with its walls extended and both men out, cropped from y 150. At 39.3 in its lower half it needed no lift.
+  - Thad stands about 517 px at y 815; the curve is 465 to 545 across the band.
+  - The bottle labels and the price card are too small to letter at game size. They stay painted marks, as Boot Hill's names do; their lines say what they read.
+- **C · The photographer** (operation 3, errata 144's method). Five frames: rest · breath · a portrait card held up · the card tilted to the light · talking.
+  - Cut at 438, his soles at y 701 right of the camera, where the master stood him.
+  - Measured: texture 0.96–1.04× Thad's, clean edges, his white sleeves the bright tenth.
+  - Speech colour #c8e0a0, the builder's.
+  - The camera gets its own walk-to point (`hotspotWalkTo`): the one under it would have stood Thad on him, Room 42's lesson.
+- **D · His door on the Lane** (operation 4). The Lane's plate painted the photographer's front as one wide two-part window and no door, and the brief's way in is "the door beside the photographer's window". The Lane's own operations are spent, so Room 38's fourth was a masked edit of a close-up of the Lane's plate. It turned the window's narrow right-hand pane into a glazed door to the ground, its lamp still behind the glass, with a step on the mud. `tools/art/room38-lane-door.py` pastes back the door, its frame and its step only. The portrait window keeps doc 97's lines and a narrower hotspot; THE PHOTOGRAPHER'S DOOR is a stub exit with no lines.
+- **E · "¢".** Doc 105's price card reads "PORTRAITS 50¢", and the shipping face had no cent sign. It now has one, the face's own `c` with `$`'s stroke through it (CLAUDE.md: extend the face; never normalise the writing).
+- **F · The not-built list.** Two of doc 105's lines, the schoolhouse bell's "…It's in tune." and the storefront back room's "a great deal of nothing", had never been listed. They were covered only by the check's loose match against Room 38's entries, so building Room 38 surfaced them. They are listed now, with their rooms.
+- **G · Sound.** Plank footsteps, and the Lane's distant piano at 0.4, as the barber's.
+
+**BUILT — ROOM 37, THE BOARDING HOUSE PARLOUR (the builder, 2026-11-08).** `BUILDABLE WITHOUT INVENTION: YES`. room-37: 3 of 4 operations.
+
+- **A · The plan** (`tools/interiors-graybox.py 37`). Left to right: the door out; the stairs, with the boots sign and the row of boots at their foot; the upright piano under the queen's portrait; an armchair, the fire, a second armchair; the tea table; the rug on the floor; the two women standing together at the right. They stand rather than sit: a figure sat on a chair the plate paints has to land exactly on it (doc 55 section 8), and standing keeps the antimacassars in sight.
+- **B · The art.**
+  - Operation 1, the master. It drew a mantel clock, which no line names, and a plain teapot where the tea things' third LOOK has a hen cosy.
+  - Operation 2, the plate: people out, the clock out, the knitted hen on the pot. The band was painted 679 rows, so the plate is the 1500 × 675 window from 18,174, as Room 43's (`interiors-plate.mjs --crop`). At 31.7 in its lower half it needed no lift.
+  - Thad stands about 477 px at y 696; the curve is 452 to 587 across the band, which runs over the rug.
+  - The boots sign and the hymnal are painted marks.
+- **C · The two women** (operation 3, errata 144's method, both on one sheet as the boundary men were). `interiors-people.py split` cuts the sheet at its middle gap, and each is cut at 0.97 of the room's man where she stands, as the master drew them. A, in green: rest, breath, a hand to her hair, talking. B, in plum: rest, breath, arms folded, talking. They break half a cycle apart.
+  - Measured: texture 0.53–0.61× Thad's (flat cloth); 110–137 blocks tall against Thad's ~125; B snapped to one level by `one-level.py`.
+  - Speech colours #a8d8c0 and #e0b0d8, the builder's.
+- **D · Their tree, in two voices.** Doc 07's micro-tree and barks for the pair, extracted as the boundary men's are. Tyler's second answer for the joke is B's, as her first answer was, so `extract-content.mjs` now reads an *Asked again* in a named voice (`**B:**`) as an exchange: the engine's `repeats` form. Doc 95 row 75 keeps A's "She laughs for some time." printed (class C): the joke is its length.
+- **E · On the map.** The boarding house's marker already stood on its own roof below the loop road (errata 163). Its room was a placeholder marked `unbuilt`; it is the parlour now, and it draws the room's own name, THE BOARDING HOUSE. The door out is a stub exit to the map.
+- **F · The rug** is floor, so it walks on a bare click. The antimacassars are the left armchair's, since a hotspot has one rect; the right armchair beside the women is furniture.
+- **G · American English.** Two spoken "parlour"s in doc 105 are "parlor".
+- **H · Sound.** Plank footsteps. The town's distant piano, far off at 0.3, tuned when the Nugget's is. The parlour's own piano is kept, not played (doc 105), and doc 28 keeps the undertaker's the only silent room.
+- **Room 38, after its proofs:** the photographer's card-held-up frame closed a hole of air between his raised arm and his head, and a talking figure is drawn whole (`tests/lessons.test.ts`). He acts with the card tilted to the light instead. The frame stays on the sheet, unused.
+
+**BUILT — ROOM 39, THE BAKEHOUSE (the builder, 2026-11-08).** `BUILDABLE WITHOUT INVENTION: YES`. room-39: 3 of 4 operations.
+
+- **A · The plan** (`tools/interiors-graybox.py 39`). Left to right: the door out; the flour sacks to the rafters; the big brick oven, lit, with its long paddle; racks of loaves; the long floured table with dough in rows; the boy at its far end; the back door propped open on a brick, onto the yard and its cart. The oven is the room's light.
+- **B · The art.** Operation 1, the master. Operation 2, the plate: people out, nothing else. The standard crop from y 170; at 50.6 in its lower half it is hot and bright, within the approved interiors (the Nugget's 57). Thad stands about 455 px at y 688; the curve is 449 to 570.
+- **C · The boy** (operation 3). Doc 105's "figure, not a speaker": he has no tree, and doc 07 writes him none. His LOOK, LISTEN and TALK TO are the room's lines, on a hotspot over his figure, as the back alley's cat's are.
+  - Drawn on a child's template built from Thad (`lineup-redraws.py child`), as the message boy was. He is a boy of about twelve, declared `posture: child` at 0.8 of the room's man, the top of the scale test's child range.
+  - Frames: the tray level at his waist · breath · the tray hitched to his chest · a forearm across his brow. He never looks up.
+  - Measured: texture 1.01–1.14× Thad's, clean edges.
+  - His walk-to point is beside him (`hotspotWalkTo`), so Thad never stands on him.
+- **D · On the map.** The bakehouse's marker, beside the boarding house's, now leads here and draws the room's own name. The door out is a stub exit to the map.
+- **E · American English.** The boy's "grey" is "gray".
+- **F · Sound.** Plank footsteps, and the town's distant piano at 0.3, as the parlour's.
+
+**BUILT — ROOM 40, THE EMPTY STOREFRONT (the builder, 2026-11-08).** `BUILDABLE WITHOUT INVENTION: YES`. room-40: 3 of 4 operations.
+
+- **A · Where it is — Tyler, 2026-11-08: "Door beside the window".** K above made Room 40 the Lane's boarded storefront. Taking its boards down would have made four of doc 97's Lane lines untrue: "boarded… closed for good", "a gap in the boards", "a loose board", and the OPEN "Boarded with long nails". Doc 105's own lines describe the window from inside as still blanked off: "The street outside… has stopped looking in". So the window stays boarded and a door is drawn beside it. Every written line stays true, and nothing new is written.
+- **B · The plan** (`tools/interiors-graybox.py 40`). The front wall at the left, as the studio's, so its window is seen: the door to the Lane; the window, its price tickets on the glass and the boards dark behind it; bare shelves; the empty counter; the new gold-edged sign leaning on the wall; the doorway to the back room with the empty crate and the calendar; the pile of sweepings by the door. Nobody is in it. No lamp is lit: the Lane's light comes in stripes through the boards.
+- **C · The art.**
+  - Operation 1, the master. Operation 2, the plate: Thad out. The standard crop from y 170, lifted 1.33 to 30.9 in its lower half, the floor of the approved range: an unlit shop, readable.
+  - Operation 3, the door on the Lane: a masked edit of a close-up of the Lane's plate. The storefront's right part became a plain shop door with its step, the boarded window a little narrower beside it. `tools/art/room40-lane-door.py` pastes back the door, its frame, its step and the window's new edge only.
+  - On the Lane, THE STOREFRONT DOOR is a stub exit. The storefront's hotspot is narrowed to the boarded window and sign its lines describe.
+- **D · The sign.** Its name is its first LOOK in doc 105, "HARDWARE & SUNDRIES", drawn in the shipping face in gold by `tools/art/room40-sign.py`, one word to a line on its tall face. The tickets and the calendar are painted marks.
+- **E · THE SWEPT FLOOR** is floor, so it walks on a bare click.
+- **F · Sound.** Plank footsteps, and the Lane's distant piano at 0.4, as the other two shops off the Lane.
+
+**BUILT — ROOM 41, THE SCHOOLHOUSE (the builder, 2026-11-08).** `BUILDABLE WITHOUT INVENTION: YES`. room-41: 3 of 4 operations.
+
+- **A · The plan** (`tools/interiors-graybox.py 41`). Left to right: the door, with its coat hooks on the wall beside it; the clean window, the town's lights far off; the fourteen desks; the washed blackboard and its unopened chalk; the teacher's desk with the brass bell; the cold stove, its kindling laid, with a kettle and one cup. Nobody is in it. Moonlight, no lamp lit.
+- **B · The counts, and how they were kept.** Doc 105 counts the desks ("Fourteen desks") and the hooks ("Fourteen hooks. They counted.").
+  - Operation 1, the master, drew sixteen desks and five hooks, on a short band.
+  - The graybox was re-blocked to fourteen separate desk blocks and a hook rail. Operation 2, a second master shown the first, with both counts written into it, drew twenty-one desks and seven hooks, on a band still short.
+  - So the counted things were composed from the room's own pixels (doc 55 section 8: compose from what the operations made). Operation 3, the plate, took Thad and every desk out of master 02 and extended the picture to the whole canvas.
+  - `tools/art/room41-compose.py` cuts one desk from master 02 by subtraction against that plate. Its top and apron come whole; its legs and stretcher, too dark to subtract from the floor, are kept as solid posts. Fourteen copies are laid in two rows of seven, the back row 0.86 the size, each with a faint contact shadow.
+  - The rail of seven hooks is copied once beneath itself: fourteen hooks.
+  - `interiors-plate.mjs --source` derives the plate from the composed picture, leaving the operation's own output as the ledger hashed it.
+- **C · Scale.** Master 02 drew Thad about 315 tall, 398 in the plate at y 732, a desk 0.38 of him. The curve is 356 to 484: the room reads wider and farther off than the shops.
+- **D · THE DOOR** is the way back to the map, and a door with doc 105's own lines, not a stub. Its rect takes in the two rails of hooks.
+- **E · The design note.** Doc 07's "The schoolhouse was the third building Consolation put up…" is not said, by design: doc 07 says nothing in the game ever says it, and doc 105 that nothing here does either. It moves to the not-a-line group of `proofs/written-not-built.json`, and the `ancillary-interiors` group, now empty, is gone.
+- **F · Sound.** Plank footsteps, and the town's distant piano, very faint at 0.25.
 
 # 184 · FOUR SMALL GAPS: THE WAR PAID OFF, HOB'S RUNNING LINES, OZYMANDIA IN ACT IV, AND THE WRONG ANSWERS — TYLER, 2026-11-08 ("Fanshawe's war payoff, Hob's running lines, Ozymandia in Act IV, Unclickable objects")
 
@@ -5153,7 +5280,57 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
 - **One correction to errata 190.** Errata 190 said the mine has no daylight to read the time by. The sample lights the mine with old shafts to the surface, so it is the same day inside. Doc 107 now says so.
 - **Not built, and nothing to build yet.** The lines wait for Tyler's ruling and for the art. The art waits for a cap he sets in `art/staging/caps.json`. Doc 108 is not read by any extractor until the Gulch is built.
 
-# 192 · FIVE WRITTEN MOMENTS, ACTED; AND SOWERBY AT HIS SIZE — TYLER, 2026-11-08 (reference/unacted-moments/brief.md; "he looks enormous behind the podium")
+# 192 · TALK TO OZYMANDIA AT PROSPERITY, WIRED — TYLER, 2026-11-08 (reference/ozymandia-prosperity/talk-to-brief.md)
+
+*Errata 189's last item, built. No image operation and no new words: every line was already written.*
+
+- **People mapping.** Room 23's annotation maps `MADAME OZYMANDIA` to `prosperity_ozymandia`. Its compiled room gains her `peopleResponses.TALK_TO`: doc 54's first line as `say`, with "(second time)" and "(third time and after)" as its `repeat`, in written order.
+- **Repeats, not flags.** The compiler reads a person's qualifier "second time", "third time", "and after" (up to fifth) as a selection count. Each joins the verb's unconditioned rule as a `repeat`, the way an object's lines work: the first, then each repeat, the last holding. No flag is set per visit, and `peopleWhen` is untouched. The compiler refuses a repeat written before any first line.
+- **She answers.** `engine/core/PersonLines.ts` stages a person's room lines as a target. For TALK TO on a figure with no tree, it queues her bark for the current reputation after his line, every time. The bark is read from her ambient file, in her voice (`speaksAs`), over her head. Doc 04's "her only line" stays literally true. Any other verb is his alone.
+- **He walks up first.** TALK TO on a person with no tree walks Thad to the figure's `walkTo` and faces him there before the line, through the scene's staged chain, as a tree's TALK TO does. Every other verb the room writes for a person answers from where he stands, as it always has.
+- **Pratt's stake keeps its place.** It had been moved in the room file only (errata 112 J), so every compile of Room 23 put it back at 411, 724. The move is now in the annotation, at 434, 825, with its note. Compiling Room 23 now changes only her lines and that note.
+- **Not touched:** her approach bark (it still plays once on approach), any puzzle, any flag, any LISTEN, and her other verbs, which stay with the people pool.
+- **Checks.** `tests/ozymandia-talk-to.test.ts` covers the Act IV state after the void (fixture `r34-b`). TALK TO three times gives doc 54's three lines in order, each answered by her bark; a fourth gives the third again. The target carries her `walkTo`, LOOK carries neither a walk nor her answer, and the scene stages TALK TO through `beginInteraction`. `tests/annotation-props.test.ts` holds that every prop an annotation places stands where its compiled room has it.
+- **Seen in the game.** `tools/gauntlet/routes/prosperity-ozymandia-talk.json` starts from fixture `r34-b`, climbs the rope and talks to her four times (`life.mjs under_prosperity --fixture r34-b --route prosperity-ozymandia-talk --out renders/proofs/prosperity/ozymandia-talk`). It passes. `renders/room-23-ozymandia-talk-to.webp` is the exchange, and `renders/room-23-ozymandia-talk-to-sheet.webp` its frames.
+
+Lesson: a person's TALK TO is only staged like a tree's if a test walks it (the walk test fails when TALK TO answers where he stands). A prop moved in a room file is undone by the next compile unless the annotation moves too, and `tests/annotation-props.test.ts` now fails on any that disagree (proved by putting the stake back at 411).
+
+# 193 · MAIN STREET THINNED: FOUR TOWNSPEOPLE MOVE — TYLER, 2026-11-08 ("Go and yes on the main street changes")
+
+*Tyler felt Main Street had too many people on it. He approved keeping three townspeople on the street and moving four to rooms of their own. No line is lost, and no image operation is spent.*
+
+- **Staying on Main Street, unchanged:**
+  - the pie woman, the man leaving tomorrow and the map seller;
+  - the dog and the hitching horses;
+  - the Duel Three crowd;
+  - the dog's owner, who waits in the back alley until `T_BILL_FOUND` and then stands beside the dog, as before.
+- **Moved:**
+  - **The two boundary men → the claim row (Room 27),** at (470, 625) and (680, 625). They face each other on the near edge of the claims, each beside a marker's post (A by THE MOTHERLODE, B by PROVIDENCE), below the boards. Thad talks to them from their right at their own depth, (885, 625), as errata 167 asks.
+  - **The message boy → the Lane (Room 44),** at (848, 765), between the photographer's door and Madame Ozymandia's tent. Thad talks to him from (950, 765).
+  - **The letter-writer → Lower Street (Room 43),** at (1295, 775), in front of the livery's shut left door, between the passage to the Lane and the livery's open doors, and well clear of the bell-ringer at the church.
+- **Every condition is kept.** The boundary men and the letter-writer keep errata 189's `T_FUNERAL_DAY: false`, so on the funeral day they are up the hill from their new places. The message boy had no condition and has none.
+- **How it is set.** A figure's room and place are its own ambient file's `room`, `x`, `y` and `zone`, which no tool writes. Each room's `ambient` list is derived from those files by `tools/compile-room.mjs`, so Rooms 2, 27, 43 and 44 are recompiled, not edited.
+- **One line changed, and Tyler approved its words.** The letter-writer's Pike answer (doc 07 §1) was "Down the lane, past the mercantile." That was true only from Main Street. From Lower Street the Lane is right there, so it now reads "Down the lane, there." It is re-extracted into `content/dialogue/amb-letter-writer.json`. Doc 07's headers for §1, §2–3 and §5 name the new places. No other line in any document changed.
+- **Placed by measure.** Each figure:
+  - stands on the walk boxes, at the room curve's height for a man (the boy at his child's 0.68);
+  - is clear of every exit, every entrance, every other figure and every conversation stand, on drawn pixels;
+  - is clear of every hotspot's approach point.
+
+  The letter-writer has no stand of his own, as on Main Street. The engine stands Thad two-thirds of a man to whichever side he comes from, which is clear of the bell-ringer and of both ways.
+
+  Two of the rooms have no bare floor below their buildings, so a standing figure there overlaps a rect at its edge. On Lower Street it is the livery's. On the claim row it is the bottom of two markers' posts. Each object stays clickable around him. The boy in the Lane is clear of every rect.
+- **The light.** All three rooms are night rooms with no `figureLight`, as Main Street is. The figures take the same light as Thad there, so nothing was redrawn.
+- **Shown, with Thad present:**
+  - `renders/room-02-main-street-thinned.png`;
+  - `renders/room-27-claim-row-boundary-men.png`;
+  - `renders/room-44-the-lane-message-boy.png`;
+  - `renders/room-43-lower-street-letter-writer.png`.
+- **For Tyler, not changed here:** lines the move may have made less true. Each is a writing question, so each is left as written:
+  - On the claim row, THE PATH's LISTEN says "Nothing. Nobody comes up here." and "My own boots on it, and nobody else's." with two men standing on it, and several markers' LISTENs answer "Nothing."
+  - The boundary men's and the message boy's Pike answers say "Down the lane". From the claim row the Lane is back down in town. In the Lane, it is the lane the boy is standing in.
+  - Doc 57 C3's funeral-day line says "The street is half empty". Errata 189 counted eight townspeople on the street and sent four up the hill. Now there are four, counting the dog's owner once he has come out of the alley, and only the pie woman goes.
+
+# 194 · FIVE WRITTEN MOMENTS, ACTED; AND SOWERBY AT HIS SIZE — TYLER, 2026-11-08 (reference/unacted-moments/brief.md; "he looks enormous behind the podium")
 
 *Errata 189's five unacted moments, built from the brief. Nothing new is written: every line and direction is the documents'. Three image operations were spent: room-11's last, which its cap allowed, then one each for room-15 and room-11 that Tyler approved. Tyler approves the two sounds by ear (errata 102).*
 
@@ -5166,17 +5343,17 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
     - Fanshawe is turned to him while the table is laid (Tyler: "One more op", room-11 cap 7). Room-11 attempt 7 drew his four poses three-quarters to his left, cut by `tools/art/fanshawe-turned.py`. A figure may now carry `spriteWhen`, another sheet while a condition holds; here it is the dinner prop's own condition.
   - **The porch:** beat 4's two lines at the door ("A very fine dinner." / "I believe I own something.") play over the deed's two frames, through a rule's new `holds`. The pose is let go when the lines are down or the room changes.
   - The seal and the wine are a shade toward brick red, because `check-key-fringe` reads saturated red as the key.
-- **2 · Grievance and the tune (doc 54 B3, doc 95 row 78).** The staging before "Twelve years." was dropped at extraction. It is now the case's first beat, acted:
+- **2 · Grievance and the tune (doc 54 B3, doc 95 row 79).** The staging before "Twelve years." was dropped at extraction. It is now the case's first beat, acted:
   - the fork rings and the corrected tune is whistled (`B3-WHISTLE`, fired by the act, not at the click);
   - her ears come round as the tune ends, and she gives Thad a long look;
   - her steps follow it.
   - **The livery man's hum now sags in its fourth bar** (it was the eighth note sharp), as doc 54 says the whistle lifts it.
   - Thad stands to it: his only bending clip is from another drawing and would jump.
   - **She walks out of her stall** (Tyler: "Yes, one more op", room-15 cap 6). Room-15 attempt 6 drew the half door open and her two strides. `tools/art/grievance-out.py` composes `grievance_out`, a scenery figure that is empty at rest: the door open, the stall dark behind it, her stepping out (her canonical front pose), then walking off left.
-    - Row 78 acts both figures. Her own goes empty while the other is out. A row may now give each figure its own frames and holds (`;` groups).
+    - Row 79 acts both figures. Her own goes empty while the other is out. A row may now give each figure its own frames and holds (`;` groups).
     - She stays out through "Twelve years." because an act's holds now last through the rest of a combination's lines.
     - `staging-clear` no longer measures a scenery figure's combination-only frames against talk stands, as recorded in `proofs/check-friction.json`.
-- **3 · The tonic and the blanket (doc 54 A5, doc 95 rows 76–77).** Both directions were dropped at extraction and are now acted.
+- **3 · The tonic and the blanket (doc 54 A5, doc 95 rows 77–78).** Both directions were dropped at extraction and are now acted.
   - **The fumes:** Thad recoils (his back recoil) and walks back to the claim marker, through a doc 95 act that may now end in a walk (`thad:<clip>/<facing>@<hotspot>`). The fume is not drawn: the engine has no smoke.
   - **The blanket:** the pause, the raccoon's head-turned look, then his walk out. A figure with an acted beat still to play is held present until it is played (`Ambient.holdLeavers`).
   - **The hole's stand moves left of its centre** (annotation `stands`), because from the centre Thad's head covered the raccoon. Doc 55 §8 has the row.

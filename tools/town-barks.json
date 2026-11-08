@@ -9,11 +9,11 @@
   "17 · THE CARD SHARP": "card-sharp",
   "5 · THE MESSAGE BOY": "message-boy",
   "7 · THE MAN LEAVING TOMORROW": "man-leaving-tomorrow",
-  "18 · THE DOG'S OWNER": "dogs-owner"
+  "18 · THE DOG'S OWNER": "dogs-owner",
+  "9 · THE BARBER-DENTIST-SURGEON": "barber",
+  "10 · THE PHOTOGRAPHER": "photographer"
  },
  "notPlaced": {
-  "9 · THE BARBER-DENTIST-SURGEON": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision.",
-  "10 · THE PHOTOGRAPHER": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision.",
   "12 · THE STAGE DRIVER": "Tyler, 2026-11-06 (errata 116): he stays out of town. He drives away in the opening and no document brings the coach back."
  },
  "exchanges": {
@@ -22,6 +22,13 @@
    "speakers": {
     "A": "boundary_a",
     "B": "boundary_b"
+   }
+  },
+  "14 & 15 · THE BOARDING HOUSE WOMEN": {
+   "file": "boarding-a",
+   "speakers": {
+    "A": "boarding_a",
+    "B": "boarding_b"
    }
   }
  },
@@ -95,6 +102,28 @@
    "file": "amb-card-sharp",
    "speaker": "card_sharp",
    "prefix": "card_sharp"
+  },
+  "9 · THE BARBER-DENTIST-SURGEON": {
+   "tree": "amb_barber",
+   "file": "amb-barber",
+   "speaker": "barber",
+   "prefix": "barber"
+  },
+  "10 · THE PHOTOGRAPHER": {
+   "tree": "amb_photographer",
+   "file": "amb-photographer",
+   "speaker": "photographer",
+   "prefix": "photographer"
+  },
+  "14 & 15 · THE BOARDING HOUSE WOMEN": {
+   "tree": "amb_boarding_women",
+   "file": "amb-boarding-women",
+   "speaker": "boarding_a",
+   "speakers": {
+    "A": "boarding_a",
+    "B": "boarding_b"
+   },
+   "prefix": "boarding"
   }
  },
  "treeRoutes": {

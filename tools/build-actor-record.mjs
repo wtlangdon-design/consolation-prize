@@ -113,7 +113,7 @@ const CLIPS = [
   { id: 'idle', dir: 'seated', prefix: 'seated', state: 'seated' },
   { id: 'idle-break', dir: 'idlebreak-seated', prefix: 'idle-break', state: 'seated' },
   { id: 'stand', dir: 'stand-seated', prefix: 'stand', state: 'seated' },
-  // AT FANSHAWE'S TABLE (doc 48 S1 beats 1-3; errata 192): seated on a dining chair, left only, the
+  // AT FANSHAWE'S TABLE (doc 48 S1 beats 1-3; errata 194): seated on a dining chair, left only, the
   // wine his idle break. A state as `seated` is, set while the dinner's conversation is open (the
   // accost's `seat`). tools/rig/cut-dinner.py.
   { id: 'idle', dir: 'dining', prefix: 'dining', state: 'dining' },
@@ -153,7 +153,7 @@ const PARTIAL_STATES = {
     seated: ['walk', 'recoil', 'sit', 'rise', 'use-near', 'give-offer', 'shrug', 'pickup-low', 'alight-coach',
       'aboard-coach', 'carry'],
     // At Fanshawe's table he only converses: the state is set when he reaches the chair and cleared as the
-    // conversation ends, before anything can move him (the accost's `seat`, errata 192).
+    // conversation ends, before anything can move him (the accost's `seat`, errata 194).
     dining: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'reach', 'sit', 'rise', 'use-near', 'give-offer', 'shrug',
       'pickup-low', 'alight-coach', 'aboard-coach', 'carry', 'farwalk', 'pick-fit', 'deed'],
   },

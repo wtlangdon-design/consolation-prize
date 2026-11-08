@@ -1,0 +1,791 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "bakehouse",
+ "commit": "1dbd6998b557d5f6f8bb473dedbdeb2b50820bbe",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "bakehouse",
+ "warped": false,
+ "lifeRoute": "bakehouse-doors",
+ "durationSeconds": 179.02,
+ "events": [
+  {
+   "t": 4.01,
+   "line": "entry route bakehouse: 26 action(s)"
+  },
+  {
+   "t": 164.15,
+   "line": "the title: clicked NEW GAME"
+  },
+  {
+   "t": 164.15,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 164.15,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 164.15,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 164.15,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 164.15,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 164.15,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 164.15,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 164.15,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 164.15,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 164.15,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 164.15,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 164.15,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 164.15,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 164.15,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 164.15,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 164.15,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 164.15,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 164.15,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 164.15,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 164.15,
+   "line": "action 20 (wait): waited 7s"
+  },
+  {
+   "t": 164.15,
+   "line": "action 21 (click): clicked screen 540,1052 -- the MAP button"
+  },
+  {
+   "t": 164.15,
+   "line": "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 164.15,
+   "line": "action 23 (wait): waited 1s"
+  },
+  {
+   "t": 164.15,
+   "line": "action 24 (click): clicked screen 464,590 -- the bakehouse's marker, on its own roof below the loop road (errata 163)"
+  },
+  {
+   "t": 164.15,
+   "line": "action 25 (waitFor): reached {\"room\":\"bakehouse\"} in room bakehouse"
+  },
+  {
+   "t": 164.15,
+   "line": "action 26 (wait): waited 3s"
+  },
+  {
+   "t": 164.16,
+   "line": "in bakehouse; life route: 17 action(s)"
+  },
+  {
+   "t": 164.68,
+   "line": "capture 00-arrived: room bakehouse, says null, options 0, control null"
+  },
+  {
+   "t": 164.95,
+   "line": "action 1 (click): clicked bakehouse/to_town_map at world 80,360 -- out, to the map"
+  },
+  {
+   "t": 165.85,
+   "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 166.93,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     100,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 167.87,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     100,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 167.9,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 168.45,
+   "line": "capture 01-out: room town_map, says null, options 0, control null"
+  },
+  {
+   "t": 168.57,
+   "line": "action 1 (click): clicked screen 464,590 -- and back in by the bakehouse's marker"
+  },
+  {
+   "t": 168.66,
+   "line": "action 1 (waitFor): reached {\"room\":\"bakehouse\"} in room bakehouse"
+  },
+  {
+   "t": 169.67,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     100,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.67,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     100,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.71,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 171.22,
+   "line": "capture 01-in: room bakehouse, says null, options 0, control null"
+  },
+  {
+   "t": 171.51,
+   "line": "action 1 (click): clicked bakehouse/to_town_map at world 80,360 -- out, to the map"
+  },
+  {
+   "t": 171.6,
+   "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 172.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     100,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 173.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     100,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 173.64,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 174.19,
+   "line": "capture 02-out: room town_map, says null, options 0, control null"
+  },
+  {
+   "t": 174.34,
+   "line": "action 1 (click): clicked screen 464,590 -- and back in by the bakehouse's marker"
+  },
+  {
+   "t": 174.45,
+   "line": "action 1 (waitFor): reached {\"room\":\"bakehouse\"} in room bakehouse"
+  },
+  {
+   "t": 175.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     100,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 176.48,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     100,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 176.5,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 177.03,
+   "line": "capture 02-in: room bakehouse, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "00-arrived",
+   "why": null,
+   "t": 164.67,
+   "file": "renders/proofs/bakehouse/doors/raw-captures-ignored/00-arrived.png",
+   "hash": "95be2f11190e61001a8dffd37022e0947ada6f0d99526a2f66285fca14a2b9cf",
+   "room": "bakehouse",
+   "clock": 164.3251,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      220,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 504,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-07.png",
+     "bounds": [
+      -47,
+      256,
+      534,
+      556
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:bakehouse",
+     "path": "art/backgrounds/room-39-bakehouse.png",
+     "drawn": "art/backgrounds/room-39-bakehouse.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "54a599b5f3741bc8dd1ffd59cd60d2eb5b3fde53557b86b2e22e5636892b2faa"
+    },
+    {
+     "key": "art/actors/room-39-boy.png",
+     "path": "art/actors/room-39-boy.png",
+     "drawn": "art/actors/room-39-boy.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c8af84c06b9a2e81d1b052232bb367e9a4bd3a33c79e1575c31306b45c7a95c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-out",
+   "why": null,
+   "t": 168.44,
+   "file": "renders/proofs/bakehouse/doors/raw-captures-ignored/01-out.png",
+   "hash": "e023d2f41691b4ac7c3fdd7f645fe45881f77fa6e6680f9440cacef76131d267",
+   "room": "town_map",
+   "clock": 168.20829999999998,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      100,
+      720
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 477,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-01.png",
+     "bounds": [
+      -153,
+      243,
+      506,
+      527
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:town_map",
+     "path": "art/backgrounds/room-00-town-map.png",
+     "drawn": "art/backgrounds/room-00-town-map.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "db447dc974bedabd9ce5f75fa3de085983e37643c2e6d0d9c5a14dd367a593b6"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-in",
+   "why": null,
+   "t": 171.22,
+   "file": "renders/proofs/bakehouse/doors/raw-captures-ignored/01-in.png",
+   "hash": "0a296f39908d0a5c4e90d5f940e708e02c8e6249aaedf3afab3b359ffc72db22",
+   "room": "bakehouse",
+   "clock": 170.8748,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      100,
+      720
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 477,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-01.png",
+     "bounds": [
+      -153,
+      243,
+      506,
+      527
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:bakehouse",
+     "path": "art/backgrounds/room-39-bakehouse.png",
+     "drawn": "art/backgrounds/room-39-bakehouse.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "54a599b5f3741bc8dd1ffd59cd60d2eb5b3fde53557b86b2e22e5636892b2faa"
+    },
+    {
+     "key": "art/actors/room-39-boy.png",
+     "path": "art/actors/room-39-boy.png",
+     "drawn": "art/actors/room-39-boy.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c8af84c06b9a2e81d1b052232bb367e9a4bd3a33c79e1575c31306b45c7a95c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-out",
+   "why": null,
+   "t": 174.19,
+   "file": "renders/proofs/bakehouse/doors/raw-captures-ignored/02-out.png",
+   "hash": "e023d2f41691b4ac7c3fdd7f645fe45881f77fa6e6680f9440cacef76131d267",
+   "room": "town_map",
+   "clock": 173.9914,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      100,
+      720
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 477,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-03.png",
+     "bounds": [
+      -153,
+      243,
+      506,
+      527
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:town_map",
+     "path": "art/backgrounds/room-00-town-map.png",
+     "drawn": "art/backgrounds/room-00-town-map.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "db447dc974bedabd9ce5f75fa3de085983e37643c2e6d0d9c5a14dd367a593b6"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-in",
+   "why": null,
+   "t": 177.03,
+   "file": "renders/proofs/bakehouse/doors/raw-captures-ignored/02-in.png",
+   "hash": "bfd4a7ea6aadeabcc2add9583935901f642a59037ffc9a1a220b5ca12f34ecc5",
+   "room": "bakehouse",
+   "clock": 176.6745,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      100,
+      720
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 477,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-03.png",
+     "bounds": [
+      -153,
+      243,
+      506,
+      527
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:bakehouse",
+     "path": "art/backgrounds/room-39-bakehouse.png",
+     "drawn": "art/backgrounds/room-39-bakehouse.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "54a599b5f3741bc8dd1ffd59cd60d2eb5b3fde53557b86b2e22e5636892b2faa"
+    },
+    {
+     "key": "art/actors/room-39-boy.png",
+     "path": "art/actors/room-39-boy.png",
+     "drawn": "art/actors/room-39-boy.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c8af84c06b9a2e81d1b052232bb367e9a4bd3a33c79e1575c31306b45c7a95c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 179.02s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-08T21:07:26.020Z"
+}

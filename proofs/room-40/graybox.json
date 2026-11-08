@@ -1,0 +1,186 @@
+{
+ "room": 40,
+ "note": "Ruling 22 steps 1-6 for THE EMPTY STOREFRONT, written by tools/interiors-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 183).",
+ "what": "An abandoned shop off the Lane at night, empty, lit only by the Lane's lamplight through the gaps in its boarded window.",
+ "thadAnchors": {
+  "dark": 24.7,
+  "light": 121.9,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 740,
+   "height": 497
+  },
+  "near": {
+   "y": 850,
+   "height": 573
+  },
+  "from": "Room 5's interior numbers, as Room 13's (tools/room13-graybox.py)"
+ },
+ "walkable": [
+  180,
+  740,
+  1600,
+  110
+ ],
+ "exit": {
+  "hotspot": "THE DOOR TO THE LANE",
+  "to": "the_lane",
+  "rect": [
+   20,
+   150,
+   170,
+   540
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 260,
+   "y": 790,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE DOOR TO THE LANE",
+   "rect": [
+    20,
+    150,
+    170,
+    540
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WINDOW (boarded outside, tickets on the glass)",
+   "rect": [
+    230,
+    130,
+    300,
+    400
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "bare shelves",
+   "rect": [
+    580,
+    90,
+    420,
+    330
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE COUNTER",
+   "rect": [
+    620,
+    430,
+    480,
+    260
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SIGN (leaning on the wall)",
+   "rect": [
+    1160,
+    400,
+    320,
+    170
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BACK ROOM (the doorway, the crate, the calendar)",
+   "rect": [
+    1530,
+    110,
+    320,
+    580
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SWEPT FLOOR (the pile of sweepings)",
+   "rect": [
+    440,
+    640,
+    120,
+    50
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band, and nobody is in the room.",
+ "surfaces": [
+  {
+   "surface": "walls, plank",
+   "p10": 44.0,
+   "p90": 74.0,
+   "darkAnchorMargin": 19.3,
+   "lightAnchorMargin": 47.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "floor, swept boards",
+   "p10": 84.0,
+   "p90": 93.0,
+   "darkAnchorMargin": 59.3,
+   "lightAnchorMargin": 28.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE DOOR TO THE LANE",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 71.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WINDOW (boarded outside, tickets on the glass)",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 33.3,
+   "lightAnchorMargin": 63.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "bare shelves",
+   "p10": 74.0,
+   "p90": 74.0,
+   "darkAnchorMargin": 49.3,
+   "lightAnchorMargin": 47.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE COUNTER",
+   "p10": 54.0,
+   "p90": 54.0,
+   "darkAnchorMargin": 29.3,
+   "lightAnchorMargin": 67.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SIGN (leaning on the wall)",
+   "p10": 98.0,
+   "p90": 98.0,
+   "darkAnchorMargin": 73.3,
+   "lightAnchorMargin": 23.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE BACK ROOM (the doorway, the crate, the calendar)",
+   "p10": 44.0,
+   "p90": 44.0,
+   "darkAnchorMargin": 19.3,
+   "lightAnchorMargin": 77.9,
+   "verdict": "pass"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

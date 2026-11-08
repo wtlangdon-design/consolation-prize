@@ -606,12 +606,12 @@
         "T_FUMES": false
       },
       "note": "Doc 20: the way back down to the road. NO DOCUMENT WRITES IT a LOOK or LISTEN: a stub exit (doc 36 Q166). Leaving ends the raccoons' meeting and the fumes (doc 54 A5: 'gone the next time Thad enters'; 'until he leaves and returns').",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 23 (errata 189)",
       "walkTo": {
         "x": 170,
         "y": 790,
         "facing": "left"
-      },
-      "waysOut": "docs/106-the-ways-out.md, ROOM 23 (errata 189)"
+      }
     },
     {
       "id": "to_pratts_claim",
@@ -651,12 +651,12 @@
         "T_FUMES": false
       },
       "note": "Doc 20: Pratt's claim, next door (doc 04 PRA_A1: 'beside Prosperity'), past the creek at the right. NO DOCUMENT WRITES IT a LOOK or LISTEN: a stub exit (errata 97 C). Leaving ends the meeting and the fumes, as the road does.",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 23 (errata 189)",
       "walkTo": {
         "x": 1860,
         "y": 790,
         "facing": "right"
-      },
-      "waysOut": "docs/106-the-ways-out.md, ROOM 23 (errata 189)"
+      }
     },
     {
       "id": "down_the_hole",
@@ -695,12 +695,12 @@
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 57 F1: 'Room 34 opens below the hole.' Once the three days' digging is done (T_DUG_DOWN), the hole's mouth is the way down: a small exit inside THE HOLE, whose own lines stay its own (invariant 3: its LISTEN is never marked). Room 34 writes THE TUNNEL; from up here it is a stub (errata 72 F, 99 H).",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 23 (errata 189)",
       "walkTo": {
         "x": 1170,
         "y": 840,
         "facing": "back"
-      },
-      "waysOut": "docs/106-the-ways-out.md, ROOM 23 (errata 189)"
+      }
     }
   ],
   "entrances": [
@@ -906,7 +906,7 @@
         "T_PRATT_TURNED": false
       },
       "note": "Pratt's new stake (doc 04 PRA_D2: 'The new stake'), where his mallet comes down. Cut from room-25 operation 3 by tools/art/room25-pratt.py: a talking figure is drawn in one piece, so the stake stands on its own. It stays when he goes home after D2, and is gone once he has signed the quitclaim (D5, at his own claim) (errata 97 D).",
-      "placedNote": "Moved (2026-11-06) under the redrawn Pratt's strike: his mallet's head comes down left of his feet, its bottom at y 758, its centre at x 429 at Prosperity's scale, so the stake's top is where it lands. Then x 434 under the leaner Pratt's strike (errata 112 J: the head 116 sheet px left of his feet, at a figureHeight of 386)."
+      "placedNote": "Moved (2026-11-06) under the redrawn Pratt's strike: his mallet's head comes down left of his feet, its bottom at y 758, its centre at x 429 at Prosperity's scale, so the stake's top is where it lands. Then x 434 under the leaner Pratt's strike (errata 112 J: the head 116 sheet px left of his feet, at a figureHeight of 386). Carried into the annotation (errata 192), so a compile keeps it: it had been moved in the room file only, and every compile put it back at 411, 724."
     }
   ],
   "occlusionPlanes": [],
@@ -937,6 +937,19 @@
       },
       "afterSeconds": 1,
       "note": "Doc 57 D2: 'The first time Thad comes to Prosperity in Act II, Pratt is on it, pulling up the stake: PRA_D2 plays as he arrives.' Once: T_PRATT_JUMP_SEEN. TALK TO reaches him after, until PRA_D2 option 1 sends him home (errata 97 D)."
+    }
+  },
+  "peopleResponses": {
+    "prosperity_ozymandia": {
+      "TALK_TO": [
+        {
+          "say": "Madame Ozymandia. You're a long way from your tent.",
+          "repeat": [
+            "No fee today, Madame?",
+            "I'll leave you to it, then."
+          ]
+        }
+      ]
     }
   }
 }

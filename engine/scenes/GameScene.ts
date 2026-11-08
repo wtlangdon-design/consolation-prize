@@ -5,6 +5,7 @@ import type { GameState } from '../core/GameState.ts';
 import type { AmbientFile, Cutaway, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep, SoundsFile,
 } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
+import { personLines } from '../core/PersonLines.ts';
 import { planNear, planRoom } from '../core/BootAssets.ts';
 import { MapWalk, homeLocation, mapPath, placePoint } from '../core/MapWalk.ts';
 import { Music } from '../core/Music.ts';
@@ -251,15 +252,17 @@ export class GameScene extends Phaser.Scene {
   private musicFinishing = false;
   /** Lines still to come in a multi-speaker response, in order. */
   private pendingSay: QueuedLine[] = [];
+  /** A person's lines staged for a walk-up, and who answers after them (core/PersonLines.ts; errata 192). */
+  private personTarget: ReturnType<typeof personLines> = null;
   /** The frames an acted direction holds while it plays from the queue (doc 95; errata 141). */
   private queuedPoses: HeldPose[] | null = null;
   /** An acted beat's walk is under way, and the beat waits for it (ActStep.walk). */
   private actWalking = false;
   /** His frame while a line of a rule that `holds` is up (ResponseRule.holds). */
   private spokenPose: HeldPose | null = null;
-  /** Frames an acted beat left held, kept until the queued lines are over (doc 95 Holds; errata 192). */
+  /** Frames an acted beat left held, kept until the queued lines are over (doc 95 Holds; errata 194). */
   private lingering: HeldPose[] | null = null;
-  /** The accost's seat he is walking to, and the state he is in once he sits (errata 192). */
+  /** The accost's seat he is walking to, and the state he is in once he sits (errata 194). */
   private seatDue: { facing: Facing; state: string; sitAt?: { x: number; y: number }; from: { x: number; y: number } } | null = null;
   private seatedState: string | null = null;
   /** Where he stood before he was set down at the table, and goes back to when he rises. */
@@ -846,7 +849,7 @@ export class GameScene extends Phaser.Scene {
         } else {
           this.actor.faceToward(at.x, at.y);
         }
-        // AND SITS, when the accost gave him a chair (errata 192): his seated clips until it ends.
+        // AND SITS, when the accost gave him a chair (errata 194): his seated clips until it ends.
         if (this.seatDue) {
           // ON THE CHAIR AT THE TABLE'S END (Tyler, 2026-11-08: "his hands out on nothing"): set down where
           // his forearms meet the cloth, off the walked floor, and put back on it when he rises.
@@ -927,7 +930,7 @@ export class GameScene extends Phaser.Scene {
     // 143): the sentence line names what is under it now, not what it named
     // before the conversation opened, and not nothing until the pointer moves.
     const talking = this.conversationOpen();
-    // THE DINNER IS OVER: he stands from the chair as the conversation closes (errata 192).
+    // THE DINNER IS OVER: he stands from the chair as the conversation closes (errata 194).
     if (this.wasTalking && !talking && this.seatedState !== null) {
       if (this.state.moverState(this.actor.id) === this.seatedState) this.state.setMoverState(this.actor.id, undefined);
       this.seatedState = null;
@@ -1539,15 +1542,18 @@ export class GameScene extends Phaser.Scene {
     // any verb, and TALK TO too for a person with no tree to open. Only a
     // rule whose condition holds answers; otherwise the person's own layer
     // and the people pool below, as before.
-    const roomLines = npc && chosen !== null
-      ? this.state.room.peopleResponses?.[npc.id]?.[chosen] : undefined;
-    if (npc && chosen !== null && roomLines?.some((rule) => this.state.flags.test(rule.when))
-      && (chosen !== 'TALK_TO' || !npc.tree)) {
-      const [hx, hy, hw, hh] = this.ambient.hitBox(npc);
-      this.applyInteraction({
-        id: `${npc.id}@${this.state.room.id}`, name: npc.name, rect: [hx, hy, hw, hh], colour: 0,
-        responses: { [chosen]: roomLines.filter((rule) => this.state.flags.test(rule.when)) },
-      } as Interactable, chosen);
+    // Errata 192: he walks to where a conversation with her stands first, and a person with no tree answers
+    // TALK TO with her bark (core/PersonLines.ts).
+    const personal = npc && chosen !== null
+      ? personLines(this.state.room, npc, chosen, (when) => this.state.flags.test(when), this.ambient.hitBox(npc),
+        (one) => this.ambient.barkLinesFor(one))
+      : null;
+    if (personal && chosen !== null) {
+      // Only TALK TO walks over first (the brief's step 3); every other verb a room writes for a person answers
+      // from where he stands, as it always has.
+      this.personTarget = personal;
+      if (chosen === 'TALK_TO') this.beginInteraction(personal.target, chosen);
+      else this.applyInteraction(personal.target, chosen);
       this.markDirty();
       return;
     }
@@ -1875,6 +1881,11 @@ export class GameScene extends Phaser.Scene {
           ? { speaker: who, line } : { speaker: line.speaker, line: line.line, ...(line.overBlack ? { overBlack: true } : {}),
             ...(line.direction ? { direction: true } : {}) }), ...(pose ? { pose } : {}) };
       }));
+    }
+    // SHE ANSWERS, AFTER HIS LINE, EVERY TIME (errata 192): her bark, in her voice, over her head.
+    if (this.personTarget?.target.id === target.id) {
+      if (result.say) this.pendingSay.push(...this.personTarget.answer);
+      this.personTarget = null;
     }
     if (result.changedRoom) {
       this.hovered = null;
@@ -2250,7 +2261,9 @@ export class GameScene extends Phaser.Scene {
    */
   private saySequenceStep(step: Extract<SequenceStep, { kind: 'say' }>): number {
     if (step.interact) {
-      const target = this.state.findTarget(step.interact.target);
+      // A PERSON'S LINES ARE NOT ONE OF THE ROOM'S HOTSPOTS (errata 192): the target staged for her is kept here.
+      const target = this.personTarget?.target.id === step.interact.target
+        ? this.personTarget.target : this.state.findTarget(step.interact.target);
       if (target) this.applyInteraction(target, step.interact.verb);
       return 0;
     }
@@ -2940,7 +2953,7 @@ export class GameScene extends Phaser.Scene {
       this.setSay(null);
       this.sayingActor = next.speaker;
       this.queuedPoses = next.poses ?? null;
-      // AND WHAT IT LEAVES HELD (doc 95 Holds): Grievance out of her stall through "Twelve years." (errata 192).
+      // AND WHAT IT LEAVES HELD (doc 95 Holds): Grievance out of her stall through "Twelve years." (errata 194).
       if (next.holdsAfter) this.lingering = next.holdsAfter;
       this.sayUntil = this.time.now / 1000 + (next.rest ?? 0);
       // HE RETREATS (ActStep.walk): to the hotspot's own stand, and the beat holds until he is there.

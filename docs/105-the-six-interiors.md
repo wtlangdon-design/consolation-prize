@@ -56,7 +56,7 @@
 > **LISTEN:** "A good fire, ticking. It is the first one I've heard in this town that isn't complaining."
 
 **THE PORTRAIT OF A QUEEN**
-> **LOOK:** "A queen, in an oval frame, looking down on the parlour as if she owned the boarding house. She may."
+> **LOOK:** "A queen, in an oval frame, looking down on the parlor as if she owned the boarding house. She may."
 > **LISTEN:** "Nothing. She is not amused, and she is not going to say so twice."
 
 **THE RUG**
@@ -64,7 +64,7 @@
 > **LISTEN:** "Nothing. A rug this good swallows footsteps whole."
 
 **THE STAIRS**
-> **LOOK:** "Stairs to the rooms. Forty men up there at six dollars the week, and not one of them allowed in this parlour."
+> **LOOK:** "Stairs to the rooms. Forty men up there at six dollars the week, and not one of them allowed in this parlor."
 > **LISTEN:** "Boots overhead, being taken off carefully. The house has rules, and the rules have ears."
 
 **THE TEA THINGS**
@@ -90,7 +90,7 @@
 
 **THE PAINTED BACKDROP**
 > **LOOK:** "A Grecian colonnade, painted on canvas. Through the real window beside it: mud. The colonnade is winning."
-> **LISTEN:** "The canvas stirring in the draught. Ancient Greece, rustling."
+> **LISTEN:** "The canvas stirring in the draft. Ancient Greece, rustling."
 
 **THE CHEMICALS**
 > **LOOK:** "Brown bottles on a shelf, labelled in a careful hand. One says COLLODION, and one says POISON, and they are next to each other."
@@ -206,7 +206,7 @@
 
 **THE MIRROR** — LOOK 2 "Me, in a barber's mirror, looking like a man who needs a shave and is going to think about it first." · 3 "The crack goes right through my reflection's neck. I've decided not to read anything into it." | LISTEN 2 "Nothing. It's turned to the wall a little, as if it had seen enough." · 3 "Nothing. Mirrors are the only thing in Consolation that never argue."
 
-**THE PRICE BOARD** — LOOK 2 "No price for a haircut. Either it's free, or he doesn't do them, and I'm afraid to find out which." · 3 "Someone has scratched a name under LIMB, and then scratched it out again. I hope he kept the limb." | LISTEN 2 "The board tapping against the wall in the draught: two bits, four bits, a dollar." · 3 "Nothing. It's said its prices. It doesn't haggle."
+**THE PRICE BOARD** — LOOK 2 "No price for a haircut. Either it's free, or he doesn't do them, and I'm afraid to find out which." · 3 "Someone has scratched a name under LIMB, and then scratched it out again. I hope he kept the limb." | LISTEN 2 "The board tapping against the wall in the draft: two bits, four bits, a dollar." · 3 "Nothing. It's said its prices. It doesn't haggle."
 
 ## Overrides
 
@@ -262,7 +262,7 @@
 
 **THE SITTING CHAIR** — LOOK 2 "The cushion is flat in the middle, where a great many respectable men have sat very still." · 3 "There is a book on the little table, for the sitter's hand. The book is a ledger, and it is blank. It photographs as learning." | LISTEN 2 "A creak, when I lean on the back. It disapproves of slouching." · 3 "Nothing. The chair is holding still for a picture nobody is taking."
 
-**THE PRICE CARD** — LOOK 2 "Fifty cents, sitting included. I wasn't aware sitting was ever excluded." · 3 "Under the prices, in very small print: DECEASED BY ARRANGEMENT. I'm not going to ask how that's arranged." | LISTEN 2 "The pin, loose in the board, ticking against it in the draught." · 3 "Nothing. It's a card. It doesn't negotiate."
+**THE PRICE CARD** — LOOK 2 "Fifty cents, sitting included. I wasn't aware sitting was ever excluded." · 3 "Under the prices, in very small print: DECEASED BY ARRANGEMENT. I'm not going to ask how that's arranged." | LISTEN 2 "The pin, loose in the board, ticking against it in the draft." · 3 "Nothing. It's a card. It doesn't negotiate."
 
 ## Overrides
 
@@ -283,7 +283,7 @@
 
 **THE TABLE** — LOOK 2 "The wood's been scraped down so many times there's a dip in the middle. Bread made the dip." · 3 "Every loaf on it is the same size. Somebody weighs them. In this town that's practically a confession of honesty." | LISTEN 2 "Dough being slapped down at the far end, and folded, and slapped again." · 3 "Nothing for a moment, and then a knife through a crust."
 
-**THE BOY** — LOOK 2 "He works like a man paid by the loaf and proud of the rate." · 3 "Flour in his hair, flour in his eyebrows. In ten years he'll be grey, and nobody will notice the difference." | LISTEN 2 "Still humming. The same wrong tune, kept beautifully." · 3 "His breath, steady, keeping time with the dough. He'd make a good metronome."
+**THE BOY** — LOOK 2 "He works like a man paid by the loaf and proud of the rate." · 3 "Flour in his hair, flour in his eyebrows. In ten years he'll be gray, and nobody will notice the difference." | LISTEN 2 "Still humming. The same wrong tune, kept beautifully." · 3 "His breath, steady, keeping time with the dough. He'd make a good metronome."
 
 **THE BACK DOOR** — LOOK 2 "The brick that holds it open is the only brick in the building not doing something more important." · 3 "Outside, a cart with BREAD painted on the side, slightly wrong. The bread's right. The painting isn't." | LISTEN 2 "A horse in the yard, shifting, waiting for its load." · 3 "Somebody out back, counting loaves aloud. He gets to forty and starts again."
 

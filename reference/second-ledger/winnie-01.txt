@@ -1,0 +1,13 @@
+Image 1 is a TEMPLATE: the hero of my pixel-art adventure game, exactly as he is drawn in the game, standing, five times in a row on magenta. HIS BODY IS THE STANDARD FOR EVERY PERSON IN THIS GAME: a SMALL head (crown to chin about one eighth of his height), narrow shoulders, a long torso, a realistic lean adult figure -- not a cartoon, not big-headed. Image 2 shows ONLY THE FACE of A, Winnie, the assayer's clerk: take from it her face, her brown hair pinned up in a bun and her colouring -- NOTHING ELSE. Her face is drawn there larger than it should be: in your picture it is the SIZE OF THE HERO'S FACE in Image 1. Image 3 is the hero in the room where this happens, the assay office at night: match its pixel size, soft shading and night light.
+
+A is a slender woman as tall as the hero. She wears a plain dark charcoal-grey high-collared blouse with long sleeves (as in Image 2) and a long, plain dark charcoal skirt to the floor, and dark boots.
+
+Repaint Image 1: replace each hero figure with A, KEEPING THE HERO'S HEAD SIZE AND NARROW SHOULDERS and his height when she stands, her long skirt in place of his legs, feet on the same line. Left to right:
+1. standing, hands folded in front of her, looking down;
+2. kneeling on one knee on the floor, both hands lifting the end of a loose floorboard (draw only her, not the board);
+3. still kneeling, one arm reaching down into the floor as if into a space under the boards (draw only her);
+4. rising from her knee, holding a small old book in both hands;
+5. standing, holding the small old book closed against her chest in both hands.
+THE BOOK is a small, old ledger, about the size of her two hands, with a faded dark-green cloth cover and worn corners -- plainly not a big office ledger.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the hero -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No floor, no board, no glow, no blur, no shadows, no text.

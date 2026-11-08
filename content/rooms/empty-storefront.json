@@ -1,0 +1,446 @@
+{
+  "schema": 1,
+  "id": "empty_storefront",
+  "name": "THE EMPTY STOREFRONT",
+  "materialIdentity": "Plank walls, a swept plank floor, no lamp: the Lane's light in stripes through the boarded window (errata 183)",
+  "note": "Room 40, doc 105 (errata 183): the Lane's empty storefront, entered by the door beside its boarded window (Tyler, 2026-11-08). Nobody is in it. No puzzle is sited here (doc 07 Part Three). Compiled by tools/compile-room.mjs from content/examine/room-40.json and reference/room-40/annotation.json",
+  "background": "art/backgrounds/room-40-empty-storefront.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 320,
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-40.json",
+      "reference/room-40/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        120,
+        720,
+        1740,
+        45
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        120,
+        765,
+        1740,
+        45
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        120,
+        810,
+        1740,
+        45
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      120,
+      720
+    ],
+    [
+      1860,
+      720
+    ],
+    [
+      1860,
+      855
+    ],
+    [
+      120,
+      855
+    ]
+  ],
+  "entrance": [
+    300,
+    780
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        300,
+        780
+      ],
+      "facing": "right",
+      "note": "In by the door from the Lane, at left."
+    },
+    {
+      "from": "the_lane",
+      "at": [
+        300,
+        780
+      ],
+      "facing": "right",
+      "note": "In from the Lane, beside the boarded window (errata 183)."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "sign",
+      "name": "THE SIGN",
+      "rect": [
+        1210,
+        270,
+        225,
+        385
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "HARDWARE & SUNDRIES. The paint is good.",
+            "repeat": [
+              "It's leaning on the wall instead of hanging over the door. They had it painted and then never put it up.",
+              "The letters are gold-edged. Somebody spent money on the sign before they spent it on anything else. That's a kind of hope."
+            ],
+            "then": [
+              "It was done by a professional, recently, at expense."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. A sign with nothing to say about the shop it's for.",
+              "The sign shifting a little against the wall when I walk past, then deciding against it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It's somebody's. They paid for it. They'll want it, when they come back, which they won't."
+      },
+      "walkTo": {
+        "x": 1323,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "window",
+      "name": "THE WINDOW",
+      "rect": [
+        330,
+        10,
+        265,
+        450
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A shop window with the price tickets still stuck to the inside of the glass.",
+            "repeat": [
+              "NAILS 5¢ LB. LAMP OIL 30¢. The last prices in this shop, kept clear in the window, like a memorial.",
+              "The glass is clean. They cleaned the window on the way out, so nobody would think badly of them."
+            ],
+            "then": [
+              "The goods have gone. The prices stayed, out of loyalty."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The street outside, going past. It has stopped looking in.",
+            "repeat": [
+              "A wagon going by, and not slowing.",
+              "The glass humming faintly in the wind. It holds a note. The note is flat."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 463,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "counter",
+      "name": "THE COUNTER",
+      "rect": [
+        590,
+        430,
+        640,
+        280
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A counter with nothing on it but a square of cleaner wood, where a cash box sat until the end.",
+            "repeat": [
+              "There's a notch cut in the edge, for measuring rope by the yard. Someone measured a lot of rope here.",
+              "A ledger shelf underneath. Empty. They took the books. Nobody leaves the books."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. I rapped on it, the way you would, and nobody came.",
+            "repeat": [
+              "Hollow, when I knock. A good counter rings like that.",
+              "Nothing. It's waiting for a customer, like every counter in this territory."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "It's built in. Everything in the shop that could leave has left."
+      },
+      "walkTo": {
+        "x": 910,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "back_room",
+      "name": "THE BACK ROOM",
+      "rect": [
+        1480,
+        40,
+        345,
+        630
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The back room: empty shelves, and one crate, labelled NAILS, that is empty too.",
+            "repeat": [
+              "Marks on the floor where heavy things stood for a long time and then didn't.",
+              "A calendar on a nail, turned to a month two years ago. That's when they stopped turning it."
+            ],
+            "then": [
+              "They took the nails."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. A back room with nothing in it is the quietest place a man can stand.",
+            "repeat": [
+              "Nothing. Nothing at all, which is a great deal of nothing for one room.",
+              "A mouse, somewhere, also deciding there's nothing here."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "It's open. There's nothing in it to keep in."
+      },
+      "walkTo": {
+        "x": 1653,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "swept_floor",
+      "name": "THE SWEPT FLOOR",
+      "rect": [
+        0,
+        640,
+        1920,
+        224
+      ],
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Somebody swept up before they left. On the last day, they swept.",
+            "repeat": [
+              "There's a pile of sweepings in the corner, neatly gathered, and nobody came back for the pan.",
+              "Swept to the corners, swept under the counter. It's the cleanest floor in town, and nobody walks on it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "My own boots on it, louder than they ought to be.",
+              "Nothing. Even the dust has left."
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "back_to_lane",
+      "name": "THE DOOR TO THE LANE",
+      "rect": [
+        10,
+        10,
+        250,
+        690
+      ],
+      "colour": 0,
+      "to": "the_lane",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 183: the storefront opens off the Lane. Doc 105 writes no lines for the door, so it is a stub exit (errata 72 F; doc 36).",
+      "stub": true,
+      "walkTo": {
+        "x": 200,
+        "y": 740,
+        "facing": "left"
+      }
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 120,
+          "y": 720
+        },
+        {
+          "x": 1860,
+          "y": 720
+        },
+        {
+          "x": 1860,
+          "y": 765
+        },
+        {
+          "x": 120,
+          "y": 765
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 720,
+        "farHeight": 476,
+        "nearY": 855,
+        "nearHeight": 570
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 120,
+          "y": 765
+        },
+        {
+          "x": 1860,
+          "y": 765
+        },
+        {
+          "x": 1860,
+          "y": 810
+        },
+        {
+          "x": 120,
+          "y": 810
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 720,
+        "farHeight": 476,
+        "nearY": 855,
+        "nearHeight": 570
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 120,
+          "y": 810
+        },
+        {
+          "x": 1860,
+          "y": 810
+        },
+        {
+          "x": 1860,
+          "y": 855
+        },
+        {
+          "x": 120,
+          "y": 855
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 720,
+        "farHeight": 476,
+        "nearY": 855,
+        "nearHeight": 570
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [],
+  "props": [
+    {
+      "id": "sign_lettering",
+      "sheet": "art/props/room-40-sign.png",
+      "x": 1320,
+      "y": 434,
+      "frame": [
+        0,
+        0,
+        94,
+        54
+      ],
+      "note": "THE SIGN's words in the shipping face, from doc 105's first LOOK (tools/art/room40-sign.py): the generator draws the sign blank."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-40/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

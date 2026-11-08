@@ -1418,7 +1418,7 @@ function transitBeat(spec) {
     ...(following.length ? { then: following } : {}),
     ...(spec.set ? { set: spec.set } : {}), ...(spec.stays ? { stays: true } : {}),
     // HIS PICTURE WHILE HE SAYS IT (doc 48 S1 beat 4, "holding the deed wrong side up"): a clip of his,
-    // one frame per line in order (errata 192).
+    // one frame per line in order (errata 194).
     ...(spec.holds ? { holds: spec.holds } : {}),
     sceneLine: `${spec.ref} · ${spec.bullet ?? `beat ${spec.row}`}` };
 }
@@ -1575,6 +1575,18 @@ if (MERGED) {
       const parsed = /^([A-Z_]+)(?:\s*\((.+)\))?$/.exec(key);
       if (!parsed) fail(`unreadable people override "${key}" for "${name}"`);
       const [, verb, qualifier] = parsed;
+      // A REPEAT, NOT A CONDITION (errata 192). Doc 54 writes a person's TALK TO "(second time)" and "(third time
+      // and after)": selection counts, which an object's `say` and `repeat` already are -- the first line, then each
+      // repeat in order, the last holding. So they join the verb's unconditioned rule as its `repeat`, in the order
+      // written, rather than asking `peopleWhen` for a flag nobody sets.
+      if (qualifier && /^(second|third|fourth|fifth) time( and after)?$/.test(qualifier)) {
+        for (const id of ids) {
+          const rule = (((people[id] ??= {})[verb] ??= [])).find((one) => !one.when);
+          if (!rule) fail(`"${name}" ${verb} is written "(${qualifier})" before any first line for it`);
+          (rule.repeat ??= []).push(line);
+        }
+        continue;
+      }
       const when = qualifier ? ann.peopleWhen?.[qualifier] : undefined;
       if (qualifier && !when) fail(`"${name}" ${verb} is written "(${qualifier})" and the annotation's peopleWhen does not define it`);
       for (const id of ids) {
@@ -1928,10 +1940,9 @@ if (MERGED) {
       return null;
     };
     for (const hotspot of built.hotspots) {
-      // A STAND THE ROOM CHOOSES (annotation `stands`): where standing below the centre would cover
-      // something the moment is about -- at the hole, the raccoon's look over his shoulder (errata 192).
-      const chosen = ann.stands?.[hotspot.id];
-      if (chosen) { hotspot.walkTo = { x: chosen.x, y: chosen.y, facing: chosen.facing ?? 'back' }; continue; }
+      // A POINT THE ANNOTATION CHOOSES, where the one below the thing lands on a person: Room 42's price board
+      // hangs just left of where the barber stands, and the point under it put Thad on top of him (errata 183).
+      if (ann.hotspotWalkTo?.[hotspot.id]) { hotspot.walkTo = ann.hotspotWalkTo[hotspot.id]; continue; }
       const [hx, hy, hw, hh] = hotspot.rect;
       const centre = Math.round(hx + hw / 2);
       // Try the centre, then either side, for a thing standing on the floor.

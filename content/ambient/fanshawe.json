@@ -101,7 +101,7 @@
     "T_BORDERS_MOTT": true,
     "T_DINED": false
    },
-   "note": "THE DINNER (doc 48 S1; errata 192): while the table is laid (the same condition as Room 11's `dinner` prop) he is turned three-quarters to his left, to Thad at the table's end. Tyler, 2026-11-08: \"is the guy he's with not looking at him at all?\" and \"One more op\": room-11 attempt 7, cut by tools/art/fanshawe-turned.py to his own sheet's measure.",
+   "note": "THE DINNER (doc 48 S1; errata 194): while the table is laid (the same condition as Room 11's `dinner` prop) he is turned three-quarters to his left, to Thad at the table's end. Tyler, 2026-11-08: \"is the guy he's with not looking at him at all?\" and \"One more op\": room-11 attempt 7, cut by tools/art/fanshawe-turned.py to his own sheet's measure.",
    "sprite": {
     "sheet": "art/actors/room-11-fanshawe-turned.png",
     "frames": [

@@ -1,0 +1,455 @@
+{
+  "schema": 1,
+  "id": "bakehouse",
+  "name": "THE BAKEHOUSE",
+  "materialIdentity": "Brick and plank, floury boards, the oven's fire the room's light (errata 183)",
+  "note": "Room 39, doc 105 (errata 183): the bakehouse, on the map. The boy at the table's end (a figure, not a speaker). No puzzle is sited here (doc 07 Part Three). Compiled by tools/compile-room.mjs from content/examine/room-39.json and reference/room-39/annotation.json",
+  "background": "art/backgrounds/room-39-bakehouse.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 320,
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-39.json",
+      "reference/room-39/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        60,
+        680,
+        1820,
+        58
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        60,
+        738,
+        1820,
+        59
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        60,
+        797,
+        1820,
+        58
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      60,
+      680
+    ],
+    [
+      1880,
+      680
+    ],
+    [
+      1880,
+      855
+    ],
+    [
+      60,
+      855
+    ]
+  ],
+  "entrance": [
+    220,
+    760
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        220,
+        760
+      ],
+      "facing": "right",
+      "note": "In at the door, from the map."
+    },
+    {
+      "from": "town_map",
+      "at": [
+        220,
+        760
+      ],
+      "facing": "right",
+      "note": "In from the map (errata 183)."
+    }
+  ],
+  "ambient": [
+    "bakehouse_boy"
+  ],
+  "hotspots": [
+    {
+      "id": "boy",
+      "name": "THE BOY",
+      "rect": [
+        1485,
+        310,
+        155,
+        350
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A boy with flour to the elbows, carrying a tray twice his width and not dropping anything. He has not looked up once.",
+            "repeat": [
+              "He works like a man paid by the loaf and proud of the rate.",
+              "Flour in his hair, flour in his eyebrows. In ten years he'll be gray, and nobody will notice the difference."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "He's humming, in time with the kneading. The tune is wrong. The time is perfect.",
+            "repeat": [
+              "Still humming. The same wrong tune, kept beautifully.",
+              "His breath, steady, keeping time with the dough. He'd make a good metronome."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "He's counting under his breath. If I speak, he'll lose count, and then we'll both be lost."
+      },
+      "walkTo": {
+        "x": 1380,
+        "y": 700,
+        "facing": "right"
+      }
+    },
+    {
+      "id": "table",
+      "name": "THE TABLE",
+      "rect": [
+        1130,
+        380,
+        355,
+        300
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A long table, floured and scraped, with the dough laid out in rows.",
+            "repeat": [
+              "The wood's been scraped down so many times there's a dip in the middle. Bread made the dip.",
+              "Every loaf on it is the same size. Somebody weighs them. In this town that's practically a confession of honesty."
+            ],
+            "then": [
+              "The only rows in Consolation that come out even."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Dough rises without saying anything about it. I admire that.",
+            "repeat": [
+              "Dough being slapped down at the far end, and folded, and slapped again.",
+              "Nothing for a moment, and then a knife through a crust."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "Not the bread. Not the dough. Not even the flour. I can tell from the boy's back."
+      },
+      "walkTo": {
+        "x": 1308,
+        "y": 843,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "back_door",
+      "name": "THE BACK DOOR",
+      "rect": [
+        1655,
+        65,
+        240,
+        610
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The back door, propped open with a brick to let the heat out.",
+            "repeat": [
+              "The brick that holds it open is the only brick in the building not doing something more important.",
+              "Outside, a cart with BREAD painted on the side, slightly wrong. The bread's right. The painting isn't."
+            ],
+            "then": [
+              "It is letting the heat out into the whole street."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The yard, and a cart being loaded. Bread leaving for everywhere at once.",
+            "repeat": [
+              "A horse in the yard, shifting, waiting for its load.",
+              "Somebody out back, counting loaves aloud. He gets to forty and starts again."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1775,
+        "y": 836,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "oven",
+      "name": "THE OVEN",
+      "rect": [
+        485,
+        80,
+        340,
+        460
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A brick oven, built big and lit early.",
+            "repeat": [
+              "The bricks round the door are scorched black, and the bricks round that are scorched brown. It has been working for years.",
+              "A long wooden paddle hangs beside it, worn pale at the handle. That paddle has fed the whole town."
+            ],
+            "then": [
+              "Bread for a town of two thousand comes out of one door."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Warm. Working. Something in this town is working.",
+            "repeat": [
+              "The fire roaring low in the back of it, steady as a mill.",
+              "A loaf, somewhere inside, crackling as it cools. Good bread talks."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "Not with my hands, and not with my face. It's a professional oven."
+      },
+      "walkTo": {
+        "x": 655,
+        "y": 833,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "flour",
+      "name": "THE FLOUR",
+      "rect": [
+        140,
+        55,
+        320,
+        560
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Flour sacks stacked to the rafters, with the flour on everything else as well.",
+            "repeat": [
+              "The sacks are stamped from Sacramento. Flour travels better than men do, and arrives in a better mood.",
+              "There are small white footprints across the floor from the sacks to the table, all day's worth of them."
+            ],
+            "then": [
+              "Including, now, me."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A sack settling, very softly. Flour has a hush to it.",
+            "repeat": [
+              "Nothing. A sack of flour is the most patient object in the world.",
+              "A sift of it falling from a shelf, like a little snow."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 300,
+        "y": 833,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_town_map",
+      "name": "THE DOOR OUT",
+      "rect": [
+        5,
+        60,
+        150,
+        600
+      ],
+      "colour": 0,
+      "to": "town_map",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 183: the bakehouse is on the map. Doc 105 writes no lines for its door, so it is a stub exit (errata 72 F; doc 36).",
+      "stub": true,
+      "walkTo": {
+        "x": 100,
+        "y": 720,
+        "facing": "left"
+      }
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 60,
+          "y": 680
+        },
+        {
+          "x": 1880,
+          "y": 680
+        },
+        {
+          "x": 1880,
+          "y": 738
+        },
+        {
+          "x": 60,
+          "y": 738
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 680,
+        "farHeight": 449,
+        "nearY": 855,
+        "nearHeight": 570
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 60,
+          "y": 738
+        },
+        {
+          "x": 1880,
+          "y": 738
+        },
+        {
+          "x": 1880,
+          "y": 797
+        },
+        {
+          "x": 60,
+          "y": 797
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 680,
+        "farHeight": 449,
+        "nearY": 855,
+        "nearHeight": 570
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 60,
+          "y": 797
+        },
+        {
+          "x": 1880,
+          "y": 797
+        },
+        {
+          "x": 1880,
+          "y": 855
+        },
+        {
+          "x": 60,
+          "y": 855
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 680,
+        "farHeight": 449,
+        "nearY": 855,
+        "nearHeight": 570
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "oven",
+      "at": [
+        627,
+        400
+      ],
+      "radius": 720,
+      "amount": 0.1,
+      "rate": 0.4,
+      "phase": 0.2,
+      "note": "The oven's fire. A low breath (invariant 9: it tells nothing)."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-39/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

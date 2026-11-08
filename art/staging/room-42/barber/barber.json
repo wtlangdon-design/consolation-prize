@@ -1,0 +1,52 @@
+{
+ "sheet": "art/actors/room-42-barber.png",
+ "frames": [
+  [
+   2,
+   2,
+   191,
+   493
+  ],
+  [
+   195,
+   2,
+   191,
+   493
+  ],
+  [
+   388,
+   2,
+   191,
+   493
+  ],
+  [
+   581,
+   2,
+   191,
+   493
+  ],
+  [
+   774,
+   2,
+   191,
+   493
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "wipe-a",
+  "wipe-b",
+  "talk"
+ ],
+ "figureHeight": 493,
+ "stature": 1.0,
+ "posture": "standing",
+ "man": 493.3,
+ "feet": [
+  690,
+  735
+ ],
+ "note": "Room 42: the room's man where they stand (soles at y 735) is 493.3; drawn at 1.0 of him, crown to sole. Frame 1 is a breath the cutter derives from frame 0.",
+ "source": "room-42 (art/staging/room-42/barber/sheet-01.png)"
+}

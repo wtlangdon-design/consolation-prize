@@ -1,0 +1,815 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "boarding_house_parlour",
+ "commit": "699d5b465d1b9cf17cacbf5a71ceb9be42400bfe",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "boarding-house-parlour",
+ "warped": false,
+ "lifeRoute": "boarding-house-parlour-doors",
+ "durationSeconds": 181.23,
+ "events": [
+  {
+   "t": 4.88,
+   "line": "entry route boarding-house-parlour: 26 action(s)"
+  },
+  {
+   "t": 166.15,
+   "line": "the title: clicked NEW GAME"
+  },
+  {
+   "t": 166.15,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 166.15,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 166.15,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 166.15,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 166.15,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 166.15,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 166.15,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 166.15,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 166.15,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 166.15,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 166.15,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 166.15,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 166.15,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 166.15,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 166.15,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 166.15,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 166.15,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 166.15,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 166.15,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 166.15,
+   "line": "action 20 (wait): waited 7s"
+  },
+  {
+   "t": 166.15,
+   "line": "action 21 (click): clicked screen 540,1052 -- the MAP button"
+  },
+  {
+   "t": 166.15,
+   "line": "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 166.15,
+   "line": "action 23 (wait): waited 1s"
+  },
+  {
+   "t": 166.15,
+   "line": "action 24 (click): clicked screen 339,590 -- the boarding house's marker, on its own roof below the loop road (errata 163)"
+  },
+  {
+   "t": 166.15,
+   "line": "action 25 (waitFor): reached {\"room\":\"boarding_house_parlour\"} in room boarding_house_parlour"
+  },
+  {
+   "t": 166.15,
+   "line": "action 26 (wait): waited 3s"
+  },
+  {
+   "t": 166.17,
+   "line": "in boarding_house_parlour; life route: 17 action(s)"
+  },
+  {
+   "t": 166.73,
+   "line": "capture 00-arrived: room boarding_house_parlour, says null, options 0, control null"
+  },
+  {
+   "t": 167.03,
+   "line": "action 1 (click): clicked boarding_house_parlour/to_town_map at world 70,370 -- out, to the map"
+  },
+  {
+   "t": 168,
+   "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 169.04,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     90,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     90,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.04,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 170.62,
+   "line": "capture 01-out: room town_map, says null, options 0, control null"
+  },
+  {
+   "t": 170.78,
+   "line": "action 1 (click): clicked screen 339,590 -- and back in by the boarding house's marker"
+  },
+  {
+   "t": 170.9,
+   "line": "action 1 (waitFor): reached {\"room\":\"boarding_house_parlour\"} in room boarding_house_parlour"
+  },
+  {
+   "t": 171.92,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     90,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.96,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     90,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.97,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 173.5,
+   "line": "capture 01-in: room boarding_house_parlour, says null, options 0, control null"
+  },
+  {
+   "t": 173.81,
+   "line": "action 1 (click): clicked boarding_house_parlour/to_town_map at world 70,370 -- out, to the map"
+  },
+  {
+   "t": 173.92,
+   "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 174.93,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     90,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 175.95,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     90,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 175.97,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 176.49,
+   "line": "capture 02-out: room town_map, says null, options 0, control null"
+  },
+  {
+   "t": 176.65,
+   "line": "action 1 (click): clicked screen 339,590 -- and back in by the boarding house's marker"
+  },
+  {
+   "t": 176.77,
+   "line": "action 1 (waitFor): reached {\"room\":\"boarding_house_parlour\"} in room boarding_house_parlour"
+  },
+  {
+   "t": 177.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     90,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.81,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     90,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.81,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 179.33,
+   "line": "capture 02-in: room boarding_house_parlour, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "00-arrived",
+   "why": null,
+   "t": 166.72,
+   "file": "renders/proofs/boarding-house-parlour/doors/raw-captures-ignored/00-arrived.png",
+   "hash": "c401e687e8879323a96d9f832fe6ea895e6e8042d12125cb385d1847be9b7dd0",
+   "room": "boarding_house_parlour",
+   "clock": 166.2294,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 521,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-10.png",
+     "bounds": [
+      -76,
+      239,
+      552,
+      575
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:boarding_house_parlour",
+     "path": "art/backgrounds/room-37-boarding-house-parlour.png",
+     "drawn": "art/backgrounds/room-37-boarding-house-parlour.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2db6ccf94de826a31831129a5c0aa7b994f55104c3ad1af9e5b970fe7edf7c5a"
+    },
+    {
+     "key": "art/actors/room-37-woman-a.png",
+     "path": "art/actors/room-37-woman-a.png",
+     "drawn": "art/actors/room-37-woman-a.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b7fa1fa4f71557aeea3f6cf03c70b2b22cb4b98ee1f5013384bb062f08f1e4d6"
+    },
+    {
+     "key": "art/actors/room-37-woman-b.png",
+     "path": "art/actors/room-37-woman-b.png",
+     "drawn": "art/actors/room-37-woman-b.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a9c23eb3a0908f23465c52d5583600b20262fc0d1773f95c31de7b83e151bec"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-out",
+   "why": null,
+   "t": 170.62,
+   "file": "renders/proofs/boarding-house-parlour/doors/raw-captures-ignored/01-out.png",
+   "hash": "7f7c1a4ace3e05e43da6ecd6a337ba133179c1785c11400229b33e1ce46b3345",
+   "room": "town_map",
+   "clock": 170.2626,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      90,
+      700
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 480,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-00.png",
+     "bounds": [
+      -165,
+      220,
+      509,
+      530
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:town_map",
+     "path": "art/backgrounds/room-00-town-map.png",
+     "drawn": "art/backgrounds/room-00-town-map.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "db447dc974bedabd9ce5f75fa3de085983e37643c2e6d0d9c5a14dd367a593b6"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-in",
+   "why": null,
+   "t": 173.5,
+   "file": "renders/proofs/boarding-house-parlour/doors/raw-captures-ignored/01-in.png",
+   "hash": "f08217e66d2726560584c8658ab404af33ea9403c276ca267e0c36ef700ead47",
+   "room": "boarding_house_parlour",
+   "clock": 173.14579999999998,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      90,
+      700
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 480,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-01.png",
+     "bounds": [
+      -165,
+      220,
+      509,
+      530
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:boarding_house_parlour",
+     "path": "art/backgrounds/room-37-boarding-house-parlour.png",
+     "drawn": "art/backgrounds/room-37-boarding-house-parlour.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2db6ccf94de826a31831129a5c0aa7b994f55104c3ad1af9e5b970fe7edf7c5a"
+    },
+    {
+     "key": "art/actors/room-37-woman-a.png",
+     "path": "art/actors/room-37-woman-a.png",
+     "drawn": "art/actors/room-37-woman-a.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b7fa1fa4f71557aeea3f6cf03c70b2b22cb4b98ee1f5013384bb062f08f1e4d6"
+    },
+    {
+     "key": "art/actors/room-37-woman-b.png",
+     "path": "art/actors/room-37-woman-b.png",
+     "drawn": "art/actors/room-37-woman-b.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a9c23eb3a0908f23465c52d5583600b20262fc0d1773f95c31de7b83e151bec"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-out",
+   "why": null,
+   "t": 176.48,
+   "file": "renders/proofs/boarding-house-parlour/doors/raw-captures-ignored/02-out.png",
+   "hash": "7f7c1a4ace3e05e43da6ecd6a337ba133179c1785c11400229b33e1ce46b3345",
+   "room": "town_map",
+   "clock": 176.1623,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      90,
+      700
+     ],
+     "facing": "left",
+     "clip": "idle-break",
+     "height": 480,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-02.png",
+     "bounds": [
+      -165,
+      220,
+      509,
+      530
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:town_map",
+     "path": "art/backgrounds/room-00-town-map.png",
+     "drawn": "art/backgrounds/room-00-town-map.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "db447dc974bedabd9ce5f75fa3de085983e37643c2e6d0d9c5a14dd367a593b6"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-in",
+   "why": null,
+   "t": 179.33,
+   "file": "renders/proofs/boarding-house-parlour/doors/raw-captures-ignored/02-in.png",
+   "hash": "e6d54201bd1c75d8dd4265cb3e7acee65335f91ef6b2ab9a85ff9c967586aa35",
+   "room": "boarding_house_parlour",
+   "clock": 178.86229999999998,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      90,
+      700
+     ],
+     "facing": "left",
+     "clip": "idle-break",
+     "height": 480,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-left/idle-break-08.png",
+     "bounds": [
+      -165,
+      220,
+      509,
+      530
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:boarding_house_parlour",
+     "path": "art/backgrounds/room-37-boarding-house-parlour.png",
+     "drawn": "art/backgrounds/room-37-boarding-house-parlour.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2db6ccf94de826a31831129a5c0aa7b994f55104c3ad1af9e5b970fe7edf7c5a"
+    },
+    {
+     "key": "art/actors/room-37-woman-a.png",
+     "path": "art/actors/room-37-woman-a.png",
+     "drawn": "art/actors/room-37-woman-a.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b7fa1fa4f71557aeea3f6cf03c70b2b22cb4b98ee1f5013384bb062f08f1e4d6"
+    },
+    {
+     "key": "art/actors/room-37-woman-b.png",
+     "path": "art/actors/room-37-woman-b.png",
+     "drawn": "art/actors/room-37-woman-b.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a9c23eb3a0908f23465c52d5583600b20262fc0d1773f95c31de7b83e151bec"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 181.23s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-08T20:51:36.539Z"
+}

@@ -650,7 +650,8 @@
     864
   ],
   "ambient": [
-    "bell_ringer"
+    "bell_ringer",
+    "letter_writer"
   ],
   "generated": {
     "by": "tools/compile-room.mjs",

@@ -1,0 +1,500 @@
+{
+  "schema": 1,
+  "id": "barbers",
+  "name": "THE BARBER'S",
+  "materialIdentity": "Dark plank walls and a worn plank floor, one oil lamp over the chair, the corners dark (errata 183)",
+  "note": "Room 42, doc 105 (errata 183): a one-room barber-surgeon's shop off the Lane, under the pole. The barber-dentist-surgeon (doc 07 #9) beside his chair; his tree and barks are doc 07's. No puzzle is sited here (doc 07 Part Three). Compiled by tools/compile-room.mjs from content/examine/room-42.json and reference/room-42/annotation.json",
+  "background": "art/backgrounds/room-42-barbers.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 320,
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-42.json",
+      "reference/room-42/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        180,
+        740,
+        1620,
+        38
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        180,
+        778,
+        1620,
+        39
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        180,
+        817,
+        1620,
+        38
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      180,
+      740
+    ],
+    [
+      1800,
+      740
+    ],
+    [
+      1800,
+      855
+    ],
+    [
+      180,
+      855
+    ]
+  ],
+  "entrance": [
+    300,
+    790
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        300,
+        790
+      ],
+      "facing": "right",
+      "note": "In by the door from the Lane, at left."
+    },
+    {
+      "from": "the_lane",
+      "at": [
+        300,
+        790
+      ],
+      "facing": "right",
+      "note": "In from the Lane, under the pole (errata 183)."
+    }
+  ],
+  "ambient": [
+    "barber"
+  ],
+  "hotspots": [
+    {
+      "id": "strop",
+      "name": "THE STROP",
+      "rect": [
+        790,
+        125,
+        70,
+        280
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A leather strop on a hook, polished to a mirror down the middle by ten thousand strokes.",
+            "repeat": [
+              "Two straps, one canvas, one leather. Canvas first, then leather. He showed me, though I hadn't asked.",
+              "The leather is darker where his hand holds it. He has stood in exactly that place for years."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "It swings a little when the door goes, and slaps the chair once, like a reminder.",
+            "repeat": [
+              "Slap, swing, still.",
+              "Nothing. The strop is between shaves, like the rest of us."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "It pulls back. Strops do. I let go before it made a point of it."
+      },
+      "walkTo": {
+        "x": 905,
+        "y": 800,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "jar",
+      "name": "THE JAR",
+      "rect": [
+        1480,
+        120,
+        230,
+        175
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A jar on the shelf, which I am not going to look in. I have decided.",
+            "repeat": [
+              "I looked in the jar. I'd like to go back to not having looked in the jar.",
+              "The jar. I know what's in it now, and the jar knows I know."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A faint clink from inside when the floor moves. I'm not going to think about what clinks.",
+            "repeat": [
+              "Clink.",
+              "I'm not listening to the jar any more. The jar has had enough of my attention."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "No. I have looked in the jar. I am not going in the jar."
+      },
+      "walkTo": {
+        "x": 1595,
+        "y": 853,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "price_board",
+      "name": "THE PRICE BOARD",
+      "rect": [
+        465,
+        35,
+        170,
+        265
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "SHAVE 2 BITS. TOOTH 4 BITS. LIMB $1. The limb is the bargain, which worries me.",
+            "repeat": [
+              "No price for a haircut. Either it's free, or he doesn't do them, and I'm afraid to find out which.",
+              "Someone has scratched a name under LIMB, and then scratched it out again. I hope he kept the limb."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. The prices speak for themselves, and loudly.",
+            "repeat": [
+              "The board tapping against the wall in the draft: two bits, four bits, a dollar.",
+              "Nothing. It's said its prices. It doesn't haggle."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 420,
+        "y": 750,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "mirror",
+      "name": "THE MIRROR",
+      "rect": [
+        885,
+        80,
+        225,
+        225
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A mirror, with a crack running across it at about the height of a nervous man's chin.",
+            "repeat": [
+              "Me, in a barber's mirror, looking like a man who needs a shave and is going to think about it first.",
+              "The crack goes right through my reflection's neck. I've decided not to read anything into it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. The mirror keeps its opinions on its face.",
+            "repeat": [
+              "Nothing. It's turned to the wall a little, as if it had seen enough.",
+              "Nothing. Mirrors are the only thing in Consolation that never argue."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 998,
+        "y": 853,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "tray",
+      "name": "THE TRAY",
+      "rect": [
+        1470,
+        410,
+        305,
+        295
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Instruments. I have identified the razor. I am choosing not to identify the others.",
+            "repeat": [
+              "Laid out in a row from small to alarming. The razor is at the small end, which is the only comfort the tray offers.",
+              "Everything on it has been cleaned. I can tell, because it has been cleaned the way you clean something you've used."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. They are extremely still.",
+            "repeat": [
+              "Steel settling on cloth when I lean on the shelf.",
+              "Nothing. I've stepped back. That will do."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "I'd rather the instruments stayed with a man who knows which is which."
+      },
+      "walkTo": {
+        "x": 1623,
+        "y": 853,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "chair",
+      "name": "THE CHAIR",
+      "rect": [
+        850,
+        305,
+        405,
+        435
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "One chair, for shaves, teeth and limbs alike. The arms have straps.",
+            "repeat": [
+              "There is a bucket beside it. The bucket is for the teeth, I hope.",
+              "It reclines with a lever. Every man who has sat in it has learned the word 'reclines' the hard way."
+            ],
+            "then": [
+              "I'm told the straps are for the teeth."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The leather creaking as it settles. It has heard every kind of language a man knows.",
+            "repeat": [
+              "A spring, deep inside, sighing at the very idea of me.",
+              "Nothing. It's waiting with the patience of a thing that always gets its man."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I'd sit in it, but he'd take it as a request."
+      },
+      "walkTo": {
+        "x": 1053,
+        "y": 855,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "back_to_lane",
+      "name": "THE DOOR TO THE LANE",
+      "rect": [
+        180,
+        55,
+        225,
+        650
+      ],
+      "colour": 0,
+      "to": "the_lane",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 183: the barber's opens off the Lane. Doc 105 writes no lines for the door, so it is a stub exit (errata 72 F; doc 36).",
+      "stub": true,
+      "walkTo": {
+        "x": 290,
+        "y": 760,
+        "facing": "left"
+      }
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 180,
+          "y": 740
+        },
+        {
+          "x": 1800,
+          "y": 740
+        },
+        {
+          "x": 1800,
+          "y": 778
+        },
+        {
+          "x": 180,
+          "y": 778
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 740,
+        "farHeight": 497,
+        "nearY": 855,
+        "nearHeight": 576
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 180,
+          "y": 778
+        },
+        {
+          "x": 1800,
+          "y": 778
+        },
+        {
+          "x": 1800,
+          "y": 817
+        },
+        {
+          "x": 180,
+          "y": 817
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 740,
+        "farHeight": 497,
+        "nearY": 855,
+        "nearHeight": 576
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 180,
+          "y": 817
+        },
+        {
+          "x": 1800,
+          "y": 817
+        },
+        {
+          "x": 1800,
+          "y": 855
+        },
+        {
+          "x": 180,
+          "y": 855
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 740,
+        "farHeight": 497,
+        "nearY": 855,
+        "nearHeight": 576
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "chair_lamp",
+      "at": [
+        1225,
+        180
+      ],
+      "radius": 620,
+      "amount": 0.1,
+      "rate": 0.24,
+      "phase": 0.4,
+      "note": "The oil lamp hung over the chair. A slow, low breath (invariant 9)."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-42/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
+  "props": [
+    {
+      "id": "price_board_lettering",
+      "sheet": "art/props/room-42-price-board.png",
+      "x": 551,
+      "y": 225,
+      "frame": [
+        0,
+        0,
+        68,
+        109
+      ],
+      "note": "THE PRICE BOARD's words in the shipping face, from doc 105's first LOOK (tools/art/room42-price-board.py): the generator draws the board blank."
+    }
+  ]
+}

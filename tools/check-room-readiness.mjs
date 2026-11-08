@@ -446,8 +446,11 @@ function ask(room, sources, note) {
 
   /* 4 · wrong-verb layer -------------------------------------------------- */
   const wrong = section(sources.wrongVerbs);
+  // DOC 49's FORM, OR A ROOM SECTION'S OVERRIDES. Doc 49 writes a refusal bare (`**X** · VERB —`); a room
+  // section's `## Overrides` quote theirs (`> **X** · VERB —`). Where doc 49 writes no section for a room and
+  // its own document's overrides stand in (the six interiors, doc 105, errata 183), the quoted form counts.
   const wrongLines = wrong.ok
-    ? (wrong.body.match(/^\*\*.+?\*\*\s*·\s*[A-Z_ ]+\s*—/gm) ?? []).length : 0;
+    ? (wrong.body.match(/^(?:> )?\*\*.+?\*\*\s*·\s*[A-Z_ ]+\s*—/gm) ?? []).length : 0;
   add('wrong-verbs', 'Wrong-verb layer complete?',
     wrong.ok && wrongLines > 0 ? 'YES' : 'NO',
     [sources.wrongVerbs ?? '(none declared)'],

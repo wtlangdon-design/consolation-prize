@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game, a bakehouse at night, with two people in it: the man in the blue coat standing near the oven, and the boy with the tray of loaves at the far end of the table.
+
+Make exactly one change: remove both people. Paint what is behind them: the brick wall and the racks of loaves behind the man, the floury floorboards, the wall and the end of the table behind the boy, the warm oven light on the floor.
+
+Change nothing else: the door, the flour sacks, the oven and its glowing mouth, the paddle, the racks of loaves, the long table and the dough on it, the back door, the brick holding it, the yard and the cart stay exactly as they are, in the same places, at the same size, in the same pixel-art style. Keep the light grey strips above and below the picture. No people, no text, no border.

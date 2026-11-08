@@ -666,15 +666,18 @@
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: the row is reached through the road to the claims; this is the way back to it. NO DOCUMENT WRITES IT a LOOK or LISTEN: a stub exit (errata 99 A).",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 27 (errata 189)",
       "walkTo": {
         "x": 200,
         "y": 790,
         "facing": "left"
-      },
-      "waysOut": "docs/106-the-ways-out.md, ROOM 27 (errata 189)"
+      }
     }
   ],
-  "ambient": [],
+  "ambient": [
+    "boundary_a",
+    "boundary_b"
+  ],
   "size": [
     1920,
     864

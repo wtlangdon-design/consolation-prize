@@ -1,0 +1,185 @@
+{
+ "schema": 1,
+ "room": "prosperity",
+ "note": "ERRATA 192: TALK TO Ozymandia at Prosperity in Act IV after the void (fixture r34-b, up the rope). He walks to her stand, says doc 54's line for the selection, and she answers with her bark; four times, so the third line is seen to hold.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "00-below",
+   "room": "under_prosperity",
+   "why": "fixture r34-b: Act IV, the void found"
+  },
+  {
+   "do": "click",
+   "on": "to_prosperity",
+   "why": "up the rope"
+  },
+  {
+   "do": "waitFor",
+   "room": "prosperity",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 5
+  },
+  {
+   "do": "capture",
+   "name": "01-the-claim",
+   "room": "prosperity",
+   "why": "she stands on the far mud, facing the hole"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "world": [
+    880,
+    640
+   ],
+   "why": "TALK TO her, the first time"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "02a-first-his",
+   "room": "prosperity",
+   "why": "his line, at her walkTo, facing her"
+  },
+  {
+   "do": "waitFor",
+   "says": "ozymandia",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "02b-first-hers",
+   "room": "prosperity",
+   "why": "her answer, over her head"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "world": [
+    880,
+    640
+   ],
+   "why": "TALK TO her, the second time"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "03a-second-his",
+   "room": "prosperity",
+   "why": "his line, at her walkTo, facing her"
+  },
+  {
+   "do": "waitFor",
+   "says": "ozymandia",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "03b-second-hers",
+   "room": "prosperity",
+   "why": "her answer, over her head"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "world": [
+    880,
+    640
+   ],
+   "why": "TALK TO her, the third time"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "04a-third-his",
+   "room": "prosperity",
+   "why": "his line, at her walkTo, facing her"
+  },
+  {
+   "do": "waitFor",
+   "says": "ozymandia",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "04b-third-hers",
+   "room": "prosperity",
+   "why": "her answer, over her head"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "world": [
+    880,
+    640
+   ],
+   "why": "TALK TO her, the fourth time"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "05a-fourth-his",
+   "room": "prosperity",
+   "why": "his line, at her walkTo, facing her"
+  },
+  {
+   "do": "waitFor",
+   "says": "ozymandia",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "05b-fourth-hers",
+   "room": "prosperity",
+   "why": "her answer, over her head"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  }
+ ]
+}

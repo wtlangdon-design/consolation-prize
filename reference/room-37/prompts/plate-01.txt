@@ -1,0 +1,8 @@
+Image 1 is a finished background from my pixel-art adventure game, a boarding house parlour at night, with three people in it: the man in the blue coat and two women, one in green and one in plum, standing at the right.
+
+Make exactly three changes:
+1. Remove all three people. Paint what is behind them: the patterned wallpaper, the skirting, the floorboards, the edge of the tea table, the warm light on the floor.
+2. Remove the small clock from the mantelpiece; the mantel there is bare wood. Keep the oil lamp on the mantel.
+3. Put a knitted tea cosy, shaped like a fat little hen with a red comb, over the teapot on the tea tray.
+
+Change nothing else: the door, the staircase, the sign and the row of boots, the queen in her oval frame, the piano with its doily, vase and hymnal, both armchairs and their lace antimacassars, the fire, the brass fender, the scuttle and the fire irons, the tea table and its cups, the rug, and the lamps stay exactly as they are, in the same places, at the same size, in the same pixel-art style. Keep the light grey strips above and below the picture. No people, no text, no border.

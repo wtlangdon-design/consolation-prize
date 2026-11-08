@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game, a portrait photographer's studio at night, placed in the middle of the canvas, with two people in it: the photographer with the moustache standing beside his camera, and the man in the blue coat standing at the right. The flat grey strips down the LEFT and RIGHT sides are unfinished.
+
+Make exactly two changes:
+1. Remove both men. Paint what is behind them: the plank wall, the table with the box of cards, the floorboards, the lamplight on the floor.
+2. Extend the room into the two grey side strips, so it fills the whole width: on the left, more of the same dark plank wall beyond the door and the same floorboards; on the right, more of the same plank wall and floorboards beyond the small table. Nothing new on the walls. The new parts match the room exactly: same pixel-art style and pixel grid, same colours, same perspective, the light falling off into darkness away from the lamp.
+
+Change nothing else in the middle: the door, the window and the night outside it, the easel with the portrait's back, the painted colonnade backdrop, the carved chair, the small round table and its book, the iron head-clamp stand, the camera on its tripod with its black cloth, the hanging lamp, the shelf of bottles, the pinned card, and the table with the box of cards stay exactly as they are. The grey above and below the picture may stay grey. No people, no text, no border.

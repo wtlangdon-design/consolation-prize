@@ -1,0 +1,1836 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "under_prosperity",
+ "commit": "2c47db3c1607f4463a8990a8d93bb77b815b70f9",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": null,
+ "fixture": "r34-b",
+ "warped": false,
+ "lifeRoute": "prosperity-ozymandia-talk",
+ "durationSeconds": 47.28,
+ "events": [
+  {
+   "t": 2.8,
+   "line": "started from fixture r34-b, no entry route"
+  },
+  {
+   "t": 5.9,
+   "line": "in under_prosperity; life route: 33 action(s)"
+  },
+  {
+   "t": 6.34,
+   "line": "capture 00-below: room under_prosperity, says null, options 0, control null"
+  },
+  {
+   "t": 6.62,
+   "line": "action 1 (click): clicked under_prosperity/to_prosperity at world 225,248 -- up the rope"
+  },
+  {
+   "t": 7.22,
+   "line": "action 1 (waitFor): reached {\"room\":\"prosperity\"} in room prosperity"
+  },
+  {
+   "t": 8.24,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1170,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 9.25,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1170,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 10.25,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1170,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 11.24,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1170,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.25,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1170,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 12.26,
+   "line": "action 1 (wait): waited 5s"
+  },
+  {
+   "t": 12.73,
+   "line": "capture 01-the-claim: room prosperity, says null, options 0, control null"
+  },
+  {
+   "t": 12.85,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 13.01,
+   "line": "action 1 (click): clicked world 880,640 -- TALK TO her, the first time"
+  },
+  {
+   "t": 13.84,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room prosperity"
+  },
+  {
+   "t": 14.32,
+   "line": "capture 02a-first-his: room prosperity, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 15.34,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 16.33,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 17.34,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 17.62,
+   "line": "action 1 (waitFor): reached {\"says\":\"ozymandia\"} in room prosperity"
+  },
+  {
+   "t": 18.1,
+   "line": "capture 02b-first-hers: room prosperity, says \"ozymandia\", options 0, control null"
+  },
+  {
+   "t": 19.12,
+   "trace": {
+    "says": "ozymandia",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 20.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 21.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 22.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 22.15,
+   "line": "action 1 (wait): waited 4s"
+  },
+  {
+   "t": 22.24,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 22.4,
+   "line": "action 1 (click): clicked world 880,640 -- TALK TO her, the second time"
+  },
+  {
+   "t": 22.47,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room prosperity"
+  },
+  {
+   "t": 22.95,
+   "line": "capture 03a-second-his: room prosperity, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 23.98,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 24.95,
+   "line": "action 1 (waitFor): reached {\"says\":\"ozymandia\"} in room prosperity"
+  },
+  {
+   "t": 25.43,
+   "line": "capture 03b-second-hers: room prosperity, says \"ozymandia\", options 0, control null"
+  },
+  {
+   "t": 26.45,
+   "trace": {
+    "says": "ozymandia",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 27.46,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 28.45,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 29.46,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 29.47,
+   "line": "action 1 (wait): waited 4s"
+  },
+  {
+   "t": 29.56,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 29.75,
+   "line": "action 1 (click): clicked world 880,640 -- TALK TO her, the third time"
+  },
+  {
+   "t": 29.85,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room prosperity"
+  },
+  {
+   "t": 30.35,
+   "line": "capture 04a-third-his: room prosperity, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 31.36,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 32.37,
+   "trace": {
+    "says": "ozymandia",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 32.42,
+   "line": "action 1 (waitFor): reached {\"says\":\"ozymandia\"} in room prosperity"
+  },
+  {
+   "t": 32.94,
+   "line": "capture 04b-third-hers: room prosperity, says \"ozymandia\", options 0, control null"
+  },
+  {
+   "t": 33.98,
+   "trace": {
+    "says": "ozymandia",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 34.97,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 35.96,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 36.95,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 36.97,
+   "line": "action 1 (wait): waited 4s"
+  },
+  {
+   "t": 37.06,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 37.24,
+   "line": "action 1 (click): clicked world 880,640 -- TALK TO her, the fourth time"
+  },
+  {
+   "t": 37.32,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room prosperity"
+  },
+  {
+   "t": 37.8,
+   "line": "capture 05a-fourth-his: room prosperity, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 38.81,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 39.83,
+   "trace": {
+    "says": "ozymandia",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 39.86,
+   "line": "action 1 (waitFor): reached {\"says\":\"ozymandia\"} in room prosperity"
+  },
+  {
+   "t": 40.34,
+   "line": "capture 05b-fourth-hers: room prosperity, says \"ozymandia\", options 0, control null"
+  },
+  {
+   "t": 41.36,
+   "trace": {
+    "says": "ozymandia",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 42.35,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 43.37,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 44.36,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1080,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 44.39,
+   "line": "action 1 (wait): waited 4s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "00-below",
+   "why": "fixture r34-b: Act IV, the void found",
+   "t": 6.33,
+   "file": "renders/proofs/prosperity/ozymandia-talk/raw-captures-ignored/00-below.png",
+   "hash": "645eba5d8a5a500e9e00fdf6cc611dffb00daad757414459e9669a06269a49e1",
+   "room": "under_prosperity",
+   "clock": 6.071899999999999,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      780
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 414,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      81,
+      366,
+      438,
+      457
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:under_prosperity",
+     "path": "art/backgrounds/room-34-under-prosperity.png",
+     "drawn": "art/backgrounds/room-34-under-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8ce696757d9a181118f636f6b773a507a0c17c7362c5eac1d4e268c42a203a97"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-the-claim",
+   "why": "she stands on the far mud, facing the hole",
+   "t": 12.72,
+   "file": "renders/proofs/prosperity/ozymandia-talk/raw-captures-ignored/01-the-claim.png",
+   "hash": "9d0d1dfa2f498d0c2f0aad784e57b2d93b11645a505d4c5ecbdc38ea3646e60c",
+   "room": "prosperity",
+   "clock": 12.4383,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1170,
+      840
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 452,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-04.png",
+     "bounds": [
+      914,
+      388,
+      512,
+      499
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:prosperity",
+     "path": "art/backgrounds/room-23-prosperity.png",
+     "drawn": "art/backgrounds/room-23-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a00c9435bdb5b8eb5bac6f32e3ffb9091db8958fcbd094a2e4536ffed57629f1"
+    },
+    {
+     "key": "art/actors/room-23-ozymandia.png",
+     "path": "art/actors/room-23-ozymandia.png",
+     "drawn": "art/actors/room-23-ozymandia.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c99e22bb2c492b16f8caa25948ceae6fd2fac24714295597a1cd1be73794fd9d"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02a-first-his",
+   "why": "his line, at her walkTo, facing her",
+   "t": 14.31,
+   "file": "renders/proofs/prosperity/ozymandia-talk/raw-captures-ignored/02a-first-his.png",
+   "hash": "d8d43ab582733038151dcc9c9bcac754565a54165a3a5b2de83775525c835a2c",
+   "room": "prosperity",
+   "clock": 14.1383,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1080,
+      790
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 418,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-02.png",
+     "bounds": [
+      858,
+      372,
+      443,
+      461
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:prosperity",
+     "path": "art/backgrounds/room-23-prosperity.png",
+     "drawn": "art/backgrounds/room-23-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a00c9435bdb5b8eb5bac6f32e3ffb9091db8958fcbd094a2e4536ffed57629f1"
+    },
+    {
+     "key": "art/actors/room-23-ozymandia.png",
+     "path": "art/actors/room-23-ozymandia.png",
+     "drawn": "art/actors/room-23-ozymandia.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c99e22bb2c492b16f8caa25948ceae6fd2fac24714295597a1cd1be73794fd9d"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02b-first-hers",
+   "why": "her answer, over her head",
+   "t": 18.09,
+   "file": "renders/proofs/prosperity/ozymandia-talk/raw-captures-ignored/02b-first-hers.png",
+   "hash": "e05b97e0eef10955cef59a6ac26063b44bc797da68813eb0f2313c721165b3e5",
+   "room": "prosperity",
+   "clock": 17.7881,
+   "control": null,
+   "says": "ozymandia",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1080,
+      790
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 418,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-00.png",
+     "bounds": [
+      858,
+      372,
+      443,
+      461
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:prosperity",
+     "path": "art/backgrounds/room-23-prosperity.png",
+     "drawn": "art/backgrounds/room-23-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a00c9435bdb5b8eb5bac6f32e3ffb9091db8958fcbd094a2e4536ffed57629f1"
+    },
+    {
+     "key": "art/actors/room-23-ozymandia.png",
+     "path": "art/actors/room-23-ozymandia.png",
+     "drawn": "art/actors/room-23-ozymandia.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c99e22bb2c492b16f8caa25948ceae6fd2fac24714295597a1cd1be73794fd9d"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03a-second-his",
+   "why": "his line, at her walkTo, facing her",
+   "t": 22.94,
+   "file": "renders/proofs/prosperity/ozymandia-talk/raw-captures-ignored/03a-second-his.png",
+   "hash": "6612d4a030b99ebc6bd6f5903e092b324300794b4967f0d9023ad4b11614a79a",
+   "room": "prosperity",
+   "clock": 22.638,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1080,
+      790
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 418,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-05.png",
+     "bounds": [
+      858,
+      372,
+      443,
+      461
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:prosperity",
+     "path": "art/backgrounds/room-23-prosperity.png",
+     "drawn": "art/backgrounds/room-23-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a00c9435bdb5b8eb5bac6f32e3ffb9091db8958fcbd094a2e4536ffed57629f1"
+    },
+    {
+     "key": "art/actors/room-23-ozymandia.png",
+     "path": "art/actors/room-23-ozymandia.png",
+     "drawn": "art/actors/room-23-ozymandia.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c99e22bb2c492b16f8caa25948ceae6fd2fac24714295597a1cd1be73794fd9d"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03b-second-hers",
+   "why": "her answer, over her head",
+   "t": 25.43,
+   "file": "renders/proofs/prosperity/ozymandia-talk/raw-captures-ignored/03b-second-hers.png",
+   "hash": "b7c61607c8abeceb76e220dea89aa55d8dbcc932282826f9ac8150c2456ceab6",
+   "room": "prosperity",
+   "clock": 25.2546,
+   "control": null,
+   "says": "ozymandia",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1080,
+      790
+     ],
+     "facing": "left",
+     "clip": "idle-break",
+     "height": 418,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-left/idle-break-03.png",
+     "bounds": [
+      858,
+      372,
+      443,
+      461
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:prosperity",
+     "path": "art/backgrounds/room-23-prosperity.png",
+     "drawn": "art/backgrounds/room-23-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a00c9435bdb5b8eb5bac6f32e3ffb9091db8958fcbd094a2e4536ffed57629f1"
+    },
+    {
+     "key": "art/actors/room-23-ozymandia.png",
+     "path": "art/actors/room-23-ozymandia.png",
+     "drawn": "art/actors/room-23-ozymandia.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c99e22bb2c492b16f8caa25948ceae6fd2fac24714295597a1cd1be73794fd9d"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04a-third-his",
+   "why": "his line, at her walkTo, facing her",
+   "t": 30.34,
+   "file": "renders/proofs/prosperity/ozymandia-talk/raw-captures-ignored/04a-third-his.png",
+   "hash": "fd624273b0033cc9a20f7d5ab4fe6e3bea67d217960633ddb9fb9aa6014ad259",
+   "room": "prosperity",
+   "clock": 30.021,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1080,
+      790
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 418,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-00.png",
+     "bounds": [
+      858,
+      372,
+      443,
+      461
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:prosperity",
+     "path": "art/backgrounds/room-23-prosperity.png",
+     "drawn": "art/backgrounds/room-23-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a00c9435bdb5b8eb5bac6f32e3ffb9091db8958fcbd094a2e4536ffed57629f1"
+    },
+    {
+     "key": "art/actors/room-23-ozymandia.png",
+     "path": "art/actors/room-23-ozymandia.png",
+     "drawn": "art/actors/room-23-ozymandia.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c99e22bb2c492b16f8caa25948ceae6fd2fac24714295597a1cd1be73794fd9d"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04b-third-hers",
+   "why": "her answer, over her head",
+   "t": 32.94,
+   "file": "renders/proofs/prosperity/ozymandia-talk/raw-captures-ignored/04b-third-hers.png",
+   "hash": "35c5041df0673433406beb60e0b766d0f4454de95e9d47407794f68d0b6a8403",
+   "room": "prosperity",
+   "clock": 32.7542,
+   "control": null,
+   "says": "ozymandia",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1080,
+      790
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 418,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-05.png",
+     "bounds": [
+      858,
+      372,
+      443,
+      461
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:prosperity",
+     "path": "art/backgrounds/room-23-prosperity.png",
+     "drawn": "art/backgrounds/room-23-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a00c9435bdb5b8eb5bac6f32e3ffb9091db8958fcbd094a2e4536ffed57629f1"
+    },
+    {
+     "key": "art/actors/room-23-ozymandia.png",
+     "path": "art/actors/room-23-ozymandia.png",
+     "drawn": "art/actors/room-23-ozymandia.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c99e22bb2c492b16f8caa25948ceae6fd2fac24714295597a1cd1be73794fd9d"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05a-fourth-his",
+   "why": "his line, at her walkTo, facing her",
+   "t": 37.79,
+   "file": "renders/proofs/prosperity/ozymandia-talk/raw-captures-ignored/05a-fourth-his.png",
+   "hash": "fd624273b0033cc9a20f7d5ab4fe6e3bea67d217960633ddb9fb9aa6014ad259",
+   "room": "prosperity",
+   "clock": 37.5041,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1080,
+      790
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 418,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-05.png",
+     "bounds": [
+      858,
+      372,
+      443,
+      461
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:prosperity",
+     "path": "art/backgrounds/room-23-prosperity.png",
+     "drawn": "art/backgrounds/room-23-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a00c9435bdb5b8eb5bac6f32e3ffb9091db8958fcbd094a2e4536ffed57629f1"
+    },
+    {
+     "key": "art/actors/room-23-ozymandia.png",
+     "path": "art/actors/room-23-ozymandia.png",
+     "drawn": "art/actors/room-23-ozymandia.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c99e22bb2c492b16f8caa25948ceae6fd2fac24714295597a1cd1be73794fd9d"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05b-fourth-hers",
+   "why": "her answer, over her head",
+   "t": 40.34,
+   "file": "renders/proofs/prosperity/ozymandia-talk/raw-captures-ignored/05b-fourth-hers.png",
+   "hash": "a5bfb8de5aca92afaee757c468344647e82e7f8674381f116cb5f330c1f415a9",
+   "room": "prosperity",
+   "clock": 40.0372,
+   "control": null,
+   "says": "ozymandia",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_STRIKE_FOUND",
+    "T_ASSAY_QUEUE",
+    "T_HOB_HANDWRITING",
+    "T_SURVEY_NEEDED",
+    "T_DEED_LODGED",
+    "T_SURVEY_LODGED",
+    "T_NINETY_DAYS",
+    "T_NEED_TO_DIE",
+    "T_EXECUTOR_RULE",
+    "T_EXECUTOR_NAMED",
+    "T_SAME_HAND",
+    "T_DECEASED",
+    "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
+    "T_HOB_IS_MOTT",
+    "T_NO_GOLD_EVER",
+    "T_WARM_HOLE",
+    "T_DRAUGHT",
+    "T_PRATT_STAKE",
+    "T_PRATT_JUMP_SEEN",
+    "T_DUG_DOWN",
+    "T_FORK_STRUCK",
+    "T_VOID_FOUND",
+    "T_IN_TUNE",
+    "T_BROKE_THROUGH",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 4,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 2,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1080,
+      790
+     ],
+     "facing": "left",
+     "clip": "idle-break",
+     "height": 418,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-left/idle-break-03.png",
+     "bounds": [
+      858,
+      372,
+      443,
+      461
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:prosperity",
+     "path": "art/backgrounds/room-23-prosperity.png",
+     "drawn": "art/backgrounds/room-23-prosperity.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a00c9435bdb5b8eb5bac6f32e3ffb9091db8958fcbd094a2e4536ffed57629f1"
+    },
+    {
+     "key": "art/actors/room-23-ozymandia.png",
+     "path": "art/actors/room-23-ozymandia.png",
+     "drawn": "art/actors/room-23-ozymandia.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c99e22bb2c492b16f8caa25948ceae6fd2fac24714295597a1cd1be73794fd9d"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 47.28s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-08T21:33:25.235Z"
+}

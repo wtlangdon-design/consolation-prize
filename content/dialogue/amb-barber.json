@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "amb_barber",
+  "speaker": "barber",
+  "note": "EXTRACTED from docs/07-ambient-layer.md (## 9 · THE BARBER-DENTIST-SURGEON) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one's pool, rotated in play (errata 110, 167).",
+  "start": "root",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "noPrompt": true,
+      "exceptionReason": "Doc 07 writes the micro-tree as options only; the greeting is the bark.",
+      "options": [
+        {
+          "id": "barber1",
+          "text": "What do you do here?",
+          "tag": "TOPIC",
+          "say": "Shave, extraction, amputation. Two bits, four bits, a dollar."
+        },
+        {
+          "id": "barber2",
+          "text": "Do you use the same instruments?",
+          "tag": "TOPIC",
+          "say": "I clean them."
+        },
+        {
+          "id": "barber3",
+          "text": "I'd like a shave.",
+          "tag": "COMIC",
+          "repeat": "You keep asking and not sitting. In my trade, that's how a shave turns into a tooth.",
+          "say": "Sit down. Don't look at the tray."
+        },
+        {
+          "id": "barberx",
+          "tag": "EXIT",
+          "text": "I've taken enough of your time. I'll be taking more later.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

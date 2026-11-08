@@ -745,6 +745,13 @@
     },
     {
       "n": 76,
+      "class": "C",
+      "speaker": "boarding_a",
+      "words": "She laughs for some time.",
+      "where": "dialogue/amb-boarding-women root option 2"
+    },
+    {
+      "n": 77,
       "class": "A",
       "speaker": "thad",
       "words": "It fumes. Thad retreats, coughing, as far as the claim marker.",
@@ -761,7 +768,7 @@
       "seconds": 1.6
     },
     {
-      "n": 77,
+      "n": 78,
       "class": "A",
       "speaker": "thad",
       "words": "The cloth settles. A long pause. The raccoon emerges, gives Thad one look of complete contempt, and leaves at a walk.",
@@ -779,7 +786,7 @@
       "seconds": 4
     },
     {
-      "n": 78,
+      "n": 79,
       "class": "A",
       "speaker": "thad",
       "words": "Thad strikes the fork on his boot heel and listens to it. Then he whistles the livery man's tune, corrected: the fourth bar lifted where the livery man let it sag. Grievance's ears come round. She looks at Thad for a long moment. Then she walks out of her stall.",

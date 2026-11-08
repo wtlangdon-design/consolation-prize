@@ -1,0 +1,102 @@
+{
+  "room": 42,
+  "name": "THE BARBER'S",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/105-the-six-interiors.md::ROOM 42 — THE BARBER'S",
+    "docs/105-the-six-interiors.md::ROOM 42 · THE BARBER'S",
+    "docs/105-the-six-interiors.md::ROOM 42 · THE BARBER'S"
+  ],
+  "subjects": [
+    {
+      "name": "THE TRAY",
+      "LOOK_AT": [
+        "Instruments. I have identified the razor. I am choosing not to identify the others.",
+        "Laid out in a row from small to alarming. The razor is at the small end, which is the only comfort the tray offers.",
+        "Everything on it has been cleaned. I can tell, because it has been cleaned the way you clean something you've used."
+      ],
+      "LISTEN_TO": [
+        "Nothing. They are extremely still.",
+        "Steel settling on cloth when I lean on the shelf.",
+        "Nothing. I've stepped back. That will do."
+      ],
+      "overrides": {
+        "PICK_UP": "I'd rather the instruments stayed with a man who knows which is which."
+      }
+    },
+    {
+      "name": "THE CHAIR",
+      "LOOK_AT": [
+        "One chair, for shaves, teeth and limbs alike. The arms have straps. I'm told the straps are for the teeth.",
+        "There is a bucket beside it. The bucket is for the teeth, I hope.",
+        "It reclines with a lever. Every man who has sat in it has learned the word 'reclines' the hard way."
+      ],
+      "LISTEN_TO": [
+        "The leather creaking as it settles. It has heard every kind of language a man knows.",
+        "A spring, deep inside, sighing at the very idea of me.",
+        "Nothing. It's waiting with the patience of a thing that always gets its man."
+      ],
+      "overrides": {
+        "USE": "I'd sit in it, but he'd take it as a request."
+      }
+    },
+    {
+      "name": "THE STROP",
+      "LOOK_AT": [
+        "A leather strop on a hook, polished to a mirror down the middle by ten thousand strokes.",
+        "Two straps, one canvas, one leather. Canvas first, then leather. He showed me, though I hadn't asked.",
+        "The leather is darker where his hand holds it. He has stood in exactly that place for years."
+      ],
+      "LISTEN_TO": [
+        "It swings a little when the door goes, and slaps the chair once, like a reminder.",
+        "Slap, swing, still.",
+        "Nothing. The strop is between shaves, like the rest of us."
+      ],
+      "overrides": {
+        "PULL": "It pulls back. Strops do. I let go before it made a point of it."
+      }
+    },
+    {
+      "name": "THE JAR",
+      "LOOK_AT": [
+        "A jar on the shelf, which I am not going to look in. I have decided.",
+        "I looked in the jar. I'd like to go back to not having looked in the jar.",
+        "The jar. I know what's in it now, and the jar knows I know."
+      ],
+      "LISTEN_TO": [
+        "A faint clink from inside when the floor moves. I'm not going to think about what clinks.",
+        "Clink.",
+        "I'm not listening to the jar any more. The jar has had enough of my attention."
+      ],
+      "overrides": {
+        "OPEN": "No. I have looked in the jar. I am not going in the jar."
+      }
+    },
+    {
+      "name": "THE MIRROR",
+      "LOOK_AT": [
+        "A mirror, with a crack running across it at about the height of a nervous man's chin.",
+        "Me, in a barber's mirror, looking like a man who needs a shave and is going to think about it first.",
+        "The crack goes right through my reflection's neck. I've decided not to read anything into it."
+      ],
+      "LISTEN_TO": [
+        "Nothing. The mirror keeps its opinions on its face.",
+        "Nothing. It's turned to the wall a little, as if it had seen enough.",
+        "Nothing. Mirrors are the only thing in Consolation that never argue."
+      ]
+    },
+    {
+      "name": "THE PRICE BOARD",
+      "LOOK_AT": [
+        "SHAVE 2 BITS. TOOTH 4 BITS. LIMB $1. The limb is the bargain, which worries me.",
+        "No price for a haircut. Either it's free, or he doesn't do them, and I'm afraid to find out which.",
+        "Someone has scratched a name under LIMB, and then scratched it out again. I hope he kept the limb."
+      ],
+      "LISTEN_TO": [
+        "Nothing. The prices speak for themselves, and loudly.",
+        "The board tapping against the wall in the draft: two bits, four bits, a dollar.",
+        "Nothing. It's said its prices. It doesn't haggle."
+      ]
+    }
+  ]
+}

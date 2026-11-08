@@ -1,0 +1,572 @@
+{
+  "schema": 1,
+  "id": "photographers_studio",
+  "name": "THE PHOTOGRAPHER'S STUDIO",
+  "materialIdentity": "Dark plank walls, a plank floor, one oil lamp over the camera and the Lane's lamplight in the window (errata 183)",
+  "note": "Room 38, doc 105 (errata 183): a portrait studio off the Lane, through the door beside the window. The photographer (doc 07 #10) beside his camera; his tree and barks are doc 07's. No puzzle is sited here (doc 07 Part Three). Compiled by tools/compile-room.mjs from content/examine/room-38.json and reference/room-38/annotation.json",
+  "background": "art/backgrounds/room-38-photographers-studio.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 320,
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-38.json",
+      "reference/room-38/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        150,
+        740,
+        1730,
+        38
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        150,
+        778,
+        1730,
+        39
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        150,
+        817,
+        1730,
+        38
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      150,
+      740
+    ],
+    [
+      1880,
+      740
+    ],
+    [
+      1880,
+      855
+    ],
+    [
+      150,
+      855
+    ]
+  ],
+  "entrance": [
+    280,
+    790
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        280,
+        790
+      ],
+      "facing": "right",
+      "note": "In by the door from the Lane, at left."
+    },
+    {
+      "from": "the_lane",
+      "at": [
+        280,
+        790
+      ],
+      "facing": "right",
+      "note": "In from the Lane, beside the window (errata 183)."
+    }
+  ],
+  "ambient": [
+    "photographer"
+  ],
+  "hotspots": [
+    {
+      "id": "price_card",
+      "name": "THE PRICE CARD",
+      "rect": [
+        1795,
+        190,
+        80,
+        105
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "PORTRAITS 50¢. SITTING INCLUDED. CABINET CARDS BY THE DOZEN.",
+            "repeat": [
+              "Fifty cents, sitting included. I wasn't aware sitting was ever excluded.",
+              "Under the prices, in very small print: DECEASED BY ARRANGEMENT. I'm not going to ask how that's arranged."
+            ],
+            "then": [
+              "Somebody has added, in pencil: LIKENESS NOT GUARANTEED."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. The card is pinned and says what it has to say.",
+            "repeat": [
+              "The pin, loose in the board, ticking against it in the draft.",
+              "Nothing. It's a card. It doesn't negotiate."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1835,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "headrest_clamp",
+      "name": "THE HEADREST CLAMP",
+      "rect": [
+        1000,
+        165,
+        90,
+        475
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An iron stand with a clamp at the top, to hold a sitter's head still for the exposure.",
+            "repeat": [
+              "It adjusts for height. It is currently set for a man exactly my height, which I find unsettling.",
+              "A small brass plate on it: PATENT APPLIED FOR. In this town, that counts as a guarantee."
+            ],
+            "then": [
+              "It looks like it would hold anything still."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A screw creaking as I touch it.",
+            "repeat": [
+              "The screw, settling a quarter turn on its own.",
+              "Nothing. It holds its peace the way it holds a head."
+            ],
+            "then": [
+              "It has held a great many heads, and given every one of them a headache."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "My head is fine where it is. It's the only thing in town I'm sure of."
+      },
+      "walkTo": {
+        "x": 1045,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "chemicals",
+      "name": "THE CHEMICALS",
+      "rect": [
+        1475,
+        5,
+        315,
+        185
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Brown bottles on a shelf, labelled in a careful hand.",
+            "repeat": [
+              "There are brown stains on the shelf in the shape of every bottle. They've been put back in exactly the same place for years.",
+              "A sharp smell, like a hospital that has been told a joke."
+            ],
+            "then": [
+              "One says COLLODION, and one says POISON, and they are next to each other."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. A small stopper ticking in the heat. I am keeping my distance.",
+            "repeat": [
+              "A tiny pop as one stopper eases.",
+              "Nothing. I've moved to the far side of the room, which helps."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "One of them says POISON. I don't know which of the others are just being modest."
+      },
+      "walkTo": {
+        "x": 1633,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "stock_portrait_box",
+      "name": "THE STOCK PORTRAIT BOX",
+      "rect": [
+        1660,
+        340,
+        220,
+        300
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Four dozen strangers in good collars, sold as anybody you like.",
+            "repeat": [
+              "Every card the same gentleman, the same collar, the same steady gaze, on the same good card stock.",
+              "The box says FOUR DOZEN. There are thirty-one. Somebody's been buying gentlemen."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Four dozen men in Ohio, not saying anything.",
+            "repeat": [
+              "Card on card, sliding, when I tip the box.",
+              "Nothing. Thirty-one men holding very still."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "They're twenty-five cents apiece, and I'd only be buying a stranger."
+      },
+      "walkTo": {
+        "x": 1770,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "camera",
+      "name": "THE CAMERA",
+      "rect": [
+        1120,
+        235,
+        230,
+        495
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A plate camera on a tripod, with a black cloth over the back for the photographer's head. The brass is the best-kept thing in the room.",
+            "repeat": [
+              "The lens is capped. The photographer only uncaps it for paying customers, and for dogs, once.",
+              "Brass and mahogany, and a bellows like an accordion. It would make a very sad accordion."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "The bellows breathing a little as the room warms.",
+              "Nothing. A camera is the opposite of an ear. It only takes what holds still."
+            ],
+            "then": [
+              "It's waiting for someone to hold still, which in this town could take a while."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I wouldn't know which end was the front. I'd photograph my own eye."
+      },
+      "walkTo": {
+        "x": 1180,
+        "y": 800,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "window_display",
+      "name": "THE WINDOW DISPLAY",
+      "rect": [
+        380,
+        10,
+        225,
+        625
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The back of the window display, from inside: the gentleman in the good collar, facing the Lane. From here he's only cardboard.",
+            "repeat": [
+              "He's propped on a little easel, at an angle chosen to catch the lamplight from the Lane. Somebody thought hard about the angle.",
+              "From the back he has no face at all, just card and a maker's stamp. The stamp is from Ohio."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The Lane through the glass, faintly. Nobody in it is stopping to look at him.",
+            "repeat": [
+              "The glass ticking as it cools.",
+              "Feet on the Lane, going past. Nobody stops for him."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 493,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "sitting_chair",
+      "name": "THE SITTING CHAIR",
+      "rect": [
+        612,
+        305,
+        390,
+        375
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A carved chair for sitters, with a cushion and a small table for one hand to rest on, thoughtfully. Everyone sits in the same pose here.",
+            "repeat": [
+              "The cushion is flat in the middle, where a great many respectable men have sat very still.",
+              "There is a book on the little table, for the sitter's hand. The book is a ledger, and it is blank. It photographs as learning."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It has had more distinguished men in it than the territory has produced.",
+            "repeat": [
+              "A creak, when I lean on the back. It disapproves of slouching.",
+              "Nothing. The chair is holding still for a picture nobody is taking."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 807,
+        "y": 854,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "painted_backdrop",
+      "name": "THE PAINTED BACKDROP",
+      "rect": [
+        630,
+        0,
+        470,
+        500
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A Grecian colonnade, painted on canvas. Through the real window beside it: mud.",
+            "repeat": [
+              "The columns are painted with a great deal of confidence and no knowledge of columns.",
+              "A sitter in front of this looks like a man who has been to Athens. Nobody here has been to Athens."
+            ],
+            "then": [
+              "The colonnade is winning."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The canvas stirring in the draft. Ancient Greece, rustling.",
+            "repeat": [
+              "Canvas flexing against its frame. The Parthenon, settling.",
+              "Nothing. Greece is quieter than I'd imagined."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 865,
+        "y": 854,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "back_to_lane",
+      "name": "THE DOOR TO THE LANE",
+      "rect": [
+        115,
+        35,
+        220,
+        605
+      ],
+      "colour": 0,
+      "to": "the_lane",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 183: the studio opens off the Lane. Doc 105 writes no lines for the door, so it is a stub exit (errata 72 F; doc 36).",
+      "stub": true,
+      "walkTo": {
+        "x": 230,
+        "y": 760,
+        "facing": "left"
+      }
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 150,
+          "y": 740
+        },
+        {
+          "x": 1880,
+          "y": 740
+        },
+        {
+          "x": 1880,
+          "y": 778
+        },
+        {
+          "x": 150,
+          "y": 778
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 740,
+        "farHeight": 465,
+        "nearY": 855,
+        "nearHeight": 545
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 150,
+          "y": 778
+        },
+        {
+          "x": 1880,
+          "y": 778
+        },
+        {
+          "x": 1880,
+          "y": 817
+        },
+        {
+          "x": 150,
+          "y": 817
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 740,
+        "farHeight": 465,
+        "nearY": 855,
+        "nearHeight": 545
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 150,
+          "y": 817
+        },
+        {
+          "x": 1880,
+          "y": 817
+        },
+        {
+          "x": 1880,
+          "y": 855
+        },
+        {
+          "x": 150,
+          "y": 855
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 740,
+        "farHeight": 465,
+        "nearY": 855,
+        "nearHeight": 545
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "camera_lamp",
+      "at": [
+        1295,
+        60
+      ],
+      "radius": 640,
+      "amount": 0.1,
+      "rate": 0.24,
+      "phase": 0.4,
+      "note": "The oil lamp hung over the camera. A slow, low breath (invariant 9)."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-38/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

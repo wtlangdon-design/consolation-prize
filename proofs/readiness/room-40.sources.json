@@ -1,0 +1,44 @@
+{
+ "schema": 1,
+ "room": 40,
+ "id": "room-40-empty-storefront",
+ "name": "THE EMPTY STOREFRONT",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-11-08 for errata 183 (reference/ancillary-interiors/brief.md) from doc 105, doc 07 and doc 02.",
+ "examine": {
+  "primary": "docs/105-the-six-interiors.md::ROOM 40 — THE EMPTY STOREFRONT",
+  "batch": [],
+  "merged": [],
+  "completions": [
+   "docs/105-the-six-interiors.md::ROOM 40 · THE EMPTY STOREFRONT"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "Doc 105 writes every line true whenever it is read: the rooms are open in every act, and no line assumes a day, a meeting or a puzzle (doc 105's rules)."
+  }
+ },
+ "wrongVerbs": "docs/105-the-six-interiors.md::ROOM 40 · THE EMPTY STOREFRONT",
+ "wrongVerbsNote": "Doc 49 writes no section for the six interiors; doc 105's Overrides stand in (reference/ancillary-interiors/brief.md).",
+ "dialogue": {
+  "characters": [],
+  "trees": [],
+  "none": {
+   "source": "docs/105-the-six-interiors.md::ROOM 40 — THE EMPTY STOREFRONT",
+   "why": "Nobody is in it (reference/ancillary-interiors/brief.md: 'Who is in it: Nobody'); doc 105 writes five subjects and no person."
+  }
+ },
+ "puzzles": {
+  "ids": [],
+  "none": {
+   "source": "docs/07-ambient-layer.md::PART THREE — ANCILLARY INTERIORS",
+   "why": "Doc 07 Part Three: \"Six enterable buildings. No required items, no puzzle gates.\" Doc 02 sites none of the 45 here."
+  }
+ },
+ "staging": {
+  "required": false,
+  "why": "No doc 48 script is sited here."
+ },
+ "connectivity": "docs/00-errata.md::183 · THE SIX INTERIORS, WRITTEN",
+ "exits": "docs/105-the-six-interiors.md::ROOM 40 · THE EMPTY STOREFRONT",
+ "roomFile": "content/rooms/empty-storefront.json",
+ "plate": "art/backgrounds/room-40-empty-storefront.png"
+}

@@ -1,0 +1,55 @@
+{
+ "sheet": "art/actors/winnie-second-ledger.png",
+ "frames": [
+  [
+   2,
+   2,
+   219,
+   496
+  ],
+  [
+   223,
+   2,
+   219,
+   496
+  ],
+  [
+   444,
+   2,
+   219,
+   496
+  ],
+  [
+   665,
+   2,
+   219,
+   496
+  ],
+  [
+   886,
+   2,
+   219,
+   496
+  ],
+  [
+   1107,
+   2,
+   219,
+   496
+  ]
+ ],
+ "frameNames": [
+  "standing",
+  "breath",
+  "kneel-lift",
+  "reach",
+  "ledger-open",
+  "ledger-closed"
+ ],
+ "figureHeight": 492,
+ "stature": 0.95,
+ "posture": "standing",
+ "man": 518,
+ "note": "Room 5 at the loose board (x 462-745, y ~770): the room's man is 518; she stands 0.95 of him, crown to sole. Frame 1 is a breath the cutter derives from frame 0. The kneeling and reaching frames stand on the same sole line as the standing ones.",
+ "source": "room-05-second-ledger attempt 1 (art/staging/room-05/second-ledger/sheet-01.png)"
+}

@@ -4923,3 +4923,39 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 - **The county seal has no sound** (doc 48 S6 beat 3, "the loudest sound in the game"): it waits on errata 28a's one-shot ruling, which doc 48 asks to be made once for three scripts.
 - **Winnie at the Registrar's** is her Room 5 counter sheet, writing, behind Room 7's counter.
 
+
+## Q180 · Room 42, the barber's: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-08 (errata 183, delegated; Tyler wrote nothing new for the door); BUILT, room-42 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Six subjects from doc 105, each with three LOOKs and three LISTENs, and four overrides; the barber-dentist-surgeon beside his chair, with doc 07's tree, his nine barks and the second answer Tyler authorized for the shave; the price board lettered in the game's face. In from the Lane by THE BARBER'S DOOR beside the pole; out by the door to the Lane. Held by `tests/room-42.test.ts`. Proofs under `renders/proofs/barbers/`.
+
+**Open, for Tyler:** (a) THE DOOR TO THE LANE has no LOOK or LISTEN in any document; it ships as a stub exit (errata 72 F), as the Lane's door into the shop does. (b) The barber's look and his speech colour (#e8a8a8) are the builder's (errata 183 D). (c) The price board's lettering (errata 183 E).
+
+## Q181 · Room 38, the photographer's studio: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-08 (errata 183, delegated); BUILT, room-38 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Eight subjects from doc 105 with three LOOKs and three LISTENs each, and four overrides; the photographer beside his camera, with doc 07's tree, his nine barks and the second answer Tyler authorized for "May I buy it?". In from the Lane by the door beside his window, which room-38's fourth operation drew on the Lane. Held by `tests/room-38.test.ts`. Proofs under `renders/proofs/photographers-studio/`.
+
+**Open, for Tyler:** (a) THE DOOR TO THE LANE has no lines; it ships as a stub exit, as the Lane's door in does. (b) The door now drawn on the Lane beside the photographer's window (errata 183, Room 38 D). (c) The photographer's look and his speech colour (#c8e0a0). (d) Doc 07 offers "That's Obadiah Mott." from the first conversation, ungated, as written.
+
+## Q182 · Room 37, the boarding house parlour: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-08 (errata 183, delegated); BUILT, room-37 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Seven subjects from doc 105 with three LOOKs and three LISTENs each, and four overrides; the two women by their tea table, doc 07's tree in two voices with the second answer Tyler authorized, and their barks as exchanges. On the map at the boarding house; its door goes back to the map. Held by `tests/room-37.test.ts`. Proofs under `renders/proofs/boarding-house-parlour/`.
+
+**Open, for Tyler:** (a) THE DOOR OUT has no lines; it ships as a stub exit. (b) The women's looks and speech colours (errata 183, Room 37 C); they are smoother than Thad by the texture number (flat cloth), at his pixel size. (c) The map draws the place as THE BOARDING HOUSE, the room's name. (d) A's laugh stays printed (doc 95 row 75).
+
+## Q183 · Room 39, the bakehouse: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-08 (errata 183, delegated); BUILT, room-39 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Five subjects from doc 105 with three LOOKs and three LISTENs each, and three overrides; the boy at the table's end with his tray, a figure who never speaks. On the map at the bakehouse; its door goes back to the map. Held by `tests/room-39.test.ts`. Proofs under `renders/proofs/bakehouse/`.
+
+**Open, for Tyler:** (a) THE DOOR OUT has no lines; it ships as a stub exit. (b) The boy's look and size (0.8 of a man, a boy of about twelve). (c) The racks of loaves are painted, not a subject: no line names them.
+
+## Q184 · Room 40, the empty storefront: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-08 (errata 183; Tyler: "Door beside the window"); BUILT, room-40 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Five subjects from doc 105 with three LOOKs and three LISTENs each, and three overrides; nobody in it; the sign lettered HARDWARE & SUNDRIES in the game's face. In from the Lane by a door drawn beside the storefront's boarded window, which stays boarded so the Lane's lines stay true. Held by `tests/room-40.test.ts`. Proofs under `renders/proofs/empty-storefront/`.
+
+**Open, for Tyler:** (a) THE DOOR TO THE LANE has no lines; it ships as a stub exit. (b) The door drawn on the Lane beside the boarded window (errata 183, Room 40 C). (c) The sign's lettering in gold, one word to a line.
+
+## Q185 · Room 41, the schoolhouse: built, awaiting Tyler's playthrough — **RULED 2026-11-08 (errata 183, delegated); BUILT, room-41 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Six subjects from doc 105 with three LOOKs and three LISTENs each, and three overrides; nobody in it; fourteen desks and fourteen hooks composed to doc 105's count from the room's own pixels. On the map at the schoolhouse; THE DOOR, with its own lines, goes back to the map. Held by `tests/room-41.test.ts`. Proofs under `renders/proofs/schoolhouse/`.
+
+**Open, for Tyler:** (a) The desks are one desk laid fourteen times (errata 183, Room 41 B); the hooks are two rails of seven. (b) The room is drawn farther off than the shops (a man is 398 there).
