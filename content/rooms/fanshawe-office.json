@@ -572,6 +572,14 @@
             "ACT": 2,
             "T_ACT_II_OPENING": true
           },
+          "holds": {
+            "clip": "deed",
+            "frames": [
+              0,
+              1
+            ],
+            "note": "Doc 48 S1 beat 4: 'Thad on the porch, holding the deed wrong side up.' Looking down at it for the first line, up from it for the second (tools/rig/cut-dinner.py)."
+          },
           "sceneLine": "docs/57-puzzle-completion.md::## A10 · Survive dinner at Fanshawe's · Beat 4"
         }
       ],
@@ -619,12 +627,12 @@
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: 'Room 35, the Company vault, opens off Fanshawe's office (11) and is gated to Act IV.' Doc 05's THE SAFE is 'a safe the size of a small cabin': from Act IV -- the confession, doc 48 S4 beat 3, which writes T_HOB_IS_MOTT and ACT 4 together -- its door is the way into the vault, a small exit inside THE SAFE, whose own lines stay its own. Room 35 writes THE VAULT DOOR; from this side it is a stub (errata 72 F, 99 I).",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 11 (errata 189)",
       "walkTo": {
         "x": 1615,
         "y": 852,
         "facing": "back"
-      },
-      "waysOut": "docs/106-the-ways-out.md, ROOM 11 (errata 189)"
+      }
     }
   ],
   "ambient": [
@@ -917,7 +925,18 @@
           "T_EXCAVATION_CLAUSE": false
         }
       ],
-      "note": "Doc 57: the dinner (A10) plays on entering while Thad holds THE INVITATION, until T_DINED; the offer (E0b) the next time he enters after E0, until the clause is read. The tree's entries say which (errata 84 F)."
+      "note": "Doc 57: the dinner (A10) plays on entering while Thad holds THE INVITATION, until T_DINED; the offer (E0b) the next time he enters after E0, until the clause is read. The tree's entries say which (errata 84 F).",
+      "seat": {
+        "x": 1440,
+        "y": 740,
+        "facing": "left",
+        "state": "dining",
+        "when": {
+          "T_BORDERS_MOTT": true,
+          "T_DINED": false
+        },
+        "note": "Doc 48 S1 beat 1, 'Thad seated; the table laid absurdly well': for the dinner only, he walks to the chair at the table's free end and sits there, facing Fanshawe, until the conversation ends (errata 190; the state `dining`, tools/rig/cut-dinner.py)."
+      }
     },
     "sayOnce": "T_EMPTY_OFFICE_SEEN",
     "sayWhen": {

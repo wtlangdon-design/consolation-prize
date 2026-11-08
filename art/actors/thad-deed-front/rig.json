@@ -1,0 +1,13 @@
+{
+  "source": "art/staging/room-11/dinner-thad-01/sheet.png",
+  "key": "magenta",
+  "clip": "deed",
+  "facing": "front",
+  "figure": [
+    186,
+    626
+  ],
+  "padding": 260,
+  "frames": 2,
+  "note": "Doc 48 S1 beat 4, 'Thad on the porch, holding the deed wrong side up': 0 looking down at it, 1 looking up from it. Played over the two lines (\"A very fine dinner.\" / \"I believe I own something.\"), a frame at a time. room-11 attempt 6, cut by tools/rig/cut-dinner.py."
+}

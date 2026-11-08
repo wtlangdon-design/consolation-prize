@@ -42,6 +42,26 @@
       "alight-coach",
       "aboard-coach",
       "carry"
+    ],
+    "dining": [
+      "walk",
+      "recoil",
+      "tug",
+      "strain",
+      "wrench",
+      "reach",
+      "sit",
+      "rise",
+      "use-near",
+      "give-offer",
+      "shrug",
+      "pickup-low",
+      "alight-coach",
+      "aboard-coach",
+      "carry",
+      "farwalk",
+      "pick-fit",
+      "deed"
     ]
   },
   "clips": [
@@ -776,6 +796,60 @@
         526
       ],
       "state": "seated"
+    },
+    {
+      "id": "idle",
+      "facing": "left",
+      "frames": [
+        "art/actors/thad-dining-left/dining-00.png"
+      ],
+      "figureHeight": 626,
+      "anchor": [
+        386,
+        626
+      ],
+      "state": "dining"
+    },
+    {
+      "id": "idle-break",
+      "facing": "left",
+      "frames": [
+        "art/actors/thad-idlebreak-dining-left/idle-break-00.png",
+        "art/actors/thad-idlebreak-dining-left/idle-break-01.png",
+        "art/actors/thad-idlebreak-dining-left/idle-break-02.png"
+      ],
+      "figureHeight": 626,
+      "anchor": [
+        386,
+        626
+      ],
+      "state": "dining"
+    },
+    {
+      "id": "stand",
+      "facing": "left",
+      "frames": [
+        "art/actors/thad-stand-dining-left/stand-00.png"
+      ],
+      "figureHeight": 626,
+      "anchor": [
+        386,
+        626
+      ],
+      "state": "dining"
+    },
+    {
+      "id": "deed",
+      "facing": "front",
+      "frames": [
+        "art/actors/thad-deed-front/deed-00.png",
+        "art/actors/thad-deed-front/deed-01.png"
+      ],
+      "figureHeight": 626,
+      "anchor": [
+        353,
+        626
+      ]
     },
     {
       "id": "pick-fit",

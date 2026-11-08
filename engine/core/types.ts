@@ -86,6 +86,12 @@ export interface ResponseRule {
    * A line with a speaker is theirs (doc 57 E9: Sump at the archive door).
    */
   then?: SpokenLine[];
+  /**
+   * HIS PICTURE WHILE THE LINES ARE SAID (doc 48 S1 beat 4: "Thad on the porch, holding the deed wrong
+   * side up"; errata 190): a clip of his, the nth frame held over the nth line (`say` first, then
+   * each of `then`), the last held for any lines beyond.
+   */
+  holds?: { clip: string; frames: number[]; note?: string };
   /** Who speaks `say`, when it is not Thad (doc 57 E9's archive door: Sump). */
   by?: string;
   /**
@@ -1648,6 +1654,12 @@ export interface RoomFile {
        * before the greeting; the conversation opens when he arrives.
        */
       approach?: boolean;
+      /**
+       * HE SITS DOWN TO IT (doc 48 S1 beat 1, "Thad seated; the table laid absurdly well"; errata 190).
+       * While `when` holds, he walks to this point instead, turns to `facing`, and takes the mover
+       * state `state` (his seated clips) as the conversation opens; it is cleared when it ends.
+       */
+      seat?: { x: number; y: number; facing: Facing; state: string; when?: Condition; note?: string };
     };
   };
   /** Destinations doc 20 names but whose appearance rule nobody has stated. */
