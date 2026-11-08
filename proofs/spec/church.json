@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "church",
- "note": "ROOM 17's PROOF SPEC. The route is Main Street's, then the map. The room's principal change is the funeral day: the Reverend is up the hill (doc 57 C3). C3 and E3 are played in tests/room-17.test.ts.",
+ "note": "ROOM 17's PROOF SPEC. The route is Main Street's, then Lower Street or the Lane, where its door is (errata 161). The room's principal change is the funeral day: the Reverend is up the hill (doc 57 C3). C3 and E3 are played in tests/room-17.test.ts.",
  "route": "church",
  "settleMs": 4000,
  "principalChange": {

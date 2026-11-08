@@ -102,6 +102,7 @@ Counts: **A 20 · B 0 · C 47** — 67 directions, every one flagged `"direction
 | 65 | C | sowerby | He looks at the collection plate for a long time. Then he counts out of it with his eyes shut. | rooms/boot-hill arrival scene |  |  |  |  |  | The joke is "with his eyes shut", too small to read at game size. See the list for Tyler. |
 | 66 | C | pratt_registrar | a very long pause | rooms/claims-registrar arrival scene |  |  |  |  |  | A pause, worded; pauses stay printed. |
 | 67 | A | sump | He notarizes it. He stamps it. He does not look up. | rooms/claims-registrar arrival scene | sump | 2 2 3 0 0 | 3.0 |  | U-STAMP @4 | He writes (2), raises the stamp (3) and brings it down (0) with the approved stamp, and stays bent to his ledger. |
+| 68 | A | bell_ringer | He does not move. | dialogue/amb-bell-ringer root option 2 | bell_ringer | 0 | 2.0 |  |  | Errata 161: he holds his rest frame, mallet down, for the beat; the stillness is the answer. |
 
 ## When a B pose is drawn
 

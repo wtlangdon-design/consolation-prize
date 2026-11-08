@@ -106,6 +106,15 @@
    ],
    "facing": "right",
    "note": "Back from Mott's site, by the mile post (errata 99 A)."
+  },
+  {
+   "from": "lower_street",
+   "at": [
+    240,
+    790
+   ],
+   "facing": "right",
+   "note": "Errata 161: out along the road from Lower Street."
   }
  ],
  "hotspots": {

@@ -358,6 +358,24 @@
    ],
    "facing": "right",
    "note": "Back from the alley, at the street's east end past the mercantile (doc 20: 'East, the back lots')."
+  },
+  {
+   "from": "lower_street",
+   "at": [
+    3477,
+    603
+   ],
+   "facing": "front",
+   "note": "Errata 161: back along the road from Lower Street, at the east end."
+  },
+  {
+   "from": "the_lane",
+   "at": [
+    110,
+    700
+   ],
+   "facing": "right",
+   "note": "Errata 161: back out of the Lane through the alley."
   }
  ],
  "onEnterSay": {

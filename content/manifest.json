@@ -28,6 +28,8 @@
   "content/rooms/hotel-lobby.json",
   "content/rooms/thads-room.json",
   "content/rooms/back-alley.json",
+  "content/rooms/lower-street.json",
+  "content/rooms/the-lane.json",
   "content/rooms/watchmans-shack.json",
   "content/rooms/prosperity.json",
   "content/rooms/pratts-claim.json",
@@ -79,6 +81,7 @@
   "content/dialogue/amb-message-boy.json",
   "content/dialogue/amb-man-leaving-tomorrow.json",
   "content/dialogue/amb-fiddler.json",
+  "content/dialogue/amb-bell-ringer.json",
   "content/dialogue/amb-dogs-owner.json"
  ],
  "puzzles": [],
@@ -180,6 +183,7 @@
   "content/ambient/livery-man.json",
   "content/ambient/grievance.json",
   "content/ambient/alley-cat.json",
+  "content/ambient/bell-ringer.json",
   "content/ambient/hob.json",
   "content/ambient/miners-out.json",
   "content/ambient/miners-back.json",
@@ -451,6 +455,25 @@
      }
     ],
     "why": "Errata 104, the Woodtick way (Tyler: \"Yes\" to Monkey Island 2's approach): the saloon piano through the back room's wall."
+   },
+   "lower_street": {
+    "src": "audio/consolation-title.wav",
+    "gain": 0.5,
+    "why": "Doc 28 rooms 2 / 2b / 2c: CONSOLATION, varying orchestration by street. Lower Street is Main Street's piece, quieter; there is no separate arrangement for it (errata 161)."
+   },
+   "the_lane": {
+    "src": "audio/consolation-distant-piano.wav",
+    "gain": 0.6,
+    "variants": [
+     {
+      "when": {
+       "T_NUGGET_PIANO_TUNED": true
+      },
+      "src": "audio/consolation-distant-piano-tuned.wav",
+      "gain": 0.6
+     }
+    ],
+    "why": "Doc 28 rooms 2 / 2b / 2c: the Lane down to piano alone -- the back alley's distant piano, tuned when the Nugget's is (errata 161)."
    },
    "back_alley": {
     "src": "audio/consolation-distant-piano.wav",

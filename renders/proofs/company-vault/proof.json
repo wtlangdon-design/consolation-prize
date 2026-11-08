@@ -3,17 +3,24 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "company_vault",
  "roomWidth": 1920,
- "branch": "ccr-347d40c6-71r9f9",
- "commit": "40b7da7a3f2344aab054a3c30272c72f9e27ef9e",
- "workingTreeClean": true,
+ "branch": "feat/streets-build",
+ "commit": "0e31f92154f047e45caea642bf11d833c1f8c6d7",
+ "workingTreeClean": false,
  "dirtyAllowed": false,
- "uncommitted": [],
+ "uncommitted": [
+  "M renders/proofs/ozymandias-tent/contact-sheet.webp",
+  " M renders/proofs/ozymandias-tent/index.html",
+  " M renders/proofs/ozymandias-tent/proof.json"
+ ],
  "visualState": null,
  "candidates": [],
  "route": null,
  "routeLog": [
   "started from fixture r35-a, then entered company_vault by control -- NOT proof that a player can reach it",
-  "action 1 (wait): waited 2s"
+  "action 1 (wait): waited 2s",
+  "action 2 (waitFor): reached {\"room\":\"company_vault\"} in room company_vault",
+  "action 3 (wait): waited 2s",
+  "action 4 (wait): waited 2s"
  ],
  "depthMarks": [
   {
@@ -43,14 +50,14 @@
    "expected": 363,
    "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
    "bounds": [
-    592,
+    588,
     338,
-    376,
+    384,
     401
    ],
    "order": 0,
-   "renderedHeight": 363,
-   "renderedBottom": 700,
+   "renderedHeight": 364,
+   "renderedBottom": 701,
    "file": "raw-captures-ignored/panel-c-mud_far_0-far.png"
   },
   {
@@ -78,11 +85,11 @@
    ],
    "reportedHeight": 404,
    "expected": 404,
-   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-00.png",
    "bounds": [
-    570,
+    566,
     453,
-    419,
+    428,
     446
    ],
    "order": 0,
@@ -97,7 +104,7 @@
   {
    "panel": "B",
    "room": "company_vault",
-   "clock": 9.2026,
+   "clock": 10.875399999999999,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -130,23 +137,28 @@
     "T_DINED",
     "T_EXCAVATION_CLAUSE",
     "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
     "T_HOB_IS_MOTT",
     "T_NO_GOLD_EVER",
     "T_WARM_HOLE",
     "T_PRATT_STAKE",
-    "T_PRATT_JUMP_SEEN"
+    "T_PRATT_JUMP_SEEN",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 4,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
     "PRATT_OFFERS": 0,
-    "PICK_SWINGS": 0
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "tuning_fork",
@@ -167,11 +179,11 @@
      "height": 386,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-02.png",
      "bounds": [
-      260,
+      255,
       404,
-      400,
+      409,
       426
      ],
      "order": 0,
@@ -196,15 +208,15 @@
    "controlWrites": [
     "enter(company_vault)"
    ],
-   "capturedAt": "2026-11-05T23:15:31.061Z",
+   "capturedAt": "2026-11-07T23:31:30.280Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "a241908bccc0d914bb31afc214bfeaf9a4756e497e53519d8f7afdddf3b4962a"
+   "hash": "d3f6fc1f6362a42a7cd3104abffba5adfb67ba0fcb989712ea3d665d15ed7832"
   },
   {
    "panel": "A",
    "room": "company_vault",
-   "clock": 10.0693,
+   "clock": 11.892100000000001,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -237,23 +249,28 @@
     "T_DINED",
     "T_EXCAVATION_CLAUSE",
     "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
     "T_HOB_IS_MOTT",
     "T_NO_GOLD_EVER",
     "T_WARM_HOLE",
     "T_PRATT_STAKE",
-    "T_PRATT_JUMP_SEEN"
+    "T_PRATT_JUMP_SEEN",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 4,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
     "PRATT_OFFERS": 0,
-    "PICK_SWINGS": 0
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "tuning_fork",
@@ -299,15 +316,15 @@
     "enter(company_vault)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T23:15:31.911Z",
+   "capturedAt": "2026-11-07T23:31:31.306Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "949e24d33570f984caa5133fbf678e6870406a31b4c6499ab63ab91fde21448d"
+   "hash": "1dcbd97ff16690fae5ee036009559eebc4bbfddc39a3302a21601ecb576293d4"
   },
   {
    "panel": "D",
    "room": "company_vault",
-   "clock": 17.7357,
+   "clock": 47.9574,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -340,22 +357,28 @@
     "T_DINED",
     "T_EXCAVATION_CLAUSE",
     "T_PICKAXE_ON_ACCOUNT",
+    "T_FUNERAL_DONE",
     "T_NO_GOLD_EVER",
     "T_WARM_HOLE",
     "T_PRATT_STAKE",
-    "T_PRATT_JUMP_SEEN"
+    "T_PRATT_JUMP_SEEN",
+    "T_CUTAWAY_CLARION",
+    "T_CUTAWAY_PRATT",
+    "T_CUTAWAY_FANSHAWE"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 3,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
     "PRATT_OFFERS": 0,
-    "PICK_SWINGS": 0
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "inventory": [
     "tuning_fork",
@@ -372,15 +395,15 @@
       857
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 404,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-06.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
-      570,
+      566,
       453,
-      419,
+      428,
       446
      ],
      "order": 0,
@@ -406,29 +429,33 @@
     "enter(company_vault)",
     "cast(false)",
     "cast(true)",
+    "bystanders(false)",
     "stand(780,701)",
     "cast(false)",
     "cast(true)",
     "stand(780,857)",
     "cast(false)",
     "cast(true)",
+    "bystanders(true)",
     "flag ACT=3",
     "flag T_HOB_IS_MOTT=false"
    ],
-   "capturedAt": "2026-11-05T23:15:39.579Z",
+   "capturedAt": "2026-11-07T23:32:07.472Z",
    "intent": "principal changed state: No state changes in the vault (doc 02 sites no puzzle here). The change is the room's act gate: set back before the confession (ACT 3, T_HOB_IS_MOTT false) by the flag control, the way in from Fanshawe's office is shut; this proves the gate, not a picture.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "eb37d3444d803b1d0d4a32525a23f5ec58d6bbc64a6cee8278d97afceb5d78b2",
+   "hash": "3822a5862492ccc49cbd1076124083c38b19a5973a9fd7274c41905a15ee9eab",
    "changedBy": "flags, counters"
   }
  ],
- "failures": [],
- "passed": true,
+ "failures": [
+  "the working tree is dirty, so these frames do not correspond to 0e31f921. Commit, or re-run with --allow-dirty, which records it."
+ ],
+ "passed": false,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
  "judgement": {
   "machine": {
-   "passed": true,
+   "passed": false,
    "establishes": [
     "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
     "every asset the room declares loaded; no stub, graybox or fallback was drawn",
@@ -449,11 +476,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T23:15:39.579Z",
+ "at": "2026-11-07T23:32:07.472Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 416522,
+  "bytes": 418480,
   "panels": 5,
   "scale": 0.5
  }

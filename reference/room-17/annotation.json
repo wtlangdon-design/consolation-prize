@@ -51,7 +51,7 @@
     790
    ],
    "facing": "right",
-   "note": "In by the door, at left: the map leads here."
+   "note": "In by the door, at left: Lower Street leads here."
   }
  ],
  "hotspots": {
@@ -137,9 +137,9 @@
  "exitSubjects": {
   "THE DOOR, ALWAYS UNLOCKED": {
    "id": "door_always_unlocked",
-   "to": "town_map",
+   "to": "lower_street",
    "defaultVerb": "WALK_TO",
-   "note": "Doc 20: the church is reached by the map, and its door leads back to it. Doc 05 and doc 54 write the door's LOOK and LISTEN."
+   "note": "Errata 161 (errata 43's three streets): the church opens off Lower Street."
   }
  },
  "exits": {

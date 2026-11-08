@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "back_alley",
- "note": "A ROUTE to Room 20, the back alley: Main Street's route to the letter, then along the street to its east end and through THE BACK LOTS (doc 20).",
+ "note": "A ROUTE to Room 20: Main Street's route to the letter, then Lower Street (Room 43, errata 161: everything in town is walked now) and THE ALLEY.",
  "from": "stage_road",
  "actions": [
   {
@@ -112,86 +112,30 @@
   },
   {
    "do": "click",
-   "world": [
-    1900,
-    830
-   ],
-   "why": "down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
-  },
-  {
-   "do": "wait",
-   "seconds": 1
+   "on": "to_claims_road",
+   "why": "LOWER STREET, at Main Street's east end (errata 161)"
   },
   {
    "do": "waitFor",
-   "still": "thad",
-   "upTo": 60,
-   "why": "until he stops, and the camera with him"
-  },
-  {
-   "do": "click",
-   "world": [
-    1300,
-    830
-   ],
-   "why": "down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+   "room": "lower_street",
+   "upTo": 90,
+   "why": "along the road, and Room 43"
   },
   {
    "do": "wait",
-   "seconds": 1
-  },
-  {
-   "do": "waitFor",
-   "still": "thad",
-   "upTo": 60,
-   "why": "until he stops, and the camera with him"
-  },
-  {
-   "do": "click",
-   "world": [
-    700,
-    830
-   ],
-   "why": "down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
-  },
-  {
-   "do": "wait",
-   "seconds": 1
-  },
-  {
-   "do": "waitFor",
-   "still": "thad",
-   "upTo": 60,
-   "why": "until he stops, and the camera with him"
-  },
-  {
-   "do": "click",
-   "world": [
-    150,
-    830
-   ],
-   "why": "down the street along its near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
-  },
-  {
-   "do": "wait",
-   "seconds": 1
-  },
-  {
-   "do": "waitFor",
-   "still": "thad",
-   "upTo": 60,
-   "why": "until he stops, and the camera with him"
+   "seconds": 3,
+   "why": "arrival"
   },
   {
    "do": "click",
    "on": "to_back_alley",
-   "why": "THE BACK LOTS"
+   "why": "THE ALLEY"
   },
   {
    "do": "waitFor",
    "room": "back_alley",
-   "upTo": 90,
-   "why": "through, and Room 20"
+   "upTo": 60,
+   "why": "in, and Room 20"
   },
   {
    "do": "wait",

@@ -1,0 +1,341 @@
+{
+ "room": "lower_street",
+ "plate": "art/backgrounds/room-43-lower-street.png",
+ "plateNote": "Room 43's plate, from the image session (reference/streets/brief.md, errata 161). The image session's plate (PR 231). Every rect below is read off it; the walk band and the depth are the graybox plan's, which the plate was painted against.",
+ "plateShipping": "art/backgrounds/room-43-lower-street.png",
+ "plateShippingHash": "8252cedddf50a1906613c16e1390cd230ba8527449b2732784bb02e795f018e5",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   40,
+   712
+  ],
+  [
+   1880,
+   712
+  ],
+  [
+   1880,
+   852
+  ],
+  [
+   40,
+   852
+  ]
+ ],
+ "walkableNote": "THE STREET'S MUD, from the road back to Main Street at the left to the road out at the right; the fronts meet it at y 690.",
+ "scaling": {
+  "far": {
+   "y": 705,
+   "height": 258
+  },
+  "near": {
+   "y": 858,
+   "height": 362
+  },
+  "note": "Room 20's exterior depth: the same street's backs, at the same camera (errata 161)."
+ },
+ "entrance": [
+  120,
+  790
+ ],
+ "entrances": [
+  {
+   "from": "main_street",
+   "at": [
+    120,
+    790
+   ],
+   "facing": "right",
+   "note": "In along the road from Main Street, at left."
+  },
+  {
+   "from": "default",
+   "at": [
+    120,
+    790
+   ],
+   "facing": "right",
+   "note": "In from Main Street."
+  },
+  {
+   "from": "claims_registrar",
+   "at": [
+    300,
+    740
+   ],
+   "facing": "front",
+   "note": "Out of the Registrar's door."
+  },
+  {
+   "from": "back_alley",
+   "at": [
+    575,
+    735
+   ],
+   "facing": "front",
+   "note": "Out of the alley mouth."
+  },
+  {
+   "from": "church",
+   "at": [
+    870,
+    740
+   ],
+   "facing": "front",
+   "note": "Down the church steps."
+  },
+  {
+   "from": "the_lane",
+   "at": [
+    1165,
+    735
+   ],
+   "facing": "front",
+   "note": "Out of the passage from the Lane."
+  },
+  {
+   "from": "livery",
+   "at": [
+    1448,
+    745
+   ],
+   "facing": "front",
+   "note": "Out of the livery's doors."
+  },
+  {
+   "from": "claims_road",
+   "at": [
+    1830,
+    800
+   ],
+   "facing": "left",
+   "note": "In along the road from the claims, at right."
+  }
+ ],
+ "hotspots": {
+  "street": [
+   0,
+   690,
+   1920,
+   174
+  ],
+  "sump_s_window": [
+   398,
+   410,
+   90,
+   115
+  ],
+  "church": [
+   640,
+   160,
+   460,
+   530
+  ],
+  "bell": [
+   955,
+   405,
+   85,
+   285
+  ],
+  "livery": [
+   1230,
+   230,
+   500,
+   460
+  ],
+  "trough": [
+   1525,
+   562,
+   185,
+   82
+  ]
+ },
+ "hotspotsNote": "Read off the plate (errata 161, part 3): generous over the thing the player sees (ruling 32).",
+ "people": {
+  "THE BELL-RINGER": [
+   "bell_ringer"
+  ]
+ },
+ "exitSubjects": {
+  "THE ROAD BACK TO MAIN STREET": {
+   "id": "to_main_street",
+   "to": "main_street",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "note": "Errata 43: west, back along the receding road to Main Street's east end."
+  },
+  "THE REGISTRAR'S DOOR": {
+   "id": "to_claims_registrar",
+   "to": "claims_registrar",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "note": "Errata 43: the Claims Registrar opens off Lower Street."
+  },
+  "THE ALLEY": {
+   "id": "to_back_alley",
+   "to": "back_alley",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "note": "Errata 43: Room 20, the back alley, opens off Lower Street."
+  },
+  "THE CHURCH DOORS": {
+   "id": "to_church",
+   "to": "church",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "note": "Errata 43: the church and meeting hall."
+  },
+  "THE PASSAGE TO THE LANE": {
+   "id": "to_the_lane",
+   "to": "the_lane",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "note": "Errata 43: the Lane connects through to Lower Street at its far end."
+  },
+  "THE LIVERY DOORS": {
+   "id": "to_livery",
+   "to": "livery",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "note": "Errata 43: the livery stable."
+  },
+  "THE ROAD OUT OF TOWN": {
+   "id": "to_claims_road",
+   "to": "claims_road",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "note": "Errata 161: the road out to the claims, which Main Street's east road was before."
+  }
+ },
+ "exits": {
+  "to_main_street": [
+   0,
+   300,
+   150,
+   390
+  ],
+  "to_claims_registrar": [
+   248,
+   395,
+   104,
+   295
+  ],
+  "to_back_alley": [
+   530,
+   330,
+   90,
+   360
+  ],
+  "to_church": [
+   812,
+   360,
+   116,
+   300
+  ],
+  "to_the_lane": [
+   1120,
+   360,
+   90,
+   330
+  ],
+  "to_livery": [
+   1380,
+   370,
+   135,
+   320
+  ],
+  "to_claims_road": [
+   1760,
+   330,
+   160,
+   360
+  ]
+ },
+ "exitWalkTo": {
+  "to_main_street": {
+   "x": 60,
+   "y": 790,
+   "facing": "left"
+  },
+  "to_claims_registrar": {
+   "x": 300,
+   "y": 720,
+   "facing": "back"
+  },
+  "to_back_alley": {
+   "x": 575,
+   "y": 718,
+   "facing": "back"
+  },
+  "to_church": {
+   "x": 870,
+   "y": 718,
+   "facing": "back"
+  },
+  "to_the_lane": {
+   "x": 1165,
+   "y": 718,
+   "facing": "back"
+  },
+  "to_livery": {
+   "x": 1448,
+   "y": 722,
+   "facing": "back"
+  },
+  "to_claims_road": {
+   "x": 1860,
+   "y": 790,
+   "facing": "right"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "registrar_window",
+   "at": [
+    415,
+    485
+   ],
+   "radius": 300,
+   "amount": 0.09,
+   "rate": 0.27,
+   "phase": 0.1,
+   "note": "Sump's lamp."
+  },
+  {
+   "id": "livery_doors",
+   "at": [
+    1490,
+    520
+   ],
+   "radius": 380,
+   "amount": 0.08,
+   "rate": 0.21,
+   "phase": 0.6,
+   "note": "The stable's lamplight through the open doors."
+  }
+ ],
+ "defaultVerbs": {
+  "street": "WALK_TO",
+  "sump_s_window": "LOOK_AT",
+  "church": "LOOK_AT",
+  "bell": "LOOK_AT",
+  "livery": "LOOK_AT",
+  "trough": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Ground walks (errata 28b row 1; tests/ground-walks.test.ts).",
+ "occlusion": {
+  "planes": [],
+  "note": "Nothing stands nearer the camera than the walk band (proofs/room-43/graybox.json).",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  }
+ }
+}

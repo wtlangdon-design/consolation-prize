@@ -210,6 +210,12 @@ async function waitQuiet(page, { done = () => true, upTo = 90, stillMs = 900, re
       const quiet = !p.performing && p.pending === 0 && (p.says === null || listOpen) && p.beat === null
         // NOR IS AN ACT CARD OR A ROOM FADE: a click under either is spent on nothing.
         && !p.card && !p.fading
+        // NOR IS A CUT-AWAY (errata 158): the probe's room is the cut-away's while it plays, and a click inside
+        // one is swallowed -- the Clarion's press after the swindle took the run to "clarion" (errata 161).
+        && !p.cutaway
+        // NOR IS ONE ABOUT TO PLAY: it starts once play is quiet, and the next click lands in it. Main
+        // Street's exit in Act III went into Fanshawe's cut-away and "did not go anywhere" (errata 161).
+        && !p.cutawayDue
         && !moved && me?.clip !== 'walk' && !(p.ending && p.ending !== 'title');
       if (quiet) quietSince ??= Date.now(); else quietSince = null;
       if (quietSince !== null && Date.now() - quietSince >= stillMs && done(p)) return p;

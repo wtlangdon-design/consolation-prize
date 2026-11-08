@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "undertaker",
- "note": "ROOM 13's PROOF SPEC. The route is Main Street's, then the map. The room has one visual state (errata 86 A); its principal change is the act's turn: with T_NEED_TO_DIE (E1, Act III) the undertaker opens on UND_C1. E3's loan needs the Reverend's figure (Room 17) and Sheng's loan (Room 28), both unbuilt, and is played in tests/room-13.test.ts from fixture r13-b.",
+ "note": "ROOM 13's PROOF SPEC. The route is Main Street's, then Lower Street or the Lane, where its door is (errata 161). The room has one visual state (errata 86 A); its principal change is the act's turn: with T_NEED_TO_DIE (E1, Act III) the undertaker opens on UND_C1. E3's loan needs the Reverend's figure (Room 17) and Sheng's loan (Room 28), both unbuilt, and is played in tests/room-13.test.ts from fixture r13-b.",
  "route": "undertaker",
  "settleMs": 4000,
  "principalChange": {
@@ -11,6 +11,21 @@
    "T_NEED_TO_DIE": true
   },
   "actions": [
+   {
+    "do": "wait",
+    "seconds": 2,
+    "why": "ACT 3 plays Fanshawe's cut-away (errata 158) the moment it is set, and a click inside it is swallowed"
+   },
+   {
+    "do": "waitFor",
+    "room": "undertaker",
+    "upTo": 120,
+    "why": "back from the cut-away, so the panel is the room and not Fanshawe's office"
+   },
+   {
+    "do": "wait",
+    "seconds": 2
+   },
    {
     "do": "wait",
     "seconds": 8,

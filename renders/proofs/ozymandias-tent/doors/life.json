@@ -2,9 +2,9 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "ozymandias_tent",
- "commit": "f274cdffb940200811735b20224da701bc35be02",
- "workingTreeClean": true,
- "dirtyAllowed": false,
+ "commit": "0bc568153fd01013f774eae3d66ac536d2dfc5d7",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
  "visualState": null,
  "objectStates": null,
  "pace": 1,
@@ -12,138 +12,186 @@
  "entryRoute": "ozymandias-tent",
  "warped": false,
  "lifeRoute": "ozymandias-tent-doors",
- "durationSeconds": 122.54,
+ "durationSeconds": 207.79,
  "events": [
   {
-   "t": 4.01,
-   "line": "entry route ozymandias-tent: 26 action(s)"
+   "t": 5.98,
+   "line": "entry route ozymandias-tent: 38 action(s)"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
+   "line": "the title: clicked NEW GAME"
+  },
+  {
+   "t": 188.3,
    "line": "action 1 (wait): waited 2.5s"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 13 (wait): waited 3s"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 17 (wait): waited 6s"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
   },
   {
-   "t": 109.22,
+   "t": 188.3,
    "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
   },
   {
-   "t": 109.22,
-   "line": "action 20 (wait): waited 2s"
+   "t": 188.3,
+   "line": "action 20 (wait): waited 7s"
   },
   {
-   "t": 109.22,
-   "line": "action 21 (click): clicked screen 554,1052 -- the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)"
+   "t": 188.3,
+   "line": "action 21 (click): clicked world 1900,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
   },
   {
-   "t": 109.22,
-   "line": "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+   "t": 188.3,
+   "line": "action 22 (wait): waited 1s"
   },
   {
-   "t": 109.22,
-   "line": "action 23 (wait): waited 1s"
+   "t": 188.3,
+   "line": "action 23 (waitFor): reached {} in room main_street"
   },
   {
-   "t": 109.22,
-   "line": "action 24 (click): clicked screen 950,585 -- the tent's place on the map (content/rooms/town-map.json loc_tent)"
+   "t": 188.3,
+   "line": "action 24 (click): clicked world 1300,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
   },
   {
-   "t": 109.22,
-   "line": "action 25 (waitFor): reached {\"room\":\"ozymandias_tent\"} in room ozymandias_tent"
+   "t": 188.3,
+   "line": "action 25 (wait): waited 1s"
   },
   {
-   "t": 109.22,
-   "line": "action 26 (wait): waited 3s"
+   "t": 188.3,
+   "line": "action 26 (waitFor): reached {} in room main_street"
   },
   {
-   "t": 109.28,
+   "t": 188.3,
+   "line": "action 27 (click): clicked world 700,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 188.3,
+   "line": "action 28 (wait): waited 1s"
+  },
+  {
+   "t": 188.3,
+   "line": "action 29 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 188.3,
+   "line": "action 30 (click): clicked world 150,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 188.3,
+   "line": "action 31 (wait): waited 1s"
+  },
+  {
+   "t": 188.3,
+   "line": "action 32 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 188.3,
+   "line": "action 33 (click): clicked main_street/to_back_alley at world 29,510 -- THE LANE, at Main Street's west end (errata 161)"
+  },
+  {
+   "t": 188.3,
+   "line": "action 34 (waitFor): reached {\"room\":\"the_lane\"} in room the_lane"
+  },
+  {
+   "t": 188.3,
+   "line": "action 35 (wait): waited 3s"
+  },
+  {
+   "t": 188.3,
+   "line": "action 36 (click): clicked the_lane/to_ozymandias_tent at world 1025,540 -- THE TENT FLAP"
+  },
+  {
+   "t": 188.3,
+   "line": "action 37 (waitFor): reached {\"room\":\"ozymandias_tent\"} in room ozymandias_tent"
+  },
+  {
+   "t": 188.3,
+   "line": "action 38 (wait): waited 3s"
+  },
+  {
+   "t": 188.32,
    "line": "in ozymandias_tent; life route: 17 action(s)"
   },
   {
-   "t": 109.94,
+   "t": 189.07,
    "line": "capture 00-arrived: room ozymandias_tent, says null, options 0, control null"
   },
   {
-   "t": 110.25,
-   "line": "action 1 (click): clicked ozymandias_tent/flap_to_outside at world 140,400 -- THE FLAP TO OUTSIDE -- out, to the map"
+   "t": 189.76,
+   "line": "action 1 (click): clicked ozymandias_tent/flap_to_outside at world 140,400 -- out, to the Lane"
   },
   {
-   "t": 110.66,
-   "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+   "t": 190.34,
+   "line": "action 1 (waitFor): reached {\"room\":\"the_lane\"} in room the_lane"
   },
   {
-   "t": 111.66,
-   "line": "action 1 (wait): waited 1s"
-  },
-  {
-   "t": 111.72,
+   "t": 191.5,
    "trace": {
     "says": null,
     "control": null,
@@ -151,45 +199,18 @@
     "performing": false,
     "options": 0,
     "thad": [
-     240,
-     790
+     1025,
+     745
     ],
     "moving": false
    }
   },
   {
-   "t": 112.37,
-   "line": "capture 01-out: room town_map, says null, options 0, control null"
-  },
-  {
-   "t": 112.51,
-   "line": "action 1 (click): clicked screen 950,585 -- the tent's marker"
-  },
-  {
-   "t": 112.58,
-   "line": "action 1 (waitFor): reached {\"room\":\"ozymandias_tent\"} in room ozymandias_tent"
-  },
-  {
-   "t": 113.6,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     240,
-     790
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 114.6,
+   "t": 192.45,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 114.63,
+   "t": 192.46,
    "trace": {
     "says": null,
     "control": null,
@@ -197,30 +218,72 @@
     "performing": false,
     "options": 0,
     "thad": [
-     240,
-     790
+     1025,
+     745
     ],
     "moving": false
    }
   },
   {
-   "t": 115.21,
+   "t": 193.06,
+   "line": "capture 01-out: room the_lane, says null, options 0, control null"
+  },
+  {
+   "t": 193.71,
+   "line": "action 1 (click): clicked the_lane/to_ozymandias_tent at world 1025,540 -- and back in by THE TENT FLAP"
+  },
+  {
+   "t": 194.13,
+   "line": "action 1 (waitFor): reached {\"room\":\"ozymandias_tent\"} in room ozymandias_tent"
+  },
+  {
+   "t": 195.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 196.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 196.25,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 197.05,
    "line": "capture 01-in: room ozymandias_tent, says null, options 0, control null"
   },
   {
-   "t": 115.54,
-   "line": "action 1 (click): clicked ozymandias_tent/flap_to_outside at world 140,400 -- THE FLAP TO OUTSIDE -- out, to the map"
+   "t": 197.69,
+   "line": "action 1 (click): clicked ozymandias_tent/flap_to_outside at world 140,400 -- out, to the Lane"
   },
   {
-   "t": 115.62,
-   "line": "action 1 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+   "t": 198.14,
+   "line": "action 1 (waitFor): reached {\"room\":\"the_lane\"} in room the_lane"
   },
   {
-   "t": 116.63,
-   "line": "action 1 (wait): waited 1s"
-  },
-  {
-   "t": 116.64,
+   "t": 199.28,
    "trace": {
     "says": null,
     "control": null,
@@ -228,26 +291,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     240,
-     790
+     1025,
+     745
     ],
     "moving": false
    }
   },
   {
-   "t": 117.31,
-   "line": "capture 02-out: room town_map, says null, options 0, control null"
-  },
-  {
-   "t": 117.46,
-   "line": "action 1 (click): clicked screen 950,585 -- the tent's marker"
-  },
-  {
-   "t": 117.55,
-   "line": "action 1 (waitFor): reached {\"room\":\"ozymandias_tent\"} in room ozymandias_tent"
-  },
-  {
-   "t": 118.62,
+   "t": 200.24,
    "trace": {
     "says": null,
     "control": null,
@@ -255,18 +306,30 @@
     "performing": false,
     "options": 0,
     "thad": [
-     240,
-     790
+     1025,
+     745
     ],
     "moving": false
    }
   },
   {
-   "t": 119.56,
+   "t": 200.25,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 119.6,
+   "t": 200.93,
+   "line": "capture 02-out: room the_lane, says null, options 0, control null"
+  },
+  {
+   "t": 201.63,
+   "line": "action 1 (click): clicked the_lane/to_ozymandias_tent at world 1025,540 -- and back in by THE TENT FLAP"
+  },
+  {
+   "t": 202.13,
+   "line": "action 1 (waitFor): reached {\"room\":\"ozymandias_tent\"} in room ozymandias_tent"
+  },
+  {
+   "t": 203.15,
    "trace": {
     "says": null,
     "control": null,
@@ -274,14 +337,33 @@
     "performing": false,
     "options": 0,
     "thad": [
-     240,
-     790
+     300,
+     800
     ],
     "moving": false
    }
   },
   {
-   "t": 120.17,
+   "t": 204.22,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 204.25,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 204.9,
    "line": "capture 02-in: room ozymandias_tent, says null, options 0, control null"
   }
  ],
@@ -289,11 +371,11 @@
   {
    "name": "00-arrived",
    "why": null,
-   "t": 109.92,
+   "t": 189,
    "file": "renders/proofs/ozymandias-tent/doors/raw-captures-ignored/00-arrived.png",
-   "hash": "053cc43b6aa30cd002a40862793d0a230e0f3786ab4503b23368489549fb0cae",
+   "hash": "cc7ff34d0ce93cbe32276d801ceaa4b9bb209e25f5e87407a8e7ee3c554efb92",
    "room": "ozymandias_tent",
-   "clock": 109.44319999999999,
+   "clock": 188.30870000000002,
    "control": null,
    "says": null,
    "options": 0,
@@ -314,9 +396,15 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
-    "WAR_CONTRADICTIONS": 0
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "camera": 0,
    "movers": {
@@ -326,15 +414,15 @@
       800
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 479,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-00.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
-      51,
+      46,
       321,
-      497,
+      507,
       529
      ],
      "order": 0,
@@ -344,8 +432,8 @@
    },
    "states": {},
    "cues": {
-    "last": null,
-    "count": 0
+    "last": "O-09-M",
+    "count": 3
    },
    "steps": {},
    "caption": false,
@@ -372,7 +460,7 @@
      "drawn": "art/actors/room-16-ozymandia.png",
      "candidate": false,
      "loaded": true,
-     "hash": "84ea53f0fb6714e5c660390eab89ffe021d443bb35cc40a5614b04953be48525"
+     "hash": "b0b788af6ace296b5e98ffadd62a835661f41df6997408486c3b534ddf9b3f4f"
     }
    ],
    "stubs": [],
@@ -381,11 +469,11 @@
   {
    "name": "01-out",
    "why": null,
-   "t": 112.35,
+   "t": 193.05,
    "file": "renders/proofs/ozymandias-tent/doors/raw-captures-ignored/01-out.png",
-   "hash": "cef7c242058170a70693e636fe987a887cd65a2e2cfc22908b362dbd1b37f8f6",
-   "room": "town_map",
-   "clock": 112.04310000000001,
+   "hash": "e5e87701003802f90c4dd9f7d90df423a831c0b1652920b9296d560d4562e364",
+   "room": "the_lane",
+   "clock": 192.2085,
    "control": null,
    "says": null,
    "options": 0,
@@ -406,28 +494,34 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
-    "WAR_CONTRADICTIONS": 0
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "camera": 0,
    "movers": {
     "thad": {
      "at": [
-      240,
-      790
+      1025,
+      745
      ],
-     "facing": "left",
+     "facing": "front",
      "clip": "idle",
-     "height": 472,
+     "height": 285,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-walk-left/walk-02.png",
+     "from": "art/actors/thad-idle-front/idle-05.png",
      "bounds": [
-      -9,
-      318,
-      476,
-      507
+      863,
+      460,
+      323,
+      315
      ],
      "order": 0,
      "clipLevel": 0,
@@ -436,19 +530,19 @@
    },
    "states": {},
    "cues": {
-    "last": null,
-    "count": 0
+    "last": "O-09-M",
+    "count": 3
    },
    "steps": {},
    "caption": false,
    "assets": [
     {
-     "key": "bg:town_map",
-     "path": "art/backgrounds/room-00-town-map.png",
-     "drawn": "art/backgrounds/room-00-town-map.png",
+     "key": "bg:the_lane",
+     "path": "art/backgrounds/room-44-the-lane.png",
+     "drawn": "art/backgrounds/room-44-the-lane.png",
      "candidate": false,
      "loaded": true,
-     "hash": "24e197c0b72e97e46c7183345f6d3e008cf7177841aca98aa55fb20d483f2c4f"
+     "hash": "da311ff3f579c53eb4c1c1f1339d5013d43c64c821fcd7d4e145194becd66bad"
     }
    ],
    "stubs": [],
@@ -457,11 +551,11 @@
   {
    "name": "01-in",
    "why": null,
-   "t": 115.19,
+   "t": 197.04,
    "file": "renders/proofs/ozymandias-tent/doors/raw-captures-ignored/01-in.png",
-   "hash": "87b3d93a8eeb8860154ba789e5d53879dd76d08c9bcb0a3b1aea03e6440b179c",
+   "hash": "a33f9f2760cbb558857876e1f4ee82e77ba056dbf66eae4f094a1eb068347760",
    "room": "ozymandias_tent",
-   "clock": 114.7763,
+   "clock": 196.17510000000001,
    "control": null,
    "says": null,
    "options": 0,
@@ -482,28 +576,34 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
-    "WAR_CONTRADICTIONS": 0
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "camera": 0,
    "movers": {
     "thad": {
      "at": [
-      240,
-      790
+      300,
+      800
      ],
-     "facing": "left",
+     "facing": "right",
      "clip": "idle",
-     "height": 472,
+     "height": 479,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-02.png",
      "bounds": [
-      -6,
-      318,
-      491,
-      521
+      46,
+      321,
+      507,
+      529
      ],
      "order": 0,
      "clipLevel": 0,
@@ -512,8 +612,8 @@
    },
    "states": {},
    "cues": {
-    "last": null,
-    "count": 0
+    "last": "O-09-M",
+    "count": 3
    },
    "steps": {},
    "caption": false,
@@ -540,7 +640,7 @@
      "drawn": "art/actors/room-16-ozymandia.png",
      "candidate": false,
      "loaded": true,
-     "hash": "84ea53f0fb6714e5c660390eab89ffe021d443bb35cc40a5614b04953be48525"
+     "hash": "b0b788af6ace296b5e98ffadd62a835661f41df6997408486c3b534ddf9b3f4f"
     }
    ],
    "stubs": [],
@@ -549,11 +649,11 @@
   {
    "name": "02-out",
    "why": null,
-   "t": 117.29,
+   "t": 200.92,
    "file": "renders/proofs/ozymandias-tent/doors/raw-captures-ignored/02-out.png",
-   "hash": "cef7c242058170a70693e636fe987a887cd65a2e2cfc22908b362dbd1b37f8f6",
-   "room": "town_map",
-   "clock": 117.0095,
+   "hash": "f78197803b6dcca42127170eabd0d8184a9ec5c153847ab5d0444fc3a666e6f8",
+   "room": "the_lane",
+   "clock": 200.0582,
    "control": null,
    "says": null,
    "options": 0,
@@ -574,28 +674,34 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
-    "WAR_CONTRADICTIONS": 0
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "camera": 0,
    "movers": {
     "thad": {
      "at": [
-      240,
-      790
+      1025,
+      745
      ],
-     "facing": "left",
+     "facing": "front",
      "clip": "idle",
-     "height": 472,
+     "height": 285,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-00.png",
+     "from": "art/actors/thad-idle-front/idle-00.png",
      "bounds": [
-      -6,
-      318,
-      491,
-      521
+      863,
+      460,
+      323,
+      315
      ],
      "order": 0,
      "clipLevel": 0,
@@ -604,19 +710,19 @@
    },
    "states": {},
    "cues": {
-    "last": null,
-    "count": 0
+    "last": "O-09-M",
+    "count": 3
    },
    "steps": {},
    "caption": false,
    "assets": [
     {
-     "key": "bg:town_map",
-     "path": "art/backgrounds/room-00-town-map.png",
-     "drawn": "art/backgrounds/room-00-town-map.png",
+     "key": "bg:the_lane",
+     "path": "art/backgrounds/room-44-the-lane.png",
+     "drawn": "art/backgrounds/room-44-the-lane.png",
      "candidate": false,
      "loaded": true,
-     "hash": "24e197c0b72e97e46c7183345f6d3e008cf7177841aca98aa55fb20d483f2c4f"
+     "hash": "da311ff3f579c53eb4c1c1f1339d5013d43c64c821fcd7d4e145194becd66bad"
     }
    ],
    "stubs": [],
@@ -625,11 +731,11 @@
   {
    "name": "02-in",
    "why": null,
-   "t": 120.14,
+   "t": 204.89,
    "file": "renders/proofs/ozymandias-tent/doors/raw-captures-ignored/02-in.png",
-   "hash": "8f0f77bfc78ba5a5bba98ac531bd64bb3be866aca7b9517fab2c2c96ce6bb866",
+   "hash": "8f316231972fe9dfa9edaf3595def1ec9c7c6d7c9498fce55d0cdc7374b55c15",
    "room": "ozymandias_tent",
-   "clock": 119.7261,
+   "clock": 204.0081,
    "control": null,
    "says": null,
    "options": 0,
@@ -650,28 +756,34 @@
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
-    "WAR_CONTRADICTIONS": 0
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0
    },
    "camera": 0,
    "movers": {
     "thad": {
      "at": [
-      240,
-      790
+      300,
+      800
      ],
-     "facing": "left",
+     "facing": "right",
      "clip": "idle",
-     "height": 472,
+     "height": 479,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
-      -6,
-      318,
-      491,
-      521
+      46,
+      321,
+      507,
+      529
      ],
      "order": 0,
      "clipLevel": 0,
@@ -680,8 +792,8 @@
    },
    "states": {},
    "cues": {
-    "last": null,
-    "count": 0
+    "last": "O-09-M",
+    "count": 3
    },
    "steps": {},
    "caption": false,
@@ -708,7 +820,7 @@
      "drawn": "art/actors/room-16-ozymandia.png",
      "candidate": false,
      "loaded": true,
-     "hash": "84ea53f0fb6714e5c660390eab89ffe021d443bb35cc40a5614b04953be48525"
+     "hash": "b0b788af6ace296b5e98ffadd62a835661f41df6997408486c3b534ddf9b3f4f"
     }
    ],
    "stubs": [],
@@ -727,7 +839,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 122.55s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 207.79s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -742,5 +854,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T04:05:49.897Z"
+ "at": "2026-11-07T22:06:14.238Z"
 }

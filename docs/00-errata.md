@@ -4410,6 +4410,31 @@ The input, the hover and the menu key are closed while one plays. The only thing
 
   No correction was needed. The sheet is `art/actors/room-43-bell-ringer.png`: frames [[2,2,143,276], [147,2,143,276], [292,2,143,276], [437,2,143,276], [582,2,143,276]], 0 rest · 1 breath · 2 strike-up · 3 strike · 4 talk, top-left 858,424 and anchor 929,700 in the plate. The builder writes his ambient file.
 
+
+**THE LINES (part 2, PR 230).** `docs/97-lower-street-and-the-lane.md` writes six subjects per street, each with three LOOKs and three LISTENs. It also writes three overrides for the bell-ringer. Doc 49 gains six wrong answers per street. Both rooms are `BUILDABLE WITHOUT INVENTION: YES`. PR 232 corrected four British spellings, and `tools/check-american-english.mjs` now reads extracted examine files, which is why it had missed them.
+
+**BUILT (part 3, 2026-11-07).**
+- **Fitted to the plates.** Every hotspot, door and arrival point is read off the image session's plates (`reference/room-43|44/annotation.json`, `plateShippingHash` set). The walk band and the depth are the graybox plan's, which the plates were painted against.
+- **The lines, read against the plates.** Doc 97 was written before the plates. Thirteen lines described what they do not show: a horse in the livery doorway, hay spilling from the loft, the moon in the trough, a tin patch, bare footprints, a man at Sump's counter and a spike of papers in his window, three church steps where the plate has four, a narrow lane, boot prints, a patched tent, a barber's chair, and a counter and calendar behind the storefront's boards. Each was rewritten to what the plate shows, in the same voice, as doc 97's own rule ("nothing the plate does not show") requires. One of doc 49's lines had the moon too ("The moon came off on my hands"); it was rewritten the same way. Doc 55 §8 gains the row.
+- **The bell — Tyler, 2026-11-07: "1".** The brief asked for a hand bell on a post, and the plate painted one. But doc 05's bell rope in Room 17 drops "from the only bell in the district". Offered three options, Tyler chose the first: change that line. It now reads "from the church's own bell". Doc 97's bell and church lines speak of two bells, the belfry's on its rope and the post's by hand.
+- **The rewiring (C).**
+  - Main Street's east road (`to_claims_road`, now named LOWER STREET) leads to Lower Street.
+  - Main Street's alley (`to_back_alley`, now named THE LANE) leads to the Lane.
+  - The claims road, the back alley, the Registrar's, the church and the livery lead back to Lower Street.
+  - The undertaker's and the tent lead back to the Lane.
+  - Each room's annotation carries its new door and arrival, so a recompile keeps them.
+  - The map drops the nine in-town places (`removedLocations` in `content/rooms/town-map.json`).
+  - The gauntlet's entry and doors routes for the seven rooms, and the archive and Boot Hill routes that began at them, walk the streets now. `proofs/spec/lower-street.json` and `the-lane.json` are new.
+  - **Fixtures play the cut-aways they are past (`GameState.applyFixture`).** Any fixture past the swindle opened on the Clarion's press, so the vault's Act IV proof photographed the Clarion. A fixture now starts with every cut-away whose moment is behind it marked played. A fixture that wants one to play sets its `done` flag false. `tests/cutaways.test.ts` holds this. Four proof specs that set ACT 3 (the Registrar's, the undertaker's, Main Street's, the vault's) and the Nugget's, which sets the swindle, now wait out the cut-away before they act or capture, and a test holds that too. The full-game runner treats a cut-away as not quiet.
+  - **Ozymandia's tent proof** failed on her clipping plane. She is drawn correctly, behind the table with the ball in front. Since errata 135 her sheet is a bust cut at the table, so the feet-clearance rule cannot apply to her. Her spec now declares where her lowest pixel rests (`ambientContact`), as Winnie's does.
+  - **The archive's route had not arrived since errata 158.** Setting ACT 3 plays Fanshawe's cut-away at once, and the route's OPEN on the archive door landed inside it, where a click is swallowed. The route now waits for the cut-away to end. It also sets T_FUNERAL_DONE, which the door has needed since errata 124.
+- **Sound.** Footsteps on both streets are mud. Doc 28 gives the streets "CONSOLATION, varying orchestration by street — Main Street full, the Lane down to piano alone". Lower Street plays Main Street's piece, quieter (0.5), because there is no separate arrangement for it. The Lane plays the back alley's distant piano, tuned when the Nugget's piano is.
+- **The bell-ringer (doc 07 #4).** `content/ambient/bell-ringer.json` stands him at 929,700, drawn at the street's man.
+  - **His tree.** It is extracted from doc 07 (`tools/town-barks.json` `trees`). Its "(He does not move.)" is acted, as doc 95 row 68.
+  - **His barks.** A new `struck` routing reads them: the words where a row has any, the blow as `barkCues` on the town's flat bell (BR-STRIKE-ONE, -TWICE, -HALF, -FOUR, BR-PASSING; featured and measured). `tests/town-barks.test.ts` holds that every row both plays and says what it writes.
+  - **His idle.** He has two breaks. One is a strike, which sounds through the new `sprite.breakCues`: a blow in silence reads as a fault, as the pie woman's silent shout did. The other raises the mallet and thinks better of it.
+  - **Known risk.** His swing lands about hip height, below the bell on its post. Tyler flags it in the playthrough if it reads wrong.
+
 ---
 
 # 162 · FANSHAWE'S CLOSE-UP, DRAWN — TYLER, 2026-11-07 (reference/fanshawe-closeup/brief.md)
@@ -4522,15 +4547,6 @@ He answered **"That all sounds good"** to one more pass: a pass at the top with 
   - There is no text.
 - The builder re-places the markers and the roads, and adds the pass and the coach stop.
 
-**A3 · The mountain pass.** Tyler, after the night map landed: **"at the beginning of the game I clearly walk out of a mountain pass into town. That's noticeable."** The builder read every exterior plate against the map:
-- Room 1's coach stop is a mountain road above the town's lamps, and Thad arrives at Main Street's east end.
-- Every plate shows a valley ringed by mountains.
-- The claims road, Boot Hill, the high ridge, the creek, the laundry and Mott's site all agree with the map.
-- The map had no pass, no coach stop and no ring of mountains, and its one road out ran west, where nobody goes.
-- One thing cannot be squared: Main Street's plate shows a tall steeple behind its west half, while the church Thad walks to is on Lower Street, east. The map follows the walking layout.
-
-He answered **"That all sounds good"** to one more pass: a pass at the top with the coach road and the coach stop down to the square's east end, mountains on the north and west, and the west road removed. The cap rises to 5, the pass and a correction (attemptsTotal 307 → 308). The brief's third part covers it.
-
 **A4 · The square's L.** Tyler, of the pass map (PR 237): **"a glaring difference is that the main square is in a very distinct L shape, which the map fails to incorporate."** Main Street's plate shows the long row along the back of the square, with the Nugget, the hotel and the assay office coming forward down its east side, and the road leaving past the assay office. Asked to raise the cap by 2, he chose **"Yes, +2 (Recommended)"** (town-map 7; attemptsTotal +2). It is one edit of the town only, pasted back so the rest of the map keeps its place (`tools/art/town-map-edit.py prepare-town` / `promote-town`). The brief's fourth part covers it.
 
 **A4 · The art (the image session, 2026-11-08).** Operations 6 to 9; the cap was raised to 9 and is spent.
@@ -4564,4 +4580,12 @@ He answered **"That all sounds good"** to one more pass: a pass at the top with 
 
 **The method.** `tools/art/town-map-pieces.py` cuts the pieces sheet on its magenta key, clears and refills the plan's boxes, and sets each piece in its box. A masked finishing pass may repaint only those boxes, and only those are taken back. The brief's fifth part covers it.
 
-**B · The map's Thad** lands with Lower Street and the Lane (errata 161, part 3), on the branch where it was built, and is recorded here when it merges.
+**B · The map's Thad (with errata 161, part 3).** A small Thad stands on the map at the place of the room it was opened from, or Main Street for a room with none of its own (`mapToken.homes` names the rest). A click on a place walks him there along the drawn roads, the shortest way, and the room changes when he arrives (`engine/core/MapWalk.ts`).
+- **Timing.** He walks at 260 pixels a second, and never for longer than 4.5 seconds: a long walk is walked faster.
+- **Skipping.** A second click skips the walk, so backtracking never waits.
+- **Closing the map.** Closing it mid-walk goes nowhere, as closing the map always has (doc 20 rule 5).
+- **The roads** are a graph read off the drawing: `content/rooms/town-map.json` `roads`, a node at each bend and each place. Pratt's claim and the high ridge are walked to across the ground from the nearest bend.
+- **The figure** is derived from his own walk cycle and rest pose by `tools/art/map-thad.py`: 30 pixels tall, a dark one-pixel outline, mirrored to walk left. No image operation was spent on it. Errata 25's "needs its own drawn asset" was true of the decimation curve, not of an area reduction from his own frames.
+- **On the night map.** The markers and roads were re-placed on the L map (PR 239): Main Street's place is out on the square, and the walk out of town goes round the square's south side and up its east road to the bridge.
+- **The whole game, played (2026-11-07).** `npm run gauntlet:full`, from NEW GAME to THE END in the browser, with both streets, the rewiring and the map's Thad: 0 breaks, 0 oddities, 4145 s.
+- **Tests and render.** `tests/map-walk.test.ts` holds that every place is on the roads, every walk ends where it was going and within its time, and the sheet holds his frames. `renders/map-thad-walking.png` shows him mid-walk, from the creek into town.

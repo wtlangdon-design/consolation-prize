@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "livery",
- "note": "ROOM 15's PROOF SPEC. The route is Main Street's, then the map. The room's principal change is the blanket on loan (LIV_A1 option 5): the bin drawn bare and the blanket no subject. B2 and B3 are played in tests/room-15.test.ts.",
+ "note": "ROOM 15's PROOF SPEC. The route is Main Street's, then Lower Street or the Lane, where its door is (errata 161). The room's principal change is the blanket on loan (LIV_A1 option 5): the bin drawn bare and the blanket no subject. B2 and B3 are played in tests/room-15.test.ts.",
  "route": "livery",
  "settleMs": 4000,
  "principalChange": {

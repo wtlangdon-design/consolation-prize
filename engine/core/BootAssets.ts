@@ -126,6 +126,8 @@ function roomImages(room: RoomFile): BootAsset[] {
     out.push({ key: `plate:${room.id}:${name}`, path });
   }
   if (room.foreground) out.push({ key: `fg:${room.id}`, path: room.foreground });
+  // Errata 163: the map's Thad, keyed by its path like a character's sheet.
+  if (room.mapToken) out.push({ key: room.mapToken.sheet, path: room.mapToken.sheet });
   // Furniture drawn in depth order, keyed by path like a character's sheet.
   for (const prop of room.props ?? []) out.push({ key: prop.sheet, path: prop.sheet });
   if (room.idles?.sheet) out.push({ key: `idle:${room.id}`, path: room.idles.sheet });

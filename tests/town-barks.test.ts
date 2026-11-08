@@ -86,3 +86,24 @@ test('a figure waiting on its art is cast in no room (errata 110)', () => {
     assert.deepEqual(cast, [], `${room.id} casts figures with no picture yet`);
   }
 });
+
+test('a struck bark table plays every blow it writes, and says every word (errata 161)', () => {
+  const struck = (JSON.parse(readFileSync(resolve(ROOT, 'tools/town-barks.json'), 'utf8')) as { struck?: Record<string, string> }).struck ?? {};
+  assert.ok(Object.keys(struck).length > 0, 'no struck table is routed');
+  const doc = readFileSync(resolve(ROOT, 'docs/07-ambient-layer.md'), 'utf8');
+  const states = (JSON.parse(readFileSync(resolve(ROOT, 'content/reputation.json'), 'utf8')) as { states: string[] }).states;
+  for (const [heading, file] of Object.entries(struck)) {
+    const npc = JSON.parse(readFileSync(resolve(ROOT, 'content/ambient', file + '.json'), 'utf8')) as
+      { barks?: Record<string, string>; barkCues?: Record<string, string> };
+    const at = doc.indexOf('\n## ' + heading + '\n');
+    assert.ok(at >= 0, heading + ': no such section in doc 07');
+    const section = doc.slice(at, doc.indexOf('\n## ', at + 4));
+    for (const state of states) {
+      const row = section.split('\n').find((one) => one.startsWith('| `' + state + '` |'));
+      assert.ok(row, heading + ' ' + state + ': no row');
+      const words = /"[^"]*[A-Za-z][^"]*"/.test(row.replace(/\*\([^)]*\)\*/g, ''));
+      assert.equal(Boolean(npc.barks?.[state]), words, heading + ' ' + state + ': the words and the extracted bark disagree');
+      assert.ok(npc.barkCues?.[state], heading + ' ' + state + ': every row is a blow, and this one plays nothing');
+    }
+  }
+});

@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "the_lane",
+ "note": "ROOM 44'S PROOF SPEC (errata 161). The route is Main Street's, then Main Street's west-end alley. the Lane has no principal changed picture.",
+ "route": "the-lane",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "the Lane draws the same in every state: doc 97 writes no act variant for it (doc 05 Part Two-B), and nothing in it is moved by a puzzle."
+ }
+}

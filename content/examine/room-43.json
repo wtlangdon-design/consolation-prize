@@ -12,7 +12,7 @@
       "name": "THE STREET",
       "LOOK_AT": [
         "Main Street's mud, continued. Out here it has stopped trying to impress anyone.",
-        "Wheel ruts, hoof prints, and one set of bare footprints going somewhere in a hurry.",
+        "Wheel ruts, swinging wide around the corner. Every wagon in town takes it the long way, out of respect.",
         "The far end of town. In Providence this is where the better houses would be. Here it is where the street gives up and becomes a road."
       ],
       "LISTEN_TO": [
@@ -27,8 +27,8 @@
     {
       "name": "SUMP'S WINDOW",
       "LOOK_AT": [
-        "The Claims Registrar's window. A lamp, a counter, and behind it a man who has never once been surprised.",
-        "Behind the glass, a spike of filed papers, every one of them somebody's hopes, pierced in the order received.",
+        "The Claims Registrar's window, lit. Somewhere behind the glare is a man who has never once been surprised.",
+        "Lamplight through old glass, gone wavy with age. Even the window has been made to wait.",
         "The lamp is always lit. I have never seen anyone trim it. I suspect it is filed."
       ],
       "LISTEN_TO": [
@@ -44,8 +44,8 @@
       "name": "THE CHURCH",
       "LOOK_AT": [
         "The church, which on weekdays is the meeting hall and on most days is neither. The whitest thing in town, because it is the only thing anyone repaints.",
-        "Three steps up to the doors. The middle one has been replaced; the other two have been worn smooth by people arriving in a hurry and leaving slowly.",
-        "The belfry on the roof keeps its own counsel. The ringing in this town is done from the post out front, by hand."
+        "The steps up to the doors. One has been replaced; the rest have been worn smooth by people arriving in a hurry and leaving slowly.",
+        "The belfry has a bell of its own, rung from inside on a rope. Out here the ringing is done by hand, from the post, at whatever hour the ringer feels it."
       ],
       "LISTEN_TO": [
         "Nothing from inside. The pews are holding their breath for Sunday.",
@@ -59,7 +59,7 @@
     {
       "name": "THE BELL",
       "LOOK_AT": [
-        "A hand bell on a post, with a dent where the mallet lands. It is the town's one public note, and it is flat.",
+        "A bell on a post by the church steps, with a dent where the mallet lands. It was cast to a note, and it has been coming down off it ever since.",
         "Brass, gone green at the rim. Somebody polishes the dent and nothing else.",
         "You can't tune a bell, not properly. I could still have a long talk with it."
       ],
@@ -76,8 +76,8 @@
     {
       "name": "THE LIVERY",
       "LOOK_AT": [
-        "The livery stable. The doors stand open on lamplight, hay and the back end of a horse.",
-        "A hay loft over the doors, the hay coming out of it like stuffing from an old chair.",
+        "The livery stable. The doors stand open on a lantern and a heap of hay. The horses are further in, out of sight and, from the sound of them, out of patience.",
+        "A hay loft over the doors, shut tight, as though the hay might make a run for it.",
         "I could hire a horse, if I had the price of a horse's afternoon. I have about the price of its nap."
       ],
       "LISTEN_TO": [
@@ -89,9 +89,9 @@
     {
       "name": "THE TROUGH",
       "LOOK_AT": [
-        "A water trough with a skin of dust on it and the moon in the middle.",
+        "A water trough with a skin of dust on it and a square of night sky in the middle.",
         "Horses drink from it, dogs drink from it, and one man, I suspect, late on Saturdays.",
-        "Mended with a tin patch and a great deal of optimism. The patch is winning."
+        "Planks, pitch and iron bands. It holds water the way this town holds a grudge: completely."
       ],
       "LISTEN_TO": [
         "A slow drip from the seam, keeping its own time.",
@@ -99,7 +99,7 @@
         "A moth on the surface, rowing for shore."
       ],
       "overrides": {
-        "USE": "I washed my face in it. The moon came off on my hands."
+        "USE": "I washed my face in it. Now I'm dusty and wet, which out here passes for clean."
       }
     }
   ],

@@ -360,6 +360,122 @@
      "gain": 0.27
     }
    ]
+  },
+  "BR-STRIKE": {
+   "why": "Doc 07 #4, the bell-ringer: 'Strikes the bell by hand, half a step flat.' His idle strike on Lower Street (errata 161): the town's flat bell, near, once, timed to the frame the mallet lands (the break's third step, 0.68 s in). A background sound, not a remark: no duck.",
+   "room": "lower_street",
+   "play": [
+    {
+     "src": "audio/sfx/church-bell.wav",
+     "gain": 0.126,
+     "at": 0.7
+    }
+   ]
+  },
+  "BR-STRIKE-ONE": {
+   "why": "Doc 07 #4's bark '(strikes)': one blow on the bell as Thad comes up, the bark itself (errata 161).",
+   "room": "lower_street",
+   "play": [
+    {
+     "src": "audio/sfx/church-bell.wav",
+     "gain": 0.27,
+     "at": 0.12
+    }
+   ],
+   "duck": {
+    "to": 0.3,
+    "seconds": 4,
+    "attack": 0.08,
+    "release": 2
+   }
+  },
+  "BR-STRIKE-TWICE": {
+   "why": "Doc 07 #4, R_BORDERS_MOTT: '(strikes twice)' (errata 161).",
+   "room": "lower_street",
+   "play": [
+    {
+     "src": "audio/sfx/church-bell.wav",
+     "gain": 0.27,
+     "at": 0.12
+    },
+    {
+     "src": "audio/sfx/church-bell.wav",
+     "gain": 0.27,
+     "at": 1.3
+    }
+   ],
+   "duck": {
+    "to": 0.3,
+    "seconds": 5,
+    "attack": 0.08,
+    "release": 2
+   }
+  },
+  "BR-STRIKE-HALF": {
+   "why": "Doc 07 #4, R_LOST_DUEL: '(strikes, half-heartedly)': one blow, softer (errata 161).",
+   "room": "lower_street",
+   "play": [
+    {
+     "src": "audio/sfx/church-bell.wav",
+     "gain": 0.215,
+     "at": 0.12
+    }
+   ],
+   "duck": {
+    "to": 0.3,
+    "seconds": 4,
+    "attack": 0.08,
+    "release": 2
+   }
+  },
+  "BR-STRIKE-FOUR": {
+   "why": "Doc 07 #4, R_WON_DUEL: '(strikes four times, unasked, at eleven at night)' (errata 161).",
+   "room": "lower_street",
+   "play": [
+    {
+     "src": "audio/sfx/church-bell.wav",
+     "gain": 0.27,
+     "at": 0.12
+    },
+    {
+     "src": "audio/sfx/church-bell.wav",
+     "gain": 0.27,
+     "at": 1.1
+    },
+    {
+     "src": "audio/sfx/church-bell.wav",
+     "gain": 0.27,
+     "at": 2.1
+    },
+    {
+     "src": "audio/sfx/church-bell.wav",
+     "gain": 0.27,
+     "at": 3.1
+    }
+   ],
+   "duck": {
+    "to": 0.3,
+    "seconds": 7,
+    "attack": 0.08,
+    "release": 2
+   }
+  },
+  "BR-PASSING": {
+   "why": "Doc 07 #4, R_DEAD: 'He rings the passing bell.' The slow toll the church's rope rings (R17-BELL's file), three strokes over twelve seconds (errata 161).",
+   "room": "lower_street",
+   "play": [
+    {
+     "src": "audio/sfx/church-bell-toll.wav",
+     "gain": 0.212,
+     "at": 0.12
+    }
+   ],
+   "duck": {
+    "to": 0.25,
+    "seconds": 11,
+    "attack": 0.08,
+    "release": 2.5
+   }
   }
  },
  "verbs": [
@@ -615,7 +731,9 @@
    "pratts_claim": "dirt",
    "under_prosperity": "dirt",
    "listening_chamber": "dirt",
-   "ozymandias_tent": "dirt"
+   "ozymandias_tent": "dirt",
+   "lower_street": "mud",
+   "the_lane": "mud"
   }
  },
  "ambience": {
@@ -690,7 +808,12 @@
    "R33-FIDDLER": -2,
    "F4-ERUPTS": 0,
    "F4-DOOR": -10,
-   "U-STAMP": -10
+   "U-STAMP": -10,
+   "BR-STRIKE-ONE": 10,
+   "BR-STRIKE-TWICE": 10,
+   "BR-STRIKE-FOUR": 10,
+   "BR-PASSING": 10,
+   "BR-STRIKE-HALF": 8
   },
   "ambience": {
    "nugget": -12
@@ -703,7 +826,12 @@
    "B3-WHISTLE",
    "A-TUNING",
    "FID-FASTER",
-   "FID-PASSING"
+   "FID-PASSING",
+   "BR-STRIKE-ONE",
+   "BR-STRIKE-TWICE",
+   "BR-STRIKE-HALF",
+   "BR-STRIKE-FOUR",
+   "BR-PASSING"
   ]
  },
  "roomGain": {

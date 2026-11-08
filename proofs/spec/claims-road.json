@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "claims_road",
- "note": "ROOM 22's PROOF SPEC. The route is Main Street's, then THE ROAD TO THE CLAIMS. Room 22 has no principal changed picture: A4 changes what the way up does (the map in hand), not what is drawn, and is played in tests/room-22.test.ts; the crowds walk in every state.",
+ "note": "ROOM 22's PROOF SPEC. The route is Main Street's, then Lower Street and the road out of town (errata 161). Room 22 has no principal changed picture: A4 changes what the way up does (the map in hand), not what is drawn, and is played in tests/room-22.test.ts; the crowds walk in every state.",
  "route": "claims-road",
  "settleMs": 4000,
  "principalChange": {

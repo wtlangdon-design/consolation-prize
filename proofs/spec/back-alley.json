@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "back_alley",
- "note": "ROOM 20's PROOF SPEC. The route is Main Street's, then along the street to its east end and through THE BACK LOTS. The room's principal change is E6's: once Section nineteen is said aloud (T_EXECUTOR_RULE, SUM_E1 option 2), Hob is on his rounds here (doc 04 HOB_E6). E6 itself is played in tests/room-20.test.ts.",
+ "note": "ROOM 20's PROOF SPEC. The route is Main Street's, then Lower Street (errata 161) and THE ALLEY. The room's principal change is E6's: once Section nineteen is said aloud (T_EXECUTOR_RULE, SUM_E1 option 2), Hob is on his rounds here (doc 04 HOB_E6). E6 itself is played in tests/room-20.test.ts.",
  "route": "back-alley",
  "settleMs": 4000,
  "principalChange": {
@@ -13,11 +13,11 @@
    {
     "do": "click",
     "on": "to_main_street",
-    "why": "out, so the alley is arrived at again with the flag set"
+    "why": "out to Lower Street, so the alley is arrived at again with the flag set"
    },
    {
     "do": "waitFor",
-    "room": "main_street",
+    "room": "lower_street",
     "upTo": 60
    },
    {

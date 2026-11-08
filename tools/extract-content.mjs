@@ -4934,11 +4934,18 @@ function sowerbyTree() {
 // fiddler) are not single barks and are not read here.
 const BARK_SECTIONS = JSON.parse(read('tools/town-barks.json')).extract;
 
+// A TABLE OF STRUCK BARKS (errata 161): the bell-ringer's rows are a blow on
+// the bell, with words in some. The words are read here as any bark's; a row
+// with none is the blow alone, and the file must play it (`barkCues`, his own
+// file's: which cue a direction sounds is staging, not writing).
+const STRUCK_SECTIONS = JSON.parse(read('tools/town-barks.json')).struck ?? {};
+
 function townBarks() {
   const doc = read('docs/07-ambient-layer.md');
   const states = JSON.parse(read('content/reputation.json')).states;
   const written = [];
-  for (const [heading, file] of Object.entries(BARK_SECTIONS)) {
+  const struck = new Set(Object.keys(STRUCK_SECTIONS));
+  for (const [heading, file] of [...Object.entries(BARK_SECTIONS), ...Object.entries(STRUCK_SECTIONS)]) {
     const start = doc.indexOf(`\n## ${heading}\n`);
     if (start < 0) throw new Error(`doc 07: no section "## ${heading}"`);
     const end = doc.indexOf('\n## ', start + 4);
@@ -4952,6 +4959,7 @@ function townBarks() {
       const exchange = cell.indexOf('" — "');
       if (exchange >= 0) cell = cell.slice(0, exchange + 1);
       const words = quoted(cell).map(plain).filter(Boolean);
+      if (!words.length && struck.has(heading)) { barks[match[1]] = null; continue; }
       if (!words.length) throw new Error(`doc 07 ${heading} ${match[1]}: no quoted words`);
       barks[match[1]] = words.join(' ').replace(/\s+/g, ' ').trim();
     }
@@ -4959,6 +4967,16 @@ function townBarks() {
     if (missing.length) throw new Error(`doc 07 ${heading}: no bark for ${missing.join(', ')}`);
     const path = `content/ambient/${file}.json`;
     const npc = JSON.parse(read(path));
+    if (struck.has(heading)) {
+      const silent = states.filter((state) => barks[state] === null && !npc.barkCues?.[state]);
+      if (silent.length) throw new Error(`doc 07 ${heading}: ${silent.join(', ')} is a blow with no words, and ${path} plays no cue for it`);
+      npc.barks = Object.fromEntries(states.filter((state) => barks[state] !== null).map((state) => [state, barks[state]]));
+      npc.barksNote = `EXTRACTED from docs/07-ambient-layer.md (## ${heading}) by tools/extract-content.mjs. `
+        + 'Do not edit: change doc 07 and re-run. Every row is a blow on the bell: its words, where the row has any, '
+        + 'are the bark, and the blow is `barkCues` (errata 161).';
+      written.push(write(path, npc, 1));
+      continue;
+    }
     npc.barks = Object.fromEntries(states.map((state) => [state, barks[state]]));
     npc.barksNote = `EXTRACTED from docs/07-ambient-layer.md (## ${heading}) by tools/extract-content.mjs. `
       + 'Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange '

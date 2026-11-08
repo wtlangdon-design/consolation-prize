@@ -1,4 +1,4 @@
-import type { ActOpening, Condition, FlagWrites,
+import type { ActOpening, Condition, FlagValue, FlagWrites,
   ContentBundle, Entrance, Exit, Interactable, MapLocation, Point, RoomFile, WalkableRegion, PlaytestFixture, PuzzleStatus, CombinationPair,
   SpokenLine,
 } from './types.ts';
@@ -1382,6 +1382,19 @@ export class GameState {
    */
   applyFixture(fixture: PlaytestFixture): boolean {
     const held = new Set([...this.startingInventory(), ...(fixture.inventory ?? [])]);
+    // A FIXTURE IS A GAME ALREADY UNDER WAY (errata 161): a cut-away whose
+    // moment is in its past has played, as it would have on the way there.
+    // Without this, every fixture past the swindle opened on the Clarion's
+    // press -- the vault's proof photographed the Clarion. A fixture that
+    // wants one to play says so by setting its `done` flag false.
+    const flags: Record<string, FlagValue> = { ...fixture.flags };
+    const declared = new Set(this.content.flags.flags.map((flag) => flag.id));
+    const store = new FlagStore(this.content.flags);
+    store.applyWrites(Object.fromEntries(Object.entries(flags).filter(([id]) => declared.has(id))));
+    for (const one of this.content.cutaways) {
+      if (one.done in flags) continue;
+      if (store.test(one.when)) flags[one.done] = true;
+    }
     return this.restoreFrom({
       version: 1,
       room: fixture.room,
@@ -1389,7 +1402,7 @@ export class GameState {
       reputation: 0,
       objectStates: fixture.objectStates ?? {},
       taken: [],
-      flags: fixture.flags,
+      flags,
       puzzles: fixture.puzzles ?? {},
       dialogueProgress: fixture.dialogueCounts ?? {},
       dialoguePosition: { tree: null, node: null },

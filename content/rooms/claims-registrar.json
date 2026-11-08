@@ -552,9 +552,9 @@
         760
       ],
       "colour": 198,
-      "to": "main_street",
+      "to": "lower_street",
       "defaultVerb": "WALK_TO",
-      "note": "Doc 20 reaches Room 7 through the town map, so this is the way back rather than the way in -- and doc 25 writes it, which is why it exists now.",
+      "note": "Errata 161 (errata 43's three streets): the Registrar opens off Lower Street.",
       "responses": {
         "LOOK_AT": [
           {

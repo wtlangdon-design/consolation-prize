@@ -3,7 +3,7 @@
  "id": "town_map",
  "kind": "map",
  "name": "THE DISTRICT",
- "note": "Room 0, doc 20. Not a painted location -- a drawn plan of the district, clicked to travel. It has no floor, no actor and no hotspots, which is why it declares kind: map: the walk-box, staging and depth checks all reason about a room a person stands in, and this is a menu that looks like a place (doc 20 rule 5). Errata 25 withdrew the character token, so nothing on this screen moves. ERRATA 31b and 31c settle every location that was pending: Boot Hill gates on the undertaker naming Pike dead, and everything visible from Main Street appears the first time Thad stands on it -- two locations become twelve at the moment the town opens.",
+ "note": "Room 0, doc 20. Not a painted location -- a drawn plan of the district, clicked to travel. It has no floor, no actor and no hotspots, which is why it declares kind: map: the walk-box, staging and depth checks all reason about a room a person stands in, and this is a menu that looks like a place (doc 20 rule 5). Errata 163 (Tyler, 2026-11-07: \"Do it\") restores a character token, reversing errata 25 and 44a: a small Thad walks the drawn roads from where he is to the place clicked, as Guybrush walks Melee Island, and a click skips the walk. ERRATA 31b and 31c settle every location that was pending: Boot Hill gates on the undertaker naming Pike dead, and everything visible from Main Street appears the first time Thad stands on it -- two locations become twelve at the moment the town opens.",
  "colours": {
   "sky": 0,
   "ground": 0
@@ -23,19 +23,21 @@
    "id": "loc_main_street",
    "room": "main_street",
    "at": [
-    520,
-    458
+    514,
+    476
    ],
-   "note": "ERRATA 30c, first state: he is standing on it. Ungated -- with the road below it this is the floor of two the map may never go under."
+   "note": "ERRATA 30c, first state: he is standing on it. Ungated -- with the road below it this is the floor of two the map may never go under.",
+   "node": "main"
   },
   {
    "id": "loc_claims_road",
    "room": "claims_road",
    "at": [
-    1225,
-    445
+    1199,
+    402
    ],
-   "note": "ERRATA 30c, first state: seeing counts, and he can see it from the street. This is the amendment to doc 20 rule 3 -- a player who takes the driver's EXIT option immediately hears nothing, and an empty map on first opening is a broken screen."
+   "note": "ERRATA 30c, first state: seeing counts, and he can see it from the street. This is the amendment to doc 20 rule 3 -- a player who takes the driver's EXIT option immediately hears nothing, and an empty map on first opening is a broken screen.",
+   "node": "claims"
   },
   {
    "id": "loc_prosperity",
@@ -50,7 +52,8 @@
    "holding": {
     "company_map": true
    },
-   "note": "Doc 57 A4: 'Room 23 appears on the town map ... only while Thad holds the map' (errata 96 C). Beside the road to the claims, up the hill."
+   "note": "Doc 57 A4: 'Room 23 appears on the town map ... only while Thad holds the map' (errata 96 C). Beside the road to the claims, up the hill.",
+   "node": "pros"
   },
   {
    "id": "loc_pratts_claim",
@@ -65,7 +68,8 @@
    "holding": {
     "company_map": true
    },
-   "note": "Doc 20: Pratt's claim, via the road. With the Company's map, as Prosperity is: the map is what finds the claims (doc 57 A4; errata 97 C). Next door to Prosperity, up the hill."
+   "note": "Doc 20: Pratt's claim, via the road. With the Company's map, as Prosperity is: the map is what finds the claims (doc 57 A4; errata 97 C). Next door to Prosperity, up the hill.",
+   "node": "pratt"
   },
   {
    "id": "loc_creek",
@@ -77,7 +81,8 @@
    "when": {
     "T_SEEN_CLAIMS_ROAD": true
    },
-   "note": "Doc 20: the creek & sluice, 'via 22'. On the map once Thad has walked the road to the claims, the junction everything in the diggings is reached through (errata 99 A)."
+   "note": "Doc 20: the creek & sluice, 'via 22'. On the map once Thad has walked the road to the claims, the junction everything in the diggings is reached through (errata 99 A).",
+   "node": "creek"
   },
   {
    "id": "loc_claim_row",
@@ -89,7 +94,8 @@
    "when": {
     "T_SEEN_CLAIMS_ROAD": true
    },
-   "note": "Doc 20: the abandoned claim row, 'via 22'. On the map once Thad has walked the road to the claims (errata 99 A)."
+   "note": "Doc 20: the abandoned claim row, 'via 22'. On the map once Thad has walked the road to the claims (errata 99 A).",
+   "node": "row"
   },
   {
    "id": "loc_laundry",
@@ -101,7 +107,8 @@
    "when": {
     "T_SEEN_CLAIMS_ROAD": true
    },
-   "note": "Doc 20: Sheng's laundry, 'via 22', at the foot of the high ridge path. On the map once Thad has walked the road to the claims (errata 99 A)."
+   "note": "Doc 20: Sheng's laundry, 'via 22', at the foot of the high ridge path. On the map once Thad has walked the road to the claims (errata 99 A).",
+   "node": "laundry"
   },
   {
    "id": "loc_high_ridge",
@@ -113,7 +120,8 @@
    "when": {
     "T_SEEN_CLAIMS_ROAD": true
    },
-   "note": "Doc 20: the high ridge, 'via 22', up the path from Sheng's door. On the map once Thad has walked the road to the claims (errata 99 A, E)."
+   "note": "Doc 20: the high ridge, 'via 22', up the path from Sheng's door. On the map once Thad has walked the road to the claims (errata 99 A, E).",
+   "node": "ridge"
   },
   {
    "id": "loc_motts_site",
@@ -125,19 +133,8 @@
    "when": {
     "T_SEEN_CLAIMS_ROAD": true
    },
-   "note": "Doc 20: Mott's supposed site, 'via 22'. On the map once Thad has walked the road to the claims (errata 99 A)."
-  },
-  {
-   "id": "loc_undertaker",
-   "room": "undertaker",
-   "at": [
-    330,
-    345
-   ],
-   "when": {
-    "T_UNDERTAKER_NAMED": true
-   },
-   "note": "ERRATA 31b and doc 20 rule 3: heard of, not visited. The driver names him and nobody else in Act I does. Room 13 is composed now, so the label comes from the room's own name."
+   "note": "Doc 20: Mott's supposed site, 'via 22'. On the map once Thad has walked the road to the claims (errata 99 A).",
+   "node": "motts"
   },
   {
    "id": "loc_boot_hill",
@@ -149,142 +146,405 @@
    "when": {
     "T_PIKE_DEAD": true
    },
-   "note": "ERRATA 31b. Doc 20's 'once Pike is mentioned' is VOID: Thad names Ezra Pike to the driver in the opening, and gating on that would put Boot Hill on the map at the coach stop and break 30c's floor of two. It gates on the undertaker saying he is dead."
-  },
-  {
-   "id": "loc_registrar",
-   "room": "claims_registrar",
-   "at": [
-    700,
-    345
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   }
-  },
-  {
-   "id": "loc_livery",
-   "room": "livery",
-   "at": [
-    810,
-    472
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   }
-  },
-  {
-   "id": "loc_tent",
-   "room": "ozymandias_tent",
-   "at": [
-    950,
-    585
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   }
-  },
-  {
-   "id": "loc_church",
-   "room": "church",
-   "at": [
-    600,
-    350
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   }
-  },
-  {
-   "id": "loc_back_alley",
-   "room": "back_alley",
-   "at": [
-    770,
-    500
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   }
-  },
-  {
-   "id": "loc_barber",
-   "room": "barber",
-   "at": [
-    350,
-    462
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   },
-   "label": "THE BARBER'S",
-   "unbuilt": true
+   "note": "ERRATA 31b. Doc 20's 'once Pike is mentioned' is VOID: Thad names Ezra Pike to the driver in the opening, and gating on that would put Boot Hill on the map at the coach stop and break 30c's floor of two. It gates on the undertaker saying he is dead.",
+   "node": "boot"
   },
   {
    "id": "loc_boarding_house",
    "room": "boarding_house",
    "at": [
-    500,
-    535
+    339,
+    590
    ],
    "when": {
     "T_SEEN_MAIN_STREET": true
    },
    "label": "THE BOARDING HOUSE",
-   "unbuilt": true
-  },
-  {
-   "id": "loc_photographer",
-   "room": "photographer",
-   "at": [
-    570,
-    535
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   },
-   "label": "THE PHOTOGRAPHER'S",
-   "unbuilt": true
+   "unbuilt": true,
+   "node": "board"
   },
   {
    "id": "loc_bakehouse",
    "room": "bakehouse",
    "at": [
-    640,
-    538
+    464,
+    590
    ],
    "when": {
     "T_SEEN_MAIN_STREET": true
    },
    "label": "THE BAKEHOUSE",
-   "unbuilt": true
-  },
-  {
-   "id": "loc_storefront",
-   "room": "empty_storefront",
-   "at": [
-    720,
-    462
-   ],
-   "when": {
-    "T_SEEN_MAIN_STREET": true
-   },
-   "label": "THE EMPTY STOREFRONT",
-   "unbuilt": true
+   "unbuilt": true,
+   "node": "bake"
   },
   {
    "id": "loc_schoolhouse",
    "room": "schoolhouse",
    "at": [
-    710,
-    540
+    574,
+    590
    ],
    "when": {
     "T_SEEN_MAIN_STREET": true
    },
    "label": "THE SCHOOLHOUSE",
-   "unbuilt": true
+   "unbuilt": true,
+   "node": "school"
   }
  ],
  "pendingLocations": [],
- "locationsNote": "MARKERS RE-PLACED against the 1920x864 district map. The old positions were authored on the 320x144 plan errata 54 retired, so on the new drawing boot_hill sat out among the mine works while the graveyard is fenced at the top, back_alley and storefront were up on the diggings, and half the town stood in open grass. Every check passed on that: nothing can verify a marker lands on a building.\n\nPlaced from doc 20's graph and the drawing rather than by eye alone. The two that are not judgement calls: the church is the white steeple, and Boot Hill is the fenced graveyard. The rest follow the script -- the back alley is behind Main Street's EAST end because that is where doc 20 puts the back lots; the six ancillary interiors sit along the side lane south of the street; the empty storefront is at the street's end, which is where an empty one would be; the livery is at the road out, because horses need the road; Ozymandia's tent is on open flat outside town, because a showman pitches off the street; and the claims road is the fork where the road divides for the diggings.\n\nINFERRED, NOT AUTHORED. Which particular facade is the barber's is not written anywhere. tools/map/place-markers.html moves any of them."
+ "locationsNote": "MARKERS RE-PLACED on the night map with the L square (errata 163, PR 239): Main Street's out on the square, the three houses on their own roofs below the loop road, the road to the claims at its junction. The diggings' markers kept their places: the redraws moved them under 6 px.",
+ "removedLocations": [
+  "loc_back_alley",
+  "loc_barber",
+  "loc_church",
+  "loc_livery",
+  "loc_photographer",
+  "loc_registrar",
+  "loc_storefront",
+  "loc_tent",
+  "loc_undertaker"
+ ],
+ "removedLocationsNote": "Errata 161 (errata 43): everything in town is walked now. The Registrar's, the church, the livery and the back alley open off Lower Street; the undertaker's and the tent off the Lane, where the barber's, the photographer's and the empty storefront are shopfronts. The map keeps long-distance travel and the interiors that sit on no street (the boarding house, the bakehouse, the schoolhouse).",
+ "mapToken": {
+  "note": "Errata 163. Thad, small, derived from his own walk cycle by tools/art/map-thad.py: frames 0-5 walk right, frame 6 stands. Mirrored to walk left. He stands at the place of the room the map was opened from (`homes` names it for a room with no place of its own; anything else is Main Street), walks the `roads` graph to the place clicked at `speed` pixels a second, never longer than `maxSeconds` (a long walk is walked faster), and a click while he walks skips to the arrival. Travel happens when he arrives.",
+  "sheet": "art/actors/map-thad.png",
+  "frames": [
+   [
+    2,
+    2,
+    17,
+    32
+   ],
+   [
+    21,
+    2,
+    17,
+    32
+   ],
+   [
+    40,
+    2,
+    17,
+    32
+   ],
+   [
+    59,
+    2,
+    17,
+    32
+   ],
+   [
+    78,
+    2,
+    17,
+    32
+   ],
+   [
+    97,
+    2,
+    17,
+    32
+   ],
+   [
+    116,
+    2,
+    17,
+    32
+   ]
+  ],
+  "walk": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "rest": 6,
+  "fps": 9,
+  "speed": 260,
+  "maxSeconds": 4.5,
+  "homes": {
+   "under_prosperity": "loc_prosperity",
+   "listening_chamber": "loc_prosperity",
+   "funeral": "loc_boot_hill",
+   "coffin": "loc_boot_hill"
+  }
+ },
+ "roads": {
+  "note": "Errata 163: the district's roads as the night map has them (the L square, PR 239), nodes at the bends and the places. Main Street's place is out on the square; the walk out of town goes round the square's south side and up its east road, past the east arm, to the bridge. Read off art/backgrounds/room-00-town-map.png; a place off the road (Pratt's claim, the high ridge, the three houses) is walked to across the ground from the nearest bend.",
+  "nodes": {
+   "bridge": [
+    945,
+    442
+   ],
+   "j1": [
+    1080,
+    455
+   ],
+   "claims": [
+    1205,
+    410
+   ],
+   "n2": [
+    1310,
+    350
+   ],
+   "n3": [
+    1355,
+    312
+   ],
+   "bh1": [
+    1320,
+    285
+   ],
+   "bh2": [
+    1280,
+    240
+   ],
+   "bh3": [
+    1275,
+    190
+   ],
+   "bh4": [
+    1310,
+    145
+   ],
+   "boot": [
+    1365,
+    110
+   ],
+   "e1": [
+    1450,
+    295
+   ],
+   "e2": [
+    1540,
+    272
+   ],
+   "row": [
+    1635,
+    255
+   ],
+   "ridge1": [
+    1680,
+    190
+   ],
+   "ridge": [
+    1690,
+    135
+   ],
+   "pros": [
+    1330,
+    392
+   ],
+   "pratt": [
+    1440,
+    382
+   ],
+   "laundry": [
+    1555,
+    338
+   ],
+   "s1": [
+    1150,
+    525
+   ],
+   "s2": [
+    1235,
+    600
+   ],
+   "s3": [
+    1330,
+    640
+   ],
+   "motts": [
+    1440,
+    665
+   ],
+   "c1": [
+    1400,
+    612
+   ],
+   "c2": [
+    1490,
+    595
+   ],
+   "creek": [
+    1570,
+    565
+   ],
+   "main": [
+    520,
+    482
+   ],
+   "s_w": [
+    345,
+    556
+   ],
+   "s_m": [
+    470,
+    556
+   ],
+   "s_e": [
+    600,
+    556
+   ],
+   "board": [
+    345,
+    598
+   ],
+   "bake": [
+    470,
+    598
+   ],
+   "school": [
+    580,
+    598
+   ],
+   "loop_se": [
+    778,
+    545
+   ],
+   "east": [
+    793,
+    418
+   ]
+  },
+  "edges": [
+   [
+    "main",
+    "s_m"
+   ],
+   [
+    "s_w",
+    "s_m"
+   ],
+   [
+    "s_m",
+    "s_e"
+   ],
+   [
+    "s_e",
+    "loop_se"
+   ],
+   [
+    "loop_se",
+    "east"
+   ],
+   [
+    "east",
+    "bridge"
+   ],
+   [
+    "board",
+    "s_w"
+   ],
+   [
+    "bake",
+    "s_m"
+   ],
+   [
+    "school",
+    "s_e"
+   ],
+   [
+    "bridge",
+    "j1"
+   ],
+   [
+    "j1",
+    "claims"
+   ],
+   [
+    "claims",
+    "n2"
+   ],
+   [
+    "n2",
+    "n3"
+   ],
+   [
+    "n3",
+    "bh1"
+   ],
+   [
+    "bh1",
+    "bh2"
+   ],
+   [
+    "bh2",
+    "bh3"
+   ],
+   [
+    "bh3",
+    "bh4"
+   ],
+   [
+    "bh4",
+    "boot"
+   ],
+   [
+    "n3",
+    "e1"
+   ],
+   [
+    "e1",
+    "e2"
+   ],
+   [
+    "e2",
+    "row"
+   ],
+   [
+    "row",
+    "ridge1"
+   ],
+   [
+    "ridge1",
+    "ridge"
+   ],
+   [
+    "n2",
+    "pros"
+   ],
+   [
+    "pros",
+    "pratt"
+   ],
+   [
+    "e1",
+    "laundry"
+   ],
+   [
+    "j1",
+    "s1"
+   ],
+   [
+    "s1",
+    "s2"
+   ],
+   [
+    "s2",
+    "s3"
+   ],
+   [
+    "s3",
+    "motts"
+   ],
+   [
+    "s2",
+    "c1"
+   ],
+   [
+    "c1",
+    "c2"
+   ],
+   [
+    "c2",
+    "creek"
+   ]
+  ]
+ }
 }

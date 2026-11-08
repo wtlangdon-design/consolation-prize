@@ -277,6 +277,12 @@
    "date": "2026-11-07",
    "kind": "loosened",
    "why": "Errata 157 moved O-02-S2, the team breathing at the halt, from beat 2 into the new beat 1b (the stars), because the coach has halted before the view comes down and Tyler approved the horses breathing in the dark. The assertion now expects '1b' for that cue; every other cue's beat is unchanged. A ruling changed what is right, not a threshold."
+  },
+  {
+   "check": "tests/fixtures.test.ts",
+   "date": "2026-11-07",
+   "kind": "loosened",
+   "why": "Errata 161: a fixture past a cut-away's moment now starts with that cut-away played, as a game that got there would have (the vault's Act IV fixture opened on the Clarion's press and its proof photographed the Clarion). The cut-aways' done flags are exempt from 'every flag the fixture does not name keeps its initial value'; tests/cutaways.test.ts holds that they are written."
   }
  ]
 }

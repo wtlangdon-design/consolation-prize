@@ -27,7 +27,11 @@ test('every fixture applies through the save path and lands where it says', asyn
     assert.ok(state.applyFixture(fixture), `${fixture.id} applies`);
     assert.equal(state.roomId, fixture.room);
     for (const [id, value] of Object.entries(fixture.flags)) assert.equal(state.flags.get(id), value, `${fixture.id}: ${id}`);
+    // A cut-away whose moment the fixture is past has played (errata 161): its done flag is the one
+    // undeclared write a fixture makes, and tests/cutaways.test.ts holds that it is made.
+    const played = new Set(content.cutaways.map((one) => one.done));
     for (const flag of content.flags.flags) {
+      if (played.has(flag.id)) continue;
       if (!(flag.id in fixture.flags)) assert.equal(state.flags.get(flag.id), flag.initial, `${fixture.id}: ${flag.id} keeps its initial value`);
     }
     for (const id of fixture.inventory ?? []) assert.ok(state.carried.includes(id), `${fixture.id} holds ${id}`);

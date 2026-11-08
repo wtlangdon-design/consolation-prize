@@ -87,7 +87,7 @@
         790
       ],
       "facing": "right",
-      "note": "In by the stable doors, at left: the map leads here."
+      "note": "In by the stable doors, at left: Lower Street leads here."
     }
   ],
   "ambient": [
@@ -556,7 +556,7 @@
         620
       ],
       "colour": 0,
-      "to": "town_map",
+      "to": "lower_street",
       "responses": {
         "LOOK_AT": [
           {
@@ -579,7 +579,7 @@
       },
       "fallback": [],
       "defaultVerb": "WALK_TO",
-      "note": "Doc 20: the livery is reached by the map, and its doors lead back to it. Doc 05 and doc 54 write the doors' LOOK and LISTEN.",
+      "note": "Errata 161 (errata 43's three streets): the livery opens off Lower Street.",
       "walkTo": {
         "x": 260,
         "y": 770,

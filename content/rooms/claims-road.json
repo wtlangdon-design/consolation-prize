@@ -424,7 +424,7 @@
     },
     {
       "id": "to_main_street",
-      "name": "MAIN STREET",
+      "name": "LOWER STREET",
       "stub": true,
       "rect": [
         0,
@@ -433,11 +433,11 @@
         224
       ],
       "colour": 0,
-      "to": "main_street",
+      "to": "lower_street",
       "responses": {},
       "fallback": [],
       "defaultVerb": "WALK_TO",
-      "note": "Doc 20: the road back down to Main Street. NO DOCUMENT WRITES THIS WAY from the road (doc 14 writes Main Street's side). A stub exit (doc 36 Q165).",
+      "note": "Errata 161 (errata 43's three streets): down into town by Lower Street.",
       "walkTo": {
         "x": 170,
         "y": 790,
@@ -508,6 +508,15 @@
       ],
       "facing": "right",
       "note": "Back from Mott's site, by the mile post (errata 99 A)."
+    },
+    {
+      "from": "lower_street",
+      "at": [
+        240,
+        790
+      ],
+      "facing": "right",
+      "note": "Errata 161: out along the road from Lower Street."
     }
   ],
   "size": [

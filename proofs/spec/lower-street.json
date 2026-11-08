@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "lower_street",
+ "note": "ROOM 43'S PROOF SPEC (errata 161). The route is Main Street's, then THE ROAD TO THE CLAIMS at the street's east end. Lower Street has no principal changed picture.",
+ "route": "lower-street",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "Lower Street draws the same in every state: doc 97 writes no act variant for it (doc 05 Part Two-B), and nothing in it is moved by a puzzle. The bell-ringer stands there in every state; only his barks follow the reputation (doc 07 #4)."
+ }
+}

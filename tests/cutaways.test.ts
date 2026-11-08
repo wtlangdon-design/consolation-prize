@@ -134,3 +134,46 @@ test('a bed played at a rate is slowed on top of the score\'s detune, and is a d
   assert.equal(music.bed, 'theme.wav@0.84', 'a different bed, so the room bed and the scene bed are told apart');
   assert.ok(Math.abs(made.find((one) => one.src === 'theme.wav')!.playbackRate - plain * 0.84) < 1e-9);
 });
+
+test('a proof that sets a cut-away\'s state waits for the cut-away before it acts or captures', async () => {
+  // Errata 161: setting ACT 3 plays Fanshawe's cut-away at once; the proofs
+  // that set it clicked into it (swallowed) or photographed it as the room.
+  const { readdirSync } = await import('node:fs');
+  const cutaways = (await fsReader('content/cutaways.json')) as { cutaways: { id: string; when: Record<string, unknown> }[] };
+  const holds = (when: Record<string, unknown>, flags: Record<string, unknown>) => Object.entries(when).every(([key, want]) => {
+    const have = flags[key] ?? (key === 'ACT' ? 1 : false);
+    if (want && typeof want === 'object') {
+      const range = want as { atLeast?: number; atMost?: number };
+      return Number(have) >= (range.atLeast ?? -Infinity) && Number(have) <= (range.atMost ?? Infinity);
+    }
+    return have === want;
+  });
+  const late: string[] = [];
+  for (const file of readdirSync(resolve(ROOT, 'proofs/spec')).filter((name) => name.endsWith('.json'))) {
+    const spec = (await fsReader('proofs/spec/' + file)) as { room: string; principalChange?: { flags?: Record<string, unknown>; actions?: { do: string; room?: string }[] } };
+    const change = spec.principalChange;
+    if (!change?.flags) continue;
+    if (!cutaways.cutaways.some((one) => holds(one.when, change.flags!))) continue;
+    const first = (change.actions ?? []).find((action) => action.do !== 'wait');
+    if (!(first?.do === 'waitFor' && first.room === spec.room)) late.push(file);
+  }
+  assert.deepEqual(late, [], 'these set a cut-away\'s state and do not wait for it to end');
+});
+
+test('a fixture past a cut-away\'s moment starts with it played (errata 161)', async () => {
+  // The vault's proof starts from an Act IV fixture and photographed the
+  // Clarion's press instead: every fixture past the swindle opened on it.
+  const content = await loadContent(fsReader);
+  let checked = 0;
+  for (const fixture of content.fixtures.values()) {
+    const state = new GameState(content, new MemoryStorage());
+    assert.ok(state.applyFixture(fixture), fixture.id);
+    for (const cut of content.cutaways) {
+      if (!state.flags.test(cut.when)) continue;
+      if (fixture.flags[cut.done] === false) continue;
+      checked += 1;
+      assert.ok(state.flags.test({ [cut.done]: true }), fixture.id + ' is past ' + cut.id + ' and would play it on load');
+    }
+  }
+  assert.ok(checked > 0, 'no fixture is past any cut-away: the test proves nothing');
+});

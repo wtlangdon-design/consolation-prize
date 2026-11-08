@@ -749,6 +749,13 @@ export interface AmbientFile {
      */
     breaksThatSpeak?: number[];
     /**
+     * Which breaks SOUND, by index into `breaks` (as a string key): the sound
+     * cue fired as that break begins. The bell-ringer's strike sounds the
+     * flat bell (doc 07 #4; errata 161) -- a blow in silence reads as a fault,
+     * as the pie woman's silent shout did.
+     */
+    breakCues?: Record<string, string>;
+    /**
      * A BEAT instead of a loop: hold frame 0, show the rest briefly, hold again.
      *
      * Tyler, on a four-frame cycle: the motion is right but playing it on a
@@ -1360,6 +1367,8 @@ export interface MapLocation {
   when?: Condition;
   /** What must be in hand for it to be on the map (Interactable.holding; doc 57 A4). */
   holding?: Record<string, boolean>;
+  /** Errata 163: where the place is on the map's `roads`, for the token to walk to. */
+  node?: string;
   note?: string;
 }
 
@@ -1425,6 +1434,27 @@ export interface RoomFile {
   kind?: 'map';
   /** Doc 20's travel destinations. Only a `map` room has these. */
   locations?: MapLocation[];
+  /**
+   * ERRATA 163: THE MAP'S THAD. A small Thad who walks the `roads` to the
+   * place clicked (engine/core/MapWalk.ts). `frames` are [x, y, w, h] in
+   * `sheet`, facing right; `walk` and `rest` index them.
+   */
+  mapToken?: {
+    sheet: string;
+    frames: [number, number, number, number][];
+    walk: number[];
+    rest: number;
+    fps?: number;
+    /** Pixels a second along the road. */
+    speed: number;
+    /** No walk lasts longer: a long one is walked faster. */
+    maxSeconds?: number;
+    /** A room with no place of its own: the place he stands at when the map is opened from it. */
+    homes?: Record<string, string>;
+    note?: string;
+  };
+  /** Errata 163: the district's roads, nodes at the bends and the places. */
+  roads?: { nodes: Record<string, [number, number]>; edges: [string, string][]; note?: string };
   /**
    * Flags set the first time the player stands in this room.
    *

@@ -1,0 +1,593 @@
+{
+  "schema": 1,
+  "id": "the_lane",
+  "name": "THE LANE",
+  "materialIdentity": "Cramped wooden fronts on a narrow mud lane at night: the undertaker's, the photographer's lit window, the painted tent, the barber's pole, a boarded shop (errata 161)",
+  "note": "Room 44, errata 43's Room 2c: off Main Street's alley, and through to Lower Street at its far end. Built at errata 161. Lines EXTRACTED from doc 97 and compiled by tools/compile-room.mjs from reference/room-44/annotation.json.",
+  "background": "art/backgrounds/room-44-the-lane.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        40,
+        720,
+        1840,
+        44
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        40,
+        764,
+        1840,
+        44
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        40,
+        808,
+        1840,
+        44
+      ]
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "barber_s_pole",
+      "name": "THE BARBER'S POLE",
+      "rect": [
+        1162,
+        332,
+        46,
+        192
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A barber's pole, painted to look as though it turns. It doesn't.",
+            "repeat": [
+              "The window's dark, and so is the door. A barber shuts up shop the way he shaves: close.",
+              "I could do with a shave. I could do with the price of a shave more."
+            ],
+            "then": [
+              "That is the first lie a barber tells you."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The pole creaking in its bracket. It would turn if it could.",
+            "repeat": [
+              "A strop swaying on its hook inside, slapping the chair once.",
+              "Nothing. A barber's shop is never quiet by day; at night it makes up for it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I asked for a trim. The pole said nothing, which is more than most barbers manage."
+      },
+      "walkTo": {
+        "x": 1185,
+        "y": 811,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "coffin_by_the_door",
+      "name": "THE COFFIN BY THE DOOR",
+      "rect": [
+        405,
+        420,
+        75,
+        280
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A pine coffin standing on end by the undertaker's door, like a man waiting to be let in.",
+            "repeat": [
+              "Plain pine, nicely planed. Somebody is going to be very comfortable in that.",
+              "Standard length. A tall man would have to be very patient in it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Hollow. A good coffin rings like a cello, and this one rings like a cheap cello.",
+            "repeat": [
+              "Nothing inside. I checked by knocking, and then felt I ought to apologize.",
+              "The wind across the open end, making the only sound a coffin is allowed."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It's stock. Taking it would be stealing from the one merchant whose customers never complain.",
+        "OPEN": "Empty, and planed smooth inside. I closed it gently. You do."
+      },
+      "walkTo": {
+        "x": 443,
+        "y": 811,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "photographer_s_window",
+      "name": "THE PHOTOGRAPHER'S WINDOW",
+      "rect": [
+        555,
+        340,
+        250,
+        195
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The photographer's window. In the middle of it, a portrait of a distinguished gentleman in a very good collar, lit like a saint.",
+            "repeat": [
+              "The gentleman in the portrait has a face you would trust with your money, which in this town is a professional qualification.",
+              "Portraits by appointment. I can't afford the appointment, but I could stand here and be photographed by accident."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. The gentleman in the window has been holding very still for a long time.",
+            "repeat": [
+              "A clock inside, very slow, as if it were sitting for its portrait.",
+              "Glass plates clinking in the back, being careful with each other."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I asked the gentleman in the portrait for directions. He kept his counsel, and his collar."
+      },
+      "walkTo": {
+        "x": 680,
+        "y": 811,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "empty_storefront",
+      "name": "THE EMPTY STOREFRONT",
+      "rect": [
+        1520,
+        270,
+        240,
+        430
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An empty storefront, boarded, its sign painted out.",
+            "repeat": [
+              "Through a gap in the boards: dark, and a smell of old sawdust. Whatever was sold here, it sold out.",
+              "If my claim comes in, I'll buy this and sell something. I don't yet know what. In Consolation that has never stopped anybody."
+            ],
+            "then": [
+              "Somebody's whole idea, closed for good."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Mice, running the business now.",
+            "repeat": [
+              "A loose board, lifting and settling with the wind.",
+              "Nothing. The quiet of a shop with nothing to sell and nobody to sell it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "Boarded with long nails, by somebody who meant it."
+      },
+      "walkTo": {
+        "x": 1640,
+        "y": 811,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "ozymandia_s_tent",
+      "name": "OZYMANDIA'S TENT",
+      "rect": [
+        890,
+        330,
+        340,
+        370
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Madame Ozymandia's tent, painted with more stars than the sky can spare.",
+            "repeat": [
+              "The flap is tied back and candlelight comes out. It is the most inviting door in Consolation, which is why I keep a hand on my pocket.",
+              "The stars on the canvas don't quite line up with the ones above it. Neither, I suspect, do the predictions."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Humming, low and long, from inside.",
+            "repeat": [
+              "A brass rod, set down carefully on a table.",
+              "The canvas moving with the wind. It sounds like the tent is thinking about me."
+            ],
+            "then": [
+              "Either a lady concentrating or a lady charging."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "You don't push a fortune-teller's tent. She'll have seen it coming, and she'll charge."
+      },
+      "walkTo": {
+        "x": 1060,
+        "y": 811,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "lane_itself",
+      "name": "THE LANE ITSELF",
+      "rect": [
+        0,
+        700,
+        1920,
+        164
+      ],
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The Lane: the street the town keeps for the businesses it doesn't put on the main one.",
+            "repeat": [
+              "Wide enough for two men to pass, provided they have agreed on something first.",
+              "Puddles all the way down, each one holding a lamp. It is the best-lit the Lane will ever be."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Main Street at one end, Lower Street at the other, and in between a hush you could rent.",
+            "repeat": [
+              "A shutter knocking, then thinking better of it.",
+              "The tent's canvas, breathing, two doors down. The Lane has a pulse and it's hers."
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_main_street",
+      "name": "THE WAY BACK TO MAIN STREET",
+      "rect": [
+        0,
+        300,
+        140,
+        400
+      ],
+      "colour": 0,
+      "to": "main_street",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 43: back through Main Street's alley.",
+      "stub": true,
+      "walkTo": {
+        "x": 60,
+        "y": 800,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "to_undertaker",
+      "name": "THE UNDERTAKER'S DOOR",
+      "rect": [
+        245,
+        355,
+        100,
+        345
+      ],
+      "colour": 0,
+      "to": "undertaker",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 43: the undertaker's opens off the Lane.",
+      "stub": true,
+      "walkTo": {
+        "x": 295,
+        "y": 728,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "to_ozymandias_tent",
+      "name": "THE TENT FLAP",
+      "rect": [
+        945,
+        380,
+        160,
+        320
+      ],
+      "colour": 0,
+      "to": "ozymandias_tent",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 43: Ozymandia's tent, in the lot.",
+      "stub": true,
+      "walkTo": {
+        "x": 1025,
+        "y": 728,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "to_lower_street",
+      "name": "THE PASSAGE TO LOWER STREET",
+      "rect": [
+        1780,
+        320,
+        140,
+        380
+      ],
+      "colour": 0,
+      "to": "lower_street",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 43: the Lane connects through to Lower Street at its far end.",
+      "stub": true,
+      "walkTo": {
+        "x": 1860,
+        "y": 790,
+        "facing": "right"
+      }
+    }
+  ],
+  "entrances": [
+    {
+      "from": "main_street",
+      "at": [
+        110,
+        800
+      ],
+      "facing": "right",
+      "note": "In from Main Street's alley, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        110,
+        800
+      ],
+      "facing": "right",
+      "note": "In from Main Street."
+    },
+    {
+      "from": "undertaker",
+      "at": [
+        295,
+        745
+      ],
+      "facing": "front",
+      "note": "Out of the undertaker's door."
+    },
+    {
+      "from": "ozymandias_tent",
+      "at": [
+        1025,
+        745
+      ],
+      "facing": "front",
+      "note": "Out of the tent flap."
+    },
+    {
+      "from": "lower_street",
+      "at": [
+        1830,
+        800
+      ],
+      "facing": "left",
+      "note": "In through the passage from Lower Street, at right."
+    }
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "ambient": [],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-44.json",
+      "reference/room-44/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkableOutline": [
+    [
+      40,
+      720
+    ],
+    [
+      1880,
+      720
+    ],
+    [
+      1880,
+      852
+    ],
+    [
+      40,
+      852
+    ]
+  ],
+  "entrance": [
+    110,
+    800
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 40,
+          "y": 720
+        },
+        {
+          "x": 1880,
+          "y": 720
+        },
+        {
+          "x": 1880,
+          "y": 764
+        },
+        {
+          "x": 40,
+          "y": 764
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 705,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 40,
+          "y": 764
+        },
+        {
+          "x": 1880,
+          "y": 764
+        },
+        {
+          "x": 1880,
+          "y": 808
+        },
+        {
+          "x": 40,
+          "y": 808
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 705,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 40,
+          "y": 808
+        },
+        {
+          "x": 1880,
+          "y": 808
+        },
+        {
+          "x": 1880,
+          "y": 852
+        },
+        {
+          "x": 40,
+          "y": 852
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 705,
+        "farHeight": 258,
+        "nearY": 858,
+        "nearHeight": 362
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "photographer_window",
+      "at": [
+        665,
+        485
+      ],
+      "radius": 300,
+      "amount": 0.08,
+      "rate": 0.25,
+      "phase": 0.3,
+      "note": "The lamp in the photographer's window."
+    },
+    {
+      "id": "tent_flap",
+      "at": [
+        1065,
+        560
+      ],
+      "radius": 320,
+      "amount": 0.1,
+      "rate": 0.33,
+      "phase": 0.8,
+      "note": "Candlelight through the tent's open flap."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-44/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}
