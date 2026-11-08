@@ -1,0 +1,64 @@
+{
+ "source": "art/staging/room-37/plate-01/source.png",
+ "crop": {
+  "x": 18,
+  "y": 174,
+  "width": 1500,
+  "height": 675
+ },
+ "out": "art/staging/room-37/plate-01/candidate-1920x864.png",
+ "derivation": {
+  "transform": "errata-63-fixed-room-source-acquisition",
+  "provisional": true,
+  "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+  "source": {
+   "path": "art/staging/room-37/plate-01/source.png",
+   "hash": "e591cc8b204863f79f48895dee6dfb8ab6e5e2f30ac83198ae0e983cf7df7e3b",
+   "width": 1536,
+   "height": 1024,
+   "bytes": 1956757,
+   "kept": true
+  },
+  "crop": {
+   "x": 18,
+   "y": 174,
+   "width": 1500,
+   "height": 675,
+   "aspect": "20:9"
+  },
+  "resample": {
+   "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+   "lobes": 3,
+   "from": [
+    1500,
+    675
+   ],
+   "to": [
+    1920,
+    864
+   ],
+   "factor": 1.28,
+   "normalisedWeights": true,
+   "premultiplied": true,
+   "rounding": "half-away-from-zero, clamped to 0..255",
+   "forbidden": [
+    "nearest-neighbour",
+    "ai-upscale",
+    "sharpen",
+    "denoise",
+    "recolour",
+    "contrast-enhancement",
+    "generative-second-pass"
+   ]
+  },
+  "derived": {
+   "path": "art/staging/room-37/plate-01/candidate-1920x864.png",
+   "hash": "2db6ccf94de826a31831129a5c0aa7b994f55104c3ad1af9e5b970fe7edf7c5a",
+   "width": 1920,
+   "height": 864,
+   "bytes": 2842855,
+   "colourType": 2
+  }
+ },
+ "why": "Room 37 takes a 20:9 crop of 1500 x 675 from 18,174 (tools/art/interiors-plate.mjs)."
+}

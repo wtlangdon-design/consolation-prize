@@ -1,0 +1,16 @@
+{
+ "assetId": "room-05-second-ledger",
+ "subject": "winnie-second-ledger",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-05-assay-office",
+ "promptFile": "reference/second-ledger/winnie-01.txt",
+ "out": "art/staging/room-05/second-ledger/sheet-01.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-05/second-ledger/template.png",
+  "art/staging/room-05/second-ledger/face.png",
+  "art/staging/room-05/second-ledger/thad-in-room.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

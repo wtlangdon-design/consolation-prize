@@ -1,0 +1,5 @@
+Image 1 is a close-up of shopfronts on a muddy lane at NIGHT in my pixel-art adventure game. In the middle is a photographer's shop: a plank front with a wide two-part window -- on the left a framed portrait of a gentleman on display, on the right a narrow pane with a small glowing lamp behind the glass.
+
+Edit ONLY inside the masked area: make that narrow right-hand part into the shop's DOOR, the way into the studio. A narrow wooden shop door reaching all the way down to the ground: its upper half glazed, with the same small lamp glowing behind the glass; its lower half plain wooden panels; a small dark doorknob; a low wooden step at its foot on the mud. It sits in the same frame line as the window beside it, so the front reads as a display window with a glazed door beside it.
+
+Change nothing else: the left window and its portrait, the plank front above, the neighbouring buildings, the mud and the night stay exactly as they are. The same pixel-art style, the same big square pixels, flat soft shading and night light as image 1. No text, no letters, no sign.

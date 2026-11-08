@@ -1,0 +1,219 @@
+{
+ "schema": 1,
+ "note": "ROOM CONTENT READINESS. Whether this room can be BUILT WITHOUT INVENTING ANYTHING. It holds no creative prose -- every answer cites a document path and an exact heading, or a qualified issue reference. It says nothing about whether the writing is good.",
+ "room": 41,
+ "id": "room-41-schoolhouse",
+ "name": "THE SCHOOLHOUSE",
+ "content": [
+  {
+   "id": "look-listen",
+   "question": "LOOK/LISTEN complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/105-the-six-interiors.md::ROOM 41 — THE SCHOOLHOUSE",
+    "docs/105-the-six-interiors.md::ROOM 41 · THE SCHOOLHOUSE"
+   ],
+   "why": "6 subject(s), each with a LOOK and a LISTEN"
+  },
+  {
+   "id": "repeat-variants",
+   "question": "Repeat-selection variants complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/105-the-six-interiors.md::ROOM 41 — THE SCHOOLHOUSE",
+    "docs/105-the-six-interiors.md::ROOM 41 · THE SCHOOLHOUSE"
+   ],
+   "why": "all 6 subject(s) carry three LOOK and three LISTEN variants"
+  },
+  {
+   "id": "act-variants",
+   "question": "Act/state variants complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
+   ],
+   "why": "none, by doctrine: Doc 105 writes every line true whenever it is read: the rooms are open in every act, and no line assumes a day, a meeting or a puzzle (doc 105's rules)."
+  },
+  {
+   "id": "wrong-verbs",
+   "question": "Wrong-verb layer complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/105-the-six-interiors.md::ROOM 41 · THE SCHOOLHOUSE"
+   ],
+   "why": "3 authored refusal(s)"
+  },
+  {
+   "id": "dialogue",
+   "question": "Dialogue used by this room complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/105-the-six-interiors.md::ROOM 41 — THE SCHOOLHOUSE"
+   ],
+   "why": "no character speaks in this room: Nobody is in it (reference/ancillary-interiors/brief.md: 'Who is in it: Nobody'); doc 105 writes six subjects and no person."
+  },
+  {
+   "id": "puzzles",
+   "question": "Puzzle requirements complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/07-ambient-layer.md::PART THREE — ANCILLARY INTERIORS"
+   ],
+   "why": "no puzzle is sited in this room: Doc 07 Part Three: \"Six enterable buildings. No required items, no puzzle gates.\" Doc 02 sites none of the 45 here."
+  },
+  {
+   "id": "items",
+   "question": "Required items declared?",
+   "answer": "YES",
+   "evidence": [
+    "docs/07-ambient-layer.md::PART THREE — ANCILLARY INTERIORS"
+   ],
+   "why": "no puzzle is sited in this room: Doc 07 Part Three: \"Six enterable buildings. No required items, no puzzle gates.\" Doc 02 sites none of the 45 here."
+  },
+  {
+   "id": "flags",
+   "question": "Required flags/state declared?",
+   "answer": "YES",
+   "evidence": [
+    "docs/07-ambient-layer.md::PART THREE — ANCILLARY INTERIORS"
+   ],
+   "why": "no puzzle is sited in this room: Doc 07 Part Three: \"Six enterable buildings. No required items, no puzzle gates.\" Doc 02 sites none of the 45 here."
+  },
+  {
+   "id": "staging",
+   "question": "Beat/staging script complete OR genuinely not required?",
+   "answer": "YES",
+   "evidence": [
+    "docs/105-the-six-interiors.md::ROOM 41 · THE SCHOOLHOUSE"
+   ],
+   "why": "not required: No doc 48 script is sited here."
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour sufficiently authored?",
+   "answer": "YES",
+   "evidence": [
+    "docs/105-the-six-interiors.md::ROOM 41 — THE SCHOOLHOUSE"
+   ],
+   "why": "no character is present to behave"
+  },
+  {
+   "id": "open-canon",
+   "question": "Unresolved canon decisions affecting this room?",
+   "answer": "NO",
+   "evidence": [],
+   "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
+  }
+ ],
+ "subjectsFound": 6,
+ "subjectsDeclaredByDocument": null,
+ "unresolvedCitations": [],
+ "dimensions": [
+  {
+   "id": "writing",
+   "question": "Writing",
+   "answer": "YES",
+   "evidence": [
+    "docs/105-the-six-interiors.md::ROOM 41 — THE SCHOOLHOUSE",
+    "docs/105-the-six-interiors.md::ROOM 41 · THE SCHOOLHOUSE"
+   ],
+   "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
+  },
+  {
+   "id": "puzzle-behaviour",
+   "question": "Puzzle behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/07-ambient-layer.md::PART THREE — ANCILLARY INTERIORS"
+   ],
+   "why": "the puzzles sited here, the items they need and issue, and the flags they set"
+  },
+  {
+   "id": "act-behaviour",
+   "question": "Act/state behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
+   ],
+   "why": "none, by doctrine: Doc 105 writes every line true whenever it is read: the rooms are open in every act, and no line assumes a day, a meeting or a puzzle (doc 105's rules)."
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/105-the-six-interiors.md::ROOM 41 — THE SCHOOLHOUSE"
+   ],
+   "why": "no character is present to behave"
+  },
+  {
+   "id": "staging-behaviour",
+   "question": "Staging behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/105-the-six-interiors.md::ROOM 41 · THE SCHOOLHOUSE"
+   ],
+   "why": "not required: No doc 48 script is sited here."
+  },
+  {
+   "id": "visual-subjects",
+   "question": "Visual subject requirements",
+   "answer": "YES",
+   "evidence": [
+    "A renders/room-01-in-engine-1920x1080.png",
+    "B art/backgrounds/room-01-stage-road.png",
+    "C art/actors/thad-stand-front/stand-00.png",
+    "D art/backgrounds/room-21-watchmans-shack.png",
+    "E reference/casting/room-01-casting-master.png"
+   ],
+   "why": "every baseline slot is satisfied: A, B, C, D, E"
+  },
+  {
+   "id": "geometry",
+   "question": "Geometry/placement",
+   "answer": "YES",
+   "evidence": [
+    "reference/room-41/annotation.json",
+    "content/rooms/schoolhouse.json",
+    "art/backgrounds/room-41-schoolhouse.png"
+   ],
+   "why": "annotation, room file and plate are all present at the canonical size"
+  }
+ ],
+ "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
+ "buildableWithoutInvention": "YES",
+ "blocking": [],
+ "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
+ "geometry": [
+  {
+   "id": "annotation",
+   "question": "Room annotation exists?",
+   "answer": "YES",
+   "evidence": [
+    "reference/room-41/annotation.json"
+   ],
+   "why": "authored geometry is on disk"
+  },
+  {
+   "id": "compiled",
+   "question": "Room JSON in the manifest?",
+   "answer": "YES",
+   "evidence": [
+    "content/rooms/schoolhouse.json"
+   ],
+   "why": "content/rooms/schoolhouse.json is loaded by the engine"
+  },
+  {
+   "id": "plate",
+   "question": "Shipping plate at the canonical size?",
+   "answer": "YES",
+   "evidence": [
+    "art/backgrounds/room-41-schoolhouse.png"
+   ],
+   "why": "art/backgrounds/room-41-schoolhouse.png is 1920x864, PNG colour type 2"
+  }
+ ],
+ "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
+ "geometryReady": "YES",
+ "at": "2026-11-08T20:54:35.562Z"
+}

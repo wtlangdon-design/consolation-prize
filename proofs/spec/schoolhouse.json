@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "schoolhouse",
+ "note": "ROOM 41's PROOF SPEC (errata 183). The route is Main Street's, then the MAP button and the schoolhouse's marker. The room has one visual state.",
+ "route": "schoolhouse",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "the schoolhouse draws the same in every state: doc 105 writes every line true whenever it is read, nobody is in it, and no puzzle is sited here (doc 07 Part Three)."
+ }
+}

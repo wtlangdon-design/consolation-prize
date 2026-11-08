@@ -1,0 +1,86 @@
+{
+  "room": 40,
+  "name": "THE EMPTY STOREFRONT",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/105-the-six-interiors.md::ROOM 40 — THE EMPTY STOREFRONT",
+    "docs/105-the-six-interiors.md::ROOM 40 · THE EMPTY STOREFRONT",
+    "docs/105-the-six-interiors.md::ROOM 40 · THE EMPTY STOREFRONT"
+  ],
+  "subjects": [
+    {
+      "name": "THE SIGN",
+      "LOOK_AT": [
+        "HARDWARE & SUNDRIES. The paint is good. It was done by a professional, recently, at expense.",
+        "It's leaning on the wall instead of hanging over the door. They had it painted and then never put it up.",
+        "The letters are gold-edged. Somebody spent money on the sign before they spent it on anything else. That's a kind of hope."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. A sign with nothing to say about the shop it's for.",
+        "The sign shifting a little against the wall when I walk past, then deciding against it."
+      ],
+      "overrides": {
+        "PICK_UP": "It's somebody's. They paid for it. They'll want it, when they come back, which they won't."
+      }
+    },
+    {
+      "name": "THE SWEPT FLOOR",
+      "LOOK_AT": [
+        "Somebody swept up before they left. On the last day, they swept.",
+        "There's a pile of sweepings in the corner, neatly gathered, and nobody came back for the pan.",
+        "Swept to the corners, swept under the counter. It's the cleanest floor in town, and nobody walks on it."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "My own boots on it, louder than they ought to be.",
+        "Nothing. Even the dust has left."
+      ]
+    },
+    {
+      "name": "THE COUNTER",
+      "LOOK_AT": [
+        "A counter with nothing on it but a square of cleaner wood, where a cash box sat until the end.",
+        "There's a notch cut in the edge, for measuring rope by the yard. Someone measured a lot of rope here.",
+        "A ledger shelf underneath. Empty. They took the books. Nobody leaves the books."
+      ],
+      "LISTEN_TO": [
+        "Nothing. I rapped on it, the way you would, and nobody came.",
+        "Hollow, when I knock. A good counter rings like that.",
+        "Nothing. It's waiting for a customer, like every counter in this territory."
+      ],
+      "overrides": {
+        "PUSH": "It's built in. Everything in the shop that could leave has left."
+      }
+    },
+    {
+      "name": "THE WINDOW",
+      "LOOK_AT": [
+        "A shop window with the price tickets still stuck to the inside of the glass. The goods have gone. The prices stayed, out of loyalty.",
+        "NAILS 5¢ LB. LAMP OIL 30¢. The last prices in this shop, kept clear in the window, like a memorial.",
+        "The glass is clean. They cleaned the window on the way out, so nobody would think badly of them."
+      ],
+      "LISTEN_TO": [
+        "The street outside, going past. It has stopped looking in.",
+        "A wagon going by, and not slowing.",
+        "The glass humming faintly in the wind. It holds a note. The note is flat."
+      ]
+    },
+    {
+      "name": "THE BACK ROOM",
+      "LOOK_AT": [
+        "The back room: empty shelves, and one crate, labelled NAILS, that is empty too. They took the nails.",
+        "Marks on the floor where heavy things stood for a long time and then didn't.",
+        "A calendar on a nail, turned to a month two years ago. That's when they stopped turning it."
+      ],
+      "LISTEN_TO": [
+        "Nothing. A back room with nothing in it is the quietest place a man can stand.",
+        "Nothing. Nothing at all, which is a great deal of nothing for one room.",
+        "A mouse, somewhere, also deciding there's nothing here."
+      ],
+      "overrides": {
+        "OPEN": "It's open. There's nothing in it to keep in."
+      }
+    }
+  ]
+}

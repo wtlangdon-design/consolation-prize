@@ -1,0 +1,8 @@
+Image 1 is a finished background from my pixel-art adventure game, a barber-surgeon's shop at night, placed in the middle of the canvas, with two people in it: the grey-haired barber in the apron standing left of the chair, and the man in the blue coat standing right of the bucket. The flat grey strips down the LEFT and RIGHT sides are unfinished.
+
+Make exactly three changes:
+1. Remove both men. Paint what is behind them: the plank wall, the floorboards, the lamplight on the floor.
+2. Extend the room into the two grey side strips, so it fills the whole width: on the left, more of the same dark plank wall beyond the door and the same floorboards; on the right, more of the same plank wall and floorboards beyond the instrument stand. Nothing new on the walls. The new parts match the room exactly: same pixel-art style and pixel grid, same colours, same perspective, the light falling off into darkness away from the lamp.
+3. Make the jar on the shelf cloudy, frosted glass, so nothing inside it can be seen.
+
+Change nothing else in the middle: the door, the blank price board, the strop on its hook, the cracked mirror, the hanging lamp, the barber's chair with its straps and lever, the bucket, the shelf, and the tray of instruments on its stand stay exactly as they are. The grey above and below the picture may stay grey. No people, no text, no border.

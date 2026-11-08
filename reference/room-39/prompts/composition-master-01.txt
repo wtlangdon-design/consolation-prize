@@ -1,0 +1,17 @@
+Image 1 is the layout for one place in my pixel-art adventure game: grey blocks for the room and the things in it, the hero (the man in the long coat) standing on the floor, and a small grey shape standing at the right. Paint this place as a finished game background with the hero and a boy in it, keeping the camera, the layout and every block where image 1 puts it. Paint ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched.
+
+THE PLACE: a small hot bakehouse in a frontier gold-mining town, 1850s, at NIGHT, working. Brick and plank walls, rafters above, a plank floor dusted white with flour. Lit warmly by a big brick oven, its fire burning; the corners darker. Same night as image 2, another working room in the same game.
+- At the far left: a plain plank door, shut.
+- Beside it: flour sacks stacked right up to the rafters, stamped with marks, flour dusted over everything near them.
+- Centre-left: a big brick bake oven built into the wall, its arched mouth open and glowing orange, the bricks round the mouth scorched black and those round them scorched brown; a long wooden bread paddle hanging beside it, worn pale at the handle.
+- Beside the oven: wooden racks of cooling loaves.
+- Centre-right: one long wooden table, floured and scraped, with dough laid out on it in neat even rows.
+- At the far right: the back door propped open with a brick, onto a dark yard where a small cart stands; warm light spilling out onto the yard.
+
+THE PEOPLE:
+- The hero from image 3, standing where image 1 puts him, at exactly that size.
+- Where the small grey shape stands, at the far end of the table: a boy of about twelve, flour to the elbows and in his hair, in shirtsleeves and a long apron, carrying a wide wooden tray of loaves twice his width, looking down at it. Drawn exactly as coarsely as the hero.
+
+THE LOOK: the same pixel-art style as images 2 and 4, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero, flat, soft shading, very little texture, simple shapes. Hot orange oven light on the bricks and the floor, cool night in the yard. The floor where the hero stands is readable, not black.
+
+RULES: no readable text, letters or numbers anywhere -- the sacks and the cart carry marks only. Nothing else in the room: no other people. No border, no frame around the picture, no caption.

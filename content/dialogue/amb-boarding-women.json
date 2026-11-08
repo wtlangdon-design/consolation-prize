@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "id": "amb_boarding_women",
+  "speaker": "boarding_a",
+  "note": "EXTRACTED from docs/07-ambient-layer.md (## 14 & 15 · THE BOARDING HOUSE WOMEN) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one's pool, rotated in play (errata 110, 167).",
+  "start": "root",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "noPrompt": true,
+      "exceptionReason": "Doc 07 writes the micro-tree as options only; the greeting is the bark.",
+      "options": [
+        {
+          "id": "boarding1",
+          "text": "How's business?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "boarding_a",
+              "line": "Steady."
+            },
+            {
+              "speaker": "boarding_b",
+              "line": "It's men. Men are steady."
+            }
+          ]
+        },
+        {
+          "id": "boarding2",
+          "text": "Have you ever prospected?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "boarding_a",
+              "line": "She laughs for some time.",
+              "direction": true
+            },
+            {
+              "speaker": "boarding_b",
+              "line": "We've prospected the prospectors, dear."
+            }
+          ]
+        },
+        {
+          "id": "boarding3",
+          "text": "Do you think there's gold here?",
+          "tag": "COMIC",
+          "exchange": [
+            {
+              "speaker": "boarding_b",
+              "line": "There's forty men upstairs at six dollars the week. That's the gold, dear."
+            }
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "exchange": [
+                {
+                  "speaker": "boarding_b",
+                  "line": "Same forty, dear. It never runs out, so long as you change the sheets."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "boardingx",
+          "tag": "EXIT",
+          "text": "I've taken enough of your time. I'll be taking more later.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

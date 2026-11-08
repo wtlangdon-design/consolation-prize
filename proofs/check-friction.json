@@ -373,6 +373,18 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 189: entering Boot Hill on the funeral day now also clears T_FUNERAL_STREET_SAID, so Main Street's funeral-day line (doc 57 C3) is owed again on another funeral day. The test held saySet as exactly one write; it now asserts both writes by name, which is no weaker."
+  },
+  {
+   "check": "tools/check-room-readiness.mjs",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 183's brief: doc 49 writes no section for the six interiors, and doc 105's Overrides stand in for their wrong-verb layer. Doc 105 quotes its refusals (`> **X** · VERB —`), as docs 25, 26 and 54 do, and the wrong-verb count read only doc 49's bare form, so it counted 0 for a room with four. The count now accepts the quoted form too; a room with no authored refusal still answers NO."
+  },
+  {
+   "check": "tools/check-room-lines-sourced.mjs",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 183, Room 42: doc 105 writes the jar's second LOOK as two quotes with a beat between them, and the extractor now speaks them as one line (the punchline was being dropped). The check looked for that joined line in the docs as one run of text and could not find it, so it also reads the docs with each *(beat)* between two quotes taken out. A line still has to appear in the docs word for word, in order; nothing it guards is weakened. tests/room-42.test.ts holds the joined line."
   }
  ]
 }

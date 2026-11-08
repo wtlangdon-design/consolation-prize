@@ -1,0 +1,13 @@
+{
+ "assetId": "room-40",
+ "subject": "room-40-lane-door",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-44-the-lane",
+ "promptFile": "reference/room-40/prompts/lane-door-01.txt",
+ "out": "art/staging/room-40/lane-door/source.png",
+ "size": "1536x1024",
+ "images": ["art/staging/room-40/lane-door/input.png"],
+ "mask": "art/staging/room-40/lane-door/mask.png",
+ "derivedFrom": "art/backgrounds/room-44-the-lane.png"
+}

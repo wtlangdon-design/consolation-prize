@@ -151,7 +151,7 @@
   },
   {
    "id": "loc_boarding_house",
-   "room": "boarding_house",
+   "room": "boarding_house_parlour",
    "at": [
     339,
     590
@@ -159,8 +159,6 @@
    "when": {
     "T_SEEN_MAIN_STREET": true
    },
-   "label": "THE BOARDING HOUSE",
-   "unbuilt": true,
    "node": "board"
   },
   {
@@ -173,8 +171,6 @@
    "when": {
     "T_SEEN_MAIN_STREET": true
    },
-   "label": "THE BAKEHOUSE",
-   "unbuilt": true,
    "node": "bake"
   },
   {
@@ -187,8 +183,6 @@
    "when": {
     "T_SEEN_MAIN_STREET": true
    },
-   "label": "THE SCHOOLHOUSE",
-   "unbuilt": true,
    "node": "school"
   }
  ],

@@ -318,6 +318,7 @@ is the whole of his character.
 > "What do you do here?" → "Shave, extraction, amputation. Two bits, four bits, a dollar."
 > "Do you use the same instruments?" → "I *clean* them."
 > `[COMIC]` "I'd like a shave." → "Sit down. Don't look at the tray."
+>   *Asked again:* "You keep asking and not sitting. In my trade, that's how a shave turns into a tooth."
 
 **Barks**
 | State | Line |
@@ -341,6 +342,7 @@ is the whole of his character.
 > "Who is the man in the window?" → "Nobody. It's a portrait. Comes in the box, four dozen to the box."
 > "That's Obadiah Mott." → "It's a *portrait*, sir. It's a man in Ohio in a good collar."
 > `[COMIC]` "May I buy it?" → "Twenty-five cents. I've thirty-one more."
+>   *Asked again:* "Twenty-five cents, still. Another ten and I'll frame him, and then he's an ancestor."
 
 **Barks**
 | State | Line |
@@ -448,6 +450,7 @@ is the whole of his character.
 > "How's business?" → **A:** "Steady." **B:** "It's men. Men are steady."
 > "Have you ever prospected?" → **A:** *(She laughs for some time.)* **B:** "We've prospected the prospectors, dear."
 > `[COMIC]` "Do you think there's gold here?" → **B:** "There's forty men upstairs at six dollars the week. That's the gold, dear."
+>   *Asked again:* **B:** "Same forty, dear. It never runs out, so long as you change the sheets."
 
 **Barks**
 | State | Line |

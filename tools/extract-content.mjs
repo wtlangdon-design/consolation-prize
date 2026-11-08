@@ -5304,6 +5304,10 @@ function townTrees() {
       if (continuation) {
         const option = options.at(-1);
         if (!option) throw new Error(`doc 07 ${heading}: a continuation with no option above it`);
+        // AN ASKED-AGAIN IN A NAMED VOICE (errata 183): the boarding-house women's is B's, as her first answer was,
+        // so it is an exchange in the pair's voices, the engine's authored `repeats` form, not the one-voice `repeat`.
+        const voiced = /^\*Asked again:\*\s*(\*\*[AB]:\*\*.+)$/.exec(text);
+        if (voiced) { option.repeats = [{ selection: 2, exchange: spoken(voiced[1], speakers, spec.speaker) }]; continue; }
         const again = /^\*Asked again:\*\s*"([^"]+)"/.exec(text);
         if (again) { option.repeat = plain(again[1]); continue; }
         const thad = /^\*Thad:\*\s*"([^"]+)"/.exec(text);

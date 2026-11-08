@@ -134,7 +134,7 @@
       "rect": [
         555,
         340,
-        250,
+        145,
         195
       ],
       "defaultVerb": "LOOK_AT",
@@ -162,7 +162,7 @@
         "TALK_TO": "I asked the gentleman in the portrait for directions. He kept his counsel, and his collar."
       },
       "walkTo": {
-        "x": 680,
+        "x": 628,
         "y": 811,
         "facing": "back"
       }
@@ -171,9 +171,9 @@
       "id": "empty_storefront",
       "name": "THE EMPTY STOREFRONT",
       "rect": [
-        1520,
+        1500,
         270,
-        240,
+        140,
         430
       ],
       "defaultVerb": "LOOK_AT",
@@ -204,7 +204,7 @@
         "OPEN": "Boarded with long nails, by somebody who meant it."
       },
       "walkTo": {
-        "x": 1640,
+        "x": 1570,
         "y": 811,
         "facing": "back"
       }
@@ -443,6 +443,72 @@
         "y": 790,
         "facing": "right"
       }
+    },
+    {
+      "id": "to_barbers",
+      "name": "THE BARBER'S DOOR",
+      "rect": [
+        1230,
+        345,
+        90,
+        355
+      ],
+      "colour": 0,
+      "to": "barbers",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 183: the barber's (Room 42) opens off the Lane, through the door beside the pole. No new lines (reference/ancillary-interiors/brief.md): the pole keeps doc 97's.",
+      "stub": true,
+      "walkTo": {
+        "x": 1272,
+        "y": 728,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "to_photographers_studio",
+      "name": "THE PHOTOGRAPHER'S DOOR",
+      "rect": [
+        700,
+        340,
+        112,
+        300
+      ],
+      "colour": 0,
+      "to": "photographers_studio",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 183: the photographer's studio (Room 38) opens off the Lane, through the door beside his window (drawn by room-38 operation 4). No new lines (reference/ancillary-interiors/brief.md): the window keeps doc 97's.",
+      "stub": true,
+      "walkTo": {
+        "x": 756,
+        "y": 728,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "to_empty_storefront",
+      "name": "THE STOREFRONT DOOR",
+      "rect": [
+        1640,
+        345,
+        105,
+        290
+      ],
+      "colour": 0,
+      "to": "empty_storefront",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 183 (Tyler, 2026-11-08: \"Door beside the window\"): the empty storefront (Room 40) opens off the Lane through a door drawn beside its boarded window (room-40 operation 3). The window stays boarded, so doc 97's lines about it stay true. No new lines: the storefront keeps doc 97's.",
+      "stub": true,
+      "walkTo": {
+        "x": 1692,
+        "y": 728,
+        "facing": "back"
+      }
     }
   ],
   "entrances": [
@@ -490,6 +556,33 @@
       ],
       "facing": "left",
       "note": "In through the passage from Lower Street, at right."
+    },
+    {
+      "from": "barbers",
+      "at": [
+        1272,
+        745
+      ],
+      "facing": "front",
+      "note": "Out of the barber's door, beside the pole."
+    },
+    {
+      "from": "photographers_studio",
+      "at": [
+        756,
+        745
+      ],
+      "facing": "front",
+      "note": "Out of the photographer's door, beside his window."
+    },
+    {
+      "from": "empty_storefront",
+      "at": [
+        1692,
+        745
+      ],
+      "facing": "front",
+      "note": "Out of the storefront's door, beside its boarded window."
     }
   ],
   "size": [

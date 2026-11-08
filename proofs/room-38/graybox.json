@@ -1,0 +1,237 @@
+{
+ "room": 38,
+ "note": "Ruling 22 steps 1-6 for THE PHOTOGRAPHER'S STUDIO, written by tools/interiors-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 183).",
+ "what": "A portrait studio off the Lane, at night, lit by one lamp and the Lane's lamplight through its window.",
+ "thadAnchors": {
+  "dark": 24.7,
+  "light": 121.9,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 740,
+   "height": 497
+  },
+  "near": {
+   "y": 850,
+   "height": 573
+  },
+  "from": "Room 5's interior numbers, as Room 13's (tools/room13-graybox.py)"
+ },
+ "walkable": [
+  180,
+  740,
+  1600,
+  110
+ ],
+ "exit": {
+  "hotspot": "THE DOOR TO THE LANE",
+  "to": "the_lane",
+  "rect": [
+   30,
+   150,
+   170,
+   540
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 260,
+   "y": 790,
+   "facing": "right"
+  },
+  "talk_photographer": {
+   "x": 1560,
+   "y": 750,
+   "facing": "left"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE DOOR TO THE LANE",
+   "rect": [
+    30,
+    150,
+    170,
+    540
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WINDOW DISPLAY (the window, the easel)",
+   "rect": [
+    230,
+    140,
+    260,
+    470
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PAINTED BACKDROP",
+   "rect": [
+    530,
+    80,
+    420,
+    610
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SITTING CHAIR (and its table)",
+   "rect": [
+    610,
+    430,
+    240,
+    260
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE HEADREST CLAMP",
+   "rect": [
+    870,
+    290,
+    50,
+    400
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CAMERA (on its tripod)",
+   "rect": [
+    1010,
+    330,
+    210,
+    360
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PHOTOGRAPHER (behind the camera)",
+   "rect": [
+    1250,
+    240,
+    140,
+    500
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CHEMICALS (on a shelf)",
+   "rect": [
+    1450,
+    140,
+    270,
+    140
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STOCK PORTRAIT BOX (on a table)",
+   "rect": [
+    1450,
+    430,
+    270,
+    260
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PRICE CARD",
+   "rect": [
+    1760,
+    220,
+    80,
+    110
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the chair, the camera on its tripod, the table and the photographer are all behind it, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "walls, papered plank",
+   "p10": 50.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 25.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "floor, boards",
+   "p10": 86.0,
+   "p90": 95.0,
+   "darkAnchorMargin": 61.3,
+   "lightAnchorMargin": 26.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE DOOR TO THE LANE",
+   "p10": 52.0,
+   "p90": 52.0,
+   "darkAnchorMargin": 27.3,
+   "lightAnchorMargin": 69.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WINDOW DISPLAY (the window, the easel)",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 33.3,
+   "lightAnchorMargin": 63.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PAINTED BACKDROP",
+   "p10": 46.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 21.3,
+   "lightAnchorMargin": 25.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE SITTING CHAIR (and its table)",
+   "p10": 54.0,
+   "p90": 54.0,
+   "darkAnchorMargin": 29.3,
+   "lightAnchorMargin": 67.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE HEADREST CLAMP",
+   "p10": 46.0,
+   "p90": 46.0,
+   "darkAnchorMargin": 21.3,
+   "lightAnchorMargin": 75.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE CAMERA (on its tripod)",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 71.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CHEMICALS (on a shelf)",
+   "p10": 96.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 71.3,
+   "lightAnchorMargin": 25.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE STOCK PORTRAIT BOX (on a table)",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 35.3,
+   "lightAnchorMargin": 61.9,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

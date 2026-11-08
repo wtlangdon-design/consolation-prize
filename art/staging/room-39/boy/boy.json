@@ -1,0 +1,45 @@
+{
+ "sheet": "art/actors/room-39-boy.png",
+ "frames": [
+  [
+   2,
+   2,
+   156,
+   346
+  ],
+  [
+   160,
+   2,
+   156,
+   346
+  ],
+  [
+   318,
+   2,
+   156,
+   346
+  ],
+  [
+   476,
+   2,
+   156,
+   346
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "hitch",
+  "brow"
+ ],
+ "figureHeight": 346,
+ "stature": 0.8,
+ "posture": "standing",
+ "man": 433.1,
+ "feet": [
+  1562,
+  657
+ ],
+ "note": "Room 39: the room's man where they stand (soles at y 657) is 433.1; drawn at 0.8 of him, crown to sole. Frame 1 is a breath the cutter derives from frame 0.",
+ "source": "room-39 (art/staging/room-39/boy/sheet-01.png)"
+}

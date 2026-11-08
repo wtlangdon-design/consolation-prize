@@ -1,0 +1,170 @@
+{
+ "room": 39,
+ "note": "Ruling 22 steps 1-6 for THE BAKEHOUSE, written by tools/interiors-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 183).",
+ "what": "A small hot bakehouse at night, lit by its big brick oven, working.",
+ "thadAnchors": {
+  "dark": 24.7,
+  "light": 121.9,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 740,
+   "height": 497
+  },
+  "near": {
+   "y": 850,
+   "height": 573
+  },
+  "from": "Room 5's interior numbers, as Room 13's (tools/room13-graybox.py)"
+ },
+ "walkable": [
+  160,
+  740,
+  1620,
+  110
+ ],
+ "exit": {
+  "hotspot": "THE DOOR OUT",
+  "to": "town_map",
+  "rect": [
+   20,
+   150,
+   160,
+   540
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 240,
+   "y": 790,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE DOOR OUT",
+   "rect": [
+    20,
+    150,
+    160,
+    540
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE FLOUR (sacks to the rafters)",
+   "rect": [
+    200,
+    60,
+    300,
+    630
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE OVEN (and its paddle)",
+   "rect": [
+    540,
+    110,
+    430,
+    580
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "racks",
+   "rect": [
+    1000,
+    170,
+    180,
+    520
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TABLE (dough in rows)",
+   "rect": [
+    1190,
+    470,
+    420,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BOY (at the table's far end, a tray)",
+   "rect": [
+    1620,
+    380,
+    110,
+    330
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BACK DOOR (propped open, the yard)",
+   "rect": [
+    1750,
+    130,
+    160,
+    560
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the oven, the table and the boy at its far end are all behind it, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "walls, brick and plank",
+   "p10": 50.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 25.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "floor, floury boards",
+   "p10": 88.0,
+   "p90": 97.0,
+   "darkAnchorMargin": 63.3,
+   "lightAnchorMargin": 24.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE DOOR OUT",
+   "p10": 52.0,
+   "p90": 52.0,
+   "darkAnchorMargin": 27.3,
+   "lightAnchorMargin": 69.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE FLOUR (sacks to the rafters)",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 79.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "racks",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 35.3,
+   "lightAnchorMargin": 61.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TABLE (dough in rows)",
+   "p10": 98.0,
+   "p90": 98.0,
+   "darkAnchorMargin": 73.3,
+   "lightAnchorMargin": 23.9,
+   "verdict": "pass"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

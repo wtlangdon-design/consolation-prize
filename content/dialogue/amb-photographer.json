@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "amb_photographer",
+  "speaker": "photographer",
+  "note": "EXTRACTED from docs/07-ambient-layer.md (## 10 · THE PHOTOGRAPHER) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one's pool, rotated in play (errata 110, 167).",
+  "start": "root",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "noPrompt": true,
+      "exceptionReason": "Doc 07 writes the micro-tree as options only; the greeting is the bark.",
+      "options": [
+        {
+          "id": "photographer1",
+          "text": "Who is the man in the window?",
+          "tag": "TOPIC",
+          "say": "Nobody. It's a portrait. Comes in the box, four dozen to the box."
+        },
+        {
+          "id": "photographer2",
+          "text": "That's Obadiah Mott.",
+          "tag": "TOPIC",
+          "say": "It's a portrait, sir. It's a man in Ohio in a good collar."
+        },
+        {
+          "id": "photographer3",
+          "text": "May I buy it?",
+          "tag": "COMIC",
+          "repeat": "Twenty-five cents, still. Another ten and I'll frame him, and then he's an ancestor.",
+          "say": "Twenty-five cents. I've thirty-one more."
+        },
+        {
+          "id": "photographerx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

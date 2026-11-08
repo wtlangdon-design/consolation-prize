@@ -733,7 +733,13 @@
    "listening_chamber": "dirt",
    "ozymandias_tent": "dirt",
    "lower_street": "mud",
-   "the_lane": "mud"
+   "the_lane": "mud",
+   "barbers": "plank",
+   "photographers_studio": "plank",
+   "boarding_house_parlour": "plank",
+   "bakehouse": "plank",
+   "empty_storefront": "plank",
+   "schoolhouse": "plank"
   }
  },
  "ambience": {

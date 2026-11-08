@@ -1,0 +1,2154 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "barbers",
+ "commit": "4958282c14eb601b00dd1b3a11a558a98a6701f0",
+ "workingTreeClean": true,
+ "dirtyAllowed": true,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "barbers",
+ "warped": false,
+ "lifeRoute": "barbers-life",
+ "durationSeconds": 279.47,
+ "events": [
+  {
+   "t": 3.71,
+   "line": "entry route barbers: 38 action(s)"
+  },
+  {
+   "t": 198.92,
+   "line": "the title: clicked NEW GAME"
+  },
+  {
+   "t": 198.92,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 198.92,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 198.92,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 198.92,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 198.92,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 198.92,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 198.92,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 198.92,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 198.92,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 198.92,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 198.92,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 198.92,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 198.92,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 198.92,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 198.92,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 198.92,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 198.92,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 198.92,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 198.92,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 198.92,
+   "line": "action 20 (wait): waited 7s"
+  },
+  {
+   "t": 198.92,
+   "line": "action 21 (click): clicked world 1900,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 198.92,
+   "line": "action 22 (wait): waited 1s"
+  },
+  {
+   "t": 198.92,
+   "line": "action 23 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 198.92,
+   "line": "action 24 (click): clicked world 1300,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 198.92,
+   "line": "action 25 (wait): waited 1s"
+  },
+  {
+   "t": 198.92,
+   "line": "action 26 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 198.92,
+   "line": "action 27 (click): clicked world 700,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 198.92,
+   "line": "action 28 (wait): waited 1s"
+  },
+  {
+   "t": 198.92,
+   "line": "action 29 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 198.92,
+   "line": "action 30 (click): clicked world 150,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 198.92,
+   "line": "action 31 (wait): waited 1s"
+  },
+  {
+   "t": 198.92,
+   "line": "action 32 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 198.92,
+   "line": "action 33 (click): clicked main_street/to_back_alley at world 29,510 -- THE LANE, at Main Street's west end (errata 161)"
+  },
+  {
+   "t": 198.92,
+   "line": "action 34 (waitFor): reached {\"room\":\"the_lane\"} in room the_lane"
+  },
+  {
+   "t": 198.92,
+   "line": "action 35 (wait): waited 3s"
+  },
+  {
+   "t": 198.92,
+   "line": "action 36 (click): clicked the_lane/to_barbers at world 1275,523 -- THE BARBER'S DOOR, beside the pole"
+  },
+  {
+   "t": 198.92,
+   "line": "action 37 (waitFor): reached {\"room\":\"barbers\"} in room barbers"
+  },
+  {
+   "t": 198.92,
+   "line": "action 38 (wait): waited 3s"
+  },
+  {
+   "t": 198.95,
+   "line": "in barbers; life route: 37 action(s)"
+  },
+  {
+   "t": 199.47,
+   "line": "capture 01-arrived: room barbers, says null, options 0, control null"
+  },
+  {
+   "t": 200.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 201.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 202.48,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 203.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 204.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 205.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 206.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 207.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 207.5,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 208.04,
+   "line": "capture 02-barber-at-work: room barbers, says null, options 0, control null"
+  },
+  {
+   "t": 209.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 210.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 211.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 212.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 213.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 214.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 215.09,
+   "line": "action 1 (wait): waited 7s"
+  },
+  {
+   "t": 215.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 215.63,
+   "line": "capture 03-barber-later: room barbers, says null, options 0, control null"
+  },
+  {
+   "t": 215.8,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 216.03,
+   "line": "action 1 (click): clicked world 690,500 -- the barber, left of his chair"
+  },
+  {
+   "t": 216.59,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room barbers"
+  },
+  {
+   "t": 217.11,
+   "line": "capture 04-root: room barbers, says null, options 4, control null"
+  },
+  {
+   "t": 217.46,
+   "line": "action 1 (option): chose option barber3 -- the comic option"
+  },
+  {
+   "t": 218.49,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     470,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 219.5,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     470,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 220,
+   "line": "action 1 (waitFor): reached {\"says\":\"barber\"} in room barbers"
+  },
+  {
+   "t": 220.54,
+   "line": "capture 05-barber-speaks: room barbers, says \"barber\", options 4, control null"
+  },
+  {
+   "t": 221.59,
+   "trace": {
+    "says": "barber",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     470,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 222.58,
+   "trace": {
+    "says": "barber",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     470,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 222.72,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room barbers"
+  },
+  {
+   "t": 222.99,
+   "line": "action 1 (option): chose option barber1 -- what he does here"
+  },
+  {
+   "t": 224.01,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     470,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 225.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     470,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 226.04,
+   "trace": {
+    "says": "barber",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     470,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 227.03,
+   "trace": {
+    "says": "barber",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     470,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 228.02,
+   "trace": {
+    "says": "barber",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     470,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 229.03,
+   "trace": {
+    "says": "barber",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     470,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 229.87,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room barbers"
+  },
+  {
+   "t": 230.16,
+   "line": "action 1 (option): chose option barberx -- leave the conversation"
+  },
+  {
+   "t": 231.2,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     470,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 232.17,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     470,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 233.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     470,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 234.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     470,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 234.22,
+   "line": "action 1 (wait): waited 4s"
+  },
+  {
+   "t": 234.35,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 234.63,
+   "line": "action 1 (click): clicked barbers/price_board at world 550,168 -- LOOK at the price board"
+  },
+  {
+   "t": 235.19,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room barbers"
+  },
+  {
+   "t": 235.74,
+   "line": "capture 06-look-price-board: room barbers, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 236.76,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     420,
+     750
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 237.75,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     420,
+     750
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 238.78,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     420,
+     750
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 239.77,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     420,
+     750
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 240.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     420,
+     750
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 241.81,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     420,
+     750
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 242.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     420,
+     750
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 243.79,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 243.8,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     420,
+     750
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 243.94,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 244.19,
+   "line": "action 1 (click): clicked barbers/strop at world 825,265 -- LISTEN to the strop"
+  },
+  {
+   "t": 245.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     819,
+     773
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 245.87,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room barbers"
+  },
+  {
+   "t": 246.39,
+   "line": "capture 07-listen-strop: room barbers, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 247.44,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     905,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 248.45,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     905,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 249.42,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     905,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 250.41,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     905,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 251.48,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     905,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 252.44,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     905,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 253.44,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     905,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 254.44,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     905,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 254.44,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 254.55,
+   "line": "action 1 (verb): chose verb OPEN -- "
+  },
+  {
+   "t": 254.83,
+   "line": "action 1 (click): clicked barbers/jar at world 1595,208 -- doc 105's OPEN on the jar"
+  },
+  {
+   "t": 255.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1328,
+     810
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 256.87,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     853
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 256.99,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room barbers"
+  },
+  {
+   "t": 257.51,
+   "line": "capture 08-open-jar: room barbers, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 258.54,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     853
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 259.57,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     853
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 260.53,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     853
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 261.55,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     853
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 262.52,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     853
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 263.55,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     853
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 264.52,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     853
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 265.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     853
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 265.56,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 265.71,
+   "line": "action 1 (verb): chose verb USE -- "
+  },
+  {
+   "t": 266.08,
+   "line": "action 1 (click): clicked barbers/chair at world 1053,523 -- doc 105's USE on the chair"
+  },
+  {
+   "t": 267.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1138,
+     855
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 267.67,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room barbers"
+  },
+  {
+   "t": 268.27,
+   "line": "capture 09-use-chair: room barbers, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 269.32,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1053,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 270.28,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1053,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 271.29,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1053,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 272.3,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1053,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 273.28,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1053,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 274.28,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1053,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 275.32,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1053,
+     855
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 276.32,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 276.32,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1053,
+     855
+    ],
+    "moving": false
+   }
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "in from the Lane",
+   "t": 199.46,
+   "file": "renders/proofs/barbers/life/raw-captures-ignored/01-arrived.png",
+   "hash": "473b2009a1403e52d1c9e6d2e1f3355f661d61e75b50e0aae1fed8da5b8eb791",
+   "room": "barbers",
+   "clock": 199.12560000000002,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 531,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      19,
+      259,
+      562,
+      586
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:barbers",
+     "path": "art/backgrounds/room-42-barbers.png",
+     "drawn": "art/backgrounds/room-42-barbers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "51178085cc75dc38e036bcdf4933034a84df83abeabd410ce98470abfa9bda49"
+    },
+    {
+     "key": "art/actors/room-42-barber.png",
+     "path": "art/actors/room-42-barber.png",
+     "drawn": "art/actors/room-42-barber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fe194669e315208bea254a178fca97534fb912ef7e0321e3a550097ff5ad1fa0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-barber-at-work",
+   "why": null,
+   "t": 208.04,
+   "file": "renders/proofs/barbers/life/raw-captures-ignored/02-barber-at-work.png",
+   "hash": "b2a32fba1fd2e3a518f84cc7eb76d962869da8670736c80edae2b99349aec010",
+   "room": "barbers",
+   "clock": 207.692,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 531,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-00.png",
+     "bounds": [
+      19,
+      259,
+      562,
+      586
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:barbers",
+     "path": "art/backgrounds/room-42-barbers.png",
+     "drawn": "art/backgrounds/room-42-barbers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "51178085cc75dc38e036bcdf4933034a84df83abeabd410ce98470abfa9bda49"
+    },
+    {
+     "key": "art/actors/room-42-barber.png",
+     "path": "art/actors/room-42-barber.png",
+     "drawn": "art/actors/room-42-barber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fe194669e315208bea254a178fca97534fb912ef7e0321e3a550097ff5ad1fa0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-barber-later",
+   "why": null,
+   "t": 215.63,
+   "file": "renders/proofs/barbers/life/raw-captures-ignored/03-barber-later.png",
+   "hash": "c43943d3b3d73812891a9ebebaacf9f0d4ed4da61b88d1b4ab4d463bd4d5c481",
+   "room": "barbers",
+   "clock": 215.2749,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 531,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-00.png",
+     "bounds": [
+      19,
+      259,
+      562,
+      586
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:barbers",
+     "path": "art/backgrounds/room-42-barbers.png",
+     "drawn": "art/backgrounds/room-42-barbers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "51178085cc75dc38e036bcdf4933034a84df83abeabd410ce98470abfa9bda49"
+    },
+    {
+     "key": "art/actors/room-42-barber.png",
+     "path": "art/actors/room-42-barber.png",
+     "drawn": "art/actors/room-42-barber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fe194669e315208bea254a178fca97534fb912ef7e0321e3a550097ff5ad1fa0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-root",
+   "why": "the root list, and Thad at his stand beside him",
+   "t": 217.11,
+   "file": "renders/proofs/barbers/life/raw-captures-ignored/04-root.png",
+   "hash": "136137cb7f51326e71b50123efd6f78ed8dacbaeab6b6e65324759c946520e0c",
+   "room": "barbers",
+   "clock": 216.7915,
+   "control": null,
+   "says": null,
+   "options": 4,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      470,
+      745
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 500,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      205,
+      245,
+      530,
+      552
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:barbers",
+     "path": "art/backgrounds/room-42-barbers.png",
+     "drawn": "art/backgrounds/room-42-barbers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "51178085cc75dc38e036bcdf4933034a84df83abeabd410ce98470abfa9bda49"
+    },
+    {
+     "key": "art/actors/room-42-barber.png",
+     "path": "art/actors/room-42-barber.png",
+     "drawn": "art/actors/room-42-barber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fe194669e315208bea254a178fca97534fb912ef7e0321e3a550097ff5ad1fa0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-barber-speaks",
+   "why": "his line over his head",
+   "t": 220.53,
+   "file": "renders/proofs/barbers/life/raw-captures-ignored/05-barber-speaks.png",
+   "hash": "310a7b60e4842849cc93fab4e8d0046ecfe1e6394d8e6390d0e63295ed3e3937",
+   "room": "barbers",
+   "clock": 220.1915,
+   "control": null,
+   "says": "barber",
+   "options": 4,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      470,
+      745
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 500,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-00.png",
+     "bounds": [
+      205,
+      245,
+      530,
+      552
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:barbers",
+     "path": "art/backgrounds/room-42-barbers.png",
+     "drawn": "art/backgrounds/room-42-barbers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "51178085cc75dc38e036bcdf4933034a84df83abeabd410ce98470abfa9bda49"
+    },
+    {
+     "key": "art/actors/room-42-barber.png",
+     "path": "art/actors/room-42-barber.png",
+     "drawn": "art/actors/room-42-barber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fe194669e315208bea254a178fca97534fb912ef7e0321e3a550097ff5ad1fa0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-look-price-board",
+   "why": "where the words land (doc 55 section 8), and the board's lettering",
+   "t": 235.74,
+   "file": "renders/proofs/barbers/life/raw-captures-ignored/06-look-price-board.png",
+   "hash": "63b8bf5ade805f3f14992c8cba3f0631b3e501a4a3c74725348eb5239d28bf24",
+   "room": "barbers",
+   "clock": 235.5075,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      420,
+      750
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 504,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      138,
+      246,
+      564,
+      556
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:barbers",
+     "path": "art/backgrounds/room-42-barbers.png",
+     "drawn": "art/backgrounds/room-42-barbers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "51178085cc75dc38e036bcdf4933034a84df83abeabd410ce98470abfa9bda49"
+    },
+    {
+     "key": "art/actors/room-42-barber.png",
+     "path": "art/actors/room-42-barber.png",
+     "drawn": "art/actors/room-42-barber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fe194669e315208bea254a178fca97534fb912ef7e0321e3a550097ff5ad1fa0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-listen-strop",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 246.39,
+   "file": "renders/proofs/barbers/life/raw-captures-ignored/07-listen-strop.png",
+   "hash": "8225a382bd6fd534c272c08e774d45d61f81e982dbdbadd53277841972f7a50c",
+   "room": "barbers",
+   "clock": 246.02370000000002,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      905,
+      800
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 538,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      604,
+      262,
+      602,
+      594
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:barbers",
+     "path": "art/backgrounds/room-42-barbers.png",
+     "drawn": "art/backgrounds/room-42-barbers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "51178085cc75dc38e036bcdf4933034a84df83abeabd410ce98470abfa9bda49"
+    },
+    {
+     "key": "art/actors/room-42-barber.png",
+     "path": "art/actors/room-42-barber.png",
+     "drawn": "art/actors/room-42-barber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fe194669e315208bea254a178fca97534fb912ef7e0321e3a550097ff5ad1fa0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "08-open-jar",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 257.51,
+   "file": "renders/proofs/barbers/life/raw-captures-ignored/08-open-jar.png",
+   "hash": "597443367d7f4b04c0ff7947945bd277011d95ab3b5afcd33565675aefc298dc",
+   "room": "barbers",
+   "clock": 257.1733,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1595,
+      853
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 575,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      1273,
+      278,
+      644,
+      635
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:barbers",
+     "path": "art/backgrounds/room-42-barbers.png",
+     "drawn": "art/backgrounds/room-42-barbers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "51178085cc75dc38e036bcdf4933034a84df83abeabd410ce98470abfa9bda49"
+    },
+    {
+     "key": "art/actors/room-42-barber.png",
+     "path": "art/actors/room-42-barber.png",
+     "drawn": "art/actors/room-42-barber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fe194669e315208bea254a178fca97534fb912ef7e0321e3a550097ff5ad1fa0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "09-use-chair",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 268.27,
+   "file": "renders/proofs/barbers/life/raw-captures-ignored/09-use-chair.png",
+   "hash": "5fd23f5d74e9d0d05857908e5e63b9d75a774dc6c0ae356a0af0a73d2d480b10",
+   "room": "barbers",
+   "clock": 267.8895,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1053,
+      855
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 576,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      730,
+      279,
+      645,
+      636
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:barbers",
+     "path": "art/backgrounds/room-42-barbers.png",
+     "drawn": "art/backgrounds/room-42-barbers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "51178085cc75dc38e036bcdf4933034a84df83abeabd410ce98470abfa9bda49"
+    },
+    {
+     "key": "art/actors/room-42-barber.png",
+     "path": "art/actors/room-42-barber.png",
+     "drawn": "art/actors/room-42-barber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fe194669e315208bea254a178fca97534fb912ef7e0321e3a550097ff5ad1fa0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 279.47s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-08T20:12:01.767Z"
+}

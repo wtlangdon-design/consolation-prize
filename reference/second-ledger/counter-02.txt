@@ -1,0 +1,5 @@
+Image 1 is a close-up of the assay office's counter at night, from the game: the stone-grey counter top, two brass posts of the teller's grille standing on it, the grille behind. Image 2 shows the small ledger the assayer holds: a small book bound in faded dark-green cloth, worn at the corners, the page edges a dull cream.
+
+Edit image 1 only inside the masked area. Lay THAT SAME small green cloth ledger, CLOSED, flat on the counter top between the two brass posts, seen from the same height and angle as the counter: its cover a slightly foreshortened rectangle, a little wider than it is deep, the cream page edges showing as a thin band along its front, a soft shadow under its front edge on the counter. It is a small book, about a third of the width between the two posts. Same night light as the room, the same low-texture, soft-shaded pixel-art style and pixel size as image 1: flat colour, not sharp, not detailed. Nothing written on it.
+
+Change nothing else: the posts, the grille, the counter's edge and front stay exactly as they are. No people, no hands, no other objects.

@@ -1,0 +1,20 @@
+Image 1 is the layout for one place in my pixel-art adventure game: grey blocks for the room and the things in it, the hero (the man in the long coat) standing on the floor, and a second man as a plain grey shape. Paint this place as a finished game background with both men in it, keeping the camera, the layout and every block where image 1 puts it. Paint ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched.
+
+THE PLACE: a small portrait photographer's studio in a frontier gold-mining town, 1850s, at NIGHT. Papered plank walls, a plank floor. Lit by ONE oil lamp near the camera, and faint lamplight from the muddy lane outside coming in through the front window; the corners darker. Same night as image 2, which is another shop on the same lane in the same game.
+- At the far left: the shop's plain door, shut, back out to the lane.
+- Beside it, in the left wall: the shop's front window, looking out on a dark muddy lane at night. Standing in the window on a small wooden easel, facing OUT to the lane, a framed portrait -- so from in here we see only its plain back: brown card and a wooden frame.
+- Centre-left, on the back wall beside that window: a big painted canvas backdrop of a Greek colonnade, white columns and a pale sky, painted confidently and not very well, hanging from a pole.
+- In front of the backdrop: one carved wooden sitting chair with a cushion, and a small round table beside it with one closed book on it.
+- Beside the chair: a tall iron stand on a heavy foot with an adjustable clamp at the top, for holding a sitter's head still.
+- Centre-right: a big wooden plate camera with a brass lens, on a wooden tripod, pointed at the chair, a black cloth hanging over its back.
+- Right, high on the wall: a shelf of brown glass chemical bottles with paper labels.
+- Right, below it: a small table with an open cardboard box full of identical small portrait cards.
+- Far right, pinned to the wall: one small price card.
+
+THE PEOPLE:
+- The hero from image 3, standing where image 1 puts him, at exactly that size.
+- Where the grey shape stands, behind the camera: the photographer, a neat thin man of about forty in a dark waistcoat and shirtsleeves with sleeve garters, standing upright beside his camera, professionally pleased. Drawn exactly as coarsely as the hero.
+
+THE LOOK: the same pixel-art style as images 2 and 4, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero, flat, soft shading, very little texture, simple shapes. Warm lamplight on the camera, the chair and the floor, cool night in the window. The floor where the hero stands is readable, not black.
+
+RULES: no readable text, letters or numbers anywhere -- the labels and the price card carry marks only. Nothing else in the room: no other people, no customers. No border, no frame around the picture, no caption.
