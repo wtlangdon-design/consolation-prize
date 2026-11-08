@@ -1858,7 +1858,8 @@
       },
       "overrides": {
         "PULL": "It's nailed to a post, in the ground, at the edge of a town. I've been here two minutes and I'm already vandalizing the place.",
-        "TALK_TO": "Good evening. I'm new. Two thousand and one, and climbing."
+        "TALK_TO": "Good evening. I'm new. Two thousand and one, and climbing.",
+        "PUSH": "It leans. It rights itself. The sign has survived worse than me."
       },
       "defaultVerb": "LOOK_AT",
       "state": "lettered",
@@ -1901,7 +1902,8 @@
       },
       "overrides": {
         "USE": "That would be a decision, and I've only just made one.",
-        "PICK_UP": "It's a road. I've got enough to carry."
+        "PICK_UP": "It's a road. I've got enough to carry.",
+        "TALK_TO": "Goodbye, road. Tell the East I said nothing."
       },
       "defaultVerb": "LOOK_AT"
     },
@@ -1936,7 +1938,8 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "I've got plenty on my boots. I'm already carrying a fair amount of this town."
+        "PICK_UP": "I've got plenty on my boots. I'm already carrying a fair amount of this town.",
+        "USE": "I have already used the mud. The mud has already used me. We are even."
       },
       "defaultVerb": "WALK_TO",
       "defaultVerbNote": "RULED, AND IT MATCHES ROOM 2. Clicking the ground should walk. This rect is [0, 660, 1920, 204] -- EXACTLY the walkable band Q4 measured -- so with LOOK_AT as the default there was no bare ground left anywhere in the room and no way to move at all: WALK TO is not one of the nine panel verbs, so a click on the floor examined the mud and the player stood still. Measured before the change: a click at (960, 665) resolved to this hotspot and left the walk target where the actor already was. It was invisible before Q4 only because the old band overhung this rect by 84 rows and those rows were bare ground. The three written LOOK lines are untouched and are reached by selecting Look at first, which is how every other examinable thing in the game already works."

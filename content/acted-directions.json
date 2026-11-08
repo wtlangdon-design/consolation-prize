@@ -739,6 +739,13 @@
     {
       "n": 75,
       "class": "C",
+      "speaker": "fanshawe",
+      "words": "He stops. For the only time in the game, he is completely still.",
+      "where": "dialogue/fanshawe FAN_B1 option 6"
+    },
+    {
+      "n": 76,
+      "class": "C",
       "speaker": "boarding_a",
       "words": "She laughs for some time.",
       "where": "dialogue/amb-boarding-women root option 2"

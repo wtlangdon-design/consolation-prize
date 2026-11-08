@@ -482,6 +482,59 @@
           ]
         },
         {
+          "id": "fanshawe4",
+          "tag": "TOPIC",
+          "text": "How does a man come to be a colonel?",
+          "afterUse": "remove",
+          "say": "Young, Mr. Grubb. I took the rank at twenty-three. I'm thirty this spring, and I intend to stay there.",
+          "add": {
+            "WAR_CONTRADICTIONS": 1
+          }
+        },
+        {
+          "id": "fanshawe5",
+          "tag": "TOPIC",
+          "text": "Which regiment, Colonel?",
+          "afterUse": "remove",
+          "say": "The Eleventh Ohio Mounted. Splendid men. I remember every one of their horses.",
+          "set": {
+            "T_ELEVENTH_OHIO": true
+          }
+        },
+        {
+          "id": "fanshawe6",
+          "tag": "TOPIC",
+          "text": "You were never a colonel.",
+          "afterUse": "remove",
+          "exchange": [
+            {
+              "speaker": "fanshawe",
+              "line": "He stops. For the only time in the game, he is completely still.",
+              "direction": true
+            },
+            {
+              "speaker": "fanshawe",
+              "line": "No. I wasn't."
+            },
+            {
+              "speaker": "thad",
+              "line": "…"
+            },
+            {
+              "speaker": "fanshawe",
+              "line": "Was there something else, Mr. Grubb?"
+            }
+          ],
+          "when": {
+            "ACT": {
+              "atLeast": 3
+            },
+            "WAR_CONTRADICTIONS": {
+              "atLeast": 5
+            }
+          }
+        },
+        {
           "id": "fanshawex",
           "tag": "EXIT",
           "text": "Thank you. This has been clarifying.",
@@ -713,6 +766,16 @@
               "direction": true
             }
           ]
+        },
+        {
+          "id": "fanshawe6",
+          "tag": "TOPIC",
+          "text": "Who did you serve under in the war?",
+          "afterUse": "remove",
+          "say": "Under Commodore Pelham, God rest him. The best horseman the Navy ever had.",
+          "add": {
+            "WAR_CONTRADICTIONS": 1
+          }
         },
         {
           "id": "fanshawex",

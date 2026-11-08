@@ -585,7 +585,6 @@
     {
       "id": "to_company_vault",
       "name": "THE VAULT DOOR",
-      "stub": true,
       "rect": [
         1700,
         250,
@@ -597,7 +596,26 @@
       "when": {
         "T_HOB_IS_MOTT": true
       },
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An iron cabinet painted with a landscape, roses and gilt. It is a vault door dressed for dinner.",
+            "repeat": [
+              "The landscape on it is a valley with a river and not one claim stake in it. The only untouched country in the territory, and he keeps it on a safe.",
+              "It has stood in this office every time I've been in it. I took it for furniture. I think that was the idea."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The iron ticking faintly as the room cools. Something that size is never entirely quiet.",
+            "repeat": [
+              "A cold draft at the edge of it. There's a room behind it, colder than this one.",
+              "Nothing from inside. Money is very quiet when it has been stacked properly."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: 'Room 35, the Company vault, opens off Fanshawe's office (11) and is gated to Act IV.' Doc 05's THE SAFE is 'a safe the size of a small cabin': from Act IV -- the confession, doc 48 S4 beat 3, which writes T_HOB_IS_MOTT and ACT 4 together -- its door is the way into the vault, a small exit inside THE SAFE, whose own lines stay its own. Room 35 writes THE VAULT DOOR; from this side it is a stub (errata 72 F, 99 I).",
@@ -605,7 +623,8 @@
         "x": 1615,
         "y": 852,
         "facing": "back"
-      }
+      },
+      "waysOut": "docs/106-the-ways-out.md, ROOM 11 (errata 189)"
     }
   ],
   "ambient": [

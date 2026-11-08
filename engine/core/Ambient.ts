@@ -92,6 +92,8 @@ export class AmbientLayer {
   /** The `leaves` cues owed: sounded once the figure has gone. */
   private cuesOwed: string[] = [];
   private readonly cued = new Set<string>();
+  /** Who has said a line of his run (AmbientFile.barkRun) this visit: one a visit. */
+  private readonly ranThisVisit = new Set<string>();
   /** When a cue last fired, by id, for the figures that stir on it. */
   private stirredAt = new Map<string, number>();
 
@@ -108,6 +110,7 @@ export class AmbientLayer {
     this.latched = null;
     this.fadings.clear();
     this.cued.clear();
+    this.ranThisVisit.clear();
   }
 
   /**
@@ -306,17 +309,33 @@ export class AmbientLayer {
     const state = this.reputationState;
     for (const npc of this.present) {
       if (only !== undefined && npc.id !== only) continue;
-      const key = `${npc.id}:${state}`;
-      if (this.fired.has(key)) continue;
       if (Math.hypot(npc.x - x, npc.y - y) > npc.approachRadius) continue;
-      const exchange = npc.barkExchange?.[state];
-      const line = exchange?.[0]?.line ?? npc.barks[state];
-      const cue = npc.barkCues?.[state];
-      if (!line && !cue) continue;
-      this.fired.add(key);
-      return { npc, line: line ?? '', ...(exchange ? { exchange } : {}), ...(cue ? { cue } : {}) };
+      const key = `${npc.id}:${state}`;
+      if (!this.fired.has(key)) {
+        const exchange = npc.barkExchange?.[state];
+        const line = exchange?.[0]?.line ?? npc.barks[state];
+        const cue = npc.barkCues?.[state];
+        if (line || cue) {
+          this.fired.add(key);
+          return { npc, line: line ?? '', ...(exchange ? { exchange } : {}), ...(cue ? { cue } : {}) };
+        }
+      }
+      const run = this.nextOfRun(npc);
+      if (run) return run;
     }
     return null;
+  }
+
+  /** The next line of this man's run (AmbientFile.barkRun), counted as said; null if none is owed this visit. */
+  private nextOfRun(npc: AmbientFile): FiredBark | null {
+    const run = npc.barkRun;
+    if (!run || this.ranThisVisit.has(npc.id) || !this.state.flags.test(run.when)) return null;
+    const said = this.state.flags.getNumber(run.counter);
+    const next = run.lines[said];
+    if (!next?.length) return null;
+    this.ranThisVisit.add(npc.id);
+    this.state.flags.set(run.counter, said + 1);
+    return { npc, line: next[0]!.line, ...(next.length > 1 ? { exchange: next } : {}) };
   }
 
   /**
@@ -406,7 +425,8 @@ export class AmbientLayer {
     // patron bands draw, and the cast list is sorted by id -- so without this,
     // which one a click found depended on the alphabet.
     // A walker on a loop is examined through the hotspot over its road.
-    const hits = this.present.filter((npc) => !npc.loop).filter((npc) => {
+    // SCENERY ANSWERS NOTHING (errata 187): the pointer passes through it.
+    const hits = this.present.filter((npc) => !npc.loop && !npc.scenery).filter((npc) => {
       // THE SPRITE'S OWN HEIGHT WHEN IT HAS ONE, the zone's when it does not.
       // The zone heights are the game's three fixed drawn sizes; a figure
       // whose sheet is 440 rows tall behind a counter has a head 200 rows

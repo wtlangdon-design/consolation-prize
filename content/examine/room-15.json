@@ -182,13 +182,13 @@
     {
       "name": "THE OTHER MULES",
       "LOOK_AT": [
-        "Four mules, numbered, entirely willing to work. They are looking at Grievance the way a work crew looks at a man who has got away with something.",
-        "Number Three is asleep standing up. Number One is pretending to be.",
+        "Two mules, numbered, entirely willing to work. They are looking at Grievance the way a work crew looks at a man who has got away with something.",
+        "Number Two is asleep standing up. Number One is pretending to be.",
         "They are good mules. Nobody will ever name them."
       ],
       "LISTEN_TO": [
         "Contented. They have no idea.",
-        "Chewing, in four slightly different rhythms.",
+        "Chewing, in two slightly different rhythms.",
         "One of them sighs. It is a working sigh, and it means nothing by it."
       ]
     },

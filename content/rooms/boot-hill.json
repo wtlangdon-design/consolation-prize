@@ -171,6 +171,43 @@
       }
     },
     {
+      "id": "fence",
+      "name": "THE FENCE",
+      "rect": [
+        0,
+        560,
+        150,
+        175
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A rail fence down one side of the hill, as far as the gate.",
+            "repeat": [
+              "Split rails, pegged rather than nailed, and every peg tight. Somebody walks this fence.",
+              "It runs from the gate to the edge of the hill and stops, as if it had made its point."
+            ],
+            "then": [
+              "The other sides are left to good manners."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind in the rails, a low hum with no tune in it. I've looked for one.",
+            "repeat": [
+              "A rail ticking as the night cools it. It's the only thing up here keeping time.",
+              "Nothing. Up here even the fence is careful how loud it is."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "It holds. The undertaker maintains it. His clients do not leave, but their reputation for it must be kept up."
+      }
+    },
+    {
       "id": "pike_s_neighbor",
       "name": "PIKE'S NEIGHBOR",
       "rect": [
@@ -360,14 +397,32 @@
       ],
       "colour": 0,
       "to": "town_map",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The gate, and the whole town lit up below it. From up here Consolation looks as if it knows what it's doing.",
+            "repeat": [
+              "Two posts, a crossbar, and half a gate hung on one side. Nobody up here has ever needed the other half.",
+              "The path goes down through it toward the lights. I've walked it more often than most of the residents ever will."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind through the gateway, carrying a little of the town up the hill with it.",
+            "repeat": [
+              "The half gate knocking against its post, once, when the wind remembers it.",
+              "The town below, too far off to make out, and close enough to know it's there."
+            ]
+          }
+        ]
+      },
       "overrides": {
         "CLOSE": "It swings back. The latch is broken in the direction of welcome, which is not the direction you want a graveyard broken in."
       },
       "fallback": [],
       "defaultVerb": "WALK_TO",
-      "note": "Doc 20 and errata 43: Boot Hill is reached by the map, and its gate leads back to it. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE GATE A LOOK OR LISTEN (doc 54: 'THE GATE is the room's exit'), so it is a stub exit as the records room's door is (errata 72 F, doc 36 Q157); the gate works, and its LOOK and LISTEN wait for lines.",
-      "stub": true,
+      "note": "Doc 20 and errata 43: Boot Hill is reached by the map, and its gate leads back to it. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE GATE A LOOK OR LISTEN (doc 54: 'THE GATE is the room's exit'), so it is a stub exit as the records room's door is (errata 72 F, doc 36 Q157); the gate works, and its LOOK and LISTEN wait for lines. Errata 189: its LOOK and LISTEN are doc 106's (linesFrom), and it is no longer a stub.",
       "walkTo": {
         "x": 300,
         "y": 780,
@@ -728,7 +783,8 @@
       "T_FUNERAL_DAY": true
     },
     "saySet": {
-      "T_FUNERAL_DAY": false
+      "T_FUNERAL_DAY": false,
+      "T_FUNERAL_STREET_SAID": false
     },
     "note": "Doc 57 C3: 'Room 14, Boot Hill -- entering ends the day. The service is just over.' The line plays and the day clears; it can be held again (errata 87 C).",
     "say": [

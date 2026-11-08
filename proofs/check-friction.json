@@ -367,6 +367,18 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 183's brief: doc 49 writes no section for the six interiors, and doc 105's Overrides stand in for their wrong-verb layer. Doc 105 quotes its refusals (`> **X** · VERB —`), as docs 25, 26 and 54 do, and the wrong-verb count read only doc 49's bare form, so it counted 0 for a room with four. The count now accepts the quoted form too; a room with no authored refusal still answers NO."
+  },
+  {
+   "check": "tests/room-27.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 185: the row's subject count goes from doc 05's fifteen to sixteen, because THE ROW ENTIRE was written and built at Tyler's word ('Write them'). The count held a number, not a rule; nothing it guards is weakened."
+  },
+  {
+   "check": "tests/room-14.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 189: entering Boot Hill on the funeral day now also clears T_FUNERAL_STREET_SAID, so Main Street's funeral-day line (doc 57 C3) is owed again on another funeral day. The test held saySet as exactly one write; it now asserts both writes by name, which is no weaker."
   }
  ]
 }

@@ -165,6 +165,7 @@
  "scaling": "content/actors/scaling.json",
  "ambient": [
   "content/ambient/dog.json",
+  "content/ambient/hitching-horses.json",
   "content/ambient/letter-writer.json",
   "content/ambient/map-seller.json",
   "content/ambient/nugget-bar1.json",
@@ -205,6 +206,7 @@
   "content/ambient/sheng.json",
   "content/ambient/other-mules.json",
   "content/ambient/ozymandia.json",
+  "content/ambient/prosperity-ozymandia.json",
   "content/ambient/hotel-clerk.json",
   "content/ambient/funeral-undertaker.json",
   "content/ambient/funeral-sowerby.json",

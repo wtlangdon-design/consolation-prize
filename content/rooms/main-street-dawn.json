@@ -26,7 +26,26 @@
       ],
       "colour": 0,
       "to": "coach_stop_dawn",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The road out to the coach stop, the same way I came in, the other way round.",
+            "repeat": [
+              "First light on the ruts. At this hour they look almost deliberate.",
+              "Somewhere down there is the sign at the edge of town, and whatever number it says this morning."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The road, quiet, the way roads are before anybody has had an opinion about them.",
+            "repeat": [
+              "Wind coming down the road from the hills, cold, and in no hurry.",
+              "Somewhere behind me a shutter going up. The town is starting again."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "transitScene": [
@@ -62,8 +81,7 @@
           "sceneLine": "docs/48-act-turn-beats.md::## S7 · MAIN STREET, DAWN (the close) · beat 3"
         }
       ],
-      "note": "Doc 48 S7: 'The one exit is the coach stop, east.' Beat 3 at the coach stop (coach_stop_dawn, errata 121 B): Thad's last spoken line, then beat 4, the Act IV letter over black (doc 04 Part Three's, as Room 19 reads it). No document writes the stop a LOOK or LISTEN: a stub (errata 72 F). Beat 5's credits are not built (doc 36 Q176).",
-      "stub": true,
+      "note": "Doc 48 S7: 'The one exit is the coach stop, east.' Beat 3 at the coach stop (coach_stop_dawn, errata 121 B): Thad's last spoken line, then beat 4, the Act IV letter over black (doc 04 Part Three's, as Room 19 reads it). No document writes the stop a LOOK or LISTEN: a stub (errata 72 F). Beat 5's credits are not built (doc 36 Q176). Errata 189: its LOOK and LISTEN are doc 106's (linesFrom), and it is no longer a stub.",
       "when": {
         "T_CLOSE_SAID": false
       },
@@ -677,7 +695,9 @@
         "mud_far_1",
         "mud_far_2",
         "mud_mid_3",
-        "mud_near"
+        "mud_near_0",
+        "mud_near_1",
+        "mud_near_2"
       ]
     },
     {
@@ -712,7 +732,7 @@
       "neighbours": [
         "mud_far_1",
         "mud_mid_3",
-        "mud_near"
+        "mud_near_1"
       ]
     },
     {
@@ -745,7 +765,7 @@
         "nearHeight": 206
       },
       "neighbours": [
-        "mud_near"
+        "mud_near_1"
       ]
     },
     {
@@ -784,18 +804,18 @@
       ]
     },
     {
-      "id": "mud_near",
+      "id": "mud_near_0",
       "points": [
         {
           "x": 60,
           "y": 767
         },
         {
-          "x": 3690,
+          "x": 1329,
           "y": 767
         },
         {
-          "x": 3690,
+          "x": 1329,
           "y": 858
         },
         {
@@ -814,13 +834,97 @@
       },
       "neighbours": [
         "mud_mid_0",
+        "mud_near_2"
+      ]
+    },
+    {
+      "id": "mud_near_1",
+      "points": [
+        {
+          "x": 1730,
+          "y": 767
+        },
+        {
+          "x": 3690,
+          "y": 767
+        },
+        {
+          "x": 3690,
+          "y": 858
+        },
+        {
+          "x": 1730,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "mud_mid_0",
         "mud_mid_1",
-        "mud_mid_2"
+        "mud_mid_2",
+        "mud_near_2"
+      ]
+    },
+    {
+      "id": "mud_near_2",
+      "points": [
+        {
+          "x": 1329,
+          "y": 767
+        },
+        {
+          "x": 1730,
+          "y": 767
+        },
+        {
+          "x": 1730,
+          "y": 808
+        },
+        {
+          "x": 1329,
+          "y": 808
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "mud_mid_0",
+        "mud_near_0",
+        "mud_near_1"
       ]
     }
   ],
   "lamps": [],
-  "props": [],
+  "props": [
+    {
+      "id": "hitching_rail",
+      "sheet": "art/props/room-36-hitching-rail-dawn.png",
+      "x": 1545,
+      "y": 850,
+      "frame": [
+        0,
+        0,
+        443,
+        261
+      ],
+      "note": "Errata 187. Tyler, 2026-11-08: \"At dawn I think the horses should all be gone. Just the hitching post is there.\" Room 2's hitching rail, empty: cut from the night group's rest frame, at the engine's own scale for it, under the dawn's light (tools/art/hitching-rail-dawn.py). Its obstacle stays."
+    }
+  ],
   "occlusionPlanes": [],
   "occlusionBands": [
     "mud_far",

@@ -689,7 +689,6 @@
     {
       "id": "to_claims_road",
       "name": "THE ROAD",
-      "stub": true,
       "rect": [
         0,
         100,
@@ -698,7 +697,26 @@
       ],
       "colour": 0,
       "to": "claims_road",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The front door, propped open for the steam. Outside, the washing on the line has a better view of the road than anyone in town.",
+            "repeat": [
+              "A shirt on the line just outside, waiting for its owner. Some of them have waited years.",
+              "The doorstep is swept, and swept again. The mud stops here. It has been told."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The coppers behind me, the road in front, and the doorway deciding between them.",
+            "repeat": [
+              "Washing flapping on the line outside, very slowly, as if it were being paid by the hour.",
+              "The road outside, and nobody on it in a hurry. Nobody brings laundry in a hurry."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: the laundry is reached through the road to the claims; this is the way back to it. NO DOCUMENT WRITES IT a LOOK or LISTEN: a stub exit (errata 99 A).",
@@ -706,7 +724,8 @@
         "x": 200,
         "y": 790,
         "facing": "left"
-      }
+      },
+      "waysOut": "docs/106-the-ways-out.md, ROOM 28 (errata 189)"
     }
   ],
   "ambient": [

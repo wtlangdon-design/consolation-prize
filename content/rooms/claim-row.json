@@ -587,13 +587,54 @@
           }
         ]
       }
+    },
+    {
+      "id": "row_entire",
+      "name": "THE ROW ENTIRE",
+      "rect": [
+        0,
+        120,
+        1920,
+        440
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Eleven claims along the ridge, eleven markers, eleven names.",
+            "repeat": [
+              "From the path you can see every claim on it at once. I expect that was the selling point.",
+              "Any of them could be mine for the price of a form. I find I'd rather keep Prosperity, and I didn't think anything could make me say that."
+            ],
+            "then": [
+              "Read from one end, it's a sentence that never gets to its verb."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind along the ridge, taking the markers one at a time, like a man reading out names.",
+            "repeat": [
+              "Nothing from the row as a whole. It has said what it had to say eleven times.",
+              "The wind again, down the row and back. It doesn't stop at any of them either."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "Eleven claims, free for the re-filing, and no takers in years. The row is used daily: as a warning, by everyone, on the way past."
+      },
+      "walkTo": {
+        "x": 960,
+        "y": 682,
+        "facing": "back"
+      }
     }
   ],
   "exits": [
     {
       "id": "to_claims_road",
       "name": "THE ROAD",
-      "stub": true,
       "rect": [
         0,
         560,
@@ -602,7 +643,26 @@
       ],
       "colour": 0,
       "to": "claims_road",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The way back down to the road. From this end of the row it is the most hopeful thing in sight.",
+            "repeat": [
+              "Scrub on both sides and the road somewhere below. Everyone who ever filed on this row walked down it eventually.",
+              "Nobody put a marker on the way out. It's the one piece of the row nobody claimed."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The road below, very faint: a cart, or the wind pretending to be one.",
+            "repeat": [
+              "Scrub brushing against itself in the wind.",
+              "Wind going down the path ahead of me, as though it had somewhere to be."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: the row is reached through the road to the claims; this is the way back to it. NO DOCUMENT WRITES IT a LOOK or LISTEN: a stub exit (errata 99 A).",
@@ -610,7 +670,8 @@
         "x": 200,
         "y": 790,
         "facing": "left"
-      }
+      },
+      "waysOut": "docs/106-the-ways-out.md, ROOM 27 (errata 189)"
     }
   ],
   "ambient": [],

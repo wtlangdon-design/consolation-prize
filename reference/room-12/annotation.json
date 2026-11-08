@@ -333,6 +333,17 @@
    ]
   },
   {
+   "hotspot": "dr_purvis_s_tonic",
+   "verb": "PICK_UP",
+   "ref": "docs/54-batch-c.md::## Overrides *(errata 68 A)*",
+   "subject": "DR. PURVIS'S TONIC",
+   "verbText": "PICK UP",
+   "case": "again",
+   "when": {
+    "T_TONIC_ON_ACCOUNT": true
+   }
+  },
+  {
    "hotspot": "pickaxes",
    "verb": "PICK_UP",
    "ref": "docs/54-batch-c.md::## Overrides *(errata 68 A)*",
@@ -360,5 +371,5 @@
    }
   }
  ],
- "sceneLinesNote": "Doc 54's errata 68 A pickups, on Thad's account: the first PICK UP gives the item and marks the account; the jar and the pickaxes answer their written 'again' after. The tonic has no 'again' written: once on account, its PICK UP is its override line, and nothing more is given (doc 36 Q155)."
+ "sceneLinesNote": "Doc 54's errata 68 A pickups, on Thad's account: the first PICK UP gives the item and marks the account; the jar and the pickaxes answer their written 'again' after. The tonic's 'again' was written by errata 189 (doc 36 Q155)."
 }

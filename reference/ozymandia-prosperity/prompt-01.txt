@@ -1,0 +1,21 @@
+Image 1 shows Thad, the hero of my pixel-art adventure game and the style standard, standing in the room this new sheet is for: Prosperity, a muddy hillside at night with a dark hole dug into it. Thad is drawn at exact game size. Look at his pixels: BIG square blocks, a face of a handful of blocks, clothes in a few flat, softly shaded tones with no fine texture and no hard internal contrast.
+
+Image 2 is MADAME OZYMANDIA's canonical design: a plump, upright medium of about fifty, grey-streaked dark hair with a short dark-purple lace veil, a high-collared black jacket with a cameo brooch at the throat and lace at the collar, a long full black skirt, black shoes. Image 3 is the same woman as she already appears in the game, at game size, in her tent. Keep her face, hair, veil, brooch and clothes exactly as in Images 2 and 3. Same woman, same colours.
+
+I need her drawn ON HER OWN as ONE sheet of FIVE poses, side by side, left to right, each FULL LENGTH from hair to shoes, standing, seen in PROFILE facing RIGHT (her nose pointing to the right edge of the picture). In every pose she holds a forked BRASS DIVINING ROD in both hands in front of her at waist height, the point aimed down and forward at the ground, and she is looking DOWN at the ground in front of her feet. Still and quiet, listening to the ground.
+
+1. REST: as described. Head bowed, eyes on the ground, rod pointing down and forward.
+2. BREATH: identical to pose 1 except her shoulders very slightly raised. Nothing else changes.
+3. ROD TILTS: identical to pose 1 except the tip of the rod tilted a little further down. Nothing else changes.
+4. HEAD LOWER: identical to pose 1 except her head bowed further, chin nearer her chest, peering harder at the ground. Nothing else changes.
+5. ROD DIPS: as pose 1, but the rod has dipped sharply, its tip pointing almost straight down at the ground, her arms drawn down with it, and her weight shifted forward onto her front foot, leaning toward the spot. A clear, deliberate movement.
+
+STYLE: exactly as coarse as Thad in Image 1. Every pixel a large, crisp square block the size of Thad's. Flat, soft shading, few tones, low texture, no fine detail, no hard internal contrast. Not sharper than Thad. Lit like Thad: plain, even light, no coloured night tint. She is a little shorter than Thad.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No ground, no shadow, no hole, no Thad, nothing else in the picture.
+- All five poses the same size, shoes on the same baseline, each about two-thirds the height of the picture.
+- Clear magenta space between poses. No pose touches or overlaps another. The rod stays inside each pose's own space.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same face everywhere else.
+- Crisp pixel edges against the magenta. No soft glow, blur or halo around her.
+- No text, labels, numbers or borders.

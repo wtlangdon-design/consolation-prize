@@ -140,5 +140,12 @@
         "Nothing coming down from it. Whatever is up there is keeping it to itself."
       ]
     }
-  ]
+  ],
+  "exitsAndUnplaced": {
+    "MADAME OZYMANDIA": {
+      "TALK_TO": "Madame Ozymandia. You're a long way from your tent.",
+      "TALK_TO (second time)": "No fee today, Madame?",
+      "TALK_TO (third time and after)": "I'll leave you to it, then."
+    }
+  }
 }

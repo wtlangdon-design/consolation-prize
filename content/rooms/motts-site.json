@@ -512,7 +512,6 @@
     {
       "id": "to_claims_road",
       "name": "THE ROAD",
-      "stub": true,
       "rect": [
         0,
         450,
@@ -521,7 +520,26 @@
       ],
       "colour": 0,
       "to": "claims_road",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The way back to the road. Behind me, the most dug-over ground in the territory. Ahead, a road nobody has ever bothered to dig.",
+            "repeat": [
+              "Pans left at the edge, where men set them down for the walk back and never picked them up again.",
+              "Every man who has walked out this way was sure of something on the way in."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind across all those holes behind me. It sounds like a church organ that has given up.",
+            "repeat": [
+              "The road, out of sight, and empty.",
+              "A pan shifting on the stones as the night cools it."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: the site is reached through the road to the claims; this is the way back to it. NO DOCUMENT WRITES IT a LOOK or LISTEN: a stub exit (errata 99 A).",
@@ -529,7 +547,8 @@
         "x": 520,
         "y": 800,
         "facing": "left"
-      }
+      },
+      "waysOut": "docs/106-the-ways-out.md, ROOM 30 (errata 189)"
     }
   ],
   "ambient": [],

@@ -5067,3 +5067,182 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
 - **E · The design note.** Doc 07's "The schoolhouse was the third building Consolation put up…" is not said, by design: doc 07 says nothing in the game ever says it, and doc 105 that nothing here does either. It moves to the not-a-line group of `proofs/written-not-built.json`, and the `ancillary-interiors` group, now empty, is gone.
 - **F · Sound.** Plank footsteps, and the town's distant piano, very faint at 0.25.
 
+# 184 · FOUR SMALL GAPS: THE WAR PAID OFF, HOB'S RUNNING LINES, OZYMANDIA IN ACT IV, AND THE WRONG ANSWERS — TYLER, 2026-11-08 ("Fanshawe's war payoff, Hob's running lines, Ozymandia in Act IV, Unclickable objects")
+
+*Errata 182's gaps 2 to 5. Tyler chose to build all four.*
+
+**A · Fanshawe's war can be paid off.** Doc 04 wrote five contradictions and a payoff ("You were never a colonel." / "No. I wasn't."), but only two contradictions had a question, so the payoff could never be reached (errata 84 I a). Under errata 171's rewrite (new options allowed in conversations), three questions are added in doc 04, one voice, each `[TOPIC · remove]`:
+- `FAN_B1` 4, "How does a man come to be a colonel?" It answers with contradiction 3, and with his age, thirty, which is what makes it one: thirty in 1858 is nineteen at Chapultepec.
+- `FAN_B1` 5, "Which regiment, Colonel?" It answers with contradiction 5, the Eleventh Ohio Mounted, and sets `T_ELEVENTH_OHIO`. Sheng's question about it (`SHE_A1` 4) now waits for that flag, so Thad never asks about a regiment he has not heard of. Sheng's answer counts.
+- `FAN_C1` 6, "Who did you serve under in the war?" It answers with contradiction 4, Commodore Pelham.
+- **The payoff** is `FAN_B1` 6. It is offered from Act III once `WAR_CONTRADICTIONS` reaches 5, plays as one exchange and is removed. That is doc 04's FAN_D1, played as an option, as PRA_D5 is (`tests/data/doc04-nodes-not-built.json`). Its "He stops. For the only time in the game, he is completely still." stays printed (doc 95 row 75).
+- **The lesson** is `tests/counter-reach.test.ts`. Wherever content waits for a counter to reach N, its one-shot writers must be able to add N. With one question removed, it fails on this payoff.
+
+**B · Hob's Running lines are said.** Errata 71 D gave them to the ambient layer, but a bark could only answer Thad's reputation, and Hob has none.
+- A figure may now carry `barkRun` (`engine/core/Ambient.ts`): lines said on approach, one a visit, in order, each once, counted in a declared number flag (`HOB_RUNNING`) so a save keeps its place.
+- Hob's run is extracted from doc 04 into `content/ambient/hob.json` and said in the back alley while `ACT` is at most 2.
+- "Wouldn't stand there." is the opening's (doc 17 beat 9) and is not said again. The four that remain: "It'll rain."; "That's not yours."; "You're the piano man."; "It's a bad claim." / "They're all bad claims."
+- **A reading, reversible by name:** doc 04 says "every fourth night". The game counts no nights, so a visit to his rounds stands for one night. One line every fourth visit would leave most players hearing a single line.
+- Held by `tests/bark-run.test.ts`.
+
+**C · Ozymandia at Prosperity in Act IV: written and placed, waiting on art.**
+- `content/ambient/prosperity-ozymandia.json` carries her one line, "…It's loud here.", extracted from doc 04. She appears from `T_VOID_FOUND` in Act IV.
+- It also carries `awaitingArt`, so the room compiler does not cast her yet. Her only drawing is behind her table, cut at the table top, and here she stands in the open.
+- The image session draws her from `reference/ozymandia-prosperity/brief.md`, with room-16's last operation (her own asset; no cap changes).
+
+**D · The wrong answers.** Nineteen lines were listed. Seen against the documents and the plates, they sort four ways.
+- **Wired (4):**
+  - Room 1, doc 49's THE TOWN SIGN · PUSH, THE MUD · USE and THE ROAD EAST · TALK TO. Room 1 predates the compiler, so doc 49 had never reached it. Where doc 17 answers the same verb, doc 17's line stands, as in every other room.
+  - Room 7's THE CHAINED PEN · PULL, on SUMP'S PEN. The annotation's new `wrongVerbAliases` applies errata 68 E's rule: a refusal for an object under another name attaches to it.
+- **Rulings, not gaps (7):** errata 182 listed them wrongly.
+  - Doc 17's or the room's own line answers the verb: the sign's TALK TO, the mud's PICK UP and the pen's PICK UP.
+  - Doc 54's merge decisions dropped the line: the mile post's, the workings' and Grievance's LOOKs.
+  - Doc 49's USE follows doc 26's on Thad's washstand.
+- **Retired and not drawn (3):** the shack's lamp reserve, wall calendar and stool by the window. Errata 68 E retired them, and the shipped plate has none of them.
+- **Drawn, and waiting on Tyler (5, and two more):**
+  - Room 7's form stack, counter bell, statute book and partition are on the plate.
+  - Boot Hill's fence is on the plate.
+  - The claim row as a whole would be a whole-room hotspot.
+  - A hotspot needs LOOK and LISTEN lines, and no writing permission covers new ones.
+
+`proofs/written-not-built.json` regroups all of these.
+
+# 185 · SIX DRAWN OBJECTS GIVEN LINES, AND MADE CLICKABLE — TYLER, 2026-11-08 ("Write them")
+
+*Errata 184 left six objects drawn on their plates and not clickable. Doc 49 writes a refusal for each, but a hotspot needs LOOK and LISTEN lines, and no writing permission covered new ones. Asked whether to write them, Tyler said "Write them". This is the sixth writing exception, and it covers these six objects and nothing else.*
+
+- **Written, one voice,** under doc 59 and doc 99. Three LOOK and three LISTEN each. Every line is true in every act, and nothing describes what the plate does not show.
+  - **Room 7, in doc 25's "Newly written":** THE COUNTER BELL, THE FORM STACK, THE STATUTE BOOK and THE PARTITION.
+  - **Room 14, in doc 54:** THE FENCE.
+  - **Room 27, in doc 54:** THE ROW ENTIRE.
+- **Made clickable.** Each rect is measured on the shipped plate and recorded in its room's annotation, and each object is LOOK AT on a bare click.
+  - The compiler sorts hotspots by area, so the bell, the stack and the book are hit before THE COUNTER they stand on.
+  - THE PARTITION is the posts and rails above the counter. The clock and the number spindle are smaller and are hit first.
+  - THE ROW ENTIRE is the ridge and its markers as one. The markers, the workings and the sluice frames are hit first.
+- **Doc 49's refusals now land.**
+  - The bell's USE, the book's OPEN, the partition's PUSH, the fence's PUSH and the row's USE attach by name.
+  - FORM 12-C (THE STACK) is THE FORM STACK (`wrongVerbAliases`), and its PICK UP attaches there.
+  - Doc 54's Retire declarations for THE FENCE and THE ROW ENTIRE are withdrawn.
+  - Room 7's annotation houses all five of the objects doc 36 Q150 reported.
+- **Still retired:**
+  - Boot Hill's wild oats, which the plate does not draw distinctly;
+  - the shack's lamp reserve, wall calendar and stool by the window (errata 184 D).
+
+# 186 · WRITTEN VERSUS BUILT, WITHOUT THE NOTES — TYLER, 2026-11-08 ("HOW did you miss so much?")
+
+*Asked how so much had been missed, and whether anything else needed checking, the builder looked for the check's own blind spots.*
+
+- **The check counted the build's notes as lines.** `tools/check-written-vs-built.mjs` read every string in `/content`. A written line that shared most of its words with a builder's `note`, an `evidence` record or a sequence beat's `description` therefore counted as built. Strings under those keys (`META`) are skipped now. Ninety more lines surfaced.
+- **What they were:**
+  - 53 are the six interiors' (CC is building them).
+  - 19 are quotations in the documents, not lines.
+  - 9 were replaced by later rulings: Room 1's coach and lamp lines (errata 19a), the case's roof state, three declared drops, and Room 11's pen.
+  - 4 are answered by the room's own line.
+  - 2 are the stage driver's.
+  - 2 are the second ledger's, waiting on art.
+- **One is a gap:** doc 57's funeral day plays "The street is half empty. Everyone in town who owns a black coat is up the hill." on Main Street's first entry that day. Nothing plays it, and the street's figures all stay, so it waits for Tyler (`funeral-day-street`).
+- **Lines under four words**, which the check skips, were read by hand. All nineteen are the interiors', a declared drop, a rewrite, or the undertaker's superseded sketch.
+- **The lesson is the check itself.** With `META` emptied, the ninety are hidden again.
+
+---
+
+# 187 · A HITCHING RAIL WITH THREE HORSES ON MAIN STREET — TYLER, 2026-11-08
+
+Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: the hitching post with horses on Main Street under asset room-02 (four operations), check the ledger before each one, and send me day and night renders with Thad walking past it." The brief was errata 168's, from his "maybe we add a hitching post front and center of the camera with a few horses tied to it so that it's not just a bunch of empty space?" It reached `main` as #260.
+
+- **All four of the brief's operations** (room-02 attempts 3 to 6). The ledger was checked before each one; the cap of 6 is now spent.
+  - **Attempts 3 and 4: the first group and its motion,** built in front of the Nugget. Tyler: "It just looks essentially like three copies of the same horse side by side by side. Can't you make them all a bit more unique from each other? And maybe one is eating? And are hitching posts that low? And I think they should all be moved quite a bit to the left."
+  - **Attempt 5: the group redrawn as four frames.** A black with a blaze, a palomino eating hay, and a paint pony, with the rail at chest height. Tyler's next three looks found faults in cuts that stitched one quarter onto another, after the generator had moved horses between them:
+    - "The horse on the right has its head/neck through the hitching post."
+    - "The far right horse has his whole snout cut off."
+    - "The middle horse has three back legs."
+  - Then, of the pony itself: "The horse on the right is so tiny compared to the horse on the left, to the point where the tinier horse looks miniature, which means no one would be riding it. The horses all look more distinct which is good, but they all need to look like full sized ride able horses." The brief for attempt 5 had asked for "a smaller ... pony".
+  - **Attempt 6: the paint redrawn as a full-sized saddle horse,** as tall as the other two, saddled over its blanket.
+    - The generator was given four copies of the group in place, and kept every quarter where it was: the posts agree to a pixel, and the horses that do not move agree but for redraw noise.
+- **Cut by `tools/art/hitching-post-cut.py`. Every frame is one of the generator's quarters, whole.** Nothing is stitched.
+  - The frames:
+    - 0, the rest: the black looks out, the palomino eats, the paint stands over the rail;
+    - 1, the black tosses its head;
+    - 2, the palomino lifts its head from the hay;
+    - 3, the paint turns its head toward the black and swishes its tail.
+  - Each horse has four legs in every frame, counted at 2×.
+  - The magenta is taken out of the outline, the hue's spill and the plum-black outline ink. The hay's strands, gold blended with the key, take the hay's colour rather than turning pink. Then the sheet is snapped to the cast's grid (`one-level.py --only`).
+- **An ambient animal, `hitching_horses`, at 1545,850**, 535 px left of where it first stood, in the near mud between the letter-writer and the boundary men.
+  - `posture: "animal"`, `figureHeight` 393, `stature` 1.223. The black's withers come to Thad's shoulder, and the other two stand as tall.
+  - It rests on frame 0, and every 7 s one of the three plays for 2.4 s, rotating (errata 77).
+- **The boundary men are talked to from their right now**, at 1940,668 facing left, still beside them at their own depth (Tyler's ruling of 2026-11-07). The full-sized paint's head covered 38% of him at the old place, 1610,668. `tests/staging-clear.test.ts` found it, and holds it.
+- **The rail is part of the sprite**, so it is depth-sorted with the horses. Thad passes behind them, and nothing passes in front, so no occlusion plane is needed.
+- **An obstacle in both streets.** `hitching_post`, [1329, 808, 401, 50], is the footprint of the hooves, hay and posts, with the ground behind it kept walkable (`keepsGroundAbove`), as the dog's is. Rooms 2 and 36 are recompiled.
+- **The day is Room 36.** Room 2 is night in every act (errata 64), and Main Street's only daylight is Room 36's dawn.
+  - **At dawn the horses are gone and the rail stands empty.** Tyler: "At dawn I think the horses should all be gone. Just the hitching post is there."
+  - The rail is drawn in front of the horses, so its pixels in the night rest frame are its own: the top rail and the two posts, with the wraps on the rail. The rope loops that hung to the horses' bridles are left behind.
+  - `tools/art/hitching-rail-dawn.py` cuts it, scales it by exactly the factor the engine draws the night group at (nearest-neighbour), and relights it by the dawn plate's ratio to the night's. It becomes a prop in Room 36 (`hitching_rail`, `art/props/room-36-hitching-rail-dawn.png`), on the night rail's own ground.
+  - The obstacle stays.
+  - `tests/scenery.test.ts` holds it: no horses at dawn, the rail where the night rail stands, and the ground under it not walkable.
+- **Scenery until its lines exist.** The brief says it has no lines and is not a hotspot.
+  - A new field, `scenery`, keeps an ambient figure out of `npcAt`, so the pointer passes through the horses to the mud beneath.
+  - When their LOOK and LISTEN lines are written in the documents, `scenery` goes and a hotspot is laid over them.
+  - `tests/scenery.test.ts` holds both streets: the pointer passes through to the mud, and the ground under them is not walkable while the ground behind is. It fails with the field ignored.
+- **The lesson is a doc 55 §8 row:** prefer a frame the generator drew whole to a stitched one, and look at every frame whole, at 2×, in the game, counting legs and heads, before anyone else sees it.
+- **Shown:** `renders/room-02-main-street-hitching-post-night-thad-passing.png` and `renders/room-36-main-street-dawn-hitching-post-thad-passing.png`. Thad walks past behind the horses, captured mid-walk in the game; at dawn, past the empty rail.
+- **Waiting:**
+  - Tyler's eye on the full-sized paint.
+  - Claude writes their LOOK and LISTEN lines in the documents, and then makes them clickable.
+
+# 188 · OZYMANDIA AT PROSPERITY: DRAWN, PLACED AND CAST — TYLER, 2026-11-08 (reference/ozymandia-prosperity/brief.md)
+
+*Errata 184 C's figure, drawn. Room-16's fourth and last operation.*
+
+- **The drawing.** One sheet on magenta, generated against Thad standing in Prosperity at game size, with her canonical design (room-16 attempt 3) and her tent figure beside it (`reference/ozymandia-prosperity/prompt-01.txt`, `op-01.spec.json`). Five poses, three-quarter profile, the brass rod in both hands, looking at the ground: at rest, a breath, the rod tilting, her head lower, and the rod dipping with her weight forward. The last two are the deliberate actions (19% and 40% of the figure). The ledger reads 4 of 4 for room-16; no cap was raised.
+- **The cut.** `art/actors/room-23-ozymandia.png` by `tools/art/cut-ambient-sheet.py --register right`. Aligned on the legs, the dipped rod pulled the lean a dozen pixels left, so the poses are aligned on the boots. Snapped to the cast grid by `tools/art/one-level.py`.
+- **Where she stands.** (880, 748) on the far mud, left of and below the hole, facing it. That keeps her clear of the hole, the exits, the raccoon, Pratt's stake and every stand. 0.96 of the room's man, as her design stands beside Thad. Thad's TALK TO stand is (1080, 790), facing her.
+- **Cast.** She is in the manifest and in Room 23's `ambient`; `awaitingArt` is gone. She speaks in her tent colour (`sameAs: ozymandia`). The compile's only room change kept is her id; Pratt's stake stays where main has it.
+- **Her radius.** Her line fired inside 120 px and the stand is 200 off, so walking up to her said nothing. It is 230. `tests/lessons.test.ts` now holds that any figure with barks and no tree says them where the player stands to talk to it.
+- **A rounding fix.** `one-level.py` rounded half to even, and the test that measures it rounds half up. Her lean is exactly 100.5 blocks tall, so it was snapped to one grid and measured on another. The tool now rounds as the test does. `tests/one-level.test.mjs` caught it; no finished sheet was re-snapped.
+- **For Claude, not built: TALK TO.** She has no tree, so TALK TO her does not walk Thad to her stand. He answers from where he is with the general pool ("I have decided against it."), and her `walkTo` is unused until something answers TALK TO. The general pool is the one written for objects, so it calls her "it". The choice is a writing one, handed to Claude in `reference/ozymandia-prosperity/talk-to-handoff.md`; nothing was written here.
+- **Tyler's ruling, 2026-11-08: "I choose C."** Thad gets a new line for TALK TO on her, and she answers with her one line. Tyler authorises that one new line (or its repeat variants) for Claude to write in doc 54, under the handoff's rules. The builder then wires it.
+
+# 189 · THE OPEN ITEMS, SWEPT AND CLOSED — TYLER, 2026-11-08 ("Write them all"; "Reword the lines"; "Build it, I pick who leaves"; and all five unacted moments)
+
+*Tyler asked how so much had been missed and whether anything else needed checking. Every "Open" and "For Tyler" item that the room builds left in doc 36 was checked against the game. Some were already done. Fourteen were still open, and Tyler ruled on them in four questions. This is the seventh writing exception (CLAUDE.md). It covers the lines below and nothing else.*
+
+- **Already done since the notes were written:**
+  - Act IV's opening in Room 19;
+  - Frame's funeral notice;
+  - the fiddler and the bell-ringer;
+  - Hob's Assay pair;
+  - both sparrings;
+  - SUM_B1's documents;
+  - Sowerby at the gate.
+- **The ways out ("Write them all").** Thirty-seven doors and exits in twenty-one rooms answered LOOK and LISTEN with the generic line.
+  - Doc 106 writes three LOOK and three LISTEN lines for each, one voice, true in every state in which each way can be clicked.
+  - A way that is an examined subject reads its lines through `exitSubjects.linesFrom`, and is no longer a `stub`. These are Boot Hill's gate, the shack's door, the way up to the claims, the coach stop, and every way out of Lower Street and the Lane. The compiler now keeps doc 49's refusals on such a way, such as the gate's CLOSE.
+  - Every other way is written into its room file by `waysOut` in `tools/extract-content.mjs`, which refuses a way that already has a LOOK of its own.
+  - Not written: Room 33's THE GAP (that room's LISTEN is its interface, invariant 3), and PIKE'S NEIGHBOR, which is its plot's hotspot.
+  - `tests/first-night.test.ts` caught two first drafts that assumed the swindle (Pratt's claim, the claims road, the hotel), and they were rewritten to be true before it.
+- **Two small lines ("Write them all").**
+  - THE TONIC, picked up again: "One bottle of Dr. Purvis is a remedy. Two is a diagnosis." (doc 54, Room 12's overrides).
+  - The filing fee offered to Ozymandia before she names a price: "Put that away, darling. The rod has not yet told me what you owe." (doc 57 A7).
+- **Lines that disagreed with the picture ("Reword the lines").**
+  - The alley cat sits in "the one square of lamplight", and moves "for reasons of her own", because the alley is at night.
+  - The livery has "Two mules", "Number Two", and "two slightly different rhythms", because the pen holds two.
+- **The funeral day on Main Street ("Build it, I pick who leaves").**
+  - Doc 57 C3's line plays on Main Street's first entry that day, as an arrival scene read from the bullet (`onEnterScenes.bullet`): "The street is half empty. Everyone in town who owns a black coat is up the hill."
+  - Four of the street's eight townspeople are up the hill that day (`when: T_FUNERAL_DAY false`): the boundary men, the letter-writer and the pie woman.
+  - The map seller, the man leaving tomorrow, the message boy and the dog's owner stay, each for the reason his own joke gives.
+  - Boot Hill, which ends the day, clears `T_FUNERAL_STREET_SAID`, so the line plays again on another funeral day.
+- **Five unacted moments.** Tyler chose all five:
+  - the dinner's staging;
+  - Grievance and the tune;
+  - the tonic's fumes and the raccoon's look;
+  - the county seal's sound;
+  - Sowerby's counter.
+
+  They are briefed for the builder in `reference/unacted-moments/brief.md`. Two need image operations that no cap has: Grievance, and possibly the dinner's seat. The brief says to stop and ask.
+- `proofs/written-not-built.json` loses its funeral-day gap.
+- **Ozymandia at Prosperity, TALK TO.** Tyler chose C from `reference/ozymandia-prosperity/talk-to-handoff.md` and authorised one new line of Thad's, with its repeats. They are written in doc 54, Room 23's Overrides:
+  - first: "Madame Ozymandia. You're a long way from your tent."
+  - second: "No fee today, Madame?"
+  - third and after: "I'll leave you to it, then."
+
+  She answers each with her one line, doc 04's "…It's loud here.", so doc 04's "her only line" and "saying nothing" stay true. The builder's brief is `reference/ozymandia-prosperity/talk-to-brief.md`.

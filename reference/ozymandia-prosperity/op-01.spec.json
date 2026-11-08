@@ -1,0 +1,15 @@
+{
+  "assetId": "room-16",
+  "subject": "ozymandia",
+  "role": "derived-state",
+  "derivedFrom": 3,
+  "promptFile": "reference/ozymandia-prosperity/prompt-01.txt",
+  "out": "art/staging/room-16/prosperity-01/sheet.png",
+  "size": "1536x1024",
+  "images": [
+    "art/staging/room-16/prosperity-01/thad-in-prosperity.png",
+    "art/staging/room-16/ozymandia-01/sheet.png",
+    "art/staging/room-16/prosperity-01/tent-sheet.png"
+  ],
+  "authorizedBy": "Tyler, reference/ozymandia-prosperity/brief.md (errata 184): one operation under room-16, its fourth and last"
+}

@@ -602,7 +602,6 @@
     {
       "id": "back_to_registrar",
       "name": "THE REGISTRAR'S",
-      "stub": true,
       "rect": [
         170,
         80,
@@ -611,7 +610,26 @@
       ],
       "colour": 0,
       "to": "claims_registrar",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The door back to the counter. From this side it has an ordinary handle, which after everything feels like a confession.",
+            "repeat": [
+              "A lamp on the wall beside it, trimmed low. Somebody comes in here often enough to keep it filled.",
+              "On the other side are Mr Sump, the queue and the rest of the territory. On this side is every page any of them ever signed."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Through the door, faintly, a stamp coming down, and then another at exactly the same interval.",
+            "repeat": [
+              "The clock out there, eleven minutes ahead of me even in here.",
+              "Nothing from the counter. Mr Sump is the quietest busy man I know."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "The one way back to Room 7. NO DOCUMENT WRITES THIS DOOR from the archive side (doc 05, doc 08 and doc 54 give the archive no door subject; doc 57 E9 writes Room 7's side). A stub exit, as Room 6's way back is (errata 79 F): it works, and its LOOK and LISTEN wait for lines (doc 36 Q151).",
@@ -619,7 +637,8 @@
         "x": 260,
         "y": 760,
         "facing": "back"
-      }
+      },
+      "waysOut": "docs/106-the-ways-out.md, ROOM 8 (errata 189)"
     }
   ],
   "ambient": [],

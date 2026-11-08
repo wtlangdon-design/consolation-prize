@@ -132,9 +132,33 @@
    550,
    790,
    314
+  ],
+  "counter_bell": [
+   1464,
+   424,
+   38,
+   48
+  ],
+  "form_stack": [
+   1618,
+   406,
+   114,
+   72
+  ],
+  "statute_book": [
+   1750,
+   438,
+   148,
+   50
+  ],
+  "partition": [
+   955,
+   0,
+   695,
+   430
   ]
  },
- "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE LEDGER is the open book's near half, below Sump's hands, so he is clicked above it (doc 55 section 8: a person who cannot be clicked because the scenery behind him is bigger). SUMP'S PEN is the chain hanging over the counter's front. THE TWO LINES are the posts, ropes and blank signs in front of the counter, and win by area over it. THE SEALED ARCHIVE DOOR carries the statute posted beside it, which its LOOK reads. THE COUNTER is its top and brass rail (y 430-550); below the rail the queue posts and signs stand in front of its face and are THE TWO LINES, so neither covers the other's click point.",
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE LEDGER is the open book's near half, below Sump's hands, so he is clicked above it (doc 55 section 8: a person who cannot be clicked because the scenery behind him is bigger). SUMP'S PEN is the chain hanging over the counter's front. THE TWO LINES are the posts, ropes and blank signs in front of the counter, and win by area over it. THE SEALED ARCHIVE DOOR carries the statute posted beside it, which its LOOK reads. THE COUNTER is its top and brass rail (y 430-550); below the rail the queue posts and signs stand in front of its face and are THE TWO LINES, so neither covers the other's click point. Errata 185: THE COUNTER BELL, THE FORM STACK and THE STATUTE BOOK on the counter, and THE PARTITION, the posts and rails above it, measured on the plate.",
  "exits": {
   "back_to_street": [
    0,
@@ -187,7 +211,11 @@
   "sumps_pen": "LOOK_AT",
   "sumps_clock": "LOOK_AT",
   "sealed_archive_door": "LOOK_AT",
-  "two_lines": "LOOK_AT"
+  "two_lines": "LOOK_AT",
+  "counter_bell": "LOOK_AT",
+  "form_stack": "LOOK_AT",
+  "statute_book": "LOOK_AT",
+  "partition": "LOOK_AT"
  },
  "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click. The floor is not a hotspot: the walk band is clicked to walk.",
  "occlusion": {
@@ -199,14 +227,7 @@
   },
   "planes": []
  },
- "unhoused": {
-  "THE CHAINED PEN": "docs/36-issue-list.md::Q150",
-  "FORM 12-C (THE STACK)": "docs/36-issue-list.md::Q150",
-  "THE COUNTER BELL": "docs/36-issue-list.md::Q150",
-  "THE STATUTE BOOK": "docs/36-issue-list.md::Q150",
-  "THE PARTITION": "docs/36-issue-list.md::Q150"
- },
- "unhousedNote": "Doc 49 Part 4 writes wrong-verb lines for five Room 7 objects doc 05 and doc 25 do not name. THE CHAINED PEN is very likely SUMP'S PEN, but its PICK UP line differs from doc 25's for the pen, and choosing between two written lines is not the builder's; the other four have no LOOK or LISTEN, so they cannot be hotspots. Reported in doc 36 Q150 (errata 80 F).",
+ "unhousedNote": "Doc 49 Part 4 wrote wrong-verb lines for five Room 7 objects doc 05 and doc 25 did not name (doc 36 Q150, errata 80 F). All five are housed now: THE CHAINED PEN is SUMP'S PEN (errata 184), and the other four are drawn on the plate and were written in doc 25 (errata 185).",
  "supersededBy": {
   "THE TWO LINES": "docs/19-19b-resolutions.md::# 2 · ROOM 7, THE REGISTRAR — the contradiction is mine, and the spindle wins"
  },
@@ -290,5 +311,10 @@
    "startsWith": "**THE FORMS RACK** · LOOK",
    "note": "Doc 94 (errata 127): who certifies a death, from E2 until E4."
   }
- ]
+ ],
+ "wrongVerbAliases": {
+  "THE CHAINED PEN": "SUMP'S PEN",
+  "FORM 12-C (THE STACK)": "THE FORM STACK"
+ },
+ "wrongVerbAliasesNote": "Errata 184: doc 49's THE CHAINED PEN is SUMP'S PEN ('A pen, chained to the counter'), so its PULL is the pen's; its PICK UP is answered by the pen's own line, which stands (errata 68 E). Errata 185: doc 49's FORM 12-C (THE STACK) is THE FORM STACK, the hotspot doc 25 writes for it."
 }

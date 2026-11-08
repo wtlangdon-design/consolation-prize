@@ -604,7 +604,6 @@
     {
       "id": "back_to_street",
       "name": "MAIN STREET",
-      "stub": true,
       "rect": [
         20,
         60,
@@ -613,7 +612,26 @@
       ],
       "colour": 0,
       "to": "main_street",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The door out, with a bell on a bracket over it. Frame hears every visitor arriving and has the story half set before they shut it.",
+            "repeat": [
+              "Glass in the top half, so he can see who is on the boardwalk without getting up. He has never once got up.",
+              "The street through the glass, and beside it the paper's name on the window, backwards from in here."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The bell, still, waiting for somebody with news.",
+            "repeat": [
+              "The street through the glass: boots, a wagon, nothing worth an edition.",
+              "The press behind me, settling, and the door keeping the street politely out."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: the one way back to Main Street. NO DOCUMENT WRITES THIS DOOR from inside the Clarion (doc 14 writes Main Street's side, THE CLARION OFFICE). A stub exit, as Rooms 6 and 8's are (doc 36 Q152).",
@@ -621,7 +639,8 @@
         "x": 250,
         "y": 770,
         "facing": "left"
-      }
+      },
+      "waysOut": "docs/106-the-ways-out.md, ROOM 9 (errata 189)"
     }
   ],
   "ambient": [

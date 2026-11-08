@@ -203,8 +203,8 @@
    "id": "to_back_alley",
    "to": "back_alley",
    "defaultVerb": "WALK_TO",
-   "stub": true,
-   "note": "Doc 20: the shack's one way out, to the back alley. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE DOOR a LOOK or LISTEN, so it is a stub exit as Boot Hill's gate is (doc 36 Q164); the door works, and its LOOK and LISTEN wait for lines."
+   "note": "Doc 20: the shack's one way out, to the back alley. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE DOOR a LOOK or LISTEN, so it is a stub exit as Boot Hill's gate is (doc 36 Q164); the door works, and its LOOK and LISTEN wait for lines. Errata 189: its LOOK and LISTEN are doc 106's (linesFrom), and it is no longer a stub.",
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 21 · THE WATCHMAN'S SHACK"
   }
  }
 }

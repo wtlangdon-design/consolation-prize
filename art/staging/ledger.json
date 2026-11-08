@@ -36103,6 +36103,218 @@
    "recordedAt": "2026-11-08T17:34:56.673Z"
   },
   {
+   "attempt": 3,
+   "role": "other",
+   "assetId": "room-02",
+   "subject": "hitching-post",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/hitching-post/prompt-01.txt",
+   "promptHash": "729c2b31cf868a1590de92cf9dc19fcb958ecaa92f7b86fd6c7c9ef3ef28d336",
+   "references": [
+    {
+     "path": "art/staging/room-02/hitching-01/input.png",
+     "hash": "0cd1e49279ba48a033eeafda0243fe623e03e2bfd27653f40cc943e954fb6db1",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "0cd1e49279ba48a033eeafda0243fe623e03e2bfd27653f40cc943e954fb6db1",
+   "sourcePath": "art/staging/room-02/hitching-01/input.png",
+   "out": "art/staging/room-02/hitching-01/sheet.png",
+   "outputHash": "a16d6667d1da49d46d8c55482c15404f7aee05754d2def3021936a6b3174d3d6",
+   "bytes": 2163608,
+   "usage": {
+    "input_tokens": 1848,
+    "input_tokens_details": {
+     "image_tokens": 1536,
+     "text_tokens": 312
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 2281
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T17:14:28.738Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-07, choosing \"Both: +6 cast, +4 Main St\" (room-02 cap 6, errata 168): a hitching post front and centre with horses tied to it. Brief: reference/hitching-post/brief.md (branch brief/hitching-post). Operation 1 of the brief's 4.",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T17:14:28.747Z"
+  },
+  {
+   "attempt": 4,
+   "role": "other",
+   "assetId": "room-02",
+   "subject": "hitching-post-motion",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/room-02/hitching-01/sheet.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/hitching-post/prompt-02.txt",
+   "promptHash": "e3ef7f1397c97ef63d58b12643038089f8d637ffcd52e7950bb15384b1474cfc",
+   "references": [
+    {
+     "path": "art/staging/room-02/hitching-02/input.png",
+     "hash": "4f6f9163cdafc47f56fbe4a783e08e2d017fbb0341ada9d4c873074d020f90b3",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "4f6f9163cdafc47f56fbe4a783e08e2d017fbb0341ada9d4c873074d020f90b3",
+   "sourcePath": "art/staging/room-02/hitching-02/input.png",
+   "out": "art/staging/room-02/hitching-02/sheet.png",
+   "outputHash": "bfe37907c8222cf6a22ae53f799246367cc8632dd9befbd8258684121c6f4f7e",
+   "bytes": 1509917,
+   "usage": {
+    "input_tokens": 1841,
+    "input_tokens_details": {
+     "image_tokens": 1536,
+     "text_tokens": 305
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 3392
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T17:15:53.115Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-07, choosing \"Both: +6 cast, +4 Main St\" (room-02 cap 6, errata 168). Brief reference/hitching-post/brief.md, operation 2 of 4: the horses' motion sheet (errata 77).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T17:15:53.121Z"
+  },
+  {
+   "attempt": 5,
+   "role": "other",
+   "assetId": "room-02",
+   "subject": "hitching-post-redraw",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/room-02/hitching-01/sheet.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/hitching-post/prompt-03.txt",
+   "promptHash": "06ebaa2db782dc0b4be4368c1839d033c828ca17b9d69d74200ae738720ab3e0",
+   "references": [
+    {
+     "path": "art/staging/room-02/hitching-03/context.png",
+     "hash": "be157872d20f08834897d0e4b0d2b5b025b1d5a91aa0fff472c3e39803054229",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-02/hitching-01/group.png",
+     "hash": "cba744443fc851bf7537a3db58436008eb8f07fd80ce60625696838888f91c4a",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "be157872d20f08834897d0e4b0d2b5b025b1d5a91aa0fff472c3e39803054229",
+   "sourcePath": "art/staging/room-02/hitching-03/context.png",
+   "out": "art/staging/room-02/hitching-03/sheet.png",
+   "outputHash": "0c3cadd23afa1eb8ab863b264b47a91d13faab88303722842eb2257a1561797b",
+   "bytes": 1966048,
+   "usage": {
+    "input_tokens": 2393,
+    "input_tokens_details": {
+     "image_tokens": 1872,
+     "text_tokens": 521
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 3944
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T17:42:39.478Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-07 (room-02 cap 6, errata 168); the brief's corrections. Tyler, 2026-11-08, on the first group: \"It just looks essentially like three copies of the same horse side by side by side. Can't you make them all a bit more unique from each other? And maybe one is eating? And are hitching posts that low? And I think they should all be moved quite a bit to the left\".",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T17:42:39.486Z"
+  },
+  {
+   "attempt": 6,
+   "role": "other",
+   "assetId": "room-02",
+   "subject": "hitching-post-full-size",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/room-02/hitching-03/sheet.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/hitching-post/prompt-04.txt",
+   "promptHash": "4719a979482a16dc9227769fbcbbd01745f262aaddd72a77817cbf4b2419d583",
+   "references": [
+    {
+     "path": "art/staging/room-02/hitching-04/input.png",
+     "hash": "c0b60cddaca9f32d34df144562c1423389ccb0c346c8b75214fd506d4b75077e",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "c0b60cddaca9f32d34df144562c1423389ccb0c346c8b75214fd506d4b75077e",
+   "sourcePath": "art/staging/room-02/hitching-04/input.png",
+   "out": "art/staging/room-02/hitching-04/sheet.png",
+   "outputHash": "e04055c09df244578f04e782620f322c5b9f05225906dc9b4c538c2fc29414fa",
+   "bytes": 1950618,
+   "usage": {
+    "input_tokens": 1900,
+    "input_tokens_details": {
+     "image_tokens": 1536,
+     "text_tokens": 364
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 2333
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T18:21:06.165Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-07 (room-02 cap 6, errata 168); the brief's last correction. Tyler, 2026-11-08: \"The horse on the right is so tiny compared to the horse on the left, to the point where the tinier horse looks miniature, which means no one would be riding it. The horses all look more distinct which is good, but they all need to look like full sized ride able horses\".",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T18:21:06.171Z"
+  },
+  {
    "attempt": 1,
    "role": "canonical-design",
    "assetId": "room-05-second-ledger",
@@ -36742,6 +36954,68 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-08T19:37:40.642Z"
+  },
+  {
+   "attempt": 4,
+   "role": "derived-state",
+   "assetId": "room-16",
+   "subject": "ozymandia",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 3,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/ozymandia-prosperity/prompt-01.txt",
+   "promptHash": "beef6c733b4c960535dbdc3052ef71df625e41706b6aa67f534b7329a0fa3f99",
+   "references": [
+    {
+     "path": "art/staging/room-16/prosperity-01/thad-in-prosperity.png",
+     "hash": "093b9d8b3febbc082c898197dfd69a927d2af34ead24c7cf99179e5645629e4e",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-16/ozymandia-01/sheet.png",
+     "hash": "fcfa0ba8394f5fc7d8ea3f81e0f84bf9b98ae7939e08a27b1b6e60fb09ffce67",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-16/prosperity-01/tent-sheet.png",
+     "hash": "82935d36392c2f4d662b77274b8f906075db5749346f41ead7745507b79c0c86",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "093b9d8b3febbc082c898197dfd69a927d2af34ead24c7cf99179e5645629e4e",
+   "sourcePath": "art/staging/room-16/prosperity-01/thad-in-prosperity.png",
+   "out": "art/staging/room-16/prosperity-01/sheet.png",
+   "outputHash": "c52df3e4e413f9815e34b1b0c9035a27cf04b6e7b9123f034508b5bcae559168",
+   "bytes": 1394293,
+   "usage": {
+    "input_tokens": 5313,
+    "input_tokens_details": {
+     "image_tokens": 4608,
+     "text_tokens": 705
+    },
+    "output_tokens": 780,
+    "output_tokens_details": {
+     "image_tokens": 780,
+     "text_tokens": 0
+    },
+    "total_tokens": 6093
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T19:55:19.881Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, reference/ozymandia-prosperity/brief.md (errata 184): one operation under room-16, its fourth and last",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T19:55:19.891Z"
   },
   {
    "attempt": 1,
