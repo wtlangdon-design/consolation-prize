@@ -2,8 +2,8 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "barbers",
- "commit": "d03c0665db0c7fbe2604c8d7cc6dcb2353d676b1",
- "workingTreeClean": false,
+ "commit": "4958282c14eb601b00dd1b3a11a558a98a6701f0",
+ "workingTreeClean": true,
  "dirtyAllowed": true,
  "visualState": null,
  "objectStates": null,
@@ -12,178 +12,178 @@
  "entryRoute": "barbers",
  "warped": false,
  "lifeRoute": "barbers-life",
- "durationSeconds": 319.23,
+ "durationSeconds": 279.47,
  "events": [
   {
-   "t": 32.63,
+   "t": 3.71,
    "line": "entry route barbers: 38 action(s)"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "the title: clicked NEW GAME"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 1 (wait): waited 2.5s"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 13 (wait): waited 3s"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 17 (wait): waited 6s"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 20 (wait): waited 7s"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 21 (click): clicked world 1900,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 22 (wait): waited 1s"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 23 (waitFor): reached {} in room main_street"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 24 (click): clicked world 1300,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 25 (wait): waited 1s"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 26 (waitFor): reached {} in room main_street"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 27 (click): clicked world 700,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 28 (wait): waited 1s"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 29 (waitFor): reached {} in room main_street"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 30 (click): clicked world 150,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 31 (wait): waited 1s"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 32 (waitFor): reached {} in room main_street"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 33 (click): clicked main_street/to_back_alley at world 29,510 -- THE LANE, at Main Street's west end (errata 161)"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 34 (waitFor): reached {\"room\":\"the_lane\"} in room the_lane"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 35 (wait): waited 3s"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 36 (click): clicked the_lane/to_barbers at world 1275,523 -- THE BARBER'S DOOR, beside the pole"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 37 (waitFor): reached {\"room\":\"barbers\"} in room barbers"
   },
   {
-   "t": 239.31,
+   "t": 198.92,
    "line": "action 38 (wait): waited 3s"
   },
   {
-   "t": 239.33,
+   "t": 198.95,
    "line": "in barbers; life route: 37 action(s)"
   },
   {
-   "t": 239.87,
+   "t": 199.47,
    "line": "capture 01-arrived: room barbers, says null, options 0, control null"
   },
   {
-   "t": 240.9,
+   "t": 200.5,
    "trace": {
     "says": null,
     "control": null,
@@ -198,7 +198,7 @@
    }
   },
   {
-   "t": 241.91,
+   "t": 201.49,
    "trace": {
     "says": null,
     "control": null,
@@ -213,7 +213,7 @@
    }
   },
   {
-   "t": 242.91,
+   "t": 202.48,
    "trace": {
     "says": null,
     "control": null,
@@ -228,7 +228,7 @@
    }
   },
   {
-   "t": 243.89,
+   "t": 203.49,
    "trace": {
     "says": null,
     "control": null,
@@ -243,7 +243,7 @@
    }
   },
   {
-   "t": 244.9,
+   "t": 204.53,
    "trace": {
     "says": null,
     "control": null,
@@ -258,7 +258,7 @@
    }
   },
   {
-   "t": 245.91,
+   "t": 205.53,
    "trace": {
     "says": null,
     "control": null,
@@ -273,7 +273,7 @@
    }
   },
   {
-   "t": 246.91,
+   "t": 206.5,
    "trace": {
     "says": null,
     "control": null,
@@ -288,7 +288,7 @@
    }
   },
   {
-   "t": 247.91,
+   "t": 207.5,
    "trace": {
     "says": null,
     "control": null,
@@ -303,15 +303,15 @@
    }
   },
   {
-   "t": 247.97,
+   "t": 207.5,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 248.5,
+   "t": 208.04,
    "line": "capture 02-barber-at-work: room barbers, says null, options 0, control null"
   },
   {
-   "t": 249.51,
+   "t": 209.09,
    "trace": {
     "says": null,
     "control": null,
@@ -326,7 +326,7 @@
    }
   },
   {
-   "t": 250.53,
+   "t": 210.09,
    "trace": {
     "says": null,
     "control": null,
@@ -341,7 +341,7 @@
    }
   },
   {
-   "t": 251.51,
+   "t": 211.09,
    "trace": {
     "says": null,
     "control": null,
@@ -356,7 +356,7 @@
    }
   },
   {
-   "t": 252.53,
+   "t": 212.09,
    "trace": {
     "says": null,
     "control": null,
@@ -371,7 +371,7 @@
    }
   },
   {
-   "t": 253.52,
+   "t": 213.08,
    "trace": {
     "says": null,
     "control": null,
@@ -386,7 +386,7 @@
    }
   },
   {
-   "t": 254.53,
+   "t": 214.07,
    "trace": {
     "says": null,
     "control": null,
@@ -401,50 +401,50 @@
    }
   },
   {
-   "t": 255.52,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     300,
-     790
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 255.56,
+   "t": 215.09,
    "line": "action 1 (wait): waited 7s"
   },
   {
-   "t": 256.08,
+   "t": 215.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 215.63,
    "line": "capture 03-barber-later: room barbers, says null, options 0, control null"
   },
   {
-   "t": 256.27,
+   "t": 215.8,
    "line": "action 1 (verb): chose verb TALK_TO -- "
   },
   {
-   "t": 256.56,
+   "t": 216.03,
    "line": "action 1 (click): clicked world 690,500 -- the barber, left of his chair"
   },
   {
-   "t": 257.14,
+   "t": 216.59,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room barbers"
   },
   {
-   "t": 257.69,
+   "t": 217.11,
    "line": "capture 04-root: room barbers, says null, options 4, control null"
   },
   {
-   "t": 257.95,
+   "t": 217.46,
    "line": "action 1 (option): chose option barber3 -- the comic option"
   },
   {
-   "t": 258.97,
+   "t": 218.49,
    "trace": {
     "says": "thad",
     "control": null,
@@ -459,7 +459,7 @@
    }
   },
   {
-   "t": 259.97,
+   "t": 219.5,
    "trace": {
     "says": "thad",
     "control": null,
@@ -474,15 +474,15 @@
    }
   },
   {
-   "t": 260.58,
+   "t": 220,
    "line": "action 1 (waitFor): reached {\"says\":\"barber\"} in room barbers"
   },
   {
-   "t": 261.1,
+   "t": 220.54,
    "line": "capture 05-barber-speaks: room barbers, says \"barber\", options 4, control null"
   },
   {
-   "t": 262.12,
+   "t": 221.59,
    "trace": {
     "says": "barber",
     "control": null,
@@ -497,7 +497,7 @@
    }
   },
   {
-   "t": 263.11,
+   "t": 222.58,
    "trace": {
     "says": "barber",
     "control": null,
@@ -512,15 +512,15 @@
    }
   },
   {
-   "t": 263.3,
+   "t": 222.72,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room barbers"
   },
   {
-   "t": 263.59,
+   "t": 222.99,
    "line": "action 1 (option): chose option barber1 -- what he does here"
   },
   {
-   "t": 264.6,
+   "t": 224.01,
    "trace": {
     "says": "thad",
     "control": null,
@@ -535,7 +535,7 @@
    }
   },
   {
-   "t": 265.62,
+   "t": 225.02,
    "trace": {
     "says": "thad",
     "control": null,
@@ -550,7 +550,7 @@
    }
   },
   {
-   "t": 266.6,
+   "t": 226.04,
    "trace": {
     "says": "barber",
     "control": null,
@@ -565,7 +565,7 @@
    }
   },
   {
-   "t": 267.61,
+   "t": 227.03,
    "trace": {
     "says": "barber",
     "control": null,
@@ -580,7 +580,7 @@
    }
   },
   {
-   "t": 268.64,
+   "t": 228.02,
    "trace": {
     "says": "barber",
     "control": null,
@@ -595,7 +595,7 @@
    }
   },
   {
-   "t": 269.62,
+   "t": 229.03,
    "trace": {
     "says": "barber",
     "control": null,
@@ -610,15 +610,15 @@
    }
   },
   {
-   "t": 270.48,
+   "t": 229.87,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room barbers"
   },
   {
-   "t": 270.77,
+   "t": 230.16,
    "line": "action 1 (option): chose option barberx -- leave the conversation"
   },
   {
-   "t": 271.79,
+   "t": 231.2,
    "trace": {
     "says": "thad",
     "control": null,
@@ -633,7 +633,7 @@
    }
   },
   {
-   "t": 272.81,
+   "t": 232.17,
    "trace": {
     "says": "thad",
     "control": null,
@@ -648,7 +648,7 @@
    }
   },
   {
-   "t": 273.81,
+   "t": 233.17,
    "trace": {
     "says": null,
     "control": null,
@@ -663,7 +663,7 @@
    }
   },
   {
-   "t": 274.78,
+   "t": 234.17,
    "trace": {
     "says": null,
     "control": null,
@@ -678,27 +678,27 @@
    }
   },
   {
-   "t": 274.83,
+   "t": 234.22,
    "line": "action 1 (wait): waited 4s"
   },
   {
-   "t": 274.96,
+   "t": 234.35,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 275.21,
+   "t": 234.63,
    "line": "action 1 (click): clicked barbers/price_board at world 550,168 -- LOOK at the price board"
   },
   {
-   "t": 276.08,
+   "t": 235.19,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room barbers"
   },
   {
-   "t": 276.63,
+   "t": 235.74,
    "line": "capture 06-look-price-board: room barbers, says \"thad\", options 0, control null"
   },
   {
-   "t": 277.7,
+   "t": 236.76,
    "trace": {
     "says": "thad",
     "control": null,
@@ -706,14 +706,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     550,
-     853
+     420,
+     750
     ],
     "moving": false
    }
   },
   {
-   "t": 278.69,
+   "t": 237.75,
    "trace": {
     "says": "thad",
     "control": null,
@@ -721,14 +721,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     550,
-     853
+     420,
+     750
     ],
     "moving": false
    }
   },
   {
-   "t": 279.69,
+   "t": 238.78,
    "trace": {
     "says": "thad",
     "control": null,
@@ -736,14 +736,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     550,
-     853
+     420,
+     750
     ],
     "moving": false
    }
   },
   {
-   "t": 280.7,
+   "t": 239.77,
    "trace": {
     "says": "thad",
     "control": null,
@@ -751,14 +751,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     550,
-     853
+     420,
+     750
     ],
     "moving": false
    }
   },
   {
-   "t": 281.66,
+   "t": 240.78,
    "trace": {
     "says": null,
     "control": null,
@@ -766,14 +766,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     550,
-     853
+     420,
+     750
     ],
     "moving": false
    }
   },
   {
-   "t": 282.65,
+   "t": 241.81,
    "trace": {
     "says": null,
     "control": null,
@@ -781,14 +781,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     550,
-     853
+     420,
+     750
     ],
     "moving": false
    }
   },
   {
-   "t": 283.68,
+   "t": 242.78,
    "trace": {
     "says": null,
     "control": null,
@@ -796,18 +796,18 @@
     "performing": false,
     "options": 0,
     "thad": [
-     550,
-     853
+     420,
+     750
     ],
     "moving": false
    }
   },
   {
-   "t": 284.67,
+   "t": 243.79,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 284.68,
+   "t": 243.8,
    "trace": {
     "says": null,
     "control": null,
@@ -815,45 +815,45 @@
     "performing": false,
     "options": 0,
     "thad": [
-     550,
-     853
+     420,
+     750
     ],
     "moving": false
    }
   },
   {
-   "t": 284.78,
+   "t": 243.94,
    "line": "action 1 (verb): chose verb LISTEN_TO -- "
   },
   {
-   "t": 285.07,
+   "t": 244.19,
    "line": "action 1 (click): clicked barbers/strop at world 825,265 -- LISTEN to the strop"
   },
   {
-   "t": 286.08,
-   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room barbers"
-  },
-  {
-   "t": 286.08,
+   "t": 245.21,
    "trace": {
-    "says": "thad",
+    "says": null,
     "control": null,
     "beat": null,
     "performing": false,
     "options": 0,
     "thad": [
-     825,
-     853
+     819,
+     773
     ],
-    "moving": false
+    "moving": true
    }
   },
   {
-   "t": 286.56,
+   "t": 245.87,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room barbers"
+  },
+  {
+   "t": 246.39,
    "line": "capture 07-listen-strop: room barbers, says \"thad\", options 0, control null"
   },
   {
-   "t": 287.6,
+   "t": 247.44,
    "trace": {
     "says": "thad",
     "control": null,
@@ -861,14 +861,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     825,
-     853
+     905,
+     800
     ],
     "moving": false
    }
   },
   {
-   "t": 288.58,
+   "t": 248.45,
    "trace": {
     "says": "thad",
     "control": null,
@@ -876,14 +876,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     825,
-     853
+     905,
+     800
     ],
     "moving": false
    }
   },
   {
-   "t": 289.57,
+   "t": 249.42,
    "trace": {
     "says": "thad",
     "control": null,
@@ -891,14 +891,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     825,
-     853
+     905,
+     800
     ],
     "moving": false
    }
   },
   {
-   "t": 290.6,
+   "t": 250.41,
    "trace": {
     "says": "thad",
     "control": null,
@@ -906,14 +906,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     825,
-     853
+     905,
+     800
     ],
     "moving": false
    }
   },
   {
-   "t": 291.57,
+   "t": 251.48,
    "trace": {
     "says": null,
     "control": null,
@@ -921,14 +921,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     825,
-     853
+     905,
+     800
     ],
     "moving": false
    }
   },
   {
-   "t": 292.58,
+   "t": 252.44,
    "trace": {
     "says": null,
     "control": null,
@@ -936,14 +936,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     825,
-     853
+     905,
+     800
     ],
     "moving": false
    }
   },
   {
-   "t": 293.61,
+   "t": 253.44,
    "trace": {
     "says": null,
     "control": null,
@@ -951,14 +951,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     825,
-     853
+     905,
+     800
     ],
     "moving": false
    }
   },
   {
-   "t": 294.57,
+   "t": 254.44,
    "trace": {
     "says": null,
     "control": null,
@@ -966,26 +966,26 @@
     "performing": false,
     "options": 0,
     "thad": [
-     825,
-     853
+     905,
+     800
     ],
     "moving": false
    }
   },
   {
-   "t": 294.62,
+   "t": 254.44,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 294.73,
+   "t": 254.55,
    "line": "action 1 (verb): chose verb OPEN -- "
   },
   {
-   "t": 294.98,
+   "t": 254.83,
    "line": "action 1 (click): clicked barbers/jar at world 1595,208 -- doc 105's OPEN on the jar"
   },
   {
-   "t": 296,
+   "t": 255.85,
    "trace": {
     "says": null,
     "control": null,
@@ -993,22 +993,37 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1274,
-     853
+     1328,
+     810
     ],
     "moving": true
    }
   },
   {
-   "t": 296.95,
+   "t": 256.87,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1595,
+     853
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 256.99,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room barbers"
   },
   {
-   "t": 297.42,
+   "t": 257.51,
    "line": "capture 08-open-jar: room barbers, says \"thad\", options 0, control null"
   },
   {
-   "t": 298.47,
+   "t": 258.54,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1023,7 +1038,7 @@
    }
   },
   {
-   "t": 299.43,
+   "t": 259.57,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1038,7 +1053,7 @@
    }
   },
   {
-   "t": 300.46,
+   "t": 260.53,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1053,7 +1068,7 @@
    }
   },
   {
-   "t": 301.46,
+   "t": 261.55,
    "trace": {
     "says": null,
     "control": null,
@@ -1068,7 +1083,7 @@
    }
   },
   {
-   "t": 302.44,
+   "t": 262.52,
    "trace": {
     "says": null,
     "control": null,
@@ -1083,7 +1098,7 @@
    }
   },
   {
-   "t": 303.46,
+   "t": 263.55,
    "trace": {
     "says": null,
     "control": null,
@@ -1098,7 +1113,7 @@
    }
   },
   {
-   "t": 304.45,
+   "t": 264.52,
    "trace": {
     "says": null,
     "control": null,
@@ -1113,7 +1128,7 @@
    }
   },
   {
-   "t": 305.46,
+   "t": 265.53,
    "trace": {
     "says": null,
     "control": null,
@@ -1128,19 +1143,19 @@
    }
   },
   {
-   "t": 305.48,
+   "t": 265.56,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 305.6,
+   "t": 265.71,
    "line": "action 1 (verb): chose verb USE -- "
   },
   {
-   "t": 305.86,
+   "t": 266.08,
    "line": "action 1 (click): clicked barbers/chair at world 1053,523 -- doc 105's USE on the chair"
   },
   {
-   "t": 306.87,
+   "t": 267.12,
    "trace": {
     "says": null,
     "control": null,
@@ -1148,22 +1163,22 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1153,
+     1138,
      855
     ],
     "moving": true
    }
   },
   {
-   "t": 307.39,
+   "t": 267.67,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room barbers"
   },
   {
-   "t": 307.87,
+   "t": 268.27,
    "line": "capture 09-use-chair: room barbers, says \"thad\", options 0, control null"
   },
   {
-   "t": 308.88,
+   "t": 269.32,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1178,7 +1193,7 @@
    }
   },
   {
-   "t": 309.89,
+   "t": 270.28,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1193,7 +1208,7 @@
    }
   },
   {
-   "t": 310.89,
+   "t": 271.29,
    "trace": {
     "says": null,
     "control": null,
@@ -1208,7 +1223,7 @@
    }
   },
   {
-   "t": 311.94,
+   "t": 272.3,
    "trace": {
     "says": null,
     "control": null,
@@ -1223,7 +1238,7 @@
    }
   },
   {
-   "t": 312.9,
+   "t": 273.28,
    "trace": {
     "says": null,
     "control": null,
@@ -1238,7 +1253,7 @@
    }
   },
   {
-   "t": 313.91,
+   "t": 274.28,
    "trace": {
     "says": null,
     "control": null,
@@ -1253,7 +1268,7 @@
    }
   },
   {
-   "t": 314.91,
+   "t": 275.32,
    "trace": {
     "says": null,
     "control": null,
@@ -1268,34 +1283,34 @@
    }
   },
   {
-   "t": 315.91,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1053,
-     855
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 315.93,
+   "t": 276.32,
    "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 276.32,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1053,
+     855
+    ],
+    "moving": false
+   }
   }
  ],
  "captures": [
   {
    "name": "01-arrived",
    "why": "in from the Lane",
-   "t": 239.87,
+   "t": 199.46,
    "file": "renders/proofs/barbers/life/raw-captures-ignored/01-arrived.png",
-   "hash": "99964639416770d07535ddd5d7c9b1e346218ec3347bbed08ae7999ce1124a00",
+   "hash": "473b2009a1403e52d1c9e6d2e1f3355f661d61e75b50e0aae1fed8da5b8eb791",
    "room": "barbers",
-   "clock": 239.3913,
+   "clock": 199.12560000000002,
    "control": null,
    "says": null,
    "options": 0,
@@ -1339,7 +1354,7 @@
      "height": 531,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
       19,
       259,
@@ -1382,11 +1397,11 @@
   {
    "name": "02-barber-at-work",
    "why": null,
-   "t": 248.5,
+   "t": 208.04,
    "file": "renders/proofs/barbers/life/raw-captures-ignored/02-barber-at-work.png",
-   "hash": "da9482fd4d002cce5ee569cd4335aadf2f428357459270c97944e2a3f2e663d2",
+   "hash": "b2a32fba1fd2e3a518f84cc7eb76d962869da8670736c80edae2b99349aec010",
    "room": "barbers",
-   "clock": 247.99089999999998,
+   "clock": 207.692,
    "control": null,
    "says": null,
    "options": 0,
@@ -1430,7 +1445,7 @@
      "height": 531,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-09.png",
+     "from": "art/actors/thad-idlebreak-right/idle-break-00.png",
      "bounds": [
       19,
       259,
@@ -1473,11 +1488,11 @@
   {
    "name": "03-barber-later",
    "why": null,
-   "t": 256.07,
+   "t": 215.63,
    "file": "renders/proofs/barbers/life/raw-captures-ignored/03-barber-later.png",
-   "hash": "9f41f8d59c1fad29b30807a16722309bbe9aa9ce584ec60ff8bc710b5f152619",
+   "hash": "c43943d3b3d73812891a9ebebaacf9f0d4ed4da61b88d1b4ab4d463bd4d5c481",
    "room": "barbers",
-   "clock": 255.57389999999998,
+   "clock": 215.2749,
    "control": null,
    "says": null,
    "options": 0,
@@ -1521,7 +1536,7 @@
      "height": 531,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
       19,
       259,
@@ -1564,11 +1579,11 @@
   {
    "name": "04-root",
    "why": "the root list, and Thad at his stand beside him",
-   "t": 257.69,
+   "t": 217.11,
    "file": "renders/proofs/barbers/life/raw-captures-ignored/04-root.png",
-   "hash": "83f08f0afedf5b5fa5e87ad2bca215d662c4393ba0ead2f3de421d119a82710d",
+   "hash": "136137cb7f51326e71b50123efd6f78ed8dacbaeab6b6e65324759c946520e0c",
    "room": "barbers",
-   "clock": 257.3405,
+   "clock": 216.7915,
    "control": null,
    "says": null,
    "options": 4,
@@ -1612,7 +1627,7 @@
      "height": 500,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
       205,
       245,
@@ -1655,11 +1670,11 @@
   {
    "name": "05-barber-speaks",
    "why": "his line over his head",
-   "t": 261.1,
+   "t": 220.53,
    "file": "renders/proofs/barbers/life/raw-captures-ignored/05-barber-speaks.png",
-   "hash": "15f6c98e53739d09fd72c993ee260f7915189fd786d890a4cc2a2aa0114798d5",
+   "hash": "310a7b60e4842849cc93fab4e8d0046ecfe1e6394d8e6390d0e63295ed3e3937",
    "room": "barbers",
-   "clock": 260.6071,
+   "clock": 220.1915,
    "control": null,
    "says": "barber",
    "options": 4,
@@ -1703,7 +1718,7 @@
      "height": 500,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
       205,
       245,
@@ -1746,11 +1761,11 @@
   {
    "name": "06-look-price-board",
    "why": "where the words land (doc 55 section 8), and the board's lettering",
-   "t": 276.63,
+   "t": 235.74,
    "file": "renders/proofs/barbers/life/raw-captures-ignored/06-look-price-board.png",
-   "hash": "95d6ddc8063af611601da305536fac949e0d727a0d3e87c76df365752c8d5f3e",
+   "hash": "63b8bf5ade805f3f14992c8cba3f0631b3e501a4a3c74725348eb5239d28bf24",
    "room": "barbers",
-   "clock": 276.12309999999997,
+   "clock": 235.5075,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1786,20 +1801,20 @@
    "movers": {
     "thad": {
      "at": [
-      550,
-      853
+      420,
+      750
      ],
      "facing": "back",
      "clip": "idle",
-     "height": 575,
+     "height": 504,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-02.png",
+     "from": "art/actors/thad-idle-back/idle-01.png",
      "bounds": [
-      228,
-      278,
-      644,
-      635
+      138,
+      246,
+      564,
+      556
      ],
      "order": 0,
      "clipLevel": 0,
@@ -1837,11 +1852,11 @@
   {
    "name": "07-listen-strop",
    "why": "where the words land (doc 55 section 8)",
-   "t": 286.56,
+   "t": 246.39,
    "file": "renders/proofs/barbers/life/raw-captures-ignored/07-listen-strop.png",
-   "hash": "c083dbece17c812bc4c2735188664dde8289343e20c91170384dac2f9593b361",
+   "hash": "8225a382bd6fd534c272c08e774d45d61f81e982dbdbadd53277841972f7a50c",
    "room": "barbers",
-   "clock": 286.106,
+   "clock": 246.02370000000002,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1877,20 +1892,20 @@
    "movers": {
     "thad": {
      "at": [
-      825,
-      853
+      905,
+      800
      ],
      "facing": "back",
      "clip": "idle",
-     "height": 575,
+     "height": 538,
      "moving": false,
      "drawn": "sprite",
      "from": "art/actors/thad-idle-back/idle-02.png",
      "bounds": [
-      503,
-      278,
-      644,
-      635
+      604,
+      262,
+      602,
+      594
      ],
      "order": 0,
      "clipLevel": 0,
@@ -1928,11 +1943,11 @@
   {
    "name": "08-open-jar",
    "why": "where the words land (doc 55 section 8)",
-   "t": 297.41,
+   "t": 257.51,
    "file": "renders/proofs/barbers/life/raw-captures-ignored/08-open-jar.png",
-   "hash": "042c8b1ab6fb54a240f3a0ae4b7dc790e99f11b9c855eec2571033411d291005",
+   "hash": "597443367d7f4b04c0ff7947945bd277011d95ab3b5afcd33565675aefc298dc",
    "room": "barbers",
-   "clock": 296.9556,
+   "clock": 257.1733,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1976,7 +1991,7 @@
      "height": 575,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-04.png",
+     "from": "art/actors/thad-idle-back/idle-05.png",
      "bounds": [
       1273,
       278,
@@ -2019,11 +2034,11 @@
   {
    "name": "09-use-chair",
    "why": "where the words land (doc 55 section 8)",
-   "t": 307.87,
+   "t": 268.27,
    "file": "renders/proofs/barbers/life/raw-captures-ignored/09-use-chair.png",
-   "hash": "7719bf089e1ae88eac888664f6cac4f182f27fad1c55937a0883121d57bd5033",
+   "hash": "5fd23f5d74e9d0d05857908e5e63b9d75a774dc6c0ae356a0af0a73d2d480b10",
    "room": "barbers",
-   "clock": 307.40520000000004,
+   "clock": 267.8895,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -2067,7 +2082,7 @@
      "height": 576,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-05.png",
+     "from": "art/actors/thad-idle-back/idle-00.png",
      "bounds": [
       730,
       279,
@@ -2120,7 +2135,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 319.23s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 279.47s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -2135,5 +2150,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-08T20:03:32.654Z"
+ "at": "2026-11-08T20:12:01.767Z"
 }
