@@ -319,6 +319,12 @@
    "date": "2026-11-07",
    "kind": "loosened",
    "why": "Errata 172: the per-option count cap. Options with asked-again answers were counted up to their last repeat, which multiplied Frame's and Vessel's roots past the state cap; they are now counted only as taken or not, since a repeat changes the words and never the list. A counted-repeat is counted as before. See the reviewed entry the same day."
+  },
+  {
+   "check": "tests/repeats.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 174: flagged because the line reading a second answer changed. It reads more, not less: a second answer written as an exchange (Winnie's \"I said don't.\" inside Sump's tree, spoken by her) was invisible to it and would have counted as no answer at all. Nothing it caught before passes now, and the list of trees it covers grew to every tree but Hob's."
   }
  ]
 }
