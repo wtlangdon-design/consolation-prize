@@ -23,6 +23,13 @@
     "A": "boundary_a",
     "B": "boundary_b"
    }
+  },
+  "14 & 15 · THE BOARDING HOUSE WOMEN": {
+   "file": "boarding-a",
+   "speakers": {
+    "A": "boarding_a",
+    "B": "boarding_b"
+   }
   }
  },
  "trees": {
@@ -107,6 +114,16 @@
    "file": "amb-photographer",
    "speaker": "photographer",
    "prefix": "photographer"
+  },
+  "14 & 15 · THE BOARDING HOUSE WOMEN": {
+   "tree": "amb_boarding_women",
+   "file": "amb-boarding-women",
+   "speaker": "boarding_a",
+   "speakers": {
+    "A": "boarding_a",
+    "B": "boarding_b"
+   },
+   "prefix": "boarding"
   }
  },
  "treeRoutes": {

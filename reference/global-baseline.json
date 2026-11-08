@@ -690,6 +690,22 @@
     }
    ],
    "castingNote": "The photographer has no approved image; doc 07 #10 gives him his studio and his stock portraits by the gross. Drawn on magenta against Thad in the room (doc 55 section 8; errata 144's method)."
+  },
+  "room-37-boarding-house-parlour": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-03-nugget",
+    "path": "art/backgrounds/room-03-nugget.png",
+    "note": "D -- the approved warm, lamp-lit public interior at night; the parlour is lamp-lit and warm, with a fire (reference/ancillary-interiors/brief.md)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "The two boarding-house women (doc 07 #14-15) have no approved image; doc 07 gives them the only solvent business in town and Martha's name (A). Drawn on magenta against Thad in the room (errata 144's method), as two figures, A and B."
   }
  }
 }

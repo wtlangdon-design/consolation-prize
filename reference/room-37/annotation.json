@@ -1,0 +1,181 @@
+{
+ "room": "boarding_house_parlour",
+ "plate": "art/backgrounds/room-37-boarding-house-parlour.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-37/plate-01/candidate-1920x864.png, room-37 attempt 2: the master with the people out, the mantel clock taken out and the hen cosy put on, cropped to the 1500 x 675 window from 18,174 because the band was painted 679 rows -- frame.json). Every rect below was read off that picture.",
+ "plateShipping": "art/backgrounds/room-37-boarding-house-parlour.png",
+ "plateShippingHash": "2db6ccf94de826a31831129a5c0aa7b994f55104c3ad1af9e5b970fe7edf7c5a",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   60,
+   660
+  ],
+  [
+   1880,
+   660
+  ],
+  [
+   1880,
+   855
+  ],
+  [
+   60,
+   855
+  ]
+ ],
+ "walkableNote": "THE FLOOR IN FRONT OF THE FURNITURE. The door's foot and the tea table's legs reach y 640, so the band runs y 660-855 across the rug, from the door to the right wall.",
+ "scaling": {
+  "far": {
+   "y": 660,
+   "height": 452
+  },
+  "near": {
+   "y": 855,
+   "height": 587
+  },
+  "note": "ROOM 37'S DEPTH, FROM THE MAN THE MASTER PAINTED. The master drew Thad about 373 tall, feet at source y 718; the plate is the 1500 x 675 window from 18,174 at 1.28, so he stands about 477 at y 696. Along Room 5's slope (0.69 per row): 452 at the band's far edge and 587 at its near. The two women stand at 0.95 of that, soles y 650 and 660 (tools/art/interiors-people.py)."
+ },
+ "entrance": [
+  200,
+  760
+ ],
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    200,
+    760
+   ],
+   "facing": "right",
+   "note": "In at the front door, from the map."
+  },
+  {
+   "from": "town_map",
+   "at": [
+    200,
+    760
+   ],
+   "facing": "right",
+   "note": "In from the map (errata 183)."
+  }
+ ],
+ "hotspots": {
+  "stairs": [
+   150,
+   0,
+   320,
+   620
+  ],
+  "portrait_of_a_queen": [
+   555,
+   20,
+   150,
+   230
+  ],
+  "piano": [
+   430,
+   250,
+   300,
+   310
+  ],
+  "antimacassars": [
+   705,
+   335,
+   175,
+   245
+  ],
+  "fire": [
+   850,
+   250,
+   300,
+   320
+  ],
+  "tea_things": [
+   1245,
+   425,
+   205,
+   215
+  ],
+  "rug": [
+   455,
+   585,
+   950,
+   155
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE STAIRS take in the sign at their foot and the row of boots. THE ANTIMACASSARS are the left armchair's, by the piano (a hotspot has one rect); the right armchair beside the women is furniture. THE FIRE takes in the fender, the scuttle and the irons. THE TEA THINGS are the tray and its table. THE WOMEN stand at the right; a TALK TO on either reaches both.",
+ "exitSubjects": {
+  "THE DOOR OUT": {
+   "id": "to_town_map",
+   "to": "town_map",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "note": "Errata 183: the boarding house is on the map. Doc 105 writes no lines for its door, so it is a stub exit (errata 72 F; doc 36)."
+  }
+ },
+ "exits": {
+  "to_town_map": [
+   0,
+   100,
+   140,
+   540
+  ]
+ },
+ "exitWalkTo": {
+  "to_town_map": {
+   "x": 90,
+   "y": 700,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "fire",
+   "at": [
+    1000,
+    460
+   ],
+   "radius": 560,
+   "amount": 0.08,
+   "rate": 0.5,
+   "phase": 0.2,
+   "note": "The coal fire in the grate. A low breath, a little quicker than a lamp's (invariant 9: it tells nothing)."
+  },
+  {
+   "id": "mantel_lamp",
+   "at": [
+    1085,
+    195
+   ],
+   "radius": 620,
+   "amount": 0.06,
+   "rate": 0.24,
+   "phase": 0.6,
+   "note": "The oil lamp on the mantel."
+  }
+ ],
+ "defaultVerbs": {
+  "stairs": "LOOK_AT",
+  "portrait_of_a_queen": "LOOK_AT",
+  "piano": "LOOK_AT",
+  "antimacassars": "LOOK_AT",
+  "fire": "LOOK_AT",
+  "tea_things": "LOOK_AT",
+  "rug": "WALK_TO"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click, except THE RUG, which is floor and is walked on.",
+ "occlusion": {
+  "note": "NO PLANE MASKS THAT CAN REACH THEM: the walk band is in front of every piece of furniture, and the two women stand clear of the tea table.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}

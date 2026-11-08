@@ -31,7 +31,7 @@
 
 ## The directions
 
-Counts: **A 22 · B 2 · C 48** — 72 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 22 · B 2 · C 49** — 73 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -109,6 +109,7 @@ Counts: **A 22 · B 2 · C 48** — 72 directions, every one flagged `"direction
 | 72 | A | pratt | He rakes for a while. | dialogue/pratt PRA_A1 option 5 | pratt | 3 4 3 4 | 2.0 |  |  | Errata 172: his two rake strokes (frames 3 and 4, the ones his idle breaks with), twice, before he answers. |
 | 73 | A | pratt | He rakes. | dialogue/pratt PRA_A1 option 6 | pratt | 3 4 | 1.0 |  |  | Errata 172: one stroke, the short version of the pause above. |
 | 74 | B | winnie | She produces it from under the floor. | dialogue/winnie WIN_B2 option 3 |  |  |  |  |  | Errata 181, WIN_B3 built: her retrieval of the second ledger from Room 5's loose board (errata 66 D, E). Physical, and needs a pose she has not got (round the counter, down to the board) and the board's lifted state, so it stays printed until both are drawn (rule 4; reference/second-ledger/brief.md). |
+| 75 | C | boarding_a | She laughs for some time. | dialogue/amb-boarding-women root option 2 |  |  |  |  |  | Errata 183, Room 37 built: A's whole answer to "Have you ever prospected?" (doc 07 #14-15). The joke is how long she laughs, which a pose cannot hold, so it stays printed (rule 3). |
 
 ## When a B pose is drawn
 

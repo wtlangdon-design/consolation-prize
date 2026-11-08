@@ -2,7 +2,7 @@
 // errata 63 and promoted provisionally under errata 72 E, as tools/art/room44-plate.mjs does for the Lane.
 // No image operation here.
 //
-//   node tools/art/interiors-plate.mjs <NN> <id> --plate plate-01 --y <row> [--lift <gain>] [--attempt N] [--promote]
+//   node tools/art/interiors-plate.mjs <NN> <id> --plate plate-01 (--y <row> | --crop x,y,w,h) [--lift <gain>] [--attempt N] [--promote]
 //
 // THE FRAME. derive.mjs's 20:9 crop of 1520 x 684 from x 8 at --y <row> (170 by default); each room's row is
 // chosen so its walk band and its lamp are both in, and recorded in its frame.json and in errata 183.
@@ -15,7 +15,10 @@ import { promoteProvisional } from './staging.mjs';
 const [n, id] = process.argv.slice(2, 4);
 const arg = (name, fallback) => { const at = process.argv.indexOf(name); return at > 0 ? process.argv[at + 1] : fallback; };
 const S = `art/staging/room-${n}/${arg('--plate', 'plate-01')}`;
-const CROP = { x: 8, y: Number(arg('--y', 170)), width: 1520, height: 684 };
+// --crop x,y,w,h: a smaller 20:9 window, for a master painted SHORTER than 684 rows (Room 43's way, errata 161).
+const cropArg = arg('--crop', null);
+const CROP = cropArg ? Object.fromEntries(['x', 'y', 'width', 'height'].map((k, i) => [k, Number(cropArg.split(',')[i])]))
+  : { x: 8, y: Number(arg('--y', 170)), width: 1520, height: 684 };
 const attempt = Number(arg('--attempt', 2));
 const record = deriveFixedRoomPlate({ source: `${S}/source.png`, out: `${S}/candidate-1920x864.png`, crop: CROP });
 const liftGain = arg('--lift', null);

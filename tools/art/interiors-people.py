@@ -56,6 +56,20 @@ PEOPLE = {
         'curve': ((730, 458), (855, 545)),
         'plate': 'art/backgrounds/room-38-photographers-studio.png', 'thadAt': (1560, 735), 'roomCrop': (920, 150, 1920, 830),
     },
+    (37, 'women'): {
+        'master': 'art/staging/room-37/composition-master-01.png', 'faceBox': [(1290, 330, 1370, 410), (1385, 335, 1465, 415)],
+        'drawn': 6, 'gaps': [50, 50, 220, 50, 50],
+        'plate': 'art/backgrounds/room-37-boarding-house-parlour.png', 'thadAt': (1525, 665), 'roomCrop': (900, 100, 1920, 790),
+        'curve': ((660, 452), (855, 587)),
+    },
+    (37, 'woman-a'): {
+        'sheet': 'art/staging/room-37/women/sheet-a.png', 'drawn': 3, 'names': ['rest', 'breath', 'hair', 'talk'],
+        'feet': (1679, 650), 'stature': 0.97, 'posture': 'standing', 'curve': ((660, 452), (855, 587)),
+    },
+    (37, 'woman-b'): {
+        'sheet': 'art/staging/room-37/women/sheet-b.png', 'drawn': 3, 'names': ['rest', 'breath', 'arms', 'talk'],
+        'feet': (1801, 660), 'stature': 0.97, 'posture': 'standing', 'curve': ((660, 452), (855, 587)),
+    },
 }
 
 
@@ -77,8 +91,16 @@ def refs(n, who):
     p = PEOPLE[(n, who)]
     d = stage(n, who)
     os.makedirs(d, exist_ok=True)
-    template([thad()] * p['drawn']).save(os.path.join(d, 'template.png'))
-    face(None, sheet=os.path.join(ROOT, p['master']), box=p['faceBox']).save(os.path.join(d, 'face.png'))
+    template([thad()] * p['drawn'], p.get('gaps')).save(os.path.join(d, 'template.png'))
+    boxes = p['faceBox'] if isinstance(p['faceBox'], list) else [p['faceBox']]
+    faces = [face(None, sheet=os.path.join(ROOT, p['master']), box=b) for b in boxes]
+    if len(faces) == 1:
+        faces[0].save(os.path.join(d, 'face.png'))
+    else:                                         # a pair, side by side, as the boundary men's were
+        both = Image.new('RGB', (1024 * len(faces), 1024), MAGENTA)
+        for i, one in enumerate(faces):
+            both.paste(one, (1024 * i, 0))
+        both.resize((768 * len(faces), 768), Image.NEAREST).save(os.path.join(d, 'face.png'))
     plate = Image.open(os.path.join(ROOT, p['plate'])).convert('RGBA')
     t = thad()
     h = round(man_at(p['curve'], p['thadAt'][1]))
@@ -95,6 +117,24 @@ def cut_at(sheet, height, tmp):
     return Image.open(out).convert('RGBA'), info['frames']
 
 
+def split(n, who):
+    """A pair drawn on one sheet: cut it at the widest run of clear magenta near its middle into sheet-a.png (the
+    left group) and sheet-b.png (the right), each then cut as its own figure."""
+    d = stage(n, who)
+    a = np.asarray(Image.open(os.path.join(d, 'sheet-01.png')).convert('RGB')).astype(int)
+    key = (a[..., 0] > 150) & (a[..., 2] > 150) & (a[..., 1] < 110)
+    clear = key.all(0)
+    w = a.shape[1]
+    best, run, at = 0, 0, w // 2
+    for x in range(w // 4, 3 * w // 4):
+        run = run + 1 if clear[x] else 0
+        if run > best:
+            best, at = run, x - run // 2
+    Image.fromarray(a[:, :at].astype(np.uint8)).save(os.path.join(d, 'sheet-a.png'))
+    Image.fromarray(a[:, at:].astype(np.uint8)).save(os.path.join(d, 'sheet-b.png'))
+    print(json.dumps({'split at': at, 'gap': best}))
+
+
 def standing(img, frame):
     x, y, w, h = frame
     return int((np.asarray(img)[y:y + h, x:x + w, 3] > 128).any(1).sum())
@@ -103,7 +143,8 @@ def standing(img, frame):
 def cut(n, who):
     p = PEOPLE[(n, who)]
     d = stage(n, who)
-    sheet = os.path.join(d, 'sheet-01.png')
+    sheet = os.path.join(ROOT, p['sheet']) if p.get('sheet') else os.path.join(d, 'sheet-01.png')
+    os.makedirs(d, exist_ok=True)
     man = man_at(p['curve'], p['feet'][1])
     target = round(man * p['stature'])
     with tempfile.TemporaryDirectory() as tmp:
@@ -161,4 +202,4 @@ def measure(n, who):
 
 
 if __name__ == '__main__':
-    {'refs': refs, 'cut': cut, 'measure': measure}[sys.argv[1]](int(sys.argv[2]), sys.argv[3])
+    {'refs': refs, 'cut': cut, 'measure': measure, 'split': split}[sys.argv[1]](int(sys.argv[2]), sys.argv[3])

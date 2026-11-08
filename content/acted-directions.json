@@ -735,6 +735,13 @@
       "speaker": "winnie",
       "words": "She produces it from under the floor.",
       "where": "dialogue/winnie WIN_B2 option 3"
+    },
+    {
+      "n": 75,
+      "class": "C",
+      "speaker": "boarding_a",
+      "words": "She laughs for some time.",
+      "where": "dialogue/amb-boarding-women root option 2"
     }
   ]
 }

@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "boarding_house_parlour",
+ "note": "ROOM 37's PROOF SPEC (errata 183). The route is Main Street's, then the MAP button and the boarding house's marker. The room has one visual state.",
+ "route": "boarding-house-parlour",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "the parlour draws the same in every state: doc 105 writes every line true whenever it is read, and no puzzle is sited here (doc 07 Part Three)."
+ }
+}

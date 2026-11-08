@@ -1,0 +1,13 @@
+Image 1 is a TEMPLATE: the hero of my pixel-art adventure game, exactly as he is drawn in the game, standing, six times in a row on magenta, in two groups of three. HIS BODY IS THE STANDARD FOR EVERY PERSON IN THIS GAME: a SMALL head (crown to chin about one eighth of his height), narrow shoulders, a long torso, a realistic lean adult figure -- not a cartoon, not big-headed. Image 2 shows ONLY THE FACES of two women, A (left) and B (right), who run a boarding house: take from it their faces, their brown hair pinned up and their colouring -- NOTHING ELSE. Their faces are drawn there larger than they should be: in your picture each is the SIZE OF THE HERO'S FACE in Image 1. Image 3 is the hero in the room where they live, a warm boarding house parlour at night: match its pixel size, soft shading and lamplight.
+
+A and B are respectable women of middle age, slender, nearly as tall as the hero. A wears a plain long dark green dress with a white collar; B wears a plain long dark plum dress with a white collar. Long skirts to the floor, dark shoes.
+
+Repaint Image 1: replace the LEFT three figures with A and the RIGHT three with B, KEEPING THE HERO'S HEAD SIZE AND NARROW SHOULDERS and his height, their long skirts in place of his legs, feet on the same line, facing us. Left to right:
+1. A standing at rest, hands folded in front of her, calm and unimpressed;
+2. A raising one hand to touch the pinned hair at the back of her head;
+3. A talking: one hand turned out a little, palm up, looking straight at us;
+4. B standing at rest, hands folded in front of her, calm and unimpressed;
+5. B with her arms folded;
+6. B talking: one hand raised a little, a finger lifted, looking straight at us.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the hero -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching, a wide gap between the two groups. No floor, no furniture, no glow, no blur, no shadows, no text.

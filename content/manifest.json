@@ -53,7 +53,8 @@
   "content/rooms/main-street-dawn.json",
   "content/rooms/coach-stop-dawn.json",
   "content/rooms/barbers.json",
-  "content/rooms/photographers-studio.json"
+  "content/rooms/photographers-studio.json",
+  "content/rooms/boarding-house-parlour.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -86,7 +87,8 @@
   "content/dialogue/amb-bell-ringer.json",
   "content/dialogue/amb-dogs-owner.json",
   "content/dialogue/amb-barber.json",
-  "content/dialogue/amb-photographer.json"
+  "content/dialogue/amb-photographer.json",
+  "content/dialogue/amb-boarding-women.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -224,7 +226,9 @@
   "content/ambient/dogs-owner.json",
   "content/ambient/fiddler.json",
   "content/ambient/barber.json",
-  "content/ambient/photographer.json"
+  "content/ambient/photographer.json",
+  "content/ambient/boarding-a.json",
+  "content/ambient/boarding-b.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",
@@ -480,6 +484,20 @@
      }
     ],
     "why": "Doc 28 rooms 2 / 2b / 2c: the Lane down to piano alone -- the back alley's distant piano, tuned when the Nugget's is (errata 161)."
+   },
+   "boarding_house_parlour": {
+    "src": "audio/consolation-distant-piano.wav",
+    "gain": 0.3,
+    "variants": [
+     {
+      "when": {
+       "T_NUGGET_PIANO_TUNED": true
+      },
+      "src": "audio/consolation-distant-piano-tuned.wav",
+      "gain": 0.3
+     }
+    ],
+    "why": "Errata 183: the town's distant piano, far off and faint (0.3) through the parlour's walls, tuned when the Nugget's is. The parlour's own piano is kept, not played (doc 105), so it gives no music of its own. Not silence: doc 28 keeps the undertaker's the only silent room until the coffin."
    },
    "photographers_studio": {
     "src": "audio/consolation-distant-piano.wav",

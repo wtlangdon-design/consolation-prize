@@ -28,7 +28,7 @@
   "R_TRUTH": "Should I take Mr. Mott's likeness, do you think? A real one?"
  },
  "sprite": {
-  "note": "Frames 0-1 are the idle: the rest pose and its breath. Frames 2-3 are a stock portrait card held up and considered, then tilted to the light. Frame 4 is talking, a hand presenting.",
+  "note": "Frames 0-1 are the idle: the rest pose and its breath. Frame 2 is a stock portrait card tilted to the light, considered. Frame 3 is talking, a hand presenting. The sheet's card-held-up pose is not used: the raised arm closes a hole of air against his head, and a talking figure is drawn whole (tests/lessons.test.ts).",
   "sheet": "art/actors/room-38-photographer.png",
   "frames": [
    [
@@ -39,12 +39,6 @@
    ],
    [
     200,
-    2,
-    196,
-    440
-   ],
-   [
-    398,
     2,
     196,
     440
@@ -68,23 +62,20 @@
    [
     2,
     2,
-    3,
-    3,
     2,
     2,
     0
    ],
    [
     2,
-    3,
-    3,
+    2,
     0
    ]
   ],
   "breakEvery": 17,
-  "talkFrame": 4,
+  "talkFrame": 3,
   "provenance": "art/staging/room-38/photographer/photographer.json",
-  "frameNote": "0 rest, hands at his sides · 1 breath · 2 a portrait card held up at arm's length · 3 the card tilted to the light · 4 talking, a hand presenting.",
+  "frameNote": "0 rest, hands at his sides · 1 breath · 2 the card tilted to the light · 3 talking, a hand presenting.",
   "figureHeight": 438,
   "stature": 1,
   "figureHeightNote": "The room's man at his feet (soles y 701): cut and snapped there by tools/art/interiors-people.py (errata 112's one level). The engine draws him at the room's man there."

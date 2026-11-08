@@ -1,0 +1,144 @@
+{
+ "schema": 1,
+ "id": "boarding_a",
+ "name": "THE BOARDING HOUSE WOMAN",
+ "posture": "standing",
+ "note": "Doc 07 #14-15, the one doc 07 marks A. The two run the only solvent business in town and regard the gold rush as a temporary weather event. Errata 183: they stand together at the right of their parlour (Room 37), where the composition master stood them. TALK TO either opens the one tree, and they answer as doc 07 writes them.",
+ "room": "boarding_house_parlour",
+ "x": 1679,
+ "y": 650,
+ "zone": 2,
+ "approachRadius": 40,
+ "tree": "amb_boarding_women",
+ "greetsWithBark": true,
+ "greetsWithBarkNote": "As the boundary men: TALK TO opens with the pair's bark for the current reputation, in both voices.",
+ "walkTo": {
+  "x": 1525,
+  "y": 665,
+  "facing": "right"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO THEM: beside them at their own depth, left of A, clear of her and of the tea table (doc 55 section 8; Tyler's boundary-men ruling, errata 167).",
+ "barks": {},
+ "sprite": {
+  "note": "Frames 0-1 are the idle: the rest pose and its breath. Frame 2 is her action. Frame 3 is talking. The two break half a cycle apart.",
+  "sheet": "art/actors/room-37-woman-a.png",
+  "frames": [
+   [
+    2,
+    2,
+    161,
+    432
+   ],
+   [
+    165,
+    2,
+    161,
+    432
+   ],
+   [
+    328,
+    2,
+    161,
+    432
+   ],
+   [
+    491,
+    2,
+    161,
+    432
+   ]
+  ],
+  "rate": 0.45,
+  "phase": 0,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    0
+   ]
+  ],
+  "breakEvery": 17,
+  "talkFrame": 3,
+  "provenance": "art/staging/room-37/woman-a/woman-a.json",
+  "frameNote": "0 rest, hands folded · 1 breath · 2 a hand to her pinned hair · 3 talking, a palm turned up.",
+  "figureHeight": 432,
+  "stature": 0.97,
+  "figureHeightNote": "0.97 of the room's man at her feet, crown to sole, as the master drew them: cut and snapped there by tools/art/interiors-people.py (errata 112's one level)."
+ },
+ "faces": "left",
+ "barkExchange": {
+  "R_NOBODY": [
+   {
+    "speaker": "boarding_a",
+    "line": "Six dollars the week, meals extra."
+   }
+  ],
+  "R_SWINDLED": [
+   {
+    "speaker": "boarding_b",
+    "line": "Oh, love."
+   }
+  ],
+  "R_RACCOON": [
+   {
+    "speaker": "boarding_a",
+    "line": "Better company than most of ours."
+   }
+  ],
+  "R_SURVEYED": [
+   {
+    "speaker": "boarding_b",
+    "line": "You paid her?"
+   }
+  ],
+  "R_BORDERS_MOTT": [
+   {
+    "speaker": "boarding_a",
+    "line": "Now don't let it change you."
+   },
+   {
+    "speaker": "boarding_b",
+    "line": "It changes them, Martha."
+   },
+   {
+    "speaker": "boarding_a",
+    "line": "It does."
+   }
+  ],
+  "R_LOST_DUEL": [
+   {
+    "speaker": "boarding_b",
+    "line": "Nobody wins their first."
+   }
+  ],
+  "R_WON_DUEL": [
+   {
+    "speaker": "boarding_a",
+    "line": "There now."
+   }
+  ],
+  "R_DEAD": [
+   {
+    "speaker": "boarding_b",
+    "line": "Will you be wanting the room still, or —"
+   },
+   {
+    "speaker": "boarding_a",
+    "line": "Martha."
+   }
+  ],
+  "R_TRUTH": [
+   {
+    "speaker": "boarding_a",
+    "line": "Six dollars the week."
+   },
+   {
+    "speaker": "boarding_b",
+    "line": "Meals extra."
+   }
+  ]
+ },
+ "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 14 & 15 · THE BOARDING HOUSE WOMEN) by tools/extract-content.mjs, as `barkExchange`: the table is written in two voices, each line said over its own man. Directions are dropped (errata 110)."
+}

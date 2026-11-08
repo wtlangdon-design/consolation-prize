@@ -1,0 +1,45 @@
+{
+ "sheet": "art/actors/room-37-woman-b.png",
+ "frames": [
+  [
+   2,
+   2,
+   114,
+   438
+  ],
+  [
+   118,
+   2,
+   114,
+   438
+  ],
+  [
+   234,
+   2,
+   114,
+   438
+  ],
+  [
+   350,
+   2,
+   114,
+   438
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "arms",
+  "talk"
+ ],
+ "figureHeight": 438,
+ "stature": 0.97,
+ "posture": "standing",
+ "man": 452.0,
+ "feet": [
+  1801,
+  660
+ ],
+ "note": "Room 37: the room's man where they stand (soles at y 660) is 452.0; drawn at 0.97 of him, crown to sole. Frame 1 is a breath the cutter derives from frame 0.",
+ "source": "room-37 (art/staging/room-37/women/sheet-b.png)"
+}

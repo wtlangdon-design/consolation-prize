@@ -90,6 +90,38 @@ ROOMS = {
                          'table and the photographer are all behind it, so no plane is needed.',
         'lightSources': ['THE PHOTOGRAPHER'],
     },
+    37: {
+        'id': 'boarding_house_parlour', 'name': 'THE BOARDING HOUSE PARLOUR',
+        'what': 'A startlingly civilised parlour, at night, lamp-lit and warm, with a fire in the grate.',
+        'depth': INTERIOR,
+        'surfaces': [
+            ('ceiling shadow', (0, 0, 1920, 60), 40),
+            ('walls, papered', (0, 60, 1920, 630), 76),
+            ('floor, boards', (0, 690, 1920, 174), 84),
+        ],
+        'objects': [
+            ('THE DOOR OUT', (20, 150, 160, 540), 52, 'behind'),
+            ('THE STAIRS (the sign, the boots)', (190, 60, 290, 630), 58, 'behind'),
+            ('THE PORTRAIT OF A QUEEN', (560, 100, 170, 210), 100, 'behind'),
+            ('THE PIANO', (500, 380, 280, 310), 50, 'behind'),
+            ('THE ANTIMACASSARS (the left chair)', (790, 440, 140, 250), 60, 'behind'),
+            ('THE FIRE (grate, fender, scuttle)', (950, 300, 290, 390), 46, 'behind'),
+            ('THE ANTIMACASSARS (the right chair)', (1260, 440, 140, 250), 60, 'behind'),
+            ('THE TEA THINGS (on a table)', (1410, 500, 170, 190), 96, 'behind'),
+            ('THE RUG', (700, 700, 640, 40), 70, 'behind'),
+            ('THE WOMEN A AND B (standing together)', (1600, 260, 260, 480), 56, 'behind'),
+        ],
+        'lamp': (1100, 780, 800, 170),
+        'marks': {'entrance': (240, 790, 'right'), 'talk_women': (1520, 750, 'right')},
+        'walk': (160, 740, 1620, 110),
+        'exit': ('THE DOOR OUT', 'town_map'),
+        'layoutThad': (1520, 750),
+        'figures': [(450, 740, False), (700, 800, False), (1300, 740, True), (240, 790, False), (900, 850, False),
+                    (1650, 850, True)],
+        'occlusionNote': 'Nothing stands nearer the camera than the walk band: the chairs, the fire, the tea table and '
+                         'the two women are all behind it, so no plane is needed.',
+        'lightSources': ['THE WOMEN', 'THE FIRE'],
+    },
 }
 
 

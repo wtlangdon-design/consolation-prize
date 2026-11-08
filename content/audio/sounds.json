@@ -735,7 +735,8 @@
    "lower_street": "mud",
    "the_lane": "mud",
    "barbers": "plank",
-   "photographers_studio": "plank"
+   "photographers_studio": "plank",
+   "boarding_house_parlour": "plank"
   }
  },
  "ambience": {

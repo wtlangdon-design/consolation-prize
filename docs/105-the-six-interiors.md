@@ -56,7 +56,7 @@
 > **LISTEN:** "A good fire, ticking. It is the first one I've heard in this town that isn't complaining."
 
 **THE PORTRAIT OF A QUEEN**
-> **LOOK:** "A queen, in an oval frame, looking down on the parlour as if she owned the boarding house. She may."
+> **LOOK:** "A queen, in an oval frame, looking down on the parlor as if she owned the boarding house. She may."
 > **LISTEN:** "Nothing. She is not amused, and she is not going to say so twice."
 
 **THE RUG**
@@ -64,7 +64,7 @@
 > **LISTEN:** "Nothing. A rug this good swallows footsteps whole."
 
 **THE STAIRS**
-> **LOOK:** "Stairs to the rooms. Forty men up there at six dollars the week, and not one of them allowed in this parlour."
+> **LOOK:** "Stairs to the rooms. Forty men up there at six dollars the week, and not one of them allowed in this parlor."
 > **LISTEN:** "Boots overhead, being taken off carefully. The house has rules, and the rules have ears."
 
 **THE TEA THINGS**
