@@ -34,7 +34,39 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "Why 'Grievance'?",
-          "say": "Had a partner once. She took his side."
+          "say": "Had a partner once. She took his side.",
+          "repeat": "She took his side. She'd take it again, given the chance."
+        },
+        {
+          "id": "livery_man8",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Did you know Ezra Pike?",
+          "exchange": [
+            {
+              "speaker": "livery_man",
+              "line": "Grievance knew him. She'd tell you to ask the undertaker."
+            },
+            {
+              "speaker": "livery_man",
+              "line": "She's not a talker."
+            }
+          ],
+          "repeat": "The undertaker. Grievance has nothing to add.",
+          "when": {
+            "T_PIKE_DEAD": false
+          }
+        },
+        {
+          "id": "livery_man9",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "You knew Pike was dead.",
+          "say": "She knew. She looked at me funny for a week.",
+          "repeat": "A whole week. Funny.",
+          "when": {
+            "T_PIKE_DEAD": true
+          }
         },
         {
           "id": "livery_man3",

@@ -57,13 +57,13 @@ Confirmed since: Monkey Island's lookout exchange is genuinely automatic, not pl
 
 **MI's opening teaches the game without announcing it, across four layers:** the lookout gives a destination; the dock teaches movement and examination; the ordinary pirates teach dialogue trees; the leaders convert a want into objectives. **A compact driver tree does the work of the first and third at once**, which is the only reason it should exist.
 
-**Four options. One of each kind.**
+**Four options. One of each kind.** *Errata 172 (doc 99's rewrite): each question has an asked-again answer, marked `*(again)*`, so the game's first conversation never says the same thing twice. The four options are unchanged.*
 
 | Option | Tag | Response |
 |---|---|---|
-| "Where can I find Ezra Pike?" | `[PROGRESS]` | "Ask the undertaker. He knows everybody." |
-| "Where am I supposed to sleep?" | `[PROGRESS]` | "Hotel's five dollars." — *"I have four."* — **"You've all got four."** |
-| "You don't think much of my chances." | `[COMIC]` | "I don't think about them at all." |
+| "Where can I find Ezra Pike?" | `[PROGRESS]` | "Ask the undertaker. He knows everybody." *(again)* "The undertaker. He'll be the one measuring you." |
+| "Where am I supposed to sleep?" | `[PROGRESS]` | "Hotel's five dollars." — *"I have four."* — **"You've all got four."** *(again)* "Five. You've got four. Arithmetic's free." |
+| "You don't think much of my chances." | `[COMIC]` | "I don't think about them at all." *(again)* "Still not thinking about them." |
 | "Thank you for the ride." | `[EXIT]` | **"Wasn't for you."** *(He climbs aboard. The coach goes. Beat 7.)* |
 
 **"Wasn't for you"** is the best line in the opening and it should be the last thing anyone says on that road. The coach was not a service Thad bought. He was freight.

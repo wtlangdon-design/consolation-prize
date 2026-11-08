@@ -104,6 +104,7 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "Nine dollars for what?",
+          "repeat": "Your claim. Nine dollars and a hen.",
           "exchange": [
             {
               "speaker": "pratt",
@@ -115,6 +116,56 @@
               "direction": true
             }
           ]
+        },
+        {
+          "id": "pratt5",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Did you know Ezra Pike?",
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Yep."
+            },
+            {
+              "speaker": "pratt",
+              "line": "He rakes for a while.",
+              "direction": true
+            },
+            {
+              "speaker": "pratt",
+              "line": "Undertaker's got him."
+            }
+          ],
+          "repeat": "Undertaker's got him. Has had for a while.",
+          "when": {
+            "T_PIKE_DEAD": false
+          }
+        },
+        {
+          "id": "pratt6",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "You knew Pike was dead.",
+          "exchange": [
+            {
+              "speaker": "pratt",
+              "line": "Yep."
+            },
+            {
+              "speaker": "pratt",
+              "line": "He rakes.",
+              "direction": true
+            },
+            {
+              "speaker": "pratt",
+              "line": "Said so."
+            }
+          ],
+          "repeat": "Said the undertaker had him. That's what that means.",
+          "when": {
+            "T_PIKE_DEAD": true
+          }
         },
         {
           "id": "pratt3",

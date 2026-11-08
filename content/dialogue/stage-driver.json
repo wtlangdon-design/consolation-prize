@@ -12,6 +12,7 @@
           "id": "drv1",
           "text": "Where can I find Ezra Pike?",
           "tag": "PROGRESS",
+          "repeat": "The undertaker. He'll be the one measuring you.",
           "say": "Ask the undertaker. He knows everybody.",
           "set": {
             "T_UNDERTAKER_NAMED": true
@@ -24,6 +25,7 @@
           "id": "drv2",
           "text": "Where am I supposed to sleep?",
           "tag": "PROGRESS",
+          "repeat": "Five. You've got four. Arithmetic's free.",
           "exchange": [
             {
               "speaker": "stage_driver",
@@ -46,6 +48,7 @@
           "id": "drv3",
           "text": "You don't think much of my chances.",
           "tag": "COMIC",
+          "repeat": "Still not thinking about them.",
           "say": "I don't think about them at all.",
           "add": {
             "T_DRIVER_ASKED": 1

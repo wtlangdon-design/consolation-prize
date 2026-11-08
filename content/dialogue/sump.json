@@ -64,6 +64,9 @@
           "set": {
             "T_SURVEY_NEEDED": true
           },
+          "when": {
+            "T_SWINDLED": true
+          },
           "puzzle": {
             "A6": "complete"
           }
@@ -102,7 +105,57 @@
           "tag": "TOPIC",
           "text": "The deed's drawn wrong side up.",
           "afterUse": "retain",
-          "say": "Statute does not specify an orientation. You would be surprised how much statute does not specify. I would not. I have read it."
+          "say": "Statute does not specify an orientation. You would be surprised how much statute does not specify. I would not. I have read it.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "It still does not specify. I have read it again since you asked."
+            }
+          ],
+          "when": {
+            "T_SWINDLED": true
+          }
+        },
+        {
+          "id": "sump5",
+          "tag": "TOPIC",
+          "text": "Do you know Ezra Pike?",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "sump",
+              "line": "Pike, Ezra. Claim filed in forty-nine. Lapsed in fifty-two, on account of the claimant."
+            },
+            {
+              "speaker": "sump",
+              "line": "The undertaker holds the rest of the file."
+            }
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Lapsed. The undertaker has the remainder of the file."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          }
+        },
+        {
+          "id": "sump6",
+          "tag": "TOPIC",
+          "text": "You knew Pike was dead.",
+          "afterUse": "retain",
+          "say": "Lapsed, Mr. Grubb. In this office we say lapsed.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Lapsed. It is a perfectly good word. It has a form."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": true
+          }
         },
         {
           "id": "sump3",

@@ -158,7 +158,15 @@ is the whole of his character.
 
 **Micro-tree**
 > "That bell is flat." → "It's loud, is what it is."
+>   *Asked again:* "Loud. Flat's a matter of opinion. Loud isn't."
 > "I could show you where to strike it." → "You could." *(He does not move.)*
+>   *Asked again:* "You could. Still could."
+> "Did you know Ezra Pike?" → "Rang for him."
+>   *Thad:* "Rang for him?"
+>   → "Ask the undertaker. He keeps the list."
+>   *Asked again:* "The undertaker's got the list. I've got the rope."
+> "You knew Pike was dead." → "Rang for him, didn't I. Flat. He never complained."
+>   *Asked again:* "Never complained. Best audience I've had."
 > `[COMIC]` "Doesn't it bother you?" → "Nothing bothers me. That's the qualification."
 
 **Barks**
@@ -348,7 +356,15 @@ is the whole of his character.
 
 **Micro-tree**
 > "You're flat." → "I'm tuned to the piano."
+>   *Asked again:* "Still tuned to the piano. It's called loyalty."
 > "The piano is flat." → "Then I'm tuned to the piano."
+>   *Asked again:* "Then I'm loyal to a flat piano. Somebody has to be."
+> "Did you know Ezra Pike?" → "Pike sang flat. Loudest man at every funeral in town."
+>   *Thad:* "Every funeral?"
+>   → "Bar one. Ask the undertaker about that one."
+>   *Asked again:* "Every funeral but his own. The undertaker'll tell you."
+> "You knew Pike was dead." → "I'd have played at it. Nobody asked. Nobody ever asks the fiddle."
+>   *Asked again:* "Nobody asks the fiddle."
 > `[COMIC]` "Do you want me to fix it?" → "God, no. Then I'd be the only one right."
 
 **Barks** — *mostly just playing; three spoken*
@@ -392,6 +408,13 @@ is the whole of his character.
 > "Tell me about it." → "Bent down to drink. There it was, winking up at me. I've been bending down ever since."
 >   *Asked again:* "Again? …Bless you. Nobody asks twice."
 > "When was this?" → "Forty-nine. Spring. A Tuesday."
+>   *Asked again:* "Forty-nine. Spring. Possibly a Wednesday. The details go first."
+> "Did you know Ezra Pike?" → "Pike! Knew him in forty-nine."
+>   *Thad:* "Where is he now?"
+>   → "Ask the undertaker. He's kept up with Pike better than I have."
+>   *Asked again:* "The undertaker. I only keep up with forty-nine."
+> "You knew Pike was dead." → "Pike? Knew him in forty-nine. Spring. A Tuesday."
+>   *Asked again:* "A Tuesday. Lovely man. Never found a thing."
 > `[COMIC]` "And since?" → "Since what?"
 > `[EXIT]` "Thank you. This has been clarifying."
 
@@ -481,6 +504,13 @@ is the whole of his character.
 > "You're dealing off the bottom." → "I am."
 >   *Asked again:* "Still am."
 > ↳ "Doesn't anyone object?" → "They know what I am. They don't know what the Colonel is. Which of us is the problem?"
+>   *Asked again:* "Object to me? Son, I'm the only honest thing at this table."
+> "Did you know Ezra Pike?" → "Pike owed me eleven dollars. I've forgiven it."
+>   *Thad:* "That's generous."
+>   → "The undertaker hasn't. Ask him about Pike."
+>   *Asked again:* "Eleven dollars. Forgiven. Ask the undertaker."
+> "You knew Pike was dead." → "I'm a card player. I knew the night he stopped losing."
+>   *Asked again:* "He stopped losing. That's how you know."
 > `[COMIC]` "Deal me in." → "No. I like you."
 >   *Asked again:* "I still like you. Don't make it difficult."
 > `[COMIC]` "Are you any good?" → "I'm the best honest card player in the territory. Small field. I'm not in it."
@@ -506,6 +536,13 @@ is the whole of his character.
 
 **Micro-tree**
 > "Are you looking for a dog?" → "Six weeks."
+>   *Asked again:* "Six weeks. Seven, tomorrow."
+> "Did you know Ezra Pike?" → "Did he have a dog?"
+>   *Thad:* "I don't know."
+>   → "Then no." *(beat)* "Undertaker's right there. He knows everybody who hasn't got a dog."
+>   *Asked again:* "Undertaker. Right there. Dogless, the lot of them."
+> "You knew Pike was dead." → "Did he have a dog?"
+>   *Asked again:* "Then it's not my business."
 > "There's a dog on Main Street." → "…That's Bill?" *(He goes. **This is the resolution. It is worth nothing. It takes twenty seconds and it is the nicest thing in the game.**)*
 > `[COMIC]` *(after)* "How's Bill?" → "He'd been on Main Street the whole time. Six weeks. He'd been *fine*."
 

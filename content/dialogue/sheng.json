@@ -48,13 +48,21 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "You hold paper on the Improvement Company?",
-          "say": "On rather a lot of it. They come in on Thursdays. They are very warm to me on Thursdays."
+          "say": "On rather a lot of it. They come in on Thursdays. They are very warm to me on Thursdays.",
+          "repeat": "Thursdays, Mr. Grubb. Warm as toast, and every one of them in arrears.",
+          "when": {
+            "T_SHENG_HOLDS_PAPER": true
+          }
         },
         {
           "id": "sheng3",
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "Why does nobody know this?",
+          "repeat": "Laundry, Mr. Grubb. It is the best disguise in the territory, and it pays.",
+          "when": {
+            "T_SHENG_HOLDS_PAPER": true
+          },
           "exchange": [
             {
               "speaker": "sheng",
@@ -66,6 +74,41 @@
               "direction": true
             }
           ]
+        },
+        {
+          "id": "sheng7",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Did you know Ezra Pike?",
+          "exchange": [
+            {
+              "speaker": "sheng",
+              "line": "Mr. Pike's shirts are still here. Four of them, pressed."
+            },
+            {
+              "speaker": "sheng",
+              "line": "…"
+            },
+            {
+              "speaker": "sheng",
+              "line": "He has not called for them in six years. The undertaker will tell you why."
+            }
+          ],
+          "repeat": "Four shirts. Pressed. The undertaker has the explanation, and I have the shirts.",
+          "when": {
+            "T_PIKE_DEAD": false
+          }
+        },
+        {
+          "id": "sheng8",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "You knew Pike was dead.",
+          "say": "A man who leaves four good shirts for six years is dead or married, Mr. Grubb. I checked the register.",
+          "repeat": "Not married. I checked.",
+          "when": {
+            "T_PIKE_DEAD": true
+          }
         },
         {
           "id": "sheng4",

@@ -83,6 +83,18 @@
    "file": "amb-map-seller",
    "speaker": "map_seller",
    "prefix": "map_seller"
+  },
+  "13 · THE ONE-STRIKE MAN": {
+   "tree": "amb_one_strike_man",
+   "file": "amb-one-strike-man",
+   "speaker": "one_strike_man",
+   "prefix": "one_strike"
+  },
+  "17 · THE CARD SHARP": {
+   "tree": "amb_card_sharp",
+   "file": "amb-card-sharp",
+   "speaker": "card_sharp",
+   "prefix": "card_sharp"
   }
  },
  "treeRoutes": {
@@ -97,6 +109,16 @@
    "How's Bill?": {
     "when": {
      "T_BILL_FOUND": true
+    }
+   },
+   "Did you know Ezra Pike?": {
+    "when": {
+     "T_PIKE_DEAD": false
+    }
+   },
+   "You knew Pike was dead.": {
+    "when": {
+     "T_PIKE_DEAD": true
     }
    }
   },
@@ -187,7 +209,65 @@
     }
    }
   },
-  "_pikeNote": "Errata 170, the Main Street pass (Tyler, 2026-11-07): every Main Street townsperson is asked after Ezra Pike only while Thad does not know he is dead (T_PIKE_DEAD false), and each sends him to the undertaker without saying so; once the undertaker has told him, 'You knew Pike was dead.' takes its place. The three ASKED flags are kept as they were, set by the question they always followed."
+  "_pikeNote": "Errata 170, the Main Street pass (Tyler, 2026-11-07): every Main Street townsperson is asked after Ezra Pike only while Thad does not know he is dead (T_PIKE_DEAD false), and each sends him to the undertaker without saying so; once the undertaker has told him, 'You knew Pike was dead.' takes its place. The three ASKED flags are kept as they were, set by the question they always followed.",
+  "11 · THE FIDDLER": {
+   "Did you know Ezra Pike?": {
+    "when": {
+     "T_PIKE_DEAD": false
+    }
+   },
+   "You knew Pike was dead.": {
+    "when": {
+     "T_PIKE_DEAD": true
+    }
+   }
+  },
+  "13 · THE ONE-STRIKE MAN": {
+   "Did you know Ezra Pike?": {
+    "when": {
+     "T_PIKE_DEAD": false
+    }
+   },
+   "You knew Pike was dead.": {
+    "when": {
+     "T_PIKE_DEAD": true
+    }
+   },
+   "Tell me about it.": {
+    "set": {
+     "T_STRIKE_TOLD": true
+    }
+   }
+  },
+  "17 · THE CARD SHARP": {
+   "Did you know Ezra Pike?": {
+    "when": {
+     "T_PIKE_DEAD": false
+    }
+   },
+   "You knew Pike was dead.": {
+    "when": {
+     "T_PIKE_DEAD": true
+    }
+   },
+   "You're dealing off the bottom.": {
+    "set": {
+     "T_SHARP_ACCUSED": true
+    }
+   }
+  },
+  "4 · THE BELL-RINGER": {
+   "Did you know Ezra Pike?": {
+    "when": {
+     "T_PIKE_DEAD": false
+    }
+   },
+   "You knew Pike was dead.": {
+    "when": {
+     "T_PIKE_DEAD": true
+    }
+   }
+  }
  },
  "struck": {
   "4 · THE BELL-RINGER": "bell-ringer"

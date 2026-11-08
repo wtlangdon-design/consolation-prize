@@ -116,7 +116,7 @@ function replyCells() {
 
 /** A reply cell, in order: speech and performed directions. */
 function performedSequence(cell, npc) {
-  const first = cell.split(/\*\((?:second|third|fourth|fifth)\)\*/)[0].split('→')[0];
+  const first = cell.split(/\*\((?:again|second|third|fourth|fifth)\)\*/)[0].split('→')[0];
   const out = [];
   for (const span of first.matchAll(/\*\(([^)]+)\)\*|\*\*"([^"]+)"\*\*|\*"([^"]+)"\*|"([^"]+)"/g)) {
     const [, direction, bold, italic, plainSpan] = span;
@@ -776,7 +776,11 @@ function stageDriver() {
   const options = rows.map((row, index) => {
     // Every quoted span in the response, with its emphasis, so the one
     // italicised line can be told from the ones that are not.
-    const spans = [...row.response.matchAll(/(\*+)?"([^"]+)"(\*+)?/g)].map((match) => ({
+    // ASKED AGAIN (errata 172): a response may end with *(again)* "...", the driver's answer to the same question
+    // twice, so nobody in the game's first conversation says the same thing word for word.
+    const [first, again] = row.response.split('*(again)*');
+    const repeat = again ? /"([^"]+)"/.exec(again)?.[1] : undefined;
+    const spans = [...first.matchAll(/(\*+)?"([^"]+)"(\*+)?/g)].map((match) => ({
       line: match[2],
       italic: match[1] === '*' && match[3] === '*',
     }));
@@ -786,6 +790,7 @@ function stageDriver() {
       id: `drv${index + 1}`,
       text: row.text,
       tag: row.tag,
+      ...(repeat ? { repeat } : {}),
     };
     if (spans.length === 1) {
       option.say = spans[0].line;
@@ -2189,15 +2194,22 @@ function minorTrees() {
       if (!text) throw new Error(`doc 27: ${title} option ${number} has no option text`);
 
       // Everything before the arrow is spoken; everything after it is state.
-      const [spoken, ...after] = responseCell.split('→');
+      const [said, ...after] = responseCell.split('→');
+      // ASKED AGAIN (errata 172, doc 99's rewrite): *(again)* "..." is the answer to the same question twice.
+      const [spoken, againCell] = said.split('*(again)*');
+      const again = againCell ? /"([^"]+)"/.exec(againCell)?.[1] : undefined;
       const lines = speech(spoken, who.speaker);
       for (const note of stageDirections(spoken)) {
         directions.push(`${title} option ${number}: ${note}`);
       }
 
-      const option = { id: `${who.speaker}${number}`, text, tag };
+      const option = { id: `${who.speaker}${number}`, text, tag, ...(again ? { repeat: again } : {}) };
       const follows = afterIds(tagCell, who.speaker);
       if (follows) option.after = follows;
+      // A FLAG GATE IN THE TAG CELL (errata 172): `when FLAG` offers the option once the flag is set, `unless FLAG`
+      // while it is not -- the Pike question before the undertaker has told him, "You knew Pike was dead." after.
+      const gate = /\b(when|unless) `?([A-Z][A-Z_0-9]+)`?/.exec(tagCell ?? '');
+      if (gate) option.when = { [gate[2]]: gate[1] === 'when' };
       // `ends` in the tag cell: the conversation closes after this exchange,
       // as an EXIT's does (doc 27's note; Vessel's option 6, doc 57 A3).
       if (/(^|·)\s*ends\s*(·|$)/.test(tagCell.replace(/`[^`]*`/g, ''))) option.ends = true;
@@ -3028,6 +3040,8 @@ function sumpTree() {
       if (sets.length) option.set = Object.fromEntries(sets.map((f) => [f, true]));
       const reqFlag = /req `([A-Z_0-9]+)`/.exec(stateText);
       if (reqFlag) option.when = { [reqFlag[1]]: true };
+      const unlessGate = /unless `([A-Z_0-9]+)`/.exec(stateText);
+      if (unlessGate) option.when = { ...option.when, [unlessGate[1]]: false };
       const reqItem = /req (THE [A-Z ]+?)(?:;|$|\s\*)/.exec(stateText);
       if (reqItem) {
         const item = ITEM[reqItem[1].trim()];
@@ -3187,6 +3201,8 @@ function frameTree() {
       if (Object.keys(set).length) option.set = set;
       if (counter) option.add = { [counter[1]]: 1 };
       if (req) option.when = { [req[1]]: true };
+      const unlessFlag = /unless `([A-Z_0-9]+)`/.exec(state);
+      if (unlessFlag) option.when = { ...option.when, [unlessFlag[1]]: false };
       if (route.goto) option.goto = route.goto;
       if (route.gives) option.gives = route.gives;
       if (route.puzzle) option.puzzle = route.puzzle;
@@ -3429,9 +3445,12 @@ function winnieTree() {
       // option 1: "*(sets `T_ASSAY_RUN`; errata 75)*").
       const sets = /sets `([A-Z_0-9]+)`/.exec(state) ?? /\*\(sets `([A-Z_0-9]+)`/.exec(responseCell);
       const req = /req `([A-Z_0-9]+)`/.exec(state);
+      // `unless FLAG` (errata 172): offered while the flag is not set -- the Pike question before he knows.
+      const unless = /unless `([A-Z_0-9]+)`/.exec(state);
       if (opens) option.goto = opens[1];
       if (sets) option.set = { [sets[1]]: true };
       if (req) option.when = { [req[1]]: true };
+      if (unless) option.when = { ...option.when, [unless[1]]: false };
       const puzzleWrite = PUZZLE_WRITE[`${id}:${number}`];
       if (puzzleWrite) option.puzzle = puzzleWrite;
       if (ASKED[`${id}:${number}`]) option.set = { ...option.set, ...ASKED[`${id}:${number}`] };
@@ -3445,7 +3464,7 @@ function winnieTree() {
       // THE SPARRING (doc 57 C6): WIN_B4's teaching row, doc 03's exchange and pairs.
       if (tag === 'ASSAY' && /\bpairs? \d/.test(`${responseCell} ${state}`)) {
         teachingRow(option, `${responseCell} | ${state}`, { teacher: 'Winnie', owner: SPEAKER, sparring: 'Winnie' });
-      } else if (state && !opens && !sets && !req && !puzzleWrite && state !== '—') {
+      } else if (state && !opens && !sets && !req && !unless && !puzzleWrite && state !== '—') {
         unplayed.push(`${id} option ${number} state "${state}" names no flag; nothing set`);
       }
       options.push(option);
@@ -4270,6 +4289,11 @@ function fanshaweTree() {
       const set = { ...Object.fromEntries(sets.map((f) => [f, true])), ...(route.set ?? {}) };
       if (Object.keys(set).length) option.set = set;
       if (counter) option.add = { [counter[1]]: 1 };
+      // Gates (errata 172): `req FLAG` while it holds, `unless FLAG` while it does not.
+      const reqFlag = /req `([A-Z_0-9]+)`/.exec(state);
+      const unlessFlag = /unless `([A-Z_0-9]+)`/.exec(state);
+      if (reqFlag) option.when = { ...option.when, [reqFlag[1]]: true };
+      if (unlessFlag) option.when = { ...option.when, [unlessFlag[1]]: false };
       if (route.goto) option.goto = route.goto;
       if (route.gives) option.gives = route.gives;
       if (route.puzzle) option.puzzle = route.puzzle;
@@ -4450,7 +4474,9 @@ function liveryTree() {
   for (const [, number, optionCell, tagCell, responseCell] of body.matchAll(/^\| (\d+) \| (.+?) \| (.+?) \| (.+?) \|$/gm)) {
     const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
     const text = quoted(optionCell)[0];
-    const [reply, ...rest] = responseCell.split('→');
+    const [replied, ...rest] = responseCell.split('→');
+    // ASKED AGAIN (errata 172): *(second)* "..." is the answer to the same question twice.
+    const [reply, againCell] = replied.split('*(second)*');
     const said = spokenIn(reply.replace(/\*\([^)]*\)\*/g, ''), SPEAKER);
     for (const d of spokenIn(responseCell, SPEAKER).staging) process.stderr.write(`  doc 04 LIV_A1 option ${number} staging: ${d}\n`);
     if (!tag || !text || !said.lines.length) throw new Error(`doc 04 LIV_A1: option ${number} does not read`);
@@ -4458,17 +4484,22 @@ function liveryTree() {
     const option = { id: `${SPEAKER}${number}`, tag: tag[1], ...(tag[2] ? { afterUse: tag[2] } : {}), text };
     if (said.lines.length === 1 && said.lines[0].speaker === SPEAKER) option.say = said.lines[0].line;
     else option.exchange = said.lines;
-    const flags = [...state.matchAll(/`([A-Z_0-9]+)`/g)].map((m) => m[1]).filter((f) => !/req `/.test(state) || !state.includes(`req \`${f}\``));
+    const flags = [...state.matchAll(/`([A-Z_0-9]+)`/g)].map((m) => m[1])
+      .filter((f) => (!/req `/.test(state) || !state.includes(`req \`${f}\``)) && !state.includes(`unless \`${f}\``));
+    const again = againCell ? /"([^"]+)"/.exec(againCell)?.[1] : undefined;
+    if (again) option.repeat = again;
     const req = /req `([A-Z_0-9]+)`/.exec(state);
     const route = ROUTE[number] ?? {};
     const set = { ...Object.fromEntries(flags.map((f) => [f, true])), ...(route.set ?? {}) };
     if (Object.keys(set).length) option.set = set;
     if (req) option.when = { [req[1]]: true };
+    const unlessFlag = /unless `([A-Z_0-9]+)`/.exec(state);
+    if (unlessFlag) option.when = { ...option.when, [unlessFlag[1]]: false };
     if (route.gives) option.gives = route.gives;
     if (route.puzzle) option.puzzle = route.puzzle;
     options.push(option);
   }
-  if (options.length !== 7) throw new Error(`doc 04 LIV_A1: ${options.length} options, not 7`);
+  if (options.length < 7) throw new Error(`doc 04 LIV_A1: ${options.length} options, fewer than 7`);
   options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[1 % POOL.length], universal: true, ends: true });
   return write('content/dialogue/livery-man.json', {
     aftermathAuthored: true,
@@ -4508,7 +4539,9 @@ function ozymandiaTree() {
   for (const [, number, optionCell, tagCell, responseCell] of body.matchAll(/^\| (\d+) \| (.+?) \| (.+?) \| (.+?) \|$/gm)) {
     const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
     const text = quoted(optionCell)[0];
-    const [reply] = responseCell.split('→');
+    const [replied] = responseCell.split('→');
+    // ASKED AGAIN (errata 172).
+    const [reply, againCell] = replied.split('*(second)*');
     const said = spokenIn(reply.replace(/\*\([^)]*\)\*/g, ''), SPEAKER);
     for (const d of spokenIn(responseCell, SPEAKER).staging) process.stderr.write(`  doc 04 OZY_A1 option ${number} staging: ${d}\n`);
     if (!tag || !text || !said.lines.length) throw new Error(`doc 04 OZY_A1: option ${number} does not read`);
@@ -4517,10 +4550,14 @@ function ozymandiaTree() {
     else option.exchange = said.lines;
     const req = /req `([A-Z_0-9]+)`/.exec(responseCell);
     if (req) option.when = { [req[1]]: true };
+    const unlessFlag = /unless `([A-Z_0-9]+)`/.exec(responseCell);
+    if (unlessFlag) option.when = { ...option.when, [unlessFlag[1]]: false };
     if (ROUTE[number]?.set) option.set = ROUTE[number].set;
+    const again = againCell ? /"([^"]+)"/.exec(againCell)?.[1] : undefined;
+    if (again) option.repeat = again;
     options.push(option);
   }
-  if (options.length !== 5) throw new Error(`doc 04 OZY_A1: ${options.length} options, not 5`);
+  if (options.length < 5) throw new Error(`doc 04 OZY_A1: ${options.length} options, fewer than 5`);
   options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[2 % POOL.length], universal: true, ends: true });
   return write('content/dialogue/ozymandia.json', {
     aftermathAuthored: true,
@@ -4727,7 +4764,9 @@ function prattTree() {
       const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
       const optionText = quoted(optionCell)[0];
       for (const d of spokenIn(responseCell, SPEAKER).staging) process.stderr.write(`  doc 04 ${id} option ${number} staging: ${d}\n`);
-      const bare = responseCell.replace(/\*\([^)]*\)\*/g, '');
+      // ASKED AGAIN (errata 172): *(second)* "..." is his answer to the same question twice.
+      const [firstCell, againCell] = responseCell.split('*(second)*');
+      const bare = firstCell.replace(/\*\([^)]*\)\*/g, '');
       const [reply, ...rest] = bare.split('→');
       let said = spokenIn(reply, SPEAKER).lines;
       if (!said.length) said = spokenIn(rest.join('→'), SPEAKER).lines.slice(0, 1);
@@ -4740,8 +4779,11 @@ function prattTree() {
       const after = afterIds(tagCell, SPEAKER);
       if (after) option.after = after;
       const reqs = [...responseCell.matchAll(/req `([A-Z_0-9]+)`/g)].map((m) => m[1]);
-      const sets = [...rest.join('→').matchAll(/`([A-Z_0-9]+)`/g)].map((m) => m[1]).filter((flag) => !reqs.includes(flag));
-      const when = { ...Object.fromEntries(reqs.map((flag) => [flag, true])), ...(route.when ?? {}) };
+      const unlesses = [...responseCell.matchAll(/unless `([A-Z_0-9]+)`/g)].map((m) => m[1]);
+      const sets = [...rest.join('→').matchAll(/`([A-Z_0-9]+)`/g)].map((m) => m[1]).filter((flag) => !reqs.includes(flag) && !unlesses.includes(flag));
+      const when = { ...Object.fromEntries(reqs.map((flag) => [flag, true])), ...Object.fromEntries(unlesses.map((flag) => [flag, false])), ...(route.when ?? {}) };
+      const again = againCell ? /"([^"]+)"/.exec(againCell)?.[1] : undefined;
+      if (again) option.repeat = again;
       if (Object.keys(when).length) option.when = when;
       const set = { ...Object.fromEntries(sets.map((flag) => [flag, true])), ...(route.set ?? {}) };
       if (Object.keys(set).length) option.set = set;
@@ -4763,7 +4805,7 @@ function prattTree() {
   const D6 = node('PRA_D6', '## `PRA_D6`', 4);
   const D2 = { ...node('PRA_D2', '## `PRA_D2`', 4), openingOnce: 'T_PRATT_JUMP_HEARD' };
   const counts = { PRA_A1: A1.options.length, PRA_B1: B1.options.length, PRA_D6: D6.options.length, PRA_D2: D2.options.length };
-  if (counts.PRA_A1 !== 5 || counts.PRA_B1 !== 8 || counts.PRA_D6 !== 6 || counts.PRA_D2 !== 4) throw new Error(`doc 04 PRATT: option counts ${JSON.stringify(counts)}`);
+  if (counts.PRA_A1 !== 7 || counts.PRA_B1 !== 8 || counts.PRA_D6 !== 6 || counts.PRA_D2 !== 4) throw new Error(`doc 04 PRATT: option counts ${JSON.stringify(counts)}`);
   const note = 'EXTRACTED from docs/04-dialogue-trees.md (NICKEL PRATT) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. '
     + 'Plain quotes in a reply are his, italic quotes Thad\'s. `closing` is doc 04\'s offer run, "It never stops" (errata 97).';
   return [
@@ -4832,16 +4874,25 @@ function shengTree() {
         const parts = responseCell.split(/\*\((?:second|third)\)\*/);
         option.say = quoted(parts[0])[0];
         option.repeats = parts.slice(1).map((part, i) => ({ selection: i + 2, say: quoted(part)[0] }));
-      } else if (said.length === 1 && said[0].speaker === SPEAKER) option.say = said[0].line;
-      else option.exchange = said;
+      } else {
+        // ASKED AGAIN (errata 172): *(second)* "..." on any other row.
+        const [firstCell, againCell] = responseCell.split('*(second)*');
+        said = spokenIn(firstCell.replace(/\*\([^)]*\)\*/g, '').split('→')[0], SPEAKER).lines;
+        if (said.length === 1 && said[0].speaker === SPEAKER) option.say = said[0].line;
+        else option.exchange = said;
+        const again = againCell ? /"([^"]+)"/.exec(againCell)?.[1] : undefined;
+        if (again) option.repeat = again;
+      }
       if (!tag || !optionText || !(option.say || option.exchange?.length)) throw new Error(`doc 04 ${id}: option ${number} does not read`);
       const reqs = [...responseCell.matchAll(/req `([A-Z_0-9]+)`/g)].map((r) => r[1]);
-      const when = { ...Object.fromEntries(reqs.map((flag) => [flag, true])), ...(route.when ?? {}) };
+      const unlesses = [...responseCell.matchAll(/unless `([A-Z_0-9]+)`/g)].map((r) => r[1]);
+      const when = { ...Object.fromEntries(reqs.map((flag) => [flag, true])), ...Object.fromEntries(unlesses.map((flag) => [flag, false])), ...(route.when ?? {}) };
       if (Object.keys(when).length) option.when = when;
       if (route.set) option.set = route.set;
       if (route.add) option.add = route.add;
       if (route.holds) option.holds = route.holds;
-      if (route.after) option.after = route.after;
+      const follows = afterIds(tagCell, SPEAKER);
+      if (route.after || follows) option.after = route.after ?? follows;
       if (route.gives) option.gives = route.gives;
       if (route.puzzle) option.puzzle = route.puzzle;
       if (route.goto) option.goto = route.goto;
@@ -4853,7 +4904,7 @@ function shengTree() {
   };
   const A1 = node('SHE_A1', '## Root: `SHE_A1`', 2);
   const D1 = node('SHE_D1', '## `SHE_D1`', 2);
-  if (A1.options.length !== 7 || D1.options.length !== 7) throw new Error(`doc 04 SHENG: ${A1.options.length} and ${D1.options.length} options`);
+  if (A1.options.length < 7 || D1.options.length !== 7) throw new Error(`doc 04 SHENG: ${A1.options.length} and ${D1.options.length} options`);
   return write('content/dialogue/sheng.json', {
     aftermathAuthored: true, schema: 1, id: 'SHENG', speaker: SPEAKER, name: 'AH-LAM SHENG',
     note: 'EXTRACTED from docs/04-dialogue-trees.md (AH-LAM SHENG) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. '
@@ -4909,6 +4960,11 @@ function sowerbyTree() {
       }
       const route = ROUTE[`${id}:${number}`] ?? {};
       if (route.when) option.when = route.when;
+      // Gates written in the row (errata 172): `req FLAG` / `unless FLAG`, beside the routed ones.
+      for (const g of responseCell.matchAll(/\b(req|unless) `([A-Z_0-9]+)`/g)) {
+        if (route.when && g[2] in route.when) continue;
+        option.when = { ...option.when, [g[2]]: g[1] === 'req' };
+      }
       if (route.whenAny) option.whenAny = route.whenAny;
       if (route.set) option.set = route.set;
       if (route.add) option.add = route.add;
@@ -5080,6 +5136,17 @@ function townTrees() {
       const followUp = text.startsWith('↳');
       const comic = text.includes('`[COMIC]`');
       const arrow = text.indexOf('→');
+      // AN [EXIT] OF THE CHARACTER'S OWN (errata 172): the card sharp's "Count your fingers on the way out." With a
+      // reply it is his exit; without one it is doc 04's universal pool, which rotates in play.
+      if (text.includes('`[EXIT]`')) {
+        const said = /"([^"]+)"/.exec(arrow < 0 ? text : text.slice(0, arrow))?.[1];
+        if (!said) throw new Error(`doc 07 ${heading}: an [EXIT] with no words`);
+        const exitOption = { id: `${spec.prefix}x`, tag: 'EXIT', text: plain(said), ends: true };
+        if (arrow < 0) exitOption.universal = true;
+        else exitOption.exchange = spoken(text.slice(arrow + 1), speakers, spec.speaker);
+        options.push(exitOption);
+        continue;
+      }
       if (arrow < 0) throw new Error(`doc 07 ${heading}: an option with no reply: "${text}"`);
       const asked = /"([^"]+)"/.exec(text.slice(0, arrow))?.[1];
       if (!asked) { reported.push(`${heading}: "${text.slice(0, arrow).trim()}" has no words for Thad to say -- left out`); continue; }
@@ -5094,13 +5161,15 @@ function townTrees() {
       if (!options.some((option) => option.text === text)) throw new Error(`doc 07 ${heading}: a route for "${text}", which no option says`);
     }
     for (const option of options) {
-      if (option.exchange.length === 1 && option.exchange[0].speaker === spec.speaker && !option.exchange[0].direction) {
+      if (option.exchange?.length === 1 && option.exchange[0].speaker === spec.speaker && !option.exchange[0].direction) {
         option.say = option.exchange[0].line;
         delete option.exchange;
       }
     }
-    options.push({ id: `${spec.prefix}x`, tag: 'EXIT', text: pool[poolIndex % 2], universal: true, ends: true });
-    poolIndex += 1;
+    if (!options.some((option) => option.tag === 'EXIT')) {
+      options.push({ id: `${spec.prefix}x`, tag: 'EXIT', text: pool[poolIndex % 2], universal: true, ends: true });
+      poolIndex += 1;
+    }
     written.push(write(`content/dialogue/${spec.file}.json`, {
       schema: 1,
       id: spec.tree,

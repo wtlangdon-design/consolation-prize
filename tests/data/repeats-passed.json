@@ -1,0 +1,56 @@
+{
+ "note": "The trees whose questions each have an asked-again answer that differs from the first, by the pass that wrote them (tests/repeats.test.ts). `TREE:node` is one node; names after `!` are rows a later act's pass writes.",
+ "passes": [
+  {
+   "why": "Errata 170, Main Street.",
+   "trees": [
+    "amb_letter_writer",
+    "amb_pie_woman",
+    "amb_map_seller",
+    "amb_message_boy",
+    "amb_man_leaving_tomorrow",
+    "amb_boundary_men"
+   ]
+  },
+  {
+   "why": "Errata 172, Room 1.",
+   "trees": [
+    "STAGE_DRIVER"
+   ]
+  },
+  {
+   "why": "Errata 172, the Nugget.",
+   "trees": [
+    "DEKE_VESSEL:root",
+    "amb_card_sharp",
+    "amb_one_strike_man",
+    "amb_fiddler"
+   ]
+  },
+  {
+   "why": "Errata 172, the assay office and the Clarion. Frame's funeral notice (frame6) is Act III's, rewritten with it.",
+   "trees": [
+    "WINNIE:WIN_A1",
+    "WINNIE:WIN_A2",
+    "FRAME:FRA_A1!frame6"
+   ]
+  },
+  {
+   "why": "Errata 172, the rest of Act I. Act II-IV rows in these nodes are their own pass's, named after `!`.",
+   "trees": [
+    "FANSHAWE:FAN_A0",
+    "FANSHAWE:FAN_A1",
+    "UNDERTAKER:root",
+    "HOTEL_CLERK:root",
+    "SUMP:SUM_A1",
+    "LIVERY_MAN:LIV_A1!livery_man4",
+    "OZYMANDIA:OZY_A1!ozymandia4",
+    "PRATT:PRA_A1",
+    "SHENG:SHE_A1!sheng4",
+    "SOWERBY:SOW_A1!sowerby6,sowerby7",
+    "amb_bell_ringer",
+    "amb_dogs_owner"
+   ]
+  }
+ ]
+}

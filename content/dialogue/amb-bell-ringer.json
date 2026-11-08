@@ -14,6 +14,7 @@
           "id": "bell_ringer1",
           "text": "That bell is flat.",
           "tag": "TOPIC",
+          "repeat": "Loud. Flat's a matter of opinion. Loud isn't.",
           "say": "It's loud, is what it is."
         },
         {
@@ -30,10 +31,44 @@
               "line": "He does not move.",
               "direction": true
             }
-          ]
+          ],
+          "repeat": "You could. Still could."
         },
         {
           "id": "bell_ringer3",
+          "text": "Did you know Ezra Pike?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "bell_ringer",
+              "line": "Rang for him."
+            },
+            {
+              "speaker": "thad",
+              "line": "Rang for him?"
+            },
+            {
+              "speaker": "bell_ringer",
+              "line": "Ask the undertaker. He keeps the list."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          },
+          "repeat": "The undertaker's got the list. I've got the rope."
+        },
+        {
+          "id": "bell_ringer4",
+          "text": "You knew Pike was dead.",
+          "tag": "TOPIC",
+          "when": {
+            "T_PIKE_DEAD": true
+          },
+          "repeat": "Never complained. Best audience I've had.",
+          "say": "Rang for him, didn't I. Flat. He never complained."
+        },
+        {
+          "id": "bell_ringer5",
           "text": "Doesn't it bother you?",
           "tag": "COMIC",
           "say": "Nothing bothers me. That's the qualification."

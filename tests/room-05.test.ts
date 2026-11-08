@@ -39,8 +39,10 @@ test('a tree with entries opens on its start node with nothing set, and on the e
   assert.equal(state.dialogue.activeTreeId, tree.id);
   assert.ok((state.dialogue.currentNode?.prompt?.length ?? 0) > 0, 'the start node has its opening line');
   const startOptions = state.dialogue.presentOptions().map((entry) => entry.option.id);
+  // OPEN AT THE START is a gate that already holds, not only no gate: the Pike question (errata 172) is gated on
+  // T_PIKE_DEAD being false, which it is on a fresh save.
   assert.deepEqual(startOptions, tree.nodes[tree.start]!.options
-    .filter((option) => !option.when && !option.after?.length).map((option) => option.id), 'the ungated start options, in order');
+    .filter((option) => state.flags.test(option.when) && !option.after?.length).map((option) => option.id), 'the ungated start options, in order');
   state.dialogue.end();
 
   // The LAST entry is the earliest act's; its flag alone must open its node.
@@ -49,7 +51,7 @@ test('a tree with entries opens on its start node with nothing set, and on the e
   state.dialogue.start(tree.id);
   const opened = state.dialogue.presentOptions().map((e) => e.option.id);
   // A follow-up (doc 04 rule 7) waits for its question, so it is not in the opening list.
-  const wanted = tree.nodes[entry.node]!.options.filter((o) => !o.when && !o.after?.length).map((o) => o.id);
+  const wanted = tree.nodes[entry.node]!.options.filter((o) => state.flags.test(o.when) && !o.after?.length).map((o) => o.id);
   assert.deepEqual(opened, wanted, `opens on ${entry.node} once ${Object.keys(entry.when ?? {}).join(', ')} holds`);
   state.dialogue.end();
 });
@@ -57,7 +59,8 @@ test('a tree with entries opens on its start node with nothing set, and on the e
 test('a gated option in the start node is absent before its flag and present after -- both sides', async () => {
   const { content, tree } = await pilot();
   const state = new GameState(content, new MemoryStorage());
-  const gated = tree.nodes[tree.start]!.options.find((option) => option.when);
+  // A gate that is closed on a fresh save: one that opens on its flag (errata 172 added gates that start open).
+  const gated = tree.nodes[tree.start]!.options.find((option) => option.when && !state.flags.test(option.when));
   assert.ok(gated, 'the start node has a gated option');
   const [flag] = Object.keys(gated!.when!);
   state.dialogue.start(tree.id);

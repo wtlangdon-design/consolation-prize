@@ -18,12 +18,15 @@
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "I'm looking for a man named Ezra Pike." | `[PROGRESS]` | *(He puts down what he is holding.)* "Eighteen fifty-two." — *"I'm sorry?"* — "Eighteen fifty-two. He's up the hill." |
-| 2 | "Up the hill?" | `[PROGRESS]` · after 1 | "Boot Hill. Third row, second from the end. He's got a marker." → **`T_PIKE_DEAD`**, Boot Hill on the map |
-| 3 | "What did he die of?" | `[TOPIC]` · after 1 | "Nothing interesting." |
-| 4 | "I had a letter for him." | `[TOPIC]` · after 1 | "You still have a letter for him." |
+| 1 | "I'm looking for a man named Ezra Pike." | `[PROGRESS]` | *(He puts down what he is holding.)* "Eighteen fifty-two." — *"I'm sorry?"* — "Eighteen fifty-two. He's up the hill." *(again)* "Eighteen fifty-two. He hasn't moved." |
+| 2 | "Up the hill?" | `[PROGRESS]` · after 1 | "Boot Hill. Third row, second from the end. He's got a marker." *(again)* "Third row. Second from the end. Still." → **`T_PIKE_DEAD`**, Boot Hill on the map |
+| 3 | "What did he die of?" | `[TOPIC]` · after 1 | "Nothing interesting." *(again)* "Still nothing interesting. Most of them are." |
+| 4 | "I had a letter for him." | `[TOPIC]` · after 1 | "You still have a letter for him." *(again)* "Keep it. Paper's dear out here." |
+| 7 | "Everybody in town sent me to you." | `[TOPIC]` · after 2 | "They would." *(beat)* "I'm the one who says it." *(again)* "That's how this town says it. It sends you to me." |
 | 5 | "Do you know everybody?" | `[COMIC]` | "I know everybody who's finished." |
 | 6 | `[EXIT]` "Thank you." | | "Mm." |
+
+*Errata 172, doc 99's rewrite: asked-again answers throughout. Option 7 is the payoff of the town's Pike thread (doc 98): everybody sent Thad here because the undertaker is the only person who says it.*
 
 **Act III:** the same root and the same indifference. He is the only person in Consolation who finds nothing strange about a living man arranging his own funeral, and he does not remark on it.
 
@@ -38,12 +41,15 @@
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "It's Grubb." | `[TOPIC]` | "It's as given." |
-| 2 | "I'd like a room." | `[PROGRESS]` | "Five dollars." |
-| 3 | "I have four." | `[PROGRESS]` · after 2 | "Then you have four dollars and no room. Those are compatible." |
-| 4 | "Your piano is out of tune." | `[PROGRESS]` · after 3 | "It is." — *"I could put it right."* — *(pause)* "For a room?" — *"For a room."* — *(He turns the register round.)* "Nineteen." → opens the A2 combination |
+| 1 | "It's Grubb." | `[TOPIC]` | "It's as given." *(again)* "As given, Mr. Grubbe. The register doesn't take corrections. It takes guests." |
+| 7 | "Is this your hotel?" | `[TOPIC]` | "The register is mine. The building is a formality." *(again)* "The register, Mr. Grubbe. Everything else is furniture." |
+| 2 | "I'd like a room." | `[PROGRESS]` | "Five dollars." *(again)* "Still five. The price doesn't have feelings either." |
+| 3 | "I have four." | `[PROGRESS]` · after 2 | "Then you have four dollars and no room. Those are compatible." *(again)* "Four dollars, no room. Still compatible." |
+| 4 | "Your piano is out of tune." | `[PROGRESS]` · after 3 | "It is." — *"I could put it right."* — *(pause)* "For a room?" — *"For a room."* — *(He turns the register round.)* "Nineteen." *(again)* "The piano first, Mr. Grubbe. Then nineteen." → opens the A2 combination |
 | 5 | "Is there anything cheaper?" | `[COMIC]` · after 2 | "There is the road." |
 | 6 | `[EXIT]` "I'll think about it." | | "Mr. Grubbe." |
+
+*Errata 172: asked-again answers throughout. Option 7 gives him his point of view (doc 99): the register is his, and the building is only where it's kept.*
 
 **Option 4 does not complete the puzzle.** It grants permission. The fork on the parlour piano is what earns the room, per doc 24's A2 pair.
 
@@ -60,13 +66,18 @@
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "How did you know?" | `[TOPIC]` | "Everybody knows. Small place, and you're the newest thing in it." |
-| 2 | "What are you selling?" | `[PROGRESS]` | "Nothing. I'm getting out." *(beat)* "Which is a kind of selling, I suppose." |
-| 3 | "Getting out of what?" | `[PROGRESS]` · after 2 | "Claim Two. A producing claim, mind you. It's never once stopped producing. But my sister's poorly, and Sacramento's four days." |
-| 4 | "How much?" | `[PROGRESS]` · after 3 | **"What have you got?"** — *"Four dollars."* — "Four dollars." *(He looks at the watch.)* "And that." |
+| 1 | "How did you know?" | `[TOPIC]` | "Everybody knows. Small place, and you're the newest thing in it." *(again)* "Still the newest thing in it. Enjoy it, son. It wears off by Thursday." |
+| 2 | "What are you selling?" | `[PROGRESS]` | "Nothing. I'm getting out." *(beat)* "Which is a kind of selling, I suppose." *(again)* "Nothing at all. Getting out's free." |
+| 3 | "Getting out of what?" | `[PROGRESS]` · after 2 | "Claim Two. A producing claim, mind you. It's never once stopped producing. But my sister's poorly, and Sacramento's four days." *(again)* "Claim Two. Producing. Never stopped once. You can ask anybody." |
+| 4 | "How much?" | `[PROGRESS]` · after 3 | **"What have you got?"** — *"Four dollars."* — "Four dollars." *(He looks at the watch.)* "And that." *(again)* "Four dollars and the watch. I'm not a greedy man." |
+| 8 | "Is there gold on it?" | `[COMIC]` · after 3 | "There's a deed on it, son. Your name'll be on it shortly." |
 | 5 | "You seem cheerful for a man with a poorly sister." | `[COMIC]` · after 3 | "I've made my peace with it." *(beat)* "She hasn't, but she's a long way off." |
+| 9 | "Do you know Ezra Pike?" | `[TOPIC]` · unless `T_PIKE_DEAD` | "Everybody knew Ezra." *(He raises his glass an inch.)* "The undertaker can tell you all about him." *(again)* "Knew him. Past tense's the important bit. Ask the undertaker." |
+| 10 | "You knew Pike was dead." | `[TOPIC]` · when `T_PIKE_DEAD` | "I said 'knew', didn't I? I never say a thing that isn't so." *(again)* "Every word true, son. You'll come to appreciate it." |
 | 6 | "All right." | `[PROGRESS] ✓` · after 4 · ends | *(The swindle. Four dollars and the watch for the deed.)* "Pleasure, son. Look after her. She's got character." *(He finishes his drink, collects his hat, and leaves the Nugget.)* → `T_SWINDLED` · **A3** |
 | 7 | `[EXIT]` "I'll think about it." | | "Course you will." |
+
+*Errata 172, doc 99's rewrite: every question has an asked-again answer (`*(again)*`), and three rows are new. Row 8 is the greedy question doc 99 rule 3 asks every menu to offer, answered, as always, with nothing untrue. Rows 9 and 10 are the town's Pike thread (doc 98), which Vessel cannot lie about either. "Knew" is past tense, and he says so afterwards.*
 
 **"What have you got?" is the entire con** and it is the only question in the scene. He does not price the claim. He prices Thad.
 

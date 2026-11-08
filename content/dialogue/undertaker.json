@@ -39,6 +39,7 @@
           "id": "undertaker1",
           "text": "I'm looking for a man named Ezra Pike.",
           "tag": "PROGRESS",
+          "repeat": "Eighteen fifty-two. He hasn't moved.",
           "exchange": [
             {
               "speaker": "undertaker",
@@ -58,6 +59,7 @@
           "id": "undertaker2",
           "text": "Up the hill?",
           "tag": "PROGRESS",
+          "repeat": "Third row. Second from the end. Still.",
           "after": [
             "undertaker1"
           ],
@@ -73,6 +75,7 @@
           "id": "undertaker3",
           "text": "What did he die of?",
           "tag": "TOPIC",
+          "repeat": "Still nothing interesting. Most of them are.",
           "after": [
             "undertaker1"
           ],
@@ -82,10 +85,30 @@
           "id": "undertaker4",
           "text": "I had a letter for him.",
           "tag": "TOPIC",
+          "repeat": "Keep it. Paper's dear out here.",
           "after": [
             "undertaker1"
           ],
           "say": "You still have a letter for him."
+        },
+        {
+          "id": "undertaker7",
+          "text": "Everybody in town sent me to you.",
+          "tag": "TOPIC",
+          "repeat": "That's how this town says it. It sends you to me.",
+          "after": [
+            "undertaker2"
+          ],
+          "exchange": [
+            {
+              "speaker": "undertaker",
+              "line": "They would."
+            },
+            {
+              "speaker": "undertaker",
+              "line": "I'm the one who says it."
+            }
+          ]
         },
         {
           "id": "undertaker5",

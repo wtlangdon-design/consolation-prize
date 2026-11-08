@@ -14,10 +14,52 @@
           "id": "dogs_owner1",
           "text": "Are you looking for a dog?",
           "tag": "TOPIC",
+          "repeat": "Six weeks. Seven, tomorrow.",
           "say": "Six weeks."
         },
         {
           "id": "dogs_owner2",
+          "text": "Did you know Ezra Pike?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "dogs_owner",
+              "line": "Did he have a dog?"
+            },
+            {
+              "speaker": "thad",
+              "line": "I don't know."
+            },
+            {
+              "speaker": "dogs_owner",
+              "line": "Then no."
+            },
+            {
+              "speaker": "dogs_owner",
+              "line": "…"
+            },
+            {
+              "speaker": "dogs_owner",
+              "line": "Undertaker's right there. He knows everybody who hasn't got a dog."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          },
+          "repeat": "Undertaker. Right there. Dogless, the lot of them."
+        },
+        {
+          "id": "dogs_owner3",
+          "text": "You knew Pike was dead.",
+          "tag": "TOPIC",
+          "when": {
+            "T_PIKE_DEAD": true
+          },
+          "repeat": "Then it's not my business.",
+          "say": "Did he have a dog?"
+        },
+        {
+          "id": "dogs_owner4",
           "text": "There's a dog on Main Street.",
           "tag": "TOPIC",
           "set": {
@@ -27,7 +69,7 @@
           "say": "…That's Bill?"
         },
         {
-          "id": "dogs_owner3",
+          "id": "dogs_owner5",
           "text": "How's Bill?",
           "tag": "COMIC",
           "when": {

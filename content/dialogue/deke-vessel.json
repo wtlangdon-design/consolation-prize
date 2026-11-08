@@ -39,12 +39,14 @@
           "id": "deke_vessel1",
           "text": "How did you know?",
           "tag": "TOPIC",
+          "repeat": "Still the newest thing in it. Enjoy it, son. It wears off by Thursday.",
           "say": "Everybody knows. Small place, and you're the newest thing in it."
         },
         {
           "id": "deke_vessel2",
           "text": "What are you selling?",
           "tag": "PROGRESS",
+          "repeat": "Nothing at all. Getting out's free.",
           "exchange": [
             {
               "speaker": "deke_vessel",
@@ -64,6 +66,7 @@
           "id": "deke_vessel3",
           "text": "Getting out of what?",
           "tag": "PROGRESS",
+          "repeat": "Claim Two. Producing. Never stopped once. You can ask anybody.",
           "after": [
             "deke_vessel2"
           ],
@@ -73,6 +76,7 @@
           "id": "deke_vessel4",
           "text": "How much?",
           "tag": "PROGRESS",
+          "repeat": "Four dollars and the watch. I'm not a greedy man.",
           "after": [
             "deke_vessel3"
           ],
@@ -101,6 +105,15 @@
           ]
         },
         {
+          "id": "deke_vessel8",
+          "text": "Is there gold on it?",
+          "tag": "COMIC",
+          "after": [
+            "deke_vessel3"
+          ],
+          "say": "There's a deed on it, son. Your name'll be on it shortly."
+        },
+        {
           "id": "deke_vessel5",
           "text": "You seem cheerful for a man with a poorly sister.",
           "tag": "COMIC",
@@ -121,6 +134,40 @@
               "line": "She hasn't, but she's a long way off."
             }
           ]
+        },
+        {
+          "id": "deke_vessel9",
+          "text": "Do you know Ezra Pike?",
+          "tag": "TOPIC",
+          "repeat": "Knew him. Past tense's the important bit. Ask the undertaker.",
+          "when": {
+            "T_PIKE_DEAD": false
+          },
+          "exchange": [
+            {
+              "speaker": "deke_vessel",
+              "line": "Everybody knew Ezra."
+            },
+            {
+              "speaker": "deke_vessel",
+              "line": "He raises his glass an inch.",
+              "direction": true
+            },
+            {
+              "speaker": "deke_vessel",
+              "line": "The undertaker can tell you all about him."
+            }
+          ]
+        },
+        {
+          "id": "deke_vessel10",
+          "text": "You knew Pike was dead.",
+          "tag": "TOPIC",
+          "repeat": "Every word true, son. You'll come to appreciate it.",
+          "when": {
+            "T_PIKE_DEAD": true
+          },
+          "say": "I said 'knew', didn't I? I never say a thing that isn't so."
         },
         {
           "id": "deke_vessel6",

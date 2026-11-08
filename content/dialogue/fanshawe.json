@@ -60,20 +60,57 @@
           "tag": "TOPIC",
           "text": "I'm looking for Ezra Pike.",
           "afterUse": "retain",
-          "say": "Dear Ezra. He has moved somewhere very quiet. The undertaker keeps his address."
+          "say": "Dear Ezra. He has moved somewhere very quiet. The undertaker keeps his address.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Very quiet, very settled. The undertaker will tell you all about the neighbourhood."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          }
+        },
+        {
+          "id": "fanshawe5",
+          "tag": "TOPIC",
+          "text": "You knew Pike was dead.",
+          "afterUse": "retain",
+          "say": "Knew it, Mr. Grubb? I sent flowers. I send flowers to everyone. It's cheaper than knowing them.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Flowers. Every time. You'll get some yourself one day."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": true
+          }
         },
         {
           "id": "fanshawe2",
           "tag": "TOPIC",
           "text": "I don't want a claim.",
           "afterUse": "retain",
-          "say": "Nobody does on the first day. On the second they've bought one, and on the third they come to me. I'll keep the chair warm."
+          "say": "Nobody does on the first day. On the second they've bought one, and on the third they come to me. I'll keep the chair warm.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Of course not. The chair is warm, whenever you're ready."
+            }
+          ]
         },
         {
           "id": "fanshawe3",
           "tag": "TOPIC",
           "text": "I have four dollars.",
           "afterUse": "retain",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still four? Splendid. Both hands, Mr. Grubb. Both hands."
+            }
+          ],
           "exchange": [
             {
               "speaker": "fanshawe",
@@ -172,6 +209,32 @@
           "text": "You have a great many chairs.",
           "afterUse": "retain",
           "say": "I do! I have found that a man will tell you anything if you sit him down. It's the standing ones you want to watch."
+        },
+        {
+          "id": "fanshawe5",
+          "tag": "TOPIC",
+          "text": "Is there gold under Prosperity?",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "fanshawe",
+              "line": "There is gold under everything in Consolation, Mr. Grubb. It is simply a question of depth, patience and paperwork."
+            },
+            {
+              "speaker": "fanshawe",
+              "line": "…"
+            },
+            {
+              "speaker": "fanshawe",
+              "line": "I sell all three."
+            }
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Depth, patience and paperwork. My door is open for all three."
+            }
+          ]
         },
         {
           "id": "fanshawex",
