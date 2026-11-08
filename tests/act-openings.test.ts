@@ -48,5 +48,6 @@ test('the place that turns the second act owes its opening when it sets the act'
     }
   }
   assert.equal(turns.length, 1, `the second act turns in ${turns.length} places`);
-  assert.equal(turns[0][cards.openings['2'].due], true, 'the act turns without owing its opening');
+  const due = cards.openings['2']?.due ?? '(no opening)';
+  assert.equal(turns[0]?.[due], true, 'the act turns without owing its opening');
 });
