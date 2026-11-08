@@ -701,6 +701,13 @@
         "PICK_UP": [
           {
             "when": {
+              "T_TONIC_ON_ACCOUNT": true
+            },
+            "say": "One bottle of Dr. Purvis is a remedy. Two is a diagnosis.",
+            "sceneLine": "docs/54-batch-c.md::## Overrides *(errata 68 A)* · again"
+          },
+          {
+            "when": {
               "T_TONIC_ON_ACCOUNT": false
             },
             "say": "On account, with the eggs. It was wrapped for me as though it might go off, in either sense.",
@@ -1063,7 +1070,6 @@
     {
       "id": "back_to_street",
       "name": "MAIN STREET",
-      "stub": true,
       "rect": [
         40,
         240,
@@ -1072,10 +1078,30 @@
       ],
       "colour": 0,
       "to": "main_street",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Swinging doors, like the Nugget's, so the store can't be accused of being any less welcoming.",
+            "repeat": [
+              "Boots hanging over the door by their laces, a pair at a time, for men who came in wearing one.",
+              "The street through the slats, in stripes."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The doors still swinging a little from whoever came in last. They take a long time to settle.",
+            "repeat": [
+              "The street through the slats, in pieces, as if the doors were only letting some of it in.",
+              "The hinges squeaking in two different keys, a half step apart. I could fix that. I won't be asked."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: the one way back to Main Street. NO DOCUMENT WRITES THIS DOOR from inside the store (doc 14 writes Main Street's side). A stub exit, as Rooms 6, 8, 9 and 10's are (doc 36 Q155).",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 12 (errata 189)",
       "walkTo": {
         "x": 200,
         "y": 770,

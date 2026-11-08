@@ -1471,7 +1471,12 @@ function linesFrom(ref, name) {
 const subjectExits = MERGED ? Object.entries(ann.exitSubjects ?? {}).map(([name, spec]) => {
   // An exit with no LOOK or LISTEN of its own and only doc 49's refusal is
   // filed under `exitsAndUnplaced` (Room 14's THE GATE, errata 87 E).
-  const subject = (spec.linesFrom ? linesFrom(spec.linesFrom, name) : undefined)
+  // A way whose words are another document's keeps the refusals doc 49 wrote for
+  // it (errata 189: Boot Hill's gate and its CLOSE).
+  const fromLines = spec.linesFrom ? linesFrom(spec.linesFrom, name) : undefined;
+  const refusals = MERGED.exitsAndUnplaced?.[name] ?? MERGED.subjects.find((s) => s.name === name)?.overrides;
+  if (fromLines && refusals) fromLines.overrides = refusals;
+  const subject = fromLines
     ?? MERGED.subjects.find((s) => s.name === name)
     ?? (MERGED.exitsAndUnplaced?.[name] ? { name, overrides: MERGED.exitsAndUnplaced[name] } : undefined)
     // A way no examine pass writes, whose only words are a puzzle's (doc 57
@@ -2076,6 +2081,15 @@ if (MERGED) {
     if (at < 0) fail(`onEnterScene: ${path} has no section "${heading}"`);
     const after_ = text.slice(at + heading.length);
     const body = after_.slice(0, (/\n## |\n---\n/.exec(after_) ?? { index: after_.length }).index);
+    // ONE LINE OF THAD'S, FROM A BULLET (errata 189; doc 57 C3: "- **Main Street**, first entry that day:
+    // "..."").  `bullet` names the bold words the bullet starts with; its quoted words are his.
+    if (scene.bullet) {
+      const row = body.split('\n').find((one) => one.startsWith(`- **${scene.bullet}**`));
+      const said = row ? [...row.matchAll(/"([^"]+)"/g)].map((q) => q[1]) : [];
+      if (!said.length) fail(`onEnterScene: ${fromRef} has no "- **${scene.bullet}**" bullet with a quoted line`);
+      scenes.push({ when, lines: said.map((line) => ({ speaker: 'thad', line })), ...(after ? { after } : {}), ...(note ? { note } : {}) });
+      continue;
+    }
     const lines = [];
     for (const m of body.matchAll(/^> \*\*([A-Z]+):\*\* (.+)$/gm)) {
       const speaker = speakers[m[1]];

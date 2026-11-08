@@ -882,7 +882,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Cloth, snapping small. The underwear applauds the wind."
 
 **THE CAT**
-> **LOOK:** "A cat on a crate, in the one square of sun. It has arranged the alley around itself."
+> **LOOK:** "A cat on a crate, in the one square of lamplight. It has arranged the alley around itself."
 > **LISTEN:** "Purring, at the frequency of ownership."
 
 ---

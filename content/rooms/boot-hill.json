@@ -397,14 +397,32 @@
       ],
       "colour": 0,
       "to": "town_map",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The gate, and the whole town lit up below it. From up here Consolation looks as if it knows what it's doing.",
+            "repeat": [
+              "Two posts, a crossbar, and half a gate hung on one side. Nobody up here has ever needed the other half.",
+              "The path goes down through it toward the lights. I've walked it more often than most of the residents ever will."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind through the gateway, carrying a little of the town up the hill with it.",
+            "repeat": [
+              "The half gate knocking against its post, once, when the wind remembers it.",
+              "The town below, too far off to make out, and close enough to know it's there."
+            ]
+          }
+        ]
+      },
       "overrides": {
         "CLOSE": "It swings back. The latch is broken in the direction of welcome, which is not the direction you want a graveyard broken in."
       },
       "fallback": [],
       "defaultVerb": "WALK_TO",
-      "note": "Doc 20 and errata 43: Boot Hill is reached by the map, and its gate leads back to it. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE GATE A LOOK OR LISTEN (doc 54: 'THE GATE is the room's exit'), so it is a stub exit as the records room's door is (errata 72 F, doc 36 Q157); the gate works, and its LOOK and LISTEN wait for lines.",
-      "stub": true,
+      "note": "Doc 20 and errata 43: Boot Hill is reached by the map, and its gate leads back to it. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE GATE A LOOK OR LISTEN (doc 54: 'THE GATE is the room's exit'), so it is a stub exit as the records room's door is (errata 72 F, doc 36 Q157); the gate works, and its LOOK and LISTEN wait for lines. Errata 189: its LOOK and LISTEN are doc 106's (linesFrom), and it is no longer a stub.",
       "walkTo": {
         "x": 300,
         "y": 780,
@@ -765,7 +783,8 @@
       "T_FUNERAL_DAY": true
     },
     "saySet": {
-      "T_FUNERAL_DAY": false
+      "T_FUNERAL_DAY": false,
+      "T_FUNERAL_STREET_SAID": false
     },
     "note": "Doc 57 C3: 'Room 14, Boot Hill -- entering ends the day. The service is just over.' The line plays and the day clears; it can be held again (errata 87 C).",
     "say": [

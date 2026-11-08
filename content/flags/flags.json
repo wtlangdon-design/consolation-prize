@@ -728,6 +728,16 @@
    "note": "Doc 57 C3: the funeral day, from FRA_A1 6 until Thad walks up Boot Hill. Read by Rooms 2, 11, 14, 17 and D4, not built."
   },
   {
+   "id": "T_FUNERAL_STREET_SAID",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:main_street:onEnter scene (errata 189)",
+    "room:boot_hill:onEnter"
+   ],
+   "note": "Errata 189: Main Street's funeral-day line (doc 57 C3) has been said; Boot Hill clears it when it ends the day, so a second funeral day says it again."
+  },
+  {
    "id": "T_VESSEL_LOCATION",
    "type": "boolean",
    "initial": false,

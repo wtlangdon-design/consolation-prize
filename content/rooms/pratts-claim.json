@@ -440,7 +440,6 @@
     {
       "id": "to_prosperity",
       "name": "PROSPERITY",
-      "stub": true,
       "rect": [
         0,
         380,
@@ -449,10 +448,30 @@
       ],
       "colour": 0,
       "to": "prosperity",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Past his border stones, the next claim along. He whitewashed the stones on his side. The other side is mud.",
+            "repeat": [
+              "The line between his claim and the next is the straightest thing on the hill.",
+              "The claim next door is called Prosperity, which is a good deal more than it looks like."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing from the claim next door. It has never once made a sound anyone could sell.",
+            "repeat": [
+              "Wind across the next claim, doing an impression of somebody digging.",
+              "His coffee pot behind me, ticking on the coals, and nothing in front."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: Pratt's claim is next door to Prosperity (doc 04 PRA_A1: 'beside Prosperity'); the way back over the border stones. NO DOCUMENT WRITES IT a LOOK or LISTEN: a stub exit (errata 97 C).",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 25 (errata 189)",
       "walkTo": {
         "x": 230,
         "y": 760,

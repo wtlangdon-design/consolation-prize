@@ -120,7 +120,8 @@
         "Nothing, which is somehow worse."
       ],
       "overrides": {
-        "PICK_UP": "On account, with the eggs. It was wrapped for me as though it might go off, in either sense."
+        "PICK_UP": "On account, with the eggs. It was wrapped for me as though it might go off, in either sense.",
+        "PICK_UP (again)": "One bottle of Dr. Purvis is a remedy. Two is a diagnosis."
       }
     },
     {

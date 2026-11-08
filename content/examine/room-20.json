@@ -108,9 +108,9 @@
     {
       "name": "THE CAT",
       "LOOK_AT": [
-        "A cat on a crate, in the one square of sun. It has arranged the alley around itself.",
+        "A cat on a crate, in the one square of lamplight. It has arranged the alley around itself.",
         "A cat, in an alley, entirely uninterested in the gold rush.",
-        "She has moved six inches to the left, after the sun. It is the only progress anyone has made in this alley today."
+        "She has moved six inches to the left, for reasons of her own. It is the only progress anyone has made in this alley tonight."
       ],
       "LISTEN_TO": [
         "Purring, at the frequency of ownership.",

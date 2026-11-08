@@ -506,6 +506,14 @@
           "set": {
             "T_OZY_PAID": true
           }
+        },
+        {
+          "case": "before OZY_A1 option 1",
+          "when": {
+            "T_OZY_ASKED": false
+          },
+          "by": "ozymandia",
+          "say": "Put that away, darling. The rod has not yet told me what you owe."
         }
       ]
     },

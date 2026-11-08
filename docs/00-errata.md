@@ -5074,3 +5074,48 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
 - **A rounding fix.** `one-level.py` rounded half to even, and the test that measures it rounds half up. Her lean is exactly 100.5 blocks tall, so it was snapped to one grid and measured on another. The tool now rounds as the test does. `tests/one-level.test.mjs` caught it; no finished sheet was re-snapped.
 - **For Claude, not built: TALK TO.** She has no tree, so TALK TO her does not walk Thad to her stand. He answers from where he is with the general pool ("I have decided against it."), and her `walkTo` is unused until something answers TALK TO. The general pool is the one written for objects, so it calls her "it". The choice is a writing one, handed to Claude in `reference/ozymandia-prosperity/talk-to-handoff.md`; nothing was written here.
 - **Tyler's ruling, 2026-11-08: "I choose C."** Thad gets a new line for TALK TO on her, and she answers with her one line. Tyler authorises that one new line (or its repeat variants) for Claude to write in doc 54, under the handoff's rules. The builder then wires it.
+
+# 189 · THE OPEN ITEMS, SWEPT AND CLOSED — TYLER, 2026-11-08 ("Write them all"; "Reword the lines"; "Build it, I pick who leaves"; and all five unacted moments)
+
+*Tyler asked how so much had been missed and whether anything else needed checking. Every "Open" and "For Tyler" item that the room builds left in doc 36 was checked against the game. Some were already done. Fourteen were still open, and Tyler ruled on them in four questions. This is the seventh writing exception (CLAUDE.md). It covers the lines below and nothing else.*
+
+- **Already done since the notes were written:**
+  - Act IV's opening in Room 19;
+  - Frame's funeral notice;
+  - the fiddler and the bell-ringer;
+  - Hob's Assay pair;
+  - both sparrings;
+  - SUM_B1's documents;
+  - Sowerby at the gate.
+- **The ways out ("Write them all").** Thirty-seven doors and exits in twenty-one rooms answered LOOK and LISTEN with the generic line.
+  - Doc 106 writes three LOOK and three LISTEN lines for each, one voice, true in every state in which each way can be clicked.
+  - A way that is an examined subject reads its lines through `exitSubjects.linesFrom`, and is no longer a `stub`. These are Boot Hill's gate, the shack's door, the way up to the claims, the coach stop, and every way out of Lower Street and the Lane. The compiler now keeps doc 49's refusals on such a way, such as the gate's CLOSE.
+  - Every other way is written into its room file by `waysOut` in `tools/extract-content.mjs`, which refuses a way that already has a LOOK of its own.
+  - Not written: Room 33's THE GAP (that room's LISTEN is its interface, invariant 3), and PIKE'S NEIGHBOR, which is its plot's hotspot.
+  - `tests/first-night.test.ts` caught two first drafts that assumed the swindle (Pratt's claim, the claims road, the hotel), and they were rewritten to be true before it.
+- **Two small lines ("Write them all").**
+  - THE TONIC, picked up again: "One bottle of Dr. Purvis is a remedy. Two is a diagnosis." (doc 54, Room 12's overrides).
+  - The filing fee offered to Ozymandia before she names a price: "Put that away, darling. The rod has not yet told me what you owe." (doc 57 A7).
+- **Lines that disagreed with the picture ("Reword the lines").**
+  - The alley cat sits in "the one square of lamplight", and moves "for reasons of her own", because the alley is at night.
+  - The livery has "Two mules", "Number Two", and "two slightly different rhythms", because the pen holds two.
+- **The funeral day on Main Street ("Build it, I pick who leaves").**
+  - Doc 57 C3's line plays on Main Street's first entry that day, as an arrival scene read from the bullet (`onEnterScenes.bullet`): "The street is half empty. Everyone in town who owns a black coat is up the hill."
+  - Four of the street's eight townspeople are up the hill that day (`when: T_FUNERAL_DAY false`): the boundary men, the letter-writer and the pie woman.
+  - The map seller, the man leaving tomorrow, the message boy and the dog's owner stay, each for the reason his own joke gives.
+  - Boot Hill, which ends the day, clears `T_FUNERAL_STREET_SAID`, so the line plays again on another funeral day.
+- **Five unacted moments.** Tyler chose all five:
+  - the dinner's staging;
+  - Grievance and the tune;
+  - the tonic's fumes and the raccoon's look;
+  - the county seal's sound;
+  - Sowerby's counter.
+
+  They are briefed for the builder in `reference/unacted-moments/brief.md`. Two need image operations that no cap has: Grievance, and possibly the dinner's seat. The brief says to stop and ask.
+- `proofs/written-not-built.json` loses its funeral-day gap.
+- **Ozymandia at Prosperity, TALK TO.** Tyler chose C from `reference/ozymandia-prosperity/talk-to-handoff.md` and authorised one new line of Thad's, with its repeats. They are written in doc 54, Room 23's Overrides:
+  - first: "Madame Ozymandia. You're a long way from your tent."
+  - second: "No fee today, Madame?"
+  - third and after: "I'll leave you to it, then."
+
+  She answers each with her one line, doc 04's "…It's loud here.", so doc 04's "her only line" and "saying nothing" stay true. The builder's brief is `reference/ozymandia-prosperity/talk-to-brief.md`.

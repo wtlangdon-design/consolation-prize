@@ -69,7 +69,9 @@ test('the funeral day: walking up says the service is over, and the day ends', a
   const entry = state.room.onEnter;
   assert.ok(entry?.say?.length, 'doc 57 C3 writes the line');
   assert.ok(state.flags.test(entry.sayWhen), 'it plays on the funeral day');
-  assert.deepEqual(entry.saySet, { T_FUNERAL_DAY: false }, 'and playing it ends the day');
+  assert.equal(entry.saySet?.T_FUNERAL_DAY, false, 'and playing it ends the day');
+  // Errata 189: and readies Main Street's funeral-day line for the next one.
+  assert.equal(entry.saySet?.T_FUNERAL_STREET_SAID, false, 'the street line is owed again on the next funeral day');
   state.flags.applyWrites(entry.saySet);
   assert.ok(!state.flags.test(entry.sayWhen), 'so the next entry is ordinary');
 });

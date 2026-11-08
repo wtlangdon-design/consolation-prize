@@ -657,16 +657,35 @@
       ],
       "colour": 0,
       "to": "assay_office",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The door back to the counter, with the window and the queue on the far side of it. In here she keeps it shut, and I understand why.",
+            "repeat": [
+              "The paint is worn through at the height of a hand that has opened it carrying a ledger every day for nine years.",
+              "There is a cot in here. Some nights this room is the whole of her house, and that is its front door."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The front office through the door, the counter creaking when somebody leans on it.",
+            "repeat": [
+              "The street, two rooms away and much less important from here.",
+              "The stove behind me ticking, and the door letting none of it out."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: the one way back to Room 5. NO DOCUMENT WRITES THIS SIDE OF THE DOOR: doc 25 writes Room 5's THE RECORDS ROOM DOOR, and docs 05, 08, 49 and 54 give the records room no door subject. So its examine layer is honestly absent, marked as a stub exit as Main Street's door to the hotel is, and reported in doc 36 Q149; the door works, and its LOOK and LISTEN wait for lines.",
-      "stub": true,
       "walkTo": {
         "x": 380,
         "y": 665,
         "facing": "back"
-      }
+      },
+      "waysOut": "docs/106-the-ways-out.md, ROOM 6 (errata 189)"
     }
   ],
   "ambient": [],

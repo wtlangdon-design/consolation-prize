@@ -190,9 +190,26 @@
       "holding": {
         "company_map": false
       },
-      "stub": true,
       "defaultVerb": "WALK_TO",
       "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The road climbs on into the diggings, splitting and splitting again. Every fork is somebody's forty feet.",
+            "repeat": [
+              "Wheel ruts up the middle and boot paths up the sides. The carts go to the claims that pay; the boots go to the rest.",
+              "Somewhere up there is every claim in the district, and a man on each one who is sure."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind coming down off the diggings, and somewhere up there a bucket swinging on its rope.",
+            "repeat": [
+              "Far up, a pick, struck once, as though somebody had remembered something.",
+              "The road, quiet. It does all its talking at six in the morning."
+            ]
+          }
+        ],
         "WALK_TO": [
           {
             "say": "Claims up every one of these paths, and the whole hillside is stakes. A man would need a map to find anything up there, and a good one."
@@ -408,11 +425,29 @@
       ],
       "colour": 0,
       "to": "prosperity",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The road climbs on into the diggings, splitting and splitting again. Every fork is somebody's forty feet.",
+            "repeat": [
+              "Wheel ruts up the middle and boot paths up the sides. The carts go to the claims that pay; the boots go to the rest.",
+              "Somewhere up there is every claim in the district, and a man on each one who is sure."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind coming down off the diggings, and somewhere up there a bucket swinging on its rope.",
+            "repeat": [
+              "Far up, a pick, struck once, as though somebody had remembered something.",
+              "The road, quiet. It does all its talking at six in the morning."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
-      "note": "Doc 57 A4: 'Room 22 offers the way to it, only while Thad holds the map.' With the map, the way up to Prosperity (Room 23); without it, doc 57's line (errata 95 F, 96 C).",
-      "stub": true,
+      "note": "Doc 57 A4: 'Room 22 offers the way to it, only while Thad holds the map.' With the map, the way up to Prosperity (Room 23); without it, doc 57's line (errata 95 F, 96 C). Errata 189: its LOOK and LISTEN are doc 106's (linesFrom), and it is no longer a stub.",
       "holding": {
         "company_map": true
       },
@@ -425,7 +460,6 @@
     {
       "id": "to_main_street",
       "name": "LOWER STREET",
-      "stub": true,
       "rect": [
         0,
         640,
@@ -434,10 +468,30 @@
       ],
       "colour": 0,
       "to": "lower_street",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The way back down into town. The church steeple is the first thing you see and the last thing you get to.",
+            "repeat": [
+              "Lights in the windows. From up here every one of them looks like it's expecting me.",
+              "The road down is the same road as the road up. It feels shorter, which it never is."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The town, very small: a door, a dog, somebody laughing at something.",
+            "repeat": [
+              "Wind in the scrub between here and the first roofs.",
+              "A cart on the road, coming up or going down. From here I can't tell, and neither, I suspect, can the driver."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 161 (errata 43's three streets): down into town by Lower Street.",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 22 (errata 189)",
       "walkTo": {
         "x": 170,
         "y": 790,

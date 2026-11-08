@@ -111,7 +111,7 @@
 > **LISTEN:** "Nothing."
 
 **THE OTHER MULES**
-> **LOOK:** "Four mules, numbered, entirely willing to work. They are looking at Grievance the way a work crew looks at a man who has got away with something."
+> **LOOK:** "Two mules, numbered, entirely willing to work. They are looking at Grievance the way a work crew looks at a man who has got away with something."
 > **LISTEN:** "Contented. They have no idea."
 
 **THE TACK**

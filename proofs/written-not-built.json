@@ -3,16 +3,6 @@
  "note": "Errata 182: every quoted line in the source documents that /content does not carry (tools/check-written-vs-built.mjs), grouped with the reason. GAP groups were reported to Tyler on 2026-11-08 and wait on his ruling; a line comes off this list when it is built. Lines under four words are below the check's bar, so two short gaps it cannot see are named here by hand: Hob's running lines ('It'll rain.', 'That's not yours.', 'Wouldn't stand there.', 'You're the piano man.') and Ozymandia's '...It's loud here.'",
  "groups": [
   {
-   "id": "funeral-day-street",
-   "why": "GAP, FOR TYLER (found 2026-11-08 once notes stopped counting as lines): doc 57's funeral day says Main Street, first entry that day, plays \"The street is half empty. Everyone in town who owns a black coat is up the hill.\" Nothing plays it, and the street's figures are all still there, so the line would not yet be true.",
-   "lines": [
-    {
-     "doc": "57-puzzle-completion",
-     "quote": "The street is half empty. Everyone in town who owns a black coat is up the hill."
-    }
-   ]
-  },
-  {
    "id": "ancillary-interiors",
    "why": "GAP, reported to Tyler (errata 182): the six ancillary interiors (rooms 37-42: the barber's, the boarding house parlour, the photographer's studio, the bakehouse, the empty storefront, the schoolhouse) and the townspeople who live in them (doc 07 #9 the barber, #10 the photographer, #14-15 the boarding house women). Canon is 42 screens (errata 1); these six were never on the full build list (CLAUDE.md, errata 72), and the Lane shows the barber's and photographer's fronts shut. Their lines are written in doc 105 (errata 183) and wait on the builder session (reference/ancillary-interiors/brief.md).",
    "lines": [
@@ -979,6 +969,10 @@
     {
      "doc": "105-the-six-interiors",
      "quote": "No. The first time that bell rings, it should mean something."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "There is a bucket beside it. The bucket is for the teeth, I hope."
     }
    ]
   },
@@ -1523,6 +1517,10 @@
     {
      "doc": "98-main-street-pass",
      "quote": "This makes no sense and he is very firm about it."
+    },
+    {
+     "doc": "27-minor-trees",
+     "quote": "| `[PROGRESS]` · after 3 | **"
     }
    ]
   }

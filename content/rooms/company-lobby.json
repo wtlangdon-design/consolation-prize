@@ -645,7 +645,6 @@
     {
       "id": "back_to_street",
       "name": "MAIN STREET",
-      "stub": true,
       "rect": [
         0,
         60,
@@ -654,7 +653,26 @@
       ],
       "colour": 0,
       "to": "main_street",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The door to the street, with a blind on the glass so the street can't see in. The Company prefers to be seen arriving, not waiting.",
+            "repeat": [
+              "The brass handle shines on this side. People leave this lobby in more of a hurry than they come in.",
+              "From in here, the street looks like a picture the Company has hung."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The street, muffled. Everything in this room is muffled. They paid extra.",
+            "repeat": [
+              "The stove beside the door, ticking. It's the only thing in the lobby allowed to speak first.",
+              "Boots on the boardwalk outside, slowing at the door, and walking on."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: the one way back to Main Street. NO DOCUMENT WRITES THIS DOOR from inside the lobby (doc 14 writes Main Street's side). A stub exit, as Rooms 6, 8 and 9's are (doc 36 Q153).",
@@ -662,7 +680,8 @@
         "x": 230,
         "y": 770,
         "facing": "left"
-      }
+      },
+      "waysOut": "docs/106-the-ways-out.md, ROOM 10 (errata 189)"
     }
   ],
   "ambient": [

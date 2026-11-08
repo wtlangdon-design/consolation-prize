@@ -331,7 +331,6 @@
     {
       "id": "to_laundry",
       "name": "THE PATH DOWN",
-      "stub": true,
       "rect": [
         0,
         480,
@@ -340,7 +339,26 @@
       ],
       "colour": 0,
       "to": "laundry",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The path down past the cairn, to the laundry. It's steep, and the worst of it has been stepped with flat stones.",
+            "repeat": [
+              "Every stone of the cairn was carried up this path by somebody. I'm going down it carrying nothing, which feels like cheating.",
+              "The town on one side, the diggings on the other, and this path between them, owned by nobody."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The wind up here, with nothing to stop it for miles.",
+            "repeat": [
+              "Loose stones going down the path ahead of me, one at a time.",
+              "Far below, very faint, a copper on the boil."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 05: the path climbs from Sheng's door; this is the way back down it. NO DOCUMENT WRITES THIS END a LOOK or LISTEN: a stub exit (errata 99 E).",
@@ -348,7 +366,8 @@
         "x": 310,
         "y": 820,
         "facing": "left"
-      }
+      },
+      "waysOut": "docs/106-the-ways-out.md, ROOM 29 (errata 189)"
     }
   ],
   "ambient": [],

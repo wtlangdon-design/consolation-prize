@@ -398,7 +398,6 @@
     {
       "id": "to_claims_road",
       "name": "THE ROAD",
-      "stub": true,
       "rect": [
         0,
         560,
@@ -407,7 +406,26 @@
       ],
       "colour": 0,
       "to": "claims_road",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The way back up to the road, over the stones. The creek doesn't follow anyone. It has its own plans.",
+            "repeat": [
+              "The bank is trodden flat where men come down with pans and go back up without anything in them.",
+              "The road is out of sight from here. The creek is the kind of place a man comes to on purpose."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The creek behind me, louder than it is wide.",
+            "repeat": [
+              "Stones shifting under my boots, and the water ignoring them.",
+              "The water, telling the story it told the last man. It never gets to the end."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: the creek is reached through the road to the claims; this is the way back up to it. NO DOCUMENT WRITES IT a LOOK or LISTEN: a stub exit (errata 99 A).",
@@ -415,7 +433,8 @@
         "x": 200,
         "y": 790,
         "facing": "left"
-      }
+      },
+      "waysOut": "docs/106-the-ways-out.md, ROOM 26 (errata 189)"
     }
   ],
   "ambient": [

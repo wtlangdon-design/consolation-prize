@@ -26,7 +26,26 @@
       ],
       "colour": 0,
       "to": "coach_stop_dawn",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The road out to the coach stop, the same way I came in, the other way round.",
+            "repeat": [
+              "First light on the ruts. At this hour they look almost deliberate.",
+              "Somewhere down there is the sign at the edge of town, and whatever number it says this morning."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The road, quiet, the way roads are before anybody has had an opinion about them.",
+            "repeat": [
+              "Wind coming down the road from the hills, cold, and in no hurry.",
+              "Somewhere behind me a shutter going up. The town is starting again."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "transitScene": [
@@ -62,8 +81,7 @@
           "sceneLine": "docs/48-act-turn-beats.md::## S7 · MAIN STREET, DAWN (the close) · beat 3"
         }
       ],
-      "note": "Doc 48 S7: 'The one exit is the coach stop, east.' Beat 3 at the coach stop (coach_stop_dawn, errata 121 B): Thad's last spoken line, then beat 4, the Act IV letter over black (doc 04 Part Three's, as Room 19 reads it). No document writes the stop a LOOK or LISTEN: a stub (errata 72 F). Beat 5's credits are not built (doc 36 Q176).",
-      "stub": true,
+      "note": "Doc 48 S7: 'The one exit is the coach stop, east.' Beat 3 at the coach stop (coach_stop_dawn, errata 121 B): Thad's last spoken line, then beat 4, the Act IV letter over black (doc 04 Part Three's, as Room 19 reads it). No document writes the stop a LOOK or LISTEN: a stub (errata 72 F). Beat 5's credits are not built (doc 36 Q176). Errata 189: its LOOK and LISTEN are doc 106's (linesFrom), and it is no longer a stub.",
       "when": {
         "T_CLOSE_SAID": false
       },
