@@ -1848,6 +1848,8 @@ export interface DialogueOption {
   id: string;
   text: string;
   tag: OptionTag;
+  /** One of doc 04's universal exits: its wording is the pool's next line, not `text` (errata 167). */
+  universal?: boolean;
   when?: Condition;
   /**
    * At least one of these must hold as well (doc 04 SOW_A1 option 7: "req C3
@@ -2300,6 +2302,8 @@ export interface ManifestFile {
   sounds?: string;
   /** Doc 95's acted directions (errata 141), extracted to content/acted-directions.json. */
   actedDirections?: string;
+  /** Doc 04's universal exit lines, rotated (errata 167), extracted to content/dialogue/exit-pool.json. */
+  exitPool?: string;
   actedDirectionsNote?: string;
   /** A colour per speaker for spoken lines. Absent draws in the default ink. */
   speechColours?: string;
@@ -2620,6 +2624,8 @@ export interface ActedDirectionsFile {
 export interface ContentBundle {
   /** Doc 95's table, or null when the manifest names none. Its A rows are already on the figures' `performs`. */
   actedDirections: ActedDirectionsFile | null;
+  /** Doc 04's universal exit lines (errata 167), or empty when the manifest names none. */
+  exitPool: string[];
   menu: MenuFile;
   manifest: ManifestFile;
   font: FontFile;

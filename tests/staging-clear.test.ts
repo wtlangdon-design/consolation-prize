@@ -174,6 +174,24 @@ for (const roomId of built) {
     assert.deepEqual(faults, [], `${roomId}: move a figure`);
   });
 
+  // HE STANDS BACK FROM A THING ON LEGS (Tyler, 2026-11-07, of the posted notices: "Thad goes up and pretty much
+  // stands with his nose against it"). Where an annotation says a hotspot's thing stands lower than its rect
+  // (`bases`), the approach point is in front of that row by a fifth of a man at least.
+  test(`${roomId}: he examines a thing on legs from in front of its legs`, () => {
+    const annotations = ['reference/room-02/annotation.json', 'reference/room-36/annotation.json']
+      .map((path) => read(path) as { room: string; bases?: Record<string, number> })
+      .filter((ann) => ann.room === roomId);
+    const faults: string[] = [];
+    for (const ann of annotations) {
+      for (const [id, base] of Object.entries(ann.bases ?? {})) {
+        const stand = (room.hotspots ?? []).find((h) => h.id === id)?.walkTo;
+        if (!stand) { faults.push(`${id} has no approach point`); continue; }
+        if (stand.y - base < man(stand.x, stand.y) * 0.2) faults.push(`${id}: he stands at y ${stand.y}, ${stand.y - base}px from its feet at ${base}`);
+      }
+    }
+    assert.deepEqual(faults, []);
+  });
+
   // AN ANIMAL ON THE GROUND IS WALKED AROUND (Tyler, 2026-11-07, Main Street: "He shouldn't be able to walk on or
   // through the dog."). The bands ran straight through the sleeping dog; the room's annotation now carves him out as
   // it carves the trough. Just above an animal's feet is never floor.

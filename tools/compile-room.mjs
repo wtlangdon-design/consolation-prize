@@ -1909,7 +1909,11 @@ if (MERGED) {
       const candidates = [centre, Math.round(hx - 40), Math.round(hx + hw + 40)];
       for (const x of candidates) {
         if (x < L || x > R) continue;
-        const first = floorBelow(x, hy + hh + 8);
+        // A THING ON LEGS STANDS WHERE ITS LEGS DO (Tyler, 2026-11-07: at the posted notices "Thad goes up and
+        // pretty much stands with his nose against it"). The hotspot is the board, and the board stands on posts
+        // forty pixels below it, so the floor "below the rect" was under the board itself. An annotation `bases`
+        // entry gives the row the thing actually stands on.
+        const first = floorBelow(x, (ann.bases?.[hotspot.id] ?? hy + hh) + 8);
         if (first === null) continue;
         // AND HE STANDS BACK FROM IT, for the same reason he stands back from
         // a person: the first walkable row below a thing is flush against it,

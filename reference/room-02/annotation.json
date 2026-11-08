@@ -546,5 +546,9 @@
   "duel": "duel_three",
   "note": "Doc 57 F4 and doc 03: Fanshawe calls the duel himself, 'to discredit Thad in front of the whole town before Thad can be heard'. His challenge and the first boast are the greeting; the duel is running when the counters are offered.",
   "approach": true
- }
+ },
+ "bases": {
+  "posted_notices": 628
+ },
+ "basesNote": "Where a hotspot's thing stands on the floor, when that is below its rect: the posted notices' board is the rect and its posts reach y 628. The compiler puts the approach point in front of this row, not the rect's (errata 167)."
 }
