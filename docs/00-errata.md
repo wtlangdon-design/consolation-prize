@@ -4803,6 +4803,7 @@ Doc 102 records it.
 - **Act III has an opening (doc 57 E0b).** The morning after Fanshawe's offer the game cuts to Main Street, and Thad names the blank page, Fanshawe's price for keeping it blank, and Sump's sealed door. E0b's FAN_C1 option 1 writes `T_ACT_III_OPENING` beside `ACT` = 3, and `GameState.openAct` clears it. `tests/act-openings.test.ts` now holds Acts II, III and IV.
 - **Every `[COMIC]` row left on an Act III menu answers differently when asked again:** Sump's two, the undertaker's and Sowerby's.
 - **The funeral's "eleven weeks" becomes "less than a month"** (doc 02 D: nine days by Act II's ninety-day rule). `tests/continuity.test.ts` fails on any shipped room line that puts him in town for weeks.
+
 # 178 · ACT IV READ TO DOC 99; EVERY JOKE OPTION ANSWERS DIFFERENTLY TWICE — TYLER, 2026-11-08 ("Continue with act 4")
 
 Doc 103 records it.
