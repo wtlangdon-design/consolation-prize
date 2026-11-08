@@ -1113,7 +1113,9 @@
       "neighbours": [
         "boardwalk",
         "mud_far_2",
-        "mud_mid_0"
+        "mud_mid_0",
+        "mud_mid_1",
+        "mud_mid_3"
       ]
     },
     {
@@ -1148,9 +1150,9 @@
       "neighbours": [
         "boardwalk_1",
         "mud_far_2",
-        "mud_mid_0",
         "mud_mid_1",
-        "mud_mid_3"
+        "mud_mid_4",
+        "mud_mid_6"
       ]
     },
     {
@@ -1185,7 +1187,7 @@
       "neighbours": [
         "mud_far_0",
         "mud_far_1",
-        "mud_mid_0"
+        "mud_mid_1"
       ]
     },
     {
@@ -1196,11 +1198,11 @@
           "y": 675
         },
         {
-          "x": 2553,
+          "x": 1226,
           "y": 675
         },
         {
-          "x": 2553,
+          "x": 1226,
           "y": 767
         },
         {
@@ -1219,31 +1221,27 @@
       },
       "neighbours": [
         "mud_far_0",
-        "mud_far_1",
-        "mud_far_2",
         "mud_mid_3",
-        "mud_near_0",
-        "mud_near_1",
-        "mud_near_2"
+        "mud_near"
       ]
     },
     {
       "id": "mud_mid_1",
       "points": [
         {
-          "x": 2703,
+          "x": 1558,
           "y": 675
         },
         {
-          "x": 3690,
+          "x": 2553,
           "y": 675
         },
         {
-          "x": 3690,
+          "x": 2553,
           "y": 767
         },
         {
-          "x": 2703,
+          "x": 1558,
           "y": 767
         }
       ],
@@ -1257,15 +1255,121 @@
         "nearHeight": 206
       },
       "neighbours": [
+        "mud_far_0",
         "mud_far_1",
+        "mud_far_2",
         "mud_mid_3",
-        "mud_near_1"
+        "mud_mid_6",
+        "mud_near"
       ]
     },
     {
       "id": "mud_mid_2",
       "points": [
         {
+          "x": 1226,
+          "y": 762
+        },
+        {
+          "x": 1558,
+          "y": 762
+        },
+        {
+          "x": 1558,
+          "y": 767
+        },
+        {
+          "x": 1226,
+          "y": 767
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_mid_3",
+      "points": [
+        {
+          "x": 1226,
+          "y": 675
+        },
+        {
+          "x": 1558,
+          "y": 675
+        },
+        {
+          "x": 1558,
+          "y": 720
+        },
+        {
+          "x": 1226,
+          "y": 720
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "mud_far_0",
+        "mud_mid_0",
+        "mud_mid_1"
+      ]
+    },
+    {
+      "id": "mud_mid_4",
+      "points": [
+        {
+          "x": 2703,
+          "y": 675
+        },
+        {
+          "x": 3690,
+          "y": 675
+        },
+        {
+          "x": 3690,
+          "y": 767
+        },
+        {
+          "x": 2703,
+          "y": 767
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "mud_far_1",
+        "mud_mid_6",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_mid_5",
+      "points": [
+        {
           "x": 2553,
           "y": 765
         },
@@ -1292,11 +1396,11 @@
         "nearHeight": 206
       },
       "neighbours": [
-        "mud_near_1"
+        "mud_near"
       ]
     },
     {
-      "id": "mud_mid_3",
+      "id": "mud_mid_6",
       "points": [
         {
           "x": 2553,
@@ -1326,49 +1430,15 @@
       },
       "neighbours": [
         "mud_far_1",
-        "mud_mid_0",
-        "mud_mid_1"
+        "mud_mid_1",
+        "mud_mid_4"
       ]
     },
     {
-      "id": "mud_near_0",
+      "id": "mud_near",
       "points": [
         {
           "x": 60,
-          "y": 767
-        },
-        {
-          "x": 1329,
-          "y": 767
-        },
-        {
-          "x": 1329,
-          "y": 858
-        },
-        {
-          "x": 60,
-          "y": 858
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 1,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 584,
-        "farHeight": 105,
-        "nearY": 858,
-        "nearHeight": 206
-      },
-      "neighbours": [
-        "mud_mid_0",
-        "mud_near_2"
-      ]
-    },
-    {
-      "id": "mud_near_1",
-      "points": [
-        {
-          "x": 1730,
           "y": 767
         },
         {
@@ -1380,7 +1450,7 @@
           "y": 858
         },
         {
-          "x": 1730,
+          "x": 60,
           "y": 858
         }
       ],
@@ -1397,42 +1467,8 @@
         "mud_mid_0",
         "mud_mid_1",
         "mud_mid_2",
-        "mud_near_2"
-      ]
-    },
-    {
-      "id": "mud_near_2",
-      "points": [
-        {
-          "x": 1329,
-          "y": 767
-        },
-        {
-          "x": 1730,
-          "y": 767
-        },
-        {
-          "x": 1730,
-          "y": 808
-        },
-        {
-          "x": 1329,
-          "y": 808
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 1,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 584,
-        "farHeight": 105,
-        "nearY": 858,
-        "nearHeight": 206
-      },
-      "neighbours": [
-        "mud_mid_0",
-        "mud_near_0",
-        "mud_near_1"
+        "mud_mid_4",
+        "mud_mid_5"
       ]
     }
   ],
@@ -1783,5 +1819,18 @@
     "mud_far",
     "mud_mid",
     "mud_near"
-  ]
+  ],
+  "figureLight": {
+    "figures": [
+      "hitching_horses"
+    ],
+    "light": [
+      0.88,
+      0.9,
+      1
+    ],
+    "brightness": 0.85,
+    "saturate": 0.75,
+    "note": "Errata 197. Tyler, 2026-11-08: the horses \"seem to be lit a little too bright ... make sure they're a bit dimmer for the night\". The group was drawn warmer, brighter and more saturated than the street's night cast (rest frame: mean luminance 70, 90th percentile 136, saturation 0.58, against Thad's 59/100/0.32 and the pie woman's 63/81/0.42), and it stands in the dark mud between the Company's windows and the Nugget, outside every lamp's movers field. Only the horses are named: Thad and the cast are drawn exactly as before. A cool light and less colour bring the group into the same night (graded, about 53/104/0.43). tools/art/hitching-rail-dawn.py starts Room 36's empty rail from the rail as graded here, so the dawn keeps following the night."
+  }
 }
