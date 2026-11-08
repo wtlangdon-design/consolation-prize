@@ -65,6 +65,24 @@
    "file": "amb-bell-ringer",
    "speaker": "bell_ringer",
    "prefix": "bell_ringer"
+  },
+  "1 · THE LETTER-WRITER": {
+   "tree": "amb_letter_writer",
+   "file": "amb-letter-writer",
+   "speaker": "letter_writer",
+   "prefix": "letter_writer"
+  },
+  "6 · THE PIE WOMAN": {
+   "tree": "amb_pie_woman",
+   "file": "amb-pie-woman",
+   "speaker": "pie_woman",
+   "prefix": "pie_woman"
+  },
+  "16 · THE MAP SELLER": {
+   "tree": "amb_map_seller",
+   "file": "amb-map-seller",
+   "speaker": "map_seller",
+   "prefix": "map_seller"
   }
  },
  "treeRoutes": {
@@ -81,7 +99,95 @@
      "T_BILL_FOUND": true
     }
    }
-  }
+  },
+  "1 · THE LETTER-WRITER": {
+   "I'm looking for Ezra Pike.": {
+    "when": {
+     "T_PIKE_DEAD": false
+    }
+   },
+   "You knew Pike was dead.": {
+    "when": {
+     "T_PIKE_DEAD": true
+    }
+   },
+   "What do you charge?": {
+    "set": {
+     "T_CHARGE_ASKED": true
+    }
+   }
+  },
+  "2 & 3 · THE TWO BOUNDARY MEN": {
+   "Do either of you know Ezra Pike?": {
+    "when": {
+     "T_PIKE_DEAD": false
+    }
+   },
+   "You knew Pike was dead.": {
+    "when": {
+     "T_PIKE_DEAD": true
+    }
+   }
+  },
+  "5 · THE MESSAGE BOY": {
+   "Where would I find Ezra Pike?": {
+    "when": {
+     "T_PIKE_DEAD": false
+    }
+   },
+   "You knew Pike was dead.": {
+    "when": {
+     "T_PIKE_DEAD": true
+    }
+   }
+  },
+  "6 · THE PIE WOMAN": {
+   "Do you know Ezra Pike?": {
+    "when": {
+     "T_PIKE_DEAD": false
+    }
+   },
+   "You knew Pike was dead.": {
+    "when": {
+     "T_PIKE_DEAD": true
+    }
+   },
+   "What's in the pie?": {
+    "set": {
+     "T_PIE_ASKED": true
+    }
+   }
+  },
+  "7 · THE MAN LEAVING TOMORROW": {
+   "Did you know Ezra Pike?": {
+    "when": {
+     "T_PIKE_DEAD": false
+    }
+   },
+   "You knew Pike was dead.": {
+    "when": {
+     "T_PIKE_DEAD": true
+    }
+   }
+  },
+  "16 · THE MAP SELLER": {
+   "Is Ezra Pike on any of your maps?": {
+    "when": {
+     "T_PIKE_DEAD": false
+    }
+   },
+   "You knew Pike was dead.": {
+    "when": {
+     "T_PIKE_DEAD": true
+    }
+   },
+   "Where do the maps come from?": {
+    "set": {
+     "T_MAPS_ASKED": true
+    }
+   }
+  },
+  "_pikeNote": "Errata 170, the Main Street pass (Tyler, 2026-11-07): every Main Street townsperson is asked after Ezra Pike only while Thad does not know he is dead (T_PIKE_DEAD false), and each sends him to the undertaker without saying so; once the undertaker has told him, 'You knew Pike was dead.' takes its place. The three ASKED flags are kept as they were, set by the question they always followed."
  },
  "struck": {
   "4 · THE BELL-RINGER": "bell-ringer"

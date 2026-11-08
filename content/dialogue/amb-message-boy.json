@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "amb_message_boy",
   "speaker": "message_boy",
-  "note": "EXTRACTED from docs/07-ambient-layer.md (## 5 · THE MESSAGE BOY) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one's pool (errata 110).",
+  "note": "EXTRACTED from docs/07-ambient-layer.md (## 5 · THE MESSAGE BOY) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one's pool, rotated in play (errata 110, 167).",
   "start": "root",
   "nodes": {
     "root": {
@@ -14,13 +14,28 @@
           "id": "message_boy1",
           "text": "What do you know?",
           "tag": "TOPIC",
-          "say": "Everything."
+          "repeat": "Still everything. It's gone up.",
+          "say": "Everything. Pick a bit."
         },
         {
           "id": "message_boy2",
           "text": "Tell me something.",
           "tag": "TOPIC",
-          "say": "Penny."
+          "exchange": [
+            {
+              "speaker": "message_boy",
+              "line": "Penny."
+            },
+            {
+              "speaker": "thad",
+              "line": "Everything costs a penny?"
+            },
+            {
+              "speaker": "message_boy",
+              "line": "Knowing does. Not knowing's free. Most of the town's on that plan."
+            }
+          ],
+          "repeat": "Penny. Same as last time. I'm fair."
         },
         {
           "id": "message_boy3",
@@ -29,10 +44,44 @@
           "after": [
             "message_boy2"
           ],
+          "repeat": "That was a penny's worth. You've had it.",
           "say": "…The Colonel gets a letter from Boston every month and burns it in the stove."
         },
         {
           "id": "message_boy4",
+          "text": "Where would I find Ezra Pike?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "message_boy",
+              "line": "That one's free."
+            },
+            {
+              "speaker": "message_boy",
+              "line": "…"
+            },
+            {
+              "speaker": "message_boy",
+              "line": "Undertaker. Down the lane. No rush. Mr. Pike's not going anywhere."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          },
+          "repeat": "Still free. Still the undertaker."
+        },
+        {
+          "id": "message_boy5",
+          "text": "You knew Pike was dead.",
+          "tag": "TOPIC",
+          "when": {
+            "T_PIKE_DEAD": true
+          },
+          "repeat": "Penny.",
+          "say": "Everybody knew. You never asked the right question. That one's a penny."
+        },
+        {
+          "id": "message_boy6",
           "text": "Shouldn't you be in school?",
           "tag": "COMIC",
           "say": "There's no teacher. There's a school."

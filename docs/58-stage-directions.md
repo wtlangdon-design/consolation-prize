@@ -43,5 +43,6 @@
 - This is true, is never followed up, and is not needed for anything.
 - The swindle. Four dollars and the watch for the deed.
 - Wrong. Hard wrong.
+- This makes no sense and he is very firm about it.
 
-*Why these: the first eight explain the design or what the player is meant to notice; the next three (Ozymandia's resonance, Sheng's ridge, the stock portrait) would hand over the mystery's answers in narration that the player is supposed to reach by listening and looking; the counters are Sowerby's price mechanic, which is not text; the next three are layout notes; the next names the puzzle the row completes; the last tells the builder the option is the wrong one, which is the player's to find out.*
+*The map seller's "This makes no sense and he is very firm about it." joined in errata 170, when his tree came under the extractor: it tells the actor how to play the line, and printed it would explain the joke. Why these: the first eight explain the design or what the player is meant to notice; the next three (Ozymandia's resonance, Sheng's ridge, the stock portrait) would hand over the mystery's answers in narration that the player is supposed to reach by listening and looking; the counters are Sowerby's price mechanic, which is not text; the next three are layout notes; the next names the puzzle the row completes; the last tells the builder the option is the wrong one, which is the player's to find out.*
