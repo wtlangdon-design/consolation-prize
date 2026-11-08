@@ -12,6 +12,9 @@ completely? And the other guy's shoulder is partially missing behind the candle.
    front of the chair (`y` 722), so the depth sort draws it in front of him seated and behind him
    standing anywhere in the walk band; the table top stays behind him, so his forearms are on it.
 
+3. THE TABLE'S FRONT STRIP: the table's own pixels for the rows just above the cloth's front edge, so a seated
+   man's lap goes under the top rather than through it.
+
 Writes both PNGs and prints the drape's frame.
 """
 import os
@@ -74,5 +77,14 @@ for x in range(left, right + 1):
         hem = 0.7 if yy >= rows - BLOCK else (1.1 if yy < FRONT + BLOCK else 1.0)
         drape[yy, x, :3] = np.clip(base * fold * depth * hem * side, 0, 255)
         drape[yy, x, 3] = 255
+# THE TABLE'S FRONT STRIP, IN FRONT OF HIM TOO (Tyler, 2026-11-08: "Close but thads one leg is popping up through
+# the tablecloth"). Seated, he is drawn in front of the table so his forearms rest on it, and his lap lies just above
+# the cloth's front edge: drawn over the top, it reads as a leg through the cloth. The drape carries the table's own
+# pixels for the STRIP rows above that edge, exactly as the table draws them, so nothing changes where he is not and
+# his lap goes under the top. His forearms lie above STRIP.
+STRIP = 132
+for yy in range(STRIP, FRONT):
+    keep = p[yy, :, 3] > 0
+    drape[yy, keep] = p[yy, keep]
 Image.fromarray(drape).save(os.path.join(ROOT, 'art/props/room-11-dinner-drape.png'))
 print({'x': X0 + W // 2, 'y': FLOOR, 'frame': [0, 0, W, rows], 'cleared': int(wall.sum())})
