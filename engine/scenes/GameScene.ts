@@ -334,6 +334,8 @@ export class GameScene extends Phaser.Scene {
   /** Errata 163: the map's Thad on his way to a place; travel happens when he arrives. */
   private mapWalk: { walk: MapWalk; startedAt: number; location: import('../core/types.ts').MapLocation } | null = null;
   private barkAt: { x: number; y: number } | null = null;
+  /** Errata 169: who said the bark, so it is drawn in his colour. */
+  private barkBy: string | null = null;
   private barkTimer?: Phaser.Time.TimerEvent;
   private barkChain?: Phaser.Time.TimerEvent;
   /** A sound written in the world, over the thing that made it. See `showCaption`. */
@@ -790,7 +792,7 @@ export class GameScene extends Phaser.Scene {
           : null;
       if (fired?.cue) this.fireCue(fired.cue);
       if (fired?.exchange) this.showBarkExchange(fired.exchange);
-      else if (fired?.line) this.showBark(fired.npc.name, fired.line, fired.npc.x, this.barkFoot(fired.npc));
+      else if (fired?.line) this.showBark(fired.npc.id, fired.line, fired.npc.x, this.barkFoot(fired.npc));
     }
     // The tree opens when the walk that was started for it finishes.
     if (this.linesOnArrival && !this.actor.isWalking) {
@@ -907,6 +909,7 @@ export class GameScene extends Phaser.Scene {
       notice: this.notice,
       barkLines: this.barkLines,
       barkAt: this.barkAt,
+      barkBy: this.barkBy,
       captionLines: this.captionLines,
       captionAt: this.captionAt,
       actCard: this.actCard,
@@ -3856,7 +3859,7 @@ export class GameScene extends Phaser.Scene {
       if (this.spokenBreak === token) continue;
       this.spokenBreak = token;
       const line = this.ambient.barkFor(npc);
-      if (line) this.showBark(npc.name, line, npc.x, this.barkFoot(npc));
+      if (line) this.showBark(npc.id, line, npc.x, this.barkFoot(npc));
     }
   }
 
@@ -4087,16 +4090,17 @@ export class GameScene extends Phaser.Scene {
       const one = lines[at];
       if (!one) return;
       const who = this.ambient.present.find((each) => each.id === one.speaker);
-      if (who) this.showBark(who.name, one.line, who.x, this.barkFoot(who));
+      if (who) this.showBark(who.id, one.line, who.x, this.barkFoot(who));
       if (at + 1 < lines.length) this.barkChain = this.time.delayedCall(this.barkMs(), () => next(at + 1));
     };
     this.barkChain?.remove();
     next(0);
   }
 
-  private showBark(_name: string, line: string, x: number, y: number): void {
+  private showBark(speaker: string, line: string, x: number, y: number): void {
     this.barkLines = this.font.wrap(line, GameScene.BARK_BLOCK_WIDTH);
     this.barkAt = { x, y };
+    this.barkBy = speaker;
     this.barkTimer?.remove();
     this.barkTimer = this.time.delayedCall(this.barkMs(), () => {
       this.barkLines = [];

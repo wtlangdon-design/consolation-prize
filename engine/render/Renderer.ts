@@ -65,6 +65,8 @@ export interface Frame {
   notice: string | null;
   barkLines: string[];
   barkAt: { x: number; y: number } | null;
+  /** Errata 169: who said the bark; it is drawn in his speech colour. */
+  barkBy?: string | null;
   /**
    * A sound written in the world: a board's creak over the board. Drawn as a
    * bark is drawn -- outlined, at a room position -- and nothing else: not
@@ -1075,7 +1077,7 @@ export class Renderer {
     if (frame.page?.length) this.drawPage(frame.page, frame.pageAlpha ?? 1);
     else this.drawSay(frame.sayLines, frame.awaitingClick === true);
     if (frame.barkAt) {
-      this.drawBark(frame.barkLines, frame.barkAt);
+      this.drawBark(frame.barkLines, frame.barkAt, frame.barkBy ?? null);
     }
     if (frame.captionAt) {
       this.drawBark(frame.captionLines, frame.captionAt);
@@ -2785,7 +2787,11 @@ export class Renderer {
    *
    * The clamp itself is right and now clamps the right number.
    */
-  private drawBark(lines: string[], at: { x: number; y: number }): void {
+  private drawBark(lines: string[], at: { x: number; y: number }, speaker: string | null = null): void {
+    // A BARK IS IN ITS SPEAKER'S COLOUR, as his conversation is (errata 169). It was always the default ink, so the
+    // whole street's remarks read as Thad's.
+    const ink = (speaker ? this.state.content.speechColours?.speakers[speaker]?.colour : undefined)
+      ?? this.screen.roleColour('inkBright');
     const screenX = at.x - this.state.cameraX;
     lines.forEach((line, index) => {
       const y = at.y - (lines.length - index) * SPEECH_LINE_HEIGHT;
@@ -2797,7 +2803,7 @@ export class Renderer {
         line,
         x,
         y,
-        this.screen.roleColour('inkBright'),
+        ink,
         this.screen.roleColour('overlayBg'),
       );
     });

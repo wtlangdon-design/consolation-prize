@@ -4678,3 +4678,13 @@ The builder read every exterior plate. `reference/district/plan.json` records wh
 - **He stands back from the posted notices.** Tyler: "Thad goes up and pretty much stands with his nose against it." The compiler put a hotspot's approach point in front of the hotspot's rect, and the rect is the board, which stands on posts forty pixels lower. An annotation `bases` entry now gives the row a thing stands on (the notices: y 628), and he stands 50 px in front of it (y 678, was 628). `tests/staging-clear.test.ts` holds every declared base, and it failed at 0 px.
 - **The goodbyes rotate.** Tyler: "'I've taken enough of your time. I'll take more later.' shouldn't be used multiple times." Doc 04 calls its universal exit lines a "rotating pool available at every node". Each tree's extractor dealt one line to each node and froze it, so a node said the same goodbye every visit, and "I've taken enough of your time" was dealt twelve times. The pool is now extracted to `content/dialogue/exit-pool.json`. Every universal exit shows the next of its four lines (flag `EXIT_TURN`, saved with the game), so no goodbye comes round until the other three have. `tests/exit-rotation.test.ts` holds it across trees and a save, and it fails with the rotation removed. Doc 04's stage directions on two of the lines (the doorframe, and "available only when it has not been") are still not performed; that is unchanged.
 - **Still open: the map seller's and pie woman's build.** Tyler: "too wide compared to Thad." Measured at Thad's height, their heads are about 1.5 times as wide as his. Redrawing them is image work, and cast-unify has used 78 of its 80 operations.
+
+# 169 · EVERY SPEAKER HAS A COLOUR — TYLER, 2026-11-07
+
+*Tyler: "Are the map guy and Thad supposed to have the same color of text? Is that going to be a problem I run into over and over?" It was: 23 of the 27 people who speak drew in the default ink, a few units from Thad's own. From a rendered sample of the whole cast on the actual plates, grouped by room: "ship them".*
+
+- `content/ui/speech-colours.json` gives every speaker a colour. Nobody sharing a room is near Thad or near each other. Hob, Deke, Sowerby and the driver keep their approved colours, and Sowerby at the graveside is Sowerby (`sameAs`).
+- The card sharp is nudged from the sample's #ff8080 to #ff6f8f, because the sample sat 22 from Fanshawe, under the check's 24.
+- Barks are drawn in the speaker's colour too. They were always the default ink, so the street's remarks read as Thad's.
+- `tools/check-speech-colours.mjs` now fails on any id that speaks without a colour: a tree's speaker, a speaker in an exchange, or a townsperson with barks. It failed on the map seller with his entry taken out.
+

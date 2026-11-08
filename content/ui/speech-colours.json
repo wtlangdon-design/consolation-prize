@@ -34,6 +34,100 @@
     "cutaway_voice": {
       "colour": "#8fa0ae",
       "note": "Errata 158: the voice in Pratt's cut-away, whose owner is never seen. A cool slate grey, darker and bluer than the assay ring's murmur (#b0a898): nobody's colour, and visibly not the fallback ink."
+    },
+    "letter_writer": {
+      "colour": "#8fd0ff",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "boundary_a": {
+      "colour": "#ff9f80",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "boundary_b": {
+      "colour": "#ffc870",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "map_seller": {
+      "colour": "#a8e878",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "message_boy": {
+      "colour": "#7ee8d8",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "pie_woman": {
+      "colour": "#ff9ccc",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "man_leaving_tomorrow": {
+      "colour": "#c4a8ff",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "dogs_owner": {
+      "colour": "#d8d860",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "card_sharp": {
+      "colour": "#ff6f8f",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other. Nudged from the sample's #ff8080 to #ff6f8f: the sample sat 22 from Fanshawe's #ff7a70, under the check's 24."
+    },
+    "one_strike_man": {
+      "colour": "#90b8ff",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "fiddler": {
+      "colour": "#b8f0a0",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "winnie": {
+      "colour": "#9fe0f0",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "fanshawe": {
+      "colour": "#ff7a70",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "frame": {
+      "colour": "#d0f070",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "sump": {
+      "colour": "#c4c4c4",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "pratt": {
+      "colour": "#f09050",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "ozymandia": {
+      "colour": "#f0a0f0",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "sheng": {
+      "colour": "#80e8b8",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "undertaker": {
+      "colour": "#a8a8e8",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "livery_man": {
+      "colour": "#d8c0a0",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "hotel_clerk": {
+      "colour": "#a0d0b0",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "bell_ringer": {
+      "colour": "#ffb060",
+      "note": "Tyler, 2026-11-07, from a rendered sample on the actual plates (\"ship them\"; errata 169): every speaking character has a colour of his own, chosen so nobody sharing a room is near Thad or near each other."
+    },
+    "funeral_sowerby": {
+      "colour": "#c8b4e8",
+      "sameAs": "sowerby",
+      "note": "Sowerby at the graveside: the same man, the same colour."
     }
-  }
+  },
+  "everySpeaker": "Errata 169: every id that speaks -- a tree's speaker, a speaker in an exchange, a townsperson with barks -- has an entry here. The fallback ink sits a few units from Thad's, so an uncoloured speaker reads as Thad (Tyler, 2026-11-07: \"Are the map guy and Thad supposed to have the same color of text?\"). tools/check-speech-colours.mjs fails on any that has none. A figure who is another character in another place says so with sameAs and takes that character's colour."
 }
