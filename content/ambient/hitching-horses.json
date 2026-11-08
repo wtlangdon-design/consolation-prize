@@ -4,13 +4,13 @@
  "name": "THE HORSES",
  "posture": "animal",
  "room": "main_street",
- "x": 2080,
+ "x": 1545,
  "y": 850,
  "zone": 0,
  "approachRadius": 0,
  "scenery": true,
  "sceneryNote": "Scenery until its lines are written (reference/hitching-post/brief.md): the pointer passes through to the mud under it, so it answers no verb and names nothing. Its LOOK and LISTEN lines go in the documents first; then this goes and a hotspot is laid over it.",
- "note": "Tyler, 2026-11-07, on Main Street: \"maybe we add a hitching post front and center of the camera with a few horses tied to it so that it's not just a bunch of empty space?\" A hitching rail with three saddle horses, in the near mud in front of the trough and the Nugget, between the boundary men and the duel crowd's band. Room-02 attempts 3 and 4.",
+ "note": "Tyler, 2026-11-07, on Main Street: \"maybe we add a hitching post front and center of the camera with a few horses tied to it so that it's not just a bunch of empty space?\" Then, 2026-11-08, on the first group: \"It just looks essentially like three copies of the same horse ... maybe one is eating? And are hitching posts that low? And I think they should all be moved quite a bit to the left\". A hitching rail at chest height with three different horses -- a black with a blaze, a palomino eating hay, a paint pony in a striped blanket -- in the near mud between the letter-writer and the boundary men. Room-02 attempt 5.",
  "barks": {},
  "barksNote": "Horses; no barks.",
  "sprite": {
@@ -19,47 +19,41 @@
    [
     2,
     2,
-    330,
-    201
+    679,
+    422
    ],
    [
-    334,
+    683,
     2,
-    330,
-    201
+    679,
+    422
    ],
    [
-    666,
+    1364,
     2,
-    330,
-    201
+    679,
+    422
    ],
    [
-    998,
+    2045,
     2,
-    330,
-    201
-   ],
-   [
-    1330,
-    2,
-    330,
-    201
+    679,
+    422
    ]
   ],
-  "figureHeight": 171,
-  "stature": 1.06,
-  "statureNote": "The rest frame, ear tips to hooves, is 1.06 of the room's man where they stand: their withers come to about Thad's shoulder (0.82 of a man) and the withers are 132 of the 170 rows from the hooves.",
+  "figureHeight": 389,
+  "stature": 1.21,
+  "statureNote": "The rest frame, the black's ear tips to the foot of the hay, is 1.21 of the room's man where they stand: the black's withers come to Thad's shoulder (0.82 of a man) and are 263 of the frame's 389 rows from its hooves.",
   "beatEvery": 7,
   "beatSeconds": 2.4,
   "phase": 0.3,
   "rate": 0.2,
-  "frameNote": "0 rest · 1 the chestnut noses the mud · 2 the grey looks up, tail swished · 3 all three heads up · 4 a hind hoof rested. At rest on 0; every 7 s one of the four plays for 2.4 s, rotating, so all three heads come up together every 28 s (errata 77).",
-  "provenance": "art/staging/room-02/hitching-02/cut.json"
+  "frameNote": "0 rest: the palomino eating, the black looking out, the paint dozing · 1 the palomino chews · 2 the black tosses its head, the paint looks round · 3 the palomino chews. At rest on 0; every 7 s one of the three plays for 2.4 s, rotating, so the black tosses its head every 21 s (errata 77).",
+  "provenance": "art/staging/room-02/hitching-03/cut.json"
  },
  "placements": {
   "main_street_dawn": {
-   "x": 2080,
+   "x": 1545,
    "y": 850,
    "zone": 0,
    "sprite": {
@@ -68,42 +62,36 @@
      [
       2,
       2,
-      330,
-      201
+      679,
+      422
      ],
      [
-      334,
+      683,
       2,
-      330,
-      201
+      679,
+      422
      ],
      [
-      666,
+      1364,
       2,
-      330,
-      201
+      679,
+      422
      ],
      [
-      998,
+      2045,
       2,
-      330,
-      201
-     ],
-     [
-      1330,
-      2,
-      330,
-      201
+      679,
+      422
      ]
     ],
-    "figureHeight": 171,
-    "stature": 1.06,
-    "statureNote": "The rest frame, ear tips to hooves, is 1.06 of the room's man where they stand: their withers come to about Thad's shoulder (0.82 of a man) and the withers are 132 of the 170 rows from the hooves.",
+    "figureHeight": 389,
+    "stature": 1.21,
+    "statureNote": "The rest frame, the black's ear tips to the foot of the hay, is 1.21 of the room's man where they stand: the black's withers come to Thad's shoulder (0.82 of a man) and are 263 of the frame's 389 rows from its hooves.",
     "beatEvery": 7,
     "beatSeconds": 2.4,
     "phase": 0.3,
     "rate": 0.2,
-    "frameNote": "0 rest · 1 the chestnut noses the mud · 2 the grey looks up, tail swished · 3 all three heads up · 4 a hind hoof rested. At rest on 0; every 7 s one of the four plays for 2.4 s, rotating, so all three heads come up together every 28 s (errata 77).",
+    "frameNote": "0 rest: the palomino eating, the black looking out, the paint dozing · 1 the palomino chews · 2 the black tosses its head, the paint looks round · 3 the palomino chews. At rest on 0; every 7 s one of the three plays for 2.4 s, rotating, so the black tosses its head every 21 s (errata 77).",
     "provenance": "tools/art/hitching-post-dawn.py: the night sheet under the dawn plate's light (errata 178)"
    }
   }

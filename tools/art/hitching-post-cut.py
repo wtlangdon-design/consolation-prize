@@ -1,19 +1,22 @@
 """Cut Main Street's hitching rail and its three horses into an ambient sheet
 (reference/hitching-post/brief.md, errata 178). No image operation.
 
-Sources (room-02 attempts 3 and 4, art/staging/room-02/):
-  hitching-01/sheet.png -- the rail and horses painted in context, on the night
-      street beside Thad, inside a magenta box (the look and the scale);
-  hitching-02/sheet.png -- six copies of that group on one sheet, each with one
-      change (errata 77's motion): 1 rest, 2 the bay's tail (not used: it drew a
-      flare at the head), 3 the chestnut's head down to the mud, 4 the grey's
-      head up and its tail swished, 5 all three heads up, 6 a hind hoof rested.
+Source: art/staging/room-02/hitching-03/sheet.png, room-02 attempt 5 -- the
+group redrawn after Tyler's first look ("three copies of the same horse ...
+maybe one is eating? And are hitching posts that low?"): a black with a blaze,
+a palomino eating from a pile of hay, a paint pony in a striped blanket, the
+rail at chest height. Four frames on one sheet, 2 x 2.
 
-THE GENERATOR REDREW EVERY COPY, so even frame 1 differs from the others in a
-quarter of its pixels; swapped whole, the group would shimmer on every beat.
-So frame 1 is the rest, and each action frame is frame 1 except where that
-frame's own change is -- the pixels that differ from frame 1, widened by four,
-inside the band of the horse that moves. The rail never moves.
+ONLY FRAMES 1 AND 3 AGREE. The generator moved the palomino and the paint
+pony about 30 px sideways in frames 2 and 4, so neither can be laid over the
+rest without doubling a horse; frame 3 is the whole group 19 px higher and
+otherwise in place. So:
+  0  frame 1, the rest: the palomino eating, the black looking out, the paint dozing;
+  1  the palomino chews: its lowered head lifted 4 px off the hay (from frame 1);
+  2  frame 1 with frame 3's changes: the black tosses its head, the paint looks round
+     -- the pixels that differ from frame 1, widened by four, in those horses' bands;
+  3  the palomino chews again, 7 px.
+Frames 2 and 4 of the sheet are not used.
 
 Then: crop to the union of every frame, take the magenta out of the outline and
 anything at the key's hue (as tools/art/item-icons-cut.py does), and lay the
@@ -30,19 +33,12 @@ from PIL import Image
 from scipy import ndimage
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SOURCE = os.path.join(ROOT, 'art/staging/room-02/hitching-02/sheet.png')
+SOURCE = os.path.join(ROOT, 'art/staging/room-02/hitching-03/sheet.png')
 OUT = os.path.join(ROOT, 'art/actors/room-02-horses.png')
-RECORD = os.path.join(ROOT, 'art/staging/room-02/hitching-02/cut.json')
-CELL = 512
-RAIL = 334        # the rail's top row in each cell
-EDGE = 6          # the cells' faint grid lines
-# frame index on the sheet -> where its change may be taken (cell coordinates)
-BANDS = {
-    2: lambda yy, xx: (xx >= 196) & (xx < 288),       # the chestnut's head down
-    3: lambda yy, xx: xx >= 290,                      # the grey's head up, tail swished
-    4: lambda yy, xx: yy < RAIL,                      # all three heads up, above the rail
-    5: lambda yy, xx: (yy >= RAIL - 20) & (xx < 304),  # a hind hoof rested
-}
+RECORD = os.path.join(ROOT, 'art/staging/room-02/hitching-03/cut.json')
+CELL_W, CELL_H = 768, 512
+EDGE = 4          # the cells' faint borders
+DROP = 19         # sheet frame 3 sits this many rows higher than frame 1
 
 
 def fgmask(rgb, min_area=150):
@@ -63,6 +59,11 @@ def despill(rgba):
     hue = np.degrees(np.arctan2(np.sqrt(3) * (out[..., 1] - out[..., 2]),
                                 2 * out[..., 0] - out[..., 1] - out[..., 2])) % 360
     tinted = near | (opaque & (hue > 285) & (hue < 335) & (mx - mn > 25))
+    # And the outline ink: the generator's near-black is plum (19,11,20) where it was
+    # drawn against magenta -- key spill, which tools/check-residual-key.mjs reads as
+    # keyed background. Nothing in the horses is that dark and that purple.
+    r0, g0, b0 = out[..., 0], out[..., 1], out[..., 2]
+    tinted |= opaque & (mx < 48) & (r0 - g0 >= 4) & (b0 - g0 >= 4)
     r, g, b = out[..., 0], out[..., 1], out[..., 2]
     excess = np.where(tinted, np.clip(np.minimum(r, b) - g, 0, None), 0)
     out[..., 0] = np.clip(r - excess, 0, 255)
@@ -70,26 +71,49 @@ def despill(rgba):
     return out.astype(np.uint8)
 
 
+def shift(img, dx, dy, fill):
+    out = np.empty_like(img)
+    out[...] = fill
+    h, w = img.shape[:2]
+    out[max(0, dy):h + min(0, dy), max(0, dx):w + min(0, dx)] = \
+        img[max(0, -dy):h + min(0, -dy), max(0, -dx):w + min(0, -dx)]
+    return out
+
+
 def frames():
     sheet = np.asarray(Image.open(SOURCE).convert('RGB'))
-    cells = [sheet[(i // 3) * CELL:(i // 3 + 1) * CELL, (i % 3) * CELL:(i % 3 + 1) * CELL] for i in range(6)]
-    masks = [fgmask(c) for c in cells]
-    rest, rmask = cells[0], masks[0]
-    yy, xx = np.mgrid[0:CELL, 0:CELL]
-    out = [np.dstack([rest, np.where(rmask, 255, 0)]).astype(np.uint8)]
-    for k, band in BANDS.items():
-        inside = band(yy, xx)
-        moved = (np.abs(cells[k].astype(int) - rest.astype(int)).sum(-1) > 60) & (masks[k] | rmask) & inside
-        region = ndimage.binary_dilation(moved, iterations=4) & inside
-        rgb = np.where(region[..., None], cells[k], rest)
-        alpha = np.where(region, masks[k], rmask)
-        out.append(np.dstack([rgb, np.where(alpha, 255, 0)]).astype(np.uint8))
-    return out
+    cell = lambda i: sheet[(i // 2) * CELL_H:(i // 2 + 1) * CELL_H, (i % 2) * CELL_W:(i % 2 + 1) * CELL_W]
+    one = cell(0)
+    m1 = fgmask(one)
+    three = shift(cell(2), 0, DROP, np.array([255, 0, 255], np.uint8))
+    m3 = fgmask(three)
+    yy, xx = np.mgrid[0:CELL_H, 0:CELL_W]
+    rest = np.dstack([one, np.where(m1, 255, 0)]).astype(np.uint8)
+    # The black's head (left of the palomino, above the rail) and the paint pony.
+    band = ((xx < 300) & (yy < 330)) | (xx >= 470)
+    moved = (np.abs(three.astype(int) - one.astype(int)).sum(-1) > 60) & (m3 | m1) & band
+    region = ndimage.binary_dilation(moved, iterations=4) & band
+    toss = np.dstack([np.where(region[..., None], three, one),
+                      np.where(np.where(region, m3, m1), 255, 0)]).astype(np.uint8)
+    # The palomino's lowered head, clear of the hay below it and the black's legs left of it.
+    head = (xx >= 300) & (xx < 392) & (yy >= 318) & (yy < 424) & m1
+
+    def chew(up):
+        out = rest.copy()
+        out[head] = 0
+        lifted = np.zeros_like(rest)
+        lifted[head] = rest[head]
+        lifted = shift(lifted, 0, -up, np.array([0, 0, 0, 0], np.uint8))
+        keep = lifted[..., 3] > 0
+        out[keep] = lifted[keep]
+        return out
+
+    return [rest, chew(4), toss, chew(7)]
 
 
 def main():
     fr = frames()
-    union = np.zeros((CELL, CELL), bool)
+    union = np.zeros((CELL_H, CELL_W), bool)
     for f in fr:
         union |= f[..., 3] > 0
     ys, xs = np.where(union)
@@ -105,8 +129,9 @@ def main():
     rows = np.where(rest.any(1))[0]
     record = {'sheet': os.path.relpath(OUT, ROOT), 'source': os.path.relpath(SOURCE, ROOT), 'frames': rects,
               'figureHeight': int(rows.max() - rows.min() + 1),
-              'frameNote': '0 rest · 1 the chestnut noses the mud · 2 the grey looks up, tail swished · '
-                           '3 all three heads up · 4 a hind hoof rested'}
+              'frameNote': '0 rest: the palomino eating, the black looking out, the paint dozing · '
+                           '1 the palomino chews · 2 the black tosses its head, the paint looks round · '
+                           '3 the palomino chews'}
     with open(RECORD, 'w') as f:
         json.dump(record, f, indent=1)
     print(os.path.relpath(OUT, ROOT), sheet.size, 'frames', len(rects), 'frame', (int(w), int(h)),

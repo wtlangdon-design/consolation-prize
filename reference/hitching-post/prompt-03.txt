@@ -1,0 +1,20 @@
+Image 1 is part of Main Street in my pixel-art adventure game, at night, at exact game size. The hero stands in the near mud for scale, beside a magenta box where a hitching rail with three horses will stand. Image 2 is my first attempt at that group. It is wrong in two ways: the three horses look like copies of one horse, and the rail is far too low.
+
+Draw a NEW group, on a sheet of flat pure magenta (#FF00FF): a hitching rail with three saddle horses tied to it, drawn FOUR times in a 2 x 2 grid -- the same group in the same place in each quarter, as four frames of its idle animation.
+
+The rail: two stout posts and one top rail at the height of the horses' chests -- about four feet, a real hitching rail -- with the reins tied to it.
+
+Three horses that are plainly different animals, standing side-on along the rail, not in step:
+- a big black horse with a white blaze and white socks, heavy-boned, a dark saddle with a rolled bedroll;
+- a lighter-built palomino, golden with a pale mane and tail, a worn tan saddle;
+- a smaller brown-and-white paint pony with a shaggy mane, no saddle, only a striped blanket and a bridle.
+Different heights, builds, coats, tack and head positions.
+
+The four frames, top-left, top-right, bottom-left, bottom-right:
+1. Rest: the palomino has its head down, eating from a small pile of hay on the ground; the black looks out toward the viewer; the paint dozes, head low.
+2. The palomino lifts its head from the hay, chewing, a wisp of hay in its mouth.
+3. The black tosses its head up and the paint swishes its tail.
+4. The paint lifts its head and turns it toward the black; the palomino is back down at the hay.
+Only those changes: the rail, the hay and every other part stay exactly in place from frame to frame.
+
+Their withers come to about the hero's shoulder in Image 1. Light them like the street in Image 1: the cool blue night and warm lamplight. Same painted pixel-art style, pixel size and soft, flat shading as the street and the hero, not sharper. Crisp pixel edges, flat magenta all round and between the frames, no ground, no shadow, no text, no riders.

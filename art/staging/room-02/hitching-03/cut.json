@@ -1,0 +1,32 @@
+{
+ "sheet": "art/actors/room-02-horses.png",
+ "source": "art/staging/room-02/hitching-03/sheet.png",
+ "frames": [
+  [
+   2,
+   2,
+   679,
+   422
+  ],
+  [
+   683,
+   2,
+   679,
+   422
+  ],
+  [
+   1364,
+   2,
+   679,
+   422
+  ],
+  [
+   2045,
+   2,
+   679,
+   422
+  ]
+ ],
+ "figureHeight": 389,
+ "frameNote": "0 rest: the palomino eating, the black looking out, the paint dozing \u00b7 1 the palomino chews \u00b7 2 the black tosses its head, the paint looks round \u00b7 3 the palomino chews"
+}

@@ -35141,6 +35141,63 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-08T17:15:53.121Z"
+  },
+  {
+   "attempt": 5,
+   "role": "other",
+   "assetId": "room-02",
+   "subject": "hitching-post-redraw",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/room-02/hitching-01/sheet.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/hitching-post/prompt-03.txt",
+   "promptHash": "06ebaa2db782dc0b4be4368c1839d033c828ca17b9d69d74200ae738720ab3e0",
+   "references": [
+    {
+     "path": "art/staging/room-02/hitching-03/context.png",
+     "hash": "be157872d20f08834897d0e4b0d2b5b025b1d5a91aa0fff472c3e39803054229",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-02/hitching-01/group.png",
+     "hash": "cba744443fc851bf7537a3db58436008eb8f07fd80ce60625696838888f91c4a",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "be157872d20f08834897d0e4b0d2b5b025b1d5a91aa0fff472c3e39803054229",
+   "sourcePath": "art/staging/room-02/hitching-03/context.png",
+   "out": "art/staging/room-02/hitching-03/sheet.png",
+   "outputHash": "0c3cadd23afa1eb8ab863b264b47a91d13faab88303722842eb2257a1561797b",
+   "bytes": 1966048,
+   "usage": {
+    "input_tokens": 2393,
+    "input_tokens_details": {
+     "image_tokens": 1872,
+     "text_tokens": 521
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 3944
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T17:42:39.478Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-07 (room-02 cap 6, errata 168); the brief's corrections. Tyler, 2026-11-08, on the first group: \"It just looks essentially like three copies of the same horse side by side by side. Can't you make them all a bit more unique from each other? And maybe one is eating? And are hitching posts that low? And I think they should all be moved quite a bit to the left\".",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T17:42:39.486Z"
   }
  ],
  "promotions": [

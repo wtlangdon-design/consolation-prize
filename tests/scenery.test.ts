@@ -29,7 +29,7 @@ for (const room of ['main_street', 'main_street_dawn']) {
     layer.arrived();
     const horses = layer.present.find((npc) => npc.id === 'hitching_horses');
     assert.ok(horses?.scenery, 'the horses are present, as scenery');
-    const at = { x: 2080, y: 800 };
+    const at = { x: 1545, y: 800 };
     assert.equal(layer.npcAt(at.x, at.y), undefined, 'no figure answers the pointer over them');
     assert.equal(state.targetAt(at.x, at.y)?.id, 'mud', 'the mud under them does');
   });
@@ -38,9 +38,9 @@ for (const room of ['main_street', 'main_street_dawn']) {
     const content = await loadContent(fsReader);
     const room_ = content.rooms.get(room)!;
     const boxes = new WalkBoxes(room_.walkBoxes!, () => true);
-    for (const [x, y] of [[1900, 840], [2080, 830], [2260, 850]] as const) {
+    for (const [x, y] of [[1360, 840], [1545, 830], [1730, 850]] as const) {
       assert.equal(boxes.contains(x, y), false, `${x},${y} under the horses is not ground he can stand on`);
     }
-    assert.ok(boxes.contains(2080, 780), 'the ground behind them is');
+    assert.ok(boxes.contains(1545, 780), 'the ground behind them is');
   });
 }

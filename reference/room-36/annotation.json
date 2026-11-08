@@ -214,13 +214,13 @@
   {
    "id": "hitching_post",
    "rect": [
-    1882,
+    1341,
     808,
-    396,
+    408,
     50
    ],
    "keepsGroundAbove": true,
-   "note": "The hitching rail and its horses (errata 178): a group on the ground he walks around, never through. The rect is the hooves' and posts' footprint in the near mud, from the drawn group (content/ambient/hitching-horses.json, 2080,850); the ground behind them stays walkable (keepsGroundAbove), as the dog's does, and he passes behind them there."
+   "note": "The hitching rail and its horses (errata 178): a group on the ground he walks around, never through. The rect is the hooves', hay's and posts' footprint in the near mud, from the drawn group (content/ambient/hitching-horses.json, 1545,850); the ground behind them stays walkable (keepsGroundAbove), as the dog's does, and he passes behind them there."
   }
  ],
  "lamps": [],
