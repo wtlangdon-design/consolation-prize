@@ -1,0 +1,8 @@
+Image 1 is a finished night map from my pixel-art adventure game, in the middle of a light grey canvas. Image 2 is the block-out it was drawn from: where every shape must be. Image 3 is our previous map, for its style: rugged dark mountains, pixel-art, night palette.
+
+Repaint ONLY the transparent areas of the mask, in Image 1's own style, palette, pixel grid and scale. Everything outside them stays exactly as it is.
+1. THE EDGES OF THE MAP are MOUNTAINS, not forest: rugged, rocky, dark grey-blue peaks and slopes like Image 3's cliffs and ridges, along the top edge and down the left and right edges, ringing the valley. At the top, where the mountain road comes in, the peaks part in a PASS (Image 2's darker notch), and the road winds down out of it to the coach stop below.
+2. DOWN THE RIGHT-HAND SIDE OF THE TOWN SQUARE: three SEPARATE buildings one below the other on Image 2's three blocks, NOT overlapping, each with its FRONT, porch and lit door on its LEFT end, facing LEFT onto the square. The top one, at the corner, is the LARGEST building in town, a two-storey saloon with a balcony over its porch; below it a two-storey hotel; below that a small one-storey assay office. The square's mud runs up to their porches.
+3. AT THE LIVERY BARN'S RIGHT: a fenced corral, an open pen of wooden rails on dirt.
+
+No text, no labels, no numerals, no people. The light grey margins stay light grey.

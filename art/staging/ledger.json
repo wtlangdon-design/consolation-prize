@@ -34477,6 +34477,567 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-08T01:12:28.303Z"
+  },
+  {
+   "attempt": 13,
+   "role": "plate",
+   "assetId": "town-map",
+   "subject": "room-00-town-map",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/town-map/prompts/district-01.txt",
+   "promptHash": "bf51d00554374530f0e317f7c8e52e7f28830f97c4c3461e1b17d349ba614a5a",
+   "references": [
+    {
+     "path": "art/staging/town-map/district-01/input.png",
+     "hash": "0eccf394b9b66ea6bbdc1d0fe5139d4debfc0f0cc09fc283eb9b64f2e9cbadac",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-00-town-map.png",
+     "hash": "db447dc974bedabd9ce5f75fa3de085983e37643c2e6d0d9c5a14dd367a593b6",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-00-town-map",
+    "purpose": "room-art",
+    "visualType": "district-map-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-00-town-map)",
+      "path": "art/backgrounds/room-00-town-map.png",
+      "hash": "db447dc974bedabd9ce5f75fa3de085983e37643c2e6d0d9c5a14dd367a593b6",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "0eccf394b9b66ea6bbdc1d0fe5139d4debfc0f0cc09fc283eb9b64f2e9cbadac",
+   "sourcePath": "art/staging/town-map/district-01/input.png",
+   "out": "art/staging/town-map/district-01/source.png",
+   "outputHash": "a82331de12a7890ffc86e5224d2d124c1d0c8b7ce9de3552b5a79ccb30f94db2",
+   "bytes": 2430781,
+   "usage": {
+    "input_tokens": 9055,
+    "input_tokens_details": {
+     "image_tokens": 8536,
+     "text_tokens": 519
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 10606
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T02:30:13.130Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T02:30:13.142Z"
+  },
+  {
+   "attempt": 14,
+   "role": "plate",
+   "assetId": "town-map",
+   "subject": "room-00-town-map",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/town-map/prompts/district-02.txt",
+   "promptHash": "9e0f7887a09001e52cc089c243dff2cf27a7924075c8e6a39339d9a5a8fe230b",
+   "references": [
+    {
+     "path": "art/staging/town-map/district-01/input.png",
+     "hash": "0eccf394b9b66ea6bbdc1d0fe5139d4debfc0f0cc09fc283eb9b64f2e9cbadac",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-00-town-map.png",
+     "hash": "db447dc974bedabd9ce5f75fa3de085983e37643c2e6d0d9c5a14dd367a593b6",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-00-town-map",
+    "purpose": "room-art",
+    "visualType": "district-map-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-00-town-map)",
+      "path": "art/backgrounds/room-00-town-map.png",
+      "hash": "db447dc974bedabd9ce5f75fa3de085983e37643c2e6d0d9c5a14dd367a593b6",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "0eccf394b9b66ea6bbdc1d0fe5139d4debfc0f0cc09fc283eb9b64f2e9cbadac",
+   "sourcePath": "art/staging/town-map/district-01/input.png",
+   "out": "art/staging/town-map/district-02/source.png",
+   "outputHash": "4033cd60ba5a222b9d167f0d1597da320b887c44924a87024b69f2b207db81e2",
+   "bytes": 2694059,
+   "usage": {
+    "input_tokens": 9409,
+    "input_tokens_details": {
+     "image_tokens": 8536,
+     "text_tokens": 873
+    },
+    "output_tokens": 5667,
+    "output_tokens_details": {
+     "image_tokens": 5667,
+     "text_tokens": 0
+    },
+    "total_tokens": 15076
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T02:31:59.758Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T02:31:59.774Z"
+  },
+  {
+   "attempt": 15,
+   "role": "plate",
+   "assetId": "town-map",
+   "subject": "room-00-town-map",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/town-map/prompts/district-03.txt",
+   "promptHash": "07fc5f435cc328c7a2742a3ae08dcaa6f324a4416cbd1536334773eead8d6602",
+   "references": [
+    {
+     "path": "art/staging/town-map/district-01/source.png",
+     "hash": "a82331de12a7890ffc86e5224d2d124c1d0c8b7ce9de3552b5a79ccb30f94db2",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/town-map/district-01/input.png",
+     "hash": "0eccf394b9b66ea6bbdc1d0fe5139d4debfc0f0cc09fc283eb9b64f2e9cbadac",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-00-town-map.png",
+     "hash": "db447dc974bedabd9ce5f75fa3de085983e37643c2e6d0d9c5a14dd367a593b6",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-00-town-map",
+    "purpose": "room-art",
+    "visualType": "district-map-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-00-town-map)",
+      "path": "art/backgrounds/room-00-town-map.png",
+      "hash": "db447dc974bedabd9ce5f75fa3de085983e37643c2e6d0d9c5a14dd367a593b6",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/town-map/district-03/mask.png",
+    "hash": "a91661206ec2c175e5bb6fb6d8c2b1f69f1c9ae81da7245ded43a6a31fc3df17"
+   },
+   "sourceHash": "a82331de12a7890ffc86e5224d2d124c1d0c8b7ce9de3552b5a79ccb30f94db2",
+   "sourcePath": "art/staging/town-map/district-01/source.png",
+   "out": "art/staging/town-map/district-03/source.png",
+   "outputHash": "ebc3f464eaee2582d534f2f4215003ee31310c7db3969b2eb597101a2588dd54",
+   "bytes": 2580087,
+   "usage": {
+    "input_tokens": 8976,
+    "input_tokens_details": {
+     "image_tokens": 8620,
+     "text_tokens": 356
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 10527
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T02:32:55.634Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T02:32:55.643Z"
+  },
+  {
+   "attempt": 16,
+   "role": "plate",
+   "assetId": "town-map",
+   "subject": "room-00-town-map",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/town-map/prompts/district-04.txt",
+   "promptHash": "117811794391baa1f2b5258d05b017dbb9a44d272833efb6b0b556b9b6e73bb9",
+   "references": [
+    {
+     "path": "art/staging/town-map/district-04/input.png",
+     "hash": "9a22a2470688fb8fa4d6f1996f166061279004f48c8fe252f8f0c56c8cf9457e",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-00-town-map.png",
+     "hash": "db447dc974bedabd9ce5f75fa3de085983e37643c2e6d0d9c5a14dd367a593b6",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-00-town-map",
+    "purpose": "room-art",
+    "visualType": "district-map-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-00-town-map)",
+      "path": "art/backgrounds/room-00-town-map.png",
+      "hash": "db447dc974bedabd9ce5f75fa3de085983e37643c2e6d0d9c5a14dd367a593b6",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "9a22a2470688fb8fa4d6f1996f166061279004f48c8fe252f8f0c56c8cf9457e",
+   "sourcePath": "art/staging/town-map/district-04/input.png",
+   "out": "art/staging/town-map/district-04/source.png",
+   "outputHash": "499f7400949dced38007addd5c59d08cb71fb3f9cd80859d7851030c405fa58f",
+   "bytes": 2692890,
+   "usage": {
+    "input_tokens": 9154,
+    "input_tokens_details": {
+     "image_tokens": 8536,
+     "text_tokens": 618
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 10705
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T02:39:34.656Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T02:39:34.666Z"
+  },
+  {
+   "attempt": 17,
+   "role": "plate",
+   "assetId": "town-map",
+   "subject": "room-00-town-map",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/town-map/prompts/district-05.txt",
+   "promptHash": "589f8d534de2a75b6925c2b224510134bd92052f3f5175831260724d68331de9",
+   "references": [
+    {
+     "path": "art/staging/town-map/district-04/arm-input.png",
+     "hash": "5e291dab38648175743dff9cd380aaa54cb4d1505c52a2f0510a71435bcd6931",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/town-map/district-04/arm-plan.png",
+     "hash": "23ee886f1df6b83c6446b1a6f7335ad79844db3cb34c4b859ca985119fc36991",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-00-town-map.png",
+     "hash": "db447dc974bedabd9ce5f75fa3de085983e37643c2e6d0d9c5a14dd367a593b6",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-00-town-map",
+    "purpose": "room-art",
+    "visualType": "district-map-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-00-town-map)",
+      "path": "art/backgrounds/room-00-town-map.png",
+      "hash": "db447dc974bedabd9ce5f75fa3de085983e37643c2e6d0d9c5a14dd367a593b6",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/town-map/district-04/arm-mask.png",
+    "hash": "117c003e7b4f77a2d421b91de6c4da1f920b4211a90379a95746b8732542f86d"
+   },
+   "sourceHash": "5e291dab38648175743dff9cd380aaa54cb4d1505c52a2f0510a71435bcd6931",
+   "sourcePath": "art/staging/town-map/district-04/arm-input.png",
+   "out": "art/staging/town-map/district-05/source.png",
+   "outputHash": "27d46a86954d5d0a3edd905d156c024de399fd4f433b767de2e41aa02741090b",
+   "bytes": 2604496,
+   "usage": {
+    "input_tokens": 10445,
+    "input_tokens_details": {
+     "image_tokens": 10072,
+     "text_tokens": 373
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 11996
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T02:41:38.329Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T02:41:38.338Z"
   }
  ],
  "promotions": [
