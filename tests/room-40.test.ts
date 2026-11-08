@@ -23,7 +23,7 @@ test('the storefront opens off the Lane by a door beside its window, and the win
   const front = lane.hotspots.find((one) => one.id === 'empty_storefront');
   assert.ok(door && front, 'the Lane has the storefront and its door');
   assert.ok(door.rect[0] >= front.rect[0] + front.rect[2], 'the door is beside the boarded window, not over it');
-  const look = (front.responses.LOOK_AT?.[0] as { say: string }).say;
+  const look = (front.responses?.LOOK_AT?.[0] as { say: string }).say;
   assert.match(look, /boarded/, 'the storefront is still described as boarded, and still is');
   assert.ok(content.rooms.get('empty_storefront')?.exits.some((exit) => exit.to === 'the_lane'), 'its door goes back to the Lane');
   assert.ok((lane.entrances ?? []).some((one) => one.from === 'empty_storefront'), 'coming out puts the hero at its door');

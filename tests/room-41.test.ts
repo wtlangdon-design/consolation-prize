@@ -22,7 +22,7 @@ test('the schoolhouse is a built place on the map, and THE DOOR leads back to it
   const content = await loadContent(fsReader);
   const door = content.rooms.get('schoolhouse')?.exits.find((exit) => exit.to === 'town_map');
   assert.ok(door, 'the door goes back to the map');
-  assert.ok(!door.stub && door.responses.LOOK_AT, 'the door has its own lines, not a stub');
+  assert.ok(!door.stub && door.responses?.LOOK_AT, 'the door has its own lines, not a stub');
 });
 
 test('the composer lays exactly the count doc 105 gives: fourteen desks and fourteen hooks', async () => {
