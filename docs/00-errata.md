@@ -4612,6 +4612,8 @@ The builder read every exterior plate. `reference/district/plan.json` records wh
 - **Operation 17, `district-05`,** a masked edit of the east side close up (3.2×, the way town-01 drew a good arm), drew the saloon (largest, at the corner, with its balcony), the hotel and the assay office separately, each facing the square. `district-arm.py paste` takes back only those buildings, to their back walls, keeping the map's own road. Edges replicated before the alignment; the frame redrawn. The result is `art/staging/town-map/district-04/candidate-arm.png`.
 - Kept as the record, with the tools. Of the map now, D is more spread out and plainer; A is busier and hand-drawn but does not follow the plan.
 
+**A10 · A is the final map. Tyler, 2026-11-08: "Let's just stick with A for the final map."** The district map is the shipping map as A4 and A5 left it: the night map with the pass, the square's L and the Lane's five shops. No further town-map work is planned. The last `town-map` operation stays unspent, and the district attempts (A7–A9) are a record only. The builder sets the markers and the roads on A.
+
 **B · The map's Thad (with errata 161, part 3).** A small Thad stands on the map at the place of the room it was opened from, or Main Street for a room with none of its own (`mapToken.homes` names the rest). A click on a place walks him there along the drawn roads, the shortest way, and the room changes when he arrives (`engine/core/MapWalk.ts`).
 - **Timing.** He walks at 260 pixels a second, and never for longer than 4.5 seconds: a long walk is walked faster.
 - **Skipping.** A second click skips the walk, so backtracking never waits.
