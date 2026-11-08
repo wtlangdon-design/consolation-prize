@@ -26,6 +26,7 @@
           "id": "barber3",
           "text": "I'd like a shave.",
           "tag": "COMIC",
+          "repeat": "You keep asking and not sitting. In my trade, that's how a shave turns into a tooth.",
           "say": "Sit down. Don't look at the tray."
         },
         {
