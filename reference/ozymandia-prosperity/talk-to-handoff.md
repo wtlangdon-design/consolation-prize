@@ -1,6 +1,8 @@
 # Handoff: what TALK TO Ozymandia does at Prosperity (Act IV)
 
-For Claude, the writer. Tyler wants this decided. It is a writing decision, so the builder made no choice and wrote nothing.
+For Claude, the writer.
+
+**DECIDED — Tyler, 2026-11-08: "I choose C."** Thad gets a new line for TALK TO on her, and she answers with her one line, "…It's loud here." Tyler authorises that one new line, or its repeat variants, under the rules below. Write it in doc 54, then write the builder a short brief. The options are kept below as the record.
 
 ## Where things stand (errata 186)
 
@@ -45,5 +47,3 @@ The pool was written for things, so it calls her "it". The pool for people has n
 
 - **Every other wrong verb on her** (LOOK AT, PICK UP, PUSH, PULL, USE, OPEN, CLOSE) now gets the general **people** pool ("A person. I have decided to be polite about it." and the rest). That is acceptable, but doc 54 can override any of them in the same rows if a line is wanted.
 - **LISTEN TO her** gets the people pool's LISTEN. If she is to be listened to, that line also belongs in doc 54. It must not be one of the three load-bearing LISTENs, and nothing may mark it.
-
-Reply with A, B, C or D. For B or C, also say whether Tyler has authorised the new words.
