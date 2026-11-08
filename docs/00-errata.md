@@ -4980,6 +4980,27 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
 
 `proofs/written-not-built.json` regroups all of these.
 
+# 185 · SIX DRAWN OBJECTS GIVEN LINES, AND MADE CLICKABLE — TYLER, 2026-11-08 ("Write them")
+
+*Errata 184 left six objects drawn on their plates and not clickable. Doc 49 writes a refusal for each, but a hotspot needs LOOK and LISTEN lines, and no writing permission covered new ones. Asked whether to write them, Tyler said "Write them". This is the sixth writing exception, and it covers these six objects and nothing else.*
+
+- **Written, one voice,** under doc 59 and doc 99. Three LOOK and three LISTEN each. Every line is true in every act, and nothing describes what the plate does not show.
+  - **Room 7, in doc 25's "Newly written":** THE COUNTER BELL, THE FORM STACK, THE STATUTE BOOK and THE PARTITION.
+  - **Room 14, in doc 54:** THE FENCE.
+  - **Room 27, in doc 54:** THE ROW ENTIRE.
+- **Made clickable.** Each rect is measured on the shipped plate and recorded in its room's annotation, and each object is LOOK AT on a bare click.
+  - The compiler sorts hotspots by area, so the bell, the stack and the book are hit before THE COUNTER they stand on.
+  - THE PARTITION is the posts and rails above the counter. The clock and the number spindle are smaller and are hit first.
+  - THE ROW ENTIRE is the ridge and its markers as one. The markers, the workings and the sluice frames are hit first.
+- **Doc 49's refusals now land.**
+  - The bell's USE, the book's OPEN, the partition's PUSH, the fence's PUSH and the row's USE attach by name.
+  - FORM 12-C (THE STACK) is THE FORM STACK (`wrongVerbAliases`), and its PICK UP attaches there.
+  - Doc 54's Retire declarations for THE FENCE and THE ROW ENTIRE are withdrawn.
+  - Room 7's annotation houses all five of the objects doc 36 Q150 reported.
+- **Still retired:**
+  - Boot Hill's wild oats, which the plate does not draw distinctly;
+  - the shack's lamp reserve, wall calendar and stool by the window (errata 184 D).
+
 # 186 · OZYMANDIA AT PROSPERITY: DRAWN, PLACED AND CAST — TYLER, 2026-11-08 (reference/ozymandia-prosperity/brief.md)
 
 *Errata 184 C's figure, drawn. Room-16's fourth and last operation.*

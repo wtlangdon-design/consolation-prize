@@ -361,6 +361,12 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 183: doc 105, the six interiors' writing, joins the documents the check reads, so its lines are held to the ledger like every other source's. The diff reads as a loosening because the SOURCES list changed; nothing was excused. The 163 lines doc 105 adds are listed under ancillary-interiors until the image session builds the rooms."
+  },
+  {
+   "check": "tests/room-27.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 185: the row's subject count goes from doc 05's fifteen to sixteen, because THE ROW ENTIRE was written and built at Tyler's word ('Write them'). The count held a number, not a rule; nothing it guards is weakened."
   }
  ]
 }

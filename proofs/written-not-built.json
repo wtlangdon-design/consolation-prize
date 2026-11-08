@@ -926,7 +926,7 @@
   },
   {
    "id": "retired-not-drawn",
-   "why": "RETIRED, AND NOT DRAWN (errata 68 E: 'they name objects no room has, and adding objects to hold them would change the rooms'). The watchman's shack's lamp reserve, wall calendar and stool by the window. Errata 184 looked at the shipped plate (art/backgrounds/room-21-watchmans-shack.png): there is a table with two chairs, a stove, a coat, a cot and the tally marks, and none of these three.",
+   "why": "RETIRED, AND NOT DRAWN (errata 68 E: 'they name objects no room has, and adding objects to hold them would change the rooms'). The watchman's shack's lamp reserve, wall calendar and stool by the window. Errata 184 looked at the shipped plate (art/backgrounds/room-21-watchmans-shack.png): there is a table with two chairs, a stove, a coat, a cot and the tally marks, and none of these three. And Boot Hill's wild oats: the plate's grass has no oats that can be told from it, so the line stays retired (errata 185 wrote THE FENCE beside it).",
    "lines": [
     {
      "doc": "49-wrong-answers",
@@ -939,32 +939,10 @@
     {
      "doc": "49-wrong-answers",
      "quote": "It is placed where it is placed. The window it faces is the one that sees the whole street, and the wear on the sill says: nightly."
-    }
-   ]
-  },
-  {
-   "id": "drawn-needs-look-listen",
-   "why": "GAP, FOR TYLER (errata 184): drawn, and not clickable, because a hotspot needs LOOK and LISTEN lines and none is written. Room 7's form stack and counter bell, on the counter (with THE STATUTE BOOK and THE PARTITION, also drawn and also unhoused, whose lines this check does not catch); Boot Hill's fence; the claim row as a whole (THE ROW ENTIRE). Boot Hill's wild oats are not distinguishable from its grass. No writing permission covers new LOOK and LISTEN lines, so these wait for Tyler.",
-   "lines": [
-    {
-     "doc": "49-wrong-answers",
-     "quote": "One per applicant. Sump counted the stack this morning. Sump will count it tonight."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "Sump appears before the ring finishes. I suspect he lives in the counter."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "It holds. The undertaker maintains it. His clients do not leave, but their reputation for it must be kept up."
     },
     {
      "doc": "49-wrong-answers",
      "quote": "Boot Hill's only harvest. I left it. It's theirs."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "Eleven claims, free for the re-filing, and no takers in years. The row is used daily: as a warning, by everyone, on the way past."
     }
    ]
   },
