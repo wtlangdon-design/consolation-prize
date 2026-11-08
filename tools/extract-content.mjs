@@ -2254,6 +2254,8 @@ function minorTrees() {
     if (options.length < 3) throw new Error(`doc 27: ${title} has ${options.length} options`);
     // Vessel's Act II root is doc 04's, merged here so he is one tree.
     const actTwo = who.tree === 'DEKE_VESSEL' ? vesselActTwo() : null;
+    // And his Act IV node, the hotel (errata 180).
+    const actFour = who.tree === 'DEKE_VESSEL' ? vesselActFour() : null;
     // The undertaker's Act III node is doc 04's, merged here so he is one tree.
     const actThree = who.tree === 'UNDERTAKER' ? undertakerActThree() : null;
 
@@ -2290,9 +2292,10 @@ function minorTrees() {
           options,
         },
         ...(actTwo ? { VES_B1: actTwo.node } : {}),
+        ...(actFour ? { VES_F1: actFour.node } : {}),
         ...(actThree ? { UND_C1: actThree.node } : {}),
       },
-      ...(actTwo ? { entries: actTwo.entries } : {}),
+      ...(actTwo ? { entries: [...(actFour?.entries ?? []), ...actTwo.entries] } : {}),
       ...(actThree ? { entries: actThree.entries } : {}),
       start: 'root',
     }));
@@ -3803,6 +3806,50 @@ function vesselActTwo() {
       options,
     },
     entries: [{ when: { T_VESSEL_FOUND: true }, node: 'VES_B1' }],
+  };
+}
+
+/**
+ * DOC 04's VES_F1: Vessel in Act IV, owning the hotel (errata 180; Tyler, 2026-11-08: "Yes").
+ *
+ * Written in doc 04 since W1 and never extracted. He stands in the hotel lobby from Act IV
+ * (content/ambient/deke-vessel.json `placements.hotel_lobby`), and TALK TO there opens this node: its
+ * opening ("Grubb! You'll want a room.") once, then four questions, each with a second answer
+ * (`*(second)*`), and the universal exit. The entry comes before VES_B1's, so in Act IV he opens here.
+ */
+function vesselActFour() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('`VES_F1` (Act IV');
+  const to = doc.indexOf('## THE LIVERY MAN');
+  if (from < 0 || to < from) throw new Error('doc 04: VES_F1 not found');
+  const block = doc.slice(from, to);
+  const SPEAKER = 'deke_vessel';
+  const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)]
+    .map((m) => m[1]);
+  const greeting = /^> \*\*VESSEL:\*\* "(.+?)"$/m.exec(block);
+  if (!greeting) throw new Error('doc 04: VES_F1 has no opening');
+  const table = block.slice(greeting.index);
+  const ROW = /^\| (\d+) \|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|[ \t]*$/gm;
+  const options = [];
+  for (const [, number, optionCell, tagCell, responseCell] of table.matchAll(ROW)) {
+    const where = `VES_F1 option ${number}`;
+    const tagged = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
+    const text = quoted(optionCell)[0];
+    if (!tagged || !text) throw new Error(`doc 04: ${where} does not read`);
+    const [firstCell, againCell] = responseCell.split('*(second)*');
+    const first = quoted(firstCell.replace(/\*\([^)]*\)\*/g, '')).map((q) => plain(q));
+    if (first.length !== 1) throw new Error(`doc 04: ${where} answers in ${first.length} lines`);
+    const again = againCell ? quoted(againCell.replace(/\*\([^)]*\)\*/g, '')).map((q) => plain(q))[0] : undefined;
+    options.push({ id: `ves_f1_${number}`, tag: tagged[1], ...(tagged[2] ? { afterUse: tagged[2] } : {}), text: plain(text),
+      say: first[0], ...(again ? { repeats: [{ selection: 2, say: again }] } : {}) });
+  }
+  if (options.length !== 4) throw new Error(`doc 04: VES_F1 has ${options.length} options, not 4`);
+  if (!options.some((o) => o.tag === 'COMIC')) throw new Error('doc 04: VES_F1 has no [COMIC] option');
+  options.push({ id: 'ves_f1_x', tag: 'EXIT', text: POOL[1 % POOL.length], universal: true, ends: true });
+  const opening = [{ speaker: SPEAKER, line: plain(greeting[1]) }];
+  return {
+    node: { id: 'VES_F1', prompt: opening[0].line, opening, openingOnce: 'T_VESSEL_HOTEL_GREETED', options },
+    entries: [{ when: { ACT: { atLeast: 4 } }, node: 'VES_F1' }],
   };
 }
 

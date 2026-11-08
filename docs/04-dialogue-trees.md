@@ -838,16 +838,16 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 
 **`VES_F1` (Act IV — the hotel):** he has bought the hotel. With, he explains proudly, Thad's four dollars, "and some other fellows' several thousand." One option, `[COMIC · retain]`: "Was it worth it?" — "The four dollars? Son, your four dollars *built the mezzanine*."
 
-*Grown to a node, errata 75: one option is below node rule 1.*
+*Grown to a node, errata 75: one option is below node rule 1. Built, errata 180 (Tyler, 2026-11-08: "Yes"): Vessel stands in the hotel lobby from Act IV, and this node is what TALK TO opens there. Option 3 asks about "my room", not "my old room": Act IV opens with Thad packed in it, and the coach is at noon (doc 57). Its answer was "Course it is.", one word from the pie woman's "Course you will.", which doc 99 gives to her alone.*
 
 > **VESSEL:** "Grubb! You'll want a room. I've had the stairs done."
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "You bought the hotel." | `[TOPIC · retain]` | "With your four dollars, and some other fellows' several thousand. A man has to put his money somewhere, and I put mine where people sleep." |
-| 2 | "Was it worth it?" | `[COMIC · retain]` | "The four dollars? Son, your four dollars *built the mezzanine*." |
-| 3 | "Is my old room still mine?" | `[TOPIC · retain]` | "Course it is. I've put the rate up, on account of the history." |
-| 4 | "Did the clerk come with it?" | `[TOPIC · retain]` | "He came with the building. Like the damp. I've grown fond of them both." |
+| 1 | "You bought the hotel." | `[TOPIC · retain]` | "With your four dollars, and some other fellows' several thousand. A man has to put his money somewhere, and I put mine where people sleep." *(second)* "Outright, son. First thing I ever bought that I meant to keep." |
+| 2 | "Was it worth it?" | `[COMIC · retain]` | "The four dollars? Son, your four dollars *built the mezzanine*." *(second)* "Every cent. Every time you climb those stairs, son, you're walking on your own four dollars." |
+| 3 | "Is my room still mine?" | `[TOPIC · retain]` | "Yours till noon, son. I've put the rate up, on account of the history." *(second)* "Till noon. After noon it's a historic room, and those go for more." |
+| 4 | "Did the clerk come with it?" | `[TOPIC · retain]` | "He came with the building. Like the damp. I've grown fond of them both." *(second)* "Like the damp. Neither of them takes instruction, and I've stopped asking." |
 
 ## THE LIVERY MAN — one node *(the second never existed; errata 75)*
 
