@@ -14,6 +14,13 @@
       ],
       "due": "T_ACT_II_OPENING"
     },
+    "3": {
+      "room": "main_street",
+      "say": [
+        "I have decided. Claim One's filing is a blank page, and Mr. Fanshawe will pay eleven thousand dollars to keep it blank. The rest of Claim One is behind Mr. Sump's sealed door, and I am going through it."
+      ],
+      "due": "T_ACT_III_OPENING"
+    },
     "4": {
       "room": "thads_room",
       "say": [

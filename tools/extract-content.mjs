@@ -4219,7 +4219,7 @@ function fanshaweTree() {
     'FAN_A2:6': { then: [{ speaker: SPEAKER, line: beat3 }], gives: ['handkerchief'], set: { T_DINED: true },
       puzzle: { A10: 'complete' }, ends: true },
     'FAN_B1:1': { goto: 'FAN_B2' },
-    'FAN_C1:1': { then: [{ speaker: 'thad', line: turn }], set: { ACT: 3 }, puzzle: { E0b: 'complete' } },
+    'FAN_C1:1': { then: [{ speaker: 'thad', line: turn }], set: { ACT: 3, ...(actOpenings()[3] ? { [actOpenings()[3].due]: true } : {}) }, puzzle: { E0b: 'complete' } },
   };
   const EXIT_SAY = { FAN_A2: leaving };
   const ENTRY = [

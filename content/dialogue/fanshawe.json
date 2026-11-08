@@ -599,7 +599,8 @@
           ],
           "set": {
             "T_EXCAVATION_CLAUSE": true,
-            "ACT": 3
+            "ACT": 3,
+            "T_ACT_III_OPENING": true
           },
           "puzzle": {
             "E0b": "complete"

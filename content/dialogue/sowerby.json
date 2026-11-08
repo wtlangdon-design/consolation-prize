@@ -345,6 +345,12 @@
           "tag": "COMIC",
           "afterUse": "retain",
           "text": "He tuned pianos.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "He tuned pianos! Did I say? I shall say it again at the graveside. No charge."
+            }
+          ],
           "exchange": [
             {
               "speaker": "sowerby",

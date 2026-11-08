@@ -300,6 +300,10 @@ SHE_D1 option 1′ — Sheng takes it, reads the Thursday ledger, and gives Thad
 
 *Room 11.* The next time Thad enters after E0, Fanshawe is waiting, and FAN_C1 (doc 04) opens on "Eleven thousand dollars." Option 1, the contract and Clause 9, and Thad's aside — *"He doesn't want the claim. He wants it quiet."* → `T_EXCAVATION_CLAUSE`, **E0b**. Then the act card, **PART THREE — THADDEUS GRUBB IS LEGALLY DEAD**, and `ACT` = 3 (errata 75; errata 60's "the funeral sets act 3" is withdrawn, because E1–E6 come first). The contract is read in place; it is not an item.
 
+**Act III opens in Room 2, the next morning** *(errata 177: as Act II's does, the act says what he wants and where it is)*:
+
+> "I have decided. Claim One's filing is a blank page, and Mr. Fanshawe will pay eleven thousand dollars to keep it blank. The rest of Claim One is behind Mr. Sump's sealed door, and I am going through it."
+
 ---
 
 # ACT III
