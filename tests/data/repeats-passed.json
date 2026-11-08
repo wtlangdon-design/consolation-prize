@@ -51,6 +51,27 @@
     "amb_bell_ringer",
     "amb_dogs_owner"
    ]
+  },
+  {
+   "why": "Errata 174, Acts II-IV: every remaining tree whole. HOB is not on the list: his Acts I-II lines are a forty-word budget for the whole game (doc 04 voice rule), and every line of his is a clue read backwards (doc 99), so a second answer would be a new clue -- his questions are meant to get the same few words back. harness_tree is the test fixture.",
+   "trees": [
+    "WINNIE",
+    "FANSHAWE",
+    "FRAME",
+    "SUMP",
+    "PRATT",
+    "PRATT_JUMP",
+    "SHENG",
+    "SOWERBY",
+    "UNDERTAKER",
+    "LIVERY_MAN",
+    "OZYMANDIA",
+    "DEKE_VESSEL",
+    "HOTEL_CLERK",
+    "RACCOON",
+    "LETTERS_HOME",
+    "STAGE_DRIVER"
+   ]
   }
  ]
 }

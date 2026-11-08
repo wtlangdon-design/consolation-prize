@@ -3056,6 +3056,8 @@ function sumpTree() {
       if (more?.speakerAll) {
         option.exchange = (option.exchange ?? [{ speaker: SPEAKER, line: option.say }]).map((l) => ({ ...l, speaker: more.speakerAll }));
         delete option.say;
+        // Her second answer is hers too (errata 174): "**WINNIE:** "I said don't."".
+        if (option.repeats) option.repeats = option.repeats.map(({ selection, say }) => ({ selection, exchange: [{ speaker: more.speakerAll, line: say }] }));
       } else if (more) {
         const { then, ...rest } = more;
         Object.assign(option, rest);
@@ -4434,11 +4436,15 @@ function undertakerActThree() {
   for (const [, number, optionCell, tagCell, responseCell] of body.matchAll(/^\| (\d+) \| (.+?) \| (.+?) \| (.+?) \|$/gm)) {
     const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
     const text = quoted(optionCell)[0];
-    const said = spokenIn(responseCell, 'undertaker');
+    // ASKED AGAIN (errata 174): *(second)* "..." is his answer to the same question twice.
+    const [firstCell, againCell] = responseCell.split('*(second)*');
+    const said = spokenIn(firstCell, 'undertaker');
     if (!tag || !text || said.lines.length !== 1) throw new Error(`doc 04 UND_C1: option ${number} does not read`);
     for (const d of said.staging) process.stderr.write(`  doc 04 UND_C1 option ${number} staging: ${d}\n`);
+    const again = againCell ? spokenIn(againCell, 'undertaker').lines[0]?.line : undefined;
     options.push({ id: `undertaker_c${number}`, tag: tag[1], ...(tag[2] ? { afterUse: tag[2] } : {}), text,
-      say: said.lines[0].line, ...(number === '1' ? { set: { T_COFFIN_SIZED: true } } : {}) });
+      say: said.lines[0].line, ...(again ? { repeats: [{ selection: 2, say: again }] } : {}),
+      ...(number === '1' ? { set: { T_COFFIN_SIZED: true } } : {}) });
   }
   if (options.length !== 3) throw new Error(`doc 04 UND_C1: ${options.length} options, not 3`);
   options.push({ id: 'undertaker_cx', tag: 'EXIT', text: POOL[0], universal: true, ends: true });

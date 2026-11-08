@@ -144,7 +144,13 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "You haven't asked who it's for.",
-          "say": "It's for whoever fits."
+          "say": "It's for whoever fits.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still haven't."
+            }
+          ]
         },
         {
           "id": "undertaker_c3",

@@ -273,7 +273,13 @@
           ],
           "text": "Eight months? Who's ahead of me?",
           "afterUse": "retain",
-          "say": "The Improvement Company. Perpetually. Priority submissions."
+          "say": "The Improvement Company. Perpetually. Priority submissions.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "The Company. It hasn't moved since you asked. It never moves; that's how it stays ahead."
+            }
+          ]
         },
         {
           "id": "winnie3",
@@ -529,14 +535,26 @@
           "tag": "TOPIC",
           "text": "So my claim is worthless.",
           "afterUse": "retain",
-          "say": "Comprehensively. It's certified. It's the most certain thing you own."
+          "say": "Comprehensively. It's certified. It's the most certain thing you own.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Certified worthless. Asking twice won't lower it. Nothing could."
+            }
+          ]
         },
         {
           "id": "winnie3",
           "tag": "TOPIC",
           "text": "Thank you.",
           "afterUse": "retain",
-          "say": "Don't thank me for a form. Thank me for something I chose."
+          "say": "Don't thank me for a form. Thank me for something I chose.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still a form."
+            }
+          ]
         },
         {
           "id": "winnie4",
@@ -584,20 +602,38 @@
           "tag": "PROGRESS",
           "text": "It's the only way into the archive.",
           "afterUse": "retain",
-          "say": "I'm aware of the statute. The answer is no."
+          "say": "I'm aware of the statute. The answer is no.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still aware. Still no."
+            }
+          ]
         },
         {
           "id": "winnie2",
           "tag": "PROGRESS",
           "text": "It's just a form.",
           "afterUse": "retain",
-          "say": "It is never just a form. That is what this town is made of."
+          "say": "It is never just a form. That is what this town is made of.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Twice, now. It was wrong the first time."
+            }
+          ]
         },
         {
           "id": "winnie3",
           "tag": "PROGRESS",
           "text": "Nineteen names, Miss Ledger.",
           "afterUse": "retain",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "I know how many there are, Mr. Grubb. I wrote them down."
+            }
+          ],
           "beat": "Long silence."
         },
         {
@@ -705,7 +741,13 @@
           "tag": "TOPIC",
           "text": "You knew the nineteen names meant something.",
           "afterUse": "retain",
-          "say": "I knew they meant something. Knowing what is your department. Mine is the book."
+          "say": "I knew they meant something. Knowing what is your department. Mine is the book.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Your department, Mr. Grubb. Go and be in it."
+            }
+          ]
         },
         {
           "id": "winnie3",

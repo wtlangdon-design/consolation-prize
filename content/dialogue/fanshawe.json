@@ -260,13 +260,25 @@
           "tag": "TOPIC",
           "text": "I'd be glad of a partner in it.",
           "afterUse": "retain",
-          "say": "Partners! Then we are partners. We'll do the paper when we're sober. I never do paper in drink. It's the only rule I keep."
+          "say": "Partners! Then we are partners. We'll do the paper when we're sober. I never do paper in drink. It's the only rule I keep.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Partners still! The paper can wait. Paper always can; it's the great virtue of paper."
+            }
+          ]
         },
         {
           "id": "fanshawe2",
           "tag": "TOPIC",
           "text": "You're welcome to the working of it while I learn the trade.",
           "afterUse": "retain",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Sump will draw it up. I've made a note to write him a note."
+            }
+          ],
           "exchange": [
             {
               "speaker": "fanshawe",
@@ -286,6 +298,12 @@
           "afterUse": "retain",
           "after": [
             "fanshawe1"
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Agreed again, and twice as entirely. Your glass, Mr. Grubb."
+            }
           ],
           "exchange": [
             {
@@ -321,6 +339,12 @@
               "speaker": "fanshawe",
               "line": "Yet."
             }
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Nothing, Mr. Grubb. I'm keeping very careful count of it."
+            }
           ]
         },
         {
@@ -330,6 +354,12 @@
           "afterUse": "retain",
           "after": [
             "fanshawe3"
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Nothing tonight. There is always tomorrow night. I dine every night."
+            }
           ],
           "exchange": [
             {
@@ -412,7 +442,13 @@
           "tag": "TOPIC",
           "text": "What do you want for it?",
           "afterUse": "retain",
-          "say": "Want? Mr. Grubb, a favor that costs something is a transaction. I deal only in favours."
+          "say": "Want? Mr. Grubb, a favor that costs something is a transaction. I deal only in favours.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Nothing at all. I've written it down, so that neither of us forgets."
+            }
+          ]
         },
         {
           "id": "fanshawe3",
@@ -462,6 +498,12 @@
           "tag": "TOPIC",
           "text": "Why does the Company keep copies of claim records?",
           "afterUse": "retain",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Fire, Mr. Grubb. Flood. Sudden interest. One prepares."
+            }
+          ],
           "exchange": [
             {
               "speaker": "fanshawe",
@@ -575,6 +617,12 @@
               "line": "He does not send for any.",
               "direction": true
             }
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Splendid! And the ink is on its way, I'm told. By whom, I couldn't say."
+            }
           ]
         },
         {
@@ -599,7 +647,13 @@
           "tag": "TOPIC",
           "text": "Why does a worthless claim cost eleven thousand dollars?",
           "afterUse": "retain",
-          "say": "Because you'd like it to be worth more, and I'd like you to be happy."
+          "say": "Because you'd like it to be worth more, and I'd like you to be happy.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Because happiness is expensive, Mr. Grubb, and I never haggle over yours."
+            }
+          ]
         },
         {
           "id": "fanshawe5",

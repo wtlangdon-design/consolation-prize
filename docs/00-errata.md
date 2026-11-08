@@ -4761,3 +4761,15 @@ Doc 100's step 3 section records it.
   - the hotel register's spelling, which now matches the clerk's "Grubbe".
 - `tests/first-night.test.ts` holds the rooms open before the swindle (`tests/data/first-night-rooms.json`) to lines true before it.
 
+# 174 · STEP 4: ACTS II–IV, ASKED AGAIN — TYLER, 2026-11-07 ("Continue with 4")
+
+Doc 100's step 4 section records it.
+
+- **"Continue with 4" is Tyler's ruling on Act I's rewrite (errata 172).** It opens Acts II–IV to doc 99's pass, under CLAUDE.md's fourth writing exception (errata 171).
+- **Every question left in Acts II–IV now has a second answer** (`*(second)*` in doc 04): 33 rows across Winnie, Fanshawe, Frame, Sump, Pratt, Sheng, Sowerby and the undertaker. A second answer adds no fact and changes no flag, gate, puzzle fact or price. The Fanshawe Rule holds at the dinner, the second time too.
+- **Hob is exempt, by design.** He has a forty-word budget and every line is a clue; a second answer would be a new one. Invariant 7 is untouched.
+- **The extractors learned two things:**
+  - `*(second)*` in the undertaker's Act III node;
+  - a second answer keeps a named speaker (Winnie's, in Sump's filing).
+- **`tests/repeats.test.ts` now covers every tree** except Hob's and the test fixture (`tests/data/repeats-passed.json`).
+

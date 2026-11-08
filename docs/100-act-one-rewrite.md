@@ -69,3 +69,39 @@ Every first LOOK in Act I's rooms was read against doc 99. The examine layer is 
 | The hotel · REGISTER · LOOK 1 | 'Thadeus Grub.' The hotel has removed exactly the letters it considers extravagant. | 'Thaddeus Grubbe.' The hotel has added exactly the letter it felt I was missing. *(The clerk reads it aloud as "Mr. Grubbe", and doc 07 says the register's spelling is his. The book and the man now agree with each other, and with nobody else.)* |
 
 `tests/first-night.test.ts` holds it. In the rooms open before the swindle (`tests/data/first-night-rooms.json`), no ungated line may speak of the swindle or of what it gives him: a deed, a claim of his own, the raccoon. It failed on the mirror.
+
+---
+
+## Step 4 — Acts II–IV: nobody says the same thing twice (errata 174)
+
+Tyler, 2026-11-07, after playing Act I's rewrite: "Continue with 4". That is his ruling on Act I, and it opens the rest.
+
+The audit behind step 1 found one fault everywhere: a character asked the same question twice gave the same answer, word for word. Act I's trees were fixed in step 2. This step does the other 33 questions, in every Act II–IV node, in doc 99's voice. A second answer:
+- **builds on the first, or shortens it**, never just replays it;
+- **adds no new fact.** It is the same answer, said by someone who has said it before;
+- **changes no flag, gate, puzzle fact or price.** The Reverend's counter still adds four adjectives for "beloved and industrious", and his second answer says so ("Grief gives no discount for repetition"); Fanshawe still defers every sale at the dinner, the second time too.
+
+| Who | Node | Asked again |
+|---|---|---|
+| Winnie | WIN_B1 | "Who's ahead of me?" → "The Company. It hasn't moved since you asked. It never moves; that's how it stays ahead." |
+| | WIN_B4 | "So my claim is worthless." → "Certified worthless. Asking twice won't lower it. Nothing could." · "Thank you." → "Still a form." |
+| | WIN_C1 | The death certificate. Its three wrong answers can be exhausted freely (doc 04), so each now has a second: "Still aware. Still no." · "Twice, now. It was wrong the first time." · and for "Nineteen names", the long silence first and then "I know how many there are, Mr. Grubb. I wrote them down." |
+| | WIN_F1 | "Your department, Mr. Grubb. Go and be in it." |
+| Fanshawe | FAN_A2 | The dinner's five sales, each deferred again a new way: partners ("Paper always can"), the lease ("I've made a note to write him a note"), the gift, the debt ("I'm keeping very careful count of it"), the signature ("I dine every night"). |
+| | FAN_B1, B2, C1 | The favour, the copies ("Fire, Mr. Grubb. Flood. Sudden interest."), the inkless "Yes." and the price. |
+| Frame | FRA_A1, B1, E1 | The funeral notice, the Vessel headline, and at the obituary "He'd have said something about a piano. He always did." — not written down. |
+| Sump | SUM_B1, F1 | Documents A and B, section nineteen ("It is not that kind of section"), and his own name in the box ("The box does not take hopes"). Winnie's "Don't you dare." becomes "I said don't." |
+| Pratt | PRA_D2, D6 | "Still closes at four. Every day. Never seen it fail." · "Keep it tidy. Somebody ought to." |
+| Sheng | SHE_D1 | "I stand by your collar, Mr. Grubb." · "More story. I do not lend against it." |
+| Sowerby | SOW_A1, C1 | The linen debt ("I pray for one daily, in general terms"), the anniversary, the four adjectives, and "Still a census. I have counted him once already." |
+| Undertaker | UND_C1 | "You haven't asked who it's for." → "Still haven't." |
+
+**Hob is left alone, deliberately.** His Acts I–II lines are a forty-word budget for the whole game (doc 04's voice rule), and every line he says is a clue read backwards (doc 99). A second answer would be a new clue. He is the one character who is meant to give the same few words back. HOB_C1 option 4 (invariant 7) is untouched with the rest.
+
+**Two extractor gaps closed:**
+- the undertaker's Act III node now reads `*(second)*`;
+- Sump's Winnie row keeps her as the speaker of her second answer too. Without that, Sump would have said "I said don't."
+
+`tests/data/repeats-passed.json` now names every tree but Hob's and the test fixture, whole. `tests/repeats.test.ts` reads a second answer written as an exchange (Winnie's, in Sump's tree).
+
+**What this pass did not do:** rewrite first answers. The Act II–IV first answers were read for doc 99's voice, and for lines that would be untrue when first readable. None needed changing for truth. Where a first answer is flat, it is left for Tyler's playthrough to flag, room by room, as Act I's were.

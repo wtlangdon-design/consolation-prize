@@ -196,6 +196,12 @@
           "afterUse": "retain",
           "text": "Mr. Sheng says you owe him for linens.",
           "say": "I do, and I shall pay him on the next occasion of grief. I carry no money on ordinary days, Mr. Grubb. It would only come between me and the poor.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "On the next occasion of grief, Mr. Grubb. I pray for one daily, in general terms."
+            }
+          ],
           "when": {
             "T_SHENG_TASK": true,
             "T_FUNERAL_DAY": false
@@ -207,6 +213,12 @@
           "afterUse": "retain",
           "text": "Could Mr. Pike have another service?",
           "say": "An anniversary! Grief keeps whatever calendar it likes. Have Frame print it.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Have Frame print it, and I shall be there. I am always there."
+            }
+          ],
           "when": {
             "T_MEMORIAL_BOOKED": true,
             "T_FUNERAL_DAY": false
@@ -275,6 +287,12 @@
           "afterUse": "retain",
           "text": "He was a beloved and industrious young man of rare promise.",
           "say": "Beloved! Industrious! Young! Rare! Four adjectives, eight dollars, and every one of them deserved.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Beloved, industrious, young and rare, again! Grief gives no discount for repetition."
+            }
+          ],
           "add": {
             "SOWERBY_ADJECTIVES": 4
           }
@@ -284,6 +302,12 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "He was a man.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still a census. I have counted him once already."
+            }
+          ],
           "exchange": [
             {
               "speaker": "sowerby",

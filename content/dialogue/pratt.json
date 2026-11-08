@@ -408,6 +408,7 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "What will you do now?",
+          "repeat": "Keep it tidy. Somebody ought to.",
           "exchange": [
             {
               "speaker": "pratt",

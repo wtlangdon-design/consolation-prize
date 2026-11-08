@@ -206,14 +206,26 @@
           "tag": "TOPIC",
           "text": "About Document A—",
           "afterUse": "retain",
-          "say": "The Affidavit of Original Sale. Sworn by the vendor. The office does not require the vendor to be found. It requires him to sign."
+          "say": "The Affidavit of Original Sale. Sworn by the vendor. The office does not require the vendor to be found. It requires him to sign.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Sworn by the vendor. Signed by the vendor. Found, optionally."
+            }
+          ]
         },
         {
           "id": "sump1a",
           "tag": "TOPIC",
           "text": "About Document B—",
           "afterUse": "retain",
-          "say": "The Assay of Record, from the Assay Office, on its own form. It need not find anything. It need only be issued."
+          "say": "The Assay of Record, from the Assay Office, on its own form. It need not find anything. It need only be issued.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Issued, Mr. Grubb. Not found. Issued."
+            }
+          ]
         },
         {
           "id": "sump1b",
@@ -285,7 +297,13 @@
           "tag": "TOPIC",
           "text": "Who else may see a sealed filing?",
           "afterUse": "retain",
-          "say": "Sealed filings are open to the court, to the claimholder, and to the executor of a deceased claimholder. Section nineteen. You are none of these, Mr. Grubb, and only one of them is beyond your control."
+          "say": "Sealed filings are open to the court, to the claimholder, and to the executor of a deceased claimholder. Section nineteen. You are none of these, Mr. Grubb, and only one of them is beyond your control.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "The court, the claimholder, the executor of a deceased claimholder. Section nineteen has not changed since you asked. It is not that kind of section."
+            }
+          ]
         },
         {
           "id": "sump3",
@@ -545,13 +563,30 @@
           "tag": "TOPIC",
           "text": "Thaddeus Grubb.",
           "afterUse": "retain",
-          "say": "Claim One is Mr. Mott's. You may file on his behalf. Not in your favor."
+          "say": "Claim One is Mr. Mott's. You may file on his behalf. Not in your favor.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still Mr. Mott's. The box does not take hopes."
+            }
+          ]
         },
         {
           "id": "sump3",
           "tag": "TOPIC",
           "text": "Winnie Ledger.",
           "afterUse": "retain",
+          "repeats": [
+            {
+              "selection": 2,
+              "exchange": [
+                {
+                  "speaker": "winnie",
+                  "line": "I said don't."
+                }
+              ]
+            }
+          ],
           "exchange": [
             {
               "speaker": "winnie",
