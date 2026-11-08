@@ -1,0 +1,13 @@
+{
+ "assetId": "room-02",
+ "subject": "hitching-post-full-size",
+ "role": "other",
+ "promptFile": "reference/hitching-post/prompt-04.txt",
+ "out": "art/staging/room-02/hitching-04/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-02/hitching-04/input.png"
+ ],
+ "derivedFrom": "art/staging/room-02/hitching-03/sheet.png",
+ "authorizedBy": "Tyler, 2026-11-07 (room-02 cap 6, errata 168); the brief's last correction. Tyler, 2026-11-08: \"The horse on the right is so tiny compared to the horse on the left, to the point where the tinier horse looks miniature, which means no one would be riding it. The horses all look more distinct which is good, but they all need to look like full sized ride able horses\"."
+}

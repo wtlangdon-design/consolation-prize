@@ -1,0 +1,7 @@
+Image 1 is part of Main Street in my pixel-art adventure game, at night, at exact game size, with the hero standing in the near mud for scale.
+
+Paint, INSIDE THE MAGENTA RECTANGLE ONLY, a plain wooden hitching rail -- two short posts and one horizontal rail -- with two or three saddle horses tied to it by their reins, standing in the near mud nearest the camera. Show the horses side-on, standing along the rail, so each one reads clearly as a horse: plain western saddles, bridles, a blanket under each saddle, ordinary bay, chestnut and dun coats. Their withers come to about the hero's shoulder, and their hooves stand on the same ground line as his feet, at the bottom of the rectangle.
+
+Light them exactly as the street around them is lit: the cool blue of the night, and the warm orange glow from the saloon doors behind them catching their near edges. Use the same painted pixel-art style, the same pixel size and the same soft, flat shading and low texture as the street and the hero -- not sharper and not more detailed than he is.
+
+Leave every part of the magenta rectangle that is not rail or horse as flat pure magenta (#FF00FF): no mud, no ground, no shadow, no puddle inside it, so the group can be cut out. Crisp pixel edges against the magenta, no glow. Do not change anything outside the rectangle. No text, no people, no riders.

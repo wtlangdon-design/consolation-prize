@@ -210,6 +210,17 @@
    ],
    "keepsGroundAbove": true,
    "note": "The same dog, at the same place on the same street at dawn (errata 167): walked around, not through. Tyler, 2026-11-07: \"He shouldn't be able to walk on or through the dog.\" The dog lies in the mud at 2628,765 and the bands ran straight through him. The rect is the dog's own hotspot rect, as the trough's is -- one truth, not two -- and the ground behind him stays walkable (keepsGroundAbove): a dog asleep in the street is walked around, front or back."
+  },
+  {
+   "id": "hitching_post",
+   "rect": [
+    1329,
+    808,
+    401,
+    50
+   ],
+   "keepsGroundAbove": true,
+   "note": "The hitching rail and its horses (errata 187): a group on the ground he walks around, never through. The rect is the hooves', hay's and posts' footprint in the near mud, from the drawn group (content/ambient/hitching-horses.json, 1545,850); the ground behind them stays walkable (keepsGroundAbove), as the dog's does, and he passes behind them there."
   }
  ],
  "lamps": [],
@@ -225,7 +236,21 @@
   "improvement_company_sign": "LOOK_AT"
  },
  "defaultVerbsNote": "Errata 28b. Everything on the street at dawn is looked at on a bare click, but the mud, which is walked on.",
- "props": [],
+ "props": [
+  {
+   "id": "hitching_rail",
+   "sheet": "art/props/room-36-hitching-rail-dawn.png",
+   "x": 1545,
+   "y": 850,
+   "frame": [
+    0,
+    0,
+    443,
+    261
+   ],
+   "note": "Errata 187. Tyler, 2026-11-08: \"At dawn I think the horses should all be gone. Just the hitching post is there.\" Room 2's hitching rail, empty: cut from the night group's rest frame, at the engine's own scale for it, under the dawn's light (tools/art/hitching-rail-dawn.py). Its obstacle stays."
+  }
+ ],
  "occlusion": {
   "note": "None: Room 2's masks describe a street that no longer exists (doc 36 Q20).",
   "clipPlane": {

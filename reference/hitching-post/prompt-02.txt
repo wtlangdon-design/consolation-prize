@@ -1,0 +1,12 @@
+Image 1 is a sheet of six identical copies of the same pixel-art group from my adventure game, on flat magenta: a wooden hitching rail with three saddled horses tied behind it -- a dark bay on the left, a chestnut in the middle, a grey dun on the right. The six copies are the frames of the group's idle animation.
+
+Redraw the sheet keeping EVERY copy in exactly the same place, at exactly the same size, with the same rail, saddles, colours, pixel size and soft shading. Change only what each frame below says, and nothing else in that frame. Frames are read left to right, top row then bottom row:
+
+1. Unchanged.
+2. The dark bay swishes its tail out to the side and lowers its head a little.
+3. The chestnut lowers its head down toward the ground, as if nosing the mud.
+4. The grey dun lifts its head higher and turns it toward the viewer, ears pricked, and swishes its tail.
+5. All three horses lift their heads together, ears pricked forward, alert, as if they heard something.
+6. The dark bay and the chestnut both shift their weight, each resting one hind hoof, and the chestnut flicks its tail.
+
+The rail never moves. Flat pure magenta (#FF00FF) everywhere around the horses and rail, crisp pixel edges, no glow, no ground, no shadows, no text, no riders.

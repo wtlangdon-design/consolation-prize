@@ -21,6 +21,7 @@
     "duel_sowerby",
     "duel_town_left",
     "duel_town_right",
+    "hitching_horses",
     "letter_writer",
     "man_leaving_tomorrow",
     "map_seller",
@@ -1168,7 +1169,9 @@
         "mud_far_1",
         "mud_far_2",
         "mud_mid_3",
-        "mud_near"
+        "mud_near_0",
+        "mud_near_1",
+        "mud_near_2"
       ]
     },
     {
@@ -1203,7 +1206,7 @@
       "neighbours": [
         "mud_far_1",
         "mud_mid_3",
-        "mud_near"
+        "mud_near_1"
       ]
     },
     {
@@ -1236,7 +1239,7 @@
         "nearHeight": 206
       },
       "neighbours": [
-        "mud_near"
+        "mud_near_1"
       ]
     },
     {
@@ -1275,18 +1278,18 @@
       ]
     },
     {
-      "id": "mud_near",
+      "id": "mud_near_0",
       "points": [
         {
           "x": 60,
           "y": 767
         },
         {
-          "x": 3690,
+          "x": 1329,
           "y": 767
         },
         {
-          "x": 3690,
+          "x": 1329,
           "y": 858
         },
         {
@@ -1305,8 +1308,78 @@
       },
       "neighbours": [
         "mud_mid_0",
+        "mud_near_2"
+      ]
+    },
+    {
+      "id": "mud_near_1",
+      "points": [
+        {
+          "x": 1730,
+          "y": 767
+        },
+        {
+          "x": 3690,
+          "y": 767
+        },
+        {
+          "x": 3690,
+          "y": 858
+        },
+        {
+          "x": 1730,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 1,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "mud_mid_0",
         "mud_mid_1",
-        "mud_mid_2"
+        "mud_mid_2",
+        "mud_near_2"
+      ]
+    },
+    {
+      "id": "mud_near_2",
+      "points": [
+        {
+          "x": 1329,
+          "y": 767
+        },
+        {
+          "x": 1730,
+          "y": 767
+        },
+        {
+          "x": 1730,
+          "y": 808
+        },
+        {
+          "x": 1329,
+          "y": 808
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 1,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "mud_mid_0",
+        "mud_near_0",
+        "mud_near_1"
       ]
     }
   ],

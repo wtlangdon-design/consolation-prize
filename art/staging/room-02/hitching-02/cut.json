@@ -1,0 +1,38 @@
+{
+ "sheet": "art/actors/room-02-horses.png",
+ "source": "art/staging/room-02/hitching-02/sheet.png",
+ "frames": [
+  [
+   2,
+   2,
+   330,
+   201
+  ],
+  [
+   334,
+   2,
+   330,
+   201
+  ],
+  [
+   666,
+   2,
+   330,
+   201
+  ],
+  [
+   998,
+   2,
+   330,
+   201
+  ],
+  [
+   1330,
+   2,
+   330,
+   201
+  ]
+ ],
+ "figureHeight": 171,
+ "frameNote": "0 rest \u00b7 1 the chestnut noses the mud \u00b7 2 the grey looks up, tail swished \u00b7 3 all three heads up \u00b7 4 a hind hoof rested"
+}

@@ -1,0 +1,13 @@
+Image 1 is a sheet of four identical copies of the same pixel-art group from my adventure game, on flat magenta: a wooden hitching rail with three horses tied to it -- a big black horse with a white blaze on the left, a palomino eating hay in the middle, a brown-and-white paint on the right. The four copies are the four frames of the group's idle animation.
+
+One thing is wrong: the paint on the right is far too small. It looks like a miniature pony that nobody could ride. Redraw it as a FULL-SIZED saddle horse, a grown riding horse as tall and as big as the black and the palomino -- its withers at the same height as theirs -- with a worn western saddle over its striped blanket, standing behind the rail with its head up over the rail, as it is now. Keep its paint coat (brown with big white patches), its shaggy dark mane and its white socks.
+
+Keep EVERYTHING else exactly as it is: the black, the palomino, the hay, the rail and both posts, in the same places and at the same size, the same pixel size and soft shading. Each copy stays in exactly the same place on the sheet.
+
+The four frames (top-left, top-right, bottom-left, bottom-right), each differing from the first ONLY in what it says:
+1. Rest, as described.
+2. The black tosses its head up high.
+3. The palomino lifts its head from the hay, chewing.
+4. The paint swishes its tail and turns its head toward the black.
+
+Flat pure magenta (#FF00FF) all round and between the frames, crisp pixel edges, no ground, no shadow, no text, no riders.

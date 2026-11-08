@@ -1,0 +1,14 @@
+{
+ "assetId": "room-02",
+ "subject": "hitching-post-redraw",
+ "role": "other",
+ "promptFile": "reference/hitching-post/prompt-03.txt",
+ "out": "art/staging/room-02/hitching-03/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-02/hitching-03/context.png",
+  "art/staging/room-02/hitching-01/group.png"
+ ],
+ "derivedFrom": "art/staging/room-02/hitching-01/sheet.png",
+ "authorizedBy": "Tyler, 2026-11-07 (room-02 cap 6, errata 168); the brief's corrections. Tyler, 2026-11-08, on the first group: \"It just looks essentially like three copies of the same horse side by side by side. Can't you make them all a bit more unique from each other? And maybe one is eating? And are hitching posts that low? And I think they should all be moved quite a bit to the left\"."
+}

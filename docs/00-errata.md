@@ -5016,3 +5016,48 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
 - **One is a gap:** doc 57's funeral day plays "The street is half empty. Everyone in town who owns a black coat is up the hill." on Main Street's first entry that day. Nothing plays it, and the street's figures all stay, so it waits for Tyler (`funeral-day-street`).
 - **Lines under four words**, which the check skips, were read by hand. All nineteen are the interiors', a declared drop, a rewrite, or the undertaker's superseded sketch.
 - **The lesson is the check itself.** With `META` emptied, the ninety are hidden again.
+
+---
+
+# 187 · A HITCHING RAIL WITH THREE HORSES ON MAIN STREET — TYLER, 2026-11-08
+
+Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: the hitching post with horses on Main Street under asset room-02 (four operations), check the ledger before each one, and send me day and night renders with Thad walking past it." The brief was errata 168's, from his "maybe we add a hitching post front and center of the camera with a few horses tied to it so that it's not just a bunch of empty space?" It reached `main` as #260.
+
+- **All four of the brief's operations** (room-02 attempts 3 to 6). The ledger was checked before each one; the cap of 6 is now spent.
+  - **Attempts 3 and 4: the first group and its motion,** built in front of the Nugget. Tyler: "It just looks essentially like three copies of the same horse side by side by side. Can't you make them all a bit more unique from each other? And maybe one is eating? And are hitching posts that low? And I think they should all be moved quite a bit to the left."
+  - **Attempt 5: the group redrawn as four frames.** A black with a blaze, a palomino eating hay, and a paint pony, with the rail at chest height. Tyler's next three looks found faults in cuts that stitched one quarter onto another, after the generator had moved horses between them:
+    - "The horse on the right has its head/neck through the hitching post."
+    - "The far right horse has his whole snout cut off."
+    - "The middle horse has three back legs."
+  - Then, of the pony itself: "The horse on the right is so tiny compared to the horse on the left, to the point where the tinier horse looks miniature, which means no one would be riding it. The horses all look more distinct which is good, but they all need to look like full sized ride able horses." The brief for attempt 5 had asked for "a smaller ... pony".
+  - **Attempt 6: the paint redrawn as a full-sized saddle horse,** as tall as the other two, saddled over its blanket.
+    - The generator was given four copies of the group in place, and kept every quarter where it was: the posts agree to a pixel, and the horses that do not move agree but for redraw noise.
+- **Cut by `tools/art/hitching-post-cut.py`. Every frame is one of the generator's quarters, whole.** Nothing is stitched.
+  - The frames:
+    - 0, the rest: the black looks out, the palomino eats, the paint stands over the rail;
+    - 1, the black tosses its head;
+    - 2, the palomino lifts its head from the hay;
+    - 3, the paint turns its head toward the black and swishes its tail.
+  - Each horse has four legs in every frame, counted at 2×.
+  - The magenta is taken out of the outline, the hue's spill and the plum-black outline ink. The hay's strands, gold blended with the key, take the hay's colour rather than turning pink. Then the sheet is snapped to the cast's grid (`one-level.py --only`).
+- **An ambient animal, `hitching_horses`, at 1545,850**, 535 px left of where it first stood, in the near mud between the letter-writer and the boundary men.
+  - `posture: "animal"`, `figureHeight` 393, `stature` 1.223. The black's withers come to Thad's shoulder, and the other two stand as tall.
+  - It rests on frame 0, and every 7 s one of the three plays for 2.4 s, rotating (errata 77).
+- **The boundary men are talked to from their right now**, at 1940,668 facing left, still beside them at their own depth (Tyler's ruling of 2026-11-07). The full-sized paint's head covered 38% of him at the old place, 1610,668. `tests/staging-clear.test.ts` found it, and holds it.
+- **The rail is part of the sprite**, so it is depth-sorted with the horses. Thad passes behind them, and nothing passes in front, so no occlusion plane is needed.
+- **An obstacle in both streets.** `hitching_post`, [1329, 808, 401, 50], is the footprint of the hooves, hay and posts, with the ground behind it kept walkable (`keepsGroundAbove`), as the dog's is. Rooms 2 and 36 are recompiled.
+- **The day is Room 36.** Room 2 is night in every act (errata 64), and Main Street's only daylight is Room 36's dawn.
+  - **At dawn the horses are gone and the rail stands empty.** Tyler: "At dawn I think the horses should all be gone. Just the hitching post is there."
+  - The rail is drawn in front of the horses, so its pixels in the night rest frame are its own: the top rail and the two posts, with the wraps on the rail. The rope loops that hung to the horses' bridles are left behind.
+  - `tools/art/hitching-rail-dawn.py` cuts it, scales it by exactly the factor the engine draws the night group at (nearest-neighbour), and relights it by the dawn plate's ratio to the night's. It becomes a prop in Room 36 (`hitching_rail`, `art/props/room-36-hitching-rail-dawn.png`), on the night rail's own ground.
+  - The obstacle stays.
+  - `tests/scenery.test.ts` holds it: no horses at dawn, the rail where the night rail stands, and the ground under it not walkable.
+- **Scenery until its lines exist.** The brief says it has no lines and is not a hotspot.
+  - A new field, `scenery`, keeps an ambient figure out of `npcAt`, so the pointer passes through the horses to the mud beneath.
+  - When their LOOK and LISTEN lines are written in the documents, `scenery` goes and a hotspot is laid over them.
+  - `tests/scenery.test.ts` holds both streets: the pointer passes through to the mud, and the ground under them is not walkable while the ground behind is. It fails with the field ignored.
+- **The lesson is a doc 55 §8 row:** prefer a frame the generator drew whole to a stitched one, and look at every frame whole, at 2×, in the game, counting legs and heads, before anyone else sees it.
+- **Shown:** `renders/room-02-main-street-hitching-post-night-thad-passing.png` and `renders/room-36-main-street-dawn-hitching-post-thad-passing.png`. Thad walks past behind the horses, captured mid-walk in the game; at dawn, past the empty rail.
+- **Waiting:**
+  - Tyler's eye on the full-sized paint.
+  - Claude writes their LOOK and LISTEN lines in the documents, and then makes them clickable.
