@@ -167,7 +167,10 @@
    "placeNote": "Moved 1180 to 1380 on 2026-11-01: at 1180 his head covered the third judge's face (tests/staging-clear.test.ts, 38% of the judge's pixels). Right of the judges' row nobody is behind him, and he and Thad face each other across the room for the duels. Thad talks to him from 460,760, clear of Sowerby and the first judge (at 800 he covered the first judge).",
    "zone": 0,
    "when": {
-    "T_VESSEL_FOUND": true
+    "T_VESSEL_FOUND": true,
+    "ACT": {
+     "atMost": 3
+    }
    },
    "posture": "standing",
    "walkTo": {
@@ -238,7 +241,26 @@
     "note": "Room 4: the same five poses re-cut from Tyler's approved sheet at this room's height (530 at his mark, tools/art/cut-ambient-sheet.py) and graded to his own figure as room-04's composition master painted him here (tools/grade/match-neighbours.py). Faces left, toward Thad across the burnt line.",
     "redrawn": "Errata 112: drawn at the cast sheet's level by cast-unify 39 (reference/deke-b-01.txt) from his cast-sheet self, in his old poses; cut with its own pixels and a clean edge."
    },
-   "note": "ERRATA 73 B: from B3's completion Vessel is in Room 4, across the spit line from Thad's duel mark ('Not across the line' -- doc 54). TALK TO stands Thad on his own mark, facing him."
+   "note": "ERRATA 73 B: from B3's completion Vessel is in Room 4, across the spit line from Thad's duel mark ('Not across the line' -- doc 54). TALK TO stands Thad on his own mark, facing him.",
+   "whenNote": "Errata 179: until Act IV. From Act IV he owns the hotel and stands in its lobby (`hotel_lobby`), so he is not also in the back room."
+  },
+  "hotel_lobby": {
+   "x": 860,
+   "y": 770,
+   "zone": 0,
+   "when": {
+    "ACT": {
+     "atLeast": 4
+    }
+   },
+   "posture": "standing",
+   "walkTo": {
+    "x": 640,
+    "y": 790,
+    "facing": "right"
+   },
+   "placeNote": "Errata 179 (Tyler, 2026-11-08: \"Yes\"): doc 04's VES_F1 -- he has bought the hotel. Between the parlor piano and the desk, clear of the clerk and of the clerk's talk stand (1010,760), on the floor where the curve's man is his own drawn height (428 at y 770), so the Nugget sheet serves unchanged. Thad comes down the stairs on the far side of the desk and talks to him from the settee side.",
+   "note": "VES_F1: he greets Thad once ('Grubb! You'll want a room. I've had the stairs done.') and answers four questions, each with a second answer."
   }
  },
  "placedNote": "x 1046 (2026-11-06): redrawn at the cast sheet level (errata 112) he stands a little wider; between the bar man and the card sharp's talk stand."

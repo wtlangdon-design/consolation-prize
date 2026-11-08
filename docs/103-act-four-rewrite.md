@@ -55,11 +55,16 @@ The Act II and III rows were written in their own passes (docs 101 and 102).
 
 `tests/repeats.test.ts` now holds every `[COMIC]` option in the game to it, with those exemptions and their reasons in `tests/data/repeats-passed.json`.
 
-## Found, and not built
+## Found, and then built (errata 179)
 
-**Vessel's Act IV node, VES_F1** ("Grubb! You'll want a room. I've had the stairs done." — he has bought the hotel with Thad's four dollars). It is written in doc 04 and has never been put in the game:
-- no extractor reads it;
-- no figure stands in the hotel lobby in Act IV;
-- no errata mentions it.
+**Vessel's Act IV node, VES_F1**, was written in doc 04 and never put in the game. Tyler, 2026-11-08, asked for an opinion and then said "Yes".
 
-Building it is a staging and art job (Vessel placed in Room 18 in Act IV), not a writing one. It waits for Tyler's word.
+- **He stands in the hotel lobby from Act IV** (`content/ambient/deke-vessel.json` `placements.hotel_lobby`), between the parlor piano and the desk. He is clear of the clerk and of the clerk's talk stand. The Nugget sheet serves unchanged, because the curve's man at y 770 is his own drawn height. He is out of the back room from Act IV, so he is never in two rooms.
+- **TALK TO opens VES_F1:** "Grubb! You'll want a room. I've had the stairs done." It plays once (`T_VESSEL_HOTEL_GREETED`), then four questions, each with a second answer, then the exit pool. Act IV opens in Thad's room upstairs, so the lobby is the first place he walks through, and talking to Vessel is never required.
+- **Two lines corrected to be true when said:**
+  - "Is my old room still mine?" became "Is my room still mine?", because Act IV opens with him packed in it;
+  - "Course it is." became "Yours till noon, son.", because the coach is at noon, and "Course" belongs to the pie woman (doc 99).
+- **The four dollars, paid off** (doc 99 rule 8): "your four dollars *built the mezzanine*", and, asked again, "Every time you climb those stairs, son, you're walking on your own four dollars."
+- **`?fixture=r18-b`** starts in the lobby in Act IV, for Tyler to see it.
+
+**The read that found it now runs as a test.** `tests/doc04-nodes.test.ts` fails on any node doc 04 names that is not in the game, unless `tests/data/doc04-nodes-not-built.json` gives the reason. Two were already known: FAN_D1, which cannot be reached (errata 84 I), and the superseded VES_A1 and UND_A1. **It also found one more, WIN_B3, the second ledger** ("Nineteen names. Men who came to this window with a question about Claim One."). Doc 04 calls it "the scene where the game turns from comedy to mystery", and it has never been built. It is listed with that reason and reported to Tyler.

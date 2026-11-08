@@ -4822,3 +4822,15 @@ Doc 103 records it.
   `tests/repeats.test.ts` holds the rest.
 - **Found and not built: VES_F1, Vessel's Act IV hotel node (doc 04).** It is a staging job, and waits for Tyler.
 
+# 179 · VESSEL OWNS THE HOTEL: VES_F1 BUILT — TYLER, 2026-11-08 ("Yes")
+
+*Asked his opinion of Vessel's Act IV node, written in doc 04 and never put in the game, Tyler said "Yes" to building it. Doc 103's last section records it.*
+
+- **Vessel stands in the hotel lobby from Act IV, and TALK TO opens VES_F1.** It has a greeting once, four questions with second answers, and the exit pool. From Act IV he is out of the back room.
+- **Two lines are corrected to be true when said:**
+  - "my old room" becomes "my room";
+  - "Course it is." becomes "Yours till noon, son.".
+- **`?fixture=r18-b`:** the lobby in Act IV.
+- **`tests/doc04-nodes.test.ts`:** every node doc 04 names is in the game, or is listed in `tests/data/doc04-nodes-not-built.json` with its reason.
+- **It found WIN_B3, the second ledger, written and never built.** It is reported to Tyler and waits for his word.
+
