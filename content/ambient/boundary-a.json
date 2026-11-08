@@ -5,17 +5,17 @@
  "posture": "standing",
  "note": "Doc 07 #2 and #3, the one doc 07 marks A (Clement, by B's R_BORDERS_MOTT). The two have argued about the same forty feet for six years; they stand in the middle of the street, facing each other. TALK TO either opens the one tree, and they answer alternately (errata 110).",
  "room": "main_street",
- "x": 1640,
- "y": 760,
+ "x": 1720,
+ "y": 665,
  "zone": 1,
  "approachRadius": 60,
  "tree": "amb_boundary_men",
  "greetsWithBark": true,
  "greetsWithBarkNote": "As the card sharp: TALK TO opens with the pair's bark for the current reputation, in both voices.",
  "walkTo": {
-  "x": 1700,
-  "y": 830,
-  "facing": "back"
+  "x": 1610,
+  "y": 668,
+  "facing": "right"
  },
  "barks": {},
  "barkExchange": {
@@ -162,5 +162,6 @@
   "provenance": "art/staging/townspeople-110/boundary-men/sheet-03.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 115)",
   "figureHeightNote": "Crown to sole (errata 112 L), the brim read by eye from the rest frame's row widths: tools/art/figure-height.py --hat took his folded arms for the brim (errata 115)."
  },
- "faces": "right"
+ "faces": "right",
+ "walkToNote": "Beside them at their own depth, not in front (Tyler, 2026-11-07: \"Thad's line hit the tops of the heads of the boundary men when he talks to them\"). Stood nearer the camera, his words rose from a head lower on the screen than theirs and ran across their hats; level with them, his words sit above all three heads. Was 1700,830."
 }

@@ -140,6 +140,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
   // it names, as their `performs`, so the one place a class is decided is the
   // document. A row naming a figure that does not exist, or a frame he does not
   // have, is a broken build rather than a direction quietly printed.
+  const exitPool = manifest.exitPool ? ((await read(manifest.exitPool)) as { pool: string[] }).pool : [];
   const actedDirections = manifest.actedDirections
     ? (await read(manifest.actedDirections)) as ActedDirectionsFile
     : null;
@@ -225,7 +226,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
   return {
     manifest, font, palette, ui, menu, verbs, flags, scaling, reputation,
     verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, carriedLight, sounds, paths,
-    speechColours, assay, items, fixtures, panel, title, actedDirections,
+    speechColours, assay, items, fixtures, panel, title, actedDirections, exitPool,
     combinations, itemIcons,
     sequences, actCards, actOpenings, cutaways,
   };

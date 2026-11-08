@@ -1491,6 +1491,15 @@
     "cutaway:fanshawe_chairs"
    ],
    "note": "Errata 158 (doc 96): the cut-away to Fanshawe's office, as Part Three opens has played. Its only effect on the game: it plays once."
+  },
+  {
+   "id": "EXIT_TURN",
+   "type": "integer",
+   "initial": 0,
+   "writtenBy": [
+    "dialogue:* universal exit (engine/core/DialogueRunner.ts)"
+   ],
+   "note": "Errata 167: how many of doc 04's universal exits Thad has taken. Every universal exit shows the pool's line at this count, so the four goodbyes come round in turn rather than one node always saying the same one. Saved with the rest, so a loaded game goes on to the next goodbye. Gates nothing."
   }
  ]
 }

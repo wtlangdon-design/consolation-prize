@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (## Universal exit lines) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Every option marked `universal` shows the next of these in turn (EXIT_TURN), so no goodbye comes round until the others have.",
+  "pool": [
+    "I should go.",
+    "I've taken enough of your time. I'll be taking more later.",
+    "I am going to leave now, in a dignified manner.",
+    "Thank you. This has been clarifying."
+  ]
+}

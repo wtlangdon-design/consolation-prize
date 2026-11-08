@@ -2877,6 +2877,24 @@ function spokenIn(cell, speaker) {
  * ENTRIES: SUM_E1 from Act III ("Open from Act III", errata 75 H's ACT 3),
  * SUM_B1 from Act II ("Act II -- the three documents"), else SUM_A1.
  */
+/**
+ * DOC 04'S UNIVERSAL EXIT LINES, AS A POOL THE GAME ROTATES (errata 167; Tyler, 2026-11-07: "'I've taken enough of
+ * your time. I'll take more later.' shouldn't be used multiple times"). Doc 04 calls them a "rotating pool available
+ * at every node". Each tree's extractor dealt one line per node and froze it, so the same node said the same goodbye
+ * every visit, and the most-dealt line came round again and again. The engine now draws every universal exit's
+ * wording from this pool, the next line each time one is taken.
+ */
+function exitPool() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const pool = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
+  if (pool.length < 3) throw new Error('doc 04: the universal exit pool was not found');
+  return write('content/dialogue/exit-pool.json', {
+    schema: 1,
+    note: 'EXTRACTED from docs/04-dialogue-trees.md (## Universal exit lines) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Every option marked `universal` shows the next of these in turn (EXIT_TURN), so no goodbye comes round until the others have.',
+    pool,
+  });
+}
+
 function sumpTree() {
   const doc = read('docs/04-dialogue-trees.md');
   const from = doc.indexOf('## REGISTRAR CADWALLADER SUMP');
@@ -5266,7 +5284,7 @@ function cutaways() {
 }
 
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), ...room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), ...townBarks(), ...townTrees(), reputation(), actedDirections(), cutaways()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), exitPool(), ...townBarks(), ...townTrees(), reputation(), actedDirections(), cutaways()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
   // Doc 58 rule 5: a reply whose spoken lines this pass reads differently is

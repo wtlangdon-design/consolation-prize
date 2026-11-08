@@ -5,16 +5,16 @@
  "posture": "child",
  "note": "Doc 07 #5. 'Everywhere. Runs notes for a penny. Knows more than anyone. Is nine.' Placed on Main Street, between the Company and the Clarion, the street being the part of 'everywhere' that is built (errata 110). A boy: his stature is a nine-year-old's, set when the art is cut.",
  "room": "main_street",
- "x": 860,
- "y": 732,
+ "x": 785,
+ "y": 645,
  "zone": 1,
  "approachRadius": 40,
  "tree": "amb_message_boy",
  "greetsWithBark": true,
  "greetsWithBarkNote": "As the card sharp (Tyler, 2026-10-31): TALK TO opens with his bark for the current reputation. Doc 07 writes no root line for him; this stages his own barks, it adds none.",
  "walkTo": {
-  "x": 990,
-  "y": 740,
+  "x": 880,
+  "y": 690,
   "facing": "left"
  },
  "barks": {
