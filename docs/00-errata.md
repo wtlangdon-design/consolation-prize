@@ -5374,3 +5374,22 @@ Lesson: a person's TALK TO is only staged like a tree's if a test walks it (the 
   - The rule-keeper's bad fiddling is a one-shot sound effect, not a theme.
   - Three new stems are needed. Everything else reuses existing files. Nothing is rendered until the rooms are built.
 - **The builder's brief is `reference/fiddlers-gulch/brief.md`.** It covers the ten rooms, the figures, what the engine needs, and the order of the build. It also asks for a check that fails if the mine's four rooms differ in sound.
+
+# 196 · THE LINES THE MOVE MADE UNTRUE — TYLER, 2026-11-08 ("Yes")
+
+*Errata 193 moved four townspeople off Main Street. The builder found that five lines had become untrue, and Tyler approved rewording them. They are rewritten in their documents and re-extracted.*
+
+- **The claim row's path, LISTEN 1** (doc 08):
+  - was: "Nothing. Nobody comes up here."
+  - now: "Nobody walks it now but me, and the two who argue at the near end."
+
+  LISTEN 2, "My own boots on it, and nobody else's.", stays: the boundary men stand, they don't walk.
+- **The boundary men's Pike answer** (doc 07 §2–3). From the claim row the Lane is back in town:
+  - "Down the lane." is now "In town. On the Lane.";
+  - its repeat is now "Undertaker. On the Lane. And don't ask him about the pine."
+- **The message boy's Pike answer** (doc 07 §5). He stands in the Lane, so "Undertaker. Down the lane. No rush." is now "Undertaker. Right there. No rush."
+- **Main Street on the funeral day** (doc 57 C3). Only the pie woman leaves the street now, so "The street is half empty." is now "The street's quieter than usual." The rest of the line stands.
+- **Not changed:**
+  - The claim row's markers still answer LISTEN with silence, which is true.
+  - The letter-writer's and the boundary men's figures overlap the edges of a doorway's and two posts' click areas, and both stay clickable.
+- **The lesson** is a row in doc 55 §8. When a figure moves rooms, read its own lines for where they assume it stands. Read every line in the new room and the old one for who they assume is there.

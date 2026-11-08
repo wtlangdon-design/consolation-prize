@@ -194,7 +194,7 @@
 
 **THE SLUICE FRAMES** · **A BOOT** · **THE PATH**
 > *(The boot — **LOOK:** "One boot. Good quality, once. It is not paired with anything." **LISTEN:** "Nothing.")*
-> *(The path — **LOOK:** "A path, worn deep, between eleven claims that produced nothing. Somebody walked this every day for a long time." **LISTEN:** "Nothing. Nobody comes up here.")*
+> *(The path — **LOOK:** "A path, worn deep, between eleven claims that produced nothing. Somebody walked this every day for a long time." **LISTEN:** "Nobody walks it now but me, and the two who argue at the near end." *(errata 196)*)*
 
 ---
 
