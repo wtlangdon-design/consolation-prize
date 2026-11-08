@@ -8,6 +8,12 @@ without moving anything. The markers and the roads the map's Thad walks are read
   python3 tools/art/district-blockout.py build
       writes reference/district/blockout-1920x864.png and art/staging/town-map/district-01/input.png (the
       block-out in the 20:9 window of a 1536 x 1024 canvas, as every plate is laid out).
+  python3 tools/art/district-blockout.py build --style 2 --stage N
+      the same plan, three things drawn so the dressing reads them (errata 163 A9; district-01 read the small ridge
+      triangles as pine trees, stacked the east arm facing down, and drew a shed for the corral): rocky mountain
+      massifs with lit and shadowed faces round the valley, the east arm's three buildings drawn plainly side-on
+      with their false fronts and porches on the left, and the corral as railed fence on dirt. Writes only
+      art/staging/town-map/district-0N/input.png; the reference block-out is not touched.
   python3 tools/art/district-blockout.py promote --attempt N [--fit] [--write]
       crops district-0N/source.png back to 1920 x 864 (--fit: to the drawn frame), measures how far the drawing
       sits from the block-out, writes candidate.png, and with --write replaces the shipping map.
@@ -71,6 +77,60 @@ def west_facing(d, x, y, w, h, storeys):
     d.rectangle([x, y + 4, x + 7, y + h - 1], fill=PORCH, outline=LINE)
 
 
+
+ROCK, ROCK_LIT, ROCK_DARK = (34, 42, 58), (62, 74, 98), (16, 20, 32)
+
+
+def peak(d, cx, base, w, h, snow=True):
+    """One rocky peak: a shadowed right face, a lit left face, a jagged ridge, facets and a little snow."""
+    top = (cx, base - h)
+    d.polygon([(cx - w // 2, base), top, (cx + w // 2, base)], fill=ROCK, outline=ROCK_DARK)
+    d.polygon([(cx - w // 2, base), top, (cx - w // 8, base)], fill=ROCK_LIT)
+    for i in range(1, 4):
+        fx = cx - w // 2 + i * w // 4
+        d.line([top, (fx, base)], fill=ROCK_DARK, width=1)
+    for i in range(3):
+        y = base - h + h * (i + 1) // 4
+        d.line([(cx - (w // 2) * (i + 1) // 4, y), (cx + (w // 2) * (i + 1) // 5, y + 4)], fill=ROCK_DARK, width=1)
+    if snow and h > 70:
+        d.polygon([(cx - w // 10, base - h + h // 6), top, (cx + w // 10, base - h + h // 6)], fill=MOUNT_SNOW)
+
+
+def massifs(d, m, rnd):
+    """Rocky mountains round the valley: big overlapping peaks along the north, west and east bands, the pass left
+    open. Drawn back to front so nearer peaks overlap farther ones."""
+    px = m['pass'][0]
+    for x in range(-40, W + 60, 70):
+        if abs(x - px) < 90:
+            continue
+        peak(d, x + rnd.randrange(-10, 10), 130 + rnd.randrange(20), 150 + rnd.randrange(60), 110 + rnd.randrange(40))
+    for y in range(40, H - 40, 70):
+        peak(d, 40 + rnd.randrange(30), y + 120, 170 + rnd.randrange(40), 110 + rnd.randrange(30))
+    for y in range(40, 560, 70):
+        peak(d, W - 40 - rnd.randrange(30), y + 110, 160 + rnd.randrange(40), 100 + rnd.randrange(30))
+
+
+def west_facing_2(d, x, y, w, h, storeys):
+    """A building turned to face the square, drawn plainly side-on: its gable roof seen from above along its
+    length, its long side wall below with a row of windows, and at its LEFT end a tall false front with a porch,
+    posts and a lit door, facing left."""
+    front = 18 if storeys == 2 else 12
+    roof_h = int(h * 0.55)
+    d.rectangle([x + front, y, x + w - 1, y + roof_h], fill=ROOF, outline=LINE)
+    d.line([(x + front, y + roof_h // 2), (x + w - 1, y + roof_h // 2)], fill=ROOF_LIT, width=2)   # ridge
+    d.rectangle([x + front, y + roof_h, x + w - 1, y + h - 1], fill=WALL, outline=LINE)
+    windows(d, x + front + 4, x + w - 4, y + roof_h + 4, max(2, (w - front) // 16))
+    if storeys == 2:
+        windows(d, x + front + 4, x + w - 4, y + roof_h + (h - roof_h) // 2 + 2, max(2, (w - front) // 16))
+    d.polygon([(x + 4, y - 10), (x + front + 4, y - 4), (x + front + 4, y + h - 1), (x + 4, y + h - 1)], fill=FRONT, outline=LINE)
+    for i in range(storeys):
+        yy = y + 4 + i * (h // (storeys + 1))
+        d.rectangle([x + 8, yy, x + 12, yy + 5], fill=WINDOW_LIT)
+    d.rectangle([x + 8, y + h - 14, x + 13, y + h - 1], fill=WINDOW_LIT)                          # the door
+    d.rectangle([x - 6, y + 2, x + 4, y + h - 1], fill=PORCH, outline=LINE)                      # the porch
+    for yy in range(y + 4, y + h - 2, 10):
+        d.line([(x - 6, yy), (x - 6, yy + 3)], fill=LINE)                                         # posts
+
 def tree(d, x, y, r):
     d.ellipse([x - r, y - r, x + r, y + r], fill=FOREST, outline=LINE)
     d.ellipse([x - r + 2, y - r + 1, x + r // 2, y], fill=FOREST_LIT)
@@ -82,7 +142,7 @@ def poly_road(d, pts, width=9):
     d.line(pts, fill=ROAD, width=width, joint='curve')
 
 
-def build():
+def build(style=1, stage_n=1):
     plan = json.load(open(PLAN))
     rnd = random.Random(163)
     img = Image.new('RGB', (W, H), GRASS)
@@ -102,17 +162,21 @@ def build():
         tree(d, x, y, rnd.randrange(6, 11))
     for key in ('north', 'west', 'east'):
         d.polygon([tuple(p) for p in m[key]], fill=MOUNT)
-    # Ridges: lit triangles along the mountain bands.
-    for x in range(0, W, 46):
-        top = 10 + rnd.randrange(30)
-        if abs(x - m['pass'][0]) < 70:
-            continue
-        d.polygon([(x, top + 60), (x + 30, top), (x + 60, top + 60)], fill=MOUNT_LIT)
-        d.polygon([(x + 24, top + 10), (x + 30, top), (x + 36, top + 10)], fill=MOUNT_SNOW)
-    for y in range(20, H - 80, 60):
-        d.polygon([(0, y + 50), (40 + rnd.randrange(30), y), (110, y + 50)], fill=MOUNT_LIT)
-    for y in range(20, 460, 60):
-        d.polygon([(1830, y + 50), (1880, y), (1920, y + 50)], fill=MOUNT_LIT)
+    if style == 2:
+        massifs(d, m, rnd)
+    else:
+        # Ridges: lit triangles along the mountain bands.
+        for x in range(0, W, 46):
+            top = 10 + rnd.randrange(30)
+            if abs(x - m['pass'][0]) < 70:
+                continue
+            d.polygon([(x, top + 60), (x + 30, top), (x + 60, top + 60)], fill=MOUNT_LIT)
+            d.polygon([(x + 24, top + 10), (x + 30, top), (x + 36, top + 10)], fill=MOUNT_SNOW)
+        for y in range(20, H - 80, 60):
+            d.polygon([(0, y + 50), (40 + rnd.randrange(30), y), (110, y + 50)], fill=MOUNT_LIT)
+        for y in range(20, 460, 60):
+            d.polygon([(1830, y + 50), (1880, y), (1920, y + 50)], fill=MOUNT_LIT)
+
     # The pass: a notch through the north ridge.
     px, py = m['pass']
     d.polygon([(px - 50, 0), (px + 50, 0), (px + 30, py + 10), (px - 30, py + 10)], fill=(28, 36, 50))
@@ -138,7 +202,7 @@ def build():
     d.line([(nbx, nby), (nbx, nby + 8)], fill=WOOD, width=2)
     d.rectangle([nbx - 4, nby - 6, nbx + 4, nby], fill=(170, 160, 130), outline=LINE)
     for name, x, y, w, h in t['arm_west_facing']:
-        west_facing(d, x, y, w, h, 1 if name == 'assay' else 2)
+        (west_facing_2 if style == 2 else west_facing)(d, x, y, w, h, 1 if name == 'assay' else 2)
     nx, ny = t['arm_west_facing'][0][1:3]
     d.rectangle([nx, ny + 28, nx + 18, ny + 38], fill=PORCH, outline=LINE)  # the Nugget's balcony
     for name, x, y, w, h in t['lane_south_facing']:
@@ -167,7 +231,19 @@ def build():
     d.line([(bx, by), (bx, by + 26)], fill=WOOD, width=3)
     d.ellipse([bx + 1, by - 2, bx + 9, by + 8], fill=(150, 120, 60), outline=LINE)
     x, y, w, h = t['corral']
-    d.rectangle([x, y, x + w, y + h], outline=WOOD, width=2)
+    if style == 2:
+        d.rectangle([x, y, x + w, y + h], fill=(52, 44, 38))                       # trodden dirt
+        for yy in (y, y + h):
+            for off in (0, 5):
+                d.line([(x, yy - off), (x + w, yy - off)], fill=WOOD, width=2)    # two rails
+        for xx in (x, x + w):
+            for off in (0, 5):
+                d.line([(xx, y - 5), (xx, y + h)], fill=WOOD, width=2)
+        for xx in range(x, x + w + 1, 9):
+            d.line([(xx, y - 8), (xx, y + 2)], fill=WOOD, width=2)                # posts
+            d.line([(xx, y + h - 8), (xx, y + h + 2)], fill=WOOD, width=2)
+    else:
+        d.rectangle([x, y, x + w, y + h], outline=WOOD, width=2)
     for x, y, w, h in t['back_alley_crates']:
         d.rectangle([x, y, x + w, y + h], fill=WOOD, outline=LINE)
     x, y, w, h = t['watchmans_shack']
@@ -220,11 +296,12 @@ def build():
         d.ellipse([x - 2, y - 2, x + 2, y + 2], fill=LANTERN)
     # The map's frame, as the shipping map has one.
     d.rectangle([0, 0, W - 1, H - 1], outline=(60, 44, 30), width=6)
-    img.save(OUT)
+    if style == 1:
+        img.save(OUT)
     canvas = Image.new('RGB', (1536, 1024), (150, 150, 150))
     x, y, w, h = WINDOW
     canvas.paste(img.resize((w, h), Image.LANCZOS), (x, y))
-    stage = os.path.join(ROOT, 'art/staging/town-map/district-01')
+    stage = os.path.join(ROOT, f'art/staging/town-map/district-{stage_n:02d}')
     os.makedirs(stage, exist_ok=True)
     canvas.save(os.path.join(stage, 'input.png'))
     print(os.path.relpath(OUT, ROOT), os.path.relpath(stage, ROOT))
@@ -277,7 +354,8 @@ def promote(n, fit, write):
 
 if __name__ == '__main__':
     if sys.argv[1:2] == ['build']:
-        build()
+        build(int(sys.argv[sys.argv.index('--style') + 1]) if '--style' in sys.argv else 1,
+              int(sys.argv[sys.argv.index('--stage') + 1]) if '--stage' in sys.argv else 1)
     elif sys.argv[1:2] == ['promote']:
         promote(int(sys.argv[sys.argv.index('--attempt') + 1]), '--fit' in sys.argv, '--write' in sys.argv)
     else:

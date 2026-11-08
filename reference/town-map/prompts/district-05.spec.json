@@ -1,0 +1,16 @@
+{
+ "assetId": "town-map",
+ "subject": "room-00-town-map",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-00-town-map",
+ "promptFile": "reference/town-map/prompts/district-05.txt",
+ "out": "art/staging/town-map/district-05/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/town-map/district-04/arm-input.png",
+  "art/staging/town-map/district-04/arm-plan.png",
+  "art/backgrounds/room-02-main-street.png"
+ ],
+ "mask": "art/staging/town-map/district-04/arm-mask.png"
+}

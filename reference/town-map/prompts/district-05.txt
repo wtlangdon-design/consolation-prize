@@ -1,0 +1,9 @@
+Image 1 is a close-up of the town square on a finished night map from my pixel-art adventure game: a top-down, slightly angled plan, seen from the south and above. A row of two-storey false-front buildings faces DOWN onto the muddy square at the top left; a church and a small office face down onto the street at the right. Image 2 is the plan for this same close-up: where things go, as flat shapes.
+
+Repaint ONLY the transparent area of the mask -- the right-hand side of the square -- in Image 1's own style, palette, pixel grid and scale. There, draw THREE SEPARATE buildings standing one below the other down the square's right-hand edge, exactly on Image 2's three blocks, with clear ground between them, NOT overlapping. Each is turned a quarter turn so its FRONT FACES LEFT, onto the square: you see its roof from above, its long side wall facing you (towards the bottom of the picture), and at its LEFT end its tall false front, its porch with posts and steps, and a lit door, facing left. The right end is a plain back wall.
+- The TOP one, at the corner of the square, is the LARGEST building in town: a two-storey saloon with a balcony and railing over its deep porch.
+- Below it, a two-storey hotel with a plain false front and a porch, a little smaller.
+- Below that, a small one-storey assay office with a false front, a door and one lit window.
+The square's lit mud runs right up to their porches, and the road round the square runs behind them, unbroken.
+
+Change nothing outside that area. No text, no signs with letters, no numerals, no people.
