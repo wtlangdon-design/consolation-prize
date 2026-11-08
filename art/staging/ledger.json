@@ -36488,6 +36488,63 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-08T22:25:07.410Z"
+  },
+  {
+   "attempt": 7,
+   "role": "derived-state",
+   "assetId": "room-11",
+   "subject": "fanshawe",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 5,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/unacted-moments/fanshawe-turned-prompt-01.txt",
+   "promptHash": "d02032dbb0dd604eb8fb1ff2a194cf159c2df602f7170dec32a5c3f5150f0122",
+   "references": [
+    {
+     "path": "art/staging/room-11/fanshawe-turned-01/dinner-with-thad.png",
+     "hash": "765858a9394cff5a101b85252e51596b2a8dd5384206b4995cc9cd3b5e094ee4",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-11/fanshawe-turned-01/his-frames.png",
+     "hash": "3b1758600f849cd955274cc860a4a4a29519eedea1c1cf3dd04a7ceb0a5ce06e",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "765858a9394cff5a101b85252e51596b2a8dd5384206b4995cc9cd3b5e094ee4",
+   "sourcePath": "art/staging/room-11/fanshawe-turned-01/dinner-with-thad.png",
+   "out": "art/staging/room-11/fanshawe-turned-01/sheet.png",
+   "outputHash": "95e9381486348891c35e023b84f4fb7b08dc8549ba527445e0cd7032f8659778",
+   "bytes": 1308468,
+   "usage": {
+    "input_tokens": 3540,
+    "input_tokens_details": {
+     "image_tokens": 3044,
+     "text_tokens": 496
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 3973
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T22:40:03.831Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-08: \"One more op\" (room-11 cap raised to 7) for Fanshawe turned toward Thad at the dinner",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T22:40:03.838Z"
   }
  ],
  "promotions": [

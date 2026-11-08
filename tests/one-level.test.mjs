@@ -100,6 +100,8 @@ for (const path of manifest.ambient) {
   for (const [room, at] of Object.entries(npc.placements ?? {})) {
     places.push([room, at.x ?? npc.x, at.y ?? npc.y, at.sprite ?? npc.sprite]);
   }
+  // A sheet drawn while a condition holds (spriteWhen, errata 192) is measured at his place too.
+  for (const variant of npc.spriteWhen ?? []) places.push([npc.room, npc.x, npc.y, { ...npc.sprite, ...variant.sprite }]);
   if (npc.exit?.sheet) places.push([npc.room, npc.exit.path[0][0], npc.exit.path[0][1], npc.exit]);
   for (const kind of ['loop', 'arrive']) {
     if (npc[kind]?.sheet) places.push([npc.room, npc[kind].path[0][0], npc[kind].path[0][1], npc[kind]]);

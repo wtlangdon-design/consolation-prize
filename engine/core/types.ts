@@ -673,6 +673,12 @@ export interface AmbientFile {
    * part of a drawn crowd. Rate is full cycles per second and phase offsets
    * it, so no two people on a street move on the same beat.
    */
+  /**
+   * ANOTHER SHEET WHILE A CONDITION HOLDS (errata 192; Tyler, of the dinner: "is the guy he's with not looking
+   * at him at all?"): the first entry whose `when` holds replaces the sprite's sheet and frames (and whatever
+   * else it names) for as long as it holds.
+   */
+  spriteWhen?: { when: Condition; note?: string; sprite: Partial<NonNullable<AmbientFile['sprite']>> }[];
   sprite?: {
     sheet: string;
     rate: number;

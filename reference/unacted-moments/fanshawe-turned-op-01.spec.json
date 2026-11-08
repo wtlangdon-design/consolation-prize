@@ -1,0 +1,14 @@
+{
+  "assetId": "room-11",
+  "subject": "fanshawe",
+  "role": "derived-state",
+  "derivedFrom": 5,
+  "promptFile": "reference/unacted-moments/fanshawe-turned-prompt-01.txt",
+  "out": "art/staging/room-11/fanshawe-turned-01/sheet.png",
+  "size": "1536x1024",
+  "images": [
+    "art/staging/room-11/fanshawe-turned-01/dinner-with-thad.png",
+    "art/staging/room-11/fanshawe-turned-01/his-frames.png"
+  ],
+  "authorizedBy": "Tyler, 2026-11-08: \"One more op\" (room-11 cap raised to 7) for Fanshawe turned toward Thad at the dinner"
+}

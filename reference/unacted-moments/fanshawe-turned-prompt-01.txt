@@ -1,0 +1,18 @@
+Image 1 is a frame of my pixel-art adventure game at exact game size: Colonel Fanshawe, a portly silver-haired gentleman with a large moustache, sits behind a dinner table laid on his desk, and Thad, the hero in a blue coat, sits at the table's right-hand end. Fanshawe faces straight out at us and is not looking at his guest. Image 2 is Fanshawe's own five frames as they are in the game: the same man, waist-up, cut straight across at the waist where the table hides him. Keep him EXACTLY as in Image 2: same face, silver hair and whiskers, moustache, black frock coat, brocade waistcoat, gold watch chain, same colours, same big square pixels, same soft flat shading.
+
+I need ONE sheet on flat pure magenta (#FF00FF) of FOUR poses of Fanshawe, side by side, left to right, each WAIST-UP and cut straight across at the waist exactly as in Image 2, each the same size as Image 2's frames. In every pose his head and shoulders are turned to HIS LEFT (toward the RIGHT edge of the picture), about three-quarters, looking at his guest across the table's end, warm and attentive:
+
+1. AT REST: hands folded on his waistcoat, looking at his guest.
+2. A BREATH: identical to pose 1 except his shoulders very slightly raised.
+3. WELCOMING: one hand open, held out toward his guest (toward the right edge), mid-word.
+4. LAUGHING: head tipped back a little, eyes creased, still turned to his guest.
+
+STYLE: exactly as coarse as Images 1 and 2. Every pixel a large crisp square block. Flat soft shading, few tones, low texture. Not sharper than Image 2.
+
+RULES -- these matter more than anything else:
+- Background: flat pure magenta everywhere. No table, no chair, no wine, nothing else.
+- Every pose cut straight across at the waist on the same baseline, the same height as Image 2's frames.
+- Clear magenta space between poses. No pose touches another.
+- Between poses, ONLY the change described happens.
+- Crisp pixel edges against the magenta. No glow, blur or halo.
+- No text, labels, numbers or borders.

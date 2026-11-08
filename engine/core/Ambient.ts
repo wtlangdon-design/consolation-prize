@@ -198,6 +198,12 @@ export class AmbientLayer {
       .filter((npc): npc is AmbientFile => npc !== undefined)
       // PRESENT ONLY WHILE THEIR CONDITION HOLDS, the room's placement first.
       .filter((npc) => ambientHere(npc, roomId, (when) => this.state.flags.test(when)))
+      // ANOTHER SHEET WHILE A CONDITION HOLDS (AmbientFile.spriteWhen; errata 192): Fanshawe turned to his
+      // guest while the dinner is laid. The first whose condition holds is drawn instead.
+      .map((npc) => {
+        const variant = npc.spriteWhen?.find((one) => this.state.flags.test(one.when));
+        return variant && npc.sprite ? { ...npc, sprite: { ...npc.sprite, ...variant.sprite } } : npc;
+      })
       // A PER-ROOM PLACEMENT WINS over the file's own x,y in that room (doc 36
       // Q117): the same dog, standing where THIS plate has ground for him.
       .map((npc) => {

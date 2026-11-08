@@ -5155,12 +5155,15 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
 
 # 192 · FIVE WRITTEN MOMENTS, ACTED; AND SOWERBY AT HIS SIZE — TYLER, 2026-11-08 (reference/unacted-moments/brief.md; "he looks enormous behind the podium")
 
-*Errata 189's five unacted moments, built from the brief. Nothing new is written: every line and direction is the documents'. One image operation was spent, room-11's last, which its cap allowed. Tyler approves the two sounds by ear (errata 102).*
+*Errata 189's five unacted moments, built from the brief. Nothing new is written: every line and direction is the documents'. Three image operations were spent: room-11's last, which its cap allowed, then one each for room-15 and room-11 that Tyler approved. Tyler approves the two sounds by ear (errata 102).*
 
 - **1 · Fanshawe's dinner (doc 48 S1 beats 1–4).** Room-11 attempt 6 drew Thad against himself in Room 11. It has him seated in profile on a dining chair, then the same with his wine raised. It also has him standing with the deed upside down, looking down at it, then up. `tools/rig/cut-dinner.py` cuts them at his record's scale:
   - the state `dining`: seated `idle`, the wine as his `idle-break`, and `stand`;
   - the clip `deed`.
   - **Seated:** Room 11's accost gains a `seat` for the dinner only (`T_BORDERS_MOTT`, not `T_DINED`). He walks to the chair at the table's free end (1440, 740), facing Fanshawe, and sits as FAN_A2 opens. He stands as it closes.
+  - **At the table (Tyler, of the first render: "sitting very awkwardly at the table with his hands out on nothing. And is the guy he's with not looking at him at all?"):**
+    - the seat's `sitAt` sets him down in from the table's end, so his forearms rest on the cloth;
+    - Fanshawe is turned to him while the table is laid (Tyler: "One more op", room-11 cap 7). Room-11 attempt 7 drew his four poses three-quarters to his left, cut by `tools/art/fanshawe-turned.py`. A figure may now carry `spriteWhen`, another sheet while a condition holds; here it is the dinner prop's own condition.
   - **The porch:** beat 4's two lines at the door ("A very fine dinner." / "I believe I own something.") play over the deed's two frames, through a rule's new `holds`. The pose is let go when the lines are down or the room changes.
   - The seal and the wine are a shade toward brick red, because `check-key-fringe` reads saturated red as the key.
 - **2 · Grievance and the tune (doc 54 B3, doc 95 row 78).** The staging before "Twelve years." was dropped at extraction. It is now the case's first beat, acted:
@@ -5169,7 +5172,10 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
   - her steps follow it.
   - **The livery man's hum now sags in its fourth bar** (it was the eighth note sharp), as doc 54 says the whistle lifts it.
   - Thad stands to it: his only bending clip is from another drawing and would jump.
-  - **She is heard walking out, not seen.** She has no walk, and room-15 has no operation left. That is asked of Tyler.
+  - **She walks out of her stall** (Tyler: "Yes, one more op", room-15 cap 6). Room-15 attempt 6 drew the half door open and her two strides. `tools/art/grievance-out.py` composes `grievance_out`, a scenery figure that is empty at rest: the door open, the stall dark behind it, her stepping out (her canonical front pose), then walking off left.
+    - Row 78 acts both figures. Her own goes empty while the other is out. A row may now give each figure its own frames and holds (`;` groups).
+    - She stays out through "Twelve years." because an act's holds now last through the rest of a combination's lines.
+    - `staging-clear` no longer measures a scenery figure's combination-only frames against talk stands, as recorded in `proofs/check-friction.json`.
 - **3 · The tonic and the blanket (doc 54 A5, doc 95 rows 76–77).** Both directions were dropped at extraction and are now acted.
   - **The fumes:** Thad recoils (his back recoil) and walks back to the claim marker, through a doc 95 act that may now end in a walk (`thad:<clip>/<facing>@<hotspot>`). The fume is not drawn: the engine has no smoke.
   - **The blanket:** the pause, the raccoon's head-turned look, then his walk out. A figure with an acted beat still to play is held present until it is played (`Ambient.holdLeavers`).

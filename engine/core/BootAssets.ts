@@ -252,7 +252,9 @@ export function planBoot(bundle: ContentBundle, opening: string = bundle.manifes
     // `sprite`. Boot has to carry both, or entering the room the placement
     // belongs to draws the graybox and nothing says why.
     const sprites = [npc.sprite,
-      ...Object.values(npc.placements ?? {}).map((placed) => placed.sprite)];
+      ...Object.values(npc.placements ?? {}).map((placed) => placed.sprite),
+      // AND A SHEET DRAWN WHILE A CONDITION HOLDS (spriteWhen, errata 192): Fanshawe turned to his guest.
+      ...(npc.spriteWhen ?? []).map((variant) => variant.sprite.sheet ? { ...npc.sprite!, ...variant.sprite } : undefined)];
     for (const sprite of sprites) {
       if (!sprite) continue;
       required.set(sprite.sheet, { key: sprite.sheet, path: sprite.sheet });
