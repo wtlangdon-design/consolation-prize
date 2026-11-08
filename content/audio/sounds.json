@@ -288,7 +288,7 @@
    "play": [
     {
      "src": "audio/sfx/piano-tuning.wav",
-     "gain": 0.124,
+     "gain": 0.16,
      "at": 0.12
     }
    ],

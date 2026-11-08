@@ -4,8 +4,6 @@
  "pools": {
   "PICK_UP": [
    "It stays where it is.",
-   "I have tried. It has views.",
-   "That is not mine, and more to the point it will not come.",
    "No. It is part of the town."
   ],
   "USE": [

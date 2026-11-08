@@ -304,17 +304,17 @@
       "layers": [
        {
         "src": "audio/consolation-nugget-fiddle.wav",
-        "gain": 0.7,
+        "gain": 0.95,
         "whenPresent": "fiddler"
        }
       ]
      }
     ],
-    "why": "Doc 28 Room 3: CONSOLATION played diegetically on the room's own piano, broken C-sharp and all, until Thad tunes it. The fiddler joins it with the theme's own fiddle part while he is in the room (doc 07 #11; doc 28: 'Piano-led, fiddle joining'; errata 116).",
+    "fiddleNote": "Errata 168 (Tyler, 2026-11-07, choosing to keep the piano leading with the fiddle louder): the fiddle layer at 0.95, about 1 dB under the piano (piano stem -16.3 dB RMS at 0.75; fiddle stem -19.4 dB at 0.95). It was 0.7, nearly 4 dB under. The piano still leads, because its flat C-sharp is the A8 clue.", "why": "Doc 28 Room 3: CONSOLATION played diegetically on the room's own piano, broken C-sharp and all, until Thad tunes it. The fiddler joins it with the theme's own fiddle part while he is in the room (doc 07 #11; doc 28: 'Piano-led, fiddle joining'; errata 116).",
     "layers": [
      {
       "src": "audio/consolation-nugget-fiddle.wav",
-      "gain": 0.7,
+      "gain": 0.95,
       "whenPresent": "fiddler"
      }
     ],

@@ -11,9 +11,9 @@ Used when no object-specific line exists. Rotate within a pool; never repeat con
 
 **PICK UP**
 > "It stays where it is."
-> "I have tried. It has views."
-> "That is not mine, and more to the point it will not come."
 > "No. It is part of the town."
+
+*Errata 168 (Tyler, 2026-11-07, on picking up the trough's water: "it says it has opinions??? That doesn't even make sense"): "I have tried. It has views." and "That is not mine, and more to the point it will not come." are retired. This pool answers 347 things, among them water, mud, the sky and whole buildings, and those two lines fit only a solid object that could resist. The two that stay are true of anything.*
 
 **USE**
 > "I have no plan for it."
