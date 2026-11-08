@@ -69,3 +69,22 @@ test('a repeat written with a beat in it is spoken whole: the jar keeps its punc
   const jar = room.hotspots.find((one: { id: string }) => one.id === 'jar');
   assert.equal(jar.responses.LOOK_AT[0].repeat[0], quotes.join(' '));
 });
+
+test('looking at anything in the shop never stands Thad on top of the barber (errata 183, the life proof)', async () => {
+  // The point under the price board and the one under the strop put Thad over the barber, who stands between
+  // them. Thad's drawn width is 0.305 of his height (art/actors/thad-stand-front/stand-00.png); the barber's is his
+  // whole frame, which the talking pose's open hand fills.
+  const room = await json('content/rooms/barbers.json');
+  const ann = await json('reference/room-42/annotation.json');
+  const barber = await json('content/ambient/barber.json');
+  const [, , fw] = barber.sprite.frames[0];
+  const { far, near } = ann.scaling;
+  const man = (y: number) => far.height + ((y - far.y) / (near.y - far.y)) * (near.height - far.height);
+  const half = (fw * man(barber.y) / barber.sprite.figureHeight) / 2;
+  for (const hotspot of room.hotspots) {
+    const { x, y } = hotspot.walkTo;
+    const width = man(y) * 0.305;
+    const clear = x + width / 2 <= barber.x - half || x - width / 2 >= barber.x + half;
+    assert.ok(clear, `${hotspot.id}: Thad at ${x},${y} stands over the barber at ${barber.x}`);
+  }
+});

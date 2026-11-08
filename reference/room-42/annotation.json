@@ -173,5 +173,18 @@
    ],
    "note": "THE PRICE BOARD's words in the shipping face, from doc 105's first LOOK (tools/art/room42-price-board.py): the generator draws the board blank."
   }
- ]
+ ],
+ "hotspotWalkTo": {
+  "price_board": {
+   "x": 420,
+   "y": 750,
+   "facing": "back"
+  },
+  "strop": {
+   "x": 905,
+   "y": 800,
+   "facing": "back"
+  }
+ },
+ "hotspotWalkToNote": "The points under the price board (x 550) and the strop (x 825) put Thad on top of the barber, who stands at x 690 (the life proof, errata 183): he reads the board from the door's side and looks at the strop from in front of the chair."
 }

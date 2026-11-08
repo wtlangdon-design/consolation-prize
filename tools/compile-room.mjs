@@ -1903,6 +1903,9 @@ if (MERGED) {
       return null;
     };
     for (const hotspot of built.hotspots) {
+      // A POINT THE ANNOTATION CHOOSES, where the one below the thing lands on a person: Room 42's price board
+      // hangs just left of where the barber stands, and the point under it put Thad on top of him (errata 183).
+      if (ann.hotspotWalkTo?.[hotspot.id]) { hotspot.walkTo = ann.hotspotWalkTo[hotspot.id]; continue; }
       const [hx, hy, hw, hh] = hotspot.rect;
       const centre = Math.round(hx + hw / 2);
       // Try the centre, then either side, for a thing standing on the floor.
