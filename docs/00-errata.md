@@ -5119,3 +5119,17 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
   - third and after: "I'll leave you to it, then."
 
   She answers each with her one line, doc 04's "…It's loud here.", so doc 04's "her only line" and "saying nothing" stay true. The builder's brief is `reference/ozymandia-prosperity/talk-to-brief.md`.
+
+# 190 · FIDDLER'S GULCH: THE DESIGN, APPROVED — TYLER, 2026-11-08 ("Looks good to me!")
+
+*Tyler asked whether Consolation has enough variety, rejected a day-and-night change as lazy, and asked for proposals for a mining camp and a mine maze. He chose the Gulch as half an act, with the mine as the way in, and asked for the design first, with no lines and no art until he approved it. He has approved it, with one ruling.*
+
+- **The design is `docs/107-fiddlers-gulch.md`:**
+  - ten new screens: the washout, four in the mine, and five in the Gulch;
+  - four new people, and Vessel under another name;
+  - nine puzzles, G1 to G9. Seven are new; G6 and G7 are B4 and B5, moved from the Nugget.
+
+  It is a plan. The game as built is unchanged until each part is written and built. The puzzle count stays 45 until then.
+- **The camp is in daylight.** Tyler asked whether Thad needs to sleep in the cave to justify the time change. He doesn't. The two days each way pass on the ride over black, as B3's ride does today (errata 88 E), so nobody sleeps on screen, and the mine has no daylight to read the time by. Time of day stays an authored visual state (errata 64d).
+- **One of the design's open questions was already settled.** B1 always comes before the trip: B3 refuses until `T_VESSEL_LOCATION` is set, and only B1 sets it. G3 works with either of the stories B1 prints, because both say Thad's claim is worth nothing.
+- **This ruling grants no writing exception and no image operations.** Approving the design is not permission to write its lines. They wait for Tyler to grant an exception, which is recorded in its own entry and in CLAUDE.md. Its art waits for a cap he sets in `art/staging/caps.json`.
