@@ -1,0 +1,9 @@
+Image 1 is the town from a finished night map in my pixel-art adventure game, enlarged: a top-down, slightly angled plan. Three buildings on the right-hand side of the square (a saloon with a balcony, a hotel and a small office, their fronts facing left onto the square) and the ground around them have just been placed there, and a patch of grass and fence at the back lane's left end has been patched; the edges of those patches show.
+
+Repaint ONLY the transparent areas of the mask so they sit in the drawing as if drawn with it: the same light, the same muddy ground running up to the buildings' porches, the road round the square continuing unbroken past them, matching shadows at their feet, no visible seams or repeated patterns. Keep the three buildings exactly where they are, the same size and shape, facing the same way; keep the patched lane's grass and fence. Night palette as the rest of Image 1. No text, no people.
+
+THIS IS A CORRECTION. The last pass missed three things:
+1. It drew a building in the cleared patch at the back lane's LEFT end. That patch is GRASS AND A LOW FENCE ONLY, like the ground just left of it: no building, no roof, no shopfront there. The back lane has FIVE shopfronts, the striped tent the third from the left.
+2. It redrew the saloon, the hotel and the small office and moved them. Keep those three buildings EXACTLY as they are in Image 1: same place, same size, same drawing, every pixel. Only the ground around them changes.
+3. It left a hard vertical edge where the long row's last building (the pale one) meets the cleared ground at its right. Its right side and porch end cleanly, and the mud runs on past it with no edge or change of light.
+
