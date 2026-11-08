@@ -4713,3 +4713,16 @@ Doc 98 records the pass.
 
 Main Street is the sample: no other room's lines change until Tyler has ruled on it. `tests/repeats.test.ts` holds the repeats and fails on the old pie woman. The first-night line is doc 55 §8's existing row ("A line readable before the event it assumes"), which caught it in review but not in play.
 
+# 171 · THE CHARACTER SHEET, AND THE REWRITE IT GOVERNS — TYLER, 2026-11-07
+
+*Tyler, asked whether a script written by a weaker model should be rewritten: "I think the updates to Main Street were the right direction. It helped, but I still think you can do an overall better job of hitting the tone of MI. Proceed with your 1-4." Shown doc 99: "Approved".*
+
+- **Doc 99 is in force.** It sets out how Monkey Island sounds (ten rules) and one entry per speaking character. It sits on top of doc 59 and wins where the two disagree. It changes no puzzle, flag, fact, load-bearing LISTEN line or invariant.
+- **The rewrite has four steps:**
+  1. this sheet;
+  2. Act I's conversations in play order, under doc 99 Part Three, with new options and lines allowed;
+  3. the first LOOK on what players actually click;
+  4. Acts II to IV, after Tyler rules on Act I.
+
+  It is the fourth exception to "never generate written content", beside errata 100, 113 and 127. It is one voice, written in the documents, and every room is recorded before and after.
+
