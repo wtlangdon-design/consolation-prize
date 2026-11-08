@@ -1572,6 +1572,18 @@ if (MERGED) {
       const parsed = /^([A-Z_]+)(?:\s*\((.+)\))?$/.exec(key);
       if (!parsed) fail(`unreadable people override "${key}" for "${name}"`);
       const [, verb, qualifier] = parsed;
+      // A REPEAT, NOT A CONDITION (errata 190). Doc 54 writes a person's TALK TO "(second time)" and "(third time
+      // and after)": selection counts, which an object's `say` and `repeat` already are -- the first line, then each
+      // repeat in order, the last holding. So they join the verb's unconditioned rule as its `repeat`, in the order
+      // written, rather than asking `peopleWhen` for a flag nobody sets.
+      if (qualifier && /^(second|third|fourth|fifth) time( and after)?$/.test(qualifier)) {
+        for (const id of ids) {
+          const rule = (((people[id] ??= {})[verb] ??= [])).find((one) => !one.when);
+          if (!rule) fail(`"${name}" ${verb} is written "(${qualifier})" before any first line for it`);
+          (rule.repeat ??= []).push(line);
+        }
+        continue;
+      }
       const when = qualifier ? ann.peopleWhen?.[qualifier] : undefined;
       if (qualifier && !when) fail(`"${name}" ${verb} is written "(${qualifier})" and the annotation's peopleWhen does not define it`);
       for (const id of ids) {
