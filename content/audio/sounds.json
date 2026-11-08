@@ -738,7 +738,8 @@
    "photographers_studio": "plank",
    "boarding_house_parlour": "plank",
    "bakehouse": "plank",
-   "empty_storefront": "plank"
+   "empty_storefront": "plank",
+   "schoolhouse": "plank"
   }
  },
  "ambience": {

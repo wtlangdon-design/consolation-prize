@@ -1,0 +1,99 @@
+{
+  "room": 41,
+  "name": "THE SCHOOLHOUSE",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/105-the-six-interiors.md::ROOM 41 — THE SCHOOLHOUSE",
+    "docs/105-the-six-interiors.md::ROOM 41 · THE SCHOOLHOUSE",
+    "docs/105-the-six-interiors.md::ROOM 41 · THE SCHOOLHOUSE"
+  ],
+  "subjects": [
+    {
+      "name": "THE DESKS",
+      "LOOK_AT": [
+        "Fourteen desks, made by hand, well made. Nobody has ever sat in them.",
+        "Each desk has an inkwell, filled. The ink has dried in every one, waiting.",
+        "The lids are carved: not by children, by the carpenter, with the date. Every desk is dated the same day."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Fourteen desks, and not a whisper among them.",
+        "A lid, settling, very quietly, as if it had nearly been opened."
+      ],
+      "overrides": {
+        "PUSH": "They're in perfect rows. I'm not going to be the one who spoils that."
+      }
+    },
+    {
+      "name": "THE BLACKBOARD",
+      "LOOK_AT": [
+        "Blank. It has been washed. Somebody washed a blackboard that has never been written on.",
+        "There's chalk on the ledge, a whole new box, unopened.",
+        "The board's been oiled, so the chalk would take. It's ready for the alphabet, and the alphabet hasn't come."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. A blackboard is quiet until somebody makes it squeak.",
+        "Nothing. I'm not going to make it squeak. It deserves better for a first word."
+      ],
+      "overrides": {
+        "USE": "I'd write something, but the first thing on that board ought to be the alphabet, not me."
+      }
+    },
+    {
+      "name": "THE BELL ON THE DESK",
+      "LOOK_AT": [
+        "A brass handbell on the teacher's desk, for calling in a class that hasn't come.",
+        "Polished. Somebody comes in to polish a bell that has never been rung for a class.",
+        "The handle is turned wood, and fits a hand exactly. A teacher's hand. It's waiting for one."
+      ],
+      "LISTEN_TO": [
+        "…It's in tune. Of all the things in this town.",
+        "Still in tune. I've come back to check twice.",
+        "Nothing. I'm not going to ring it. Not for nobody."
+      ],
+      "overrides": {
+        "USE": "No. The first time that bell rings, it should mean something."
+      }
+    },
+    {
+      "name": "THE STOVE",
+      "LOOK_AT": [
+        "A school stove, blacked and cold, with the kindling laid ready in it. Ready for winter, and for children.",
+        "The coal scuttle's full, and the coal's never been touched. It's the best-stocked stove in town.",
+        "A kettle on top, clean, for a teacher's tea. There's a cup beside it, for one."
+      ],
+      "LISTEN_TO": [
+        "Nothing. A cold stove sounds exactly like an empty room.",
+        "Nothing. It's waiting for winter, and for someone to be cold in front of it.",
+        "A tick of iron, cooling further. It has never once been warm."
+      ]
+    },
+    {
+      "name": "THE WINDOW",
+      "LOOK_AT": [
+        "Clean glass. Through it, the town, which is busy looking for gold and has never once glanced this way.",
+        "The glass is new and the putty's still pale. Built well, and built for children who'd want to look out.",
+        "A teacher at that desk would see the whole town at once, and know exactly who was late."
+      ],
+      "LISTEN_TO": [
+        "The hammering from town, far off. Everybody is building something, and not this.",
+        "Somebody hammering, very far off. Consolation builds at all hours, except in here.",
+        "Wind across the glass. It's the only lesson the room has ever had."
+      ]
+    },
+    {
+      "name": "THE DOOR",
+      "LOOK_AT": [
+        "The schoolhouse door, on new hinges that have never once been opened by a child.",
+        "A hook on the inside for each coat. Fourteen hooks. They counted.",
+        "There's a little step outside it, low, for short legs."
+      ],
+      "LISTEN_TO": [
+        "Nothing, which in a schoolhouse is the saddest sound there is.",
+        "The hinges, silent. They've been oiled, for nobody.",
+        "Nothing. It's been holding the door for a class for years."
+      ]
+    }
+  ]
+}

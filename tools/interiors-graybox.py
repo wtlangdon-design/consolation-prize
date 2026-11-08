@@ -179,6 +179,39 @@ ROOMS = {
         'occlusionNote': 'Nothing stands nearer the camera than the walk band, and nobody is in the room.',
         'lightSources': [],
     },
+    41: {
+        'id': 'schoolhouse', 'name': 'THE SCHOOLHOUSE',
+        'what': 'A new one-room schoolhouse at night, never used, lit by what comes through its clean window.',
+        'depth': INTERIOR,
+        'surfaces': [
+            ('ceiling shadow', (0, 0, 1920, 60), 40),
+            ('walls, new plank', (0, 60, 1920, 630), 70),
+            ('floor, new boards', (0, 690, 1920, 174), 84),
+        ],
+        'objects': [
+            ('THE DOOR', (20, 150, 170, 540), 50, 'behind'),
+            ('THE DOOR (its fourteen hooks, on a rail)', (210, 230, 360, 34), 96, 'behind'),
+            ('THE WINDOW (the town far off)', (610, 110, 240, 290), 58, 'behind'),
+        ] + [
+            # FOURTEEN DESKS, two rows of seven, each its own block: doc 105 counts them, and the first master drew
+            # sixteen from one block (doc 55 section 8: count the repeated things before anything else is spent).
+            (f'THE DESKS (row {r + 1}, desk {c + 1})', (640 + c * 102 - r * 30, 470 + r * 100, 84, 120 + r * 20), 54, 'behind')
+            for r in range(2) for c in range(7)
+        ] + [
+            ('THE BLACKBOARD (the chalk on its ledge)', (1380, 110, 380, 240), 40, 'behind'),
+            ('THE BELL ON THE DESK (the teacher\'s desk)', (1420, 450, 260, 240), 62, 'behind'),
+            ('THE STOVE (kettle, cup, scuttle)', (1730, 300, 170, 390), 46, 'behind'),
+        ],
+        'lamp': (550, 790, 700, 160),
+        'marks': {'entrance': (300, 790, 'right')},
+        'walk': (180, 740, 1600, 110),
+        'exit': ('THE DOOR', 'town_map'),
+        'layoutThad': (1000, 790),
+        'figures': [(450, 740, False), (700, 800, False), (1300, 740, True), (300, 790, False), (900, 850, False),
+                    (1650, 850, True)],
+        'occlusionNote': 'Nothing stands nearer the camera than the walk band, and nobody is in the room.',
+        'lightSources': [],
+    },
 }
 
 

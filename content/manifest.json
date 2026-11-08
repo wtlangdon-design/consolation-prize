@@ -56,7 +56,8 @@
   "content/rooms/photographers-studio.json",
   "content/rooms/boarding-house-parlour.json",
   "content/rooms/bakehouse.json",
-  "content/rooms/empty-storefront.json"
+  "content/rooms/empty-storefront.json",
+  "content/rooms/schoolhouse.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -487,6 +488,20 @@
      }
     ],
     "why": "Doc 28 rooms 2 / 2b / 2c: the Lane down to piano alone -- the back alley's distant piano, tuned when the Nugget's is (errata 161)."
+   },
+   "schoolhouse": {
+    "src": "audio/consolation-distant-piano.wav",
+    "gain": 0.25,
+    "variants": [
+     {
+      "when": {
+       "T_NUGGET_PIANO_TUNED": true
+      },
+      "src": "audio/consolation-distant-piano-tuned.wav",
+      "gain": 0.25
+     }
+    ],
+    "why": "Errata 183: the town's distant piano, very faint (0.25) through the clean window, the town far off -- tuned when the Nugget's is. Not silence: doc 28 keeps the undertaker's the only silent room until the coffin."
    },
    "bakehouse": {
     "src": "audio/consolation-distant-piano.wav",

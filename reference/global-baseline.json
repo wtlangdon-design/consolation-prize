@@ -738,6 +738,22 @@
     }
    ],
    "castingNote": "Nobody is in it."
+  },
+  "room-41-schoolhouse": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-21-watchmans-shack",
+    "path": "art/backgrounds/room-21-watchmans-shack.png",
+    "note": "D -- the approved small plain room at night; the schoolhouse is new and never used, lit by what comes through its clean window (reference/ancillary-interiors/brief.md)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody is in it."
   }
  }
 }

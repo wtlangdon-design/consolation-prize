@@ -1,0 +1,186 @@
+{
+ "schema": 1,
+ "id": "room-41-schoolhouse",
+ "room": "schoolhouse",
+ "docRoom": 41,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 41 of the six interiors (errata 183, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/105-the-six-interiors.md",
+  "docs/07-ambient-layer.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-41.json",
+    "docs/00-errata.md::183 · THE SIX INTERIORS: WRITTEN, CAPPED AND BRIEFED — TYLER, 2026-11-08 (\"Build all six\"; \"Write all six now\")"
+   ],
+   "note": "One picture, true in every act, night (errata 183); nobody in it."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-41/graybox.json",
+    "docs/00-errata.md::183 · THE SIX INTERIORS: WRITTEN, CAPPED AND BRIEFED — TYLER, 2026-11-08 (\"Build all six\"; \"Write all six now\")"
+   ],
+   "note": "Every subject is plate; the desks and hooks are composed into it to doc 105's count."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "docs/105-the-six-interiors.md::ROOM 41 — THE SCHOOLHOUSE"
+   ],
+   "note": "Nobody is in it."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/schoolhouse/life/life.json"
+   ],
+   "note": "Nothing moves but what the plate paints; nobody lives here."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-41-schoolhouse-with-thad.png"
+   ],
+   "note": "No figure stands in the room."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-41/annotation.json",
+    "art/staging/room-41/plate-01/frame.json"
+   ],
+   "note": "Night, moonlight through the window, no lamp; not lifted (32.1)."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-41.test.ts",
+    "docs/00-errata.md::183 · THE SIX INTERIORS: WRITTEN, CAPPED AND BRIEFED — TYLER, 2026-11-08 (\"Build all six\"; \"Write all six now\")"
+   ],
+   "note": "No puzzle is sited here (doc 07 Part Three); nothing is a clue by look or sound."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-41.json",
+    "content/rooms/schoolhouse.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 39 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-41: 3 of 4 operations (two composition masters, the plate with every desk out); the desks and hooks composed by tools/art/room41-compose.py."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/schoolhouse.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-41/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/schoolhouse/proof.json"
+   ],
+   "note": "No principal change: one visual state."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/schoolhouse/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/schoolhouse/doors/life.json",
+    "tests/room-41.test.ts"
+   ],
+   "note": "Out by THE DOOR to the map and back in by the schoolhouse's marker, twice."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-41/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "composition master 02",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-41/composition-master-02.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; its desk is cut by subtraction."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-41-schoolhouse.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-41/plate-01/frame.json",
+    "tools/art/room41-compose.py"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q185 · Room 41, the schoolhouse: built, awaiting Tyler's playthrough — **RULED 2026-11-08 (errata 183, delegated); BUILT, room-41 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q185 · Room 41, the schoolhouse: built, awaiting Tyler's playthrough — **RULED 2026-11-08 (errata 183, delegated); BUILT, room-41 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

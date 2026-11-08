@@ -3,112 +3,6 @@
  "note": "Errata 182: every quoted line in the source documents that /content does not carry (tools/check-written-vs-built.mjs), grouped with the reason. GAP groups were reported to Tyler on 2026-11-08 and wait on his ruling; a line comes off this list when it is built. Lines under four words are below the check's bar, so two short gaps it cannot see are named here by hand: Hob's running lines ('It'll rain.', 'That's not yours.', 'Wouldn't stand there.', 'You're the piano man.') and Ozymandia's '...It's loud here.'",
  "groups": [
   {
-   "id": "ancillary-interiors",
-   "why": "GAP, reported to Tyler (errata 182): the six ancillary interiors (rooms 37-42: the barber's, the boarding house parlour, the photographer's studio, the bakehouse, the empty storefront, the schoolhouse) and the townspeople who live in them (doc 07 #9 the barber, #10 the photographer, #14-15 the boarding house women). Canon is 42 screens (errata 1); these six were never on the full build list (CLAUDE.md, errata 72), and the Lane shows the barber's and photographer's fronts shut. Their lines are written in doc 105 (errata 183) and wait on the builder session (reference/ancillary-interiors/brief.md).",
-   "lines": [
-    {
-     "doc": "07-ambient-layer",
-     "quote": "Fourteen desks, made by hand, well made. Nobody has ever sat in them."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "Fourteen desks, made by hand, well made. Nobody has ever sat in them."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "A brass handbell on the teacher's desk, for calling in a class that hasn't come."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "A school stove, blacked and cold, with the kindling laid ready in it. Ready for winter, and for children."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "Clean glass. Through it, the town, which is busy looking for gold and has never once glanced this way."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "The schoolhouse door, on new hinges that have never once been opened by a child."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "The schoolhouse was the third building Consolation put up, before the assay office and before the church. Nothing in the game ever says this."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "Each desk has an inkwell, filled. The ink has dried in every one, waiting."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "The lids are carved: not by children, by the carpenter, with the date. Every desk is dated the same day."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "Nothing. Fourteen desks, and not a whisper among them."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "A lid, settling, very quietly, as if it had nearly been opened."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "The board's been oiled, so the chalk would take. It's ready for the alphabet, and the alphabet hasn't come."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "Nothing. I'm not going to make it squeak. It deserves better for a first word."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "Polished. Somebody comes in to polish a bell that has never been rung for a class."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "Still in tune. I've come back to check twice."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "The coal scuttle's full, and the coal's never been touched. It's the best-stocked stove in town."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "A kettle on top, clean, for a teacher's tea. There's a cup beside it, for one."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "A tick of iron, cooling further. It has never once been warm."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "The glass is new and the putty's still pale. Built well, and built for children who'd want to look out."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "A teacher at that desk would see the whole town at once, and know exactly who was late."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "Somebody hammering, very far off. Consolation builds at all hours, except in here."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "Wind across the glass. It's the only lesson the room has ever had."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "A hook on the inside for each coat. Fourteen hooks. They counted."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "There's a little step outside it, low, for short legs."
-    },
-    {
-     "doc": "105-the-six-interiors",
-     "quote": "I'd write something, but the first thing on that board ought to be the alphabet, not me."
-    }
-   ]
-  },
-  {
    "id": "war-payoff",
    "why": "GAP, reported to Tyler (errata 182): FAN_D1, the payoff of Fanshawe's war (\"You were never a colonel.\" / \"No. I wasn't.\"), needs all five contradictions; three are offered by no node, so it cannot be reached (errata 84 I a, doc 36 Q154).",
    "lines": [
@@ -572,6 +466,10 @@
     {
      "doc": "98-main-street-pass",
      "quote": "both ignore him by saying their same phrase multiple times. I don't like it with either of them."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The schoolhouse was the third building Consolation put up, before the assay office and before the church. Nothing in the game ever says this."
     }
    ]
   }

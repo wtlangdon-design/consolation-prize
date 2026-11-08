@@ -4953,3 +4953,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Five subjects from doc 105 with three LOOKs and three LISTENs each, and three overrides; nobody in it; the sign lettered HARDWARE & SUNDRIES in the game's face. In from the Lane by a door drawn beside the storefront's boarded window, which stays boarded so the Lane's lines stay true. Held by `tests/room-40.test.ts`. Proofs under `renders/proofs/empty-storefront/`.
 
 **Open, for Tyler:** (a) THE DOOR TO THE LANE has no lines; it ships as a stub exit. (b) The door drawn on the Lane beside the boarded window (errata 183, Room 40 C). (c) The sign's lettering in gold, one word to a line.
+
+## Q185 · Room 41, the schoolhouse: built, awaiting Tyler's playthrough — **RULED 2026-11-08 (errata 183, delegated); BUILT, room-41 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Six subjects from doc 105 with three LOOKs and three LISTENs each, and three overrides; nobody in it; fourteen desks and fourteen hooks composed to doc 105's count from the room's own pixels. On the map at the schoolhouse; THE DOOR, with its own lines, goes back to the map. Held by `tests/room-41.test.ts`. Proofs under `renders/proofs/schoolhouse/`.
+
+**Open, for Tyler:** (a) The desks are one desk laid fourteen times (errata 183, Room 41 B); the hooks are two rails of seven. (b) The room is drawn farther off than the shops (a man is 398 there).

@@ -1,0 +1,141 @@
+{
+ "room": "schoolhouse",
+ "plate": "art/backgrounds/room-41-schoolhouse.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-41/plate-01/candidate-1920x864.png: room-41 attempt 3, master 02 with Thad and every desk out and the picture extended, then the fourteen desks and fourteen hooks composed by tools/art/room41-compose.py; the standard crop from y 170, not lifted -- frame.json). Every rect below was read off that picture.",
+ "plateShipping": "art/backgrounds/room-41-schoolhouse.png",
+ "plateShippingHash": "27686b791d0636f2a1401eda55ec0c0d6088f8457212af07506fb6c0196aa990",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   60,
+   670
+  ],
+  [
+   1880,
+   670
+  ],
+  [
+   1880,
+   855
+  ],
+  [
+   60,
+   855
+  ]
+ ],
+ "walkableNote": "THE NEW BOARDS IN FRONT OF THE DESKS. The front row's feet stand at y 660, so the band runs y 670-855.",
+ "scaling": {
+  "far": {
+   "y": 670,
+   "height": 356
+  },
+  "near": {
+   "y": 855,
+   "height": 484
+  },
+  "note": "ROOM 41'S DEPTH, FROM THE MAN THE MASTER PAINTED. Composition master 02 drew Thad about 315 tall, feet at source y 750; from the standard crop at 1.263 he stands about 398 at y 732, and a school desk is 0.38 of him, a desk's height to a man's. Along Room 5's slope (0.69 per row): 356 at the band's far edge and 484 at its near."
+ },
+ "entrance": [
+  240,
+  760
+ ],
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    240,
+    760
+   ],
+   "facing": "right",
+   "note": "In at the door, from the map."
+  },
+  {
+   "from": "town_map",
+   "at": [
+    240,
+    760
+   ],
+   "facing": "right",
+   "note": "In from the map (errata 183)."
+  }
+ ],
+ "hotspots": {
+  "window": [
+   520,
+   100,
+   220,
+   235
+  ],
+  "desks": [
+   315,
+   460,
+   1080,
+   200
+  ],
+  "blackboard": [
+   1310,
+   100,
+   400,
+   240
+  ],
+  "bell_on_the_desk": [
+   1460,
+   355,
+   245,
+   240
+  ],
+  "stove": [
+   1700,
+   340,
+   205,
+   340
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE DESKS are all fourteen, in their two rows. THE BELL ON THE DESK is the teacher's desk and the bell on it. THE STOVE takes in the kettle, the cup and the scuttle. THE DOOR is the way out, and its rect takes in the two rails of fourteen hooks its second LOOK counts.",
+ "exitSubjects": {
+  "THE DOOR": {
+   "id": "to_town_map",
+   "to": "town_map",
+   "defaultVerb": "WALK_TO",
+   "note": "Errata 183: the schoolhouse is on the map; doc 105 writes THE DOOR's lines, so it is a door with lines, not a stub."
+  }
+ },
+ "exits": {
+  "to_town_map": [
+   20,
+   115,
+   440,
+   525
+  ]
+ },
+ "exitWalkTo": {
+  "to_town_map": {
+   "x": 130,
+   "y": 700,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [],
+ "defaultVerbs": {
+  "window": "LOOK_AT",
+  "desks": "LOOK_AT",
+  "blackboard": "LOOK_AT",
+  "bell_on_the_desk": "LOOK_AT",
+  "stove": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click; THE DOOR walks.",
+ "occlusion": {
+  "note": "Nobody is in the room, and the walk band is in front of every desk.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}

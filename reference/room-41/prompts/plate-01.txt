@@ -1,0 +1,8 @@
+Image 1 is a finished background from my pixel-art adventure game, an empty one-room schoolhouse at night, with one person in it, the man in the blue coat, and rows of small school desks. The flat grey strips ABOVE and BELOW the picture are unfinished.
+
+Make exactly three changes:
+1. Remove the man.
+2. Remove ALL the small school desks, every one of them, so that the floor where they stood is bare, clean new floorboards, and the wall behind them is plain plank. (The teacher's desk at the right, with the brass bell on it, stays.)
+3. Extend the room into the grey strips above and below the picture, so it fills the whole canvas from top to bottom: above, more of the same plank wall up to a plain ceiling with beams; below, more of the same new floorboards. The new parts match the room exactly: same pixel-art style and pixel grid, same colours, same perspective, the same cool moonlit night.
+
+Change nothing else: the door, the rail of coat hooks, the window and the town's lights outside it, the blackboard and the chalk on its ledge, the teacher's desk and its bell, the stove, the kettle, the cup and the coal scuttle stay exactly as they are, in the same places, at the same size. No people, no text, no border.

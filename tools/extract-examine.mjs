@@ -34,7 +34,7 @@ import { resolveIssueRef } from './lib/issueref.mjs';
  */
 
 const CHECKING = process.argv.includes('--check');
-const ROOMS = [4, ...Array.from({ length: 31 }, (_, i) => i + 6), 37, 38, 39, 40, 42, 43, 44].filter((n) => n !== 7 && n !== 24);
+const ROOMS = [4, ...Array.from({ length: 31 }, (_, i) => i + 6), 37, 38, 39, 40, 41, 42, 43, 44].filter((n) => n !== 7 && n !== 24);
 //: Room 24 (the hole) is written as one section with Room 23 ("ROOM 23 & 24")
 //: and is extracted once, as room-23.json.
 //: Rooms 5 and 7 ship already, extracted by extract-content.mjs from doc 25

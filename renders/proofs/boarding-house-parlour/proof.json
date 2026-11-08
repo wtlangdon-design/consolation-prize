@@ -1,0 +1,410 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "boarding_house_parlour",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "48a33b844958a001e04cedca4d0048143759e45f",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "uncommitted": [
+  "?? renders/proofs/photographers-studio/"
+ ],
+ "visualState": null,
+ "candidates": [],
+ "route": "boarding-house-parlour",
+ "routeLog": [
+  "the title: clicked NEW GAME",
+  "action 1 (wait): waited 2.5s",
+  "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up",
+  "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit",
+  "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED",
+  "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road",
+  "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever.",
+  "action 13 (wait): waited 3s",
+  "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road",
+  "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it",
+  "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it",
+  "action 17 (wait): waited 6s",
+  "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger",
+  "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street",
+  "action 20 (wait): waited 7s",
+  "action 21 (click): clicked screen 540,1052 -- the MAP button",
+  "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map",
+  "action 23 (wait): waited 1s",
+  "action 24 (click): clicked screen 339,590 -- the boarding house's marker, on its own roof below the loop road (errata 163)",
+  "action 25 (waitFor): reached {\"room\":\"boarding_house_parlour\"} in room boarding_house_parlour",
+  "action 26 (wait): waited 3s"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "mud_far",
+    "kind": "far",
+    "y": 661,
+    "xs": [
+     970,
+     743,
+     1198,
+     515,
+     1425,
+     288,
+     1653,
+     60,
+     1880
+    ],
+    "expect": 453,
+    "x": 970
+   },
+   "at": [
+    970,
+    661
+   ],
+   "reportedHeight": 453,
+   "expected": 453,
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
+   "bounds": [
+    730,
+    208,
+    480,
+    500
+   ],
+   "order": 0,
+   "renderedHeight": 453,
+   "renderedBottom": 660,
+   "file": "raw-captures-ignored/panel-c-mud_far-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 854,
+    "xs": [
+     970,
+     743,
+     1198,
+     515,
+     1425,
+     288,
+     1653,
+     60,
+     1880
+    ],
+    "expect": 586,
+    "x": 970
+   },
+   "at": [
+    970,
+    854
+   ],
+   "reportedHeight": 586,
+   "expected": 586,
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "bounds": [
+    659,
+    268,
+    621,
+    647
+   ],
+   "order": 0,
+   "renderedHeight": 586,
+   "renderedBottom": 853,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "boarding_a",
+   "feet": [
+    1679,
+    650
+   ],
+   "sheet": "art/actors/room-37-woman-a.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1599,
+    "y": 218,
+    "width": 161,
+    "height": 434
+   },
+   "seen": {
+    "x": 1616,
+    "y": 218,
+    "width": 144,
+    "height": 433,
+    "bottom": 650,
+    "right": 1759,
+    "changed": 35186
+   },
+   "props": []
+  },
+  {
+   "kind": "ambient",
+   "id": "boarding_b",
+   "feet": [
+    1801,
+    660
+   ],
+   "sheet": "art/actors/room-37-woman-b.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1744,
+    "y": 222,
+    "width": 114,
+    "height": 440
+   },
+   "seen": {
+    "x": 1745,
+    "y": 223,
+    "width": 109,
+    "height": 438,
+    "bottom": 660,
+    "right": 1853,
+    "changed": 32692
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "boarding_house_parlour",
+   "clock": 167.9846,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 521,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      -76,
+      239,
+      552,
+      575
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:boarding_house_parlour",
+     "path": "art/backgrounds/room-37-boarding-house-parlour.png",
+     "drawn": "art/backgrounds/room-37-boarding-house-parlour.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2db6ccf94de826a31831129a5c0aa7b994f55104c3ad1af9e5b970fe7edf7c5a"
+    },
+    {
+     "key": "art/actors/room-37-woman-a.png",
+     "path": "art/actors/room-37-woman-a.png",
+     "drawn": "art/actors/room-37-woman-a.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b7fa1fa4f71557aeea3f6cf03c70b2b22cb4b98ee1f5013384bb062f08f1e4d6"
+    },
+    {
+     "key": "art/actors/room-37-woman-b.png",
+     "path": "art/actors/room-37-woman-b.png",
+     "drawn": "art/actors/room-37-woman-b.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a9c23eb3a0908f23465c52d5583600b20262fc0d1773f95c31de7b83e151bec"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [],
+   "capturedAt": "2026-11-08T20:44:08.253Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "a021eb906f1b60f967d2712c5b0a26f4a2a3e54b431a9c3499f88601a27ec002"
+  },
+  {
+   "panel": "A",
+   "room": "boarding_house_parlour",
+   "clock": 168.9345,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars",
+    "watch"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 521,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:boarding_house_parlour",
+     "path": "art/backgrounds/room-37-boarding-house-parlour.png",
+     "drawn": "art/backgrounds/room-37-boarding-house-parlour.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2db6ccf94de826a31831129a5c0aa7b994f55104c3ad1af9e5b970fe7edf7c5a"
+    },
+    {
+     "key": "art/actors/room-37-woman-a.png",
+     "path": "art/actors/room-37-woman-a.png",
+     "drawn": "art/actors/room-37-woman-a.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b7fa1fa4f71557aeea3f6cf03c70b2b22cb4b98ee1f5013384bb062f08f1e4d6"
+    },
+    {
+     "key": "art/actors/room-37-woman-b.png",
+     "path": "art/actors/room-37-woman-b.png",
+     "drawn": "art/actors/room-37-woman-b.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "9a9c23eb3a0908f23465c52d5583600b20262fc0d1773f95c31de7b83e151bec"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-08T20:44:09.188Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "23f059280bbdc2db8791ecf3050ff6eca45b95b1b5ef6c915af44c64ff06863b"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-08T20:44:13.881Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 306608,
+  "panels": 4,
+  "scale": 0.5
+ }
+}

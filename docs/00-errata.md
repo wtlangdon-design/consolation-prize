@@ -5052,3 +5052,18 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
 - **E · THE SWEPT FLOOR** is floor, so it walks on a bare click.
 - **F · Sound.** Plank footsteps, and the Lane's distant piano at 0.4, as the other two shops off the Lane.
 
+**BUILT — ROOM 41, THE SCHOOLHOUSE (the builder, 2026-11-08).** `BUILDABLE WITHOUT INVENTION: YES`. room-41: 3 of 4 operations.
+
+- **A · The plan** (`tools/interiors-graybox.py 41`). Left to right: the door, with its coat hooks on the wall beside it; the clean window, the town's lights far off; the fourteen desks; the washed blackboard and its unopened chalk; the teacher's desk with the brass bell; the cold stove, its kindling laid, with a kettle and one cup. Nobody is in it. Moonlight, no lamp lit.
+- **B · The counts, and how they were kept.** Doc 105 counts the desks ("Fourteen desks") and the hooks ("Fourteen hooks. They counted.").
+  - Operation 1, the master, drew sixteen desks and five hooks, on a short band.
+  - The graybox was re-blocked to fourteen separate desk blocks and a hook rail. Operation 2, a second master shown the first, with both counts written into it, drew twenty-one desks and seven hooks, on a band still short.
+  - So the counted things were composed from the room's own pixels (doc 55 section 8: compose from what the operations made). Operation 3, the plate, took Thad and every desk out of master 02 and extended the picture to the whole canvas.
+  - `tools/art/room41-compose.py` cuts one desk from master 02 by subtraction against that plate. Its top and apron come whole; its legs and stretcher, too dark to subtract from the floor, are kept as solid posts. Fourteen copies are laid in two rows of seven, the back row 0.86 the size, each with a faint contact shadow.
+  - The rail of seven hooks is copied once beneath itself: fourteen hooks.
+  - `interiors-plate.mjs --source` derives the plate from the composed picture, leaving the operation's own output as the ledger hashed it.
+- **C · Scale.** Master 02 drew Thad about 315 tall, 398 in the plate at y 732, a desk 0.38 of him. The curve is 356 to 484: the room reads wider and farther off than the shops.
+- **D · THE DOOR** is the way back to the map, and a door with doc 105's own lines, not a stub. Its rect takes in the two rails of hooks.
+- **E · The design note.** Doc 07's "The schoolhouse was the third building Consolation put up…" is not said, by design: doc 07 says nothing in the game ever says it, and doc 105 that nothing here does either. It moves to the not-a-line group of `proofs/written-not-built.json`, and the `ancillary-interiors` group, now empty, is gone.
+- **F · Sound.** Plank footsteps, and the town's distant piano, very faint at 0.25.
+

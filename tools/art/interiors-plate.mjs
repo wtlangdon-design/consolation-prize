@@ -20,12 +20,15 @@ const cropArg = arg('--crop', null);
 const CROP = cropArg ? Object.fromEntries(['x', 'y', 'width', 'height'].map((k, i) => [k, Number(cropArg.split(',')[i])]))
   : { x: 8, y: Number(arg('--y', 170)), width: 1520, height: 684 };
 const attempt = Number(arg('--attempt', 2));
-const record = deriveFixedRoomPlate({ source: `${S}/source.png`, out: `${S}/candidate-1920x864.png`, crop: CROP });
+// --source <file>: derive from a composed picture beside the operation's own source (Room 41's counted desks and hooks,
+// tools/art/room41-compose.py), never by overwriting source.png, whose hash the ledger keeps.
+const SOURCE = `${S}/${arg('--source', 'source.png')}`;
+const record = deriveFixedRoomPlate({ source: SOURCE, out: `${S}/candidate-1920x864.png`, crop: CROP });
 const liftGain = arg('--lift', null);
 const lift = liftGain ? JSON.parse(execFileSync('python3', ['tools/art/plate-lift.py', `${S}/candidate-1920x864.png`,
   `${S}/candidate-1920x864.png`, liftGain], { encoding: 'utf8' })) : null;
 writeFileSync(`${S}/frame.json`, `${JSON.stringify({
-  source: `${S}/source.png`, crop: CROP, out: `${S}/candidate-1920x864.png`, derivation: record, ...(lift ? { lift } : {}),
+  source: SOURCE, crop: CROP, out: `${S}/candidate-1920x864.png`, derivation: record, ...(lift ? { lift } : {}),
   why: `Room ${n} takes a 20:9 crop of ${CROP.width} x ${CROP.height} from ${CROP.x},${CROP.y} (tools/art/interiors-plate.mjs).`,
 }, null, 1)}\n`);
 console.log('derived', record.derived.path, record.derived.hash.slice(0, 12));

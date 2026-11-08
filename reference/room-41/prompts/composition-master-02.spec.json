@@ -1,0 +1,17 @@
+{
+ "assetId": "room-41",
+ "subject": "room-41-schoolhouse",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-41-schoolhouse",
+ "promptFile": "reference/room-41/prompts/composition-master-02.txt",
+ "out": "art/staging/room-41/composition-master-02.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-41/layout-1536x1024.png",
+  "art/staging/room-41/composition-master-01.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ],
+ "derivedFrom": "art/staging/room-41/composition-master-01.png"
+}
