@@ -88,7 +88,7 @@ export interface ResponseRule {
   then?: SpokenLine[];
   /**
    * HIS PICTURE WHILE THE LINES ARE SAID (doc 48 S1 beat 4: "Thad on the porch, holding the deed wrong
-   * side up"; errata 194): a clip of his, the nth frame held over the nth line (`say` first, then
+   * side up"; errata 197): a clip of his, the nth frame held over the nth line (`say` first, then
    * each of `then`), the last held for any lines beyond.
    */
   holds?: { clip: string; frames: number[]; note?: string };
@@ -674,7 +674,7 @@ export interface AmbientFile {
    * it, so no two people on a street move on the same beat.
    */
   /**
-   * ANOTHER SHEET WHILE A CONDITION HOLDS (errata 194; Tyler, of the dinner: "is the guy he's with not looking
+   * ANOTHER SHEET WHILE A CONDITION HOLDS (errata 197; Tyler, of the dinner: "is the guy he's with not looking
    * at him at all?"): the first entry whose `when` holds replaces the sprite's sheet and frames (and whatever
    * else it names) for as long as it holds.
    */
@@ -1661,7 +1661,7 @@ export interface RoomFile {
        */
       approach?: boolean;
       /**
-       * HE SITS DOWN TO IT (doc 48 S1 beat 1, "Thad seated; the table laid absurdly well"; errata 194).
+       * HE SITS DOWN TO IT (doc 48 S1 beat 1, "Thad seated; the table laid absurdly well"; errata 197).
        * While `when` holds, he walks to this point instead, turns to `facing`, and takes the mover
        * state `state` (his seated clips) as the conversation opens; it is cleared when it ends.
        */

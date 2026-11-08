@@ -270,7 +270,7 @@
     "T_BORDERS_MOTT": true,
     "T_DINED": false
    },
-   "note": "Doc 48 S1 beat 1, 'Thad seated; the table laid absurdly well': for the dinner only, he walks to the chair at the table's free end and sits there, facing Fanshawe, until the conversation ends (errata 194; the state `dining`, tools/rig/cut-dinner.py). Drawn at `sitAt`, in from the table's end, so his forearms rest on the cloth (Tyler, 2026-11-08: \"sitting very awkwardly at the table with his hands out on nothing\").",
+   "note": "Doc 48 S1 beat 1, 'Thad seated; the table laid absurdly well': for the dinner only, he walks to the chair at the table's free end and sits there, facing Fanshawe, until the conversation ends (errata 197; the state `dining`, tools/rig/cut-dinner.py). Drawn at `sitAt`, in from the table's end, so his forearms rest on the cloth (Tyler, 2026-11-08: \"sitting very awkwardly at the table with his hands out on nothing\").",
    "sitAt": {
     "x": 1352,
     "y": 702
@@ -424,7 +424,7 @@
     "T_BORDERS_MOTT": true,
     "T_DINED": false
    },
-   "note": "The dinner's cloth to the floor (Tyler, 2026-11-08: \"Maybe you need the tablecloth to come all the way down and it can hide his legs completely?\"; errata 194). Its own prop standing on the carpet (y 722), so it is drawn in front of Thad seated at the table's end and behind him anywhere he walks; the table top (`dinner`) stays behind him. tools/art/room11-dinner-drape.py."
+   "note": "The dinner's cloth to the floor (Tyler, 2026-11-08: \"Maybe you need the tablecloth to come all the way down and it can hide his legs completely?\"; errata 197). Its own prop standing on the carpet (y 722), so it is drawn in front of Thad seated at the table's end and behind him anywhere he walks; the table top (`dinner`) stays behind him. tools/art/room11-dinner-drape.py."
   },
   {
    "id": "desk_bare",

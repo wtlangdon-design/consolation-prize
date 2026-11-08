@@ -5467,7 +5467,7 @@ function actedDirections() {
     const entry = { n: Number(n), class: kind, speaker, words, where };
     if (kind === 'A') {
       const figures = by.split(',').map((one) => one.trim()).filter(Boolean);
-      // ONE GROUP PER FIGURE when they act differently (errata 194: Grievance looks while her other self
+      // ONE GROUP PER FIGURE when they act differently (errata 197: Grievance looks while her other self
       // waits, then she is out): "0 0 2 3 ; 0 0 0 1", in the order the figures are named. Holds alike.
       const groups = frames.split(';').map((group) => group.split(/\s+/).filter(Boolean).map(Number));
       if (groups.length > 1 && groups.length !== figures.length) throw new Error(`doc 95 row ${n}: ${groups.length} frame groups for ${figures.length} figures`);

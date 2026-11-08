@@ -253,7 +253,7 @@ export function planBoot(bundle: ContentBundle, opening: string = bundle.manifes
     // belongs to draws the graybox and nothing says why.
     const sprites = [npc.sprite,
       ...Object.values(npc.placements ?? {}).map((placed) => placed.sprite),
-      // AND A SHEET DRAWN WHILE A CONDITION HOLDS (spriteWhen, errata 194): Fanshawe turned to his guest.
+      // AND A SHEET DRAWN WHILE A CONDITION HOLDS (spriteWhen, errata 197): Fanshawe turned to his guest.
       ...(npc.spriteWhen ?? []).map((variant) => variant.sprite.sheet ? { ...npc.sprite!, ...variant.sprite } : undefined)];
     for (const sprite of sprites) {
       if (!sprite) continue;

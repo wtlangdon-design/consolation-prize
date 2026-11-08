@@ -115,7 +115,7 @@ manifest = json.load(open(os.path.join(ROOT, 'content/manifest.json')))
 for p in manifest['ambient']:
     n = json.load(open(os.path.join(ROOT, p)))
     places = [(n['room'], n['x'], n['y'], n.get('sprite'))] + [(r, a.get('x', n['x']), a.get('y', n['y']), a.get('sprite') or n.get('sprite')) for r, a in (n.get('placements') or {}).items()]
-    # A sheet drawn while a condition holds (spriteWhen, errata 194) is his too, at his place.
+    # A sheet drawn while a condition holds (spriteWhen, errata 197) is his too, at his place.
     places += [(n['room'], n['x'], n['y'], {**(n.get('sprite') or {}), **v['sprite']}) for v in n.get('spriteWhen') or []]
     if n.get('exit', {}).get('sheet'):
         ex = n['exit']; places.append((n['room'], ex['path'][0][0], ex['path'][0][1], ex))

@@ -135,7 +135,7 @@ for (const roomId of built) {
     const drawn = one.sprite.figureHeight;
     const scale = drawn ? (man(one.x, one.y) * (one.sprite.stature ?? 1)) / drawn : 1;
     // Every pose, merged: a man is where any of his frames puts him -- EXCEPT a scenery figure's frames
-    // that only a combination's act shows (errata 194: Grievance walking out of her stall, which ends in
+    // that only a combination's act shows (errata 197: Grievance walking out of her stall, which ends in
     // the ride and another room). Nobody is talking then. Its rest, its breaks, and any frame an act in a
     // conversation gives it are measured as before.
     const actedOnlyOutside = one.npc.scenery ? new Set(acted

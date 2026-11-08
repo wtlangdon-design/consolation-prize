@@ -37,6 +37,8 @@ Ten new screens: one where the road gives out, four in the mine, five in the Gul
 | The grog tent | A plank across two barrels, a watch hanging from the ridgepole, and a fiddle nobody plays. | Where Vessel keeps the tent, under another name. |
 | Upstream | The head of the gulch: the best ground, claimed twice over and argued about. | A teacher's puzzle, and the camp's misery at its plainest. |
 
+**Room numbers (errata 195):** the washout 45; the mine 46 (the adit), 47 (the climb), 48 (the two rocks), 49 (the line); the ledge 50; the tents 51; the grog tent 52; the river 53; upstream 54.
+
 "Bar" is the miners' own word for a gravel bar in a river. The Gulch holds its Assay on the bar, which is the joke. The pun is in the place, not in a line.
 
 ## The people
@@ -121,9 +123,9 @@ Four screens between the washout and the ledge, each holding one clause of the s
 
 ## Open questions, for Tyler, none blocking
 
-1. New Assay pairs for G8, or two Tier 4 pairs moved out of Consolation.
-2. Vessel's name in the Gulch, proposed with the lines.
-3. Duel One's replay (VES_B1 option 3): cut, or a question about it.
-4. Music for the Gulch and the mine, under the detune.
-5. The image budget: about 40 to 44 operations, a cap Tyler sets.
+1. ~~New Assay pairs for G8, or two moved out of Consolation.~~ **Decided (left to the writer by Tyler, 2026-11-08): two new pairs, 25 and 26 (doc 109).**
+2. ~~Vessel's name in the Gulch.~~ **Decided: "the Deacon", and his mustache shaved off (doc 109).**
+3. ~~Duel One's replay.~~ **Decided: offered only in the Gulch, before G9 (doc 109).**
+4. ~~Music.~~ **Deferred by Tyler to the writer; set in doc 28 Part Three and doc 45 (errata 195).**
+5. ~~The image budget.~~ **Approved by Tyler, 44 operations (errata 195).**
 6. The puzzle count: 45 becomes 52 when the trip is built, and every place that says 45 is updated then.

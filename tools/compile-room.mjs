@@ -1418,7 +1418,7 @@ function transitBeat(spec) {
     ...(following.length ? { then: following } : {}),
     ...(spec.set ? { set: spec.set } : {}), ...(spec.stays ? { stays: true } : {}),
     // HIS PICTURE WHILE HE SAYS IT (doc 48 S1 beat 4, "holding the deed wrong side up"): a clip of his,
-    // one frame per line in order (errata 194).
+    // one frame per line in order (errata 197).
     ...(spec.holds ? { holds: spec.holds } : {}),
     sceneLine: `${spec.ref} · ${spec.bullet ?? `beat ${spec.row}`}` };
 }

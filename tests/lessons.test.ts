@@ -353,7 +353,7 @@ test('a figure with barks and no tree says them where the player stands to talk 
 
 /* ---- A prop in front of a figure paints only its objects over him ---------- */
 
-// Errata 194 (Tyler, of the dinner: "the other guy's shoulder is partially missing behind the candle"). A prop
+// Errata 197 (Tyler, of the dinner: "the other guy's shoulder is partially missing behind the candle"). A prop
 // cut from a plate keeps the plate's own pixels around its objects -- the wall lit by the candles -- and drawn
 // in front of the man behind it, that wall cut his shoulders away. Where a prop overlaps a figure drawn behind
 // it, its pixels must be its objects: no more than a handful may be the plate itself (within 75, and dark).

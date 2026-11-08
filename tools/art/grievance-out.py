@@ -1,4 +1,4 @@
-"""Grievance walks out of her stall (doc 54 B3: "Then she walks out of her stall"; errata 194).
+"""Grievance walks out of her stall (doc 54 B3: "Then she walks out of her stall"; errata 197).
 
 Room-15 attempt 6 (reference/unacted-moments/grievance-prompt-01.txt) drew the half door swung open and
 her two strides side-on, walking left; her front pose, whole, is her canonical sheet's (attempt 4). This

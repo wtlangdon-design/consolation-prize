@@ -260,9 +260,9 @@ export class GameScene extends Phaser.Scene {
   private actWalking = false;
   /** His frame while a line of a rule that `holds` is up (ResponseRule.holds). */
   private spokenPose: HeldPose | null = null;
-  /** Frames an acted beat left held, kept until the queued lines are over (doc 95 Holds; errata 194). */
+  /** Frames an acted beat left held, kept until the queued lines are over (doc 95 Holds; errata 197). */
   private lingering: HeldPose[] | null = null;
-  /** The accost's seat he is walking to, and the state he is in once he sits (errata 194). */
+  /** The accost's seat he is walking to, and the state he is in once he sits (errata 197). */
   private seatedState: string | null = null;
   /** Where he stood before he was set down at the table, and goes back to when he rises. */
   private seatedFrom: { x: number; y: number } | null = null;
@@ -312,7 +312,7 @@ export class GameScene extends Phaser.Scene {
   private pendingTree: {
     tree: string; at: { x: number; y: number }; greeted: boolean;
     /**
-     * The accost's chair (errata 194): taken as this conversation opens. It belongs to the conversation, so
+     * The accost's chair (errata 197): taken as this conversation opens. It belongs to the conversation, so
      * a click that cancels it, or leaving the room, drops the seat with it (Codex on #279: a stale seat
      * had sat him down at the next conversation, wherever it was).
      */
@@ -854,7 +854,7 @@ export class GameScene extends Phaser.Scene {
         } else {
           this.actor.faceToward(at.x, at.y);
         }
-        // AND SITS, when the accost gave him a chair (errata 194): his seated clips until it ends.
+        // AND SITS, when the accost gave him a chair (errata 197): his seated clips until it ends.
         const seatDue = this.pendingTree.seat;
         if (seatDue) {
           // ON THE CHAIR AT THE TABLE'S END (Tyler, 2026-11-08: "his hands out on nothing"): set down where
@@ -935,7 +935,7 @@ export class GameScene extends Phaser.Scene {
     // 143): the sentence line names what is under it now, not what it named
     // before the conversation opened, and not nothing until the pointer moves.
     const talking = this.conversationOpen();
-    // THE DINNER IS OVER: he stands from the chair as the conversation closes (errata 194).
+    // THE DINNER IS OVER: he stands from the chair as the conversation closes (errata 197).
     if (this.wasTalking && !talking && this.seatedState !== null) {
       if (this.state.moverState(this.actor.id) === this.seatedState) this.state.setMoverState(this.actor.id, undefined);
       this.seatedState = null;
@@ -2959,7 +2959,7 @@ export class GameScene extends Phaser.Scene {
       this.setSay(null);
       this.sayingActor = next.speaker;
       this.queuedPoses = next.poses ?? null;
-      // AND WHAT IT LEAVES HELD (doc 95 Holds): Grievance out of her stall through "Twelve years." (errata 194).
+      // AND WHAT IT LEAVES HELD (doc 95 Holds): Grievance out of her stall through "Twelve years." (errata 197).
       if (next.holdsAfter) this.lingering = next.holdsAfter;
       this.sayUntil = this.time.now / 1000 + (next.rest ?? 0);
       // HE RETREATS (ActStep.walk): to the hotspot's own stand, and the beat holds until he is there.

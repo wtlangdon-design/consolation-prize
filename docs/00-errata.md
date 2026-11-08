@@ -5330,7 +5330,71 @@ Lesson: a person's TALK TO is only staged like a tree's if a test walks it (the 
   - The boundary men's and the message boy's Pike answers say "Down the lane". From the claim row the Lane is back down in town. In the Lane, it is the lane the boy is standing in.
   - Doc 57 C3's funeral-day line says "The street is half empty". Errata 189 counted eight townspeople on the street and sent four up the hill. Now there are four, counting the dog's owner once he has come out of the alley, and only the pie woman goes.
 
-# 194 · FIVE WRITTEN MOMENTS, ACTED; AND SOWERBY AT HIS SIZE — TYLER, 2026-11-08 (reference/unacted-moments/brief.md; "he looks enormous behind the podium")
+# 194 · FIDDLER'S GULCH: THE REST OF THE LINES — TYLER, 2026-11-08 ("I like the Gulch sample. Proceed.")
+
+*Tyler ruled on the sample (doc 108, errata 191) and told the writing to go on. This is the rest of the Gulch's lines, under the eighth writing exception. Errata 191's sample-first condition is met.*
+
+- **The lines are `docs/109-fiddlers-gulch-lines.md`:**
+  - the ledge and the five Gulch screens, every subject and way;
+  - the lookout, the rule-keeper, the panner and the man upstream: their trees and barks;
+  - Vessel before he is found (as the Deacon), the find (G4), and his VES_B1 in the Gulch;
+  - G5's fiddle, G3's Clarion, G6, Duel One's staging on the bar with the rule-keeper's five wrong rules, and G9;
+  - the ride home and Vessel's new greeting in Room 4;
+  - the changes in Consolation: A9's third copy, G1's rod hire in Room 16, B1's Clarion edition, and their three items.
+- **Lines that exist elsewhere are named, not retyped:** doc 03's Duel One opening, exchanges, notebook lines and loss dialogue, and doc 04's VES_B1.
+- **Tyler left doc 107's open questions 1 to 3 to the writer** (2026-11-08: "I'll leave it all up to you!"):
+  - Vessel's Gulch name is "the Deacon", his own name, which Deke is short for. His Gulch figure has shaved off the mustache, so Thad doesn't know him on sight. G4 needs both.
+  - G8 teaches two new pairs, 25 and 26, which Thad learns by carrying boasts between the panner and the man upstream. Each has three wrong answers. They join Duel Two's pool, which still needs fourteen.
+  - Duel One's replay (VES_B1 option 3) is offered only in the Gulch, before G9.
+- **Still open, and Tyler's:** music for the Gulch and the mine, and the image cap for the Gulch in `art/staging/caps.json`, which changes only on his instruction.
+- **Nothing is built.** The lines move into their home documents and are extracted when the trip is built. The art waits for a cap Tyler sets in `art/staging/caps.json`.
+
+# 195 · FIDDLER'S GULCH: THE ART BUDGET, THE MUSIC, AND THE ROOM NUMBERS — TYLER, 2026-11-08 ("Art budget approved and I defer to you on music")
+
+- **Room numbers:**
+  - the washout 45;
+  - the mine 46 to 49 (the adit, the climb, the two rocks, the line);
+  - the ledge 50;
+  - the tents 51;
+  - the grog tent 52;
+  - the river 53;
+  - upstream 54.
+
+  Doc 107 lists them.
+- **The art budget: 44 image operations.** This is the top of the design's estimate.
+  - `art/staging/caps.json` gives rooms 45 to 54 four operations each, under errata 72's rule (the plate and any figures).
+  - `gulch-vessel` gets two operations, for Vessel redrawn clean-shaven (doc 109).
+  - `gulch-reserve` gets two, for corrections to any Gulch subject.
+  - `attemptsTotal` goes from 362 to 406. It was edited on Tyler's instruction, with its history kept.
+- **The music** is set in doc 28 Part Three and doc 45, "Rooms 45–54", within doc 28's four instruments and its two silences:
+  - The washout has THADDEUS, solo fiddle, the road out as Room 1 is the road in.
+  - The mine has CONSOLATION on harmonica alone, far off: the town he has left. It is one mix and one bed, identical in all four rooms and carried across them unbroken. No passage, no junction and no USE of the rod makes a sound, so nothing in the mine is found by ear (doc 107).
+  - The ledge and the Gulch have CONSOLATION in the minor, on jaw harp and harmonica. There is no piano, because the camp has none, and no fiddle, because nobody in Fiddler's Gulch plays one. The grog tent hears that mix through canvas.
+  - Duel One on the bar has THE ASSAY on jaw harp alone.
+  - The rule-keeper's bad fiddling is a one-shot sound effect, not a theme.
+  - Three new stems are needed. Everything else reuses existing files. Nothing is rendered until the rooms are built.
+- **The builder's brief is `reference/fiddlers-gulch/brief.md`.** It covers the ten rooms, the figures, what the engine needs, and the order of the build. It also asks for a check that fails if the mine's four rooms differ in sound.
+
+# 196 · THE LINES THE MOVE MADE UNTRUE — TYLER, 2026-11-08 ("Yes")
+
+*Errata 193 moved four townspeople off Main Street. The builder found that five lines had become untrue, and Tyler approved rewording them. They are rewritten in their documents and re-extracted.*
+
+- **The claim row's path, LISTEN 1** (doc 08):
+  - was: "Nothing. Nobody comes up here."
+  - now: "Nobody walks it now but me, and the two who argue at the near end."
+
+  LISTEN 2, "My own boots on it, and nobody else's.", stays: the boundary men stand, they don't walk.
+- **The boundary men's Pike answer** (doc 07 §2–3). From the claim row the Lane is back in town:
+  - "Down the lane." is now "In town. On the Lane.";
+  - its repeat is now "Undertaker. On the Lane. And don't ask him about the pine."
+- **The message boy's Pike answer** (doc 07 §5). He stands in the Lane, so "Undertaker. Down the lane. No rush." is now "Undertaker. Right there. No rush."
+- **Main Street on the funeral day** (doc 57 C3). Only the pie woman leaves the street now, so "The street is half empty." is now "The street's quieter than usual." The rest of the line stands.
+- **Not changed:**
+  - The claim row's markers still answer LISTEN with silence, which is true.
+  - The letter-writer's and the boundary men's figures overlap the edges of a doorway's and two posts' click areas, and both stay clickable.
+- **The lesson** is a row in doc 55 §8. When a figure moves rooms, read its own lines for where they assume it stands. Read every line in the new room and the old one for who they assume is there.
+
+# 197 · FIVE WRITTEN MOMENTS, ACTED; AND SOWERBY AT HIS SIZE — TYLER, 2026-11-08 (reference/unacted-moments/brief.md; "he looks enormous behind the podium")
 
 *Errata 189's five unacted moments, built from the brief. Nothing new is written: every line and direction is the documents'. Three image operations were spent: room-11's last, which its cap allowed, then one each for room-15 and room-11 that Tyler approved. Tyler approves the two sounds by ear (errata 102).*
 

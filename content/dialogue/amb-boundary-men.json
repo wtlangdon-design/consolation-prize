@@ -90,13 +90,13 @@
             },
             {
               "speaker": "boundary_b",
-              "line": "Down the lane."
+              "line": "In town. On the Lane."
             }
           ],
           "when": {
             "T_PIKE_DEAD": false
           },
-          "repeat": "Undertaker. Down the lane. And don't ask him about the pine."
+          "repeat": "Undertaker. On the Lane. And don't ask him about the pine."
         },
         {
           "id": "boundary4",
