@@ -18,12 +18,15 @@
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "I'm looking for a man named Ezra Pike." | `[PROGRESS]` | *(He puts down what he is holding.)* "Eighteen fifty-two." — *"I'm sorry?"* — "Eighteen fifty-two. He's up the hill." |
-| 2 | "Up the hill?" | `[PROGRESS]` · after 1 | "Boot Hill. Third row, second from the end. He's got a marker." → **`T_PIKE_DEAD`**, Boot Hill on the map |
-| 3 | "What did he die of?" | `[TOPIC]` · after 1 | "Nothing interesting." |
-| 4 | "I had a letter for him." | `[TOPIC]` · after 1 | "You still have a letter for him." |
+| 1 | "I'm looking for a man named Ezra Pike." | `[PROGRESS]` | *(He puts down what he is holding.)* "Eighteen fifty-two." — *"I'm sorry?"* — "Eighteen fifty-two. He's up the hill." *(again)* "Eighteen fifty-two. He hasn't moved." |
+| 2 | "Up the hill?" | `[PROGRESS]` · after 1 | "Boot Hill. Third row, second from the end. He's got a marker." *(again)* "Third row. Second from the end. Still." → **`T_PIKE_DEAD`**, Boot Hill on the map |
+| 3 | "What did he die of?" | `[TOPIC]` · after 1 | "Nothing interesting." *(again)* "Still nothing interesting. Most of them are." |
+| 4 | "I had a letter for him." | `[TOPIC]` · after 1 | "You still have a letter for him." *(again)* "Keep it. Paper's dear out here." |
+| 7 | "Everybody in town sent me to you." | `[TOPIC]` · after 2 | "They would." *(beat)* "I'm the one who says it." *(again)* "That's how this town says it. It sends you to me." |
 | 5 | "Do you know everybody?" | `[COMIC]` | "I know everybody who's finished." |
 | 6 | `[EXIT]` "Thank you." | | "Mm." |
+
+*Errata 172, doc 99's rewrite: asked-again answers throughout. Option 7 is the payoff of the town's Pike thread (doc 98): everybody sent Thad here because the undertaker is the only person who says it.*
 
 **Act III:** the same root and the same indifference. He is the only person in Consolation who finds nothing strange about a living man arranging his own funeral, and he does not remark on it.
 
@@ -38,12 +41,15 @@
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "It's Grubb." | `[TOPIC]` | "It's as given." |
-| 2 | "I'd like a room." | `[PROGRESS]` | "Five dollars." |
-| 3 | "I have four." | `[PROGRESS]` · after 2 | "Then you have four dollars and no room. Those are compatible." |
-| 4 | "Your piano is out of tune." | `[PROGRESS]` · after 3 | "It is." — *"I could put it right."* — *(pause)* "For a room?" — *"For a room."* — *(He turns the register round.)* "Nineteen." → opens the A2 combination |
+| 1 | "It's Grubb." | `[TOPIC]` | "It's as given." *(again)* "As given, Mr. Grubbe. The register doesn't take corrections. It takes guests." |
+| 7 | "Is this your hotel?" | `[TOPIC]` | "The register is mine. The building is a formality." *(again)* "The register, Mr. Grubbe. Everything else is furniture." |
+| 2 | "I'd like a room." | `[PROGRESS]` | "Five dollars." *(again)* "Still five. The price doesn't have feelings either." |
+| 3 | "I have four." | `[PROGRESS]` · after 2 | "Then you have four dollars and no room. Those are compatible." *(again)* "Four dollars, no room. Still compatible." |
+| 4 | "Your piano is out of tune." | `[PROGRESS]` · after 3 | "It is." — *"I could put it right."* — *(pause)* "For a room?" — *"For a room."* — *(He turns the register round.)* "Nineteen." *(again)* "The piano first, Mr. Grubbe. Then nineteen." → opens the A2 combination |
 | 5 | "Is there anything cheaper?" | `[COMIC]` · after 2 | "There is the road." |
 | 6 | `[EXIT]` "I'll think about it." | | "Mr. Grubbe." |
+
+*Errata 172: asked-again answers throughout. Option 7 gives him his point of view (doc 99): the register is his, and the building is only where it's kept.*
 
 **Option 4 does not complete the puzzle.** It grants permission. The fork on the parlour piano is what earns the room, per doc 24's A2 pair.
 

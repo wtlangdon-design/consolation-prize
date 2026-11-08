@@ -4287,6 +4287,11 @@ function fanshaweTree() {
       const set = { ...Object.fromEntries(sets.map((f) => [f, true])), ...(route.set ?? {}) };
       if (Object.keys(set).length) option.set = set;
       if (counter) option.add = { [counter[1]]: 1 };
+      // Gates (errata 172): `req FLAG` while it holds, `unless FLAG` while it does not.
+      const reqFlag = /req `([A-Z_0-9]+)`/.exec(state);
+      const unlessFlag = /unless `([A-Z_0-9]+)`/.exec(state);
+      if (reqFlag) option.when = { ...option.when, [reqFlag[1]]: true };
+      if (unlessFlag) option.when = { ...option.when, [unlessFlag[1]]: false };
       if (route.goto) option.goto = route.goto;
       if (route.gives) option.gives = route.gives;
       if (route.puzzle) option.puzzle = route.puzzle;

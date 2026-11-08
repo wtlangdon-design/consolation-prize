@@ -39,18 +39,28 @@
           "id": "hotel_clerk1",
           "text": "It's Grubb.",
           "tag": "TOPIC",
+          "repeat": "As given, Mr. Grubbe. The register doesn't take corrections. It takes guests.",
           "say": "It's as given."
+        },
+        {
+          "id": "hotel_clerk7",
+          "text": "Is this your hotel?",
+          "tag": "TOPIC",
+          "repeat": "The register, Mr. Grubbe. Everything else is furniture.",
+          "say": "The register is mine. The building is a formality."
         },
         {
           "id": "hotel_clerk2",
           "text": "I'd like a room.",
           "tag": "PROGRESS",
+          "repeat": "Still five. The price doesn't have feelings either.",
           "say": "Five dollars."
         },
         {
           "id": "hotel_clerk3",
           "text": "I have four.",
           "tag": "PROGRESS",
+          "repeat": "Four dollars, no room. Still compatible.",
           "after": [
             "hotel_clerk2"
           ],
@@ -60,6 +70,7 @@
           "id": "hotel_clerk4",
           "text": "Your piano is out of tune.",
           "tag": "PROGRESS",
+          "repeat": "The piano first, Mr. Grubbe. Then nineteen.",
           "after": [
             "hotel_clerk3"
           ],

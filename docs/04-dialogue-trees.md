@@ -244,10 +244,13 @@ FAN_A1's opening assumes Thad has been sold something. Until `T_SWINDLED`, TALK 
 
 | # | Option | Tag | Response |
 |---|---|---|---|
-| 1 | "I'm looking for Ezra Pike." | `[TOPIC · retain]` | "Dear Ezra. He has moved somewhere very quiet. The undertaker keeps his address." |
-| 2 | "I don't want a claim." | `[TOPIC · retain]` | "Nobody does on the first day. On the second they've bought one, and on the third they come to me. I'll keep the chair warm." |
-| 3 | "I have four dollars." | `[TOPIC · retain]` | "Then you are the best-capitalized man to arrive this week, and I congratulate you, and I would keep a hand on them in the Nugget." *(He knows exactly who is in the Nugget.)* |
+| 1 | "I'm looking for Ezra Pike." | `[TOPIC · retain]` | "Dear Ezra. He has moved somewhere very quiet. The undertaker keeps his address." *(second)* "Very quiet, very settled. The undertaker will tell you all about the neighbourhood." → unless `T_PIKE_DEAD` |
+| 5 | "You knew Pike was dead." | `[TOPIC · retain]` | "Knew it, Mr. Grubb? I sent flowers. I send flowers to everyone. It's cheaper than knowing them." *(second)* "Flowers. Every time. You'll get some yourself one day." → req `T_PIKE_DEAD` |
+| 2 | "I don't want a claim." | `[TOPIC · retain]` | "Nobody does on the first day. On the second they've bought one, and on the third they come to me. I'll keep the chair warm." *(second)* "Of course not. The chair is warm, whenever you're ready." |
+| 3 | "I have four dollars." | `[TOPIC · retain]` | "Then you are the best-capitalized man to arrive this week, and I congratulate you, and I would keep a hand on them in the Nugget." *(He knows exactly who is in the Nugget.)* *(second)* "Still four? Splendid. Both hands, Mr. Grubb. Both hands." |
 | 4 | "Is it always this warm in here?" | `[COMIC · retain]` | "Always. I keep a fire in every season. Warm men are generous men, Mr. Grubb, and so are warm offices." |
+
+*Errata 172, doc 99's rewrite: second answers for FAN_A0's questions; the Pike question only while Thad doesn't know, and "You knew Pike was dead." after. In FAN_A1, option 5 is the greedy question doc 99 rule 3 asks for. Fanshawe never refuses it; he sells it back to him. Neither changes the Fanshawe Rule ledger: nothing is received or given up in either.*
 
 ## ACT I — Root: `FAN_A1`
 
@@ -261,6 +264,7 @@ FAN_A1's opening assumes Thad has been sold something. Until `T_SWINDLED`, TALK 
 | 2 | "I'd rather not say." | `[PROGRESS · remove]` | "Very wise. Very wise indeed." *(He gives the map anyway. It has Claim Two circled.)* | Same outcome — **there is no way to withhold it, and the player will not notice until Act III** |
 | 3 | "Were you really a colonel?" | `[TOPIC · remove]` | "Chapultepec, '47. Terrible business. Wonderful weather." | `WAR_CONTRADICTIONS` +1 |
 | 4 | "You have a great many chairs." | `[COMIC · retain]` | "I do! I have found that a man will tell you anything if you sit him down. It's the standing ones you want to watch." | — |
+| 5 | "Is there gold under Prosperity?" | `[TOPIC · retain]` | "There is gold under everything in Consolation, Mr. Grubb. It is simply a question of depth, patience and paperwork." *(beat)* "I sell all three." *(second)* "Depth, patience and paperwork. My door is open for all three." | — |
 
 ## THE WAR — five contradictions
 
