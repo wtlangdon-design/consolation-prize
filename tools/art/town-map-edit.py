@@ -30,7 +30,7 @@ the map's Thad walks (content/rooms/town-map.json) stay where they are.
   python3 tools/art/town-map-edit.py prepare-town --attempt N
       THE SQUARE'S L (errata 163 A4): writes art/staging/town-map/town-0N/input.png,
       the shipping map's town, TOWN_REGION at 1:1, drawn up 2x to 1536 x 1024.
-  python3 tools/art/town-map-edit.py promote-town --attempt N [--write]
+  python3 tools/art/town-map-edit.py promote-town --attempt N [--image F] [--write]
       takes the edit back down 2x and pastes only TOWN_PASTE (Main Street, its
       square and the Lane) over the shipping map, so nothing else moves.
   python3 tools/art/town-map-edit.py promote --attempt N [--write]
@@ -74,9 +74,10 @@ def prepare_town(n):
     print(os.path.relpath(os.path.join(out, 'input.png'), ROOT))
 
 
-def promote_town(n, write):
+def promote_town(n, write, image='source.png'):
     x, y, w, h = TOWN_REGION
-    edited = Image.open(os.path.join(town_stage(n), 'source.png')).convert('RGB').resize((w, h), Image.BOX)
+    # --image: another picture in the attempt's folder, e.g. town-03's merged.png (tools/art/town-map-l-merge.py).
+    edited = Image.open(os.path.join(town_stage(n), image)).convert('RGB').resize((w, h), Image.BOX)
     base = Image.open(MAP).convert('RGB')
     px, py, pw, ph = TOWN_PASTE
     before = np.asarray(base.crop((x, y, x + w, y + h))).astype(float)
@@ -213,7 +214,8 @@ if __name__ == '__main__':
     elif sys.argv[1:2] == ['prepare-town']:
         prepare_town(int(sys.argv[sys.argv.index('--attempt') + 1]))
     elif sys.argv[1:2] == ['promote-town']:
-        promote_town(int(sys.argv[sys.argv.index('--attempt') + 1]), '--write' in sys.argv)
+        promote_town(int(sys.argv[sys.argv.index('--attempt') + 1]), '--write' in sys.argv,
+                     sys.argv[sys.argv.index('--image') + 1] if '--image' in sys.argv else 'source.png')
     elif sys.argv[1:2] == ['prepare-pass']:
         prepare_pass(int(sys.argv[sys.argv.index('--attempt') + 1]))
     elif sys.argv[1:2] == ['promote-redraw']:

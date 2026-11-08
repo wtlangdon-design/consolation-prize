@@ -1,0 +1,14 @@
+{
+ "assetId": "town-map",
+ "subject": "room-00-town-map",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-00-town-map",
+ "promptFile": "reference/town-map/prompts/town-02.txt",
+ "out": "art/staging/town-map/town-02/source.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/town-map/town-02/input.png",
+  "art/backgrounds/room-02-main-street.png"
+ ]
+}

@@ -4,7 +4,8 @@
 // global baseline BEFORE the call, transmits every required baseline reference, and records
 // the row in art/staging/ledger.json whatever the result.
 // usage: NODE_USE_ENV_PROXY=1 node tools/art/room-op.mjs <spec.json>
-// spec: { assetId, subject, role, purpose, baselineRoom, promptFile, out, size, images: [...], derivedFrom? }
+// spec: { assetId, subject, role, purpose, baselineRoom, promptFile, out, size, images: [...], derivedFrom?, mask? }
+// mask: a PNG the size of images[0], transparent where the edit may paint (the edits endpoint's own mask).
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, basename } from 'node:path';
 
@@ -35,6 +36,12 @@ for (const p of images) {
 // survives on the way back through the proxy: two unstreamed calls on 2026-11-01 came
 // back 502 at 30.7 s with no image (doc 36 Q148). Partial-image events keep the
 // response moving; the operation is the same one, and only the completed image is kept.
+let maskRef = null;
+if (spec.mask) {
+  const bytes = readFileSync(resolve(R, spec.mask));
+  maskRef = { path: spec.mask, hash: I.sha256(bytes) };
+  form.append('mask', new Blob([bytes], { type: 'image/png' }), basename(spec.mask));
+}
 form.append('stream', 'true');
 form.append('partial_images', '2');
 const res = await fetch('https://api.openai.com/v1/images/edits', { method: 'POST', body: form });
@@ -68,7 +75,7 @@ const row = S.record({ assetId: spec.assetId, subject: spec.subject, role: spec.
   baseline: { room: spec.baselineRoom, purpose: spec.purpose, visualType: base.visualType,
     ...(base.pendingAcknowledged ? { pendingAcknowledged: base.pendingAcknowledged } : {}),
     slots: base.references.map((r) => ({ slot: r.slot, role: r.role, path: r.path, hash: r.hash, transmitted: true })) },
-  mask: null, sourceHash: references[0]?.hash ?? null, sourcePath: references[0]?.path ?? null,
+  mask: maskRef, sourceHash: references[0]?.hash ?? null, sourcePath: references[0]?.path ?? null,
   out: spec.out, outputHash: I.sha256(bytes), bytes: bytes.length, usage: json.usage ?? null,
   revisedPrompt: json.data[0].revised_prompt ?? null, at: new Date().toISOString(),
   auth: 'environment network secret attached by the agent proxy; no key in the session',
