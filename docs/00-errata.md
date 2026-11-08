@@ -4547,15 +4547,6 @@ He answered **"That all sounds good"** to one more pass: a pass at the top with 
   - There is no text.
 - The builder re-places the markers and the roads, and adds the pass and the coach stop.
 
-**A3 · The mountain pass.** Tyler, after the night map landed: **"at the beginning of the game I clearly walk out of a mountain pass into town. That's noticeable."** The builder read every exterior plate against the map:
-- Room 1's coach stop is a mountain road above the town's lamps, and Thad arrives at Main Street's east end.
-- Every plate shows a valley ringed by mountains.
-- The claims road, Boot Hill, the high ridge, the creek, the laundry and Mott's site all agree with the map.
-- The map had no pass, no coach stop and no ring of mountains, and its one road out ran west, where nobody goes.
-- One thing cannot be squared: Main Street's plate shows a tall steeple behind its west half, while the church Thad walks to is on Lower Street, east. The map follows the walking layout.
-
-He answered **"That all sounds good"** to one more pass: a pass at the top with the coach road and the coach stop down to the square's east end, mountains on the north and west, and the west road removed. The cap rises to 5, the pass and a correction (attemptsTotal 307 → 308). The brief's third part covers it.
-
 **A4 · The square's L.** Tyler, of the pass map (PR 237): **"a glaring difference is that the main square is in a very distinct L shape, which the map fails to incorporate."** Main Street's plate shows the long row along the back of the square, with the Nugget, the hotel and the assay office coming forward down its east side, and the road leaving past the assay office. Asked to raise the cap by 2, he chose **"Yes, +2 (Recommended)"** (town-map 7; attemptsTotal +2). It is one edit of the town only, pasted back so the rest of the map keeps its place (`tools/art/town-map-edit.py prepare-town` / `promote-town`). The brief's fourth part covers it.
 
 **A4 · The art (the image session, 2026-11-08).** Operations 6 to 9; the cap was raised to 9 and is spent.
