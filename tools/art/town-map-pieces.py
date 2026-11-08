@@ -17,6 +17,12 @@ magenta, and this places them where reference/town-map/town-plan.json says, read
       arm's ground is refilled (inpainted from the light around it, with the square's own mud texture laid
       over), the pieces are set back exactly as the assembly placed them, and the plan's cleared Lane box is
       put back. No image operation.
+  python3 tools/art/town-map-pieces.py lane [--write]
+      ONLY the plan's Lane clear (its second `clear` box) on the shipping map: the Lane's westmost shopfront
+      becomes the grass and fence beside it, so the Lane has five with the tent third. Tyler, 2026-11-08, of
+      the settled east arm: "It doesn't look great"; he chose to keep the L map's east arm and fix the Lane only.
+      Idempotent: the patch comes from the unchanged ground to its left. Writes art/staging/town-map/lane.png,
+      and with --write the shipping map.
       takes the finishing pass's source.png back down 2x and pastes ONLY the finish boxes over the assembly,
       so nothing outside them moves; writes candidate.png beside it, and with --write the shipping map.
 """
@@ -164,10 +170,28 @@ def settle(n, write, pass_dir='finish'):
         print('promoted', os.path.relpath(MAP, ROOT))
 
 
+def lane(write):
+    plan = json.load(open(PLAN))
+    a = np.asarray(Image.open(MAP).convert('RGB')).copy()
+    c = plan['clear'][1]
+    x, y, w, h = c['box']
+    fx, fy, fw, fh = c['from']
+    a[y:y + h, x:x + w] = a[fy:fy + fh, fx:fx + fw]
+    img = Image.fromarray(a)
+    out = os.path.join(ROOT, 'art/staging/town-map/lane.png')
+    img.save(out)
+    print(os.path.relpath(out, ROOT))
+    if write:
+        img.save(MAP)
+        print('promoted', os.path.relpath(MAP, ROOT))
+
+
 if __name__ == '__main__':
     n = int(sys.argv[sys.argv.index('--attempt') + 1]) if '--attempt' in sys.argv else 1
     if sys.argv[1:2] == ['assemble']:
         assemble(n, sys.argv[sys.argv.index('--sheet') + 1] if '--sheet' in sys.argv else None)
+    elif sys.argv[1:2] == ['lane']:
+        lane('--write' in sys.argv)
     elif sys.argv[1:2] == ['settle']:
         settle(n, '--write' in sys.argv, sys.argv[sys.argv.index('--pass') + 1] if '--pass' in sys.argv else 'finish')
     elif sys.argv[1:2] == ['finish']:
