@@ -313,6 +313,12 @@
    "date": "2026-11-07",
    "kind": "reviewed",
    "why": "Errata 172 gave nearly every question an asked-again answer, and the walk counted each option's selections up to its last repeat, so Frame's root and Vessel's ran past the 4000-state cap. TUNED, not loosened: the cap stands; an option's count is now distinguished only for a counted-repeat, because an asked-again answer changes what is said and never what is offered, which is all this walk checks. The whole file now runs in 11 s, down from 14."
+  },
+  {
+   "check": "tests/dialogue-reveal.test.ts",
+   "date": "2026-11-07",
+   "kind": "loosened",
+   "why": "Errata 172: the per-option count cap. Options with asked-again answers were counted up to their last repeat, which multiplied Frame's and Vessel's roots past the state cap; they are now counted only as taken or not, since a repeat changes the words and never the list. A counted-repeat is counted as before. See the reviewed entry the same day."
   }
  ]
 }
