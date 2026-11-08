@@ -5133,3 +5133,22 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
 - **The camp is in daylight.** Tyler asked whether Thad needs to sleep in the cave to justify the time change. He doesn't. The two days each way pass on the ride over black, as B3's ride does today (errata 88 E), so nobody sleeps on screen, and the mine has no daylight to read the time by. Time of day stays an authored visual state (errata 64d).
 - **One of the design's open questions was already settled.** B1 always comes before the trip: B3 refuses until `T_VESSEL_LOCATION` is set, and only B1 sets it. G3 works with either of the stories B1 prints, because both say Thad's claim is worth nothing.
 - **This ruling grants no writing exception and no image operations.** Approving the design is not permission to write its lines. They wait for Tyler to grant an exception, which is recorded in its own entry and in CLAUDE.md. Its art waits for a cap he sets in `art/staging/caps.json`.
+
+# 191 · THE GULCH'S LINES, SAMPLE FIRST: THE WASHOUT AND THE MINE — TYLER, 2026-11-08 ("Yes")
+
+*After approving the design (errata 190), Tyler was asked whether to write its lines. The proposal was to write the washout and the four mine screens first, as a sample, with nothing else written until he had ruled on them. He answered "Yes". This is the eighth writing exception.*
+
+- **The exception.** It covers the lines Fiddler's Gulch needs (doc 107), in /docs, in one voice, under doc 59 and doc 99.
+  - **It goes sample first.** The sample is `docs/108-the-washout-and-the-mine.md`. **Nothing else of the Gulch is written until Tyler has ruled on it.**
+  - No new boast/counter pair is written until he answers doc 107's open question 1.
+  - It touches no invariant, no load-bearing line, and no puzzle outside G1 to G9.
+- **The sample** is the washout and the four mine screens:
+  - B3's ride line, which replaces doc 57's when the trip is built;
+  - the washout's five subjects, including Grievance;
+  - the mine's arrival line and its back-where-he-started run;
+  - the wrong answers for the rod and the fork;
+  - every subject and way in the adit, the climb, the two rocks and the line;
+  - the rod at the line.
+- **No two passages that form a choice differ in what LISTEN says.** The listening stays special (doc 107).
+- **One correction to errata 190.** Errata 190 said the mine has no daylight to read the time by. The sample lights the mine with old shafts to the surface, so it is the same day inside. Doc 107 now says so.
+- **Not built, and nothing to build yet.** The lines wait for Tyler's ruling and for the art. The art waits for a cap he sets in `art/staging/caps.json`. Doc 108 is not read by any extractor until the Gulch is built.
