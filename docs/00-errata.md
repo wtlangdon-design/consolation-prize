@@ -4591,6 +4591,12 @@ He answered **"That all sounds good"** to one more pass: a pass at the top with 
 - **Tyler, shown it: "It doesn't look great."** Offered the choice, he chose **"Keep main, fix the Lane"**. So the L map's east arm (A4) stays as it is. Only the plan's Lane clear is applied, with `town-map-pieces.py lane --write`: the Lane's westmost shopfront becomes the grass and fence beside it, and the Lane has five shopfronts with the tent third. The map changes only inside x 292–349, y 278–349.
 - The pieces, assembly, both finishing passes and the settled candidate are kept as the record. The 13th operation is unspent.
 
+**A7-A8 · The whole district, laid out and dressed.** Tyler was offered a layout that the image edits in place, rather than one it looks at beside the old map, at +2 to the cap, and said **"Yes"**. He then said **"Feel free to create a completely new map if you need to where everything on the whole map should be located"**, and of a building the first block-out had missed, **"can't you just look inside the game and build the map layout based on what you see?"**
+
+The builder read every exterior plate. `reference/district/plan.json` records what each one shows, under `reading`, and where everything therefore is. It also records the two places the plates disagree, under `contradictions`.
+
+`tools/art/district-blockout.py` paints the plan as a block-out in the night map's colours, and the image session dresses that block-out without moving anything. The cap is 15 (attemptsTotal 318). The corner move in A6 (PR 243) and the town-only block-out are superseded and not merged. The markers and the map's roads are set from the same plan. The brief's last part covers it.
+
 **B · The map's Thad (with errata 161, part 3).** A small Thad stands on the map at the place of the room it was opened from, or Main Street for a room with none of its own (`mapToken.homes` names the rest). A click on a place walks him there along the drawn roads, the shortest way, and the room changes when he arrives (`engine/core/MapWalk.ts`).
 - **Timing.** He walks at 260 pixels a second, and never for longer than 4.5 seconds: a long walk is walked faster.
 - **Skipping.** A second click skips the walk, so backtracking never waits.

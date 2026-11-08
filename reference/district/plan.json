@@ -7,7 +7,7 @@
   "main_street": "Room 2: an open square of mud. Along its north side, facing south, west to east: the mercantile, the Improvement Company (the biggest in the row), the Clarion, the notice board's gap, two fronts, two set further back, and one with a porch right beside the Nugget. Down the square's east side, facing west: the Nugget (the grandest, at the corner), the hotel and the assay office. The L's two arms are about equal (Tyler). The road out leaves past the assay office, north-east. The alley at the west end leads to the Lane.",
   "the_lane": "Room 44: behind Main Street's row, from its west-end alley, five shopfronts facing it (undertaker's, photographer's, Ozymandia's tent, barber's, empty storefront); through to Lower Street at its far end.",
   "lower_street": "Room 43: east of Main Street up the road: the Registrar's, the back-alley mouth, the church with its belfry and the bell on its post, the passage to the Lane, the livery with its corral; its east end is the road out of town and the coach road's foot. It runs east of the square's east arm, up the road from the square's south-east corner.",
-  "back_alley": "Room 20: behind Lower Street's west end, crates, barrels, a rain barrel; the watchman's shack at its far end (Room 21).",
+  "back_alley": "Room 20: looking south at the backs of Main Street's row: back doors, a propped door's light on the crates, a rain barrel, the wash line, and at the right (west) the back of the Improvement Company and its barrels; at the left (east) the gap out to the street, which opens off Lower Street (errata 43). So it runs behind the row, between the row and the Lane. The watchman's shack (Room 21) is at its far, west end.",
   "claims_road": "Room 22: across the creek's bridge, a signpost junction; the town in the valley to the west, the road climbing east into the hills.",
   "boot_hill": "Room 14: a fenced graveyard on a hill, the town's lights below to the south-west.",
   "diggings": "Prosperity (23) is a hill with a hole; Pratt's claim (25) is next door, a cabin and a sluice; the creek and sluice (26); the abandoned claim row (27), stakes along a gulch; Sheng's laundry (28) by the water; the high ridge (29), a cairn high above town and diggings; Mott's site (30) far out, pocked ground and a windlass, the town just visible."
@@ -276,11 +276,11 @@
    ],
    [
     290,
-    300
+    262
    ],
    [
     968,
-    300
+    262
    ],
    [
     968,
@@ -294,11 +294,11 @@
    ],
    [
     872,
-    340
+    302
    ],
    [
-    900,
-    318
+    372,
+    302
    ]
   ],
   "boot_hill": [
@@ -496,35 +496,35 @@
    [
     "undertaker",
     330,
-    246,
+    207,
     56,
     52
    ],
    [
     "photographer",
     410,
-    248,
+    209,
     56,
     50
    ],
    [
     "tent",
     490,
-    246,
+    207,
     52,
     52
    ],
    [
     "barber",
     566,
-    250,
+    211,
     52,
     48
    ],
    [
     "storefront",
     640,
-    248,
+    209,
     58,
     50
    ]
@@ -564,23 +564,29 @@
   ],
   "back_alley_crates": [
    [
-    880,
-    330,
-    22,
-    16
+    560,
+    290,
+    20,
+    14
    ],
    [
-    905,
-    326,
-    18,
-    14
+    584,
+    288,
+    16,
+    12
+   ],
+   [
+    700,
+    292,
+    14,
+    10
    ]
   ],
   "watchmans_shack": [
-   920,
-   306,
+   336,
+   282,
    34,
-   28
+   26
   ],
   "houses": [
    [
@@ -791,5 +797,9 @@
    536,
    624
   ]
- }
+ },
+ "contradictions": [
+  "Room 2's plate shows a tall steeple behind its west half; the church Thad walks into is on Lower Street, east of the square (Room 43). The map follows the walking.",
+  "Room 20 shows the back of the Improvement Company, which is on Main Street's row, yet the alley opens off Lower Street: it is drawn running behind the row from Lower Street's end, which satisfies both."
+ ]
 }

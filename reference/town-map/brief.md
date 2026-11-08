@@ -117,3 +117,32 @@ The long row, the Lane's road, Lower Street and everything else stay the shippin
 
    If it misses, the correction is a second finishing pass (`finish-02`, with the miss stated).
 6. **Promote.** Run `finish --attempt N --write`, then `npm test` and `node tools/run-all.mjs`. Commit, then open a PR whose description says `Lesson: none -- art for errata 163's map`, and merge it when CI is green. The builder re-places the markers and the roads.
+
+## Then: the whole district, dressed from a block-out (district-01)
+
+**This supersedes parts five and six.** The town's block-out (`tools/art/town-map-blockout.py`) is not used.
+
+Tyler said:
+- **"What if you create a layout of where every building/location should be located ... Then it will know exactly where each building should go."**
+- **"Feel free to create a completely new map if you need to."**
+- **"Can't you just look inside the game and build the map layout based on what you see?"**
+
+The builder read every exterior plate and wrote down where things are in `reference/district/plan.json`, room by room under `reading`. The two places the plates disagree are listed under `contradictions`. `tools/art/district-blockout.py` paints that plan as flat shapes in the night map's colours. The block-out is **the picture being edited**, not a reference beside it. The earlier redraw had its layout as a side picture, and the model kept to the old map.
+
+The cap is 15: this dressing, and two corrections.
+
+1. **Prepare.** `art/staging/town-map/district-01/input.png` is committed (`python3 tools/art/district-blockout.py build` rebuilds it).
+2. **Dress.** Run `NODE_USE_ENV_PROXY=1 node tools/art/room-op.mjs reference/town-map/prompts/district-01.spec.json`. The current map goes with it as the style, and Main Street's plate goes for the street.
+3. **Candidate.** Run `python3 tools/art/district-blockout.py promote --attempt 1`, with `--fit` if the frame drifts. It prints how far the drawing sits from the block-out.
+4. **Check the candidate at full size against `reference/district/blockout-1920x864.png`:**
+   - every building is where its block is, the same size, facing the same way:
+     - the long row and the Lane's shops face down;
+     - the Nugget, the hotel and the assay office face left onto the square;
+     - the Nugget is the largest;
+   - the church has its steeple and its bell post, and the livery its corral;
+   - the roads, the creek, the bridges, the pass, the coach stop, the graveyard, the hole, the cabin, the stakes, the cairn, the laundry and Mott's field are where their shapes are;
+   - the shift it prints is within about 8 px;
+   - there is no text.
+
+   If it misses, the correction is `district-02`: copy the spec and prompt, keep `district-01/input.png`, and state the miss.
+5. **Promote** with `--write`. In `reference/global-baseline.json` the map stays `district-map-night` (do not add a `daylight` line). Run `npm test` and `node tools/run-all.mjs`. Commit, then open a PR whose description says `Lesson: none -- art for errata 163's map`, and merge it when CI is green. The builder sets the markers and the roads from the same plan.
