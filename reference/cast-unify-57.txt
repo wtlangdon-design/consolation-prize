@@ -1,0 +1,5 @@
+Image 1 is a sheet of four poses of the map seller from my pixel-art adventure game, on magenta. He is dressed too much like the hero of the game (a blue-grey coat over a brown waistcoat), so the two are confused.
+
+An edit of this image only: CHANGE ONLY HIS CLOTHES, in all four poses. He now wears a short, worn MUSTARD-BROWN work jacket (no long coat, nothing blue anywhere), a cream shirt with thin brown stripes, a RED neckerchief knotted at his throat, and TAN trousers with brown boots. Keep his brown flat cap, his face, his satchel strap, the map in his hand, his pose, his size, his position and every other pixel exactly as they are.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline. Flat pure magenta background. No glow, no blur, no shadows, no ground, no text.
