@@ -27,6 +27,12 @@ the map's Thad walks (content/rooms/town-map.json) stay where they are.
       the shipping night map alone in the same window, for an edit of it.
   python3 tools/art/town-map-edit.py promote-redraw --attempt N [--fit] [--write]
       --fit crops to the map's drawn frame rather than the fixed window.
+  python3 tools/art/town-map-edit.py prepare-town --attempt N
+      THE SQUARE'S L (errata 163 A4): writes art/staging/town-map/town-0N/input.png,
+      the shipping map's town, TOWN_REGION at 1:1, drawn up 2x to 1536 x 1024.
+  python3 tools/art/town-map-edit.py promote-town --attempt N [--write]
+      takes the edit back down 2x and pastes only TOWN_PASTE (Main Street, its
+      square and the Lane) over the shipping map, so nothing else moves.
   python3 tools/art/town-map-edit.py promote --attempt N [--write]
       reads art/staging/town-map/edit-0N/source.png, takes it back down 2x,
       and pastes only ROW (the north row) over the shipping map. Writes
@@ -46,6 +52,46 @@ MAP = os.path.join(ROOT, 'art/backgrounds/room-00-town-map.png')
 REGION = (240, 180, 768, 512)
 # The town's north row, the church's row, with the road in front of it: what is taken from the edit.
 ROW = (280, 200, 540, 215)
+
+
+# The town on the pass map (PR 237): 768 x 512, so 2x is 1536 x 1024 exactly.
+TOWN_REGION = (160, 160, 768, 512)
+# What is taken back: Main Street's rows, the square and its road loop, and the Lane. Not Lower Street,
+# the creek, the houses or the pass road.
+TOWN_PASTE = (170, 268, 630, 322)
+
+
+def town_stage(n):
+    return os.path.join(ROOT, f'art/staging/town-map/town-{n:02d}')
+
+
+def prepare_town(n):
+    x, y, w, h = TOWN_REGION
+    crop = Image.open(MAP).convert('RGB').crop((x, y, x + w, y + h))
+    out = town_stage(n)
+    os.makedirs(out, exist_ok=True)
+    crop.resize((w * 2, h * 2), Image.NEAREST).save(os.path.join(out, 'input.png'))
+    print(os.path.relpath(os.path.join(out, 'input.png'), ROOT))
+
+
+def promote_town(n, write):
+    x, y, w, h = TOWN_REGION
+    edited = Image.open(os.path.join(town_stage(n), 'source.png')).convert('RGB').resize((w, h), Image.BOX)
+    base = Image.open(MAP).convert('RGB')
+    px, py, pw, ph = TOWN_PASTE
+    before = np.asarray(base.crop((x, y, x + w, y + h))).astype(float)
+    after = np.asarray(edited).astype(float)
+    inside = np.zeros((h, w), bool)
+    inside[py - y:py - y + ph, px - x:px - x + pw] = True
+    moved = np.abs(after - before).mean(axis=2)
+    print(f'mean change inside the town {moved[inside].mean():.1f}, outside it {moved[~inside].mean():.1f} (0-255)')
+    out = base.copy()
+    out.paste(edited.crop((px - x, py - y, px - x + pw, py - y + ph)), (px, py))
+    out.save(os.path.join(town_stage(n), 'candidate.png'))
+    print(os.path.relpath(os.path.join(town_stage(n), 'candidate.png'), ROOT))
+    if write:
+        out.save(MAP)
+        print('promoted', os.path.relpath(MAP, ROOT))
 
 
 def stage(n):
@@ -164,6 +210,10 @@ if __name__ == '__main__':
         prepare()
     elif sys.argv[1:2] == ['prepare-redraw']:
         prepare_redraw()
+    elif sys.argv[1:2] == ['prepare-town']:
+        prepare_town(int(sys.argv[sys.argv.index('--attempt') + 1]))
+    elif sys.argv[1:2] == ['promote-town']:
+        promote_town(int(sys.argv[sys.argv.index('--attempt') + 1]), '--write' in sys.argv)
     elif sys.argv[1:2] == ['prepare-pass']:
         prepare_pass(int(sys.argv[sys.argv.index('--attempt') + 1]))
     elif sys.argv[1:2] == ['promote-redraw']:
