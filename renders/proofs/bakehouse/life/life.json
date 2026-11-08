@@ -1,0 +1,1972 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "bakehouse",
+ "commit": "1dbd6998b557d5f6f8bb473dedbdeb2b50820bbe",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "bakehouse",
+ "warped": false,
+ "lifeRoute": "bakehouse-life",
+ "durationSeconds": 238.99,
+ "events": [
+  {
+   "t": 3.25,
+   "line": "entry route bakehouse: 26 action(s)"
+  },
+  {
+   "t": 162.49,
+   "line": "the title: clicked NEW GAME"
+  },
+  {
+   "t": 162.49,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 162.49,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 162.49,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 162.49,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 162.49,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 162.49,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 162.49,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 162.49,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 162.49,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 162.49,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 162.49,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 162.49,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 162.49,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 162.49,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 162.49,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 162.49,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 162.49,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 162.49,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 162.49,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 162.49,
+   "line": "action 20 (wait): waited 7s"
+  },
+  {
+   "t": 162.49,
+   "line": "action 21 (click): clicked screen 540,1052 -- the MAP button"
+  },
+  {
+   "t": 162.49,
+   "line": "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 162.49,
+   "line": "action 23 (wait): waited 1s"
+  },
+  {
+   "t": 162.49,
+   "line": "action 24 (click): clicked screen 464,590 -- the bakehouse's marker, on its own roof below the loop road (errata 163)"
+  },
+  {
+   "t": 162.49,
+   "line": "action 25 (waitFor): reached {\"room\":\"bakehouse\"} in room bakehouse"
+  },
+  {
+   "t": 162.49,
+   "line": "action 26 (wait): waited 3s"
+  },
+  {
+   "t": 162.51,
+   "line": "in bakehouse; life route: 30 action(s)"
+  },
+  {
+   "t": 163.04,
+   "line": "capture 01-arrived: room bakehouse, says null, options 0, control null"
+  },
+  {
+   "t": 164.06,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 165.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 166.06,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 167.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 171.07,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 171.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 171.59,
+   "line": "capture 02-the-boy: room bakehouse, says null, options 0, control null"
+  },
+  {
+   "t": 172.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 173.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 175.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 176.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 177.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.62,
+   "line": "action 1 (wait): waited 7s"
+  },
+  {
+   "t": 178.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     220,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179.15,
+   "line": "capture 03-the-boy-later: room bakehouse, says null, options 0, control null"
+  },
+  {
+   "t": 179.28,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 179.58,
+   "line": "action 1 (click): clicked bakehouse/boy at world 1563,485 -- doc 105's TALK TO on the boy: Thad's line, and the boy keeps counting"
+  },
+  {
+   "t": 180.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     612,
+     753
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 181.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1020,
+     745
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 182.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1380,
+     718
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 183.08,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room bakehouse"
+  },
+  {
+   "t": 183.63,
+   "line": "capture 04-talk-boy: room bakehouse, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 184.68,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1380,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 185.69,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1380,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 186.67,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1380,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 187.65,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1380,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 188.65,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1380,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.68,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1380,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 190.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1380,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 191.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1380,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 191.69,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 191.84,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 192.13,
+   "line": "action 1 (click): clicked bakehouse/oven at world 655,310 -- LOOK at the oven"
+  },
+  {
+   "t": 193.18,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1001,
+     720
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 194.18,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     758
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 194.63,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room bakehouse"
+  },
+  {
+   "t": 195.16,
+   "line": "capture 05-look-oven: room bakehouse, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 196.21,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 197.19,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 198.18,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 199.2,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 200.2,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 201.21,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 202.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 203.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 203.21,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 203.33,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 203.61,
+   "line": "action 1 (click): clicked bakehouse/back_door at world 1775,370 -- LISTEN at the back door"
+  },
+  {
+   "t": 204.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1081,
+     834
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 205.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1538,
+     835
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 206.38,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room bakehouse"
+  },
+  {
+   "t": 206.88,
+   "line": "capture 06-listen-back-door: room bakehouse, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 207.91,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1775,
+     836
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 208.9,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1775,
+     836
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 209.9,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1775,
+     836
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 210.91,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1775,
+     836
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 211.89,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1775,
+     836
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 212.92,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1775,
+     836
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 213.9,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1775,
+     836
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 214.91,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1775,
+     836
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 214.94,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 215.05,
+   "line": "action 1 (verb): chose verb PICK_UP -- "
+  },
+  {
+   "t": 215.28,
+   "line": "action 1 (click): clicked bakehouse/table at world 1308,530 -- doc 105's PICK UP on the table"
+  },
+  {
+   "t": 216.33,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1331,
+     843
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 216.61,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room bakehouse"
+  },
+  {
+   "t": 217.11,
+   "line": "capture 07-pickup-table: room bakehouse, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 218.15,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1308,
+     843
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 219.14,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1308,
+     843
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 220.13,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1308,
+     843
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 221.14,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1308,
+     843
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 222.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1308,
+     843
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 223.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1308,
+     843
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 224.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1308,
+     843
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 225.15,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 225.18,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1308,
+     843
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 225.28,
+   "line": "action 1 (verb): chose verb OPEN -- "
+  },
+  {
+   "t": 225.59,
+   "line": "action 1 (click): clicked bakehouse/oven at world 655,310 -- doc 105's OPEN on the oven"
+  },
+  {
+   "t": 226.61,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     871,
+     836
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 227.42,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room bakehouse"
+  },
+  {
+   "t": 227.96,
+   "line": "capture 08-open-oven: room bakehouse, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 228.99,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 229.97,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 230.98,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 232.01,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 232.99,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 233.98,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 235,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 235.99,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     655,
+     833
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 236.02,
+   "line": "action 1 (wait): waited 8s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": null,
+   "t": 163.03,
+   "file": "renders/proofs/bakehouse/life/raw-captures-ignored/01-arrived.png",
+   "hash": "28fb22dca710bc52c3898966248067585c5ecdd0bd31246493e4187ea4bd3ea9",
+   "room": "bakehouse",
+   "clock": 162.7283,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      220,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 504,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-00.png",
+     "bounds": [
+      -47,
+      256,
+      534,
+      556
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:bakehouse",
+     "path": "art/backgrounds/room-39-bakehouse.png",
+     "drawn": "art/backgrounds/room-39-bakehouse.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "54a599b5f3741bc8dd1ffd59cd60d2eb5b3fde53557b86b2e22e5636892b2faa"
+    },
+    {
+     "key": "art/actors/room-39-boy.png",
+     "path": "art/actors/room-39-boy.png",
+     "drawn": "art/actors/room-39-boy.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c8af84c06b9a2e81d1b052232bb367e9a4bd3a33c79e1575c31306b45c7a95c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-the-boy",
+   "why": null,
+   "t": 171.58,
+   "file": "renders/proofs/bakehouse/life/raw-captures-ignored/02-the-boy.png",
+   "hash": "a0f944baba716559f60a91b9c30bc89c744abbe609e069ed9d53d7010371d079",
+   "room": "bakehouse",
+   "clock": 171.4112,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      220,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 504,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-03.png",
+     "bounds": [
+      -47,
+      256,
+      534,
+      556
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:bakehouse",
+     "path": "art/backgrounds/room-39-bakehouse.png",
+     "drawn": "art/backgrounds/room-39-bakehouse.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "54a599b5f3741bc8dd1ffd59cd60d2eb5b3fde53557b86b2e22e5636892b2faa"
+    },
+    {
+     "key": "art/actors/room-39-boy.png",
+     "path": "art/actors/room-39-boy.png",
+     "drawn": "art/actors/room-39-boy.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c8af84c06b9a2e81d1b052232bb367e9a4bd3a33c79e1575c31306b45c7a95c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-the-boy-later",
+   "why": null,
+   "t": 179.14,
+   "file": "renders/proofs/bakehouse/life/raw-captures-ignored/03-the-boy-later.png",
+   "hash": "e9fe69118fe271844a3021966fbf7685ec90fd674c070ff6a4c5496fb75286fe",
+   "room": "bakehouse",
+   "clock": 178.82760000000002,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      220,
+      760
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 504,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      -47,
+      256,
+      534,
+      556
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:bakehouse",
+     "path": "art/backgrounds/room-39-bakehouse.png",
+     "drawn": "art/backgrounds/room-39-bakehouse.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "54a599b5f3741bc8dd1ffd59cd60d2eb5b3fde53557b86b2e22e5636892b2faa"
+    },
+    {
+     "key": "art/actors/room-39-boy.png",
+     "path": "art/actors/room-39-boy.png",
+     "drawn": "art/actors/room-39-boy.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c8af84c06b9a2e81d1b052232bb367e9a4bd3a33c79e1575c31306b45c7a95c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-talk-boy",
+   "why": "where the words land, and Thad beside him",
+   "t": 183.62,
+   "file": "renders/proofs/bakehouse/life/raw-captures-ignored/04-talk-boy.png",
+   "hash": "ee18c00abaef1955fa927308a7f496bf6e5a0cc2fd84471f590571b983ec1c46",
+   "room": "bakehouse",
+   "clock": 183.4441,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1380,
+      700
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 463,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      1135,
+      237,
+      490,
+      511
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:bakehouse",
+     "path": "art/backgrounds/room-39-bakehouse.png",
+     "drawn": "art/backgrounds/room-39-bakehouse.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "54a599b5f3741bc8dd1ffd59cd60d2eb5b3fde53557b86b2e22e5636892b2faa"
+    },
+    {
+     "key": "art/actors/room-39-boy.png",
+     "path": "art/actors/room-39-boy.png",
+     "drawn": "art/actors/room-39-boy.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c8af84c06b9a2e81d1b052232bb367e9a4bd3a33c79e1575c31306b45c7a95c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-look-oven",
+   "why": null,
+   "t": 195.16,
+   "file": "renders/proofs/bakehouse/life/raw-captures-ignored/05-look-oven.png",
+   "hash": "a803179ce6105ec0603b9d00e0d39c8affe77c844a5ff0837780a16ad1d93061",
+   "room": "bakehouse",
+   "clock": 194.8769,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      655,
+      833
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 555,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      344,
+      278,
+      621,
+      613
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:bakehouse",
+     "path": "art/backgrounds/room-39-bakehouse.png",
+     "drawn": "art/backgrounds/room-39-bakehouse.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "54a599b5f3741bc8dd1ffd59cd60d2eb5b3fde53557b86b2e22e5636892b2faa"
+    },
+    {
+     "key": "art/actors/room-39-boy.png",
+     "path": "art/actors/room-39-boy.png",
+     "drawn": "art/actors/room-39-boy.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c8af84c06b9a2e81d1b052232bb367e9a4bd3a33c79e1575c31306b45c7a95c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-listen-back-door",
+   "why": null,
+   "t": 206.87,
+   "file": "renders/proofs/bakehouse/life/raw-captures-ignored/06-listen-back-door.png",
+   "hash": "ac06361a3243bf039787859d9757b85ad2178bdf03b2c6c9c92dedad0dc45b89",
+   "room": "bakehouse",
+   "clock": 206.59320000000002,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1775,
+      836
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 557,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      1463,
+      279,
+      624,
+      615
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:bakehouse",
+     "path": "art/backgrounds/room-39-bakehouse.png",
+     "drawn": "art/backgrounds/room-39-bakehouse.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "54a599b5f3741bc8dd1ffd59cd60d2eb5b3fde53557b86b2e22e5636892b2faa"
+    },
+    {
+     "key": "art/actors/room-39-boy.png",
+     "path": "art/actors/room-39-boy.png",
+     "drawn": "art/actors/room-39-boy.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c8af84c06b9a2e81d1b052232bb367e9a4bd3a33c79e1575c31306b45c7a95c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-pickup-table",
+   "why": "where Thad stands, and clear of the boy",
+   "t": 217.1,
+   "file": "renders/proofs/bakehouse/life/raw-captures-ignored/07-pickup-table.png",
+   "hash": "ba24921a2c372ab1031ebe27faaf0fb102e0fb3b7c0aee84b4c60f726c8efb4e",
+   "room": "bakehouse",
+   "clock": 216.80939999999998,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1308,
+      843
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 562,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      993,
+      281,
+      629,
+      620
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:bakehouse",
+     "path": "art/backgrounds/room-39-bakehouse.png",
+     "drawn": "art/backgrounds/room-39-bakehouse.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "54a599b5f3741bc8dd1ffd59cd60d2eb5b3fde53557b86b2e22e5636892b2faa"
+    },
+    {
+     "key": "art/actors/room-39-boy.png",
+     "path": "art/actors/room-39-boy.png",
+     "drawn": "art/actors/room-39-boy.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c8af84c06b9a2e81d1b052232bb367e9a4bd3a33c79e1575c31306b45c7a95c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "08-open-oven",
+   "why": null,
+   "t": 227.95,
+   "file": "renders/proofs/bakehouse/life/raw-captures-ignored/08-open-oven.png",
+   "hash": "d953102e3ca2d479338454837d3db610401d30c5f07d13f693bfda59926cb47d",
+   "room": "bakehouse",
+   "clock": 227.659,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      655,
+      833
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 555,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      344,
+      278,
+      621,
+      613
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:bakehouse",
+     "path": "art/backgrounds/room-39-bakehouse.png",
+     "drawn": "art/backgrounds/room-39-bakehouse.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "54a599b5f3741bc8dd1ffd59cd60d2eb5b3fde53557b86b2e22e5636892b2faa"
+    },
+    {
+     "key": "art/actors/room-39-boy.png",
+     "path": "art/actors/room-39-boy.png",
+     "drawn": "art/actors/room-39-boy.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "c8af84c06b9a2e81d1b052232bb367e9a4bd3a33c79e1575c31306b45c7a95c4"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 239s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-08T21:04:26.163Z"
+}
