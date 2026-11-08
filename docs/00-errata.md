@@ -4825,7 +4825,12 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
   - **Tyler, on the redraw:** "The horse on the right has its head/neck through the hitching post." In frames 1 to 3 the paint pony grazes below the rail, with the rail drawn across its neck. Frame 4 has it standing with its head up over the rail, moved (with the right post) 33 px left and 20 up.
     - So the rest takes everything right of x 520 from frame 4, shifted back.
     - Where the old lowered head hung, between the palomino's legs, it takes frame 4's palomino, shifted by its own offset (4, 19).
-    - No operation was spent on this.
+    - **Tyler, on that:** "The far right horse has his whole snout cut off." The pony's head turns toward the palomino, and its muzzle crossed the cut column. Three changes:
+      - the muzzle is now traced by its outline and taken whole, because behind it frame 4's palomino saddle is out of place;
+      - from x 470 the rail is frame 4's, since frame 1's carries the old pony's mane;
+      - the palomino's legs below the rail fill where the old head hung.
+    - The hay's wisps had been blended with the magenta, and the despill turned them pink. They now take the colour of the hay around them.
+    - No operation was spent on these. A doc 55 §8 row carries the lesson: a figure composited from several frames is looked at whole, at 2×, in the game, along every seam, before anyone else sees it.
   - Frame 0 is the rest. Frame 2 is the rest with frame 3's black tossing its head. Frames 1 and 3 are the rest with the palomino's lowered head lifted 4 and 7 px off the hay, chewing.
   - The magenta is taken out of the outline, the hue's spill and the generator's plum-black outline ink, which `check-residual-key` reads as keyed background. Then the sheet is snapped to the cast's grid (`one-level.py --only`).
 - **An ambient animal, `hitching_horses`, at 1545,850:** 535 px left of where it first stood, in the near mud between the letter-writer and the boundary men.

@@ -38,7 +38,7 @@ import json
 import os
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw
 from scipy import ndimage
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -51,7 +51,18 @@ DROP = 19         # sheet frame 3 sits this many rows higher than frame 1
 PONY = (33, 20)   # sheet frame 4's pony and right post, back onto frame 1
 LEGS = (4, 19)    # sheet frame 4's palomino, back onto frame 1
 CUT = 520         # right of this column the rest is frame 4's pony
-LEGS_BOX = (440, 296, 520, 452)   # where frame 1's pony hung its head: frame 4's palomino legs
+LEGS_BOX = (440, 312, 520, 452)   # where frame 1's pony hung its head, below the rail: frame 4's palomino legs
+# Frame 4's pony turns its head toward the palomino, and its muzzle reaches left
+# of CUT (Tyler: "The far right horse has his whole snout cut off"). It is taken
+# by its own outline, traced here, because behind it frame 4's palomino saddle is
+# 29 px out of place.
+MUZZLE = [(492, 207), (495, 198), (502, 195), (515, 196), (516, 160), (521, 160), (522, 203),
+          (527, 220), (520, 230), (502, 232), (493, 223), (492, 213)]
+# The rail: frame 1's has the old pony's mane draped over it from x 520 to 590,
+# so from x 470 -- a plain stretch between knots -- it is frame 4's, which is clean
+# and whose knot at 610 is frame 1's knot. The two rails' rows agree to a pixel.
+RAIL_ROWS = (284, 312)
+RAIL_FROM = 470
 
 
 def fgmask(rgb, min_area=150):
@@ -66,6 +77,7 @@ def fgmask(rgb, min_area=150):
 
 def despill(rgba):
     out = rgba.astype(int)
+    pink = pink_edge(out)
     opaque = out[..., 3] > 0
     near = ndimage.binary_dilation(~opaque, iterations=2) & opaque
     mx, mn = out[..., :3].max(-1), out[..., :3].min(-1)
@@ -78,10 +90,48 @@ def despill(rgba):
     r0, g0, b0 = out[..., 0], out[..., 1], out[..., 2]
     tinted |= opaque & (mx < 48) & (r0 - g0 >= 4) & (b0 - g0 >= 4)
     r, g, b = out[..., 0], out[..., 1], out[..., 2]
-    excess = np.where(tinted, np.clip(np.minimum(r, b) - g, 0, None), 0)
+    # An outline pixel that is more key than drawing -- the hay's wisps, blended
+    # with the magenta they were drawn on -- is dropped: despilled, it turned pink.
+    blended = near & ((np.minimum(r, b) - g) > 12)
+    out[blended] = 0
+    r, g, b = out[..., 0], out[..., 1], out[..., 2]
+    excess = np.where(tinted & ~blended, np.clip(np.minimum(r, b) - g, 0, None), 0)
     out[..., 0] = np.clip(r - excess, 0, 255)
     out[..., 2] = np.clip(b - excess, 0, 255)
+    out = inpaint(out, pink)
     return out.astype(np.uint8)
+
+
+def pink_edge(out):
+    """Pixels within 3 of the edge that are gold or brown blended with the magenta
+    they were drawn on: red above green, and blue not far below it (hay has blue
+    far below green). Marked on the colours as
+    generated, before the despill turns them red."""
+    opaque = out[..., 3] > 0
+    edge = ndimage.binary_dilation(~opaque, iterations=3) & opaque
+    r, g, b = out[..., 0], out[..., 1], out[..., 2]
+    return edge & (r - g > 12) & (b - g > -10)
+
+
+def inpaint(out, pink):
+    """Each marked pixel takes the median colour of its clean opaque neighbours
+    -- the hay's wisps end in hay colour, not red -- or goes if it has none."""
+    pink = pink & (out[..., 3] > 0)
+    opaque = out[..., 3] > 0
+    for _ in range(4):
+        if not pink.any():
+            break
+        ys, xs = np.where(pink)
+        fixed = np.zeros_like(pink)
+        for y, x in zip(ys, xs):
+            y0, y1, x0, x1 = max(0, y - 1), y + 2, max(0, x - 1), x + 2
+            ok = opaque[y0:y1, x0:x1] & ~pink[y0:y1, x0:x1]
+            if ok.any():
+                out[y, x, :3] = np.median(out[y0:y1, x0:x1, :3][ok], axis=0)
+                fixed[y, x] = True
+        pink &= ~fixed
+    out[pink] = 0
+    return out
 
 
 def shift(img, dx, dy, fill):
@@ -103,6 +153,11 @@ def frames():
     legs = shift(four, LEGS[0], LEGS[1], np.array([255, 0, 255], np.uint8))
     one[LEGS_BOX[1]:LEGS_BOX[3], LEGS_BOX[0]:LEGS_BOX[2]] = legs[LEGS_BOX[1]:LEGS_BOX[3], LEGS_BOX[0]:LEGS_BOX[2]]
     one[:, CUT:] = pony[:, CUT:]
+    one[RAIL_ROWS[0]:RAIL_ROWS[1], RAIL_FROM:CUT] = pony[RAIL_ROWS[0]:RAIL_ROWS[1], RAIL_FROM:CUT]
+    outline = Image.new('L', (CELL_W, CELL_H), 0)
+    ImageDraw.Draw(outline).polygon(MUZZLE, fill=1)
+    muzzle = ndimage.binary_dilation(np.asarray(outline).astype(bool), iterations=1)
+    one[muzzle] = pony[muzzle]
     m1 = fgmask(one)
     three = shift(cell(2), 0, DROP, np.array([255, 0, 255], np.uint8))
     m3 = fgmask(three)
