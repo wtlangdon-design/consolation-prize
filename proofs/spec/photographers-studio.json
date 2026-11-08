@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "photographers_studio",
+ "note": "ROOM 38's PROOF SPEC (errata 183). The route is Main Street's, then the Lane and the photographer's door beside his window. The room has one visual state.",
+ "route": "photographers-studio",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "the studio draws the same in every state: doc 105 writes every line true whenever it is read, and no puzzle is sited here (doc 07 Part Three)."
+ }
+}

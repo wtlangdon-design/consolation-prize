@@ -4985,3 +4985,27 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
 - **J · American English.** Doc 105's three "draught"s are "draft" (`check-american-english`, as PR 232's corrections).
 - **K · Room 40 — Tyler, 2026-11-08: "Use the Lane's store".** The district map has no building for a storefront off the Lane; the brief made that a stop. Tyler chose to make Room 40 the Lane's boarded storefront after all: its boards come down and its door opens. This reverses "shut for good" above. Doc 97's storefront lines are read against it when Room 40 is built.
 
+**BUILT — ROOM 38, THE PHOTOGRAPHER'S STUDIO (the builder, 2026-11-08).** `BUILDABLE WITHOUT INVENTION: YES`. room-38: 4 of 4 operations.
+
+- **A · The plan** (`tools/interiors-graybox.py 38`). The window and its display have to be seen from inside, so the front wall is the left. Left to right:
+  - the door to the Lane and the window, with the portrait's back on its easel;
+  - the colonnade backdrop beside that window, the carved chair and its little table in front of it, the headrest clamp beside the chair;
+  - the camera on its tripod facing the chair, the photographer behind it;
+  - the chemicals shelf, the box of portrait cards on a table, and the pinned price card.
+
+  The backdrop failed the legibility gate at 118 (a pale canvas against Thad's lit side) and was re-blocked to 96, not re-lit (ruling 22).
+- **B · The art.**
+  - Operation 1, the master.
+  - Operation 2, the plate. The master at 0.9 with its walls extended and both men out, cropped from y 150. At 39.3 in its lower half it needed no lift.
+  - Thad stands about 517 px at y 815; the curve is 465 to 545 across the band.
+  - The bottle labels and the price card are too small to letter at game size. They stay painted marks, as Boot Hill's names do; their lines say what they read.
+- **C · The photographer** (operation 3, errata 144's method). Five frames: rest · breath · a portrait card held up · the card tilted to the light · talking.
+  - Cut at 438, his soles at y 701 right of the camera, where the master stood him.
+  - Measured: texture 0.96–1.04× Thad's, clean edges, his white sleeves the bright tenth.
+  - Speech colour #c8e0a0, the builder's.
+  - The camera gets its own walk-to point (`hotspotWalkTo`): the one under it would have stood Thad on him, Room 42's lesson.
+- **D · His door on the Lane** (operation 4). The Lane's plate painted the photographer's front as one wide two-part window and no door, and the brief's way in is "the door beside the photographer's window". The Lane's own operations are spent, so Room 38's fourth was a masked edit of a close-up of the Lane's plate. It turned the window's narrow right-hand pane into a glazed door to the ground, its lamp still behind the glass, with a step on the mud. `tools/art/room38-lane-door.py` pastes back the door, its frame and its step only. The portrait window keeps doc 97's lines and a narrower hotspot; THE PHOTOGRAPHER'S DOOR is a stub exit with no lines.
+- **E · "¢".** Doc 105's price card reads "PORTRAITS 50¢", and the shipping face had no cent sign. It now has one, the face's own `c` with `$`'s stroke through it (CLAUDE.md: extend the face; never normalise the writing).
+- **F · The not-built list.** Two of doc 105's lines, the schoolhouse bell's "…It's in tune." and the storefront back room's "a great deal of nothing", had never been listed. They were covered only by the check's loose match against Room 38's entries, so building Room 38 surfaced them. They are listed now, with their rooms.
+- **G · Sound.** Plank footsteps, and the Lane's distant piano at 0.4, as the barber's.
+

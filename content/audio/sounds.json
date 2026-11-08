@@ -734,7 +734,8 @@
    "ozymandias_tent": "dirt",
    "lower_street": "mud",
    "the_lane": "mud",
-   "barbers": "plank"
+   "barbers": "plank",
+   "photographers_studio": "plank"
   }
  },
  "ambience": {

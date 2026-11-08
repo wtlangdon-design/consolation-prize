@@ -1,0 +1,197 @@
+{
+ "schema": 1,
+ "id": "room-38-photographers-studio",
+ "room": "photographers_studio",
+ "docRoom": 38,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 38 of the six interiors (errata 183, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/105-the-six-interiors.md",
+  "docs/07-ambient-layer.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-38.json",
+    "docs/00-errata.md::183 · THE SIX INTERIORS: WRITTEN, CAPPED AND BRIEFED — TYLER, 2026-11-08 (\"Build all six\"; \"Write all six now\")"
+   ],
+   "note": "One picture, true in every act, night (errata 183); the photographer's tree in every act."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-38/graybox.json",
+    "docs/00-errata.md::183 · THE SIX INTERIORS: WRITTEN, CAPPED AND BRIEFED — TYLER, 2026-11-08 (\"Build all six\"; \"Write all six now\")"
+   ],
+   "note": "Every subject is plate; the labels and the price card are painted marks."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-38-photographers-studio-with-thad.png",
+    "docs/00-errata.md::183 · THE SIX INTERIORS: WRITTEN, CAPPED AND BRIEFED — TYLER, 2026-11-08 (\"Build all six\"; \"Write all six now\")"
+   ],
+   "note": "The photographer painted over the in-game Thad (errata 144's method), his face from the master."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/photographers-studio/life/life.json"
+   ],
+   "note": "The photographer breathes and considers his portrait cards."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-38-photographers-studio-with-thad.png"
+   ],
+   "note": "He stands on the floor right of his camera; his card needs nothing in the room."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-38/annotation.json",
+    "art/staging/room-38/plate-01/frame.json"
+   ],
+   "note": "Night, one lamp over the camera and the Lane's lamplight in the window; not lifted (39.3)."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-38.test.ts",
+    "docs/00-errata.md::183 · THE SIX INTERIORS: WRITTEN, CAPPED AND BRIEFED — TYLER, 2026-11-08 (\"Build all six\"; \"Write all six now\")"
+   ],
+   "note": "No puzzle is sited here (doc 07 Part Three); nothing is a clue by look or sound."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-38.json",
+    "content/rooms/photographers-studio.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 52 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-38: 4 of 4 operations (master, people-free plate re-framed at 0.9, the photographer's five-pose sheet against Thad, his door on the Lane)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/photographers-studio.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-38/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/photographers-studio/proof.json"
+   ],
+   "note": "No principal change: one visual state."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/photographers-studio/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/photographers-studio/doors/life.json",
+    "tests/room-38.test.ts"
+   ],
+   "note": "Out by the door to the Lane and back in by the photographer's door, twice."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-38/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-38-photographers-studio.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-38/plate-01/frame.json"
+   ]
+  },
+  {
+   "subject": "the photographer",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-38-photographer.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-38/photographer/photographer.json"
+   ]
+  },
+  {
+   "subject": "the photographer's door on the Lane",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-44-the-lane.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "tools/art/room38-lane-door.py"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q181 · Room 38, the photographer's studio: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-08 (errata 183, delegated); BUILT, room-38 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q181 · Room 38, the photographer's studio: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-08 (errata 183, delegated); BUILT, room-38 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

@@ -1,0 +1,128 @@
+{
+  "room": 38,
+  "name": "THE PHOTOGRAPHER'S STUDIO",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/105-the-six-interiors.md::ROOM 38 — THE PHOTOGRAPHER'S STUDIO",
+    "docs/105-the-six-interiors.md::ROOM 38 · THE PHOTOGRAPHER'S STUDIO",
+    "docs/105-the-six-interiors.md::ROOM 38 · THE PHOTOGRAPHER'S STUDIO"
+  ],
+  "subjects": [
+    {
+      "name": "THE STOCK PORTRAIT BOX",
+      "LOOK_AT": [
+        "Four dozen strangers in good collars, sold as anybody you like.",
+        "Every card the same gentleman, the same collar, the same steady gaze, on the same good card stock.",
+        "The box says FOUR DOZEN. There are thirty-one. Somebody's been buying gentlemen."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Four dozen men in Ohio, not saying anything.",
+        "Card on card, sliding, when I tip the box.",
+        "Nothing. Thirty-one men holding very still."
+      ],
+      "overrides": {
+        "PICK_UP": "They're twenty-five cents apiece, and I'd only be buying a stranger."
+      }
+    },
+    {
+      "name": "THE CAMERA",
+      "LOOK_AT": [
+        "A plate camera on a tripod, with a black cloth over the back for the photographer's head. The brass is the best-kept thing in the room.",
+        "The lens is capped. The photographer only uncaps it for paying customers, and for dogs, once.",
+        "Brass and mahogany, and a bellows like an accordion. It would make a very sad accordion."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It's waiting for someone to hold still, which in this town could take a while.",
+        "The bellows breathing a little as the room warms.",
+        "Nothing. A camera is the opposite of an ear. It only takes what holds still."
+      ],
+      "overrides": {
+        "USE": "I wouldn't know which end was the front. I'd photograph my own eye."
+      }
+    },
+    {
+      "name": "THE HEADREST CLAMP",
+      "LOOK_AT": [
+        "An iron stand with a clamp at the top, to hold a sitter's head still for the exposure. It looks like it would hold anything still.",
+        "It adjusts for height. It is currently set for a man exactly my height, which I find unsettling.",
+        "A small brass plate on it: PATENT APPLIED FOR. In this town, that counts as a guarantee."
+      ],
+      "LISTEN_TO": [
+        "A screw creaking as I touch it. It has held a great many heads, and given every one of them a headache.",
+        "The screw, settling a quarter turn on its own.",
+        "Nothing. It holds its peace the way it holds a head."
+      ],
+      "overrides": {
+        "USE": "My head is fine where it is. It's the only thing in town I'm sure of."
+      }
+    },
+    {
+      "name": "THE PAINTED BACKDROP",
+      "LOOK_AT": [
+        "A Grecian colonnade, painted on canvas. Through the real window beside it: mud. The colonnade is winning.",
+        "The columns are painted with a great deal of confidence and no knowledge of columns.",
+        "A sitter in front of this looks like a man who has been to Athens. Nobody here has been to Athens."
+      ],
+      "LISTEN_TO": [
+        "The canvas stirring in the draft. Ancient Greece, rustling.",
+        "Canvas flexing against its frame. The Parthenon, settling.",
+        "Nothing. Greece is quieter than I'd imagined."
+      ]
+    },
+    {
+      "name": "THE CHEMICALS",
+      "LOOK_AT": [
+        "Brown bottles on a shelf, labelled in a careful hand. One says COLLODION, and one says POISON, and they are next to each other.",
+        "There are brown stains on the shelf in the shape of every bottle. They've been put back in exactly the same place for years.",
+        "A sharp smell, like a hospital that has been told a joke."
+      ],
+      "LISTEN_TO": [
+        "Nothing. A small stopper ticking in the heat. I am keeping my distance.",
+        "A tiny pop as one stopper eases.",
+        "Nothing. I've moved to the far side of the room, which helps."
+      ],
+      "overrides": {
+        "PICK_UP": "One of them says POISON. I don't know which of the others are just being modest."
+      }
+    },
+    {
+      "name": "THE WINDOW DISPLAY",
+      "LOOK_AT": [
+        "The back of the window display, from inside: the gentleman in the good collar, facing the Lane. From here he's only cardboard.",
+        "He's propped on a little easel, at an angle chosen to catch the lamplight from the Lane. Somebody thought hard about the angle.",
+        "From the back he has no face at all, just card and a maker's stamp. The stamp is from Ohio."
+      ],
+      "LISTEN_TO": [
+        "The Lane through the glass, faintly. Nobody in it is stopping to look at him.",
+        "The glass ticking as it cools.",
+        "Feet on the Lane, going past. Nobody stops for him."
+      ]
+    },
+    {
+      "name": "THE SITTING CHAIR",
+      "LOOK_AT": [
+        "A carved chair for sitters, with a cushion and a small table for one hand to rest on, thoughtfully. Everyone sits in the same pose here.",
+        "The cushion is flat in the middle, where a great many respectable men have sat very still.",
+        "There is a book on the little table, for the sitter's hand. The book is a ledger, and it is blank. It photographs as learning."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It has had more distinguished men in it than the territory has produced.",
+        "A creak, when I lean on the back. It disapproves of slouching.",
+        "Nothing. The chair is holding still for a picture nobody is taking."
+      ]
+    },
+    {
+      "name": "THE PRICE CARD",
+      "LOOK_AT": [
+        "PORTRAITS 50¢. SITTING INCLUDED. CABINET CARDS BY THE DOZEN. Somebody has added, in pencil: LIKENESS NOT GUARANTEED.",
+        "Fifty cents, sitting included. I wasn't aware sitting was ever excluded.",
+        "Under the prices, in very small print: DECEASED BY ARRANGEMENT. I'm not going to ask how that's arranged."
+      ],
+      "LISTEN_TO": [
+        "Nothing. The card is pinned and says what it has to say.",
+        "The pin, loose in the board, ticking against it in the draft.",
+        "Nothing. It's a card. It doesn't negotiate."
+      ]
+    }
+  ]
+}

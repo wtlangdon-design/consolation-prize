@@ -25,7 +25,7 @@ test("the barber's opens off the Lane, and its door leads back to the Lane's own
   const back = shop.exits.find((exit) => exit.to === 'the_lane');
   assert.ok(back, 'the barber\'s has a door back to the Lane');
   assert.ok((lane.entrances ?? []).some((one) => one.from === 'barbers'),
-    'coming out of the barber\'s puts Thad at its door, not at the Lane\'s far end (errata 83 G)');
+    'coming out of the barber\'s puts the hero at its door, not at the Lane\'s far end (errata 83 G)');
 });
 
 test('the barber stands in his shop, speaks doc 07\'s tree, and has a bark for every reputation', async () => {
@@ -70,9 +70,9 @@ test('a repeat written with a beat in it is spoken whole: the jar keeps its punc
   assert.equal(jar.responses.LOOK_AT[0].repeat[0], quotes.join(' '));
 });
 
-test('looking at anything in the shop never stands Thad on top of the barber (errata 183, the life proof)', async () => {
-  // The point under the price board and the one under the strop put Thad over the barber, who stands between
-  // them. Thad's drawn width is 0.305 of his height (art/actors/thad-stand-front/stand-00.png); the barber's is his
+test('looking at anything in the shop never stands the hero on top of the barber (errata 183, the life proof)', async () => {
+  // The point under the price board and the one under the strop put the hero over the barber, who stands between
+  // them. the hero's drawn width is 0.305 of his height (art/actors/thad-stand-front/stand-00.png); the barber's is his
   // whole frame, which the talking pose's open hand fills.
   const room = await json('content/rooms/barbers.json');
   const ann = await json('reference/room-42/annotation.json');
@@ -85,6 +85,6 @@ test('looking at anything in the shop never stands Thad on top of the barber (er
     const { x, y } = hotspot.walkTo;
     const width = man(y) * 0.305;
     const clear = x + width / 2 <= barber.x - half || x - width / 2 >= barber.x + half;
-    assert.ok(clear, `${hotspot.id}: Thad at ${x},${y} stands over the barber at ${barber.x}`);
+    assert.ok(clear, `${hotspot.id}: the hero at ${x},${y} stands over the barber at ${barber.x}`);
   }
 });

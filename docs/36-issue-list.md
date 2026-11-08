@@ -4929,3 +4929,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Six subjects from doc 105, each with three LOOKs and three LISTENs, and four overrides; the barber-dentist-surgeon beside his chair, with doc 07's tree, his nine barks and the second answer Tyler authorized for the shave; the price board lettered in the game's face. In from the Lane by THE BARBER'S DOOR beside the pole; out by the door to the Lane. Held by `tests/room-42.test.ts`. Proofs under `renders/proofs/barbers/`.
 
 **Open, for Tyler:** (a) THE DOOR TO THE LANE has no LOOK or LISTEN in any document; it ships as a stub exit (errata 72 F), as the Lane's door into the shop does. (b) The barber's look and his speech colour (#e8a8a8) are the builder's (errata 183 D). (c) The price board's lettering (errata 183 E).
+
+## Q181 · Room 38, the photographer's studio: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-08 (errata 183, delegated); BUILT, room-38 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Eight subjects from doc 105 with three LOOKs and three LISTENs each, and four overrides; the photographer beside his camera, with doc 07's tree, his nine barks and the second answer Tyler authorized for "May I buy it?". In from the Lane by the door beside his window, which room-38's fourth operation drew on the Lane. Held by `tests/room-38.test.ts`. Proofs under `renders/proofs/photographers-studio/`.
+
+**Open, for Tyler:** (a) THE DOOR TO THE LANE has no lines; it ships as a stub exit, as the Lane's door in does. (b) The door now drawn on the Lane beside the photographer's window (errata 183, Room 38 D). (c) The photographer's look and his speech colour (#c8e0a0). (d) Doc 07 offers "That's Obadiah Mott." from the first conversation, ungated, as written.

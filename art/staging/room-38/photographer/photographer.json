@@ -1,0 +1,52 @@
+{
+ "sheet": "art/actors/room-38-photographer.png",
+ "frames": [
+  [
+   2,
+   2,
+   196,
+   440
+  ],
+  [
+   200,
+   2,
+   196,
+   440
+  ],
+  [
+   398,
+   2,
+   196,
+   440
+  ],
+  [
+   596,
+   2,
+   196,
+   440
+  ],
+  [
+   794,
+   2,
+   196,
+   440
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "card-up",
+  "card-tilt",
+  "talk"
+ ],
+ "figureHeight": 438,
+ "stature": 1.0,
+ "posture": "standing",
+ "man": 437.8,
+ "feet": [
+  1383,
+  701
+ ],
+ "note": "Room 38: the room's man where they stand (soles at y 701) is 437.8; drawn at 1.0 of him, crown to sole. Frame 1 is a breath the cutter derives from frame 0.",
+ "source": "room-38 (art/staging/room-38/photographer/sheet-01.png)"
+}

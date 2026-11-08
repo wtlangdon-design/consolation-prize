@@ -134,7 +134,7 @@
       "rect": [
         555,
         340,
-        250,
+        145,
         195
       ],
       "defaultVerb": "LOOK_AT",
@@ -162,7 +162,7 @@
         "TALK_TO": "I asked the gentleman in the portrait for directions. He kept his counsel, and his collar."
       },
       "walkTo": {
-        "x": 680,
+        "x": 628,
         "y": 811,
         "facing": "back"
       }
@@ -393,6 +393,28 @@
         "y": 728,
         "facing": "back"
       }
+    },
+    {
+      "id": "to_photographers_studio",
+      "name": "THE PHOTOGRAPHER'S DOOR",
+      "rect": [
+        700,
+        340,
+        112,
+        300
+      ],
+      "colour": 0,
+      "to": "photographers_studio",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 183: the photographer's studio (Room 38) opens off the Lane, through the door beside his window (drawn by room-38 operation 4). No new lines (reference/ancillary-interiors/brief.md): the window keeps doc 97's.",
+      "stub": true,
+      "walkTo": {
+        "x": 756,
+        "y": 728,
+        "facing": "back"
+      }
     }
   ],
   "entrances": [
@@ -449,6 +471,15 @@
       ],
       "facing": "front",
       "note": "Out of the barber's door, beside the pole."
+    },
+    {
+      "from": "photographers_studio",
+      "at": [
+        756,
+        745
+      ],
+      "facing": "front",
+      "note": "Out of the photographer's door, beside his window."
     }
   ],
   "size": [

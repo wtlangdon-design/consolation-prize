@@ -49,6 +49,13 @@ PEOPLE = {
         'curve': ((720, 483), (858, 578)),
         'plate': 'art/backgrounds/room-42-barbers.png', 'thadAt': (470, 745), 'roomCrop': (180, 150, 1180, 830),
     },
+    (38, 'photographer'): {
+        'master': 'art/staging/room-38/composition-master-01.png', 'faceBox': (1095, 318, 1190, 412),
+        'drawn': 4, 'names': ['rest', 'breath', 'card-up', 'card-tilt', 'talk'],
+        'feet': (1383, 701), 'stature': 1.0, 'posture': 'standing',
+        'curve': ((730, 458), (855, 545)),
+        'plate': 'art/backgrounds/room-38-photographers-studio.png', 'thadAt': (1560, 735), 'roomCrop': (920, 150, 1920, 830),
+    },
 }
 
 

@@ -1,0 +1,12 @@
+{
+ "assetId": "room-38",
+ "subject": "room-38-photographers-studio",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-38-photographers-studio",
+ "promptFile": "reference/room-38/prompts/plate-01.txt",
+ "out": "art/staging/room-38/plate-01/source.png",
+ "size": "1536x1024",
+ "images": ["art/staging/room-38/plate-01/base-1536x1024.png"],
+ "derivedFrom": "art/staging/room-38/composition-master-01.png"
+}

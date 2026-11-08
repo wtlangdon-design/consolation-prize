@@ -782,6 +782,24 @@
    "gauntlet": "tools/gauntlet/routes/barbers.json",
    "blockers": [],
    "note": "Room 42, built 2026-11-08 under doc 55 (errata 183). Acceptance is Tyler's, in the playthrough (Q180)."
+  },
+  {
+   "id": "room-38-photographers-studio",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-38.json",
+    "docs/105-the-six-interiors.md",
+    "docs/07-ambient-layer.md"
+   ],
+   "dependsOn": [
+    "room-02-main-street"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-38-photographers-studio.json",
+   "proof": "renders/proofs/photographers-studio/proof.json",
+   "gauntlet": "tools/gauntlet/routes/photographers-studio.json",
+   "blockers": [],
+   "note": "Room 38, built 2026-11-08 under doc 55 (errata 183). Acceptance is Tyler's, in the playthrough (Q181)."
   }
  ],
  "blockerNote": "BLOCKERS ARE QUALIFIED REFERENCES: path.md::Exact Heading. A bare Q id is no longer accepted, because docs/36-issue-list.md carries two Q-number series -- Q11 through Q21 and Q37 each name two different issues -- and a row blocked on \"Q16\" could not say which one. Historical numbering in the document stays as it is; the fix is on the reference side. tools/lib/issueref.mjs resolves a reference to exactly one heading or fails.",

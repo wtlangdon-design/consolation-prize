@@ -52,7 +52,8 @@
   "content/rooms/company-vault.json",
   "content/rooms/main-street-dawn.json",
   "content/rooms/coach-stop-dawn.json",
-  "content/rooms/barbers.json"
+  "content/rooms/barbers.json",
+  "content/rooms/photographers-studio.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -84,7 +85,8 @@
   "content/dialogue/amb-fiddler.json",
   "content/dialogue/amb-bell-ringer.json",
   "content/dialogue/amb-dogs-owner.json",
-  "content/dialogue/amb-barber.json"
+  "content/dialogue/amb-barber.json",
+  "content/dialogue/amb-photographer.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -221,7 +223,8 @@
   "content/ambient/boundary-b.json",
   "content/ambient/dogs-owner.json",
   "content/ambient/fiddler.json",
-  "content/ambient/barber.json"
+  "content/ambient/barber.json",
+  "content/ambient/photographer.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",
@@ -477,6 +480,20 @@
      }
     ],
     "why": "Doc 28 rooms 2 / 2b / 2c: the Lane down to piano alone -- the back alley's distant piano, tuned when the Nugget's is (errata 161)."
+   },
+   "photographers_studio": {
+    "src": "audio/consolation-distant-piano.wav",
+    "gain": 0.4,
+    "variants": [
+     {
+      "when": {
+       "T_NUGGET_PIANO_TUNED": true
+      },
+      "src": "audio/consolation-distant-piano-tuned.wav",
+      "gain": 0.4
+     }
+    ],
+    "why": "Errata 183: the studio opens off the Lane, so it hears the Lane's distant piano through its door and window, quieter (0.4), tuned when the Nugget's is, as the barber's does."
    },
    "barbers": {
     "src": "audio/consolation-distant-piano.wav",

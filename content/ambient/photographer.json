@@ -1,0 +1,93 @@
+{
+ "schema": 1,
+ "id": "photographer",
+ "name": "THE PHOTOGRAPHER",
+ "posture": "standing",
+ "note": "Doc 07 #10: 'His studio. Sells stock portraits by the gross. Has the Mott photograph in his window.' Errata 183: he stands beside his camera in his studio off the Lane (Room 38), where the composition master stood him. His tree and his barks are doc 07's, extracted; doc 105's Overrides answer the room's wrong verbs. Present in every act.",
+ "room": "photographers_studio",
+ "x": 1383,
+ "y": 701,
+ "zone": 2,
+ "approachRadius": 40,
+ "tree": "amb_photographer",
+ "walkTo": {
+  "x": 1580,
+  "y": 745,
+  "facing": "left"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: beside him at the band's far edge, clear of him and of the card table (doc 55 section 8).",
+ "barks": {
+  "R_NOBODY": "Portrait? Fifty cents, sitting included.",
+  "R_SWINDLED": "Portrait? Something to send home?",
+  "R_RACCOON": "I'll photograph the animal. I've done worse.",
+  "R_SURVEYED": "Portrait?",
+  "R_BORDERS_MOTT": "Portrait, Mr. Grubb! History, this is!",
+  "R_LOST_DUEL": "Portrait? …Perhaps not today.",
+  "R_WON_DUEL": "Stand there. Chin up. There's a man.",
+  "R_DEAD": "…I've done post-mortems. I'd rather not, with you talking.",
+  "R_TRUTH": "Should I take Mr. Mott's likeness, do you think? A real one?"
+ },
+ "sprite": {
+  "note": "Frames 0-1 are the idle: the rest pose and its breath. Frames 2-3 are a stock portrait card held up and considered, then tilted to the light. Frame 4 is talking, a hand presenting.",
+  "sheet": "art/actors/room-38-photographer.png",
+  "frames": [
+   [
+    2,
+    2,
+    196,
+    440
+   ],
+   [
+    200,
+    2,
+    196,
+    440
+   ],
+   [
+    398,
+    2,
+    196,
+    440
+   ],
+   [
+    596,
+    2,
+    196,
+    440
+   ],
+   [
+    794,
+    2,
+    196,
+    440
+   ]
+  ],
+  "rate": 0.45,
+  "phase": 0.6,
+  "breaks": [
+   [
+    2,
+    2,
+    3,
+    3,
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    3,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 17,
+  "talkFrame": 4,
+  "provenance": "art/staging/room-38/photographer/photographer.json",
+  "frameNote": "0 rest, hands at his sides · 1 breath · 2 a portrait card held up at arm's length · 3 the card tilted to the light · 4 talking, a hand presenting.",
+  "figureHeight": 438,
+  "stature": 1,
+  "figureHeightNote": "The room's man at his feet (soles y 701): cut and snapped there by tools/art/interiors-people.py (errata 112's one level). The engine draws him at the room's man there."
+ },
+ "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 10 · THE PHOTOGRAPHER) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109)."
+}

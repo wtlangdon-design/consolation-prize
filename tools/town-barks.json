@@ -10,10 +10,10 @@
   "5 · THE MESSAGE BOY": "message-boy",
   "7 · THE MAN LEAVING TOMORROW": "man-leaving-tomorrow",
   "18 · THE DOG'S OWNER": "dogs-owner",
-  "9 · THE BARBER-DENTIST-SURGEON": "barber"
+  "9 · THE BARBER-DENTIST-SURGEON": "barber",
+  "10 · THE PHOTOGRAPHER": "photographer"
  },
  "notPlaced": {
-  "10 · THE PHOTOGRAPHER": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision.",
   "12 · THE STAGE DRIVER": "Tyler, 2026-11-06 (errata 116): he stays out of town. He drives away in the opening and no document brings the coach back."
  },
  "exchanges": {
@@ -101,6 +101,12 @@
    "file": "amb-barber",
    "speaker": "barber",
    "prefix": "barber"
+  },
+  "10 · THE PHOTOGRAPHER": {
+   "tree": "amb_photographer",
+   "file": "amb-photographer",
+   "speaker": "photographer",
+   "prefix": "photographer"
   }
  },
  "treeRoutes": {

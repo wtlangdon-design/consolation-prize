@@ -131,6 +131,10 @@
     "barber": {
       "colour": "#e8a8a8",
       "note": "The builder's choice for errata 183 (Room 42), clear of Thad's and of everyone he can share a room with; Tyler rules on it in the playthrough, as errata 169's were ruled from a sample."
+    },
+    "photographer": {
+      "colour": "#c8e0a0",
+      "note": "The builder's choice for errata 183 (Room 38), clear of Thad's and of everyone he can share a room with; Tyler rules on it in the playthrough."
     }
   },
   "everySpeaker": "Errata 169: every id that speaks -- a tree's speaker, a speaker in an exchange, a townsperson with barks -- has an entry here. The fallback ink sits a few units from Thad's, so an uncoloured speaker reads as Thad (Tyler, 2026-11-07: \"Are the map guy and Thad supposed to have the same color of text?\"). tools/check-speech-colours.mjs fails on any that has none. A figure who is another character in another place says so with sameAs and takes that character's colour."
