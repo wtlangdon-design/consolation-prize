@@ -48,3 +48,23 @@ Act II's conversations were written later than Act I's (the W1 growth and Batch 
 - The duels (doc 03): the pairs, the wrong answers and the framing. They are the game's insult swordfighting and were built that way.
 - Hob, for the reason errata 174 gives.
 - Every puzzle fact: the eight months, Fiddler's Gulch two days out, the two dollars a week, Clause 9, the ninety days, the eleven thousand.
+
+---
+
+## Part two — Act II's rooms (errata 176)
+
+### What the read found
+
+Every first LOOK in the rooms Act II's trials run through was read against doc 99. The rooms were: the Nugget's back room, the assay office and its records room, Fanshawe's office by day, the church, Sheng's laundry, Boot Hill, Pratt's claim and the Clarion.
+
+**The examine layer was already doing doc 99's work.** Most first LOOKs are a noun and then a joke, and the joke is split into its own spoken line (`then`), so a list of first sentences reads flatter than the game does: "One table, two chairs facing, and a great deal of floor for standing around it." is followed, in play, by "The architecture of an argument." Nothing was rewritten for the sake of it.
+
+**What the read did find is three continuity errors in one room.** The strike is twelve years old, and Winnie has kept her window for nine (doc 01). Her second ledger's nineteen entries run from 1849 to this spring (doc 54). The records room disagreed with both:
+
+| Where | Before | After |
+|---|---|---|
+| THE REGISTER OF ASSAYS · LOOK 1 | "…Nineteen names, twelve years." *(its own LOOK 2 says "Nine years of assays")* | "…Nineteen names in nine years." |
+| THE NINETEEN NAMES · LOOK 2 | "…the dates are spread across twelve years like a slow leak." | "…spread across nine years like a slow leak." |
+| THE STOOL · LISTEN 1 | "One loose joint. It announces him." *(the stool is hers, and its LISTEN 3 is "It's waiting for her.")* | "One loose joint. It announces her." |
+
+`tests/continuity.test.ts` holds it: her two rooms may not give her office the strike's twelve years, and her furniture may not announce a man.

@@ -4786,3 +4786,12 @@ Doc 100's step 4 section records it.
   - every `[COMIC]` row that stays on a menu answers differently when asked again.
 - **The examine pass for Act II's rooms follows in its own pull request** (doc 101 part two).
 
+# 176 · ACT II'S ROOMS: THE EXAMINE LAYER HOLDS, AND THE RECORDS ROOM KEEPS WINNIE'S DATES (doc 101 part two)
+
+- **The first LOOKs Act II's trials run through were read against doc 99.** They already do its work: a noun, then a joke spoken as its own line. Nothing was rewritten for the sake of it.
+- **Three continuity errors in Room 6 are fixed at source.** Two are in doc 05 and one is in doc 54:
+  - the register's "twelve years" becomes nine, Winnie's tenure, which its own LOOK 2 already says;
+  - the nineteen names' dates span nine years, not twelve;
+  - the stool "announces her", not him.
+- **`tests/continuity.test.ts` holds it.** Her two rooms may not give her the strike's twelve years, and her furniture may not announce a man.
+
