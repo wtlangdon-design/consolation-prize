@@ -331,6 +331,12 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 177: flagged because a list of numbers changed. It is not loosened: the acts that must open with a line went from II and IV to II, III and IV, and a fourth test now holds the dialogue option that turns Act III to owing its opening. It checks more than before."
+  },
+  {
+   "check": "tests/repeats.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 178: flagged because the data file it reads gained an exemption list. It is not loosened: a new test now holds every [COMIC] option in every tree to a second answer, where before none was checked. The exemptions are the three the design makes permanent (Hob's word budget, the raccoon's naming, Pratt's 'Healing wrong.'), each with its reason."
   }
  ]
 }

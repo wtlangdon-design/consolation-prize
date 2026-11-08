@@ -75,6 +75,7 @@
           "when": {
             "T_BILL_FOUND": true
           },
+          "repeat": "Still fine. Still on Main Street. I go and visit.",
           "say": "He'd been on Main Street the whole time. Six weeks. He'd been fine."
         },
         {

@@ -4804,9 +4804,27 @@ Doc 102 records it.
 - **Every `[COMIC]` row left on an Act III menu answers differently when asked again:** Sump's two, the undertaker's and Sowerby's.
 - **The funeral's "eleven weeks" becomes "less than a month"** (doc 02 D: nine days by Act II's ninety-day rule). `tests/continuity.test.ts` fails on any shipped room line that puts him in town for weeks.
 
+# 178 · ACT IV READ TO DOC 99; EVERY JOKE OPTION ANSWERS DIFFERENTLY TWICE — TYLER, 2026-11-08 ("Continue with act 4")
+
+Doc 103 records it.
+
+- **Act IV is unchanged.** The read found it already does doc 99's work and points each step at the next, and its rooms agree on their dates.
+- **Every `[COMIC]` option left on a menu, in every tree, now has its own second answer.** Nineteen more were written:
+  - in doc 07, as *Asked again:*;
+  - in doc 27, as *(again)*;
+  - in doc 04, as *(second)*.
+
+  Exempt, with reasons recorded in `tests/data/repeats-passed.json` `comicExempt`:
+  - Hob;
+  - the raccoon's naming;
+  - Pratt's "Healing wrong.", which doc 04 makes permanent.
+
+  `tests/repeats.test.ts` holds the rest.
+- **Found and not built: VES_F1, Vessel's Act IV hotel node (doc 04).** It is a staging job, and waits for Tyler.
+
 ---
 
-# 178 · EIGHT TOWNSPEOPLE REDRAWN AGAINST THAD — TYLER, 2026-11-08 (reference/lineup-redraws/brief.md)
+# 179 · EIGHT TOWNSPEOPLE REDRAWN AGAINST THAD — TYLER, 2026-11-08 (reference/lineup-redraws/brief.md)
 
 *Tyler: "the newspaper guy has the same problem as some of the characters earlier where he's too wide compared to Thad … It looks like the pie woman has the same problem." "The boy and the letter writer also have heads that are too big compared to Thad." On the lineup: "all of them".*
 
