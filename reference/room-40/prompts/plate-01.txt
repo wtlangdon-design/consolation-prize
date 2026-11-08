@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game, an empty abandoned shop at night, with one person in it: the man in the blue coat standing in front of the counter.
+
+Make exactly one change: remove the man. Paint what is behind him: the front of the empty counter and the shelf under it, the wall, the swept floorboards and the stripes of light on them.
+
+Change nothing else: the door, the window with the boards outside it and the light through them, the price ticket on the glass, the bare shelves, the counter, the gold-edged sign leaning on the wall, the doorway to the back room with its crate and calendar, and the pile of sweepings stay exactly as they are, in the same places, at the same size, in the same pixel-art style. Keep the dark strips above and below the picture as they are. No people, no text, no border.

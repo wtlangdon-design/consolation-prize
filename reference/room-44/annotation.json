@@ -1,9 +1,9 @@
 {
  "room": "the_lane",
  "plate": "art/backgrounds/room-44-the-lane.png",
- "plateNote": "Room 44's plate, from the image session (reference/streets/brief.md, errata 161). The image session's plate (PR 231). Every rect below is read off it; the walk band and the depth are the graybox plan's, which the plate was painted against. Errata 183: the photographer's door beside his window is room-38 operation 4, pasted back as the door, its frame and its step only (tools/art/room38-lane-door.py).",
+ "plateNote": "Room 44's plate, from the image session (reference/streets/brief.md, errata 161). The image session's plate (PR 231). Every rect below is read off it; the walk band and the depth are the graybox plan's, which the plate was painted against. Errata 183: the photographer's door beside his window is room-38 operation 4, pasted back as the door, its frame and its step only (tools/art/room38-lane-door.py). Errata 183: the empty storefront's door beside its boarded window is room-40 operation 3, pasted back as the door, its frame, its step and the window's new edge only (tools/art/room40-lane-door.py).",
  "plateShipping": "art/backgrounds/room-44-the-lane.png",
- "plateShippingHash": "2d62ed93306c30851190c9c778a93e3c134f890fa0cb849e4cc7e5954b9d42e6",
+ "plateShippingHash": "1f67ce444ed7fab5080abd9d9c572f6b4b439b06762f1e222eae008165bcf448",
  "plateSize": [
   1920,
   864
@@ -106,6 +106,15 @@
    ],
    "facing": "front",
    "note": "Out of the photographer's door, beside his window."
+  },
+  {
+   "from": "empty_storefront",
+   "at": [
+    1692,
+    745
+   ],
+   "facing": "front",
+   "note": "Out of the storefront's door, beside its boarded window."
   }
  ],
  "hotspots": {
@@ -140,9 +149,9 @@
    192
   ],
   "empty_storefront": [
-   1520,
+   1500,
    270,
-   240,
+   140,
    430
   ]
  },
@@ -190,6 +199,13 @@
    "defaultVerb": "WALK_TO",
    "stub": true,
    "note": "Errata 183: the photographer's studio (Room 38) opens off the Lane, through the door beside his window (drawn by room-38 operation 4). No new lines (reference/ancillary-interiors/brief.md): the window keeps doc 97's."
+  },
+  "THE STOREFRONT DOOR": {
+   "id": "to_empty_storefront",
+   "to": "empty_storefront",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "note": "Errata 183 (Tyler, 2026-11-08: \"Door beside the window\"): the empty storefront (Room 40) opens off the Lane through a door drawn beside its boarded window (room-40 operation 3). The window stays boarded, so doc 97's lines about it stay true. No new lines: the storefront keeps doc 97's."
   }
  },
  "exits": {
@@ -228,6 +244,12 @@
    340,
    112,
    300
+  ],
+  "to_empty_storefront": [
+   1640,
+   345,
+   105,
+   290
   ]
  },
  "exitWalkTo": {
@@ -258,6 +280,11 @@
   },
   "to_photographers_studio": {
    "x": 756,
+   "y": 728,
+   "facing": "back"
+  },
+  "to_empty_storefront": {
+   "x": 1692,
    "y": 728,
    "facing": "back"
   }

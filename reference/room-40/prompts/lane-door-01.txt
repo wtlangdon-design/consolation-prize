@@ -1,0 +1,5 @@
+Image 1 is a close-up of shopfronts on a muddy lane at NIGHT in my pixel-art adventure game. On the right is an abandoned shop: a grey plank front, a blank painted-out signboard above, and one big window boarded up with planks nailed across it.
+
+Edit ONLY inside the masked area, on the right-hand part of that shop front: put the shop's DOOR there, a plain narrow wooden shop door reaching all the way down to the ground, shut, with a small dark doorknob and a worn wooden step at its foot on the mud. The door itself is NOT boarded. The window to its left stays boarded up exactly as it is, its planks still nailed across it, only a little narrower where the door now stands beside it.
+
+Change nothing else: the signboard, the boards across the window, the plank front, the neighbouring buildings, the mud and the night stay exactly as they are. The same pixel-art style, the same big square pixels, flat soft shading and cool night light as image 1. No text, no letters, no sign.

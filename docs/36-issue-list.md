@@ -4947,3 +4947,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Five subjects from doc 105 with three LOOKs and three LISTENs each, and three overrides; the boy at the table's end with his tray, a figure who never speaks. On the map at the bakehouse; its door goes back to the map. Held by `tests/room-39.test.ts`. Proofs under `renders/proofs/bakehouse/`.
 
 **Open, for Tyler:** (a) THE DOOR OUT has no lines; it ships as a stub exit. (b) The boy's look and size (0.8 of a man, a boy of about twelve). (c) The racks of loaves are painted, not a subject: no line names them.
+
+## Q184 · Room 40, the empty storefront: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-08 (errata 183; Tyler: "Door beside the window"); BUILT, room-40 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Five subjects from doc 105 with three LOOKs and three LISTENs each, and three overrides; nobody in it; the sign lettered HARDWARE & SUNDRIES in the game's face. In from the Lane by a door drawn beside the storefront's boarded window, which stays boarded so the Lane's lines stay true. Held by `tests/room-40.test.ts`. Proofs under `renders/proofs/empty-storefront/`.
+
+**Open, for Tyler:** (a) THE DOOR TO THE LANE has no lines; it ships as a stub exit. (b) The door drawn on the Lane beside the boarded window (errata 183, Room 40 C). (c) The sign's lettering in gold, one word to a line.

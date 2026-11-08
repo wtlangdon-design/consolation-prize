@@ -151,6 +151,34 @@ ROOMS = {
                          'end are all behind it, so no plane is needed.',
         'lightSources': ['THE OVEN', 'THE BOY', 'THE BACK DOOR'],
     },
+    40: {
+        'id': 'empty_storefront', 'name': 'THE EMPTY STOREFRONT',
+        'what': "An abandoned shop off the Lane at night, empty, lit only by the Lane's lamplight through the gaps in its boarded window.",
+        'depth': INTERIOR,
+        'surfaces': [
+            ('ceiling shadow', (0, 0, 1920, 60), 36),
+            ('walls, plank', (0, 60, 1920, 630), 66),
+            ('floor, swept boards', (0, 690, 1920, 174), 84),
+        ],
+        'objects': [
+            ('THE DOOR TO THE LANE', (20, 150, 170, 540), 50, 'behind'),
+            ('THE WINDOW (boarded outside, tickets on the glass)', (230, 130, 300, 400), 58, 'behind'),
+            ('bare shelves', (580, 90, 420, 330), 74, 'behind'),
+            ('THE COUNTER', (620, 430, 480, 260), 54, 'behind'),
+            ('THE SIGN (leaning on the wall)', (1160, 400, 320, 170), 98, 'behind'),
+            ('THE BACK ROOM (the doorway, the crate, the calendar)', (1530, 110, 320, 580), 44, 'behind'),
+            ('THE SWEPT FLOOR (the pile of sweepings)', (440, 640, 120, 50), 92, 'behind'),
+        ],
+        'lamp': (380, 780, 700, 160),
+        'marks': {'entrance': (260, 790, 'right')},
+        'walk': (180, 740, 1600, 110),
+        'exit': ('THE DOOR TO THE LANE', 'the_lane'),
+        'layoutThad': (1000, 790),
+        'figures': [(450, 740, False), (700, 800, False), (1300, 740, True), (260, 790, False), (900, 850, False),
+                    (1650, 850, True)],
+        'occlusionNote': 'Nothing stands nearer the camera than the walk band, and nobody is in the room.',
+        'lightSources': [],
+    },
 }
 
 

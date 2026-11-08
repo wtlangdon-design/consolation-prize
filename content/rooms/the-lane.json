@@ -171,9 +171,9 @@
       "id": "empty_storefront",
       "name": "THE EMPTY STOREFRONT",
       "rect": [
-        1520,
+        1500,
         270,
-        240,
+        140,
         430
       ],
       "defaultVerb": "LOOK_AT",
@@ -204,7 +204,7 @@
         "OPEN": "Boarded with long nails, by somebody who meant it."
       },
       "walkTo": {
-        "x": 1640,
+        "x": 1570,
         "y": 811,
         "facing": "back"
       }
@@ -415,6 +415,28 @@
         "y": 728,
         "facing": "back"
       }
+    },
+    {
+      "id": "to_empty_storefront",
+      "name": "THE STOREFRONT DOOR",
+      "rect": [
+        1640,
+        345,
+        105,
+        290
+      ],
+      "colour": 0,
+      "to": "empty_storefront",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 183 (Tyler, 2026-11-08: \"Door beside the window\"): the empty storefront (Room 40) opens off the Lane through a door drawn beside its boarded window (room-40 operation 3). The window stays boarded, so doc 97's lines about it stay true. No new lines: the storefront keeps doc 97's.",
+      "stub": true,
+      "walkTo": {
+        "x": 1692,
+        "y": 728,
+        "facing": "back"
+      }
     }
   ],
   "entrances": [
@@ -480,6 +502,15 @@
       ],
       "facing": "front",
       "note": "Out of the photographer's door, beside his window."
+    },
+    {
+      "from": "empty_storefront",
+      "at": [
+        1692,
+        745
+      ],
+      "facing": "front",
+      "note": "Out of the storefront's door, beside its boarded window."
     }
   ],
   "size": [

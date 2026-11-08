@@ -55,7 +55,8 @@
   "content/rooms/barbers.json",
   "content/rooms/photographers-studio.json",
   "content/rooms/boarding-house-parlour.json",
-  "content/rooms/bakehouse.json"
+  "content/rooms/bakehouse.json",
+  "content/rooms/empty-storefront.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -528,6 +529,20 @@
      }
     ],
     "why": "Errata 183: the studio opens off the Lane, so it hears the Lane's distant piano through its door and window, quieter (0.4), tuned when the Nugget's is, as the barber's does."
+   },
+   "empty_storefront": {
+    "src": "audio/consolation-distant-piano.wav",
+    "gain": 0.4,
+    "variants": [
+     {
+      "when": {
+       "T_NUGGET_PIANO_TUNED": true
+      },
+      "src": "audio/consolation-distant-piano-tuned.wav",
+      "gain": 0.4
+     }
+    ],
+    "why": "Errata 183: the storefront opens off the Lane, so it hears the Lane's distant piano, quieter (0.4), as the barber's and the studio do."
    },
    "barbers": {
     "src": "audio/consolation-distant-piano.wav",

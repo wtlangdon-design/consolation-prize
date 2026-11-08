@@ -722,6 +722,22 @@
     }
    ],
    "castingNote": "The boy has no approved image and no lines of his own; doc 105 gives him flour to the elbows, a tray twice his width, and eyes that never look up. Drawn on a child's template built from Thad (tools/art/lineup-redraws.py child), as the message boy was."
+  },
+  "room-40-empty-storefront": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-13-undertakers",
+    "path": "art/backgrounds/room-13-undertakers.png",
+    "note": "D -- the approved one-room shop at night off the same Lane (Room 13); the storefront is empty, dim, lit only by what comes through the gaps in its boarded window (reference/ancillary-interiors/brief.md)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Nobody is in it."
   }
  }
 }

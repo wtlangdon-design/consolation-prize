@@ -737,7 +737,8 @@
    "barbers": "plank",
    "photographers_studio": "plank",
    "boarding_house_parlour": "plank",
-   "bakehouse": "plank"
+   "bakehouse": "plank",
+   "empty_storefront": "plank"
   }
  },
  "ambience": {

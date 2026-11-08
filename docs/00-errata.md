@@ -5040,3 +5040,15 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
 - **E · American English.** The boy's "grey" is "gray".
 - **F · Sound.** Plank footsteps, and the town's distant piano at 0.3, as the parlour's.
 
+**BUILT — ROOM 40, THE EMPTY STOREFRONT (the builder, 2026-11-08).** `BUILDABLE WITHOUT INVENTION: YES`. room-40: 3 of 4 operations.
+
+- **A · Where it is — Tyler, 2026-11-08: "Door beside the window".** K above made Room 40 the Lane's boarded storefront. Taking its boards down would have made four of doc 97's Lane lines untrue: "boarded… closed for good", "a gap in the boards", "a loose board", and the OPEN "Boarded with long nails". Doc 105's own lines describe the window from inside as still blanked off: "The street outside… has stopped looking in". So the window stays boarded and a door is drawn beside it. Every written line stays true, and nothing new is written.
+- **B · The plan** (`tools/interiors-graybox.py 40`). The front wall at the left, as the studio's, so its window is seen: the door to the Lane; the window, its price tickets on the glass and the boards dark behind it; bare shelves; the empty counter; the new gold-edged sign leaning on the wall; the doorway to the back room with the empty crate and the calendar; the pile of sweepings by the door. Nobody is in it. No lamp is lit: the Lane's light comes in stripes through the boards.
+- **C · The art.**
+  - Operation 1, the master. Operation 2, the plate: Thad out. The standard crop from y 170, lifted 1.33 to 30.9 in its lower half, the floor of the approved range: an unlit shop, readable.
+  - Operation 3, the door on the Lane: a masked edit of a close-up of the Lane's plate. The storefront's right part became a plain shop door with its step, the boarded window a little narrower beside it. `tools/art/room40-lane-door.py` pastes back the door, its frame, its step and the window's new edge only.
+  - On the Lane, THE STOREFRONT DOOR is a stub exit. The storefront's hotspot is narrowed to the boarded window and sign its lines describe.
+- **D · The sign.** Its name is its first LOOK in doc 105, "HARDWARE & SUNDRIES", drawn in the shipping face in gold by `tools/art/room40-sign.py`, one word to a line on its tall face. The tickets and the calendar are painted marks.
+- **E · THE SWEPT FLOOR** is floor, so it walks on a bare click.
+- **F · Sound.** Plank footsteps, and the Lane's distant piano at 0.4, as the other two shops off the Lane.
+
