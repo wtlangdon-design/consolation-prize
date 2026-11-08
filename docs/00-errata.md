@@ -4895,3 +4895,23 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
   `tests/goto-opening.test.ts` holds it. It failed on this scene before the change.
 - `tests/doc04-nodes.test.ts`'s not-built list loses WIN_B3.
 
+# 182 · WRITTEN VERSUS BUILT: THE AUDIT, THE CHECK, AND FIVE GAPS FOR TYLER — TYLER, 2026-11-08 ("Yes")
+
+*Tyler: "I'm concerned that after multiple audits, you're just now finding multiple missing scenes." Offered two mechanical checks, he said "Yes". Doc 104 records the audit.*
+
+- **`tools/check-written-vs-built.mjs` (in `run-all`).** Every quoted line in the 26 source documents is in `/content`, or `proofs/written-not-built.json` lists it under a group with its reason. A new line written and not built fails.
+- **Built versus heard is structural.** Every node is reachable, every tree has an owner or a scene, and every gate's flag has a writer. The one fault it found is errata 181's `goto` opening, now held by `tests/goto-opening.test.ts`.
+- **124 lines are written and not in the game. 77 are not gaps:**
+  - quotations (24);
+  - reworded but built (15);
+  - superseded (10);
+  - by design (3);
+  - the second ledger waiting on art (20);
+  - the stage driver's later barks, superseded by staging (5).
+- **47 are gaps, in five groups, for Tyler's ruling:**
+  1. the six ancillary interiors and their four townspeople;
+  2. Fanshawe's war payoff;
+  3. Hob's running lines;
+  4. Ozymandia's Act IV line;
+  5. refusals and examine lines for objects that never became clickable.
+

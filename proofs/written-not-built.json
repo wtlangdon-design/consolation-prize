@@ -1,0 +1,579 @@
+{
+ "schema": 1,
+ "note": "Errata 182: every quoted line in the source documents that /content does not carry (tools/check-written-vs-built.mjs), grouped with the reason. GAP groups were reported to Tyler on 2026-11-08 and wait on his ruling; a line comes off this list when it is built. Lines under four words are below the check's bar, so two short gaps it cannot see are named here by hand: Hob's running lines ('It'll rain.', 'That's not yours.', 'Wouldn't stand there.', 'You're the piano man.') and Ozymandia's '...It's loud here.'",
+ "groups": [
+  {
+   "id": "ancillary-interiors",
+   "why": "GAP, reported to Tyler (errata 182): the six ancillary interiors (rooms 37-42: the barber's, the boarding house parlour, the photographer's studio, the bakehouse, the empty storefront, the schoolhouse) and the townspeople who live in them (doc 07 #9 the barber, #10 the photographer, #14-15 the boarding house women). Canon is 42 screens (errata 1); these six were never on the full build list (CLAUDE.md, errata 72), and the Lane shows the barber's and photographer's fronts shut.",
+   "lines": [
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Shave, extraction, amputation. Two bits, four bits, a dollar."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Sit down. Don't look at the tray."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "If it bites you, come straight here. Don't wait."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Free shave, Mr. Grubb! First one's free!"
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "I'd have done the laying-out at a fair price. Nobody asked me."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Twenty-five cents. I've thirty-one more."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Portrait? Fifty cents, sitting included."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Portrait? Something to send home?"
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "I'll photograph the animal. I've done worse."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Portrait? …Perhaps not today."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "…I've done post-mortems. I'd rather not, with you talking."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Should I take Mr. Mott's likeness, do you think? A *real* one?"
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "It's men. Men are steady."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "We've prospected the prospectors, dear."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Do you think there's gold here?"
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "There's forty men upstairs at six dollars the week. That's the gold, dear."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Six dollars the week, meals extra."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Now don't let it change you."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Will you be wanting the room still, or —"
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Instruments. I have identified the razor. I am choosing not to identify the others."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "…It's *correct*. Somebody paid to have this done properly. I may need a moment."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Four dozen strangers in good collars, sold as anybody you like."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Warm. Working. Something in this town is *working*."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "HARDWARE & SUNDRIES. The paint is good. It was done by a professional, recently, at expense."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Fourteen desks, made by hand, well made. Nobody has ever sat in them."
+    }
+   ]
+  },
+  {
+   "id": "war-payoff",
+   "why": "GAP, reported to Tyler (errata 182): FAN_D1, the payoff of Fanshawe's war (\"You were never a colonel.\" / \"No. I wasn't.\"), needs all five contradictions; three are offered by no node, so it cannot be reached (errata 84 I a, doc 36 Q154).",
+   "lines": [
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "I took the rank at twenty-three."
+    },
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "Under Commodore Pelham, God rest him."
+    }
+   ]
+  },
+  {
+   "id": "hob-running",
+   "why": "GAP, reported to Tyler (errata 182): Hob's five \"Running\" lines (doc 04 HOB_A1, \"every fourth night, unprompted\"). Errata 71 assigns them to the ambient layer \"when Hob is placed in a night room\"; Hob has no barks. They count against his forty words, and every one is a clue.",
+   "lines": [
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "They're all bad claims."
+    }
+   ]
+  },
+  {
+   "id": "ozymandia-act-iv",
+   "why": "GAP, reported to Tyler (errata 182): Ozymandia at Prosperity in Act IV, after the void, staring at the ground: \"...It's loud here.\" Never staged.",
+   "lines": []
+  },
+  {
+   "id": "wrong-answers-unwired",
+   "why": "GAP, reported to Tyler (errata 182): doc 49 refusals for verbs on objects that are not clickable in the built room (Room 7's chained pen, form stack, counter bell, statute book and partition; Fanshawe's contract drawer and inkless pen; Boot Hill's fence and oats; the shack's lamp reserve, calendar and stool; the claim row entire), or on objects whose rooms were built by hand (Room 1's sign, mud, case and road) or as actors (the raccoon).",
+   "lines": [
+    {
+     "doc": "49-wrong-answers",
+     "quote": "It leans. It rights itself. The sign has survived worse than me."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "'Two thousand and climbing.' We are neither of us fooling anyone."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "I own forty feet of this elsewhere. Collecting samples would be gloating."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "I have already used the mud. The mud has already used me. We are even."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "Goodbye, road. Tell the East I said nothing."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "The chain is rated for stronger feelings than mine."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "It comes exactly eleven inches, which is the length of an honest signature and not one flourish more."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "One per applicant. Sump counted the stack this morning. Sump will count it tonight."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "Sump appears before the ring finishes. I suspect he lives in the counter."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "It holds. The undertaker maintains it. His clients do not leave, but their reputation for it must be kept up."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "Boot Hill's only harvest. I left it. It's theirs."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "Rows of full lamps, trimmed and ready. A man prepared for many more nights than one life holds."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "It is years old and the days are all crossed off, every one, in even strokes. I put it back exactly as it hung."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "It is placed where it is placed. The window it faces is the one that sees the whole street, and the wear on the sill says: nightly."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "Eleven claims, free for the re-filing, and no takers in years. The row is used daily: as a warning, by everyone, on the way past."
+    }
+   ]
+  },
+  {
+   "id": "examine-object-not-hotspot",
+   "why": "GAP, reported to Tyler (errata 182): examine lines for an object the built room has no hotspot for -- Room 22's milepost, Room 25's workings.",
+   "lines": [
+    {
+     "doc": "10-examine-batch-3",
+     "quote": "CLAIMS — 2 MI. Somebody has scratched a great many other numbers underneath, none of which agree."
+    },
+    {
+     "doc": "10-examine-batch-3",
+     "quote": "Square. Timbered properly. Swept — somebody has swept a mine. This is the finest piece of work in the territory and there has never been a thing in it."
+    }
+   ]
+  },
+  {
+   "id": "small-unwired",
+   "why": "GAP, reported to Tyler (errata 182), small: one verb line written for an object that is built and never answers with it -- doc 26's THE WASHSTAND · USE (Thad's room) and doc 09's LOOK on GRIEVANCE herself (the mule is an actor with no LOOK of her own; she falls to the people pool).",
+   "lines": [
+    {
+     "doc": "09-examine-batch-2",
+     "quote": "A mule. She has looked at me once, at length, and has not felt the need to do it again."
+    },
+    {
+     "doc": "26-batch-a",
+     "quote": "I have washed. It made less difference than I hoped."
+    }
+   ]
+  },
+  {
+   "id": "second-ledger-names",
+   "why": "WAITING ON ART (errata 181, Tyler 2026-11-08: \"the book can stay out\"): the second ledger on Winnie's counter, its THE NAMES (the nineteen, doc 54) and doc 08's THE SECOND LEDGER and THE FLOORBOARD, LIFTED. The image session is drawing it; the hotspots are wired when it lands.",
+   "lines": [
+    {
+     "doc": "54-batch-c",
+     "quote": "THE NAMES — individually examinable, nineteen of them"
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Amos Treadwell, blacksmith. May 1849. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Josiah Penhallow, miner. August 1849. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Michael Doyle, teamster. October 1849. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Heinrich Vogel, baker. March 1850. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Elias Crane, surveyor. April 1850. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Tobias Wren, printer. September 1850. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Rafael Sandoval, muleteer. February 1851. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Nathaniel Hobbs, attorney. May 1851. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Silas Marchbank, clerk. June 1851. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Gideon Fairweather, minister. April 1852. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Patrick Keane, carpenter. November 1852. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Jonas Whitlock, barber. March 1853. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Abel Stroud, gambler. August 1853. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Cyrus Lamb, prospector. June 1854. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Isaac Pell, wheelwright. October 1854. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Matthias Oakes, cooper. July 1855. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Owen Prothero, collier. May 1856. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Daniel Ashby, clerk. January 1857. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Lemuel Garrow, drover. This spring. The question. The ink is hardly dry."
+    }
+   ]
+  },
+  {
+   "id": "stage-driver-later",
+   "why": "SUPERSEDED BY STAGING: doc 07 #12's stage-driver barks, one per reputation state, assume the driver is met again after the opening; doc 17 v3 has him leave in the opening and he is never placed again. Reported to Tyler with the gaps (errata 182).",
+   "lines": [
+    {
+     "doc": "07-ambient-layer",
+     "quote": "I brought you in. I'd have warned you if I liked you."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Two men got off asking about you. Didn't like the look of either."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Four days. Heard about Vessel."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "I don't carry the dead. Rate's different."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "…Reckon I'll have a full coach out of here Thursday."
+    }
+   ]
+  },
+  {
+   "id": "invariant-room-32-33",
+   "why": "BY DESIGN: doc 49 lines for Room 32 (the coffin: invariant 2, no verb panel and no hotspots) and for Room 33's walls (the listening chamber: \"Everything\" is the puzzle, errata 70).",
+   "lines": [
+    {
+     "doc": "49-wrong-answers",
+     "quote": "Not yet. Four minutes, he said. Somebody out there is counting, and I have staked everything on his arithmetic."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "I said something to keep myself company. The pine kept it."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "The chamber is not to be pushed. It is to be heard. Everything here has been waiting longer than I have been alive."
+    }
+   ]
+  },
+  {
+   "id": "superseded",
+   "why": "SUPERSEDED: replaced by a later document or ruling -- doc 04 UND_A1 and VES_A1 (doc 27's trees, errata 75); Room 1's case on the coach roof (the opening restaged, errata 164); merge decisions that dropped one pass's line (doc 54 Merge decisions, errata 67-69); Room 36 doc 08 lines dropped where doc 05 governs (errata 69 B); the funeral day's \"further funerals\" (errata 75).",
+   "lines": [
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "Accepted on his behalf. He'd have wanted the credit."
+    },
+    {
+     "doc": "05-examine-layer",
+     "quote": "It faces the street, which faces back. In the morning the false fronts glow like scenery, which is honest of the light."
+    },
+    {
+     "doc": "08-examine-batch-1",
+     "quote": "Somebody has taken the gilt lettering down. They did it in the night. It is the most honest thing that company has ever done."
+    },
+    {
+     "doc": "08-examine-batch-1",
+     "quote": "Nothing living in it. I am unexpectedly sorry about this."
+    },
+    {
+     "doc": "08-examine-batch-1",
+     "quote": "The loose board, third from the end, has been fixed. I don't know who did it and I am not going to ask, because I would like to keep this."
+    },
+    {
+     "doc": "08-examine-batch-1",
+     "quote": "The dog. Still nobody's."
+    },
+    {
+     "doc": "10-examine-batch-3",
+     "quote": "The strongbox. Open. Empty. There has never been gold in this building, and the man who runs it has known that longer than anyone alive."
+    },
+    {
+     "doc": "17-opening-sequence",
+     "quote": "My case, still up on the roof, under the driver's hand."
+    },
+    {
+     "doc": "17-opening-sequence",
+     "quote": "The fork against the clasp, faintly, when he shifts it."
+    },
+    {
+     "doc": "57-puzzle-completion",
+     "quote": "further funerals can be arranged."
+    }
+   ]
+  },
+  {
+   "id": "examine-reworded",
+   "why": "IN THE GAME, REWORDED: the hotspot is built and says this, in other words -- from the merge of the two examine passes (errata 67-69, doc 54) or the first voice pass (docs 60-93), which rewrote lines in place, or a later document's success line (doc 54 governs doc 24 at A5). Below the check's word-overlap bar only because the rewording was heavy.",
+   "lines": [
+    {
+     "doc": "05-examine-layer",
+     "quote": "The number has been repainted four times. You can see the smaller ones underneath, each of them once true."
+    },
+    {
+     "doc": "05-examine-layer",
+     "quote": "Shuffling. Patient. These are people who have made their peace."
+    },
+    {
+     "doc": "05-examine-layer",
+     "quote": "Forty hooks, three keys. Either the hotel is full, or the keys leave and do not write."
+    },
+    {
+     "doc": "05-examine-layer",
+     "quote": "PALM, 10¢. TEA LEAVES, 15¢. THE CARDS, 25¢. THE FULL AND UNVARNISHED TRUTH, $4. The truth is exactly what I have."
+    },
+    {
+     "doc": "08-examine-batch-1",
+     "quote": "A crate of dynamite, kept beside the stove, which I have decided not to think about."
+    },
+    {
+     "doc": "08-examine-batch-1",
+     "quote": "A mail-order catalogue, four hundred pages, six months old. Every man in Consolation has read it cover to cover. It is the most-read book in the territory and it is a list of prices in Chicago."
+    },
+    {
+     "doc": "08-examine-batch-1",
+     "quote": "Four coppers, steaming, and a system for moving between them that I could not describe but which is clearly correct."
+    },
+    {
+     "doc": "09-examine-batch-2",
+     "quote": "A pencil, on a string, nailed to the table. Every dispute in this district for eleven years has been settled with this pencil."
+    },
+    {
+     "doc": "09-examine-batch-2",
+     "quote": "Six chairs, all of them better than any chair I have sat in since Providence. A man could wait here a long time and not mind."
+    },
+    {
+     "doc": "09-examine-batch-2",
+     "quote": "My name, spelled in a way it has never previously been spelled, in a hand of tremendous confidence."
+    },
+    {
+     "doc": "10-examine-batch-3",
+     "quote": "Forty sluices along a hundred yards of creek, each one built to catch what the one above it missed. The men at the bottom are working the leavings of the men at the top, and the men at the top have found nothing."
+    },
+    {
+     "doc": "17-opening-sequence",
+     "quote": "Still going. He has not once looked at me and I have been standing here in a good coat."
+    },
+    {
+     "doc": "24-combinations",
+     "quote": "I have stopped the draft with a horse blanket. The hole has gone cold. We shall see what the raccoon makes of that."
+    },
+    {
+     "doc": "26-batch-a",
+     "quote": "Half the men on Boot Hill were viewed in this and buried in their own clothes."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Six chairs, all of them better than any chair I have sat in since Providence"
+    }
+   ]
+  },
+  {
+   "id": "not-a-line",
+   "why": "NOT A LINE: a quotation inside a document -- Tyler's words, a ruling, an editor's note, a quoted design phrase, or a table fragment -- not something any character says.",
+   "lines": [
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "| `[TOPIC · retain]` |"
+    },
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "| `[PROGRESS · remove]` | *(She runs it herself, at the window, in front of him. It is very good gold.)* *(The first assay the player ever watches happen.)*"
+    },
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "Six options, five of which sell the claim in language Thad doesn't recognise as a sale. Find the one that doesn't."
+    },
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "| `[PROGRESS · retain]` |"
+    },
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "Thad names it (full Christian name, chosen by the player from three equally poor options)."
+    },
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "): Vessel stands in the hotel lobby from Act IV, and this node is what TALK TO opens there. Option 3 asks about"
+    },
+    {
+     "doc": "05-examine-layer",
+     "quote": "I'm giving you permission to do it"
+    },
+    {
+     "doc": "13-room-02-content",
+     "quote": "it says it has opinions??? That doesn't even make sense"
+    },
+    {
+     "doc": "23-inventory-act1",
+     "quote": "Do everything correctly… Keep the dialogue really punchy and good"
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "do everything you have to to finish the writing so the other rooms can be built."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "). A room's examine layer is doc 05's pass and the batch pass (docs 08–10) together. `**DOC 05 NAME** ≡ **BATCH NAME**` declares one object written twice: doc 05's name, doc 05's line first, the batch line second, then the repeats. Each room's **Merge decisions** list names where merging put the same joke or two contradictory facts in front of the player, and what was decided (errata 68 H, delegated by Tyler:"
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": ". **Decided:** kept — doc 10's line goes on to the people moving between the fronts"
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "the most informative screen in Act II"
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "slow, dogged, no imagination whatsoever, and — it turns out — fundamentally decent."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "LOOK is beginning to run out; LISTEN is beginning to take over"
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "the examine layer carries the comedy … the player is free to wander their own funeral."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "nine of Winnie's nineteen names appear here on markers … Each LOOK gives a name, a date, and a trade."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "each gives a name, a trade, and a date. Nine of them will later be found on markers at Boot Hill. Ten will not, which is worse"
+    },
+    {
+     "doc": "94-clue-pass",
+     "quote": "Nine puzzles are solvable but rely on a guess, each missing one clue line… May I write them, under the same rules as the act-change lines, and show you before anything ships?"
+    },
+    {
+     "doc": "94-clue-pass",
+     "quote": "Yes, write and ship them."
+    },
+    {
+     "doc": "96-cutaways",
+     "quote": "You decide, and I want them included now so that they're part of my play through."
+    },
+    {
+     "doc": "98-main-street-pass",
+     "quote": "I think nearly ALL of the dialogue on main street could be better. It's all rather lame … No one really has a personality or point of view … I feel like Thad pretty quickly needs something to 'do' on Main Street?"
+    },
+    {
+     "doc": "98-main-street-pass",
+     "quote": "Does someone on Main Street need to direct him into a specific building first?"
+    },
+    {
+     "doc": "98-main-street-pass",
+     "quote": "both ignore him by saying their same phrase multiple times. I don't like it with either of them."
+    }
+   ]
+  }
+ ]
+}
