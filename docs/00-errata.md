@@ -4895,3 +4895,13 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
   `tests/goto-opening.test.ts` holds it. It failed on this scene before the change.
 - `tests/doc04-nodes.test.ts`'s not-built list loses WIN_B3.
 
+
+**The art (the image session, 2026-11-08; `reference/second-ledger/brief.md`).** Tyler approved 3 operations; asset `room-05-second-ledger` (cap 3) is in `art/staging/caps.json` with that ruling. One operation was spent, and two are left.
+- **Winnie's retrieval** (operation 1, `reference/second-ledger/winnie-01.txt`) was painted over the in-game Thad from her counter face (errata 144's method). She is in her dark charcoal blouse and a long dark skirt, with Thad in Room 5 attached for the style.
+  - `tools/art/second-ledger.py winnie` cuts it into `art/actors/winnie-second-ledger.png` at Room 5's height where the board is: the man is 518 px, and she stands 0.95 of him. It is snapped to one level.
+  - Frames: 0 standing, hands folded, looking down · 1 breath (derived) · 2 kneeling, hands at the board's end · 3 crouched, reaching down under the boards · 4 standing, the ledger open in her hands · 5 standing, the ledger closed against her chest.
+  - The frames and her `figureHeight` (492), `stature` (0.95) and `posture` are in `art/staging/room-05/second-ledger/winnie-second-ledger.json`.
+- **The ledger** is in her hands in frames 4 and 5: small, with a faded green cloth cover and worn corners, plainly not the counter's book.
+- **The board, lifted** (`tools/art/second-ledger.py board`; no image operation) is the plank's own pixels between `floorboard.py`'s seams. It is raised to 30 rows at its free end and hinged at the other, with its edge showing and a dark hollow where it lay. Night is `art/objects/room-05/board-lifted.png` (from the shipping plate, the base image as `rest`'s is); day is `art/staging/room-05/floorboard/board-lifted.png`. `rest` and `pressed` are untouched.
+- `renders/room-05-second-ledger-retrieval.png` shows her frames in the room, beside Thad, with the board lifted.
+- **Still the builder's:** her staging (round the counter's end, down at the board), doc 95 row 74 from B to A, the board's `lifted` state in the room, and Tyler's call on where the ledger ends up.
