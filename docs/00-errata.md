@@ -4533,4 +4533,9 @@ He answered **"That all sounds good"** to one more pass: a pass at the top with 
 
 **A4 · The square's L.** Tyler, of the pass map (PR 237): **"a glaring difference is that the main square is in a very distinct L shape, which the map fails to incorporate."** Main Street's plate shows the long row along the back of the square, with the Nugget, the hotel and the assay office coming forward down its east side, and the road leaving past the assay office. Asked to raise the cap by 2, he chose **"Yes, +2 (Recommended)"** (town-map 7; attemptsTotal +2). It is one edit of the town only, pasted back so the rest of the map keeps its place (`tools/art/town-map-edit.py prepare-town` / `promote-town`). The brief's fourth part covers it.
 
+**A4 · The art: not promoted (the image session, 2026-11-08).** Operations 6 and 7 of 7; the cap is spent and the shipping map is unchanged (the mountain-pass map, A3).
+- **Operation 6, `town-01`,** drew the east arm well: the saloon with its balcony, the hotel and a small office down the square's east side, facing west, with the road out behind the office. But it removed the whole long row along the north side, so there was no L, only one arm.
+- **Operation 7, `town-02`, the correction,** with that miss stated, kept the east arm and again drew no long row of two-storey fronts. It moved the Lane's small shopfronts and tent down onto the square's north edge in its place, which also breaks "the Lane and its tent are unchanged".
+- Both sources and candidates are kept as the record. Neither passes the brief's checks, so neither is promoted, and the next step is Tyler's.
+
 **B · The map's Thad** lands with Lower Street and the Lane (errata 161, part 3), on the branch where it was built, and is recorded here when it merges.

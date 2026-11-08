@@ -1,0 +1,12 @@
+Image 1 is the town from a finished night map in my pixel-art adventure game: a top-down, slightly angled plan. A long row of two-storey wooden false-front buildings faces south onto a wide, open, muddy town square with a horse trough, and a road runs round the square. Behind the row is a narrow back lane with small shopfronts and a striped tent. Image 2 is the same main street as the game shows it, from the ground: the row of fronts runs along the back of the square, and at the right-hand end the big saloon with its balcony, the hotel and a small office come forward, down the side of the square, so the fronts wrap the square in an L. The other images are references for the game's style only; do not copy anything from them into the map.
+
+Make exactly this change to Image 1, in its own night palette, pixel grid and scale: turn the row of fronts into an L around the square.
+- The long row keeps its place along the north side of the square, facing south.
+- At its east end the row turns the corner: the big saloon with the balcony, then a two-storey hotel, then a small one-storey office stand one below the other down the EAST side of the square, their fronts and porches facing WEST onto it. Take the saloon out of the long row where it stands now and close the gap, so it is not drawn twice.
+- The square is open mud in front of both arms of the L, with the trough in it, and nothing on its south or west sides.
+- The road round the square stays, and the road out still leaves the square's east side towards the church street at the right, now passing behind the small office.
+
+Change nothing else. The back lane, its shopfronts and the tent, the church street at the right, the creek, the trees and the three houses below stay exactly where they are and exactly as they are drawn. Lit windows stay warm. No text, no labels, no numerals, no people.
+
+THIS IS A CORRECTION. The last attempt drew the east arm well -- the saloon with its balcony, the hotel and the small office down the east side, facing west -- but it REMOVED THE WHOLE LONG ROW along the north side of the square, so there was no L, only one arm. KEEP THE LONG ROW: the seven two-storey false fronts of Image 1 still stand side by side along the north side of the square, facing south, exactly where Image 1 has them, minus only the saloon (the wide building with the balcony, third from the left), whose gap closes up. Then add the east arm of saloon, hotel and office down the east side as before. Both arms of the L must be there.
+
