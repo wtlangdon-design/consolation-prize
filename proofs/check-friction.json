@@ -289,6 +289,18 @@
    "date": "2026-11-07",
    "kind": "loosened",
    "why": "Errata 164: Tyler, playing the opening on his Chromebook, \"The text moved too fast. It needs to hold a beat longer before the next text line comes up.\" The reading hold's base rises 0.45 -> 0.9 s and its floor 1.8 -> 2.5 s; the test's pinned constants and the opening's total (31.2 -> 40.9 s) follow the ruling. A ruling changed what is right, not a threshold to get past."
+  },
+  {
+   "check": "tools/check-sound-levels.mjs",
+   "date": "2026-11-07",
+   "kind": "loosened",
+   "why": "Errata 164: not loosened in effect but extended: a cue's bed may carry its own place (levels.cueBeds), as a one-shot already may (levels.cues), so the team breathing under the stars (O-02-S2) is held at -2 with a floor, where the beds' shared -8 had let it sit inaudible. Tyler: \"I didn't hear horses.\""
+  },
+  {
+   "check": "tests/resolution.test.ts",
+   "date": "2026-11-07",
+   "kind": "reviewed",
+   "why": "Loosened three times in fourteen days, each time because a ruling on reading pace changed the four hold constants it pinned (errata 154, 164). TUNED: it no longer pins their values; it holds that they are read from content and coherent (base under floor under ceiling), that the merged hold is never shorter than the old formula on the opening, and it reports the opening's total. Not retired: the one-formula rule it guards still stands."
   }
  ]
 }
