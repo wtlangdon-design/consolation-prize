@@ -9,15 +9,16 @@
 - *Where a line already exists in another document (doc 03's Duel One, doc 04's VES_B1), it is named here and extracted from there, not retyped.*
 - *Daylight throughout (errata 190).*
 
-*Not written:*
-- *G8, the panners' favors. It waits on doc 107's open question 1: whether they teach new Assay pairs or two rerouted ones. The panners' trees are written without it.*
-- *VES_B1 option 3 in the Nugget, Duel One's replay. It waits on open question 3.*
+*Tyler left the design's open questions 1 to 3 to the writer (2026-11-08: "I'll leave it all up to you!"). They are decided here:*
+- *Question 1: G8 teaches two **new** Assay pairs, 25 and 26, learned in the Gulch. Nothing is moved out of Consolation.*
+- *Question 2: the two proposals below are adopted.*
+- *Question 3: Duel One's replay (VES_B1 option 3) is offered only in the Gulch, before G9. In the Nugget, option 3 is not offered.*
 
 ---
 
-## TWO PROPOSALS FOR TYLER
+## TWO DECISIONS FOR G4
 
-These are needed for G4 to work, and are his to rule on (doc 107, open question 2).
+Proposed for Tyler and left by him to the writer (doc 107, open question 2). G4 needs both.
 
 1. **Vessel's name in the Gulch is "the Deacon".** It is his own name: Deke is short for it, and his mother called him Deacon. So he hides without lying, which is the only way he can (doc 99: "Never says anything untrue"). Nobody in the documents has ever said what Deke is short for. This says so.
 2. **Vessel has shaved off his mustache.** Thad met him face to face at A3. Without a change, Thad would know him on sight, and G4, finding him by the watch, would not hold. His figure in Consolation has a large mustache. His Gulch figure is clean-shaven, with a pale stripe across his top lip where it was. It is the one change to his design, and it is the joke of his first LOOK.
@@ -317,6 +318,7 @@ These are needed for G4 to work, and are his to rule on (doc 107, open question 
 *LISTEN as before he was found.*
 
 - **Options 1, 2 and 4** as doc 04 writes them.
+- **Option 3 is the replay, and is offered only here, before G9.** In the Nugget it is not offered.
 - **Options 3 and 6 wait for the seat (G5).** Before it, either one answers: **VESSEL:** "Gold on the plank first, son. Then we can talk about paper." *(second)* "Plank first. I don't make the rules. Well. I did, but I keep them."
 - **Option 6, in the Gulch (G6, B4).** Doc 04's answer, without its direction *(He pulls out the chair.)*, and then: *(He points down the bank, at the bar.)* **VESSEL:** "The local way's out on the bar, son. Bring your boots." → **B4**; Duel One.
 - **Option 5, in the Gulch, after Duel One (G9).**
@@ -324,6 +326,51 @@ These are needed for G4 to work, and are his to rule on (doc 107, open question 
 > **VESSEL:** *(beat)* "Beat me in the Nugget's back room, with judges and a pencil, and I'll sign whatever you like."
 > **THAD:** "You'd come back to Consolation?"
 > **VESSEL:** "Losing a man in front of strangers is business. Beating him in front of his own town is art. I'll take the coach." → **G9**; `T_VESSEL_FOUND`. Vessel leaves the Gulch, with the watch, and is in Room 4. The rule-keeper keeps the plank.
+
+---
+
+## G8 · THE MESSAGES, AND PAIRS 25 AND 26
+
+*The panner and the man upstream won't speak to each other. They speak through Thad, and they speak in boasts. Carrying one boast up and the answer down teaches two pairs. Optional: Duel Two can be won without them (doc 107). Both options need G3.*
+
+**`PAN_G1`, option 6** — "Any message for upstream?" · `[PROGRESS · remove]`
+> **PANNER:** *(He lowers his voice. Nobody is near.)* "Tell him I took a nugget out of the river so big it needs its own tent." → `T_GULCH_MESSAGE_UP`
+> *(second, if asked again before it is carried)* "Tell him exactly that. Don't improve it."
+
+**`UPS_G1`, option 6** — "He says he took a nugget out of the river so big it needs its own tent." · `[PROGRESS · remove]` · *req `T_GULCH_MESSAGE_UP`*
+> **MAN UPSTREAM:** "Does he." *(beat)* "Tell him I've been in that tent. It's mostly tent."
+> **THAD:** "Tent. Mostly tent. Yes." → pair 25
+> **MAN UPSTREAM:** "And tell him my ground runs so rich the gravel pays me rent." → `T_GULCH_MESSAGE_DOWN`
+
+**`PAN_G1`, option 7** — "He says his ground runs so rich the gravel pays him rent." · `[PROGRESS · remove]` · *req `T_GULCH_MESSAGE_DOWN`*
+> **PANNER:** *(He snorts.)* "Tell him I've collected that rent. It was paid in buttons."
+> **THAD:** "Rent. Buttons. Yes." → pair 26
+> **PANNER:** "Don't tell him, mind. He'll only send another."
+
+### The pairs, for doc 03 Part Two, as Tier 7: learned in the Gulch (2)
+
+**25.**
+> *"I took a nugget out of the river so big it needs its own tent."*
+> **"I've been in that tent. It's mostly tent."**
+
+**26.**
+> *"My ground runs so rich the gravel pays me rent."*
+> **"I've collected that rent. It was paid in buttons."**
+
+*Both join the pool Vessel draws from in Duel Two (doc 57 B6: "pairs 1–21", now 1–21, 25 and 26). The duel still needs fourteen.*
+
+### Their wrong answers, for doc 03 Part Three
+*Three each, answered by Vessel, the only man who throws them in a duel. None claims acquaintance and downgrades: that shape is the right answer's.*
+
+**25.** *("so big it needs its own tent")*
+> **"A tent is a poor place for valuables."** — *Vessel: "That's advice, son. Nobody ever won an Assay with advice."*
+> **"How big is the tent?"** — *Vessel: "Big enough for the nugget. Keep up."*
+> **"I have a claim with a raccoon in it."** — *Vessel: "We all know the raccoon, son. He has a bigger following than you."*
+
+**26.** *("the gravel pays me rent")*
+> **"Gravel can't pay rent."** — *Vessel: "That's the truth, son. Rule three lets you raise it. Nobody's ever been fool enough."*
+> **"What does it pay?"** — *Vessel: "More than you've got. Everything does, these days."*
+> **"My raccoon pays no rent at all."** — *Vessel: "Then evict him, son. That's how property works."*
 
 ---
 

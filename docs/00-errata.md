@@ -5165,9 +5165,9 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
   - the ride home and Vessel's new greeting in Room 4;
   - the changes in Consolation: A9's third copy, G1's rod hire in Room 16, B1's Clarion edition, and their three items.
 - **Lines that exist elsewhere are named, not retyped:** doc 03's Duel One opening, exchanges, notebook lines and loss dialogue, and doc 04's VES_B1.
-- **Two proposals for Tyler, which G4 needs** (doc 107, open question 2):
-  - Vessel's Gulch name is "the Deacon", his own name, which Deke is short for;
-  - his Gulch figure has shaved off the mustache, so Thad doesn't know him on sight.
-  Both are written into doc 109. If Tyler rules against either, the lines that use it are rewritten.
-- **Not written:** G8, which waits on open question 1, and Duel One's replay in the Nugget, which waits on open question 3.
+- **Tyler left doc 107's open questions 1 to 3 to the writer** (2026-11-08: "I'll leave it all up to you!"):
+  - Vessel's Gulch name is "the Deacon", his own name, which Deke is short for. His Gulch figure has shaved off the mustache, so Thad doesn't know him on sight. G4 needs both.
+  - G8 teaches two new pairs, 25 and 26, which Thad learns by carrying boasts between the panner and the man upstream. Each has three wrong answers. They join Duel Two's pool, which still needs fourteen.
+  - Duel One's replay (VES_B1 option 3) is offered only in the Gulch, before G9.
+- **Still open, and Tyler's:** music for the Gulch and the mine, and the image cap for the Gulch in `art/staging/caps.json`, which changes only on his instruction.
 - **Nothing is built.** The lines move into their home documents and are extracted when the trip is built. The art waits for a cap Tyler sets in `art/staging/caps.json`.

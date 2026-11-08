@@ -121,9 +121,9 @@ Four screens between the washout and the ledge, each holding one clause of the s
 
 ## Open questions, for Tyler, none blocking
 
-1. New Assay pairs for G8, or two Tier 4 pairs moved out of Consolation.
-2. Vessel's name in the Gulch, proposed with the lines.
-3. Duel One's replay (VES_B1 option 3): cut, or a question about it.
+1. ~~New Assay pairs for G8, or two moved out of Consolation.~~ **Decided (left to the writer by Tyler, 2026-11-08): two new pairs, 25 and 26 (doc 109).**
+2. ~~Vessel's name in the Gulch.~~ **Decided: "the Deacon", and his mustache shaved off (doc 109).**
+3. ~~Duel One's replay.~~ **Decided: offered only in the Gulch, before G9 (doc 109).**
 4. Music for the Gulch and the mine, under the detune.
 5. The image budget: about 40 to 44 operations, a cap Tyler sets.
 6. The puzzle count: 45 becomes 52 when the trip is built, and every place that says 45 is updated then.
