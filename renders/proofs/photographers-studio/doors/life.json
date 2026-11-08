@@ -1,0 +1,839 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "photographers_studio",
+ "commit": "aa43043630d4b17f552123c17bc671cdaa31ac29",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "photographers-studio",
+ "warped": false,
+ "lifeRoute": "photographers-studio-doors",
+ "durationSeconds": 216.56,
+ "events": [
+  {
+   "t": 4.31,
+   "line": "entry route photographers-studio: 38 action(s)"
+  },
+  {
+   "t": 200.64,
+   "line": "the title: clicked NEW GAME"
+  },
+  {
+   "t": 200.64,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 200.64,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 200.64,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 200.64,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 200.64,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 200.64,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 200.64,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 200.64,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 200.64,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 200.64,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 200.64,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 200.64,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 200.64,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 200.64,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 200.64,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 200.64,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 200.64,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 200.64,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 200.64,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 200.64,
+   "line": "action 20 (wait): waited 7s"
+  },
+  {
+   "t": 200.64,
+   "line": "action 21 (click): clicked world 1900,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 200.64,
+   "line": "action 22 (wait): waited 1s"
+  },
+  {
+   "t": 200.64,
+   "line": "action 23 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 200.64,
+   "line": "action 24 (click): clicked world 1300,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 200.64,
+   "line": "action 25 (wait): waited 1s"
+  },
+  {
+   "t": 200.64,
+   "line": "action 26 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 200.64,
+   "line": "action 27 (click): clicked world 700,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 200.64,
+   "line": "action 28 (wait): waited 1s"
+  },
+  {
+   "t": 200.64,
+   "line": "action 29 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 200.64,
+   "line": "action 30 (click): clicked world 150,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 200.64,
+   "line": "action 31 (wait): waited 1s"
+  },
+  {
+   "t": 200.64,
+   "line": "action 32 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 200.64,
+   "line": "action 33 (click): clicked main_street/to_back_alley at world 29,510 -- THE LANE, at Main Street's west end (errata 161)"
+  },
+  {
+   "t": 200.64,
+   "line": "action 34 (waitFor): reached {\"room\":\"the_lane\"} in room the_lane"
+  },
+  {
+   "t": 200.64,
+   "line": "action 35 (wait): waited 3s"
+  },
+  {
+   "t": 200.64,
+   "line": "action 36 (click): clicked the_lane/to_photographers_studio at world 756,490 -- THE PHOTOGRAPHER'S DOOR, beside his window"
+  },
+  {
+   "t": 200.64,
+   "line": "action 37 (waitFor): reached {\"room\":\"photographers_studio\"} in room photographers_studio"
+  },
+  {
+   "t": 200.64,
+   "line": "action 38 (wait): waited 3s"
+  },
+  {
+   "t": 200.66,
+   "line": "in photographers_studio; life route: 17 action(s)"
+  },
+  {
+   "t": 201.18,
+   "line": "capture 00-arrived: room photographers_studio, says null, options 0, control null"
+  },
+  {
+   "t": 201.49,
+   "line": "action 1 (click): clicked photographers_studio/back_to_lane at world 225,338 -- out, to the Lane"
+  },
+  {
+   "t": 202.27,
+   "line": "action 1 (waitFor): reached {\"room\":\"the_lane\"} in room the_lane"
+  },
+  {
+   "t": 203.31,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     756,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 204.32,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     756,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 204.43,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 204.97,
+   "line": "capture 01-out: room the_lane, says null, options 0, control null"
+  },
+  {
+   "t": 205.22,
+   "line": "action 1 (click): clicked the_lane/to_photographers_studio at world 756,490 -- and back in by THE PHOTOGRAPHER'S DOOR"
+  },
+  {
+   "t": 205.5,
+   "line": "action 1 (waitFor): reached {\"room\":\"photographers_studio\"} in room photographers_studio"
+  },
+  {
+   "t": 206.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     280,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 207.51,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     280,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 207.56,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 208.08,
+   "line": "capture 01-in: room photographers_studio, says null, options 0, control null"
+  },
+  {
+   "t": 208.33,
+   "line": "action 1 (click): clicked photographers_studio/back_to_lane at world 225,338 -- out, to the Lane"
+  },
+  {
+   "t": 209.09,
+   "line": "action 1 (waitFor): reached {\"room\":\"the_lane\"} in room the_lane"
+  },
+  {
+   "t": 210.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     756,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 211.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     756,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 211.15,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 211.66,
+   "line": "capture 02-out: room the_lane, says null, options 0, control null"
+  },
+  {
+   "t": 211.91,
+   "line": "action 1 (click): clicked the_lane/to_photographers_studio at world 756,490 -- and back in by THE PHOTOGRAPHER'S DOOR"
+  },
+  {
+   "t": 212.16,
+   "line": "action 1 (waitFor): reached {\"room\":\"photographers_studio\"} in room photographers_studio"
+  },
+  {
+   "t": 213.22,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     280,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 214.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     280,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 214.21,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 214.73,
+   "line": "capture 02-in: room photographers_studio, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "00-arrived",
+   "why": null,
+   "t": 201.18,
+   "file": "renders/proofs/photographers-studio/doors/raw-captures-ignored/00-arrived.png",
+   "hash": "2a4bcbefac039874051d90925c95179feef2bd4e4906c008925d221f0e5b6100",
+   "room": "photographers_studio",
+   "clock": 200.8313,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      280,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 500,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      15,
+      290,
+      530,
+      552
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:photographers_studio",
+     "path": "art/backgrounds/room-38-photographers-studio.png",
+     "drawn": "art/backgrounds/room-38-photographers-studio.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "be9bc330844ab93c57c993e47b0b25f7bc287c06b523ac10173d97652172db13"
+    },
+    {
+     "key": "art/actors/room-38-photographer.png",
+     "path": "art/actors/room-38-photographer.png",
+     "drawn": "art/actors/room-38-photographer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "57cf2fe9e9f25df33bcdae50c40ab5bf4eaee5799c86d01285f6eb58d1899d2e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-out",
+   "why": null,
+   "t": 204.96,
+   "file": "renders/proofs/photographers-studio/doors/raw-captures-ignored/01-out.png",
+   "hash": "079c35c5148bcc749b8f549dda93608f73f52ef054e46c840faa90fc11397139",
+   "room": "the_lane",
+   "clock": 204.7645,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      756,
+      745
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 285,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-05.png",
+     "bounds": [
+      594,
+      460,
+      323,
+      315
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:the_lane",
+     "path": "art/backgrounds/room-44-the-lane.png",
+     "drawn": "art/backgrounds/room-44-the-lane.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2d62ed93306c30851190c9c778a93e3c134f890fa0cb849e4cc7e5954b9d42e6"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-in",
+   "why": null,
+   "t": 208.08,
+   "file": "renders/proofs/photographers-studio/doors/raw-captures-ignored/01-in.png",
+   "hash": "5ee203bbcd7ac59ea79168c2b841a6391e9a7e55bebe0dee7617d384a7873cb3",
+   "room": "photographers_studio",
+   "clock": 207.7476,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      280,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 500,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-00.png",
+     "bounds": [
+      15,
+      290,
+      530,
+      552
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:photographers_studio",
+     "path": "art/backgrounds/room-38-photographers-studio.png",
+     "drawn": "art/backgrounds/room-38-photographers-studio.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "be9bc330844ab93c57c993e47b0b25f7bc287c06b523ac10173d97652172db13"
+    },
+    {
+     "key": "art/actors/room-38-photographer.png",
+     "path": "art/actors/room-38-photographer.png",
+     "drawn": "art/actors/room-38-photographer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "57cf2fe9e9f25df33bcdae50c40ab5bf4eaee5799c86d01285f6eb58d1899d2e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-out",
+   "why": null,
+   "t": 211.66,
+   "file": "renders/proofs/photographers-studio/doors/raw-captures-ignored/02-out.png",
+   "hash": "17eec3c0082ce2c09555c5129639ecb03ec0492b75e592e6e7fb36575260e6cc",
+   "room": "the_lane",
+   "clock": 211.33079999999998,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      756,
+      745
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 285,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-03.png",
+     "bounds": [
+      594,
+      460,
+      323,
+      315
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:the_lane",
+     "path": "art/backgrounds/room-44-the-lane.png",
+     "drawn": "art/backgrounds/room-44-the-lane.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2d62ed93306c30851190c9c778a93e3c134f890fa0cb849e4cc7e5954b9d42e6"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-in",
+   "why": null,
+   "t": 214.72,
+   "file": "renders/proofs/photographers-studio/doors/raw-captures-ignored/02-in.png",
+   "hash": "4ca6e8bc59c75a4adbfbf15c6ce28b9cb3a2973029e5a0b9caf70425739e6f95",
+   "room": "photographers_studio",
+   "clock": 214.5141,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      280,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 500,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      15,
+      290,
+      530,
+      552
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:photographers_studio",
+     "path": "art/backgrounds/room-38-photographers-studio.png",
+     "drawn": "art/backgrounds/room-38-photographers-studio.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "be9bc330844ab93c57c993e47b0b25f7bc287c06b523ac10173d97652172db13"
+    },
+    {
+     "key": "art/actors/room-38-photographer.png",
+     "path": "art/actors/room-38-photographer.png",
+     "drawn": "art/actors/room-38-photographer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "57cf2fe9e9f25df33bcdae50c40ab5bf4eaee5799c86d01285f6eb58d1899d2e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 216.56s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-08T20:41:18.976Z"
+}
