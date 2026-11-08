@@ -1,48 +1,79 @@
 {
- "schema": 1,
- "id": "amb_one_strike_man",
- "note": "Doc 07 §13 micro-tree, verbatim, as revised 2026-10-31 (Tyler approved the rewrite): every payoff is spoken, where the first version answered two options with stage directions.",
- "start": "N1",
- "nodes": {
-  "N1": {
-   "noPrompt": true,
-   "exceptionReason": "DOC 07 §13 WRITES NO ROOT LINE FOR HIM: he opens every conversation with his bark for the current reputation (greetsWithBark on his ambient file), so no prompt is drawn and none is invented.",
-   "options": [
-    {
-     "id": "tell_me_about_it",
-     "text": "Tell me about it.",
-     "tag": "TOPIC",
-     "say": "Bent down to drink. There it was, winking up at me. I’ve been bending down ever since.",
-     "repeat": "Again? …Bless you. Nobody asks twice.",
-     "set": {
-      "T_STRIKE_TOLD": true
-     }
-    },
-    {
-     "id": "when_was_this",
-     "text": "When was this?",
-     "tag": "TOPIC",
-     "say": "Forty-nine. Spring. A Tuesday.",
-     "repeat": "Forty-nine. Spring. A Tuesday."
-    },
-    {
-     "id": "and_since",
-     "text": "And since?",
-     "tag": "COMIC",
-     "say": "Since what?",
-     "repeat": "Since what?"
-    },
-    {
-     "id": "exit",
-     "text": "Thank you. This has been clarifying.",
-     "tag": "EXIT"
+  "schema": 1,
+  "id": "amb_one_strike_man",
+  "speaker": "one_strike_man",
+  "note": "EXTRACTED from docs/07-ambient-layer.md (## 13 · THE ONE-STRIKE MAN) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one's pool, rotated in play (errata 110, 167).",
+  "start": "root",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "noPrompt": true,
+      "exceptionReason": "Doc 07 writes the micro-tree as options only; the greeting is the bark.",
+      "options": [
+        {
+          "id": "one_strike1",
+          "text": "Tell me about it.",
+          "tag": "TOPIC",
+          "set": {
+            "T_STRIKE_TOLD": true
+          },
+          "repeat": "Again? …Bless you. Nobody asks twice.",
+          "say": "Bent down to drink. There it was, winking up at me. I've been bending down ever since."
+        },
+        {
+          "id": "one_strike2",
+          "text": "When was this?",
+          "tag": "TOPIC",
+          "repeat": "Forty-nine. Spring. Possibly a Wednesday. The details go first.",
+          "say": "Forty-nine. Spring. A Tuesday."
+        },
+        {
+          "id": "one_strike3",
+          "text": "Did you know Ezra Pike?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "one_strike_man",
+              "line": "Pike! Knew him in forty-nine."
+            },
+            {
+              "speaker": "thad",
+              "line": "Where is he now?"
+            },
+            {
+              "speaker": "one_strike_man",
+              "line": "Ask the undertaker. He's kept up with Pike better than I have."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          },
+          "repeat": "The undertaker. I only keep up with forty-nine."
+        },
+        {
+          "id": "one_strike4",
+          "text": "You knew Pike was dead.",
+          "tag": "TOPIC",
+          "when": {
+            "T_PIKE_DEAD": true
+          },
+          "repeat": "A Tuesday. Lovely man. Never found a thing.",
+          "say": "Pike? Knew him in forty-nine. Spring. A Tuesday."
+        },
+        {
+          "id": "one_strike5",
+          "text": "And since?",
+          "tag": "COMIC",
+          "say": "Since what?"
+        },
+        {
+          "id": "one_strikex",
+          "tag": "EXIT",
+          "text": "Thank you. This has been clarifying.",
+          "ends": true,
+          "universal": true
+        }
+      ]
     }
-   ]
   }
- },
- "speaker": "one_strike_man",
- "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null and the words fall to top-centre in the wrong colour.",
- "beatNote": "Doc 07 writes \"(He does. At length. It is genuinely moving the first time.)\" and \"(He looks at his hands. Then tells the story again.)\" as DIRECTIONS, not speech. check-content-schema's `beat` carries a direction into the data and lists it every run as unbuilt, which is the honest state: the option exists, the document says what happens, and nobody has written the words he says because the joke is that they are the same words either way.",
- "exitNote": "From doc 04's UNIVERSAL EXIT LINES pool. \"Thank you. This has been clarifying.\" is marked available only when it has not been, and a man telling you the same story twice has clarified nothing, so it is his.",
- "revisedNote": "Transcribed from doc 07, which is the source of truth: a line changes there first and then here, word for word. Apostrophes are typeset curly, as everywhere in /content."
 }

@@ -348,7 +348,15 @@ is the whole of his character.
 
 **Micro-tree**
 > "You're flat." → "I'm tuned to the piano."
+>   *Asked again:* "Still tuned to the piano. It's called loyalty."
 > "The piano is flat." → "Then I'm tuned to the piano."
+>   *Asked again:* "Then I'm loyal to a flat piano. Somebody has to be."
+> "Did you know Ezra Pike?" → "Pike sang flat. Loudest man at every funeral in town."
+>   *Thad:* "Every funeral?"
+>   → "Bar one. Ask the undertaker about that one."
+>   *Asked again:* "Every funeral but his own. The undertaker'll tell you."
+> "You knew Pike was dead." → "I'd have played at it. Nobody asked. Nobody ever asks the fiddle."
+>   *Asked again:* "Nobody asks the fiddle."
 > `[COMIC]` "Do you want me to fix it?" → "God, no. Then I'd be the only one right."
 
 **Barks** — *mostly just playing; three spoken*
@@ -392,6 +400,13 @@ is the whole of his character.
 > "Tell me about it." → "Bent down to drink. There it was, winking up at me. I've been bending down ever since."
 >   *Asked again:* "Again? …Bless you. Nobody asks twice."
 > "When was this?" → "Forty-nine. Spring. A Tuesday."
+>   *Asked again:* "Forty-nine. Spring. Possibly a Wednesday. The details go first."
+> "Did you know Ezra Pike?" → "Pike! Knew him in forty-nine."
+>   *Thad:* "Where is he now?"
+>   → "Ask the undertaker. He's kept up with Pike better than I have."
+>   *Asked again:* "The undertaker. I only keep up with forty-nine."
+> "You knew Pike was dead." → "Pike? Knew him in forty-nine. Spring. A Tuesday."
+>   *Asked again:* "A Tuesday. Lovely man. Never found a thing."
 > `[COMIC]` "And since?" → "Since what?"
 > `[EXIT]` "Thank you. This has been clarifying."
 
@@ -481,6 +496,13 @@ is the whole of his character.
 > "You're dealing off the bottom." → "I am."
 >   *Asked again:* "Still am."
 > ↳ "Doesn't anyone object?" → "They know what I am. They don't know what the Colonel is. Which of us is the problem?"
+>   *Asked again:* "Object to me? Son, I'm the only honest thing at this table."
+> "Did you know Ezra Pike?" → "Pike owed me eleven dollars. I've forgiven it."
+>   *Thad:* "That's generous."
+>   → "The undertaker hasn't. Ask him about Pike."
+>   *Asked again:* "Eleven dollars. Forgiven. Ask the undertaker."
+> "You knew Pike was dead." → "I'm a card player. I knew the night he stopped losing."
+>   *Asked again:* "He stopped losing. That's how you know."
 > `[COMIC]` "Deal me in." → "No. I like you."
 >   *Asked again:* "I still like you. Don't make it difficult."
 > `[COMIC]` "Are you any good?" → "I'm the best honest card player in the territory. Small field. I'm not in it."

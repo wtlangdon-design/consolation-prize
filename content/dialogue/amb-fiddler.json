@@ -14,16 +14,51 @@
           "id": "fiddler1",
           "text": "You're flat.",
           "tag": "TOPIC",
+          "repeat": "Still tuned to the piano. It's called loyalty.",
           "say": "I'm tuned to the piano."
         },
         {
           "id": "fiddler2",
           "text": "The piano is flat.",
           "tag": "TOPIC",
+          "repeat": "Then I'm loyal to a flat piano. Somebody has to be.",
           "say": "Then I'm tuned to the piano."
         },
         {
           "id": "fiddler3",
+          "text": "Did you know Ezra Pike?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "fiddler",
+              "line": "Pike sang flat. Loudest man at every funeral in town."
+            },
+            {
+              "speaker": "thad",
+              "line": "Every funeral?"
+            },
+            {
+              "speaker": "fiddler",
+              "line": "Bar one. Ask the undertaker about that one."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          },
+          "repeat": "Every funeral but his own. The undertaker'll tell you."
+        },
+        {
+          "id": "fiddler4",
+          "text": "You knew Pike was dead.",
+          "tag": "TOPIC",
+          "when": {
+            "T_PIKE_DEAD": true
+          },
+          "repeat": "Nobody asks the fiddle.",
+          "say": "I'd have played at it. Nobody asked. Nobody ever asks the fiddle."
+        },
+        {
+          "id": "fiddler5",
           "text": "Do you want me to fix it?",
           "tag": "COMIC",
           "say": "God, no. Then I'd be the only one right."
