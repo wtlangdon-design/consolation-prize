@@ -18,7 +18,7 @@ Fed from the side: A9's third copy and G1's rod into G2; B1's Clarion edition in
 
 ## The light
 
-**Day, throughout (Tyler, 2026-11-08).** The washout, the ledge and the five Gulch screens are drawn in daylight. The two days each way pass on the ride, over black, as they do in the game today, so nobody sleeps on screen. The mine has no daylight to read the time by. Time of day stays an authored visual state (errata 64d); nothing here is a clock.
+**Day, throughout (Tyler, 2026-11-08).** The washout, the ledge and the five Gulch screens are drawn in daylight. The two days each way pass on the ride, over black, as they do in the game today, so nobody sleeps on screen. Inside, the mine is lit by old shafts to the surface, so it is the same day there too (doc 108). Time of day stays an authored visual state (errata 64d); nothing here is a clock.
 
 ## The places
 
