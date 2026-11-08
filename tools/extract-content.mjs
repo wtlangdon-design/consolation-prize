@@ -5058,6 +5058,9 @@ function townTrees() {
     const routes = routing.treeRoutes?.[heading] ?? {};
     const options = [];
     let lastTop = null;
+    // AN OPENING LINE (doc 07 NOTATION, errata 114): the stage line shown over the options when the conversation
+    // opens. The letter-writer, the pie woman and the map seller have one (errata 170 brings their trees here).
+    const opening = /^\*\*\*Opening:\*\*\*\s*\*(.+?)\*\s*$/m.exec(tree)?.[1] ?? null;
     for (const raw of tree.split('\n')) {
       if (!raw.startsWith('>')) continue;
       const line = raw.slice(1);
@@ -5103,9 +5106,12 @@ function townTrees() {
       id: spec.tree,
       speaker: spec.speaker,
       note: `EXTRACTED from docs/07-ambient-layer.md (## ${heading}) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. `
-        + 'Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one\'s pool (errata 110).',
+        + (opening ? 'The opening is doc 07\'s stage line. ' : 'Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). ')
+        + 'The exit is doc 04 part one\'s pool, rotated in play (errata 110, 167).',
       start: 'root',
-      nodes: { root: { id: 'root', noPrompt: true, exceptionReason: 'Doc 07 writes the micro-tree as options only; the greeting is the bark.', options } },
+      nodes: { root: opening
+        ? { id: 'root', prompt: plain(opening), options }
+        : { id: 'root', noPrompt: true, exceptionReason: 'Doc 07 writes the micro-tree as options only; the greeting is the bark.', options } },
     }));
   }
   // THE PAIR'S BARKS: one exchange per reputation, carried by the file named.

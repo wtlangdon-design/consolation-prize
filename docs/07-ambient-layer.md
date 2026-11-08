@@ -84,16 +84,24 @@ is the whole of his character.
 **Premise:** he is doing better than anyone in Consolation, because he sells the one thing that never runs out.
 
 **Micro-tree**
-***Opening:*** *The letter-writer looks up.*
+*He greets Thad with his bark (errata 170: Tyler asked whether he is established as a letter-writer the first time they talk; his own "Letters home. Ten cents the page." says so).*
 > "What do you charge?" → "Ten cents the page. Fifteen if it's going well."
-> ↳ "Going well?" → "If a man's had a good week I write more."
->   *Thad:* "And if he has had a bad one?"
+>   *Asked again:* "Ten cents. I'd do you a discount, but discounts read badly at home."
+> ↳ "Going well?" → "If a man's had a good week, I write more."
+>   *Thad:* "And a bad one?"
 >   → "Much more. Bad weeks are my living."
+>   *Asked again:* "Bad weeks. My living. Business is excellent."
 > "Do you ever write the truth?" → "Once. Fella insisted. I charged him double and he cried the whole time."
->   *Asked again:* "Once. And I charged him double."
+>   *Asked again:* "Once. I've still got the blot where he cried on it."
+> "I'm looking for Ezra Pike." → *(He puts his pen down.)* "Pike. You'll want the undertaker. Down the lane, past the mercantile."
+>   *Thad:* "Are they friends?"
+>   → "Very close. Closer every year."
+>   *Asked again:* "The undertaker. I'd write it down for you, but that's ten cents."
+> "You knew Pike was dead." → "Everybody knew. I just thought it'd read better from a professional."
+>   *Asked again:* "It still reads better from a professional."
 > `[COMIC]` "I write my own." → "I know. I've read them over your shoulder."
->   *Thad:* "You have what?"
->   → "You're not bad. You're just honest, which is a phase."
+>   *Thad:* "You've what?"
+>   → "You're not bad. You're honest, which is a phase."
 
 **Barks**
 | State | Line |
@@ -117,8 +125,16 @@ is the whole of his character.
 
 **Micro-tree** *(they answer alternately and interrupt each other)*
 > "What are you arguing about?" → **A:** "The line runs from the split pine —" **B:** "It runs from the *rock* —" **A:** "— which is what I said —" **B:** "— it is *not* what you said."
+>   *Asked again:* "Same line. Same pine. He's still wrong."
 > "Is there gold on either claim?" → *(pause)* **A:** "No." **B:** "No." **A:** "Not a color." **B:** "Never has been." *(They resume immediately.)*
-> `[COMIC]` "Have you tried settling it?" → **A:** "And do *what*?"
+>   *Asked again:* "Still no. Lovely, isn't it."
+> "Do either of you know Ezra Pike?" → **A:** "Pike's up the hill." **B:** "He's not *up* the hill. He's *in* the hill."
+>   *Thad:* "He has a mine?"
+>   → **A:** "…Ask the undertaker." **B:** "Down the lane."
+>   *Asked again:* "Undertaker. Down the lane. And don't ask him about the pine."
+> "You knew Pike was dead." → **A:** "Everybody knew." **B:** "I knew first." **A:** "You did *not*."
+>   *Asked again:* "He did not know first."
+> `[COMIC]` "Have you tried settling it?" → **A:** "And do *what*?" **B:** "With our *evenings*?"
 
 **Barks**
 | State | Line |
@@ -164,9 +180,18 @@ is the whole of his character.
 *Everywhere. Runs notes for a penny. Knows more than anyone. Is nine.*
 
 **Micro-tree**
-> "What do you know?" → "Everything."
+> "What do you know?" → "Everything. Pick a bit."
+>   *Asked again:* "Still everything. It's gone up."
 > "Tell me something." → "Penny."
+>   *Thad:* "Everything costs a penny?"
+>   → "Knowing does. Not knowing's free. Most of the town's on that plan."
+>   *Asked again:* "Penny. Same as last time. I'm fair."
 > ↳ *(pay)* "Here's your penny. Make it worth it." → "…The Colonel gets a letter from Boston every month and burns it in the stove." *(This is true, is never followed up, and is not needed for anything.)*
+>   *Asked again:* "That was a penny's worth. You've had it."
+> "Where would I find Ezra Pike?" → "That one's free." *(beat)* "Undertaker. Down the lane. No rush. Mr. Pike's not going anywhere."
+>   *Asked again:* "Still free. Still the undertaker."
+> "You knew Pike was dead." → "Everybody knew. You never asked the right question. That one's a penny."
+>   *Asked again:* "Penny."
 > `[COMIC]` "Shouldn't you be in school?" → "There's no teacher. There's a school." *(He runs off. This is the only explanation of the schoolhouse the game ever offers.)*
 
 **Barks**
@@ -188,9 +213,17 @@ is the whole of his character.
 *Main Street. Pies of unstated provenance.*
 
 **Micro-tree**
-***Opening:*** *The pie woman does not look up.*
-> "What's in the pie?" → "Pie's a nickel."
-> ↳ "That isn't what I asked." → "Pie's a nickel."
+***Opening:*** *The pie woman looks at his coat, then his boots, and prices him.*
+> "What's in the pie?" → "Crust. Under the crust, pie."
+>   *Asked again:* "Still pie. It's been pie all day."
+> ↳ "That isn't an answer." → "It's a nickel's worth of answer. The filling's a dime."
+>   *Asked again:* "Still a dime."
+> "Do you know Ezra Pike?" → "Pike bought a pie off me every Sunday." *(beat)* "For a while."
+>   *Thad:* "And then?"
+>   → "And then the undertaker. Down the lane. Pike's still into me for three pies."
+>   *Asked again:* "Undertaker. Down the lane. Mention the three pies."
+> "You knew Pike was dead." → "I knew he'd stopped buying pie. Out here that's the same thing."
+>   *Asked again:* "Stopped buying pie. I don't need a doctor to tell me."
 > `[COMIC]` "I'll take a pie." → "Course you will."
 
 **Barks**
@@ -213,7 +246,17 @@ is the whole of his character.
 
 **Micro-tree**
 > "When are you leaving?" → "Tomorrow."
-> "You said that last week." → "Did I."
+>   *Asked again:* "Tomorrow. It's always just round the corner."
+> "That bag's been packed a while." → "Four years."
+>   *Thad:* "Four years?"
+>   → "Pack a bag right, it holds."
+>   *Asked again:* "Four years. Holding beautifully."
+> "Did you know Ezra Pike?" → "Pike left."
+>   *Thad:* "Where to?"
+>   → "Ask the undertaker, down the lane. Pike's the only man I know who left on time."
+>   *Asked again:* "Undertaker. Down the lane. Lucky devil."
+> "You knew Pike was dead." → "I said he left. He left. I'm going the other way, mind. Tomorrow."
+>   *Asked again:* "Other way. Tomorrow."
 > `[COMIC]` "Where will you go?" → *(long pause)* "Tomorrow."
 
 **Barks**
@@ -397,12 +440,20 @@ is the whole of his character.
 
 **Micro-tree**
 ***Opening:*** *The map seller brightens considerably.*
-> "Where do the maps come from?" → "I draw them."
-> ↳ "From what?" → "From the *accounts*. There's dozens of accounts."
->   *Thad:* "Dozens."
->   → "You put them together and a picture comes out."
+> "Where do the maps come from?" → "I draw them, sir! From the accounts."
+>   *Asked again:* "From the accounts, sir. Fresh ones every week."
+> ↳ "What accounts?" → "Every man who's ever told me where Mott's strike is."
+>   *Thad:* "How many is that?"
+>   → "Hundreds, sir. And every one of them agrees it's somewhere."
+>   *Asked again:* "Hundreds. Wonderful agreement on the somewhere."
 > "Have you ever dug where a map says?" → "I'd not dig my own map, sir. That'd be like a man eating his own dinner." *(This makes no sense and he is very firm about it.)*
 >   *Asked again:* "Like a man eating his own dinner, sir."
+> "Is Ezra Pike on any of your maps?" → "Pike? Pike's on every one, sir. Little cross, top of the hill."
+>   *Thad:* "That's his claim?"
+>   → "That's his… the undertaker explains it better, sir. Down the lane."
+>   *Asked again:* "Little cross, sir. The undertaker'll explain."
+> "You knew Pike was dead." → "He's on the map, sir. I mark everybody. Very popular corner, that."
+>   *Asked again:* "Very popular corner."
 > `[COMIC]` "Do they work?" → "They've not been *disproved*."
 >   *Asked again:* "Still not been disproved."
 

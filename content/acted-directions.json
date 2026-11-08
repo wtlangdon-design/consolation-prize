@@ -675,6 +675,13 @@
         0
       ],
       "seconds": 2
+    },
+    {
+      "n": 69,
+      "class": "B",
+      "speaker": "letter_writer",
+      "words": "He puts his pen down.",
+      "where": "dialogue/amb-letter-writer root option 4"
     }
   ]
 }

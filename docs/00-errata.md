@@ -4696,3 +4696,20 @@ The builder read every exterior plate. `reference/district/plan.json` records wh
 - Barks are drawn in the speaker's colour too. They were always the default ink, so the street's remarks read as Thad's.
 - `tools/check-speech-colours.mjs` now fails on any id that speaks without a colour: a tree's speaker, a speaker in an exchange, or a townsperson with barks. It failed on the map seller with his entry taken out.
 
+# 170 · THE MAIN STREET PASS — TYLER, 2026-11-07
+
+*Tyler: "I think nearly ALL of the dialogue on main street could be better … I feel like Thad pretty quickly needs something to 'do' on Main Street?" Shown the draft: "Go".*
+
+Doc 98 records the pass.
+
+- Thad arrives with A1's errand: Ezra Pike and his father's letter, and the driver's advice to ask the undertaker.
+- Every Main Street townsperson, asked after Pike, sends him down the lane to the undertaker without saying why, while `T_PIKE_DEAD` is false. Once he knows, "You knew Pike was dead." is the payoff.
+- Their lines are rewritten for a point of view under doc 59, in doc 07.
+- "You said that last week" is gone.
+- The pie woman and the message boy no longer repeat one phrase.
+- The letter-writer greets with his own bark.
+- Every question has a different "asked again".
+- The letter-writer's, pie woman's and map seller's trees are now extracted from doc 07, not hand-transcribed.
+
+Main Street is the sample: no other room's lines change until Tyler has ruled on it. `tests/repeats.test.ts` holds the repeats and fails on the old pie woman. The first-night line is doc 55 §8's existing row ("A line readable before the event it assumes"), which caught it in review but not in play.
+

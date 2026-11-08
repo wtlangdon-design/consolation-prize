@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "amb_man_leaving_tomorrow",
   "speaker": "man_leaving_tomorrow",
-  "note": "EXTRACTED from docs/07-ambient-layer.md (## 7 · THE MAN LEAVING TOMORROW) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one's pool (errata 110).",
+  "note": "EXTRACTED from docs/07-ambient-layer.md (## 7 · THE MAN LEAVING TOMORROW) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one's pool, rotated in play (errata 110, 167).",
   "start": "root",
   "nodes": {
     "root": {
@@ -14,16 +14,64 @@
           "id": "leaving1",
           "text": "When are you leaving?",
           "tag": "TOPIC",
+          "repeat": "Tomorrow. It's always just round the corner.",
           "say": "Tomorrow."
         },
         {
           "id": "leaving2",
-          "text": "You said that last week.",
+          "text": "That bag's been packed a while.",
           "tag": "TOPIC",
-          "say": "Did I."
+          "exchange": [
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "Four years."
+            },
+            {
+              "speaker": "thad",
+              "line": "Four years?"
+            },
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "Pack a bag right, it holds."
+            }
+          ],
+          "repeat": "Four years. Holding beautifully."
         },
         {
           "id": "leaving3",
+          "text": "Did you know Ezra Pike?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "Pike left."
+            },
+            {
+              "speaker": "thad",
+              "line": "Where to?"
+            },
+            {
+              "speaker": "man_leaving_tomorrow",
+              "line": "Ask the undertaker, down the lane. Pike's the only man I know who left on time."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          },
+          "repeat": "Undertaker. Down the lane. Lucky devil."
+        },
+        {
+          "id": "leaving4",
+          "text": "You knew Pike was dead.",
+          "tag": "TOPIC",
+          "when": {
+            "T_PIKE_DEAD": true
+          },
+          "repeat": "Other way. Tomorrow.",
+          "say": "I said he left. He left. I'm going the other way, mind. Tomorrow."
+        },
+        {
+          "id": "leaving5",
           "text": "Where will you go?",
           "tag": "COMIC",
           "exchange": [
