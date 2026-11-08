@@ -1,0 +1,8 @@
+Image 1 is the town from a finished night map in my pixel-art adventure game, a top-down, slightly angled plan, ASSEMBLED FROM PIECES: the seams show as rectangles of differently lit ground. Image 2 is the town's main street as the game shows it from the ground, for reference only.
+
+Repaint Image 1 as ONE seamless drawing, in its own night palette, pixel grid and scale:
+- Blend the ground: the open muddy square, the road round it and the back lane's road must read as one continuous surface, with no rectangles, edges or patches of different light anywhere. The square is lit warm only near the lit buildings.
+- KEEP EVERY BUILDING EXACTLY WHERE IT IS AND AS IT IS DRAWN: the long row of two-storey false fronts along the north side of the square facing south; the saloon with its balcony, the hotel and the small office standing one below the other down the square's EAST side, facing west, so the fronts make an L; the back lane behind the long row with its small shopfronts and the striped tent; the trough in the square; the three houses below; the church street at the right. Do not add, remove, move or resize any building.
+- The back lane's road runs the whole length behind the long row and on past the corner to the right, unbroken.
+
+Change nothing else. Lit windows stay warm. No text, no labels, no numerals, no people.

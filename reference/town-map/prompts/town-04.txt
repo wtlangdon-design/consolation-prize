@@ -1,0 +1,8 @@
+Image 1 is the town from a finished night map in my pixel-art adventure game, a top-down, slightly angled plan, ASSEMBLED FROM PIECES. At the right-hand end of the square, the ground was patched: it shows as rectangles of differently lit mud and a hard-edged block around the three buildings standing down the square's east side (a saloon with a balcony, a hotel and a small office, facing west). Image 2 is the same main street from the ground, for reference only.
+
+Repaint ONLY the transparent area of the mask, in the map's own night palette, pixel grid and scale:
+- the open mud of the square there joins the mud around it with no edges, patches or rectangles, warm only right in front of the lit porches;
+- the back lane's road along the top runs on, unbroken, to the road at the right;
+- the saloon, the hotel and the small office stay exactly where they are, the same size, facing west onto the square, drawn cleanly in the same style as the long row of buildings to their left.
+
+Nothing outside that area changes. No text, no labels, no numerals, no people.

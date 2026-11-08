@@ -4533,9 +4533,25 @@ He answered **"That all sounds good"** to one more pass: a pass at the top with 
 
 **A4 · The square's L.** Tyler, of the pass map (PR 237): **"a glaring difference is that the main square is in a very distinct L shape, which the map fails to incorporate."** Main Street's plate shows the long row along the back of the square, with the Nugget, the hotel and the assay office coming forward down its east side, and the road leaving past the assay office. Asked to raise the cap by 2, he chose **"Yes, +2 (Recommended)"** (town-map 7; attemptsTotal +2). It is one edit of the town only, pasted back so the rest of the map keeps its place (`tools/art/town-map-edit.py prepare-town` / `promote-town`). The brief's fourth part covers it.
 
-**A4 · The art: not promoted (the image session, 2026-11-08).** Operations 6 and 7 of 7; the cap is spent and the shipping map is unchanged (the mountain-pass map, A3).
-- **Operation 6, `town-01`,** drew the east arm well: the saloon with its balcony, the hotel and a small office down the square's east side, facing west, with the road out behind the office. But it removed the whole long row along the north side, so there was no L, only one arm.
-- **Operation 7, `town-02`, the correction,** with that miss stated, kept the east arm and again drew no long row of two-storey fronts. It moved the Lane's small shopfronts and tent down onto the square's north edge in its place, which also breaks "the Lane and its tent are unchanged".
-- Both sources and candidates are kept as the record. Neither passes the brief's checks, so neither is promoted, and the next step is Tyler's.
+**A4 · The art (the image session, 2026-11-08).** Operations 6 to 9; the cap was raised to 9 and is spent.
+- **Operation 6, `town-01`,** drew the east arm well: the saloon with its balcony, the hotel and a small office down the square's east side, facing west. But it removed the whole long row along the north side.
+- **Operation 7, `town-02`, the correction,** dropped the long row again and moved the Lane's shopfronts onto the square.
+- **The cap was raised 7 → 9.** Tyler, offered another attempt or an assembly of pieces already drawn: **"Raise the cap or build from pieces you already have. Whatever creates the best final product."** The L was then assembled (`tools/art/town-map-l.py`):
+  - the shipping map's long row, without the saloon and its small last building;
+  - `town-01`'s east arm, at 0.85, set down the square's east side;
+  - the vacated ground refilled from the square.
+
+  The patched ground showed as lit rectangles.
+- **Operation 8, `town-03`,** blended that assembly into one seamless drawing and kept every building, but drew the town about 3% smaller than the map has it. `tools/art/town-map-l-merge.py` measured that on the loop road and stretched the blend back. It takes only the town, feathered, with the seam on the grass outside the loop road. `town-map-edit.py promote-town --attempt 3 --image merged.png --write` pasted it, and the map changed only inside x 188–790, y 283–583. Every other pixel is the map's own, including the three houses and the church street.
+- **Operation 9, `town-04`,** a masked edit of only the patched ground (`room-op.mjs` now sends a `mask`), removed the east arm and extended the row instead. It is kept as a record and not used.
+- **Promoted:**
+  - the fronts make an L, with six along the north side facing south and the saloon, the hotel and the office down the east side facing west;
+  - the saloon is no longer in the row;
+  - the square is open in front of both arms, with its trough;
+  - the road out leaves the east side to the church street;
+  - the Lane and its tent are as they were;
+  - there is no visible seam and no text;
+  - the map still measures as night (26.5).
+- The builder re-places the markers and the roads.
 
 **B · The map's Thad** lands with Lower Street and the Lane (errata 161, part 3), on the branch where it was built, and is recorded here when it merges.
