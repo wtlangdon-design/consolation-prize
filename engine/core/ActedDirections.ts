@@ -48,6 +48,8 @@ export interface ActStep {
   cue?: string;
   /** The frame each performer keeps once the act is over, while he goes on speaking (doc 95 Holds). */
   holds?: HeldPose[];
+  /** The protagonist walks to this hotspot's stand, and the beat lasts until he is there (PerformedDirection.walkTo). */
+  walk?: { id: string; to: string };
 }
 
 /** A performed direction's frames, in order: errata 131's single `frame` or doc 95's `frames`. */
@@ -89,6 +91,10 @@ export function actOf(present: readonly Performer[], words: string): ActStep[] |
   const holds = who.filter(({ act }) => act.holds !== undefined).map(({ npc, act }) => ({ id: npc.id, frame: act.holds!,
     ...(act.clip ? { clip: act.clip, ...(act.facing ? { facing: act.facing } : {}) } : {}) }));
   if (holds.length) out[out.length - 1]!.holds = holds;
+  // A WALK AFTER THE FRAMES (doc 54 A5's retreat): its own beat, holding no frame, so he walks
+  // in his walk and not in the last frame of his act.
+  const walker = who.find(({ act }) => act.walkTo);
+  if (walker) out.push({ seconds: 0, poses: [], walk: { id: walker.npc.id, to: walker.act.walkTo! } });
   return out;
 }
 

@@ -149,10 +149,13 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     for (const named of row.performedBy ?? []) {
       // THE PROTAGONIST ACTS IN A CLIP (errata 148): "thad:pick-fit" is his
       // pick-fit clip, drawn in one facing, and the frames are that clip's.
-      const [id, clipId] = named.split(':') as [string, string | undefined];
+      // "thad:recoil/back@claim_marker": the clip, in one of its facings, and a hotspot he then walks to.
+      const [who, walkTo] = named.split('@') as [string, string | undefined];
+      const [id, clipName] = who.split(':') as [string, string | undefined];
+      const [clipId, onlyFacing] = (clipName ?? '').split('/') as [string, string | undefined];
       if (id === actor.id) {
         if (!clipId) throw new Error(`doc 95 row ${row.n}: ${id} acts in a clip, named as "${id}:<clip>"`);
-        const clips = (actors.get(id) ?? actor).clips.filter((clip) => clip.id === clipId);
+        const clips = (actors.get(id) ?? actor).clips.filter((clip) => clip.id === clipId && (!onlyFacing || clip.facing === onlyFacing));
         if (!clips.length) throw new Error(`doc 95 row ${row.n}: ${id} has no clip "${clipId}"`);
         const facings = [...new Set(clips.map((clip) => clip.facing))];
         if (facings.length !== 1) throw new Error(`doc 95 row ${row.n}: "${clipId}" is drawn in ${facings.length} facings; an act is drawn in one`);
@@ -167,11 +170,12 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
           ...(row.cue ? { cue: row.cue } : {}),
           clip: clipId,
           facing: facings[0]!,
+          ...(walkTo ? { walkTo } : {}),
         };
         for (const record of new Set([actor, actors.get(id)!])) record.performs = { ...(record.performs ?? {}), [row.words]: act };
         continue;
       }
-      if (clipId) throw new Error(`doc 95 row ${row.n}: ${named} -- only the protagonist acts in a clip`);
+      if (clipName || walkTo) throw new Error(`doc 95 row ${row.n}: ${named} -- only the protagonist acts in a clip or walks`);
       const npc = ambient.get(id);
       if (!npc?.sprite) throw new Error(`doc 95 row ${row.n}: "${row.words}" is acted by ${id}, who has no figure`);
       const frames = row.frames ?? [];

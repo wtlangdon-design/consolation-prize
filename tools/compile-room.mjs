@@ -1925,6 +1925,10 @@ if (MERGED) {
       return null;
     };
     for (const hotspot of built.hotspots) {
+      // A STAND THE ROOM CHOOSES (annotation `stands`): where standing below the centre would cover
+      // something the moment is about -- at the hole, the raccoon's look over his shoulder (errata 190).
+      const chosen = ann.stands?.[hotspot.id];
+      if (chosen) { hotspot.walkTo = { x: chosen.x, y: chosen.y, facing: chosen.facing ?? 'back' }; continue; }
       const [hx, hy, hw, hh] = hotspot.rect;
       const centre = Math.round(hx + hw / 2);
       // Try the centre, then either side, for a thing standing on the floor.

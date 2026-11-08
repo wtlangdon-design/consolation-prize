@@ -1485,6 +1485,18 @@ function combinations() {
     const blanket = attempt('**The blanket**');
     const after = attempt('> USE THE LIVERY BLANKET on THE HOLE, after')[0];
     const say = ([first, ...rest]) => ({ say: first, ...(rest.length ? { then: rest } : {}) });
+    // ITS STAGING, BETWEEN THE LINES (errata 189: "the tonic's fumes and the raccoon's look"):
+    // the direction written between a case's first line and its second is shown, and doc 95
+    // decides whether it is acted. A direction after the last line ("The tonic is spent.") is
+    // what the case does, and the case does it.
+    const staged = (head, words) => {
+      const line = body.split('\n').find((one) => one.startsWith(head));
+      const between = line.slice(line.indexOf(`"${words[0]}"`) + words[0].length + 2, line.indexOf(`"${words[1]}"`));
+      const direction = /\*\(([^)]*)\)\*/.exec(between)?.[1];
+      if (!direction) throw new Error(`doc 54 A5: "${head}" has no staging between its lines`);
+      const [first, ...rest] = words;
+      return { say: first, then: [{ speaker: 'thad', line: direction, direction: true }, ...rest] };
+    };
     const inFumes = { case: 'while the fumes last', when: { T_FUMES: true }, say: fumes };
     const old = rebuilt.findIndex((one) => one.item === 'blanket' && one.room === 'prosperity');
     if (old < 0) throw new Error('doc 24: no blanket pair for the hole');
@@ -1494,7 +1506,7 @@ function combinations() {
       rules: [
         inFumes,
         { case: 'after', when: { T_WARM_HOLE: true }, say: after },
-        { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...say(blanket), set: { T_WARM_HOLE: true }, completes: 'A5' },
+        { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...staged('**The blanket**', blanket), set: { T_WARM_HOLE: true }, completes: 'A5' },
       ],
     });
     rebuilt.push({
@@ -1505,7 +1517,7 @@ function combinations() {
     rebuilt.push({
       item: 'tonic', room: 'prosperity', target: 'hole', puzzle: 'A5', say: smoke[0],
       note: 'Doc 54 A5, the smoke: it fumes; the tonic is spent; the hole and the raccoon refuse every verb until Thad leaves and returns (T_FUMES, cleared on leaving).',
-      rules: [inFumes, { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...say(smoke), takes: ['tonic'], set: { T_FUMES: true } }],
+      rules: [inFumes, { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...staged('**The smoke**', smoke), takes: ['tonic'], set: { T_FUMES: true } }],
     });
     const d57 = read('docs/57-puzzle-completion.md');
     const f1 = d57.slice(d57.indexOf('## F1 '), d57.indexOf('\n## ', d57.indexOf('## F1 ') + 5));

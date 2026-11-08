@@ -742,6 +742,41 @@
       "speaker": "fanshawe",
       "words": "He stops. For the only time in the game, he is completely still.",
       "where": "dialogue/fanshawe FAN_B1 option 6"
+    },
+    {
+      "n": 76,
+      "class": "A",
+      "speaker": "thad",
+      "words": "It fumes. Thad retreats, coughing, as far as the claim marker.",
+      "where": "combinations (tonic on hole, with the raccoon in)",
+      "performedBy": [
+        "thad:recoil/back@claim_marker"
+      ],
+      "frames": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "seconds": 1.6
+    },
+    {
+      "n": 77,
+      "class": "A",
+      "speaker": "thad",
+      "words": "The cloth settles. A long pause. The raccoon emerges, gives Thad one look of complete contempt, and leaves at a walk.",
+      "where": "combinations (blanket on hole, with the raccoon in)",
+      "performedBy": [
+        "raccoon"
+      ],
+      "frames": [
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "seconds": 4
     }
   ]
 }

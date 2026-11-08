@@ -74,6 +74,8 @@ interface QueuedLine {
   rest?: number;
   poses?: HeldPose[];
   cue?: string;
+  /** An acted beat in which he walks to a hotspot's stand (doc 54 A5's retreat; ActStep.walk). */
+  walk?: { id: string; to: string };
 }
 
 /**
@@ -247,6 +249,8 @@ export class GameScene extends Phaser.Scene {
   private pendingSay: QueuedLine[] = [];
   /** The frames an acted direction holds while it plays from the queue (doc 95; errata 141). */
   private queuedPoses: HeldPose[] | null = null;
+  /** An acted beat's walk is under way, and the beat waits for it (ActStep.walk). */
+  private actWalking = false;
   /** A line `overBlack` has blacked out the play area until the room changes (doc 57 B3). */
   private overBlack = false;
   /** A scene's destination, travelled to once its lines have been read (GameState.resolveInteraction). */
@@ -634,7 +638,8 @@ export class GameScene extends Phaser.Scene {
     // cutscene already waits out before its next step, now also the number
     // after which the words leave the screen rather than sitting there until
     // something else happens to move them.
-    if (this.sayUntil !== null && now >= this.sayUntil) {
+    if (this.actWalking && !this.actor.isWalking) this.actWalking = false;
+    if (this.sayUntil !== null && now >= this.sayUntil && !this.actWalking) {
       // A GREETING RUNS ON ITS OWN: the next line of a conversation's opening
       // follows when the last has been read, as a performed exchange's lines
       // do. So does an arrival scene with an outcome (onEnter.sayAfter, doc 57
@@ -750,6 +755,11 @@ export class GameScene extends Phaser.Scene {
     // so it is ticked whether or not the opening runner is.
     if (this.carried.update(now, this.world)) this.markDirty();
     // A character walking out (AmbientFile.exit) moves every frame he walks.
+    // An acted beat still to play holds its figures (doc 54 A5): whoever it sends away goes after his part.
+    this.ambient.holdLeavers = new Set([...(this.queuedPoses ?? []), ...this.pendingSay.flatMap((line) => line.poses ?? [])
+      .concat(this.pendingSay.flatMap((line) => line.direction && !line.silent
+        ? (actOf([...this.ambient.present, ...this.ambient.leaving], line.line) ?? []).flatMap((step) => step.poses) : []))]
+      .map((pose) => pose.id));
     if (this.ambient.noteDepartures(now)) this.markDirty();
     // A FIGURE WHO HAS FADED OUT may owe a sound (AmbientFile.leaves): Fanshawe's door.
     for (const cue of this.ambient.takeCues()) this.fireCue(cue);
@@ -2866,6 +2876,7 @@ export class GameScene extends Phaser.Scene {
       this.pendingSay.unshift(...steps.map((step) => ({
         speaker: next.speaker, line: next.line, direction: true, silent: true,
         rest: step.seconds, poses: step.poses, ...(step.cue ? { cue: step.cue } : {}),
+        ...(step.walk ? { walk: step.walk } : {}),
       })));
       return this.advanceSay();
     }
@@ -2874,6 +2885,12 @@ export class GameScene extends Phaser.Scene {
       this.sayingActor = next.speaker;
       this.queuedPoses = next.poses ?? null;
       this.sayUntil = this.time.now / 1000 + (next.rest ?? 0);
+      // HE RETREATS (ActStep.walk): to the hotspot's own stand, and the beat holds until he is there.
+      if (next.walk && next.walk.id === this.actor.id) {
+        const spot = this.state.room.hotspots.find((one) => one.id === next.walk!.to);
+        const stand = spot?.walkTo ?? (spot ? { x: spot.rect[0] + spot.rect[2] / 2, y: spot.rect[1] + spot.rect[3] } : null);
+        if (stand && this.actor.walkTo(stand.x, stand.y)) this.actWalking = true;
+      }
       if (next.cue) this.fireCue(next.cue);
       this.markDirty();
       return true;

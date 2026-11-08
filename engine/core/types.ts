@@ -2637,6 +2637,12 @@ export interface PerformedDirection {
    */
   clip?: string;
   facing?: Facing;
+  /**
+   * AND THEN HE GOES SOMEWHERE (doc 54 A5: "Thad retreats, coughing, as far as the claim
+   * marker"): the protagonist, his clip played, walks to this hotspot's stand in the room,
+   * and the beat lasts until he is there. Doc 95 writes it `thad:<clip>@<hotspot>`.
+   */
+  walkTo?: string;
 }
 
 /** content/acted-directions.json: doc 95's table, as extracted. */

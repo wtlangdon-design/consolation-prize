@@ -100,9 +100,11 @@ test('every acted direction is acted by a figure in its room, and prints nothing
     // THADDEUS ACTS IN A CLIP (errata 148), wherever he speaks.
     const own = (row.performedBy ?? []).filter((named) => named.split(':')[0] === content.actor.id);
     for (const named of own) {
-      const clipId = named.split(':')[1];
+      // "thad:recoil/back@claim_marker": the clip, the one facing it is played in, and where he then walks.
+      const [who, walkTo] = named.split('@') as [string, string | undefined];
+      const [clipId, onlyFacing] = (who.split(':')[1] ?? '').split('/') as [string, string | undefined];
       assert.ok(clipId, `doc 95 row ${row.n}: ${named} names no clip`);
-      const clips = content.actor.clips.filter((clip) => clip.id === clipId);
+      const clips = content.actor.clips.filter((clip) => clip.id === clipId && (!onlyFacing || clip.facing === onlyFacing));
       assert.ok(clips.length, `doc 95 row ${row.n}: ${content.actor.id} has no clip ${clipId}`);
       const act = content.actor.performs?.[row.words];
       assert.ok(act && act.clip === clipId, `${content.actor.id} does not perform "${row.words}" in ${clipId}`);
@@ -111,7 +113,16 @@ test('every acted direction is acted by a figure in its room, and prints nothing
       const at = found.find((one) => one.speaker === row.speaker && one.words === row.words)!;
       const room = at.rooms ? [...at.rooms][0]! : null;
       const present = [...content.ambient.values()].filter((npc) => npc.room === room);
-      const lines = performedLine(performersWith(present, content.actor), { speaker: row.speaker, line: row.words, direction: true }, printed);
+      const all = performedLine(performersWith(present, content.actor), { speaker: row.speaker, line: row.words, direction: true }, printed);
+      // A WALK AFTER THE FRAMES is its own beat, holding no frame, and lasts until he is there.
+      const steps = actOf(performersWith(present, content.actor), row.words)!;
+      const lines = walkTo ? all.slice(0, -1) : all;
+      if (walkTo) {
+        assert.equal(act!.walkTo, walkTo);
+        assert.deepEqual(steps.at(-1)!.walk, { id: content.actor.id, to: walkTo });
+        const roomFile = [...content.rooms.values()].find((one) => one.id === room);
+        assert.ok(roomFile?.hotspots.some((spot) => spot.id === walkTo), `doc 95 row ${row.n}: ${walkTo} is no hotspot in ${room}`);
+      }
       for (const line of lines) {
         assert.equal(shownText(line), '', `doc 95 row ${row.n}: "${row.words}" is acted and still printed`);
         assert.ok(line.silent && (line.rest ?? 0) > 0, 'an acted beat is held and cannot be clicked through');
@@ -170,7 +181,8 @@ test('no narration and no waiting direction is acted, and no figure acts what do
     .flatMap((row) => (row.performedBy ?? []).map((id) => `${id}::${row.words}`)));
   for (const words of Object.keys(content.actor.performs ?? {})) {
     const clip = content.actor.performs![words]!.clip;
-    assert.ok(given.has(`${content.actor.id}:${clip}::${words}`), `${content.actor.id} performs "${words}", which doc 95 does not give him`);
+    const named = [...given].find((one) => one.endsWith(`::${words}`))?.split('::')[0]?.split('@')[0]?.split('/')[0];
+    assert.ok(named === `${content.actor.id}:${clip}`, `${content.actor.id} performs "${words}", which doc 95 does not give him`);
   }
   for (const npc of figures) {
     for (const words of Object.keys(npc.sprite?.performs ?? {})) {

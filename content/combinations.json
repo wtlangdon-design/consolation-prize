@@ -73,6 +73,11 @@
           },
           "say": "The blanket, over the mouth of the hole.",
           "then": [
+            {
+              "speaker": "thad",
+              "line": "The cloth settles. A long pause. The raccoon emerges, gives Thad one look of complete contempt, and leaves at a walk.",
+              "direction": true
+            },
             "The hole has gone cold, and he has gone with it. I appear to have evicted him by weather."
           ],
           "set": {
@@ -740,6 +745,11 @@
           },
           "say": "Dr. Purvis's Restorative Bile Tonic, applied where it might do some good.",
           "then": [
+            {
+              "speaker": "thad",
+              "line": "It fumes. Thad retreats, coughing, as far as the claim marker.",
+              "direction": true
+            },
             "He is unbothered. I, on the other hand, cannot now go within ten feet of my own hole. We are both locked out, which is a kind of fairness."
           ],
           "takes": [
