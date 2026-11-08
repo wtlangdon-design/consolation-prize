@@ -5000,3 +5000,19 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
 - **Still retired:**
   - Boot Hill's wild oats, which the plate does not draw distinctly;
   - the shack's lamp reserve, wall calendar and stool by the window (errata 184 D).
+
+# 186 · WRITTEN VERSUS BUILT, WITHOUT THE NOTES — TYLER, 2026-11-08 ("HOW did you miss so much?")
+
+*Asked how so much had been missed, and whether anything else needed checking, the builder looked for the check's own blind spots.*
+
+- **The check counted the build's notes as lines.** `tools/check-written-vs-built.mjs` read every string in `/content`. A written line that shared most of its words with a builder's `note`, an `evidence` record or a sequence beat's `description` therefore counted as built. Strings under those keys (`META`) are skipped now. Ninety more lines surfaced.
+- **What they were:**
+  - 53 are the six interiors' (CC is building them).
+  - 19 are quotations in the documents, not lines.
+  - 9 were replaced by later rulings: Room 1's coach and lamp lines (errata 19a), the case's roof state, three declared drops, and Room 11's pen.
+  - 4 are answered by the room's own line.
+  - 2 are the stage driver's.
+  - 2 are the second ledger's, waiting on art.
+- **One is a gap:** doc 57's funeral day plays "The street is half empty. Everyone in town who owns a black coat is up the hill." on Main Street's first entry that day. Nothing plays it, and the street's figures all stay, so it waits for Tyler (`funeral-day-street`).
+- **Lines under four words**, which the check skips, were read by hand. All nineteen are the interiors', a declared drop, a rewrite, or the undertaker's superseded sketch.
+- **The lesson is the check itself.** With `META` emptied, the ninety are hidden again.

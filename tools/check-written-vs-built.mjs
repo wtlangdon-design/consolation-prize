@@ -39,17 +39,26 @@ export const norm = (text) => text
   .replace(/\s+/g, ' ').trim().toLowerCase();
 const words = (text) => new Set(text.match(/[a-z']+/g) ?? []);
 
+/**
+ * THE BUILD'S OWN PROSE IS NOT A LINE THE PLAYER HEARS (Tyler, 2026-11-08: "HOW did you miss so much?").
+ * The first version of this check read every string in /content, notes included, so a written line that shared
+ * most of its words with a builder's note -- a `note`, an `evidence` record, a sequence beat's `description` --
+ * counted as built. A hundred lines were hidden that way. Strings under these keys are skipped.
+ */
+export const META = /(note|Note)$|^(evidence|why|provenance|proof|redrawn|contract|materialIdentity|gauntlet|scope|sources|reason|ruling|notBuilt|exception|corrections|staging|record|writtenBy|derivedFrom|description|label|exceptionReason|fewOptionsReason|noComicReason|awaitingArt|comment)$/;
+
 function contentStrings() {
   const out = [];
-  const walk = (value) => {
+  const walk = (value, key = '') => {
+    if (META.test(key)) return;
     if (typeof value === 'string') { if (value.length > 8) out.push(norm(value)); }
-    else if (Array.isArray(value)) value.forEach(walk);
+    else if (Array.isArray(value)) value.forEach((one) => walk(one, key));
     else if (value && typeof value === 'object') {
       // A line split for speaking -- `say` and its `then` -- is one written line.
       if (typeof value.say === 'string' && Array.isArray(value.then)) {
         out.push(norm([value.say, ...value.then.filter((t) => typeof t === 'string')].join(' ')));
       }
-      Object.values(value).forEach(walk);
+      for (const [k, v] of Object.entries(value)) walk(v, k);
     }
   };
   const dir = (path) => {
