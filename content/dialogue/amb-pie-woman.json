@@ -1,48 +1,89 @@
 {
- "schema": 1,
- "id": "amb_pie_woman",
- "note": "Doc 07 #6 micro-tree, verbatim. She answers the second question with the same line as the first. That is the joke and it must not be 'fixed'.",
- "start": "N1",
- "nodes": {
-  "N1": {
-   "prompt": "The pie woman does not look up.",
-   "options": [
-    {
-     "id": "whats_in",
-     "text": "What\u2019s in the pie?",
-     "tag": "TOPIC",
-     "say": "Pie\u2019s a nickel.",
-     "repeat": "Pie\u2019s a nickel.",
-     "set": {
-      "T_PIE_ASKED": true
-     }
-    },
-    {
-     "id": "not_asked",
-     "text": "That isn\u2019t what I asked.",
-     "tag": "TOPIC",
-     "say": "Pie\u2019s a nickel.",
-     "repeat": "Pie\u2019s a nickel.",
-     "when": {
-      "T_PIE_ASKED": true
-     }
-    },
-    {
-     "id": "take_one",
-     "text": "I\u2019ll take a pie.",
-     "tag": "COMIC",
-     "say": "Course you will.",
-     "repeat": "Course you will."
-    },
-    {
-     "id": "exit",
-     "text": "I\u2019ve taken enough of your time. I\u2019ll be taking more later.",
-     "tag": "EXIT"
+  "schema": 1,
+  "id": "amb_pie_woman",
+  "speaker": "pie_woman",
+  "note": "EXTRACTED from docs/07-ambient-layer.md (## 6 · THE PIE WOMAN) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. The opening is doc 07's stage line. The exit is doc 04 part one's pool, rotated in play (errata 110, 167).",
+  "start": "root",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "prompt": "The pie woman looks at his coat, then his boots, and prices him.",
+      "options": [
+        {
+          "id": "pie_woman1",
+          "text": "What's in the pie?",
+          "tag": "TOPIC",
+          "set": {
+            "T_PIE_ASKED": true
+          },
+          "repeat": "Still pie. It's been pie all day.",
+          "say": "Crust. Under the crust, pie."
+        },
+        {
+          "id": "pie_woman2",
+          "text": "That isn't an answer.",
+          "tag": "TOPIC",
+          "after": [
+            "pie_woman1"
+          ],
+          "repeat": "Still a dime.",
+          "say": "It's a nickel's worth of answer. The filling's a dime."
+        },
+        {
+          "id": "pie_woman3",
+          "text": "Do you know Ezra Pike?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "pie_woman",
+              "line": "Pike bought a pie off me every Sunday."
+            },
+            {
+              "speaker": "pie_woman",
+              "line": "…"
+            },
+            {
+              "speaker": "pie_woman",
+              "line": "For a while."
+            },
+            {
+              "speaker": "thad",
+              "line": "And then?"
+            },
+            {
+              "speaker": "pie_woman",
+              "line": "And then the undertaker. Down the lane. Pike's still into me for three pies."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          },
+          "repeat": "Undertaker. Down the lane. Mention the three pies."
+        },
+        {
+          "id": "pie_woman4",
+          "text": "You knew Pike was dead.",
+          "tag": "TOPIC",
+          "when": {
+            "T_PIKE_DEAD": true
+          },
+          "repeat": "Stopped buying pie. I don't need a doctor to tell me.",
+          "say": "I knew he'd stopped buying pie. Out here that's the same thing."
+        },
+        {
+          "id": "pie_woman5",
+          "text": "I'll take a pie.",
+          "tag": "COMIC",
+          "say": "Course you will."
+        },
+        {
+          "id": "pie_womanx",
+          "tag": "EXIT",
+          "text": "I've taken enough of your time. I'll be taking more later.",
+          "universal": true,
+          "ends": true
+        }
+      ]
     }
-   ]
   }
- },
- "speaker": "pie_woman",
- "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null, the renderer cannot find a head to put the words over, and they fall to the top-centre fallback in the wrong colour -- which is exactly what Tyler saw.",
- "gateNote": "Doc 07\u2019s \u21b3 notation: \"not_asked\" is a FOLLOW-UP, offered only once \"whats_in\" has been asked. Without the gate every option is on the list from the first moment, which had the pie woman offering to argue with an answer nobody had given."
 }

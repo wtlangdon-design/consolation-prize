@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "amb_boundary_men",
   "speaker": "boundary_a",
-  "note": "EXTRACTED from docs/07-ambient-layer.md (## 2 & 3 · THE TWO BOUNDARY MEN) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one's pool (errata 110).",
+  "note": "EXTRACTED from docs/07-ambient-layer.md (## 2 & 3 · THE TWO BOUNDARY MEN) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one's pool, rotated in play (errata 110, 167).",
   "start": "root",
   "nodes": {
     "root": {
@@ -31,7 +31,8 @@
               "speaker": "boundary_b",
               "line": "— it is not what you said."
             }
-          ]
+          ],
+          "repeat": "Same line. Same pine. He's still wrong."
         },
         {
           "id": "boundary2",
@@ -63,13 +64,77 @@
               "line": "They resume immediately.",
               "direction": true
             }
-          ]
+          ],
+          "repeat": "Still no. Lovely, isn't it."
         },
         {
           "id": "boundary3",
+          "text": "Do either of you know Ezra Pike?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "boundary_a",
+              "line": "Pike's up the hill."
+            },
+            {
+              "speaker": "boundary_b",
+              "line": "He's not up the hill. He's in the hill."
+            },
+            {
+              "speaker": "thad",
+              "line": "He has a mine?"
+            },
+            {
+              "speaker": "boundary_a",
+              "line": "…Ask the undertaker."
+            },
+            {
+              "speaker": "boundary_b",
+              "line": "Down the lane."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          },
+          "repeat": "Undertaker. Down the lane. And don't ask him about the pine."
+        },
+        {
+          "id": "boundary4",
+          "text": "You knew Pike was dead.",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "boundary_a",
+              "line": "Everybody knew."
+            },
+            {
+              "speaker": "boundary_b",
+              "line": "I knew first."
+            },
+            {
+              "speaker": "boundary_a",
+              "line": "You did not."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": true
+          },
+          "repeat": "He did not know first."
+        },
+        {
+          "id": "boundary5",
           "text": "Have you tried settling it?",
           "tag": "COMIC",
-          "say": "And do what?"
+          "exchange": [
+            {
+              "speaker": "boundary_a",
+              "line": "And do what?"
+            },
+            {
+              "speaker": "boundary_b",
+              "line": "With our evenings?"
+            }
+          ]
         },
         {
           "id": "boundaryx",

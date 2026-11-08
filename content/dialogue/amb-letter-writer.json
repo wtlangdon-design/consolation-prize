@@ -1,80 +1,120 @@
 {
- "schema": 1,
- "id": "amb_letter_writer",
- "note": "Doc 07 #1 micro-tree, verbatim. The [COMIC] option changes nothing and is the best line in it.",
- "start": "N1",
- "nodes": {
-  "N1": {
-   "prompt": "The letter-writer looks up.",
-   "options": [
-    {
-     "id": "charge",
-     "text": "What do you charge?",
-     "tag": "TOPIC",
-     "say": "Ten cents the page. Fifteen if it\u2019s going well.",
-     "repeat": "Ten cents the page. Fifteen if it\u2019s going well.",
-     "set": {
-      "T_CHARGE_ASKED": true
-     }
-    },
-    {
-     "id": "going_well",
-     "text": "Going well?",
-     "tag": "TOPIC",
-     "when": {
-      "T_CHARGE_ASKED": true
-     },
-     "exchange": [
-      {
-       "speaker": "letter_writer",
-       "line": "If a man\u2019s had a good week I write more."
-      },
-      {
-       "speaker": "thad",
-       "line": "And if he has had a bad one?"
-      },
-      {
-       "speaker": "letter_writer",
-       "line": "Much more. Bad weeks are my living."
-      }
-     ]
-    },
-    {
-     "id": "truth",
-     "text": "Do you ever write the truth?",
-     "tag": "TOPIC",
-     "say": "Once. Fella insisted. I charged him double and he cried the whole time.",
-     "repeat": "Once. And I charged him double."
-    },
-    {
-     "id": "own",
-     "text": "I write my own.",
-     "tag": "COMIC",
-     "exchange": [
-      {
-       "speaker": "letter_writer",
-       "line": "I know. I\u2019ve read them over your shoulder."
-      },
-      {
-       "speaker": "thad",
-       "line": "You have what?"
-      },
-      {
-       "speaker": "letter_writer",
-       "line": "You\u2019re not bad. You\u2019re just honest, which is a phase."
-      }
-     ]
-    },
-    {
-     "id": "exit",
-     "text": "I should go.",
-     "tag": "EXIT"
+  "schema": 1,
+  "id": "amb_letter_writer",
+  "speaker": "letter_writer",
+  "note": "EXTRACTED from docs/07-ambient-layer.md (## 1 · THE LETTER-WRITER) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Doc 07 writes no opening line; the character greets with his bark (greetsWithBark). The exit is doc 04 part one's pool, rotated in play (errata 110, 167).",
+  "start": "root",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "noPrompt": true,
+      "exceptionReason": "Doc 07 writes the micro-tree as options only; the greeting is the bark.",
+      "options": [
+        {
+          "id": "letter_writer1",
+          "text": "What do you charge?",
+          "tag": "TOPIC",
+          "set": {
+            "T_CHARGE_ASKED": true
+          },
+          "repeat": "Ten cents. I'd do you a discount, but discounts read badly at home.",
+          "say": "Ten cents the page. Fifteen if it's going well."
+        },
+        {
+          "id": "letter_writer2",
+          "text": "Going well?",
+          "tag": "TOPIC",
+          "after": [
+            "letter_writer1"
+          ],
+          "exchange": [
+            {
+              "speaker": "letter_writer",
+              "line": "If a man's had a good week, I write more."
+            },
+            {
+              "speaker": "thad",
+              "line": "And a bad one?"
+            },
+            {
+              "speaker": "letter_writer",
+              "line": "Much more. Bad weeks are my living."
+            }
+          ],
+          "repeat": "Bad weeks. My living. Business is excellent."
+        },
+        {
+          "id": "letter_writer3",
+          "text": "Do you ever write the truth?",
+          "tag": "TOPIC",
+          "repeat": "Once. I've still got the blot where he cried on it.",
+          "say": "Once. Fella insisted. I charged him double and he cried the whole time."
+        },
+        {
+          "id": "letter_writer4",
+          "text": "I'm looking for Ezra Pike.",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "letter_writer",
+              "line": "He puts his pen down.",
+              "direction": true
+            },
+            {
+              "speaker": "letter_writer",
+              "line": "Pike. You'll want the undertaker. Down the lane, past the mercantile."
+            },
+            {
+              "speaker": "thad",
+              "line": "Are they friends?"
+            },
+            {
+              "speaker": "letter_writer",
+              "line": "Very close. Closer every year."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          },
+          "repeat": "The undertaker. I'd write it down for you, but that's ten cents."
+        },
+        {
+          "id": "letter_writer5",
+          "text": "You knew Pike was dead.",
+          "tag": "TOPIC",
+          "when": {
+            "T_PIKE_DEAD": true
+          },
+          "repeat": "It still reads better from a professional.",
+          "say": "Everybody knew. I just thought it'd read better from a professional."
+        },
+        {
+          "id": "letter_writer6",
+          "text": "I write my own.",
+          "tag": "COMIC",
+          "exchange": [
+            {
+              "speaker": "letter_writer",
+              "line": "I know. I've read them over your shoulder."
+            },
+            {
+              "speaker": "thad",
+              "line": "You've what?"
+            },
+            {
+              "speaker": "letter_writer",
+              "line": "You're not bad. You're honest, which is a phase."
+            }
+          ]
+        },
+        {
+          "id": "letter_writerx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
     }
-   ]
   }
- },
- "speaker": "letter_writer",
- "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null, the renderer cannot find a head to put the words over, and they fall to the top-centre fallback in the wrong colour -- which is exactly what Tyler saw.",
- "gateNote": "Doc 07\u2019s \u21b3 notation: \"going_well\" is a FOLLOW-UP, offered only once \"charge\" has been asked. Without the gate every option is on the list from the first moment, which had the pie woman offering to argue with an answer nobody had given.",
- "exchangeNote": "Doc 30 section 5: a reply that would wrap past three lines is split at a rhetorical break. Tyler asked for the break-up to be back-and-forth with Thad rather than the same voice twice, and he is right -- an interjection makes the punchline land, where two consecutive lines from one man is just a paragraph with a pause in it."
 }

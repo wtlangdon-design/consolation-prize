@@ -1,68 +1,102 @@
 {
- "schema": 1,
- "id": "amb_map_seller",
- "note": "Doc 07 #16 micro-tree, verbatim. He is the saddest character in the game and none of this is played as sad.",
- "start": "N1",
- "nodes": {
-  "N1": {
-   "prompt": "The map seller brightens considerably.",
-   "options": [
-    {
-     "id": "where_from",
-     "text": "Where do the maps come from?",
-     "tag": "TOPIC",
-     "say": "I draw them.",
-     "repeat": "I draw them.",
-     "set": {
-      "T_MAPS_ASKED": true
-     }
-    },
-    {
-     "id": "from_what",
-     "text": "From what?",
-     "tag": "TOPIC",
-     "when": {
-      "T_MAPS_ASKED": true
-     },
-     "exchange": [
-      {
-       "speaker": "map_seller",
-       "line": "From the accounts. There\u2019s dozens of accounts."
-      },
-      {
-       "speaker": "thad",
-       "line": "Dozens."
-      },
-      {
-       "speaker": "map_seller",
-       "line": "You put them together and a picture comes out."
-      }
-     ]
-    },
-    {
-     "id": "ever_dug",
-     "text": "Have you ever dug where a map says?",
-     "tag": "TOPIC",
-     "say": "I\u2019d not dig my own map, sir. That\u2019d be like a man eating his own dinner.",
-     "repeat": "Like a man eating his own dinner, sir."
-    },
-    {
-     "id": "do_they_work",
-     "text": "Do they work?",
-     "tag": "COMIC",
-     "say": "They\u2019ve not been disproved.",
-     "repeat": "Still not been disproved."
-    },
-    {
-     "id": "exit",
-     "text": "I am going to leave now, in a dignified manner.",
-     "tag": "EXIT"
+  "schema": 1,
+  "id": "amb_map_seller",
+  "speaker": "map_seller",
+  "note": "EXTRACTED from docs/07-ambient-layer.md (## 16 · THE MAP SELLER) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. The opening is doc 07's stage line. The exit is doc 04 part one's pool, rotated in play (errata 110, 167).",
+  "start": "root",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "prompt": "The map seller brightens considerably.",
+      "options": [
+        {
+          "id": "map_seller1",
+          "text": "Where do the maps come from?",
+          "tag": "TOPIC",
+          "set": {
+            "T_MAPS_ASKED": true
+          },
+          "repeat": "From the accounts, sir. Fresh ones every week.",
+          "say": "I draw them, sir! From the accounts."
+        },
+        {
+          "id": "map_seller2",
+          "text": "What accounts?",
+          "tag": "TOPIC",
+          "after": [
+            "map_seller1"
+          ],
+          "exchange": [
+            {
+              "speaker": "map_seller",
+              "line": "Every man who's ever told me where Mott's strike is."
+            },
+            {
+              "speaker": "thad",
+              "line": "How many is that?"
+            },
+            {
+              "speaker": "map_seller",
+              "line": "Hundreds, sir. And every one of them agrees it's somewhere."
+            }
+          ],
+          "repeat": "Hundreds. Wonderful agreement on the somewhere."
+        },
+        {
+          "id": "map_seller3",
+          "text": "Have you ever dug where a map says?",
+          "tag": "TOPIC",
+          "repeat": "Like a man eating his own dinner, sir.",
+          "say": "I'd not dig my own map, sir. That'd be like a man eating his own dinner."
+        },
+        {
+          "id": "map_seller4",
+          "text": "Is Ezra Pike on any of your maps?",
+          "tag": "TOPIC",
+          "exchange": [
+            {
+              "speaker": "map_seller",
+              "line": "Pike? Pike's on every one, sir. Little cross, top of the hill."
+            },
+            {
+              "speaker": "thad",
+              "line": "That's his claim?"
+            },
+            {
+              "speaker": "map_seller",
+              "line": "That's his… the undertaker explains it better, sir. Down the lane."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          },
+          "repeat": "Little cross, sir. The undertaker'll explain."
+        },
+        {
+          "id": "map_seller5",
+          "text": "You knew Pike was dead.",
+          "tag": "TOPIC",
+          "when": {
+            "T_PIKE_DEAD": true
+          },
+          "repeat": "Very popular corner.",
+          "say": "He's on the map, sir. I mark everybody. Very popular corner, that."
+        },
+        {
+          "id": "map_seller6",
+          "text": "Do they work?",
+          "tag": "COMIC",
+          "repeat": "Still not been disproved.",
+          "say": "They've not been disproved."
+        },
+        {
+          "id": "map_sellerx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
     }
-   ]
   }
- },
- "speaker": "map_seller",
- "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null, the renderer cannot find a head to put the words over, and they fall to the top-centre fallback in the wrong colour -- which is exactly what Tyler saw.",
- "gateNote": "Doc 07\u2019s \u21b3 notation: \"from_what\" is a FOLLOW-UP, offered only once \"where_from\" has been asked. Without the gate every option is on the list from the first moment, which had the pie woman offering to argue with an answer nobody had given.",
- "exchangeNote": "Doc 30 section 5: a reply that would wrap past three lines is split at a rhetorical break. Tyler asked for the break-up to be back-and-forth with Thad rather than the same voice twice, and he is right -- an interjection makes the punchline land, where two consecutive lines from one man is just a paragraph with a pause in it."
 }
