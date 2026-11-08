@@ -924,7 +924,7 @@
 
 **THE COUNTY SEAL** — LOOK 2 "The handle is wrapped in chamois so it will not mark. Even the seal is handled with care." · 3 "Around the rim, CONSOLATION COUNTY; in the middle, a pickaxe crossed with a quill. That is the whole economy, and it is accurate." | LISTEN 2 "Nothing. It's resting between truths." · 3 "A faint ring when I set it down. Brass, agreeing with itself."
 
-**THE UNCLAIMED CORRESPONDENCE** — LOOK 2 "One is addressed to Ezra Pike. Six years waiting. I carried its twin eleven hundred miles." · 3 "Some envelopes have been readdressed three times, each to a camp further west. The last is addressed to nowhere at all, and was delivered here." | LISTEN 2 "A soft slither as one envelope leans into another." · 3 "Nothing. Letters keep very quiet when nobody is coming for them."
+**THE UNCLAIMED CORRESPONDENCE** — LOOK 2 "One is addressed to Ezra Pike. Six years waiting. I carried its twin three thousand miles." · 3 "Some envelopes have been readdressed three times, each to a camp further west. The last is addressed to nowhere at all, and was delivered here." | LISTEN 2 "A soft slither as one envelope leans into another." · 3 "Nothing. Letters keep very quiet when nobody is coming for them."
 
 **THE DAMP CORNER** — LOOK 2 "A bucket under the worst of it, half full, and a second bucket under the first bucket's overflow." · 3 "Whatever was filed in 1851 is legible only as a color now: a soft brown peace." | LISTEN 2 "A single drop, at last, into the bucket. It had been thinking about it for some time." · 3 "Nothing. The roof is saving up."
 

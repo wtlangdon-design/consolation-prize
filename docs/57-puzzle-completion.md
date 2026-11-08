@@ -212,7 +212,7 @@ Duel Two needs fourteen; Duel One, Winnie and Pratt guarantee fifteen. Tier 4 an
 2. SOW_A1 option 5 → "Who speaks for the deceased?"
 3. The letter.
 
-> **REVEREND SOWERBY** · USE THE LETTER, *after SOW_A1 option 5* — "A letter of introduction to Mr. Pike, from my father. Sealed. I have carried it eleven hundred miles." **SOWERBY:** *(He holds it as though it were warm.)* "Then you are practically family, Mr. Grubb. The estate will be billed. Mr. Pike's estate is six years behind with the undertaker, so I shall be paid after him, which is to say in spirit." *(He gives the letter back.)* "Have it printed. Nobody comes to a funeral he hasn't read about." → `T_MEMORIAL_BOOKED`
+> **REVEREND SOWERBY** · USE THE LETTER, *after SOW_A1 option 5* — "A letter of introduction to Mr. Pike, from my father. Sealed. I have carried it three thousand miles." **SOWERBY:** *(He holds it as though it were warm.)* "Then you are practically family, Mr. Grubb. The estate will be billed. Mr. Pike's estate is six years behind with the undertaker, so I shall be paid after him, which is to say in spirit." *(He gives the letter back.)* "Have it printed. Nobody comes to a funeral he hasn't read about." → `T_MEMORIAL_BOOKED`
 
 4. FRA_A1 option 6 → the notice → **the funeral day** begins (`T_FUNERAL_DAY`) → **C3**.
 

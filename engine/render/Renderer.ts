@@ -278,6 +278,30 @@ export const CONTINUE_MARK_EXTENT = CONTINUE_MARK_GAP + 2 * CONTINUE_MARK_ROWS +
  * further than `half` when the waiting triangle hangs after the last line
  * (errata 143). Rounded, as every drawn coordinate is.
  */
+/**
+ * A speaker drawn only as a head on something else -- the stage driver, a face on the coach's own frames -- in
+ * play-area pixels. `height`, which sets the gap between his head and his words, is a WHOLE MAN's at the body's
+ * depth (Tyler, 2026-11-07, of the driver: "Can the driver's dialogue be a little further above his head?"). It
+ * had been the head box's own height, so the gap was 0.12 of a head -- a few pixels -- where every standing
+ * speaker gets 0.12 of a man. `man` is null only off the depth curve, where the head box is all there is.
+ */
+export function overlaySpeakerHead(
+  place: { x: number; y: number; scale: number },
+  [rx, ry, rw, rh]: readonly [number, number, number, number],
+  man: number | null,
+): { x: number; headY: number; height: number } {
+  return {
+    x: place.x + (rx + rw / 2) * place.scale,
+    headY: place.y + ry * place.scale,
+    height: Math.max(rh * place.scale, man ?? 0),
+  };
+}
+
+/** The top of a block of speech `height` tall, over a head at `headY` on a figure `figure` tall. */
+export function speechTop(headY: number, figure: number, height: number): number {
+  return headY - SPEECH_GAP * figure - height;
+}
+
 export function clampSpeechX(screenX: number, half: number, right = half): number {
   return Math.round(Math.max(TEXT_MARGIN + half, Math.min(NATIVE_WIDTH - TEXT_MARGIN - right, screenX)));
 }
@@ -2630,7 +2654,7 @@ export class Renderer {
     // constant: the offset has to follow the scale for the same reason the
     // anchor follows the position, or a man drawn small up the road wears his
     // words as a hat while one at the front holds them at his knees.
-    const top = at.headY - SPEECH_GAP * at.height - height;
+    const top = speechTop(at.headY, at.height, height);
     // THE CAMERA, WHICH WAS MISSING. `at.x` is a WORLD coordinate and this is
     // clamped against NATIVE_WIDTH in SCREEN space, because drawSay runs after
     // the camera translate is restored. On a 3700-wide street that put every
@@ -2712,12 +2736,8 @@ export class Renderer {
       const [rx, ry, rw, rh] = overlayRect(overlay, body.clip, state);
       // His own head's box, in play-area pixels: the block sits above THAT
       // rather than above the coach he is sitting on, which is two metres of
-      // stagecoach further down.
-      return {
-        x: place.x + (rx + rw / 2) * place.scale,
-        headY: place.y + ry * place.scale,
-        height: rh * place.scale,
-      };
+      // stagecoach further down. The gap above it is a whole man's, though.
+      return overlaySpeakerHead(place, [rx, ry, rw, rh], this.state.stagedHeightAt(body.x, body.y));
     }
     // A VOICE WITH NO FIGURE, STAGED WHERE IT COMES FROM (RoomFile.voices;
     // errata 131 A): the ring's mutter, from the chairs, not the top of the frame.

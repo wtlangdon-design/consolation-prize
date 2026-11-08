@@ -70,7 +70,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "Footsteps. Even ones. He is counting them."
 
 **THE ROAD EAST**
-> **LOOK:** "Home is that way. It's eleven hundred miles that way, which robs the gesture of some of its force."
+> **LOOK:** "Home is that way. It's three thousand miles that way, which robs the gesture of some of its force."
 > **LISTEN:** "Nothing coming."
 
 ---
@@ -991,7 +991,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Wind on split wood. The exclamation has weathered off."
 
 **CLAIM MARKER — "PROVIDENCE"**
-> **LOOK:** "PROVIDENCE. A Rhode Island man, then. We are eleven hundred miles from the reference and it did not help him either."
+> **LOOK:** "PROVIDENCE. A Rhode Island man, then. We are three thousand miles from the reference and it did not help him either."
 > **LISTEN:** "Nothing. Providence has moved on."
 
 **CLAIM MARKER — "THE SURE THING"**

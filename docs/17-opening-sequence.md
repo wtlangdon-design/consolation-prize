@@ -168,7 +168,7 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 **LISTEN** 2 "Even footsteps. Still counting." · 3 "He has not broken stride once. Not once, in the whole length of the street."
 
 ## THE ROAD EAST
-**LOOK** 2 "Eleven hundred miles. I've just come along it, and it didn't feel optional at the time." · 3 "Home is that way. I'm not going to keep looking at it. That's three times now."
+**LOOK** 2 "Three thousand miles. I've just come along it, and it didn't feel optional at the time." · 3 "Home is that way. I'm not going to keep looking at it. That's three times now."
 **LISTEN** 2 "Nothing coming." · 3 "Nothing coming."
 
 ---

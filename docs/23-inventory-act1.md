@@ -29,7 +29,7 @@
 ## THE LETTER
 *Two states, per ruling 19a. Flag: `T_PIKE_DEAD`.*
 
-**Before** — **LOOK** 1 "A letter of introduction to Mr Ezra Pike of Consolation, in my father's hand, sealed." · 2 "My father wrote it in one sitting and would not let me read it." · 3 "Sealed. I have carried it eleven hundred miles without opening it, which I had thought was patience."
+**Before** — **LOOK** 1 "A letter of introduction to Mr Ezra Pike of Consolation, in my father's hand, sealed." · 2 "My father wrote it in one sitting and would not let me read it." · 3 "Sealed. I have carried it three thousand miles without opening it, which I had thought was patience."
 **LISTEN** 1 "Nothing. Paper." · 2 "Nothing." · 3 "Nothing."
 
 **After `T_PIKE_DEAD`** — **LOOK** 1 "A letter of introduction to a man who has been dead six years. I have not opened it." · 2 "Still sealed. It seems rude, somehow, and I am not certain to whom." · 3 "My father did not know. That is the part I keep arriving at."

@@ -1882,9 +1882,9 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Home is that way. It's eleven hundred miles that way, which robs the gesture of some of its force.",
+            "say": "Home is that way. It's three thousand miles that way, which robs the gesture of some of its force.",
             "repeat": [
-              "Eleven hundred miles. I've just come along it, and it didn't feel optional at the time.",
+              "Three thousand miles. I've just come along it, and it didn't feel optional at the time.",
               "Home is that way. I'm not going to keep looking at it. That's three times now."
             ]
           }

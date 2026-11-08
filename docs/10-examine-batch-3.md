@@ -93,7 +93,7 @@
 > **LISTEN:** "Nothing. Four hundred holes and not a sound out of any of them."
 
 **THE ROAD EAST** · **THE WIND**
-> *(The road east — **LOOK:** "Eleven hundred miles that way. From up here you can see about nine of them." **LISTEN:** "Nothing coming." — *the same line as the opening screen, and the player has heard it before.*)*
+> *(The road east — **LOOK:** "Three thousand miles that way. From up here you can see about nine of them." **LISTEN:** "Nothing coming." — *the same line as the opening screen, and the player has heard it before.*)*
 
 ---
 
