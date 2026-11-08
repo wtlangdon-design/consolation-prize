@@ -634,6 +634,14 @@
 **LOOK** 1 "The frames of old sluices, their boards long since borrowed for something else. The skeleton of an idea about water." · 2 "One still has its riffles, nailed in hope and left in place." · 3 "The water they were built for went somewhere else a season later. Even the creek left the row."
 **LISTEN** 1 "Wind through the frames, a dry rattle where water should be." · 2 "A loose board tapping, as if asking to be used." · 3 "Nothing. They have been dry long enough to forget."
 
+## Newly written *(errata 185)*
+
+*Tyler, 2026-11-08: "Write them". Doc 49's THE ROW ENTIRE, the row as one thing, as Pratt's claim has THE CLAIM ENTIRE. One voice, under doc 59 and doc 99; true in every act.*
+
+### THE ROW ENTIRE
+**LOOK** 1 "Eleven claims along the ridge, eleven markers, eleven names. Read from one end, it's a sentence that never gets to its verb." · 2 "From the path you can see every claim on it at once. I expect that was the selling point." · 3 "Any of them could be mine for the price of a form. I find I'd rather keep Prosperity, and I didn't think anything could make me say that."
+**LISTEN** 1 "Wind along the ridge, taking the markers one at a time, like a man reading out names." · 2 "Nothing from the row as a whole. It has said what it had to say eleven times." · 3 "The wind again, down the row and back. It doesn't stop at any of them either."
+
 ---
 
 # ROOM 34 · UNDER PROSPERITY
@@ -1276,11 +1284,19 @@
 **PIKE'S MARKER** ≡ **PLOT ELEVEN**
 **PIKE'S NEIGHBOR** ≡ **THE FRESH PLOT**
 
-*(PIKE'S HEADBOARD and PLOT ELEVEN are doc 49's names for Ezra Pike's grave — "Plot eleven" (UND_A1), "third row, second from the end" (doc 27). Doc 05 gives Pike's line as "the tenth marker the player checks"; errata 69 E makes his grave its own hotspot, findable from Act I, with doc 05's line as its first LOOK. THE GATE is the room's exit. Doc 49's THE FENCE and THE WILD OATS name objects no pass places and are retired under errata 68 E.)*
+*(PIKE'S HEADBOARD and PLOT ELEVEN are doc 49's names for Ezra Pike's grave — "Plot eleven" (UND_A1), "third row, second from the end" (doc 27). Doc 05 gives Pike's line as "the tenth marker the player checks"; errata 69 E makes his grave its own hotspot, findable from Act I, with doc 05's line as its first LOOK. THE GATE is the room's exit. Doc 49's THE WILD OATS names an object no pass places and is retired under errata 68 E. Its THE FENCE was retired too, until errata 185 described the fence the plate draws.)*
 
 ### PIKE'S MARKER
 **LOOK** 1 "Ezra Pike. The man I was sent to find. Six years." · 2 "A plain board, kept upright. The undertaker's work, and paid for, I would guess, by the undertaker." · 3 "I have his letter of introduction in my coat. It introduces me to this."
 **LISTEN** 1 "Nothing. I have come a very long way to hear it." · 2 "Nothing, still. He was never going to answer, and I keep asking anyway." · 3 "Wind in the grass over him, and that is all the reply there is."
+
+## Newly written *(errata 185)*
+
+*Tyler, 2026-11-08, of objects drawn on the plates that doc 49 writes refusals for and no pass ever described: "Write them". One voice, under doc 59 and doc 99; true in every act; nothing the plate does not show. The fence runs from the gate down the left of the hill and nowhere else.*
+
+### THE FENCE
+**LOOK** 1 "A rail fence down one side of the hill, as far as the gate. The other sides are left to good manners." · 2 "Split rails, pegged rather than nailed, and every peg tight. Somebody walks this fence." · 3 "It runs from the gate to the edge of the hill and stops, as if it had made its point."
+**LISTEN** 1 "Wind in the rails, a low hum with no tune in it. I've looked for one." · 2 "A rail ticking as the night cools it. It's the only thing up here keeping time." · 3 "Nothing. Up here even the fence is careful how loud it is."
 
 ## Repeats
 
@@ -1459,9 +1475,7 @@
 - **Retire** · Room 21 · **THE LAMP RESERVE**
 - **Retire** · Room 21 · **THE WALL CALENDAR**
 - **Retire** · Room 21 · **THE STOOL BY THE WINDOW**
-- **Retire** · Room 14 · **THE FENCE**
 - **Retire** · Room 14 · **THE WILD OATS**
-- **Retire** · Room 27 · **THE ROW ENTIRE**
 - **Retire** · Room 32 · **THE LID**
 - **Retire** · Room 32 · **THE DARK**
 - **Move** · Room 10 · **THE GLOBE** · from docs/49-wrong-answers.md::ROOM 11 — FANSHAWE'S OFFICE

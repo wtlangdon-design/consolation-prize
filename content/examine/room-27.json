@@ -215,6 +215,22 @@
         "My own boots on it, and nobody else's.",
         "Nothing. The path has outlasted every reason to walk it."
       ]
+    },
+    {
+      "name": "THE ROW ENTIRE",
+      "LOOK_AT": [
+        "Eleven claims along the ridge, eleven markers, eleven names. Read from one end, it's a sentence that never gets to its verb.",
+        "From the path you can see every claim on it at once. I expect that was the selling point.",
+        "Any of them could be mine for the price of a form. I find I'd rather keep Prosperity, and I didn't think anything could make me say that."
+      ],
+      "LISTEN_TO": [
+        "Wind along the ridge, taking the markers one at a time, like a man reading out names.",
+        "Nothing from the row as a whole. It has said what it had to say eleven times.",
+        "The wind again, down the row and back. It doesn't stop at any of them either."
+      ],
+      "overrides": {
+        "USE": "Eleven claims, free for the re-filing, and no takers in years. The row is used daily: as a warning, by everyone, on the way past."
+      }
     }
   ]
 }

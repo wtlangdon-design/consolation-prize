@@ -171,6 +171,43 @@
       }
     },
     {
+      "id": "fence",
+      "name": "THE FENCE",
+      "rect": [
+        0,
+        560,
+        150,
+        175
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A rail fence down one side of the hill, as far as the gate.",
+            "repeat": [
+              "Split rails, pegged rather than nailed, and every peg tight. Somebody walks this fence.",
+              "It runs from the gate to the edge of the hill and stops, as if it had made its point."
+            ],
+            "then": [
+              "The other sides are left to good manners."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind in the rails, a low hum with no tune in it. I've looked for one.",
+            "repeat": [
+              "A rail ticking as the night cools it. It's the only thing up here keeping time.",
+              "Nothing. Up here even the fence is careful how loud it is."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "It holds. The undertaker maintains it. His clients do not leave, but their reputation for it must be kept up."
+      }
+    },
+    {
       "id": "pike_s_neighbor",
       "name": "PIKE'S NEIGHBOR",
       "rect": [
