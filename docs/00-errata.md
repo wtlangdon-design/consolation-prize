@@ -4867,3 +4867,16 @@ The records are written first, then each sheet is snapped to one level (errata 1
 **D · The map seller's clothes (Tyler, shown the lineup): "The map seller is dressed exactly like Thad. Change his clothes, the rest look good."** Doc 07 does not describe his clothes, so they were chosen to share nothing with Thad's: a short mustard-brown work jacket, a cream shirt with thin brown stripes, a red neckerchief and tan trousers. His flat cap, satchel, map, face and poses are kept.
 
 Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`derivedFrom` 79) that changes only the clothes. It is cut with `lineup-redraws.py cut map-seller --batch 57`. His shoulders measure 1.15× Thad's, and by ruler his head is Thad's. 86 of 90 are spent.
+
+# 180 · VESSEL OWNS THE HOTEL: VES_F1 BUILT — TYLER, 2026-11-08 ("Yes")
+
+*Asked his opinion of Vessel's Act IV node, written in doc 04 and never put in the game, Tyler said "Yes" to building it. Doc 103's last section records it.*
+
+- **Vessel stands in the hotel lobby from Act IV, and TALK TO opens VES_F1.** It has a greeting once, four questions with second answers, and the exit pool. From Act IV he is out of the back room.
+- **Two lines are corrected to be true when said:**
+  - "my old room" becomes "my room";
+  - "Course it is." becomes "Yours till noon, son.".
+- **`?fixture=r18-b`:** the lobby in Act IV.
+- **`tests/doc04-nodes.test.ts`:** every node doc 04 names is in the game, or is listed in `tests/data/doc04-nodes-not-built.json` with its reason.
+- **It found WIN_B3, the second ledger, written and never built.** It is reported to Tyler and waits for his word.
+
