@@ -73,5 +73,17 @@
     "STAGE_DRIVER"
    ]
   }
- ]
+ ],
+ "comicExempt": {
+  "why": "Errata 178: every [COMIC] option that stays on its menu answers differently the second time, except these. Hob: his forty words (errata 174). The raccoon: its tree is Thad narrating a naming, not a conversation. The harness tree is the test fixture. PRATT:pratt4 and PRATT:pratt5 are \"How's the bite?\" -- \"Healing wrong.\", which doc 04 says is the answer \"every time, for the rest of the game, in every act, including the ending.\"",
+  "trees": [
+   "HOB",
+   "RACCOON",
+   "harness_tree"
+  ],
+  "options": [
+   "PRATT:pratt4",
+   "PRATT:pratt5"
+  ]
+ }
 }

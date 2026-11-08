@@ -1,5 +1,5 @@
 /**
- * SCENERY ANSWERS NOTHING (errata 178). Main Street's hitching rail and its
+ * SCENERY ANSWERS NOTHING (errata 181). Main Street's hitching rail and its
  * horses are drawn and move, but have no lines yet: the brief makes them
  * scenery until their LOOK and LISTEN lines are written. So the pointer passes
  * through them to the mud under them, in the night street and the dawn one,

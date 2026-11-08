@@ -1,4 +1,4 @@
-"""The hitching horses at dawn, for Room 36 (errata 178). No image operation.
+"""The hitching horses at dawn, for Room 36 (errata 181). No image operation.
 
 Room 36's plate is Room 2's pixels under the morning's light
 (tools/art/room36-dawn.py). The horses are a sprite, not plate, so they are

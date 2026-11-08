@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "lineup-fiddler",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-03-nugget",
+ "promptFile": "reference/cast-unify-56.txt",
+ "out": "art/staging/cast-unify/batch-56/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-56/template.png",
+  "art/staging/cast-unify/batch-56/face.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

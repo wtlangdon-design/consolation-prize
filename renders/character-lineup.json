@@ -9,7 +9,7 @@
   "who": "HOB (opening actor)",
   "posture": "actor",
   "sheet": "art/actors/hob-stand-right/stand-00.png",
-  "scale": 0.229
+  "scale": 0.228
  },
  {
   "who": "A DOG\ndog \u00b7 main_street",
@@ -20,14 +20,14 @@
  {
   "who": "THE LETTER-WRITER\nletter_writer \u00b7 main_street",
   "posture": "standing",
-  "sheet": "art/actors/ambient-letter-writer.png",
-  "scale": 2.0
+  "sheet": "art/actors/ambient-letter-writer-master.png",
+  "scale": 1.961
  },
  {
   "who": "THE MAP SELLER\nmap_seller \u00b7 main_street",
   "posture": "standing",
-  "sheet": "art/actors/ambient-map-seller.png",
-  "scale": 2.0
+  "sheet": "art/actors/ambient-map-seller-master.png",
+  "scale": 1.875
  },
  {
   "who": "THE PATRONS\nnugget_bar1 \u00b7 nugget",
@@ -80,8 +80,8 @@
  {
   "who": "THE PIE WOMAN\npie_woman \u00b7 main_street",
   "posture": "standing",
-  "sheet": "art/actors/ambient-pie-woman.png",
-  "scale": 1.916
+  "sheet": "art/actors/ambient-pie-woman-master.png",
+  "scale": 1.786
  },
  {
   "who": "WINNIE LEDGER\nwinnie \u00b7 assay_office",
@@ -110,25 +110,25 @@
  {
   "who": "THE JUDGES\nroom_04_judge_1 \u00b7 nugget_back",
   "posture": "seated",
-  "sheet": "art/actors/room-04-judge-1.png",
+  "sheet": "art/actors/room-04-judge-1-master.png",
   "scale": 0.686
  },
  {
   "who": "THE JUDGES\nroom_04_judge_2 \u00b7 nugget_back",
   "posture": "seated",
-  "sheet": "art/actors/room-04-judge-2.png",
+  "sheet": "art/actors/room-04-judge-2-master.png",
   "scale": 0.686
  },
  {
   "who": "THE JUDGES\nroom_04_judge_3 \u00b7 nugget_back",
   "posture": "seated",
-  "sheet": "art/actors/room-04-judge-3.png",
+  "sheet": "art/actors/room-04-judge-3-master.png",
   "scale": 0.686
  },
  {
   "who": "REVEREND SOWERBY\nsowerby \u00b7 nugget_back",
   "posture": "standing",
-  "sheet": "art/actors/room-04-sowerby.png",
+  "sheet": "art/actors/room-04-sowerby-master.png",
   "scale": 0.686
  },
  {
@@ -140,8 +140,8 @@
  {
   "who": "IGNATIUS FRAME\nframe \u00b7 clarion",
   "posture": "standing",
-  "sheet": "art/actors/room-09-frame.png",
-  "scale": 0.576
+  "sheet": "art/actors/room-09-frame-master.png",
+  "scale": 0.598
  },
  {
   "who": "THE CLERK\nlobby_clerk \u00b7 company_lobby",
@@ -158,13 +158,13 @@
  {
   "who": "THE UNDERTAKER\nundertaker \u00b7 undertaker",
   "posture": "behind-counter",
-  "sheet": "art/actors/room-13-undertaker.png",
+  "sheet": "art/actors/room-13-undertaker-master.png",
   "scale": 0.649
  },
  {
   "who": "THE LIVERY MAN\nlivery_man \u00b7 livery",
   "posture": "seated",
-  "sheet": "art/actors/room-15-livery-man.png",
+  "sheet": "art/actors/room-15-livery-man-master.png",
   "scale": 0.765
  },
  {
@@ -178,6 +178,12 @@
   "posture": "animal",
   "sheet": "art/actors/room-20-cat.png",
   "scale": 1.163
+ },
+ {
+  "who": "THE BELL-RINGER\nbell_ringer \u00b7 lower_street",
+  "posture": "standing",
+  "sheet": "art/actors/room-43-bell-ringer.png",
+  "scale": 1.178
  },
  {
   "who": "HOB\nhob \u00b7 back_alley",
@@ -200,32 +206,32 @@
  {
   "who": "NICKEL PRATT\npratt \u00b7 pratts_claim",
   "posture": "standing",
-  "sheet": "art/actors/room-25-pratt.png",
-  "scale": 0.782
+  "sheet": "art/actors/room-25-pratt-master.png",
+  "scale": 0.793
  },
  {
   "who": "NICKEL PRATT\npratt_registrar \u00b7 claims_registrar",
   "posture": "standing",
-  "sheet": "art/actors/room-25-pratt-jump.png",
-  "scale": 0.756
+  "sheet": "art/actors/room-25-pratt-jump-master.png",
+  "scale": 0.746
  },
  {
   "who": "NICKEL PRATT\npratt_jump \u00b7 prosperity",
   "posture": "standing",
-  "sheet": "art/actors/room-25-pratt-jump.png",
-  "scale": 0.756
+  "sheet": "art/actors/room-25-pratt-jump-master.png",
+  "scale": 0.746
  },
  {
   "who": "THE MAN PANNING\nman_panning \u00b7 creek",
   "posture": "seated",
-  "sheet": "art/actors/room-26-panner.png",
+  "sheet": "art/actors/room-26-panner-master.png",
   "scale": 1.068
  },
  {
   "who": "AH-LAM SHENG\nsheng \u00b7 laundry",
   "posture": "standing",
-  "sheet": "art/actors/room-28-sheng.png",
-  "scale": 0.938
+  "sheet": "art/actors/room-28-sheng-master.png",
+  "scale": 0.947
  },
  {
   "who": "THE OTHER MULES\nother_mules \u00b7 livery",
@@ -248,20 +254,20 @@
  {
   "who": "THE UNDERTAKER\nfuneral_undertaker \u00b7 funeral",
   "posture": "standing",
-  "sheet": "art/actors/room-31-undertaker.png",
-  "scale": 0.893
+  "sheet": "art/actors/room-31-undertaker-master.png",
+  "scale": 0.75
  },
  {
   "who": "REVEREND SOWERBY\nfuneral_sowerby \u00b7 funeral",
   "posture": "standing",
-  "sheet": "art/actors/room-31-sowerby.png",
+  "sheet": "art/actors/room-31-sowerby-master.png",
   "scale": 0.974
  },
  {
   "who": "THE ONE WHO KNOWS\nfuneral_hob \u00b7 funeral",
   "posture": "standing",
-  "sheet": "art/actors/room-31-hob.png",
-  "scale": 0.848
+  "sheet": "art/actors/room-31-hob-master.png",
+  "scale": 0.78
  },
  {
   "who": "GRIEVANCE\nfuneral_grievance \u00b7 funeral",
@@ -272,8 +278,8 @@
  {
   "who": "THE MOURNERS\nfuneral_mourners \u00b7 funeral",
   "posture": "band",
-  "sheet": "art/actors/room-31-mourners.png",
-  "scale": 0.856
+  "sheet": "art/actors/room-31-mourners-master.png",
+  "scale": 0.858
  },
  {
   "who": "A DOG\ndawn_dog \u00b7 main_street_dawn",
@@ -282,45 +288,99 @@
   "scale": 1.747
  },
  {
+  "who": "A MAN ON A LADDER\nsign_painter \u00b7 coach_stop_dawn",
+  "posture": "standing",
+  "sheet": "art/actors/ambient-sign-painter.png",
+  "scale": 0.321
+ },
+ {
   "who": "REVEREND SOWERBY\nsowerby_gate \u00b7 boot_hill",
   "posture": "standing",
-  "sheet": "art/actors/room-31-sowerby.png",
+  "sheet": "art/actors/room-31-sowerby-master.png",
   "scale": 0.989
  },
  {
   "who": "COLONEL FANSHAWE\nduel_fanshawe \u00b7 main_street",
   "posture": "standing",
-  "sheet": "art/actors/room-02-duel-fanshawe.png",
-  "scale": 1.071
+  "sheet": "art/actors/room-02-duel-fanshawe-standing.png",
+  "scale": 0.852
+ },
+ {
+  "who": "THE BALD JUDGE\nduel_judge_1 \u00b7 main_street",
+  "posture": "standing",
+  "sheet": "art/actors/room-02-duel-judge-1.png",
+  "scale": 0.75
+ },
+ {
+  "who": "THE GAUNT JUDGE\nduel_judge_2 \u00b7 main_street",
+  "posture": "standing",
+  "sheet": "art/actors/room-02-duel-judge-2.png",
+  "scale": 0.75
+ },
+ {
+  "who": "THE BEARDED JUDGE\nduel_judge_3 \u00b7 main_street",
+  "posture": "standing",
+  "sheet": "art/actors/room-02-duel-judge-3.png",
+  "scale": 0.787
  },
  {
   "who": "REVEREND SOWERBY\nduel_sowerby \u00b7 main_street",
   "posture": "standing",
-  "sheet": "art/actors/room-02-duel-sowerby.png",
-  "scale": 1.596
- },
- {
-  "who": "THE JUDGES' TABLE\nduel_judges \u00b7 main_street",
-  "posture": "band",
-  "sheet": "art/actors/room-02-duel-table.png",
-  "scale": 0.719
+  "sheet": "art/actors/room-02-duel-sowerby-standing.png",
+  "scale": 0.789
  },
  {
   "who": "THE TOWN\nduel_town_left \u00b7 main_street",
   "posture": "band",
   "sheet": "art/actors/room-02-duel-town-left.png",
-  "scale": 1.071
+  "scale": 1.625
  },
  {
   "who": "THE TOWN\nduel_town_right \u00b7 main_street",
   "posture": "band",
   "sheet": "art/actors/room-02-duel-town-right.png",
-  "scale": 1.071
+  "scale": 1.609
  },
  {
   "who": "WINNIE LEDGER\nwinnie_registrar \u00b7 claims_registrar",
   "posture": "behind-counter",
-  "sheet": "art/actors/winnie-counter-sheet.png",
+  "sheet": "art/actors/room-07-winnie.png",
   "scale": 0.625
+ },
+ {
+  "who": "THE MESSAGE BOY\nmessage_boy \u00b7 main_street",
+  "posture": "child",
+  "sheet": "art/actors/message-boy.png",
+  "scale": 2.17
+ },
+ {
+  "who": "THE MAN LEAVING TOMORROW\nman_leaving_tomorrow \u00b7 main_street",
+  "posture": "standing",
+  "sheet": "art/actors/man-leaving-tomorrow.png",
+  "scale": 2.0
+ },
+ {
+  "who": "THE BOUNDARY MAN\nboundary_a \u00b7 main_street",
+  "posture": "standing",
+  "sheet": "art/actors/boundary-a.png",
+  "scale": 1.818
+ },
+ {
+  "who": "THE OTHER BOUNDARY MAN\nboundary_b \u00b7 main_street",
+  "posture": "standing",
+  "sheet": "art/actors/boundary-b.png",
+  "scale": 1.818
+ },
+ {
+  "who": "THE DOG'S OWNER\ndogs_owner \u00b7 back_alley",
+  "posture": "standing",
+  "sheet": "art/actors/dogs-owner.png",
+  "scale": 0.952
+ },
+ {
+  "who": "THE FIDDLER\nfiddler \u00b7 nugget",
+  "posture": "standing",
+  "sheet": "art/actors/fiddler.png",
+  "scale": 1.042
  }
 ]

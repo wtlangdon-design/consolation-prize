@@ -4804,10 +4804,85 @@ Doc 102 records it.
 - **Every `[COMIC]` row left on an Act III menu answers differently when asked again:** Sump's two, the undertaker's and Sowerby's.
 - **The funeral's "eleven weeks" becomes "less than a month"** (doc 02 D: nine days by Act II's ninety-day rule). `tests/continuity.test.ts` fails on any shipped room line that puts him in town for weeks.
 
+# 178 · ACT IV READ TO DOC 99; EVERY JOKE OPTION ANSWERS DIFFERENTLY TWICE — TYLER, 2026-11-08 ("Continue with act 4")
+
+Doc 103 records it.
+
+- **Act IV is unchanged.** The read found it already does doc 99's work and points each step at the next, and its rooms agree on their dates.
+- **Every `[COMIC]` option left on a menu, in every tree, now has its own second answer.** Nineteen more were written:
+  - in doc 07, as *Asked again:*;
+  - in doc 27, as *(again)*;
+  - in doc 04, as *(second)*.
+
+  Exempt, with reasons recorded in `tests/data/repeats-passed.json` `comicExempt`:
+  - Hob;
+  - the raccoon's naming;
+  - Pratt's "Healing wrong.", which doc 04 makes permanent.
+
+  `tests/repeats.test.ts` holds the rest.
+- **Found and not built: VES_F1, Vessel's Act IV hotel node (doc 04).** It is a staging job, and waits for Tyler.
 
 ---
 
-# 178 · A HITCHING RAIL WITH THREE HORSES ON MAIN STREET — TYLER, 2026-11-08
+# 179 · EIGHT TOWNSPEOPLE REDRAWN AGAINST THAD — TYLER, 2026-11-08 (reference/lineup-redraws/brief.md)
+
+*Tyler: "the newspaper guy has the same problem as some of the characters earlier where he's too wide compared to Thad … It looks like the pie woman has the same problem." "The boy and the letter writer also have heads that are too big compared to Thad." On the lineup: "all of them".*
+
+**A · The method: errata 144's, by Tyler's choice.** The brief's first image was each figure on a board beside Thad's cast-sheet drawing. Errata 139 found that drawing's head is ~1.3× the in-game Thad's, and every sheet drawn against it kept the big head. Asked, Tyler chose **"Errata 144's method"**.
+
+Each sheet is painted over the in-game Thad (`art/actors/thad-stand-front/stand-00.png`), repeated once per drawn pose, with the character shown only as a face crop. Clothes, props and poses are in the prompt. `tools/art/lineup-redraws.py refs` builds the template and the face crop for each figure:
+- the boy's template is a child built from Thad (a smaller body under a head ~0.88 of his);
+- the fiddler's face is Charlie's own, from his sheet (errata 123), with no photograph.
+
+**B · Seven operations, cast-unify 79–85** (`reference/cast-unify-50.txt` to `-56.txt`). The ledger was checked before each. The boundary men share one sheet, as before. No correction was needed for build, so 85 of 90 were spent; then one more for the map seller's clothes (D), so 86.
+
+`lineup-redraws.py cut` cuts each at the drawn height of the frame it replaces (`cast-unify-cut.py --grid 1`) and keeps every frame index:
+- frame 1 is a breath derived from the rest pose;
+- the fiddler's five frames are all drawn.
+
+The records are written first, then each sheet is snapped to one level (errata 112).
+
+**C · Measured before anyone looked.**
+- **Shoulders, against Thad** (`build-vs-thad.py`; the flag is 1.15×):
+
+  | Figure | Before | After |
+  |---|---|---|
+  | Map seller | 1.88 | 1.15 (after D) |
+  | Letter-writer | 1.39 | 1.09 |
+  | Pie woman | 1.27 | 0.85 |
+  | Bell-ringer | 1.20 | 1.05 |
+  | Boundary man B | — | 1.15 |
+  | Fiddler | 1.62 | 1.58 |
+
+  The fiddler's row is widened by the violin held under his chin; by eye his shoulders are Thad's.
+- **Heads, by ruler** (`renders/townspeople-heads-ruler.png`, `tools/art/lineup-ruler.py`: each figure before and after at a 300 px man, Thad's crown and chin ruled across). Every new face ends at Thad's chin line, with the hats above his crown. The boy keeps a child's larger head on a smaller body. The automatic neck-finder still misreads hats, beards and the fiddle (errata 138), so its head ratios are not used.
+- `npm test`: 1117 of 1117 pass, including `tests/scale.test.ts`, `tests/movement.test.mjs` and `tests/staging-clear.test.ts`.
+- `renders/townspeople-vs-cast@3x.png` and `renders/character-lineup.png` are re-rendered.
+
+**For Tyler's playthrough:**
+- the message boy's look-back pose is now drawn from behind;
+- the faces are a little more front-on than the old three-quarter view;
+- the fiddler's face should be checked against Charlie.
+
+**D · The map seller's clothes (Tyler, shown the lineup): "The map seller is dressed exactly like Thad. Change his clothes, the rest look good."** Doc 07 does not describe his clothes, so they were chosen to share nothing with Thad's: a short mustard-brown work jacket, a cream shirt with thin brown stripes, a red neckerchief and tan trousers. His flat cap, satchel, map, face and poses are kept.
+
+Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`derivedFrom` 79) that changes only the clothes. It is cut with `lineup-redraws.py cut map-seller --batch 57`. His shoulders measure 1.15× Thad's, and by ruler his head is Thad's. 86 of 90 are spent.
+
+# 180 · VESSEL OWNS THE HOTEL: VES_F1 BUILT — TYLER, 2026-11-08 ("Yes")
+
+*Asked his opinion of Vessel's Act IV node, written in doc 04 and never put in the game, Tyler said "Yes" to building it. Doc 103's last section records it.*
+
+- **Vessel stands in the hotel lobby from Act IV, and TALK TO opens VES_F1.** It has a greeting once, four questions with second answers, and the exit pool. From Act IV he is out of the back room.
+- **Two lines are corrected to be true when said:**
+  - "my old room" becomes "my room";
+  - "Course it is." becomes "Yours till noon, son.".
+- **`?fixture=r18-b`:** the lobby in Act IV.
+- **`tests/doc04-nodes.test.ts`:** every node doc 04 names is in the game, or is listed in `tests/data/doc04-nodes-not-built.json` with its reason.
+- **It found WIN_B3, the second ledger, written and never built.** It is reported to Tyler and waits for his word.
+
+---
+
+# 181 · A HITCHING RAIL WITH THREE HORSES ON MAIN STREET — TYLER, 2026-11-08
 
 Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: the hitching post with horses on Main Street under asset room-02 (four operations), check the ledger before each one, and send me day and night renders with Thad walking past it." The brief was errata 168's, from his "maybe we add a hitching post front and center of the camera with a few horses tied to it so that it's not just a bunch of empty space?" It reached `main` as #260.
 

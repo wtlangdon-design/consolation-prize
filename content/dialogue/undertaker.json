@@ -114,6 +114,7 @@
           "id": "undertaker5",
           "text": "Do you know everybody?",
           "tag": "COMIC",
+          "repeat": "Everybody. Eventually.",
           "say": "I know everybody who's finished."
         },
         {

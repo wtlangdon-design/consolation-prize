@@ -108,6 +108,7 @@
           "id": "deke_vessel8",
           "text": "Is there gold on it?",
           "tag": "COMIC",
+          "repeat": "There's a claim on it, son, and a claim is where every fortune starts.",
           "after": [
             "deke_vessel3"
           ],
@@ -117,6 +118,7 @@
           "id": "deke_vessel5",
           "text": "You seem cheerful for a man with a poorly sister.",
           "tag": "COMIC",
+          "repeat": "Still a long way off, son. That's the main thing wrong with her.",
           "after": [
             "deke_vessel3"
           ],
@@ -311,9 +313,89 @@
           "ends": true
         }
       ]
+    },
+    "VES_F1": {
+      "id": "VES_F1",
+      "prompt": "Grubb! You'll want a room. I've had the stairs done.",
+      "opening": [
+        {
+          "speaker": "deke_vessel",
+          "line": "Grubb! You'll want a room. I've had the stairs done."
+        }
+      ],
+      "openingOnce": "T_VESSEL_HOTEL_GREETED",
+      "options": [
+        {
+          "id": "ves_f1_1",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "You bought the hotel.",
+          "say": "With your four dollars, and some other fellows' several thousand. A man has to put his money somewhere, and I put mine where people sleep.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Outright, son. First thing I ever bought that I meant to keep."
+            }
+          ]
+        },
+        {
+          "id": "ves_f1_2",
+          "tag": "COMIC",
+          "afterUse": "retain",
+          "text": "Was it worth it?",
+          "say": "The four dollars? Son, your four dollars built the mezzanine.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Every cent. Every time you climb those stairs, son, you're walking on your own four dollars."
+            }
+          ]
+        },
+        {
+          "id": "ves_f1_3",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Is my room still mine?",
+          "say": "Yours till noon, son. I've put the rate up, on account of the history.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Till noon. After noon it's a historic room, and those go for more."
+            }
+          ]
+        },
+        {
+          "id": "ves_f1_4",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Did the clerk come with it?",
+          "say": "He came with the building. Like the damp. I've grown fond of them both.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Like the damp. Neither of them takes instruction, and I've stopped asking."
+            }
+          ]
+        },
+        {
+          "id": "ves_f1_x",
+          "tag": "EXIT",
+          "text": "I've taken enough of your time. I'll be taking more later.",
+          "universal": true,
+          "ends": true
+        }
+      ]
     }
   },
   "entries": [
+    {
+      "when": {
+        "ACT": {
+          "atLeast": 4
+        }
+      },
+      "node": "VES_F1"
+    },
     {
       "when": {
         "T_VESSEL_FOUND": true

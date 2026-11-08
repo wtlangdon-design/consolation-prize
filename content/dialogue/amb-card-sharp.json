@@ -74,6 +74,7 @@
           "id": "card_sharp6",
           "text": "Are you any good?",
           "tag": "COMIC",
+          "repeat": "Good enough not to play you. You'd lose, and I'd feel it.",
           "say": "I'm the best honest card player in the territory. Small field. I'm not in it."
         },
         {

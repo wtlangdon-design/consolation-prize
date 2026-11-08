@@ -31,6 +31,41 @@
     "docs/57-puzzle-completion.md::A2 · Get a room with four dollars when the room costs five"
    ],
    "note": "TALK TO the clerk: a room (2), four dollars (3), the piano (4); LISTEN TO the piano; USE THE TUNING FORK on it: the room, and the stairs."
+  },
+  {
+   "id": "r18-b",
+   "label": "R18-B Act IV, the morning: Vessel owns the hotel (VES_F1)",
+   "room": "hotel_lobby",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_ROOM_GRANTED": true,
+    "T_TUNES_PIANOS": true,
+    "ACT": 4,
+    "T_SWINDLED": true,
+    "T_BORDERS_MOTT": true,
+    "T_ASSAY_QUEUE": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "letter",
+    "watch"
+   ],
+   "derivedFrom": [
+    "docs/04-dialogue-trees.md::DEKE VESSEL — three nodes and two duels",
+    "docs/57-puzzle-completion.md::E10 · The confession — the Act III turn"
+   ],
+   "note": "Errata 180: Vessel in the lobby from Act IV. TALK TO him: the greeting once, then VES_F1's four questions."
   }
  ]
 }

@@ -577,6 +577,15 @@
    "note": "Doc 57 B4: the first TALK TO with Vessel in Room 4 plays doc 03's Duel One opening ('Grubb! You came all this way.'), once. Set by the dialogue runner when VES_B1 opens."
   },
   {
+   "id": "T_VESSEL_HOTEL_GREETED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "engine:dialogue:openingOnce DEKE_VESSEL/VES_F1"
+   ],
+   "note": "Errata 180: the first TALK TO with Vessel in the hotel lobby in Act IV plays VES_F1's opening ('Grubb! You'll want a room. I've had the stairs done.'), once. Set by the dialogue runner when VES_F1 opens."
+  },
+  {
    "id": "T_NUGGET_PIANO_TUNED",
    "type": "bool",
    "initial": false,
