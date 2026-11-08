@@ -19,36 +19,36 @@
    [
     2,
     2,
-    716,
+    691,
     422
    ],
    [
-    720,
+    695,
     2,
-    716,
+    691,
     422
    ],
    [
-    1438,
+    1388,
     2,
-    716,
+    691,
     422
    ],
    [
-    2156,
+    2081,
     2,
-    716,
+    691,
     422
    ]
   ],
-  "figureHeight": 389,
-  "stature": 1.21,
-  "statureNote": "The rest frame, the black's ear tips to the foot of the hay, is 1.21 of the room's man where they stand: the black's withers come to Thad's shoulder (0.82 of a man) and are 263 of the frame's 389 rows from its hooves.",
+  "figureHeight": 394,
+  "stature": 1.226,
+  "statureNote": "The rest frame, the black's ear tips to the foot of the hay, is 1.226 of the room's man where they stand: the black's withers come to Thad's shoulder (0.82 of a man).",
   "beatEvery": 7,
   "beatSeconds": 2.4,
   "phase": 0.3,
   "rate": 0.2,
-  "frameNote": "0 rest: the palomino eating, the black looking out, the paint pony with its head up over the rail · 1 the palomino chews · 2 the black tosses its head · 3 the palomino chews. At rest on 0; every 7 s one of the three plays for 2.4 s, rotating, so the black tosses its head every 21 s (errata 77).",
+  "frameNote": "0 rest (sheet frame 4): the palomino eating, the black looking out, the paint pony with its head up over the rail · 1 the palomino chews · 2 the black tosses its head · 3 the palomino chews. At rest on 0; every 7 s one of the three plays for 2.4 s, rotating, so the black tosses its head every 21 s (errata 77).",
   "provenance": "art/staging/room-02/hitching-03/cut.json"
  },
  "placements": {
@@ -62,36 +62,36 @@
      [
       2,
       2,
-      716,
+      691,
       422
      ],
      [
-      720,
+      695,
       2,
-      716,
+      691,
       422
      ],
      [
-      1438,
+      1388,
       2,
-      716,
+      691,
       422
      ],
      [
-      2156,
+      2081,
       2,
-      716,
+      691,
       422
      ]
     ],
-    "figureHeight": 389,
-    "stature": 1.21,
-    "statureNote": "The rest frame, the black's ear tips to the foot of the hay, is 1.21 of the room's man where they stand: the black's withers come to Thad's shoulder (0.82 of a man) and are 263 of the frame's 389 rows from its hooves.",
+    "figureHeight": 394,
+    "stature": 1.226,
+    "statureNote": "The rest frame, the black's ear tips to the foot of the hay, is 1.226 of the room's man where they stand: the black's withers come to Thad's shoulder (0.82 of a man).",
     "beatEvery": 7,
     "beatSeconds": 2.4,
     "phase": 0.3,
     "rate": 0.2,
-    "frameNote": "0 rest: the palomino eating, the black looking out, the paint pony with its head up over the rail · 1 the palomino chews · 2 the black tosses its head · 3 the palomino chews. At rest on 0; every 7 s one of the three plays for 2.4 s, rotating, so the black tosses its head every 21 s (errata 77).",
+    "frameNote": "0 rest (sheet frame 4): the palomino eating, the black looking out, the paint pony with its head up over the rail · 1 the palomino chews · 2 the black tosses its head · 3 the palomino chews. At rest on 0; every 7 s one of the three plays for 2.4 s, rotating, so the black tosses its head every 21 s (errata 77).",
     "provenance": "tools/art/hitching-post-dawn.py: the night sheet under the dawn plate's light (errata 178)"
    }
   }

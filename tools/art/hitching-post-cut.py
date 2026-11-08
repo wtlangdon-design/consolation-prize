@@ -7,25 +7,22 @@ maybe one is eating? And are hitching posts that low?"): a black with a blaze,
 a palomino eating from a pile of hay, a paint pony in a striped blanket, the
 rail at chest height. Four frames on one sheet, 2 x 2.
 
-ONLY FRAMES 1 AND 3 AGREE. The generator moved the palomino and the paint
-pony about 30 px sideways in frames 2 and 4, so neither can be laid over the
-rest without doubling a horse; frame 3 is the whole group 19 px higher and
-otherwise in place. So:
-  0  frame 1, the rest: the palomino eating, the black looking out, the paint dozing;
-  1  the palomino chews: its lowered head lifted 4 px off the hay (from frame 1);
-  2  frame 1 with frame 3's changes: the black tosses its head, the paint looks round
-     -- the pixels that differ from frame 1, widened by four, in those horses' bands;
+THE REST IS FRAME 4, WHOLE. It is the one quarter drawn as a single clean
+picture of what Tyler asked for: the black looking out, the palomino eating,
+the paint pony standing with its head up over the rail (Tyler, 2026-11-08,
+of frame 1's pony: "The horse on the right has its head/neck through the
+hitching post"). An earlier cut stitched frame 4's pony onto frame 1 and
+shipped a sliced muzzle and a third hind leg ("The far right horse has his
+whole snout cut off"; "The middle horse has three back legs"): the generator
+had moved two horses between those frames, and every seam cut a horse. Nothing
+is stitched now except the moving part of each action frame:
+  0  frame 4, the rest;
+  1  the palomino chews: its lowered head lifted 4 px off the hay (from frame 4);
+  2  frame 4 with frame 3's black tossing its head -- frame 3 lined up on the
+     black's legs (2 px left, 1 up), its changed pixels widened by four, in the
+     black's band only;
   3  the palomino chews again, 7 px.
-Frame 2 of the sheet is not used.
-
-THE PAINT PONY'S HEAD IS FRAME 4'S (Tyler, 2026-11-08: "The horse on the right
-has its head/neck through the hitching post"). In frames 1 to 3 the pony grazes
-below the rail with the rail drawn across its neck. In frame 4 it stands with
-its head up over the rail: frame 4 moved it, with the right post, 33 px left
-and 20 up, so the rest takes everything right of x 520 from frame 4 shifted
-back by that, and the palomino's hind legs where the old lowered head hung
-(x 440-520, y 296-452) from frame 4 shifted by the palomino's own offset (4, 19).
-The head toss then takes only the black's change from frame 3.
+Frames 1 and 2 of the sheet are not used.
 
 Then: crop to the union of every frame, take the magenta out of the outline and
 anything at the key's hue (as tools/art/item-icons-cut.py does), and lay the
@@ -47,22 +44,11 @@ OUT = os.path.join(ROOT, 'art/actors/room-02-horses.png')
 RECORD = os.path.join(ROOT, 'art/staging/room-02/hitching-03/cut.json')
 CELL_W, CELL_H = 768, 512
 EDGE = 4          # the cells' faint borders
-DROP = 19         # sheet frame 3 sits this many rows higher than frame 1
-PONY = (33, 20)   # sheet frame 4's pony and right post, back onto frame 1
-LEGS = (4, 19)    # sheet frame 4's palomino, back onto frame 1
-CUT = 520         # right of this column the rest is frame 4's pony
-LEGS_BOX = (440, 312, 520, 452)   # where frame 1's pony hung its head, below the rail: frame 4's palomino legs
-# Frame 4's pony turns its head toward the palomino, and its muzzle reaches left
-# of CUT (Tyler: "The far right horse has his whole snout cut off"). It is taken
-# by its own outline, traced here, because behind it frame 4's palomino saddle is
-# 29 px out of place.
-MUZZLE = [(492, 207), (495, 198), (502, 195), (515, 196), (516, 160), (521, 160), (522, 203),
-          (527, 220), (520, 230), (502, 232), (493, 223), (492, 213)]
-# The rail: frame 1's has the old pony's mane draped over it from x 520 to 590,
-# so from x 470 -- a plain stretch between knots -- it is frame 4's, which is clean
-# and whose knot at 610 is frame 1's knot. The two rails' rows agree to a pixel.
-RAIL_ROWS = (284, 312)
-RAIL_FROM = 470
+TOSS = (-2, -1)   # frame 3 onto frame 4, on the black's legs
+BLACK = (300, 350)    # the black's band in frame 4: left of x, above y
+# The palomino's lowered head in frame 4, and the muzzle where it reaches into the hay.
+HEAD = (298, 300, 375, 405)
+MUZZLE = (316, 405, 354, 422)
 
 
 def fgmask(rgb, min_area=150):
@@ -146,31 +132,19 @@ def shift(img, dx, dy, fill):
 def frames():
     sheet = np.asarray(Image.open(SOURCE).convert('RGB'))
     cell = lambda i: sheet[(i // 2) * CELL_H:(i // 2 + 1) * CELL_H, (i % 2) * CELL_W:(i % 2 + 1) * CELL_W]
-    first = cell(0)
     four = cell(3)
-    one = first.copy()
-    pony = shift(four, PONY[0], PONY[1], np.array([255, 0, 255], np.uint8))
-    legs = shift(four, LEGS[0], LEGS[1], np.array([255, 0, 255], np.uint8))
-    one[LEGS_BOX[1]:LEGS_BOX[3], LEGS_BOX[0]:LEGS_BOX[2]] = legs[LEGS_BOX[1]:LEGS_BOX[3], LEGS_BOX[0]:LEGS_BOX[2]]
-    one[:, CUT:] = pony[:, CUT:]
-    one[RAIL_ROWS[0]:RAIL_ROWS[1], RAIL_FROM:CUT] = pony[RAIL_ROWS[0]:RAIL_ROWS[1], RAIL_FROM:CUT]
-    outline = Image.new('L', (CELL_W, CELL_H), 0)
-    ImageDraw.Draw(outline).polygon(MUZZLE, fill=1)
-    muzzle = ndimage.binary_dilation(np.asarray(outline).astype(bool), iterations=1)
-    one[muzzle] = pony[muzzle]
-    m1 = fgmask(one)
-    three = shift(cell(2), 0, DROP, np.array([255, 0, 255], np.uint8))
+    m4 = fgmask(four)
+    three = shift(cell(2), TOSS[0], TOSS[1], np.array([255, 0, 255], np.uint8))
     m3 = fgmask(three)
     yy, xx = np.mgrid[0:CELL_H, 0:CELL_W]
-    rest = np.dstack([one, np.where(m1, 255, 0)]).astype(np.uint8)
-    # The black's head, left of the palomino and above the rail.
-    band = (xx < 300) & (yy < 330)
-    moved = (np.abs(three.astype(int) - one.astype(int)).sum(-1) > 60) & (m3 | m1) & band
+    rest = np.dstack([four, np.where(m4, 255, 0)]).astype(np.uint8)
+    band = (xx < BLACK[0]) & (yy < BLACK[1])
+    moved = (np.abs(three.astype(int) - four.astype(int)).sum(-1) > 60) & (m3 | m4) & band
     region = ndimage.binary_dilation(moved, iterations=4) & band
-    toss = np.dstack([np.where(region[..., None], three, one),
-                      np.where(np.where(region, m3, m1), 255, 0)]).astype(np.uint8)
-    # The palomino's lowered head, clear of the hay below it and the black's legs left of it.
-    head = (xx >= 300) & (xx < 392) & (yy >= 318) & (yy < 424) & m1
+    toss = np.dstack([np.where(region[..., None], three, four),
+                      np.where(np.where(region, m3, m4), 255, 0)]).astype(np.uint8)
+    head = (((xx >= HEAD[0]) & (xx < HEAD[2]) & (yy >= HEAD[1]) & (yy < HEAD[3]))
+            | ((xx >= MUZZLE[0]) & (xx < MUZZLE[2]) & (yy >= MUZZLE[1]) & (yy < MUZZLE[3]))) & m4
 
     def chew(up):
         out = rest.copy()
@@ -180,6 +154,13 @@ def frames():
         lifted = shift(lifted, 0, -up, np.array([0, 0, 0, 0], np.uint8))
         keep = lifted[..., 3] > 0
         out[keep] = lifted[keep]
+        # Where the muzzle lay in the hay, the hay beside it: no hole under the nose.
+        under = head & ~keep & (yy >= MUZZLE[1] - up)
+        for dx in (40, -40, 52, -52):
+            src = shift(rest, -dx, 0, np.array([0, 0, 0, 0], np.uint8))
+            fill = under & (src[..., 3] > 0) & ~np.roll(head, -dx, axis=1)
+            out[fill] = src[fill]
+            under &= ~fill
         return out
 
     return [rest, chew(4), toss, chew(7)]
@@ -203,7 +184,7 @@ def main():
     rows = np.where(rest.any(1))[0]
     record = {'sheet': os.path.relpath(OUT, ROOT), 'source': os.path.relpath(SOURCE, ROOT), 'frames': rects,
               'figureHeight': int(rows.max() - rows.min() + 1),
-              'frameNote': '0 rest: the palomino eating, the black looking out, the paint pony with its head up over the rail · '
+              'frameNote': '0 rest (sheet frame 4): the palomino eating, the black looking out, the paint pony with its head up over the rail · '
                            '1 the palomino chews · 2 the black tosses its head · 3 the palomino chews'}
     with open(RECORD, 'w') as f:
         json.dump(record, f, indent=1)

@@ -4820,24 +4820,25 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
     - a palomino with its head down, eating from a pile of hay;
     - a shaggy paint pony in a striped blanket, its head up over the rail.
   - Attempts 3 and 4's sheets are kept in staging; nothing of them ships. **One operation remains.**
-- **Cut by `tools/art/hitching-post-cut.py`.**
-  - Only frames 1 and 3 of the sheet agree. In frames 2 and 4 the generator moved two horses about 30 px sideways, so neither can be laid over the rest; frame 3 is the whole group 19 px higher and otherwise in place.
-  - **Tyler, on the redraw:** "The horse on the right has its head/neck through the hitching post." In frames 1 to 3 the paint pony grazes below the rail, with the rail drawn across its neck. Frame 4 has it standing with its head up over the rail, moved (with the right post) 33 px left and 20 up.
-    - So the rest takes everything right of x 520 from frame 4, shifted back.
-    - Where the old lowered head hung, between the palomino's legs, it takes frame 4's palomino, shifted by its own offset (4, 19).
-    - **Tyler, on that:** "The far right horse has his whole snout cut off." The pony's head turns toward the palomino, and its muzzle crossed the cut column. Three changes:
-      - the muzzle is now traced by its outline and taken whole, because behind it frame 4's palomino saddle is out of place;
-      - from x 470 the rail is frame 4's, since frame 1's carries the old pony's mane;
-      - the palomino's legs below the rail fill where the old head hung.
-    - The hay's wisps had been blended with the magenta, and the despill turned them pink. They now take the colour of the hay around them.
-    - No operation was spent on these. A doc 55 §8 row carries the lesson: a figure composited from several frames is looked at whole, at 2×, in the game, along every seam, before anyone else sees it.
-  - Frame 0 is the rest. Frame 2 is the rest with frame 3's black tossing its head. Frames 1 and 3 are the rest with the palomino's lowered head lifted 4 and 7 px off the hay, chewing.
-  - The magenta is taken out of the outline, the hue's spill and the generator's plum-black outline ink, which `check-residual-key` reads as keyed background. Then the sheet is snapped to the cast's grid (`one-level.py --only`).
+- **Cut by `tools/art/hitching-post-cut.py`. The rest is the sheet's frame 4, whole.**
+  - It is the one quarter drawn as a single clean picture of what was asked: the black looking out, the palomino eating, the paint pony standing with its head up over the rail.
+  - **Three earlier cuts each shipped a fault Tyler found.** The generator had moved two horses between the sheet's quarters, so every attempt to stitch one quarter onto another cut a horse.
+    - Frame 1 as the rest: "The horse on the right has its head/neck through the hitching post." Its pony grazes below a rail drawn across its neck.
+    - Frame 4's pony stitched onto frame 1: "The far right horse has his whole snout cut off." The pony's head turned across the seam.
+    - The muzzle traced back in: "The middle horse has three back legs." The pony half carried a second copy of the palomino's hind leg, 29 px out of place.
+  - **Nothing is stitched now except each action frame's moving part:**
+    - frame 0 is the rest;
+    - frame 2 is the rest with frame 3's black tossing its head, lined up on the black's legs (2 px left, 1 up), in the black's band only;
+    - frames 1 and 3 are the palomino chewing: its head lifted 4 and 7 px off the hay, with hay from beside it filling where its nose lay.
+  - Every frame has twelve legs, counted along a row above the hooves (14 opaque runs with the two posts).
+  - The magenta is taken out of the outline, the hue's spill and the plum-black outline ink. The hay's wisps, gold blended with the key, take the hay's colour rather than turning pink. Then the sheet is snapped to the cast's grid (`one-level.py --only`).
+  - No operation was spent on any of this.
+  - **The lesson is a doc 55 §8 row:** a figure composited from several frames is looked at whole, at 2×, in the game, along every seam, and its legs are counted, before anyone else sees it.
 - **An ambient animal, `hitching_horses`, at 1545,850:** 535 px left of where it first stood, in the near mud between the letter-writer and the boundary men.
-  - `posture: "animal"`, `figureHeight` 389, `stature` 1.21. The black's withers come to Thad's shoulder.
+  - `posture: "animal"`, `figureHeight` 394, `stature` 1.226. The black's withers come to Thad's shoulder.
   - It rests on frame 0, and every 7 s one of the three plays for 2.4 s, rotating. The head toss changes 19% of the group, every 21 s (errata 77).
 - **The rail is part of the sprite**, so it is depth-sorted with the horses. Thad passes behind them, and nothing passes in front, so no occlusion plane is needed.
-- **An obstacle in both streets.** `hitching_post`, [1329, 808, 407, 50], is the footprint of the hooves, hay and posts, with the ground behind it kept walkable (`keepsGroundAbove`), as the dog's is. Rooms 2 and 36 are recompiled.
+- **An obstacle in both streets.** `hitching_post`, [1333, 808, 393, 50], is the footprint of the hooves, hay and posts, with the ground behind it kept walkable (`keepsGroundAbove`), as the dog's is. Rooms 2 and 36 are recompiled.
 - **The day is Room 36.** Room 2 is night in every act (errata 64), and Main Street's only daylight is Room 36's dawn. The horses are there too, as a placement with their own sheet (`art/actors/room-36-horses-dawn.png`). `tools/art/hitching-post-dawn.py` relights the night sheet by the dawn plate's ratio to the night's over the ground they stand on.
 - **Scenery until its lines exist.** The brief says it has no lines and is not a hotspot.
   - A new field, `scenery`, keeps an ambient figure out of `npcAt`, so the pointer passes through the horses to the mud beneath.

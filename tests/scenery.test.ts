@@ -38,7 +38,7 @@ for (const room of ['main_street', 'main_street_dawn']) {
     const content = await loadContent(fsReader);
     const room_ = content.rooms.get(room)!;
     const boxes = new WalkBoxes(room_.walkBoxes!, () => true);
-    for (const [x, y] of [[1360, 840], [1545, 830], [1730, 850]] as const) {
+    for (const [x, y] of [[1360, 840], [1545, 830], [1715, 850]] as const) {
       assert.equal(boxes.contains(x, y), false, `${x},${y} under the horses is not ground he can stand on`);
     }
     assert.ok(boxes.contains(1545, 780), 'the ground behind them is');
