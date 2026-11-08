@@ -4913,3 +4913,24 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
   - Day: `art/staging/room-05/second-ledger/second-ledger-day.png`, the same pixels at one gain per channel measured on the counter top round it.
 - `renders/room-05-second-ledger-on-counter.png` shows it in the room, night and day, with Winnie at the counter and Thad on the floor.
 - **Still the builder's:** showing it from `T_SECOND_LEDGER` on, and THE SECOND LEDGER and THE NAMES (the nineteen entries) as hotspots on it. Their lines are doc 04's or are absent; none is written here.
+
+# 182 · WRITTEN VERSUS BUILT: THE AUDIT, THE CHECK, AND FIVE GAPS FOR TYLER — TYLER, 2026-11-08 ("Yes")
+
+*Tyler: "I'm concerned that after multiple audits, you're just now finding multiple missing scenes." Offered two mechanical checks, he said "Yes". Doc 104 records the audit.*
+
+- **`tools/check-written-vs-built.mjs` (in `run-all`).** Every quoted line in the 26 source documents is in `/content`, or `proofs/written-not-built.json` lists it under a group with its reason. A new line written and not built fails.
+- **Built versus heard is structural.** Every node is reachable, every tree has an owner or a scene, and every gate's flag has a writer. The one fault it found is errata 181's `goto` opening, now held by `tests/goto-opening.test.ts`.
+- **124 lines are written and not in the game. 77 are not gaps:**
+  - quotations (24);
+  - reworded but built (15);
+  - superseded (10);
+  - by design (3);
+  - the second ledger waiting on art (20);
+  - the stage driver's later barks, superseded by staging (5).
+- **47 are gaps, in five groups, for Tyler's ruling:**
+  1. the six ancillary interiors and their four townspeople;
+  2. Fanshawe's war payoff;
+  3. Hob's running lines;
+  4. Ozymandia's Act IV line;
+  5. refusals and examine lines for objects that never became clickable.
+
