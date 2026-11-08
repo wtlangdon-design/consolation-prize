@@ -9,10 +9,10 @@
   "17 · THE CARD SHARP": "card-sharp",
   "5 · THE MESSAGE BOY": "message-boy",
   "7 · THE MAN LEAVING TOMORROW": "man-leaving-tomorrow",
-  "18 · THE DOG'S OWNER": "dogs-owner"
+  "18 · THE DOG'S OWNER": "dogs-owner",
+  "9 · THE BARBER-DENTIST-SURGEON": "barber"
  },
  "notPlaced": {
-  "9 · THE BARBER-DENTIST-SURGEON": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision.",
   "10 · THE PHOTOGRAPHER": "Not in any built room: the town layer (errata 43/44) is unbuilt, and its scope is Tyler's decision.",
   "12 · THE STAGE DRIVER": "Tyler, 2026-11-06 (errata 116): he stays out of town. He drives away in the opening and no document brings the coach back."
  },
@@ -95,6 +95,12 @@
    "file": "amb-card-sharp",
    "speaker": "card_sharp",
    "prefix": "card_sharp"
+  },
+  "9 · THE BARBER-DENTIST-SURGEON": {
+   "tree": "amb_barber",
+   "file": "amb-barber",
+   "speaker": "barber",
+   "prefix": "barber"
   }
  },
  "treeRoutes": {

@@ -733,7 +733,8 @@
    "listening_chamber": "dirt",
    "ozymandias_tent": "dirt",
    "lower_street": "mud",
-   "the_lane": "mud"
+   "the_lane": "mud",
+   "barbers": "plank"
   }
  },
  "ambience": {

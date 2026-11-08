@@ -1,0 +1,11 @@
+Image 1 is a TEMPLATE: the hero of my pixel-art adventure game, exactly as he is drawn in the game, standing, four times in a row on magenta. HIS BODY IS THE STANDARD FOR EVERY PERSON IN THIS GAME: a SMALL head (crown to chin about one eighth of his height), narrow shoulders, a long torso, a realistic lean adult figure -- not a cartoon, not big-headed. Image 2 shows ONLY THE FACE of B, the barber-surgeon: take from it his face, his grey hair and short grey beard and his colouring -- NOTHING ELSE. His face is drawn there larger than it should be: in your picture it is the SIZE OF THE HERO'S FACE in Image 1. Image 3 is the hero in the room where B works, a barber-surgeon's shop at night: match its pixel size, soft shading and lamplight.
+
+B is a lean working man in his fifties, as tall as the hero. He wears a pale shirt with the sleeves rolled to the elbow, a dark waistcoat, dark trousers, a long plain grey apron from chest to shin, and dark boots.
+
+Repaint Image 1: replace each hero figure with B, KEEPING THE HERO'S HEAD SIZE, NARROW SHOULDERS, LONG LEGS AND HEIGHT, feet on the same line, facing us. Left to right:
+1. standing at rest, an open straight razor held loosely in one hand at his side, a small white cloth in the other;
+2. holding the open razor up in front of his chest in one hand and wiping the blade with the white cloth in the other, looking at the blade;
+3. the same, the cloth drawn along to the tip of the blade, the razor tilted, looking at it critically;
+4. talking: the razor lowered, his free hand raised and open, palm up, as a man explains his prices, looking straight at us.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the hero -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No floor, no chair, no glow, no blur, no shadows, no text.

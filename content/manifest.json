@@ -51,7 +51,8 @@
   "content/rooms/listening-chamber.json",
   "content/rooms/company-vault.json",
   "content/rooms/main-street-dawn.json",
-  "content/rooms/coach-stop-dawn.json"
+  "content/rooms/coach-stop-dawn.json",
+  "content/rooms/barbers.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -82,7 +83,8 @@
   "content/dialogue/amb-man-leaving-tomorrow.json",
   "content/dialogue/amb-fiddler.json",
   "content/dialogue/amb-bell-ringer.json",
-  "content/dialogue/amb-dogs-owner.json"
+  "content/dialogue/amb-dogs-owner.json",
+  "content/dialogue/amb-barber.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -218,7 +220,8 @@
   "content/ambient/boundary-a.json",
   "content/ambient/boundary-b.json",
   "content/ambient/dogs-owner.json",
-  "content/ambient/fiddler.json"
+  "content/ambient/fiddler.json",
+  "content/ambient/barber.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",
@@ -474,6 +477,20 @@
      }
     ],
     "why": "Doc 28 rooms 2 / 2b / 2c: the Lane down to piano alone -- the back alley's distant piano, tuned when the Nugget's is (errata 161)."
+   },
+   "barbers": {
+    "src": "audio/consolation-distant-piano.wav",
+    "gain": 0.4,
+    "variants": [
+     {
+      "when": {
+       "T_NUGGET_PIANO_TUNED": true
+      },
+      "src": "audio/consolation-distant-piano-tuned.wav",
+      "gain": 0.4
+     }
+    ],
+    "why": "Errata 183: the barber's opens off the Lane, so it hears the Lane's distant piano through its door, quieter (0.4 against the Lane's 0.6), tuned when the Nugget's is -- as Lower Street plays Main Street's piece quieter (errata 161). Not silence: doc 28 keeps the undertaker's the only silent room until the coffin."
    },
    "back_alley": {
     "src": "audio/consolation-distant-piano.wav",

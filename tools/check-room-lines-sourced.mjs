@@ -42,9 +42,14 @@ function spoken(value, out = []) {
 
 export function check() {
   const report = new Report('Every line a room speaks is written in /docs');
-  const docs = norm(readdirSync(resolve(ROOT, 'docs'))
+  const raw = readdirSync(resolve(ROOT, 'docs'))
     .filter((name) => name.endsWith('.md') && !name.includes('voice-pass'))
-    .map((name) => readFileSync(resolve(ROOT, 'docs', name), 'utf8')).join('\n'));
+    .map((name) => readFileSync(resolve(ROOT, 'docs', name), 'utf8')).join('\n');
+  // A REPEAT WITH A BEAT IN IT -- 2 "I looked in the jar." *(beat)* "I'd like to go back ..." -- is extracted as
+  // one line, its quotes in order (tools/extract-examine.mjs, errata 183). Read the docs a second way with each
+  // direction between two quotes taken out, so that line is found as its document wrote it.
+  const docs = norm(raw);
+  const beats = norm(raw.replace(/"\s*\*\([^)]*\)\*\s*"/g, ' '));
   const known = new Map((readJson(LEDGER).lines ?? []).map((entry) => [`${entry.room}/${entry.target}::${entry.line}`, entry]));
   const content = loadContent();
   const setAside = new Set(content.rooms.filter(({ data }) => data.fixture || data.candidateOf).map(({ data }) => data.id));
@@ -56,7 +61,7 @@ export function check() {
       for (const line of spoken(block ?? {})) {
         if (line.length < 4 || /^[a-z_]+$/.test(line)) continue;
         checked += 1;
-        if (docs.includes(norm(line))) continue;
+        if (docs.includes(norm(line)) || beats.includes(norm(line))) continue;
         const key = `${roomId}/${target.id}::${line}`;
         if (known.has(key)) { used.add(key); continue; }
         report.fail(`${roomId}/${target.id}: "${line.slice(0, 80)}" is in the room file and in no document -- `

@@ -361,6 +361,12 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 183: doc 105, the six interiors' writing, joins the documents the check reads, so its lines are held to the ledger like every other source's. The diff reads as a loosening because the SOURCES list changed; nothing was excused. The 163 lines doc 105 adds are listed under ancillary-interiors until the image session builds the rooms."
+  },
+  {
+   "check": "tools/check-room-readiness.mjs",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 183's brief: doc 49 writes no section for the six interiors, and doc 105's Overrides stand in for their wrong-verb layer. Doc 105 quotes its refusals (`> **X** · VERB —`), as docs 25, 26 and 54 do, and the wrong-verb count read only doc 49's bare form, so it counted 0 for a room with four. The count now accepts the quoted form too; a room with no authored refusal still answers NO."
   }
  ]
 }

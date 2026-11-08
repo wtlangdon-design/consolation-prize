@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "id": "barber",
+ "name": "THE BARBER-DENTIST-SURGEON",
+ "posture": "standing",
+ "note": "Doc 07 #9: 'His shop. One man, three trades, one set of instruments. Period-accurate.' Errata 183: he stands in his shop off the Lane (Room 42), left of his chair under the lamp, where the composition master stood him. His tree and his barks are doc 07's, extracted; doc 105's Overrides answer the room's wrong verbs. Present in every act.",
+ "room": "barbers",
+ "x": 690,
+ "y": 735,
+ "zone": 2,
+ "approachRadius": 40,
+ "tree": "amb_barber",
+ "walkTo": {
+  "x": 470,
+  "y": 745,
+  "facing": "right"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: beside him at his own depth, on the door's side, clear of him and of the chair (doc 55 section 8: beside them at their own depth).",
+ "barks": {
+  "R_NOBODY": "Shave? Tooth? Limb?",
+  "R_SWINDLED": "Shave? You've the face of a man who's been had.",
+  "R_RACCOON": "If it bites you, come straight here. Don't wait.",
+  "R_SURVEYED": "Shave, tooth, limb.",
+  "R_BORDERS_MOTT": "Free shave, Mr. Grubb! First one's free!",
+  "R_LOST_DUEL": "Nothing I can do about pride.",
+  "R_WON_DUEL": "Shave on the house.",
+  "R_DEAD": "I'd have done the laying-out at a fair price. Nobody asked me.",
+  "R_TRUTH": "Shave, tooth, limb."
+ },
+ "sprite": {
+  "note": "Frames 0-1 are the idle: the rest pose, razor and cloth at his sides, and its breath. Frames 2-3 are the work: the blade wiped with the cloth, twice. Frame 4 is talking, a palm up.",
+  "sheet": "art/actors/room-42-barber.png",
+  "frames": [
+   [
+    2,
+    2,
+    191,
+    493
+   ],
+   [
+    195,
+    2,
+    191,
+    493
+   ],
+   [
+    388,
+    2,
+    191,
+    493
+   ],
+   [
+    581,
+    2,
+    191,
+    493
+   ],
+   [
+    774,
+    2,
+    191,
+    493
+   ]
+  ],
+  "rate": 0.45,
+  "phase": 0.3,
+  "breaks": [
+   [
+    2,
+    2,
+    3,
+    3,
+    2,
+    2,
+    3,
+    3,
+    0
+   ],
+   [
+    2,
+    3,
+    2,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 17,
+  "talkFrame": 4,
+  "provenance": "art/staging/room-42/barber/barber.json",
+  "frameNote": "0 rest, an open razor and a cloth at his sides · 1 breath · 2 the blade held up and wiped · 3 the cloth drawn to the tip · 4 talking, a palm up.",
+  "figureHeight": 493,
+  "stature": 1,
+  "figureHeightNote": "The room's man at his feet (soles y 735): cut and snapped there by tools/art/interiors-people.py (errata 112's one level, 115 art pixels to a man). The engine draws him at the room's man there, so he stands at the curve."
+ },
+ "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 9 · THE BARBER-DENTIST-SURGEON) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109)."
+}

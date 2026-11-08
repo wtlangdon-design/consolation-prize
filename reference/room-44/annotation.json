@@ -88,6 +88,15 @@
    ],
    "facing": "left",
    "note": "In through the passage from Lower Street, at right."
+  },
+  {
+   "from": "barbers",
+   "at": [
+    1272,
+    745
+   ],
+   "facing": "front",
+   "note": "Out of the barber's door, beside the pole."
   }
  ],
  "hotspots": {
@@ -158,6 +167,13 @@
    "defaultVerb": "WALK_TO",
    "stub": true,
    "note": "Errata 43: the Lane connects through to Lower Street at its far end."
+  },
+  "THE BARBER'S DOOR": {
+   "id": "to_barbers",
+   "to": "barbers",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "note": "Errata 183: the barber's (Room 42) opens off the Lane, through the door beside the pole. No new lines (reference/ancillary-interiors/brief.md): the pole keeps doc 97's."
   }
  },
  "exits": {
@@ -184,6 +200,12 @@
    320,
    140,
    380
+  ],
+  "to_barbers": [
+   1230,
+   345,
+   90,
+   355
   ]
  },
  "exitWalkTo": {
@@ -206,6 +228,11 @@
    "x": 1860,
    "y": 790,
    "facing": "right"
+  },
+  "to_barbers": {
+   "x": 1272,
+   "y": 728,
+   "facing": "back"
   }
  },
  "obstacles": [],

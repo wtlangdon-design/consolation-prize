@@ -371,6 +371,28 @@
         "y": 790,
         "facing": "right"
       }
+    },
+    {
+      "id": "to_barbers",
+      "name": "THE BARBER'S DOOR",
+      "rect": [
+        1230,
+        345,
+        90,
+        355
+      ],
+      "colour": 0,
+      "to": "barbers",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Errata 183: the barber's (Room 42) opens off the Lane, through the door beside the pole. No new lines (reference/ancillary-interiors/brief.md): the pole keeps doc 97's.",
+      "stub": true,
+      "walkTo": {
+        "x": 1272,
+        "y": 728,
+        "facing": "back"
+      }
     }
   ],
   "entrances": [
@@ -418,6 +440,15 @@
       ],
       "facing": "left",
       "note": "In through the passage from Lower Street, at right."
+    },
+    {
+      "from": "barbers",
+      "at": [
+        1272,
+        745
+      ],
+      "facing": "front",
+      "note": "Out of the barber's door, beside the pole."
     }
   ],
   "size": [

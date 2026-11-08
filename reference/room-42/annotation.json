@@ -1,0 +1,177 @@
+{
+ "room": "barbers",
+ "plate": "art/backgrounds/room-42-barbers.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-42/plate-01/candidate-1920x864.png, room-42 attempt 2: the composition master at 0.8 with its walls extended, cropped from y 150 and lifted 1.35 -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-42-barbers.png",
+ "plateShippingHash": "51178085cc75dc38e036bcdf4933034a84df83abeabd410ce98470abfa9bda49",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   180,
+   740
+  ],
+  [
+   1800,
+   740
+  ],
+  [
+   1800,
+   855
+  ],
+  [
+   180,
+   855
+  ]
+ ],
+ "walkableNote": "THE BOARDS IN FRONT OF EVERYTHING. The door's sill, the chair's footrest and the instrument stand's legs all stand on y 700-738, so the band runs y 740-855 from the door to past the stand.",
+ "scaling": {
+  "far": {
+   "y": 740,
+   "height": 497
+  },
+  "near": {
+   "y": 855,
+   "height": 576
+  },
+  "note": "ROOM 42'S DEPTH, FROM THE MAN THE MASTER PAINTED. The composition master drew Thad about 527 tall with his feet at source y 805; the plate is that master at 0.8, cropped from y 150 and drawn at 1.263, so he stands about 532 at y 791. Along Room 5's slope (0.69 per row) that is 497 at the band's far edge and 576 at its near. The barber stands at 493, his soles at y 735 (tools/art/interiors-people.py)."
+ },
+ "entrance": [
+  300,
+  790
+ ],
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    300,
+    790
+   ],
+   "facing": "right",
+   "note": "In by the door from the Lane, at left."
+  },
+  {
+   "from": "the_lane",
+   "at": [
+    300,
+    790
+   ],
+   "facing": "right",
+   "note": "In from the Lane, under the pole (errata 183)."
+  }
+ ],
+ "hotspots": {
+  "price_board": [
+   465,
+   35,
+   170,
+   265
+  ],
+  "strop": [
+   790,
+   125,
+   70,
+   280
+  ],
+  "mirror": [
+   885,
+   80,
+   225,
+   225
+  ],
+  "chair": [
+   850,
+   305,
+   405,
+   435
+  ],
+  "jar": [
+   1480,
+   120,
+   230,
+   175
+  ],
+  "tray": [
+   1470,
+   410,
+   305,
+   295
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE CHAIR takes in its bucket, which its second LOOK is about. THE JAR is the jar and its shelf. THE BARBER stands left of the chair; a TALK TO on him reaches him.",
+ "exitSubjects": {
+  "THE DOOR TO THE LANE": {
+   "id": "back_to_lane",
+   "to": "the_lane",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "note": "Errata 183: the barber's opens off the Lane. Doc 105 writes no lines for the door, so it is a stub exit (errata 72 F; doc 36)."
+  }
+ },
+ "exits": {
+  "back_to_lane": [
+   180,
+   55,
+   225,
+   650
+  ]
+ },
+ "exitWalkTo": {
+  "back_to_lane": {
+   "x": 290,
+   "y": 760,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "chair_lamp",
+   "at": [
+    1225,
+    180
+   ],
+   "radius": 620,
+   "amount": 0.1,
+   "rate": 0.24,
+   "phase": 0.4,
+   "note": "The oil lamp hung over the chair. A slow, low breath (invariant 9)."
+  }
+ ],
+ "defaultVerbs": {
+  "price_board": "LOOK_AT",
+  "strop": "LOOK_AT",
+  "mirror": "LOOK_AT",
+  "chair": "LOOK_AT",
+  "jar": "LOOK_AT",
+  "tray": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
+ "occlusion": {
+  "note": "NO PLANE MASKS THAT CAN REACH HIM: the walk band is in front of every piece of furniture, and the barber stands clear of the chair.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ },
+ "props": [
+  {
+   "id": "price_board_lettering",
+   "sheet": "art/props/room-42-price-board.png",
+   "x": 551,
+   "y": 225,
+   "frame": [
+    0,
+    0,
+    68,
+    109
+   ],
+   "note": "THE PRICE BOARD's words in the shipping face, from doc 105's first LOOK (tools/art/room42-price-board.py): the generator draws the board blank."
+  }
+ ]
+}

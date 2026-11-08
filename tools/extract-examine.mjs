@@ -34,7 +34,7 @@ import { resolveIssueRef } from './lib/issueref.mjs';
  */
 
 const CHECKING = process.argv.includes('--check');
-const ROOMS = [4, ...Array.from({ length: 31 }, (_, i) => i + 6), 43, 44].filter((n) => n !== 7 && n !== 24);
+const ROOMS = [4, ...Array.from({ length: 31 }, (_, i) => i + 6), 42, 43, 44].filter((n) => n !== 7 && n !== 24);
 //: Room 24 (the hole) is written as one section with Room 23 ("ROOM 23 & 24")
 //: and is extracted once, as room-23.json.
 //: Rooms 5 and 7 ship already, extracted by extract-content.mjs from doc 25
@@ -66,7 +66,15 @@ function run(text) {
   const out = [];
   for (const piece of text.split('·')) {
     const match = /(\d+)\s+"([^"]+)"/.exec(piece);
-    if (match) out.push({ n: Number(match[1]), text: match[2] });
+    if (!match) continue;
+    // A REPEAT WITH A BEAT IN IT is one line spoken whole, as a split first line is (errata 92): every quote in
+    // the piece, in order. Doc 105's jar -- 2 "I looked in the jar." *(beat)* "I'd like to go back to not having
+    // looked in the jar." -- kept only its first half, the punchline gone (errata 183).
+    // An italic note -- the beat itself, or an editor's *(Corrected -- "..." belongs to ...)* -- is not a line,
+    // and a quote inside one is not either: notes go before the quotes are read.
+    const rest = piece.slice(match.index + match[0].length).replace(/\*\(.*?\)\*/g, '');
+    const more = [...rest.matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+    out.push({ n: Number(match[1]), text: [match[2], ...more].join(' ') });
   }
   return out;
 }

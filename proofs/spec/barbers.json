@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "barbers",
+ "note": "ROOM 42's PROOF SPEC (errata 183). The route is Main Street's, then the Lane and the barber's door beside the pole. The room has one visual state.",
+ "route": "barbers",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "the barber's draws the same in every state: doc 105 writes every line true whenever it is read, and no puzzle is sited here (doc 07 Part Three)."
+ }
+}

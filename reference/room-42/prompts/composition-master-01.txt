@@ -1,0 +1,17 @@
+Image 1 is the layout for one place in my pixel-art adventure game: grey blocks for the room and the things in it, the hero (the man in the long coat) standing on the floor, and a second man as a plain grey shape. Paint this place as a finished game background with both men in it, keeping the camera, the layout and every block where image 1 puts it. Paint ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched.
+
+THE PLACE: a one-room barber-surgeon's shop in a frontier gold-mining town, 1850s, at NIGHT. One man here shaves, pulls teeth and takes off limbs, with one set of instruments. Dark plank walls, a worn plank floor. Lit by ONE oil lamp hanging over the chair; the corners darker. Same night as image 2, which is another shop on the same lane in the same game.
+- At the far left: the shop's plain plank door, shut, back out to the lane.
+- High on the left wall: a plain dark price board hanging from a nail, with NO writing on it at all, only one short scratch mark low down on it.
+- Centre: ONE big wooden barber's chair facing us, heavy and old, with leather straps buckled on both arms and a lever at its side for reclining it; a plain wooden bucket on the floor beside it, to its right.
+- On the back wall behind the chair: a mirror in a plain frame, hanging a little crooked, with one long crack running right across it.
+- Left of the mirror, near the chair: a leather razor strop hanging from a hook, two straps, one pale canvas and one dark leather, the leather polished shiny down the middle.
+- Right: a small wooden stand holding a tray of instruments laid out in one row from small to large, a razor at the small end, the rest steel tools; above the stand, a shelf with one jar on it, its glass cloudy so nothing inside can be seen.
+
+THE PEOPLE:
+- The hero from image 3, standing where image 1 puts him, at exactly that size.
+- Where the grey shape stands, beside the chair: the barber-surgeon, a working man in his fifties, in shirtsleeves with the sleeves rolled, a dark waistcoat and a long apron, standing upright beside his chair, calm and businesslike. Drawn exactly as coarsely as the hero.
+
+THE LOOK: the same pixel-art style as images 2 and 4, and the same hand as the hero: the SAME BIG SQUARE PIXELS as the hero, flat, soft shading, very little texture, simple shapes. Warm lamplight on the chair and the floor, the rest of the room dim. The floor where the hero stands is readable, not black.
+
+RULES: no readable text, letters or numbers anywhere -- the price board is blank. Nothing else in the room: no other chairs, no customers, no window. No border, no frame around the picture, no caption.
