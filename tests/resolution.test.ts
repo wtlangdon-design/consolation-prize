@@ -815,7 +815,8 @@ test('there is one reading hold, and a scripted line gets the same one as an utt
     minimum: timing!.holdMinimumSeconds!,
     maximum: timing!.holdMaximumSeconds!,
   };
-  assert.deepEqual(hold, { base: 0.45, perGlyph: 0.055, minimum: 1.8, maximum: 8.0 });
+  // Errata 164 (Tyler, 2026-11-07: "The text moved too fast"): base 0.45 -> 0.9, floor 1.8 -> 2.5.
+  assert.deepEqual(hold, { base: 0.9, perGlyph: 0.055, minimum: 2.5, maximum: 8.0 });
 
   // THE RETIME, AS A NUMBER. Every line in the opening gets longer under the
   // merged formula and none gets shorter, and the total is what somebody has
@@ -837,7 +838,8 @@ test('there is one reading hold, and a scripted line gets the same one as an utt
 
   assert.ok(after > before, 'the merged hold is the longer of the two on this material');
   assert.ok(Math.abs(before - 25.9) < 0.2, `the old opening held ${before.toFixed(1)}s of speech`);
-  assert.ok(Math.abs(after - 31.2) < 0.2, `and the merged one holds ${after.toFixed(1)}s`);
+  // 31.2 s before errata 164 lengthened the hold.
+  assert.ok(Math.abs(after - 40.9) < 0.2, `and the merged one holds ${after.toFixed(1)}s`);
   for (const line of lines) {
     assert.ok(readingHold(line, hold) >= was(line.length),
       'no line in the opening gets shorter, so nothing can be missed that was readable');

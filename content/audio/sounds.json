@@ -140,7 +140,7 @@
    "why": "doc 45 O-02-S2: the halted team, breathing, harness moving, held until the first stride (the coach is placed already standing, so O-02-S1's arrival has nothing to go with)",
    "bed": {
     "src": "audio/sfx/team-halted.wav",
-    "gain": 0.299
+    "gain": 0.6
    }
   },
   "O-06-S1": {
@@ -832,7 +832,11 @@
    "BR-STRIKE-HALF",
    "BR-STRIKE-FOUR",
    "BR-PASSING"
-  ]
+  ],
+  "cueBeds": {
+   "O-02-S2": -2
+  },
+  "cueBedsNote": "Tyler, 2026-11-07, of the opening under the stars: \"I didn't hear horses.\" The halted team sat at the beds' -8, twelve under the fiddle in Room 1; it is the only sound in the dark before anyone speaks, and is placed at -2."
  },
  "roomGain": {
   "coffin": 0.32,

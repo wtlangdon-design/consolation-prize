@@ -94,7 +94,7 @@
         },
         {
           "do": "wait",
-          "seconds": 2.5
+          "seconds": 6.5
         },
         {
           "do": "say",

@@ -283,6 +283,12 @@
    "date": "2026-11-07",
    "kind": "loosened",
    "why": "Errata 161: a fixture past a cut-away's moment now starts with that cut-away played, as a game that got there would have (the vault's Act IV fixture opened on the Clarion's press and its proof photographed the Clarion). The cut-aways' done flags are exempt from 'every flag the fixture does not name keeps its initial value'; tests/cutaways.test.ts holds that they are written."
+  },
+  {
+   "check": "tests/resolution.test.ts",
+   "date": "2026-11-07",
+   "kind": "loosened",
+   "why": "Errata 164: Tyler, playing the opening on his Chromebook, \"The text moved too fast. It needs to hold a beat longer before the next text line comes up.\" The reading hold's base rises 0.45 -> 0.9 s and its floor 1.8 -> 2.5 s; the test's pinned constants and the opening's total (31.2 -> 40.9 s) follow the ruling. A ruling changed what is right, not a threshold to get past."
   }
  ]
 }

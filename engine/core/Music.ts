@@ -129,7 +129,18 @@ export class Music {
   }
 
   unlock(): void {
-    if (this.unlocked) return;
+    if (this.unlocked) {
+      // EVERY CLICK RETRIES A BED THAT IS WANTED AND SILENT (Tyler, 2026-11-07, on his Chromebook: "The music
+      // still wasn't working on the main menu screen but it worked when the sky came up"). A refused or
+      // interrupted play() used to file the bed as missing for the rest of the page's life, so the title's
+      // music never came back; it is only missing when the file is (the element's own `error`).
+      if (this.wanted && !this.suspended && this.enabled() && this.bed === null) {
+        this.playing = null;
+        this.playingKey = null;
+        this.play(this.wanted);
+      }
+      return;
+    }
     this.unlocked = true;
     void this.ctx?.resume();
     if (this.wanted) this.play(this.wanted);
@@ -159,7 +170,12 @@ export class Music {
       this.fadeOut();
       return;
     }
-    if (!this.unlocked) return;
+    // FETCHED BEFORE THE CLICK: the bed the title wants starts downloading at boot, so the click that unlocks
+    // sound finds it ready rather than four megabytes away on a Chromebook's wifi.
+    if (!this.unlocked) {
+      for (const part of [track, ...(track.layers ?? [])]) this.element(part.src);
+      return;
+    }
     if (this.missing.has(track.src)) return;
     const key = keyOf(track);
     if (this.playing && this.playingKey === key) return;
@@ -190,9 +206,12 @@ export class Music {
       this.applyTune(element, track.rate ?? 1);
       const target = part.gain ?? 1;
       void element.play().then(() => this.fadeIn(element, target)).catch(() => {
-        // Autoplay refused, or the file is not there. Either way: silence, and
-        // the request is still remembered, so a later gesture retries it.
-        this.missing.add(part.src);
+        // Autoplay refused, or the play interrupted. NOT a missing file: that is the element's own `error`
+        // event (element()). The request is still remembered, and the next click retries it (unlock).
+        if (this.playingKey === key) {
+          this.playing = null;
+          this.playingKey = null;
+        }
       });
       voices.push({ element, gain: target, rate: track.rate ?? 1 });
     }

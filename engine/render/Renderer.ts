@@ -1042,6 +1042,7 @@ export class Renderer {
     this.drawForeground();
     this.screen.context.restore();
     if (frame.pan && frame.pan.offset > 0) this.drawPan(frame.pan);
+    this.inSky = Boolean(frame.pan && frame.pan.offset >= PLAY_HEIGHT * 0.5);
     // ERRATA 159-160: a close-up or an opening shot covers the room it is set in; the lines go over it.
     if (frame.shot) this.drawShot(frame.shot);
     if (frame.overBlack) this.screen.fill(0, 0, NATIVE_WIDTH, PLAY_HEIGHT, this.screen.role('overlayBg'));
@@ -2467,21 +2468,25 @@ export class Renderer {
     for (const [index, [sx, sy]] of (this.state.room.skyStars ?? []).entries()) {
       const y = sy - (sky.height - offset);
       if (y < 0 || y >= offset) continue;
-      const a = Math.sin(clock * (0.9 + index * 0.137) + index * 2.1);
-      const b = Math.sin(clock * (0.53 + index * 0.071) + index * 0.7);
-      const flare = Math.max(0, a * b) ** 6;
-      if (flare < 0.02) continue;
+      const { twinkle, flare } = starLight(clock, index);
+      // Always: the star's own small light, breathing on its own rhythm.
       ctx.fillStyle = glow;
+      ctx.globalAlpha = was * twinkle;
+      ctx.fillRect(sx - 2, y - 2, 4, 4);
+      if (flare < 0.02) continue;
+      // Now and then: a flare, a soft cross.
       ctx.globalAlpha = was * Math.min(1, flare * 1.4);
       ctx.fillRect(sx - 3, y - 3, 6, 6);
-      ctx.globalAlpha = was * flare * 0.45;
-      ctx.fillRect(sx - 9, y - 1, 18, 2);
-      ctx.fillRect(sx - 1, y - 9, 2, 18);
+      ctx.globalAlpha = was * flare * 0.5;
+      ctx.fillRect(sx - 10, y - 1, 20, 2);
+      ctx.fillRect(sx - 1, y - 10, 2, 20);
     }
     ctx.globalAlpha = was;
   }
 
   private panBuffer: HTMLCanvasElement | null = null;
+  /** The view is held in the sky (errata 157), so speech has nobody to stand over. */
+  private inSky = false;
 
   /**
    * ERRATA 159-160: a full-frame picture for a cut-away. `zoom` above 1 crops
@@ -2569,6 +2574,10 @@ export class Renderer {
    */
   private speechAnchor(lines: string[], marked = false): { x: number; y: number } {
     const height = lines.length * SPEECH_LINE_HEIGHT;
+    // VOICES IN THE DARK SIT IN THE SKY'S MIDDLE (Tyler, 2026-11-07: "the dialogue needs to be a little closer
+    // to the center of the screen. Right now it's at the very top."). Nobody is on screen to speak over while
+    // the view holds in the stars, so the lines take the frame's middle, a little high.
+    if (this.inSky) return skySpeechAnchor(height);
     const half = Math.max(...lines.map((line) => this.font.measure(line)), 0) / 2;
     // THE WAITING MARK IS PART OF THE BLOCK (errata 143). It hangs after the
     // last line, and the clamp measured the words alone, so a line said near
@@ -3061,4 +3070,24 @@ export class Renderer {
     }
     return format(ui.sentence.template, { verb: verbLabel, target: targetName });
   }
+}
+
+/**
+ * Where the voices in the dark are drawn while the view holds in the sky (errata 157; Tyler, 2026-11-07): the
+ * middle of the frame, a little high, rather than the very top.
+ */
+export function skySpeechAnchor(height: number): { x: number; y: number } {
+  return { x: NATIVE_WIDTH / 2, y: Math.round(PLAY_HEIGHT * 0.4 - height / 2) };
+}
+
+/**
+ * A sky star's light at a moment (Tyler, 2026-11-07: "The stars aren't twinkling"). `twinkle` is the star's own
+ * steady breathing, 0.25-0.95, on a rhythm of its own, always visible; `flare` is the occasional bright cross,
+ * two incommensurate waves multiplied, now peaking every few seconds rather than once a minute.
+ */
+export function starLight(clock: number, index: number): { twinkle: number; flare: number } {
+  const twinkle = 0.6 + 0.35 * Math.sin(clock * (1.7 + index * 0.31) + index * 1.9);
+  const a = Math.sin(clock * (0.9 + index * 0.137) + index * 2.1);
+  const b = Math.sin(clock * (0.53 + index * 0.071) + index * 0.7);
+  return { twinkle, flare: Math.max(0, a * b) ** 3 };
 }

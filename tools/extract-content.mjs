@@ -408,8 +408,10 @@ function opening() {
       { do: 'move', actor: 'thad', from: [1180, 762], to: [1180, 762], seconds: 0.1 },
       { do: 'face', actor: 'thad', facing: 'front' },
       { do: 'sky' },
-      // The stars, a moment, before anyone speaks.
-      { do: 'wait', seconds: 2.5 },
+      // The stars, a held beat, before anyone speaks (Tyler, 2026-11-07: "The night sky at the beginning
+      // needs to hold for a beat before the first dialogue line pops up").
+      // Measured: at 4.5 the first line came 4.25 s after NEW GAME, because the wait runs under the fade in.
+      { do: 'wait', seconds: 6.5 },
       { do: 'say', line: 0 },
       { do: 'say', line: 1 },
       { do: 'say', line: 2 },

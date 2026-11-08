@@ -145,7 +145,9 @@ export function check() {
     for (const part of cue.play ?? []) {
       judge(`cue ${id} ${part.src}`, db(loudestMoment(read(part.src)) * (part.gain ?? 1)), target, reference, against);
     }
-    if (cue.bed) judge(`cue ${id} bed ${cue.bed.src}`, db(rms(read(cue.bed.src)) * (cue.bed.gain ?? 1)), levels.cueBed);
+    // A bed may be given its own place (levels.cueBeds), as a cue's one-shot may: the team breathing in the dark
+    // is the opening's only sound under the stars (errata 157, Tyler: "I didn't hear horses").
+    if (cue.bed) judge(`cue ${id} bed ${cue.bed.src}`, db(rms(read(cue.bed.src)) * (cue.bed.gain ?? 1)), levels.cueBeds?.[id] ?? levels.cueBed);
   }
   // AND A FEATURED SOUND MUST BE HEARD (errata 107: "The bell is hard to hear
   // over the music"). A cue the room is about -- the bell the line says the

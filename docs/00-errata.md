@@ -4606,3 +4606,18 @@ The builder read every exterior plate. `reference/district/plan.json` records wh
 - **On the night map.** The markers and roads were re-placed on the L map (PR 239): Main Street's place is out on the square, and the walk out of town goes round the square's south side and up its east road to the bridge.
 - **The whole game, played (2026-11-07).** `npm run gauntlet:full`, from NEW GAME to THE END in the browser, with both streets, the rewiring and the map's Thad: 0 breaks, 0 oddities, 4145 s.
 - **Tests and render.** `tests/map-walk.test.ts` holds that every place is on the roads, every walk ends where it was going and within its time, and the sheet holds his frames. `renders/map-thad-walking.png` shows him mid-walk, from the creek into town.
+
+---
+
+# 164 · THE OPENING, AS PLAYED — TYLER, 2026-11-07
+
+*Tyler's first look at the opening on his Chromebook: "The night sky at the beginning needs to hold for a beat before the first dialogue line pops up. I think the dialogue needs to be a little closer to the center of the screen. Right now it's at the very top. The stars aren't twinkling. The text moved to fast. It needs to hold a beat longer before the next text line comes up. I didn't hear horses. The music still wasn't working on the main menu screen but it worked when the sky came up."*
+
+- **The title's music.** `Music.play` filed a bed as missing whenever its `play()` was refused or interrupted, and a missing bed is never tried again. So the title's bed stayed silent, while the next room's bed, a different file, played. Only the element's own `error` (a file that isn't there) marks a file missing now. Every click retries a bed that is wanted and silent, and the bed the title wants is fetched at boot, before the click. `tests/room-music.test.ts` holds this with a player that refuses once. It could not be reproduced headless, where Chromium plays on load, so it needs Tyler's ear.
+- **The stars hold.** Beat 1b waits 6.5 s, up from 2.5 s, before the first voice. The wait runs under the fade in, and at 4.5 s the first line came 4.25 s after NEW GAME.
+- **The voices sit in the sky's middle.** While the view is held in the sky there is nobody on screen to speak over, so the lines are drawn at 40 % of the frame's height, centred (`skySpeechAnchor`), not at the top.
+- **The stars twinkle.** Each declared star now breathes visibly all the time (0.25 to 0.95), and its flare peaks every few seconds rather than about once a minute (`starLight`).
+- **The text holds longer.** For every line, the reading hold's base rises from 0.45 s to 0.9 s and its floor from 1.8 s to 2.5 s. This overrides doc 30 §4.1's constants, by Tyler's word; the per-glyph rate and the ceiling are unchanged.
+- **The horses.** The halted team (O-02-S2) sat at the beds' place, −8 dB, twelve under Room 1's fiddle: inaudible. It is the only sound under the stars and is now placed at −2 (`levels.cueBeds`, which `tools/check-sound-levels.mjs` now reads).
+
+`tests/opening-pan.test.ts` holds the hold, the voices' place and the twinkle. The level check holds the horses.
