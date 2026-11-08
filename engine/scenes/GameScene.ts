@@ -255,7 +255,7 @@ export class GameScene extends Phaser.Scene {
   private actWalking = false;
   /** His frame while a line of a rule that `holds` is up (ResponseRule.holds). */
   private spokenPose: HeldPose | null = null;
-  /** The accost's seat he is walking to, and the state he is in once he sits (errata 190). */
+  /** The accost's seat he is walking to, and the state he is in once he sits (errata 192). */
   private seatDue: { facing: Facing; state: string } | null = null;
   private seatedState: string | null = null;
   /** A line `overBlack` has blacked out the play area until the room changes (doc 57 B3). */
@@ -840,7 +840,7 @@ export class GameScene extends Phaser.Scene {
         } else {
           this.actor.faceToward(at.x, at.y);
         }
-        // AND SITS, when the accost gave him a chair (errata 190): his seated clips until it ends.
+        // AND SITS, when the accost gave him a chair (errata 192): his seated clips until it ends.
         if (this.seatDue) {
           this.actor.setFacing(this.seatDue.facing);
           this.state.setMoverState(this.actor.id, this.seatDue.state);
@@ -918,7 +918,7 @@ export class GameScene extends Phaser.Scene {
     // 143): the sentence line names what is under it now, not what it named
     // before the conversation opened, and not nothing until the pointer moves.
     const talking = this.conversationOpen();
-    // THE DINNER IS OVER: he stands from the chair as the conversation closes (errata 190).
+    // THE DINNER IS OVER: he stands from the chair as the conversation closes (errata 192).
     if (this.wasTalking && !talking && this.seatedState !== null) {
       if (this.state.moverState(this.actor.id) === this.seatedState) this.state.setMoverState(this.actor.id, undefined);
       this.seatedState = null;

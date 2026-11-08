@@ -1418,7 +1418,7 @@ function transitBeat(spec) {
     ...(following.length ? { then: following } : {}),
     ...(spec.set ? { set: spec.set } : {}), ...(spec.stays ? { stays: true } : {}),
     // HIS PICTURE WHILE HE SAYS IT (doc 48 S1 beat 4, "holding the deed wrong side up"): a clip of his,
-    // one frame per line in order (errata 190).
+    // one frame per line in order (errata 192).
     ...(spec.holds ? { holds: spec.holds } : {}),
     sceneLine: `${spec.ref} · ${spec.bullet ?? `beat ${spec.row}`}` };
 }
@@ -1929,7 +1929,7 @@ if (MERGED) {
     };
     for (const hotspot of built.hotspots) {
       // A STAND THE ROOM CHOOSES (annotation `stands`): where standing below the centre would cover
-      // something the moment is about -- at the hole, the raccoon's look over his shoulder (errata 190).
+      // something the moment is about -- at the hole, the raccoon's look over his shoulder (errata 192).
       const chosen = ann.stands?.[hotspot.id];
       if (chosen) { hotspot.walkTo = { x: chosen.x, y: chosen.y, facing: chosen.facing ?? 'back' }; continue; }
       const [hx, hy, hw, hh] = hotspot.rect;

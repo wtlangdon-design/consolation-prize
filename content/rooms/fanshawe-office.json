@@ -935,7 +935,7 @@
           "T_BORDERS_MOTT": true,
           "T_DINED": false
         },
-        "note": "Doc 48 S1 beat 1, 'Thad seated; the table laid absurdly well': for the dinner only, he walks to the chair at the table's free end and sits there, facing Fanshawe, until the conversation ends (errata 190; the state `dining`, tools/rig/cut-dinner.py)."
+        "note": "Doc 48 S1 beat 1, 'Thad seated; the table laid absurdly well': for the dinner only, he walks to the chair at the table's free end and sits there, facing Fanshawe, until the conversation ends (errata 192; the state `dining`, tools/rig/cut-dinner.py)."
       }
     },
     "sayOnce": "T_EMPTY_OFFICE_SEEN",

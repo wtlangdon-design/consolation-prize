@@ -88,7 +88,7 @@ export interface ResponseRule {
   then?: SpokenLine[];
   /**
    * HIS PICTURE WHILE THE LINES ARE SAID (doc 48 S1 beat 4: "Thad on the porch, holding the deed wrong
-   * side up"; errata 190): a clip of his, the nth frame held over the nth line (`say` first, then
+   * side up"; errata 192): a clip of his, the nth frame held over the nth line (`say` first, then
    * each of `then`), the last held for any lines beyond.
    */
   holds?: { clip: string; frames: number[]; note?: string };
@@ -1655,7 +1655,7 @@ export interface RoomFile {
        */
       approach?: boolean;
       /**
-       * HE SITS DOWN TO IT (doc 48 S1 beat 1, "Thad seated; the table laid absurdly well"; errata 190).
+       * HE SITS DOWN TO IT (doc 48 S1 beat 1, "Thad seated; the table laid absurdly well"; errata 192).
        * While `when` holds, he walks to this point instead, turns to `facing`, and takes the mover
        * state `state` (his seated clips) as the conversation opens; it is cleared when it ends.
        */

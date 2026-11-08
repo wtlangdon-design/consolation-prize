@@ -5152,3 +5152,34 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
 - **No two passages that form a choice differ in what LISTEN says.** The listening stays special (doc 107).
 - **One correction to errata 190.** Errata 190 said the mine has no daylight to read the time by. The sample lights the mine with old shafts to the surface, so it is the same day inside. Doc 107 now says so.
 - **Not built, and nothing to build yet.** The lines wait for Tyler's ruling and for the art. The art waits for a cap he sets in `art/staging/caps.json`. Doc 108 is not read by any extractor until the Gulch is built.
+
+# 192 · FIVE WRITTEN MOMENTS, ACTED; AND SOWERBY AT HIS SIZE — TYLER, 2026-11-08 (reference/unacted-moments/brief.md; "he looks enormous behind the podium")
+
+*Errata 189's five unacted moments, built from the brief. Nothing new is written: every line and direction is the documents'. One image operation was spent, room-11's last, which its cap allowed. Tyler approves the two sounds by ear (errata 102).*
+
+- **1 · Fanshawe's dinner (doc 48 S1 beats 1–4).** Room-11 attempt 6 drew Thad against himself in Room 11. It has him seated in profile on a dining chair, then the same with his wine raised. It also has him standing with the deed upside down, looking down at it, then up. `tools/rig/cut-dinner.py` cuts them at his record's scale:
+  - the state `dining`: seated `idle`, the wine as his `idle-break`, and `stand`;
+  - the clip `deed`.
+  - **Seated:** Room 11's accost gains a `seat` for the dinner only (`T_BORDERS_MOTT`, not `T_DINED`). He walks to the chair at the table's free end (1440, 740), facing Fanshawe, and sits as FAN_A2 opens. He stands as it closes.
+  - **The porch:** beat 4's two lines at the door ("A very fine dinner." / "I believe I own something.") play over the deed's two frames, through a rule's new `holds`. The pose is let go when the lines are down or the room changes.
+  - The seal and the wine are a shade toward brick red, because `check-key-fringe` reads saturated red as the key.
+- **2 · Grievance and the tune (doc 54 B3, doc 95 row 78).** The staging before "Twelve years." was dropped at extraction. It is now the case's first beat, acted:
+  - the fork rings and the corrected tune is whistled (`B3-WHISTLE`, fired by the act, not at the click);
+  - her ears come round as the tune ends, and she gives Thad a long look;
+  - her steps follow it.
+  - **The livery man's hum now sags in its fourth bar** (it was the eighth note sharp), as doc 54 says the whistle lifts it.
+  - Thad stands to it: his only bending clip is from another drawing and would jump.
+  - **She is heard walking out, not seen.** She has no walk, and room-15 has no operation left. That is asked of Tyler.
+- **3 · The tonic and the blanket (doc 54 A5, doc 95 rows 76–77).** Both directions were dropped at extraction and are now acted.
+  - **The fumes:** Thad recoils (his back recoil) and walks back to the claim marker, through a doc 95 act that may now end in a walk (`thad:<clip>/<facing>@<hotspot>`). The fume is not drawn: the engine has no smoke.
+  - **The blanket:** the pause, the raccoon's head-turned look, then his walk out. A figure with an acted beat still to play is held present until it is played (`Ambient.holdLeavers`).
+  - **The hole's stand moves left of its centre** (annotation `stands`), because from the centre Thad's head covered the raccoon. Doc 55 §8 has the row.
+- **4 · The county seal (doc 48 S6 beat 3).** The rendered seal was a raw line sound. It is now the cue `S6-SEAL`, which ducks the registrar's music under the stamp and its tail and lets it back. `levels.loudest` names it the single exception to errata 106: `check-sound-levels` holds it 6 dB over every other sound in the game, and fails with a bell turned up past it.
+- **5 · Sowerby's counter (doc 04 SOW_C1).** ADJECTIVES and PRICE are drawn in the bitmap face on the panel's right while SOW_C1 is open. The extractor reads the rate and the minimum ("Two dollars an adjective; the minimum rate is fifty cents") onto the node. The labels and the placement are `content/ui/ui.json`'s. **A reading, reversible by name:** once "He was present." settles it, the price stops at the written fifty cents and the adjective count stays as it stood. `tests/node-counter.test.ts` holds it.
+- **Sowerby at his size (Tyler, of the counter render: "he looks enormous behind the podium").**
+  - His church sheet was the waist-up of a man of nearly 500 px. The room's man at the pulpit's depth is 285.
+  - He is resampled to a man's waist-up there (`tools/art/room17-sowerby-scale.py`, `depthY` 585), the desk is re-cleared, and he is snapped at that depth.
+  - **The lesson:** `tests/scale.test.ts` now holds every behind-counter figure to at most 0.45 of a man at its own depth. It fails on the old sheet (0.71).
+- **The lessons:**
+  - Doc 95's new "Performed by" form (`thad:<clip>/<facing>@<hotspot>`) is held by `tests/acted-directions.test.ts`.
+  - The level exception is held by `check-sound-levels`; it fails with a bell turned up.
