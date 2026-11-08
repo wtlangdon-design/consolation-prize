@@ -4597,6 +4597,15 @@ The builder read every exterior plate. `reference/district/plan.json` records wh
 
 `tools/art/district-blockout.py` paints the plan as a block-out in the night map's colours, and the image session dresses that block-out without moving anything. The cap is 15 (attemptsTotal 318). The corner move in A6 (PR 243) and the town-only block-out are superseded and not merged. The markers and the map's roads are set from the same plan. The brief's last part covers it.
 
+**A7-A8 · The art (the image session, 2026-11-08).** Operations 13–15 of 15; the cap is spent. **Nothing is promoted: the shipping map is unchanged (Tyler: "Keep A for now").**
+- **Operation 13, `district-01`, dressed the block-out.** Every road, the creek, the bridges, the graveyard, the hole, the cabins, the stakes, the cairn, Mott's field, the coach stop, the long row, the Lane's five shops (the tent third), the three houses, the church and the livery sit on their shapes. Overlaid on `reference/district/blockout-1920x864.png`, they are within a few pixels. (The printed shift, +753 px, was phase correlation failing on the repeating trees, not a real offset.) It missed three ways:
+  - the mountains became pine forest, and the pass was gone;
+  - the three buildings down the square's east side were stacked, overlapping and facing down;
+  - the livery had a shed for a corral.
+- **Operation 14, `district-02`,** the first correction (the misses stated), re-laid the whole map: a larger frame, the creek moved and branched, the buildings shifted.
+- **Operation 15, `district-03`,** the second correction, was a masked edit of `district-01`'s own picture, limited to the mountain edges, the east side and the corral. That departs from the brief, which says to start each correction from the block-out. The model ignored the mask and redrew the whole map. It is the old map's layout with mountains all round and three separate buildings down the east side, but not the plan.
+- **Tyler,** shown the map now (A), `district-01` (B) and `district-03` (C), chose **"Keep A for now"**. The three sources and candidates, the mask and the prompts are kept as the record.
+
 **B · The map's Thad (with errata 161, part 3).** A small Thad stands on the map at the place of the room it was opened from, or Main Street for a room with none of its own (`mapToken.homes` names the rest). A click on a place walks him there along the drawn roads, the shortest way, and the room changes when he arrives (`engine/core/MapWalk.ts`).
 - **Timing.** He walks at 260 pixels a second, and never for longer than 4.5 seconds: a long walk is walked faster.
 - **Skipping.** A second click skips the walk, so backtracking never waits.
