@@ -4,7 +4,7 @@
  "reading": {
   "valley": "Every exterior plate shows the town in a valley ringed by mountains (Room 1, 2, 22, 29).",
   "pass": "Room 1: the coach stop is on a mountain road above the town's lamps, which lie below and to the left (south-west). The road comes down from a pass; Thad walks down into the town's east end (Room 2's stage_road arrival).",
-  "main_street": "Room 2: an open square of mud; a row of fronts along its north side facing south, and the Nugget (the grandest), the hotel and the assay office down its east side facing west, the two arms of the L about equal (Tyler). The road out leaves past the assay office, north-east. The alley at the west end leads to the Lane.",
+  "main_street": "Room 2: an open square of mud. Along its north side, facing south, west to east: the mercantile, the Improvement Company (the biggest in the row), the Clarion, the notice board's gap, two fronts, two set further back, and one with a porch right beside the Nugget. Down the square's east side, facing west: the Nugget (the grandest, at the corner), the hotel and the assay office. The L's two arms are about equal (Tyler). The road out leaves past the assay office, north-east. The alley at the west end leads to the Lane.",
   "the_lane": "Room 44: behind Main Street's row, from its west-end alley, five shopfronts facing it (undertaker's, photographer's, Ozymandia's tent, barber's, empty storefront); through to Lower Street at its far end.",
   "lower_street": "Room 43: east of Main Street up the road: the Registrar's, the back-alley mouth, the church with its belfry and the bell on its post, the passage to the Lane, the livery with its corral; its east end is the road out of town and the coach road's foot. It runs east of the square's east arm, up the road from the square's south-east corner.",
   "back_alley": "Room 20: behind Lower Street's west end, crates, barrels, a rain barrel; the watchman's shack at its far end (Room 21).",
@@ -421,40 +421,52 @@
   ],
   "row_south_facing": [
    [
-    310,
-    330,
-    50,
-    70
+    298,
+    336,
+    38,
+    64
    ],
    [
-    364,
+    340,
     316,
-    62,
+    46,
     84
    ],
    [
-    430,
+    390,
     324,
-    54,
+    44,
     76
    ],
    [
-    488,
-    328,
-    50,
-    72
-   ],
-   [
-    542,
-    332,
-    46,
-    68
-   ],
-   [
-    592,
+    446,
     330,
-    48,
+    38,
     70
+   ],
+   [
+    488,
+    334,
+    36,
+    66
+   ],
+   [
+    528,
+    328,
+    30,
+    58
+   ],
+   [
+    562,
+    328,
+    30,
+    58
+   ],
+   [
+    596,
+    328,
+    42,
+    72
    ]
   ],
   "arm_west_facing": [
@@ -592,6 +604,10 @@
     60,
     50
    ]
+  ],
+  "notice_board": [
+   441,
+   392
   ]
  },
  "coach_stop": [

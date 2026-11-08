@@ -134,6 +134,9 @@ def build():
     d.rectangle([x + 3, y + 3, x + w - 3, y + h - 3], fill=WATER)
     for x, y, w, h in t['row_south_facing']:
         south_facing(d, x, y, w, h)
+    nbx, nby = t['notice_board']
+    d.line([(nbx, nby), (nbx, nby + 8)], fill=WOOD, width=2)
+    d.rectangle([nbx - 4, nby - 6, nbx + 4, nby], fill=(170, 160, 130), outline=LINE)
     for name, x, y, w, h in t['arm_west_facing']:
         west_facing(d, x, y, w, h, 1 if name == 'assay' else 2)
     nx, ny = t['arm_west_facing'][0][1:3]
