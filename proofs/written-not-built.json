@@ -761,129 +761,6 @@
    ]
   },
   {
-   "id": "war-payoff",
-   "why": "GAP, reported to Tyler (errata 182): FAN_D1, the payoff of Fanshawe's war (\"You were never a colonel.\" / \"No. I wasn't.\"), needs all five contradictions; three are offered by no node, so it cannot be reached (errata 84 I a, doc 36 Q154).",
-   "lines": [
-    {
-     "doc": "04-dialogue-trees",
-     "quote": "I took the rank at twenty-three."
-    },
-    {
-     "doc": "04-dialogue-trees",
-     "quote": "Under Commodore Pelham, God rest him."
-    }
-   ]
-  },
-  {
-   "id": "hob-running",
-   "why": "GAP, reported to Tyler (errata 182): Hob's five \"Running\" lines (doc 04 HOB_A1, \"every fourth night, unprompted\"). Errata 71 assigns them to the ambient layer \"when Hob is placed in a night room\"; Hob has no barks. They count against his forty words, and every one is a clue.",
-   "lines": [
-    {
-     "doc": "04-dialogue-trees",
-     "quote": "They're all bad claims."
-    }
-   ]
-  },
-  {
-   "id": "ozymandia-act-iv",
-   "why": "GAP, reported to Tyler (errata 182): Ozymandia at Prosperity in Act IV, after the void, staring at the ground: \"...It's loud here.\" Never staged.",
-   "lines": []
-  },
-  {
-   "id": "wrong-answers-unwired",
-   "why": "GAP, reported to Tyler (errata 182): doc 49 refusals for verbs on objects that are not clickable in the built room (Room 7's chained pen, form stack, counter bell, statute book and partition; Fanshawe's contract drawer and inkless pen; Boot Hill's fence and oats; the shack's lamp reserve, calendar and stool; the claim row entire), or on objects whose rooms were built by hand (Room 1's sign, mud, case and road) or as actors (the raccoon).",
-   "lines": [
-    {
-     "doc": "49-wrong-answers",
-     "quote": "It leans. It rights itself. The sign has survived worse than me."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "'Two thousand and climbing.' We are neither of us fooling anyone."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "I own forty feet of this elsewhere. Collecting samples would be gloating."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "I have already used the mud. The mud has already used me. We are even."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "Goodbye, road. Tell the East I said nothing."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "The chain is rated for stronger feelings than mine."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "It comes exactly eleven inches, which is the length of an honest signature and not one flourish more."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "One per applicant. Sump counted the stack this morning. Sump will count it tonight."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "Sump appears before the ring finishes. I suspect he lives in the counter."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "It holds. The undertaker maintains it. His clients do not leave, but their reputation for it must be kept up."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "Boot Hill's only harvest. I left it. It's theirs."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "Rows of full lamps, trimmed and ready. A man prepared for many more nights than one life holds."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "It is years old and the days are all crossed off, every one, in even strokes. I put it back exactly as it hung."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "It is placed where it is placed. The window it faces is the one that sees the whole street, and the wear on the sill says: nightly."
-    },
-    {
-     "doc": "49-wrong-answers",
-     "quote": "Eleven claims, free for the re-filing, and no takers in years. The row is used daily: as a warning, by everyone, on the way past."
-    }
-   ]
-  },
-  {
-   "id": "examine-object-not-hotspot",
-   "why": "GAP, reported to Tyler (errata 182): examine lines for an object the built room has no hotspot for -- Room 22's milepost, Room 25's workings.",
-   "lines": [
-    {
-     "doc": "10-examine-batch-3",
-     "quote": "CLAIMS — 2 MI. Somebody has scratched a great many other numbers underneath, none of which agree."
-    },
-    {
-     "doc": "10-examine-batch-3",
-     "quote": "Square. Timbered properly. Swept — somebody has swept a mine. This is the finest piece of work in the territory and there has never been a thing in it."
-    }
-   ]
-  },
-  {
-   "id": "small-unwired",
-   "why": "GAP, reported to Tyler (errata 182), small: one verb line written for an object that is built and never answers with it -- doc 26's THE WASHSTAND · USE (Thad's room) and doc 09's LOOK on GRIEVANCE herself (the mule is an actor with no LOOK of her own; she falls to the people pool).",
-   "lines": [
-    {
-     "doc": "09-examine-batch-2",
-     "quote": "A mule. She has looked at me once, at length, and has not felt the need to do it again."
-    },
-    {
-     "doc": "26-batch-a",
-     "quote": "I have washed. It made less difference than I hoped."
-    }
-   ]
-  },
-  {
    "id": "second-ledger-names",
    "why": "WAITING ON ART (errata 181, Tyler 2026-11-08: \"the book can stay out\"): the second ledger on Winnie's counter, its THE NAMES (the nineteen, doc 54) and doc 08's THE SECOND LEDGER and THE FLOORBOARD, LIFTED. The image session is drawing it; the hotspots are wired when it lands.",
    "lines": [
@@ -1010,6 +887,84 @@
     {
      "doc": "49-wrong-answers",
      "quote": "The chamber is not to be pushed. It is to be heard. Everything here has been waiting longer than I have been alive."
+    }
+   ]
+  },
+  {
+   "id": "answered-by-the-room",
+   "why": "SUPERSEDED BY THE ROOM'S OWN LINE (errata 184, which built the rest of errata 182's gap 5). Where two documents answer the same verb on the same object, the room's own document wins (compile-room: 'a verb both write keeps the room doc's line'), or doc 54's merge decisions dropped the line (errata 68 H): Room 1's sign TALK TO and mud PICK UP are doc 17's; Room 7's chained pen PICK UP is the pen's own; Room 22's mile post and Room 25's workings LOOK, and Grievance's LOOK, are dropped by doc 54's MERGE DECLARATIONS; Thad's washstand USE is doc 49's line, which follows doc 26's. Errata 182 listed these as gaps; they were rulings.",
+   "lines": [
+    {
+     "doc": "49-wrong-answers",
+     "quote": "'Two thousand and climbing.' We are neither of us fooling anyone."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "I own forty feet of this elsewhere. Collecting samples would be gloating."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "It comes exactly eleven inches, which is the length of an honest signature and not one flourish more."
+    },
+    {
+     "doc": "10-examine-batch-3",
+     "quote": "CLAIMS — 2 MI. Somebody has scratched a great many other numbers underneath, none of which agree."
+    },
+    {
+     "doc": "10-examine-batch-3",
+     "quote": "Square. Timbered properly. Swept — somebody has swept a mine. This is the finest piece of work in the territory and there has never been a thing in it."
+    },
+    {
+     "doc": "09-examine-batch-2",
+     "quote": "A mule. She has looked at me once, at length, and has not felt the need to do it again."
+    },
+    {
+     "doc": "26-batch-a",
+     "quote": "I have washed. It made less difference than I hoped."
+    }
+   ]
+  },
+  {
+   "id": "retired-not-drawn",
+   "why": "RETIRED, AND NOT DRAWN (errata 68 E: 'they name objects no room has, and adding objects to hold them would change the rooms'). The watchman's shack's lamp reserve, wall calendar and stool by the window. Errata 184 looked at the shipped plate (art/backgrounds/room-21-watchmans-shack.png): there is a table with two chairs, a stove, a coat, a cot and the tally marks, and none of these three.",
+   "lines": [
+    {
+     "doc": "49-wrong-answers",
+     "quote": "Rows of full lamps, trimmed and ready. A man prepared for many more nights than one life holds."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "It is years old and the days are all crossed off, every one, in even strokes. I put it back exactly as it hung."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "It is placed where it is placed. The window it faces is the one that sees the whole street, and the wear on the sill says: nightly."
+    }
+   ]
+  },
+  {
+   "id": "drawn-needs-look-listen",
+   "why": "GAP, FOR TYLER (errata 184): drawn, and not clickable, because a hotspot needs LOOK and LISTEN lines and none is written. Room 7's form stack and counter bell, on the counter (with THE STATUTE BOOK and THE PARTITION, also drawn and also unhoused, whose lines this check does not catch); Boot Hill's fence; the claim row as a whole (THE ROW ENTIRE). Boot Hill's wild oats are not distinguishable from its grass. No writing permission covers new LOOK and LISTEN lines, so these wait for Tyler.",
+   "lines": [
+    {
+     "doc": "49-wrong-answers",
+     "quote": "One per applicant. Sump counted the stack this morning. Sump will count it tonight."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "Sump appears before the ring finishes. I suspect he lives in the counter."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "It holds. The undertaker maintains it. His clients do not leave, but their reputation for it must be kept up."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "Boot Hill's only harvest. I left it. It's theirs."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "Eleven claims, free for the re-filing, and no takers in years. The row is used daily: as a warning, by everyone, on the way past."
     }
    ]
   },

@@ -1,0 +1,34 @@
+{
+ "schema": 1,
+ "id": "prosperity_ozymandia",
+ "name": "MADAME OZYMANDIA",
+ "speaksAs": "ozymandia",
+ "awaitingArt": "reference/ozymandia-prosperity/brief.md: her standing figure with the brass rod, room-16's fourth operation",
+ "posture": "standing",
+ "room": "prosperity",
+ "when": {
+  "T_VOID_FOUND": true,
+  "ACT": {
+   "atLeast": 4
+  }
+ },
+ "whenNote": "Doc 04, MADAME OZYMANDIA: 'Act IV: if Thad returns after T_VOID, she is at Prosperity.' T_VOID_FOUND is F2's flag, and F2 is Act IV's (errata 184).",
+ "note": "OZYMANDIA AT PROSPERITY, ACT IV (errata 184). 'Holding the rod, staring at the ground, saying nothing.' Her tent figure is drawn behind her table, cut at the table top; this is the whole woman, standing, which no drawing has yet. Until it is cut she is not cast (awaitingArt). Placed provisionally on the far mud left of the hole; the image session places her for real.",
+ "x": 860,
+ "y": 735,
+ "zone": 0,
+ "approachRadius": 120,
+ "tree": "",
+ "barks": {
+  "R_NOBODY": "…It's loud here.",
+  "R_SWINDLED": "…It's loud here.",
+  "R_RACCOON": "…It's loud here.",
+  "R_SURVEYED": "…It's loud here.",
+  "R_BORDERS_MOTT": "…It's loud here.",
+  "R_LOST_DUEL": "…It's loud here.",
+  "R_WON_DUEL": "…It's loud here.",
+  "R_DEAD": "…It's loud here.",
+  "R_TRUTH": "…It's loud here."
+ },
+ "barksNote": "EXTRACTED from docs/04-dialogue-trees.md (MADAME OZYMANDIA, **Act IV:**) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Her only line, the same in every state."
+}

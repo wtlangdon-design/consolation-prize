@@ -273,6 +273,8 @@ FAN_A1's opening assumes Thad has been sold something. Until `T_SWINDLED`, TALK 
 
 Distributed across all Fanshawe nodes, all optional, all `[TOPIC]`. Only a player who keeps asking will collect them.
 
+*Errata 184: where each is asked. Only 1 and 2 had a question until then, so the payoff could never be reached. 1 is `FAN_A1` option 3 and 2 is `FAN_B2` option 3, as written; 3 is `FAN_B1` option 4; 4 is `FAN_C1` option 6; 5 is said in `FAN_B1` option 5 and counted when Sheng is asked about it (`SHE_A1` option 4), which waits until Thad has heard it. Fanshawe's own age, which makes 3 a contradiction, is in 3's answer.*
+
 1. "Chapultepec, '47."
 2. "Buena Vista, of course — spring of '48." *(Buena Vista was February 1847.)*
 3. "I took the rank at twenty-three." *(His stated age puts him at nineteen.)*
@@ -320,6 +322,9 @@ Per the Fanshawe Rule: Thad receives the Registrar introduction; gives up that h
 | 1 | "I need to see the Registrar about my boundary." | `[PROGRESS · remove]` | "Your *boundary*! A man who knows where he ends. Rare. I shall send a note ahead." *(The note is warm, correct, and mentions the boundary. By Thursday the Company has filed three priority submissions on the parcels beside Claim One.)* | receives: the note. gives up: contiguity |
 | 2 | "What do you want for it?" | `[TOPIC · retain]` | "Want? Mr. Grubb, a favor that costs something is a *transaction*. I deal only in favours." *(second)* "Nothing at all. I've written it down, so that neither of us forgets." | — |
 | 3 | "Your clock is slow." | `[COMIC · retain]` | "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it." *(second)* "Eleven minutes, every day, without fail. Reliability is the whole of punctuality, Mr. Grubb." | — |
+| 4 | "How does a man come to be a colonel?" | `[TOPIC · remove]` | "Young, Mr. Grubb. I took the rank at twenty-three. I'm thirty this spring, and I intend to stay there." | `WAR_CONTRADICTIONS` +1 |
+| 5 | "Which regiment, Colonel?" | `[TOPIC · remove]` | "The Eleventh Ohio Mounted. Splendid men. I remember every one of their horses." | sets `T_ELEVENTH_OHIO` |
+| 6 | "You were never a colonel." | `[TOPIC · remove]` | *(He stops. For the only time in the game, he is completely still.)* "No. I wasn't." *"…"* "Was there something else, Mr. Grubb?" | the war's payoff: from Act III, with all five contradictions |
 
 ## ACT II — `FAN_B2`: the index card *(W1 growth)*
 
@@ -338,6 +343,8 @@ Thad receives a copy of Claim One's index card; gives up confirmation he has see
 
 The scripted exchange above ("You were never a colonel."). One node, no other options live while it plays, and afterward it is `remove` — a thing that can only be said once, and is.
 
+*Errata 184: played as `FAN_B1` option 6's exchange, as PRA_D5 is played as an option of PRA_B1. It is offered from Act III once all five contradictions are counted, plays without a choice until Fanshawe has asked "Was there something else, Mr. Grubb?", and is removed.*
+
 ## ACT II — `FAN_C1`: the offer (E0b)
 
 > **FANSHAWE:** "Eleven thousand dollars."
@@ -351,6 +358,7 @@ The scripted exchange above ("You were never a colonel."). One node, no other op
 | 3 | "No." | `[PROGRESS · counted-repeat]` | "Twelve thousand." *(second)* "Thirteen. I'm enjoying this." *(third)* "Fourteen, and you drive a very hard bargain for a man who isn't bargaining." |
 | 4 | "Why does a worthless claim cost eleven thousand dollars?" | `[TOPIC · retain]` | "Because you'd like it to be worth more, and I'd like you to be happy." *(second)* "Because happiness is expensive, Mr. Grubb, and I never haggle over yours." |
 | 5 | "I've named a raccoon after you." | `[COMIC · retain]` | *(genuine delight)* "Have you! What a splendid animal it must be." *(It is not.)* *(second)* "Still! You're very loyal, Mr. Grubb. I shall have to name something after you." |
+| 6 | "Who did you serve under in the war?" | `[TOPIC · remove]` | "Under Commodore Pelham, God rest him. The best horseman the Navy ever had." → `WAR_CONTRADICTIONS` +1 |
 
 **The turn:** on reading Clause 9, Thad's aside — *"He doesn't want the claim. He wants it quiet."*
 
@@ -670,7 +678,7 @@ The bible: "Thad names it (full Christian name, chosen by the player from three 
 | 3 | "Why does nobody know this?" | `[TOPIC · retain]` | "Because I do laundry." *(He returns to doing laundry.)* *(second)* "Laundry, Mr. Grubb. It is the best disguise in the territory, and it pays." *(req `T_SHENG_HOLDS_PAPER`)* |
 | 7 | "Did you know Ezra Pike?" | `[TOPIC · retain]` | "Mr. Pike's shirts are still here. Four of them, pressed." *(beat)* "He has not called for them in six years. The undertaker will tell you why." *(second)* "Four shirts. Pressed. The undertaker has the explanation, and I have the shirts." *(unless `T_PIKE_DEAD`)* |
 | 8 | "You knew Pike was dead." | `[TOPIC · retain]` | "A man who leaves four good shirts for six years is dead or married, Mr. Grubb. I checked the register." *(second)* "Not married. I checked." *(req `T_PIKE_DEAD`)* |
-| 4 | "Was the Colonel in the Eleventh Ohio Mounted?" | `[TOPIC · remove]` | "There is no Eleventh Ohio Mounted. There is a Ninth. My brother was in it." → `WAR_CONTRADICTIONS` +1 |
+| 4 | "Was the Colonel in the Eleventh Ohio Mounted?" | `[TOPIC · remove]` | "There is no Eleventh Ohio Mounted. There is a Ninth. My brother was in it." *(req `T_ELEVENTH_OHIO`; errata 184)* → `WAR_CONTRADICTIONS` +1 |
 | 5 | "I have four dollars." | `[COMIC · counted-repeat]` | "You have two dollars and forty cents. I have watched you spend the rest. You are not a careful man, Mr. Grubb, but you are an entertaining one." *(second)* "You do not. I would have heard." *(third)* "Mr. Grubb, I keep your accounts better than you do, and I do not keep your accounts." |
 | 6 | "Have you ever been in the Liar's Assay?" | `[ASSAY · remove]` | "Once. A Company man told me, 'The Improvement Company came to me on their knees.' I said, 'The Company comes to everyone on their knees. It is how they get under the door.'" *(beat)* "He paid his account the next morning. In full." *(pair 18; errata 75)* |
 

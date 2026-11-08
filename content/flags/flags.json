@@ -869,9 +869,30 @@
    "initial": 0,
    "writtenBy": [
     "dialogue:FANSHAWE:FAN_A1:fanshawe3",
-    "dialogue:FANSHAWE:FAN_B2:fanshawe3"
+    "dialogue:FANSHAWE:FAN_B2:fanshawe3",
+    "dialogue:FANSHAWE:FAN_B1:fanshawe4",
+    "dialogue:FANSHAWE:FAN_C1:fanshawe6",
+    "dialogue:SHENG:SHE_A1:sheng4"
    ],
-   "note": "Doc 04's war, counted. Two of its five contradictions are offered by a node; the other three are written but asked by none, so FAN_D1's payoff (all five) cannot be reached and is not built (doc 36 Q154). Nothing reads it yet."
+   "note": "Doc 04's war, counted: five contradictions, each asked once (errata 184: FAN_A1 3, FAN_B2 3, FAN_B1 4, FAN_C1 6, and Sheng's SHE_A1 4 once Fanshawe has named his regiment). Read by FAN_B1 option 6, the payoff, from Act III at five."
+  },
+  {
+   "id": "T_ELEVENTH_OHIO",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FANSHAWE:FAN_B1:fanshawe5"
+   ],
+   "note": "Errata 184: Fanshawe has named his regiment, the Eleventh Ohio Mounted (doc 04, THE WAR, 5). Sheng can be asked about it only after (SHE_A1 option 4), so the question is never asked of a regiment Thad has not heard of."
+  },
+  {
+   "id": "HOB_RUNNING",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "engine:ambient:barkRun hob"
+   ],
+   "note": "Errata 184: how many of Hob's Running lines (doc 04 HOB_A1) he has said on his rounds in the back alley, one a visit, in Acts I and II (content/ambient/hob.json `barkRun`). Counted so a save keeps its place and none is said twice."
   },
   {
    "id": "T_QUEUE_PADDED",

@@ -2430,6 +2430,23 @@ function roomOneLines(room, doc17) {
     const into = target(id);
     into.overrides = { ...(into.overrides ?? {}), [verb.trim().replace(/ /g, '_')]: line };
   }
+
+  // DOC 49'S ROOM 1, WHERE DOC 17 IS SILENT (errata 184). Room 1 predates the
+  // compiler, which is where every other room with its own document reads doc
+  // 49: "a verb only doc 49 writes is added; a verb both write keeps the room
+  // doc's line". So THE TOWN SIGN's PUSH, THE MUD's USE and THE ROAD EAST's
+  // TALK TO are added, and doc 17's TALK TO, PICK UP and OPEN stand.
+  const NAMES49 = { 'THE TOWN SIGN': 'town_sign', 'THE MUD': 'mud', 'THE ROAD EAST': 'road_east', 'HIS CASE': 'case_mud' };
+  const room49 = read('docs/49-wrong-answers.md').split(/^## ROOM 1 — .*$/m)[1]?.split(/^## /m)[0];
+  if (!room49) throw new Error('doc 49: no "## ROOM 1" section');
+  for (const row of room49.matchAll(/^\*\*([A-Z' ]+)\*\* · ([A-Z_]+) — "([^"]+)"/gm)) {
+    const [, name, verb, line] = row;
+    const id = NAMES49[name.trim()];
+    if (!id) throw new Error(`doc 49 Room 1: "${name}" names no Room 1 hotspot`);
+    const into = target(id);
+    if (into.overrides?.[verb] || into.responses?.[verb]) continue;
+    into.overrides = { ...(into.overrides ?? {}), [verb]: line };
+  }
 }
 
 /**
@@ -3695,8 +3712,7 @@ function hobTree() {
     // written with ACT, so a load before the cut still makes it.
     leave.set = { T_HOB_IS_MOTT: true, T_NO_GOLD_EVER: true, ACT: 4, [actOpenings()[4].due]: true };
   }
-  const running = /^\*\*Running:\*\*/m.test(body);
-  if (running) unplayed.push('the "Running" lines (every fourth night, unprompted) are ambient barks, not this tree -- carried by the ambient layer when Hob is placed');
+  // The "Running" lines are ambient barks, not this tree: hobRunning() below (errata 184).
   for (const note of unplayed) process.stderr.write(`  doc 04 HOB: ${note}\n`);
 
   return write('content/dialogue/hob.json', {
@@ -4269,6 +4285,8 @@ function fanshaweTree() {
     'FAN_A2:6': { then: [{ speaker: SPEAKER, line: beat3 }], gives: ['handkerchief'], set: { T_DINED: true },
       puzzle: { A10: 'complete' }, ends: true },
     'FAN_B1:1': { goto: 'FAN_B2' },
+    // THE WAR'S PAYOFF (errata 184): "available in Act III with all five" (doc 04, THE WAR).
+    'FAN_B1:6': { when: { ACT: { atLeast: 3 }, WAR_CONTRADICTIONS: { atLeast: 5 } } },
     'FAN_C1:1': { then: [{ speaker: 'thad', line: turn }], set: { ACT: 3, ...(actOpenings()[3] ? { [actOpenings()[3].due]: true } : {}) }, puzzle: { E0b: 'complete' } },
   };
   const EXIT_SAY = { FAN_A2: leaving };
@@ -4290,7 +4308,8 @@ function fanshaweTree() {
     const ROW = /^\| (\d+) \|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|(?:[ \t]*(.*?)[ \t]*\|)?[ \t]*$/gm;
     const rows = [...text.matchAll(ROW)];
     if (!rows.length) {
-      unplayed.push(`${id}: no option table -- not built (doc 36 Q154)`);
+      // FAN_D1 is played as FAN_B1 option 6's exchange (errata 184).
+      if (!/played as `FAN_[A-Z0-9]+` option \d+/.test(text)) unplayed.push(`${id}: no option table -- not built (doc 36 Q154)`);
       continue;
     }
     const opening = [...text.matchAll(/^> \*\*(FANSHAWE|THAD):\*\* (.+)$/gm)].map((m) => {
@@ -4346,6 +4365,7 @@ function fanshaweTree() {
       const unlessFlag = /unless `([A-Z_0-9]+)`/.exec(state);
       if (reqFlag) option.when = { ...option.when, [reqFlag[1]]: true };
       if (unlessFlag) option.when = { ...option.when, [unlessFlag[1]]: false };
+      if (route.when) option.when = { ...option.when, ...route.when };
       if (route.goto) option.goto = route.goto;
       if (route.gives) option.gives = route.gives;
       if (route.puzzle) option.puzzle = route.puzzle;
@@ -5119,6 +5139,58 @@ function townBarks() {
 }
 
 // ---------------------------------------------------------------------------
+// OZYMANDIA AT PROSPERITY, ACT IV (errata 184). Doc 04's MADAME OZYMANDIA
+// section: "**Act IV:** if Thad returns after `T_VOID`, she is at Prosperity
+// ... Her only line: *"…It's loud here."*" She says nothing else, so it is
+// her bark in every reputation state, as the funeral's eulogy is.
+function ozymandiaAtProsperity() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const section = doc.slice(doc.indexOf('# MADAME OZYMANDIA'));
+  const para = /^\*\*Act IV:\*\*.*$/m.exec(section)?.[0];
+  const line = para && /Her only line: \*"([^"]+)"\*/.exec(para)?.[1];
+  if (!line) throw new Error('doc 04 OZYMANDIA: the Act IV line was not found');
+  const path = 'content/ambient/prosperity-ozymandia.json';
+  const npc = JSON.parse(read(path));
+  const states = JSON.parse(read('content/reputation.json')).states;
+  npc.barks = Object.fromEntries(states.map((state) => [state, line]));
+  npc.barksNote = 'EXTRACTED from docs/04-dialogue-trees.md (MADAME OZYMANDIA, **Act IV:**) by tools/extract-content.mjs. '
+    + 'Do not edit: change doc 04 and re-run. Her only line, the same in every state.';
+  return write(path, npc, 1);
+}
+
+// ---------------------------------------------------------------------------
+// HOB'S RUNNING LINES (errata 184; errata 71 D: "ambient barks, not the tree.
+// They belong to the ambient layer when Hob is placed in a night room"). Doc 04
+// HOB_A1's **Running:** paragraph, one bark per " · " segment, each segment's
+// quoted words in order (the last is two lines with a pause between). A line
+// the opening sequence already gives him (doc 17 beat 9) is said there, not
+// again. They are said on his rounds in the back alley, in Acts I and II
+// ("Acts I–II, forty words total"), one a visit, each once; `counter` counts
+// them so a save keeps its place.
+function hobRunning() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const at = doc.indexOf('**Running:**');
+  if (at < 0) throw new Error('doc 04: HOB_A1 has no **Running:** lines');
+  const para = doc.slice(at).split('\n## ')[0];
+  const quote = /^> (.+)$/m.exec(para)?.[1];
+  if (!quote) throw new Error('doc 04: the Running lines are not quoted');
+  const opening = read('docs/17-opening-sequence.md');
+  const lines = quote.split(' · ')
+    .map((segment) => quoted(segment.replace(/\*\([^)]*\)\*/g, '')).map((line) => ({ speaker: 'hob', line })))
+    .filter((said) => said.length && !opening.includes(`"${said[0].line}"`));
+  if (lines.length !== 4) throw new Error(`doc 04: expected four Running lines after the opening's, found ${lines.length}`);
+  const path = 'content/ambient/hob.json';
+  const npc = JSON.parse(read(path));
+  npc.barkRun = { counter: 'HOB_RUNNING', when: { ACT: { atMost: 2 } }, lines };
+  npc.barkRunNote = 'EXTRACTED from docs/04-dialogue-trees.md (HOB_A1, **Running:**) by tools/extract-content.mjs. '
+    + 'Do not edit: change doc 04 and re-run. Errata 184: one a visit to his rounds, in order, each once, while '
+    + 'ACT is at most 2; "Wouldn\'t stand there." is the opening\'s (doc 17 beat 9) and is not said again. Doc 04 '
+    + 'says "every fourth night"; the game counts no nights, and a visit stands for one.';
+  npc.barksNote = 'He has no reputation barks (doc 07 writes none for him). His Running lines are `barkRun`.';
+  return write(path, npc, 1);
+}
+
+// ---------------------------------------------------------------------------
 // THE TOWNSPEOPLE'S MICRO-TREES AND THE PAIR'S BARKS (doc 07 Part Two;
 // errata 110). The five placed in errata 110 -- the boundary men, the message
 // boy, the man leaving tomorrow, the fiddler, the dog's owner -- are read from
@@ -5415,7 +5487,7 @@ function cutaways() {
 }
 
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), ...room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), exitPool(), ...townBarks(), ...townTrees(), reputation(), actedDirections(), cutaways()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), hobRunning(), ozymandiaAtProsperity(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), exitPool(), ...townBarks(), ...townTrees(), reputation(), actedDirections(), cutaways()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
   // Doc 58 rule 5: a reply whose spoken lines this pass reads differently is
