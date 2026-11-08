@@ -248,7 +248,7 @@ FAN_A1's opening assumes Thad has been sold something. Until `T_SWINDLED`, TALK 
 | 5 | "You knew Pike was dead." | `[TOPIC · retain]` | "Knew it, Mr. Grubb? I sent flowers. I send flowers to everyone. It's cheaper than knowing them." *(second)* "Flowers. Every time. You'll get some yourself one day." → req `T_PIKE_DEAD` |
 | 2 | "I don't want a claim." | `[TOPIC · retain]` | "Nobody does on the first day. On the second they've bought one, and on the third they come to me. I'll keep the chair warm." *(second)* "Of course not. The chair is warm, whenever you're ready." |
 | 3 | "I have four dollars." | `[TOPIC · retain]` | "Then you are the best-capitalized man to arrive this week, and I congratulate you, and I would keep a hand on them in the Nugget." *(He knows exactly who is in the Nugget.)* *(second)* "Still four? Splendid. Both hands, Mr. Grubb. Both hands." |
-| 4 | "Is it always this warm in here?" | `[COMIC · retain]` | "Always. I keep a fire in every season. Warm men are generous men, Mr. Grubb, and so are warm offices." |
+| 4 | "Is it always this warm in here?" | `[COMIC · retain]` | "Always. I keep a fire in every season. Warm men are generous men, Mr. Grubb, and so are warm offices." *(second)* "Always. A cold man counts his money, Mr. Grubb. I prefer them warm." |
 
 *Errata 172, doc 99's rewrite: second answers for FAN_A0's questions; the Pike question only while Thad doesn't know, and "You knew Pike was dead." after. In FAN_A1, option 5 is the greedy question doc 99 rule 3 asks for. Fanshawe never refuses it; he sells it back to him. Neither changes the Fanshawe Rule ledger: nothing is received or given up in either.*
 
@@ -263,7 +263,7 @@ FAN_A1's opening assumes Thad has been sold something. Until `T_SWINDLED`, TALK 
 | 1 | "Number two. Prosperity." | `[PROGRESS · remove]` | "Prosperity! You've *named* it. Nobody names them. I like you enormously." | **He now knows.** Gives map |
 | 2 | "I'd rather not say." | `[PROGRESS · remove]` | "Very wise. Very wise indeed." *(He gives the map anyway. It has Claim Two circled.)* | Same outcome — **there is no way to withhold it, and the player will not notice until Act III** |
 | 3 | "Were you really a colonel?" | `[TOPIC · remove]` | "Chapultepec, '47. Terrible business. Wonderful weather." | `WAR_CONTRADICTIONS` +1 |
-| 4 | "You have a great many chairs." | `[COMIC · retain]` | "I do! I have found that a man will tell you anything if you sit him down. It's the standing ones you want to watch." | — |
+| 4 | "You have a great many chairs." | `[COMIC · retain]` | "I do! I have found that a man will tell you anything if you sit him down. It's the standing ones you want to watch." *(second)* "Do sit, Mr. Grubb. You're standing again." | — |
 | 5 | "Is there gold under Prosperity?" | `[TOPIC · retain]` | "There is gold under everything in Consolation, Mr. Grubb. It is simply a question of depth, patience and paperwork." *(beat)* "I sell all three." *(second)* "Depth, patience and paperwork. My door is open for all three." | — |
 
 ## THE WAR — five contradictions
@@ -300,7 +300,7 @@ He does not deny it, does not explain it, and does not become hostile. It is far
 | 4 | "Put it down as a kindness, and I'll owe you." | `[TOPIC · retain]` · after 2 | "You owe me nothing at all, Mr. Grubb." *(warmly)* "Yet." *(second)* "Nothing, Mr. Grubb. I'm keeping very careful count of it." | mortgages it; deferred |
 | 5 | "I'd sign anything that came with a wine like this." | `[TOPIC · retain]` · after 3 | "Then you shall sign nothing tonight. I would never take advantage of a man at his dinner." *(He means it. It is the most dangerous thing he says all evening.)* *(second)* "Nothing tonight. There is always tomorrow night. I dine every night." | signs it away; deferred |
 | 6 | "I mean to work it myself." | `[PROGRESS · remove]` · after 2 | "Of course you do." *(He is delighted. He refills Thad's glass. He has learned the only thing he wanted to know.)* → A10, doc 48 S1 beat 3 | receives: dinner, wine, warmth. gives up: that he will work the claim |
-| 7 | "This is very good wine." | `[COMIC · retain]` | "Isn't it! I have no idea what it is. I buy whatever costs most and let it explain itself." | — |
+| 7 | "This is very good wine." | `[COMIC · retain]` | "Isn't it! I have no idea what it is. I buy whatever costs most and let it explain itself." *(second)* "Still delicious, and still a mystery. In my experience the two go together." | — |
 
 **Staged** *(Tyler, 2026-11-05: "You decide" -- the seven at once were too many)*: the dinner opens on 1, 2 and 7; each pitch Fanshawe defers brings the next (3 after 1, 4 after 2, 5 after 3), and the honest answer, 6, arrives once two pitches have been deferred (after 2). Rule 7; no line changed.
 
@@ -554,7 +554,7 @@ Pratt on his own claim, beside Prosperity, raking. The node exists for A5's "sen
 | 2 | "Nine dollars for what?" | `[TOPIC · retain]` | "Your claim." *(He says it as though it were the weather.)* *(second)* "Your claim. Nine dollars and a hen." |
 | 5 | "Did you know Ezra Pike?" | `[TOPIC · retain]` | "Yep." *(He rakes for a while.)* "Undertaker's got him." *(second)* "Undertaker's got him. Has had for a while." *(unless `T_PIKE_DEAD`)* |
 | 6 | "You knew Pike was dead." | `[TOPIC · retain]` | "Yep." *(He rakes.)* "Said so." *(second)* "Said the undertaker had him. That's what that means." *(req `T_PIKE_DEAD`)* |
-| 3 | "Lovely morning." | `[COMIC · retain]` | *(He looks up at the sky, checking.)* "Yep." |
+| 3 | "Lovely morning." | `[COMIC · retain]` | *(He looks up at the sky, checking.)* "Yep." *(second)* "Still is." |
 | 4 | "How's the bite?" | `[COMIC · retain]` | "Healing wrong." *(req `T_PRATT_BITTEN`; errata 75 — the node keeps three options once option 1 is spent)* |
 
 *Errata 172, doc 99's rewrite: a second answer to option 2, which is his offer gone up (doc 04: "he repeats his offer at a new number"), and the town's Pike thread (doc 98). Pratt is the only person in town who says it straight, and he doesn't know he has.*
@@ -817,7 +817,7 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 | 1 | "Obadiah Mott." | `[PROGRESS · remove]` | *(Sump writes it. He does not look up.)* "…That's a very old claim number." → WIN_F2, then S6 beat 3 |
 | 2 | "Thaddeus Grubb." | `[TOPIC · retain]` | *(His flattest look.)* "Claim One is Mr. Mott's. You may file on his behalf. Not in your favor." *(second)* "Still Mr. Mott's. The box does not take hopes." |
 | 3 | "Winnie Ledger." | `[TOPIC · retain]` | **WINNIE:** "Don't you dare." *(second)* **WINNIE:** "I said don't." |
-| 4 | "The raccoon." | `[COMIC · retain]` | "The raccoon holds no license from this office." |
+| 4 | "The raccoon." | `[COMIC · retain]` | "The raccoon holds no license from this office." *(second)* "Still unlicensed, Mr. Grubb. It has never applied." |
 
 ## DEKE VESSEL — three nodes and two duels
 

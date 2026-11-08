@@ -172,6 +172,7 @@
           "tag": "COMIC",
           "afterUse": "retain",
           "text": "Lovely morning.",
+          "repeat": "Still is.",
           "exchange": [
             {
               "speaker": "pratt",

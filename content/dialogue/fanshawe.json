@@ -128,7 +128,13 @@
           "tag": "COMIC",
           "text": "Is it always this warm in here?",
           "afterUse": "retain",
-          "say": "Always. I keep a fire in every season. Warm men are generous men, Mr. Grubb, and so are warm offices."
+          "say": "Always. I keep a fire in every season. Warm men are generous men, Mr. Grubb, and so are warm offices.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Always. A cold man counts his money, Mr. Grubb. I prefer them warm."
+            }
+          ]
         },
         {
           "id": "fanshawex",
@@ -208,7 +214,13 @@
           "tag": "COMIC",
           "text": "You have a great many chairs.",
           "afterUse": "retain",
-          "say": "I do! I have found that a man will tell you anything if you sit him down. It's the standing ones you want to watch."
+          "say": "I do! I have found that a man will tell you anything if you sit him down. It's the standing ones you want to watch.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Do sit, Mr. Grubb. You're standing again."
+            }
+          ]
         },
         {
           "id": "fanshawe5",
@@ -407,7 +419,13 @@
           "tag": "COMIC",
           "text": "This is very good wine.",
           "afterUse": "retain",
-          "say": "Isn't it! I have no idea what it is. I buy whatever costs most and let it explain itself."
+          "say": "Isn't it! I have no idea what it is. I buy whatever costs most and let it explain itself.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still delicious, and still a mystery. In my experience the two go together."
+            }
+          ]
         },
         {
           "id": "fanshawex",

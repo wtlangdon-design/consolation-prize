@@ -617,7 +617,13 @@
           "tag": "COMIC",
           "text": "The raccoon.",
           "afterUse": "retain",
-          "say": "The raccoon holds no license from this office."
+          "say": "The raccoon holds no license from this office.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still unlicensed, Mr. Grubb. It has never applied."
+            }
+          ]
         },
         {
           "id": "sumpx",
