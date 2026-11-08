@@ -4486,7 +4486,7 @@ There were no page errors. One frame of each line is in `renders/cutaways/fansha
   - The generator drew the framed map a little larger and lower than its 20:9 window (x 1–1534, y 148–839), so the fixed window cut it 19 px off. `town-map-edit.py promote-redraw --fit` takes the drawn frame instead. Outside the town it then sits +1, −1 px from the old map, inside the 6 px the brief allows.
   - **The one miss:** the Lane has six shopfronts, counting the tent, not five.
 - **Operation 3, `redraw-02`, the correction,** fixed the Lane but lost the livery from Lower Street and Main Street's eighth front. The livery is a place the player goes (Room 15) and needs its marker, so redraw 1 ships and the correction is kept as a record.
-- `reference/global-baseline.json`: `visualType` is now `district-map-night`, and the `daylight` line is gone. The builder re-places the markers and re-measures the roads on the night map.
+- `reference/global-baseline.json`: `visualType` is now `district-map-night`. (Its `daylight` line came back when #235's brief merged over this; it is deleted with A3's art below, and the map now measures as night, 27.4.) The builder re-places the markers and re-measures the roads on the night map.
 
 **A3 · The mountain pass.** Tyler, after the night map landed: **"at the beginning of the game I clearly walk out of a mountain pass into town. That's noticeable."** The builder read every exterior plate against the map:
 - Room 1's coach stop is a mountain road above the town's lamps, and Thad arrives at Main Street's east end.
@@ -4496,5 +4496,30 @@ There were no page errors. One frame of each line is in `renders/cutaways/fansha
 - One thing cannot be squared: Main Street's plate shows a tall steeple behind its west half, while the church Thad walks to is on Lower Street, east. The map follows the walking layout.
 
 He answered **"That all sounds good"** to one more pass: a pass at the top with the coach road and the coach stop down to the square's east end, mountains on the north and west, and the west road removed. The cap rises to 5, the pass and a correction (attemptsTotal 307 → 308). The brief's third part covers it.
+
+**A3 · The art (the image session, 2026-11-08).** Operations 4 and 5 of 5; the cap is spent.
+- **Operation 4, `redraw-03`,** drew everything asked for:
+  - the pass at the top, left of the graveyard;
+  - the coach road winding down past a small fenced coach stop with a wagon, to the square's east end;
+  - mountains along the north and west;
+  - no west road.
+
+  But it re-laid the whole map: the frame grew to 733 rows, and the town, the houses and the diggings moved by different amounts (10–60 px). A scale-and-shift registration left ±40–55 px of residual, so no fit could place it.
+- **Operation 5, `redraw-04`, the correction,** with the miss stated, kept the pass, the coach road, the stop and the mountains. It drew the frame taller again (776 rows, from y 90), but this time with everything else in proportion. `promote-redraw --fit` puts every anchor within 6 px of the old map:
+  - graveyard −3, 0;
+  - diggings −6, −3;
+  - east bridge +6, −3;
+  - town +1, −3;
+  - houses +1, −3;
+  - south-west bridge +1, −2;
+  - southern mines −4, −2.
+
+  Fitted by a plain scale and shift, the residual is 1–2 px (6.6 at the east bridge).
+- Promoted as `art/backgrounds/room-00-town-map.png`.
+  - The mountains run along the whole north edge and down the north-west.
+  - The lower west edge stays the pine forest that was there, at the foot of the slopes.
+  - The Lane, the church, the livery and the diggings are where they were.
+  - There is no text.
+- The builder re-places the markers and the roads, and adds the pass and the coach stop.
 
 **B · The map's Thad** lands with Lower Street and the Lane (errata 161, part 3), on the branch where it was built, and is recorded here when it merges.
