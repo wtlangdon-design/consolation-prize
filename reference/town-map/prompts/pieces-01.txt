@@ -1,0 +1,10 @@
+Image 1 is the town from a finished night map in my pixel-art adventure game, enlarged: a top-down, slightly angled plan, seen from the south and above. A long row of two-storey wooden false-front buildings faces south (towards the bottom of the picture) onto an open muddy square. Image 2 is the same main street from the ground, in the game: the long row along the back, and at the right the big saloon with a balcony over its porch, then a two-storey hotel, then a small one-storey assay office, coming forward.
+
+Draw ONLY three buildings, on their own, on a flat pure magenta background (#FF00FF), side by side with clear magenta space between them, left to right:
+1. THE SALOON: the largest building in town, two storeys and a tall false front, a balcony with a railing over a deep porch, lit windows.
+2. THE HOTEL: two storeys, a plain false front, a porch, lit windows; a little smaller than the saloon.
+3. THE ASSAY OFFICE: a small one-storey office with a false front, a door and one lit window; about half the hotel's size.
+
+THE VIEW is the map's own, the same angle, scale of detail and pixel style as the buildings in Image 1, but each building is TURNED A QUARTER TURN SO ITS FRONT FACES LEFT (west): you see its roof from above, its long south side wall facing you, and at its LEFT end its false front, porch and door, seen at an angle, facing left. The right end is a plain back wall.
+
+Night palette exactly as Image 1: deep blues, warm lit windows. Every pixel a crisp square block like Image 1's, no smoothing. Nothing else on the magenta: no ground, no shadows, no road, no people, no text, no signs with letters.
