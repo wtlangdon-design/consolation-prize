@@ -301,6 +301,12 @@
    "date": "2026-11-07",
    "kind": "reviewed",
    "why": "Loosened three times in fourteen days, each time because a ruling on reading pace changed the four hold constants it pinned (errata 154, 164). TUNED: it no longer pins their values; it holds that they are read from content and coherent (base under floor under ceiling), that the merged hold is never shorter than the old formula on the opening, and it reports the opening's total. Not retired: the one-formula rule it guards still stands."
+  },
+  {
+   "check": "tests/opening-pan.test.ts",
+   "date": "2026-11-07",
+   "kind": "loosened",
+   "why": "Errata 165: the star check's search for a star's peak widened from a fixed 3 px to the star's own recorded box, because the stars are now every star in the sky, recorded by their boxes (some elongated), not twelve centres of mass. The test is stronger overall: at least 100 stars, each dimming to the night around it and each going visibly down and up within ten seconds."
   }
  ]
 }

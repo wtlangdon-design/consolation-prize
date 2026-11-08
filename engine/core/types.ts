@@ -1699,8 +1699,12 @@ export interface RoomFile {
   background?: string;
   /** Errata 157: a screen of sky above the plate, for a `pan` step's first shot. Same width as the plate. */
   sky?: string;
-  /** Errata 157: stars in `sky` (sky coordinates) that flicker while it is on screen. Decorative only. */
-  skyStars?: [number, number][];
+  /**
+   * Errata 157, 165: stars in `sky` that twinkle while it is on screen, as [x, y, rx, ry, r, g, b] -- centre and
+   * half-extent in sky pixels, and the night's colour around the star (what a dimmed star fades to). Written by
+   * tools/pixelart/room01_sky_stars.py. Decorative only.
+   */
+  skyStars?: number[][];
   /**
    * Ruling 21a's near plane: an RGBA overlay drawn after the actor. Kept for
    * rooms not yet converted to z-planes; a room declaring `occlusionPlanes`

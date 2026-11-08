@@ -12,8 +12,8 @@ and flips, and re-starred with the plate's own stars at the plate's own
 density. Deterministic (fixed seed), so a rerun writes the same bytes.
 
     python3 tools/pixelart/room01_sky_extension.py
-writes art/backgrounds/room-01-stage-road-sky.png (1920 x HEIGHT), and the
-room's `skyStars` (the ones that flicker) into content/rooms/stage-road.json.
+writes art/backgrounds/room-01-stage-road-sky.png (1920 x HEIGHT), then runs
+room01_sky_stars.py for the room's `skyStars` (the ones that twinkle).
 """
 import warnings
 
@@ -89,30 +89,10 @@ def main() -> None:
     final = np.clip(sky, 0, 255).round().astype(np.uint8)
     Image.fromarray(final).save(OUT, optimize=True)
     print(f'{OUT}: {w}x{HEIGHT}, {count} stars from {n} in the plate band')
-    # THE STARS THAT FLICKER (Tyler: "with stars flickering in a few places"):
-    # twelve of the sky's own brightest, one to each column of a 6 x 2 grid so
-    # they are spread across it, printed for the room's `skyStars`.
-    lab, k = ndimage.label(final[..., 0] > 150)
-    centres = ndimage.center_of_mass(final[..., 0], lab, range(1, k + 1))
-    peaks = ndimage.maximum(final[..., 0], lab, range(1, k + 1))
-    picked = []
-    for gy in range(2):
-        for gx in range(6):
-            cell = [(p, c) for p, c in zip(peaks, centres)
-                    if gx * w / 6 <= c[1] < (gx + 1) * w / 6 and gy * HEIGHT / 2 <= c[0] < (gy + 1) * HEIGHT / 2]
-            if cell:
-                _, (cy, cx) = max(cell, key=lambda pc: pc[0])
-                picked.append([int(round(cx)), int(round(cy))])
-    # Written into the room, never copied by hand: a regenerated sky moves its
-    # stars, and a list typed in from an earlier run would flicker empty sky.
-    import json
-    room_path = 'content/rooms/stage-road.json'
-    with open(room_path, encoding='utf-8') as handle:
-        room = json.load(handle)
-    room['skyStars'] = picked
-    with open(room_path, 'w', encoding='utf-8') as handle:
-        handle.write(json.dumps(room, indent=2, ensure_ascii=False) + '\n')
-    print('skyStars', picked, '->', room_path)
+    # THE STARS THAT TWINKLE (errata 157, 165) are read back out of the sky just
+    # written, never typed in: a regenerated sky moves its stars.
+    import room01_sky_stars
+    room01_sky_stars.main()
 
 if __name__ == '__main__':
     main()
