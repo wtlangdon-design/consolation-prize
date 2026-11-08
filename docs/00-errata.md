@@ -4808,7 +4808,7 @@ Doc 102 records it.
 Doc 103 records it.
 
 - **Act IV is unchanged.** The read found it already does doc 99's work and points each step at the next, and its rooms agree on their dates.
-- **Every `[COMIC]` option left on a menu, in every tree, now has its own second answer.** Twenty-three more were written:
+- **Every `[COMIC]` option left on a menu, in every tree, now has its own second answer.** Nineteen more were written:
   - in doc 07, as *Asked again:*;
   - in doc 27, as *(again)*;
   - in doc 04, as *(second)*.

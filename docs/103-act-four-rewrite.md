@@ -20,7 +20,7 @@ None of it was rewritten. Each step already says where the next one is:
 
 Act IV's rooms (33 to 36) were read for continuity: the twelve years of the strike, Winnie's nine, the 1851 portraits printed as Mott for seven. They agree.
 
-**What the read did find runs through every act: the joke options.** Each act's pass gave every question a second answer. But a `[COMIC]` option that stays on the menu is exactly the one a player clicks twice, because it was funny the first time, and twenty-three of them still replayed their first answer word for word. That is the robot Tyler heard on Main Street.
+**What the read did find runs through every act: the joke options.** Each act's pass gave every question a second answer. But a `[COMIC]` option that stays on the menu is exactly the one a player clicks twice, because it was funny the first time, and nineteen of them, outside Acts II and III, still replayed their first answer word for word. That is the robot Tyler heard on Main Street.
 
 ## What changed
 
