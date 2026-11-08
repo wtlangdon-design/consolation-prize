@@ -631,10 +631,15 @@ The bible: "Thad names it (full Christian name, chosen by the player from three 
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "I need a boundary divined." | `[PROGRESS · remove]` | "The *earth* will speak — two dollars — the earth will speak to me of *lines and limits* — in advance —" *(req `T_SURVEY_NEEDED`; then doc 57 A7: the fee, the map, the divining)* |
-| 2 | "How does the rod work?" | `[TOPIC · retain]` | "It is drawn to the *hidden metal*." *(It is brass. Brass is not drawn to gold. She humphs when this is raised and does not address it.)* |
+| 2 | "How does the rod work?" | `[TOPIC · retain]` | "It is drawn to the *hidden metal*." *(It is brass. Brass is not drawn to gold. She humphs when this is raised and does not address it.)* *(second)* "It is drawn to the hidden metal. Asking twice is a dollar." |
+| 6 | "Could the rod find gold on my claim?" | `[TOPIC · retain]` | "The rod finds gold *everywhere*, darling. It is the digging that disappoints." *(second)* "Everywhere. Digging is extra." |
+| 7 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "The spirits know Ezra Pike. *Intimately.* Two dollars and I shall ask them where he is." *(beat)* "Or the undertaker will tell you for nothing. He undercuts me terribly." *(second)* "The undertaker. Free, and no atmosphere whatsoever." *(unless `T_PIKE_DEAD`)* |
+| 8 | "You knew Pike was dead." | `[TOPIC · retain]` | "The rod knew. The rod knows *everything*." *(beat)* "The rod also charges." *(second)* "The rod knows. The rod charges. These are its two qualities." *(req `T_PIKE_DEAD`)* |
 | 3 | "Does it ever not work?" | `[COMIC · retain]` | "It has never not worked." *(beat)* "It has occasionally been *early*." |
 | 4 | "Do you ever hear anything?" | `[TOPIC · remove]` | *(genuinely puzzled)* "…Hear?" *(She has been reading ground resonance for eleven years and has never once considered that she is listening.)* → **the Act IV corroboration, planted here and never mentioned again** |
 | 5 | "Have you ever been in the Liar's Assay, Madame?" | `[ASSAY · remove]` | "Once. A prospector told me he had panned a pound before breakfast, and the rod moved me to say—" *(she closes her eyes)* "'You have never seen breakfast.'" *(She opens them.)* "Two dollars." — *"For the story?"* — "For the counter. The story was free." *(pair 19; errata 75)* |
+
+*Errata 172, doc 99's rewrite: second answers, and she charges for one. Option 6 is the greedy question doc 99 rule 3 asks for. Options 7 and 8 are the town's Pike thread (doc 98), in which the undertaker undercuts her. Nothing touches A7: the fee, the map and the divining are option 1's, as before.*
 
 **Act IV:** if Thad returns after `T_VOID`, she is at Prosperity, holding the rod, staring at the ground, saying nothing. Her only line: *"…It's loud here."*
 
@@ -733,11 +738,15 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "I need to file this deed." | `[PROGRESS · remove]` | "Form 12-C requires a boundary by survey. Your deed says 'from the stake, thereabouts.'" *(He taps the word.)* "Thereabouts is not a unit, Mr. Grubb. I have checked." | sets `T_SURVEY_NEEDED` — **A6** *(errata 75: the refusal; the filing itself is doc 57 A9)* |
+| 1 | "I need to file this deed." | `[PROGRESS · remove]` | "Form 12-C requires a boundary by survey. Your deed says 'from the stake, thereabouts.'" *(He taps the word.)* "Thereabouts is not a unit, Mr. Grubb. I have checked." | sets `T_SURVEY_NEEDED` — **A6** *(errata 75: the refusal; the filing itself is doc 57 A9)* req `T_SWINDLED` *(errata 172: he has no deed before the swindle)* |
 | 1′ | "Where would I find a surveyor?" | `[PROGRESS · remove]` | "The territory licenses surveyors. Consolation has none. The statute accepts a boundary 'attested in good form by any person holding a trade license from this office.'" *(beat)* "I have issued one license this year. It was to a diviner." | req `T_SURVEY_NEEDED`; points to Ozymandia — A7 *(errata 75)* |
 | 1″ | "I have a survey." | `[PROGRESS · remove]` | "Then the deed, the survey and the fee. In that order. The order is in the statute, so that nobody can say he paid for the paper." | req THE SURVEY; doc 57 A9 *(errata 75)* |
-| 2 | "The deed's drawn wrong side up." | `[TOPIC · retain]` | "Statute does not specify an orientation. You would be surprised how much statute does not specify. I would not. I have read it." | — |
+| 2 | "The deed's drawn wrong side up." | `[TOPIC · retain]` | "Statute does not specify an orientation. You would be surprised how much statute does not specify. I would not. I have read it." *(second)* "It still does not specify. I have read it again since you asked." | req `T_SWINDLED` |
+| 5 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "Pike, Ezra. Claim filed in forty-nine. Lapsed in fifty-two, on account of the claimant." *(beat)* "The undertaker holds the rest of the file." *(second)* "Lapsed. The undertaker has the remainder of the file." | unless `T_PIKE_DEAD` |
+| 6 | "You knew Pike was dead." | `[TOPIC · retain]` | "Lapsed, Mr. Grubb. In this office we say lapsed." *(second)* "Lapsed. It is a perfectly good word. It has a form." | req `T_PIKE_DEAD` |
 | 3 | "Is there a form for that?" | `[COMIC · counted-repeat]` | "There is a form for everything, Mr. Grubb. That is the *point* of forms." *(second)* "12-F. Requests, Facetious." *(He is not joking. It exists. He files it.)* | — |
+
+*Errata 172, doc 99's rewrite: a second answer for option 2, and the town's Pike thread (doc 98) in Sump's own words. Pike's claim lapsed in 1852, the year the undertaker gives.*
 
 **`SUM_B1` (Act II — the three documents):** the trials' paper spine. One option per document *(errata 75: no longer a rephrase chain)* — and the citation for why B can only be issued to the deceased, delivered without the slightest acknowledgement that this is remarkable.
 
@@ -832,12 +841,16 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "I need the mule for the diggings road." | `[PROGRESS · remove]` | "You don't hire Grievance. You *apply*. She'll look at you. Then we'll know." *(She looks. A long moment. She looks away.)* "…Well. Now we know." *(Errata 75: she will not move — B2's refusal. "D-travel" is withdrawn; travel is the map.)* |
-| 2 | "Why 'Grievance'?" | `[TOPIC · retain]` | "Had a partner once. She took his side." |
+| 2 | "Why 'Grievance'?" | `[TOPIC · retain]` | "Had a partner once. She took his side." *(second)* "She took his side. She'd take it again, given the chance." |
+| 8 | "Did you know Ezra Pike?" | `[TOPIC · retain]` | "Grievance knew him. She'd tell you to ask the undertaker." *(beat)* "She's not a talker." *(second)* "The undertaker. Grievance has nothing to add." → unless `T_PIKE_DEAD` |
+| 9 | "You knew Pike was dead." | `[TOPIC · retain]` | "She knew. She looked at me funny for a week." *(second)* "A whole week. Funny." → req `T_PIKE_DEAD` |
 | 3 | "Is the mule all right?" | `[COMIC · retain]` | "She's fine. She's just got a view." |
 | 4 | "What's that tune?" | `[TOPIC · remove]` | *(He hums the pitch. Badly. It is recognisably the town theme and recognisably wrong, and Thad's ear files it.)* "That's what the fella whistled. Twelve years I've been getting it wrong." → `T_HUM_HEARD` *(errata 68 F: B3 needs it; errata 75: req `T_GRIEVANCE_MOTT`, and the Assay pair is option 7)* |
 | 5 | "Could I borrow a blanket?" | `[PROGRESS · remove]` | "Hers?" *(He looks at Grievance. Grievance looks at the blanket.)* "She's not using it. Bring it back before she notices." → THE LIVERY BLANKET *(errata 68 A; option added in Batch C, doc 54)* |
 | 6 | "Has she ever moved for anybody?" | `[PROGRESS · remove]` | "Once. Twelve years back. Fella came in at night, whistled at her, and she walked out after him like she'd been waiting." *(beat)* "Never saw him again. Never saw her move again, either." → `T_GRIEVANCE_MOTT` — **B2** *(errata 75)* |
 | 7 | "Have you ever been in the Liar's Assay?" | `[ASSAY · remove]` | "Once. Fella told me, 'I once bought a saloon with a single nugget.' I said, 'I have been in it. You overpaid.'" *(beat)* "He's never forgiven me. Still owns the saloon." → pair 20 *(errata 75)* |
+
+*Errata 172, doc 99's rewrite: a second answer for option 2, and the town's Pike thread (doc 98) in the livery man's way, which is through the mule.*
 
 ## THE UNDERTAKER — two nodes
 

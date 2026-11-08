@@ -30,7 +30,56 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "How does the rod work?",
-          "say": "It is drawn to the hidden metal."
+          "say": "It is drawn to the hidden metal.",
+          "repeat": "It is drawn to the hidden metal. Asking twice is a dollar."
+        },
+        {
+          "id": "ozymandia6",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Could the rod find gold on my claim?",
+          "say": "The rod finds gold everywhere, darling. It is the digging that disappoints.",
+          "repeat": "Everywhere. Digging is extra."
+        },
+        {
+          "id": "ozymandia7",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Do you know Ezra Pike?",
+          "exchange": [
+            {
+              "speaker": "ozymandia",
+              "line": "The spirits know Ezra Pike. Intimately. Two dollars and I shall ask them where he is."
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "Or the undertaker will tell you for nothing. He undercuts me terribly."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          },
+          "repeat": "The undertaker. Free, and no atmosphere whatsoever."
+        },
+        {
+          "id": "ozymandia8",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "You knew Pike was dead.",
+          "exchange": [
+            {
+              "speaker": "ozymandia",
+              "line": "The rod knew. The rod knows everything."
+            },
+            {
+              "speaker": "ozymandia",
+              "line": "The rod also charges."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": true
+          },
+          "repeat": "The rod knows. The rod charges. These are its two qualities."
         },
         {
           "id": "ozymandia3",

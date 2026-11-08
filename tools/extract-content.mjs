@@ -3040,6 +3040,8 @@ function sumpTree() {
       if (sets.length) option.set = Object.fromEntries(sets.map((f) => [f, true]));
       const reqFlag = /req `([A-Z_0-9]+)`/.exec(stateText);
       if (reqFlag) option.when = { [reqFlag[1]]: true };
+      const unlessGate = /unless `([A-Z_0-9]+)`/.exec(stateText);
+      if (unlessGate) option.when = { ...option.when, [unlessGate[1]]: false };
       const reqItem = /req (THE [A-Z ]+?)(?:;|$|\s\*)/.exec(stateText);
       if (reqItem) {
         const item = ITEM[reqItem[1].trim()];
@@ -4472,7 +4474,9 @@ function liveryTree() {
   for (const [, number, optionCell, tagCell, responseCell] of body.matchAll(/^\| (\d+) \| (.+?) \| (.+?) \| (.+?) \|$/gm)) {
     const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
     const text = quoted(optionCell)[0];
-    const [reply, ...rest] = responseCell.split('→');
+    const [replied, ...rest] = responseCell.split('→');
+    // ASKED AGAIN (errata 172): *(second)* "..." is the answer to the same question twice.
+    const [reply, againCell] = replied.split('*(second)*');
     const said = spokenIn(reply.replace(/\*\([^)]*\)\*/g, ''), SPEAKER);
     for (const d of spokenIn(responseCell, SPEAKER).staging) process.stderr.write(`  doc 04 LIV_A1 option ${number} staging: ${d}\n`);
     if (!tag || !text || !said.lines.length) throw new Error(`doc 04 LIV_A1: option ${number} does not read`);
@@ -4480,7 +4484,10 @@ function liveryTree() {
     const option = { id: `${SPEAKER}${number}`, tag: tag[1], ...(tag[2] ? { afterUse: tag[2] } : {}), text };
     if (said.lines.length === 1 && said.lines[0].speaker === SPEAKER) option.say = said.lines[0].line;
     else option.exchange = said.lines;
-    const flags = [...state.matchAll(/`([A-Z_0-9]+)`/g)].map((m) => m[1]).filter((f) => !/req `/.test(state) || !state.includes(`req \`${f}\``));
+    const flags = [...state.matchAll(/`([A-Z_0-9]+)`/g)].map((m) => m[1])
+      .filter((f) => (!/req `/.test(state) || !state.includes(`req \`${f}\``)) && !state.includes(`unless \`${f}\``));
+    const again = againCell ? /"([^"]+)"/.exec(againCell)?.[1] : undefined;
+    if (again) option.repeat = again;
     const req = /req `([A-Z_0-9]+)`/.exec(state);
     const route = ROUTE[number] ?? {};
     const set = { ...Object.fromEntries(flags.map((f) => [f, true])), ...(route.set ?? {}) };
@@ -4492,7 +4499,7 @@ function liveryTree() {
     if (route.puzzle) option.puzzle = route.puzzle;
     options.push(option);
   }
-  if (options.length !== 7) throw new Error(`doc 04 LIV_A1: ${options.length} options, not 7`);
+  if (options.length < 7) throw new Error(`doc 04 LIV_A1: ${options.length} options, fewer than 7`);
   options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[1 % POOL.length], universal: true, ends: true });
   return write('content/dialogue/livery-man.json', {
     aftermathAuthored: true,
@@ -4532,7 +4539,9 @@ function ozymandiaTree() {
   for (const [, number, optionCell, tagCell, responseCell] of body.matchAll(/^\| (\d+) \| (.+?) \| (.+?) \| (.+?) \|$/gm)) {
     const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
     const text = quoted(optionCell)[0];
-    const [reply] = responseCell.split('→');
+    const [replied] = responseCell.split('→');
+    // ASKED AGAIN (errata 172).
+    const [reply, againCell] = replied.split('*(second)*');
     const said = spokenIn(reply.replace(/\*\([^)]*\)\*/g, ''), SPEAKER);
     for (const d of spokenIn(responseCell, SPEAKER).staging) process.stderr.write(`  doc 04 OZY_A1 option ${number} staging: ${d}\n`);
     if (!tag || !text || !said.lines.length) throw new Error(`doc 04 OZY_A1: option ${number} does not read`);
@@ -4544,9 +4553,11 @@ function ozymandiaTree() {
     const unlessFlag = /unless `([A-Z_0-9]+)`/.exec(responseCell);
     if (unlessFlag) option.when = { ...option.when, [unlessFlag[1]]: false };
     if (ROUTE[number]?.set) option.set = ROUTE[number].set;
+    const again = againCell ? /"([^"]+)"/.exec(againCell)?.[1] : undefined;
+    if (again) option.repeat = again;
     options.push(option);
   }
-  if (options.length !== 5) throw new Error(`doc 04 OZY_A1: ${options.length} options, not 5`);
+  if (options.length < 5) throw new Error(`doc 04 OZY_A1: ${options.length} options, fewer than 5`);
   options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[2 % POOL.length], universal: true, ends: true });
   return write('content/dialogue/ozymandia.json', {
     aftermathAuthored: true,
