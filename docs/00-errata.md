@@ -4687,4 +4687,12 @@ The builder read every exterior plate. `reference/district/plan.json` records wh
   - cast-unify goes from 80 to 90. That covers redrawing every figure drawn bigger-headed or bulkier than Thad: the map seller, pie woman, message boy, letter-writer, both boundary men, the bell ringer and the fiddler.
   - room-02 has 4 more operations, for a hitching post with horses front and centre.
   - The total cap rises by 14.
+# 169 · EVERY SPEAKER HAS A COLOUR — TYLER, 2026-11-07
+
+*Tyler: "Are the map guy and Thad supposed to have the same color of text? Is that going to be a problem I run into over and over?" It was: 23 of the 27 people who speak drew in the default ink, a few units from Thad's own. From a rendered sample of the whole cast on the actual plates, grouped by room: "ship them".*
+
+- `content/ui/speech-colours.json` gives every speaker a colour. Nobody sharing a room is near Thad or near each other. Hob, Deke, Sowerby and the driver keep their approved colours, and Sowerby at the graveside is Sowerby (`sameAs`).
+- The card sharp is nudged from the sample's #ff8080 to #ff6f8f, because the sample sat 22 from Fanshawe, under the check's 24.
+- Barks are drawn in the speaker's colour too. They were always the default ink, so the street's remarks read as Thad's.
+- `tools/check-speech-colours.mjs` now fails on any id that speaks without a colour: a tree's speaker, a speaker in an exchange, or a townsperson with barks. It failed on the map seller with his entry taken out.
 

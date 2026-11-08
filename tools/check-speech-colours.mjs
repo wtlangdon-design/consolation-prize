@@ -66,6 +66,7 @@ export function check() {
     for (let b = a + 1; b < declared.length; b += 1) {
       const [oneId, one] = declared[a];
       const [twoId, two] = declared[b];
+      if (one.sameAs === twoId || two.sameAs === oneId || (one.sameAs && one.sameAs === two.sameAs)) continue;
       const first = rgb(one.colour);
       const second = rgb(two.colour);
       if (!first || !second) continue;
@@ -75,6 +76,27 @@ export function check() {
           + 'two speakers the player cannot tell apart');
       }
     }
+  }
+  // EVERY SPEAKER HAS A COLOUR (errata 169; Tyler, 2026-11-07: "Are the map guy and Thad supposed to have the same
+  // color of text? Is that going to be a problem I run into over and over?"). It was: 23 of 27 speakers drew in
+  // the fallback, five units from Thad's own ink. Every id that speaks -- a tree's speaker, a speaker in an
+  // exchange, a townsperson with barks -- must have an entry.
+  const speakers = new Set();
+  for (const path of manifest.dialogue ?? []) {
+    const tree = readJson(path);
+    if (tree.speaker) speakers.add(tree.speaker);
+    for (const node of Object.values(tree.nodes ?? {})) {
+      for (const option of node.options ?? []) for (const line of option.exchange ?? []) if (line.speaker) speakers.add(line.speaker);
+    }
+  }
+  for (const path of manifest.ambient ?? []) {
+    const npc = readJson(path);
+    if (npc.barks && Object.values(npc.barks).some((line) => line)) speakers.add(npc.id);
+  }
+  const actor = readJson(manifest.actor).id;
+  speakers.delete(actor);
+  for (const id of [...speakers].sort()) {
+    if (!file.speakers?.[id] && id !== 'thad' && !/^harness/.test(id)) report.fail(`${id} speaks and has no colour: its lines draw in the fallback, beside Thad's own ink`);
   }
   report.note(`${declared.length} speaker(s), fallback ${swatches[palette.roles.inkBright]}, `
     + `minimum separation ${MIN_DISTANCE}`);
