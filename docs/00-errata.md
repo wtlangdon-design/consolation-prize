@@ -4808,7 +4808,7 @@ Each sheet is painted over the in-game Thad (`art/actors/thad-stand-front/stand-
 - the boy's template is a child built from Thad (a smaller body under a head ~0.88 of his);
 - the fiddler's face is Charlie's own, from his sheet (errata 123), with no photograph.
 
-**B · Seven operations, cast-unify 79–85** (`reference/cast-unify-50.txt` to `-56.txt`). The ledger was checked before each. The boundary men share one sheet, as before. No correction was needed, so 85 of 90 are spent.
+**B · Seven operations, cast-unify 79–85** (`reference/cast-unify-50.txt` to `-56.txt`). The ledger was checked before each. The boundary men share one sheet, as before. No correction was needed for build, so 85 of 90 were spent; then one more for the map seller's clothes (D), so 86.
 
 `lineup-redraws.py cut` cuts each at the drawn height of the frame it replaces (`cast-unify-cut.py --grid 1`) and keeps every frame index:
 - frame 1 is a breath derived from the rest pose;
@@ -4821,7 +4821,7 @@ The records are written first, then each sheet is snapped to one level (errata 1
 
   | Figure | Before | After |
   |---|---|---|
-  | Map seller | 1.88 | 1.09 |
+  | Map seller | 1.88 | 1.15 (after D) |
   | Letter-writer | 1.39 | 1.09 |
   | Pie woman | 1.27 | 0.85 |
   | Bell-ringer | 1.20 | 1.05 |
@@ -4837,3 +4837,7 @@ The records are written first, then each sheet is snapped to one level (errata 1
 - the message boy's look-back pose is now drawn from behind;
 - the faces are a little more front-on than the old three-quarter view;
 - the fiddler's face should be checked against Charlie.
+
+**D · The map seller's clothes (Tyler, shown the lineup): "The map seller is dressed exactly like Thad. Change his clothes, the rest look good."** Doc 07 does not describe his clothes, so they were chosen to share nothing with Thad's: a short mustard-brown work jacket, a cream shirt with thin brown stripes, a red neckerchief and tan trousers. His flat cap, satchel, map, face and poses are kept.
+
+Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`derivedFrom` 79) that changes only the clothes. It is cut with `lineup-redraws.py cut map-seller --batch 57`. His shoulders measure 1.15× Thad's, and by ruler his head is Thad's. 86 of 90 are spent.

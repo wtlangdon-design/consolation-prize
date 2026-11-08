@@ -1,0 +1,14 @@
+{
+ "assetId": "cast-unify",
+ "subject": "lineup-map-seller",
+ "role": "derived-state",
+ "derivedFrom": 79,
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/cast-unify-57.txt",
+ "out": "art/staging/cast-unify/batch-57/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-57/input.png"
+ ]
+}
