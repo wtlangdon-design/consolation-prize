@@ -1083,6 +1083,16 @@
    "note": "Errata 175: Act II's opening is owed, as errata 101 B's Act IV one is. Written by the dinner's beat 4 with ACT = 2 and cleared when the game has cut to Main Street the next morning and Thad has said doc 57's line: what he wants in Act II (Claim One's filing) and where it starts (Sump). content/act-cards.json names it (`openings.2.due`)."
   },
   {
+   "id": "T_ACT_III_OPENING",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:FANSHAWE:FAN_C1:fanshawe1 (with ACT 3, doc 57 E0b)",
+    "engine:GameState.openAct (clears it)"
+   ],
+   "note": "Errata 177: Act III's opening is owed, as Act II's (errata 175) and Act IV's (errata 101 B) are. Written by E0b with ACT = 3 and cleared when the game has cut to Main Street the next morning and Thad has said doc 57's line: the blank page, Fanshawe's price for keeping it blank, and the sealed door at Sump's. content/act-cards.json names it (`openings.3.due`)."
+  },
+  {
    "id": "T_ACT_IV_OPENING",
    "type": "boolean",
    "initial": false,

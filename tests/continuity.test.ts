@@ -41,3 +41,20 @@ test("the assayer's stool, cot and tea are hers", () => {
     }
   }
 });
+
+/**
+ * THE HERO HAS BEEN IN TOWN DAYS, NOT MONTHS (errata 177). Doc 02 D gives nine days when the ninety-day
+ * rule stops him in Act II, which is why Pratt's ninety days is "a flat lie". The funeral's mourners line said
+ * "I have been in Consolation eleven weeks" -- seventy-seven days, which would have made the lie nearly true.
+ * Doc 91 had already taken "eleven weeks" out of three lines; this was the fourth.
+ */
+test('no shipped room puts the hero in town for weeks on end', async () => {
+  const { readdirSync } = await import('node:fs');
+  const dir = new URL('../content/rooms/', import.meta.url);
+  for (const name of readdirSync(dir).filter((n) => n.endsWith('.json') && !n.includes('candidate'))) {
+    const text = readFileSync(new URL(name, dir), 'utf8');
+    // His own time here, said by him: "I have been … eleven weeks". A catalogue's "six to ten weeks" is not his.
+    const found = text.match(/"[^"]*\b(?:I have been|I've been|Eleven weeks, and I)\b[^"]*\b(?:eight|nine|ten|eleven|twelve)? ?weeks\b[^"]*"/i);
+    assert.equal(found, null, `${name}: ${found?.[0]} -- he has been in town about nine days by Act II (doc 02 D)`);
+  }
+});

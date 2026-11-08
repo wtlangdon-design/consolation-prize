@@ -735,7 +735,7 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 | 1 | "He was a beloved and industrious young man of rare promise." | `[TOPIC · retain]` | "Beloved! Industrious! Young! *Rare!* Four adjectives, eight dollars, and every one of them deserved." *(+4 adjectives, $8)* *(second)* "Beloved, industrious, young and rare, again! Grief gives no discount for repetition." |
 | 2 | "He was a man." | `[TOPIC · retain]` | *(wounded)* "That is not a eulogy, that is a census." *(+0)* *(second)* "Still a census. I have counted him once already." |
 | 3 | "He was present." | `[PROGRESS · remove]` | *(A long, painful pause. He writes it down.)* "…Present. Three words, and one of them is 'was'. I shall add an 'amen' at no charge; I cannot send a man into the ground on three." *(Four words, fifty cents. The counter stops. Sets `T_SOWERBY_PRICE`.)* |
-| 4 | "He tuned pianos." | `[COMIC · retain]` | *(His eyes fill.)* "He tuned pianos. He brought order to the very instruments of praise, and asked nothing, and was paid less—" *(He goes on. He is still going when Thad looks back from the door.)* *(+0, free, unprompted.)* |
+| 4 | "He tuned pianos." | `[COMIC · retain]` | *(His eyes fill.)* "He tuned pianos. He brought order to the very instruments of praise, and asked nothing, and was paid less—" *(He goes on. He is still going when Thad looks back from the door.)* *(+0, free, unprompted.)* *(second)* "He tuned pianos! Did I say? I shall say it again at the graveside. No charge." |
 
 **Correct solution:** "He was present." The cheapest possible funeral in the history of the territory, and the sole reason Thad can afford to die. *(The money is Sheng's loan, paid at the undertaker's, who bills for the Reverend: doc 57 E3.)*
 
@@ -794,7 +794,7 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 |---|---|---|---|---|
 | 1 | "I'd like Obadiah Mott declared dead." | `[PROGRESS · remove]` | "Seven years' absence, which Mr. Mott has comfortably achieved, and a petitioner with standing: kin, or a creditor. Mr. Mott has no kin on file, and he owes nobody." *(beat)* "It is the most suspicious thing about him." | **E1**, blocked by design |
 | 2 | "Section nineteen. The executor of a deceased claimholder." | `[PROGRESS · remove]` | "May open the archive. Correct." — *"I hold a claim."* — "You do." — *"If I were deceased—"* — "Your executor would have the archive, and you would have a plot." *(beat)* "An executor may hold no interest in any claim touching the estate. Sub-section two. It was written after a family in Placerville." *(beat)* "The office does not advise. It answers." | req E1; sets `T_NEED_TO_DIE`, `T_EXECUTOR_RULE` — **E2** |
-| 3 | "Is dying difficult here?" | `[COMIC · retain]` | "It is the only thing in Consolation that requires no form in advance. Afterward there are several." | — |
+| 3 | "Is dying difficult here?" | `[COMIC · retain]` | "It is the only thing in Consolation that requires no form in advance. Afterward there are several." *(second)* "No form in advance. I have checked again. I find it a serious gap." | — |
 
 **`SUM_C1` (Act III — accepting the death certificate):**
 
@@ -802,7 +802,7 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 |---|---|---|---|
 | 1 | "I have a death to record. Mine." | `[PROGRESS · remove]` | *(He examines it. He examines Thad. He stamps it.)* "The office does not require the deceased to be absent. An oversight, possibly. I do not correct statute. I administer it." |
 | 2 | "You know I'm not dead." | `[TOPIC · remove]` | "I know what is *certified*, Mr. Grubb. It is the only kind of knowing this window does." |
-| 3 | "Is there a form for this?" | `[COMIC · retain]` | "Form 31-D. Notice of Decease, Self-Reported. Nobody has used it before. It was printed in hope." |
+| 3 | "Is there a form for this?" | `[COMIC · retain]` | "Form 31-D. Notice of Decease, Self-Reported. Nobody has used it before. It was printed in hope." *(second)* "31-D. You are the first. I have made a note of it for the next printing." |
 
 *Option 3 added in Batch C (doc 54), 2026-10-31, at Tyler's instruction: the node had two options and no `[COMIC]`, against node rules 1 and 2. It answers SUM_A1's "Is there a form for that?"*
 
@@ -885,7 +885,7 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 |---|---|---|---|
 | 1 | "I'll need your best pine, handles, plate." | `[PROGRESS · remove]` | *(The measuring wall. The pencil. No questions at all.)* "Sizing's free. It's the only thing that is. Stand straight." |
 | 2 | "You haven't asked who it's for." | `[TOPIC · retain]` | "It's for whoever fits." *(second)* "Still haven't." |
-| 3 | "Could you make it roomy?" | `[COMIC · retain]` | "Everybody asks for roomy. Nobody's ever come back to complain." |
+| 3 | "Could you make it roomy?" | `[COMIC · retain]` | "Everybody asks for roomy. Nobody's ever come back to complain." *(second)* "Roomy's extra. Nobody's ever come back for that either." |
 
 
 ---
