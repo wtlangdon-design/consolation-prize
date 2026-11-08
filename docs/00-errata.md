@@ -5152,3 +5152,22 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
 - **No two passages that form a choice differ in what LISTEN says.** The listening stays special (doc 107).
 - **One correction to errata 190.** Errata 190 said the mine has no daylight to read the time by. The sample lights the mine with old shafts to the surface, so it is the same day inside. Doc 107 now says so.
 - **Not built, and nothing to build yet.** The lines wait for Tyler's ruling and for the art. The art waits for a cap he sets in `art/staging/caps.json`. Doc 108 is not read by any extractor until the Gulch is built.
+
+# 193 · FIDDLER'S GULCH: THE REST OF THE LINES — TYLER, 2026-11-08 ("I like the Gulch sample. Proceed.")
+
+*Tyler ruled on the sample (doc 108, errata 191) and told the writing to go on. This is the rest of the Gulch's lines, under the eighth writing exception. Errata 191's sample-first condition is met.*
+
+- **The lines are `docs/109-fiddlers-gulch-lines.md`:**
+  - the ledge and the five Gulch screens, every subject and way;
+  - the lookout, the rule-keeper, the panner and the man upstream: their trees and barks;
+  - Vessel before he is found (as the Deacon), the find (G4), and his VES_B1 in the Gulch;
+  - G5's fiddle, G3's Clarion, G6, Duel One's staging on the bar with the rule-keeper's five wrong rules, and G9;
+  - the ride home and Vessel's new greeting in Room 4;
+  - the changes in Consolation: A9's third copy, G1's rod hire in Room 16, B1's Clarion edition, and their three items.
+- **Lines that exist elsewhere are named, not retyped:** doc 03's Duel One opening, exchanges, notebook lines and loss dialogue, and doc 04's VES_B1.
+- **Two proposals for Tyler, which G4 needs** (doc 107, open question 2):
+  - Vessel's Gulch name is "the Deacon", his own name, which Deke is short for;
+  - his Gulch figure has shaved off the mustache, so Thad doesn't know him on sight.
+  Both are written into doc 109. If Tyler rules against either, the lines that use it are rewritten.
+- **Not written:** G8, which waits on open question 1, and Duel One's replay in the Nugget, which waits on open question 3.
+- **Nothing is built.** The lines move into their home documents and are extracted when the trip is built. The art waits for a cap Tyler sets in `art/staging/caps.json`.
