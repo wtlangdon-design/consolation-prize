@@ -5246,3 +5246,18 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
   - third and after: "I'll leave you to it, then."
 
   She answers each with her one line, doc 04's "…It's loud here.", so doc 04's "her only line" and "saying nothing" stay true. The builder's brief is `reference/ozymandia-prosperity/talk-to-brief.md`.
+
+# 190 · TALK TO OZYMANDIA AT PROSPERITY, WIRED — TYLER, 2026-11-08 (reference/ozymandia-prosperity/talk-to-brief.md)
+
+*Errata 189's last item, built. No image operation and no new words: every line was already written.*
+
+- **People mapping.** Room 23's annotation maps `MADAME OZYMANDIA` to `prosperity_ozymandia`. Its compiled room gains her `peopleResponses.TALK_TO`: doc 54's first line as `say`, with "(second time)" and "(third time and after)" as its `repeat`, in written order.
+- **Repeats, not flags.** The compiler reads a person's qualifier "second time", "third time", "and after" (up to fifth) as a selection count. Each joins the verb's unconditioned rule as a `repeat`, the way an object's lines work: the first, then each repeat, the last holding. No flag is set per visit, and `peopleWhen` is untouched. The compiler refuses a repeat written before any first line.
+- **She answers.** `engine/core/PersonLines.ts` stages a person's room lines as a target. For TALK TO on a figure with no tree, it queues her bark for the current reputation after his line, every time. The bark is read from her ambient file, in her voice (`speaksAs`), over her head. Doc 04's "her only line" stays literally true. Any other verb is his alone.
+- **He walks up first.** TALK TO on a person with no tree walks Thad to the figure's `walkTo` and faces him there before the line, through the scene's staged chain, as a tree's TALK TO does. Every other verb the room writes for a person answers from where he stands, as it always has.
+- **Pratt's stake keeps its place.** It had been moved in the room file only (errata 112 J), so every compile of Room 23 put it back at 411, 724. The move is now in the annotation, at 434, 825, with its note. Compiling Room 23 now changes only her lines and that note.
+- **Not touched:** her approach bark (it still plays once on approach), any puzzle, any flag, any LISTEN, and her other verbs, which stay with the people pool.
+- **Checks.** `tests/ozymandia-talk-to.test.ts` covers the Act IV state after the void (fixture `r34-b`). TALK TO three times gives doc 54's three lines in order, each answered by her bark; a fourth gives the third again. The target carries her `walkTo`, LOOK carries neither a walk nor her answer, and the scene stages TALK TO through `beginInteraction`. `tests/annotation-props.test.ts` holds that every prop an annotation places stands where its compiled room has it.
+- **Seen in the game.** `tools/gauntlet/routes/prosperity-ozymandia-talk.json` starts from fixture `r34-b`, climbs the rope and talks to her four times (`life.mjs under_prosperity --fixture r34-b --route prosperity-ozymandia-talk --out renders/proofs/prosperity/ozymandia-talk`). It passes. `renders/room-23-ozymandia-talk-to.webp` is the exchange, and `renders/room-23-ozymandia-talk-to-sheet.webp` its frames.
+
+Lesson: a person's TALK TO is only staged like a tree's if a test walks it (the walk test fails when TALK TO answers where he stands). A prop moved in a room file is undone by the next compile unless the annotation moves too, and `tests/annotation-props.test.ts` now fails on any that disagree (proved by putting the stake back at 411).

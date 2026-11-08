@@ -4,6 +4,7 @@ import type { GameState } from '../core/GameState.ts';
 import type { AmbientFile, Cutaway, Exit, Facing, Interactable, CombinationPair, RoomTimelineStep, SoundsFile,
 } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
+import { personLines } from '../core/PersonLines.ts';
 import { planNear, planRoom } from '../core/BootAssets.ts';
 import { MapWalk, homeLocation, mapPath, placePoint } from '../core/MapWalk.ts';
 import { Music } from '../core/Music.ts';
@@ -244,6 +245,8 @@ export class GameScene extends Phaser.Scene {
   private musicFinishing = false;
   /** Lines still to come in a multi-speaker response, in order. */
   private pendingSay: QueuedLine[] = [];
+  /** A person's lines staged for a walk-up, and who answers after them (core/PersonLines.ts; errata 190). */
+  private personTarget: ReturnType<typeof personLines> = null;
   /** The frames an acted direction holds while it plays from the queue (doc 95; errata 141). */
   private queuedPoses: HeldPose[] | null = null;
   /** A line `overBlack` has blacked out the play area until the room changes (doc 57 B3). */
@@ -1497,15 +1500,18 @@ export class GameScene extends Phaser.Scene {
     // any verb, and TALK TO too for a person with no tree to open. Only a
     // rule whose condition holds answers; otherwise the person's own layer
     // and the people pool below, as before.
-    const roomLines = npc && chosen !== null
-      ? this.state.room.peopleResponses?.[npc.id]?.[chosen] : undefined;
-    if (npc && chosen !== null && roomLines?.some((rule) => this.state.flags.test(rule.when))
-      && (chosen !== 'TALK_TO' || !npc.tree)) {
-      const [hx, hy, hw, hh] = this.ambient.hitBox(npc);
-      this.applyInteraction({
-        id: `${npc.id}@${this.state.room.id}`, name: npc.name, rect: [hx, hy, hw, hh], colour: 0,
-        responses: { [chosen]: roomLines.filter((rule) => this.state.flags.test(rule.when)) },
-      } as Interactable, chosen);
+    // Errata 190: he walks to where a conversation with her stands first, and a person with no tree answers
+    // TALK TO with her bark (core/PersonLines.ts).
+    const personal = npc && chosen !== null
+      ? personLines(this.state.room, npc, chosen, (when) => this.state.flags.test(when), this.ambient.hitBox(npc),
+        (one) => this.ambient.barkLinesFor(one))
+      : null;
+    if (personal && chosen !== null) {
+      // Only TALK TO walks over first (the brief's step 3); every other verb a room writes for a person answers
+      // from where he stands, as it always has.
+      this.personTarget = personal;
+      if (chosen === 'TALK_TO') this.beginInteraction(personal.target, chosen);
+      else this.applyInteraction(personal.target, chosen);
       this.markDirty();
       return;
     }
@@ -1822,6 +1828,11 @@ export class GameScene extends Phaser.Scene {
       this.pendingSay.push(...result.then.map((line) => (typeof line === 'string'
         ? { speaker: who, line } : { speaker: line.speaker, line: line.line, ...(line.overBlack ? { overBlack: true } : {}),
           ...(line.direction ? { direction: true } : {}) })));
+    }
+    // SHE ANSWERS, AFTER HIS LINE, EVERY TIME (errata 190): her bark, in her voice, over her head.
+    if (this.personTarget?.target.id === target.id) {
+      if (result.say) this.pendingSay.push(...this.personTarget.answer);
+      this.personTarget = null;
     }
     if (result.changedRoom) {
       this.hovered = null;
@@ -2188,7 +2199,9 @@ export class GameScene extends Phaser.Scene {
    */
   private saySequenceStep(step: Extract<SequenceStep, { kind: 'say' }>): number {
     if (step.interact) {
-      const target = this.state.findTarget(step.interact.target);
+      // A PERSON'S LINES ARE NOT ONE OF THE ROOM'S HOTSPOTS (errata 190): the target staged for her is kept here.
+      const target = this.personTarget?.target.id === step.interact.target
+        ? this.personTarget.target : this.state.findTarget(step.interact.target);
       if (target) this.applyInteraction(target, step.interact.verb);
       return 0;
     }
