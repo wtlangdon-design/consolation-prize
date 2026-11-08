@@ -1218,7 +1218,7 @@
 
 **THE REGISTER OF ASSAYS** — LOOK 3 "The columns are ruled by hand, every page, every year. She has never once bought ruled paper." | LISTEN 3 "A page lifting in the draft from the door and lying down again exactly where it was."
 
-**THE NINETEEN NAMES** — LOOK 2 "Each name has a date beside it, and the dates are spread across twelve years like a slow leak." · 3 "I've read them often enough to know any of them if I met him. I'm not going to meet most of them." | LISTEN 2 "Nothing. Nineteen men, filed quietly." · 3 "Nothing. A short list keeps a long silence."
+**THE NINETEEN NAMES** — LOOK 2 "Each name has a date beside it, and the dates are spread across nine years like a slow leak." · 3 "I've read them often enough to know any of them if I met him. I'm not going to meet most of them." | LISTEN 2 "Nothing. Nineteen men, filed quietly." · 3 "Nothing. A short list keeps a long silence."
 
 **THE SAMPLE SHELF** — LOOK 3 "There are gaps where bottles were taken out and never returned. Some men took their pinch home to remember it by." | LISTEN 3 "The ring again, very faint, as I step back. Glass, sorry to see me go."
 

@@ -108,10 +108,10 @@ The queue ledger, chained to the sill. *(Errata 75: getting in the book is not d
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "I need a certified assay." | `[PROGRESS · remove]` | "You need to be in a queue that's eight months long and getting longer." | sets `T_ASSAY_QUEUE` |
+| 1 | "I need a certified assay." | `[PROGRESS · remove]` | "You need to be in a queue. It's eight months long, and it got longer while you were asking." | sets `T_ASSAY_QUEUE` |
 | 2 | "Eight months? Who's ahead of me?" | `[TOPIC · retain]` · after 1 | "The Improvement Company. Perpetually. Priority submissions." *(second)* "The Company. It hasn't moved since you asked. It never moves; that's how it stays ahead." | opens C2 path |
 | 3 | "Has anyone ever brought in Mott gold?" | `[PROGRESS · remove]` | *(She stops writing. It is the first time she has stopped writing.)* "Ask me that again when you've got something to trade." | flags her interest; required for C5 |
-| 4 | "You have very good handwriting." | `[COMIC · retain]` | "I know." | — |
+| 4 | "You have very good handwriting." | `[COMIC · retain]` | "I know." *(beat)* "Nine years, and you're the first to mention it." *(second)* "Still legible." | — |
 | 5 | "Would you like to hear about my raccoon?" | `[COMIC · counted-repeat]` | "No." | req `T_RACCOON_NAMED` |
 | 6 | "Who keeps the Company's log of submissions?" | `[PROGRESS · remove]` · after 2 | "The Company. In the Colonel's office, in a drawer he sits in front of all day. I asked to see it once. He sent me a very kind note." | req `T_ASSAY_QUEUE`; sets `T_OFFICE_TOPIC` — C2 *(errata 75)* |
 
@@ -130,7 +130,7 @@ The queue ledger, chained to the sill. *(Errata 75: getting in the book is not d
 | 1 | "Will you run my assay?" | `[PROGRESS · remove]` | "I'll run your assay. I'd run your assay if it were a bucket of rain." | grants assay → C6 |
 | 2 | "Now can I ask about Mott gold?" | `[PROGRESS · remove]` | "No Mott gold has ever crossed this window. Not one flake. Not in nine years. Not one." | sets `T_NO_MOTT_GOLD` |
 | 3 | "Has nobody ever noticed?" | `[PROGRESS · remove]` | "I noticed. I wrote it down. I've been writing it down since eighteen and forty-nine, in a book that is not this book." | sets `T_SECOND_LEDGER` |
-| 4 | "Are you all right?" | `[COMIC · retain]` | "I am professionally offended, Mr. Grubb. It is the worst kind." | — |
+| 4 | "Are you all right?" | `[COMIC · retain]` | "I am professionally offended, Mr. Grubb. It is the worst kind." *(second)* "Still offended. I'll tell you when it stops. It won't." | — |
 
 ## ACT II — `WIN_B3`: the second ledger
 
@@ -162,7 +162,7 @@ Opened by the first TALK TO after WIN_B2 option 1 has left C6 pending and Thad h
 | 1 | "Teach me to answer a boast." | `[ASSAY · remove]` | "Sit." → **the Sparring** (doc 03): she drills him through all five of hers, flatly, until he can say them without apologizing | pairs 5–9 |
 | 2 | "So my claim is worthless." | `[TOPIC · retain]` | "Comprehensively. It's certified. It's the most certain thing you own." *(second)* "Certified worthless. Asking twice won't lower it. Nothing could." | — |
 | 3 | "Thank you." | `[TOPIC · retain]` | "Don't thank me for a form. Thank me for something I chose." *(second)* "Still a form." | — |
-| 4 | "Was it the raccoon?" | `[COMIC · retain]` | "The raccoon is not an assayable substance. I have told you this." | — |
+| 4 | "Was it the raccoon?" | `[COMIC · retain]` | "The raccoon is not an assayable substance. I have told you this." *(second)* "I have told you this twice now. I'm keeping count." | — |
 
 ## ACT III — `WIN_C1`: the death certificate (E4)
 
@@ -316,7 +316,7 @@ Per the Fanshawe Rule: Thad receives the Registrar introduction; gives up that h
 |---|---|---|---|---|
 | 1 | "I need to see the Registrar about my boundary." | `[PROGRESS · remove]` | "Your *boundary*! A man who knows where he ends. Rare. I shall send a note ahead." *(The note is warm, correct, and mentions the boundary. By Thursday the Company has filed three priority submissions on the parcels beside Claim One.)* | receives: the note. gives up: contiguity |
 | 2 | "What do you want for it?" | `[TOPIC · retain]` | "Want? Mr. Grubb, a favor that costs something is a *transaction*. I deal only in favours." *(second)* "Nothing at all. I've written it down, so that neither of us forgets." | — |
-| 3 | "Your clock is slow." | `[COMIC · retain]` | "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it." | — |
+| 3 | "Your clock is slow." | `[COMIC · retain]` | "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it." *(second)* "Eleven minutes, every day, without fail. Reliability is the whole of punctuality, Mr. Grubb." | — |
 
 ## ACT II — `FAN_B2`: the index card *(W1 growth)*
 
@@ -329,7 +329,7 @@ Thad receives a copy of Claim One's index card; gives up confirmation he has see
 | 1 | "I'd like to see Claim One's index card." | `[PROGRESS · remove]` | "Of course. You'll find it agrees with the sealed filing in every particular." *(Thad has not mentioned the sealed filing. He watches Thad not mention it. Both men note it.)* | receives: the card. gives up: what he's seen |
 | 2 | "Why does the Company keep copies of claim records?" | `[TOPIC · retain]` | "Because the courthouse could burn down, Mr. Grubb. Buildings do." *(He says it with real warmth. It is not a threat. It is worse — it is preparedness.)* *(second)* "Fire, Mr. Grubb. Flood. Sudden interest. One prepares." | — |
 | 3 | "Buena Vista must have been something." | `[TOPIC · remove]` | "Buena Vista! Spring of '48. I shall never forget it." *(Buena Vista was February 1847.)* → `WAR_CONTRADICTIONS` +1 | — |
-| 4 | "The chairs are new." | `[COMIC · retain]` | "They are! One must reinvest." | — |
+| 4 | "The chairs are new." | `[COMIC · retain]` | "They are! One must reinvest." *(second)* "Newer still. I had them reupholstered while you were looking." | — |
 
 ## ACT III — `FAN_D1`: the payoff of the war *(all five contradictions)*
 
@@ -347,7 +347,7 @@ The scripted exchange above ("You were never a colonel."). One node, no other op
 | 2 | "Yes." | `[PROGRESS · retain]` | "Splendid!" *(He hands Thad the pen. The pen has no ink.)* "Ink! The one thing this office never has. Forgive me — I'll send for some." *(He does not send for any.)* *(Not an ending. **Fanshawe will never actually let Thad sell — because a sale would transfer a claim someone might dig.** The player cannot fail here and will not understand why until Act III.)* *(second)* "Splendid! And the ink is on its way, I'm told. By whom, I couldn't say." |
 | 3 | "No." | `[PROGRESS · counted-repeat]` | "Twelve thousand." *(second)* "Thirteen. I'm enjoying this." *(third)* "Fourteen, and you drive a very hard bargain for a man who isn't bargaining." |
 | 4 | "Why does a worthless claim cost eleven thousand dollars?" | `[TOPIC · retain]` | "Because you'd like it to be worth more, and I'd like you to be happy." *(second)* "Because happiness is expensive, Mr. Grubb, and I never haggle over yours." |
-| 5 | "I've named a raccoon after you." | `[COMIC · retain]` | *(genuine delight)* "Have you! What a splendid animal it must be." *(It is not.)* |
+| 5 | "I've named a raccoon after you." | `[COMIC · retain]` | *(genuine delight)* "Have you! What a splendid animal it must be." *(It is not.)* *(second)* "Still! You're very loyal, Mr. Grubb. I shall have to name something after you." |
 
 **The turn:** on reading Clause 9, Thad's aside — *"He doesn't want the claim. He wants it quiet."*
 
@@ -469,6 +469,8 @@ He digs Thad out and speaks in complete sentences for the first time, and the ef
 Vessel's destination for a story. Frame does not want money; money is not printable.
 
 > **FRAME:** "A story for a schedule. That's the rate. It's always been the rate."
+> **THAD:** "I'd pay you instead, but Mr. Vessel has my four dollars."
+> **FRAME:** "Money doesn't PRINT, Mr. Grubbe. Tell me something humiliating about yourself."
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
@@ -476,6 +478,7 @@ Vessel's destination for a story. Frame does not want money; money is not printa
 | 2 | "There's a raccoon in my hole with a name." | `[PROGRESS · remove]` | "A NAMED raccoon. Sir, you are a *wellspring*." *(Also accepted. Also printed. Page one.)* | same grant and the same destination line — either story pays |
 | 3 | "What did you print about Vessel leaving?" | `[TOPIC · retain]` | "'BELOVED CITIZEN ANSWERS CALL OF COMMERCE.' He owed me for six advertisements. The headline was cheaper than forgiving the debt." *(second)* "'BELOVED CITIZEN.' Six advertisements unpaid, and still the kindest thing I've printed all year." | — |
 | 4 | "Print a correction: my name." | `[COMIC · counted-repeat]` | "A correction! We run those in the spring." *(second)* "It is not spring." *(third)* "Persistent AND punctual-minded. I may do a profile. How do you spell it?" *(He knows. He has never once used it.)* | — |
+| 5 | "I've never done anything humiliating in my life." | `[COMIC · retain]` | "'NEWCOMER CLAIMS SPOTLESS RECORD.' Nobody'll believe it. It'll sell out by noon." *(second)* "'…AND STILL CLAIMS IT.' A continuing story! You're spoiling me." | — |
 
 ## `FRA_E1` — the obituary (E5) *(W1 growth)*
 
@@ -567,7 +570,7 @@ Pratt discovered on Prosperity with a stake and a mallet, mid-jump, unhurried ab
 |---|---|---|---|
 | 1 | "That's my stake you're pulling up." | `[PROGRESS · remove]` | "Was in the way." *(Of what?)* "The new stake." → D2 opens |
 | 2 | "I'll fetch the law." | `[TOPIC · retain]` | "Sump closes at four." *(This is true, and it is the entire legal system.)* *(second)* "Still closes at four. Every day. Never seen it fail." |
-| 3 | "We got off on the wrong foot." | `[COMIC · retain]` | *(He looks at his feet, checking.)* "Nope." |
+| 3 | "We got off on the wrong foot." | `[COMIC · retain]` | *(He looks at his feet, checking.)* "Nope." *(second)* *(He checks again.)* "Still nope." |
 
 ## `PRA_D6` — after the signing *(W1 growth)*
 
@@ -577,7 +580,7 @@ The quitclaim signed, the arithmetic done, the offers continuing regardless.
 |---|---|---|---|
 | 1 | "Who was the second man who paid you?" | `[PROGRESS · remove]` | "Never saw him. Money came under the laundry door." *(beat)* "Sheng's door. Thursdays." → corroborates D3; the trail runs through the Thursday ledger |
 | 2 | "What will you do now?" | `[TOPIC · retain]` | "Keep the claim next to yours tidy." *(It is not his claim either. Nobody has ever had the heart to tell him, and by now it is his the way anything is anybody's here: by upkeep.)* *(second)* "Keep it tidy. Somebody ought to." |
-| 3 | "Twenty dollars and the hen." | `[COMIC · retain]` | *(a long, respectful pause)* "…You're learning the market." |
+| 3 | "Twenty dollars and the hen." | `[COMIC · retain]` | *(a long, respectful pause)* "…You're learning the market." *(second)* *(He considers it.)* "Hen's not for sale." |
 | 4 | "Will you help me practice for the Assay?" | `[ASSAY · remove]` | → **the Sparring** (doc 03): "Try me." He answers every boast Thad has, without effort, and is astonished each time. *(pairs 10–15; errata 75)* |
 | 5 | "Will you swear to the ninety days now?" | `[PROGRESS · remove]` | "Yep." *(He puts his hat on.)* "Sump closes at four." *(→ D6, in Room 7; errata 75)* |
 
@@ -639,7 +642,7 @@ The bible: "Thad names it (full Christian name, chosen by the player from three 
 | 6 | "Could the rod find gold on my claim?" | `[TOPIC · retain]` | "The rod finds gold *everywhere*, darling. It is the digging that disappoints." *(second)* "Everywhere. Digging is extra." |
 | 7 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "The spirits know Ezra Pike. *Intimately.* Two dollars and I shall ask them where he is." *(beat)* "Or the undertaker will tell you for nothing. He undercuts me terribly." *(second)* "The undertaker. Free, and no atmosphere whatsoever." *(unless `T_PIKE_DEAD`)* |
 | 8 | "You knew Pike was dead." | `[TOPIC · retain]` | "The rod knew. The rod knows *everything*." *(beat)* "The rod also charges." *(second)* "The rod knows. The rod charges. These are its two qualities." *(req `T_PIKE_DEAD`)* |
-| 3 | "Does it ever not work?" | `[COMIC · retain]` | "It has never not worked." *(beat)* "It has occasionally been *early*." |
+| 3 | "Does it ever not work?" | `[COMIC · retain]` | "It has never not worked." *(beat)* "It has occasionally been *early*." *(second)* "Never. I am adding the question to your account." |
 | 4 | "Do you ever hear anything?" | `[TOPIC · remove]` | *(genuinely puzzled)* "…Hear?" *(She has been reading ground resonance for eleven years and has never once considered that she is listening.)* → **the Act IV corroboration, planted here and never mentioned again** |
 | 5 | "Have you ever been in the Liar's Assay, Madame?" | `[ASSAY · remove]` | "Once. A prospector told me he had panned a pound before breakfast, and the rod moved me to say—" *(she closes her eyes)* "'You have never seen breakfast.'" *(She opens them.)* "Two dollars." — *"For the story?"* — "For the counter. The story was free." *(pair 19; errata 75)* |
 
@@ -686,7 +689,7 @@ The bank that does laundry. The loan scene, and the only due diligence in the te
 | 2 | "I need four dollars." | `[PROGRESS · remove]` | "You need two dollars and sixty cents, and you will have it at ten per cent, and you will pay it back, because I have watched you and you are honest in the one way that matters: absently." | req `T_NEED_TO_DIE` and D4; gives SHENG'S LOAN — E3's money, "Sheng's goodwill" *(errata 75)* |
 | 3 | "Why help me?" | `[TOPIC · retain]` | "You are the first customer in nine years whose collar and whose story got dirty in the same place. It suggests the story is true." *(second)* "I have told you: your collar. I stand by your collar, Mr. Grubb." | — |
 | 4 | "What do you think is under Claim One?" | `[TOPIC · retain]` | "Nothing. What is under a story? More story." *(He is exactly right, one ridge to the left.)* *(second)* "More story. I do not lend against it." | — |
-| 5 | "Do you ever take a day off?" | `[COMIC · retain]` | "On Sundays I do no laundry. I do only banking. It is very restful." | — *(errata 75: the node had no [COMIC])* |
+| 5 | "Do you ever take a day off?" | `[COMIC · retain]` | "On Sundays I do no laundry. I do only banking. It is very restful." *(second)* "On Sundays. Banking only. Nobody believes me, which is also restful." | — *(errata 75: the node had no [COMIC])* |
 
 ---
 
@@ -779,7 +782,7 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 | 1″ | "About Document D—" | `[PROGRESS · remove]` | "Proof of Continuous Occupancy. Ninety days, attested by a neighbor. The office accepts one neighbor. It does not inquire into his character. It has never found that useful." *(sets `T_NINETY_DAYS` — **D1**)* |
 | 1‴ | "About Document C—" | `[PROGRESS · remove]` · *with A, B and D* | "Present A, B and D together and the office issues C, the Certificate of Contiguity. It is the only document that comes after D. I find that restful." → E0, doc 57 |
 | 2 | "Who else may see a sealed filing?" | `[TOPIC · retain]` | "Sealed filings are open to the court, to the claimholder, and to the executor of a deceased claimholder. Section nineteen. You are none of these, Mr. Grubb, and only one of them is beyond your control." *(second)* "The court, the claimholder, the executor of a deceased claimholder. Section nineteen has not changed since you asked. It is not that kind of section." |
-| 3 | "Do you ever stamp anything just for the pleasure of it?" | `[COMIC · retain]` | "Pleasure is not a ground. I stamp on grounds." |
+| 3 | "Do you ever stamp anything just for the pleasure of it?" | `[COMIC · retain]` | "Pleasure is not a ground. I stamp on grounds." *(second)* "Still not a ground. I have consulted the statute, in case." |
 
 **`SUM_E1` (Act III — the loophole: E1, E2)** *(errata 75)*
 
@@ -829,8 +832,8 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 | 1 | "You sold me a worthless claim." | `[PROGRESS · remove]` | "I sold you a *claim*. Worth is your department. Mine's volume." *(He is genuinely pleased to see Thad. He remembers him fondly, the way a fisherman remembers a good fish.)* |
 | 2 | "I want my four dollars back." | `[TOPIC · counted-repeat]` | "They're working, son. Money *works* out here." *(second)* "They've been promoted." *(third)* "They're in hospitality now." |
 | 3 | "Teach me to lie like that." | `[ASSAY · remove]` | "Can't teach it. Can *demonstrate* it." → **Duel One.** He teaches Tier 1 by beating Thad with it, cheerfully, twice if asked |
-| 4 | "You'll answer for this someday." | `[COMIC · retain]` | "I answer for it *constantly*. Nobody accepts the answer." |
-| 5 | "I'd like a rematch." | `[ASSAY · counted-repeat]` | "Course you would. They all would. Pull up the chair, son, the judges are getting bored." → **Duel Two** *(offered once Duel One is lost; errata 73 H. Counted-repeat, not greyed, while a rematch is still owed: errata 130 E)* |
+| 4 | "You'll answer for this someday." | `[COMIC · retain]` | "I answer for it *constantly*. Nobody accepts the answer." *(second)* "Still answering, son. I've got the answer down very nice by now." |
+| 5 | "I'd like a rematch." | `[ASSAY · counted-repeat]` | "Every man does, son. It's what keeps me in practice. Pull up the chair; the judges are getting bored." → **Duel Two** *(offered once Duel One is lost; errata 73 H. Counted-repeat, not greyed, while a rematch is still owed: errata 130 E)* |
 | 6 | "I need you to sign an affidavit." | `[PROGRESS · remove]` | "Sign a paper saying I sold you mud under false pretenses? Son, that's a confession with a stamp on it." *(beat)* "Tell you what. We'll settle it the local way." *(He pulls out the chair.)* → **B4**; **Duel One** *(errata 75)* |
 
 **`VES_F1` (Act IV — the hotel):** he has bought the hotel. With, he explains proudly, Thad's four dollars, "and some other fellows' several thousand." One option, `[COMIC · retain]`: "Was it worth it?" — "The four dollars? Son, your four dollars *built the mezzanine*."
@@ -856,7 +859,7 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 | 2 | "Why 'Grievance'?" | `[TOPIC · retain]` | "Had a partner once. She took his side." *(second)* "She took his side. She'd take it again, given the chance." |
 | 8 | "Did you know Ezra Pike?" | `[TOPIC · retain]` | "Grievance knew him. She'd tell you to ask the undertaker." *(beat)* "She's not a talker." *(second)* "The undertaker. Grievance has nothing to add." → unless `T_PIKE_DEAD` |
 | 9 | "You knew Pike was dead." | `[TOPIC · retain]` | "She knew. She looked at me funny for a week." *(second)* "A whole week. Funny." → req `T_PIKE_DEAD` |
-| 3 | "Is the mule all right?" | `[COMIC · retain]` | "She's fine. She's just got a view." |
+| 3 | "Is the mule all right?" | `[COMIC · retain]` | "She's fine. She's just got a view." *(second)* "Still the same view. She's loyal to it." |
 | 4 | "What's that tune?" | `[TOPIC · remove]` | *(He hums the pitch. Badly. It is recognisably the town theme and recognisably wrong, and Thad's ear files it.)* "That's what the fella whistled. Twelve years I've been getting it wrong." → `T_HUM_HEARD` *(errata 68 F: B3 needs it; errata 75: req `T_GRIEVANCE_MOTT`, and the Assay pair is option 7)* |
 | 5 | "Could I borrow a blanket?" | `[PROGRESS · remove]` | "Hers?" *(He looks at Grievance. Grievance looks at the blanket.)* "She's not using it. Bring it back before she notices." → THE LIVERY BLANKET *(errata 68 A; option added in Batch C, doc 54)* |
 | 6 | "Has she ever moved for anybody?" | `[PROGRESS · remove]` | "Once. Twelve years back. Fella came in at night, whistled at her, and she walked out after him like she'd been waiting." *(beat)* "Never saw him again. Never saw her move again, either." → `T_GRIEVANCE_MOTT` — **B2** *(errata 75)* |

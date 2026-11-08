@@ -4773,3 +4773,25 @@ Doc 100's step 4 section records it.
   - a second answer keeps a named speaker (Winnie's, in Sump's filing).
 - **`tests/repeats.test.ts` now covers every tree** except Hob's and the test fixture (`tests/data/repeats-passed.json`).
 
+# 175 · ACT II, REWRITTEN TO DOC 99 — TYLER, 2026-11-08 ("Start act 2")
+
+*Asked whether the game would now feel more like Monkey Island, and told that Act I had the full pass and Acts II–IV only their asked-again answers, Tyler said: "Start act 2". Doc 101 records it, room by room.*
+
+- **The fourth writing exception (errata 171) now covers Act II.** It is one voice, written in the documents, with new lines allowed, and the puzzle graph, facts, flags, Assay pairs and invariants untouched.
+- **Act II has an opening (doc 57 A10).** The morning after the dinner the game cuts to Main Street, and Thad says what he wants and where it starts: Claim One's filing, at Sump's. It uses errata 101 B's mechanism. The dinner's beat 4 writes `T_ACT_II_OPENING` beside `ACT` = 2, and `GameState.openAct` clears it.
+- **Conversations (doc 04):**
+  - Frame's trade states its price;
+  - Winnie never shuts him down twice in a row;
+  - Vessel gives back the pie woman's "Course you…";
+  - every `[COMIC]` row that stays on a menu answers differently when asked again.
+- **The examine pass for Act II's rooms follows in its own pull request** (doc 101 part two).
+
+# 176 · ACT II'S ROOMS: THE EXAMINE LAYER HOLDS, AND THE RECORDS ROOM KEEPS WINNIE'S DATES (doc 101 part two)
+
+- **The first LOOKs Act II's trials run through were read against doc 99.** They already do its work: a noun, then a joke spoken as its own line. Nothing was rewritten for the sake of it.
+- **Three continuity errors in Room 6 are fixed at source.** Two are in doc 05 and one is in doc 54:
+  - the register's "twelve years" becomes nine, Winnie's tenure, which its own LOOK 2 already says;
+  - the nineteen names' dates span nine years, not twelve;
+  - the stool "announces her", not him.
+- **`tests/continuity.test.ts` holds it.** Her two rooms may not give her the strike's twelve years, and her furniture may not announce a man.
+

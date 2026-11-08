@@ -7,6 +7,13 @@
     "4": "PART FOUR — THE QUIETEST PART OF THE GAME"
   },
   "openings": {
+    "2": {
+      "room": "main_street",
+      "say": [
+        "I have decided. The richest strike in the territory is next door to my mud, and gold doesn't stop at a fence. Mr. Sump has Claim One's filing, and I am going to read it."
+      ],
+      "due": "T_ACT_II_OPENING"
+    },
     "4": {
       "room": "thads_room",
       "say": [

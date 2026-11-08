@@ -263,14 +263,20 @@
           "tag": "COMIC",
           "text": "You'll answer for this someday.",
           "afterUse": "retain",
-          "say": "I answer for it constantly. Nobody accepts the answer."
+          "say": "I answer for it constantly. Nobody accepts the answer.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still answering, son. I've got the answer down very nice by now."
+            }
+          ]
         },
         {
           "id": "ves_b1_5",
           "tag": "ASSAY",
           "text": "I'd like a rematch.",
           "afterUse": "counted-repeat",
-          "say": "Course you would. They all would. Pull up the chair, son, the judges are getting bored.",
+          "say": "Every man does, son. It's what keeps me in practice. Pull up the chair; the judges are getting bored.",
           "duel": "duel_two",
           "when": {
             "T_DUEL_ONE_LOST": true,

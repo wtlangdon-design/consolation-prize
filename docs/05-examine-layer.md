@@ -550,7 +550,7 @@ The only prose line in the entire room, on the correct spot:
 *Eleven hotspots. The nineteen names live here.*
 
 **THE REGISTER OF ASSAYS**
-> **LOOK:** "Every ounce of color ever brought in, weighed and named. Nineteen names, twelve years. It is a shorter book than the town believes."
+> **LOOK:** "Every ounce of color ever brought in, weighed and named. Nineteen names in nine years. It is a shorter book than the town believes."
 > **LISTEN:** "Pages. Very few of them turn."
 
 **THE NINETEEN NAMES**
@@ -575,7 +575,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE STOOL**
 > **LOOK:** "A high stool worn by the assayer's particular way of sitting, which is mostly leaning."
-> **LISTEN:** "One loose joint. It announces him."
+> **LISTEN:** "One loose joint. It announces her."
 
 **THE ACID BOTTLES**
 > **LOOK:** "Aqua fortis, in brown glass, with a stopper the shape of regret. It tells gold from everything that wishes it were."

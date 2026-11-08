@@ -145,6 +145,10 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 - **Beat 3, after option 6 settles:** *(Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth.)* **FANSHAWE:** "Keep it. I have dozens." *(Thad pockets it, absently.)* → THE HANDKERCHIEF; `T_DINED`; Room 11's own handkerchief hotspot is not drawn from now on.
 - **Beat 4** plays at the office door as Thad leaves, Fanshawe already turned back to his wine — the doorway is the porch: "A very fine dinner." *(beat)* "I believe I own something." Then the act card, **PART TWO — THREE PIECES OF PAPER**, and `ACT` = 2.
 
+**Act II opens in Room 2, the next morning** *(errata 175: the act says what he wants and where it starts, as Main Street's first night does)*:
+
+> "I have decided. The richest strike in the territory is next door to my mud, and gold doesn't stop at a fence. Mr. Sump has Claim One's filing, and I am going to read it."
+
 ---
 
 # ACT II

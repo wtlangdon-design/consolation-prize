@@ -455,7 +455,13 @@
           "tag": "COMIC",
           "text": "Your clock is slow.",
           "afterUse": "retain",
-          "say": "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it."
+          "say": "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Eleven minutes, every day, without fail. Reliability is the whole of punctuality, Mr. Grubb."
+            }
+          ]
         },
         {
           "id": "fanshawex",
@@ -541,7 +547,13 @@
           "tag": "COMIC",
           "text": "The chairs are new.",
           "afterUse": "retain",
-          "say": "They are! One must reinvest."
+          "say": "They are! One must reinvest.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Newer still. I had them reupholstered while you were looking."
+            }
+          ]
         },
         {
           "id": "fanshawex",
@@ -660,6 +672,12 @@
           "tag": "COMIC",
           "text": "I've named a raccoon after you.",
           "afterUse": "retain",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still! You're very loyal, Mr. Grubb. I shall have to name something after you."
+            }
+          ],
           "exchange": [
             {
               "speaker": "fanshawe",

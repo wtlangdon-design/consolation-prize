@@ -61,7 +61,7 @@
           {
             "say": "The nineteen. Some are dead, some left, one runs the bakehouse now.",
             "repeat": [
-              "Each name has a date beside it, and the dates are spread across twelve years like a slow leak.",
+              "Each name has a date beside it, and the dates are spread across nine years like a slow leak.",
               "I've read them often enough to know any of them if I met him. I'm not going to meet most of them."
             ],
             "then": [
@@ -183,7 +183,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "One loose joint. It announces him.",
+            "say": "One loose joint. It announces her.",
             "repeat": [
               "The loose joint again, when I set a hand on it. It is used to one weight only.",
               "Nothing. It's waiting for her."
@@ -508,7 +508,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Every ounce of color ever brought in, weighed and named. Nineteen names, twelve years.",
+            "say": "Every ounce of color ever brought in, weighed and named. Nineteen names in nine years.",
             "repeat": [
               "Nine years of assays, in a hand that hasn't varied once. Not one crossing-out. My letters home are mostly crossing-out.",
               "The columns are ruled by hand, every page, every year. She has never once bought ruled paper."

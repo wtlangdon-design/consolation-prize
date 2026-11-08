@@ -73,7 +73,8 @@
           "tag": "COMIC",
           "afterUse": "retain",
           "text": "Is the mule all right?",
-          "say": "She's fine. She's just got a view."
+          "say": "She's fine. She's just got a view.",
+          "repeat": "Still the same view. She's loyal to it."
         },
         {
           "id": "livery_man4",
