@@ -108,4 +108,4 @@
 
 **THE BARBER'S POLE** — LOOK 2 "The window's dark, and so is the door. A barber shuts up shop the way he shaves: close." · 3 "I could do with a shave. I could do with the price of a shave more." | LISTEN 2 "A strop swaying on its hook inside, slapping the chair once." · 3 "Nothing. A barber's shop is never quiet by day; at night it makes up for it."
 
-**THE EMPTY STOREFRONT** — LOOK 2 "Through a gap in the boards: dark, and a smell of old sawdust. Whatever was sold here, it sold out." · 3 "If my claim comes in, I'll buy this and sell something. I don't yet know what. In Consolation that has never stopped anybody." | LISTEN 2 "A loose board, lifting and settling with the wind." · 3 "Nothing. The quiet of a shop with nothing to sell and nobody to sell it."
+**THE EMPTY STOREFRONT** — LOOK 2 "Through a gap in the boards: dark, and a smell of old sawdust. Whatever was sold here, it sold out." · 3 "If I strike it rich, I'll buy this and sell something. I don't yet know what. In Consolation that has never stopped anybody." | LISTEN 2 "A loose board, lifting and settling with the wind." · 3 "Nothing. The quiet of a shop with nothing to sell and nobody to sell it."

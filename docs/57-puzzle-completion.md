@@ -77,7 +77,7 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 
 *Rooms 11 → 22 → 23.* FAN_A1 gives THE COMPANY MAP (doc 04). **The map is what finds Prosperity:** Room 23 appears on the town map, and Room 22 offers the way to it, only while Thad holds the map.
 
-> **Room 22's way up to the claims** · walk, *without the map* — "Forty feet of ground, somewhere up one of these. The deed says 'from the stake, thereabouts', and the whole hillside is stakes."
+> **Room 22's way up to the claims** · walk, *without the map* — "Claims up every one of these paths, and the whole hillside is stakes. A man would need a map to find anything up there, and a good one."
 
 ## A5 · The raccoon
 

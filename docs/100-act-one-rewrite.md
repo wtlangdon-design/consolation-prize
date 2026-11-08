@@ -52,3 +52,20 @@
   - Vessel raising his glass: class B, no pose yet;
   - Frame not writing Pike down: class C;
   - Pratt raking before he answers: class A, his own stroke frames.
+
+---
+
+## Step 3 — the first LOOK on what players click (errata 173)
+
+Every first LOOK in Act I's rooms was read against doc 99. The examine layer is in much better shape than the conversations were: the first voice pass (docs 60–93) could change wording, and wording was what most examine lines needed. Most first LOOKs already do what doc 99 asks: noun first, a want or a joke, under 25 words. What the read found instead was **six lines that weren't true when they could first be read**, and those are fixed:
+
+| Where | Before | After |
+|---|---|---|
+| The Nugget · MIRROR · LOOK 1 | I look like a man who has recently been robbed and is being brave about it. *(readable before the swindle)* | I look like a man about to make his fortune. The mirror's seen a great many of those, and it's still here. |
+| The Company lobby · MAP OF HOLDINGS · LOOK 1 | …the map is mostly green. My claim is a small white apology near the edge. *(before he has a claim)* | …the map is mostly green. The white bits are what's left for the rest of us, and they look apologetic about it. |
+| Pratt's claim · TOOL RACK · LOOK 2 | …Mine are in a pile and one of them is a raccoon's now. *(before he has met the raccoon)* | …A man who keeps tools like this means to stay, and means you to know it. |
+| The Lane · EMPTY STOREFRONT · LOOK 3 | If my claim comes in, I'll buy this… | If I strike it rich, I'll buy this… |
+| The claims road · the way up, without the map | …The deed says 'from the stake, thereabouts', and the whole hillside is stakes. *(before he has a deed)* | Claims up every one of these paths, and the whole hillside is stakes. A man would need a map to find anything up there, and a good one. |
+| The hotel · REGISTER · LOOK 1 | 'Thadeus Grub.' The hotel has removed exactly the letters it considers extravagant. | 'Thaddeus Grubbe.' The hotel has added exactly the letter it felt I was missing. *(The clerk reads it aloud as "Mr. Grubbe", and doc 07 says the register's spelling is his. The book and the man now agree with each other, and with nobody else.)* |
+
+`tests/first-night.test.ts` holds it. In the rooms open before the swindle (`tests/data/first-night-rooms.json`), no ungated line may speak of the swindle or of what it gives him: a deed, a claim of his own, the raccoon. It failed on the mirror.

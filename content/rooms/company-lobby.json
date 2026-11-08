@@ -445,7 +445,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The district again, but coloured: what the Company owns is green, and the map is mostly green. My claim is a small white apology near the edge.",
+            "say": "The district again, but coloured: what the Company owns is green, and the map is mostly green. The white bits are what's left for the rest of us, and they look apologetic about it.",
             "repeat": [
               "The green is hand-tinted, and someone has gone over the edges twice, so there is no doubt where the Company ends. It does not, much.",
               "The legend has two entries: COMPANY and OTHER. OTHER is in very small type."

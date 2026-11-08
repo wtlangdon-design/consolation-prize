@@ -4747,3 +4747,17 @@ Main Street is the sample: no other room's lines change until Tyler has ruled on
 - **`tests/dialogue-reveal.test.ts` is TUNED, with a friction entry.** An asked-again answer changes what is said and never what is offered, so the walk no longer counts selections for it. The test runs in 11 s instead of 14, and the 4000-state cap stands.
 - **Tyler rules on Act I next.** No Act II–IV conversation is rewritten until he has.
 
+# 173 · STEP 3: THE FIRST LOOKS — TYLER, 2026-11-07 ("Continue with 3")
+
+Doc 100's step 3 section records it.
+
+- **Every Act I first LOOK was read against doc 99.** The examine layer was already in good shape after docs 60–93, so nothing was rewritten for the sake of it.
+- **Six lines that weren't true when they could first be read are fixed:**
+  - the Nugget's mirror, which said he had been robbed;
+  - the Company's map, which called a claim his;
+  - Pratt's tool rack, which mentioned his raccoon;
+  - the Lane's storefront, which said "my claim";
+  - the claims road, which quoted his deed;
+  - the hotel register's spelling, which now matches the clerk's "Grubbe".
+- `tests/first-night.test.ts` holds the rooms open before the swindle (`tests/data/first-night-rooms.json`) to lines true before it.
+

@@ -1,0 +1,4 @@
+{
+ "note": "Rooms Thad can stand in before the swindle (A3), by content file: the street, its doors, the Lane and Lower Street, and the diggings the map shows from the first night. tests/first-night.test.ts reads every ungated line in them. A room opened only after the swindle (Prosperity, his hotel room) or by a later act is not here.",
+ "rooms": ["stage-road", "main-street", "nugget", "nugget-back", "assay-office", "claims-registrar", "clarion", "company-lobby", "hotel-lobby", "mercantile", "the-lane", "lower-street", "undertaker", "livery", "church", "ozymandias-tent", "claims-road", "pratts-claim", "creek", "claim-row", "laundry", "high-ridge", "motts-site", "back-alley", "watchmans-shack"]
+}

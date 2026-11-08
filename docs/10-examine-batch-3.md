@@ -41,7 +41,7 @@
 > **LISTEN:** "Nothing."
 
 **THE TOOL RACK**
-> **LOOK:** "Tools, hung, oiled, in order of length. Mine are in a pile and one of them is a raccoon's now."
+> **LOOK:** "Tools, hung, oiled, in order of length. A man who keeps tools like this means to stay, and means you to know it."
 > **LISTEN:** "Nothing."
 
 **THE LEAN-TO**
