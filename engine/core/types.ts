@@ -465,6 +465,14 @@ export interface AmbientFile {
    */
   posture?: 'standing' | 'seated' | 'band' | 'identity' | 'animal' | 'behind-counter' | 'child';
   /**
+   * SCENERY, NOT A PERSON (errata 178): a figure drawn and moving but answering
+   * nothing yet -- the pointer passes through it to the hotspot or ground under
+   * it, as if it were painted into the plate. Main Street's hitching horses,
+   * until their LOOK and LISTEN lines are written and a hotspot laid over them.
+   */
+  scenery?: boolean;
+  sceneryNote?: string;
+  /**
    * WHY THIS VISIBLE FIGURE IS ALLOWED TO BE STILL, quoting the ruling.
    * Errata 77: every visible character in a shipping room moves, deliberately,
    * and tests/movement.test.mjs measures it from the frames; this is the only

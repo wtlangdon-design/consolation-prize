@@ -4804,3 +4804,35 @@ Doc 102 records it.
 - **Every `[COMIC]` row left on an Act III menu answers differently when asked again:** Sump's two, the undertaker's and Sowerby's.
 - **The funeral's "eleven weeks" becomes "less than a month"** (doc 02 D: nine days by Act II's ninety-day rule). `tests/continuity.test.ts` fails on any shipped room line that puts him in town for weeks.
 
+
+---
+
+# 178 · A HITCHING RAIL WITH THREE HORSES ON MAIN STREET — TYLER, 2026-11-08
+
+Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: the hitching post with horses on Main Street under asset room-02 (four operations), check the ledger before each one, and send me day and night renders with Thad walking past it." The brief was errata 168's, from his "maybe we add a hitching post front and center of the camera with a few horses tied to it so that it's not just a bunch of empty space?" It reached `main` as #260.
+
+- **Two operations of the four.** The ledger was checked before each one: 2 of 6 before the first, 3 of 6 before the second.
+  - **room-02 attempt 3, the group in context** (`reference/hitching-post/op-01.spec.json`). The input was the night plate around the spot at 1:1, with Thad at the man's height there and a magenta box where the group goes. It came back as a two-post rail with three saddle horses tied behind it (a bay, a chestnut and a grey), side-on, on clean magenta.
+  - **room-02 attempt 4, the motion sheet** (`op-02.spec.json`). The input was six copies of that group in a grid; each was to change one thing.
+    - The generator redrew every copy rather than editing it, so no frame can be swapped whole.
+    - Its frame 2 (the bay's tail) drew a flare at the head instead, and is not used.
+  - No correction was spent. Two operations remain under room-02.
+- **Cut by `tools/art/hitching-post-cut.py`.**
+  - The motion sheet's frame 1 is the rest. Each action frame is frame 1 except where its own change is: the pixels that differ, widened by four, inside the band of the horse that moves.
+  - So only that horse moves: the chestnut noses the mud; the grey looks up and swishes its tail; all three heads come up together; a hind hoof rests. The rail never moves.
+  - Then the magenta is taken out of the outline, and the sheet is snapped to the cast's grid (`one-level.py --only`). `art/actors/room-02-horses.png` has 5 frames of 330×201.
+- **An ambient animal, `hitching_horses`, at 2080,850** in the near mud, in front of the trough and the Nugget, between the boundary men and the duel crowd's band.
+  - `posture: "animal"`, `figureHeight` 171, `stature` 1.06. The withers come to Thad's shoulder at the same depth.
+  - It rests on frame 0, and every 7 s one action plays for 2.4 s, rotating, so all three heads come up every 28 s (errata 77, `tests/movement.test.mjs`).
+  - It sits in the street's night: the horses average luminance 57, against Thad's 60 and the street cast's 63–71. No grade.
+- **The rail is part of the sprite**, so it is depth-sorted with the horses. Thad passes behind them (his feet are above the group's at y 850) and nothing passes in front, so no occlusion plane is needed.
+- **An obstacle in both streets.** `hitching_post` is the hooves' and posts' footprint in the near mud, [1882, 808, 396, 50], with the ground behind it kept walkable (`keepsGroundAbove`), as the dog's is. Rooms 2 and 36 are recompiled.
+- **The day is Room 36.** Room 2 is night in every act (errata 64); Main Street's only daylight is Room 36's dawn, which is Room 2's pixels under the morning's light. The horses are there too, as a placement with their own sheet (`art/actors/room-36-horses-dawn.png`). `tools/art/hitching-post-dawn.py` relights the night sheet by the dawn plate's ratio to the night's over the ground they stand on (1.41, 1.49, 1.30).
+- **Scenery until its lines exist.** The brief says it has no lines and is not a hotspot.
+  - A new field, `scenery`, keeps an ambient figure out of `npcAt`, so the pointer passes through the horses to the mud beneath.
+  - When their LOOK and LISTEN lines are written in the documents, `scenery` goes and a hotspot is laid over them.
+  - `tests/scenery.test.ts` holds both streets: the pointer passes through to the mud, and the ground under them is not walkable while the ground behind is. It fails with the field ignored.
+- **Shown:** `renders/room-02-main-street-hitching-post-night-thad-passing.png` and `renders/room-36-main-street-dawn-hitching-post-thad-passing.png`. Thad walks past behind the horses, captured mid-walk in the game.
+- **Waiting:**
+  - Tyler judges the horses in the playthrough (errata 72).
+  - Claude writes their LOOK and LISTEN lines in the documents, and then makes them clickable.

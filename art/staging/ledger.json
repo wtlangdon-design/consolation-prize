@@ -35038,6 +35038,109 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-08T02:41:38.338Z"
+  },
+  {
+   "attempt": 3,
+   "role": "other",
+   "assetId": "room-02",
+   "subject": "hitching-post",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/hitching-post/prompt-01.txt",
+   "promptHash": "729c2b31cf868a1590de92cf9dc19fcb958ecaa92f7b86fd6c7c9ef3ef28d336",
+   "references": [
+    {
+     "path": "art/staging/room-02/hitching-01/input.png",
+     "hash": "0cd1e49279ba48a033eeafda0243fe623e03e2bfd27653f40cc943e954fb6db1",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "0cd1e49279ba48a033eeafda0243fe623e03e2bfd27653f40cc943e954fb6db1",
+   "sourcePath": "art/staging/room-02/hitching-01/input.png",
+   "out": "art/staging/room-02/hitching-01/sheet.png",
+   "outputHash": "a16d6667d1da49d46d8c55482c15404f7aee05754d2def3021936a6b3174d3d6",
+   "bytes": 2163608,
+   "usage": {
+    "input_tokens": 1848,
+    "input_tokens_details": {
+     "image_tokens": 1536,
+     "text_tokens": 312
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 2281
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T17:14:28.738Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-07, choosing \"Both: +6 cast, +4 Main St\" (room-02 cap 6, errata 168): a hitching post front and centre with horses tied to it. Brief: reference/hitching-post/brief.md (branch brief/hitching-post). Operation 1 of the brief's 4.",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T17:14:28.747Z"
+  },
+  {
+   "attempt": 4,
+   "role": "other",
+   "assetId": "room-02",
+   "subject": "hitching-post-motion",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/staging/room-02/hitching-01/sheet.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/hitching-post/prompt-02.txt",
+   "promptHash": "e3ef7f1397c97ef63d58b12643038089f8d637ffcd52e7950bb15384b1474cfc",
+   "references": [
+    {
+     "path": "art/staging/room-02/hitching-02/input.png",
+     "hash": "4f6f9163cdafc47f56fbe4a783e08e2d017fbb0341ada9d4c873074d020f90b3",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "4f6f9163cdafc47f56fbe4a783e08e2d017fbb0341ada9d4c873074d020f90b3",
+   "sourcePath": "art/staging/room-02/hitching-02/input.png",
+   "out": "art/staging/room-02/hitching-02/sheet.png",
+   "outputHash": "bfe37907c8222cf6a22ae53f799246367cc8632dd9befbd8258684121c6f4f7e",
+   "bytes": 1509917,
+   "usage": {
+    "input_tokens": 1841,
+    "input_tokens_details": {
+     "image_tokens": 1536,
+     "text_tokens": 305
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 3392
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T17:15:53.115Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-07, choosing \"Both: +6 cast, +4 Main St\" (room-02 cap 6, errata 168). Brief reference/hitching-post/brief.md, operation 2 of 4: the horses' motion sheet (errata 77).",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T17:15:53.121Z"
   }
  ],
  "promotions": [

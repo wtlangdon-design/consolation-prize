@@ -411,6 +411,17 @@
    ],
    "keepsGroundAbove": true,
    "note": "Tyler, 2026-11-07: \"He shouldn't be able to walk on or through the dog.\" The dog lies in the mud at 2628,765 and the bands ran straight through him. The rect is the dog's own hotspot rect, as the trough's is -- one truth, not two -- and the ground behind him stays walkable (keepsGroundAbove): a dog asleep in the street is walked around, front or back."
+  },
+  {
+   "id": "hitching_post",
+   "rect": [
+    1882,
+    808,
+    396,
+    50
+   ],
+   "keepsGroundAbove": true,
+   "note": "The hitching rail and its horses (errata 178): a group on the ground he walks around, never through. The rect is the hooves' and posts' footprint in the near mud, from the drawn group (content/ambient/hitching-horses.json, 2080,850); the ground behind them stays walkable (keepsGroundAbove), as the dog's does, and he passes behind them there."
   }
  ],
  "lamps": [

@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "id": "hitching_horses",
+ "name": "THE HORSES",
+ "posture": "animal",
+ "room": "main_street",
+ "x": 2080,
+ "y": 850,
+ "zone": 0,
+ "approachRadius": 0,
+ "scenery": true,
+ "sceneryNote": "Scenery until its lines are written (reference/hitching-post/brief.md): the pointer passes through to the mud under it, so it answers no verb and names nothing. Its LOOK and LISTEN lines go in the documents first; then this goes and a hotspot is laid over it.",
+ "note": "Tyler, 2026-11-07, on Main Street: \"maybe we add a hitching post front and center of the camera with a few horses tied to it so that it's not just a bunch of empty space?\" A hitching rail with three saddle horses, in the near mud in front of the trough and the Nugget, between the boundary men and the duel crowd's band. Room-02 attempts 3 and 4.",
+ "barks": {},
+ "barksNote": "Horses; no barks.",
+ "sprite": {
+  "sheet": "art/actors/room-02-horses.png",
+  "frames": [
+   [
+    2,
+    2,
+    330,
+    201
+   ],
+   [
+    334,
+    2,
+    330,
+    201
+   ],
+   [
+    666,
+    2,
+    330,
+    201
+   ],
+   [
+    998,
+    2,
+    330,
+    201
+   ],
+   [
+    1330,
+    2,
+    330,
+    201
+   ]
+  ],
+  "figureHeight": 171,
+  "stature": 1.06,
+  "statureNote": "The rest frame, ear tips to hooves, is 1.06 of the room's man where they stand: their withers come to about Thad's shoulder (0.82 of a man) and the withers are 132 of the 170 rows from the hooves.",
+  "beatEvery": 7,
+  "beatSeconds": 2.4,
+  "phase": 0.3,
+  "rate": 0.2,
+  "frameNote": "0 rest · 1 the chestnut noses the mud · 2 the grey looks up, tail swished · 3 all three heads up · 4 a hind hoof rested. At rest on 0; every 7 s one of the four plays for 2.4 s, rotating, so all three heads come up together every 28 s (errata 77).",
+  "provenance": "art/staging/room-02/hitching-02/cut.json"
+ },
+ "placements": {
+  "main_street_dawn": {
+   "x": 2080,
+   "y": 850,
+   "zone": 0,
+   "sprite": {
+    "sheet": "art/actors/room-36-horses-dawn.png",
+    "frames": [
+     [
+      2,
+      2,
+      330,
+      201
+     ],
+     [
+      334,
+      2,
+      330,
+      201
+     ],
+     [
+      666,
+      2,
+      330,
+      201
+     ],
+     [
+      998,
+      2,
+      330,
+      201
+     ],
+     [
+      1330,
+      2,
+      330,
+      201
+     ]
+    ],
+    "figureHeight": 171,
+    "stature": 1.06,
+    "statureNote": "The rest frame, ear tips to hooves, is 1.06 of the room's man where they stand: their withers come to about Thad's shoulder (0.82 of a man) and the withers are 132 of the 170 rows from the hooves.",
+    "beatEvery": 7,
+    "beatSeconds": 2.4,
+    "phase": 0.3,
+    "rate": 0.2,
+    "frameNote": "0 rest · 1 the chestnut noses the mud · 2 the grey looks up, tail swished · 3 all three heads up · 4 a hind hoof rested. At rest on 0; every 7 s one of the four plays for 2.4 s, rotating, so all three heads come up together every 28 s (errata 77).",
+    "provenance": "tools/art/hitching-post-dawn.py: the night sheet under the dawn plate's light (errata 178)"
+   }
+  }
+ }
+}
