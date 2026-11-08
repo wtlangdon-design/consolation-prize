@@ -95,9 +95,11 @@ test('the county seal is one sound, the score resting under it, between the cert
   const sealed = lines.filter((line) => (line as { cue?: string }).cue === loudest);
   assert.equal(sealed.length, 1, 'one stamp, and it is the sound named the loudest in the game');
   assert.ok(!lines.some((line) => (line as { sound?: unknown }).sound), 'no raw sound beside it');
+  // Between the certification (a line by someone other than the window) and the read-back (the window's).
+  const window = content.dialogue.get(tree)!.speaker;
   const at = lines.indexOf(sealed[0]!);
-  assert.ok(lines.slice(0, at).some((line) => line.speaker === 'winnie'), 'after the certification');
-  assert.ok(lines.slice(at + 1).some((line) => line.speaker === 'sump'), 'before the read-back');
+  assert.ok(lines.slice(0, at).some((line) => line.speaker !== window && line.speaker !== content.actor.id), 'after the certification');
+  assert.ok(lines.slice(at + 1).some((line) => line.speaker === window), 'before the read-back');
   const cue = sounds.cues[loudest];
   assert.ok(cue.duck && cue.duck.to < 0.5, 'the score rests under it');
   for (const part of cue.play) await readFile(resolve(ROOT, part.src));

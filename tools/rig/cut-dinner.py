@@ -96,13 +96,25 @@ def grade(a):
     for c in (0, 2):
         out[..., c] = np.where(cast, np.minimum(rgb[..., c], rgb[..., 1] + 24), out[..., c])
         out[..., c] = np.where(tinted, np.minimum(out[..., c].astype(int), rgb[..., 1] + 5), out[..., c])
+    # THE SEAL AND THE WINE ARE RED, and tools/check-key-fringe.mjs reads (r+b)/2 - g over 30 as the key
+    # showing through. Their green is raised just to the line, which turns a pillar-box red a shade toward
+    # brick and leaves every other colour of him where it was.
+    rgb = out[..., :3].astype(int)
+    floor = (rgb[..., 0] + rgb[..., 2]) // 2 - 28
+    out[..., 1] = np.where(out[..., 3] > 0, np.maximum(rgb[..., 1], floor), rgb[..., 1]).clip(0, 255)
     out[out[..., 3] == 0] = 0
     return out
 
 
-def write(name, frames, place, note, clip, facing, width=None, state=None):
+def write(name, frames, place, note, clip, facing, width=None, state=None, scale_from=None):
     width = width or max(f.shape[1] for f in frames)
     W, H = 2 * PAD + width, FIGURE + BELOW
+    # A pose that never stands (seated) takes its scale from the clip that does, and shares its figure
+    # (tools/check-rig-describes-frames.mjs): the padding moves so the anchor stays where it was.
+    figure, pad = [width, FIGURE], PAD
+    if scale_from:
+        figure = json.load(open(os.path.join(ROOT, 'art/actors', scale_from, 'rig.json')))['figure']
+        pad = PAD + (width - figure[0]) // 2
     d = os.path.join(ROOT, 'art/actors', name); os.makedirs(d, exist_ok=True)
     for i, f in enumerate(frames):
         canvas = np.zeros((H, W, 4), np.uint8)
@@ -111,8 +123,8 @@ def write(name, frames, place, note, clip, facing, width=None, state=None):
         canvas[y:FIGURE, x:x + f.shape[1]] = f
         Image.fromarray(canvas).save(os.path.join(d, f'{clip}-{i:02d}.png'))
     json.dump({'source': 'art/staging/room-11/dinner-thad-01/sheet.png', 'key': 'magenta', 'clip': clip,
-               'facing': facing, 'figure': [width, FIGURE], 'padding': PAD, 'frames': len(frames), 'note': note,
-               **({'state': state} if state else {})},
+               'facing': facing, 'figure': figure, 'padding': pad, 'frames': len(frames), 'note': note,
+               **({'state': state} if state else {}), **({'scale_from': scale_from} if scale_from else {})},
               open(os.path.join(d, 'rig.json'), 'w'), indent=2)
     print(name, 'canvas', W, H, 'figure', width)
 
@@ -129,12 +141,12 @@ def chair_right(f, centre):
 
 graded = [grade(p) for p in scaled]
 dine = graded[:2]
-DINE = "Doc 48 S1 beat 1, 'Thad seated', through beat 3 (errata 189's unacted moments): seated at Fanshawe's table on a dining chair, in profile facing left, forearms at the table's edge; the wine raised is his idle break. room-11 attempt 6, cut by tools/rig/cut-dinner.py at his front record's scale."
-wide = max(f.shape[1] for f in dine)
-write('thad-dining-left', [dine[0]], chair_right, DINE, 'dining', 'left', wide, 'dining')
-write('thad-idlebreak-dining-left', [dine[1], dine[1], dine[0]], chair_right, DINE, 'idle-break', 'left', wide, 'dining')
-write('thad-stand-dining-left', [dine[0]], chair_right, DINE, 'stand', 'left', wide, 'dining')
 write('thad-deed-front', graded[2:], feet_centre,
       "Doc 48 S1 beat 4, 'Thad on the porch, holding the deed wrong side up': 0 looking down at it, 1 looking up from it. Played over the two lines (\"A very fine dinner.\" / \"I believe I own something.\"), a frame at a time. room-11 attempt 6, cut by tools/rig/cut-dinner.py.",
       'deed', 'front')
+DINE = "Doc 48 S1 beat 1, 'Thad seated', through beat 3 (errata 189's unacted moments): seated at Fanshawe's table on a dining chair, in profile facing left, forearms at the table's edge; the wine raised is his idle break. room-11 attempt 6, cut by tools/rig/cut-dinner.py at his front record's scale."
+wide = max(f.shape[1] for f in dine)
+write('thad-dining-left', [dine[0]], chair_right, DINE, 'dining', 'left', wide, 'dining', 'thad-deed-front')
+write('thad-idlebreak-dining-left', [dine[1], dine[1], dine[0]], chair_right, DINE, 'idle-break', 'left', wide, 'dining', 'thad-deed-front')
+write('thad-stand-dining-left', [dine[0]], chair_right, DINE, 'stand', 'left', wide, 'dining', 'thad-deed-front')
 print('grade', round(v_gain, 3), round(s_gain, 3))
