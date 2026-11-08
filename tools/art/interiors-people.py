@@ -33,7 +33,7 @@ MAGENTA = (255, 0, 255)
 src = open(os.path.join(ROOT, 'tools/art/lineup-redraws.py')).read()
 ns = {'__file__': os.path.join(ROOT, 'tools/art/lineup-redraws.py')}
 exec(src[src.index('import json'):src.index('def refs')], ns)
-template, face = ns['template'], ns['face']
+template, face, child = ns['template'], ns['face'], ns['child']
 src = open(os.path.join(ROOT, 'tools/art/one-level.py')).read()
 ns = {'__file__': os.path.join(ROOT, 'tools/art/one-level.py')}
 exec(src[src.index('import json'):src.index('def man_at')], ns)
@@ -61,6 +61,12 @@ PEOPLE = {
         'drawn': 6, 'gaps': [50, 50, 220, 50, 50],
         'plate': 'art/backgrounds/room-37-boarding-house-parlour.png', 'thadAt': (1525, 665), 'roomCrop': (900, 100, 1920, 790),
         'curve': ((660, 452), (855, 587)),
+    },
+    (39, 'boy'): {
+        'master': 'art/staging/room-39/composition-master-01.png', 'faceBox': (1195, 378, 1275, 452),
+        'drawn': 3, 'names': ['rest', 'breath', 'hitch', 'brow'], 'child': True,
+        'feet': (1562, 657), 'stature': 0.8, 'posture': 'child', 'curve': ((680, 449), (855, 570)),
+        'plate': 'art/backgrounds/room-39-bakehouse.png', 'thadAt': (1300, 700), 'roomCrop': (900, 120, 1920, 800),
     },
     (37, 'woman-a'): {
         'sheet': 'art/staging/room-37/women/sheet-a.png', 'drawn': 3, 'names': ['rest', 'breath', 'hair', 'talk'],
@@ -91,7 +97,7 @@ def refs(n, who):
     p = PEOPLE[(n, who)]
     d = stage(n, who)
     os.makedirs(d, exist_ok=True)
-    template([thad()] * p['drawn'], p.get('gaps')).save(os.path.join(d, 'template.png'))
+    template([child() if p.get('child') else thad()] * p['drawn'], p.get('gaps')).save(os.path.join(d, 'template.png'))
     boxes = p['faceBox'] if isinstance(p['faceBox'], list) else [p['faceBox']]
     faces = [face(None, sheet=os.path.join(ROOT, p['master']), box=b) for b in boxes]
     if len(faces) == 1:

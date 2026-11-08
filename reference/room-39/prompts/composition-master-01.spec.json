@@ -1,0 +1,16 @@
+{
+ "assetId": "room-39",
+ "subject": "room-39-bakehouse",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-39-bakehouse",
+ "promptFile": "reference/room-39/prompts/composition-master-01.txt",
+ "out": "art/staging/room-39/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-39/layout-1536x1024.png",
+  "art/backgrounds/room-28-laundry.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

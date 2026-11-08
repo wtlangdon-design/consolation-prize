@@ -4935,3 +4935,15 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** Eight subjects from doc 105 with three LOOKs and three LISTENs each, and four overrides; the photographer beside his camera, with doc 07's tree, his nine barks and the second answer Tyler authorized for "May I buy it?". In from the Lane by the door beside his window, which room-38's fourth operation drew on the Lane. Held by `tests/room-38.test.ts`. Proofs under `renders/proofs/photographers-studio/`.
 
 **Open, for Tyler:** (a) THE DOOR TO THE LANE has no lines; it ships as a stub exit, as the Lane's door in does. (b) The door now drawn on the Lane beside the photographer's window (errata 183, Room 38 D). (c) The photographer's look and his speech colour (#c8e0a0). (d) Doc 07 offers "That's Obadiah Mott." from the first conversation, ungated, as written.
+
+## Q182 · Room 37, the boarding house parlour: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-08 (errata 183, delegated); BUILT, room-37 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Seven subjects from doc 105 with three LOOKs and three LISTENs each, and four overrides; the two women by their tea table, doc 07's tree in two voices with the second answer Tyler authorized, and their barks as exchanges. On the map at the boarding house; its door goes back to the map. Held by `tests/room-37.test.ts`. Proofs under `renders/proofs/boarding-house-parlour/`.
+
+**Open, for Tyler:** (a) THE DOOR OUT has no lines; it ships as a stub exit. (b) The women's looks and speech colours (errata 183, Room 37 C); they are smoother than Thad by the texture number (flat cloth), at his pixel size. (c) The map draws the place as THE BOARDING HOUSE, the room's name. (d) A's laugh stays printed (doc 95 row 75).
+
+## Q183 · Room 39, the bakehouse: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-08 (errata 183, delegated); BUILT, room-39 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Five subjects from doc 105 with three LOOKs and three LISTENs each, and three overrides; the boy at the table's end with his tray, a figure who never speaks. On the map at the bakehouse; its door goes back to the map. Held by `tests/room-39.test.ts`. Proofs under `renders/proofs/bakehouse/`.
+
+**Open, for Tyler:** (a) THE DOOR OUT has no lines; it ships as a stub exit. (b) The boy's look and size (0.8 of a man, a boy of about twelve). (c) The racks of loaves are painted, not a subject: no line names them.

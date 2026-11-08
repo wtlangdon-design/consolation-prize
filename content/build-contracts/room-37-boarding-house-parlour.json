@@ -1,0 +1,188 @@
+{
+ "schema": 1,
+ "id": "room-37-boarding-house-parlour",
+ "room": "boarding_house_parlour",
+ "docRoom": 37,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 37 of the six interiors (errata 183, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/105-the-six-interiors.md",
+  "docs/07-ambient-layer.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-37.json",
+    "docs/00-errata.md::183 · THE SIX INTERIORS: WRITTEN, CAPPED AND BRIEFED — TYLER, 2026-11-08 (\"Build all six\"; \"Write all six now\")"
+   ],
+   "note": "One picture, true in every act, night (errata 183); the women's tree in every act."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-37/graybox.json",
+    "docs/00-errata.md::183 · THE SIX INTERIORS: WRITTEN, CAPPED AND BRIEFED — TYLER, 2026-11-08 (\"Build all six\"; \"Write all six now\")"
+   ],
+   "note": "Every subject is plate; the boots sign and the hymnal are painted marks."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-37-boarding-house-parlour-with-thad.png",
+    "docs/00-errata.md::183 · THE SIX INTERIORS: WRITTEN, CAPPED AND BRIEFED — TYLER, 2026-11-08 (\"Build all six\"; \"Write all six now\")"
+   ],
+   "note": "The two women painted over the in-game Thad on one sheet (errata 144's method), their faces from the master."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/boarding-house-parlour/life/life.json"
+   ],
+   "note": "The women breathe, and on their own beats one touches her hair and the other folds her arms, half a cycle apart."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-37-boarding-house-parlour-with-thad.png"
+   ],
+   "note": "They stand on the floor right of the tea table; their poses need nothing in the room."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-37/annotation.json",
+    "art/staging/room-37/plate-01/frame.json"
+   ],
+   "note": "Night, the coal fire and two lamps; not lifted (31.7)."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/room-37.test.ts",
+    "docs/00-errata.md::183 · THE SIX INTERIORS: WRITTEN, CAPPED AND BRIEFED — TYLER, 2026-11-08 (\"Build all six\"; \"Write all six now\")"
+   ],
+   "note": "No puzzle is sited here (doc 07 Part Three); nothing is a clue by look or sound."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-37.json",
+    "content/rooms/boarding-house-parlour.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 46 lines compiled."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-37: 3 of 4 operations (master, people-free plate with the clock out and the hen cosy on, the two women's sheet against Thad)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/boarding-house-parlour.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-37/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/boarding-house-parlour/proof.json"
+   ],
+   "note": "No principal change: one visual state."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/boarding-house-parlour/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/boarding-house-parlour/doors/life.json",
+    "tests/room-37.test.ts"
+   ],
+   "note": "Out by the door to the map and back in by the boarding house's marker, twice."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-37/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-37-boarding-house-parlour.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-37/plate-01/frame.json"
+   ]
+  },
+  {
+   "subject": "the two women",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-37-woman-a.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-37/woman-a/woman-a.json",
+    "art/staging/room-37/woman-b/woman-b.json"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q182 · Room 37, the boarding house parlour: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-08 (errata 183, delegated); BUILT, room-37 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q182 · Room 37, the boarding house parlour: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-08 (errata 183, delegated); BUILT, room-37 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

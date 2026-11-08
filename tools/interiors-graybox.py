@@ -122,6 +122,35 @@ ROOMS = {
                          'the two women are all behind it, so no plane is needed.',
         'lightSources': ['THE WOMEN', 'THE FIRE'],
     },
+    39: {
+        'id': 'bakehouse', 'name': 'THE BAKEHOUSE',
+        'what': 'A small hot bakehouse at night, lit by its big brick oven, working.',
+        'depth': INTERIOR,
+        'surfaces': [
+            ('ceiling shadow, rafters', (0, 0, 1920, 60), 40),
+            ('walls, brick and plank', (0, 60, 1920, 630), 72),
+            ('floor, floury boards', (0, 690, 1920, 174), 88),
+        ],
+        'objects': [
+            ('THE DOOR OUT', (20, 150, 160, 540), 52, 'behind'),
+            ('THE FLOUR (sacks to the rafters)', (200, 60, 300, 630), 104, 'behind'),
+            ('THE OVEN (and its paddle)', (540, 110, 430, 580), 50, 'behind'),
+            ('racks', (1000, 170, 180, 520), 60, 'behind'),
+            ('THE TABLE (dough in rows)', (1190, 470, 420, 220), 98, 'behind'),
+            ('THE BOY (at the table\'s far end, a tray)', (1620, 380, 110, 330), 56, 'behind'),
+            ('THE BACK DOOR (propped open, the yard)', (1750, 130, 160, 560), 46, 'behind'),
+        ],
+        'lamp': (760, 790, 800, 170),
+        'marks': {'entrance': (240, 790, 'right')},
+        'walk': (160, 740, 1620, 110),
+        'exit': ('THE DOOR OUT', 'town_map'),
+        'layoutThad': (900, 790),
+        'figures': [(450, 740, False), (700, 800, False), (1300, 740, True), (240, 790, False), (900, 850, False),
+                    (1650, 850, True)],
+        'occlusionNote': 'Nothing stands nearer the camera than the walk band: the oven, the table and the boy at its far '
+                         'end are all behind it, so no plane is needed.',
+        'lightSources': ['THE OVEN', 'THE BOY', 'THE BACK DOOR'],
+    },
 }
 
 

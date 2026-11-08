@@ -706,6 +706,22 @@
     }
    ],
    "castingNote": "The two boarding-house women (doc 07 #14-15) have no approved image; doc 07 gives them the only solvent business in town and Martha's name (A). Drawn on magenta against Thad in the room (errata 144's method), as two figures, A and B."
+  },
+  "room-39-bakehouse": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-28-laundry",
+    "path": "art/backgrounds/room-28-laundry.png",
+    "note": "D -- the approved working interior at night, lit by its own fires (errata 98, 99 D); the bakehouse is lit by its oven, hot and warm (reference/ancillary-interiors/brief.md)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "The boy has no approved image and no lines of his own; doc 105 gives him flour to the elbows, a tray twice his width, and eyes that never look up. Drawn on a child's template built from Thad (tools/art/lineup-redraws.py child), as the message boy was."
   }
  }
 }

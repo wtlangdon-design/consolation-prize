@@ -283,7 +283,7 @@
 
 **THE TABLE** — LOOK 2 "The wood's been scraped down so many times there's a dip in the middle. Bread made the dip." · 3 "Every loaf on it is the same size. Somebody weighs them. In this town that's practically a confession of honesty." | LISTEN 2 "Dough being slapped down at the far end, and folded, and slapped again." · 3 "Nothing for a moment, and then a knife through a crust."
 
-**THE BOY** — LOOK 2 "He works like a man paid by the loaf and proud of the rate." · 3 "Flour in his hair, flour in his eyebrows. In ten years he'll be grey, and nobody will notice the difference." | LISTEN 2 "Still humming. The same wrong tune, kept beautifully." · 3 "His breath, steady, keeping time with the dough. He'd make a good metronome."
+**THE BOY** — LOOK 2 "He works like a man paid by the loaf and proud of the rate." · 3 "Flour in his hair, flour in his eyebrows. In ten years he'll be gray, and nobody will notice the difference." | LISTEN 2 "Still humming. The same wrong tune, kept beautifully." · 3 "His breath, steady, keeping time with the dough. He'd make a good metronome."
 
 **THE BACK DOOR** — LOOK 2 "The brick that holds it open is the only brick in the building not doing something more important." · 3 "Outside, a cart with BREAD painted on the side, slightly wrong. The bread's right. The painting isn't." | LISTEN 2 "A horse in the yard, shifting, waiting for its load." · 3 "Somebody out back, counting loaves aloud. He gets to forty and starts again."
 

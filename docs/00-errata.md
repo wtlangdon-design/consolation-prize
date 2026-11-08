@@ -5009,3 +5009,34 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
 - **F · The not-built list.** Two of doc 105's lines, the schoolhouse bell's "…It's in tune." and the storefront back room's "a great deal of nothing", had never been listed. They were covered only by the check's loose match against Room 38's entries, so building Room 38 surfaced them. They are listed now, with their rooms.
 - **G · Sound.** Plank footsteps, and the Lane's distant piano at 0.4, as the barber's.
 
+**BUILT — ROOM 37, THE BOARDING HOUSE PARLOUR (the builder, 2026-11-08).** `BUILDABLE WITHOUT INVENTION: YES`. room-37: 3 of 4 operations.
+
+- **A · The plan** (`tools/interiors-graybox.py 37`). Left to right: the door out; the stairs, with the boots sign and the row of boots at their foot; the upright piano under the queen's portrait; an armchair, the fire, a second armchair; the tea table; the rug on the floor; the two women standing together at the right. They stand rather than sit: a figure sat on a chair the plate paints has to land exactly on it (doc 55 section 8), and standing keeps the antimacassars in sight.
+- **B · The art.**
+  - Operation 1, the master. It drew a mantel clock, which no line names, and a plain teapot where the tea things' third LOOK has a hen cosy.
+  - Operation 2, the plate: people out, the clock out, the knitted hen on the pot. The band was painted 679 rows, so the plate is the 1500 × 675 window from 18,174, as Room 43's (`interiors-plate.mjs --crop`). At 31.7 in its lower half it needed no lift.
+  - Thad stands about 477 px at y 696; the curve is 452 to 587 across the band, which runs over the rug.
+  - The boots sign and the hymnal are painted marks.
+- **C · The two women** (operation 3, errata 144's method, both on one sheet as the boundary men were). `interiors-people.py split` cuts the sheet at its middle gap, and each is cut at 0.97 of the room's man where she stands, as the master drew them. A, in green: rest, breath, a hand to her hair, talking. B, in plum: rest, breath, arms folded, talking. They break half a cycle apart.
+  - Measured: texture 0.53–0.61× Thad's (flat cloth); 110–137 blocks tall against Thad's ~125; B snapped to one level by `one-level.py`.
+  - Speech colours #a8d8c0 and #e0b0d8, the builder's.
+- **D · Their tree, in two voices.** Doc 07's micro-tree and barks for the pair, extracted as the boundary men's are. Tyler's second answer for the joke is B's, as her first answer was, so `extract-content.mjs` now reads an *Asked again* in a named voice (`**B:**`) as an exchange: the engine's `repeats` form. Doc 95 row 75 keeps A's "She laughs for some time." printed (class C): the joke is its length.
+- **E · On the map.** The boarding house's marker already stood on its own roof below the loop road (errata 163). Its room was a placeholder marked `unbuilt`; it is the parlour now, and it draws the room's own name, THE BOARDING HOUSE. The door out is a stub exit to the map.
+- **F · The rug** is floor, so it walks on a bare click. The antimacassars are the left armchair's, since a hotspot has one rect; the right armchair beside the women is furniture.
+- **G · American English.** Two spoken "parlour"s in doc 105 are "parlor".
+- **H · Sound.** Plank footsteps. The town's distant piano, far off at 0.3, tuned when the Nugget's is. The parlour's own piano is kept, not played (doc 105), and doc 28 keeps the undertaker's the only silent room.
+- **Room 38, after its proofs:** the photographer's card-held-up frame closed a hole of air between his raised arm and his head, and a talking figure is drawn whole (`tests/lessons.test.ts`). He acts with the card tilted to the light instead. The frame stays on the sheet, unused.
+
+**BUILT — ROOM 39, THE BAKEHOUSE (the builder, 2026-11-08).** `BUILDABLE WITHOUT INVENTION: YES`. room-39: 3 of 4 operations.
+
+- **A · The plan** (`tools/interiors-graybox.py 39`). Left to right: the door out; the flour sacks to the rafters; the big brick oven, lit, with its long paddle; racks of loaves; the long floured table with dough in rows; the boy at its far end; the back door propped open on a brick, onto the yard and its cart. The oven is the room's light.
+- **B · The art.** Operation 1, the master. Operation 2, the plate: people out, nothing else. The standard crop from y 170; at 50.6 in its lower half it is hot and bright, within the approved interiors (the Nugget's 57). Thad stands about 455 px at y 688; the curve is 449 to 570.
+- **C · The boy** (operation 3). Doc 105's "figure, not a speaker": he has no tree, and doc 07 writes him none. His LOOK, LISTEN and TALK TO are the room's lines, on a hotspot over his figure, as the back alley's cat's are.
+  - Drawn on a child's template built from Thad (`lineup-redraws.py child`), as the message boy was. He is a boy of about twelve, declared `posture: child` at 0.8 of the room's man, the top of the scale test's child range.
+  - Frames: the tray level at his waist · breath · the tray hitched to his chest · a forearm across his brow. He never looks up.
+  - Measured: texture 1.01–1.14× Thad's, clean edges.
+  - His walk-to point is beside him (`hotspotWalkTo`), so Thad never stands on him.
+- **D · On the map.** The bakehouse's marker, beside the boarding house's, now leads here and draws the room's own name. The door out is a stub exit to the map.
+- **E · American English.** The boy's "grey" is "gray".
+- **F · Sound.** Plank footsteps, and the town's distant piano at 0.3, as the parlour's.
+

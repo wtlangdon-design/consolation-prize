@@ -1,0 +1,163 @@
+{
+ "room": "bakehouse",
+ "plate": "art/backgrounds/room-39-bakehouse.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-39/plate-01/candidate-1920x864.png, room-39 attempt 2: the master with the people out, the standard crop from y 170, not lifted -- frame.json). Every rect below was read off that picture.",
+ "plateShipping": "art/backgrounds/room-39-bakehouse.png",
+ "plateShippingHash": "54a599b5f3741bc8dd1ffd59cd60d2eb5b3fde53557b86b2e22e5636892b2faa",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   60,
+   680
+  ],
+  [
+   1880,
+   680
+  ],
+  [
+   1880,
+   855
+  ],
+  [
+   60,
+   855
+  ]
+ ],
+ "walkableNote": "THE FLOURY BOARDS IN FRONT OF EVERYTHING. The table's legs and the door's foot reach y 676, so the band runs y 680-855 from the door to the back door.",
+ "scaling": {
+  "far": {
+   "y": 680,
+   "height": 449
+  },
+  "near": {
+   "y": 855,
+   "height": 570
+  },
+  "note": "ROOM 39'S DEPTH, FROM THE MAN THE MASTER PAINTED. The master drew Thad about 360 tall, feet at source y 715; from the standard crop at 1.263 he stands about 455 at y 688. Along Room 5's slope (0.69 per row): 449 at the band's far edge and 570 at its near. The boy stands at 0.8 of that, soles y 657 (tools/art/interiors-people.py)."
+ },
+ "entrance": [
+  220,
+  760
+ ],
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    220,
+    760
+   ],
+   "facing": "right",
+   "note": "In at the door, from the map."
+  },
+  {
+   "from": "town_map",
+   "at": [
+    220,
+    760
+   ],
+   "facing": "right",
+   "note": "In from the map (errata 183)."
+  }
+ ],
+ "hotspots": {
+  "flour": [
+   140,
+   55,
+   320,
+   560
+  ],
+  "oven": [
+   485,
+   80,
+   340,
+   460
+  ],
+  "table": [
+   1130,
+   380,
+   355,
+   300
+  ],
+  "boy": [
+   1485,
+   310,
+   155,
+   350
+  ],
+  "back_door": [
+   1655,
+   65,
+   240,
+   610
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE OVEN takes in its paddle. THE TABLE is the long table and the dough on it. THE BOY is his figure at the table's end (content/ambient/bakehouse-boy.json). THE BACK DOOR takes in the brick and the yard beyond. The racks are furniture.",
+ "hotspotWalkTo": {
+  "boy": {
+   "x": 1380,
+   "y": 700,
+   "facing": "right"
+  }
+ },
+ "hotspotWalkToNote": "The point under the boy would stand Thad on him (doc 55 section 8): he stands beside him instead.",
+ "exitSubjects": {
+  "THE DOOR OUT": {
+   "id": "to_town_map",
+   "to": "town_map",
+   "defaultVerb": "WALK_TO",
+   "stub": true,
+   "note": "Errata 183: the bakehouse is on the map. Doc 105 writes no lines for its door, so it is a stub exit (errata 72 F; doc 36)."
+  }
+ },
+ "exits": {
+  "to_town_map": [
+   5,
+   60,
+   150,
+   600
+  ]
+ },
+ "exitWalkTo": {
+  "to_town_map": {
+   "x": 100,
+   "y": 720,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "oven",
+   "at": [
+    627,
+    400
+   ],
+   "radius": 720,
+   "amount": 0.1,
+   "rate": 0.4,
+   "phase": 0.2,
+   "note": "The oven's fire. A low breath (invariant 9: it tells nothing)."
+  }
+ ],
+ "defaultVerbs": {
+  "flour": "LOOK_AT",
+  "oven": "LOOK_AT",
+  "table": "LOOK_AT",
+  "boy": "LOOK_AT",
+  "back_door": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
+ "occlusion": {
+  "note": "NO PLANE MASKS THAT CAN REACH HIM: the walk band is in front of the table, and the boy stands at its far end, clear of it.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}

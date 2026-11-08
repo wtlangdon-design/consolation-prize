@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "bakehouse",
+ "note": "ROOM 39's PROOF SPEC (errata 183). The route is Main Street's, then the MAP button and the bakehouse's marker. The room has one visual state.",
+ "route": "bakehouse",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "the bakehouse draws the same in every state: doc 105 writes every line true whenever it is read, and no puzzle is sited here (doc 07 Part Three)."
+ }
+}

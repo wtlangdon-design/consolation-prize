@@ -1,0 +1,10 @@
+Image 1 is a TEMPLATE: a boy built from the hero of my pixel-art adventure game, standing, three times in a row on magenta. HIS BODY IS THE STANDARD: a boy's proportions as drawn there -- a slightly larger head for his size, a slight body, nothing cartoonish. Image 2 shows ONLY THE FACE of the boy who works in the bakehouse: take from it his face, his brown hair and his colouring -- NOTHING ELSE. His face is drawn there larger than it should be: in your picture it is the SIZE OF THE FACE in Image 1. Image 3 is the hero in the room where the boy works, a hot bakehouse at night: match its pixel size, soft shading and warm oven light.
+
+The boy is about twelve: shirtsleeves rolled up, flour white to the elbows and dusted in his hair and eyebrows, a long apron, dark trousers, boots. He is busy and never looks up.
+
+Repaint Image 1: replace each figure with the boy, KEEPING THE TEMPLATE'S HEAD SIZE, BODY AND HEIGHT, feet on the same line, facing us, his eyes down on his work. In every pose he carries ONE WIDE WOODEN TRAY OF LOAVES, about twice as wide as his shoulders. Left to right:
+1. holding the tray level in both hands at his waist, looking down at the loaves;
+2. the tray hitched up higher against his chest in both hands, a little effort in it, still looking down;
+3. the tray balanced on one flat hand, and his other forearm wiping his brow, still looking down.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the template -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No floor, no table, no glow, no blur, no shadows, no text.

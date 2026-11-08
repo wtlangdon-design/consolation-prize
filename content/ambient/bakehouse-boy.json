@@ -1,0 +1,67 @@
+{
+ "schema": 1,
+ "id": "bakehouse_boy",
+ "name": "THE BOY",
+ "posture": "child",
+ "note": "Doc 105's THE BOY (errata 183): a figure, not a speaker -- he has no tree and doc 07 writes him none; his LOOK, LISTEN and TALK TO are the room's (content/examine/room-39.json). He stands at the far end of the long table with his tray, where the composition master stood him. Present in every act.",
+ "room": "bakehouse",
+ "x": 1562,
+ "y": 657,
+ "zone": 2,
+ "approachRadius": 40,
+ "barks": {},
+ "barksNote": "A figure, not a speaker; no barks.",
+ "sprite": {
+  "note": "Frame 0 is the rest, the tray level at his waist; 1 its breath; 2 the tray hitched up against his chest; 3 the tray on one hand while he wipes his brow. He never looks up (doc 105).",
+  "sheet": "art/actors/room-39-boy.png",
+  "frames": [
+   [
+    2,
+    2,
+    156,
+    346
+   ],
+   [
+    160,
+    2,
+    156,
+    346
+   ],
+   [
+    318,
+    2,
+    156,
+    346
+   ],
+   [
+    476,
+    2,
+    156,
+    346
+   ]
+  ],
+  "rate": 0.45,
+  "phase": 0.2,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 14,
+  "provenance": "art/staging/room-39/boy/boy.json",
+  "frameNote": "0 rest, the tray at his waist · 1 breath · 2 the tray hitched to his chest · 3 a forearm across his brow.",
+  "figureHeight": 346,
+  "stature": 0.8,
+  "figureHeightNote": "0.8 of the room's man at his feet (soles y 657), a boy of about twelve on a child's template built from Thad (tools/art/lineup-redraws.py child), as the message boy is."
+ }
+}

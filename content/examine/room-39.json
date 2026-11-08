@@ -1,0 +1,86 @@
+{
+  "room": 39,
+  "name": "THE BAKEHOUSE",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/105-the-six-interiors.md::ROOM 39 — THE BAKEHOUSE",
+    "docs/105-the-six-interiors.md::ROOM 39 · THE BAKEHOUSE",
+    "docs/105-the-six-interiors.md::ROOM 39 · THE BAKEHOUSE"
+  ],
+  "subjects": [
+    {
+      "name": "THE OVEN",
+      "LOOK_AT": [
+        "A brick oven, built big and lit early. Bread for a town of two thousand comes out of one door.",
+        "The bricks round the door are scorched black, and the bricks round that are scorched brown. It has been working for years.",
+        "A long wooden paddle hangs beside it, worn pale at the handle. That paddle has fed the whole town."
+      ],
+      "LISTEN_TO": [
+        "Warm. Working. Something in this town is *working*.",
+        "The fire roaring low in the back of it, steady as a mill.",
+        "A loaf, somewhere inside, crackling as it cools. Good bread talks."
+      ],
+      "overrides": {
+        "OPEN": "Not with my hands, and not with my face. It's a professional oven."
+      }
+    },
+    {
+      "name": "THE FLOUR",
+      "LOOK_AT": [
+        "Flour sacks stacked to the rafters, with the flour on everything else as well. Including, now, me.",
+        "The sacks are stamped from Sacramento. Flour travels better than men do, and arrives in a better mood.",
+        "There are small white footprints across the floor from the sacks to the table, all day's worth of them."
+      ],
+      "LISTEN_TO": [
+        "A sack settling, very softly. Flour has a hush to it.",
+        "Nothing. A sack of flour is the most patient object in the world.",
+        "A sift of it falling from a shelf, like a little snow."
+      ]
+    },
+    {
+      "name": "THE TABLE",
+      "LOOK_AT": [
+        "A long table, floured and scraped, with the dough laid out in rows. The only rows in Consolation that come out even.",
+        "The wood's been scraped down so many times there's a dip in the middle. Bread made the dip.",
+        "Every loaf on it is the same size. Somebody weighs them. In this town that's practically a confession of honesty."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Dough rises without saying anything about it. I admire that.",
+        "Dough being slapped down at the far end, and folded, and slapped again.",
+        "Nothing for a moment, and then a knife through a crust."
+      ],
+      "overrides": {
+        "PICK_UP": "Not the bread. Not the dough. Not even the flour. I can tell from the boy's back."
+      }
+    },
+    {
+      "name": "THE BOY",
+      "LOOK_AT": [
+        "A boy with flour to the elbows, carrying a tray twice his width and not dropping anything. He has not looked up once.",
+        "He works like a man paid by the loaf and proud of the rate.",
+        "Flour in his hair, flour in his eyebrows. In ten years he'll be gray, and nobody will notice the difference."
+      ],
+      "LISTEN_TO": [
+        "He's humming, in time with the kneading. The tune is wrong. The time is perfect.",
+        "Still humming. The same wrong tune, kept beautifully.",
+        "His breath, steady, keeping time with the dough. He'd make a good metronome."
+      ],
+      "overrides": {
+        "TALK_TO": "He's counting under his breath. If I speak, he'll lose count, and then we'll both be lost."
+      }
+    },
+    {
+      "name": "THE BACK DOOR",
+      "LOOK_AT": [
+        "The back door, propped open with a brick to let the heat out. It is letting the heat out into the whole street.",
+        "The brick that holds it open is the only brick in the building not doing something more important.",
+        "Outside, a cart with BREAD painted on the side, slightly wrong. The bread's right. The painting isn't."
+      ],
+      "LISTEN_TO": [
+        "The yard, and a cart being loaded. Bread leaving for everywhere at once.",
+        "A horse in the yard, shifting, waiting for its load.",
+        "Somebody out back, counting loaves aloud. He gets to forty and starts again."
+      ]
+    }
+  ]
+}

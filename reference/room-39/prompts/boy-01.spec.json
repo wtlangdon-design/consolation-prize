@@ -1,0 +1,16 @@
+{
+ "assetId": "room-39",
+ "subject": "room-39-boy",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-39-bakehouse",
+ "promptFile": "reference/room-39/prompts/boy-01.txt",
+ "out": "art/staging/room-39/boy/sheet-01.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-39/boy/template.png",
+  "art/staging/room-39/boy/face.png",
+  "art/staging/room-39/boy/thad-in-room.png"
+ ],
+ "derivedFrom": "art/staging/room-39/composition-master-01.png"
+}
