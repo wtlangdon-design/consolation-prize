@@ -103,6 +103,12 @@ import('{ROOT}/engine/core/WalkBoxes.ts').then(({{WalkBoxes, heightIn}}) => {{
     return float(out or 0)
 
 
+def man_at_depth(room, y):
+    r = [json.load(open(os.path.join(ROOT, p))) for p in json.load(open(os.path.join(ROOT, 'content/manifest.json')))['rooms']]
+    c = [one for one in r if one['id'] == room][0]['walkBoxes'][0]['scaleMode']
+    return c['farHeight'] + (y - c['farY']) * (c['nearHeight'] - c['farHeight']) / (c['nearY'] - c['farY'])
+
+
 jobs = {}      # (sheet, tuple(frame)) -> block
 cut = set()    # (sheet, tuple(frame)) of figures cut at a counter's edge
 manifest = json.load(open(os.path.join(ROOT, 'content/manifest.json')))
@@ -120,7 +126,9 @@ for p in manifest['ambient']:
         # stature, so a man is figureHeight / stature sheet pixels (an animal's stature is small).
         man = (sp['figureHeight'] / (sp.get('stature') or 1.0)) if sp.get('figureHeight') else None
         if not man:
-            m = man_at(room, x, y)
+            # A figure behind a counter at the back of a room says how deep it stands (`depthY`): a man
+            # there is the room's depth curve carried back to that floor, not clamped to the walk band.
+            m = man_at_depth(room, sp['depthY']) if 'depthY' in sp else man_at(room, x, y)
             if m <= 0: continue
             man = m / (1.0)
         b = man / N

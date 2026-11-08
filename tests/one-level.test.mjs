@@ -48,6 +48,13 @@ function manAt(roomId, x, y) {
   return near ? heightIn(near.box, y) : 0;
 }
 
+/** A man at a depth behind the walk band (`depthY`): the room's curve carried back, not clamped. */
+function manAtDepth(roomId, y) {
+  const curve = rooms.get(roomId)?.walkBoxes?.[0]?.scaleMode;
+  if (!curve || curve.kind !== 'curve') return 0;
+  return curve.farHeight + (y - curve.farY) * (curve.nearHeight - curve.farHeight) / (curve.nearY - curve.farY);
+}
+
 /** Fraction of a frame's opaque pixels whose colour is not their art-pixel block's. */
 export function offGrid(png, frame, b) {
   // A pixel centre exactly on a block edge (a block of exactly 3.5 px) can go to either block: the snap's
@@ -99,7 +106,8 @@ for (const path of manifest.ambient) {
   }
   for (const [room, x, y, sprite] of places) {
     if (!sprite?.frames || npc.posture === 'identity') continue;
-    const man = sprite.figureHeight ? sprite.figureHeight / (sprite.stature || 1) : manAt(room, x, y);
+    const man = sprite.figureHeight ? sprite.figureHeight / (sprite.stature || 1)
+      : sprite.depthY !== undefined ? manAtDepth(room, sprite.depthY) : manAt(room, x, y);
     if (man <= 0) continue;
     for (const frame of sprite.frames) {
       const key = `${sprite.sheet}|${frame.join(',')}`;
