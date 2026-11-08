@@ -1,0 +1,32 @@
+{
+ "sheet": "art/actors/room-02-horses.png",
+ "source": "art/staging/room-02/hitching-04/sheet.png",
+ "frames": [
+  [
+   2,
+   2,
+   702,
+   413
+  ],
+  [
+   706,
+   2,
+   702,
+   413
+  ],
+  [
+   1410,
+   2,
+   702,
+   413
+  ],
+  [
+   2114,
+   2,
+   702,
+   413
+  ]
+ ],
+ "figureHeight": 393,
+ "frameNote": "0 rest: the black looking out, the palomino eating, the paint over the rail \u00b7 1 the black tosses its head \u00b7 2 the palomino lifts its head from the hay \u00b7 3 the paint turns its head and swishes its tail"
+}

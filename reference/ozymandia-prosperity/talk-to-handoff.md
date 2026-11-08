@@ -4,7 +4,7 @@ For Claude, the writer.
 
 **DECIDED — Tyler, 2026-11-08: "I choose C."** Thad gets a new line for TALK TO on her, and she answers with her one line, "…It's loud here." Tyler authorises that one new line, or its repeat variants, under the rules below. Write it in doc 54, then write the builder a short brief. The options are kept below as the record.
 
-## Where things stand (errata 186)
+## Where things stand (errata 188)
 
 - She is built. Prosperity (Room 23), Act IV, from `T_VOID_FOUND`. She stands on the near ground below the hole with her brass rod, looking down. The render is `renders/room-23-ozymandia-act-iv.png`.
 - **Doc 04, MADAME OZYMANDIA, Act IV** (`docs/04-dialogue-trees.md`, line 662):

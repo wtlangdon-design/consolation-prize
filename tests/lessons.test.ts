@@ -332,7 +332,7 @@ test('every puzzle sited wholly in built rooms is played by a test, or says why 
 
 /* ---- A figure whose only words are barks is heard where one talks to it --- */
 
-// Errata 186: the woman at the hole in Act IV has one line and no tree. Her
+// Errata 188: the woman at the hole in Act IV has one line and no tree. Her
 // stand for TALK TO was 200 px from her and her bark fired inside 120, so the
 // player walked up, stood in front of her, and she said nothing. A figure with
 // no tree speaks only through its barks: its radius takes in its own stand.

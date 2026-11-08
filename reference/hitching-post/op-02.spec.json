@@ -1,0 +1,13 @@
+{
+ "assetId": "room-02",
+ "subject": "hitching-post-motion",
+ "role": "other",
+ "promptFile": "reference/hitching-post/prompt-02.txt",
+ "out": "art/staging/room-02/hitching-02/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-02/hitching-02/input.png"
+ ],
+ "derivedFrom": "art/staging/room-02/hitching-01/sheet.png",
+ "authorizedBy": "Tyler, 2026-11-07, choosing \"Both: +6 cast, +4 Main St\" (room-02 cap 6, errata 168). Brief reference/hitching-post/brief.md, operation 2 of 4: the horses' motion sheet (errata 77)."
+}
