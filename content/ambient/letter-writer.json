@@ -4,9 +4,9 @@
  "name": "THE LETTER-WRITER",
  "posture": "standing",
  "note": "Doc 07 #1. Writes letters home for men who can't. Charges by the page. Resolves the notice board hotspot. Doing better than anyone, because he sells the one thing that never runs out.",
- "room": "main_street",
- "x": 1290,
- "y": 650,
+ "room": "lower_street",
+ "x": 1295,
+ "y": 775,
  "zone": 1,
  "approachRadius": 40,
  "tree": "amb_letter_writer",
@@ -87,7 +87,7 @@
   "frameNote": "0 standing, his writing case under his arm · 1 breath (derived) · 2 the case held open, offering to write · 3 touching his hat · 4 the case closed at his chest."
  },
  "migrationNote": "ERRATA 54, x6. Was (30, 112) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
- "placeNote": "Back at the west end, beside the posted notices rather than clustered at the saloon with the other two. Was (2500, 712). THE CLUSTER WAS A MISTAKE OF MY OWN MAKING: I moved all three east on the reasoning that the saloon is the only lit thing at night, and the measurement says otherwise -- the mud at the Company and the Clarion reads 70-72 against the map seller’s 58, and only the saloon porch peaks at 84. Half a 3700px street had nobody in it. He belongs here anyway: doc 05 gives POSTED NOTICES to him, and a man who writes letters for the illiterate sets up where the town reads. Clear of the board rect and the Company steps.",
+ "placeNote": "Back at the west end, beside the posted notices rather than clustered at the saloon with the other two. Was (2500, 712). THE CLUSTER WAS A MISTAKE OF MY OWN MAKING: I moved all three east on the reasoning that the saloon is the only lit thing at night, and the measurement says otherwise -- the mud at the Company and the Clarion reads 70-72 against the map seller’s 58, and only the saloon porch peaks at 84. Half a 3700px street had nobody in it. He belongs here anyway: doc 05 gives POSTED NOTICES to him, and a man who writes letters for the illiterate sets up where the town reads. Clear of the board rect and the Company steps. ERRATA 193 (Tyler, 2026-11-08) MOVED HIM TO LOWER STREET, Main Street having too many people: he stands in front of the livery's shut left door, in its lamplight, between the passage to the Lane and the livery's open doors, clear of both ways and well away from the bell-ringer at the church. His Pike answer in doc 07 now points from there ('Down the lane, there.'). The POSTED NOTICES line on Main Street still advertises him; the notice is his, not his presence.",
  "placements": {
   "main_street_candidate": {
    "x": 1470,
@@ -157,5 +157,5 @@
  "when": {
   "T_FUNERAL_DAY": false
  },
- "whenNote": "Errata 189: up the hill on the funeral day (doc 57 C3: 'The street is half empty. Everyone in town who owns a black coat is up the hill.'). Four of Main Street's eight townspeople go -- the boundary men, the letter-writer and the pie woman; the map seller, the man leaving tomorrow, the message boy and the dog's owner stay, each for the reason their one joke gives."
+ "whenNote": "Errata 189: up the hill on the funeral day (doc 57 C3: 'The street is half empty. Everyone in town who owns a black coat is up the hill.'). Four of Main Street's eight townspeople go -- the boundary men, the letter-writer and the pie woman; the map seller, the man leaving tomorrow, the message boy and the dog's owner stay, each for the reason their one joke gives. Errata 193 moved him to Lower Street and kept this condition: he is up the hill on the funeral day wherever he stands."
 }

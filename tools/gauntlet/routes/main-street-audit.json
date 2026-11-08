@@ -94,60 +94,6 @@
    "name": "m06-west-corner-occlusion"
   },
   {
-   "do": "verb",
-   "verb": "TALK_TO"
-  },
-  {
-   "do": "click",
-   "on": "letter_writer",
-   "why": "the letter-writer"
-  },
-  {
-   "do": "waitFor",
-   "dialogue": true,
-   "upTo": 40
-  },
-  {
-   "do": "capture",
-   "name": "m07-letter-writer-talk"
-  },
-  {
-   "do": "option",
-   "option": "charge",
-   "why": "What do you charge? -- the row that opens the follow-up"
-  },
-  {
-   "do": "waitFor",
-   "dialogue": true,
-   "upTo": 40
-  },
-  {
-   "do": "option",
-   "option": "going_well",
-   "why": "the line about the business doing well"
-  },
-  {
-   "do": "waitFor",
-   "dialogue": true,
-   "upTo": 40
-  },
-  {
-   "do": "capture",
-   "name": "m08-letter-writer-reply"
-  },
-  {
-   "do": "option",
-   "option": "exit"
-  },
-  {
-   "do": "wait",
-   "seconds": 4
-  },
-  {
-   "do": "capture",
-   "name": "m09-letter-writer-after"
-  },
-  {
    "do": "click",
    "world": [
     2100,

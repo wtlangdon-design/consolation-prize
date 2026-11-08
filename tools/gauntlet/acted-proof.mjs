@@ -28,7 +28,8 @@ const scenarios = {
   'sheng': { fixture: 'r28-a', steps: [{ talk: 'sheng' }, { option: 'sheng3' }], burst: 12 },
   'pratt': { fixture: 'r25-a', steps: [{ talk: 'pratt' }, { option: 'pratt3' }], burst: 10 },
   'frame': { fixture: 'r9-b', steps: [{ talk: 'frame' }, { option: 'frame3' }], burst: 10 },
-  'boundary': { fixture: 'r5-a', steps: [{ enter: 'main_street' }, { wait: 4 }, { walk: [300, 780] }, { walk: [600, 800] }, { walk: [150, 820] }, { talk: 'boundary_a', world: [1640, 680] }, { option: 'boundary2' }], burst: 16 },
+  // Errata 193: the boundary men stand on the claim row now, not Main Street.
+  'boundary': { fixture: 'r5-a', steps: [{ enter: 'claim_row' }, { wait: 4 }, { talk: 'boundary_a', world: [470, 520] }, { option: 'boundary2' }], burst: 16 },
   'winnie': { fixture: 'r5-a', steps: [{ flags: { T_FUNERAL_BOOKED: true } }, { talk: 'winnie' }, { option: 'winnie4' }], burst: 22 },
   // Errata 148's poses: the filing's stamp, signature and blot, the filing under glass, Pratt's hat and
   // boots, and Thad fitting the Mercantile's pickaxe back together in the dark.
