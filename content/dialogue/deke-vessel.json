@@ -108,6 +108,7 @@
           "id": "deke_vessel8",
           "text": "Is there gold on it?",
           "tag": "COMIC",
+          "repeat": "There's a claim on it, son, and a claim is where every fortune starts.",
           "after": [
             "deke_vessel3"
           ],
@@ -117,6 +118,7 @@
           "id": "deke_vessel5",
           "text": "You seem cheerful for a man with a poorly sister.",
           "tag": "COMIC",
+          "repeat": "Still a long way off, son. That's the main thing wrong with her.",
           "after": [
             "deke_vessel3"
           ],

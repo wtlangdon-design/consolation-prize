@@ -102,6 +102,7 @@ is the whole of his character.
 > `[COMIC]` "I write my own." → "I know. I've read them over your shoulder."
 >   *Thad:* "You've what?"
 >   → "You're not bad. You're honest, which is a phase."
+>   *Asked again:* "So you keep saying. They'd sell better with a lie or two in. Everybody else's do."
 
 **Barks**
 | State | Line |
@@ -135,6 +136,7 @@ is the whole of his character.
 > "You knew Pike was dead." → **A:** "Everybody knew." **B:** "I knew first." **A:** "You did *not*."
 >   *Asked again:* "He did not know first."
 > `[COMIC]` "Have you tried settling it?" → **A:** "And do *what*?" **B:** "With our *evenings*?"
+>   *Asked again:* "You've asked twice now. He'll call that evidence."
 
 **Barks**
 | State | Line |
@@ -168,6 +170,7 @@ is the whole of his character.
 > "You knew Pike was dead." → "Rang for him, didn't I. Flat. He never complained."
 >   *Asked again:* "Never complained. Best audience I've had."
 > `[COMIC]` "Doesn't it bother you?" → "Nothing bothers me. That's the qualification."
+>   *Asked again:* "Ask me after the noon bell. I won't hear you. That's also the qualification."
 
 **Barks**
 | State | Line |
@@ -201,6 +204,7 @@ is the whole of his character.
 > "You knew Pike was dead." → "Everybody knew. You never asked the right question. That one's a penny."
 >   *Asked again:* "Penny."
 > `[COMIC]` "Shouldn't you be in school?" → "There's no teacher. There's a school." *(He runs off. This is the only explanation of the schoolhouse the game ever offers.)*
+>   *Asked again:* "A penny and I'll go. I'll come straight back, but I'll go."
 
 **Barks**
 | State | Line |
@@ -233,6 +237,7 @@ is the whole of his character.
 > "You knew Pike was dead." → "I knew he'd stopped buying pie. Out here that's the same thing."
 >   *Asked again:* "Stopped buying pie. I don't need a doctor to tell me."
 > `[COMIC]` "I'll take a pie." → "Course you will."
+>   *Asked again:* "Course you will. A nickel, when you do."
 
 **Barks**
 | State | Line |
@@ -266,6 +271,7 @@ is the whole of his character.
 > "You knew Pike was dead." → "I said he left. He left. I'm going the other way, mind. Tomorrow."
 >   *Asked again:* "Other way. Tomorrow."
 > `[COMIC]` "Where will you go?" → *(long pause)* "Tomorrow."
+>   *Asked again:* "Tomorrow. I've told you. It's the one place I'm sure of."
 
 **Barks**
 | State | Line |
@@ -366,6 +372,7 @@ is the whole of his character.
 > "You knew Pike was dead." → "I'd have played at it. Nobody asked. Nobody ever asks the fiddle."
 >   *Asked again:* "Nobody asks the fiddle."
 > `[COMIC]` "Do you want me to fix it?" → "God, no. Then I'd be the only one right."
+>   *Asked again:* "Still no. In tune, I'd be playing on my own."
 
 **Barks** — *mostly just playing; three spoken*
 | State | Line |
@@ -416,6 +423,7 @@ is the whole of his character.
 > "You knew Pike was dead." → "Pike? Knew him in forty-nine. Spring. A Tuesday."
 >   *Asked again:* "A Tuesday. Lovely man. Never found a thing."
 > `[COMIC]` "And since?" → "Since what?"
+>   *Asked again:* "There's no since. There's '49, and then there's telling it."
 > `[EXIT]` "Thank you. This has been clarifying."
 
 **Barks**
@@ -514,6 +522,7 @@ is the whole of his character.
 > `[COMIC]` "Deal me in." → "No. I like you."
 >   *Asked again:* "I still like you. Don't make it difficult."
 > `[COMIC]` "Are you any good?" → "I'm the best honest card player in the territory. Small field. I'm not in it."
+>   *Asked again:* "Good enough not to play you. You'd lose, and I'd feel it."
 > `[EXIT]` "I should go." → "Count your fingers on the way out."
 
 **Barks**
@@ -545,6 +554,7 @@ is the whole of his character.
 >   *Asked again:* "Then it's not my business."
 > "There's a dog on Main Street." → "…That's Bill?" *(He goes. **This is the resolution. It is worth nothing. It takes twenty seconds and it is the nicest thing in the game.**)*
 > `[COMIC]` *(after)* "How's Bill?" → "He'd been on Main Street the whole time. Six weeks. He'd been *fine*."
+>   *Asked again:* "Still fine. Still on Main Street. I go and visit."
 
 **Barks**
 | State | Line |
