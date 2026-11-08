@@ -5375,7 +5375,7 @@ Lesson: a person's TALK TO is only staged like a tree's if a test walks it (the 
   - Three new stems are needed. Everything else reuses existing files. Nothing is rendered until the rooms are built.
 - **The builder's brief is `reference/fiddlers-gulch/brief.md`.** It covers the ten rooms, the figures, what the engine needs, and the order of the build. It also asks for a check that fails if the mine's four rooms differ in sound.
 
-# 197 · THE HORSES MOVED BACK AND DIMMED FOR THE NIGHT — TYLER, 2026-11-08
+# 198 · THE HORSES MOVED BACK AND DIMMED FOR THE NIGHT — TYLER, 2026-11-08
 
 Tyler: "The three horses on main street are now a little too front and center and seem to be lit a little too bright. Can you move them back a bit, make them a bit smaller since they're moving away from the front of the screen, and make sure they're a bit dimmer for the night?"
 

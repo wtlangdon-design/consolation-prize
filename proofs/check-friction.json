@@ -390,7 +390,7 @@
    "check": "tests/scenery.test.ts",
    "date": "2026-11-08",
    "kind": "loosened",
-   "why": "Errata 197: Tyler moved the hitching horses back from 1545,850 to 1405,755. The test restated their old place as numbers (the points under the hooves, the ground behind them, the pointer over them), so moving the figure broke it. It now reads the place from content/ambient/hitching-horses.json and asks the same questions there: the ground under the hooves is not walkable, the ground behind is, and the pointer over them finds the mud. Nothing it guards is weakened."
+   "why": "Errata 198: Tyler moved the hitching horses back from 1545,850 to 1405,755. The test restated their old place as numbers (the points under the hooves, the ground behind them, the pointer over them), so moving the figure broke it. It now reads the place from content/ambient/hitching-horses.json and asks the same questions there: the ground under the hooves is not walkable, the ground behind is, and the pointer over them finds the mud. Nothing it guards is weakened."
   }
  ]
 }

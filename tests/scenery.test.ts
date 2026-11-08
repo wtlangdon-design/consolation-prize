@@ -56,7 +56,7 @@ for (const room of ['main_street', 'main_street_dawn']) {
     const content = await loadContent(fsReader);
     const room_ = content.rooms.get(room)!;
     const boxes = new WalkBoxes(room_.walkBoxes!, () => true);
-    // Read from where the horses stand (errata 197 moved them), not restated: their feet, both ends of the
+    // Read from where the horses stand (errata 198 moved them), not restated: their feet, both ends of the
     // group's footprint, and the ground a man's half-height behind them.
     const { x: hx, y: hy } = content.ambient.get('hitching_horses')!;
     for (const [x, y] of [[hx - 165, hy - 10], [hx, hy - 20], [hx + 140, hy]] as const) {

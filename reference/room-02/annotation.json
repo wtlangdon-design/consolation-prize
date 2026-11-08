@@ -421,7 +421,7 @@
     42
    ],
    "keepsGroundAbove": true,
-   "note": "The hitching rail and its horses (errata 187, moved back by errata 197): a group on the ground he walks around, never through. The rect is the hooves', hay's and posts' footprint in the middle ground, from the drawn group (content/ambient/hitching-horses.json, 1405,755): errata 187's footprint at 1545,850, [1329, 808, 401, 50], taken about the feet and scaled by the room curve's ratio between the two places (168/203). The ground behind them stays walkable (keepsGroundAbove), as the dog's does, and he passes behind them there."
+   "note": "The hitching rail and its horses (errata 187, moved back by errata 198): a group on the ground he walks around, never through. The rect is the hooves', hay's and posts' footprint in the middle ground, from the drawn group (content/ambient/hitching-horses.json, 1405,755): errata 187's footprint at 1545,850, [1329, 808, 401, 50], taken about the feet and scaled by the room curve's ratio between the two places (168/203). The ground behind them stays walkable (keepsGroundAbove), as the dog's does, and he passes behind them there."
   }
  ],
  "lamps": [
@@ -493,7 +493,7 @@
   ],
   "brightness": 0.85,
   "saturate": 0.75,
-  "note": "Errata 197. Tyler, 2026-11-08: the horses \"seem to be lit a little too bright ... make sure they're a bit dimmer for the night\". The group was drawn warmer, brighter and more saturated than the street's night cast (rest frame: mean luminance 70, 90th percentile 136, saturation 0.58, against Thad's 59/100/0.32 and the pie woman's 63/81/0.42), and it stands in the dark mud between the Company's windows and the Nugget, outside every lamp's movers field. Only the horses are named: Thad and the cast are drawn exactly as before. A cool light and less colour bring the group into the same night (graded, about 53/104/0.43). tools/art/hitching-rail-dawn.py starts Room 36's empty rail from the rail as graded here, so the dawn keeps following the night."
+  "note": "Errata 198. Tyler, 2026-11-08: the horses \"seem to be lit a little too bright ... make sure they're a bit dimmer for the night\". The group was drawn warmer, brighter and more saturated than the street's night cast (rest frame: mean luminance 70, 90th percentile 136, saturation 0.58, against Thad's 59/100/0.32 and the pie woman's 63/81/0.42), and it stands in the dark mud between the Company's windows and the Nugget, outside every lamp's movers field. Only the horses are named: Thad and the cast are drawn exactly as before. A cool light and less colour bring the group into the same night (graded, about 53/104/0.43). tools/art/hitching-rail-dawn.py starts Room 36's empty rail from the rail as graded here, so the dawn keeps following the night."
  },
  "onEnterWalkTo": [
   3300,

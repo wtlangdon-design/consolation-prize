@@ -13,7 +13,7 @@ engine draws -- so the empty rail stands where the night rail stood, pixel for
 pixel. Then it is relit by the dawn plate's ratio to the night's over the
 ground it stands on, as tools/art/room36-dawn.py lights the street.
 
-The night rail is the rail AS THE NIGHT DRAWS IT (errata 197): Room 2's
+The night rail is the rail AS THE NIGHT DRAWS IT (errata 198): Room 2's
 `figureLight` grades the horses into the street's night -- brightness,
 contrast, saturation, then the light's colour as a multiply, in that order,
 as Renderer.drawTinted does -- so the rail is graded the same way first, and
