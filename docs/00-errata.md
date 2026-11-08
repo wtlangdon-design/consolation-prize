@@ -4580,6 +4580,17 @@ He answered **"That all sounds good"** to one more pass: a pass at the top with 
 
 **The method.** `tools/art/town-map-pieces.py` cuts the pieces sheet on its magenta key, clears and refills the plan's boxes, and sets each piece in its box. A masked finishing pass may repaint only those boxes, and only those are taken back. The brief's fifth part covers it.
 
+**A5 · The art (the image session, 2026-11-08).** Operations 10–12 of 13; the pieces' correction is unspent.
+- **Operation 10, `pieces-01`,** came out right: the saloon (largest, with its balcony), the hotel and the assay office on magenta, each turned to face west, in the map's view, getting smaller left to right, with no text. `assemble` set them in the plan's boxes and cleared the Lane's westmost shopfront.
+- **Operation 11, `finish-01`,** the masked finishing pass, blended the ground but missed three ways:
+  - it painted a shop back into the Lane's cleared box, so the Lane had six shopfronts with the tent fourth;
+  - it redrew the three buildings ~30 px east of the plan, with a gap after the long row;
+  - it left a hard edge at the row's east end.
+- **Operation 12, `finish-02`,** the correction, with all three stated, fixed the edge but repeated the other two.
+- **Settled in code** (`town-map-pieces.py settle --attempt 1 --pass finish-02`; no image operation): finish-02's ground kept, the arm's ground refilled, the pieces set back exactly as `assemble` placed them, and the cleared Lane box put back. It met the brief's checks, but the pieces were drawn at a different angle and sharper than the rest of the town, sat on smudged ground with no shadows, and read as pasted on.
+- **Tyler, shown it: "It doesn't look great."** Offered the choice, he chose **"Keep main, fix the Lane"**. So the L map's east arm (A4) stays as it is. Only the plan's Lane clear is applied, with `town-map-pieces.py lane --write`: the Lane's westmost shopfront becomes the grass and fence beside it, and the Lane has five shopfronts with the tent third. The map changes only inside x 292–349, y 278–349.
+- The pieces, assembly, both finishing passes and the settled candidate are kept as the record. The 13th operation is unspent.
+
 **B · The map's Thad (with errata 161, part 3).** A small Thad stands on the map at the place of the room it was opened from, or Main Street for a room with none of its own (`mapToken.homes` names the rest). A click on a place walks him there along the drawn roads, the shortest way, and the room changes when he arrives (`engine/core/MapWalk.ts`).
 - **Timing.** He walks at 260 pixels a second, and never for longer than 4.5 seconds: a long walk is walked faster.
 - **Skipping.** A second click skips the walk, so backtracking never waits.
