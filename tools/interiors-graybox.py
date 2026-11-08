@@ -58,6 +58,38 @@ ROOMS = {
                          'behind it, so no plane is needed.',
         'lightSources': ['THE BARBER'],
     },
+    38: {
+        'id': 'photographers_studio', 'name': "THE PHOTOGRAPHER'S STUDIO",
+        'what': "A portrait studio off the Lane, at night, lit by one lamp and the Lane's lamplight through its window.",
+        'depth': INTERIOR,
+        'surfaces': [
+            ('ceiling shadow', (0, 0, 1920, 60), 40),
+            ('walls, papered plank', (0, 60, 1920, 630), 74),
+            ('floor, boards', (0, 690, 1920, 174), 86),
+        ],
+        'objects': [
+            ('THE DOOR TO THE LANE', (30, 150, 170, 540), 52, 'behind'),
+            ('THE WINDOW DISPLAY (the window, the easel)', (230, 140, 260, 470), 58, 'behind'),
+            ('THE PAINTED BACKDROP', (530, 80, 420, 610), 96, 'behind'),
+            ('THE SITTING CHAIR (and its table)', (610, 430, 240, 260), 54, 'behind'),
+            ('THE HEADREST CLAMP', (870, 290, 50, 400), 46, 'behind'),
+            ('THE CAMERA (on its tripod)', (1010, 330, 210, 360), 50, 'behind'),
+            ('THE PHOTOGRAPHER (behind the camera)', (1250, 240, 140, 500), 56, 'behind'),
+            ('THE CHEMICALS (on a shelf)', (1450, 140, 270, 140), 96, 'behind'),
+            ('THE STOCK PORTRAIT BOX (on a table)', (1450, 430, 270, 260), 60, 'behind'),
+            ('THE PRICE CARD', (1760, 220, 80, 110), 110, 'behind'),
+        ],
+        'lamp': (1120, 780, 760, 170),
+        'marks': {'entrance': (260, 790, 'right'), 'talk_photographer': (1560, 750, 'left')},
+        'walk': (180, 740, 1600, 110),
+        'exit': ('THE DOOR TO THE LANE', 'the_lane'),
+        'layoutThad': (1560, 750),
+        'figures': [(450, 740, False), (700, 800, False), (1500, 740, True), (260, 790, False), (900, 850, False),
+                    (1650, 850, True)],
+        'occlusionNote': 'Nothing stands nearer the camera than the walk band: the chair, the camera on its tripod, the '
+                         'table and the photographer are all behind it, so no plane is needed.',
+        'lightSources': ['THE PHOTOGRAPHER'],
+    },
 }
 
 

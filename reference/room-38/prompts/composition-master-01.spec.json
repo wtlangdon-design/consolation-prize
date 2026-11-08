@@ -1,0 +1,16 @@
+{
+ "assetId": "room-38",
+ "subject": "room-38-photographers-studio",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-38-photographers-studio",
+ "promptFile": "reference/room-38/prompts/composition-master-01.txt",
+ "out": "art/staging/room-38/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-38/layout-1536x1024.png",
+  "art/backgrounds/room-42-barbers.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

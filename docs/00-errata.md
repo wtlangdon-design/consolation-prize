@@ -4959,3 +4959,29 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
 - **The builder's brief is `reference/ancillary-interiors/brief.md`.** The build order is 42, 38, 37, 39, 40, 41.
 - **`tools/check-written-vs-built.mjs` reads doc 105.** Its 163 lines join the `ancillary-interiors` group in `proofs/written-not-built.json` until each room is built.
 
+**BUILT — ROOM 42, THE BARBER'S (the builder, 2026-11-08; `reference/ancillary-interiors/brief.md`).** The brief was on `feat/ancillary-interiors`, not yet on main, and was built from there. `BUILDABLE WITHOUT INVENTION: YES`. room-42: 3 of 4 operations.
+
+- **A · The gate.** `proofs/readiness/room-42.sources.json` points at doc 105 (primary and completions), doc 07 #9 (the barber) and doc 07 Part Three ("No required items, no puzzle gates") for the puzzles. Doc 49 writes no section for the six; doc 105's Overrides stand in, as the brief says. The gate's wrong-verb count read only doc 49's bare form (`**X** · VERB —`) and counted 0 for doc 105's quoted refusals (`> **X** · VERB —`, as docs 25, 26 and 54 write theirs). It now counts both; recorded in `proofs/check-friction.json`.
+- **B · The plan** (`tools/interiors-graybox.py 42`, one tool for the six). Room 13's camera, Room 5's interior depth. Left to right: the door to the Lane; the price board; the strop on its hook; the cracked mirror over the chair, its bucket beside it; the lamp over the chair; the jar on its shelf above the tray of instruments on its stand. The legibility gate passes.
+- **C · The art.**
+  - Operation 1, the composition master. It painted the whole canvas, and everything a third larger than the plan.
+  - Operation 2, the plate. The master at 0.8 with its walls extended, both men out, and the jar made cloudy. This is Room 6's re-framing, done in one edit as Room 8's was.
+  - The plate is cropped from y 150 (`tools/art/interiors-plate.mjs`). It is lifted 1.35, from 23.9 to 32.2 in its lower half, level with the approved night interiors (31.5–34.5).
+  - Thad stands 532 px at y 791. The depth curve is 497 to 576 across the band, from the master's man.
+- **D · The barber** (operation 3, errata 144's method: painted over the in-game Thad, his face from the master). Five frames: rest, razor and cloth at his sides · breath · wiping the blade, twice · talking, palm up.
+  - `tools/art/interiors-people.py` cuts him at the room's man where he stands: 493 px, soles at y 735, left of the chair where the master stood him. It snaps him to one level.
+  - Measured before anyone looked: alpha 0 or 255, no key; texture 0.90–1.01× Thad's; luminance p10/p50/p90 29/69/147 against Thad's 21/56/91 (his pale shirt and cloth).
+  - Thad's talk spot is beside him at his depth, on the door's side.
+  - He breathes, and every 17 s he wipes the razor (errata 77).
+  - His speech colour is the builder's (#e8a8a8); Tyler rules on it in the playthrough.
+- **E · The price board.** Its words are its first LOOK in doc 105 ("SHAVE 2 BITS. TOOTH 4 BITS. LIMB $1."), drawn in the shipping face by `tools/art/room42-price-board.py`, as Room 25's sign is. LIMB sits above the scratch the plate paints, which the board's third LOOK is about.
+- **F · The way in.** The Lane gains THE BARBER'S DOOR, beside the pole: a stub exit with no lines (the pole keeps doc 97's), and an arrival at the door for coming back out. The barber's door back to the Lane is a stub exit too: doc 105 writes no lines for it (errata 72 F; doc 36 Q180).
+- **G · Sound.** Plank footsteps. The Lane's distant piano, quieter (0.4 against 0.6), tuned when the Nugget's is, as Lower Street plays Main Street's piece quieter. Not silence: doc 28 keeps the undertaker's the only silent room until the coffin.
+- **H · A repeat with a beat in it lost its second half.** Doc 105's jar writes `2 "I looked in the jar." *(beat)* "I'd like to go back to not having looked in the jar."`. `tools/extract-examine.mjs` kept the first quote only, so the punchline was gone.
+  - A repeat is now spoken whole, every quote in order, as a split first line is (errata 92). Quotes inside an italic note (an editor's *(Corrected — "…")*) are not lines and are left out.
+  - `tools/check-room-lines-sourced.mjs` reads a beat between two quotes the same way.
+  - Proved by reverting: `check-written-vs-built` fails on the lost half. `tests/room-42.test.ts` holds it.
+- **I · Three second answers — Tyler, 2026-11-08: "Write them (doc 07)".** Errata 178's rule needs a second answer for every joke option left on a menu. Doc 07 wrote none for the barber's, the photographer's or the boarding-house women's, and Tyler authorized one line under each (CLAUDE.md, the sixth exception). The barber's plays now; the other two wait in `proofs/written-not-built.json` for their rooms.
+- **J · American English.** Doc 105's three "draught"s are "draft" (`check-american-english`, as PR 232's corrections).
+- **K · Room 40 — Tyler, 2026-11-08: "Use the Lane's store".** The district map has no building for a storefront off the Lane; the brief made that a stop. Tyler chose to make Room 40 the Lane's boarded storefront after all: its boards come down and its door opens. This reverses "shut for good" above. Doc 97's storefront lines are read against it when Room 40 is built.
+

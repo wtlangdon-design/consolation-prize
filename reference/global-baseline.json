@@ -674,6 +674,22 @@
     }
    ],
    "castingNote": "The barber-dentist-surgeon has no approved image; doc 07 #9 gives him one man, three trades and one set of instruments, period-accurate. Drawn on magenta against Thad in the room (doc 55 section 8; errata 144's method)."
+  },
+  "room-38-photographers-studio": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-13-undertakers",
+    "path": "art/backgrounds/room-13-undertakers.png",
+    "note": "D -- the approved one-room tradesman's shop at night off the same Lane (Room 13); the studio is lit by one lamp and what comes through its window (reference/ancillary-interiors/brief.md)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "The photographer has no approved image; doc 07 #10 gives him his studio and his stock portraits by the gross. Drawn on magenta against Thad in the room (doc 55 section 8; errata 144's method)."
   }
  }
 }

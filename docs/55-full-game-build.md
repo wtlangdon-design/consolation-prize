@@ -133,6 +133,7 @@ Stop the room, not the build, and say so in doc 36 and to Tyler, when:
 | 33 | 2026-11-05 | #141 | 3 of 4 (master, plate, the broken wall) | The listening chamber: the LOOK ladder, LISTEN as taps with ripples toward the void, its one line, the ninety seconds tuning the score and stilling the lamp; F3's three swings into Room 34's second state. `R33-M` composed 2026-11-06: THADDEUS complete, the fourth bar resolved (errata 99 L). `?fixture=r33-a` |
 | 35 | 2026-11-05 | #142 | 2 of 4 (master, plate) | The Company vault: sixteen subjects, nobody; in through THE SAFE in Fanshawe's office from Act IV, out by THE VAULT DOOR. `?fixture=r35-a` (doc 36 Q175, errata 99 I) |
 | 36 | 2026-11-05 | #143 | 2 of 4 (the street relit to dawn, the dog on his back) | Main Street at dawn: Room 2's pixels under the morning's light, nine dawn hotspots, the dog on his back; the coach stop's close -- 'Leave the mud.' and the letter over black. Reached by `?fixture=r36-a` until F4 and F5 are built (doc 36 Q176, errata 99 J) |
+| 42 | 2026-11-08 | #268 | 3 of 4 (master, plate re-framed at 0.8 with the people out, the barber's sheet on Thad's template) | The barber's, the first of the six interiors (errata 183): six subjects from doc 105, the barber-dentist-surgeon beside his chair with doc 07's tree and barks, the price board lettered in the game's face. In from the Lane beside the pole. `?room=barbers`. Its door back has no lines (doc 36 Q180) |
 
 ## 8 · What playing found — held by a script where a script can hold it
 

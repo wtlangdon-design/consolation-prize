@@ -4923,3 +4923,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 - **The county seal has no sound** (doc 48 S6 beat 3, "the loudest sound in the game"): it waits on errata 28a's one-shot ruling, which doc 48 asks to be made once for three scripts.
 - **Winnie at the Registrar's** is her Room 5 counter sheet, writing, behind Room 7's counter.
 
+
+## Q180 · Room 42, the barber's: built, awaiting Tyler's playthrough; its door back has no lines — **RULED 2026-11-08 (errata 183, delegated; Tyler wrote nothing new for the door); BUILT, room-42 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Six subjects from doc 105, each with three LOOKs and three LISTENs, and four overrides; the barber-dentist-surgeon beside his chair, with doc 07's tree, his nine barks and the second answer Tyler authorized for the shave; the price board lettered in the game's face. In from the Lane by THE BARBER'S DOOR beside the pole; out by the door to the Lane. Held by `tests/room-42.test.ts`. Proofs under `renders/proofs/barbers/`.
+
+**Open, for Tyler:** (a) THE DOOR TO THE LANE has no LOOK or LISTEN in any document; it ships as a stub exit (errata 72 F), as the Lane's door into the shop does. (b) The barber's look and his speech colour (#e8a8a8) are the builder's (errata 183 D). (c) The price board's lettering (errata 183 E).
