@@ -696,6 +696,38 @@
       "speaker": "frame",
       "words": "He reaches for his pencil, then puts it down.",
       "where": "dialogue/frame FRA_A1 option 8"
+    },
+    {
+      "n": 72,
+      "class": "A",
+      "speaker": "pratt",
+      "words": "He rakes for a while.",
+      "where": "dialogue/pratt PRA_A1 option 5",
+      "performedBy": [
+        "pratt"
+      ],
+      "frames": [
+        3,
+        4,
+        3,
+        4
+      ],
+      "seconds": 2
+    },
+    {
+      "n": 73,
+      "class": "A",
+      "speaker": "pratt",
+      "words": "He rakes.",
+      "where": "dialogue/pratt PRA_A1 option 6",
+      "performedBy": [
+        "pratt"
+      ],
+      "frames": [
+        3,
+        4
+      ],
+      "seconds": 1
     }
   ]
 }

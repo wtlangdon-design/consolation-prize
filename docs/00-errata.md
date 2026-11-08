@@ -4726,3 +4726,24 @@ Main Street is the sample: no other room's lines change until Tyler has ruled on
 
   It is the fourth exception to "never generate written content", beside errata 100, 113 and 127. It is one voice, written in the documents, and every room is recorded before and after.
 
+# 172 · THE ACT I REWRITE — DOC 99, STEP 2
+
+*Errata 171's rewrite, Act I's conversations in play order. Doc 100 records it.*
+
+- **Every Act I question has a different "asked again" answer.** `tests/repeats.test.ts` holds them, and they are listed in `tests/data/repeats-passed.json`.
+- **Doc 98's Pike thread runs through every Act I character Thad can ask.** The undertaker pays it off ("I'm the one who says it"), and each character answers "You knew Pike was dead." afterwards.
+- **A greedy or over-familiar question was added to five menus:** Vessel, Fanshawe, Ozymandia, Winnie and the hotel clerk.
+- **Five first-night lines now wait for their event (doc 59 §11):**
+  - Frame's question about where Vessel went, until the swindle;
+  - Sump's two deed questions, until the swindle;
+  - Sheng's two questions about his paper, until he has said he holds any.
+- **Nothing structural that a puzzle reads changed.** The full game still plays through (`tests/full-game.test.ts`) and the gauntlet is green.
+- **The extractors learned three things:**
+  - `*(again)*` / `*(second)*` for any row;
+  - `unless FLAG`;
+  - doc 07's own `[EXIT]`.
+
+  The letter-writer, pie woman, map seller, card sharp and one-strike man's trees are now extracted, not hand-transcribed.
+- **`tests/dialogue-reveal.test.ts` is TUNED, with a friction entry.** An asked-again answer changes what is said and never what is offered, so the walk no longer counts selections for it. The test runs in 11 s instead of 14, and the 4000-state cap stands.
+- **Tyler rules on Act I next.** No Act II–IV conversation is rewritten until he has.
+

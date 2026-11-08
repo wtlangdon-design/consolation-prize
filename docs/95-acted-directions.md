@@ -31,7 +31,7 @@
 
 ## The directions
 
-Counts: **A 20 · B 2 · C 48** — 70 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
+Counts: **A 22 · B 2 · C 48** — 72 directions, every one flagged `"direction": true` in `content/dialogue`, `content/combinations.json`, `content/assay` and `content/rooms`.
 
 | # | Class | Speaker | Direction | Where | Performed by | Frames | Seconds | Holds | Cue | Why |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -106,6 +106,8 @@ Counts: **A 20 · B 2 · C 48** — 70 directions, every one flagged `"direction
 | 69 | B | letter_writer | He puts his pen down. | dialogue/amb-letter-writer root option 4 |  |  |  |  |  | Errata 170, the Main Street pass: the one moment he stops writing, because the name is Pike. Physical, and his drawn poses all hold the pen, so it stays printed until a pen-down pose is drawn (rule 4). |
 | 70 | B | deke_vessel | He raises his glass an inch. | dialogue/deke-vessel root option 9 |  |  |  |  |  | Errata 172, doc 99's rewrite: his small toast to Pike, the one gesture of respect in a scene of selling. Physical, and no glass pose is drawn yet, so it stays printed (rule 4). |
 | 71 | C | frame | He reaches for his pencil, then puts it down. | dialogue/frame FRA_A1 option 8 |  |  |  |  |  | Errata 172: the one story Frame will not write down, and the only time he doesn't. The joke is the restraint, which a pose can't show, so it stays printed. |
+| 72 | A | pratt | He rakes for a while. | dialogue/pratt PRA_A1 option 5 | pratt | 3 4 3 4 | 2.0 |  |  | Errata 172: his two rake strokes (frames 3 and 4, the ones his idle breaks with), twice, before he answers. |
+| 73 | A | pratt | He rakes. | dialogue/pratt PRA_A1 option 6 | pratt | 3 4 | 1.0 |  |  | Errata 172: one stroke, the short version of the pause above. |
 
 ## When a B pose is drawn
 

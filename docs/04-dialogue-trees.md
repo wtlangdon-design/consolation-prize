@@ -548,9 +548,13 @@ Pratt on his own claim, beside Prosperity, raking. The node exists for A5's "sen
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "There's a raccoon in my hole. Would you get him out?" | `[PROGRESS · remove]` | "Raccoon." *(He thinks about it for some time.)* "All right." *(He walks over, unhurried, and reaches into the hole. The bite. He withdraws the hand and studies it.)* "He's in there." *(From this moment Pratt dislikes Thad, steadily and without heat, the way he does everything.)* → `T_PRATT_BITTEN` *(errata 75: offered only while the raccoon is in the hole)* |
-| 2 | "Nine dollars for what?" | `[TOPIC · retain]` | "Your claim." *(He says it as though it were the weather.)* |
+| 2 | "Nine dollars for what?" | `[TOPIC · retain]` | "Your claim." *(He says it as though it were the weather.)* *(second)* "Your claim. Nine dollars and a hen." |
+| 5 | "Did you know Ezra Pike?" | `[TOPIC · retain]` | "Yep." *(He rakes for a while.)* "Undertaker's got him." *(second)* "Undertaker's got him. Has had for a while." *(unless `T_PIKE_DEAD`)* |
+| 6 | "You knew Pike was dead." | `[TOPIC · retain]` | "Yep." *(He rakes.)* "Said so." *(second)* "Said the undertaker had him. That's what that means." *(req `T_PIKE_DEAD`)* |
 | 3 | "Lovely morning." | `[COMIC · retain]` | *(He looks up at the sky, checking.)* "Yep." |
 | 4 | "How's the bite?" | `[COMIC · retain]` | "Healing wrong." *(req `T_PRATT_BITTEN`; errata 75 — the node keeps three options once option 1 is spent)* |
+
+*Errata 172, doc 99's rewrite: a second answer to option 2, which is his offer gone up (doc 04: "he repeats his offer at a new number"), and the town's Pike thread (doc 98). Pratt is the only person in town who says it straight, and he doesn't know he has.*
 
 ## `PRA_D2` — the first encounter *(W1 growth)*
 
@@ -656,12 +660,16 @@ The bible: "Thad names it (full Christian name, chosen by the player from three 
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "Who's paying Nickel Pratt?" | `[PROGRESS · remove]` | "A man who pays through a second man, so that he has paid nobody. It is a common arrangement here. I hold paper on both of them." *(req `T_PRATT_PAID`; sets `T_SHENG_HOLDS_PAPER`, which opens SHE_D1; errata 75)* |
-| 2 | "You hold paper on the Improvement Company?" | `[TOPIC · retain]` | "On rather a lot of it. They come in on Thursdays. They are very warm to me on Thursdays." |
-| 3 | "Why does nobody know this?" | `[TOPIC · retain]` | "Because I do laundry." *(He returns to doing laundry.)* |
+| 2 | "You hold paper on the Improvement Company?" | `[TOPIC · retain]` | "On rather a lot of it. They come in on Thursdays. They are very warm to me on Thursdays." *(second)* "Thursdays, Mr. Grubb. Warm as toast, and every one of them in arrears." *(req `T_SHENG_HOLDS_PAPER`)* |
+| 3 | "Why does nobody know this?" | `[TOPIC · retain]` | "Because I do laundry." *(He returns to doing laundry.)* *(second)* "Laundry, Mr. Grubb. It is the best disguise in the territory, and it pays." *(req `T_SHENG_HOLDS_PAPER`)* |
+| 7 | "Did you know Ezra Pike?" | `[TOPIC · retain]` | "Mr. Pike's shirts are still here. Four of them, pressed." *(beat)* "He has not called for them in six years. The undertaker will tell you why." *(second)* "Four shirts. Pressed. The undertaker has the explanation, and I have the shirts." *(unless `T_PIKE_DEAD`)* |
+| 8 | "You knew Pike was dead." | `[TOPIC · retain]` | "A man who leaves four good shirts for six years is dead or married, Mr. Grubb. I checked the register." *(second)* "Not married. I checked." *(req `T_PIKE_DEAD`)* |
 | 4 | "Was the Colonel in the Eleventh Ohio Mounted?" | `[TOPIC · remove]` | "There is no Eleventh Ohio Mounted. There is a Ninth. My brother was in it." → `WAR_CONTRADICTIONS` +1 |
 | 5 | "I have four dollars." | `[COMIC · counted-repeat]` | "You have two dollars and forty cents. I have watched you spend the rest. You are not a careful man, Mr. Grubb, but you are an entertaining one." *(second)* "You do not. I would have heard." *(third)* "Mr. Grubb, I keep your accounts better than you do, and I do not keep your accounts." |
 | 6 | "Have you ever been in the Liar's Assay?" | `[ASSAY · remove]` | "Once. A Company man told me, 'The Improvement Company came to me on their knees.' I said, 'The Company comes to everyone on their knees. It is how they get under the door.'" *(beat)* "He paid his account the next morning. In full." *(pair 18; errata 75)* |
 
+
+*Errata 172, doc 99's rewrite: options 2 and 3 now wait until he has said he holds paper (option 1 sets `T_SHENG_HOLDS_PAPER`). Before, Thad could ask about Sheng's paper on the Company on his first visit, before anyone had told him Sheng held any (doc 59 §11). Second answers throughout, and the town's Pike thread (doc 98) in Sheng's terms, which are accounts.*
 
 ## `SHE_D1` — the paper *(W1 growth: D3, D4)*
 
@@ -700,13 +708,17 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "Tell me about the bell." | `[PROGRESS · remove]` | "A half-step flat since the day it was hung, and I have struck it every morning for six years, and I will tell you a secret, Mr. Grubb: I have stopped hearing it." *(Load-bearing for the funeral theme and the man does not know it.)* |
-| 2 | "What do your services cost?" | `[TOPIC · retain]` | "Feeling is free. *Articulated* feeling is priced by the adjective. The board is by the door." |
-| 3 | "Do you believe in Mott's gold?" | `[TOPIC · retain]` | "I believe in what fills my pews, and Mr. Mott fills them better than I do. I try not to examine the arrangement." |
+| 2 | "What do your services cost?" | `[TOPIC · retain]` | "Feeling is free. *Articulated* feeling is priced by the adjective. The board is by the door." *(second)* "The feeling, free. The adjectives, on the board. 'Beloved' is the dear one." |
+| 3 | "Do you believe in Mott's gold?" | `[TOPIC · retain]` | "I believe in what fills my pews, and Mr. Mott fills them better than I do. I try not to examine the arrangement." *(second)* "I believe it most on Sundays. So does the collection plate." |
+| 9 | "Did you know Ezra Pike?" | `[TOPIC · retain]` | "PIKE!" *(beat)* "A man of— a man of real—" *(beat)* "I never met him. The undertaker knew him best. Professionally." *(second)* "The undertaker. He knew Mr. Pike in a way I never had the privilege to." *(unless `T_PIKE_DEAD`)* |
+| 10 | "You knew Pike was dead." | `[TOPIC · retain]` | "I grieve for Mr. Pike every Sunday, Mr. Grubb, out of habit." *(beat)* "Nobody has ever paid me to." *(second)* "Every Sunday. Unpaid. It is the purest grief I have." *(req `T_PIKE_DEAD`)* |
 | 4 | "You have a fine speaking voice." | `[COMIC · counted-repeat]` | "I KNOW." *(second, softer)* "I know." *(third, to himself, genuinely moved)* "…thank you." |
 | 5 | "I'd like to arrange a funeral." | `[PROGRESS · remove]` | *(He brightens, and then remembers to be grave.)* "A funeral. For whom?" — *"Ezra Pike."* — "Pike! Six years in the ground and never sung over. The undertaker did him on credit and nobody came." *(beat)* "Who speaks for the deceased?" *(req `T_FANSHAWE_FUNERALS` and `T_PIKE_DEAD`; then doc 57 C3: THE LETTER on Sowerby; errata 75)* |
 | 6 | "Mr. Sheng says you owe him for linens." | `[TOPIC · retain]` | "I do, and I shall pay him on the next occasion of grief. I carry no money on ordinary days, Mr. Grubb. It would only come between me and the poor." *(req `T_SHENG_TASK`, not on a funeral day — D4; errata 75)* |
 | 7 | "Could Mr. Pike have another service?" | `[TOPIC · retain]` | "An anniversary! Grief keeps whatever calendar it likes. Have Frame print it." *(req C3 complete and C4 or D4 not; books the memorial again, doc 57 C3; errata 75)* |
 | 8 | "Have you ever won an Assay, Reverend?" | `[ASSAY · remove]` | "Once, God forgive me. A mourner told me at the graveside, 'My father died rich,' and I said, 'Your father died owing me two dollars, and I have chosen to regard it as a legacy.'" *(beat)* "The whole hill applauded. It was a very successful funeral." *(pair 17; errata 75)* |
+
+*Errata 172, doc 99's rewrite: second answers for his two questions. Options 9 and 10 are the town's Pike thread (doc 98). He grieves Pike at full volume and has never met him, and the "unpaid" in option 10 is where C3's funeral is waiting.*
 
 ## `SOW_C1` — negotiating one's own funeral
 

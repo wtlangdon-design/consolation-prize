@@ -46,14 +46,92 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "What do your services cost?",
-          "say": "Feeling is free. Articulated feeling is priced by the adjective. The board is by the door."
+          "say": "Feeling is free. Articulated feeling is priced by the adjective. The board is by the door.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "The feeling, free. The adjectives, on the board. 'Beloved' is the dear one."
+            }
+          ]
         },
         {
           "id": "sowerby3",
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "Do you believe in Mott's gold?",
-          "say": "I believe in what fills my pews, and Mr. Mott fills them better than I do. I try not to examine the arrangement."
+          "say": "I believe in what fills my pews, and Mr. Mott fills them better than I do. I try not to examine the arrangement.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "I believe it most on Sundays. So does the collection plate."
+            }
+          ]
+        },
+        {
+          "id": "sowerby9",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "Did you know Ezra Pike?",
+          "exchange": [
+            {
+              "speaker": "sowerby",
+              "line": "PIKE!"
+            },
+            {
+              "speaker": "sowerby",
+              "line": "…"
+            },
+            {
+              "speaker": "sowerby",
+              "line": "A man of— a man of real—"
+            },
+            {
+              "speaker": "sowerby",
+              "line": "…"
+            },
+            {
+              "speaker": "sowerby",
+              "line": "I never met him. The undertaker knew him best. Professionally."
+            }
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "The undertaker. He knew Mr. Pike in a way I never had the privilege to."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          }
+        },
+        {
+          "id": "sowerby10",
+          "tag": "TOPIC",
+          "afterUse": "retain",
+          "text": "You knew Pike was dead.",
+          "exchange": [
+            {
+              "speaker": "sowerby",
+              "line": "I grieve for Mr. Pike every Sunday, Mr. Grubb, out of habit."
+            },
+            {
+              "speaker": "sowerby",
+              "line": "…"
+            },
+            {
+              "speaker": "sowerby",
+              "line": "Nobody has ever paid me to."
+            }
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Every Sunday. Unpaid. It is the purest grief I have."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": true
+          }
         },
         {
           "id": "sowerby4",

@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import test from 'node:test';
@@ -16,16 +17,8 @@ const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(R
  * repeats, so the list only grows: a tree on it whose question has no repeat, or one that repeats the first answer,
  * fails. [COMIC] options, and an option that ends the conversation, are exempt -- a running gag like "Course you will." is meant to come back unchanged.
  */
-const PASSED = [
-  // Errata 170, Main Street.
-  'amb_letter_writer', 'amb_pie_woman', 'amb_map_seller', 'amb_message_boy', 'amb_man_leaving_tomorrow', 'amb_boundary_men',
-  // Errata 172, Room 1.
-  'STAGE_DRIVER',
-  // Errata 172, the Nugget.
-  'DEKE_VESSEL:root', 'amb_card_sharp', 'amb_one_strike_man', 'amb_fiddler',
-  // Errata 172, the assay office and the Clarion. Frame's funeral notice (frame6) is Act III's, rewritten with it.
-  'WINNIE:WIN_A1', 'WINNIE:WIN_A2', 'FRAME:FRA_A1!frame6',
-];
+const PASSED: string[] = (JSON.parse(readFileSync(new URL('./data/repeats-passed.json', import.meta.url), 'utf8')) as
+  { passes: { trees: string[] }[] }).passes.flatMap((pass) => pass.trees);
 
 test('every question in a passed tree has an answer for being asked again, and it is a different one', async () => {
   const content = await loadContent(fsReader);

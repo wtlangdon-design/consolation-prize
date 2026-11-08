@@ -110,6 +110,16 @@
     "when": {
      "T_BILL_FOUND": true
     }
+   },
+   "Did you know Ezra Pike?": {
+    "when": {
+     "T_PIKE_DEAD": false
+    }
+   },
+   "You knew Pike was dead.": {
+    "when": {
+     "T_PIKE_DEAD": true
+    }
    }
   },
   "1 · THE LETTER-WRITER": {
@@ -243,6 +253,18 @@
    "You're dealing off the bottom.": {
     "set": {
      "T_SHARP_ACCUSED": true
+    }
+   }
+  },
+  "4 · THE BELL-RINGER": {
+   "Did you know Ezra Pike?": {
+    "when": {
+     "T_PIKE_DEAD": false
+    }
+   },
+   "You knew Pike was dead.": {
+    "when": {
+     "T_PIKE_DEAD": true
     }
    }
   }

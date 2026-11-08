@@ -4764,7 +4764,9 @@ function prattTree() {
       const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(tagCell);
       const optionText = quoted(optionCell)[0];
       for (const d of spokenIn(responseCell, SPEAKER).staging) process.stderr.write(`  doc 04 ${id} option ${number} staging: ${d}\n`);
-      const bare = responseCell.replace(/\*\([^)]*\)\*/g, '');
+      // ASKED AGAIN (errata 172): *(second)* "..." is his answer to the same question twice.
+      const [firstCell, againCell] = responseCell.split('*(second)*');
+      const bare = firstCell.replace(/\*\([^)]*\)\*/g, '');
       const [reply, ...rest] = bare.split('→');
       let said = spokenIn(reply, SPEAKER).lines;
       if (!said.length) said = spokenIn(rest.join('→'), SPEAKER).lines.slice(0, 1);
@@ -4777,8 +4779,11 @@ function prattTree() {
       const after = afterIds(tagCell, SPEAKER);
       if (after) option.after = after;
       const reqs = [...responseCell.matchAll(/req `([A-Z_0-9]+)`/g)].map((m) => m[1]);
-      const sets = [...rest.join('→').matchAll(/`([A-Z_0-9]+)`/g)].map((m) => m[1]).filter((flag) => !reqs.includes(flag));
-      const when = { ...Object.fromEntries(reqs.map((flag) => [flag, true])), ...(route.when ?? {}) };
+      const unlesses = [...responseCell.matchAll(/unless `([A-Z_0-9]+)`/g)].map((m) => m[1]);
+      const sets = [...rest.join('→').matchAll(/`([A-Z_0-9]+)`/g)].map((m) => m[1]).filter((flag) => !reqs.includes(flag) && !unlesses.includes(flag));
+      const when = { ...Object.fromEntries(reqs.map((flag) => [flag, true])), ...Object.fromEntries(unlesses.map((flag) => [flag, false])), ...(route.when ?? {}) };
+      const again = againCell ? /"([^"]+)"/.exec(againCell)?.[1] : undefined;
+      if (again) option.repeat = again;
       if (Object.keys(when).length) option.when = when;
       const set = { ...Object.fromEntries(sets.map((flag) => [flag, true])), ...(route.set ?? {}) };
       if (Object.keys(set).length) option.set = set;
@@ -4800,7 +4805,7 @@ function prattTree() {
   const D6 = node('PRA_D6', '## `PRA_D6`', 4);
   const D2 = { ...node('PRA_D2', '## `PRA_D2`', 4), openingOnce: 'T_PRATT_JUMP_HEARD' };
   const counts = { PRA_A1: A1.options.length, PRA_B1: B1.options.length, PRA_D6: D6.options.length, PRA_D2: D2.options.length };
-  if (counts.PRA_A1 !== 5 || counts.PRA_B1 !== 8 || counts.PRA_D6 !== 6 || counts.PRA_D2 !== 4) throw new Error(`doc 04 PRATT: option counts ${JSON.stringify(counts)}`);
+  if (counts.PRA_A1 !== 7 || counts.PRA_B1 !== 8 || counts.PRA_D6 !== 6 || counts.PRA_D2 !== 4) throw new Error(`doc 04 PRATT: option counts ${JSON.stringify(counts)}`);
   const note = 'EXTRACTED from docs/04-dialogue-trees.md (NICKEL PRATT) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. '
     + 'Plain quotes in a reply are his, italic quotes Thad\'s. `closing` is doc 04\'s offer run, "It never stops" (errata 97).';
   return [
@@ -4869,16 +4874,25 @@ function shengTree() {
         const parts = responseCell.split(/\*\((?:second|third)\)\*/);
         option.say = quoted(parts[0])[0];
         option.repeats = parts.slice(1).map((part, i) => ({ selection: i + 2, say: quoted(part)[0] }));
-      } else if (said.length === 1 && said[0].speaker === SPEAKER) option.say = said[0].line;
-      else option.exchange = said;
+      } else {
+        // ASKED AGAIN (errata 172): *(second)* "..." on any other row.
+        const [firstCell, againCell] = responseCell.split('*(second)*');
+        said = spokenIn(firstCell.replace(/\*\([^)]*\)\*/g, '').split('→')[0], SPEAKER).lines;
+        if (said.length === 1 && said[0].speaker === SPEAKER) option.say = said[0].line;
+        else option.exchange = said;
+        const again = againCell ? /"([^"]+)"/.exec(againCell)?.[1] : undefined;
+        if (again) option.repeat = again;
+      }
       if (!tag || !optionText || !(option.say || option.exchange?.length)) throw new Error(`doc 04 ${id}: option ${number} does not read`);
       const reqs = [...responseCell.matchAll(/req `([A-Z_0-9]+)`/g)].map((r) => r[1]);
-      const when = { ...Object.fromEntries(reqs.map((flag) => [flag, true])), ...(route.when ?? {}) };
+      const unlesses = [...responseCell.matchAll(/unless `([A-Z_0-9]+)`/g)].map((r) => r[1]);
+      const when = { ...Object.fromEntries(reqs.map((flag) => [flag, true])), ...Object.fromEntries(unlesses.map((flag) => [flag, false])), ...(route.when ?? {}) };
       if (Object.keys(when).length) option.when = when;
       if (route.set) option.set = route.set;
       if (route.add) option.add = route.add;
       if (route.holds) option.holds = route.holds;
-      if (route.after) option.after = route.after;
+      const follows = afterIds(tagCell, SPEAKER);
+      if (route.after || follows) option.after = route.after ?? follows;
       if (route.gives) option.gives = route.gives;
       if (route.puzzle) option.puzzle = route.puzzle;
       if (route.goto) option.goto = route.goto;
@@ -4890,7 +4904,7 @@ function shengTree() {
   };
   const A1 = node('SHE_A1', '## Root: `SHE_A1`', 2);
   const D1 = node('SHE_D1', '## `SHE_D1`', 2);
-  if (A1.options.length !== 7 || D1.options.length !== 7) throw new Error(`doc 04 SHENG: ${A1.options.length} and ${D1.options.length} options`);
+  if (A1.options.length < 7 || D1.options.length !== 7) throw new Error(`doc 04 SHENG: ${A1.options.length} and ${D1.options.length} options`);
   return write('content/dialogue/sheng.json', {
     aftermathAuthored: true, schema: 1, id: 'SHENG', speaker: SPEAKER, name: 'AH-LAM SHENG',
     note: 'EXTRACTED from docs/04-dialogue-trees.md (AH-LAM SHENG) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. '
@@ -4946,6 +4960,11 @@ function sowerbyTree() {
       }
       const route = ROUTE[`${id}:${number}`] ?? {};
       if (route.when) option.when = route.when;
+      // Gates written in the row (errata 172): `req FLAG` / `unless FLAG`, beside the routed ones.
+      for (const g of responseCell.matchAll(/\b(req|unless) `([A-Z_0-9]+)`/g)) {
+        if (route.when && g[2] in route.when) continue;
+        option.when = { ...option.when, [g[2]]: g[1] === 'req' };
+      }
       if (route.whenAny) option.whenAny = route.whenAny;
       if (route.set) option.set = route.set;
       if (route.add) option.add = route.add;

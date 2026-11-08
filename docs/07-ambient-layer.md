@@ -158,7 +158,15 @@ is the whole of his character.
 
 **Micro-tree**
 > "That bell is flat." → "It's loud, is what it is."
+>   *Asked again:* "Loud. Flat's a matter of opinion. Loud isn't."
 > "I could show you where to strike it." → "You could." *(He does not move.)*
+>   *Asked again:* "You could. Still could."
+> "Did you know Ezra Pike?" → "Rang for him."
+>   *Thad:* "Rang for him?"
+>   → "Ask the undertaker. He keeps the list."
+>   *Asked again:* "The undertaker's got the list. I've got the rope."
+> "You knew Pike was dead." → "Rang for him, didn't I. Flat. He never complained."
+>   *Asked again:* "Never complained. Best audience I've had."
 > `[COMIC]` "Doesn't it bother you?" → "Nothing bothers me. That's the qualification."
 
 **Barks**
@@ -528,6 +536,13 @@ is the whole of his character.
 
 **Micro-tree**
 > "Are you looking for a dog?" → "Six weeks."
+>   *Asked again:* "Six weeks. Seven, tomorrow."
+> "Did you know Ezra Pike?" → "Did he have a dog?"
+>   *Thad:* "I don't know."
+>   → "Then no." *(beat)* "Undertaker's right there. He knows everybody who hasn't got a dog."
+>   *Asked again:* "Undertaker. Right there. Dogless, the lot of them."
+> "You knew Pike was dead." → "Did he have a dog?"
+>   *Asked again:* "Then it's not my business."
 > "There's a dog on Main Street." → "…That's Bill?" *(He goes. **This is the resolution. It is worth nothing. It takes twenty seconds and it is the nicest thing in the game.**)*
 > `[COMIC]` *(after)* "How's Bill?" → "He'd been on Main Street the whole time. Six weeks. He'd been *fine*."
 
