@@ -1,0 +1,225 @@
+{
+ "schema": 1,
+ "note": "ROOM CONTENT READINESS. Whether this room can be BUILT WITHOUT INVENTING ANYTHING. It holds no creative prose -- every answer cites a document path and an exact heading, or a qualified issue reference. It says nothing about whether the writing is good.",
+ "room": 45,
+ "id": "room-45-washout",
+ "name": "THE WASHOUT",
+ "content": [
+  {
+   "id": "look-listen",
+   "question": "LOOK/LISTEN complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE WASHOUT",
+    "docs/108-the-washout-and-the-mine.md::THE WASHOUT"
+   ],
+   "why": "5 subject(s), each with a LOOK and a LISTEN"
+  },
+  {
+   "id": "repeat-variants",
+   "question": "Repeat-selection variants complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE WASHOUT",
+    "docs/108-the-washout-and-the-mine.md::THE WASHOUT"
+   ],
+   "why": "all 5 subject(s) carry three LOOK and three LISTEN variants"
+  },
+  {
+   "id": "act-variants",
+   "question": "Act/state variants complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
+   ],
+   "why": "none, by doctrine: The washout is reached only by B3's ride and left by the ride home (doc 107, The chain): it is open only during the trip, in Act II, between B3 and the ride home after G9. Doc 108 writes one state for it, and THE OLD MINE's change after the first crossing is written as THE WAY THROUGH."
+  },
+  {
+   "id": "wrong-verbs",
+   "question": "Wrong-verb layer complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/49-wrong-answers.md::ROOM 45 — THE WASHOUT"
+   ],
+   "why": "7 authored refusal(s)"
+  },
+  {
+   "id": "dialogue",
+   "question": "Dialogue used by this room complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE WASHOUT"
+   ],
+   "why": "no character speaks in this room: Nobody speaks here. Grievance is a mule: TALK TO her is answered by Thad's own lines, written under GRIEVANCE."
+  },
+  {
+   "id": "puzzles",
+   "question": "Puzzle requirements complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::TRIAL ONE — Affidavit of Original Sale (Document A)",
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)",
+    "proofs/readiness/puzzles.json"
+   ],
+   "why": "B3, G2 are specified, and every piece of their content is written"
+  },
+  {
+   "id": "items",
+   "question": "Required items declared?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::TRIAL ONE — Affidavit of Original Sale (Document A)",
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)"
+   ],
+   "why": "the puzzle section names the documents and topics this room issues and needs"
+  },
+  {
+   "id": "flags",
+   "question": "Required flags/state declared?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::TRIAL ONE — Affidavit of Original Sale (Document A)",
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)"
+   ],
+   "why": "the puzzle section names the topic flags this room sets"
+  },
+  {
+   "id": "staging",
+   "question": "Beat/staging script complete OR genuinely not required?",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE WASHOUT"
+   ],
+   "why": "not required: No doc 48 script is sited here. The rides there and home are over black, written in doc 108 (THE RIDE) and doc 109 (GOING HOME)."
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour sufficiently authored?",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE WASHOUT"
+   ],
+   "why": "no character is present to behave"
+  },
+  {
+   "id": "open-canon",
+   "question": "Unresolved canon decisions affecting this room?",
+   "answer": "NO",
+   "evidence": [],
+   "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
+  }
+ ],
+ "subjectsFound": 5,
+ "subjectsDeclaredByDocument": null,
+ "unresolvedCitations": [],
+ "dimensions": [
+  {
+   "id": "writing",
+   "question": "Writing",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE WASHOUT",
+    "docs/49-wrong-answers.md::ROOM 45 — THE WASHOUT"
+   ],
+   "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
+  },
+  {
+   "id": "puzzle-behaviour",
+   "question": "Puzzle behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::TRIAL ONE — Affidavit of Original Sale (Document A)",
+    "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)",
+    "proofs/readiness/puzzles.json"
+   ],
+   "why": "the puzzles sited here, the items they need and issue, and the flags they set"
+  },
+  {
+   "id": "act-behaviour",
+   "question": "Act/state behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
+   ],
+   "why": "none, by doctrine: The washout is reached only by B3's ride and left by the ride home (doc 107, The chain): it is open only during the trip, in Act II, between B3 and the ride home after G9. Doc 108 writes one state for it, and THE OLD MINE's change after the first crossing is written as THE WAY THROUGH."
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE WASHOUT"
+   ],
+   "why": "no character is present to behave"
+  },
+  {
+   "id": "staging-behaviour",
+   "question": "Staging behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/108-the-washout-and-the-mine.md::THE WASHOUT"
+   ],
+   "why": "not required: No doc 48 script is sited here. The rides there and home are over black, written in doc 108 (THE RIDE) and doc 109 (GOING HOME)."
+  },
+  {
+   "id": "visual-subjects",
+   "question": "Visual subject requirements",
+   "answer": "YES",
+   "evidence": [
+    "A renders/room-01-in-engine-1920x1080.png",
+    "B art/backgrounds/room-01-stage-road.png",
+    "C art/actors/thad-stand-front/stand-00.png",
+    "D art/backgrounds/room-01-stage-road.png",
+    "E reference/casting/room-01-casting-master.png"
+   ],
+   "why": "every baseline slot is satisfied: A, B, C, D, E"
+  },
+  {
+   "id": "geometry",
+   "question": "Geometry/placement",
+   "answer": "NO",
+   "evidence": [
+    "reference/room-45/annotation.json",
+    "content/rooms/washout.json",
+    "art/backgrounds/room-45-washout.png"
+   ],
+   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points | the room is not in the manifest | no shipping plate declared"
+  }
+ ],
+ "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
+ "buildableWithoutInvention": "YES",
+ "blocking": [],
+ "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
+ "geometry": [
+  {
+   "id": "annotation",
+   "question": "Room annotation exists?",
+   "answer": "NO",
+   "evidence": [
+    "reference/room-45/annotation.json"
+   ],
+   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points"
+  },
+  {
+   "id": "compiled",
+   "question": "Room JSON in the manifest?",
+   "answer": "NO",
+   "evidence": [
+    "content/rooms/washout.json"
+   ],
+   "why": "the room is not in the manifest"
+  },
+  {
+   "id": "plate",
+   "question": "Shipping plate at the canonical size?",
+   "answer": "NO",
+   "evidence": [
+    "art/backgrounds/room-45-washout.png"
+   ],
+   "why": "no shipping plate declared"
+  }
+ ],
+ "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
+ "geometryReady": "NO",
+ "at": "2026-11-08T23:31:17.100Z"
+}

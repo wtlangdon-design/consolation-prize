@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: a mountain road in daylight ending in a landslide, with a signpost, a fallen pine, and the timbered mouth of an old mine at the right. Two figures are standing on the road: a brown mule on the patch of grass at the left, and a man in a blue coat in the middle.
+
+Make exactly one change: remove the mule and the man. Paint what is behind them: the dirt road with its ruts, the patch of green grass, and the hillside behind. Match the rest exactly: the same pixel-art style and pixel grid, the same colours, the same daylight.
+
+Change nothing else: the road back down the valley at the left, the hills, the sky and clouds, the blank signpost, the slide of boulders and mud, the fallen pine with its roots up, the mine mouth with its posts and beam, and the rails stay exactly as they are. No people, no animals, no text, no border.

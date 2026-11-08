@@ -79,20 +79,20 @@
 **LISTEN** 1 "A drip landing on its top, every few seconds." · 2 "The drip has worn a little cup in the wood." · 3 "Quiet. It's held its position longer than I've been alive."
 
 ### THE LEFT OPENING
-**LOOK** 1 "An opening in the rock, timbered, going down into the dark." · 2 "The timbers are good. That tells me someone came back out."
-**LISTEN** 1 "A drip, somewhere inside." · 2 "Air, moving a little."
+**LOOK** 1 "An opening in the rock, timbered, going down into the dark." · 2 "The timbers are good. That tells me someone came back out." · 3 "I've stood in front of it long enough that it's starting to look like a decision."
+**LISTEN** 1 "A drip, somewhere inside." · 2 "Air, moving a little." · 3 "Air, and a drip. The same as the others, near enough."
 
 ### THE MIDDLE OPENING
-**LOOK** 1 "An opening straight ahead, the widest of the three. Wide isn't always a recommendation." · 2 "Somebody's chalked an arrow beside it, pointing at the ground."
-**LISTEN** 1 "Dripping, further off." · 2 "A faint draft, cool on the face."
+**LOOK** 1 "An opening straight ahead, the widest of the three. Wide isn't always a recommendation." · 2 "Somebody's chalked an arrow beside it, pointing at the ground." · 3 "I followed the arrow. It points at the floor, and I'm already on it."
+**LISTEN** 1 "Dripping, further off." · 2 "A faint draft, cool on the face." · 3 "The draft again, and a drip somewhere beyond it."
 
 ### THE RIGHT OPENING
-**LOOK** 1 "An opening on the right, low enough that I'd have to stoop." · 2 "I'd go in bent double, like a man looking for a dropped dollar. I've had the practice."
-**LISTEN** 1 "Water, somewhere along it." · 2 "Moving air, not much of it."
+**LOOK** 1 "An opening on the right, low enough that I'd have to stoop." · 2 "I'd go in bent double, like a man looking for a dropped dollar. I've had the practice." · 3 "My back aches already, just from looking at how low it is."
+**LISTEN** 1 "Water, somewhere along it." · 2 "Moving air, not much of it." · 3 "Moving air, and a drip, like the others."
 
 ### THE WAY OUT
-**LOOK** 1 "Daylight, and the washout, and a mule who's glad I've gone." · 2 "The way I came in. I know where it goes. That's a comfort, down here."
-**LISTEN** 1 "Grievance, chewing, outside." · 2 "Wind across the mouth of the mine."
+**LOOK** 1 "Daylight, and the washout, and a mule who's glad I've gone." · 2 "The way I came in. I know where it goes. That's a comfort, down here." · 3 "I can see Grievance's tail flicking, out in the bright. She hasn't followed me. She isn't going to."
+**LISTEN** 1 "Grievance, chewing, outside." · 2 "Wind across the mouth of the mine." · 3 "A crow, outside, still laughing."
 
 ---
 
@@ -108,16 +108,16 @@
 **LISTEN** 1 "Wind over the top, like breath across a bottle. An F, near enough." · 2 "Birds, far up. Up there it's an ordinary day." · 3 "The F again, a hair flat. I can't fix it from down here."
 
 ### THE PASSAGE UP
-**LOOK** 1 "A passage climbing steeply, with steps cut in it by somebody who hated steps." · 2 "It goes up at an angle a mule would refuse. Grievance was right to stay."
-**LISTEN** 1 "Grit trickling down the steps." · 2 "Still air, up there."
+**LOOK** 1 "A passage climbing steeply, with steps cut in it by somebody who hated steps." · 2 "It goes up at an angle a mule would refuse. Grievance was right to stay." · 3 "Every step's a different height. Whoever cut them was in a temper, or a hurry, or both."
+**LISTEN** 1 "Grit trickling down the steps." · 2 "Still air, up there." · 3 "A drip, somewhere up there. Much like down here."
 
 ### THE PASSAGE ON
-**LOOK** 1 "A level passage going on into the hill. Easy walking, which makes me suspicious." · 2 "Rails along the floor, rusted to the color of the dark."
-**LISTEN** 1 "A drip, steady, somewhere along." · 2 "Still air, along there."
+**LOOK** 1 "A level passage going on into the hill. Easy walking, which makes me suspicious." · 2 "Rails along the floor, rusted to the color of the dark." · 3 "Somebody laid rails along it, and never came back for them."
+**LISTEN** 1 "A drip, steady, somewhere along." · 2 "Still air, along there." · 3 "A drip along there too. Every passage has one."
 
 ### THE WAY BACK
-**LOOK** 1 "Back the way I came, toward the three openings." · 2 "I could go back. I'd only have to come forward again."
-**LISTEN** 1 "The drip on the stake, faint, behind me." · 2 "Quiet, back there."
+**LOOK** 1 "Back the way I came, toward the three openings." · 2 "I could go back. I'd only have to come forward again." · 3 "Back there the floor was flat and I knew where I was. I've given that up for now."
+**LISTEN** 1 "The drip on the stake, faint, behind me." · 2 "Quiet, back there." · 3 "A drip, back by the openings."
 
 ---
 
@@ -133,16 +133,16 @@
 **LISTEN** 1 "Grit running off it." · 2 "Water ticking on it, slower than on the big one." · 3 "Not a sound. It knows it's being compared."
 
 ### THE WAY PAST THE BIG ROCK
-**LOOK** 1 "A passage behind the big rock, going on." · 2 "I'd have to squeeze past the rock to take it. The rock won't move for me. Few things do."
-**LISTEN** 1 "Dark, and a drip in it." · 2 "Quiet air, along it."
+**LOOK** 1 "A passage behind the big rock, going on." · 2 "I'd have to squeeze past the rock to take it. The rock won't move for me. Few things do." · 3 "Dark beyond the rock, the same dark as everywhere."
+**LISTEN** 1 "Dark, and a drip in it." · 2 "Quiet air, along it." · 3 "A drip, and air. The same as the other way."
 
 ### THE WAY PAST THE OTHER ROCK
-**LOOK** 1 "A passage beyond the smaller rock, going on." · 2 "An easy walk past it. The small rock is accommodating. It has had to be."
-**LISTEN** 1 "Dark, with a drip in it somewhere." · 2 "Quiet air, that way too."
+**LOOK** 1 "A passage beyond the smaller rock, going on." · 2 "An easy walk past it. The small rock is accommodating. It has had to be." · 3 "It goes on into the dark, like everything down here that isn't a rock."
+**LISTEN** 1 "Dark, with a drip in it somewhere." · 2 "Quiet air, that way too." · 3 "Air, and a drip. The same as past the big one."
 
 ### THE WAY BACK
-**LOOK** 1 "Back toward the climb and the bar of daylight." · 2 "Back. I've grown fond of that shaft of light. It's the only thing down here with a view."
-**LISTEN** 1 "The wind over the shaft, faint, behind me." · 2 "Nothing much. A drip, back the way I came."
+**LOOK** 1 "Back toward the climb and the bar of daylight." · 2 "Back. I've grown fond of that shaft of light. It's the only thing down here with a view." · 3 "Back where the roof has a hole in it, and the hole has a sky."
+**LISTEN** 1 "The wind over the shaft, faint, behind me." · 2 "Nothing much. A drip, back the way I came." · 3 "A creak from the props, back there, then nothing."
 
 ---
 
@@ -154,15 +154,15 @@
 **LISTEN** 1 "The wheel ticking round when I touch it, slower, then stopped." · 2 "Quiet. It's been waiting a long while for somebody to make up their mind." · 3 "A drip into its bed, where the rust has made a little cup."
 
 ### THE LEFT PASSAGE
-**LOOK** 1 "A passage into the dark, timbered, the width of a man and a half." · 2 "Exactly like the other one. I've checked twice."
-**LISTEN** 1 "A drip, somewhere down it." · 2 "Still air. It isn't telling."
+**LOOK** 1 "A passage into the dark, timbered, the width of a man and a half." · 2 "Exactly like the other one. I've checked twice." · 3 "I counted the timbers. Seven. I'm not going to count the other side."
+**LISTEN** 1 "A drip, somewhere down it." · 2 "Still air. It isn't telling." · 3 "Still air, and a drip. Nothing to choose by."
 
 ### THE RIGHT PASSAGE
-**LOOK** 1 "A passage into the dark, timbered, the same width as its neighbor." · 2 "I've compared the two. They're the same passage, as far as I can tell, in two places."
-**LISTEN** 1 "A drip, somewhere down it, at much the same pace." · 2 "Still air. It isn't telling either."
+**LOOK** 1 "A passage into the dark, timbered, the same width as its neighbor." · 2 "I've compared the two. They're the same passage, as far as I can tell, in two places." · 3 "I counted the timbers. I'd told myself I wouldn't. Seven."
+**LISTEN** 1 "A drip, somewhere down it, at much the same pace." · 2 "Still air. It isn't telling either." · 3 "Still air, and a drip. Nothing to choose by either."
 
 ### THE WAY BACK
-**LOOK** 1 "Back toward the two rocks." · 2 "I could go back and apologize to the small rock. I won't, but I could."
-**LISTEN** 1 "A trickle of grit, back toward the rocks." · 2 "Quiet, back there, and getting no louder."
+**LOOK** 1 "Back toward the two rocks." · 2 "I could go back and apologize to the small rock. I won't, but I could." · 3 "Back to the rocks. The small one will be pleased to see me."
+**LISTEN** 1 "A trickle of grit, back toward the rocks." · 2 "Quiet, back there, and getting no louder." · 3 "A drip, back there, keeping time."
 
 **THE BRASS ROD** · USE, *at the line* — 1 *(He holds the rod out down the left passage. It trembles in his hands like a plucked string. He turns it to the right passage. It goes still.)* "Left, it shivers. Right, not a quiver." · 2 "The same again. Left, it shivers. Right, it's still." · 3 "A third time, the same answer. It has more patience than I do."

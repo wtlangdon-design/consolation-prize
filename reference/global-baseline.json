@@ -754,6 +754,23 @@
     }
    ],
    "castingNote": "Nobody is in it."
+  },
+  "room-45-washout": {
+   "visualType": "exterior-day",
+   "daylight": "Errata 190 (Tyler, 2026-11-08, approving doc 107): the camp is in daylight. The washout, the ledge and the five Gulch screens are drawn in daylight, and the mine is lit by shafts to the surface.",
+   "comparable": {
+    "id": "room-01-stage-road",
+    "path": "art/backgrounds/room-01-stage-road.png",
+    "note": "D -- the approved exterior, hills and a road, in the game's hand; relit to day by errata 190. Room 36's dawn (art/backgrounds/room-36-main-street-dawn.png) is the game's daylight, and is shown to the generator beside it."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Grievance only, waiting on the grass: her whole-mule sheet from the livery's generation (art/staging/room-15/grievance-01/sheet.png), as the brief allows when it fits the light."
   }
  }
 }

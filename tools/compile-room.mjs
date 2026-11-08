@@ -1268,7 +1268,9 @@ for (const spec of [...(ann.verbRules ?? [])].reverse()) {
     if (at < 0) fail(`verbRules: ${path} has no section "${heading}"`);
     const line = text.slice(at).split('\n').find((one) => one.startsWith(spec.startsWith));
     if (!line) fail(`verbRules: no line starting "${spec.startsWith}" in ${spec.ref}`);
-    const words = [...line.split(' — ').slice(1).join(' — ').replace(/\*\([^)]*\)\*/g, '').matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+    // `**X** · VERB — "..."`, or doc 108's numbered run under a subject, `**TALK TO** 1 "..." · 2 "..."` (errata 196).
+    const said = line.includes(' — ') ? line.split(' — ').slice(1).join(' — ') : line.slice(spec.startsWith.length);
+    const words = [...said.replace(/\*\([^)]*\)\*/g, '').matchAll(/"([^"]+)"/g)].map((m) => m[1]);
     if (!words.length) fail(`verbRules: "${spec.startsWith}" has no quoted line`);
     // ONE LINE WRITTEN FOR ONE STATE is a scene line, as doc 57's are: the
     // three-variant rule is the subject's ordinary chain's, which follows it.
@@ -2065,7 +2067,7 @@ if (MERGED) {
   if (ann.onEnterSay) {
     // `fromRef` reads the lines from a document section's quoted `> "..."`
     // lines rather than carrying them in the annotation (errata 84 G).
-    const { fromRef, ...rest } = ann.onEnterSay;
+    const { fromRef, bold, ...rest } = ann.onEnterSay;
     let said = rest.say;
     if (fromRef) {
       const [path, heading] = fromRef.split('::');
@@ -2076,7 +2078,11 @@ if (MERGED) {
       const body = after.slice(0, (/\n## |\n---\n/.exec(after) ?? { index: after.length }).index);
       // An indented quote is a bullet's (doc 57 C3's Room 14 line); it counts.
       // A line that ends in what it writes (doc 57 E8: `> "Out. ..." → T_FUNERAL_DONE`) counts.
-      const first = /^\s*> "([^"]+)"(?:\s*→.*)?$/m.exec(body);
+      // Doc 108's forms (errata 196): `**ON FIRST ARRIVAL** — "..."`, named by `bold`, or a section that is one bare
+      // quoted line (THE MINE · ON FIRST ENTERING).
+      const labelled = bold ? new RegExp(`^\\*\\*${bold}\\*\\*[^"]*"([^"]+)"`, 'm').exec(body) : null;
+      if (bold && !labelled) fail(`onEnterSay: ${fromRef} has no **${bold}** line`);
+      const first = labelled ?? /^\s*> "([^"]+)"(?:\s*→.*)?$/m.exec(body) ?? /^"([^"]+)"\s*$/m.exec(body);
       if (!first) fail(`onEnterSay: ${fromRef} has no quoted line`);
       said = [first[1]];
     }

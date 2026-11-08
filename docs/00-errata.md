@@ -5374,3 +5374,20 @@ Lesson: a person's TALK TO is only staged like a tree's if a test walks it (the 
   - The rule-keeper's bad fiddling is a one-shot sound effect, not a theme.
   - Three new stems are needed. Everything else reuses existing files. Nothing is rendered until the rooms are built.
 - **The builder's brief is `reference/fiddlers-gulch/brief.md`.** It covers the ten rooms, the figures, what the engine needs, and the order of the build. It also asks for a check that fails if the mine's four rooms differ in sound.
+
+# 196 · FIDDLER'S GULCH: THE WRONG VERBS, AND A THIRD LINE FOR EVERY WAY — TYLER, 2026-11-08 ("Write them (doc 49)"; "Write a third for each")
+
+*Asked by the builder before Room 45, because the readiness gate stopped on both.*
+
+- **The wrong-verb layer.** Every built room carries a doc 49 section of authored refusals, and the gate requires one. Docs 108 and 109 wrote none for Rooms 45 to 54.
+  - Doc 49 now has ten sections, ROOM 45 to ROOM 54: 39 refusals, from three a room in the mine to seven at the washout.
+  - Doc 49's doctrine holds. Nothing punishes. Nothing hints. Nothing in the mine favors one way over another. No refusal is written for a verb that solves a puzzle (USE THE TUNING FORK on the fiddle, GIVE THE CLARION, USE GRIEVANCE), or on a subject whose state changes (the watch, the fiddle, Vessel).
+- **A third LOOK and LISTEN for twenty ways.** Doc 05 asks three variants of every hotspot, and doc 106 gave the town's ways three. Docs 108 and 109 gave twenty of the Gulch's ways two:
+  - the mine's openings, passages and ways back (13);
+  - the tents' three ways;
+  - the grog tent's flap;
+  - the river's two ways;
+  - upstream's way down.
+
+  Each now has a third LOOK and a third LISTEN (40 lines), written into docs 108 and 109 where they stand. Doc 108's rule holds: two passages that are a choice sound alike, and their third LISTENs say so in the same words.
+- **The tenth writing exception** (CLAUDE.md) covers exactly these: doc 49's ROOM 45 to ROOM 54 sections and the twenty ways' third lines. It covers nothing else.

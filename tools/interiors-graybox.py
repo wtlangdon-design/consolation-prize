@@ -241,11 +241,12 @@ def build(n):
     d = ImageDraw.Draw(plate)
     for _, (x, y, w, h), v in r['surfaces']:
         d.rectangle([x, y, x + w - 1, y + h - 1], fill=v)
-    lx, ly, lw, lh = r['lamp']
-    yy, xx = np.mgrid[0:H, 0:W]
-    pool = np.clip(1 - (((xx - lx) / lw) ** 2 + ((yy - ly) / lh) ** 2), 0, 1) * 10
     base = np.asarray(plate).astype(float)
-    base[680:] += pool[680:]
+    if r.get('lamp'):                      # a lamp's pool on the floor; a room in daylight has none (errata 190)
+        lx, ly, lw, lh = r['lamp']
+        yy, xx = np.mgrid[0:H, 0:W]
+        pool = np.clip(1 - (((xx - lx) / lw) ** 2 + ((yy - ly) / lh) ** 2), 0, 1) * 10
+        base[680:] += pool[680:]
     plate = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8))
     d = ImageDraw.Draw(plate)
     for name, (x, y, w, h), v, where in r['objects']:
@@ -294,8 +295,10 @@ def build(n):
     dd.rectangle([wx, wy, wx + ww, wy + wh], outline=(90, 200, 90), width=3)
     for name, (x, y, _) in r['marks'].items():
         dd.ellipse([x - 8, y - 8, x + 8, y + 8], outline=(220, 180, 60), width=3)
-    ex = [o for o in r['objects'] if o[0] == r['exit'][0]][0][1]
-    dd.rectangle([ex[0], ex[1], ex[0] + ex[2], ex[1] + ex[3]], outline=(200, 90, 90), width=3)
+    exits = r['exits'] if 'exits' in r else [r['exit']]
+    rects = [[o for o in r['objects'] if o[0] == one[0]][0][1] for one in exits]
+    for ex in rects:
+        dd.rectangle([ex[0], ex[1], ex[0] + ex[2], ex[1] + ex[3]], outline=(200, 90, 90), width=3)
     comp.save(os.path.join(ROOT, f'renders/room-{n}-graybox-with-thad.png'))
 
     # THE LAYOUT the composition master is generated against: the graybox with ONE Thad (six would be painted as
@@ -310,13 +313,15 @@ def build(n):
     worst = [s for s in surfaces if s['verdict'] in ('weak', 'FAIL')]
     out = {
         'room': n,
-        'note': f"Ruling 22 steps 1-6 for {r['name']}, written by tools/interiors-graybox.py before any image "
-                'operation. Positions and values are the plan the plate is generated against (errata 183).',
+        'note': f"Ruling 22 steps 1-6 for {r['name']}, written by {r.get('tool', 'tools/interiors-graybox.py')} before "
+                'any image operation. Positions and values are the plan the plate is generated against '
+                f"(errata {r.get('errata', '183')}).",
         'what': r['what'],
         'thadAnchors': {'dark': round(dark, 1), 'light': round(light, 1), 'source': os.path.relpath(THAD, ROOT)},
         'depth': {'far': {'y': far[0], 'height': far[1]}, 'near': {'y': near[0], 'height': near[1]}, 'from': depth['from']},
         'walkable': list(walk),
-        'exit': {'hotspot': r['exit'][0], 'to': r['exit'][1], 'rect': list(ex)},
+        **({'exits': [{'hotspot': one[0], 'to': one[1], 'rect': list(rc)} for one, rc in zip(exits, rects)]} if 'exits' in r
+           else {'exit': {'hotspot': r['exit'][0], 'to': r['exit'][1], 'rect': list(rects[0])}}),
         'marks': {k: {'x': v[0], 'y': v[1], 'facing': v[2]} for k, v in r['marks'].items()},
         'objects': [{'name': nm, 'rect': list(rc), 'where': w} for nm, rc, _, w in r['objects']],
         'occluders': [],

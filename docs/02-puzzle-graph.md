@@ -55,6 +55,22 @@ Document C requires **A**, **B**, and **D**. Three independent trials. Any order
 
 **Note:** B6 is the interlock. It cannot be finished without progress in the other two trials, which is what stops the player from tunnelling one line and stalling.
 
+## FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)
+
+*Structural rows only (reference/fiddlers-gulch/brief.md). The design is doc 107, the lines are docs 108 and 109, and nothing here restates them. G6 and G7 are B4 and B5, moved to the Gulch when the trip is built. Until then B3 to B5 above are the game as built, and the count stays 45.*
+
+| # | Puzzle | Where | Requires | Yields | Lines |
+|---|---|---|---|---|---|
+| **G1** | The rod, hired | Room 16 | Act II; two dollars (A8) | THE BRASS ROD | doc 109, G1 |
+| **G2** | Through the mine | Rooms 45–49 | B3 | The way through (`T_MINE_CROSSED`) | doc 108 |
+| **G3** | The camp's trust | Room 51 | G2; THE CLARION (B1) | The camp will talk | doc 109, THE LOOKOUT |
+| **G4** | Vessel, found by the watch | Room 52 | G3 | Vessel found | doc 109, THE FIND |
+| **G5** | A seat at the plank | Room 52 | G3; the tuning fork | A seat | doc 109, THE FIDDLE |
+| **G6** | The challenge (B4) | Room 52 | G4, G5 | Topic: *the Liar's Assay* | doc 109, DEKE VESSEL, found |
+| **G7** | Duel One, on the bar (B5) | Room 53 | G6 | Pairs 1–4 | doc 03 Duel One; doc 109, DUEL ONE |
+| **G8** | The messages (optional) | Rooms 53–54 | G3 | Pairs 25 and 26 | doc 109, G8 |
+| **G9** | The rematch agreed | Room 52 | G7 | `T_VESSEL_FOUND`; the ride home | doc 109, DEKE VESSEL, found; GOING HOME |
+
 ## TRIAL TWO — Assay of Record (Document B)
 
 *Needs a certified assay from Winnie Ledger, whose queue is full for eight months.*

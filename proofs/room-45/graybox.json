@@ -1,0 +1,206 @@
+{
+ "room": 45,
+ "note": "Ruling 22 steps 1-6 for THE WASHOUT, written by tools/gulch-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 196).",
+ "what": "The road to Fiddler's Gulch ending in a slide of rock and mud with a whole pine in it roots up; a signpost into the slide; the road back down the valley; an old timbered mine in the ridge with rails running out of it to the edge of the slide; Grievance waiting on the one patch of grass. Daylight.",
+ "thadAnchors": {
+  "dark": 24.7,
+  "light": 121.9,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 660,
+   "height": 302
+  },
+  "near": {
+   "y": 858,
+   "height": 437
+  },
+  "from": "Room 5's exterior slope, as Room 22: a man of 302 at the band's far edge"
+ },
+ "walkable": [
+  160,
+  690,
+  1700,
+  168
+ ],
+ "exits": [
+  {
+   "hotspot": "THE OLD MINE",
+   "to": "mine_adit",
+   "rect": [
+    1620,
+    330,
+    230,
+    320
+   ]
+  }
+ ],
+ "marks": {
+  "arrival": {
+   "x": 300,
+   "y": 800,
+   "facing": "right"
+  },
+  "grievance": {
+   "x": 780,
+   "y": 760,
+   "facing": "left"
+  },
+  "mine": {
+   "x": 1720,
+   "y": 700,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE ROAD BACK",
+   "rect": [
+    0,
+    600,
+    380,
+    264
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "GRIEVANCE (on the grass)",
+   "rect": [
+    440,
+    430,
+    230,
+    250
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SIGNPOST",
+   "rect": [
+    930,
+    360,
+    70,
+    300
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SLIDE",
+   "rect": [
+    1020,
+    210,
+    560,
+    470
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SLIDE (the pine, roots up)",
+   "rect": [
+    1100,
+    250,
+    380,
+    120
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE OLD MINE",
+   "rect": [
+    1620,
+    330,
+    230,
+    320
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE OLD MINE (its rails)",
+   "rect": [
+    1500,
+    640,
+    170,
+    30
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the slide, the signpost, the mine and Grievance are all behind it, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "ridge and far hills",
+   "p10": 54.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 29.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "road and verge",
+   "p10": 74.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 49.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE ROAD BACK",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 79.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "GRIEVANCE (on the grass)",
+   "p10": 62.0,
+   "p90": 62.0,
+   "darkAnchorMargin": 37.3,
+   "lightAnchorMargin": 59.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SIGNPOST",
+   "p10": 74.0,
+   "p90": 74.0,
+   "darkAnchorMargin": 49.3,
+   "lightAnchorMargin": 47.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SLIDE",
+   "p10": 98.0,
+   "p90": 98.0,
+   "darkAnchorMargin": 73.3,
+   "lightAnchorMargin": 23.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE SLIDE (the pine, roots up)",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 35.3,
+   "lightAnchorMargin": 61.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE OLD MINE",
+   "p10": 54.0,
+   "p90": 54.0,
+   "darkAnchorMargin": 29.3,
+   "lightAnchorMargin": 67.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE OLD MINE (its rails)",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 45.3,
+   "lightAnchorMargin": 51.9,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}
