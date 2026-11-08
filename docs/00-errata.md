@@ -5061,3 +5061,16 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
 - **Waiting:**
   - Tyler's eye on the full-sized paint.
   - Claude writes their LOOK and LISTEN lines in the documents, and then makes them clickable.
+
+# 188 · OZYMANDIA AT PROSPERITY: DRAWN, PLACED AND CAST — TYLER, 2026-11-08 (reference/ozymandia-prosperity/brief.md)
+
+*Errata 184 C's figure, drawn. Room-16's fourth and last operation.*
+
+- **The drawing.** One sheet on magenta, generated against Thad standing in Prosperity at game size, with her canonical design (room-16 attempt 3) and her tent figure beside it (`reference/ozymandia-prosperity/prompt-01.txt`, `op-01.spec.json`). Five poses, three-quarter profile, the brass rod in both hands, looking at the ground: at rest, a breath, the rod tilting, her head lower, and the rod dipping with her weight forward. The last two are the deliberate actions (19% and 40% of the figure). The ledger reads 4 of 4 for room-16; no cap was raised.
+- **The cut.** `art/actors/room-23-ozymandia.png` by `tools/art/cut-ambient-sheet.py --register right`. Aligned on the legs, the dipped rod pulled the lean a dozen pixels left, so the poses are aligned on the boots. Snapped to the cast grid by `tools/art/one-level.py`.
+- **Where she stands.** (880, 748) on the far mud, left of and below the hole, facing it. That keeps her clear of the hole, the exits, the raccoon, Pratt's stake and every stand. 0.96 of the room's man, as her design stands beside Thad. Thad's TALK TO stand is (1080, 790), facing her.
+- **Cast.** She is in the manifest and in Room 23's `ambient`; `awaitingArt` is gone. She speaks in her tent colour (`sameAs: ozymandia`). The compile's only room change kept is her id; Pratt's stake stays where main has it.
+- **Her radius.** Her line fired inside 120 px and the stand is 200 off, so walking up to her said nothing. It is 230. `tests/lessons.test.ts` now holds that any figure with barks and no tree says them where the player stands to talk to it.
+- **A rounding fix.** `one-level.py` rounded half to even, and the test that measures it rounds half up. Her lean is exactly 100.5 blocks tall, so it was snapped to one grid and measured on another. The tool now rounds as the test does. `tests/one-level.test.mjs` caught it; no finished sheet was re-snapped.
+- **For Claude, not built: TALK TO.** She has no tree, so TALK TO her does not walk Thad to her stand. He answers from where he is with the general pool ("I have decided against it."), and her `walkTo` is unused until something answers TALK TO. The general pool is the one written for objects, so it calls her "it". The choice is a writing one, handed to Claude in `reference/ozymandia-prosperity/talk-to-handoff.md`; nothing was written here.
+- **Tyler's ruling, 2026-11-08: "I choose C."** Thad gets a new line for TALK TO on her, and she answers with her one line. Tyler authorises that one new line (or its repeat variants) for Claude to write in doc 54, under the handoff's rules. The builder then wires it.

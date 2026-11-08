@@ -52,6 +52,13 @@ def recut(out, a, b):
     return out
 
 
+def jsround(v):
+    """Half rounds UP, as JavaScript's Math.round does in tests/one-level.test.mjs. Python's round()
+    rounds half to even: Ozymandia's lean at Prosperity is exactly 100.5 blocks tall, snapped here to
+    100 rows and measured there against 101, and failed as 9.5% finer than the level."""
+    return int(np.floor(v + 0.5))
+
+
 def snap(a, b):
     """Reduce an RGBA frame to blocks of about b pixels and draw it back up, KEEPING THE FIGURE'S
     TOP AND BOTTOM ROWS. The grid is fitted to the figure's own opaque box: the block is nudged
@@ -65,7 +72,7 @@ def snap(a, b):
     if len(rows) == 0: return a
     t, bt, l = rows[0], rows[-1] + 1, cols[0]
     H = bt - t
-    nh = max(1, int(round(H / b))); bb = H / nh
+    nh = max(1, jsround(H / b)); bb = H / nh
     nw = int(np.ceil((a.shape[1] - l) / bb)); W = int(np.ceil(nw * bb))
     crop = np.zeros((H, W, 4), np.uint8); cw = min(W, a.shape[1] - l)
     crop[:, :cw] = a[t:bt, l:l + cw]
@@ -79,7 +86,7 @@ def snap(a, b):
             keep[r] = al[r] >= al[r].max() * 0.5
     rgb = np.where(al[..., None] > 1, small[..., :3] * 255 / np.maximum(al[..., None], 1), 0)
     small = np.dstack([np.clip(rgb, 0, 255), np.where(keep, 255, 0)]).astype(np.uint8)
-    up = np.asarray(Image.fromarray(small, 'RGBA').resize((int(round(nw * bb)), H), Image.NEAREST))
+    up = np.asarray(Image.fromarray(small, 'RGBA').resize((jsround(nw * bb), H), Image.NEAREST))
     out = np.zeros_like(a)
     out[t:bt, l:l + cw] = up[:, :cw]
     return out

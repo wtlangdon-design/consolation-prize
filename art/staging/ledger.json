@@ -36313,6 +36313,68 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-08T18:21:06.171Z"
+  },
+  {
+   "attempt": 4,
+   "role": "derived-state",
+   "assetId": "room-16",
+   "subject": "ozymandia",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 3,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/ozymandia-prosperity/prompt-01.txt",
+   "promptHash": "beef6c733b4c960535dbdc3052ef71df625e41706b6aa67f534b7329a0fa3f99",
+   "references": [
+    {
+     "path": "art/staging/room-16/prosperity-01/thad-in-prosperity.png",
+     "hash": "093b9d8b3febbc082c898197dfd69a927d2af34ead24c7cf99179e5645629e4e",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-16/ozymandia-01/sheet.png",
+     "hash": "fcfa0ba8394f5fc7d8ea3f81e0f84bf9b98ae7939e08a27b1b6e60fb09ffce67",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-16/prosperity-01/tent-sheet.png",
+     "hash": "82935d36392c2f4d662b77274b8f906075db5749346f41ead7745507b79c0c86",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "093b9d8b3febbc082c898197dfd69a927d2af34ead24c7cf99179e5645629e4e",
+   "sourcePath": "art/staging/room-16/prosperity-01/thad-in-prosperity.png",
+   "out": "art/staging/room-16/prosperity-01/sheet.png",
+   "outputHash": "c52df3e4e413f9815e34b1b0c9035a27cf04b6e7b9123f034508b5bcae559168",
+   "bytes": 1394293,
+   "usage": {
+    "input_tokens": 5313,
+    "input_tokens_details": {
+     "image_tokens": 4608,
+     "text_tokens": 705
+    },
+    "output_tokens": 780,
+    "output_tokens_details": {
+     "image_tokens": 780,
+     "text_tokens": 0
+    },
+    "total_tokens": 6093
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T19:55:19.881Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, reference/ozymandia-prosperity/brief.md (errata 184): one operation under room-16, its fourth and last",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T19:55:19.891Z"
   }
  ],
  "promotions": [
