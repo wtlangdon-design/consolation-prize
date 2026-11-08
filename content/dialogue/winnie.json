@@ -257,7 +257,7 @@
           "tag": "PROGRESS",
           "text": "I need a certified assay.",
           "afterUse": "remove",
-          "say": "You need to be in a queue that's eight months long and getting longer.",
+          "say": "You need to be in a queue. It's eight months long, and it got longer while you were asking.",
           "set": {
             "T_ASSAY_QUEUE": true
           },
@@ -303,7 +303,26 @@
           "tag": "COMIC",
           "text": "You have very good handwriting.",
           "afterUse": "retain",
-          "say": "I know."
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "I know."
+            },
+            {
+              "speaker": "winnie",
+              "line": "…"
+            },
+            {
+              "speaker": "winnie",
+              "line": "Nine years, and you're the first to mention it."
+            }
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still legible."
+            }
+          ]
         },
         {
           "id": "winnie5",
@@ -422,7 +441,13 @@
           "tag": "COMIC",
           "text": "Are you all right?",
           "afterUse": "retain",
-          "say": "I am professionally offended, Mr. Grubb. It is the worst kind."
+          "say": "I am professionally offended, Mr. Grubb. It is the worst kind.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still offended. I'll tell you when it stops. It won't."
+            }
+          ]
         },
         {
           "id": "winniex",
@@ -561,7 +586,13 @@
           "tag": "COMIC",
           "text": "Was it the raccoon?",
           "afterUse": "retain",
-          "say": "The raccoon is not an assayable substance. I have told you this."
+          "say": "The raccoon is not an assayable substance. I have told you this.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "I have told you this twice now. I'm keeping count."
+            }
+          ]
         },
         {
           "id": "winniex",

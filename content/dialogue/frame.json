@@ -264,11 +264,19 @@
     },
     "FRA_B1": {
       "id": "FRA_B1",
-      "prompt": "A story for a schedule. That's the rate. It's always been the rate.",
+      "prompt": "Money doesn't PRINT, Mr. Grubbe. Tell me something humiliating about yourself.",
       "opening": [
         {
           "speaker": "frame",
           "line": "A story for a schedule. That's the rate. It's always been the rate."
+        },
+        {
+          "speaker": "thad",
+          "line": "I'd pay you instead, but Mr. Vessel has my four dollars."
+        },
+        {
+          "speaker": "frame",
+          "line": "Money doesn't PRINT, Mr. Grubbe. Tell me something humiliating about yourself."
         }
       ],
       "options": [
@@ -347,6 +355,19 @@
             {
               "selection": 3,
               "say": "Persistent AND punctual-minded. I may do a profile. How do you spell it?"
+            }
+          ]
+        },
+        {
+          "id": "frame5",
+          "tag": "COMIC",
+          "text": "I've never done anything humiliating in my life.",
+          "afterUse": "retain",
+          "say": "'NEWCOMER CLAIMS SPOTLESS RECORD.' Nobody'll believe it. It'll sell out by noon.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "'…AND STILL CLAIMS IT.' A continuing story! You're spoiling me."
             }
           ]
         },

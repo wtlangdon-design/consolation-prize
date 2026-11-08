@@ -162,11 +162,12 @@
       }
      },
      "set": {
-      "ACT": 2
+      "ACT": 2,
+      "T_ACT_II_OPENING": true
      }
     }
    ],
-   "note": "Doc 20: the one way back to the lobby. Doc 57 A10's beat 4 plays here the first time Thad leaves after the dinner -- the doorway is the porch -- and sets ACT 2, whose card follows (errata 84 C, E)."
+   "note": "Doc 20: the one way back to the lobby. Doc 57 A10's beat 4 plays here the first time Thad leaves after the dinner -- the doorway is the porch -- and sets ACT 2, whose card follows (errata 84 C, E), and owes Act II's opening on Main Street the next morning (errata 175)."
   }
  },
  "exits": {

@@ -96,6 +96,7 @@
           "tag": "COMIC",
           "afterUse": "retain",
           "text": "We got off on the wrong foot.",
+          "repeat": "Still nope.",
           "exchange": [
             {
               "speaker": "pratt",

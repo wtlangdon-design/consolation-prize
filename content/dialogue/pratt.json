@@ -426,6 +426,7 @@
           "tag": "COMIC",
           "afterUse": "retain",
           "text": "Twenty dollars and the hen.",
+          "repeat": "Hen's not for sale.",
           "exchange": [
             {
               "speaker": "pratt",

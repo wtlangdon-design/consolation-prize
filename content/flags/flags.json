@@ -1073,6 +1073,16 @@
    "note": "Doc 48 S4 beat 3: after the confession, Hob is Obadiah Mott. Written at HOB_C2's end (errata 94 E). Read by the shack's dawn window."
   },
   {
+   "id": "T_ACT_II_OPENING",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "room:fanshawe_office:to_lobby (doc 57 A10 beat 4, with ACT 2)",
+    "engine:GameState.openAct (clears it)"
+   ],
+   "note": "Errata 175: Act II's opening is owed, as errata 101 B's Act IV one is. Written by the dinner's beat 4 with ACT = 2 and cleared when the game has cut to Main Street the next morning and Thad has said doc 57's line: what he wants in Act II (Claim One's filing) and where it starts (Sump). content/act-cards.json names it (`openings.2.due`)."
+  },
+  {
    "id": "T_ACT_IV_OPENING",
    "type": "boolean",
    "initial": false,

@@ -310,7 +310,13 @@
           "tag": "COMIC",
           "text": "Do you ever stamp anything just for the pleasure of it?",
           "afterUse": "retain",
-          "say": "Pleasure is not a ground. I stamp on grounds."
+          "say": "Pleasure is not a ground. I stamp on grounds.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still not a ground. I have consulted the statute, in case."
+            }
+          ]
         },
         {
           "id": "sumpx",
