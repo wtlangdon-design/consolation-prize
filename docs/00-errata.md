@@ -4934,3 +4934,28 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
   4. Ozymandia's Act IV line;
   5. refusals and examine lines for objects that never became clickable.
 
+# 183 · THE SIX INTERIORS: WRITTEN, CAPPED AND BRIEFED — TYLER, 2026-11-08 ("Build all six"; "Write all six now")
+
+*Doc 104's first gap was rooms 37–42 and their four townspeople, designed and never built. Tyler said "Build all six". Told that only 8 of their ~37 objects had lines, he said "Write all six now".*
+
+- **The fifth writing exception** (CLAUDE.md) covers **doc 105**:
+  - every subject's LOOK and LISTEN, three each, with doc 07's lines kept as variant 1;
+  - each room's overrides.
+
+  It is one voice, under doc 59 and doc 99, and true in every act.
+- **Numbers.** Doc 12 numbered the six 36 to 41 before Room 36 became the dawn street. They are now:
+  - 37, the boarding house parlour;
+  - 38, the photographer's studio;
+  - 39, the bakehouse;
+  - 40, the empty storefront;
+  - 41, the schoolhouse;
+  - 42, the barber's.
+- **They are open in every act, at night, as the streets are.** The streets have one plate, at night (errata 64). Doc 97's barber's pole said "The window's dark, and so is the door", so it now says "There's a light under the door. A barber-surgeon in a mining camp keeps a doctor's hours."
+- **Ways in:**
+  - the barber's and the photographer's are entered from the Lane;
+  - the parlour, the bakehouse, the storefront and the schoolhouse are on the map, as doc 20 first placed all six.
+  - **The empty storefront is not the Lane's.** Doc 97 boards that one up "closed for good", so the enterable one, with its HARDWARE & SUNDRIES sign (doc 07), is another, reached from the map.
+- **Caps:** `room-37` to `room-42`, four operations each (errata 72's rule), recorded in `art/staging/caps.json` with Tyler's words. `attemptsTotal` goes up by 24.
+- **The builder's brief is `reference/ancillary-interiors/brief.md`.** The build order is 42, 38, 37, 39, 40, 41.
+- **`tools/check-written-vs-built.mjs` reads doc 105.** Its 163 lines join the `ancillary-interiors` group in `proofs/written-not-built.json` until each room is built.
+

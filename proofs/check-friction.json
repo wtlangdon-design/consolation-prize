@@ -355,6 +355,12 @@
    "date": "2026-11-08",
    "kind": "reviewed",
    "why": "TUNED. All three loosenings had one cause: the test held a later state's absence as if it were the rule (no T_QUEUE_PADDED declared; T_QUEUE_PADDED unset after C5; WIN_B3 not extracted), and each broke when that state was built. The one assumption of that kind left -- 'the board is untouched' after the second ledger is revealed, which the retrieval's staging will change -- is replaced by errata 66 E's own rule: nothing gives the ledger to Thad. What it asserts now is rules from the errata and the data, not the build's current gaps. Not retired."
+  },
+  {
+   "check": "tools/check-written-vs-built.mjs",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 183: doc 105, the six interiors' writing, joins the documents the check reads, so its lines are held to the ledger like every other source's. The diff reads as a loosening because the SOURCES list changed; nothing was excused. The 163 lines doc 105 adds are listed under ancillary-interiors until the image session builds the rooms."
   }
  ]
 }
