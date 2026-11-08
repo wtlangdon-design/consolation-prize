@@ -22,6 +22,7 @@ import { check as combinations } from './check-combinations.mjs';
 import { check as paletteCycling } from './check-palette-cycling.mjs';
 import { check as examineLines } from './check-examine-lines.mjs';
 import { check as writtenContent } from './check-written-content.mjs';
+import { check as writtenVsBuilt } from './check-written-vs-built.mjs';
 import { check as variantOne } from './check-variant-one.mjs';
 import { check as fixedLines } from './check-fixed-lines.mjs';
 import { check as lookFigures } from './audit-look-figures.mjs';
@@ -129,6 +130,7 @@ const CHECKS = [
   combinations,
   examineLines,
   writtenContent,
+  writtenVsBuilt,
   fixedLines,
   dialogueNodes,
   flagOrder,

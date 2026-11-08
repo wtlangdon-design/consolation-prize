@@ -1,0 +1,1164 @@
+{
+ "schema": 1,
+ "note": "Errata 182: every quoted line in the source documents that /content does not carry (tools/check-written-vs-built.mjs), grouped with the reason. GAP groups were reported to Tyler on 2026-11-08 and wait on his ruling; a line comes off this list when it is built. Lines under four words are below the check's bar, so two short gaps it cannot see are named here by hand: Hob's running lines ('It'll rain.', 'That's not yours.', 'Wouldn't stand there.', 'You're the piano man.') and Ozymandia's '...It's loud here.'",
+ "groups": [
+  {
+   "id": "ancillary-interiors",
+   "why": "GAP, reported to Tyler (errata 182): the six ancillary interiors (rooms 37-42: the barber's, the boarding house parlour, the photographer's studio, the bakehouse, the empty storefront, the schoolhouse) and the townspeople who live in them (doc 07 #9 the barber, #10 the photographer, #14-15 the boarding house women). Canon is 42 screens (errata 1); these six were never on the full build list (CLAUDE.md, errata 72), and the Lane shows the barber's and photographer's fronts shut. Their lines are written in doc 105 (errata 183) and wait on the builder session (reference/ancillary-interiors/brief.md).",
+   "lines": [
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Shave, extraction, amputation. Two bits, four bits, a dollar."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Sit down. Don't look at the tray."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "If it bites you, come straight here. Don't wait."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Free shave, Mr. Grubb! First one's free!"
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "I'd have done the laying-out at a fair price. Nobody asked me."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Twenty-five cents. I've thirty-one more."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Portrait? Fifty cents, sitting included."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Portrait? Something to send home?"
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "I'll photograph the animal. I've done worse."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Portrait? …Perhaps not today."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "…I've done post-mortems. I'd rather not, with you talking."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Should I take Mr. Mott's likeness, do you think? A *real* one?"
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "It's men. Men are steady."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "We've prospected the prospectors, dear."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Do you think there's gold here?"
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "There's forty men upstairs at six dollars the week. That's the gold, dear."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Six dollars the week, meals extra."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Now don't let it change you."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Will you be wanting the room still, or —"
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Instruments. I have identified the razor. I am choosing not to identify the others."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "…It's *correct*. Somebody paid to have this done properly. I may need a moment."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Four dozen strangers in good collars, sold as anybody you like."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Warm. Working. Something in this town is *working*."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "HARDWARE & SUNDRIES. The paint is good. It was done by a professional, recently, at expense."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Fourteen desks, made by hand, well made. Nobody has ever sat in them."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Instruments. I have identified the razor. I am choosing not to identify the others."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "One chair, for shaves, teeth and limbs alike. The arms have straps. I'm told the straps are for the teeth."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A leather strop on a hook, polished to a mirror down the middle by ten thousand strokes."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "It swings a little when the door goes, and slaps the chair once, like a reminder."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A faint clink from inside when the floor moves. I'm not going to think about what clinks."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A mirror, with a crack running across it at about the height of a nervous man's chin."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "SHAVE 2 BITS. TOOTH 4 BITS. LIMB $1. The limb is the bargain, which worries me."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "…It's *correct*. Somebody paid to have this done properly. I may need a moment."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A fire in a grate with a brass fender, and a coal scuttle that has been polished. The coal has not."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A good fire, ticking. It is the first one I've heard in this town that isn't complaining."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A queen, in an oval frame, looking down on the parlour as if she owned the boarding house. She may."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A proper rug, red and blue, with a border. I have wiped my boots on the step three times, and I'm still afraid of it."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. A rug this good swallows footsteps whole."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Stairs to the rooms. Forty men up there at six dollars the week, and not one of them allowed in this parlour."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Boots overhead, being taken off carefully. The house has rules, and the rules have ears."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A china pot, cups and a sugar bowl with tongs. Tongs. In Consolation."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A spoon turning in a cup, and then stopping, because I am being looked at."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Four dozen strangers in good collars, sold as anybody you like."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A plate camera on a tripod, with a black cloth over the back for the photographer's head. The brass is the best-kept thing in the room."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. It's waiting for someone to hold still, which in this town could take a while."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "An iron stand with a clamp at the top, to hold a sitter's head still for the exposure. It looks like it would hold anything still."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A screw creaking as I touch it. It has held a great many heads, and given every one of them a headache."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The canvas stirring in the draught. Ancient Greece, rustling."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Brown bottles on a shelf, labelled in a careful hand. One says COLLODION, and one says POISON, and they are next to each other."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. A small stopper ticking in the heat. I am keeping my distance."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The back of the window display, from inside: the gentleman in the good collar, facing the Lane. From here he's only cardboard."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A carved chair for sitters, with a cushion and a small table for one hand to rest on, thoughtfully. Everyone sits in the same pose here."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. It has had more distinguished men in it than the territory has produced."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "PORTRAITS 50¢. SITTING INCLUDED. CABINET CARDS BY THE DOZEN. Somebody has added, in pencil: LIKENESS NOT GUARANTEED."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A brick oven, built big and lit early. Bread for a town of two thousand comes out of one door."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Warm. Working. Something in this town is *working*."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Flour sacks stacked to the rafters, with the flour on everything else as well. Including, now, me."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A sack settling, very softly. Flour has a hush to it."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A long table, floured and scraped, with the dough laid out in rows. The only rows in Consolation that come out even."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. Dough rises without saying anything about it. I admire that."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A boy with flour to the elbows, carrying a tray twice his width and not dropping anything. He has not looked up once."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "He's humming, in time with the kneading. The tune is wrong. The time is perfect."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The yard, and a cart being loaded. Bread leaving for everywhere at once."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "HARDWARE & SUNDRIES. The paint is good. It was done by a professional, recently, at expense."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A shop window with the price tickets still stuck to the inside of the glass. The goods have gone. The prices stayed, out of loyalty."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The back room: empty shelves, and one crate, labelled NAILS, that is empty too. They took the nails."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Fourteen desks, made by hand, well made. Nobody has ever sat in them."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A brass handbell on the teacher's desk, for calling in a class that hasn't come."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A school stove, blacked and cold, with the kindling laid ready in it. Ready for winter, and for children."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Clean glass. Through it, the town, which is busy looking for gold and has never once glanced this way."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The schoolhouse door, on new hinges that have never once been opened by a child."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The schoolhouse was the third building Consolation put up, before the assay office and before the church. Nothing in the game ever says this."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Laid out in a row from small to alarming. The razor is at the small end, which is the only comfort the tray offers."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Everything on it has been cleaned. I can tell, because it has been cleaned the way you clean something you've used."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Steel settling on cloth when I lean on the shelf."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "It reclines with a lever. Every man who has sat in it has learned the word 'reclines' the hard way."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A spring, deep inside, sighing at the very idea of me."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Two straps, one canvas, one leather. Canvas first, then leather. He showed me, though I hadn't asked."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "I'd like to go back to not having looked in the jar."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "I'm not listening to the jar any more. The jar has had enough of my attention."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Me, in a barber's mirror, looking like a man who needs a shave and is going to think about it first."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The crack goes right through my reflection's neck. I've decided not to read anything into it."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. It's turned to the wall a little, as if it had seen enough."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "No price for a haircut. Either it's free, or he doesn't do them, and I'm afraid to find out which."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Someone has scratched a name under LIMB, and then scratched it out again. I hope he kept the limb."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The board tapping against the wall in the draught: two bits, four bits, a dollar."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. It's said its prices. It doesn't haggle."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "It pulls back. Strops do. I let go before it made a point of it."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Every chair has one, and every one is starched. Two women in a mining camp starch lace. I'd follow them into battle."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Somebody has darned one, so neatly I only found it by looking for a flaw. There's always one."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. Not even the chairs creak. They wouldn't dare."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Rosewood, polished. There is a hymnal on the stand and a vase on the lid, and neither has been moved to play it."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A tuner's card is tucked in the music rest. Not mine. Somebody out here was in the trade before me, and good at it."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing out of place in it anywhere. I'd like to shake whoever did it by the hand."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The fire irons hang in order of size. Somebody in this room runs a tight hearth."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The only fire in town that isn't also cooking something, drying something or melting something down."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A log shifting and the flame deciding where to go next."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Coal settling, warm and unhurried, like a cat."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A print of a painting of a queen, framed, and dusted on top of the frame. That is real devotion."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "She hangs straight. In Consolation that makes her the most upright thing for miles."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. Her expression suggests silence is expected."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The wire behind the frame, ticking against its nail as the fire warms the wall."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A border of flowers nobody in the territory has ever seen growing. It came a long way to be walked round."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "There's a path worn round the edge of it. Everyone in this house walks round the rug."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. Even my boots are behaving."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. I've walked round it too, now."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A sign at the bottom: GENTLEMEN WILL REMOVE THEIR BOOTS. A row of boots under it, all removed."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The banister is polished. Nobody leans on it, because the sign says nothing about leaning and nobody wants to find out."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Somebody upstairs, snoring in a respectable way."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A door closing very gently. The whole house closes doors gently."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The cups are a set. Every one of them matches. I have not seen two things match in this town since I arrived."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A tea cosy on the pot, knitted, in the shape of a hen. I have never respected a hen so much."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. The cups wait in their saucers like guests who know their place."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Not without being asked. And I can tell already that I will not be asked."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "It doesn't need me. I've never been so glad to be unnecessary."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "I would sooner pick up a sleeping bear, and with more confidence."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Lodgers only, and boots off. I am neither, and I'm attached to my boots."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Every card the same gentleman, the same collar, the same steady gaze, on the same good card stock."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The box says FOUR DOZEN. There are thirty-one. Somebody's been buying gentlemen."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. Thirty-one men holding very still."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The lens is capped. The photographer only uncaps it for paying customers, and for dogs, once."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Brass and mahogany, and a bellows like an accordion. It would make a very sad accordion."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "It adjusts for height. It is currently set for a man exactly my height, which I find unsettling."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The screw, settling a quarter turn on its own."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Canvas flexing against its frame. The Parthenon, settling."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. Greece is quieter than I'd imagined."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "There are brown stains on the shelf in the shape of every bottle. They've been put back in exactly the same place for years."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A tiny pop as one stopper eases."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "He's propped on a little easel, at an angle chosen to catch the lamplight from the Lane. Somebody thought hard about the angle."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The cushion is flat in the middle, where a great many respectable men have sat very still."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "There is a book on the little table, for the sitter's hand. The book is a ledger, and it is blank. It photographs as learning."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Fifty cents, sitting included. I wasn't aware sitting was ever excluded."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Under the prices, in very small print: DECEASED BY ARRANGEMENT. I'm not going to ask how that's arranged."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The pin, loose in the board, ticking against it in the draught."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. It's a card. It doesn't negotiate."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "They're twenty-five cents apiece, and I'd only be buying a stranger."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "I wouldn't know which end was the front. I'd photograph my own eye."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "One of them says POISON. I don't know which of the others are just being modest."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The bricks round the door are scorched black, and the bricks round that are scorched brown. It has been working for years."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A long wooden paddle hangs beside it, worn pale at the handle. That paddle has fed the whole town."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A loaf, somewhere inside, crackling as it cools. Good bread talks."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The sacks are stamped from Sacramento. Flour travels better than men do, and arrives in a better mood."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "There are small white footprints across the floor from the sacks to the table, all day's worth of them."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. A sack of flour is the most patient object in the world."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A sift of it falling from a shelf, like a little snow."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The wood's been scraped down so many times there's a dip in the middle. Bread made the dip."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Every loaf on it is the same size. Somebody weighs them. In this town that's practically a confession of honesty."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Dough being slapped down at the far end, and folded, and slapped again."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Flour in his hair, flour in his eyebrows. In ten years he'll be grey, and nobody will notice the difference."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Still humming. The same wrong tune, kept beautifully."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "His breath, steady, keeping time with the dough. He'd make a good metronome."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Outside, a cart with BREAD painted on the side, slightly wrong. The bread's right. The painting isn't."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Somebody out back, counting loaves aloud. He gets to forty and starts again."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Not the bread. Not the dough. Not even the flour. I can tell from the boy's back."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "He's counting under his breath. If I speak, he'll lose count, and then we'll both be lost."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "It's leaning on the wall instead of hanging over the door. They had it painted and then never put it up."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The letters are gold-edged. Somebody spent money on the sign before they spent it on anything else. That's a kind of hope."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The sign shifting a little against the wall when I walk past, then deciding against it."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "There's a pile of sweepings in the corner, neatly gathered, and nobody came back for the pan."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "There's a notch cut in the edge, for measuring rope by the yard. Someone measured a lot of rope here."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A ledger shelf underneath. Empty. They took the books. Nobody leaves the books."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Hollow, when I knock. A good counter rings like that."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. It's waiting for a customer, like every counter in this territory."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "NAILS 5¢ LB. LAMP OIL 30¢. The last prices in this shop, kept clear in the window, like a memorial."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The glass is clean. They cleaned the window on the way out, so nobody would think badly of them."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The glass humming faintly in the wind. It holds a note. The note is flat."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A calendar on a nail, turned to a month two years ago. That's when they stopped turning it."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A mouse, somewhere, also deciding there's nothing here."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "It's somebody's. They paid for it. They'll want it, when they come back, which they won't."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "It's built in. Everything in the shop that could leave has left."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Each desk has an inkwell, filled. The ink has dried in every one, waiting."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The lids are carved: not by children, by the carpenter, with the date. Every desk is dated the same day."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. Fourteen desks, and not a whisper among them."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A lid, settling, very quietly, as if it had nearly been opened."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The board's been oiled, so the chalk would take. It's ready for the alphabet, and the alphabet hasn't come."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Nothing. I'm not going to make it squeak. It deserves better for a first word."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Polished. Somebody comes in to polish a bell that has never been rung for a class."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Still in tune. I've come back to check twice."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The coal scuttle's full, and the coal's never been touched. It's the best-stocked stove in town."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A kettle on top, clean, for a teacher's tea. There's a cup beside it, for one."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A tick of iron, cooling further. It has never once been warm."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "The glass is new and the putty's still pale. Built well, and built for children who'd want to look out."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A teacher at that desk would see the whole town at once, and know exactly who was late."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Somebody hammering, very far off. Consolation builds at all hours, except in here."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "Wind across the glass. It's the only lesson the room has ever had."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "A hook on the inside for each coat. Fourteen hooks. They counted."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "There's a little step outside it, low, for short legs."
+    },
+    {
+     "doc": "105-the-six-interiors",
+     "quote": "I'd write something, but the first thing on that board ought to be the alphabet, not me."
+    }
+   ]
+  },
+  {
+   "id": "second-ledger-names",
+   "why": "WAITING ON ART (errata 181, Tyler 2026-11-08: \"the book can stay out\"): the second ledger on Winnie's counter, its THE NAMES (the nineteen, doc 54) and doc 08's THE SECOND LEDGER and THE FLOORBOARD, LIFTED. The image session is drawing it; the hotspots are wired when it lands.",
+   "lines": [
+    {
+     "doc": "54-batch-c",
+     "quote": "THE NAMES — individually examinable, nineteen of them"
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Amos Treadwell, blacksmith. May 1849. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Josiah Penhallow, miner. August 1849. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Michael Doyle, teamster. October 1849. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Heinrich Vogel, baker. March 1850. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Elias Crane, surveyor. April 1850. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Tobias Wren, printer. September 1850. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Rafael Sandoval, muleteer. February 1851. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Nathaniel Hobbs, attorney. May 1851. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Silas Marchbank, clerk. June 1851. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Gideon Fairweather, minister. April 1852. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Patrick Keane, carpenter. November 1852. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Jonas Whitlock, barber. March 1853. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Abel Stroud, gambler. August 1853. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Cyrus Lamb, prospector. June 1854. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Isaac Pell, wheelwright. October 1854. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Matthias Oakes, cooper. July 1855. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Owen Prothero, collier. May 1856. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Daniel Ashby, clerk. January 1857. The question."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Lemuel Garrow, drover. This spring. The question. The ink is hardly dry."
+    }
+   ]
+  },
+  {
+   "id": "stage-driver-later",
+   "why": "SUPERSEDED BY STAGING: doc 07 #12's stage-driver barks, one per reputation state, assume the driver is met again after the opening; doc 17 v3 has him leave in the opening and he is never placed again. Reported to Tyler with the gaps (errata 182).",
+   "lines": [
+    {
+     "doc": "07-ambient-layer",
+     "quote": "I brought you in. I'd have warned you if I liked you."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Two men got off asking about you. Didn't like the look of either."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "Four days. Heard about Vessel."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "I don't carry the dead. Rate's different."
+    },
+    {
+     "doc": "07-ambient-layer",
+     "quote": "…Reckon I'll have a full coach out of here Thursday."
+    }
+   ]
+  },
+  {
+   "id": "invariant-room-32-33",
+   "why": "BY DESIGN: doc 49 lines for Room 32 (the coffin: invariant 2, no verb panel and no hotspots) and for Room 33's walls (the listening chamber: \"Everything\" is the puzzle, errata 70).",
+   "lines": [
+    {
+     "doc": "49-wrong-answers",
+     "quote": "Not yet. Four minutes, he said. Somebody out there is counting, and I have staked everything on his arithmetic."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "I said something to keep myself company. The pine kept it."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "The chamber is not to be pushed. It is to be heard. Everything here has been waiting longer than I have been alive."
+    }
+   ]
+  },
+  {
+   "id": "answered-by-the-room",
+   "why": "SUPERSEDED BY THE ROOM'S OWN LINE (errata 184, which built the rest of errata 182's gap 5). Where two documents answer the same verb on the same object, the room's own document wins (compile-room: 'a verb both write keeps the room doc's line'), or doc 54's merge decisions dropped the line (errata 68 H): Room 1's sign TALK TO and mud PICK UP are doc 17's; Room 7's chained pen PICK UP is the pen's own; Room 22's mile post and Room 25's workings LOOK, and Grievance's LOOK, are dropped by doc 54's MERGE DECLARATIONS; Thad's washstand USE is doc 49's line, which follows doc 26's. Errata 182 listed these as gaps; they were rulings.",
+   "lines": [
+    {
+     "doc": "49-wrong-answers",
+     "quote": "'Two thousand and climbing.' We are neither of us fooling anyone."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "I own forty feet of this elsewhere. Collecting samples would be gloating."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "It comes exactly eleven inches, which is the length of an honest signature and not one flourish more."
+    },
+    {
+     "doc": "10-examine-batch-3",
+     "quote": "CLAIMS — 2 MI. Somebody has scratched a great many other numbers underneath, none of which agree."
+    },
+    {
+     "doc": "10-examine-batch-3",
+     "quote": "Square. Timbered properly. Swept — somebody has swept a mine. This is the finest piece of work in the territory and there has never been a thing in it."
+    },
+    {
+     "doc": "09-examine-batch-2",
+     "quote": "A mule. She has looked at me once, at length, and has not felt the need to do it again."
+    },
+    {
+     "doc": "26-batch-a",
+     "quote": "I have washed. It made less difference than I hoped."
+    }
+   ]
+  },
+  {
+   "id": "retired-not-drawn",
+   "why": "RETIRED, AND NOT DRAWN (errata 68 E: 'they name objects no room has, and adding objects to hold them would change the rooms'). The watchman's shack's lamp reserve, wall calendar and stool by the window. Errata 184 looked at the shipped plate (art/backgrounds/room-21-watchmans-shack.png): there is a table with two chairs, a stove, a coat, a cot and the tally marks, and none of these three. And Boot Hill's wild oats: the plate's grass has no oats that can be told from it, so the line stays retired (errata 185 wrote THE FENCE beside it).",
+   "lines": [
+    {
+     "doc": "49-wrong-answers",
+     "quote": "Rows of full lamps, trimmed and ready. A man prepared for many more nights than one life holds."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "It is years old and the days are all crossed off, every one, in even strokes. I put it back exactly as it hung."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "It is placed where it is placed. The window it faces is the one that sees the whole street, and the wear on the sill says: nightly."
+    },
+    {
+     "doc": "49-wrong-answers",
+     "quote": "Boot Hill's only harvest. I left it. It's theirs."
+    }
+   ]
+  },
+  {
+   "id": "superseded",
+   "why": "SUPERSEDED: replaced by a later document or ruling -- doc 04 UND_A1 and VES_A1 (doc 27's trees, errata 75); Room 1's case on the coach roof (the opening restaged, errata 164); merge decisions that dropped one pass's line (doc 54 Merge decisions, errata 67-69); Room 36 doc 08 lines dropped where doc 05 governs (errata 69 B); the funeral day's \"further funerals\" (errata 75).",
+   "lines": [
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "Accepted on his behalf. He'd have wanted the credit."
+    },
+    {
+     "doc": "05-examine-layer",
+     "quote": "It faces the street, which faces back. In the morning the false fronts glow like scenery, which is honest of the light."
+    },
+    {
+     "doc": "08-examine-batch-1",
+     "quote": "Somebody has taken the gilt lettering down. They did it in the night. It is the most honest thing that company has ever done."
+    },
+    {
+     "doc": "08-examine-batch-1",
+     "quote": "Nothing living in it. I am unexpectedly sorry about this."
+    },
+    {
+     "doc": "08-examine-batch-1",
+     "quote": "The loose board, third from the end, has been fixed. I don't know who did it and I am not going to ask, because I would like to keep this."
+    },
+    {
+     "doc": "08-examine-batch-1",
+     "quote": "The dog. Still nobody's."
+    },
+    {
+     "doc": "10-examine-batch-3",
+     "quote": "The strongbox. Open. Empty. There has never been gold in this building, and the man who runs it has known that longer than anyone alive."
+    },
+    {
+     "doc": "17-opening-sequence",
+     "quote": "My case, still up on the roof, under the driver's hand."
+    },
+    {
+     "doc": "17-opening-sequence",
+     "quote": "The fork against the clasp, faintly, when he shifts it."
+    },
+    {
+     "doc": "57-puzzle-completion",
+     "quote": "further funerals can be arranged."
+    }
+   ]
+  },
+  {
+   "id": "examine-reworded",
+   "why": "IN THE GAME, REWORDED: the hotspot is built and says this, in other words -- from the merge of the two examine passes (errata 67-69, doc 54) or the first voice pass (docs 60-93), which rewrote lines in place, or a later document's success line (doc 54 governs doc 24 at A5). Below the check's word-overlap bar only because the rewording was heavy.",
+   "lines": [
+    {
+     "doc": "05-examine-layer",
+     "quote": "The number has been repainted four times. You can see the smaller ones underneath, each of them once true."
+    },
+    {
+     "doc": "05-examine-layer",
+     "quote": "Shuffling. Patient. These are people who have made their peace."
+    },
+    {
+     "doc": "05-examine-layer",
+     "quote": "Forty hooks, three keys. Either the hotel is full, or the keys leave and do not write."
+    },
+    {
+     "doc": "05-examine-layer",
+     "quote": "PALM, 10¢. TEA LEAVES, 15¢. THE CARDS, 25¢. THE FULL AND UNVARNISHED TRUTH, $4. The truth is exactly what I have."
+    },
+    {
+     "doc": "08-examine-batch-1",
+     "quote": "A crate of dynamite, kept beside the stove, which I have decided not to think about."
+    },
+    {
+     "doc": "08-examine-batch-1",
+     "quote": "A mail-order catalogue, four hundred pages, six months old. Every man in Consolation has read it cover to cover. It is the most-read book in the territory and it is a list of prices in Chicago."
+    },
+    {
+     "doc": "08-examine-batch-1",
+     "quote": "Four coppers, steaming, and a system for moving between them that I could not describe but which is clearly correct."
+    },
+    {
+     "doc": "09-examine-batch-2",
+     "quote": "A pencil, on a string, nailed to the table. Every dispute in this district for eleven years has been settled with this pencil."
+    },
+    {
+     "doc": "09-examine-batch-2",
+     "quote": "Six chairs, all of them better than any chair I have sat in since Providence. A man could wait here a long time and not mind."
+    },
+    {
+     "doc": "09-examine-batch-2",
+     "quote": "My name, spelled in a way it has never previously been spelled, in a hand of tremendous confidence."
+    },
+    {
+     "doc": "10-examine-batch-3",
+     "quote": "Forty sluices along a hundred yards of creek, each one built to catch what the one above it missed. The men at the bottom are working the leavings of the men at the top, and the men at the top have found nothing."
+    },
+    {
+     "doc": "17-opening-sequence",
+     "quote": "Still going. He has not once looked at me and I have been standing here in a good coat."
+    },
+    {
+     "doc": "24-combinations",
+     "quote": "I have stopped the draft with a horse blanket. The hole has gone cold. We shall see what the raccoon makes of that."
+    },
+    {
+     "doc": "26-batch-a",
+     "quote": "Half the men on Boot Hill were viewed in this and buried in their own clothes."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "Six chairs, all of them better than any chair I have sat in since Providence"
+    }
+   ]
+  },
+  {
+   "id": "not-a-line",
+   "why": "NOT A LINE: a quotation inside a document -- Tyler's words, a ruling, an editor's note, a quoted design phrase, or a table fragment -- not something any character says.",
+   "lines": [
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "| `[TOPIC · retain]` |"
+    },
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "| `[PROGRESS · remove]` | *(She runs it herself, at the window, in front of him. It is very good gold.)* *(The first assay the player ever watches happen.)*"
+    },
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "Six options, five of which sell the claim in language Thad doesn't recognise as a sale. Find the one that doesn't."
+    },
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "| `[PROGRESS · retain]` |"
+    },
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "Thad names it (full Christian name, chosen by the player from three equally poor options)."
+    },
+    {
+     "doc": "04-dialogue-trees",
+     "quote": "): Vessel stands in the hotel lobby from Act IV, and this node is what TALK TO opens there. Option 3 asks about"
+    },
+    {
+     "doc": "05-examine-layer",
+     "quote": "I'm giving you permission to do it"
+    },
+    {
+     "doc": "13-room-02-content",
+     "quote": "it says it has opinions??? That doesn't even make sense"
+    },
+    {
+     "doc": "23-inventory-act1",
+     "quote": "Do everything correctly… Keep the dialogue really punchy and good"
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "do everything you have to to finish the writing so the other rooms can be built."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "). A room's examine layer is doc 05's pass and the batch pass (docs 08–10) together. `**DOC 05 NAME** ≡ **BATCH NAME**` declares one object written twice: doc 05's name, doc 05's line first, the batch line second, then the repeats. Each room's **Merge decisions** list names where merging put the same joke or two contradictory facts in front of the player, and what was decided (errata 68 H, delegated by Tyler:"
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": ". **Decided:** kept — doc 10's line goes on to the people moving between the fronts"
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "the most informative screen in Act II"
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "slow, dogged, no imagination whatsoever, and — it turns out — fundamentally decent."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "LOOK is beginning to run out; LISTEN is beginning to take over"
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "the examine layer carries the comedy … the player is free to wander their own funeral."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "nine of Winnie's nineteen names appear here on markers … Each LOOK gives a name, a date, and a trade."
+    },
+    {
+     "doc": "54-batch-c",
+     "quote": "each gives a name, a trade, and a date. Nine of them will later be found on markers at Boot Hill. Ten will not, which is worse"
+    },
+    {
+     "doc": "94-clue-pass",
+     "quote": "Nine puzzles are solvable but rely on a guess, each missing one clue line… May I write them, under the same rules as the act-change lines, and show you before anything ships?"
+    },
+    {
+     "doc": "94-clue-pass",
+     "quote": "Yes, write and ship them."
+    },
+    {
+     "doc": "96-cutaways",
+     "quote": "You decide, and I want them included now so that they're part of my play through."
+    },
+    {
+     "doc": "98-main-street-pass",
+     "quote": "I think nearly ALL of the dialogue on main street could be better. It's all rather lame … No one really has a personality or point of view … I feel like Thad pretty quickly needs something to 'do' on Main Street?"
+    },
+    {
+     "doc": "98-main-street-pass",
+     "quote": "Does someone on Main Street need to direct him into a specific building first?"
+    },
+    {
+     "doc": "98-main-street-pass",
+     "quote": "both ignore him by saying their same phrase multiple times. I don't like it with either of them."
+    }
+   ]
+  }
+ ]
+}

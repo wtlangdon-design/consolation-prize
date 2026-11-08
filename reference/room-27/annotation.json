@@ -162,9 +162,15 @@
    560,
    1920,
    304
+  ],
+  "row_entire": [
+   0,
+   120,
+   1920,
+   440
   ]
  },
- "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. The markers take doc 05's names left to right: EUREKA is 'the first marker in the row'; THE MOTHERLODE, 'in letters that used up two boards', the other two-board marker; the rest in doc 05's order; THE BLANK ONE, 'the last marker', the prop at the path's end (errata 99 C). THE PATH is walked on by a bare click.",
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32), smallest first. The markers take doc 05's names left to right: EUREKA is 'the first marker in the row'; THE MOTHERLODE, 'in letters that used up two boards', the other two-board marker; the rest in doc 05's order; THE BLANK ONE, 'the last marker', the prop at the path's end (errata 99 C). THE PATH is walked on by a bare click. Errata 185: THE ROW ENTIRE, the ridge and its markers as one; the markers, the workings and the sluice frames are smaller and are hit first.",
  "people": {},
  "exits": {
   "to_claims_road": [
@@ -198,7 +204,8 @@
   "boot": "LOOK_AT",
   "workings": "LOOK_AT",
   "sluice_frames": "LOOK_AT",
-  "path": "WALK_TO"
+  "path": "WALK_TO",
+  "row_entire": "LOOK_AT"
  },
  "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click, except THE PATH, which is walked on.",
  "props": [

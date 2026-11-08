@@ -1,5 +1,5 @@
 """Cut Main Street's hitching rail and its three horses into an ambient sheet
-(reference/hitching-post/brief.md, errata 182). No image operation.
+(reference/hitching-post/brief.md, errata 186). No image operation.
 
 Source: art/staging/room-02/hitching-04/sheet.png, room-02 attempt 6 -- four
 frames of one group on a 2 x 2 sheet: a black with a blaze, a palomino eating
@@ -10,7 +10,7 @@ and kept every quarter where it was (the posts agree to a pixel).
 EVERY FRAME IS ONE OF THE GENERATOR'S QUARTERS, WHOLE. Nothing is stitched.
 Three earlier cuts stitched one quarter of a sheet onto another, where the
 generator had moved horses between them, and each shipped a fault Tyler found
--- a neck through the rail, a sliced muzzle, a third hind leg (errata 182). A
+-- a neck through the rail, a sliced muzzle, a third hind leg (errata 186). A
 whole quarter is a whole drawing: each horse has its own four legs and head.
   0  sheet frame 1, the rest: the black looking out, the palomino eating, the paint over the rail;
   1  sheet frame 2: the black tosses its head;

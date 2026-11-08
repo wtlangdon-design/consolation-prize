@@ -98,6 +98,22 @@
         "TALK_TO": "I read him my letter of introduction. It seemed only right. He took it as well as anything else I've said here.",
         "USE": "It's in use. That's the entire and only thing a plot can be."
       }
+    },
+    {
+      "name": "THE FENCE",
+      "LOOK_AT": [
+        "A rail fence down one side of the hill, as far as the gate. The other sides are left to good manners.",
+        "Split rails, pegged rather than nailed, and every peg tight. Somebody walks this fence.",
+        "It runs from the gate to the edge of the hill and stops, as if it had made its point."
+      ],
+      "LISTEN_TO": [
+        "Wind in the rails, a low hum with no tune in it. I've looked for one.",
+        "A rail ticking as the night cools it. It's the only thing up here keeping time.",
+        "Nothing. Up here even the fence is careful how loud it is."
+      ],
+      "overrides": {
+        "PUSH": "It holds. The undertaker maintains it. His clients do not leave, but their reputation for it must be kept up."
+      }
     }
   ],
   "exitsAndUnplaced": {

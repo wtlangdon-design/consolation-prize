@@ -42,7 +42,7 @@ test('every subject answers LOOK and LISTEN with a line the documents write', as
       assert.ok(said && docs.includes(said), `${target.id} ${verb}: "${said}" is written`);
     }
   }
-  assert.equal((state.room.hotspots ?? []).length, 15, 'doc 05: fifteen subjects');
+  assert.equal((state.room.hotspots ?? []).length, 16, "doc 05's fifteen subjects, and errata 185's row as a whole");
 });
 
 test('the row has eleven markers, the last one standing at the path\'s end', async () => {

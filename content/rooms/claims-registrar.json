@@ -75,6 +75,77 @@
   ],
   "hotspots": [
     {
+      "id": "counter_bell",
+      "name": "THE COUNTER BELL",
+      "rect": [
+        1464,
+        424,
+        38,
+        48
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A brass bell on the counter, the kind you strike with the flat of your hand.",
+            "repeat": [
+              "The dome is polished bright on top and dull everywhere else. Everybody hits it in the same place.",
+              "It sits beside the chained pen. Between them they are the office's whole idea of service."
+            ],
+            "then": [
+              "It is the only thing in this office that answers at once."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. A bell that isn't being rung is a bell at its best.",
+            "repeat": [
+              "Nothing, but I can tell what it would say. A counter bell is always a little sharp, and always sure of itself.",
+              "Nothing. I have not rung it. I'd like that noted somewhere, and this is the office for it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "Sump appears before the ring finishes. I suspect he lives in the counter."
+      }
+    },
+    {
+      "id": "statute_book",
+      "name": "THE STATUTE BOOK",
+      "rect": [
+        1750,
+        438,
+        148,
+        50
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The territorial statutes, bound in black, thick as a family Bible and consulted more often.",
+            "repeat": [
+              "It isn't chained to anything. Mr Sump trusts the law to stay where it's put, which is more than he trusts a pen.",
+              "The spine has been broken in exactly one place. I suspect it's the page about the height of the counter."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. A closed book of statutes is the quietest thing a government makes.",
+            "repeat": [
+              "The cover creaking, a little, when I lean on the counter beside it.",
+              "Nothing. Everything in it has already been said, in triplicate."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "It opens to the page about who may open it."
+      }
+    },
+    {
       "id": "ledger",
       "name": "THE LEDGER",
       "rect": [
@@ -110,6 +181,43 @@
       }
     },
     {
+      "id": "form_stack",
+      "name": "THE FORM STACK",
+      "rect": [
+        1618,
+        406,
+        114,
+        72
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A stack of Form 12-C, squared to the edge of the counter.",
+            "repeat": [
+              "Each one is numbered in the corner, and the numbers run on without a gap. Nobody has ever taken two.",
+              "The top sheet has gone soft from being read by men in the queue. Nobody has ever filled it in."
+            ],
+            "then": [
+              "It is the form a claim is made of, and the stack has never once run low."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Paper this well squared doesn't make a sound.",
+            "repeat": [
+              "The top sheet lifting at one corner when the street door goes, and lying down again.",
+              "Nothing. It is waiting to be counted tonight."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "One per applicant. Sump counted the stack this morning. Sump will count it tonight."
+      }
+    },
+    {
       "id": "sumps_pen",
       "name": "SUMP'S PEN",
       "rect": [
@@ -141,7 +249,8 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "It's chained. That's the entire design."
+        "PICK_UP": "It's chained. That's the entire design.",
+        "PULL": "The chain is rated for stronger feelings than mine."
       }
     },
     {
@@ -538,6 +647,48 @@
       },
       "overrides": {
         "USE": "I stand in INQUIRIES, then in FILING. I am the entire queue in both, and I'm still not at the front."
+      }
+    },
+    {
+      "id": "partition",
+      "name": "THE PARTITION",
+      "rect": [
+        955,
+        0,
+        695,
+        430
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A wooden partition from the counter to the ceiling, posts and rails, with the clerk's side behind it. It is built like a bank's, to guard a room full of paper.",
+            "repeat": [
+              "You can see through it to the office, and you can't get to the office. That is the whole of this room, in one piece of joinery.",
+              "There is no gate in it that I can see. Mr Sump is on the far side every time I come in, and I have never once seen him get there."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The office on the far side, a little quieter than the office on this side.",
+            "repeat": [
+              "A draft through the rails, too low to whistle. It tries for a note and is refused.",
+              "Nothing. A partition has no need to raise its voice."
+            ],
+            "then": [
+              "It is the same air. It has been told which side it's on."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "The public side is this side. The partition exists so that fact needs no discussing."
+      },
+      "walkTo": {
+        "x": 915,
+        "y": 847,
+        "facing": "back"
       }
     }
   ],

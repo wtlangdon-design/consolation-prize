@@ -465,7 +465,7 @@ export interface AmbientFile {
    */
   posture?: 'standing' | 'seated' | 'band' | 'identity' | 'animal' | 'behind-counter' | 'child';
   /**
-   * SCENERY, NOT A PERSON (errata 182): a figure drawn and moving but answering
+   * SCENERY, NOT A PERSON (errata 186): a figure drawn and moving but answering
    * nothing yet -- the pointer passes through it to the hotspot or ground under
    * it, as if it were painted into the plate. Main Street's hitching horses,
    * until their LOOK and LISTEN lines are written and a hotspot laid over them.
@@ -643,6 +643,16 @@ export interface AmbientFile {
    * line names the ambient id that says it. Carried by one of the two.
    */
   barkExchange?: Record<string, { speaker: string; line: string }[]>;
+  /**
+   * LINES SAID UNPROMPTED, IN TURN, ONE A VISIT, EACH ONCE (errata 184): a man
+   * whose remarks are not about Thad's reputation but come one at a time on
+   * his rounds. On approach, when he has no reputation bark to say, he says the
+   * next line not yet said -- one per visit to the room -- and `counter`, a
+   * declared number flag, counts them, so a save keeps its place and nothing is
+   * said twice. Each entry is one bark, of one or more lines in order. `when`
+   * gates the whole run.
+   */
+  barkRun?: { counter: string; when?: Condition; lines: { speaker: string; line: string }[][] };
   /**
    * The occlusion plane that masks this figure, when it stands where no walk
    * box is. Room 5's Winnie stands BEHIND the counter: no box exists there
