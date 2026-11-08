@@ -64,3 +64,24 @@ Tyler: **"That all sounds good."** The cap rises to 5: this pass, and one correc
 
    If a check misses, the correction is `redraw-04`: copy the spec and prompt, point `images` at `redraw-03/input.png`, and state the miss.
 5. **Promote** with `--write`. Run `npm test` and `node tools/run-all.mjs`. Commit, then open a PR whose description says `Lesson: none -- art for errata 163's map`, and merge it when CI is green. The builder re-places the markers and the roads on the result.
+
+## Then: the square's L (town-01)
+
+Written after the pass map was promoted (PR 237). Tyler said: **"a glaring difference is that the main square is in a very distinct L shape, which the map fails to incorporate."** Main Street's plate shows a long row of fronts along the back of the square. At its east end, the Nugget (the saloon with the balcony), the hotel and the assay office come forward down the square's side, and the road leaves past the assay office. He chose **"Yes, +2"**, so the cap is 7: this edit and one correction.
+
+This is an edit of the town only, pasted back like the church edit, so nothing else on the map moves. `tools/art/town-map-edit.py` takes back only `TOWN_PASTE`: Main Street's rows, the square, its road loop and the Lane.
+
+1. **Prepare.** `art/staging/town-map/town-01/input.png` is committed. To rebuild it, run `python3 tools/art/town-map-edit.py prepare-town --attempt 1`.
+2. **Edit.** Run `NODE_USE_ENV_PROXY=1 node tools/art/room-op.mjs reference/town-map/prompts/town-01.spec.json`. Main Street's plate goes with it.
+3. **Candidate.** Run `python3 tools/art/town-map-edit.py promote-town --attempt 1`.
+4. **Check the candidate at full size:**
+   - the fronts make an L, with the long row along the north side facing south, and the saloon, the hotel and a small office down the east side facing west;
+   - the saloon is not also still in the long row;
+   - the square is open in front of both arms, with its trough;
+   - the road out leaves the east side towards the church street;
+   - the Lane and its tent are unchanged;
+   - the paste's edges are invisible;
+   - there is no text.
+
+   If a check misses, the correction is `town-02`: run `prepare-town --attempt 2`, copy the spec and prompt, and state the miss.
+5. **Promote** with `--write`, then run `npm test` and `node tools/run-all.mjs`. Commit, then open a PR whose description says `Lesson: none -- art for errata 163's map`, and merge it when CI is green. The builder re-places the markers and the roads.

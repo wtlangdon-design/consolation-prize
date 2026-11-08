@@ -4531,4 +4531,6 @@ He answered **"That all sounds good"** to one more pass: a pass at the top with 
 
 He answered **"That all sounds good"** to one more pass: a pass at the top with the coach road and the coach stop down to the square's east end, mountains on the north and west, and the west road removed. The cap rises to 5, the pass and a correction (attemptsTotal 307 → 308). The brief's third part covers it.
 
+**A4 · The square's L.** Tyler, of the pass map (PR 237): **"a glaring difference is that the main square is in a very distinct L shape, which the map fails to incorporate."** Main Street's plate shows the long row along the back of the square, with the Nugget, the hotel and the assay office coming forward down its east side, and the road leaving past the assay office. Asked to raise the cap by 2, he chose **"Yes, +2 (Recommended)"** (town-map 7; attemptsTotal +2). It is one edit of the town only, pasted back so the rest of the map keeps its place (`tools/art/town-map-edit.py prepare-town` / `promote-town`). The brief's fourth part covers it.
+
 **B · The map's Thad** lands with Lower Street and the Lane (errata 161, part 3), on the branch where it was built, and is recorded here when it merges.
