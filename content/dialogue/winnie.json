@@ -68,7 +68,42 @@
           "tag": "TOPIC",
           "text": "What is it you actually do here?",
           "afterUse": "retain",
-          "say": "I decide what things are. It's the only office in the territory that does."
+          "say": "I decide what things are. It's the only office in the territory that does.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Decide. Same as a minute ago. I've decided you're in the way."
+            }
+          ]
+        },
+        {
+          "id": "winnie6",
+          "tag": "TOPIC",
+          "text": "Do you know a man named Ezra Pike?",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "Yes."
+            },
+            {
+              "speaker": "winnie",
+              "line": "…"
+            },
+            {
+              "speaker": "winnie",
+              "line": "The undertaker has his paperwork. I'm not doing the undertaker's job."
+            }
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "The undertaker. Down the lane. I don't do directions either."
+            }
+          ],
+          "when": {
+            "T_PIKE_DEAD": false
+          }
         },
         {
           "id": "winnie3",
@@ -102,12 +137,35 @@
         {
           "id": "winnie4",
           "tag": "TOPIC",
-          "text": "Do you know a man named Ezra Pike?",
+          "text": "You knew Pike was dead.",
           "afterUse": "retain",
           "say": "I knew him. Then I certified him. Then I stopped.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Certified. It's what I do. Nobody asked me to announce it."
+            }
+          ],
           "when": {
             "T_PIKE_DEAD": true
           }
+        },
+        {
+          "id": "winnie7",
+          "tag": "COMIC",
+          "text": "Are you always this busy?",
+          "afterUse": "counted-repeat",
+          "say": "Yes.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still yes."
+            },
+            {
+              "selection": 3,
+              "say": "Nine years, Mr. Grubb. Yes."
+            }
+          ]
         },
         {
           "id": "winnie5",
@@ -136,6 +194,12 @@
           "text": "How long is the wait, honestly?",
           "afterUse": "rephrase",
           "say": "Eight months.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Eight months. Asking twice doesn't shorten it. I've watched men try."
+            }
+          ],
           "rephrase": {
             "after": "C5",
             "text": "How long is the wait now?",

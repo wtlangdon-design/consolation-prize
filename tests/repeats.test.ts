@@ -23,6 +23,8 @@ const PASSED = [
   'STAGE_DRIVER',
   // Errata 172, the Nugget.
   'DEKE_VESSEL:root', 'amb_card_sharp', 'amb_one_strike_man', 'amb_fiddler',
+  // Errata 172, the assay office and the Clarion. Frame's funeral notice (frame6) is Act III's, rewritten with it.
+  'WINNIE:WIN_A1', 'WINNIE:WIN_A2', 'FRAME:FRA_A1!frame6',
 ];
 
 test('every question in a passed tree has an answer for being asked again, and it is a different one', async () => {
@@ -30,15 +32,18 @@ test('every question in a passed tree has an answer for being asked again, and i
   const faults: string[] = [];
   // `TREE:node` passes one node only: Vessel's Act I root is rewritten, his Act II node is not yet.
   for (const entry of PASSED) {
-    const [id, only] = entry.split(':') as [string, string | undefined];
+    const [named, skipped] = entry.split('!') as [string, string | undefined];
+    const [id, only] = named.split(':') as [string, string | undefined];
+    const skip = new Set((skipped ?? '').split(',').filter(Boolean));
     const tree = content.dialogue.get(id);
     if (!tree) { faults.push(`${id}: no such tree`); continue; }
     for (const [nodeId, node] of Object.entries(tree.nodes)) {
       if (only && nodeId !== only) continue;
       for (const option of node.options) {
         if (option.tag !== 'TOPIC' && option.tag !== 'PROGRESS') continue;
-        // An option that ends the scene (Vessel's "All right.", the swindle) is never asked twice.
-        if (option.ends) continue;
+        // An option that ends the scene (Vessel's "All right.", the swindle), or that is gone once taken, is
+        // never asked twice; one a later act's pass will write is named after `!`.
+        if (option.ends || option.afterUse === 'remove' || skip.has(option.id)) continue;
         const first = option.say ?? option.exchange?.find((line) => line.speaker !== content.actor.id)?.line;
         const again = option.repeats?.[0]?.say ?? option.repeat;
         if (!again) faults.push(`${id}: "${option.text}" has no answer for being asked again`);

@@ -689,6 +689,13 @@
       "speaker": "deke_vessel",
       "words": "He raises his glass an inch.",
       "where": "dialogue/deke-vessel root option 9"
+    },
+    {
+      "n": 71,
+      "class": "C",
+      "speaker": "frame",
+      "words": "He reaches for his pencil, then puts it down.",
+      "where": "dialogue/frame FRA_A1 option 8"
     }
   ]
 }

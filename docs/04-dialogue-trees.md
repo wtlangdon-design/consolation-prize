@@ -76,10 +76,14 @@ Rotating pool available at every node:
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
 | 1 | "I'd like to have some soil assayed." | `[PROGRESS · remove]` | "So would nine hundred men. Get in the book." | opens `WIN_A2` |
-| 2 | "What is it you actually do here?" | `[TOPIC · retain]` | "I decide what things are. It's the only office in the territory that does." | — |
+| 2 | "What is it you actually do here?" | `[TOPIC · retain]` | "I decide what things are. It's the only office in the territory that does." *(second)* "Decide. Same as a minute ago. I've decided you're in the way." | — |
+| 6 | "Do you know a man named Ezra Pike?" | `[TOPIC · retain]` | "Yes." *(beat)* "The undertaker has his paperwork. I'm not doing the undertaker's job." *(second)* "The undertaker. Down the lane. I don't do directions either." | unless `T_PIKE_DEAD` |
 | 3 | "I tune pianos." | `[COMIC · counted-repeat]` | *(long pause)* "Congratulations." | req `T_TUNES_PIANOS` |
-| 4 | "Do you know a man named Ezra Pike?" | `[TOPIC · retain]` | "I knew him. Then I certified him. Then I stopped." | req `T_PIKE_DEAD` |
+| 4 | "You knew Pike was dead." | `[TOPIC · retain]` | "I knew him. Then I certified him. Then I stopped." *(second)* "Certified. It's what I do. Nobody asked me to announce it." | req `T_PIKE_DEAD` |
+| 7 | "Are you always this busy?" | `[COMIC · counted-repeat]` | "Yes." *(second)* "Still yes." *(third)* "Nine years, Mr. Grubb. Yes." | — |
 | 5 | `[EXIT]` | | | |
+
+*Errata 172, doc 99's rewrite: every question in her Act I nodes has a second answer (`*(second)*`). Option 6 is the town's Pike thread (doc 98): she won't say he's dead, because certifying is her job and announcing isn't. Option 4's text is now Thad's "You knew Pike was dead.", since it is only offered once he does. Option 7 is the over-familiar question doc 99 rule 3 asks for, answered at her length.*
 
 **Repeat on option 3:** "Still congratulations."
 **Third selection:** "Mr. Grubb, I have congratulated you twice. There is no third congratulation."
@@ -92,7 +96,7 @@ The queue ledger, chained to the sill. *(Errata 75: getting in the book is not d
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
 | 1 | "Where do I sign?" | `[PROGRESS · remove]` | "You don't sign. You print. Signatures are for people the next clerk has to believe." | enters the queue |
-| 2 | "How long is the wait, honestly?" | `[TOPIC · rephrase]` | "Eight months." *(rephrases after C5 to "How long is the wait now?" → "Three weeks. It appears the queue has been on a diet.")* | — |
+| 2 | "How long is the wait, honestly?" | `[TOPIC · rephrase]` | "Eight months." *(rephrases after C5 to "How long is the wait now?" → "Three weeks. It appears the queue has been on a diet.")* *(second)* "Eight months. Asking twice doesn't shorten it. I've watched men try." | — |
 | 3 | "What number am I?" | `[COMIC · counted-repeat]` | "Nine hundred and six." *(second)* "Nine hundred and six." *(third)* "Mr. Grubb, the number does not refresh with enthusiasm." | — |
 | 4 | `[EXIT · retain]` | | "Mind the window." *(It is ajar.)* | |
 
@@ -438,13 +442,17 @@ He digs Thad out and speaks in complete sentences for the first time, and the ef
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "Where did Deke Vessel go?" | `[PROGRESS · remove]` | "I print the stage schedules! I know where everyone goes. Give me a story and I'll give you a coach." | opens B1 trade |
-| 2 | "What do you know about Mott?" | `[TOPIC · retain]` | "Everything! I wrote most of it." *(beat)* "Some of it was told to me." *(beat)* "I'd have to check which." | sets `T_MOTT_FACE_UNKNOWN` groundwork |
-| 3 | "Do you have a photograph of him?" | `[TOPIC · retain]` · after 2 | "I have *the* photograph of him." *(It is a stock portrait. Sheng has the same one in his window, advertising collars.)* | |
+| 1 | "Where did Deke Vessel go?" | `[PROGRESS · remove]` | "I print the stage schedules! I know where everyone goes. Give me a story and I'll give you a coach." | opens B1 trade; req `T_SWINDLED` |
+| 2 | "What do you know about Mott?" | `[TOPIC · retain]` | "Everything! I wrote most of it." *(beat)* "Some of it was told to me." *(beat)* "I'd have to check which." *(second)* "More than a minute ago! It keeps coming back to me. Some of it for the first time." | sets `T_MOTT_FACE_UNKNOWN` groundwork |
+| 3 | "Do you have a photograph of him?" | `[TOPIC · retain]` · after 2 | "I have *the* photograph of him." *(It is a stock portrait. Sheng has the same one in his window, advertising collars.)* *(second)* "THE photograph. I'd lend it to you, but then you'd have it." | |
+| 8 | "Do you know Ezra Pike?" | `[TOPIC · retain]` | "PIKE!" *(He reaches for his pencil, then puts it down.)* "Old news, Mr. Grubbs. Very old. The undertaker has the current edition." *(second)* "The undertaker, Mr. Grubbe. He's got Pike on file." | unless `T_PIKE_DEAD` |
+| 9 | "You knew Pike was dead." | `[TOPIC · retain]` | "I PRINTED it! Page six, under the livestock prices." *(beat)* "Nobody reads page six." *(second)* "Page six. Between a cow and a correction." | req `T_PIKE_DEAD` |
 | 4 | "You've spelled my name wrong." | `[COMIC · counted-repeat]` | "Have I! Which way?" | `MISSPELLINGS_SEEN` +1 |
 | 5 | "Does Fanshawe ever leave his office?" | `[PROGRESS · remove]` | "For funerals! Every one. Front pew, black gloves, a wreath the size of a cartwheel. I print the notices, and he's the only man in town who reads them." | req `T_OFFICE_TOPIC`; sets `T_FANSHAWE_FUNERALS` — C3 *(errata 75)* |
 | 6 | "I need a funeral notice printed." | `[PROGRESS · retain]` | "A FUNERAL!" *(He has the type set before Thad has finished the name.)* "'MEMORIAL FOR E. PIKE, LATE. ALL WELCOME. REFRESHMENTS.' I've added refreshments. It doubles the turnout." | req `T_MEMORIAL_BOOKED`; begins the funeral day — C3 *(errata 75)* |
 | 7 | "Have you ever been in the Liar's Assay?" | `[ASSAY · remove]` | "Once! Fellow told me he'd found a nugget shaped exactly like the President, and I said—" *(he savors it)* "'So did four men this month. It is a popular shape.' I printed it. Front page. He moved to Sacramento." | pair 16 *(errata 75)* |
+
+*Errata 172, doc 99's rewrite: second answers for his questions (`*(second)*`), and the town's Pike thread (doc 98), options 8 and 9. He misspells the name twice in two lines, and differently. Option 1 is now offered only after the swindle (`req T_SWINDLED`): before it, Vessel is still sitting in the Nugget, and the question is one Thad cannot have on his first night (doc 59 §11).*
 
 **Option 4 responses rotate and never resolve:**
 > "That's how it's spelled in Providence, is it? Extraordinary place."

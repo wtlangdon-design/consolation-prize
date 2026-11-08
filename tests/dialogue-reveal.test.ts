@@ -171,9 +171,12 @@ function walkNode(content: Loaded, tree: DialogueFile, nodeId: string, domain: M
   runner.restore({}, { tree: tree.id, node: nodeId });
 
   const where = `${tree.id}/${nodeId} ${JSON.stringify(setting)}${held ? ' holding' : ''}${reached ? ' milestones' : ''}`;
+  // HOW FAR AN OPTION'S COUNT MATTERS TO THE LIST. A counted-repeat greys and counts; every other option is
+  // only taken or not -- its asked-again answers change what is SAID, never what is OFFERED. Counting those
+  // too (errata 172 gave nearly every question one) multiplied Frame's root past the cap for no new list.
   const caps = new Map(node.options.map((option) => [option.id,
-    option.afterUse === 'counted-repeat' || (option.repeats ?? []).length
-      ? Math.max(2, ...(option.repeats ?? []).map((r) => r.selection)) + 1 : (option.repeat ? 2 : 1)]));
+    option.afterUse === 'counted-repeat'
+      ? Math.max(2, ...(option.repeats ?? []).map((r) => r.selection)) + 1 : 1]));
   const seen = new Set<string>();
   type State = { flags: Record<string, FlagValue>; progress: ReturnType<DialogueRunner['progressSnapshot']>; puzzles: [string, PuzzleStatus][] };
   const queue: State[] = [{ flags: flags.snapshot(), progress: runner.progressSnapshot(), puzzles: [] }];

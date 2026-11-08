@@ -3199,6 +3199,8 @@ function frameTree() {
       if (Object.keys(set).length) option.set = set;
       if (counter) option.add = { [counter[1]]: 1 };
       if (req) option.when = { [req[1]]: true };
+      const unlessFlag = /unless `([A-Z_0-9]+)`/.exec(state);
+      if (unlessFlag) option.when = { ...option.when, [unlessFlag[1]]: false };
       if (route.goto) option.goto = route.goto;
       if (route.gives) option.gives = route.gives;
       if (route.puzzle) option.puzzle = route.puzzle;
@@ -3441,9 +3443,12 @@ function winnieTree() {
       // option 1: "*(sets `T_ASSAY_RUN`; errata 75)*").
       const sets = /sets `([A-Z_0-9]+)`/.exec(state) ?? /\*\(sets `([A-Z_0-9]+)`/.exec(responseCell);
       const req = /req `([A-Z_0-9]+)`/.exec(state);
+      // `unless FLAG` (errata 172): offered while the flag is not set -- the Pike question before he knows.
+      const unless = /unless `([A-Z_0-9]+)`/.exec(state);
       if (opens) option.goto = opens[1];
       if (sets) option.set = { [sets[1]]: true };
       if (req) option.when = { [req[1]]: true };
+      if (unless) option.when = { ...option.when, [unless[1]]: false };
       const puzzleWrite = PUZZLE_WRITE[`${id}:${number}`];
       if (puzzleWrite) option.puzzle = puzzleWrite;
       if (ASKED[`${id}:${number}`]) option.set = { ...option.set, ...ASKED[`${id}:${number}`] };
@@ -3457,7 +3462,7 @@ function winnieTree() {
       // THE SPARRING (doc 57 C6): WIN_B4's teaching row, doc 03's exchange and pairs.
       if (tag === 'ASSAY' && /\bpairs? \d/.test(`${responseCell} ${state}`)) {
         teachingRow(option, `${responseCell} | ${state}`, { teacher: 'Winnie', owner: SPEAKER, sparring: 'Winnie' });
-      } else if (state && !opens && !sets && !req && !puzzleWrite && state !== '—') {
+      } else if (state && !opens && !sets && !req && !unless && !puzzleWrite && state !== '—') {
         unplayed.push(`${id} option ${number} state "${state}" names no flag; nothing set`);
       }
       options.push(option);
@@ -4476,6 +4481,8 @@ function liveryTree() {
     const set = { ...Object.fromEntries(flags.map((f) => [f, true])), ...(route.set ?? {}) };
     if (Object.keys(set).length) option.set = set;
     if (req) option.when = { [req[1]]: true };
+    const unlessFlag = /unless `([A-Z_0-9]+)`/.exec(state);
+    if (unlessFlag) option.when = { ...option.when, [unlessFlag[1]]: false };
     if (route.gives) option.gives = route.gives;
     if (route.puzzle) option.puzzle = route.puzzle;
     options.push(option);
@@ -4529,6 +4536,8 @@ function ozymandiaTree() {
     else option.exchange = said.lines;
     const req = /req `([A-Z_0-9]+)`/.exec(responseCell);
     if (req) option.when = { [req[1]]: true };
+    const unlessFlag = /unless `([A-Z_0-9]+)`/.exec(responseCell);
+    if (unlessFlag) option.when = { ...option.when, [unlessFlag[1]]: false };
     if (ROUTE[number]?.set) option.set = ROUTE[number].set;
     options.push(option);
   }
