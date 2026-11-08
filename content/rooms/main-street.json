@@ -1059,7 +1059,7 @@
       "neighbours": [
         "boardwalk",
         "mud_far_2",
-        "mud_mid"
+        "mud_mid_0"
       ]
     },
     {
@@ -1094,7 +1094,9 @@
       "neighbours": [
         "boardwalk_1",
         "mud_far_2",
-        "mud_mid"
+        "mud_mid_0",
+        "mud_mid_1",
+        "mud_mid_3"
       ]
     },
     {
@@ -1129,22 +1131,22 @@
       "neighbours": [
         "mud_far_0",
         "mud_far_1",
-        "mud_mid"
+        "mud_mid_0"
       ]
     },
     {
-      "id": "mud_mid",
+      "id": "mud_mid_0",
       "points": [
         {
           "x": 60,
           "y": 675
         },
         {
-          "x": 3690,
+          "x": 2553,
           "y": 675
         },
         {
-          "x": 3690,
+          "x": 2553,
           "y": 767
         },
         {
@@ -1165,7 +1167,111 @@
         "mud_far_0",
         "mud_far_1",
         "mud_far_2",
+        "mud_mid_3",
         "mud_near"
+      ]
+    },
+    {
+      "id": "mud_mid_1",
+      "points": [
+        {
+          "x": 2703,
+          "y": 675
+        },
+        {
+          "x": 3690,
+          "y": 675
+        },
+        {
+          "x": 3690,
+          "y": 767
+        },
+        {
+          "x": 2703,
+          "y": 767
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "mud_far_1",
+        "mud_mid_3",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_mid_2",
+      "points": [
+        {
+          "x": 2553,
+          "y": 765
+        },
+        {
+          "x": 2703,
+          "y": 765
+        },
+        {
+          "x": 2703,
+          "y": 767
+        },
+        {
+          "x": 2553,
+          "y": 767
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_mid_3",
+      "points": [
+        {
+          "x": 2553,
+          "y": 675
+        },
+        {
+          "x": 2703,
+          "y": 675
+        },
+        {
+          "x": 2703,
+          "y": 699
+        },
+        {
+          "x": 2553,
+          "y": 699
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 2,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "mud_far_1",
+        "mud_mid_0",
+        "mud_mid_1"
       ]
     },
     {
@@ -1198,7 +1304,9 @@
         "nearHeight": 206
       },
       "neighbours": [
-        "mud_mid"
+        "mud_mid_0",
+        "mud_mid_1",
+        "mud_mid_2"
       ]
     }
   ],

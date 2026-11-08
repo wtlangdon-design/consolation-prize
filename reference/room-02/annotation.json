@@ -397,6 +397,17 @@
     62
    ],
    "note": "A thing on the ground he must walk around. Thad walked through the trough because the walk bands are full-width quads and nothing in them says otherwise. The rect is the trough’s own hotspot rect -- one truth, not two."
+  },
+  {
+   "id": "dog",
+   "rect": [
+    2553,
+    699,
+    150,
+    66
+   ],
+   "keepsGroundAbove": true,
+   "note": "Tyler, 2026-11-07: \"He shouldn't be able to walk on or through the dog.\" The dog lies in the mud at 2628,765 and the bands ran straight through him. The rect is the dog's own hotspot rect, as the trough's is -- one truth, not two -- and the ground behind him stays walkable (keepsGroundAbove): a dog asleep in the street is walked around, front or back."
   }
  ],
  "lamps": [
