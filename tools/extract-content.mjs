@@ -1314,6 +1314,9 @@ function combinations() {
     };
     const success = caseIn('docs/54-batch-c.md', '## B3 — the Grievance puzzle', 'after `T_HUM_HEARD`');
     const livery = /\*\*LIVERY MAN:\*\* "([^"]+)"/.exec(success)?.[1];
+    // ITS STAGING, BEFORE THE LINE (errata 189, 190): the fork, the corrected tune, her look; doc 95 acts it.
+    const staging = /^\*\(([^)]*)\)\*/.exec(success.trim())?.[1];
+    if (!staging) throw new Error('B3: the success has no staging before the livery man\'s line');
     const both = caseIn('docs/57-puzzle-completion.md', '## B3 ', 'with both');
     const ride = /over black: "([^"]+)"/.exec(both)?.[1];
     if (!livery || !ride) throw new Error('B3: the success line or the ride is missing');
@@ -1321,7 +1324,7 @@ function combinations() {
       before: only(caseIn('docs/54-batch-c.md', '## B3 — the Grievance puzzle', 'before the livery man has hummed')),
       after: only(caseIn('docs/54-batch-c.md', '## B3 — the Grievance puzzle', 'after B3')),
       vague: only(caseIn('docs/57-puzzle-completion.md', '## B3 ', 'after `T_HUM_HEARD`, without `T_VESSEL_LOCATION`')),
-      livery, ride,
+      livery, ride, staging,
     };
   })();
   // DOC 57 A2: THE PARLOR PIANO ANSWERS BY CIRCUMSTANCE (errata 91 E). Doc 24's
@@ -1598,8 +1601,9 @@ function combinations() {
     note: 'Doc 57 B3 (with doc 54\'s lines): the fork on Grievance. With the hum and Vessel\'s whereabouts, the corrected tune, "Twelve years.", the ride over black, and Thad placed in the Nugget (errata 73 B).',
     rules: [
       { case: 'after B3', when: { T_VESSEL_FOUND: true }, say: b3.after },
-      { case: 'with both', when: { T_HUM_HEARD: true, T_VESSEL_LOCATION: true }, by: 'livery_man', say: b3.livery,
-        then: [{ speaker: 'thad', line: b3.ride, overBlack: true }], set: { T_VESSEL_FOUND: true }, completes: 'B3', goto: 'nugget' },
+      { case: 'with both', when: { T_HUM_HEARD: true, T_VESSEL_LOCATION: true }, say: b3.staging, direction: true,
+        then: [{ speaker: 'livery_man', line: b3.livery }, { speaker: 'thad', line: b3.ride, overBlack: true }],
+        set: { T_VESSEL_FOUND: true }, completes: 'B3', goto: 'nugget' },
       { case: 'after T_HUM_HEARD, without T_VESSEL_LOCATION', when: { T_HUM_HEARD: true }, say: b3.vague },
       { case: 'before the livery man has hummed', when: { T_HUM_HEARD: false }, say: b3.before },
     ],

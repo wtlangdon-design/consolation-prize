@@ -285,7 +285,7 @@
    "room": "livery"
   },
   "B3-WHISTLE": {
-   "why": "doc 02 B3: Grievance responds to one whistled pitch, and Thad, by ear, corrects it. The fork, the phrase whistled right, and she goes (errata 109).",
+   "why": "doc 02 B3: Grievance responds to one whistled pitch, and Thad, by ear, corrects it. The fork, the phrase whistled right, and she goes (errata 109). Errata 190: sounded from doc 95's act (row 78) as the staging plays, not at the click, and her steps come after the long moment; the music comes back with the look (a dip held through silence is a hole).",
    "play": [
     {
      "src": "audio/sfx/grievance-whistle.wav",
@@ -298,7 +298,8 @@
     "seconds": 5.6,
     "attack": 0.08,
     "release": 2.5
-   }
+   },
+   "room": "livery"
   },
   "A-TUNING": {
    "why": "doc 02 A2 and A8: the piano tuned. The flat C-sharp as the room has always heard it, the fork, the pin turning, and the same notes mended (errata 109).",
@@ -620,18 +621,6 @@
    "target": "bell_rope",
    "verb": "PULL",
    "cue": "R17-BELL"
-  },
-  {
-   "room": "livery",
-   "target": "grievance",
-   "verb": "USE",
-   "item": "tuning_fork",
-   "when": {
-    "T_HUM_HEARD": true,
-    "T_VESSEL_LOCATION": true,
-    "T_VESSEL_FOUND": false
-   },
-   "cue": "B3-WHISTLE"
   },
   {
    "room": "nugget",
