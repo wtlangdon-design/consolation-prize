@@ -636,6 +636,16 @@ export interface AmbientFile {
    */
   barkExchange?: Record<string, { speaker: string; line: string }[]>;
   /**
+   * LINES SAID UNPROMPTED, IN TURN, ONE A VISIT, EACH ONCE (errata 184): a man
+   * whose remarks are not about Thad's reputation but come one at a time on
+   * his rounds. On approach, when he has no reputation bark to say, he says the
+   * next line not yet said -- one per visit to the room -- and `counter`, a
+   * declared number flag, counts them, so a save keeps its place and nothing is
+   * said twice. Each entry is one bark, of one or more lines in order. `when`
+   * gates the whole run.
+   */
+  barkRun?: { counter: string; when?: Condition; lines: { speaker: string; line: string }[][] };
+  /**
    * The occlusion plane that masks this figure, when it stands where no walk
    * box is. Room 5's Winnie stands BEHIND the counter: no box exists there
    * (Thad may never reach it), so `clipPlaneAt` would fall back to the

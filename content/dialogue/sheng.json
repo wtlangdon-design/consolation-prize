@@ -116,6 +116,9 @@
           "afterUse": "remove",
           "text": "Was the Colonel in the Eleventh Ohio Mounted?",
           "say": "There is no Eleventh Ohio Mounted. There is a Ninth. My brother was in it.",
+          "when": {
+            "T_ELEVENTH_OHIO": true
+          },
           "add": {
             "WAR_CONTRADICTIONS": 1
           }

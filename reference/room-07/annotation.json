@@ -200,7 +200,6 @@
   "planes": []
  },
  "unhoused": {
-  "THE CHAINED PEN": "docs/36-issue-list.md::Q150",
   "FORM 12-C (THE STACK)": "docs/36-issue-list.md::Q150",
   "THE COUNTER BELL": "docs/36-issue-list.md::Q150",
   "THE STATUTE BOOK": "docs/36-issue-list.md::Q150",
@@ -290,5 +289,9 @@
    "startsWith": "**THE FORMS RACK** · LOOK",
    "note": "Doc 94 (errata 127): who certifies a death, from E2 until E4."
   }
- ]
+ ],
+ "wrongVerbAliases": {
+  "THE CHAINED PEN": "SUMP'S PEN"
+ },
+ "wrongVerbAliasesNote": "Errata 184: doc 49's THE CHAINED PEN is SUMP'S PEN ('A pen, chained to the counter'), so its PULL is the pen's; its PICK UP is answered by the pen's own line, which stands (errata 68 E)."
 }

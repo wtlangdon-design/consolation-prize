@@ -141,7 +141,8 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "It's chained. That's the entire design."
+        "PICK_UP": "It's chained. That's the entire design.",
+        "PULL": "The chain is rated for stronger feelings than mine."
       }
     },
     {

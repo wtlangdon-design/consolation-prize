@@ -800,6 +800,23 @@ if (orphanRect.length) {
 // -- three authored lines gone, invisible in a green build. The documents must
 // agree on the name or the build stops naming both.
 const docNames = new Set([...hotspots.keys()]);
+// DOC 49'S OBJECT UNDER ANOTHER NAME (errata 68 E; errata 184). "A refusal
+// whose object is a placed object under another name attaches to it." Room
+// 7's THE CHAINED PEN is SUMP'S PEN, which doc 05 describes as "a pen,
+// chained to the counter". The annotation declares each such name; a verb the
+// subject already answers keeps its own line, the rest are added.
+for (const [short, full] of Object.entries(ann.wrongVerbAliases ?? {})) {
+  if (!hotspots.has(full)) fail(`wrongVerbAliases maps "${short}" to "${full}", which doc 05 does not name`);
+  const from = overrides.get(short);
+  if (!from) fail(`wrongVerbAliases names "${short}", for which doc 49 writes nothing in this room`);
+  const into = overrides.get(full) ?? {};
+  for (const [verb, line] of Object.entries(from)) {
+    if (!into[verb]) into[verb] = line;
+    else if (into[verb] !== line) process.stderr.write(`  doc 49 "${short}" ${verb}: ${full} answers it already, and its own line stands\n`);
+  }
+  overrides.set(full, into);
+  overrides.delete(short);
+}
 const unhoused = ann.unhoused ?? {};
 for (const [name, issue] of Object.entries(unhoused)) {
   process.stderr.write(`  UNHOUSED: doc 49 writes lines for "${name}" and doc 05 gives it no LOOK or `

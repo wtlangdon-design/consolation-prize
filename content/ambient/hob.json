@@ -31,7 +31,7 @@
  },
  "walkToNote": "On the mud before the ash heap, a metre from him, facing him.",
  "barks": {},
- "barksNote": "Doc 04's 'Running' lines are the Act I road's; none is written for his rounds here.",
+ "barksNote": "He has no reputation barks (doc 07 writes none for him). His Running lines are `barkRun`.",
  "sprite": {
   "sheet": "art/actors/room-20-hob.png",
   "frames": [
@@ -216,5 +216,44 @@
    }
   }
  },
- "placementsNote": "WATCHMAN'S SHACK (Room 21, errata 94 B): at home for the confession, doc 48 S4 -- from E9 (T_SAME_HAND, the night Thad has seen the same hand) until it is over (T_HOB_IS_MOTT); who is present is decided as Thad arrives, so he stays through the visit it ends in. Doc 54: 'Hob is in this room only in doc 48's S4.' His wrong verbs here are doc 54's Room 21 Overrides."
+ "placementsNote": "WATCHMAN'S SHACK (Room 21, errata 94 B): at home for the confession, doc 48 S4 -- from E9 (T_SAME_HAND, the night Thad has seen the same hand) until it is over (T_HOB_IS_MOTT); who is present is decided as Thad arrives, so he stays through the visit it ends in. Doc 54: 'Hob is in this room only in doc 48's S4.' His wrong verbs here are doc 54's Room 21 Overrides.",
+ "barkRun": {
+  "counter": "HOB_RUNNING",
+  "when": {
+   "ACT": {
+    "atMost": 2
+   }
+  },
+  "lines": [
+   [
+    {
+     "speaker": "hob",
+     "line": "It'll rain."
+    }
+   ],
+   [
+    {
+     "speaker": "hob",
+     "line": "That's not yours."
+    }
+   ],
+   [
+    {
+     "speaker": "hob",
+     "line": "You're the piano man."
+    }
+   ],
+   [
+    {
+     "speaker": "hob",
+     "line": "It's a bad claim."
+    },
+    {
+     "speaker": "hob",
+     "line": "They're all bad claims."
+    }
+   ]
+  ]
+ },
+ "barkRunNote": "EXTRACTED from docs/04-dialogue-trees.md (HOB_A1, **Running:**) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Errata 184: one a visit to his rounds, in order, each once, while ACT is at most 2; \"Wouldn't stand there.\" is the opening's (doc 17 beat 9) and is not said again. Doc 04 says \"every fourth night\"; the game counts no nights, and a visit stands for one."
 }
