@@ -38,9 +38,12 @@ export function check() {
       optionCount += options.length;
       const where = `${data.id}/${nodeId}`;
 
-      if (options.length < MIN_OPTIONS) {
+      // A node may declare it is a scene with fewer rows, with a reason, as `noComic` does: errata 66 E rules
+      // WIN_B3 "a scene with one row, as written". Declared in content so the exception stays reviewable.
+      if (options.length < MIN_OPTIONS && node.fewOptions !== true) {
         report.fail(`${where}: ${options.length} option(s), minimum is ${MIN_OPTIONS}`);
       }
+      if (node.fewOptions === true && !node.fewOptionsReason) report.fail(`${where}: declares fewOptions with no reason`);
 
       // THE PLAYER CAN ALWAYS CLICK SOMETHING. This asked "is every option
       // PROGRESS", because errata 37 removed those once taken and a node of

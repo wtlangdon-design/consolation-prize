@@ -1,4 +1,4 @@
-"""The hitching rail alone, at dawn, for Room 36 (errata 181). No image operation.
+"""The hitching rail alone, at dawn, for Room 36 (errata 182). No image operation.
 
 Tyler, 2026-11-08: "At dawn I think the horses should all be gone. Just the
 hitching post is there." The riders have taken their horses; the rail stays.

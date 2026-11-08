@@ -4880,9 +4880,24 @@ Cast-unify 86 (`reference/cast-unify-57.txt`) is an edit of his own sheet (`deri
 - **`tests/doc04-nodes.test.ts`:** every node doc 04 names is in the game, or is listed in `tests/data/doc04-nodes-not-built.json` with its reason.
 - **It found WIN_B3, the second ledger, written and never built.** It is reported to Tyler and waits for his word.
 
+# 181 · THE SECOND LEDGER, BUILT; A NODE REACHED FROM A ROW SAYS ITS OPENING — TYLER, 2026-11-08 ("Yes")
+
+*Errata 180's new check found WIN_B3, the second ledger, written and never built. Asked whether to build it, Tyler said "Yes". Doc 103's last section records it.*
+
+- **WIN_B3 is built, verbatim, from WIN_B2 option 3** ("opens `WIN_B3`"). It is never an entry, so the assay row is never stranded. It has one `[COMIC]` row with a new second answer, and the exit pool. Rules 1 and 2 are waived (errata 66 E), declared in content as `fewOptions` with a reason, which `check-dialogue-nodes` now reads beside `noComic`.
+- **Her retrieval is printed until it is drawn:** doc 95 row 74, class B. `reference/second-ledger/brief.md` is for the image session, after Tyler sets a cap. The after-state (errata 66 E) waits for the drawing and for Tyler.
+- **A node reached by `goto` now says its opening** after the row's reply, once where `openingOnce` says once (`DialogueRunner`). This applies to four rows:
+  - Frame's trade terms (doc 101), which no one had ever heard;
+  - the Colonel's card;
+  - Sheng's first line;
+  - this scene.
+
+  `tests/goto-opening.test.ts` holds it. It failed on this scene before the change.
+- `tests/doc04-nodes.test.ts`'s not-built list loses WIN_B3.
+
 ---
 
-# 181 · A HITCHING RAIL WITH THREE HORSES ON MAIN STREET — TYLER, 2026-11-08
+# 182 · A HITCHING RAIL WITH THREE HORSES ON MAIN STREET — TYLER, 2026-11-08
 
 Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: the hitching post with horses on Main Street under asset room-02 (four operations), check the ledger before each one, and send me day and night renders with Thad walking past it." The brief was errata 168's, from his "maybe we add a hitching post front and center of the camera with a few horses tied to it so that it's not just a bunch of empty space?" It reached `main` as #260.
 

@@ -3293,7 +3293,10 @@ function winnieTree() {
     .map((m) => m[1]);
   if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
 
-  const SKIP = { WIN_B3: 'one option -- a scene with a single [COMIC], below doc 04 rule 1' };
+  // WIN_B3 IS BUILT (errata 181): one [COMIC] row and the exit pool, rules 1 and 2 waived by errata 66 E,
+  // reached from WIN_B2 option 3 ("opens `WIN_B3`"), not from an entry -- so WIN_B2's other rows stay reachable.
+  const SKIP = {};
+  const ONE_ROW = { WIN_B3: 'Errata 66 E: "a scene with one row, as written"; doc 04 rules 1 and 2 do not bar it.' };
   // WIN_C1, E4 (doc 57: "WIN_C1 opens once T_FUNERAL_BOOKED is set and C5 is
   // complete. Option 4 and the signing -> THE DEATH CERTIFICATE -> E4"). Doc 04
   // calls it "The relationship scene" and writes no [COMIC]: declared, as the
@@ -3504,7 +3507,7 @@ function winnieTree() {
       options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[poolIndex % POOL.length], universal: true, ends: true });
       poolIndex += 1;
     }
-    nodes[id] = { id, ...(NO_COMIC[id] ? { noComic: true, noComicReason: NO_COMIC[id] } : {}), ...(promptText ? { prompt: promptText } : { noPrompt: true,
+    nodes[id] = { id, ...(NO_COMIC[id] ? { noComic: true, noComicReason: NO_COMIC[id] } : {}), ...(ONE_ROW[id] ? { fewOptions: true, fewOptionsReason: ONE_ROW[id] } : {}), ...(promptText ? { prompt: promptText } : { noPrompt: true,
       exceptionReason: 'Doc 04 writes this node as a table only -- no opening exchange -- so '
         + 'the conversation continues from the previous node\'s line rather than opening on one.' }),
       ...(opening.length ? { opening } : {}), options };
@@ -3532,7 +3535,7 @@ function winnieTree() {
     note: 'EXTRACTED from docs/04-dialogue-trees.md (WINNIE LEDGER) by tools/extract-content.mjs. '
       + 'Do not edit: change doc 04 and re-run. Plain quotes in a response are Winnie; the '
       + 'opening exchange is carried whole as `opening` and the prompt is its last Winnie line. '
-      + 'WIN_B3 is not extracted (see the extractor). Universal exit lines are doc '
+      + 'WIN_B3 is reached from WIN_B2 option 3 (errata 181). Universal exit lines are doc '
       + '04 part one\'s pool.',
     entries,
     start: 'WIN_A1',
