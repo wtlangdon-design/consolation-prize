@@ -263,7 +263,6 @@ export class GameScene extends Phaser.Scene {
   /** Frames an acted beat left held, kept until the queued lines are over (doc 95 Holds; errata 194). */
   private lingering: HeldPose[] | null = null;
   /** The accost's seat he is walking to, and the state he is in once he sits (errata 194). */
-  private seatDue: { facing: Facing; state: string; sitAt?: { x: number; y: number }; from: { x: number; y: number } } | null = null;
   private seatedState: string | null = null;
   /** Where he stood before he was set down at the table, and goes back to when he rises. */
   private seatedFrom: { x: number; y: number } | null = null;
@@ -312,6 +311,12 @@ export class GameScene extends Phaser.Scene {
    */
   private pendingTree: {
     tree: string; at: { x: number; y: number }; greeted: boolean;
+    /**
+     * The accost's chair (errata 194): taken as this conversation opens. It belongs to the conversation, so
+     * a click that cancels it, or leaving the room, drops the seat with it (Codex on #279: a stale seat
+     * had sat him down at the next conversation, wherever it was).
+     */
+    seat?: { facing: Facing; state: string; sitAt?: { x: number; y: number }; from: { x: number; y: number } };
     /** A duel he calls on Thad (an accost's `duel`): its intro is the greeting. */
     duel?: string;
     /** The ambient character the conversation is with, when it is one. */
@@ -850,14 +855,14 @@ export class GameScene extends Phaser.Scene {
           this.actor.faceToward(at.x, at.y);
         }
         // AND SITS, when the accost gave him a chair (errata 194): his seated clips until it ends.
-        if (this.seatDue) {
+        const seatDue = this.pendingTree.seat;
+        if (seatDue) {
           // ON THE CHAIR AT THE TABLE'S END (Tyler, 2026-11-08: "his hands out on nothing"): set down where
           // his forearms meet the cloth, off the walked floor, and put back on it when he rises.
-          if (this.seatDue.sitAt) { this.actor.placeAt(this.seatDue.sitAt.x, this.seatDue.sitAt.y); this.seatedFrom = this.seatDue.from; }
-          this.actor.setFacing(this.seatDue.facing);
-          this.state.setMoverState(this.actor.id, this.seatDue.state);
-          this.seatedState = this.seatDue.state;
-          this.seatDue = null;
+          if (seatDue.sitAt) { this.actor.placeAt(seatDue.sitAt.x, seatDue.sitAt.y); this.seatedFrom = seatDue.from; }
+          this.actor.setFacing(seatDue.facing);
+          this.state.setMoverState(this.actor.id, seatDue.state);
+          this.seatedState = seatDue.state;
         }
         if (evidence) {
           // CONTACT. She looks up from the ledger now (the greeting state
@@ -2242,13 +2247,14 @@ export class GameScene extends Phaser.Scene {
       // completes here, and the opening its entry gates is performed once.
       if (accost.completes) this.state.completeByTimeline(accost.completes);
       this.actor.faceToward(npc.x, npc.y);
-      this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y }, greeted: false, npc: npc.id,
-        ...(accost.completes ? { viaAction: true } : {}), ...(accost.duel ? { duel: accost.duel } : {}) };
-      // `approach`: he walks to the caller's stand first; the tree opens on arrival.
+      // `seat`: to the chair instead, and he sits as the conversation opens (doc 48 S1 beat 1).
       const seat = accost.seat && this.state.flags.test(accost.seat.when) ? accost.seat : null;
+      this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y }, greeted: false, npc: npc.id,
+        ...(accost.completes ? { viaAction: true } : {}), ...(accost.duel ? { duel: accost.duel } : {}),
+        ...(seat ? { seat: { facing: seat.facing, state: seat.state, ...(seat.sitAt ? { sitAt: seat.sitAt } : {}),
+          from: { x: seat.x, y: seat.y } } } : {}) };
+      // `approach`: he walks to the caller's stand first; the tree opens on arrival.
       if (seat) {
-        // `seat`: to the chair instead, and he sits as the conversation opens (doc 48 S1 beat 1).
-        this.seatDue = { facing: seat.facing, state: seat.state, ...(seat.sitAt ? { sitAt: seat.sitAt } : {}), from: { x: seat.x, y: seat.y } };
         this.actor.walkTo(seat.x, seat.y);
       } else if (accost.approach && npc.walkTo) this.actor.walkTo(npc.walkTo.x, npc.walkTo.y);
       this.markDirty();
