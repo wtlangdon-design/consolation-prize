@@ -5113,3 +5113,9 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
 
   They are briefed for the builder in `reference/unacted-moments/brief.md`. Two need image operations that no cap has: Grievance, and possibly the dinner's seat. The brief says to stop and ask.
 - `proofs/written-not-built.json` loses its funeral-day gap.
+- **Ozymandia at Prosperity, TALK TO.** Tyler chose C from `reference/ozymandia-prosperity/talk-to-handoff.md` and authorised one new line of Thad's, with its repeats. They are written in doc 54, Room 23's Overrides:
+  - first: "Madame Ozymandia. You're a long way from your tent."
+  - second: "No fee today, Madame?"
+  - third and after: "I'll leave you to it, then."
+
+  She answers each with her one line, doc 04's "…It's loud here.", so doc 04's "her only line" and "saying nothing" stay true. The builder's brief is `reference/ozymandia-prosperity/talk-to-brief.md`.

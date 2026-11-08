@@ -129,6 +129,12 @@
 > **THE RACCOON** · PUSH — "I'm not going to push a raccoon further into a hole he already likes. That's encouragement."
 > **THE RACCOON** · USE — "He is not a tool. He is barely a tenant."
 
+*Errata 189 (Tyler, 2026-11-08, of Ozymandia standing at Prosperity in Act IV, reference/ozymandia-prosperity/talk-to-handoff.md: he chose C). Thad says one of these, and she answers each time with her one line from doc 04, and nothing else. One voice, under doc 59 and doc 99. These lines are not a clue: the void is already found.*
+
+> **MADAME OZYMANDIA** · TALK TO — "Madame Ozymandia. You're a long way from your tent."
+> **MADAME OZYMANDIA** · TALK TO, *second time* — "No fee today, Madame?"
+> **MADAME OZYMANDIA** · TALK TO, *third time and after* — "I'll leave you to it, then."
+
 ## A5 — the raccoon *(errata 68 A)*
 
 *The naming is doc 04's `RAC_A1`; sending Pratt is doc 04's `PRA_A1`; the blanket is LIV_A1 option 5. The attempts below are Thad's lines and the stage directions doc 31 Table 3 asks for. Nothing here is set by LISTENING to the hole, and the blanket goes back into inventory, so the hole's LISTEN never changes.*
