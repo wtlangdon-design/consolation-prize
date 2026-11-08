@@ -30,7 +30,7 @@ export const SOURCES = [
   '17-opening-sequence', '19-19b-resolutions', '23-inventory-act1', '24-combinations', '25-rooms-05-07',
   '26-batch-a', '27-minor-trees', '43-room-01-staging-script', '48-act-turn-beats', '49-wrong-answers',
   '54-batch-c', '57-puzzle-completion', '94-clue-pass', '96-cutaways', '97-lower-street-and-the-lane',
-  '98-main-street-pass',
+  '98-main-street-pass', '105-the-six-interiors',
 ];
 
 export const norm = (text) => text
