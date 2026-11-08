@@ -91,10 +91,10 @@ test('WIN_B2\'s rows move the world as doc 04 says, through W1, and the states s
   const carriedBefore = [...state.carried];
   state.dialogue.select('winnie3');
   assert.equal(state.flags.get('T_SECOND_LEDGER'), true);
-  // Errata 66 E's own words, not this slice's: "nothing spawns the ledger into Thad's inventory". The board's
+  // Errata 66 E's own words, not this slice's: "nothing spawns the ledger into the hero's inventory". The board's
   // look is the staging's to change when her retrieval is drawn (reference/second-ledger/brief.md), so the test
   // no longer holds it at rest -- the assumption that misfired three times was a later state's absence.
-  assert.deepEqual(state.carried, carriedBefore, 'the second ledger is hers: nothing is given to Thad');
+  assert.deepEqual(state.carried, carriedBefore, 'the second ledger is hers: nothing is given to the player');
   // Errata 181: the book exists, so she produces it -- WIN_B3 plays from the row that says so.
   assert.equal(state.dialogue.positionSnapshot().node, 'WIN_B3', 'option 3 opens the second ledger');
   assert.deepEqual(state.dialogue.presentOptions().map((p) => p.option.id), ['winnie1', 'winniex'], 'its one row and the exit');
