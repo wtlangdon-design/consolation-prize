@@ -4,7 +4,7 @@
   "id": "WINNIE",
   "speaker": "winnie",
   "name": "WINNIE LEDGER",
-  "note": "EXTRACTED from docs/04-dialogue-trees.md (WINNIE LEDGER) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a response are Winnie; the opening exchange is carried whole as `opening` and the prompt is its last Winnie line. WIN_B3 is not extracted (see the extractor). Universal exit lines are doc 04 part one's pool.",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (WINNIE LEDGER) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a response are Winnie; the opening exchange is carried whole as `opening` and the prompt is its last Winnie line. WIN_B3 is reached from WIN_B2 option 3 (errata 180). Universal exit lines are doc 04 part one's pool.",
   "entries": [
     {
       "when": {
@@ -431,10 +431,21 @@
           "tag": "PROGRESS",
           "text": "Has nobody ever noticed?",
           "afterUse": "remove",
-          "say": "I noticed. I wrote it down. I've been writing it down since eighteen and forty-nine, in a book that is not this book.",
+          "goto": "WIN_B3",
           "set": {
             "T_SECOND_LEDGER": true
-          }
+          },
+          "exchange": [
+            {
+              "speaker": "winnie",
+              "line": "I noticed. I wrote it down. I've been writing it down since eighteen and forty-nine, in a book that is not this book."
+            },
+            {
+              "speaker": "winnie",
+              "line": "She produces it from under the floor.",
+              "direction": true
+            }
+          ]
         },
         {
           "id": "winnie4",
@@ -453,6 +464,54 @@
           "id": "winniex",
           "tag": "EXIT",
           "text": "Thank you. This has been clarifying.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "WIN_B3": {
+      "id": "WIN_B3",
+      "prompt": "That's all I know. I write down what I know. It's the entire discipline.",
+      "opening": [
+        {
+          "speaker": "winnie",
+          "line": "Nineteen names. Men who came to this window with a question about Claim One."
+        },
+        {
+          "speaker": "thad",
+          "line": "What happened to them?"
+        },
+        {
+          "speaker": "winnie",
+          "line": "They stopped coming to the window."
+        },
+        {
+          "speaker": "thad",
+          "line": "That's all it says."
+        },
+        {
+          "speaker": "winnie",
+          "line": "That's all I know. I write down what I know. It's the entire discipline."
+        }
+      ],
+      "options": [
+        {
+          "id": "winnie1",
+          "tag": "COMIC",
+          "text": "Am I in the book?",
+          "afterUse": "retain",
+          "say": "You've been in the book since Tuesday.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Since Tuesday. The twentieth. Keep coming to the window, Mr. Grubb."
+            }
+          ]
+        },
+        {
+          "id": "winniex",
+          "tag": "EXIT",
+          "text": "I should go.",
           "universal": true,
           "ends": true
         }
@@ -597,7 +656,7 @@
         {
           "id": "winniex",
           "tag": "EXIT",
-          "text": "I should go.",
+          "text": "I've taken enough of your time. I'll be taking more later.",
           "universal": true,
           "ends": true
         }
@@ -716,7 +775,7 @@
         {
           "id": "winniex",
           "tag": "EXIT",
-          "text": "I've taken enough of your time. I'll be taking more later.",
+          "text": "I am going to leave now, in a dignified manner.",
           "universal": true,
           "ends": true
         }
@@ -796,7 +855,7 @@
         {
           "id": "winniex",
           "tag": "EXIT",
-          "text": "I am going to leave now, in a dignified manner.",
+          "text": "Thank you. This has been clarifying.",
           "universal": true,
           "ends": true
         }

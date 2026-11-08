@@ -728,6 +728,13 @@
         4
       ],
       "seconds": 1
+    },
+    {
+      "n": 74,
+      "class": "B",
+      "speaker": "winnie",
+      "words": "She produces it from under the floor.",
+      "where": "dialogue/winnie WIN_B2 option 3"
     }
   ]
 }
