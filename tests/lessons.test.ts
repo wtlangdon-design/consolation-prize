@@ -350,3 +350,53 @@ test('a figure with barks and no tree says them where the player stands to talk 
   }
   assert.deepEqual(misses, []);
 });
+
+/* ---- A prop in front of a figure paints only its objects over him ---------- */
+
+// Errata 194 (Tyler, of the dinner: "the other guy's shoulder is partially missing behind the candle"). A prop
+// cut from a plate keeps the plate's own pixels around its objects -- the wall lit by the candles -- and drawn
+// in front of the man behind it, that wall cut his shoulders away. Where a prop overlaps a figure drawn behind
+// it, its pixels must be its objects: no more than a handful may be the plate itself (within 75, and dark).
+test('no prop paints the plate over a figure behind it', () => {
+  const manifest = read('content/manifest.json') as { rooms: string[]; ambient: string[] };
+  const ambient = manifest.ambient.map((path) => read(path)) as { id: string; room: string; x: number; y: number;
+    sprite?: { sheet: string; frames: number[][]; figureHeight?: number }; spriteWhen?: { sprite: { sheet?: string; frames?: number[][] } }[] }[];
+  const misses: string[] = [];
+  for (const path of manifest.rooms) {
+    const room = read(path) as { id: string; background: string; props?: { id: string; sheet: string; x: number; y: number; frame: number[] }[] };
+    if (!room.props?.length || !existsSync(resolve(ROOT, room.background))) continue;
+    const plate = readPng(readFileSync(resolve(ROOT, room.background)));
+    for (const prop of room.props) {
+      const img = readPng(readFileSync(resolve(ROOT, prop.sheet)));
+      const [fx, fy, fw, fh] = prop.frame as [number, number, number, number];
+      const px0 = Math.round(prop.x - fw / 2); const py0 = prop.y - fh;
+      for (const npc of ambient.filter((one) => one.room === room.id && one.sprite && !one.sprite.figureHeight && one.y < prop.y)) {
+        // The frames he shows WHILE this prop is drawn: the sheet a `spriteWhen` gives under the prop's own
+        // condition, else his own.
+        const during = (npc.spriteWhen ?? []).find((v) => JSON.stringify((v as { when?: unknown }).when) === JSON.stringify((prop as { when?: unknown }).when));
+        for (const sprite of [during ? { ...npc.sprite!, ...during.sprite } : npc.sprite!]) {
+          const [sx, sy, w, h] = sprite.frames![0]! as unknown as [number, number, number, number];
+          const art = readPng(readFileSync(resolve(ROOT, sprite.sheet!)));
+          const box: [number, number, number, number] = [Math.round(npc.x - w / 2), npc.y - h, Math.round(npc.x + w / 2), npc.y];
+          let painted = 0;
+          for (let y = Math.max(box[1], py0); y < Math.min(box[3], py0 + fh); y += 1) {
+            for (let x = Math.max(box[0], px0); x < Math.min(box[2], px0 + fw); x += 1) {
+              const i = ((fy + y - py0) * img.width + fx + x - px0) * 4;
+              if (img.pixels[i + 3] < 128) continue;
+              // Only where he is drawn: a prop over the empty corners of his frame hides nothing of him.
+              if (art.pixels[((sy + y - box[1]) * art.width + sx + x - box[0]) * 4 + 3]! < 128) continue;
+              const j = (y * plate.width + x) * 4;
+              const diff = Math.abs(img.pixels[i] - plate.pixels[j]) + Math.abs(img.pixels[i + 1] - plate.pixels[j + 1]) + Math.abs(img.pixels[i + 2] - plate.pixels[j + 2]);
+              const lum = 0.3 * img.pixels[i] + 0.59 * img.pixels[i + 1] + 0.11 * img.pixels[i + 2];
+              if (diff < 75 && lum < 120) painted += 1;
+            }
+          }
+          // A dark object in front of him (the wine bottle) can match the dark wall it stands against; the
+          // dinner's lit wall was 2864 pixels over him, the bottle and the table's edge are 765.
+          if (painted > 1500) misses.push(`${room.id}: ${prop.id} paints ${painted} pixels of the plate over ${npc.id} (${sprite.sheet})`);
+        }
+      }
+    }
+  }
+  assert.deepEqual(misses, []);
+});

@@ -5341,6 +5341,9 @@ Lesson: a person's TALK TO is only staged like a tree's if a test walks it (the 
   - **At the table (Tyler, of the first render: "sitting very awkwardly at the table with his hands out on nothing. And is the guy he's with not looking at him at all?"):**
     - the seat's `sitAt` sets him down in from the table's end, so his forearms rest on the cloth;
     - Fanshawe is turned to him while the table is laid (Tyler: "One more op", room-11 cap 7). Room-11 attempt 7 drew his four poses three-quarters to his left, cut by `tools/art/fanshawe-turned.py`. A figure may now carry `spriteWhen`, another sheet while a condition holds; here it is the dinner prop's own condition.
+  - **And then (Tyler, of the next render: "Thad is very awkwardly positioned at the table. Maybe you need the tablecloth to come all the way down and it can hide his legs completely? And the other guy's shoulder is partially missing behind the candle."):**
+    - the cloth now hangs to the floor: a second prop, `dinner_drape` (`tools/art/room11-dinner-drape.py`), standing on the carpet in front of the chair, so his legs are under it while the table top stays behind his forearms;
+    - the table prop no longer carries the plate's lit wall around the candles and the lamp, which was drawn over Fanshawe's shoulders. **The lesson:** `tests/lessons.test.ts` fails when a prop paints the plate over a figure behind it. It fails on the old prop (2864 pixels).
   - **The porch:** beat 4's two lines at the door ("A very fine dinner." / "I believe I own something.") play over the deed's two frames, through a rule's new `holds`. The pose is let go when the lines are down or the room changes.
   - The seal and the wine are a shade toward brick red, because `check-key-fringe` reads saturated red as the key.
 - **2 · Grievance and the tune (doc 54 B3, doc 95 row 79).** The staging before "Twelve years." was dropped at extraction. It is now the case's first beat, acted:

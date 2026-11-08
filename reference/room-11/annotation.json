@@ -410,6 +410,23 @@
    "note": "Doc 48 S1 beat 1: 'the table laid absurdly well'. Room-11 operation 4 laid the desk; tools/art/room11-props.py keeps its changed pixels. Drawn while Thad holds THE INVITATION, until the dinner ends."
   },
   {
+   "id": "dinner_drape",
+   "sheet": "art/props/room-11-dinner-drape.png",
+   "x": 1095,
+   "y": 722,
+   "frame": [
+    0,
+    0,
+    543,
+    324
+   ],
+   "when": {
+    "T_BORDERS_MOTT": true,
+    "T_DINED": false
+   },
+   "note": "The dinner's cloth to the floor (Tyler, 2026-11-08: \"Maybe you need the tablecloth to come all the way down and it can hide his legs completely?\"; errata 194). Its own prop standing on the carpet (y 722), so it is drawn in front of Thad seated at the table's end and behind him anywhere he walks; the table top (`dinner`) stays behind him. tools/art/room11-dinner-drape.py."
+  },
+  {
    "id": "desk_bare",
    "sheet": "art/props/room-11-desk-bare.png",
    "x": 939,

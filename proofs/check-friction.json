@@ -409,6 +409,12 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 194: a doc 95 act may now end in a walk (`thad:<clip>/<facing>@<hotspot>`, Thad's retreat to the claim marker). That last beat holds no frame and lasts until he arrives, so the test exempts it from 'every beat holds a frame of his clip for its seconds' and asserts instead that the walk goes to a hotspot in the room. The clip's own beats are held as before."
+  },
+  {
+   "check": "tests/room-11.test.ts",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 194: the dinner is now two props, the table and its cloth to the floor (dinner_drape), so the props shown with the table laid are both; the test lists both, which is no weaker."
   }
  ]
 }
