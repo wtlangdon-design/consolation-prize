@@ -3,7 +3,6 @@
  "id": "prosperity_ozymandia",
  "name": "MADAME OZYMANDIA",
  "speaksAs": "ozymandia",
- "awaitingArt": "reference/ozymandia-prosperity/brief.md: her standing figure with the brass rod, room-16's fourth operation",
  "posture": "standing",
  "room": "prosperity",
  "when": {
@@ -13,11 +12,18 @@
   }
  },
  "whenNote": "Doc 04, MADAME OZYMANDIA: 'Act IV: if Thad returns after T_VOID, she is at Prosperity.' T_VOID_FOUND is F2's flag, and F2 is Act IV's (errata 184).",
- "note": "OZYMANDIA AT PROSPERITY, ACT IV (errata 184). 'Holding the rod, staring at the ground, saying nothing.' Her tent figure is drawn behind her table, cut at the table top; this is the whole woman, standing, which no drawing has yet. Until it is cut she is not cast (awaitingArt). Placed provisionally on the far mud left of the hole; the image session places her for real.",
- "x": 860,
- "y": 735,
+ "note": "OZYMANDIA AT PROSPERITY, ACT IV (errata 184). 'Holding the rod, staring at the ground, saying nothing.' The whole woman, standing, which her tent figure (cut at the table top) is not: room-16's fourth operation, drawn against Thad in this room and against her canonical design (room-16 attempt 3).",
+ "x": 880,
+ "y": 748,
  "zone": 0,
- "approachRadius": 120,
+ "approachRadius": 230,
+ "approachRadiusNote": "Her one line plays when Thad comes up to her: his TALK TO stand (walkTo) is 200 px off, a conversational distance, so the radius takes it in. It was 120, and walking up to her said nothing.",
+ "walkTo": {
+  "x": 1080,
+  "y": 790,
+  "facing": "left"
+ },
+ "walkToNote": "In front of her, on the mud below the hole, facing her and the ground she is looking at.",
  "tree": "",
  "barks": {
   "R_NOBODY": "…It's loud here.",
@@ -30,5 +36,72 @@
   "R_DEAD": "…It's loud here.",
   "R_TRUTH": "…It's loud here."
  },
- "barksNote": "EXTRACTED from docs/04-dialogue-trees.md (MADAME OZYMANDIA, **Act IV:**) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Her only line, the same in every state."
+ "barksNote": "EXTRACTED from docs/04-dialogue-trees.md (MADAME OZYMANDIA, **Act IV:**) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Her only line, the same in every state.",
+ "sprite": {
+  "sheet": "art/actors/room-23-ozymandia.png",
+  "frames": [
+   [
+    2,
+    2,
+    175,
+    372
+   ],
+   [
+    179,
+    2,
+    175,
+    372
+   ],
+   [
+    356,
+    2,
+    175,
+    372
+   ],
+   [
+    533,
+    2,
+    175,
+    372
+   ],
+   [
+    710,
+    2,
+    175,
+    372
+   ]
+  ],
+  "rate": 0.24,
+  "phase": 0.3,
+  "breaks": [
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    4,
+    4,
+    4,
+    0
+   ],
+   [
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    0
+   ]
+  ],
+  "breakEvery": 7,
+  "frameNote": "0 the rod held at her waist, its point to the ground, her head bowed over it · 1 breath · 2 the rod tilting a little further down · 3 her head lowered further · 4 the rod dipping, her weight shifted forward onto it. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
+  "provenance": "reference/ozymandia-prosperity/op-01.spec.json",
+  "figureHeight": 368,
+  "stature": 0.96,
+  "statureNote": "A little under Thad, as her tent design is drawn beside him: 0.96 of the room's man, crown to sole.",
+  "figureHeightNote": "Crown to sole on the rest frame (rows 4-371 of 372)."
+ }
 }

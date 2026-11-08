@@ -329,3 +329,24 @@ test('every puzzle sited wholly in built rooms is played by a test, or says why 
     assert.ok(!declared.has(id), `${id} is played by ${declared.get(id)} -- take it out of proofs/played-pending.json`);
   }
 });
+
+/* ---- A figure whose only words are barks is heard where one talks to it --- */
+
+// Errata 186: the woman at the hole in Act IV has one line and no tree. Her
+// stand for TALK TO was 200 px from her and her bark fired inside 120, so the
+// player walked up, stood in front of her, and she said nothing. A figure with
+// no tree speaks only through its barks: its radius takes in its own stand.
+test('a figure with barks and no tree says them where the player stands to talk to it', () => {
+  const manifest = read('content/manifest.json') as { ambient: string[] };
+  const misses: string[] = [];
+  for (const path of manifest.ambient) {
+    const npc = read(path);
+    if (npc.tree || !npc.walkTo) continue;
+    if (!Object.values(npc.barks ?? {}).some((line) => line)) continue;
+    const gap = Math.hypot(npc.walkTo.x - npc.x, npc.walkTo.y - npc.y);
+    if (gap > (npc.approachRadius ?? 0)) {
+      misses.push(`${npc.id}: its stand is ${Math.round(gap)} px off and its barks fire inside ${npc.approachRadius ?? 0}`);
+    }
+  }
+  assert.deepEqual(misses, []);
+});
