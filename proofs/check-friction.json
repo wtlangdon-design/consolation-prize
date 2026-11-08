@@ -415,6 +415,12 @@
    "date": "2026-11-08",
    "kind": "loosened",
    "why": "Errata 197: the dinner is now two props, the table and its cloth to the floor (dinner_drape), so the props shown with the table laid are both; the test lists both, which is no weaker."
+  },
+  {
+   "check": "tests/movement.test.mjs",
+   "date": "2026-11-08",
+   "kind": "loosened",
+   "why": "Errata 197: `grievance_out` carries a movementException quoting Tyler (\"Yes, one more op\"). It draws nothing at rest; it is Grievance out of her stall, shown only in doc 95 row 79's act, while her own figure, grievance.json, carries her movement and is held by the test as before."
   }
  ]
 }
