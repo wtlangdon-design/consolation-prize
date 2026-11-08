@@ -88,9 +88,19 @@ test('WIN_B2\'s rows move the world as doc 04 says, through W1, and the states s
   assert.ok(!state.carried.includes('document_b'), 'no Document B');
   state.dialogue.select('winnie2');
   assert.equal(state.flags.get('T_NO_MOTT_GOLD'), true);
+  const carriedBefore = [...state.carried];
   state.dialogue.select('winnie3');
   assert.equal(state.flags.get('T_SECOND_LEDGER'), true);
-  assert.equal(state.stateOf(state.targets.find((t) => t.id === 'floorboard')!), 'rest', 'the board is untouched');
+  // Errata 66 E's own words, not this slice's: "nothing spawns the ledger into the hero's inventory". The board's
+  // look is the staging's to change when her retrieval is drawn (reference/second-ledger/brief.md), so the test
+  // no longer holds it at rest -- the assumption that misfired three times was a later state's absence.
+  assert.deepEqual(state.carried, carriedBefore, 'the second ledger is hers: nothing is given to the player');
+  // Errata 181: the book exists, so she produces it -- WIN_B3 plays from the row that says so.
+  assert.equal(state.dialogue.positionSnapshot().node, 'WIN_B3', 'option 3 opens the second ledger');
+  assert.deepEqual(state.dialogue.presentOptions().map((p) => p.option.id), ['winnie1', 'winniex'], 'its one row and the exit');
+  state.dialogue.end();
+  state.dialogue.start(tree);
+  assert.equal(state.dialogue.positionSnapshot().node, 'WIN_B2', 'and TALK TO afterwards is WIN_B2 again, its other rows still there');
   const after = state.dialogue.presentOptions().map((p) => p.option.id);
   assert.deepEqual(after, ['winnie4', 'winniex'], 'the three progress rows are removed; the comic and the exit remain');
   state.dialogue.select('winnie4');
@@ -126,10 +136,11 @@ test('removed rows, the pending puzzle and the topics survive re-entry, save and
   assert.deepEqual(loaded.dialogue.openingOf(tree), [], 'no replay of the confrontation after a load');
 });
 
-test('T_SECOND_LEDGER does not route to WIN_B3: the tree has no such node yet, and WIN_B2 stays the root', async () => {
+test('WIN_B3 is reached through WIN_B2 option 3, never as an entry: with T_SECOND_LEDGER set, WIN_B2 stays the root', async () => {
   const { content, state, tree } = await setup('r5-c-post');
   state.flags.set('T_SECOND_LEDGER', true);
-  assert.equal(content.dialogue.get(tree)?.nodes.WIN_B3, undefined, 'WIN_B3 is not extracted in this slice');
+  assert.ok(content.dialogue.get(tree)?.nodes.WIN_B3, 'WIN_B3 is extracted (errata 181)');
+  assert.ok(!(content.dialogue.get(tree)?.entries ?? []).some((entry) => entry.node === 'WIN_B3'), 'no entry opens it, so the assay row cannot be stranded');
   state.dialogue.start(tree);
   assert.equal(state.dialogue.positionSnapshot().node, 'WIN_B2');
 });
