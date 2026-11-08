@@ -1,5 +1,5 @@
 /**
- * TALK TO ON A PERSON WITH NO TREE (errata 190; reference/ozymandia-prosperity/talk-to-brief.md, Tyler's C).
+ * TALK TO ON A PERSON WITH NO TREE (errata 192; reference/ozymandia-prosperity/talk-to-brief.md, Tyler's C).
  *
  * In Act IV after the void the medium stands at the claim with no tree. TALK TO walks the hero to her stand first, then he
  * says doc 54's line for the selection -- the first, the second, the third and after -- and she answers each time

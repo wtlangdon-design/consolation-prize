@@ -1,5 +1,5 @@
 /**
- * A PROP MOVED IN A ROOM FILE IS MOVED WHERE THE ROOM IS COMPILED FROM (errata 190).
+ * A PROP MOVED IN A ROOM FILE IS MOVED WHERE THE ROOM IS COMPILED FROM (errata 192).
  *
  * Room files are compiled from their annotation (`tools/compile-room.mjs NN --write`). A prop placed by hand in the
  * room file alone is put back at its old place by the next compile, silently: Room 23's stake was, every time.

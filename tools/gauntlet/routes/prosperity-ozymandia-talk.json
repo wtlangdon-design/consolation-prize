@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "prosperity",
- "note": "ERRATA 190: TALK TO Ozymandia at Prosperity in Act IV after the void (fixture r34-b, up the rope). He walks to her stand, says doc 54's line for the selection, and she answers with her bark; four times, so the third line is seen to hold.",
+ "note": "ERRATA 192: TALK TO Ozymandia at Prosperity in Act IV after the void (fixture r34-b, up the rope). He walks to her stand, says doc 54's line for the selection, and she answers with her bark; four times, so the third line is seen to hold.",
  "actions": [
   {
    "do": "capture",

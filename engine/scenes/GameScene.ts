@@ -245,7 +245,7 @@ export class GameScene extends Phaser.Scene {
   private musicFinishing = false;
   /** Lines still to come in a multi-speaker response, in order. */
   private pendingSay: QueuedLine[] = [];
-  /** A person's lines staged for a walk-up, and who answers after them (core/PersonLines.ts; errata 190). */
+  /** A person's lines staged for a walk-up, and who answers after them (core/PersonLines.ts; errata 192). */
   private personTarget: ReturnType<typeof personLines> = null;
   /** The frames an acted direction holds while it plays from the queue (doc 95; errata 141). */
   private queuedPoses: HeldPose[] | null = null;
@@ -1500,7 +1500,7 @@ export class GameScene extends Phaser.Scene {
     // any verb, and TALK TO too for a person with no tree to open. Only a
     // rule whose condition holds answers; otherwise the person's own layer
     // and the people pool below, as before.
-    // Errata 190: he walks to where a conversation with her stands first, and a person with no tree answers
+    // Errata 192: he walks to where a conversation with her stands first, and a person with no tree answers
     // TALK TO with her bark (core/PersonLines.ts).
     const personal = npc && chosen !== null
       ? personLines(this.state.room, npc, chosen, (when) => this.state.flags.test(when), this.ambient.hitBox(npc),
@@ -1829,7 +1829,7 @@ export class GameScene extends Phaser.Scene {
         ? { speaker: who, line } : { speaker: line.speaker, line: line.line, ...(line.overBlack ? { overBlack: true } : {}),
           ...(line.direction ? { direction: true } : {}) })));
     }
-    // SHE ANSWERS, AFTER HIS LINE, EVERY TIME (errata 190): her bark, in her voice, over her head.
+    // SHE ANSWERS, AFTER HIS LINE, EVERY TIME (errata 192): her bark, in her voice, over her head.
     if (this.personTarget?.target.id === target.id) {
       if (result.say) this.pendingSay.push(...this.personTarget.answer);
       this.personTarget = null;
@@ -2199,7 +2199,7 @@ export class GameScene extends Phaser.Scene {
    */
   private saySequenceStep(step: Extract<SequenceStep, { kind: 'say' }>): number {
     if (step.interact) {
-      // A PERSON'S LINES ARE NOT ONE OF THE ROOM'S HOTSPOTS (errata 190): the target staged for her is kept here.
+      // A PERSON'S LINES ARE NOT ONE OF THE ROOM'S HOTSPOTS (errata 192): the target staged for her is kept here.
       const target = this.personTarget?.target.id === step.interact.target
         ? this.personTarget.target : this.state.findTarget(step.interact.target);
       if (target) this.applyInteraction(target, step.interact.verb);

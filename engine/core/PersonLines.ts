@@ -4,7 +4,7 @@ import type { AmbientFile, Interactable, ResponseRule, RoomFile } from './types.
 export interface Answer { speaker: string; line: string }
 
 /**
- * THE ROOM'S LINES FOR A PERSON, AS A THING HE WALKS UP TO AND IS ANSWERED BY (errata 190).
+ * THE ROOM'S LINES FOR A PERSON, AS A THING HE WALKS UP TO AND IS ANSWERED BY (errata 192).
  *
  * Doc 54's per-room overrides for a person -- any verb, and TALK TO too for a person with no tree to open --
  * resolve as an object's lines do: `say` the first time, each `repeat` in order after, the last holding (the

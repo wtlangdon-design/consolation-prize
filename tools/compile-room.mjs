@@ -1572,7 +1572,7 @@ if (MERGED) {
       const parsed = /^([A-Z_]+)(?:\s*\((.+)\))?$/.exec(key);
       if (!parsed) fail(`unreadable people override "${key}" for "${name}"`);
       const [, verb, qualifier] = parsed;
-      // A REPEAT, NOT A CONDITION (errata 190). Doc 54 writes a person's TALK TO "(second time)" and "(third time
+      // A REPEAT, NOT A CONDITION (errata 192). Doc 54 writes a person's TALK TO "(second time)" and "(third time
       // and after)": selection counts, which an object's `say` and `repeat` already are -- the first line, then each
       // repeat in order, the last holding. So they join the verb's unconditioned rule as its `repeat`, in the order
       // written, rather than asking `peopleWhen` for a flag nobody sets.
