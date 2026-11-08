@@ -137,7 +137,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "Glasses. Talk. The story in the corner is on its fifth telling, and the bear has a name now."
 
 **THE MIRROR**
-> **LOOK:** "I look like a man who has recently been robbed and is being brave about it."
+> **LOOK:** "I look like a man about to make his fortune. The mirror's seen a great many of those, and it's still here."
 > **LISTEN:** "Quiet. Mirrors never say anything. It's the only restraint they show."
 
 **THE STAIRS** · **THE FADED PORTRAIT** · **THE SPITTOON** · **THE STOVE** · **THE WINDOW** · **THE PATRONS** — *(full lines in doc 16, which completes this room; the spittoon's LISTEN line is "Regrettably, yes.")*
@@ -364,7 +364,7 @@ The only prose line in the entire room, on the correct spot:
 *Act I onward. Eight hotspots. Scripted in the W3 volume pass (doc 47); calibrated against the twelve above.*
 
 **THE REGISTER**
-> **LOOK:** "There I am. 'Thadeus Grub.' The hotel has removed exactly the letters it considers extravagant."
+> **LOOK:** "There I am. 'Thaddeus Grubbe.' The hotel has added exactly the letter it felt I was missing."
 > **LISTEN:** "Pages settling. Mine has already been turned."
 
 **THE CLERK'S BELL**
@@ -676,7 +676,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "A ring, faint, like a bell that regrets being one."
 
 **THE MAP OF HOLDINGS**
-> **LOOK:** "The district again, but coloured: what the Company owns is green, and the map is mostly green. My claim is a small white apology near the edge."
+> **LOOK:** "The district again, but coloured: what the Company owns is green, and the map is mostly green. The white bits are what's left for the rest of us, and they look apologetic about it."
 > **LISTEN:** "Nothing. The green does not need to say anything."
 
 ---

@@ -195,17 +195,17 @@
       "responses": {
         "WALK_TO": [
           {
-            "say": "Forty feet of ground, somewhere up one of these. The deed says 'from the stake, thereabouts', and the whole hillside is stakes."
+            "say": "Claims up every one of these paths, and the whole hillside is stakes. A man would need a map to find anything up there, and a good one."
           }
         ],
         "USE": [
           {
-            "say": "Forty feet of ground, somewhere up one of these. The deed says 'from the stake, thereabouts', and the whole hillside is stakes."
+            "say": "Claims up every one of these paths, and the whole hillside is stakes. A man would need a map to find anything up there, and a good one."
           }
         ],
         "OPEN": [
           {
-            "say": "Forty feet of ground, somewhere up one of these. The deed says 'from the stake, thereabouts', and the whole hillside is stakes."
+            "say": "Claims up every one of these paths, and the whole hillside is stakes. A man would need a map to find anything up there, and a good one."
           }
         ]
       },

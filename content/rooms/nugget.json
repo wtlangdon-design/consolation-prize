@@ -596,10 +596,13 @@
             "say": "I look like a man who knows something the whole room doesn't. It's not a good look on me. I'm keeping it."
           },
           {
-            "say": "I look like a man who has recently been robbed and is being brave about it.",
+            "say": "I look like a man about to make his fortune.",
             "repeat": [
               "Still me. I'd hoped for some improvement. The coat is doing its best.",
               "Give it a few weeks and I'll look like I belong here. That was never the plan."
+            ],
+            "then": [
+              "The mirror's seen a great many of those, and it's still here."
             ]
           }
         ],
