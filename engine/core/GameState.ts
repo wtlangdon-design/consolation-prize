@@ -252,6 +252,7 @@ export class GameState {
         for (const item of items) if (!this.inventory.includes(item)) this.inventory.push(item);
       },
     } : undefined);
+    this.dialogue.exitPool = content.exitPool ?? [];
     // A PLAYTEST FIXTURE SAVES UNDER ITS OWN KEY, so a review session's
     // autosaves never overwrite the player's real game.
     this.saves = saveKey ? new SaveManager(storage, saveKey) : new SaveManager(storage);

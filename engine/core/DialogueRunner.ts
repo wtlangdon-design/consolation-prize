@@ -245,6 +245,9 @@ export class DialogueExchange {
  * exactly as it found it: this class moved WHEN the repeat line is chosen,
  * never WHICH one.
  */
+/** Errata 167: how many universal exits have been taken, which picks the next one's wording. */
+const EXIT_TURN = 'EXIT_TURN';
+
 export class DialogueRunner {
   private readonly trees: Map<string, DialogueFile>;
   /** treeId -> `${nodeId}:${optionId}` -> committed selection count. */
@@ -285,6 +288,19 @@ export class DialogueRunner {
     // names a puzzle (`after: "C5"`); the game state answers from its puzzle
     // progress, and a runner built without one answers no and keeps nothing.
     this.milestones = milestones ?? { reached: () => false, set: () => {} };
+  }
+
+  /**
+   * DOC 04'S UNIVERSAL EXITS ROTATE (errata 167; Tyler, 2026-11-07: "'I've taken enough of your time. I'll take
+   * more later.' shouldn't be used multiple times"). Doc 04: a "rotating pool available at every node". Each node
+   * had one line dealt to it at extraction and said it every visit. A universal exit now reads the pool's line at
+   * EXIT_TURN, and taking one moves the count on. Empty: every option shows its own text, as before.
+   */
+  exitPool: readonly string[] = [];
+
+  private exitWording(): string | null {
+    if (!this.exitPool.length || !this.flags.isDefined(EXIT_TURN)) return null;
+    return this.exitPool[this.flags.getNumber(EXIT_TURN) % this.exitPool.length] ?? null;
   }
 
   private milestoneReached(id: string): boolean {
@@ -542,6 +558,7 @@ export class DialogueRunner {
 
   /** The option's wording right now: its `rephrase` text once that milestone is reached. */
   private wordingOf(option: DialogueOption): string {
+    if (option.universal) return this.exitWording() ?? option.text;
     if (option.afterUse === 'rephrase' && option.rephrase && this.milestoneReached(option.rephrase.after)) {
       return option.rephrase.text;
     }
@@ -691,6 +708,7 @@ export class DialogueRunner {
       { id: `${prefix}#taken`, kind: 'dialogueTaken', tree: treeId, node: nodeId, option: option.id },
       ...flagEffects(prefix, option.set, option.add),
       ...(closingAdd ? flagEffects(`${prefix}#closing`, undefined, closingAdd) : []),
+      ...(option.universal && this.exitWording() !== null ? flagEffects(`${prefix}#exit`, undefined, { [EXIT_TURN]: 1 }) : []),
       // PUZZLE PROGRESS A ROW WRITES (doc 53): reserved with the rest, landed
       // after the exchange drains.
       ...Object.entries(option.puzzle ?? {}).map(([puzzle, status]) => ({

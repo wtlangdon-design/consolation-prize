@@ -5,8 +5,8 @@
  "posture": "standing",
  "note": "Doc 07 #6. Pies of unstated provenance. Best R_DEAD bark in the game.",
  "room": "main_street",
- "x": 2180,
- "y": 724,
+ "x": 2470,
+ "y": 650,
  "zone": 0,
  "approachRadius": 40,
  "tree": "amb_pie_woman",
@@ -90,7 +90,7 @@
   "frameNote": "0 standing with her basket · 1 breath (derived) · 2 holding a pie out · 3 lifting the basket · 4 one hand up, calling out."
  },
  "migrationNote": "ERRATA 54, x6. Was (150, 126) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
- "placeNote": "Forward into the lit mud, clear of the porch line. Was (2210, 657).",
+ "placeNote": "Between the Nugget's two right-hand porch posts, in front of the porch (Tyler, 2026-11-07: \"The pie woman should maybe be closer and between the two far right pillars of the nugget\"). Was (2180, 724), forward of the trough's end, in a line with everyone else on the street.",
  "placements": {
   "main_street_candidate": {
    "x": 2380,
@@ -140,5 +140,9 @@
   }
  },
  "placementsNote": "PHASE 1.5B/1.5D: LEGACY CONTEXT ONLY. On the Main Street candidate her shipping x,y lands inside the trough's footprint; placed on the far mud east of the trough's end, behind the rail, until Phase 2 recasts her. The shipping room's x,y is untouched.",
- "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 6 · THE PIE WOMAN) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109)."
+ "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 6 · THE PIE WOMAN) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109).",
+ "when": {
+  "T_DUEL_CROWD": false
+ },
+ "whenNote": "Away while Duel Three's crowd is in the street (errata 167). Her place between the Nugget's posts is behind the crowd's left-hand group, which would stand over her; she is simply not out while the town watches the duel. T_DUEL_CROWD is set on entering the street (onEnter), so she is never there one moment and gone the next."
 }

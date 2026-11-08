@@ -48,7 +48,7 @@ test('the choice interface draws the options and never the node prompt', async (
     const layout = choiceLines(options, ui);
     assert.equal(layout.lines.length, options.length, `${treeId}: one line per option, nothing above them`);
     for (const [index, line] of layout.lines.entries()) {
-      assert.ok(line.text.endsWith(options[index]!.option.text), `${treeId}: line ${index} is its option's text`);
+      assert.ok(line.text.endsWith(options[index]!.text), `${treeId}: line ${index} is its option's text`);
       if (node.prompt) assert.ok(!line.text.includes(node.prompt), `${treeId}: the prompt "${node.prompt}" is not interface text`);
     }
     // The greeting, where the node has one, is spoken -- and its last line is
