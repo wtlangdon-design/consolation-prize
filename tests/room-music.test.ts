@@ -151,3 +151,27 @@ test('a part joining a bed already playing joins it in time (errata 116)', () =>
   assert.equal(playing('fiddle.wav'), fiddle, 'the fiddle plays on');
   assert.equal(playing('piano-tuned.wav')!.currentTime, 7.25, 'the tuned piano starts where the fiddle is, not at 0');
 });
+
+test('a refused play is retried by the next click, never filed as a missing file (Tyler\'s Chromebook)', async () => {
+  // The title's bed did not play on the begin click on a real Chromebook and never came back, while the next
+  // room's bed played: a refused or interrupted play() filed the file as missing for the life of the page.
+  FakeAudio.made = [];
+  let refuse = true;
+  class Refusing extends FakeAudio {
+    play(): Promise<void> {
+      if (refuse) { this.paused = true; return Promise.reject(Object.assign(new Error('refused'), { name: 'NotAllowedError' })); }
+      return super.play();
+    }
+  }
+  Object.assign(globalThis, { Audio: Refusing, requestAnimationFrame: () => 0 });
+  const music = new Music(() => true);
+  music.play({ src: 'title.wav' });
+  assert.ok(FakeAudio.made.some((a) => a.src === 'title.wav'), 'the wanted bed is fetched before the click that unlocks sound');
+  music.unlock();
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(music.bed, null, 'the refused bed is silent');
+  refuse = false;
+  music.unlock();
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(music.bed, 'title.wav', 'the next click plays it');
+});

@@ -100,3 +100,29 @@ test('every star that flickers is a star in the sky, not empty night', async () 
     assert.ok(brightest > 150, `(${x}, ${y}) flickers over a star: its red peaks at ${brightest}`);
   }
 });
+
+test('the stars hold a beat before the first voice, and the voices sit in the sky\'s middle (Tyler, 2026-11-07)', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const opening = JSON.parse(await readFile(new URL('../content/sequences/opening.json', import.meta.url), 'utf8')) as
+    { beats: { beat: string | number; staging?: { do: string; seconds?: number }[] }[] };
+  const stars = opening.beats.find((beat) => beat.beat === '1b')!;
+  const before = stars.staging!.slice(0, stars.staging!.findIndex((step) => step.do === 'say'));
+  const held = before.filter((step) => step.do === 'wait').reduce((sum, step) => sum + (step.seconds ?? 0), 0);
+  assert.ok(held >= 4, 'the sky holds ' + held + ' s before the first line; it read as popping up at once');
+  const { skySpeechAnchor, starLight } = await import('../engine/render/Renderer.ts');
+  const at = skySpeechAnchor(60);
+  assert.ok(at.y > 864 * 0.25 && at.y < 864 * 0.5, 'the voices sit at y ' + at.y + ', not at the very top');
+  // Every star visibly breathes, and most flare at least once in ten seconds.
+  let flaring = 0;
+  for (let index = 0; index < 12; index += 1) {
+    let low = 1, high = 0, flared = false;
+    for (let t = 0; t < 10; t += 0.05) {
+      const { twinkle, flare } = starLight(t, index);
+      low = Math.min(low, twinkle); high = Math.max(high, twinkle);
+      if (flare > 0.3) flared = true;
+    }
+    assert.ok(high - low > 0.5, 'star ' + index + ' barely changes: it does not twinkle');
+    if (flared) flaring += 1;
+  }
+  assert.ok(flaring >= 8, 'only ' + flaring + ' of 12 stars flare in ten seconds');
+});
