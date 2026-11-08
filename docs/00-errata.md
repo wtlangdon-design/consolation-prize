@@ -4795,3 +4795,12 @@ Doc 100's step 4 section records it.
   - the stool "announces her", not him.
 - **`tests/continuity.test.ts` holds it.** Her two rooms may not give her the strike's twelve years, and her furniture may not announce a man.
 
+# 177 · ACT III, READ TO DOC 99 — TYLER, 2026-11-08 ("Proceed with act 3")
+
+Doc 102 records it.
+
+- **The fourth writing exception (errata 171) now covers Act III.** Untouched: Hob, Room 32 (invariant 2), HOB_C1 option 4 (invariant 7), the archive and the confession.
+- **Act III has an opening (doc 57 E0b).** The morning after Fanshawe's offer the game cuts to Main Street, and Thad names the blank page, Fanshawe's price for keeping it blank, and Sump's sealed door. E0b's FAN_C1 option 1 writes `T_ACT_III_OPENING` beside `ACT` = 3, and `GameState.openAct` clears it. `tests/act-openings.test.ts` now holds Acts II, III and IV.
+- **Every `[COMIC]` row left on an Act III menu answers differently when asked again:** Sump's two, the undertaker's and Sowerby's.
+- **The funeral's "eleven weeks" becomes "less than a month"** (doc 02 D: nine days by Act II's ninety-day rule). `tests/continuity.test.ts` fails on any shipped room line that puts him in town for weeks.
+

@@ -407,7 +407,13 @@
           "tag": "COMIC",
           "text": "Is dying difficult here?",
           "afterUse": "retain",
-          "say": "It is the only thing in Consolation that requires no form in advance. Afterward there are several."
+          "say": "It is the only thing in Consolation that requires no form in advance. Afterward there are several.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "No form in advance. I have checked again. I find it a serious gap."
+            }
+          ]
         },
         {
           "id": "sumpx",
@@ -448,7 +454,13 @@
           "tag": "COMIC",
           "text": "Is there a form for this?",
           "afterUse": "retain",
-          "say": "Form 31-D. Notice of Decease, Self-Reported. Nobody has used it before. It was printed in hope."
+          "say": "Form 31-D. Notice of Decease, Self-Reported. Nobody has used it before. It was printed in hope.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "31-D. You are the first. I have made a note of it for the next printing."
+            }
+          ]
         },
         {
           "id": "sumpx",
