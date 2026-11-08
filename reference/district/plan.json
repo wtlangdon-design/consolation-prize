@@ -1,0 +1,779 @@
+{
+ "schema": 1,
+ "note": "Errata 163 A8: the whole district, laid out by the builder from the game's plates and docs (Tyler, 2026-11-07: \"Feel free to create a completely new map if you need to where everything on the whole map should be located. Paths, mountains, places, buildings, etc.\"). Coordinates are the map's 1920 x 864 pixels, north up, the map's view from the south and a little above. tools/art/district-blockout.py paints it; the image session dresses the painting; content/rooms/town-map.json's markers and roads are read from here, so they land where the drawing does.",
+ "reading": {
+  "valley": "Every exterior plate shows the town in a valley ringed by mountains (Room 1, 2, 22, 29).",
+  "pass": "Room 1: the coach stop is on a mountain road above the town's lamps, which lie below and to the left (south-west). The road comes down from a pass; Thad walks down into the town's east end (Room 2's stage_road arrival).",
+  "main_street": "Room 2: an open square of mud; a row of fronts along its north side facing south, and the Nugget (the grandest), the hotel and the assay office down its east side facing west, the two arms of the L about equal (Tyler). The road out leaves past the assay office, north-east. The alley at the west end leads to the Lane.",
+  "the_lane": "Room 44: behind Main Street's row, from its west-end alley, five shopfronts facing it (undertaker's, photographer's, Ozymandia's tent, barber's, empty storefront); through to Lower Street at its far end.",
+  "lower_street": "Room 43: east of Main Street up the road: the Registrar's, the back-alley mouth, the church with its belfry and the bell on its post, the passage to the Lane, the livery with its corral; its east end is the road out of town and the coach road's foot. It runs east of the square's east arm, up the road from the square's south-east corner.",
+  "back_alley": "Room 20: behind Lower Street's west end, crates, barrels, a rain barrel; the watchman's shack at its far end (Room 21).",
+  "claims_road": "Room 22: across the creek's bridge, a signpost junction; the town in the valley to the west, the road climbing east into the hills.",
+  "boot_hill": "Room 14: a fenced graveyard on a hill, the town's lights below to the south-west.",
+  "diggings": "Prosperity (23) is a hill with a hole; Pratt's claim (25) is next door, a cabin and a sluice; the creek and sluice (26); the abandoned claim row (27), stakes along a gulch; Sheng's laundry (28) by the water; the high ridge (29), a cairn high above town and diggings; Mott's site (30) far out, pocked ground and a windlass, the town just visible."
+ },
+ "mountains": {
+  "north": [
+   [
+    0,
+    0
+   ],
+   [
+    1920,
+    0
+   ],
+   [
+    1920,
+    120
+   ],
+   [
+    1720,
+    150
+   ],
+   [
+    1500,
+    110
+   ],
+   [
+    1240,
+    140
+   ],
+   [
+    1040,
+    170
+   ],
+   [
+    990,
+    120
+   ],
+   [
+    930,
+    175
+   ],
+   [
+    700,
+    150
+   ],
+   [
+    480,
+    160
+   ],
+   [
+    260,
+    140
+   ],
+   [
+    0,
+    170
+   ]
+  ],
+  "west": [
+   [
+    0,
+    0
+   ],
+   [
+    150,
+    0
+   ],
+   [
+    190,
+    260
+   ],
+   [
+    140,
+    520
+   ],
+   [
+    170,
+    700
+   ],
+   [
+    110,
+    864
+   ],
+   [
+    0,
+    864
+   ]
+  ],
+  "east": [
+   [
+    1920,
+    0
+   ],
+   [
+    1920,
+    560
+   ],
+   [
+    1840,
+    470
+   ],
+   [
+    1800,
+    300
+   ],
+   [
+    1850,
+    140
+   ]
+  ],
+  "south_hills": [
+   [
+    0,
+    800
+   ],
+   [
+    400,
+    770
+   ],
+   [
+    800,
+    800
+   ],
+   [
+    1200,
+    780
+   ],
+   [
+    1600,
+    810
+   ],
+   [
+    1920,
+    790
+   ],
+   [
+    1920,
+    864
+   ],
+   [
+    0,
+    864
+   ]
+  ],
+  "pass": [
+   960,
+   120
+  ]
+ },
+ "creek": [
+  [
+   1180,
+   0
+  ],
+  [
+   1160,
+   160
+  ],
+  [
+   1185,
+   300
+  ],
+  [
+   1150,
+   420
+  ],
+  [
+   1175,
+   520
+  ],
+  [
+   1260,
+   600
+  ],
+  [
+   1400,
+   640
+  ],
+  [
+   1560,
+   590
+  ],
+  [
+   1700,
+   640
+  ],
+  [
+   1920,
+   660
+  ]
+ ],
+ "roads": {
+  "coach": [
+   [
+    960,
+    120
+   ],
+   [
+    930,
+    160
+   ],
+   [
+    1000,
+    200
+   ],
+   [
+    950,
+    240
+   ],
+   [
+    1020,
+    290
+   ],
+   [
+    1080,
+    350
+   ],
+   [
+    1100,
+    420
+   ]
+  ],
+  "lower_street": [
+   [
+    800,
+    420
+   ],
+   [
+    1100,
+    420
+   ]
+  ],
+  "main_to_lower": [
+   [
+    690,
+    560
+   ],
+   [
+    780,
+    545
+   ],
+   [
+    800,
+    420
+   ]
+  ],
+  "out_of_town": [
+   [
+    1100,
+    420
+   ],
+   [
+    1160,
+    430
+   ],
+   [
+    1240,
+    440
+   ]
+  ],
+  "lane": [
+   [
+    290,
+    560
+   ],
+   [
+    290,
+    300
+   ],
+   [
+    968,
+    300
+   ],
+   [
+    968,
+    420
+   ]
+  ],
+  "back_alley": [
+   [
+    872,
+    420
+   ],
+   [
+    872,
+    340
+   ],
+   [
+    900,
+    318
+   ]
+  ],
+  "boot_hill": [
+   [
+    1240,
+    440
+   ],
+   [
+    1270,
+    360
+   ],
+   [
+    1330,
+    280
+   ],
+   [
+    1360,
+    200
+   ],
+   [
+    1380,
+    150
+   ]
+  ],
+  "claims": [
+   [
+    1240,
+    440
+   ],
+   [
+    1330,
+    400
+   ],
+   [
+    1440,
+    370
+   ],
+   [
+    1540,
+    330
+   ],
+   [
+    1620,
+    280
+   ]
+  ],
+  "ridge": [
+   [
+    1620,
+    280
+   ],
+   [
+    1680,
+    220
+   ],
+   [
+    1720,
+    160
+   ]
+  ],
+  "creek_road": [
+   [
+    1240,
+    440
+   ],
+   [
+    1300,
+    520
+   ],
+   [
+    1400,
+    600
+   ],
+   [
+    1540,
+    580
+   ]
+  ],
+  "motts": [
+   [
+    1300,
+    520
+   ],
+   [
+    1420,
+    680
+   ],
+   [
+    1560,
+    740
+   ],
+   [
+    1700,
+    750
+   ]
+  ],
+  "houses": [
+   [
+    420,
+    560
+   ],
+   [
+    420,
+    640
+   ]
+  ]
+ },
+ "town": {
+  "square": [
+   300,
+   400,
+   342,
+   160
+  ],
+  "trough": [
+   420,
+   500,
+   50,
+   12
+  ],
+  "row_south_facing": [
+   [
+    310,
+    330,
+    50,
+    70
+   ],
+   [
+    364,
+    316,
+    62,
+    84
+   ],
+   [
+    430,
+    324,
+    54,
+    76
+   ],
+   [
+    488,
+    328,
+    50,
+    72
+   ],
+   [
+    542,
+    332,
+    46,
+    68
+   ],
+   [
+    592,
+    330,
+    48,
+    70
+   ]
+  ],
+  "arm_west_facing": [
+   [
+    "nugget",
+    642,
+    330,
+    110,
+    104
+   ],
+   [
+    "hotel",
+    652,
+    440,
+    96,
+    66
+   ],
+   [
+    "assay",
+    662,
+    512,
+    82,
+    44
+   ]
+  ],
+  "lane_south_facing": [
+   [
+    "undertaker",
+    330,
+    246,
+    56,
+    52
+   ],
+   [
+    "photographer",
+    410,
+    248,
+    56,
+    50
+   ],
+   [
+    "tent",
+    490,
+    246,
+    52,
+    52
+   ],
+   [
+    "barber",
+    566,
+    250,
+    52,
+    48
+   ],
+   [
+    "storefront",
+    640,
+    248,
+    58,
+    50
+   ]
+  ],
+  "lower_south_facing": [
+   [
+    "registrar",
+    808,
+    356,
+    56,
+    62
+   ],
+   [
+    "church",
+    890,
+    330,
+    62,
+    90
+   ],
+   [
+    "livery",
+    984,
+    350,
+    84,
+    68
+   ]
+  ],
+  "bell_post": [
+   958,
+   392
+  ],
+  "corral": [
+   1072,
+   372,
+   46,
+   40
+  ],
+  "back_alley_crates": [
+   [
+    880,
+    330,
+    22,
+    16
+   ],
+   [
+    905,
+    326,
+    18,
+    14
+   ]
+  ],
+  "watchmans_shack": [
+   920,
+   306,
+   34,
+   28
+  ],
+  "houses": [
+   [
+    "boarding_house",
+    320,
+    600,
+    70,
+    50
+   ],
+   [
+    "bakehouse",
+    430,
+    612,
+    54,
+    44
+   ],
+   [
+    "schoolhouse",
+    510,
+    606,
+    60,
+    50
+   ]
+  ]
+ },
+ "coach_stop": [
+  1030,
+  180,
+  70,
+  40
+ ],
+ "places": {
+  "boot_hill": {
+   "fence": [
+    1330,
+    100,
+    110,
+    70
+   ]
+  },
+  "claims_road": {
+   "signpost": [
+    1240,
+    440
+   ]
+  },
+  "prosperity": {
+   "hill": [
+    1330,
+    330,
+    90,
+    60
+   ],
+   "hole": [
+    1370,
+    345
+   ]
+  },
+  "pratts_claim": {
+   "cabin": [
+    1450,
+    330,
+    44,
+    34
+   ],
+   "sluice": [
+    [
+     1500,
+     360
+    ],
+    [
+     1550,
+     380
+    ]
+   ]
+  },
+  "claim_row": {
+   "stakes": [
+    [
+     1580,
+     250
+    ],
+    [
+     1600,
+     245
+    ],
+    [
+     1620,
+     242
+    ],
+    [
+     1640,
+     240
+    ],
+    [
+     1660,
+     238
+    ],
+    [
+     1680,
+     236
+    ]
+   ]
+  },
+  "laundry": {
+   "building": [
+    1430,
+    600,
+    56,
+    40
+   ],
+   "lines": [
+    [
+     1490,
+     600
+    ],
+    [
+     1520,
+     600
+    ]
+   ]
+  },
+  "creek": {
+   "sluice": [
+    [
+     1540,
+     575
+    ],
+    [
+     1600,
+     590
+    ]
+   ]
+  },
+  "high_ridge": {
+   "cairn": [
+    1720,
+    140
+   ]
+  },
+  "motts_site": {
+   "field": [
+    1650,
+    720,
+    120,
+    60
+   ],
+   "windlass": [
+    1710,
+    735
+   ]
+  }
+ },
+ "markers": {
+  "loc_main_street": [
+   490,
+   476
+  ],
+  "loc_claims_road": [
+   1236,
+   432
+  ],
+  "loc_prosperity": [
+   1366,
+   360
+  ],
+  "loc_pratts_claim": [
+   1466,
+   352
+  ],
+  "loc_creek": [
+   1566,
+   580
+  ],
+  "loc_claim_row": [
+   1626,
+   252
+  ],
+  "loc_laundry": [
+   1452,
+   606
+  ],
+  "loc_high_ridge": [
+   1714,
+   150
+  ],
+  "loc_motts_site": [
+   1704,
+   740
+  ],
+  "loc_boot_hill": [
+   1380,
+   128
+  ],
+  "loc_boarding_house": [
+   350,
+   618
+  ],
+  "loc_bakehouse": [
+   452,
+   628
+  ],
+  "loc_schoolhouse": [
+   536,
+   624
+  ]
+ }
+}

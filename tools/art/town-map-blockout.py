@@ -34,8 +34,11 @@ ROOF, ROOF_LIT, WALL, FRONT, PORCH, WINDOW, LINE = (20, 32, 52), (34, 48, 72), (
 # building as seen from the map's angle; `faces` is the side its front and porch are on.
 ROW_BOTTOM = 458                # the long row: fronts face south onto the square, bottoms on the square's edge
 ROW = [  # west to east, x, width, height: the mercantile (one storey, low), the Improvement Company (the biggest
-    # in the row), the Clarion, and the fronts between, as Room 2's plate has them
-    (222, 54, 80), (280, 64, 104), (348, 56, 96), (408, 58, 90), (470, 52, 86), (526, 56, 94), (586, 46, 84),
+    # in the row), the Clarion, and the fronts between, as Room 2's plate has them. The row starts east of the
+    # square's west edge so the L's two arms come out about equal (Tyler, 2026-11-07: "I think it's a pretty equal
+    # shaped L on both sides of the L in the game"): the map's view foreshortens north-south, so the east arm's
+    # ~225 px down reads about as long as this row's ~320 px across. The square runs open past the row's west end.
+    (312, 50, 80), (366, 62, 104), (432, 54, 96), (490, 48, 90), (542, 46, 86), (592, 42, 90),
 ]
 ARM = [  # down the square's east side, facing west: the Nugget (largest, at the corner), the hotel, the assay office
     ('nugget', 640, 352, 110, 110),
