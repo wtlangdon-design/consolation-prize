@@ -564,5 +564,21 @@
  "bases": {
   "posted_notices": 628
  },
- "basesNote": "Where a hotspot's thing stands on the floor, when that is below its rect: the posted notices' board is the rect and its posts reach y 628. The compiler puts the approach point in front of this row, not the rect's (errata 167)."
+ "basesNote": "Where a hotspot's thing stands on the floor, when that is below its rect: the posted notices' board is the rect and its posts reach y 628. The compiler puts the approach point in front of this row, not the rect's (errata 167).",
+ "onEnterScenes": [
+  {
+   "fromRef": "docs/57-puzzle-completion.md::## C3 · Manufacture a funeral",
+   "bullet": "Main Street",
+   "when": {
+    "T_FUNERAL_DAY": true,
+    "T_FUNERAL_STREET_SAID": false
+   },
+   "after": {
+    "set": {
+     "T_FUNERAL_STREET_SAID": true
+    }
+   },
+   "note": "Errata 189: doc 57 C3's funeral day, 'Main Street, first entry that day'. Four of the street's townspeople are up the hill that day (their files' `when`); Boot Hill's line ends the day and clears T_FUNERAL_STREET_SAID with it."
+  }
+ ]
 }

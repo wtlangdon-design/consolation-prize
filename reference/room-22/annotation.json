@@ -174,7 +174,6 @@
    "id": "to_prosperity",
    "to": "prosperity",
    "defaultVerb": "WALK_TO",
-   "stub": true,
    "holding": {
     "company_map": true
    },
@@ -185,7 +184,8 @@
     "fromRef": "docs/57-puzzle-completion.md::## A4 ",
     "line": "> **Room 22's way up to the claims**"
    },
-   "note": "Doc 57 A4: 'Room 22 offers the way to it, only while Thad holds the map.' With the map, the way up to Prosperity (Room 23); without it, doc 57's line (errata 95 F, 96 C)."
+   "note": "Doc 57 A4: 'Room 22 offers the way to it, only while Thad holds the map.' With the map, the way up to Prosperity (Room 23); without it, doc 57's line (errata 95 F, 96 C). Errata 189: its LOOK and LISTEN are doc 106's (linesFrom), and it is no longer a stub.",
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 22 · THE ROAD TO THE CLAIMS"
   }
  },
  "exits": {

@@ -166,50 +166,50 @@
    "id": "to_main_street",
    "to": "main_street",
    "defaultVerb": "WALK_TO",
-   "stub": true,
-   "note": "Errata 43: west, back along the receding road to Main Street's east end."
+   "note": "Errata 43: west, back along the receding road to Main Street's east end.",
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 43 · LOWER STREET"
   },
   "THE REGISTRAR'S DOOR": {
    "id": "to_claims_registrar",
    "to": "claims_registrar",
    "defaultVerb": "WALK_TO",
-   "stub": true,
-   "note": "Errata 43: the Claims Registrar opens off Lower Street."
+   "note": "Errata 43: the Claims Registrar opens off Lower Street.",
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 43 · LOWER STREET"
   },
   "THE ALLEY": {
    "id": "to_back_alley",
    "to": "back_alley",
    "defaultVerb": "WALK_TO",
-   "stub": true,
-   "note": "Errata 43: Room 20, the back alley, opens off Lower Street."
+   "note": "Errata 43: Room 20, the back alley, opens off Lower Street.",
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 43 · LOWER STREET"
   },
   "THE CHURCH DOORS": {
    "id": "to_church",
    "to": "church",
    "defaultVerb": "WALK_TO",
-   "stub": true,
-   "note": "Errata 43: the church and meeting hall."
+   "note": "Errata 43: the church and meeting hall.",
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 43 · LOWER STREET"
   },
   "THE PASSAGE TO THE LANE": {
    "id": "to_the_lane",
    "to": "the_lane",
    "defaultVerb": "WALK_TO",
-   "stub": true,
-   "note": "Errata 43: the Lane connects through to Lower Street at its far end."
+   "note": "Errata 43: the Lane connects through to Lower Street at its far end.",
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 43 · LOWER STREET"
   },
   "THE LIVERY DOORS": {
    "id": "to_livery",
    "to": "livery",
    "defaultVerb": "WALK_TO",
-   "stub": true,
-   "note": "Errata 43: the livery stable."
+   "note": "Errata 43: the livery stable.",
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 43 · LOWER STREET"
   },
   "THE ROAD OUT OF TOWN": {
    "id": "to_claims_road",
    "to": "claims_road",
    "defaultVerb": "WALK_TO",
-   "stub": true,
-   "note": "Errata 161: the road out to the claims, which Main Street's east road was before."
+   "note": "Errata 161: the road out to the claims, which Main Street's east road was before.",
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 43 · LOWER STREET"
   }
  },
  "exits": {

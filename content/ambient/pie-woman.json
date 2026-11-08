@@ -142,7 +142,8 @@
  "placementsNote": "PHASE 1.5B/1.5D: LEGACY CONTEXT ONLY. On the Main Street candidate her shipping x,y lands inside the trough's footprint; placed on the far mud east of the trough's end, behind the rail, until Phase 2 recasts her. The shipping room's x,y is untouched.",
  "barksNote": "EXTRACTED from docs/07-ambient-layer.md (## 6 · THE PIE WOMAN) by tools/extract-content.mjs. Do not edit: change doc 07 and re-run. Directions are dropped, emphasis is plain, and an exchange with Thad is its first line (errata 109).",
  "when": {
-  "T_DUEL_CROWD": false
+  "T_DUEL_CROWD": false,
+  "T_FUNERAL_DAY": false
  },
- "whenNote": "Away while Duel Three's crowd is in the street (errata 167). Her place between the Nugget's posts is behind the crowd's left-hand group, which would stand over her; she is simply not out while the town watches the duel. T_DUEL_CROWD is set on entering the street (onEnter), so she is never there one moment and gone the next."
+ "whenNote": "Away while Duel Three's crowd is in the street (errata 167). Her place between the Nugget's posts is behind the crowd's left-hand group, which would stand over her; she is simply not out while the town watches the duel. T_DUEL_CROWD is set on entering the street (onEnter), so she is never there one moment and gone the next. Errata 189: up the hill on the funeral day (doc 57 C3: 'The street is half empty. Everyone in town who owns a black coat is up the hill.'). Four of Main Street's eight townspeople go -- the boundary men, the letter-writer and the pie woman; the map seller, the man leaving tomorrow, the message boy and the dog's owner stay, each for the reason their one joke gives."
 }

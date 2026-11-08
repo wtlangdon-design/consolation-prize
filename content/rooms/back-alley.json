@@ -59,10 +59,13 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A cat on a crate, in the one square of sun. It has arranged the alley around itself.",
+            "say": "A cat on a crate, in the one square of lamplight.",
             "repeat": [
               "A cat, in an alley, entirely uninterested in the gold rush.",
-              "She has moved six inches to the left, after the sun. It is the only progress anyone has made in this alley today."
+              "She has moved six inches to the left, for reasons of her own. It is the only progress anyone has made in this alley tonight."
+            ],
+            "then": [
+              "It has arranged the alley around itself."
             ]
           }
         ],
@@ -506,7 +509,6 @@
     {
       "id": "to_main_street",
       "name": "LOWER STREET",
-      "stub": true,
       "rect": [
         150,
         260,
@@ -515,10 +517,30 @@
       ],
       "colour": 0,
       "to": "lower_street",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A gap between two buildings with a lantern hung in it, and Lower Street at the end. It's the alley's one concession to being found.",
+            "repeat": [
+              "The lantern lights the gap and none of the alley. Whoever hung it wanted people to leave.",
+              "Mud all the way through, and wide enough for one man, or two who agree about something."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Lower Street, funneled down the gap: a door, a horse, somebody's opinion.",
+            "repeat": [
+              "The lantern's flame fluttering in the draft the gap makes.",
+              "A dog somewhere on Lower Street, answered by a dog somewhere else."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 161 (errata 43's three streets): the alley opens off Lower Street.",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 20 (errata 189)",
       "walkTo": {
         "x": 200,
         "y": 720,
@@ -528,7 +550,6 @@
     {
       "id": "to_watchmans_shack",
       "name": "THE WATCHMAN'S SHACK",
-      "stub": true,
       "rect": [
         1865,
         560,
@@ -537,10 +558,30 @@
       ],
       "colour": 0,
       "to": "watchmans_shack",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Past the barrels the alley goes on, to a shack at the very end of it.",
+            "repeat": [
+              "Somebody keeps the way to it swept, which in this alley is practically a sign.",
+              "It has the look of a place lived in by one man, very regularly."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing from the shack. Whoever lives there is out, or isn't the kind to make a noise about it.",
+            "repeat": [
+              "The barrels creaking as the night cools them, and past them, nothing.",
+              "My own boots, and then the quiet the shack keeps around itself."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: '20 · Back alley | ... | 21 · watchman's shack' -- the way on, at the alley's far end. NO DOCUMENT WRITES IT a LOOK or LISTEN. A stub exit (doc 36 Q164, errata 94 C).",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 20 (errata 189)",
       "walkTo": {
         "x": 1885,
         "y": 810,

@@ -1381,6 +1381,8 @@ function combinations() {
     };
     return {
       fee: caseOf('THE FILING FEE', 'after OZY_A1 option 1'),
+      // Errata 189: before she has named her price, she does not take it.
+      early: caseOf('THE FILING FEE', 'before OZY_A1 option 1'),
       map: caseOf('THE COMPANY MAP', 'after `T_OZY_PAID`'),
       unpaid: caseOf('THE COMPANY MAP', 'not yet paid'),
     };
@@ -1392,6 +1394,7 @@ function combinations() {
     note: 'Doc 57 A7, step 3: the filing fee becomes a divining fee, once she has named her price (OZY_A1 option 1).',
     rules: [
       { case: 'after OZY_A1 option 1', when: { T_OZY_ASKED: true, T_OZY_PAID: false }, ...spokenBy(a7.fee), takes: ['filing_fee'], set: { T_OZY_PAID: true } },
+      { case: 'before OZY_A1 option 1', when: { T_OZY_ASKED: false }, ...spokenBy(a7.early) },
     ],
   });
   rebuilt.push({
@@ -5159,6 +5162,54 @@ function ozymandiaAtProsperity() {
 }
 
 // ---------------------------------------------------------------------------
+// THE WAYS OUT (errata 189, doc 106). Tyler, 2026-11-08, of forty doors and
+// exits that answered LOOK and LISTEN with the generic line: "Write them all".
+// Doc 106 writes each way as `> **NAME** — LOOK 1 "..." · 2 · 3 | LISTEN 1 ...`
+// under `## ROOM N · ...`. A way the room compiler builds from an examined
+// subject reads the same line through its annotation's `linesFrom`; every other
+// way is written into its room file here, on the exit whose hover name it is.
+// An exit that already has a LOOK of its own is refused: doc 106 only fills
+// silence.
+function waysOut() {
+  const doc = read('docs/106-the-ways-out.md');
+  const manifest = JSON.parse(read('content/manifest.json'));
+  const written = [];
+  for (const section of doc.split(/^(?=## ROOM \d+ · )/m).slice(1)) {
+    const number = /^## ROOM (\d+) · /.exec(section)[1].padStart(2, '0');
+    const roomId = JSON.parse(read(`reference/room-${number}/annotation.json`)).room;
+    const subjects = new Set(Object.keys(JSON.parse(read(`reference/room-${number}/annotation.json`)).exitSubjects ?? {}));
+    const path = manifest.rooms.find((one) => JSON.parse(read(one)).id === roomId);
+    if (!path) throw new Error(`doc 106: room ${number} (${roomId}) is not in the manifest`);
+    const room = JSON.parse(read(path));
+    let touched = false;
+    for (const m of section.matchAll(/^> \*\*(.+?)\*\* — (.+)$/gm)) {
+      const [, name, body] = m;
+      if (subjects.has(name)) continue; // compiled from linesFrom
+      const exits = room.exits.filter((e) => e.name === name);
+      if (!exits.length) throw new Error(`doc 106: room ${number} has no exit named ${name}`);
+      const said = {};
+      for (const half of body.split(' | ')) {
+        const verb = /^LOOK\b/.test(half) ? 'LOOK_AT' : /^LISTEN\b/.test(half) ? 'LISTEN_TO' : null;
+        if (!verb) throw new Error(`doc 106: ${name} has a run that is neither LOOK nor LISTEN`);
+        const lines = [...half.matchAll(/"([^"]+)"/g)].map((q) => q[1]);
+        if (lines.length !== 3) throw new Error(`doc 106: ${name} ${verb} has ${lines.length} lines, not 3`);
+        said[verb] = [{ say: lines[0], repeat: lines.slice(1) }];
+      }
+      for (const exit of exits) {
+        if (exit.responses?.LOOK_AT && !exit.waysOut) throw new Error(`doc 106: ${roomId}'s ${name} already has a LOOK of its own`);
+        exit.responses = { ...(exit.responses ?? {}), ...said };
+        exit.waysOut = `docs/106-the-ways-out.md, ROOM ${Number(number)} (errata 189)`;
+        delete exit.stub;
+      }
+      touched = true;
+    }
+    const raw = read(path);
+    if (touched) written.push(write(path, room, raw.startsWith('{\n  "') ? 2 : 1));
+  }
+  return written;
+}
+
+// ---------------------------------------------------------------------------
 // HOB'S RUNNING LINES (errata 184; errata 71 D: "ambient barks, not the tree.
 // They belong to the ambient layer when Hob is placed in a night room"). Doc 04
 // HOB_A1's **Running:** paragraph, one bark per " · " segment, each segment's
@@ -5487,7 +5538,7 @@ function cutaways() {
 }
 
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), ...room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), hobRunning(), ozymandiaAtProsperity(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), exitPool(), ...townBarks(), ...townTrees(), reputation(), actedDirections(), cutaways()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), hobRunning(), ozymandiaAtProsperity(), sumpTree(), frameTree(), fanshaweTree(), liveryTree(), ozymandiaTree(), sowerbyTree(), raccoonTree(), ...prattTree(), shengTree(), lettersHome(), actCards(), ...actTwoItems(), ...storeItems(), assay(), exitPool(), ...townBarks(), ...townTrees(), reputation(), actedDirections(), cutaways(), ...waysOut()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
   // Doc 58 rule 5: a reply whose spoken lines this pass reads differently is

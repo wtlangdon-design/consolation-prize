@@ -301,11 +301,29 @@
       ],
       "colour": 0,
       "to": "main_street",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The road back up to Main Street, where the lamps are closer together and the mud is better dressed.",
+            "repeat": [
+              "The lights get thicker that way. So does the queue.",
+              "Lower Street is where Main Street keeps the things it needs and doesn't like to look at: the law, the church, the horses, and me."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Main Street, a little way off. The Nugget, mostly.",
+            "repeat": [
+              "Boots on boardwalks up there, and nothing down here but mud being patient.",
+              "A door banging up on Main Street, and the whole street turning to look. I can hear it turning."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: west, back along the receding road to Main Street's east end.",
-      "stub": true,
       "walkTo": {
         "x": 60,
         "y": 790,
@@ -323,11 +341,29 @@
       ],
       "colour": 0,
       "to": "claims_registrar",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The Claims Registrar's, with a light in the window every time I have walked past. The paperwork does not sleep.",
+            "repeat": [
+              "Two steps up to the door, worn hollow in the middle by four thousand men going in hopeful.",
+              "A plain door. It's the only plain thing about the business done behind it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Through the door, a stamp, then a pen, then the stamp again.",
+            "repeat": [
+              "The bell on the door inside, settling after the last man out.",
+              "Nobody on the step. Whoever is waiting is inside, keeping warm."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: the Claims Registrar opens off Lower Street.",
-      "stub": true,
       "walkTo": {
         "x": 300,
         "y": 720,
@@ -345,11 +381,29 @@
       ],
       "colour": 0,
       "to": "back_alley",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A gap between the Registrar's and the church, going round the back of everything.",
+            "repeat": [
+              "Every town has a way round the back of itself. This one goes past the barrels to the watchman's door.",
+              "It's narrow enough that two men meeting in it would have to agree on something."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The alley, breathing cold air out between the buildings.",
+            "repeat": [
+              "A cat in there somewhere, saying something definite.",
+              "Barrels, knocking hollow when the wind gets behind them."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: Room 20, the back alley, opens off Lower Street.",
-      "stub": true,
       "walkTo": {
         "x": 575,
         "y": 718,
@@ -367,11 +421,29 @@
       ],
       "colour": 0,
       "to": "church",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Double doors up the steps, and a bell hung on a post beside them, at a height for ringing by hand.",
+            "repeat": [
+              "The paint is fresher than anything else on Lower Street. Sowerby takes a collection for it, and for the doors, and for the steps.",
+              "The bell on its post is half a step flat. I've told nobody. It isn't the kind of thing a church wants to hear."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Inside, a hymnal's pages turning, or the draft turning them for nobody.",
+            "repeat": [
+              "The bell on its post humming very faintly when the wind catches it. Flat, even humming.",
+              "The doors creaking in their frame, the way church doors do, as though they had been asked a question."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: the church and meeting hall.",
-      "stub": true,
       "walkTo": {
         "x": 870,
         "y": 718,
@@ -389,11 +461,29 @@
       ],
       "colour": 0,
       "to": "the_lane",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A passage through to the Lane, where the undertaker and the medium keep each other in business.",
+            "repeat": [
+              "Dark, short and mostly mud. The Lane at the other end is lit better than you'd expect, for what's in it.",
+              "Narrow enough to make a man walk sideways if anyone is coming the other way, and on the Lane someone generally is."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Small bells, from the far end: the tent flap, letting somebody out.",
+            "repeat": [
+              "A plane on wood, faint and patient. The undertaker, getting ahead.",
+              "The draft through the gap, carrying the Lane's quiet out into the street."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: the Lane connects through to Lower Street at its far end.",
-      "stub": true,
       "walkTo": {
         "x": 1165,
         "y": 718,
@@ -411,11 +501,29 @@
       ],
       "colour": 0,
       "to": "livery",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The livery's doors, open a man's width, with a lamp inside and straw spilling out to meet the mud.",
+            "repeat": [
+              "A trough beside them for anyone who arrives on four legs, and nothing for anyone on two, which seems about right for a livery.",
+              "Somewhere in there is a mule with opinions. From out here the stable looks very peaceful about it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Hooves shifting on straw, and a mule saying something short.",
+            "repeat": [
+              "The lamp inside, hissing, and a mule breathing near it.",
+              "The trough dripping at one corner. It has dripped there a long time; the mud under it is a different color."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: the livery stable.",
-      "stub": true,
       "walkTo": {
         "x": 1448,
         "y": 722,
@@ -433,11 +541,29 @@
       ],
       "colour": 0,
       "to": "claims_road",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The road out of town, to the claims. Every man in Consolation walks it in the morning and back at night, and only the mornings are hopeful.",
+            "repeat": [
+              "A fence runs beside it a little way and then gives up, which is where the town ends and the diggings begin.",
+              "By day it's the miners' road. At night it belongs to whoever is still walking it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The wind coming down from the diggings, with a loose board knocking somewhere along the way.",
+            "repeat": [
+              "The lamp on the post by the fence, hissing to itself.",
+              "Far off, a dog at a claim. Even the dogs have boundaries out there."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 161: the road out to the claims, which Main Street's east road was before.",
-      "stub": true,
       "walkTo": {
         "x": 1860,
         "y": 790,

@@ -135,29 +135,29 @@
    "id": "to_main_street",
    "to": "main_street",
    "defaultVerb": "WALK_TO",
-   "stub": true,
-   "note": "Errata 43: back through Main Street's alley."
+   "note": "Errata 43: back through Main Street's alley.",
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 44 · THE LANE"
   },
   "THE UNDERTAKER'S DOOR": {
    "id": "to_undertaker",
    "to": "undertaker",
    "defaultVerb": "WALK_TO",
-   "stub": true,
-   "note": "Errata 43: the undertaker's opens off the Lane."
+   "note": "Errata 43: the undertaker's opens off the Lane.",
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 44 · THE LANE"
   },
   "THE TENT FLAP": {
    "id": "to_ozymandias_tent",
    "to": "ozymandias_tent",
    "defaultVerb": "WALK_TO",
-   "stub": true,
-   "note": "Errata 43: Ozymandia's tent, in the lot."
+   "note": "Errata 43: Ozymandia's tent, in the lot.",
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 44 · THE LANE"
   },
   "THE PASSAGE TO LOWER STREET": {
    "id": "to_lower_street",
    "to": "lower_street",
    "defaultVerb": "WALK_TO",
-   "stub": true,
-   "note": "Errata 43: the Lane connects through to Lower Street at its far end."
+   "note": "Errata 43: the Lane connects through to Lower Street at its far end.",
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 44 · THE LANE"
   }
  },
  "exits": {

@@ -571,7 +571,6 @@
     {
       "id": "to_claims_road",
       "name": "THE ROAD",
-      "stub": true,
       "rect": [
         0,
         560,
@@ -580,7 +579,26 @@
       ],
       "colour": 0,
       "to": "claims_road",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The way back down to the road, past my claim post. Forty feet is not far, and I have walked it a great many times.",
+            "repeat": [
+              "The path down is worn mostly by me, and a little by a raccoon.",
+              "Down there are the town, the queue, and everybody who knows exactly what this claim is worth."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The road below, empty, and the wind deciding which way to go along it.",
+            "repeat": [
+              "Dry scrub rattling. It's the busiest thing on the hill.",
+              "Far down, a cart on the road, going somewhere with something in it."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "setOnTransit": {
@@ -592,12 +610,12 @@
         "x": 170,
         "y": 790,
         "facing": "left"
-      }
+      },
+      "waysOut": "docs/106-the-ways-out.md, ROOM 23 (errata 189)"
     },
     {
       "id": "to_pratts_claim",
       "name": "PRATT'S CLAIM",
-      "stub": true,
       "rect": [
         1820,
         560,
@@ -606,7 +624,26 @@
       ],
       "colour": 0,
       "to": "pratts_claim",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Next door, Pratt's claim, swept and squared. Even his trickle of water runs in a straight line.",
+            "repeat": [
+              "The trickle that crosses from his side is the only thing on his claim that has ever come toward mine of its own accord.",
+              "There's a fire over there most nights. He works by it, or sits by it and watches my side."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water running over stones next door, in a hurry to be somewhere else.",
+            "repeat": [
+              "His fire, popping. It's the only warm sound on this side of the hill.",
+              "Nothing from Pratt. Pratt is quiet the way a man is quiet when he's listening."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "setOnTransit": {
@@ -618,12 +655,12 @@
         "x": 1860,
         "y": 790,
         "facing": "right"
-      }
+      },
+      "waysOut": "docs/106-the-ways-out.md, ROOM 23 (errata 189)"
     },
     {
       "id": "down_the_hole",
       "name": "THE TUNNEL",
-      "stub": true,
       "rect": [
         1110,
         300,
@@ -635,7 +672,26 @@
       "when": {
         "T_DUG_DOWN": true
       },
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "My tunnel. I dug it. It goes down further than anything I've done in my life, in every sense.",
+            "repeat": [
+              "Warm air coming up out of it, which is not what holes in the ground are supposed to do.",
+              "The raccoon's hole, enlarged by a man with a pickaxe and nothing left to lose."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Warm air breathing out of it, slow and steady.",
+            "repeat": [
+              "Loose earth trickling down the sides and settling in the dark.",
+              "Nothing coming up but the warm air. It doesn't say where it has been."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 57 F1: 'Room 34 opens below the hole.' Once the three days' digging is done (T_DUG_DOWN), the hole's mouth is the way down: a small exit inside THE HOLE, whose own lines stay its own (invariant 3: its LISTEN is never marked). Room 34 writes THE TUNNEL; from up here it is a stub (errata 72 F, 99 H).",
@@ -643,7 +699,8 @@
         "x": 1170,
         "y": 840,
         "facing": "back"
-      }
+      },
+      "waysOut": "docs/106-the-ways-out.md, ROOM 23 (errata 189)"
     }
   ],
   "entrances": [

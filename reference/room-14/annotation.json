@@ -137,8 +137,8 @@
    "id": "the_gate",
    "to": "town_map",
    "defaultVerb": "WALK_TO",
-   "note": "Doc 20 and errata 43: Boot Hill is reached by the map, and its gate leads back to it. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE GATE A LOOK OR LISTEN (doc 54: 'THE GATE is the room's exit'), so it is a stub exit as the records room's door is (errata 72 F, doc 36 Q157); the gate works, and its LOOK and LISTEN wait for lines.",
-   "stub": true
+   "note": "Doc 20 and errata 43: Boot Hill is reached by the map, and its gate leads back to it. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE GATE A LOOK OR LISTEN (doc 54: 'THE GATE is the room's exit'), so it is a stub exit as the records room's door is (errata 72 F, doc 36 Q157); the gate works, and its LOOK and LISTEN wait for lines. Errata 189: its LOOK and LISTEN are doc 106's (linesFrom), and it is no longer a stub.",
+   "linesFrom": "docs/106-the-ways-out.md::## ROOM 14 · BOOT HILL"
   },
   "PIKE'S NEIGHBOR": {
    "id": "to_funeral",
@@ -257,7 +257,8 @@
    "T_FUNERAL_DAY": true
   },
   "saySet": {
-   "T_FUNERAL_DAY": false
+   "T_FUNERAL_DAY": false,
+   "T_FUNERAL_STREET_SAID": false
   },
   "note": "Doc 57 C3: 'Room 14, Boot Hill -- entering ends the day. The service is just over.' The line plays and the day clears; it can be held again (errata 87 C)."
  },

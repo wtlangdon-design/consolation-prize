@@ -909,11 +909,30 @@
       ],
       "colour": 96,
       "to": "hotel_lobby",
-      "stub": true,
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The hotel: two real stories, which on this street is a boast. The rooms are at the back, over the alley.",
+            "repeat": [
+              "A bench on the porch that nobody sits on. The hotel prefers its guests indoors, and paying.",
+              "A light in the window, kept lit for whoever comes in late. It's the most welcoming thing on the street, and I expect it costs extra."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The lobby through the door: a pen scratching, and a page turned with some ceremony.",
+            "repeat": [
+              "Somebody on the stairs inside. One step creaks louder than the rest, and everybody steps on it.",
+              "Boots on the porch, going in, and the door not quite closing behind them."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "OPEN",
       "note": "Doc 20: the hotel is one of the six facades. Stub until doc 14 covers it, as it did not cover the assay office until Room 5 was written.",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 2 (errata 189)",
       "walkTo": {
         "x": 2707,
         "y": 624,
@@ -923,7 +942,6 @@
     {
       "id": "to_mercantile",
       "name": "THE MERCANTILE",
-      "stub": true,
       "rect": [
         170,
         400,
@@ -932,10 +950,30 @@
       ],
       "colour": 0,
       "to": "mercantile",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The Mercantile. Everything a man could need out here, in the window, at prices that suggest he'll need it badly.",
+            "repeat": [
+              "Pans, picks and lamp oil in the window, arranged to look like a plan.",
+              "The lamp is still lit inside. Out here, a store that stays open is the nearest thing to a church that doesn't pass the plate."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A tin rattling on a shelf inside whenever somebody walks past the window.",
+            "repeat": [
+              "The stove in there, ticking, keeping the stock warm.",
+              "Inside, a scale clicking down. Somebody is buying something by weight."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Doc 20: one of Main Street's six façades, the store with goods in its window west of the Company. It had no door until Room 12 was built (errata 85 E). Doc 14 writes no lines for it, so it carries none (doc 36 Q155).",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 2 (errata 189)",
       "walkTo": {
         "x": 260,
         "y": 640,
@@ -945,7 +983,6 @@
     {
       "id": "to_back_alley",
       "name": "THE LANE",
-      "stub": true,
       "rect": [
         0,
         300,
@@ -954,10 +991,30 @@
       ],
       "colour": 0,
       "to": "the_lane",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A gap at the end of the street, and through it the Lane: the undertaker, the medium and the barber, all on one short walk.",
+            "repeat": [
+              "It's narrower than Main Street and darker, and everybody down it is in a trade that deals in endings, one way or another.",
+              "The mud goes through the gap and comes out the other side unchanged. It's the most consistent thing in town."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Small bells and a plane on wood, from the far end. That's the Lane, in two sounds.",
+            "repeat": [
+              "The gap breathing cold air out onto the street.",
+              "The Lane, quieter than the street, the way a side room is quieter than a party."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 161 (errata 43's three streets): Main Street's alley is the way into the Lane.",
+      "waysOut": "docs/106-the-ways-out.md, ROOM 2 (errata 189)",
       "walkTo": {
         "x": 66,
         "y": 700,
@@ -1456,7 +1513,27 @@
       "note": "Doc 57 F4 and doc 03: Fanshawe calls the duel himself, 'to discredit Thad in front of the whole town before Thad can be heard'. His challenge and the first boast are the greeting; the duel is running when the counters are offered.",
       "approach": true
     },
-    "sayNote": "Errata 170, the Main Street pass (Tyler, 2026-11-07: \"I feel like Thad pretty quickly needs something to 'do' on Main Street\"): the last two lines give him his first errand on arrival -- A1, the letter to Ezra Pike, which the driver has already pointed at the undertaker. Recorded in docs/98-main-street-pass.md."
+    "sayNote": "Errata 170, the Main Street pass (Tyler, 2026-11-07: \"I feel like Thad pretty quickly needs something to 'do' on Main Street\"): the last two lines give him his first errand on arrival -- A1, the letter to Ezra Pike, which the driver has already pointed at the undertaker. Recorded in docs/98-main-street-pass.md.",
+    "scenes": [
+      {
+        "when": {
+          "T_FUNERAL_DAY": true,
+          "T_FUNERAL_STREET_SAID": false
+        },
+        "lines": [
+          {
+            "speaker": "thad",
+            "line": "The street is half empty. Everyone in town who owns a black coat is up the hill."
+          }
+        ],
+        "after": {
+          "set": {
+            "T_FUNERAL_STREET_SAID": true
+          }
+        },
+        "note": "Errata 189: doc 57 C3's funeral day, 'Main Street, first entry that day'. Four of the street's townspeople are up the hill that day (their files' `when`); Boot Hill's line ends the day and clears T_FUNERAL_STREET_SAID with it."
+      }
+    ]
   },
   "size": [
     3700,

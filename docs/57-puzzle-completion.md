@@ -104,6 +104,7 @@ When option 6's exchange settles *(now written into doc 27's option 6, which is 
 3. Pay her. Show her the ground.
 
 > **MADAME OZYMANDIA** · USE THE FILING FEE, *after OZY_A1 option 1* — "That was the filing fee. It is now a divining fee. Money out here changes careers faster than men do." **OZYMANDIA:** *(She takes it without looking at it.)* "The earth thanks you. I shall pass it on." *(beat)* "Now. Show me the ground." — "It is two miles away and up a hill." — "Then show me a picture of it." → the fee is spent; `T_OZY_PAID`.
+> **MADAME OZYMANDIA** · USE THE FILING FEE, *before OZY_A1 option 1* — **OZYMANDIA:** "Put that away, darling. The rod has not yet told me what you owe." *(errata 189)*
 > **MADAME OZYMANDIA** · USE THE COMPANY MAP, *after `T_OZY_PAID`* — *(She unrolls it on her table and finds Claim Two at once; somebody has circled it. She holds the rod over it and hums. The humming goes on for some time. The rod does not move. She takes a Form 12-C from a stack of them and writes in purple ink.)* **OZYMANDIA:** "The earth has spoken. The earth was brief." — "You keep Form 12-C?" — "The earth prefers them." *(She hands back the map.)* → THE SURVEY, **A7**.
 > **MADAME OZYMANDIA** · USE THE COMPANY MAP, *not yet paid* — **OZYMANDIA:** "The earth will read your map — two dollars — the earth reads *everything* — in advance —"
 

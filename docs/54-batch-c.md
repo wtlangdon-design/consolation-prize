@@ -343,7 +343,7 @@
 
 **THE WASH LINE** — LOOK 2 "The shirt has been mended at both elbows by someone who cared, and at the collar by someone who did not." · 3 "It has been dry for a day and nobody has taken it in. It is waiting for its owner, like most things in this alley." | LISTEN 2 "A clothes-peg creaking, holding on." · 3 "The underwear again, flapping. It has found its audience."
 
-**THE CAT** — LOOK 3 "She has moved six inches to the left, after the sun. It is the only progress anyone has made in this alley today." | LISTEN 3 "Purring, briefly, then silence. She's decided I'm furniture."
+**THE CAT** — LOOK 3 "She has moved six inches to the left, for reasons of her own. It is the only progress anyone has made in this alley tonight." | LISTEN 3 "Purring, briefly, then silence. She's decided I'm furniture."
 
 **THE BACK OF THE IMPROVEMENT COMPANY** — LOOK 2 "From here you can see the bracing that holds up the two stories that are not there. It is very good bracing. Somebody spent real money on the part nobody sees." · 3 "No windows on this side at all. A building that faces only one way." | LISTEN 2 "Nothing. Whatever goes on inside, the walls were built thick enough to keep it there." · 3 "Nothing still. I've stood here long enough to be noticed, and nobody's noticed."
 
@@ -447,7 +447,7 @@
 
 **GRIEVANCE'S STALL** — LOOK 2 "Her stall is swept and the others are not. The livery man has priorities, and they are a mule." · 3 "There are tooth marks along the top board. She has been working on it for years, without hurry." | LISTEN 2 "Her tail swishing, at a tempo she sets." · 3 "Nothing. She is standing very still, which is how she listens."
 
-**THE OTHER MULES** — LOOK 2 "Number Three is asleep standing up. Number One is pretending to be." · 3 "They are good mules. Nobody will ever name them." | LISTEN 2 "Chewing, in four slightly different rhythms." · 3 "One of them sighs. It is a working sigh, and it means nothing by it."
+**THE OTHER MULES** — LOOK 2 "Number Two is asleep standing up. Number One is pretending to be." · 3 "They are good mules. Nobody will ever name them." | LISTEN 2 "Chewing, in two slightly different rhythms." · 3 "One of them sighs. It is a working sigh, and it means nothing by it."
 
 **THE BOARD OF NAMES** — LOOK 2 "Names, dates and animals, in a hand that gets more patient every year." · 3 "Some names have a line through them and the word PAID. Some have a line and the word GONE." | LISTEN 2 "Nothing. Paper pinned to wood, keeping accounts." · 3 "The pin rattles in the draft. Twelve years of comings and goings, held up by one nail."
 
@@ -1194,6 +1194,7 @@
 
 > **THE PICKLE JAR** · PICK UP — "One jar, on my account. I have an account now! I'm told that makes me a resident." *(→ the pickled eggs)*
 > **DR. PURVIS'S TONIC** · PICK UP — "On account, with the eggs. It was wrapped for me as though it might go off, in either sense." *(→ the tonic)*
+> **DR. PURVIS'S TONIC** · PICK UP, *again* — "One bottle of Dr. Purvis is a remedy. Two is a diagnosis." *(errata 189)*
 > **THE PICKLE JAR** · PICK UP, *again* — "One is an account. Two is a habit."
 > **THE PICKAXES** · PICK UP — "The one with the loose head, on my account. It's the only one I can afford, and the only one honest about itself." *(→ THE PICKAXE; errata 75)*
 > **THE PICKAXES** · PICK UP, *again* — "One pickaxe is equipment. Two is a statement, and I have nothing to say."

@@ -295,11 +295,29 @@
       ],
       "colour": 0,
       "to": "main_street",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The way back to Main Street, through a gap with a lamp in it. The Lane likes you to know where the exit is.",
+            "repeat": [
+              "From here Main Street looks busy, which is a trick of the narrowness.",
+              "There's a coffin standing on its end by the undertaker's door. Nobody on the Lane finds that remarkable, so I've stopped mentioning it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Main Street through the gap, louder than it looks.",
+            "repeat": [
+              "The Nugget's doors swinging, and then the street again.",
+              "The lamp in the gap, hissing quietly to itself."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: back through Main Street's alley.",
-      "stub": true,
       "walkTo": {
         "x": 60,
         "y": 800,
@@ -317,11 +335,29 @@
       ],
       "colour": 0,
       "to": "undertaker",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A plain door with a star over it, and a coffin standing beside it as a sample.",
+            "repeat": [
+              "The coffin outside is a good one. I caught myself measuring it against me, and stopped.",
+              "His windows are dark, and his door isn't shut all the way. He keeps the hours of a man whose customers are never late."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A plane inside, long and even. He's making something that has to fit exactly.",
+            "repeat": [
+              "The coffin outside creaking as the night cools it.",
+              "The plane stops, and starts again. He listens between strokes."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: the undertaker's opens off the Lane.",
-      "stub": true,
       "walkTo": {
         "x": 295,
         "y": 728,
@@ -339,11 +375,29 @@
       ],
       "colour": 0,
       "to": "ozymandias_tent",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The tent flap, tied back to show the table, the lamp and the crystal. It is a shop window, with the shop pretending not to be one.",
+            "repeat": [
+              "Stars and a moon painted on the canvas, the moon a little crooked, as if it had been consulted too often.",
+              "The light inside is red. Everything looks more mysterious in red, including money."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Bells along the hem, nudged by the draft, ringing for nobody.",
+            "repeat": [
+              "The canvas breathing in and out with the wind, as though the tent were the one being consulted.",
+              "The lamp inside, a soft flutter. The flame does more of the work than she lets on."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: Ozymandia's tent, in the lot.",
-      "stub": true,
       "walkTo": {
         "x": 1025,
         "y": 728,
@@ -361,11 +415,29 @@
       ],
       "colour": 0,
       "to": "lower_street",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A passage through to Lower Street, past the boarded-up store at the end of the Lane.",
+            "repeat": [
+              "The boards on the empty store are nailed up in a cross, which out here means closed, and also, I think, sorry.",
+              "Lower Street keeps the Registrar and the church side by side, so a man can be refused and forgiven on one walk."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The livery, faintly, from the far side. A mule with something to add.",
+            "repeat": [
+              "Lower Street through the gap: hooves, a door, a hinge with opinions.",
+              "Mud settling in the dark between the walls."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO",
       "note": "Errata 43: the Lane connects through to Lower Street at its far end.",
-      "stub": true,
       "walkTo": {
         "x": 1860,
         "y": 790,

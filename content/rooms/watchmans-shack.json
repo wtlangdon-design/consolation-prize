@@ -287,14 +287,32 @@
       ],
       "colour": 0,
       "to": "back_alley",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A plank door with a brace across it, hung true. It's the best-hung door in Consolation, on the smallest house.",
+            "repeat": [
+              "There's no lock. A man who watches the whole town every night doesn't need one on his own door.",
+              "A strip of the alley shows at the hinge side. He can see out without opening it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The alley outside: barrels, the cat, nothing that needs watching.",
+            "repeat": [
+              "The wind trying the door, and the door not interested.",
+              "The stove behind me, and past the door, the town, a long way off."
+            ]
+          }
+        ]
+      },
       "overrides": {
         "CLOSE": "It doesn't latch from outside. A watchman's door. Nothing of his was ever protected but the town."
       },
       "fallback": [],
       "defaultVerb": "WALK_TO",
-      "note": "Doc 20: the shack's one way out, to the back alley. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE DOOR a LOOK or LISTEN, so it is a stub exit as Boot Hill's gate is (doc 36 Q164); the door works, and its LOOK and LISTEN wait for lines.",
-      "stub": true,
+      "note": "Doc 20: the shack's one way out, to the back alley. Doc 49's CLOSE is its one line. NO DOCUMENT WRITES THE DOOR a LOOK or LISTEN, so it is a stub exit as Boot Hill's gate is (doc 36 Q164); the door works, and its LOOK and LISTEN wait for lines. Errata 189: its LOOK and LISTEN are doc 106's (linesFrom), and it is no longer a stub.",
       "walkTo": {
         "x": 240,
         "y": 800,
