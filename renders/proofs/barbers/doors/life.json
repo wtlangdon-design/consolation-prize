@@ -1,0 +1,839 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "barbers",
+ "commit": "9683a9ce783a428318ac4a0cd7bf64ed27d13147",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "barbers",
+ "warped": false,
+ "lifeRoute": "barbers-doors",
+ "durationSeconds": 216.51,
+ "events": [
+  {
+   "t": 3.99,
+   "line": "entry route barbers: 38 action(s)"
+  },
+  {
+   "t": 200.05,
+   "line": "the title: clicked NEW GAME"
+  },
+  {
+   "t": 200.05,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 200.05,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 200.05,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 200.05,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 200.05,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 200.05,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 200.05,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 200.05,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 200.05,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 200.05,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 200.05,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 200.05,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 200.05,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 200.05,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 200.05,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 200.05,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 200.05,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 200.05,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 200.05,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 200.05,
+   "line": "action 20 (wait): waited 7s"
+  },
+  {
+   "t": 200.05,
+   "line": "action 21 (click): clicked world 1900,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 200.05,
+   "line": "action 22 (wait): waited 1s"
+  },
+  {
+   "t": 200.05,
+   "line": "action 23 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 200.05,
+   "line": "action 24 (click): clicked world 1300,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 200.05,
+   "line": "action 25 (wait): waited 1s"
+  },
+  {
+   "t": 200.05,
+   "line": "action 26 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 200.05,
+   "line": "action 27 (click): clicked world 700,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 200.05,
+   "line": "action 28 (wait): waited 1s"
+  },
+  {
+   "t": 200.05,
+   "line": "action 29 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 200.05,
+   "line": "action 30 (click): clicked world 150,830 -- west along the street's near edge, clear of the letter-writer at x 1330, who stops a man passing close; a leg reaches only as far as the camera's left edge"
+  },
+  {
+   "t": 200.05,
+   "line": "action 31 (wait): waited 1s"
+  },
+  {
+   "t": 200.05,
+   "line": "action 32 (waitFor): reached {} in room main_street"
+  },
+  {
+   "t": 200.05,
+   "line": "action 33 (click): clicked main_street/to_back_alley at world 29,510 -- THE LANE, at Main Street's west end (errata 161)"
+  },
+  {
+   "t": 200.05,
+   "line": "action 34 (waitFor): reached {\"room\":\"the_lane\"} in room the_lane"
+  },
+  {
+   "t": 200.05,
+   "line": "action 35 (wait): waited 3s"
+  },
+  {
+   "t": 200.05,
+   "line": "action 36 (click): clicked the_lane/to_barbers at world 1275,523 -- THE BARBER'S DOOR, beside the pole"
+  },
+  {
+   "t": 200.05,
+   "line": "action 37 (waitFor): reached {\"room\":\"barbers\"} in room barbers"
+  },
+  {
+   "t": 200.05,
+   "line": "action 38 (wait): waited 3s"
+  },
+  {
+   "t": 200.07,
+   "line": "in barbers; life route: 17 action(s)"
+  },
+  {
+   "t": 200.6,
+   "line": "capture 00-arrived: room barbers, says null, options 0, control null"
+  },
+  {
+   "t": 200.92,
+   "line": "action 1 (click): clicked barbers/back_to_lane at world 293,380 -- out, to the Lane"
+  },
+  {
+   "t": 201.76,
+   "line": "action 1 (waitFor): reached {\"room\":\"the_lane\"} in room the_lane"
+  },
+  {
+   "t": 202.82,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1272,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 203.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1272,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 203.84,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 204.44,
+   "line": "capture 01-out: room the_lane, says null, options 0, control null"
+  },
+  {
+   "t": 204.76,
+   "line": "action 1 (click): clicked the_lane/to_barbers at world 1275,523 -- and back in by THE BARBER'S DOOR"
+  },
+  {
+   "t": 205.05,
+   "line": "action 1 (waitFor): reached {\"room\":\"barbers\"} in room barbers"
+  },
+  {
+   "t": 206.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 207.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 207.11,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 207.63,
+   "line": "capture 01-in: room barbers, says null, options 0, control null"
+  },
+  {
+   "t": 207.93,
+   "line": "action 1 (click): clicked barbers/back_to_lane at world 293,380 -- out, to the Lane"
+  },
+  {
+   "t": 208.53,
+   "line": "action 1 (waitFor): reached {\"room\":\"the_lane\"} in room the_lane"
+  },
+  {
+   "t": 209.54,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1272,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 210.56,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1272,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 210.57,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 211.14,
+   "line": "capture 02-out: room the_lane, says null, options 0, control null"
+  },
+  {
+   "t": 211.44,
+   "line": "action 1 (click): clicked the_lane/to_barbers at world 1275,523 -- and back in by THE BARBER'S DOOR"
+  },
+  {
+   "t": 211.71,
+   "line": "action 1 (waitFor): reached {\"room\":\"barbers\"} in room barbers"
+  },
+  {
+   "t": 212.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 213.74,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 213.76,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 214.34,
+   "line": "capture 02-in: room barbers, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "00-arrived",
+   "why": null,
+   "t": 200.59,
+   "file": "renders/proofs/barbers/doors/raw-captures-ignored/00-arrived.png",
+   "hash": "638f2f504f93dbc52e78dd9fa31d10d7db57c7376c918693f2e4b81586f1ddef",
+   "room": "barbers",
+   "clock": 200.23270000000002,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 531,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-00.png",
+     "bounds": [
+      19,
+      259,
+      562,
+      586
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:barbers",
+     "path": "art/backgrounds/room-42-barbers.png",
+     "drawn": "art/backgrounds/room-42-barbers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "51178085cc75dc38e036bcdf4933034a84df83abeabd410ce98470abfa9bda49"
+    },
+    {
+     "key": "art/actors/room-42-barber.png",
+     "path": "art/actors/room-42-barber.png",
+     "drawn": "art/actors/room-42-barber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fe194669e315208bea254a178fca97534fb912ef7e0321e3a550097ff5ad1fa0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-out",
+   "why": null,
+   "t": 204.43,
+   "file": "renders/proofs/barbers/doors/raw-captures-ignored/01-out.png",
+   "hash": "ef807639ff0c0732a143612dcc5538d06b9c99c30a378f375d38b5aae8dc7e24",
+   "room": "the_lane",
+   "clock": 204.0326,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1272,
+      745
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 285,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-03.png",
+     "bounds": [
+      1110,
+      460,
+      323,
+      315
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:the_lane",
+     "path": "art/backgrounds/room-44-the-lane.png",
+     "drawn": "art/backgrounds/room-44-the-lane.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "da311ff3f579c53eb4c1c1f1339d5013d43c64c821fcd7d4e145194becd66bad"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "01-in",
+   "why": null,
+   "t": 207.62,
+   "file": "renders/proofs/barbers/doors/raw-captures-ignored/01-in.png",
+   "hash": "eb7269756a6de586e5e94c4aad1488c784a5de686e2e881ae5295d15bc0e3c4d",
+   "room": "barbers",
+   "clock": 207.2991,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 531,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      19,
+      259,
+      562,
+      586
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:barbers",
+     "path": "art/backgrounds/room-42-barbers.png",
+     "drawn": "art/backgrounds/room-42-barbers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "51178085cc75dc38e036bcdf4933034a84df83abeabd410ce98470abfa9bda49"
+    },
+    {
+     "key": "art/actors/room-42-barber.png",
+     "path": "art/actors/room-42-barber.png",
+     "drawn": "art/actors/room-42-barber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fe194669e315208bea254a178fca97534fb912ef7e0321e3a550097ff5ad1fa0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-out",
+   "why": null,
+   "t": 211.13,
+   "file": "renders/proofs/barbers/doors/raw-captures-ignored/02-out.png",
+   "hash": "61002c84f4aeef4b358781d906e53ed680c19ea4097317c8aab03f7ac033d894",
+   "room": "the_lane",
+   "clock": 210.73229999999998,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1272,
+      745
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 285,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-01.png",
+     "bounds": [
+      1110,
+      460,
+      323,
+      315
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:the_lane",
+     "path": "art/backgrounds/room-44-the-lane.png",
+     "drawn": "art/backgrounds/room-44-the-lane.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "da311ff3f579c53eb4c1c1f1339d5013d43c64c821fcd7d4e145194becd66bad"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-in",
+   "why": null,
+   "t": 214.34,
+   "file": "renders/proofs/barbers/doors/raw-captures-ignored/02-in.png",
+   "hash": "442f0d300d88536aee53458c3a666cfa09f377c348ef2826beffa2c0742f1929",
+   "room": "barbers",
+   "clock": 214.1321,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      300,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 531,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      19,
+      259,
+      562,
+      586
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "O-09-M",
+    "count": 3
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:barbers",
+     "path": "art/backgrounds/room-42-barbers.png",
+     "drawn": "art/backgrounds/room-42-barbers.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "51178085cc75dc38e036bcdf4933034a84df83abeabd410ce98470abfa9bda49"
+    },
+    {
+     "key": "art/actors/room-42-barber.png",
+     "path": "art/actors/room-42-barber.png",
+     "drawn": "art/actors/room-42-barber.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fe194669e315208bea254a178fca97534fb912ef7e0321e3a550097ff5ad1fa0"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 216.51s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-08T20:07:10.043Z"
+}
