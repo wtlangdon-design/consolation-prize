@@ -4795,3 +4795,45 @@ Doc 100's step 4 section records it.
   - the stool "announces her", not him.
 - **`tests/continuity.test.ts` holds it.** Her two rooms may not give her the strike's twelve years, and her furniture may not announce a man.
 
+
+---
+
+# 178 · EIGHT TOWNSPEOPLE REDRAWN AGAINST THAD — TYLER, 2026-11-08 (reference/lineup-redraws/brief.md)
+
+*Tyler: "the newspaper guy has the same problem as some of the characters earlier where he's too wide compared to Thad … It looks like the pie woman has the same problem." "The boy and the letter writer also have heads that are too big compared to Thad." On the lineup: "all of them".*
+
+**A · The method: errata 144's, by Tyler's choice.** The brief's first image was each figure on a board beside Thad's cast-sheet drawing. Errata 139 found that drawing's head is ~1.3× the in-game Thad's, and every sheet drawn against it kept the big head. Asked, Tyler chose **"Errata 144's method"**.
+
+Each sheet is painted over the in-game Thad (`art/actors/thad-stand-front/stand-00.png`), repeated once per drawn pose, with the character shown only as a face crop. Clothes, props and poses are in the prompt. `tools/art/lineup-redraws.py refs` builds the template and the face crop for each figure:
+- the boy's template is a child built from Thad (a smaller body under a head ~0.88 of his);
+- the fiddler's face is Charlie's own, from his sheet (errata 123), with no photograph.
+
+**B · Seven operations, cast-unify 79–85** (`reference/cast-unify-50.txt` to `-56.txt`). The ledger was checked before each. The boundary men share one sheet, as before. No correction was needed, so 85 of 90 are spent.
+
+`lineup-redraws.py cut` cuts each at the drawn height of the frame it replaces (`cast-unify-cut.py --grid 1`) and keeps every frame index:
+- frame 1 is a breath derived from the rest pose;
+- the fiddler's five frames are all drawn.
+
+The records are written first, then each sheet is snapped to one level (errata 112).
+
+**C · Measured before anyone looked.**
+- **Shoulders, against Thad** (`build-vs-thad.py`; the flag is 1.15×):
+
+  | Figure | Before | After |
+  |---|---|---|
+  | Map seller | 1.88 | 1.09 |
+  | Letter-writer | 1.39 | 1.09 |
+  | Pie woman | 1.27 | 0.85 |
+  | Bell-ringer | 1.20 | 1.05 |
+  | Boundary man B | — | 1.15 |
+  | Fiddler | 1.62 | 1.58 |
+
+  The fiddler's row is widened by the violin held under his chin; by eye his shoulders are Thad's.
+- **Heads, by ruler** (`renders/townspeople-heads-ruler.png`, `tools/art/lineup-ruler.py`: each figure before and after at a 300 px man, Thad's crown and chin ruled across). Every new face ends at Thad's chin line, with the hats above his crown. The boy keeps a child's larger head on a smaller body. The automatic neck-finder still misreads hats, beards and the fiddle (errata 138), so its head ratios are not used.
+- `npm test`: 1117 of 1117 pass, including `tests/scale.test.ts`, `tests/movement.test.mjs` and `tests/staging-clear.test.ts`.
+- `renders/townspeople-vs-cast@3x.png` and `renders/character-lineup.png` are re-rendered.
+
+**For Tyler's playthrough:**
+- the message boy's look-back pose is now drawn from behind;
+- the faces are a little more front-on than the old three-quarter view;
+- the fiddler's face should be checked against Charlie.
