@@ -5171,3 +5171,28 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
   - Duel One's replay (VES_B1 option 3) is offered only in the Gulch, before G9.
 - **Still open, and Tyler's:** music for the Gulch and the mine, and the image cap for the Gulch in `art/staging/caps.json`, which changes only on his instruction.
 - **Nothing is built.** The lines move into their home documents and are extracted when the trip is built. The art waits for a cap Tyler sets in `art/staging/caps.json`.
+
+# 194 · FIDDLER'S GULCH: THE ART BUDGET, THE MUSIC, AND THE ROOM NUMBERS — TYLER, 2026-11-08 ("Art budget approved and I defer to you on music")
+
+- **Room numbers:**
+  - the washout 45;
+  - the mine 46 to 49 (the adit, the climb, the two rocks, the line);
+  - the ledge 50;
+  - the tents 51;
+  - the grog tent 52;
+  - the river 53;
+  - upstream 54.
+
+  Doc 107 lists them.
+- **The art budget: 44 image operations.** This is the top of the design's estimate.
+  - `art/staging/caps.json` gives rooms 45 to 54 four operations each, under errata 72's rule (the plate and any figures).
+  - `gulch-vessel` gets two operations, for Vessel redrawn clean-shaven (doc 109).
+  - `gulch-reserve` gets two, for corrections to any Gulch subject.
+  - `attemptsTotal` goes from 359 to 403. It was edited on Tyler's instruction, with its history kept.
+- **The music** is set in doc 28 Part Three and doc 45, "Rooms 45–54", within doc 28's four instruments and its two silences:
+  - The washout has THADDEUS, solo fiddle, the road out as Room 1 is the road in.
+  - The mine has CONSOLATION on harmonica alone, far off: the town he has left. It is one mix and one bed, identical in all four rooms and carried across them unbroken. No passage, no junction and no USE of the rod makes a sound, so nothing in the mine is found by ear (doc 107).
+  - The ledge and the Gulch have CONSOLATION in the minor, on jaw harp and harmonica. There is no piano, because the camp has none, and no fiddle, because nobody in Fiddler's Gulch plays one. The grog tent hears that mix through canvas.
+  - Duel One on the bar has THE ASSAY on jaw harp alone.
+  - The rule-keeper's bad fiddling is a one-shot sound effect, not a theme.
+  - Three new stems are needed. Everything else reuses existing files. Nothing is rendered until the rooms are built.

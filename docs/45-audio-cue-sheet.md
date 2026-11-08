@@ -318,6 +318,32 @@ These sounds are required, but placing them in a room or inventing an action wou
 
 ---
 
+## ROOMS 45–54 · Fiddler's Gulch *(errata 194)*
+
+*Tyler deferred the Gulch's music to the writer (2026-11-08: "I defer to you on music"). Doc 28's rules hold: four instruments and no others, every stem on the −35-cent bus, and no third silence. The mine's rule is doc 107's: nothing in it tells the player which way to go by sound.*
+
+| Cue | Trigger | Theme / stem | Instruments / SFX | Begins | Runs until | Hands over to | Loop |
+|---|---|---|---|---|---|---|---|
+| `R45-M` · The washout | Room 45 entry | THADDEUS, as Room 1's stem, **without** Room 1's distant-piano layer | Fiddle | Bar-boundary crossfade | Room exit | Destination | Incomplete fragment, as Room 1. The mine's entry cuts it off, as a door does (doc 28) |
+| `R45-A` | Room 45 active | Carry `R45-M` | SFX bed: wind over the slide; a trickle working through it; now and then a stone ticking down | With the room | Room exit | Destination | Steady-state loop |
+| `R45-RIDE` | The ride, over black, either way | Carry `R45-M` under the black | SFX: hooves on a road, unhurried | With the black | The room changes | Destination mix | No |
+| `R46-49-M` · The mine | Entry to any of Rooms 46–49 | CONSOLATION, harmonica alone, slow, distant | Harmonica | Bar-boundary crossfade from outside | The mine is left, by either mouth | Destination | Yes. **One file and one gain for all four rooms, carried across them, never restarted** |
+| `R46-49-A` | Any mine room active | Carry `R46-49-M` | SFX bed: drips at random intervals, cool moving air. **Identical in all four rooms**, at one level | With the room | Room exit | Next mine room, unchanged | Steady-state loop |
+| `R46-49-NONE` | Taking any passage, right or wrong; reaching the line; USE THE BRASS ROD anywhere | Carry | **No sound.** No sting, no swell, no change of mix. The rod's humming is shown, never heard | — | — | — | — |
+| `R50-54-M` · The ledge and the Gulch | Entry to Room 50, 51, 53 or 54 | CONSOLATION in the minor | Jaw harp, harmonica | Bar-boundary crossfade | Room exit | Destination | Unresolved rollover to bar 1, as the town's |
+| `R52-M` · The grog tent | Room 52 entry | Carry `R50-54-M`, through canvas | Jaw harp, harmonica, filtered and lower | Bar-boundary crossfade | Room exit | Destination | As `R50-54-M` |
+| `R50-A` | Room 50 active | Carry | SFX bed: wind high on the cliff; far below, water and shovels | With the room | Exit | Destination | Loop |
+| `R51-A` | Room 51 active | Carry | SFX bed: a cook fire, canvas in the wind, now and then a bolt sliding home | With the room | Exit | Destination | Loop |
+| `R52-A` | Room 52 active | Carry | SFX bed: low talk, glasses set down, the plank creaking | With the room | Exit | Destination | Loop |
+| `R53-A` | Room 53 active | Carry | SFX bed: fast water over stones, the rocker's slow knock, gravel down the long tom | With the room | Exit | Destination | Loop |
+| `R54-A` | Room 54 active | Carry | SFX bed: the little falls, close; thin water over gravel | With the room | Exit | Destination | Loop. The falls are noise, not a pitch, whatever Thad hears in them |
+| `R52-FORK` | USE THE TUNING FORK on the fiddle (G5) | Carry | SFX: the fork, exact A440, off the bus (doc 45 0.2), then the pegs turning | Cold | Natural tail | `R52-FIDDLE` | No |
+| `R52-FIDDLE` | The rule-keeper plays (after G5, and RUL_G1 option 7) | Duck `R52-M` under it (errata 107) | SFX one-shot: a fiddle played very badly and very happily, a few seconds, no theme; on the bus, since it is an instrument | Cold | Natural tail | `R52-M` | No |
+| `R53-DUEL` · Duel One on the bar | The duel begins (G7) | THE ASSAY, unaccompanied jaw harp, as the registrar's mix: the rough Assay has no piano | Jaw harp | Next bar boundary | Duel state ends | `R50-54-M` | Authored cycle |
+| `R53-PEBBLE` | The rule-keeper moves a pebble, after each exchange | Carry `R53-DUEL` | SFX: one pebble set down on gravel | Cold | Natural tail | Duel | No |
+
+**Delivery.** `R45-M` reuses Room 1's THADDEUS file without its layer. `R53-DUEL` reuses the registrar's jaw-harp ASSAY. Three new stems are rendered by the project's music renderer, as the other room arrangements were: CONSOLATION on harmonica alone (the mine), CONSOLATION in the minor on jaw harp and harmonica (the Gulch), and that mix filtered as through canvas (the grog tent). The beds and one-shots are rendered by the room-SFX tools. All of it waits for the Gulch's rooms to be built.
+
 # 3 · GLOBAL RULES
 
 ## 3.1 Dialogue and text

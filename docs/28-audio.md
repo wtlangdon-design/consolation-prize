@@ -92,6 +92,10 @@ Each room declares a stem mix, not a track. Rooms crossfade at bar boundaries; n
 | 32 · Inside the coffin | **Silence, and it is total.** See below |
 | 33 · The listening chamber | See Part Five |
 | 36 · Main Street, dawn | CONSOLATION, in tune, thin, one instrument |
+| 45 · The washout | THADDEUS, solo fiddle, very sparse: the road out, as Room 1 is the road in, with no piano from town under it *(errata 194)* |
+| 46–49 · The mine | CONSOLATION on harmonica alone, slow and far off: the town he has left. **The same mix in all four screens, carried across them unbroken**, so no screen and no passage sounds different *(errata 194)* |
+| 50, 51, 53, 54 · The ledge and the Gulch | CONSOLATION in the minor, on jaw harp and harmonica. **No piano**: the camp has none. **No fiddle**: nobody in Fiddler's Gulch plays one. The town theme with the cheer gone, for the camp that found gold *(errata 194)* |
+| 52 · The grog tent | The Gulch's mix, heard through canvas *(errata 194)* |
 
 ---
 
