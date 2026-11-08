@@ -225,7 +225,7 @@ Duel Two needs fourteen; Duel One, Winnie and Pratt guarantee fifteen. Tier 4 an
 
 - **Room 11:** Fanshawe is not there (errata 68 D). Doc 54's empty-office line and C4's pickups.
 - **Room 17:** Sowerby is not there. He is up the hill.
-- **Main Street**, first entry that day: "The street is half empty. Everyone in town who owns a black coat is up the hill."
+- **Main Street**, first entry that day: "The street's quieter than usual. Everyone in town who owns a black coat is up the hill." *(errata 196)*
 - **Room 14, Boot Hill — entering ends the day.** The service is just over:
 
 > "The service is over. Mr. Pike has been remembered, six years late and very thoroughly. The town is coming back down the hill, Colonel Fanshawe in front, holding his hat."
