@@ -10,7 +10,7 @@
  "approachRadius": 0,
  "scenery": true,
  "sceneryNote": "Scenery until its lines are written (reference/hitching-post/brief.md): the pointer passes through to the mud under it, so it answers no verb and names nothing. Its LOOK and LISTEN lines go in the documents first; then this goes and a hotspot is laid over it.",
- "note": "Tyler, 2026-11-07, on Main Street: \"maybe we add a hitching post front and center of the camera with a few horses tied to it so that it's not just a bunch of empty space?\" Then, 2026-11-08: the horses made distinct (\"three copies of the same horse\"), one eating, the rail at chest height, moved \"quite a bit to the left\"; and every one a full-sized riding horse (\"they all need to look like full sized ride able horses\"). A hitching rail with a black with a blaze, a palomino eating hay and a paint saddle horse, in the near mud between the letter-writer and the boundary men. Room-02 attempt 6.",
+ "note": "Tyler, 2026-11-07, on Main Street: \"maybe we add a hitching post front and center of the camera with a few horses tied to it so that it's not just a bunch of empty space?\" Then, 2026-11-08: the horses made distinct (\"three copies of the same horse\"), one eating, the rail at chest height, moved \"quite a bit to the left\"; and every one a full-sized riding horse (\"they all need to look like full sized ride able horses\"). A hitching rail with a black with a blaze, a palomino eating hay and a paint saddle horse, in the near mud between the letter-writer and the boundary men. Room-02 attempt 6. At dawn (Room 36) the horses are gone and the rail stands empty (Tyler, 2026-11-08: \"At dawn I think the horses should all be gone. Just the hitching post is there.\"): a prop, art/props/room-36-hitching-rail-dawn.png.",
  "barks": {},
  "barksNote": "Horses; no barks.",
  "sprite": {
@@ -50,50 +50,5 @@
   "rate": 0.2,
   "frameNote": "0 rest: the black looking out, the palomino eating, the paint over the rail · 1 the black tosses its head · 2 the palomino lifts its head from the hay · 3 the paint turns its head and swishes its tail. At rest on 0; every 7 s one of the three plays for 2.4 s, rotating (errata 77).",
   "provenance": "art/staging/room-02/hitching-04/cut.json"
- },
- "placements": {
-  "main_street_dawn": {
-   "x": 1545,
-   "y": 850,
-   "zone": 0,
-   "sprite": {
-    "sheet": "art/actors/room-36-horses-dawn.png",
-    "frames": [
-     [
-      2,
-      2,
-      702,
-      413
-     ],
-     [
-      706,
-      2,
-      702,
-      413
-     ],
-     [
-      1410,
-      2,
-      702,
-      413
-     ],
-     [
-      2114,
-      2,
-      702,
-      413
-     ]
-    ],
-    "figureHeight": 393,
-    "stature": 1.223,
-    "statureNote": "The rest frame, the horses' ear tips to the foot of the hay, is 1.223 of the room's man where they stand: the black's withers come to Thad's shoulder (0.82 of a man), and the other two stand as tall.",
-    "beatEvery": 7,
-    "beatSeconds": 2.4,
-    "phase": 0.3,
-    "rate": 0.2,
-    "frameNote": "0 rest: the black looking out, the palomino eating, the paint over the rail · 1 the black tosses its head · 2 the palomino lifts its head from the hay · 3 the paint turns its head and swishes its tail. At rest on 0; every 7 s one of the three plays for 2.4 s, rotating (errata 77).",
-    "provenance": "tools/art/hitching-post-dawn.py: the night sheet under the dawn plate's light (errata 181)"
-   }
-  }
  }
 }

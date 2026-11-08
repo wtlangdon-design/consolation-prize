@@ -236,7 +236,21 @@
   "improvement_company_sign": "LOOK_AT"
  },
  "defaultVerbsNote": "Errata 28b. Everything on the street at dawn is looked at on a bare click, but the mud, which is walked on.",
- "props": [],
+ "props": [
+  {
+   "id": "hitching_rail",
+   "sheet": "art/props/room-36-hitching-rail-dawn.png",
+   "x": 1545,
+   "y": 850,
+   "frame": [
+    0,
+    0,
+    443,
+    261
+   ],
+   "note": "Errata 181. Tyler, 2026-11-08: \"At dawn I think the horses should all be gone. Just the hitching post is there.\" Room 2's hitching rail, empty: cut from the night group's rest frame, at the engine's own scale for it, under the dawn's light (tools/art/hitching-rail-dawn.py). Its obstacle stays."
+  }
+ ],
  "occlusion": {
   "note": "None: Room 2's masks describe a street that no longer exists (doc 36 Q20).",
   "clipPlane": {

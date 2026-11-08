@@ -4909,13 +4909,18 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
 - **The boundary men are talked to from their right now**, at 1940,668 facing left, still beside them at their own depth (Tyler's ruling of 2026-11-07). The full-sized paint's head covered 38% of him at the old place, 1610,668. `tests/staging-clear.test.ts` found it, and holds it.
 - **The rail is part of the sprite**, so it is depth-sorted with the horses. Thad passes behind them, and nothing passes in front, so no occlusion plane is needed.
 - **An obstacle in both streets.** `hitching_post`, [1329, 808, 401, 50], is the footprint of the hooves, hay and posts, with the ground behind it kept walkable (`keepsGroundAbove`), as the dog's is. Rooms 2 and 36 are recompiled.
-- **The day is Room 36.** Room 2 is night in every act (errata 64), and Main Street's only daylight is Room 36's dawn. The horses are there too, as a placement with their own sheet. `tools/art/hitching-post-dawn.py` relights the night sheet by the dawn plate's ratio to the night's over the ground they stand on.
+- **The day is Room 36.** Room 2 is night in every act (errata 64), and Main Street's only daylight is Room 36's dawn.
+  - **At dawn the horses are gone and the rail stands empty.** Tyler: "At dawn I think the horses should all be gone. Just the hitching post is there."
+  - The rail is drawn in front of the horses, so its pixels in the night rest frame are its own: the top rail and the two posts, with the wraps on the rail. The rope loops that hung to the horses' bridles are left behind.
+  - `tools/art/hitching-rail-dawn.py` cuts it, scales it by exactly the factor the engine draws the night group at (nearest-neighbour), and relights it by the dawn plate's ratio to the night's. It becomes a prop in Room 36 (`hitching_rail`, `art/props/room-36-hitching-rail-dawn.png`), on the night rail's own ground.
+  - The obstacle stays.
+  - `tests/scenery.test.ts` holds it: no horses at dawn, the rail where the night rail stands, and the ground under it not walkable.
 - **Scenery until its lines exist.** The brief says it has no lines and is not a hotspot.
   - A new field, `scenery`, keeps an ambient figure out of `npcAt`, so the pointer passes through the horses to the mud beneath.
   - When their LOOK and LISTEN lines are written in the documents, `scenery` goes and a hotspot is laid over them.
   - `tests/scenery.test.ts` holds both streets: the pointer passes through to the mud, and the ground under them is not walkable while the ground behind is. It fails with the field ignored.
 - **The lesson is a doc 55 §8 row:** prefer a frame the generator drew whole to a stitched one, and look at every frame whole, at 2×, in the game, counting legs and heads, before anyone else sees it.
-- **Shown:** `renders/room-02-main-street-hitching-post-night-thad-passing.png` and `renders/room-36-main-street-dawn-hitching-post-thad-passing.png`. Thad walks past behind the horses, captured mid-walk in the game.
+- **Shown:** `renders/room-02-main-street-hitching-post-night-thad-passing.png` and `renders/room-36-main-street-dawn-hitching-post-thad-passing.png`. Thad walks past behind the horses, captured mid-walk in the game; at dawn, past the empty rail.
 - **Waiting:**
   - Tyler's eye on the full-sized paint.
   - Claude writes their LOOK and LISTEN lines in the documents, and then makes them clickable.

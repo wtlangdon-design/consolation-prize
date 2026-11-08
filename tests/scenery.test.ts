@@ -2,8 +2,9 @@
  * SCENERY ANSWERS NOTHING (errata 181). Main Street's hitching rail and its
  * horses are drawn and move, but have no lines yet: the brief makes them
  * scenery until their LOOK and LISTEN lines are written. So the pointer passes
- * through them to the mud under them, in the night street and the dawn one,
- * and the hero walks around them, never through.
+ * through them to the mud under them, and the hero walks around them, never
+ * through. At dawn the horses are gone and the rail stands empty, a prop, and
+ * he still walks around it (Tyler: "Just the hitching post is there").
  */
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
@@ -20,7 +21,20 @@ import { WalkBoxes } from '../engine/core/WalkBoxes.ts';
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(ROOT, path), 'utf8'));
 
-for (const room of ['main_street', 'main_street_dawn']) {
+test('main_street_dawn: the horses are gone, and the rail stands empty', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom('main_street_dawn');
+  const layer = new AmbientLayer(state);
+  layer.arrived();
+  assert.equal(layer.present.find((npc) => npc.id === 'hitching_horses'), undefined, 'no horses at dawn');
+  const rail = (state.room.props ?? []).find((prop) => prop.id === 'hitching_rail');
+  assert.ok(rail, 'the rail is a prop at dawn');
+  assert.deepEqual([rail.x, rail.y], [content.ambient.get('hitching_horses')!.x, content.ambient.get('hitching_horses')!.y],
+    'where the night rail stands');
+});
+
+for (const room of ['main_street']) {
   test(`${room}: the hitching horses are drawn there, and the pointer passes through them`, async () => {
     const content = await loadContent(fsReader);
     const state = new GameState(content, new MemoryStorage());
@@ -34,6 +48,9 @@ for (const room of ['main_street', 'main_street_dawn']) {
     assert.equal(state.targetAt(at.x, at.y)?.id, 'mud', 'the mud under them does');
   });
 
+}
+
+for (const room of ['main_street', 'main_street_dawn']) {
   test(`${room}: the hero walks around the hitching rail, never through it`, async () => {
     const content = await loadContent(fsReader);
     const room_ = content.rooms.get(room)!;
