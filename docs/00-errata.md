@@ -5294,3 +5294,38 @@ Tyler: "Pull main and read reference/hitching-post/brief.md. Do what it says: th
 - **Seen in the game.** `tools/gauntlet/routes/prosperity-ozymandia-talk.json` starts from fixture `r34-b`, climbs the rope and talks to her four times (`life.mjs under_prosperity --fixture r34-b --route prosperity-ozymandia-talk --out renders/proofs/prosperity/ozymandia-talk`). It passes. `renders/room-23-ozymandia-talk-to.webp` is the exchange, and `renders/room-23-ozymandia-talk-to-sheet.webp` its frames.
 
 Lesson: a person's TALK TO is only staged like a tree's if a test walks it (the walk test fails when TALK TO answers where he stands). A prop moved in a room file is undone by the next compile unless the annotation moves too, and `tests/annotation-props.test.ts` now fails on any that disagree (proved by putting the stake back at 411).
+
+# 193 · MAIN STREET THINNED: FOUR TOWNSPEOPLE MOVE — TYLER, 2026-11-08 ("Go and yes on the main street changes")
+
+*Tyler felt Main Street had too many people on it. He approved keeping three townspeople on the street and moving four to rooms of their own. No line is lost, and no image operation is spent.*
+
+- **Staying on Main Street, unchanged:**
+  - the pie woman, the man leaving tomorrow and the map seller;
+  - the dog and the hitching horses;
+  - the Duel Three crowd;
+  - the dog's owner, who waits in the back alley until `T_BILL_FOUND` and then stands beside the dog, as before.
+- **Moved:**
+  - **The two boundary men → the claim row (Room 27),** at (470, 625) and (680, 625). They face each other on the near edge of the claims, each beside a marker's post (A by THE MOTHERLODE, B by PROVIDENCE), below the boards. Thad talks to them from their right at their own depth, (885, 625), as errata 167 asks.
+  - **The message boy → the Lane (Room 44),** at (848, 765), between the photographer's door and Madame Ozymandia's tent. Thad talks to him from (950, 765).
+  - **The letter-writer → Lower Street (Room 43),** at (1295, 775), in front of the livery's shut left door, between the passage to the Lane and the livery's open doors, and well clear of the bell-ringer at the church.
+- **Every condition is kept.** The boundary men and the letter-writer keep errata 189's `T_FUNERAL_DAY: false`, so on the funeral day they are up the hill from their new places. The message boy had no condition and has none.
+- **How it is set.** A figure's room and place are its own ambient file's `room`, `x`, `y` and `zone`, which no tool writes. Each room's `ambient` list is derived from those files by `tools/compile-room.mjs`, so Rooms 2, 27, 43 and 44 are recompiled, not edited.
+- **One line changed, and Tyler approved its words.** The letter-writer's Pike answer (doc 07 §1) was "Down the lane, past the mercantile." That was true only from Main Street. From Lower Street the Lane is right there, so it now reads "Down the lane, there." It is re-extracted into `content/dialogue/amb-letter-writer.json`. Doc 07's headers for §1, §2–3 and §5 name the new places. No other line in any document changed.
+- **Placed by measure.** Each figure:
+  - stands on the walk boxes, at the room curve's height for a man (the boy at his child's 0.68);
+  - is clear of every exit, every entrance, every other figure and every conversation stand, on drawn pixels;
+  - is clear of every hotspot's approach point.
+
+  The letter-writer has no stand of his own, as on Main Street. The engine stands Thad two-thirds of a man to whichever side he comes from, which is clear of the bell-ringer and of both ways.
+
+  Two of the rooms have no bare floor below their buildings, so a standing figure there overlaps a rect at its edge. On Lower Street it is the livery's. On the claim row it is the bottom of two markers' posts. Each object stays clickable around him. The boy in the Lane is clear of every rect.
+- **The light.** All three rooms are night rooms with no `figureLight`, as Main Street is. The figures take the same light as Thad there, so nothing was redrawn.
+- **Shown, with Thad present:**
+  - `renders/room-02-main-street-thinned.png`;
+  - `renders/room-27-claim-row-boundary-men.png`;
+  - `renders/room-44-the-lane-message-boy.png`;
+  - `renders/room-43-lower-street-letter-writer.png`.
+- **For Tyler, not changed here:** lines the move may have made less true. Each is a writing question, so each is left as written:
+  - On the claim row, THE PATH's LISTEN says "Nothing. Nobody comes up here." and "My own boots on it, and nobody else's." with two men standing on it, and several markers' LISTENs answer "Nothing."
+  - The boundary men's and the message boy's Pike answers say "Down the lane". From the claim row the Lane is back down in town. In the Lane, it is the lane the boy is standing in.
+  - Doc 57 C3's funeral-day line says "The street is half empty". Errata 189 counted eight townspeople on the street and sent four up the hill. Now there are four, counting the dog's owner once he has come out of the alley, and only the pie woman goes.

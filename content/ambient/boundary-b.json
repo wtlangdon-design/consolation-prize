@@ -3,18 +3,18 @@
  "id": "boundary_b",
  "name": "THE OTHER BOUNDARY MAN",
  "posture": "standing",
- "note": "Doc 07 #2 and #3, the one doc 07 marks B. Faces A across the forty feet. His barks are carried in A's file as the pair's exchange; he has none of his own (errata 110).",
- "room": "main_street",
- "x": 1830,
- "y": 668,
- "zone": 1,
+ "note": "Doc 07 #2 and #3, the one doc 07 marks B. Faces A across the forty feet. His barks are carried in A's file as the pair's exchange; he has none of his own (errata 110). Errata 193 (Tyler, 2026-11-08): on the claim row with A, beside PROVIDENCE's post.",
+ "room": "claim_row",
+ "x": 680,
+ "y": 625,
+ "zone": 2,
  "approachRadius": 60,
  "tree": "amb_boundary_men",
  "greetsWithBark": true,
  "greetsWithBarkNote": "As A.",
  "walkTo": {
-  "x": 1940,
-  "y": 668,
+  "x": 885,
+  "y": 625,
   "facing": "left"
  },
  "barks": {},
@@ -73,9 +73,9 @@
   "provenance": "art/staging/townspeople-110/boundary-men/sheet-03.png (townspeople-110), cut by tools/art/townspeople-cut.py (errata 115)"
  },
  "faces": "left",
- "walkToNote": "Beside them at their own depth, not in front (Tyler, 2026-11-07: \"Thad's line hit the tops of the heads of the boundary men when he talks to them\"). Stood nearer the camera, his words rose from a head lower on the screen than theirs and ran across their hats; level with them, his words sit above all three heads. Was 1700,830. Errata 187: from their right now, at the same depth -- the hitching horses (full-sized, Tyler 2026-11-08) stand in the near mud in front of where their left side was, and a horse's head would have covered him there.",
+ "walkToNote": "Beside them at their own depth, not in front (Tyler, 2026-11-07: \"Thad's line hit the tops of the heads of the boundary men when he talks to them\"). Stood nearer the camera, his words rose from a head lower on the screen than theirs and ran across their hats; level with them, his words sit above all three heads. Was 1700,830. Errata 187: from their right now, at the same depth -- the hitching horses (full-sized, Tyler 2026-11-08) stand in the near mud in front of where their left side was, and a horse's head would have covered him there. Errata 193: on the claim row, still from their right at their own depth (885,625).",
  "when": {
   "T_FUNERAL_DAY": false
  },
- "whenNote": "Errata 189: up the hill on the funeral day (doc 57 C3: 'The street is half empty. Everyone in town who owns a black coat is up the hill.'). Four of Main Street's eight townspeople go -- the boundary men, the letter-writer and the pie woman; the map seller, the man leaving tomorrow, the message boy and the dog's owner stay, each for the reason their one joke gives."
+ "whenNote": "Errata 189: up the hill on the funeral day (doc 57 C3: 'The street is half empty. Everyone in town who owns a black coat is up the hill.'). Four of Main Street's eight townspeople go -- the boundary men, the letter-writer and the pie woman; the map seller, the man leaving tomorrow, the message boy and the dog's owner stay, each for the reason their one joke gives. Errata 193 moved the pair to the claim row and kept this condition: they are up the hill on the funeral day wherever they stand."
 }

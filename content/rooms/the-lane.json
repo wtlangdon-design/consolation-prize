@@ -589,7 +589,9 @@
     1920,
     864
   ],
-  "ambient": [],
+  "ambient": [
+    "message_boy"
+  ],
   "generated": {
     "by": "tools/compile-room.mjs",
     "from": [
