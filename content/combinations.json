@@ -861,7 +861,7 @@
       "room": "church",
       "target": "sowerby",
       "puzzle": "C3",
-      "say": "A letter of introduction to Mr. Pike, from my father. Sealed. I have carried it eleven hundred miles.",
+      "say": "A letter of introduction to Mr. Pike, from my father. Sealed. I have carried it three thousand miles.",
       "note": "Doc 57 C3, step 3: the letter of introduction is his standing to arrange the memorial; Sowerby gives it back.",
       "rules": [
         {
@@ -870,7 +870,7 @@
             "T_SOW_FUNERAL_ASKED": true,
             "T_MEMORIAL_BOOKED": false
           },
-          "say": "A letter of introduction to Mr. Pike, from my father. Sealed. I have carried it eleven hundred miles.",
+          "say": "A letter of introduction to Mr. Pike, from my father. Sealed. I have carried it three thousand miles.",
           "then": [
             {
               "speaker": "sowerby",

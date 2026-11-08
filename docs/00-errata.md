@@ -4648,3 +4648,18 @@ The builder read every exterior plate. `reference/district/plan.json` records wh
 - **The stars twinkle.** Errata 164's twinkle laid a warm glow over twelve stars whose pixels were already at full brightness, so nothing visible changed. Now every star in the sky whose light peaks above red 150 twinkles: 166 of them, written by `tools/pixelart/room01_sky_stars.py` from the shipped sky as `[x, y, rx, ry, r, g, b]`, which is the star's box and the night's colour just outside it. Each star dims, as that night colour drawn back over it at up to 0.9, and brightens, as a small cross of light. It does both on three waves of its own, so at any moment about a quarter of the sky is visibly down and a quarter visibly up. The first twelve still flare. `room01_sky_extension.py` now calls the star tool rather than picking its own twelve. Decorative (invariant 9).
 
 `tests/opening-pan.test.ts` holds the stars: at least 100, each over a star, each dimming to the night around it, and each going visibly down and up within ten seconds. It also requires a quarter of the sky to be moving at every moment.
+
+# 166 · THE DRIVER'S WORDS CLEAR HIS HEAD, AND HOME IS THREE THOUSAND MILES — TYLER, 2026-11-07
+
+- **The driver's dialogue sits further above his head.** Tyler: "Can the driver's dialogue be a little further above his head?" Every speaker's words sit above the head by 0.12 of the speaker's height. The driver is not a figure: he is a head drawn over the coach. His "height" was the head box's 45 pixels, so his words cleared his hat by about 5 pixels, while a standing man's clear by about 28. A head drawn over a body now takes the gap of a whole man standing at that body's depth (`overlaySpeakerHead`). `tests/speech-gap.test.ts` holds it, and it fails at 5.4 px against 28 with the old height.
+- **Home is three thousand miles away.** Tyler: "A line of dialogue says Thad is 1100 miles from home. Is that really the distance between a city in CA and Providence?" It is not. Providence to Sacramento is about 2,600 miles in a straight line, and more by any route of 1858. Tyler ruled "3000 miles". Seven lines gave the distance as "eleven hundred," and all seven now say "three thousand":
+  - doc 05, the road east;
+  - doc 05, the Providence marker;
+  - doc 10, the ridge;
+  - doc 17, the road east's LOOK 2;
+  - doc 23, the letter;
+  - doc 54, the unclaimed correspondence;
+  - doc 57, Sowerby's letter;
+  - doc 61's rewritten column.
+
+  They are re-extracted everywhere they appear. `content/items/letter.json` has no extractor, so it was corrected to doc 23 by hand. `tests/speech-gap.test.ts` requires every line giving the distance home to say three thousand.

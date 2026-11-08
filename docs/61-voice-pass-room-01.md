@@ -45,8 +45,8 @@
 | SIGN · LISTEN 3 | Nothing. The wind has dropped and it has stopped complaining. | Silence. The wind's dropped, and the sign has stopped complaining. For now. |
 | SIGN · PULL | It is nailed to a post, in the ground, at the edge of a town. I have been here two minutes and I am already vandalising the place. | It's nailed to a post, in the ground, at the edge of a town. I've been here two minutes and I'm already vandalising the place. |
 | SIGN · TALK TO | Good evening. I am new. | Good evening. I'm new. Two thousand and one, and climbing. |
-| EAST · LOOK 1 | Home is that way. It is eleven hundred miles that way, which robs the gesture of some of its force. | Home is that way. It's eleven hundred miles that way, which robs the gesture of some of its force. |
-| EAST · LOOK 2 | Eleven hundred miles. I have just come along it and it did not feel optional at the time. | Eleven hundred miles. I've just come along it, and it didn't feel optional at the time. |
+| EAST · LOOK 1 | Home is that way. It is eleven hundred miles that way, which robs the gesture of some of its force. | Home is that way. It's three thousand miles that way, which robs the gesture of some of its force. |
+| EAST · LOOK 2 | Eleven hundred miles. I have just come along it and it did not feel optional at the time. | Three thousand miles. I've just come along it, and it didn't feel optional at the time. |
 | EAST · LOOK 3 | Home is that way. I am not going to keep looking at it. | Home is that way. I'm not going to keep looking at it. That's three times now. |
 | EAST · USE | That would be a decision, and I have only just made one. | That would be a decision, and I've only just made one. |
 | EAST · PICK UP | It is a road. | It's a road. I've got enough to carry. |
