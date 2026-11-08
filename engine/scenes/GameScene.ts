@@ -1,3 +1,4 @@
+import { counterReading, priceText } from '../core/NodeCounter.ts';
 import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
@@ -954,6 +955,7 @@ export class GameScene extends Phaser.Scene {
       poses: this.heldPoses(),
       still: this.stilled,
       tally: this.slateTally(),
+      nodeCounter: this.nodeCounterLines(),
       performing: this.performance !== null,
       choiceView: this.choicesShowing() ? this.choiceViewNow() : {},
       // Whose greeting is being said, so they hold still for it as they do
@@ -3938,6 +3940,14 @@ export class GameScene extends Phaser.Scene {
    * being performed once its pencil has gone down -- the exchange lands only
    * when its last line is read, which is after the next boast.
    */
+  /** The open node's running total, as two lines (doc 04 SOW_C1; NodeCounter). */
+  private nodeCounterLines(): string[] | null {
+    const place = this.state.content.ui.nodeCounter;
+    const reading = place ? counterReading(this.state.dialogue.currentNode, (id) => this.state.flags.get(id)) : null;
+    if (!place || !reading) return null;
+    return [`${place.countLabel} ${reading.count}`, `${place.priceLabel} ${place.currency}${priceText(reading.price)}`];
+  }
+
   private slateTally(): { player: number; opponent: number } | null {
     const score = this.state.dialogue.duelScore;
     if (!score) return null;

@@ -2007,7 +2007,23 @@ export interface DialogueRepeat {
   exchange?: { speaker: string; line: string; direction?: boolean; sound?: LineSound }[];
 }
 
+/**
+ * A RUNNING TOTAL SHOWN WHILE A NODE IS OPEN (doc 04 SOW_C1's counter; errata 75, 189):
+ * a number counter, and a price read from it at `perUnit` each. Once `stopsOn` is set the
+ * negotiation is settled and the price stops at `minimum`. The figures come from the
+ * documents (the extractor reads them); the labels and placement are content/ui/ui.json's.
+ */
+export interface NodeCounter {
+  counter: string;
+  perUnit: number;
+  minimum: number;
+  stopsOn: string;
+  note?: string;
+}
+
 export interface DialogueNode {
+  /** Doc 04 SOW_C1: a running total on screen while the node is open. */
+  counter?: NodeCounter;
   /**
    * What the other party says before the options are offered.
    *
@@ -2170,6 +2186,8 @@ export interface UiFile {
   notices: Record<string, string>;
   keys: Record<string, string>;
   hud: { hintTemplate: string };
+  /** How a node's running total is drawn (NodeCounter): its two labels, the currency mark, and where. */
+  nodeCounter?: { note?: string; countLabel: string; priceLabel: string; currency: string; at: [number, number] };
   /** Doc 20's map screen. Interface grammar, of a class with the templates. */
   map?: { note?: string; button: string; back: string; travelTemplate: string };
   /**

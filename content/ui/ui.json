@@ -22,6 +22,16 @@
   "hud": {
     "note": "The key-hint line is gone. There are no required keys: the MENU button in the panel is the route to save, load, options and quit. Chromebook top-row keys are browser keys and never reached the game."
   },
+  "nodeCounter": {
+    "note": "Doc 04 SOW_C1 (errata 75, 189): \"The counter shows the running total -- ADJECTIVES and the price\". Drawn in the bitmap face (errata 62) in the panel's right side, which the option list leaves empty, right-aligned on `at` (first drawn over the play area's top right, where the speakers' lines landed on it), while SOW_C1 is open. The figures are the dialogue node's `counter`, read from doc 04.",
+    "countLabel": "ADJECTIVES",
+    "priceLabel": "PRICE",
+    "currency": "$",
+    "at": [
+      1872,
+      912
+    ]
+  },
   "map": {
     "note": "Interface grammar, not written content -- the same class as the sentence templates. Doc 20 names the screen THE MAP and specifies that its labels are drawn by the engine in the game font.",
     "button": "MAP",

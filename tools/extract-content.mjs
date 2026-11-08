@@ -5054,6 +5054,19 @@ function sowerbyTree() {
     const last = [...opening].reverse().find((u) => u.speaker === SPEAKER);
     nodes[id] = { id, ...(last ? { prompt: last.line } : { noPrompt: true, exceptionReason: 'Doc 04 writes this node as a table only.' }),
       ...(opening.length ? { opening } : {}), options };
+    // THE COUNTER (doc 04's Mechanic; errata 75, 189): "The counter shows the running total -- ADJECTIVES
+    // and the price ... Two dollars an adjective; the minimum rate is fifty cents". The rate and the
+    // minimum are READ from that sentence, so the screen cannot drift from the writing.
+    if (id === 'SOW_C1') {
+      const WORDS = { one: 1, two: 2, three: 3, four: 4, five: 5, ten: 10, twenty: 20, fifty: 50 };
+      const rule = /(\w+) dollars an adjective; the minimum rate is (\w+) cents/i.exec(body);
+      const perUnit = rule && WORDS[rule[1].toLowerCase()];
+      const cents = rule && WORDS[rule[2].toLowerCase()];
+      if (!perUnit || !cents) throw new Error('doc 04 SOW_C1: the counter\'s rate ("… dollars an adjective; the minimum rate is … cents") does not read');
+      const stops = ROUTE['SOW_C1:3'].set;
+      nodes[id].counter = { counter: 'SOWERBY_ADJECTIVES', perUnit, minimum: cents / 100, stopsOn: Object.keys(stops)[0],
+        note: `Doc 04 SOW_C1: "${rule[0]}". Shown while this node is open: ADJECTIVES is the counter, the price is perUnit times it; once the negotiation is settled (stopsOn) it stops at the minimum, "Four words, fifty cents. The counter stops." (option 3).` };
+    }
   }
   return write('content/dialogue/sowerby.json', {
     aftermathAuthored: true,
