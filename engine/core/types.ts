@@ -465,7 +465,7 @@ export interface AmbientFile {
    */
   posture?: 'standing' | 'seated' | 'band' | 'identity' | 'animal' | 'behind-counter' | 'child';
   /**
-   * SCENERY, NOT A PERSON (errata 186): a figure drawn and moving but answering
+   * SCENERY, NOT A PERSON (errata 187): a figure drawn and moving but answering
    * nothing yet -- the pointer passes through it to the hotspot or ground under
    * it, as if it were painted into the plate. Main Street's hitching horses,
    * until their LOOK and LISTEN lines are written and a hotspot laid over them.

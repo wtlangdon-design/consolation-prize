@@ -425,7 +425,7 @@ export class AmbientLayer {
     // patron bands draw, and the cast list is sorted by id -- so without this,
     // which one a click found depended on the alphabet.
     // A walker on a loop is examined through the hotspot over its road.
-    // SCENERY ANSWERS NOTHING (errata 186): the pointer passes through it.
+    // SCENERY ANSWERS NOTHING (errata 187): the pointer passes through it.
     const hits = this.present.filter((npc) => !npc.loop && !npc.scenery).filter((npc) => {
       // THE SPRITE'S OWN HEIGHT WHEN IT HAS ONE, the zone's when it does not.
       // The zone heights are the game's three fixed drawn sizes; a figure
