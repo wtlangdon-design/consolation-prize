@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "lineup-pie-woman",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/cast-unify-51.txt",
+ "out": "art/staging/cast-unify/batch-51/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-51/template.png",
+  "art/staging/cast-unify/batch-51/face.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

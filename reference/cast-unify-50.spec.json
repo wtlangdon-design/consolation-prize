@@ -1,0 +1,15 @@
+{
+ "assetId": "cast-unify",
+ "subject": "lineup-map-seller",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-02-main-street",
+ "promptFile": "reference/cast-unify-50.txt",
+ "out": "art/staging/cast-unify/batch-50/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-50/template.png",
+  "art/staging/cast-unify/batch-50/face.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

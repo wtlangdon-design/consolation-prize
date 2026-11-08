@@ -1,0 +1,7 @@
+Image 1 is a TEMPLATE: the hero of my pixel-art adventure game, exactly as he is drawn in the game, standing, 4 times in a row on magenta. HIS BODY IS THE STANDARD FOR EVERY PERSON IN THIS GAME: a SMALL head (crown to chin about one eighth of his height), narrow shoulders, a long torso and long legs, a realistic lean adult figure -- not a cartoon, not chunky, not big-headed.
+
+In Image 1 the figure is built as a CHILD of about ten: keep exactly its proportions and its size. Image 2 shows ONLY THE FACE of A, a message boy: take from it his face, his floppy brown cap and his colouring -- NOTHING ELSE. His face is drawn there larger than it should be: in your picture it is the SIZE OF THE FACE in Image 1. A wears an olive-brown jacket too big for him over a cream shirt, patched brown knee-length shorts and boots.
+
+Repaint Image 1: replace each figure with A, KEEPING ITS FIGURE -- the same height, head size, shoulder width and leg length -- and changing only the face, cap, clothes and the arms' pose, left to right: 1. standing, a folded note in his hand at his side; 2. looking back over his shoulder; 3. flipping a coin with his thumb, the coin in the air above his hand; 4. talking, the note raised in his hand.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the hero -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, feet on the same line as Image 1. No glow, no blur, no shadows, no ground, no text, no numbers, no border.
