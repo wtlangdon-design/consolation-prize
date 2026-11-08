@@ -481,6 +481,22 @@ export class GameScene extends Phaser.Scene {
 
     this.input.on(Phaser.Input.Events.POINTER_MOVE, this.onPointerMove, this);
     this.input.on(Phaser.Input.Events.POINTER_DOWN, this.onPointerDown, this);
+    // A TAP IS NOT A GESTURE UNTIL IT LIFTS (Tyler's Chromebook, 2026-11-07: "The music on the main screen still
+    // isn't working"). Chrome grants a touch its user activation on touchend/pointerup, not on pointerdown, so a
+    // finger on "Click to begin" asked for the title's music a moment too early and was refused. Sound is
+    // unlocked again, from the browser's own events, on every lift, click and key: each retries a bed that is
+    // wanted and silent (Music.unlock), and costs nothing when the music is already playing.
+    if (typeof window !== 'undefined') {
+      const retry = (): void => {
+        this.music.unlock();
+        this.ambience.unlock();
+        this.cueBed.unlock();
+      };
+      for (const event of ['pointerup', 'touchend', 'click', 'keydown']) window.addEventListener(event, retry, { passive: true });
+      this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+        for (const event of ['pointerup', 'touchend', 'click', 'keydown']) window.removeEventListener(event, retry);
+      });
+    }
     // DOC 30 SECTION 6.1's CONVENIENCE: the wheel or a trackpad scrolls a long
     // choice list, one option a notch. The arrows remain the way to do it.
     this.input.on(Phaser.Input.Events.POINTER_WHEEL,

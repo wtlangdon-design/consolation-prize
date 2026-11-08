@@ -6,6 +6,7 @@ import { browser } from '../lib/chromium.mjs';
 
 import { readJson, ROOT } from '../lib/content.mjs';
 import { clickPoint, validateScript } from './schema.mjs';
+import { titleMusic } from './title-music.mjs';
 
 /**
  * THE GAUNTLET. Doc 44.
@@ -72,6 +73,19 @@ async function main() {
     }
     if (await runScript(name, script, coverage)) continue;
     failed += 1;
+  }
+  // ERRATA 165: the title's music under a real autoplay rule, a tap and a click.
+  {
+    console.log('\n=== the title\'s music, under the browser\'s autoplay rule');
+    const server = await serve('dev', DEV_PORT);
+    try {
+      const problems = await titleMusic(server.url);
+      for (const problem of problems) console.log(`      x ${problem}`);
+      console.log(problems.length ? 'FAIL  title music' : 'PASS  title music');
+      if (problems.length) failed += 1;
+    } finally {
+      server.stop();
+    }
   }
   console.log('');
   console.log(failed === 0 ? 'GAUNTLET: green.' : `GAUNTLET: ${failed} script(s) failed.`);

@@ -2456,30 +2456,41 @@ export class Renderer {
     }
     const rows = Math.min(offset, sky.height);
     ctx.drawImage(sky, 0, sky.height - rows, NATIVE_WIDTH, rows, 0, offset - rows, NATIVE_WIDTH, rows);
-    // THE STARS FLICKER (Tyler: "with stars flickering in a few places").
-    // Each declared star flares briefly at its own irregular moments: two
-    // incommensurate waves multiplied and raised to a high power are near
-    // zero most of the time and peak rarely. A soft cross of light in the
-    // stars' own warm colour, never a sprite; nothing about it is
-    // information (invariant 9).
+    // THE STARS TWINKLE (errata 157, 165; Tyler, 2026-11-07, twice: "The
+    // stars aren't twinkling"). A glow laid over a star already at full
+    // brightness changes nothing a player can see, so each star now goes DIM
+    // -- the night's own colour, recorded beside it, drawn back over it -- and
+    // comes up BRIGHT again with a small cross of light, every star on a
+    // rhythm of its own. The brightest few also flare now and then. Nothing
+    // about it is information (invariant 9).
     const clock = pan.clock ?? 0;
     const was = ctx.globalAlpha;
     const glow = 'rgb(255, 226, 170)';
-    for (const [index, [sx, sy]] of (this.state.room.skyStars ?? []).entries()) {
-      const y = sy - (sky.height - offset);
-      if (y < 0 || y >= offset) continue;
-      const { twinkle, flare } = starLight(clock, index);
-      // Always: the star's own small light, breathing on its own rhythm.
+    for (const [index, star] of (this.state.room.skyStars ?? []).entries()) {
+      const [sx, sy, rx = 2, ry = 2, nr, ng, nb] = star as number[];
+      const y = sy! - (sky.height - offset);
+      if (y < -ry - 12 || y >= offset + ry + 12) continue;
+      const x = sx!;
+      const { dim, bright, flare } = starLight(clock, index);
+      if (dim > 0 && nb !== undefined) {
+        ctx.fillStyle = `rgb(${nr}, ${ng}, ${nb})`;
+        ctx.globalAlpha = was * dim;
+        ctx.fillRect(x - rx - 1, y - ry - 1, rx * 2 + 2, ry * 2 + 2);
+      }
       ctx.fillStyle = glow;
-      ctx.globalAlpha = was * twinkle;
-      ctx.fillRect(sx - 2, y - 2, 4, 4);
+      if (bright > 0) {
+        ctx.globalAlpha = was * bright * 0.8;
+        ctx.fillRect(x - 2, y - 2, 4, 4);
+        ctx.globalAlpha = was * bright * 0.55;
+        ctx.fillRect(x - rx - 4, y - 1, rx * 2 + 8, 2);
+        ctx.fillRect(x - 1, y - ry - 4, 2, ry * 2 + 8);
+      }
       if (flare < 0.02) continue;
-      // Now and then: a flare, a soft cross.
       ctx.globalAlpha = was * Math.min(1, flare * 1.4);
-      ctx.fillRect(sx - 3, y - 3, 6, 6);
+      ctx.fillRect(x - 3, y - 3, 6, 6);
       ctx.globalAlpha = was * flare * 0.5;
-      ctx.fillRect(sx - 10, y - 1, 20, 2);
-      ctx.fillRect(sx - 1, y - 10, 2, 20);
+      ctx.fillRect(x - 12, y - 1, 24, 2);
+      ctx.fillRect(x - 1, y - 12, 2, 24);
     }
     ctx.globalAlpha = was;
   }
@@ -3081,13 +3092,24 @@ export function skySpeechAnchor(height: number): { x: number; y: number } {
 }
 
 /**
- * A sky star's light at a moment (Tyler, 2026-11-07: "The stars aren't twinkling"). `twinkle` is the star's own
- * steady breathing, 0.25-0.95, on a rhythm of its own, always visible; `flare` is the occasional bright cross,
- * two incommensurate waves multiplied, now peaking every few seconds rather than once a minute.
+ * A sky star's light at a moment (errata 165; Tyler, 2026-11-07: "The stars aren't twinkling"). Three waves of its
+ * own -- a slow swell, a quicker one and a shimmer, at frequencies and phases no other star shares -- sum to a level
+ * in -1..1. Below the middle the star goes `dim` (0..0.9 of the night drawn back over it); above, `bright` (0..1 of
+ * a small cross of light). At any moment roughly a quarter of the sky is visibly down and a quarter visibly up, and
+ * every star does both within a few seconds. `flare` is the occasional big cross, for the first twelve stars only.
  */
-export function starLight(clock: number, index: number): { twinkle: number; flare: number } {
-  const twinkle = 0.6 + 0.35 * Math.sin(clock * (1.7 + index * 0.31) + index * 1.9);
+export function starLight(clock: number, index: number): { dim: number; bright: number; flare: number } {
+  const hash = (n: number): number => {
+    const v = Math.sin(index * 127.1 + n * 311.7) * 43758.5453;
+    return v - Math.floor(v);
+  };
+  const level = 0.55 * Math.sin(clock * (0.9 + hash(1) * 1.0) + hash(2) * 6.283)
+    + 0.3 * Math.sin(clock * (2.3 + hash(3) * 1.4) + hash(4) * 6.283)
+    + 0.15 * Math.sin(clock * (5.0 + hash(5) * 2.0) + hash(6) * 6.283);
+  const dim = 0.9 * Math.min(1, Math.max(0, (-level - 0.15) / 0.55));
+  const bright = Math.min(1, Math.max(0, (level - 0.25) / 0.5));
+  if (index >= 12) return { dim, bright, flare: 0 };
   const a = Math.sin(clock * (0.9 + index * 0.137) + index * 2.1);
   const b = Math.sin(clock * (0.53 + index * 0.071) + index * 0.7);
-  return { twinkle, flare: Math.max(0, a * b) ** 3 };
+  return { dim, bright, flare: Math.max(0, a * b) ** 3 };
 }
