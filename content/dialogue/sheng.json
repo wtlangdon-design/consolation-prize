@@ -252,14 +252,16 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "Why help me?",
-          "say": "You are the first customer in nine years whose collar and whose story got dirty in the same place. It suggests the story is true."
+          "say": "You are the first customer in nine years whose collar and whose story got dirty in the same place. It suggests the story is true.",
+          "repeat": "I have told you: your collar. I stand by your collar, Mr. Grubb."
         },
         {
           "id": "sheng4",
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "What do you think is under Claim One?",
-          "say": "Nothing. What is under a story? More story."
+          "say": "Nothing. What is under a story? More story.",
+          "repeat": "More story. I do not lend against it."
         },
         {
           "id": "sheng5",

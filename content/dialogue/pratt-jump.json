@@ -78,6 +78,7 @@
           "tag": "TOPIC",
           "afterUse": "retain",
           "text": "I'll fetch the law.",
+          "repeat": "Still closes at four. Every day. Never seen it fail.",
           "exchange": [
             {
               "speaker": "pratt",

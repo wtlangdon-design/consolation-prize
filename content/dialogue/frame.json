@@ -213,6 +213,12 @@
               "line": "'MEMORIAL FOR E. PIKE, LATE. ALL WELCOME. REFRESHMENTS.' I've added refreshments. It doubles the turnout."
             }
           ],
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "It's SET! Every word in capitals, and REFRESHMENTS in bigger ones. People read the big ones."
+            }
+          ],
           "set": {
             "T_FUNERAL_DAY": true
           },
@@ -319,7 +325,13 @@
           "tag": "TOPIC",
           "text": "What did you print about Vessel leaving?",
           "afterUse": "retain",
-          "say": "'BELOVED CITIZEN ANSWERS CALL OF COMMERCE.' He owed me for six advertisements. The headline was cheaper than forgiving the debt."
+          "say": "'BELOVED CITIZEN ANSWERS CALL OF COMMERCE.' He owed me for six advertisements. The headline was cheaper than forgiving the debt.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "'BELOVED CITIZEN.' Six advertisements unpaid, and still the kindest thing I've printed all year."
+            }
+          ]
         },
         {
           "id": "frame4",
@@ -398,6 +410,12 @@
             {
               "speaker": "frame",
               "line": "I invented better. He never complained. That was the quote, probably."
+            }
+          ],
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "He'd have said something about a piano. He always did."
             }
           ]
         },

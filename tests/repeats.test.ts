@@ -38,7 +38,7 @@ test('every question in a passed tree has an answer for being asked again, and i
         // never asked twice; one a later act's pass will write is named after `!`.
         if (option.ends || option.afterUse === 'remove' || skip.has(option.id)) continue;
         const first = option.say ?? option.exchange?.find((line) => line.speaker !== content.actor.id)?.line;
-        const again = option.repeats?.[0]?.say ?? option.repeat;
+        const again = option.repeats?.[0]?.say ?? option.repeats?.[0]?.exchange?.find((line) => line.speaker !== content.actor.id)?.line ?? option.repeat;
         if (!again) faults.push(`${id}: "${option.text}" has no answer for being asked again`);
         else if (again === first) faults.push(`${id}: "${option.text}" answers again word for word`);
       }
