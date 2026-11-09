@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
+import { drawnBelowFeet } from '../engine/core/Ambient.ts';
 import { WalkBoxes, heightIn } from '../engine/core/WalkBoxes.ts';
 import type { AmbientFile, Condition, RoomFile, WalkBox } from '../engine/core/types.ts';
 // @ts-expect-error -- a plain .mjs module with no declarations; it reads 8-bit RGBA PNGs.
@@ -134,7 +135,9 @@ for (const roomId of built) {
     const drawn = one.sprite.figureHeight;
     const scale = drawn ? (man(one.x, one.y) * (one.sprite.stature ?? 1)) / drawn : 1;
     // Every pose, merged: a man is where any of his frames puts him.
-    const masks = one.sprite.frames.map((frame) => maskOf(one.sprite.sheet, frame as [number, number, number, number], scale, one.x, one.y));
+    // Its feet on its y, and what lies under them below it (sprite.footRow; errata 201), as the renderer draws it.
+    const masks = one.sprite.frames.map((frame) => maskOf(one.sprite.sheet, frame as [number, number, number, number], scale, one.x,
+      one.y + drawnBelowFeet(frame[3], Math.max(1, Math.round(frame[3] * scale)), one.sprite.footRow)));
     return { ...one, masks };
   });
   const most = (a: Mask[], b: Mask[]) => Math.max(...a.flatMap((ma) => b.map((mb) => shared(ma, mb) / Math.max(1, Math.min(area(ma), area(mb))))));

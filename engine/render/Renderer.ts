@@ -4,7 +4,7 @@ import type { PresentedOption } from '../core/DialogueRunner.ts';
 import { FAR_WALK, IDLE_BREAK, type Actor } from '../core/Actor.ts';
 import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer, Departing } from '../core/Ambient.ts';
-import { figureSpeaking } from '../core/Ambient.ts';
+import { drawnBelowFeet, figureSpeaking } from '../core/Ambient.ts';
 import { askedState } from '../dev/RoomState.ts';
 import { applyTint, moverTint, type MoverTint } from './LightFields.ts';
 
@@ -2212,7 +2212,8 @@ export class Renderer {
     // her sheet happened to be drawn at, in every room, at every depth.
     const [drawW, drawH] = this.ambientSize(npc, width, height);
     const left = npc.x - Math.floor(drawW / 2);
-    const top = npc.y - drawH + 1;
+    // ITS FEET ON ITS y (AmbientFile.sprite.footRow; errata 201), and what lies under them below it.
+    const top = npc.y - drawH + 1 + drawnBelowFeet(height, drawH, declared.footRow);
     const tint = this.tintAt(npc.x, npc.y);
     const grade = this.gradeFor(npc.id);
     const draw = () => this.screen.context.drawImage(image, sx, sy, width, height, left, top, drawW, drawH);
@@ -2236,7 +2237,7 @@ export class Renderer {
     const frame = npc.sprite?.frames?.[0];
     if (!frame) return null;
     const [, drawH] = this.ambientSize(npc, frame[2], frame[3]);
-    return { top: npc.y - drawH + 1, height: drawH };
+    return { top: npc.y - drawH + 1 + drawnBelowFeet(frame[3], drawH, npc.sprite?.footRow), height: drawH };
   }
 
   /**
