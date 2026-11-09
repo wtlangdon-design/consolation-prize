@@ -70,6 +70,15 @@
    ],
    "facing": "front",
    "note": "Through the mine from the washout, the way known (doc 107)."
+  },
+  {
+   "from": "gulch_tents",
+   "at": [
+    1140,
+    840
+   ],
+   "facing": "left",
+   "note": "Up the path from the tents, at its top."
   }
  ],
  "hotspots": {
@@ -85,12 +94,6 @@
    420,
    600
   ],
-  "path_down": [
-   1480,
-   300,
-   440,
-   564
-  ],
   "ravine": [
    560,
    0,
@@ -98,7 +101,7 @@
    240
   ]
  },
- "hotspotsNote": "Generous over the thing the player sees, smallest first. THE CAMP BELOW is the camp far down by the river; THE RAVINE, its walls; THE PATH DOWN, the roped zigzag at the right (a way once Room 51 is built).",
+ "hotspotsNote": "Generous over the thing the player sees, smallest first. THE CAMP BELOW is the camp far down by the river; THE RAVINE, its walls. THE PATH DOWN, the roped zigzag at the right, is the way down to the tents (Room 51).",
  "people": {},
  "exitSubjects": {
   "THE MINE": {
@@ -106,6 +109,12 @@
    "to": "washout",
    "defaultVerb": "WALK_TO",
    "note": "Doc 109: the way back, through the mine to the washout, the way known (doc 107)."
+  },
+  "THE PATH DOWN": {
+   "id": "to_tents",
+   "to": "gulch_tents",
+   "defaultVerb": "WALK_TO",
+   "note": "Doc 109: the path down the ravine wall to the camp, in view of it all the way (Room 51, the tents)."
   }
  },
  "exits": {
@@ -114,6 +123,12 @@
    60,
    250,
    330
+  ],
+  "to_tents": [
+   1480,
+   300,
+   440,
+   564
   ]
  },
  "exitWalkTo": {
@@ -121,6 +136,11 @@
    "x": 230,
    "y": 425,
    "facing": "back"
+  },
+  "to_tents": {
+   "x": 1140,
+   "y": 840,
+   "facing": "right"
   }
  },
  "obstacles": [],
@@ -128,7 +148,6 @@
  "defaultVerbs": {
   "cairn": "LOOK_AT",
   "camp_below": "LOOK_AT",
-  "path_down": "LOOK_AT",
   "ravine": "LOOK_AT"
  },
  "defaultVerbsNote": "Errata 28b. Every object is looked at on a bare click; every way walks.",
@@ -149,13 +168,6 @@
    "floor_11": 0
   },
   "planes": []
- },
- "hotspotWalkTo": {
-  "path_down": {
-   "x": 1140,
-   "y": 840,
-   "facing": "right"
-  }
  },
  "onEnterSay": {
   "fromRef": "docs/109-fiddlers-gulch-lines.md::## THE LEDGE",

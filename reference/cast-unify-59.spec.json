@@ -1,0 +1,16 @@
+{
+ "assetId": "cast-unify",
+ "subject": "acted-ozymandia",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-16-tent",
+ "promptFile": "reference/cast-unify-59.txt",
+ "out": "art/staging/cast-unify/batch-59/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/cast-unify/batch-59/template.png",
+  "art/staging/cast-unify/batch-59/current.png",
+  "art/staging/cast-unify/batch-59/rod.png"
+ ],
+ "derivedFrom": "art/staging/cast-master/master-02.png"
+}

@@ -1,0 +1,200 @@
+{
+ "schema": 1,
+ "id": "room-51-tents",
+ "room": "gulch_tents",
+ "docRoom": 51,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 51 of Fiddler's Gulch (reference/fiddlers-gulch/brief.md; errata 202, 206; doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/107-fiddlers-gulch.md",
+  "docs/108-the-washout-and-the-mine.md",
+  "docs/109-fiddlers-gulch-lines.md",
+  "docs/49-wrong-answers.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-51.json",
+    "docs/00-errata.md::206 · FIDDLER'S GULCH BUILT, PART TWO: THE TENTS AND THE LOOKOUT (ROOM 51)"
+   ],
+   "note": "One picture, daylight (errata 190), reached only on the trip; G3 changes what the lookout says, not the picture."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-51/graybox.json",
+    "docs/00-errata.md::206 · FIDDLER'S GULCH BUILT, PART TWO: THE TENTS AND THE LOOKOUT (ROOM 51)"
+   ],
+   "note": "Every subject is plate; the lettering is three props in the game's face."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-51-gulch-tents-with-thad.png",
+    "docs/00-errata.md::206 · FIDDLER'S GULCH BUILT, PART TWO: THE TENTS AND THE LOOKOUT (ROOM 51)"
+   ],
+   "note": "The lookout, from room-51 operation 4, cut at the room's man and measured against Thad."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "content/ambient/gulch-lookout.json",
+    "tests/movement.test.mjs"
+   ],
+   "note": "The lookout breathes, looks back up the path and raises his pan (errata 77)."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-51-gulch-tents-with-thad.png"
+   ],
+   "note": "The lookout holds his pan; Thad stands on the floor beside him, clear of the stump."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-51/annotation.json",
+    "art/staging/room-51/plate-02/frame.json"
+   ],
+   "note": "Daylight, errata 190."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/gulch-tents.test.ts",
+    "docs/109-fiddlers-gulch-lines.md"
+   ],
+   "note": "G3: the lookout says what would convince him (LOO_G1 option 3), and the Clarion is in hand."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-51.json",
+    "content/rooms/gulch-tents.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-51: 4 of 4 operations (master; plate; the river widened; the lookout)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/gulch-tents.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-51/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/gulch-tents/proof.json"
+   ],
+   "note": "No principal change: G3 changes what is said, not the picture."
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "tests/gulch-tents.test.ts"
+   ],
+   "note": "Stopped in turn at the grog tent and the river; G3 by the Clarion; the ways open."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "tests/gulch-tents.test.ts",
+    "tests/movement.test.mjs"
+   ],
+   "note": "His barks in turn, one a visit; his idle and actions."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-51/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-51-tents.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-51/plate-02/frame.json"
+   ]
+  },
+  {
+   "subject": "the lookout",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-51-lookout.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-51/lookout/lookout.json"
+   ]
+  },
+  {
+   "subject": "the lettering",
+   "class": "PROP",
+   "stage": "SHIPPING",
+   "path": "art/props/room-51-notice.png",
+   "evidence": [
+    "tools/art/gulch-lettering.py"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q192 · Room 51, the tents: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 206; reference/fiddlers-gulch/brief.md); BUILT, room-51 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q192 · Room 51, the tents: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 206; reference/fiddlers-gulch/brief.md); BUILT, room-51 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

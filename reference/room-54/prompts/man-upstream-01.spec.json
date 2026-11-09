@@ -1,0 +1,16 @@
+{
+ "assetId": "room-54",
+ "subject": "room-54-man-upstream",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-54-upstream",
+ "promptFile": "reference/room-54/prompts/man-upstream-01.txt",
+ "out": "art/staging/room-54/man-upstream/sheet-01.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-54/man-upstream/template.png",
+  "art/staging/room-54/man-upstream/face.png",
+  "art/staging/room-54/man-upstream/thad-in-room.png"
+ ],
+ "derivedFrom": "art/staging/room-54/composition-master-01.png"
+}

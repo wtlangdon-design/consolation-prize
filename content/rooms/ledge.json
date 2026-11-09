@@ -119,6 +119,15 @@
       ],
       "facing": "front",
       "note": "Through the mine from the washout, the way known (doc 107)."
+    },
+    {
+      "from": "gulch_tents",
+      "at": [
+        1140,
+        840
+      ],
+      "facing": "left",
+      "note": "Up the path from the tents, at its top."
     }
   ],
   "hotspots": [
@@ -159,45 +168,6 @@
         "x": 1060,
         "y": 856,
         "facing": "back"
-      }
-    },
-    {
-      "id": "path_down",
-      "name": "THE PATH DOWN",
-      "rect": [
-        1480,
-        300,
-        440,
-        564
-      ],
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A path down the ravine wall, in zigzags, with a rope along the bad parts.",
-            "repeat": [
-              "Somebody put the rope in. Somebody else, I think, needed it.",
-              "Every turn of it is in view of the camp. They'll see me coming for a quarter of an hour."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Grit trickling down the zigzags.",
-            "repeat": [
-              "The rope creaking against its pegs.",
-              "At the bottom, a man, waiting. I can hear him not moving."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PULL": "I tested the rope. It held. I'd like that noted somewhere official."
-      },
-      "walkTo": {
-        "x": 1140,
-        "y": 840,
-        "facing": "right"
       }
     },
     {
@@ -324,6 +294,49 @@
         "x": 230,
         "y": 425,
         "facing": "back"
+      }
+    },
+    {
+      "id": "to_tents",
+      "name": "THE PATH DOWN",
+      "rect": [
+        1480,
+        300,
+        440,
+        564
+      ],
+      "colour": 0,
+      "to": "gulch_tents",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A path down the ravine wall, in zigzags, with a rope along the bad parts.",
+            "repeat": [
+              "Somebody put the rope in. Somebody else, I think, needed it.",
+              "Every turn of it is in view of the camp. They'll see me coming for a quarter of an hour."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Grit trickling down the zigzags.",
+            "repeat": [
+              "The rope creaking against its pegs.",
+              "At the bottom, a man, waiting. I can hear him not moving."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "I tested the rope. It held. I'd like that noted somewhere official."
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 109: the path down the ravine wall to the camp, in view of it all the way (Room 51, the tents).",
+      "walkTo": {
+        "x": 1140,
+        "y": 840,
+        "facing": "right"
       }
     }
   ],

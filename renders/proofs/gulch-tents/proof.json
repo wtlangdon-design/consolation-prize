@@ -1,0 +1,417 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "gulch_tents",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "9a4d00c35c4d789f68618b767ca716ac3df8c80b",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "uncommitted": [
+  "M art/staging/ledger.json",
+  " M content/audio/sounds.json",
+  " M content/combinations.json",
+  " M content/fixtures/room-45.json",
+  " M content/flags/flags.json",
+  " M content/manifest.json",
+  " M content/rooms/ledge.json",
+  " M engine/core/Ambient.ts",
+  " M engine/core/VerbSystem.ts",
+  " M engine/core/types.ts",
+  " M proofs/readiness/room-51.json",
+  " M proofs/readiness/room-52.json",
+  " M proofs/readiness/room-53.json",
+  " M proofs/readiness/room-54.json",
+  " M proofs/spec/ledge.json",
+  " M reference/global-baseline.json",
+  " M reference/room-50/annotation.json",
+  " M tools/art/gulch-lettering.py",
+  " M tools/art/interiors-people.py",
+  " M tools/art/interiors-render.py",
+  " M tools/audio/render-gulch-sfx.py",
+  " M tools/compile-room.mjs",
+  " M tools/extract-content.mjs",
+  " M tools/extract-examine.mjs",
+  " M tools/gulch-graybox.py",
+  "?? art/actors/room-51-lookout.png",
+  "?? art/backgrounds/room-51-tents.png",
+  "?? art/props/room-51-grog.png",
+  "?? art/props/room-51-knock.png",
+  "?? art/props/room-51-notice.png",
+  "?? audio/sfx/tents-bed.wav",
+  "?? content/ambient/gulch-lookout.json",
+  "?? content/dialogue/gulch-lookout.json",
+  "?? content/examine/room-51.json",
+  "?? content/rooms/gulch-tents.json",
+  "?? proofs/room-51/",
+  "?? proofs/spec/gulch-tents.json",
+  "?? reference/room-51/",
+  "?? renders/proofs/gulch-tents/",
+  "?? renders/room-51-graybox-with-thad.png",
+  "?? renders/room-51-graybox.png",
+  "?? renders/room-51-gulch-tents-with-thad.png",
+  "?? tests/gulch-tents.test.ts"
+ ],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r51-a, then entered gulch_tents by control -- NOT proof that a player can reach it"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "floor_0_0",
+    "kind": "far",
+    "y": 441,
+    "xs": [
+     565,
+     521,
+     609,
+     478,
+     653,
+     434,
+     696,
+     390,
+     740
+    ],
+    "expect": 187,
+    "x": 565
+   },
+   "at": [
+    565,
+    441
+   ],
+   "reportedHeight": 187,
+   "expected": 187,
+   "drawnFrom": "art/actors/thad-idle-left/idle-03.png",
+   "bounds": [
+    466,
+    254,
+    198,
+    206
+   ],
+   "order": 0,
+   "renderedHeight": 187,
+   "renderedBottom": 440,
+   "file": "raw-captures-ignored/panel-c-floor_0_0-far.png"
+  },
+  {
+   "mark": {
+    "box": "floor_4",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     1240,
+     1110,
+     1370,
+     980,
+     1500,
+     850,
+     1630,
+     720,
+     1760
+    ],
+    "expect": 470,
+    "x": 1240
+   },
+   "at": [
+    1240,
+    857
+   ],
+   "reportedHeight": 470,
+   "expected": 470,
+   "drawnFrom": "art/actors/thad-idle-left/idle-02.png",
+   "bounds": [
+    990,
+    387,
+    499,
+    519
+   ],
+   "order": 0,
+   "renderedHeight": 470,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-floor_4-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "gulch_lookout",
+   "feet": [
+    1560,
+    640
+   ],
+   "sheet": "art/actors/room-51-lookout.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1503,
+    "y": 318,
+    "width": 115,
+    "height": 324
+   },
+   "seen": {
+    "x": 1507,
+    "y": 319,
+    "width": 92,
+    "height": 322,
+    "bottom": 640,
+    "right": 1598,
+    "changed": 14908
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "gulch_tents",
+   "clock": 9.635299999999999,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_MINE_CROSSED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "clarion",
+    "brass_rod"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      1700,
+      620
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 309,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-02.png",
+     "bounds": [
+      1536,
+      311,
+      328,
+      341
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:gulch_tents",
+     "path": "art/backgrounds/room-51-tents.png",
+     "drawn": "art/backgrounds/room-51-tents.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7f5b411fbe2f31e8e828c55b8069fd44ecc8e5a2299c13a59eaf7374abe39934"
+    },
+    {
+     "key": "art/actors/room-51-lookout.png",
+     "path": "art/actors/room-51-lookout.png",
+     "drawn": "art/actors/room-51-lookout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b6356ac7b0c02488ba873544c58e57f9b345c17e67fe52573cacac7bc71a3ee9"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(gulch_tents)"
+   ],
+   "capturedAt": "2026-11-09T01:38:52.913Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "d39350f398c7503c9457dd2feb98b2c8856a4d6b97fcc09861db96341de02aee"
+  },
+  {
+   "panel": "A",
+   "room": "gulch_tents",
+   "clock": 10.5353,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_MINE_CROSSED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "clarion",
+    "brass_rod"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      1700,
+      620
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 309,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:gulch_tents",
+     "path": "art/backgrounds/room-51-tents.png",
+     "drawn": "art/backgrounds/room-51-tents.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7f5b411fbe2f31e8e828c55b8069fd44ecc8e5a2299c13a59eaf7374abe39934"
+    },
+    {
+     "key": "art/actors/room-51-lookout.png",
+     "path": "art/actors/room-51-lookout.png",
+     "drawn": "art/actors/room-51-lookout.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b6356ac7b0c02488ba873544c58e57f9b345c17e67fe52573cacac7bc71a3ee9"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(gulch_tents)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-09T01:38:53.834Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "b8079f7585d65f0a1705ff58675a557fd8b73f76da01f7aa676ac7d6f47f82af"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-09T01:38:58.436Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 526736,
+  "panels": 4,
+  "scale": 0.5
+ }
+}

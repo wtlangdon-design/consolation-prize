@@ -1,7 +1,7 @@
 # THE LAST CLAIM IN CONSOLATION
 ## Puzzle Dependency Graph — v1
 
-*Companion to Bible v2. 45 puzzles (the table below is the count of record) · 4 acts · ~40 items · no dead ends.*
+*Companion to Bible v2. 52 puzzles: 45, and Fiddler's Gulch's seven (errata 213; the tables below are the count of record) · 4 acts · ~40 items · no dead ends.*
 
 ---
 
@@ -57,7 +57,7 @@ Document C requires **A**, **B**, and **D**. Three independent trials. Any order
 
 ## FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)
 
-*Structural rows only (reference/fiddlers-gulch/brief.md). The design is doc 107, the lines are docs 108 and 109, and nothing here restates them. G6 and G7 are B4 and B5, moved to the Gulch when the trip is built. Until then B3 to B5 above are the game as built, and the count stays 45.*
+*Structural rows only (reference/fiddlers-gulch/brief.md). The design is doc 107, the lines are docs 108 and 109, and nothing here restates them. G6 and G7 are B4 and B5, fought in the Gulch now that the trip is built (errata 213), and keep the ids B4 and B5: B3 above ends at the washout, and `T_VESSEL_FOUND` is G9's. The count is 52: the 45 above and G1 to G5, G8 and G9 (`tools/check-puzzle-graph.mjs`).*
 
 | # | Puzzle | Where | Requires | Yields | Lines |
 |---|---|---|---|---|---|

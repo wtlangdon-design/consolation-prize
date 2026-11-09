@@ -685,6 +685,62 @@
           "attribution": "Fanshawe"
         }
       ]
+    },
+    {
+      "n": 25,
+      "tier": 7,
+      "learnedFrom": "learned in the Gulch",
+      "boast": "I took a nugget out of the river so big it needs its own tent.",
+      "counter": "I've been in that tent. It's mostly tent.",
+      "wrong": [
+        {
+          "text": "A tent is a poor place for valuables.",
+          "reply": "That's advice, son. Nobody ever won an Assay with advice.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "How big is the tent?",
+          "reply": "Big enough for the nugget. Keep up.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "I have a claim with a raccoon in it.",
+          "reply": "We all know the raccoon, son. He has a bigger following than you.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_25"
+    },
+    {
+      "n": 26,
+      "tier": 7,
+      "learnedFrom": "learned in the Gulch",
+      "boast": "My ground runs so rich the gravel pays me rent.",
+      "counter": "I've collected that rent. It was paid in buttons.",
+      "wrong": [
+        {
+          "text": "Gravel can't pay rent.",
+          "reply": "That's the truth, son. Rule three lets you raise it. Nobody's ever been fool enough.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "What does it pay?",
+          "reply": "More than you've got. Everything does, these days.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "My raccoon pays no rent at all.",
+          "reply": "Then evict him, son. That's how property works.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_26"
     }
   ],
   "mockery": [
@@ -804,7 +860,9 @@
         18,
         19,
         20,
-        21
+        21,
+        25,
+        26
       ],
       "threshold": 14,
       "opening": [
@@ -982,6 +1040,121 @@
       },
       "calledByOpponent": true,
       "calledRuling": "doc 03: \"Fanshawe calls the duel himself\"; doc 57 F4: on Main Street after T_ASSAY_RUN, Fanshawe is waiting."
+    },
+    "duel_one_bar": {
+      "puzzle": "B5",
+      "opponent": "gulch_deacon",
+      "opening": [
+        {
+          "speaker": "gulch_rule_keeper",
+          "line": "The rules of the bar."
+        },
+        {
+          "speaker": "gulch_rule_keeper",
+          "line": "One. A man may not be interrupted, except by me."
+        },
+        {
+          "speaker": "gulch_rule_keeper",
+          "line": "Two. A man's account may be doubted by a better one, or a louder."
+        },
+        {
+          "speaker": "gulch_rule_keeper",
+          "line": "Three. Truth is admissible. Nobody's tried."
+        },
+        {
+          "speaker": "gulch_rule_keeper",
+          "line": "Four. The judge is me, and I've decided."
+        },
+        {
+          "speaker": "gulch_rule_keeper",
+          "line": "Five. No firearms, no knives, no—"
+        },
+        {
+          "speaker": "gulch_rule_keeper",
+          "line": "He thinks.",
+          "direction": true
+        },
+        {
+          "speaker": "gulch_rule_keeper",
+          "line": "There was a third one."
+        },
+        {
+          "speaker": "gulch_rule_keeper",
+          "line": "He gives up.",
+          "direction": true
+        },
+        {
+          "speaker": "gulch_rule_keeper",
+          "line": "Begin."
+        }
+      ],
+      "openingRuling": "doc 109, DUEL ONE, ON THE BAR: \"the rule-keeper recites the rules in place of Sowerby's handbill\".",
+      "sequence": [
+        1,
+        2,
+        3,
+        4,
+        1
+      ],
+      "sequenceRuling": "doc 109: \"Vessel's pairs 1, 2, 3, 4 and 1 again\" (errata 73 D).",
+      "notebook": {
+        "1": {
+          "speaker": "thad",
+          "line": "Malnourished. Bishop. Yes."
+        },
+        "2": {
+          "speaker": "thad",
+          "line": "Grandmother. Gravel. Yes."
+        },
+        "3": {
+          "speaker": "thad",
+          "line": "Everyone. Shirts. Concern. Yes."
+        },
+        "4": {
+          "speaker": "thad",
+          "line": "In Sacramento. Not from. Yes."
+        }
+      },
+      "learns": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "sets": {
+        "T_DUEL_ONE_LOST": true,
+        "T_DUEL_ONE_CALLED": false
+      },
+      "loss": [
+        {
+          "speaker": "gulch_deacon",
+          "line": "You've no account in you at all, have you."
+        },
+        {
+          "speaker": "thad",
+          "line": "I have an account. It is scrupulously accurate."
+        },
+        {
+          "speaker": "gulch_deacon",
+          "line": "That's the trouble."
+        },
+        {
+          "speaker": "gulch_deacon",
+          "line": "Son, you've told the truth. In front of people."
+        },
+        {
+          "speaker": "gulch_rule_keeper",
+          "line": "Five to nothing. Rule four."
+        }
+      ],
+      "lossRuling": "doc 109: doc 03's loss dialogue, extracted from there; then \"After the loss dialogue\", the rule-keeper's line.",
+      "offersMuttered": true,
+      "winnable": false,
+      "calledByOpponent": true,
+      "bystander": "gulch_panner",
+      "pencil": "gulch_rule_keeper",
+      "markCue": "R53-PEBBLE",
+      "stagingRuling": "doc 109: \"he scores with pebbles from his bag; the panner, in the river beside the bar, is the voice that mutters each counter\" (doc 45 R53-PEBBLE). Duel One is fought here instead of in Room 4 once the trip is whole (the brief, 7); until then duel_one is the Nugget's."
     }
   }
 }

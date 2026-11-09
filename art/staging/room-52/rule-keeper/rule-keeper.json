@@ -1,0 +1,66 @@
+{
+ "sheet": "art/actors/room-52-rule-keeper.png",
+ "frames": [
+  [
+   2,
+   2,
+   239,
+   346
+  ],
+  [
+   243,
+   2,
+   239,
+   346
+  ],
+  [
+   484,
+   2,
+   239,
+   346
+  ],
+  [
+   725,
+   2,
+   239,
+   346
+  ],
+  [
+   966,
+   2,
+   239,
+   346
+  ],
+  [
+   1207,
+   2,
+   239,
+   346
+  ],
+  [
+   1448,
+   2,
+   239,
+   346
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "drink",
+  "pebbles",
+  "talk",
+  "play-a",
+  "play-b"
+ ],
+ "figureHeight": 338,
+ "stature": 0.85,
+ "posture": "seated",
+ "man": 397.5,
+ "feet": [
+  672,
+  731
+ ],
+ "note": "Room 52: the room's man where they stand (soles at y 731) is 397.5; drawn at 0.85 of him, crown to sole. Frame 1 is a breath the cutter derives from frame 0.",
+ "source": "room-52 (art/staging/room-52/rule-keeper/sheet-01.png)"
+}

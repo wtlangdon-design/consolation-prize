@@ -1,0 +1,5 @@
+Image 1 is a character sheet from my pixel-art adventure game: one man, six times, on flat magenta. He has a big dark mustache.
+
+Make exactly one change, in every one of the six figures: SHAVE OFF HIS MUSTACHE. Where it was, paint his top lip and the skin above it as a clean-shaven man's, with a mouth, in his own skin colours and the same pixel size -- and leave a faint pale stripe of untanned skin across his top lip, where the mustache kept the sun off. In the two figures seen from the side, his profile below the nose is a clean-shaven top lip.
+
+Change NOTHING else: not his hair, his eyes, his nose, his chin, his hat, his clothes, his hands, his boots, his poses, his size or his place on the sheet. The same pixels everywhere except the mustache. Flat magenta background, untouched. No text.

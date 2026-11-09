@@ -867,6 +867,229 @@
       "speaker": "thad",
       "words": "He holds the rod out down the left passage. It trembles in his hands like a plucked string. He turns it to the right passage. It goes still.",
       "where": "combinations (brass_rod on left_passage and right_passage, at the line, first)"
+    },
+    {
+      "n": 81,
+      "class": "B",
+      "speaker": "gulch_lookout",
+      "words": "He reads page one twice, moving his lips at the good part. Then he looks at Thad with something like envy.",
+      "where": "combinations (clarion on gulch_lookout, G3)"
+    },
+    {
+      "n": 82,
+      "class": "B",
+      "speaker": "gulch_lookout",
+      "words": "He folds the paper into his shirt, over his heart, like a deed.",
+      "where": "combinations (clarion on gulch_lookout, G3)"
+    },
+    {
+      "n": 83,
+      "class": "C",
+      "speaker": "gulch_rule_keeper",
+      "words": "Nobody asked.",
+      "where": "dialogue/gulch-rule-keeper RUL_G1 opening"
+    },
+    {
+      "n": 84,
+      "class": "B",
+      "speaker": "gulch_rule_keeper",
+      "words": "He taps his head.",
+      "where": "dialogue/gulch-rule-keeper RUL_G1 option 1"
+    },
+    {
+      "n": 85,
+      "class": "C",
+      "speaker": "gulch_rule_keeper",
+      "words": "He thinks.",
+      "where": "dialogue/gulch-rule-keeper RUL_G1 option 6; assay/assay duel_one_bar (the bar's fifth rule)"
+    },
+    {
+      "n": 86,
+      "class": "A",
+      "speaker": "gulch_rule_keeper",
+      "words": "He plays. It is very bad, and he is very happy.",
+      "where": "dialogue/gulch-rule-keeper RUL_G1 option 7",
+      "performedBy": [
+        "gulch_rule_keeper"
+      ],
+      "frames": [
+        5,
+        6,
+        5,
+        6,
+        5,
+        6
+      ],
+      "seconds": 3,
+      "cue": {
+        "id": "R52-FIDDLE",
+        "frame": 5
+      }
+    },
+    {
+      "n": 87,
+      "class": "B",
+      "speaker": "gulch_deacon",
+      "words": "He polishes a glass.",
+      "where": "dialogue/gulch-deacon DEA_G1 option 2"
+    },
+    {
+      "n": 88,
+      "class": "B",
+      "speaker": "gulch_deacon",
+      "words": "He points down the bank, at the bar.",
+      "where": "dialogue/gulch-deacon VES_G1 option 6"
+    },
+    {
+      "n": 89,
+      "class": "A",
+      "speaker": "thad",
+      "words": "Thad strikes the fork on the plank, holds it to the fiddle's body, and turns the pegs one at a time. The rule-keeper puts his glass down.",
+      "where": "combinations (tuning_fork on fiddle, G5)",
+      "performedBy": [
+        "thad:wrench/back"
+      ],
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        2,
+        3,
+        2,
+        1
+      ],
+      "seconds": 3,
+      "cue": {
+        "id": "R52-FORK",
+        "frame": 0
+      }
+    },
+    {
+      "n": 90,
+      "class": "B",
+      "speaker": "gulch_rule_keeper",
+      "words": "He tips a pinch of dust onto the plank in front of Thad.",
+      "where": "combinations (tuning_fork on fiddle, G5)"
+    },
+    {
+      "n": 91,
+      "class": "A",
+      "speaker": "gulch_rule_keeper",
+      "words": "He takes the fiddle down and plays it, very badly and very happily.",
+      "where": "combinations (tuning_fork on fiddle, G5)",
+      "performedBy": [
+        "gulch_rule_keeper"
+      ],
+      "frames": [
+        5,
+        6,
+        5,
+        6,
+        5,
+        6
+      ],
+      "seconds": 3,
+      "cue": {
+        "id": "R52-FIDDLE",
+        "frame": 5
+      }
+    },
+    {
+      "n": 92,
+      "class": "C",
+      "speaker": "thad",
+      "words": "He turns, slowly, to the man behind the plank. The man behind the plank is beaming.",
+      "where": "rooms/grog-tent (the watch, LOOK, THE FIND, G4)"
+    },
+    {
+      "n": 93,
+      "class": "A",
+      "speaker": "gulch_panner",
+      "words": "He closes his hand.",
+      "where": "dialogue/gulch-panner PAN_G1 option 2",
+      "performedBy": [
+        "gulch_panner"
+      ],
+      "frames": [
+        4
+      ],
+      "seconds": 1.2,
+      "holds": 4
+    },
+    {
+      "n": 94,
+      "class": "C",
+      "speaker": "gulch_rule_keeper",
+      "words": "He gives up.",
+      "where": "assay/assay duel_one_bar"
+    },
+    {
+      "n": 95,
+      "class": "C",
+      "speaker": "gulch_panner",
+      "words": "He lowers his voice. Nobody is near.",
+      "where": "dialogue/gulch-panner PAN_G1 option 6"
+    },
+    {
+      "n": 96,
+      "class": "B",
+      "speaker": "gulch_panner",
+      "words": "He snorts.",
+      "where": "dialogue/gulch-panner PAN_G1 option 7"
+    },
+    {
+      "n": 97,
+      "class": "C",
+      "speaker": "gulch_man_upstream",
+      "words": "He looks at Thad as if Thad had suggested something unwell.",
+      "where": "dialogue/gulch-man-upstream UPS_G1 option 3"
+    },
+    {
+      "n": 98,
+      "class": "A",
+      "speaker": "frame",
+      "words": "He presses it on Thad, still damp.",
+      "where": "dialogue/frame FRA_B1 options 1 and 2",
+      "performedBy": [
+        "frame"
+      ],
+      "frames": [
+        5,
+        6
+      ],
+      "seconds": 1.6,
+      "holds": 6
+    },
+    {
+      "n": 99,
+      "class": "C",
+      "speaker": "sump",
+      "words": "He goes into the back. He is gone some time.",
+      "where": "combinations (filing_fee on sump, after both)"
+    },
+    {
+      "n": 100,
+      "class": "A",
+      "speaker": "ozymandia",
+      "words": "She takes a second, identical rod from under the table.",
+      "where": "dialogue/ozymandia OZY_A1 option 9",
+      "performedBy": [
+        "ozymandia"
+      ],
+      "frames": [
+        5,
+        6
+      ],
+      "seconds": 2,
+      "holds": 6
+    },
+    {
+      "n": 101,
+      "class": "C",
+      "speaker": "thad",
+      "words": "Thad climbs on. Grievance considers it, then turns for home.",
+      "where": "rooms/washout departure (the ride home)"
     }
   ]
 }

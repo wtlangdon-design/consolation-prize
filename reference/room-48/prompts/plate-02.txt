@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: inside an old timbered gold mine, 1850s, a chamber with three timbered openings and two big boulders on the floor.
+
+Make exactly one change: REPAINT THE ROCK of the walls and the roof. Now it is drawn as rows of rounded, overlapping, same-sized lozenges, like scales; it must look like the inside of a real mine cut into a hill: ROUGH, BROKEN, IRREGULAR ROCK -- angular slabs and blocks of different sizes, jagged cracks and seams running at odd angles, some flat fractured faces, some rubbly, no repeating pattern, no rounded scale shapes. Keep the same colours, the same darkness and the same light as now.
+
+Change nothing else, and move nothing: every timber, post and beam, the three openings and the dark inside them, the two boulders, the floor and its stones stay exactly where they are and exactly as they are. The same pixel-art style and the same big square pixels. No people, no text, no border.

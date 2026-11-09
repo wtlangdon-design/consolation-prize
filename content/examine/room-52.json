@@ -1,0 +1,117 @@
+{
+  "room": 52,
+  "name": "THE GROG TENT",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
+    "docs/109-fiddlers-gulch-lines.md::THE DEACON, before he is found",
+    "docs/109-fiddlers-gulch-lines.md::DEKE VESSEL, found",
+    "docs/109-fiddlers-gulch-lines.md::THE RULE-KEEPER",
+    "docs/49-wrong-answers.md::ROOM 52 — THE GROG TENT"
+  ],
+  "subjects": [
+    {
+      "name": "THE PLANK",
+      "LOOK_AT": [
+        "A plank across two barrels: the bar. Elbows have polished it to a shine.",
+        "A brass plate is screwed to it: GOLD ON THE PLANK. Even the furniture has rules.",
+        "I put my elbow on it. The keeper looked at my elbow until I took it off."
+      ],
+      "LISTEN_TO": [
+        "Glasses set down, one at a time.",
+        "The plank creaking as a man leans.",
+        "A coin spinning on the wood, then lying still."
+      ],
+      "overrides": {
+        "PICK_UP": "It's the bar. You don't pick up a man's bar. Not here, and not with him watching."
+      }
+    },
+    {
+      "name": "THE BARRELS",
+      "LOOK_AT": [
+        "Two barrels holding up the plank, and a third holding up the rule-keeper.",
+        "WHISKEY, says one. FLOUR, says the other. They've both got whiskey in.",
+        "I tapped one. Full. I tapped the other. Also full. A rich camp drinks from both ends."
+      ],
+      "LISTEN_TO": [
+        "Liquid shifting inside.",
+        "A slow drip from a tap, into a cup kept under it.",
+        "A gurgle, low down. The flour is very wet."
+      ],
+      "overrides": {
+        "OPEN": "I reached for a tap. The keeper cleared his throat in a way that cost a pinch."
+      }
+    },
+    {
+      "name": "THE BOTTLES",
+      "LOOK_AT": [
+        "Bottles along a shelf, with labels that promise France.",
+        "One says COGNAC. It was filled from the WHISKEY barrel. I watched.",
+        "The prices are chalked on the shelf, by the pinch. A pinch of what isn't in question."
+      ],
+      "LISTEN_TO": [
+        "Glass clinking when the tent moves.",
+        "A bottle being uncorked by a man in no hurry.",
+        "Clink. Then a sigh from whoever paid."
+      ],
+      "overrides": {
+        "PICK_UP": "The prices are by the pinch, and I haven't got one. I put it back, carefully, while he watched."
+      }
+    },
+    {
+      "name": "THE WATCH",
+      "LOOK_AT": [
+        "A pocket watch on a nail in the ridgepole, so the whole camp can see the time. It's my father's watch.",
+        "My father's watch, keeping time for a camp full of strangers. Eleven minutes fast, as ever.",
+        "Every man here is eleven minutes early to everything, and none of them knows why. I know why."
+      ],
+      "LISTEN_TO": [
+        "Ticking, high up on the pole.",
+        "Ticking. It's the only thing in the camp in a hurry.",
+        "Ticking, steady, above all the talk."
+      ]
+    },
+    {
+      "name": "THE FIDDLE",
+      "LOOK_AT": [
+        "A fiddle on a peg, with the bow tucked in the strings. Fiddler's Gulch, and nobody plays it.",
+        "The pegs have slipped, all four. The strings hang like a wet line.",
+        "I could put it right in a minute. Nobody's asked. Nobody here asks for anything they can't buy."
+      ],
+      "LISTEN_TO": [
+        "A string buzzing when the plank shakes. It's flat. They're all flat.",
+        "The E, sagging a good half-tone. It hurts a little.",
+        "Quiet, until someone leans on the plank. Then it moans."
+      ]
+    },
+    {
+      "name": "THE TENT FLAP",
+      "LOOK_AT": [
+        "The flap, tied back, and the camp outside.",
+        "Daylight, and a hundred rich men who don't trust each other.",
+        "A man ducked in under it as I looked, already holding out his pinch."
+      ],
+      "LISTEN_TO": [
+        "The river, out past the tents.",
+        "Wind snapping at the flap.",
+        "Canvas cracking in the wind, and shovels beyond."
+      ],
+      "overrides": {
+        "CLOSE": "I untied it. The whole tent looked at me. I tied it back."
+      }
+    }
+  ],
+  "exitsAndUnplaced": {
+    "THE DEACON": {
+      "PICK_UP": "Not a man behind his own bar. That's how you end up underneath it.",
+      "PUSH": "I leaned across the plank at him. He leaned back the same distance, smiling, like we'd done this before.",
+      "USE": "He's working. Every man in here is using him, a pinch at a time."
+    },
+    "THE RULE-KEEPER": {
+      "PICK_UP": "Him and the barrel both? Not without a mule, and the mule's at the washout.",
+      "PUSH": "Push a man off his barrel and he'd make a rule about it. Then he'd get it wrong, against me.",
+      "USE": "He's the camp's rule book. I'd look something up, but the answer changes every time."
+    }
+  }
+}

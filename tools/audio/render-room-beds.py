@@ -1,5 +1,5 @@
 """
-EVERY ROOM'S BED (doc 45, "Every room's bed"; errata 203, 206; reference/room-beds/brief.md).
+EVERY ROOM'S BED (doc 45, "Every room's bed"; errata 203, 215; reference/room-beds/brief.md).
 
     python3 tools/audio/render-room-beds.py
 
@@ -27,7 +27,7 @@ THE LESSONS THESE KEEP (errata 102, 106; doc 55 section 8):
     the flat bell are the two pitched sounds outside the score).
   * Voices only distant and wordless. The two men arguing and the mourners'
     cough are voices; both are low-passed past any word. Synthesized creatures
-    and voices are where this fails (errata 206 F: Tyler heard the owl as
+    and voices are where this fails (errata 215 F: Tyler heard the owl as
     something raked on the ground and the boy's humming as someone dying), so
     the owl and the humming are cut, and no new one is added.
   * Loops are built to loop. Every continuous texture is generated exactly one
@@ -399,7 +399,7 @@ BROOK_BANDS = [(60, 220, 1.0), (180, 450, 0.9), (380, 800, 0.75), (700, 1400, 0.
 
 
 def water(bed, lo, hi, burble=2.0, depth=0.45, burble_band=(180, 700)):
-    """Running water, remade (errata 206 F). The first one was a wash with a
+    """Running water, remade (errata 215 F). The first one was a wash with a
     hundred short noise grains a second through it, and Tyler heard foil on a
     fan. This is the way a brook is heard from a few yards off: several bands
     of dark, pink-to-brown noise, each one's level drifting slowly and
@@ -519,7 +519,7 @@ def breathing(bed, period, lo, hi, gain, huff=True):
 
 def stroke_plane(rnd, seconds):
     """A carpenter's hand plane drawn the length of a coffin board, remade
-    (errata 206 F; Tyler of the first: "it sounds nothing like it"). The first
+    (errata 215 F; Tyler of the first: "it sounds nothing like it"). The first
     was a hiss chopped by a fast random flutter and clipped, which is a crackle,
     not a plane. A stroke is one long, even, dry shhhhk:
 
@@ -900,7 +900,7 @@ def bed_pratts_claim():
 
 
 def bed_creek():
-    """Row 26. Water over stone and through the riffles -- AN INTERIM (errata 206
+    """Row 26. Water over stone and through the riffles -- AN INTERIM (errata 215
     F). The first creek was "thin foil attached to a fan flapping about"; the
     second, close and full-band (60 Hz to 7 kHz, dense), was "like being inside
     an airplane" (Tyler, 2026-11-08). This is the water Tyler accepted at
@@ -1004,7 +1004,7 @@ def bed_motts_site():
 
 
 def bed_funeral():
-    """Row 31. Wind through the grass. The owl is cut (errata 206 F; Tyler:
+    """Row 31. Wind through the grass. The owl is cut (errata 215 F; Tyler:
     "sounds nothing like an owl. It sounds like something being raked on the
     ground"): the sky's LISTEN still hears it, and a bed may say less than
     LISTEN, never more."""

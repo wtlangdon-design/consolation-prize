@@ -47,6 +47,8 @@ export interface Utterance {
   rest?: number;
   /** The judges write a point down in this beat (doc 45 U-ASSAY-PENCIL). */
   mark?: boolean;
+  /** The cue the mark sounds, where its duel scores some other way (AssayLine.markCue). */
+  markCue?: string;
   /** The music stops here, until a line with a `cue` (errata 131 D). */
   quiet?: boolean;
   /** A doc 45 cue sounded as the line is shown (errata 131 E). */

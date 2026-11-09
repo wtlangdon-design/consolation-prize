@@ -36,6 +36,11 @@ export type FlagAdds = Record<string, number>;
 
 /** One branch of a verb response. The first branch whose `when` holds is used. */
 export interface ResponseRule {
+  /**
+   * HOW MANY OF THE CHAIN'S LINES A SCENE SAID FIRST (doc 109, THE WATCH: its first LOOK is THE FIND). This rule goes on
+   * from there; the chain is whole (tools/check-written-content.mjs counts them).
+   */
+  chainFrom?: number;
   when?: Condition;
   /**
    * Move this object to a named state. Doc 22 item 9: a state change drives
@@ -331,6 +336,11 @@ export interface Exit extends Interactable {
    */
   setOnTransitWhen?: Condition;
   /**
+   * THE PUZZLE TAKING THIS WAY COMPLETES, when `setOnTransitWhen` holds or is absent. Doc 107's G2: the first crossing
+   * of the mine is the way through, and nothing else marks it (Room 49's right passage).
+   */
+  completesOnTransit?: string;
+  /**
    * A BEAT PLAYED AT THE DOOR (errata 84 E). The first rule whose `when` holds
    * is spoken as he goes through -- `say`, `then`, `by` -- its `set` is
    * written, and the room changes once the last line is read. Doc 57 A10's
@@ -470,6 +480,12 @@ export interface AmbientFile {
    * into the system of checks."
    */
   posture?: 'standing' | 'seated' | 'band' | 'identity' | 'animal' | 'behind-counter' | 'child';
+  /**
+   * WHERE A SEATED FIGURE SITS: the plate row of the top of his seat, which is the plate's (a barrel, a keg, a stump),
+   * never his. His lap is drawn on it (tests/lessons.test.ts). Room 52's rule-keeper was drawn at a chair's height on a
+   * barrel half a man tall, and sat halfway down it (Tyler, 2026-11-09).
+   */
+  seat?: { y: number; note?: string };
   /**
    * SCENERY, NOT A PERSON (errata 187): a figure drawn and moving but answering
    * nothing yet -- the pointer passes through it to the hotspot or ground under
@@ -627,6 +643,9 @@ export interface AmbientFile {
      * with Bill "and has no bark at all" (errata 110).
      */
     barks?: Record<string, string>;
+    /** Where he sits IN THIS ROOM (see `seat`): Room 53's stump, Room 52's keg (tests/lessons.test.ts). */
+    seat?: AmbientFile['seat'];
+    note?: string;
   }>;
   barks: Record<string, string>;
   /**
@@ -659,6 +678,13 @@ export interface AmbientFile {
    * gates the whole run.
    */
   barkRun?: { counter: string; when?: Condition; lines: { speaker: string; line: string }[][] };
+  /**
+   * BARKS SAID IN TURN, ONE A VISIT, THE SAME IN EVERY REPUTATION STATE (doc 109, Fiddler's Gulch: "Each person's
+   * barks are said on approach, one a visit, in turn"; the news from Consolation has not reached the Gulch). The
+   * first set whose `when` holds answers, with its lines in order and round again; `counter`, a declared number flag
+   * per set, keeps the place so a save does too. Used instead of `barks`, which such a person leaves `{}`.
+   */
+  barkTurns?: { counter: string; when?: Condition; lines: string[]; source?: string }[];
   /**
    * The occlusion plane that masks this figure, when it stands where no walk
    * box is. Room 5's Winnie stands BEHIND the counter: no box exists there
@@ -1163,6 +1189,12 @@ export interface CombinationsFile {
    * place has (doc 108: the brass rod and the fork, "anywhere in" the mine).
    */
   areaPools?: { id: string; item: string; rooms: string[]; lines: string[]; source?: string }[];
+  /**
+   * ANY OTHER ITEM, TO ONE PERSON OR THING (doc 109: THE LOOKOUT · GIVE anything else -- "He wants proof I own
+   * nothing. Handing him things isn't helping."). After a pair, before the item's own pool; `except` is the items
+   * whose pairs answer for themselves. Said in turn when there is more than one line.
+   */
+  targetPools?: { room: string; target: string; verb?: string; lines: string[]; except?: string[]; source?: string }[];
   /** Anything on anything unhandled. Doc 24 tier 3. */
   globalPool: string[];
 }
@@ -2004,6 +2036,16 @@ export interface DialogueOption {
    * yields (errata 76 A).
    */
   gives?: string[];
+  /**
+   * ITEMS THE OPTION TAKES, on its first selection: what is paid for what it `gives` (doc 109, G1: the rod hired
+   * "with two dollars" -- THE FILING FEE the piano pays, A8, which can be earned again).
+   */
+  takes?: string[];
+  /**
+   * OFFERED ONLY WHILE HE DOES NOT CARRY THESE: the other side of a `holds` row. Doc 109, G1: "*(without:)* Two
+   * dollars, darling. The rod does not extend credit."
+   */
+  lacks?: string[];
   /** Puzzle progress the option writes (doc 53): WIN_B2's first row makes C6 pending. */
   puzzle?: Record<string, PuzzleStatus>;
   goto?: string;
@@ -2475,14 +2517,14 @@ export interface SoundsFile {
    */
   ambience: Record<string, AmbienceBed>;
   /**
-   * ERRATA 206: doc 45's bed plan as room ids, held to the doc by
+   * ERRATA 215: doc 45's bed plan as room ids, held to the doc by
    * tools/check-room-beds.mjs. The engine never reads it.
    */
   bedPlan?: { rows: Record<string, string[]>; silent: Record<string, string>;
     hole: { room: string; targets: string[]; below: string } };
 }
 
-/** A room's background (doc 45's `-A` beds; errata 105, 206). */
+/** A room's background (doc 45's `-A` beds; errata 105, 215). */
 export interface AmbienceBed extends SoundRef {
   why?: string;
   layers?: (SoundRef & { whenPresent?: string })[];

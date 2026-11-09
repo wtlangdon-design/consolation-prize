@@ -1,0 +1,14 @@
+Image 1 is a TEMPLATE: the hero of my pixel-art adventure game, exactly as he is drawn in the game, standing, six times in a row on magenta. HIS BODY IS THE STANDARD FOR EVERY PERSON IN THIS GAME: a SMALL head (crown to chin about one eighth of his height), narrow shoulders, a long torso, a realistic adult figure -- not a cartoon, not big-headed. Image 2 shows ONLY THE FACE of R, the camp's rule-keeper: take from it his face, his hat and his colouring -- NOTHING ELSE. His face is drawn there larger than it should be: in your picture it is the SIZE OF THE HERO'S FACE in Image 1. Image 3 is the hero in the grog tent where R sits, in daylight through canvas: match its pixel size, soft shading and light. Image 4 shows R in that tent, SITTING on a barrel: that is his pose and his clothes.
+
+R is a big heavy man, as tall as the hero would be standing, broad. He wears a brown hat, a dark blue coat open over a rust waistcoat with a gold watch-chain across it and NO watch on the chain, a white shirt, dark trousers and boots. He is confident and pleased with himself.
+
+Repaint Image 1: replace each hero figure with R, KEEPING THE HERO'S HEAD SIZE AND PROPORTIONS, but SITTING, as in Image 4: thighs level, knees bent, boots flat on the same baseline, as if on a low barrel -- BUT DO NOT DRAW THE BARREL OR ANY SEAT: under him is flat magenta. Facing us and a little to his left. Left to right:
+1. at rest: a glass of whiskey in his right hand on his knee, a small leather pebble bag on his other knee;
+2. drinking: the glass tipped up to his mouth;
+3. the pebble bag held up in his left hand, shaking it by his ear, listening to the pebbles;
+4. talking: glass on his knee, his free hand raised with one finger up, laying down a rule;
+5. playing a fiddle: the fiddle under his chin, the bow drawn across it, his elbow out, eyes shut, happy;
+6. the same, the bow pushed the other way, his head tipped the other way, still very happy.
+In poses 5 and 6 the glass and the pebble bag are not in his hands.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the hero -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No barrel, no seat, no floor, no glow, no blur, no shadows, no text.

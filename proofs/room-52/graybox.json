@@ -1,0 +1,269 @@
+{
+ "room": 52,
+ "note": "Ruling 22 steps 1-6 for THE GROG TENT, written by tools/gulch-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 208).",
+ "what": "Inside a big canvas tent in daylight, the light coming warm through the canvas: at the left the flap tied back on the camp; a plank across two barrels for a bar, a brass plate on it; behind it a rough shelf of bottles; a pocket watch hanging on a nail in the ridgepole above the keeper; a fiddle on a peg on the tent pole near the plank's end; the rule-keeper on a third barrel at that end; the Deacon behind the plank.",
+ "thadAnchors": {
+  "dark": 24.7,
+  "light": 121.9,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 640,
+   "height": 340
+  },
+  "near": {
+   "y": 858,
+   "height": 430
+  },
+  "from": "An interior's flatter slope (0.41 a row), as the barber's: Thad about as tall as the keeper behind his plank"
+ },
+ "walkable": [
+  220,
+  660,
+  1500,
+  198
+ ],
+ "exits": [
+  {
+   "hotspot": "THE TENT FLAP (the way out)",
+   "to": "gulch_tents",
+   "rect": [
+    20,
+    120,
+    240,
+    640
+   ]
+  }
+ ],
+ "marks": {
+  "arrival": {
+   "x": 300,
+   "y": 760,
+   "facing": "right"
+  },
+  "deacon": {
+   "x": 1120,
+   "y": 700,
+   "facing": "back"
+  },
+  "rulekeeper": {
+   "x": 860,
+   "y": 740,
+   "facing": "left"
+  },
+  "fiddle": {
+   "x": 640,
+   "y": 760,
+   "facing": "back"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE TENT FLAP (the way out)",
+   "rect": [
+    20,
+    120,
+    240,
+    640
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TENT FLAP (the camp outside)",
+   "rect": [
+    60,
+    200,
+    160,
+    440
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE RIDGEPOLE",
+   "rect": [
+    0,
+    50,
+    1920,
+    40
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WATCH",
+   "rect": [
+    1095,
+    90,
+    50,
+    80
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BOTTLES (on their shelf)",
+   "rect": [
+    880,
+    300,
+    560,
+    70
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE DEACON (behind the plank)",
+   "rect": [
+    1060,
+    270,
+    130,
+    230
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PLANK",
+   "rect": [
+    760,
+    470,
+    740,
+    34
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BARRELS",
+   "rect": [
+    790,
+    504,
+    120,
+    136
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BARRELS (the second)",
+   "rect": [
+    1360,
+    504,
+    120,
+    136
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TENT POLE",
+   "rect": [
+    560,
+    60,
+    34,
+    580
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE FIDDLE",
+   "rect": [
+    520,
+    300,
+    60,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE RULE-KEEPER (on his barrel)",
+   "rect": [
+    610,
+    430,
+    150,
+    250
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "The plank and its barrels stand at the back edge of the walk band, in front of the Deacon: he is cut at the plank top (the brief), and Thad, in front of the plank, is never behind it.",
+ "surfaces": [
+  {
+   "surface": "canvas roof and walls, daylight through them",
+   "p10": 62.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 37.3,
+   "lightAnchorMargin": 25.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "earth floor, trodden",
+   "p10": 86.0,
+   "p90": 86.0,
+   "darkAnchorMargin": 61.3,
+   "lightAnchorMargin": 35.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE BOTTLES (on their shelf)",
+   "p10": 62.0,
+   "p90": 80.0,
+   "darkAnchorMargin": 37.3,
+   "lightAnchorMargin": 41.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE DEACON (behind the plank)",
+   "p10": 62.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 37.3,
+   "lightAnchorMargin": 55.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PLANK",
+   "p10": 66.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 41.3,
+   "lightAnchorMargin": 55.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE BARRELS",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 33.3,
+   "lightAnchorMargin": 63.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE BARRELS (the second)",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 33.3,
+   "lightAnchorMargin": 63.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TENT POLE",
+   "p10": 60.0,
+   "p90": 74.0,
+   "darkAnchorMargin": 35.3,
+   "lightAnchorMargin": 47.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE FIDDLE",
+   "p10": 74.0,
+   "p90": 74.0,
+   "darkAnchorMargin": 49.3,
+   "lightAnchorMargin": 47.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE RULE-KEEPER (on his barrel)",
+   "p10": 62.0,
+   "p90": 62.0,
+   "darkAnchorMargin": 37.3,
+   "lightAnchorMargin": 59.9,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

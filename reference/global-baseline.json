@@ -852,6 +852,79 @@
     }
    ],
    "castingNote": "Nobody on the ledge. The camp below is painted small into the plate; its people are specks with no lines."
+  },
+  "room-51-tents": {
+   "visualType": "exterior-day",
+   "daylight": "Errata 190 (Tyler, 2026-11-08, approving doc 107): the camp is in daylight. The washout, the ledge and the five Gulch screens are drawn in daylight.",
+   "comparable": {
+    "id": "room-50-ledge",
+    "path": "art/backgrounds/room-50-ledge.png",
+    "note": "D -- the same camp seen from above on the same day: its tents, cabins, smoke and ravine walls are what this room stands among (doc 107)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "The lookout stands at the foot of the path (doc 109). He is drawn against Thad in this room, from this room's own operations, under the character style gate."
+  },
+  "room-52-grog-tent": {
+   "visualType": "interior-public",
+   "daylight": "Errata 190 (Tyler, 2026-11-08, approving doc 107): the camp is in daylight. The washout, the ledge and the five Gulch screens are drawn in daylight; inside the grog tent the day comes through the canvas.",
+   "comparable": {
+    "id": "room-51-tents",
+    "path": "art/backgrounds/room-51-tents.png",
+    "note": "D -- the camp outside the flap, the same day: its canvas, its light (doc 107)."
+   },
+   "casting": [
+    {
+     "who": "Vessel's accepted figure",
+     "path": "art/actors/deke-vessel.png",
+     "note": "E -- the Deacon is Vessel, clean-shaven with a pale stripe where the mustache was (doc 109, Two decisions)."
+    },
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "The Deacon (Vessel) behind the plank, drawn from gulch-vessel; the rule-keeper on his barrel, drawn against Thad in this room from this room's own operations."
+  },
+  "room-53-river": {
+   "visualType": "exterior-day",
+   "daylight": "Errata 190 (Tyler, 2026-11-08, approving doc 107): the camp is in daylight. The washout, the ledge and the five Gulch screens are drawn in daylight.",
+   "comparable": {
+    "id": "room-51-tents",
+    "path": "art/backgrounds/room-51-tents.png",
+    "note": "D -- the camp up the bank on the same day: the river at its left edge is this room, and its light, its mud and its ravine walls are what this room stands in (doc 107)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "The panner stands knee-deep in the river beside the bar (doc 109). He is drawn against Thad in this room, from this room's own operations, under the character style gate. The men in the river and at the long tom have no lines and are painted into the plate (the brief)."
+  },
+  "room-54-upstream": {
+   "visualType": "exterior-day",
+   "daylight": "Errata 190 (Tyler, 2026-11-08, approving doc 107): the camp is in daylight. The washout, the ledge and the five Gulch screens are drawn in daylight.",
+   "comparable": {
+    "id": "room-53-river",
+    "path": "art/backgrounds/room-53-river.png",
+    "note": "D -- the same river further up the gulch on the same day: its water, its gravel, its ravine walls narrowing to the falls (doc 107)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "The man upstream stands guard over the gravel with a shovel (doc 109). He is drawn against Thad in this room, from this room's own operations, under the character style gate."
   }
  }
 }

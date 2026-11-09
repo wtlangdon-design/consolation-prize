@@ -4,7 +4,7 @@ import type { AmbienceBed } from './types.ts';
 export interface AmbiencePlay { src: string; gain?: number; layers: { src: string; gain?: number }[] }
 
 /**
- * A ROOM'S BACKGROUND, AS IT SOUNDS NOW (errata 105, 206). The bed, with every
+ * A ROOM'S BACKGROUND, AS IT SOUNDS NOW (errata 105, 215). The bed, with every
  * layer whose figure is in the room (`whenPresent`: the dog's breathing while
  * the dog is there, Grievance's while she is in her stall), and nothing at all
  * while a duel sounds in a room whose bed says `duringDuel: 'silent'` (doc 45,

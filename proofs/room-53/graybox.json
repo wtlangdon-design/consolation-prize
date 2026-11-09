@@ -1,0 +1,259 @@
+{
+ "room": 53,
+ "note": "Ruling 22 steps 1-6 for THE RIVER, written by tools/gulch-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 209).",
+ "what": "The river below Fiddler's Gulch's camp, in daylight: a cold fast river coming down from the gulch at the back right, where it bends out of sight upstream, and running out across the front of the frame; the near bank on the left, churned to mud, going up at the far left to the tents; on it a rocker, a box on curved feet, rocked by a man in a good hat; on the far bank at the right a long tom, a long wooden trough with water running down it, two men feeding it gravel and a third guarding it with a shovel; men standing knee-deep in the river with pans; mid-stream a dry flat gravel bar with a ring of stones on it and a stump; the panner knee-deep in the water at the front, beside the bar.",
+ "thadAnchors": {
+  "dark": 24.7,
+  "light": 121.9,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 640,
+   "height": 300
+  },
+  "near": {
+   "y": 858,
+   "height": 448
+  },
+  "from": "Room 5's exterior slope, as the washout, the ledge and the tents"
+ },
+ "walkable": [
+  140,
+  470,
+  1440,
+  388
+ ],
+ "exits": [
+  {
+   "hotspot": "THE TENTS (the way back)",
+   "to": "gulch_tents",
+   "rect": [
+    0,
+    300,
+    140,
+    420
+   ]
+  },
+  {
+   "hotspot": "UPSTREAM (the way on)",
+   "to": "upstream",
+   "rect": [
+    1440,
+    140,
+    300,
+    330
+   ]
+  }
+ ],
+ "marks": {
+  "arrival": {
+   "x": 200,
+   "y": 640,
+   "facing": "right"
+  },
+  "panner": {
+   "x": 1060,
+   "y": 800,
+   "facing": "left"
+  },
+  "bar": {
+   "x": 1220,
+   "y": 720,
+   "facing": "right"
+  },
+  "vessel": {
+   "x": 1500,
+   "y": 720,
+   "facing": "left"
+  },
+  "stump": {
+   "x": 1360,
+   "y": 700,
+   "facing": "front"
+  },
+  "upstream": {
+   "x": 1420,
+   "y": 500,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE TENTS (the way back)",
+   "rect": [
+    0,
+    300,
+    140,
+    420
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "UPSTREAM (the way on)",
+   "rect": [
+    1440,
+    140,
+    300,
+    330
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WATER (upstream)",
+   "rect": [
+    1480,
+    300,
+    240,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WATER",
+   "rect": [
+    960,
+    520,
+    760,
+    215
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WATER (at the front)",
+   "rect": [
+    880,
+    735,
+    1040,
+    129
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LONG TOM (on the far bank)",
+   "rect": [
+    1720,
+    400,
+    200,
+    335
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE ROCKER",
+   "rect": [
+    380,
+    540,
+    170,
+    110
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BAR",
+   "rect": [
+    1180,
+    620,
+    420,
+    120
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BAR (the stump)",
+   "rect": [
+    1330,
+    590,
+    60,
+    70
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "The water stands in front of anyone in it: the panner, knee-deep at the front, and Thad on the ford to the bar, which is level, so the water at his knees is one band of rows and a mask can hold it. On the bank and on the bar nothing is in front of him.",
+ "surfaces": [
+  {
+   "surface": "the gulch walls",
+   "p10": 96.0,
+   "p90": 106.0,
+   "darkAnchorMargin": 71.3,
+   "lightAnchorMargin": 15.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "the near bank, churned mud",
+   "p10": 100.0,
+   "p90": 106.0,
+   "darkAnchorMargin": 75.3,
+   "lightAnchorMargin": 15.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE TENTS (the way back)",
+   "p10": 92.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 67.3,
+   "lightAnchorMargin": 29.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "UPSTREAM (the way on)",
+   "p10": 102.0,
+   "p90": 106.0,
+   "darkAnchorMargin": 77.3,
+   "lightAnchorMargin": 15.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE WATER (upstream)",
+   "p10": 106.0,
+   "p90": 106.0,
+   "darkAnchorMargin": 81.3,
+   "lightAnchorMargin": 15.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE WATER",
+   "p10": 104.0,
+   "p90": 106.0,
+   "darkAnchorMargin": 79.3,
+   "lightAnchorMargin": 15.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE WATER (at the front)",
+   "p10": 106.0,
+   "p90": 106.0,
+   "darkAnchorMargin": 81.3,
+   "lightAnchorMargin": 15.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE ROCKER",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 45.3,
+   "lightAnchorMargin": 51.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE BAR",
+   "p10": 104.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 79.3,
+   "lightAnchorMargin": 17.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE BAR (the stump)",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 45.3,
+   "lightAnchorMargin": 51.9,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

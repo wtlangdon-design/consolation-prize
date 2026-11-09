@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game: the head of a gold-rush gulch in daylight, with a little waterfall at the back, a brown river running down to the front left, a half-built wooden sluice beside it, flat gravel ground with two crossing lines of wooden stakes and two blank paper notices, and a small tent at the back right. Two men are standing in the picture: a man in a blue coat on the gravel left of centre, and a man in a hat holding a shovel among the stakes, right of centre.
+
+Make exactly two changes:
+1. Remove both men. Paint what is behind them: the gravel, its stones, the stakes behind them. Match the rest exactly.
+2. In the gravel among the stakes, paint a few small flecks of gold, one or two pixels each, scattered and glinting, as if gold shows in the ground without digging.
+
+Change nothing else: the waterfall, the river, the sluice and the board across it (still blank), the stakes, the notices (still blank), the tent, the ravine walls and the sky stay exactly as they are. The same pixel-art style and pixel grid, the same colours, the same daylight. No people, no text, no border.

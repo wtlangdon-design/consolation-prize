@@ -249,6 +249,7 @@ export class GameState {
       set: (puzzle, status) => { this.puzzles.set(puzzle, status); },
       holds: (item) => this.carried.includes(item),
       grant: (items) => { for (const item of items) if (!this.inventory.includes(item)) this.inventory.push(item); },
+      take: (items) => { this.inventory = this.inventory.filter((item) => !items.includes(item)); },
     }, content.assay ? {
       file: content.assay,
       // A WON DUEL'S YIELDS (doc 03: Document A and the watch). The tree may
@@ -889,6 +890,10 @@ export class GameState {
         effects.push({
           id: `act/${objectKey}/${verb}#transit:flag:${flag}`, kind: 'flag', flag, value,
         });
+      }
+      if (exit.completesOnTransit && (exit.setOnTransitWhen === undefined || this.flags.test(exit.setOnTransitWhen))) {
+        effects.push({ id: `act/${objectKey}/${verb}#transit:complete:${exit.completesOnTransit}`, kind: 'puzzleProgress',
+          puzzle: exit.completesOnTransit, status: 'complete' });
       }
       // A DOOR THAT IS A BEAT (errata 84 E). Doc 57 A10's beat 4 "plays at the
       // office door as Thad leaves": the first `transitScene` rule whose

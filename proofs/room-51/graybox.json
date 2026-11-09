@@ -1,0 +1,254 @@
+{
+ "room": 51,
+ "note": "Ruling 22 steps 1-6 for THE TENTS, written by tools/gulch-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 202).",
+ "what": "The foot of the ravine path in Fiddler's Gulch, in daylight: canvas tents, every one pegged twice and guyed, one with a KNOCK sign; log cabins with stick-and-mud chimneys and bolted doors; shirts on a line between two tents with padlocked pockets; a cook fire with a kettle and a pan; a stump with a notice nailed to it; at the back left the big grog tent with its flap tied back; at the far left the bank going down to the river; at the right the ravine wall and the zigzag path up, roped. The lookout stands at the foot of the path.",
+ "thadAnchors": {
+  "dark": 24.7,
+  "light": 121.9,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 640,
+   "height": 300
+  },
+  "near": {
+   "y": 858,
+   "height": 448
+  },
+  "from": "Room 5's exterior slope, as the washout and the ledge"
+ },
+ "walkable": [
+  100,
+  660,
+  1760,
+  198
+ ],
+ "exits": [
+  {
+   "hotspot": "THE PATH UP (to the ledge)",
+   "to": "ledge",
+   "rect": [
+    1600,
+    150,
+    320,
+    560
+   ]
+  },
+  {
+   "hotspot": "THE GROG TENT (the way in)",
+   "to": "grog_tent",
+   "rect": [
+    540,
+    290,
+    420,
+    290
+   ]
+  },
+  {
+   "hotspot": "THE RIVER (the bank down)",
+   "to": "gulch_river",
+   "rect": [
+    0,
+    520,
+    200,
+    344
+   ]
+  }
+ ],
+ "marks": {
+  "arrival": {
+   "x": 1720,
+   "y": 790,
+   "facing": "left"
+  },
+  "lookout": {
+   "x": 1500,
+   "y": 770,
+   "facing": "left"
+  },
+  "grog": {
+   "x": 750,
+   "y": 680,
+   "facing": "left"
+  },
+  "river": {
+   "x": 150,
+   "y": 800,
+   "facing": "left"
+  },
+  "fire": {
+   "x": 980,
+   "y": 760,
+   "facing": "left"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE RIVER (the bank down)",
+   "rect": [
+    0,
+    520,
+    200,
+    344
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CABINS",
+   "rect": [
+    200,
+    300,
+    330,
+    260
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE GROG TENT (the way in)",
+   "rect": [
+    540,
+    290,
+    420,
+    290
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TENTS",
+   "rect": [
+    980,
+    330,
+    300,
+    230
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WASHING LINE",
+   "rect": [
+    1280,
+    380,
+    260,
+    110
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE COOK FIRE",
+   "rect": [
+    900,
+    600,
+    170,
+    110
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE NOTICE (on its stump)",
+   "rect": [
+    1370,
+    560,
+    90,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PATH UP (to the ledge)",
+   "rect": [
+    1600,
+    150,
+    320,
+    560
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the fire, the notice and the tents are all behind it, so no plane is needed. The canvas is blocked as weathered tan, a middle value, not white: white canvas behind his head lost his face (the gate, first pass).",
+ "surfaces": [
+  {
+   "surface": "the ravine walls",
+   "p10": 60.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 35.3,
+   "lightAnchorMargin": 25.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "camp ground, trodden",
+   "p10": 84.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 59.3,
+   "lightAnchorMargin": 21.9,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE RIVER (the bank down)",
+   "p10": 92.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 67.3,
+   "lightAnchorMargin": 29.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CABINS",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 35.3,
+   "lightAnchorMargin": 61.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE GROG TENT (the way in)",
+   "p10": 96.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 71.3,
+   "lightAnchorMargin": 25.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TENTS",
+   "p10": 90.0,
+   "p90": 90.0,
+   "darkAnchorMargin": 65.3,
+   "lightAnchorMargin": 31.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WASHING LINE",
+   "p10": 84.0,
+   "p90": 84.0,
+   "darkAnchorMargin": 59.3,
+   "lightAnchorMargin": 37.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE COOK FIRE",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 45.3,
+   "lightAnchorMargin": 51.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE NOTICE (on its stump)",
+   "p10": 80.0,
+   "p90": 80.0,
+   "darkAnchorMargin": 55.3,
+   "lightAnchorMargin": 41.9,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PATH UP (to the ledge)",
+   "p10": 92.0,
+   "p90": 92.0,
+   "darkAnchorMargin": 67.3,
+   "lightAnchorMargin": 29.9,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

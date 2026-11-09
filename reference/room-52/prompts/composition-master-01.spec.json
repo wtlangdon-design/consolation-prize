@@ -1,0 +1,16 @@
+{
+ "assetId": "room-52",
+ "subject": "room-52-grog-tent",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-52-grog-tent",
+ "promptFile": "reference/room-52/prompts/composition-master-01.txt",
+ "out": "art/staging/room-52/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-52/layout-1536x1024.png",
+  "art/backgrounds/room-51-tents.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "reference/room-52/vessel-accepted-figure.png"
+ ]
+}

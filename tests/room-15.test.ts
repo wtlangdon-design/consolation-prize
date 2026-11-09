@@ -112,7 +112,9 @@ test('B3: with both, his line, the ride over black, and the room it ends in; the
   assert.ok(typeof ride === 'object' && ride.overBlack, 'the ride is over black');
   assert.equal(out.goesTo, rule.goto, 'and the room changes once it is read');
   assert.ok(state.content.rooms.has(rule.goto as string));
-  assert.ok(state.flags.get('T_VESSEL_FOUND'));
+  // Doc 107 / errata 206: the ride ends at the washout, the trip begins; Vessel is found in the Gulch, not here.
+  assert.ok(state.flags.get('T_GULCH_TRIP'), 'the trip has begun');
+  assert.ok(!state.flags.get('T_VESSEL_FOUND'), 'Vessel is found at the tent, not by the ride');
   assert.ok(state.puzzleComplete('B3'));
   state.enterRoom('livery');
   assert.equal(useFork(state).say, ruleOf(state, 'after B3').say);

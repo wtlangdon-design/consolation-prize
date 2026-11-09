@@ -8,7 +8,7 @@
   {
    "id": "look-listen",
    "question": "LOOK/LISTEN complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
     "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
@@ -16,12 +16,12 @@
     "docs/109-fiddlers-gulch-lines.md::DEKE VESSEL, found",
     "docs/109-fiddlers-gulch-lines.md::THE RULE-KEEPER"
    ],
-   "why": "1 subject(s) without both: THE FIND"
+   "why": "6 subject(s), each with a LOOK and a LISTEN"
   },
   {
    "id": "repeat-variants",
    "question": "Repeat-selection variants complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
     "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
@@ -29,7 +29,7 @@
     "docs/109-fiddlers-gulch-lines.md::DEKE VESSEL, found",
     "docs/109-fiddlers-gulch-lines.md::THE RULE-KEEPER"
    ],
-   "why": "1 subject(s) short of three: THE FIND (LOOK 0, LISTEN 0)"
+   "why": "all 6 subject(s) carry three LOOK and three LISTEN variants"
   },
   {
    "id": "act-variants",
@@ -116,14 +116,14 @@
    "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
   }
  ],
- "subjectsFound": 7,
+ "subjectsFound": 6,
  "subjectsDeclaredByDocument": null,
  "unresolvedCitations": [],
  "dimensions": [
   {
    "id": "writing",
    "question": "Writing",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
     "docs/109-fiddlers-gulch-lines.md::THE DEACON, before he is found",
@@ -175,63 +175,63 @@
   {
    "id": "visual-subjects",
    "question": "Visual subject requirements",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "A renders/room-01-in-engine-1920x1080.png",
     "B art/backgrounds/room-01-stage-road.png",
-    "C art/actors/thad-stand-front/stand-00.png"
+    "C art/actors/thad-stand-front/stand-00.png",
+    "D art/backgrounds/room-51-tents.png",
+    "E art/actors/deke-vessel.png",
+    "E reference/casting/room-01-casting-master.png"
    ],
-   "why": "D and E: room-52-grog-tent has no entry in reference/global-baseline.json. The comparable room and the casting references are declared per room, never inferred from a name."
+   "why": "every baseline slot is satisfied: A, B, C, D, E, E"
   },
   {
    "id": "geometry",
    "question": "Geometry/placement",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "reference/room-52/annotation.json",
     "content/rooms/grog-tent.json",
     "art/backgrounds/room-52-grog-tent.png"
    ],
-   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points | the room is not in the manifest | no shipping plate declared"
+   "why": "annotation, room file and plate are all present at the canonical size"
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
- "buildableWithoutInvention": "NO",
- "blocking": [
-  "look-listen: 1 subject(s) without both: THE FIND",
-  "repeat-variants: 1 subject(s) short of three: THE FIND (LOOK 0, LISTEN 0)"
- ],
+ "buildableWithoutInvention": "YES",
+ "blocking": [],
  "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
  "geometry": [
   {
    "id": "annotation",
    "question": "Room annotation exists?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "reference/room-52/annotation.json"
    ],
-   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points"
+   "why": "authored geometry is on disk"
   },
   {
    "id": "compiled",
    "question": "Room JSON in the manifest?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "content/rooms/grog-tent.json"
    ],
-   "why": "the room is not in the manifest"
+   "why": "content/rooms/grog-tent.json is loaded by the engine"
   },
   {
    "id": "plate",
    "question": "Shipping plate at the canonical size?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "art/backgrounds/room-52-grog-tent.png"
    ],
-   "why": "no shipping plate declared"
+   "why": "art/backgrounds/room-52-grog-tent.png is 1920x864, PNG colour type 2"
   }
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
- "geometryReady": "NO",
- "at": "2026-11-09T01:16:42.516Z"
+ "geometryReady": "YES",
+ "at": "2026-11-09T04:51:23.761Z"
 }

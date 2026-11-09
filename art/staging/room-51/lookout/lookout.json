@@ -1,0 +1,52 @@
+{
+ "sheet": "art/actors/room-51-lookout.png",
+ "frames": [
+  [
+   2,
+   2,
+   115,
+   322
+  ],
+  [
+   119,
+   2,
+   115,
+   322
+  ],
+  [
+   236,
+   2,
+   115,
+   322
+  ],
+  [
+   353,
+   2,
+   115,
+   322
+  ],
+  [
+   470,
+   2,
+   115,
+   322
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "glance",
+  "shield",
+  "talk"
+ ],
+ "figureHeight": 322,
+ "stature": 1.0,
+ "posture": "standing",
+ "man": 322.2,
+ "feet": [
+  1560,
+  640
+ ],
+ "note": "Room 51: the room's man where they stand (soles at y 640) is 322.2; drawn at 1.0 of him, crown to sole. Frame 1 is a breath the cutter derives from frame 0.",
+ "source": "room-51 (art/staging/room-51/lookout/sheet-01.png)"
+}

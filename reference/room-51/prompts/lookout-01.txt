@@ -1,0 +1,11 @@
+Image 1 is a TEMPLATE: the hero of my pixel-art adventure game, exactly as he is drawn in the game, standing, four times in a row on magenta. HIS BODY IS THE STANDARD FOR EVERY PERSON IN THIS GAME: a SMALL head (crown to chin about one eighth of his height), narrow shoulders, a long torso, a realistic lean adult figure -- not a cartoon, not big-headed. Image 2 shows ONLY THE FACE of L, the camp's lookout: take from it his face, his dark hair, his brand-new dark brown bowler-crowned hat and his colouring -- NOTHING ELSE. His face is drawn there larger than it should be: in your picture it is the SIZE OF THE HERO'S FACE in Image 1. Image 3 is the hero in the place where L stands guard, a gold camp in daylight: match its pixel size, soft shading and daylight.
+
+L is a lean young miner, as tall as the hero, who has struck it rich and has not slept since. He wears a pale collarless work shirt, dark braces, dark trousers, BRAND-NEW stiff brown boots and the brand-new hat; tired eyes. He holds a round iron gold pan.
+
+Repaint Image 1: replace each hero figure with L, KEEPING THE HERO'S HEAD SIZE, NARROW SHOULDERS, LONG LEGS AND HEIGHT, feet on the same line, facing us and a little to his right. Left to right:
+1. standing guard at rest, holding the gold pan flat across his chest with both hands, like a shield;
+2. the same, but his head turned sharply to look back over his left shoulder, suspicious, as if someone is behind him;
+3. the same, the pan raised higher, up to his chin, his shoulders hunched behind it, glaring over its rim;
+4. talking: the pan held against his chest in one hand, his other hand raised, palm out, saying "stop there".
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the hero -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No ground, no glow, no blur, no shadows, no text.

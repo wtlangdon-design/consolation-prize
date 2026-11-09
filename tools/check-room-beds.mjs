@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 import { readJson, Report, ROOT, runCheck } from './lib/content.mjs';
 
 /**
- * EVERY ROOM'S BED, AS PLANNED (doc 45, "Every room's bed"; errata 203, 206).
+ * EVERY ROOM'S BED, AS PLANNED (doc 45, "Every room's bed"; errata 203, 215).
  *
  * Tyler approved a plan that gives every room a bed of room sound and four
  * rooms none. A plan is prose, and prose drifts from what is wired without

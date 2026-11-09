@@ -838,6 +838,8 @@ Open from Act III (errata 75: ACT becomes 3 at E0b's turn).
 
 **`VES_B1` (Act II — found again, Duel One):** *(Errata 73 B and 75: in Room 4 from B3 on. Its opening is doc 03's Duel One exchange — "Grubb! You came all this way." — and the duel itself begins on option 6 or 3.)*
 
+*Fiddler's Gulch (errata 213): Vessel is found in the grog tent, and options 3 and 6, the replay and the challenge, are offered there (VES_G1), before G9; Duel One is fought on the bar. In Room 4 after the trip, VES_B1 opens on doc 109's greeting and has neither. Doc 109, DEKE VESSEL, has the differences.*
+
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "You sold me a worthless claim." | `[PROGRESS · remove]` | "I sold you a *claim*. Worth is your department. Mine's volume." *(He is genuinely pleased to see Thad. He remembers him fondly, the way a fisherman remembers a good fish.)* |

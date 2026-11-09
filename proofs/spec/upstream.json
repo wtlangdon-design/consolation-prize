@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "upstream",
+ "note": "ROOM 54's PROOF SPEC, from fixture r54-a (in the camp's trust, nothing carried yet).",
+ "fixture": "r54-a",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "Upstream has one painted state (daylight, errata 190). G8 changes what is said, not the picture; held by tests/gulch-upstream.test.ts."
+ }
+}

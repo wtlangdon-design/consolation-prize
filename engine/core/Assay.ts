@@ -35,6 +35,8 @@ export interface AssayLine {
   rest?: number;
   /** The judges write a point down here (doc 45 U-ASSAY-PENCIL): the pencil sounds and its holder marks it. */
   mark?: boolean;
+  /** The cue a mark sounds, where its duel scores some other way than the judges' pencil (`DuelDefinition.markCue`). */
+  markCue?: string;
   /** The music stops here and stays stopped until a line with a `cue` (errata 131 D: "Silence on Main Street."). */
   quiet?: boolean;
   /** A doc 45 cue the line sounds as it is shown (errata 131 E: "The street erupts."). */
@@ -117,6 +119,15 @@ export interface DuelDefinition {
   knows?: number[];
   /** The opponent calls it on Thad (an accost), and it ends the conversation when it ends. */
   calledByOpponent?: boolean;
+  /**
+   * WHERE THIS DUEL IS NOT THE BACK ROOM'S (doc 109, DUEL ONE, ON THE BAR): who mutters the counters in place of the
+   * ring's voice (`AssayFile.bystander`), who scores in place of the judges' pencil (`AssayFile.pencil`), and the cue
+   * a point sounds in place of the pencil's (`SoundsFile.events.duelMark`) -- the panner, the rule-keeper, and a
+   * pebble set down on gravel (doc 45 R53-PEBBLE).
+   */
+  bystander?: string;
+  pencil?: string;
+  markCue?: string;
 }
 
 export interface AssayFile {
@@ -283,7 +294,8 @@ export class DuelSession {
 
   /** The judges writing a point down: a held beat, the pencil's (errata 130 B). */
   private markBeat(): AssayLine {
-    return { speaker: this.file.pencil ?? this.duel.opponent, line: '', rest: this.file.markSeconds ?? 0.6, mark: true };
+    return { speaker: this.duel.pencil ?? this.file.pencil ?? this.duel.opponent, line: '', rest: this.file.markSeconds ?? 0.6,
+      mark: true, ...(this.duel.markCue ? { markCue: this.duel.markCue } : {}) };
   }
 
   private boastLine(n: number): AssayLine {
@@ -347,7 +359,7 @@ export class DuelSession {
         || (this.duel.learnsByLosing === true && !this.known.has(pair.n));
       if (mutters && !muttered.has(pair.n)) {
         muttered.add(pair.n);
-        lines.push({ speaker: this.file.bystander, line: pair.counter });
+        lines.push({ speaker: this.duel.bystander ?? this.file.bystander, line: pair.counter });
         const note = this.duel.notebook?.[String(pair.n)];
         if (note) lines.push(note);
       }

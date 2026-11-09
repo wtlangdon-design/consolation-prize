@@ -1,0 +1,17 @@
+{
+ "assetId": "gulch-vessel",
+ "subject": "room-52-deacon",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-52-grog-tent",
+ "promptFile": "reference/room-52/prompts/deacon-01.txt",
+ "out": "art/staging/room-52/deacon/sheet-01.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/room-52/deacon/template.png",
+  "art/staging/room-52/deacon/face.png",
+  "art/staging/room-52/deacon/thad-in-room.png",
+  "reference/room-52/vessel-accepted-figure.png"
+ ],
+ "derivedFrom": "art/staging/room-52/composition-master-01.png"
+}

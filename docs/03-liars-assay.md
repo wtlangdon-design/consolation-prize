@@ -159,6 +159,8 @@ Twenty-four. Distribution matches the puzzle graph: 4 from Vessel's first duel, 
 
 ---
 
+*Fiddler's Gulch (errata 213): pairs 25 and 26 are learned there, at G8, carried between the panner and the man upstream. Their boasts, counters and wrong answers are doc 109's and are not restated here.*
+
 # PART THREE — WRONG ANSWERS
 
 Every node offers four counters. Three are wrong and all three must be funny. Sample wrong answers for pair 1 (*"the size of a bishop's fist"*):
@@ -328,6 +330,8 @@ Loss dialogue:
 
 **Yields:** 4 pairs. Topic: *I must learn to lie.* This is the game's inciting skill beat, and it is a defeat.
 
+*Fiddler's Gulch (errata 213): Duel One is fought on the bar in Room 53, not in Room 4. The rule-keeper recites the bar's rules in place of Sowerby's handbill, scores with pebbles, and has the last word; the panner mutters each counter. The opening exchange above is said at the find, in the grog tent. Doc 109, DUEL ONE, ON THE BAR, has the differences; the exchanges above stand.*
+
 ## THE SPARRING — Winnie (C6)
 
 *Not a duel. She corrects him the way one corrects a student, and it is the first time she is anything but curt.*
@@ -367,6 +371,8 @@ Vessel escalates. Thad answers flatly, without pleasure, like a man reading corr
 > **VESSEL:** "That's worse."
 
 **Yields:** Document A. The pocket watch, returned, still eleven minutes fast.
+
+*Fiddler's Gulch (errata 213): Duel Two's pool is pairs 1 to 21, 25 and 26 (doc 109).*
 
 ## DUEL FOUR — Colonel Absalom Fanshawe (public, Main Street)
 

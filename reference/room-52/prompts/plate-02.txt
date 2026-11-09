@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game: inside a canvas grog tent in daylight, with a plank bar across two barrels, a shelf of bottles, a watch hanging from the ridgepole, a fiddle on a tent pole, and, by the tent pole at the left end of the bar, a third barrel standing on its own.
+
+Make exactly one change: make that third barrel, the one standing alone by the tent pole, SHORTER -- a squat little keg, HALF ITS PRESENT HEIGHT, standing on the same spot of the earth floor, its bottom exactly where the barrel's bottom is now, its top flat and level, the height of a low stool. Paint the canvas wall and the tent pole behind where its upper half used to be.
+
+Change nothing else: the two barrels under the plank, the plank and its brass plate, the shelf and every bottle, the watch, the fiddle, the pole, the flap and the camp outside stay exactly as they are. The same pixel-art style and pixel grid, the same colours, the same daylight. No people, no text, no border.

@@ -1,0 +1,147 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "PANNER",
+  "speaker": "gulch_panner",
+  "name": "PANNER",
+  "note": "EXTRACTED from docs/109-fiddlers-gulch-lines.md (### THE PANNER) by tools/extract-content.mjs. Do not edit: change doc 109 and re-run. An option gated *(before Gn)* or *(after Gn)* reads GULCH_GATES; the way out is doc 04 part one's pool.",
+  "start": "PAN_G1",
+  "nodes": {
+    "PAN_G1": {
+      "id": "PAN_G1",
+      "prompt": "If he sent you, tell him I've found nothing. Nothing at all.",
+      "options": [
+        {
+          "id": "gulch_panner1",
+          "tag": "TOPIC",
+          "text": "Who sent me?",
+          "afterUse": "retain",
+          "say": "Him. Upstream. He's found a nugget the size of a fist and he's not saying.",
+          "repeat": "The size of a fist. A big fist. I've seen his hands."
+        },
+        {
+          "id": "gulch_panner2",
+          "tag": "TOPIC",
+          "text": "Have you found anything?",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "gulch_panner",
+              "line": "Nothing."
+            },
+            {
+              "speaker": "gulch_panner",
+              "line": "He closes his hand.",
+              "direction": true
+            },
+            {
+              "speaker": "gulch_panner",
+              "line": "Nothing at all."
+            }
+          ],
+          "repeat": "Still nothing. Don't look at my hand."
+        },
+        {
+          "id": "gulch_panner3",
+          "tag": "TOPIC",
+          "text": "Why stand in the river all day?",
+          "afterUse": "retain",
+          "say": "Where else would I stand? On my money?",
+          "repeat": "A man with money has nothing to do but get more. It's a terrible life. Don't tell anybody."
+        },
+        {
+          "id": "gulch_panner4",
+          "tag": "TOPIC",
+          "text": "Do you know Deke Vessel?",
+          "afterUse": "retain",
+          "say": "No. Is he upstream?",
+          "repeat": "If he's upstream, I don't trust him."
+        },
+        {
+          "id": "gulch_panner5",
+          "tag": "COMIC",
+          "text": "Can I have some gold?",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "gulch_panner",
+              "line": "Ha!"
+            },
+            {
+              "speaker": "gulch_panner",
+              "line": "No. But I'll remember you asked. That's worth something here."
+            }
+          ],
+          "repeat": "Still no. You're consistent. I like that in a beggar."
+        },
+        {
+          "id": "gulch_panner6",
+          "tag": "PROGRESS",
+          "text": "Any message for upstream?",
+          "afterUse": "retain",
+          "when": {
+            "T_CAMP_TRUSTS": true,
+            "T_GULCH_MESSAGE_DOWN": false
+          },
+          "exchange": [
+            {
+              "speaker": "gulch_panner",
+              "line": "He lowers his voice. Nobody is near.",
+              "direction": true
+            },
+            {
+              "speaker": "gulch_panner",
+              "line": "Tell him I took a nugget out of the river so big it needs its own tent."
+            }
+          ],
+          "set": {
+            "T_GULCH_MESSAGE_UP": true
+          },
+          "repeat": "Tell him exactly that. Don't improve it."
+        },
+        {
+          "puzzle": {
+            "G8": "complete"
+          },
+          "id": "gulch_panner7",
+          "tag": "PROGRESS",
+          "text": "He says his ground runs so rich the gravel pays him rent.",
+          "afterUse": "remove",
+          "when": {
+            "T_CAMP_TRUSTS": true,
+            "T_GULCH_MESSAGE_DOWN": true
+          },
+          "exchange": [
+            {
+              "speaker": "gulch_panner",
+              "line": "He snorts.",
+              "direction": true
+            },
+            {
+              "speaker": "gulch_panner",
+              "line": "Tell him I've collected that rent. It was paid in buttons."
+            },
+            {
+              "speaker": "thad",
+              "line": "Rent. Buttons. Yes."
+            },
+            {
+              "speaker": "gulch_panner",
+              "line": "Don't tell him, mind. He'll only send another."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_26": true
+          }
+        },
+        {
+          "id": "gulch_pannerx",
+          "tag": "EXIT",
+          "text": "Thank you. This has been clarifying.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

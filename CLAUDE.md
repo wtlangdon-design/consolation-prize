@@ -6,7 +6,7 @@
 
 ## What this is
 
-A 2D point-and-click comedy adventure game in the tradition of *The Secret of Monkey Island*. Frontier gold rush town, 1850s. Clever, warm, and at times silly — deadpan in delivery, not in ambition (**errata 100, `docs/59-voice-guide.md`**). Ten-to-twelve hours, 45 puzzles, 42 screens, ~3,850 written lines.
+A 2D point-and-click comedy adventure game in the tradition of *The Secret of Monkey Island*. Frontier gold rush town, 1850s. Clever, warm, and at times silly — deadpan in delivery, not in ambition (**errata 100, `docs/59-voice-guide.md`**). Ten-to-twelve hours, 52 puzzles (45, and Fiddler's Gulch's seven: errata 213), ~3,850 written lines.
 
 **`docs/00-errata.md` overrides every other document on every point it addresses. Read it first.**
 
@@ -151,7 +151,7 @@ Acceptance criteria are scripts a person can check in under a minute, not adject
 - Every hotspot has a distinct LOOK line and a distinct LISTEN line; no duplicates game-wide
 - Every dialogue node has ≥3 options and ≥1 `[COMIC]` option
 - No flag is read before it can be written
-- All 45 puzzles reachable from a fresh save (automated traversal — canonical list in the errata)
+- All 52 puzzles reachable from a fresh save (automated traversal — canonical list in `tools/check-puzzle-graph.mjs`, errata 213)
 - Win state reachable from every reachable state
 - Save/load restores exact state including partial dialogue trees
 - 60fps on a Chromebook
@@ -172,7 +172,7 @@ Acceptance criteria are scripts a person can check in under a minute, not adject
 |---|---|
 | `docs/00-errata.md` | **Overrides all others. Read first.** |
 | `docs/01-bible-v2.md` | Story, characters, stakes, verbs, rooms, music, the opening |
-| `docs/02-puzzle-graph.md` | 45 puzzles, item ledger, dead-end audit |
+| `docs/02-puzzle-graph.md` | 52 puzzles (45 and the Gulch's seven), item ledger, dead-end audit |
 | `docs/03-liars-assay.md` | 24 boast/counter pairs, 3 duels + 2 sparrings |
 | `docs/04-dialogue-trees.md` | 8 character trees, ~40 flags |
 | `docs/05-examine-layer.md` | LOOK/LISTEN doctrine, 12 rooms |

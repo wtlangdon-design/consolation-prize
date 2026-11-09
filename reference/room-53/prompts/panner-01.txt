@@ -1,0 +1,12 @@
+Image 1 is a TEMPLATE: the hero of my pixel-art adventure game, exactly as he is drawn in the game, standing, five times in a row on magenta. HIS BODY IS THE STANDARD FOR EVERY PERSON IN THIS GAME: a SMALL head (crown to chin about one eighth of his height), narrow shoulders, a long torso, a realistic lean adult figure -- not a cartoon, not big-headed. Image 2 shows ONLY THE FACE of P, the panner: take from it his face, his hair, his brown hat and his colouring -- NOTHING ELSE. His face is drawn there larger than it should be: in your picture it is the SIZE OF THE HERO'S FACE in Image 1. Image 3 is the hero in the river where P stands: match its pixel size, soft shading and daylight.
+
+P is a rich gold miner of middle age, as tall as the hero, who stands in the river all day: a GOOD long dark grey coat, its sleeves wet and darker to the elbow, a brown waistcoat, a pale shirt, dark trousers, boots, the good brown hat. He is cross and suspicious. He holds a round iron gold pan. Draw him WHOLE, legs and boots too, standing as if on dry ground: the water is added in the game.
+
+Repaint Image 1: replace each hero figure with P, KEEPING THE HERO'S HEAD SIZE, NARROW SHOULDERS, LONG LEGS AND HEIGHT, feet on the same line, facing us and a little to his right. Left to right:
+1. panning: the pan held low in both hands in front of him, frowning down into it;
+2. the same, the pan tilted hard to one side mid-swirl, his elbows out, scowling at it as if it had insulted him;
+3. the same, but his head turned sharply to look back over his left shoulder, suspicious, as if the gold might be going somewhere else;
+4. the pan held in his left hand at his side; his right hand closed tight in a fist and held against his chest, hiding something in it;
+5. talking: the pan held against his hip in one hand, the other hand raised, a finger pointing, telling someone something.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the hero -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No ground, no water, no glow, no blur, no shadows, no text.

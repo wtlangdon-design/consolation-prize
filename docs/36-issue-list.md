@@ -4992,6 +4992,30 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 
 ## Q191 · Room 50, the ledge: built, awaiting Tyler's playthrough — **RULED 2026-11-08 (errata 199, 200; reference/fiddlers-gulch/brief.md); BUILT, room-50 2 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
 
-**Built.** The ledge: the camp below, the cairn, the ravine, the mine (straight back to the washout) and THE PATH DOWN, a hotspot until Room 51 is built. Held by `tests/gulch-mine.test.ts`.
+**Built.** The ledge: the camp below, the cairn, the ravine, the mine (straight back to the washout) and THE PATH DOWN, the way down to the tents since Room 51 was built (errata 206). Held by `tests/gulch-mine.test.ts`.
 
 **Open, for Tyler:** the plate, in the playthrough (errata 72 E).
+
+## Q192 · Room 51, the tents: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 206; reference/fiddlers-gulch/brief.md); BUILT, room-51 4 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** The tents and the lookout: the camp's ground, the grog tent and the river (stopped by the lookout until G3), the path up, GIVE THE CLARION (G3), his tree, barks and wrong verbs. Held by `tests/gulch-tents.test.ts`.
+
+**Open, for Tyler:** the plate and the lookout, in the playthrough (errata 72 E); the lookout's speech colour, the builder's #78c8e0.
+
+## Q193 · Room 52, the grog tent: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 208; reference/fiddlers-gulch/brief.md); BUILT, room-52 4 of 4 operations and gulch-vessel 2 of 2, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** The grog tent: the plank, the barrels, the bottles, the watch (THE FIND, G4; THE NAIL after G9), the fiddle (G5, the seat), the rule-keeper on his keg and the Deacon behind the plank, Vessel's own frames shaved; VES_G1. Held by `tests/gulch-grog-tent.test.ts`.
+
+**Open, for Tyler:** the plate, the rule-keeper and the Deacon's face, in the playthrough (errata 72 E); the rule-keeper's speech colour, the builder's #f0d090.
+
+## Q194 · Room 53, the river: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 209; reference/fiddlers-gulch/brief.md); BUILT, room-53 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** The river: the bar, the long tom, the rocker, the water, the panner knee-deep beside the bar, the ford out to the bar, and Duel One on the bar (G7) when Vessel has called it from the tent. Held by `tests/gulch-river.test.ts`.
+
+**Open, for Tyler:** the plate, the panner and the duel's staging, in the playthrough (errata 72 E); the panner's speech colour, the builder's #a8dca0.
+
+## Q195 · Room 54, upstream: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 210; reference/fiddlers-gulch/brief.md); BUILT, room-54 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Upstream: the stakes, the best ground, the sluice and its NOT YET board, the falls, the man upstream, and G8, the messages carried between him and the panner, which teach pairs 25 and 26. Held by `tests/gulch-upstream.test.ts`.
+
+**Open, for Tyler:** the plate and the man upstream, in the playthrough (errata 72 E); his speech colour, the builder's #d8a8e0.

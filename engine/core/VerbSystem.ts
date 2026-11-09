@@ -188,7 +188,7 @@ export class VerbSystem {
    * on the way past.
    */
   resolveWith(
-    _verbId: string, itemId: string, target: Interactable, roomId: string,
+    verbId: string, itemId: string, target: Interactable, roomId: string,
     carried: readonly string[] = [],
   ): ResolvedAction {
     const table = this.combinations;
@@ -241,6 +241,13 @@ export class VerbSystem {
         state: pair.setState,
         effects: flagEffects(`with/${roomId}/${target.id}/${itemId}`, pair.set),
       };
+    }
+    // ANY OTHER ITEM, TO ONE PERSON OR THING (doc 109, THE LOOKOUT · GIVE anything else): after a pair, before the
+    // area's lines and the item's own pool. Only the items with no pair of their own here reach it.
+    const other = table?.targetPools?.find((one) => one.room === roomId && one.target === target.id
+      && (one.verb === undefined || one.verb === verbId) && !(one.except ?? []).includes(itemId));
+    if (other?.lines.length) {
+      return { say: this.rotate(`target:${roomId}/${target.id}`, other.lines), dialogue: null, goto: null, effects: [] };
     }
     // AN ITEM'S LINES FOR A PLACE (doc 108, THE MINE · WRONG ANSWERS, ANYWHERE IN IT): after a pair, before the
     // item's own pool -- the brass rod and the fork, anywhere in the mine's four rooms, said in turn across them.

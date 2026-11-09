@@ -1,0 +1,214 @@
+{
+ "schema": 1,
+ "id": "room-52-grog-tent",
+ "room": "grog_tent",
+ "docRoom": 52,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 52 of Fiddler's Gulch (reference/fiddlers-gulch/brief.md; errata 202, 208; doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/107-fiddlers-gulch.md",
+  "docs/108-the-washout-and-the-mine.md",
+  "docs/109-fiddlers-gulch-lines.md",
+  "docs/49-wrong-answers.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-52.json",
+    "docs/00-errata.md::208 · FIDDLER'S GULCH BUILT, PART THREE: THE GROG TENT (ROOM 52)"
+   ],
+   "note": "One picture, daylight (errata 190); G4, G5 and G9 change what is said and two props over the plate, not the picture."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-52/graybox.json",
+    "docs/00-errata.md::208 · FIDDLER'S GULCH BUILT, PART THREE: THE GROG TENT (ROOM 52)"
+   ],
+   "note": "Every subject is plate; the lettering, the empty peg and the empty nail are props."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-52-grog-tent-with-thad.png",
+    "renders/room-52-deacon-vs-deke.png",
+    "docs/00-errata.md::208 · FIDDLER'S GULCH BUILT, PART THREE: THE GROG TENT (ROOM 52)"
+   ],
+   "note": "The rule-keeper from room-52 operation 3, cut at the room's man; the Deacon is Vessel's accepted frames, the mustache band from gulch-vessel operation 2."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "content/ambient/gulch-rule-keeper.json",
+    "content/ambient/gulch-deacon.json",
+    "tests/movement.test.mjs"
+   ],
+   "note": "The rule-keeper breathes, drinks and plays; the Deacon has Vessel's breaks (errata 77)."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-52-grog-tent-with-thad.png",
+    "tests/lessons.test.ts"
+   ],
+   "note": "The rule-keeper's lap is on the keg's top (seat.y); the Deacon stands behind the plank, clipped by its plane."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-52/annotation.json",
+    "art/staging/room-52/plate-02/frame.json"
+   ],
+   "note": "Daylight through canvas, errata 190."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/gulch-grog-tent.test.ts",
+    "docs/109-fiddlers-gulch-lines.md"
+   ],
+   "note": "G4: the watch is on the nail behind the plank in view; G5: the seat is asked for (VES_G1 options 3 and 6) and the fiddle hangs out of tune."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-52.json",
+    "content/rooms/grog-tent.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-52: 4 of 4 (master; plate; the rule-keeper; the keg). gulch-vessel: 2 of 2 (a new Deacon, unused; the shave edit)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/grog-tent.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-52/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/grog-tent/proof.json"
+   ],
+   "note": "No principal change: the peg and the nail are props, held by the test."
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "tests/gulch-grog-tent.test.ts"
+   ],
+   "note": "THE FIND (G4); the fork on the fiddle (G5); VES_G1's seat, challenge and rematch."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "tests/gulch-grog-tent.test.ts",
+    "tests/movement.test.mjs"
+   ],
+   "note": "His barks in turn, one a visit; his playing frames with the peg empty."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-52/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-52-grog-tent.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-52/plate-02/frame.json"
+   ]
+  },
+  {
+   "subject": "the rule-keeper",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-52-rule-keeper.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-52/rule-keeper/rule-keeper.json"
+   ]
+  },
+  {
+   "subject": "the Deacon",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-52-deacon.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-52/deacon/deacon.json",
+    "renders/room-52-deacon-vs-deke.png"
+   ]
+  },
+  {
+   "subject": "the lettering",
+   "class": "PROP",
+   "stage": "SHIPPING",
+   "path": "art/props/room-52-plate.png",
+   "evidence": [
+    "tools/art/gulch-lettering.py"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q193 · Room 52, the grog tent: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 208; reference/fiddlers-gulch/brief.md); BUILT, room-52 4 of 4 operations and gulch-vessel 2 of 2, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate and the Deacon -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q193 · Room 52, the grog tent: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 208; reference/fiddlers-gulch/brief.md); BUILT, room-52 4 of 4 operations and gulch-vessel 2 of 2, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

@@ -51,6 +51,18 @@
     2,
     171,
     219
+   ],
+   [
+    2,
+    235,
+    171,
+    219
+   ],
+   [
+    175,
+    223,
+    183,
+    231
    ]
   ],
   "rate": 0.24,
@@ -83,7 +95,7 @@
   ],
   "breakEvery": 6,
   "talkFrame": 3,
-  "frameNote": "0 fingertips to her temples, eyes closed · 1 breath (derived) · 2 humming, fingertips at her temples · 3 one hand raised high, pronouncing · 4 one hand held out palm up, for the fee. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
+  "frameNote": "0 fingertips to her temples, eyes closed · 1 breath (derived) · 2 humming, fingertips at her temples · 3 one hand raised high, pronouncing · 4 one hand held out palm up, for the fee · 5 leaning down to the box under the table, one arm out of sight · 6 upright, holding up the second rod (doc 95 row 100; cast-unify 88, errata 214). Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
   "provenance": "reference/cast-unify-14.spec.json",
   "hands": "folded",
   "waistOn": 500,

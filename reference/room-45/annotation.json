@@ -281,5 +281,21 @@
    ],
    "note": "THE SIGNPOST's words in the shipping face, from its first LOOK (doc 108), with the 3 scratched out as its third LOOK says (tools/art/gulch-lettering.py): the generator draws the plank blank."
   }
+ ],
+ "departures": [
+  {
+   "hotspot": "grievance",
+   "verb": "USE",
+   "when": {
+    "T_VESSEL_FOUND": true
+   },
+   "ref": "docs/109-fiddlers-gulch-lines.md::## GOING HOME",
+   "startsWith": "**GRIEVANCE** · USE, *after G9*",
+   "goto": "nugget",
+   "set": {
+    "T_GULCH_HOME": true
+   },
+   "note": "Doc 109, GOING HOME: after G9, the ride home over black, and Thad placed in the Nugget, as B3 placed him before the trip."
+  }
  ]
 }

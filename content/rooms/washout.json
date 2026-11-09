@@ -180,6 +180,25 @@
             },
             "say": "Not without Vessel. I've come two days for him, and a mule's opinion is all I'd be taking home.",
             "sceneLine": true
+          },
+          {
+            "when": {
+              "T_VESSEL_FOUND": true
+            },
+            "say": "Thad climbs on. Grievance considers it, then turns for home.",
+            "direction": true,
+            "then": [
+              {
+                "speaker": "thad",
+                "line": "Two days back on Grievance. Vessel took the coach, and was in the Nugget's back room before me, with a drink and the good chair.",
+                "overBlack": true
+              }
+            ],
+            "set": {
+              "T_GULCH_HOME": true
+            },
+            "goto": "nugget",
+            "sceneLine": "docs/109-fiddlers-gulch-lines.md::## GOING HOME · **GRIEVANCE** · USE, *after G9*"
           }
         ],
         "TALK_TO": [

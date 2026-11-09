@@ -1,0 +1,107 @@
+{
+ "schema": 1,
+ "id": "gulch_lookout",
+ "name": "THE LOOKOUT",
+ "posture": "standing",
+ "note": "Doc 109, THE LOOKOUT: 'At the foot of the path, in the tents. G3.' Doc 107: 'Meets every stranger at the foot of the ledge path, because every stranger is a claim jumper.' He stands at the foot of the zigzag path where the composition master stood him (room-51 operation 1). His tree, barks and GIVE lines are doc 109's, extracted; doc 49's ROOM 51 answers a wrong verb on him (errata 202). Barks in turn, the same in every reputation state: the Gulch has not heard of Thad (doc 107).",
+ "room": "gulch_tents",
+ "x": 1560,
+ "y": 640,
+ "zone": 2,
+ "approachRadius": 60,
+ "tree": "LOOKOUT",
+ "walkTo": {
+  "x": 1450,
+  "y": 690,
+  "facing": "right"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: beside him, a step nearer the camera, on the camp's side and clear of the notice's stump, so the notice stays in view (doc 55 section 8: beside them, nobody hidden).",
+ "barks": {},
+ "sprite": {
+  "note": "Frames 0-1 are the idle: the pan across his chest like a shield, and its breath. Frame 2 is a look back over his shoulder up the path; frame 3 the pan raised to his chin. Frame 4 is talking, a palm out: 'Stop there.'",
+  "sheet": "art/actors/room-51-lookout.png",
+  "frames": [
+   [
+    2,
+    2,
+    115,
+    322
+   ],
+   [
+    119,
+    2,
+    115,
+    322
+   ],
+   [
+    236,
+    2,
+    115,
+    322
+   ],
+   [
+    353,
+    2,
+    115,
+    322
+   ],
+   [
+    470,
+    2,
+    115,
+    322
+   ]
+  ],
+  "rate": 0.45,
+  "phase": 0.6,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 11,
+  "talkFrame": 4,
+  "provenance": "art/staging/room-51/lookout/lookout.json",
+  "frameNote": "0 rest, the gold pan across his chest · 1 breath · 2 a look back over his shoulder · 3 the pan raised to his chin, glaring over it · 4 talking, a palm out.",
+  "figureHeight": 322,
+  "stature": 1,
+  "figureHeightNote": "The room's man at his feet (soles y 640): cut and snapped there by tools/art/interiors-people.py (errata 112's one level). The engine draws him at the room's man there, so he stands at the curve."
+ },
+ "barkTurns": [
+  {
+   "counter": "LOOKOUT_BARKS_BEFORE_G3",
+   "when": {
+    "T_CAMP_TRUSTS": false
+   },
+   "lines": [
+    "You're late. Whatever you want, you're late for it.",
+    "Stop there, jumper.",
+    "I know what you are. Don't tell me. I know."
+   ],
+   "source": "docs/109-fiddlers-gulch-lines.md::### THE LOOKOUT"
+  },
+  {
+   "counter": "LOOKOUT_BARKS_AFTER_G3",
+   "when": {
+    "T_CAMP_TRUSTS": true
+   },
+   "lines": [
+    "There he is. Mr. Nothing.",
+    "You're late again. We all are, but you're later.",
+    "Still own nothing? Good man."
+   ],
+   "source": "docs/109-fiddlers-gulch-lines.md::### THE LOOKOUT"
+  }
+ ],
+ "barksNote": "EXTRACTED from docs/109-fiddlers-gulch-lines.md (### THE LOOKOUT) by tools/extract-content.mjs. Do not edit: change doc 109 and re-run. Said on approach, one a visit, in turn, the same in every reputation state."
+}
