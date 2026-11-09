@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "boot_hill",
  "roomWidth": 1920,
- "branch": "scene-a-build",
- "commit": "0dafc785397bf75a37da5a98e0378959346f643e",
+ "branch": "mourners-face-hearse",
+ "commit": "413c475ede66e3a48b8589e1b112dd871788698b",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -44,7 +44,7 @@
    ],
    "reportedHeight": 285,
    "expected": 285,
-   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
    "bounds": [
     1636,
     276,
@@ -81,7 +81,7 @@
    ],
    "reportedHeight": 305,
    "expected": 305,
-   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
    "bounds": [
     178,
     552,
@@ -141,10 +141,10 @@
     "x": 1219,
     "y": 541,
     "width": 182,
-    "height": 315,
-    "bottom": 855,
+    "height": 314,
+    "bottom": 854,
     "right": 1400,
-    "changed": 25166
+    "changed": 24352
    },
    "props": []
   },
@@ -155,7 +155,7 @@
     335,
     738
    ],
-   "sheet": "art/actors/room-31-mourners-master.png",
+   "sheet": "art/actors/room-14-mourners-at-gate.png",
    "clipPlane": null,
    "box": {
     "x": 114,
@@ -164,13 +164,13 @@
     "height": 405
    },
    "seen": {
-    "x": 154,
+    "x": 152,
     "y": 404,
     "width": 364,
     "height": 336,
     "bottom": 739,
-    "right": 517,
-    "changed": 75384
+    "right": 515,
+    "changed": 74968
    },
    "props": []
   },
@@ -196,7 +196,7 @@
     "height": 389,
     "bottom": 793,
     "right": 1689,
-    "changed": 160535
+    "changed": 159160
    },
    "props": []
   }
@@ -205,7 +205,7 @@
   {
    "panel": "B",
    "room": "boot_hill",
-   "clock": 10.7486,
+   "clock": 11.8831,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -284,7 +284,7 @@
      "height": 300,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
       171,
       490,
@@ -316,12 +316,12 @@
      "hash": "dad61b167679d7d16d9205997076d408fd66b8c81a66f2987f4df72ae64b338b"
     },
     {
-     "key": "art/actors/room-31-mourners-master.png",
-     "path": "art/actors/room-31-mourners-master.png",
-     "drawn": "art/actors/room-31-mourners-master.png",
+     "key": "art/actors/room-14-mourners-at-gate.png",
+     "path": "art/actors/room-14-mourners-at-gate.png",
+     "drawn": "art/actors/room-14-mourners-at-gate.png",
      "candidate": false,
      "loaded": true,
-     "hash": "7e4b77b0f58ef7a8dce9edf6621d5567d983f1bfeb7517b01fa09e15933f4a62"
+     "hash": "7502c26acbc950f67cc46db4c282fc061b0fc67bbb04c9b23a3a32a52c218683"
     },
     {
      "key": "art/actors/room-31-sowerby-master.png",
@@ -345,15 +345,15 @@
    "controlWrites": [
     "enter(boot_hill)"
    ],
-   "capturedAt": "2026-11-09T20:40:05.666Z",
+   "capturedAt": "2026-11-09T22:08:59.489Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "95ba70141562a6b4ad93a175ec40b86c06f8d5837de041adde738d2942e9c2c6"
+   "hash": "cb61eb67b3f21000452f758f4f34cf719b598b6138733318e7b9bb98d7136575"
   },
   {
    "panel": "A",
    "room": "boot_hill",
-   "clock": 11.7485,
+   "clock": 12.9497,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -459,12 +459,12 @@
      "hash": "dad61b167679d7d16d9205997076d408fd66b8c81a66f2987f4df72ae64b338b"
     },
     {
-     "key": "art/actors/room-31-mourners-master.png",
-     "path": "art/actors/room-31-mourners-master.png",
-     "drawn": "art/actors/room-31-mourners-master.png",
+     "key": "art/actors/room-14-mourners-at-gate.png",
+     "path": "art/actors/room-14-mourners-at-gate.png",
+     "drawn": "art/actors/room-14-mourners-at-gate.png",
      "candidate": false,
      "loaded": true,
-     "hash": "7e4b77b0f58ef7a8dce9edf6621d5567d983f1bfeb7517b01fa09e15933f4a62"
+     "hash": "7502c26acbc950f67cc46db4c282fc061b0fc67bbb04c9b23a3a32a52c218683"
     },
     {
      "key": "art/actors/room-31-sowerby-master.png",
@@ -489,15 +489,15 @@
     "enter(boot_hill)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-09T20:40:06.675Z",
+   "capturedAt": "2026-11-09T22:09:00.595Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "58aae0a85c9568ff6724be8574e344e9b26158edc73ded3b469ed3d9da2f7592"
+   "hash": "05b51944a47012ab387eba914dc38997ee13f9cc4aea65be4e10abb5404ba3d9"
   },
   {
    "panel": "D",
    "room": "boot_hill",
-   "clock": 25.9647,
+   "clock": 26.9158,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -577,7 +577,7 @@
      "height": 305,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-02.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
       1018,
       551,
@@ -609,12 +609,12 @@
      "hash": "dad61b167679d7d16d9205997076d408fd66b8c81a66f2987f4df72ae64b338b"
     },
     {
-     "key": "art/actors/room-14-mourners-bowed.png",
-     "path": "art/actors/room-14-mourners-bowed.png",
-     "drawn": "art/actors/room-14-mourners-bowed.png",
+     "key": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "path": "art/actors/room-14-mourners-bowed-at-gate.png",
+     "drawn": "art/actors/room-14-mourners-bowed-at-gate.png",
      "candidate": false,
      "loaded": true,
-     "hash": "b3fb2dd31a2a6f66362bc706bd0d1cb02567943a8fbe76effc95c8923bc0d73a"
+     "hash": "d30055d9fc94c162408be9e96d48943942682fcef35d21c2ca65a11e69778e70"
     },
     {
      "key": "art/actors/room-31-sowerby-master.png",
@@ -648,10 +648,10 @@
     "cast(true)",
     "bystanders(true)"
    ],
-   "capturedAt": "2026-11-09T20:40:20.972Z",
+   "capturedAt": "2026-11-09T22:09:14.495Z",
    "intent": "principal changed state: TALK TO REVEREND SOWERBY, AT THE GATE (doc 110 section 2): Thad asks whether a hill can be blessed. Visible consequence: Thad's question, then the Reverend's answer over his own head.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "fffa997119b35a5110bca22ee85a6d70e43ac4a2d2d214778ee3ccafbe686b7b",
+   "hash": "30f4a6809178728ca041ed9094ff94578147afcc7e5e22ac8d6baa8d22200635",
    "changedBy": "flags"
   }
  ],
@@ -682,11 +682,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-09T20:40:20.973Z",
+ "at": "2026-11-09T22:09:14.495Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 437726,
+  "bytes": 437766,
   "panels": 5,
   "scale": 0.5
  }
