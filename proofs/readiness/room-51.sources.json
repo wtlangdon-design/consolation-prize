@@ -1,0 +1,45 @@
+{
+ "schema": 1,
+ "room": 51,
+ "id": "room-51-tents",
+ "name": "THE TENTS",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-11-09 for reference/fiddlers-gulch/brief.md (errata 190, 194, 195, 199) from docs 107, 109, 49 and 02.",
+ "examine": {
+  "primary": "docs/109-fiddlers-gulch-lines.md::THE TENTS#1",
+  "batch": [],
+  "merged": [],
+  "completions": [
+   "docs/109-fiddlers-gulch-lines.md::THE TENTS#1",
+   "docs/109-fiddlers-gulch-lines.md::THE LOOKOUT"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "The tents are reached only on the trip, in Act II, down the path from the ledge (doc 107). Doc 109 writes one state for the room; the lookout's change at G3 is written as his before and after."
+  }
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 51 — THE TENTS",
+ "dialogue": {
+  "characters": [
+   "the lookout"
+  ],
+  "trees": [
+   "docs/109-fiddlers-gulch-lines.md::THE LOOKOUT"
+  ]
+ },
+ "puzzles": {
+  "ids": [
+   "G3"
+  ],
+  "source": [
+   "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)"
+  ]
+ },
+ "staging": {
+  "required": false,
+  "why": "No doc 48 script is sited here. G3's hand-over is written whole under THE LOOKOUT (GIVE THE CLARION), with its directions."
+ },
+ "connectivity": "docs/107-fiddlers-gulch.md::The places",
+ "exits": "docs/109-fiddlers-gulch-lines.md::THE TENTS#1",
+ "roomFile": "content/rooms/gulch-tents.json",
+ "plate": "art/backgrounds/room-51-tents.png"
+}

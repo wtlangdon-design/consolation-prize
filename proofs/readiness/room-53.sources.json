@@ -1,0 +1,46 @@
+{
+ "schema": 1,
+ "room": 53,
+ "id": "room-53-river",
+ "name": "THE RIVER",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-11-09 for reference/fiddlers-gulch/brief.md (errata 190, 194, 195, 199) from docs 107, 109, 49 and 02.",
+ "examine": {
+  "primary": "docs/109-fiddlers-gulch-lines.md::THE RIVER",
+  "batch": [],
+  "merged": [],
+  "completions": [
+   "docs/109-fiddlers-gulch-lines.md::THE RIVER",
+   "docs/109-fiddlers-gulch-lines.md::THE PANNER"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "The river is reached only on the trip, in Act II (doc 107). Doc 109 writes one state, and the bar's after Duel One."
+  }
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 53 — THE RIVER",
+ "dialogue": {
+  "characters": [
+   "the panner"
+  ],
+  "trees": [
+   "docs/109-fiddlers-gulch-lines.md::THE PANNER"
+  ]
+ },
+ "puzzles": {
+  "ids": [
+   "G7",
+   "G8"
+  ],
+  "source": [
+   "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)"
+  ]
+ },
+ "staging": {
+  "required": false,
+  "why": "No doc 48 script is sited here. Duel One on the bar is written in doc 109 (DUEL ONE, ON THE BAR) over doc 03's duel."
+ },
+ "connectivity": "docs/107-fiddlers-gulch.md::The places",
+ "exits": "docs/109-fiddlers-gulch-lines.md::THE RIVER",
+ "roomFile": "content/rooms/gulch-river.json",
+ "plate": "art/backgrounds/room-53-river.png"
+}

@@ -5507,3 +5507,17 @@ Tyler, of `renders/room-02-main-street-horses.png`: "Brightness is good. Maybe m
 - **Shown:**
   - `renders/room-02-main-street-horses.png`: night, with Thad standing beside the black at the horses' own depth (1250,746), the board clear to their left.
   - `renders/room-36-main-street-dawn-rail.png`: dawn, with Thad at the same spot beside the empty rail.
+
+# 202 · FIDDLER'S GULCH: A WRONG VERB ON EACH OF ITS PEOPLE — TYLER, 2026-11-09 ("Write them (doc 49)")
+
+*Rooms 51 to 54 failed the readiness gate on character behaviour. Every earlier room with a person has lines for a wrong verb used on them (the bell-ringer's PICK UP, PUSH and USE, doc 97). Docs 108 and 109 give the Gulch's people their trees, barks and the lookout's GIVE lines, and nothing for PUSH THE PANNER. The builder asked; Tyler: "Write them (doc 49)".*
+
+- **Fifteen lines, three a person (PICK UP, PUSH, USE), in doc 49's ROOM 51 to ROOM 54 sections, one voice, under doc 59:**
+  - the lookout (Room 51), true before G3 and after;
+  - the Deacon (Room 52), true before THE FIND and after it, when his name reads DEKE VESSEL;
+  - the rule-keeper (Room 52), true before G5 and after;
+  - the panner (Room 53);
+  - the man upstream (Room 54).
+- **Nothing else is written.** No puzzle, flag, tree or bark changes.
+- **The gate reads them where they are.** `tools/check-room-readiness.mjs` accepts a room's people as behaving when the room's doc 49 section answers a wrong verb on every person the room declares, by name, as well as the Overrides block it already read. One unnamed person is still a NO; proved by declaring the rule-keeper in Room 53, which answers NO.
+- CLAUDE.md records it as the eleventh exception.

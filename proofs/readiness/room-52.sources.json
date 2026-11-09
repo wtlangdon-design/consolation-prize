@@ -1,0 +1,53 @@
+{
+ "schema": 1,
+ "room": 52,
+ "id": "room-52-grog-tent",
+ "name": "THE GROG TENT",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-11-09 for reference/fiddlers-gulch/brief.md (errata 190, 194, 195, 199) from docs 107, 109, 49 and 02.",
+ "examine": {
+  "primary": "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
+  "batch": [],
+  "merged": [],
+  "completions": [
+   "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
+   "docs/109-fiddlers-gulch-lines.md::THE DEACON, before he is found",
+   "docs/109-fiddlers-gulch-lines.md::DEKE VESSEL, found",
+   "docs/109-fiddlers-gulch-lines.md::THE RULE-KEEPER"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "The grog tent is reached only on the trip, in Act II (doc 107). Doc 109 writes its states as the watch's three and the fiddle's two (before and after G5), and the Deacon's before and after the find; the room has no act variation."
+  }
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 52 — THE GROG TENT",
+ "dialogue": {
+  "characters": [
+   "the Deacon",
+   "the rule-keeper"
+  ],
+  "trees": [
+   "docs/109-fiddlers-gulch-lines.md::THE DEACON, before he is found",
+   "docs/109-fiddlers-gulch-lines.md::DEKE VESSEL, found",
+   "docs/109-fiddlers-gulch-lines.md::THE RULE-KEEPER"
+  ]
+ },
+ "puzzles": {
+  "ids": [
+   "G4",
+   "G5",
+   "G6",
+   "G9"
+  ],
+  "source": [
+   "docs/02-puzzle-graph.md::FIDDLER'S GULCH — the trip (doc 107; the lines are doc 109's)"
+  ]
+ },
+ "staging": {
+  "required": false,
+  "why": "No doc 48 script is sited here."
+ },
+ "connectivity": "docs/107-fiddlers-gulch.md::The places",
+ "exits": "docs/109-fiddlers-gulch-lines.md::THE GROG TENT",
+ "roomFile": "content/rooms/grog-tent.json",
+ "plate": "art/backgrounds/room-52-grog-tent.png"
+}
