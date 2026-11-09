@@ -571,6 +571,12 @@
    "date": "2026-11-09",
    "kind": "loosened",
    "why": "Errata 233: not looser in what it holds, made state-aware. The animal-on-the-floor test read every walk box at once; Room 14 now has a floor built for two states (WalkBox.enabledWhen), so the floor of the state the hitch is not in would have stood under it. It now reads the floor that can be there with the animal (coexist with its when), so the hitch is held to the floor carved round it. Proved: with the gated obstacle removed, this test fails."
+  },
+  {
+   "check": "tools/check-walk-boxes.mjs",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 233: not looser, made state-aware. Room 14 is the first room whose floor is built for two states (with the hitch at the gate and without; WalkBox.enabledWhen), and the two floors are never joined, so asking every box to be reachable from the first one misfired on the second floor. Each state's floor (its own boxes and every always-enabled one) is now held whole on its own, as strictly as one floor was."
   }
  ]
 }
