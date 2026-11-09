@@ -5566,3 +5566,30 @@ Tyler, of `renders/room-02-main-street-horses.png`: "Brightness is good. Maybe m
 - **Nothing else is written.** No puzzle, flag, tree or bark changes.
 - **The gate reads them where they are.** `tools/check-room-readiness.mjs` accepts a room's people as behaving when the room's doc 49 section answers a wrong verb on every person the room declares, by name, as well as the Overrides block it already read. One unnamed person is still a NO; proved by declaring the rule-keeper in Room 53, which answers NO.
 - CLAUDE.md records it as the eleventh exception.
+
+# 203 · EVERY ROOM'S BED, PLANNED — TYLER, 2026-11-08 ("Proceed")
+
+*Tyler had asked whether the sound was up to date. The music was: every room has a bed, settled by errata 104. The room sound was not: only four rooms (Main Street, the Registrar, the Nugget and the Clarion) have a bed of it, and Prosperity's was designed in doc 45 and never built. Tyler said to proceed with a plan for the rest.*
+
+- **The plan is doc 45, "Every room's bed".**
+  - It gives a bed to every room that has none, rooms 1 to 44, each drawn from that room's own LISTEN lines as built.
+  - It names four rooms that deliberately have none: the undertaker's, the coffin, the listening chamber, and under Prosperity.
+- **Its rules:**
+  - A bed holds only the room-wide sounds the room's LISTEN lines report.
+  - Nothing in a bed is louder or different near any hotspot. Three kinds of sound are excepted: figures while they are there, ways out, and a room's own working noise. Each is checked against the three lines invariant 3 protects before it is wired.
+  - Nothing in a bed follows a puzzle's state.
+  - No bed has a pitch.
+  - Tyler hears every bed before it ships.
+- **One earlier design is withdrawn.** Doc 45's `R23/24-A` had a "localized warm moving air at hole" for Prosperity. A sound there would mark the one place on the claim whose LISTEN matters (invariant 3), so the hole gets no sound.
+- **The builder's brief is `reference/room-beds/brief.md`.** It covers rendering, wiring and a check that holds the plan. It also asks for an audition page for Tyler, and nothing ships until he has heard it. No image operation is needed.
+
+# 204 · THE MESSAGE BOY HEARD — TYLER, 2026-11-08 ("Yes")
+
+*Errata 194 moves Duel One to the bar at Fiddler's Gulch, two days from Consolation. A read of every line that touches the duels, Vessel, the judges and the back room, done before that move is built, found one line that becomes untrue: the message boy's bark after the loss, "I watched. You were bad." He was in Consolation. Tyler approved the change.*
+
+- **Doc 07 §5, `R_LOST_DUEL`:** "I watched. You were bad." is now "I heard. You were bad." His bark after Duel Two, "I watched. You were less bad.", stands, because Duel Two is still fought in the Nugget.
+- **Everything else holds:**
+  - The town's other barks after the loss assume nothing about where it was.
+  - The Clarion's headline stays true, because in doc 109 Vessel takes the coach and reaches Consolation before Thad.
+  - Doc 109 already replaces the three Room 4 lines that would have broken: the ride, Vessel's greeting, and Duel One's replay.
+- **The lesson** is doc 55 §8's row from errata 196, about a figure that moves rooms. It applies to an event that moves too: read every line that refers to it.

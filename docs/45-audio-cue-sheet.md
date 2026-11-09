@@ -344,6 +344,69 @@ These sounds are required, but placing them in a room or inventing an action wou
 
 **Delivery.** `R45-M` reuses Room 1's THADDEUS file without its layer. `R53-DUEL` reuses the registrar's jaw-harp ASSAY. Three new stems are rendered by the project's music renderer, as the other room arrangements were: CONSOLATION on harmonica alone (the mine), CONSOLATION in the minor on jaw harp and harmonica (the Gulch), and that mix filtered as through canvas (the grog tent). The beds and one-shots are rendered by the room-SFX tools. All of it waits for the Gulch's rooms to be built.
 
+## EVERY ROOM'S BED *(errata 203)*
+
+*Tyler, 2026-11-08, on the writer's offer of a sound plan for the rooms that have none: "Proceed". Every room has music (errata 104 settled the rest of the score), but only four have a bed of room sound: Main Street, the Registrar, the Nugget and the Clarion. This table gives every other room one. It is drawn from each room's own LISTEN lines, as built today.*
+
+**The rules, which every bed keeps:**
+1. **A bed holds only sounds the room's LISTEN lines say are there, and only the room-wide ones:** wind, water, the street, the town far off, a building settling. LISTEN never lies, and the bed never says more than LISTEN does.
+2. **Nothing in a bed is louder or different near any hotspot** (invariant 3). A sound that only one object's LISTEN reports stays in that line, with three kinds of exception, listed below. **Prosperity's hole gets no airflow sound.** This supersedes `R23/24-A`'s "localized warm moving air at hole": a sound at the hole would mark the one place on the claim whose LISTEN matters.
+   - **The exceptions:**
+     - a figure, while it is there;
+     - a way out, which hears the place it leads to;
+     - the room's own working noise, heard from anywhere in it: the laundry's coppers, the vault's mechanism, the bakehouse's oven, the parlour's fire.
+   - **Before wiring any of them, the builder checks the source against the three lines invariant 3 protects, and drops it if it is one.**
+3. **Nothing in a bed changes with a puzzle's state** (invariant 9). A layer tied to a figure plays while the figure is there (`whenPresent`, as Main Street's dog), and stops when the figure goes, for any reason.
+4. **No pitch.** Beds are noise and texture. The score's pitch belongs to the −35-cent bus, and the only pitched sounds outside it are the fork and the flat bell (0.2).
+5. **Under the music, never over it,** at levels set by ear against the room's bed of music. Tyler hears them before they ship (errata 102).
+6. **Some rooms deliberately have none:**
+   - the undertaker's (13): doc 28's silence. His own LISTEN says "Not even the wind bothers.";
+   - inside the coffin (32);
+   - the listening chamber (33): its LISTEN is its interface;
+   - under Prosperity (34): its silence is the point of its lines.
+
+| Room | Bed | Layers and one-shots | Never |
+|---|---|---|---|
+| 1 · Stage road (and coach stop at dawn) | Night wind; a town far off, mostly gone in for the night | The team shifting and the dry axle, while the coach is there | Anything at dawn that sounds like picks |
+| 4 · Nugget back room | Wind on painted glass, dulled; the Nugget beyond the wall | — | Anything during a duel but the duel's own cues |
+| 5 · Assay office | The street, muffled | — | **Nothing from the floor.** The loose board is one hotspot's line |
+| 6 · Records room | Picks, far off; the front office through the door | — | — |
+| 8 · Archive | The building settling; Main Street, muffled | A stamp through the door, now and then | — |
+| 10 · Company lobby | The street, muffled | Voices shaped like laughter, through the Colonel's door | — |
+| 11 · Fanshawe's office | Main Street with the edges taken off | The lobby, faint, through the door | — |
+| 12 · Mercantile | The doors still swinging; the street beyond them | — | — |
+| 14 · Boot Hill | Wind in the rails and the grass | A little of the town, carried up the hill | — |
+| 15 · Livery | Straw settling; warm boards creaking; wind through the gap | Grievance breathing, while she is in her stall | — |
+| 16 · Ozymandia's tent | Canvas breathing; the pot at a murmur; the street arriving in pieces | — | **No hum.** Her tent's hum is one hotspot's line, and it stays there |
+| 17 · Church | Wind thinned by the glass; wood easing | — | The bell, except when the rope is pulled |
+| 18 · Hotel lobby | The street, muffled; boots on the boardwalk | A cart going by, rarely | — |
+| 19 · Thad's room | The town through the wall | A man passing in the hall, rarely | — |
+| 20 · Back alley | A drip above, a ripple below; washing snapping in the wind; the street through two walls | The cat purring, while the cat is there | Anything from the shack |
+| 21 · Watchman's shack | The street, all of it; the alley outside | — | Anything of the watchman's |
+| 22 · Claims road | Wind down off the diggings; a bucket swinging; picks, distant | The town small and far: a door, a dog, the bell | — |
+| 23 · Prosperity | Wind along the top; water over stones next door | The raccoon breathing, while he is there | **No air from the hole** (rule 2) |
+| 25 · Pratt's claim | Water, even and polite; canvas easing | — | — |
+| 26 · Creek | Water over stone and through the riffles | — | — |
+| 27 · Claim row | Wind across the shaft mouths, low; boards knocking out of time | Two men arguing, words unclear, while the boundary men are there; the road below, faint | — |
+| 28 · Laundry | Water at the boil, cloth turning; iron set down and taken up; wind | — | — |
+| 29 · High ridge | Wind with nothing to stop it; everything faint and mixed: the bell, picks, a dog | — | — |
+| 30 · Mott's site | Wind in the workings, hollow; gravel trickling; mesh buzzing in gusts | The bell, very thin, on the wind | THE STRIKE, which is score (doc 28) |
+| 31 · The funeral | Wind through the grass | An owl, rarely; the mourners shuffling and a cough, while they are there | — |
+| 35 · Company vault | The mechanism breathing; tin ticking | — | — |
+| 36 · Main Street at dawn | Wind behind the false fronts; the road quiet | — | **No picks.** Its LISTEN: "for the first time since I stepped off the coach: no picks" |
+| 37 · Boarding-house parlour | A good fire ticking | Boots overhead, taken off carefully, rarely | — |
+| 38 · Photographer's studio | The Lane through the glass, faint; canvas stirring | — | — |
+| 39 · Bakehouse | The oven working; dough being kneaded | The boy humming in time with the kneading, while he is there; a cart being loaded in the yard | — |
+| 40 · Empty storefront | The street going past, faint | — | — |
+| 41 · Schoolhouse | Hammering from town, far off | — | — |
+| 42 · Barber's | The Lane, faint; leather creaking as it settles | — | — |
+| 43 · Lower Street | Main Street a little way off, mostly the Nugget; wind from the diggings; a loose board knocking | Horses shifting at the livery; small bells from the tent flap at the far end, rarely | — |
+| 44 · The Lane | Main Street through the gap, Lower Street at the other end, and a hush between | A plane on wood from the undertaker's; bells on the tent's hem in the draft; a mule, faint, from the livery | Anything from inside the undertaker's but the plane |
+
+*Rooms 45 to 54, Fiddler's Gulch, have their beds in their own section above.*
+
+**Delivery.** The beds are rendered by the project's room-sound tools (`tools/audio/render-room-sfx.py` and its neighbors), as Main Street's was. They are wired as `ambience` entries in `content/audio/sounds.json`, each citing its row here. The builder's brief is `reference/room-beds/brief.md`. **Tyler hears them before they ship** (errata 102): an audition page with each room's music and bed together, as the everyday sounds had.
+
 # 3 · GLOBAL RULES
 
 ## 3.1 Dialogue and text
