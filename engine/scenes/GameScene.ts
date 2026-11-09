@@ -14,7 +14,7 @@ import { RoomActors } from '../core/RoomActors.ts';
 import type { Controls, FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
-import { AmbientLayer } from '../core/Ambient.ts';
+import { AmbientLayer, spokenBreakKey } from '../core/Ambient.ts';
 import { actOf, heldThrough, performedLine, performersWith, shownText, type HeldPose } from '../core/ActedDirections.ts';
 import { StepTriggers, type StepEvent } from '../core/StepTriggers.ts';
 import { DialoguePerformance, barkHold, holdTimingFor, readingHold, type HoldTiming, type Utterance } from '../core/DialoguePerformance.ts';
@@ -3952,13 +3952,9 @@ export class GameScene extends Phaser.Scene {
       if (!speaks?.length) continue;
       const playing = this.view.ambientBreak(npc);
       if (!playing || playing.step !== 0 || !speaks.includes(playing.index)) continue;
-      // Concatenated rather than a template literal, deliberately. See doc 36
-      // Q11: check-no-content-in-code strips Error(...) with a lazy match, so
-      // an error message carrying its own brackets leaves a dangling backtick,
-      // and the next template literal ANYWHERE later in the file becomes its
-      // accidental partner. The check then reports prose hundreds of lines
-      // from the edit that caused it.
-      const token = npc.id + ':' + String(Math.floor(this.time.now / 1000));
+      // ONCE PER BREAK, keyed on the break's cycle (errata 222): a wall-clock second split one break's first
+      // frame in two and said the line twice.
+      const token = spokenBreakKey(npc.id, playing);
       if (this.spokenBreak === token) continue;
       this.spokenBreak = token;
       const line = this.ambient.barkFor(npc);

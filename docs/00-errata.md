@@ -6054,3 +6054,11 @@ Lesson: `tests/openings-voiced.test.ts`. It reads every document a tree names as
   - Every place on the town map is asked for whole once it is the way he is heading, and the map click asks for it before the walk starts.
   - Every room a `goto` hands on to (in a room file or in an item pair) is asked for before the goto.
   - With the fix removed, both fail.
+
+# 222 · A SHOUTED BREAK IS SAID ONCE — the playthrough's transcript, 2026-11-09
+
+- **What the transcript showed.** The pie woman's line came out two or three times on one pass along Main Street, about 90 ms apart: "Pie, Mr. Grubb. On the house. On the house today." three times in a row (errata 221's transcript, lines 540–542).
+- **Why.** Her calling-out break says her reputation line as it begins (the speaking break Tyler asked for, so the pose is never a silent shout). The scene marked a break as said by the wall-clock second, and a break's first frame lasts 0.34 s. A first frame that straddled a second boundary was two "seconds", so it was said twice.
+- **Fixed.** A spoken break is keyed on its own cycle (`spokenBreakKey`, from `breakAt`, in `engine/core/Ambient.ts`). The renderer and the scene read the same break arithmetic.
+- **Not changed.** She still shouts once at every calling-out break, at the line for the current reputation. Whether she should shout that often is a question of taste, and it is Tyler's.
+- Lesson: `tests/break-speaks-once.test.ts` plays the scene's rule at 60 fps across forty cycles, and every break is said exactly once. With the wall-clock key, the same sweep says some breaks twice, and the scene's source is checked for the key it uses.

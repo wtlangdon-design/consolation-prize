@@ -77,6 +77,30 @@ export function ambientHere(npc: AmbientFile, roomId: string, test: (when?: Cond
  * first, else a figure that speaks as him (AmbientFile.speaksAs; errata 131
  * C). The one reading of it, so the renderer, the scene and the tests agree.
  */
+/**
+ * WHICH BREAK IS PLAYING, AND WHICH CYCLE IT BELONGS TO, for a figure whose breaks come every `every` seconds.
+ * Pure in the clock: the cycle number picks the break, the time into the cycle picks the step (0.34 s a frame).
+ */
+export function breakAt(clock: number, every: number, phase: number, lengths: readonly number[]):
+  { index: number; step: number; cycle: number } | null {
+  if (lengths.length === 0) return null;
+  const t = clock + phase * every;
+  const cycle = Math.floor(t / every);
+  const into = t - cycle * every;
+  const step = Math.floor(into / 0.34);
+  const index = Math.abs(cycle * 2654435761) % lengths.length;
+  return step < (lengths[index] ?? 0) ? { index, step, cycle } : null;
+}
+
+/**
+ * THE KEY A SPOKEN BREAK IS SAID ONCE UNDER: the figure and the cycle (errata 222). It was the wall-clock second,
+ * and a break's first frame lasts 0.34 s, so a first frame that straddled a second boundary said the line twice,
+ * about 90 ms apart -- the pie woman's "Pie, Mr. Grubb. On the house." three times in one pass.
+ */
+export function spokenBreakKey(npcId: string, playing: { cycle: number }): string {
+  return npcId + ':' + String(playing.cycle);
+}
+
 export function figureSpeaking(present: readonly AmbientFile[], speaker: string | null): AmbientFile | undefined {
   if (speaker === null) return undefined;
   return present.find((npc) => npc.id === speaker) ?? present.find((npc) => npc.speaksAs === speaker);
