@@ -17,8 +17,10 @@ in a row with 2 px between (`[2 + i*952, 2, 950, 387]`), bottom-centred like eve
 
 - The coffin is INSIDE: the end of a pale pine coffin shows where the drawn curtains don't meet. No trestles, no lid, no ground.
 - The hearse is pixel-identical in all four frames (cut from frame 0); only she moves.
-- **Size:** drawn at Room 14's man at the gate, 298 px. Her withers are 244 px, 0.82 of him (`content/scale-anchors.json`'s mules, 0.77-0.91). Her ear tips come to about his crown, below the anchors' 1.10-1.35 for ears: the generator drew her ears short against her withers, and the brief sets the withers. The hearse stands 1.3 men tall.
+- **Size:** drawn at Room 14's man at the gate, 298 px. Her withers are 244 px, 0.82 of him (`content/scale-anchors.json`'s mules, 0.77-0.91). Her ear tips are 301 px over her hooves, 1.01 of him, below the anchors' 1.10-1.35 for ears: the generator drew her ears short against her withers, and the brief sets the withers. A scale anchor for this figure would flag the ears. The hearse stands 1.3 men tall.
 - **Light:** Room 14's night, no blue rim (`renders/room-14-hearse-grievance-at-the-gate-with-thad.png`).
+- **Where it can stand:** Pike's obelisk and the lilies sit at the front of the plate at x 540-720, and the hitch is 906 px long, so it cannot stand in the gate itself without covering them (Tyler, 2026-11-09, flagged the first check render doing exactly that). The check render stands it on the open grass right of the monument, hooves at y 792, the gate behind it. Staging is the main session's.
+- **Key spill:** the cutter's despill left magenta in the thin pockets between the wheel spokes and in the plume. Both cut tools now pull out any pixel whose red and blue stand above green together, and refuse to write a sheet with any left.
 - **The brief also asked** for the plaited black ribbon in her mane. It did not come out visibly; the plume and harness did.
 - Cut by `tools/art/act3-hearse-cut.py` (re-runnable from the staging sheet).
 

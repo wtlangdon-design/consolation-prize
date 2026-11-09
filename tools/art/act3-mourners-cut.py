@@ -27,6 +27,23 @@ sys.argv = sys_argv
 cut_row, place, grow_and_paste, snap, man, read, rows = (ns[k] for k in
     ('cut_row', 'place', 'grow_and_paste', 'snap', 'man', 'read', 'rows'))
 
+def despill(a, tolerance=6):
+    """Magenta left in thin pockets (between a wheel's spokes, inside a plume) that the cutter's own despill missed:
+    red and blue standing above green TOGETHER is the key's signature (a blue-black lacquer has blue over green, but
+    not red). Both are pulled down by that excess. Returns the frame and how many pixels were touched."""
+    a = a.copy(); c = a[..., :3].astype(int)
+    ex = np.minimum(c[..., 0], c[..., 2]) - c[..., 1]
+    hit = (a[..., 3] > 0) & (ex > tolerance)
+    c[..., 0] -= np.where(hit, ex, 0); c[..., 2] -= np.where(hit, ex, 0)
+    a[..., :3] = np.clip(c, 0, 255).astype(np.uint8)
+    return a, int(hit.sum())
+
+
+def spill_left(a, tolerance=6):
+    c = a[..., :3].astype(int)
+    return int(((a[..., 3] > 0) & (np.minimum(c[..., 0], c[..., 2]) - c[..., 1] > tolerance)).sum())
+
+
 REC = 'content/ambient/funeral-mourners.json'
 OUT = os.path.join(ROOT, 'art/actors/room-14-mourners-bowed.png')
 rec = read(REC); s = rec['sprite']
@@ -50,6 +67,10 @@ for pose in figs[1:3]:
     ox, oy = place(rest_cell, s['frames'][0], figs[0], pose, 'legs')
     cell = grow_and_paste((w, h), pose, ox, oy)
     new.append(snap(cell, b) if b > 1.05 else cell)
+fixed = 0
+for i, n in enumerate(new):
+    new[i], k = despill(n); fixed += k
+assert all(spill_left(n) == 0 for n in new), 'magenta survives the despill'
 H2 = max(n.shape[0] for n in new); W2 = max(n.shape[1] for n in new)
 out = np.zeros((H2 + 4, len(new) * (W2 + 2) + 2, 4), np.uint8)
 rects = []
@@ -57,7 +78,7 @@ for i, n in enumerate(new):
     fx = 2 + i * (W2 + 2)
     out[2 + H2 - n.shape[0]:2 + H2, fx:fx + n.shape[1]] = n
     rects.append([fx, 2, W2, H2])
-print(json.dumps({'restRows': target, 'cut': [cut_h, got], 'block': round(b, 2), 'frames': rects,
+print(json.dumps({'despilled': fixed, 'restRows': target, 'cut': [cut_h, got], 'block': round(b, 2), 'frames': rects,
                   'shippingFrame': [w, h]}))
 if '--write' in sys.argv:
     Image.fromarray(out).save(OUT)

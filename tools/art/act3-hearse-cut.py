@@ -39,6 +39,23 @@ def opaque_rgb(a):
     return np.sqrt((a[..., 0] - 255) ** 2 + a[..., 1] ** 2 + (a[..., 2] - 255) ** 2) >= 120
 
 
+def despill(a, tolerance=6):
+    """Magenta left in thin pockets (between a wheel's spokes, inside a plume) that the cutter's own despill missed:
+    red and blue standing above green TOGETHER is the key's signature (a blue-black lacquer has blue over green, but
+    not red). Both are pulled down by that excess. Returns the frame and how many pixels were touched."""
+    a = a.copy(); c = a[..., :3].astype(int)
+    ex = np.minimum(c[..., 0], c[..., 2]) - c[..., 1]
+    hit = (a[..., 3] > 0) & (ex > tolerance)
+    c[..., 0] -= np.where(hit, ex, 0); c[..., 2] -= np.where(hit, ex, 0)
+    a[..., :3] = np.clip(c, 0, 255).astype(np.uint8)
+    return a, int(hit.sum())
+
+
+def spill_left(a, tolerance=6):
+    c = a[..., :3].astype(int)
+    return int(((a[..., 3] > 0) & (np.minimum(c[..., 0], c[..., 2]) - c[..., 1] > tolerance)).sum())
+
+
 sheet = np.asarray(Image.open(SRC).convert('RGB')).astype(int)
 # The rows, found by the magenta between them (a fixed third of the sheet put row 3's roof ornament in row 2).
 busy = opaque_rgb(sheet[:, X0:X1]).any(1)
@@ -137,6 +154,10 @@ breath[mid - 1, JOIN:] = frames[0][mid, JOIN:]
 frames = [frames[0], breath, frames[1], frames[2]]
 b = MAN / N
 frames = [snap(f, b) for f in frames]
+fixed = 0
+for i, f in enumerate(frames):
+    frames[i], n = despill(f); fixed += n
+assert all(spill_left(f) == 0 for f in frames), 'magenta survives the despill'
 fh = max(f.shape[0] for f in frames); fw = max(f.shape[1] for f in frames)
 out = np.zeros((fh + 4, len(frames) * (fw + 2) + 2, 4), np.uint8)
 rects = []
@@ -145,7 +166,7 @@ for i, f in enumerate(frames):
     out[2 + fh - f.shape[0]:2 + fh, x:x + f.shape[1]] = f
     rects.append([x, 2, fw, fh])
 withers_out = round(withers_src * HEIGHT / hitch_src)
-report = {'height': HEIGHT, 'withers': withers_out, 'withersOfMan': round(withers_out / MAN, 3),
+report = {'despilled': fixed, 'height': HEIGHT, 'withers': withers_out, 'withersOfMan': round(withers_out / MAN, 3),
           'hitchOfMan': round(fh / MAN, 3), 'seam': SEAM, 'join': JOIN, 'poseFits': fits, 'padTop': PAD, 'block': round(b, 2), 'frames': rects}
 print(json.dumps(report))
 if '--write' in sys.argv:
