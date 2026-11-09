@@ -667,6 +667,109 @@
     "B4": "complete",
     "B5": "complete"
    }
+  },
+  {
+   "id": "r54-a",
+   "label": "R54-A Act II, upstream after G3, before any message is carried",
+   "room": "upstream",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_PIKE_DEAD": true,
+    "T_SWINDLED": true,
+    "ACT": 2,
+    "T_GRIEVANCE_MOTT": true,
+    "T_HUM_HEARD": true,
+    "T_VESSEL_LOCATION": true,
+    "T_BORDERS_MOTT": true,
+    "T_VESSEL_FOUND": false,
+    "T_MINE_CROSSED": true,
+    "T_CAMP_TRUSTS": true,
+    "T_DEACON_FOUND": true,
+    "T_PLANK_SEAT": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "brass_rod"
+   ],
+   "derivedFrom": [
+    "content/fixtures/room-15.json r15-b (the Act II state B3 ends: the hum heard, Vessel's whereabouts known)",
+    "docs/107-fiddlers-gulch.md::The chain (B3 -> G2; A9's third copy and G1's rod into G2; B1's Clarion edition into G3)",
+    "docs/109-fiddlers-gulch-lines.md::THE CHANGES IN CONSOLATION (THE THIRD COPY, THE BRASS ROD, THE CLARION)",
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS (STOPPED BY THE LOOKOUT; the lookout, before G3)",
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT (THE WATCH, THE FIND, THE FIDDLE; DEKE VESSEL, found)",
+    "docs/109-fiddlers-gulch-lines.md::THE RIVER (THE BAR; THE PANNER; DUEL ONE, ON THE BAR)",
+    "docs/109-fiddlers-gulch-lines.md::UPSTREAM (THE STAKES, THE BEST GROUND, THE SLUICE, THE FALLS; THE MAN UPSTREAM; G8)"
+   ],
+   "notBuilt": [
+    "B3's ride to the washout (it switches over when the trip is whole)",
+    "the writers of THE THIRD COPY (A9), THE BRASS ROD (G1) and THE CLARION (B1): the changes in Consolation, the brief's last step"
+   ],
+   "note": "The camp trusts him (G3); the man upstream guards the best ground, and nothing has been carried between him and the panner yet."
+  },
+  {
+   "id": "r54-b",
+   "label": "R54-B Act II, upstream carrying the panner's message (G8 begun)",
+   "room": "upstream",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_PIKE_DEAD": true,
+    "T_SWINDLED": true,
+    "ACT": 2,
+    "T_GRIEVANCE_MOTT": true,
+    "T_HUM_HEARD": true,
+    "T_VESSEL_LOCATION": true,
+    "T_BORDERS_MOTT": true,
+    "T_VESSEL_FOUND": false,
+    "T_MINE_CROSSED": true,
+    "T_CAMP_TRUSTS": true,
+    "T_DEACON_FOUND": true,
+    "T_PLANK_SEAT": true,
+    "T_GULCH_MESSAGE_UP": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "brass_rod"
+   ],
+   "derivedFrom": [
+    "content/fixtures/room-15.json r15-b (the Act II state B3 ends: the hum heard, Vessel's whereabouts known)",
+    "docs/107-fiddlers-gulch.md::The chain (B3 -> G2; A9's third copy and G1's rod into G2; B1's Clarion edition into G3)",
+    "docs/109-fiddlers-gulch-lines.md::THE CHANGES IN CONSOLATION (THE THIRD COPY, THE BRASS ROD, THE CLARION)",
+    "docs/109-fiddlers-gulch-lines.md::THE TENTS (STOPPED BY THE LOOKOUT; the lookout, before G3)",
+    "docs/109-fiddlers-gulch-lines.md::THE GROG TENT (THE WATCH, THE FIND, THE FIDDLE; DEKE VESSEL, found)",
+    "docs/109-fiddlers-gulch-lines.md::THE RIVER (THE BAR; THE PANNER; DUEL ONE, ON THE BAR)",
+    "docs/109-fiddlers-gulch-lines.md::UPSTREAM (THE STAKES, THE BEST GROUND, THE SLUICE, THE FALLS; THE MAN UPSTREAM; G8)"
+   ],
+   "notBuilt": [
+    "B3's ride to the washout (it switches over when the trip is whole)",
+    "the writers of THE THIRD COPY (A9), THE BRASS ROD (G1) and THE CLARION (B1): the changes in Consolation, the brief's last step"
+   ],
+   "note": "The panner has given him his boast to carry up (PAN_G1 option 6): UPS_G1 offers it to the man upstream."
   }
  ]
 }

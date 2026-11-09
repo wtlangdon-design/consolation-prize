@@ -14,6 +14,8 @@ room ones, with tools/audio/render-room-sfx.py's own helpers.
     grog-fork.wav     R52-FORK: the fork, exact A440 (the approved r33-fork.wav, so it is the fork Tyler has heard), then
                       the pegs turning one at a time
     river-bed.wav     R53-A: fast water over stones, the rocker's slow knock, gravel down the long tom (loops)
+    upstream-bed.wav  R54-A: the little falls, close; thin water over gravel (loops). Noise, not a pitch: doc 45 says so,
+                      "whatever Thad hears in them" (doc 109's LISTEN hears a low D; the sound does not play one)
     bar-pebble.wav    R53-PEBBLE: one pebble set down on gravel, after each exchange of Duel One on the bar
     grog-fiddle.wav   R52-FIDDLE: a fiddle played very badly and very happily, a few seconds, no theme: a bowed
                       string that wanders flat and sharp, slides, and scrapes. No tune is written; the pitches are
@@ -271,6 +273,17 @@ def river_bed():
     return finish(loop_seam(x), 0.55, loop=True)
 
 
+def upstream_bed():
+    """R54-A: a little waterfall close by -- broadband falling water, brighter and denser than the river below, with a
+    slow swell -- and thin water over gravel under it. No pitch: no band of it is narrow enough to sing a note."""
+    rnd = np.random.default_rng(5401)
+    n = n_of(SECONDS)
+    fall = bandpass(noise(rnd, n), 300, 7000)
+    swell = 1 + 0.15 * np.sin(2 * np.pi * np.arange(n) / RATE / 5.3)
+    x = 0.6 * fall * swell + 0.35 * highpass(trickle(rnd, SECONDS), 400)
+    return finish(loop_seam(x), 0.55, loop=True)
+
+
 def bar_pebble():
     """R53-PEBBLE: one pebble set down on gravel -- a short click with the grit of the gravel under it, cold, a natural
     tail. A transient, never a tone (errata 102)."""
@@ -287,6 +300,7 @@ def bar_pebble():
 if __name__ == '__main__':
     for name, make in (('washout-bed.wav', washout_bed), ('mine-bed.wav', mine_bed), ('ledge-bed.wav', ledge_bed),
                        ('tents-bed.wav', tents_bed), ('grog-bed.wav', grog_bed), ('grog-fork.wav', grog_fork),
-                       ('grog-fiddle.wav', grog_fiddle), ('river-bed.wav', river_bed), ('bar-pebble.wav', bar_pebble)):
+                       ('grog-fiddle.wav', grog_fiddle), ('river-bed.wav', river_bed), ('bar-pebble.wav', bar_pebble),
+                       ('upstream-bed.wav', upstream_bed)):
         save(name, make())
         print('wrote audio/sfx/' + name)

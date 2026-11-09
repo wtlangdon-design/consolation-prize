@@ -51,7 +51,11 @@ test('every pair the player can learn has three wrong answers, none reused (doc 
       assert.ok(wrong.reply.length > 0);
     }
   }
-  assert.equal(file.pairs.filter((p) => p.flag).length, 21, 'Tiers 1-5 are learnable; Tier 6 belongs to the final duel');
+  // Tiers 1-5 and doc 109's Tier 7 (pairs 25 and 26, learned in the Gulch, G8) are learnable; Tier 6 belongs to the
+  // final duel and has no flag.
+  assert.equal(file.pairs.filter((p) => p.flag).length, file.pairs.filter((p) => p.tier !== 6).length, 'every tier but 6 is learnable');
+  assert.ok(file.pairs.filter((p) => p.tier === 6).every((p) => !p.flag), 'Tier 6 belongs to the final duel');
+  assert.equal(file.pairs.filter((p) => p.flag).length, 23, 'Tiers 1-5 (21) and Tier 7 (2, doc 109)');
 });
 
 test('Duel One: pairs 1-4 then 1 again, wrong answers only until the repeat, lost five straight (errata 73 C, D; 136 D)', async () => {

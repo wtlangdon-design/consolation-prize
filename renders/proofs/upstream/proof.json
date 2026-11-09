@@ -1,0 +1,423 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "upstream",
+ "roomWidth": 1920,
+ "branch": "ccr-347d40c6-71r9f9",
+ "commit": "057ebd32fa98a76a94de4853d7d1b8f3bc91fa1c",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "uncommitted": [
+  "M art/staging/ledger.json",
+  " M content/acted-directions.json",
+  " M content/assay/assay.json",
+  " M content/audio/sounds.json",
+  " M content/build-ledger.json",
+  " M content/dialogue/gulch-panner.json",
+  " M content/fixtures/room-45.json",
+  " M content/flags/flags.json",
+  " M content/manifest.json",
+  " M content/ui/speech-colours.json",
+  " M docs/00-errata.md",
+  " M docs/36-issue-list.md",
+  " M docs/55-full-game-build.md",
+  " M docs/95-acted-directions.md",
+  " M proofs/readiness/room-54.json",
+  " M reference/global-baseline.json",
+  " M tools/art/gulch-lettering.py",
+  " M tools/art/interiors-people.py",
+  " M tools/audio/render-gulch-sfx.py",
+  " M tools/extract-content.mjs",
+  " M tools/extract-examine.mjs",
+  " M tools/gulch-graybox.py",
+  "?? art/actors/room-54-man-upstream.png",
+  "?? art/backgrounds/room-54-upstream.png",
+  "?? art/props/room-54-not-yet.png",
+  "?? audio/sfx/upstream-bed.wav",
+  "?? content/ambient/gulch-man-upstream.json",
+  "?? content/build-contracts/room-54-upstream.json",
+  "?? content/dialogue/gulch-man-upstream.json",
+  "?? content/examine/room-54.json",
+  "?? content/rooms/upstream.json",
+  "?? proofs/room-54/",
+  "?? proofs/spec/upstream.json",
+  "?? reference/room-54/",
+  "?? renders/proofs/upstream/",
+  "?? renders/room-54-graybox-with-thad.png",
+  "?? renders/room-54-graybox.png",
+  "?? renders/room-54-upstream-with-thad.png",
+  "?? tests/gulch-upstream.test.ts"
+ ],
+ "visualState": null,
+ "candidates": [],
+ "route": null,
+ "routeLog": [
+  "started from fixture r54-a, then entered upstream by control -- NOT proof that a player can reach it"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "floor_0",
+    "kind": "far",
+    "y": 401,
+    "xs": [
+     890,
+     873,
+     908,
+     855,
+     925,
+     838,
+     943,
+     820,
+     960
+    ],
+    "expect": 256,
+    "x": 890
+   },
+   "at": [
+    890,
+    401
+   ],
+   "reportedHeight": 256,
+   "expected": 256,
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "bounds": [
+    754,
+    145,
+    271,
+    283
+   ],
+   "order": 0,
+   "renderedHeight": 255,
+   "renderedBottom": 399,
+   "file": "raw-captures-ignored/panel-c-floor_0-far.png"
+  },
+  {
+   "mark": {
+    "box": "floor_3",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     690,
+     638,
+     743,
+     585,
+     795,
+     533,
+     848,
+     480,
+     900
+    ],
+    "expect": 340,
+    "x": 690
+   },
+   "at": [
+    690,
+    857
+   ],
+   "reportedHeight": 340,
+   "expected": 340,
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "bounds": [
+    510,
+    517,
+    360,
+    375
+   ],
+   "order": 0,
+   "renderedHeight": 340,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-floor_3-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [
+  {
+   "kind": "ambient",
+   "id": "gulch_man_upstream",
+   "feet": [
+    1200,
+    600
+   ],
+   "sheet": "art/actors/room-54-man-upstream.png",
+   "clipPlane": null,
+   "box": {
+    "x": 1119,
+    "y": 307,
+    "width": 162,
+    "height": 295
+   },
+   "seen": {
+    "x": 1146,
+    "y": 308,
+    "width": 76,
+    "height": 293,
+    "bottom": 600,
+    "right": 1221,
+    "changed": 13456
+   },
+   "props": []
+  }
+ ],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "upstream",
+   "clock": 9.7654,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_MINE_CROSSED",
+    "T_CAMP_TRUSTS",
+    "T_DEACON_FOUND",
+    "T_PLANK_SEAT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "brass_rod"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      520,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 328,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      346,
+      462,
+      347,
+      362
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:upstream",
+     "path": "art/backgrounds/room-54-upstream.png",
+     "drawn": "art/backgrounds/room-54-upstream.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2a0cd2e50088391400695582562aba4f3e0a0b47b9865c3c7651ba13524f06bb"
+    },
+    {
+     "key": "art/actors/room-54-man-upstream.png",
+     "path": "art/actors/room-54-man-upstream.png",
+     "drawn": "art/actors/room-54-man-upstream.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "43c6ede2b003845e8865d12e5177f64b75c362f5f03252668e69c0c14ee1f460"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(upstream)"
+   ],
+   "capturedAt": "2026-11-09T03:53:58.846Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "14795c6ecf0558851abade988d13ae70a27fce9474d3423a6a0369599f033e5e"
+  },
+  {
+   "panel": "A",
+   "room": "upstream",
+   "clock": 10.715399999999999,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_PIKE_DEAD",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_SWINDLED",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_BORDERS_MOTT",
+    "T_VESSEL_LOCATION",
+    "T_HUM_HEARD",
+    "T_GRIEVANCE_MOTT",
+    "T_CUTAWAY_CLARION",
+    "T_MINE_CROSSED",
+    "T_CAMP_TRUSTS",
+    "T_DEACON_FOUND",
+    "T_PLANK_SEAT"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0,
+    "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
+    "SOWERBY_ADJECTIVES": 0,
+    "RACCOON_NAME": 0,
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "third_copy",
+    "brass_rod"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      520,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 328,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:upstream",
+     "path": "art/backgrounds/room-54-upstream.png",
+     "drawn": "art/backgrounds/room-54-upstream.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2a0cd2e50088391400695582562aba4f3e0a0b47b9865c3c7651ba13524f06bb"
+    },
+    {
+     "key": "art/actors/room-54-man-upstream.png",
+     "path": "art/actors/room-54-man-upstream.png",
+     "drawn": "art/actors/room-54-man-upstream.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "43c6ede2b003845e8865d12e5177f64b75c362f5f03252668e69c0c14ee1f460"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "enter(upstream)",
+    "cast(false)"
+   ],
+   "capturedAt": "2026-11-09T03:53:59.794Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "6a33152e2fc3afe928983a35bf0726bab8d9769459385265fdea53ac2e6cb1a0"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-09T03:54:04.613Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 516528,
+  "panels": 4,
+  "scale": 0.5
+ }
+}

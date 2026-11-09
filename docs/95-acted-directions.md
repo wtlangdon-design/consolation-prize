@@ -129,6 +129,9 @@ Counts: **A 26 · B 3 · C 50** — 79 directions, every one flagged `"direction
 | 92 | C | thad | He turns, slowly, to the man behind the plank. The man behind the plank is beaming. | rooms/grog-tent (the watch, LOOK, THE FIND, G4) |  |  |  |  |  | Fiddler's Gulch, built (doc 109; errata 206, 207): THE FIND's turn is told; Thad has no slow turn and the keeper is already beaming. |
 | 93 | A | gulch_panner | He closes his hand. | dialogue/gulch-panner PAN_G1 option 2 | gulch_panner | 4 | 1.2 | 4 |  | Fiddler's Gulch, built (doc 109; errata 208): his frame 4 is his hand closed on something against his chest, and he keeps it closed through "Nothing at all." |
 | 94 | C | gulch_rule_keeper | He gives up. | assay/assay duel_one_bar |  |  |  |  |  | Fiddler's Gulch, built (doc 109; errata 208): giving up on the third rule is told, not a movement; "Begin." follows it. |
+| 95 | C | gulch_panner | He lowers his voice. Nobody is near. | dialogue/gulch-panner PAN_G1 option 6 |  |  |  |  |  | Fiddler's Gulch, built (doc 109; errata 209): G8's message; a voice lowered shows nothing, and "Nobody is near." is the joke, told. |
+| 96 | B | gulch_panner | He snorts. | dialogue/gulch-panner PAN_G1 option 7 |  |  |  |  |  | Fiddler's Gulch, built (doc 109; errata 209): his sheet has no snort; printed until a pose is drawn. |
+| 97 | C | gulch_man_upstream | He looks at Thad as if Thad had suggested something unwell. | dialogue/gulch-man-upstream UPS_G1 option 3 |  |  |  |  |  | Fiddler's Gulch, built (doc 109; errata 209): the joke is in "as if", which no pose holds. |
 
 ## When a B pose is drawn
 

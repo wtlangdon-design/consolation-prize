@@ -148,6 +148,7 @@ Stop the room, not the build, and say so in doc 36 and to Tyler, when:
 | 51 | 2026-11-09 | -- | 4 of 4 (the river widened in a second pass) | The tents and the lookout, G3. `?fixture=r51-a` (doc 36 Q192) |
 | 52 | 2026-11-09 | -- | 4 of 4, and gulch-vessel 2 of 2 (the Deacon's shave) | The grog tent: the Deacon, the rule-keeper, G4, G5. `?fixture=r52-a` (doc 36 Q193) |
 | 53 | 2026-11-09 | -- | 3 of 4 | The river: the bar, the panner, Duel One on the bar (G7). `?fixture=r53-a`, `?fixture=r53-b` for the duel (doc 36 Q194) |
+| 54 | 2026-11-09 | -- | 3 of 4 | Upstream: the man upstream, G8 (pairs 25 and 26). `?fixture=r54-a` (doc 36 Q195) |
 
 ## 8 · What playing found — held by a script where a script can hold it
 

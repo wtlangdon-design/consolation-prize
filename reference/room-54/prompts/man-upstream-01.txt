@@ -1,0 +1,12 @@
+Image 1 is a TEMPLATE: the hero of my pixel-art adventure game, exactly as he is drawn in the game, standing, five times in a row on magenta. HIS BODY IS THE STANDARD FOR EVERY PERSON IN THIS GAME: a SMALL head (crown to chin about one eighth of his height), narrow shoulders, a long torso, a realistic lean adult figure -- not a cartoon, not big-headed. Image 2 shows ONLY THE FACE of U, the man upstream: take from it his face, his hair, his brown hat and his colouring -- NOTHING ELSE. His face is drawn there larger than it should be: in your picture it is the SIZE OF THE HERO'S FACE in Image 1. Image 3 is the hero at the head of the gulch where U stands guard: match its pixel size, soft shading and daylight.
+
+U is a rich gold miner, alone, as tall as the hero, guarding the best ground with a shovel: a good brown coat, a pale shirt, dark trousers, boots, the brown hat. He is sure the man downstream has found something bigger, and he has not dug since the argument started; he just stands on it. He holds a long-handled SHOVEL.
+
+Repaint Image 1: replace each hero figure with U, KEEPING THE HERO'S HEAD SIZE, NARROW SHOULDERS, LONG LEGS AND HEIGHT, feet on the same line, facing us and a little to his right. Left to right:
+1. standing guard: the shovel planted blade-down beside him, both hands resting on top of its handle, chin up;
+2. the same, but he has lifted the shovel a little and is tapping its blade sideways against something beside him, warningly, glaring;
+3. the same rest, but his head turned sharply to look down the river, over his shoulder, scowling;
+4. a long sigh: his shoulders dropped, his head tipped back, eyes on the sky, both hands still on the shovel;
+5. talking: one hand on the shovel handle, the other arm out, pointing, telling someone something.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the hero -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every figure separated by clear magenta, nothing touching. No ground, no glow, no blur, no shadows, no text.

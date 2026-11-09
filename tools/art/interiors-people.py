@@ -112,6 +112,16 @@ PEOPLE = {
         'curve': ((676, 366), (858, 490)),
         'plate': 'art/backgrounds/room-53-river.png', 'thadAt': (1560, 610), 'roomCrop': (1000, 150, 1920, 864),
     },
+    # Upstream (Room 54). The man upstream guarding the best ground with a shovel (room-54 operation 3), his face from
+    # the room's master. The curve is the master's own, and flatter than Room 5's: Thad 322 tall at y 758 in the plate,
+    # and the man upstream 272 at y 486, so 0.18 a row.
+    (54, 'man-upstream'): {
+        'master': 'art/staging/room-54/composition-master-01.png', 'faceBox': (1113, 333, 1157, 380),
+        'drawn': 5, 'names': ['rest', 'breath', 'tap', 'glare', 'sigh', 'talk'],
+        'feet': (1200, 600), 'stature': 1.0, 'posture': 'standing',
+        'curve': ((486, 272), (758, 322)),
+        'plate': 'art/backgrounds/room-54-upstream.png', 'thadAt': (980, 650), 'roomCrop': (600, 100, 1700, 864),
+    },
     # Grievance at the washout is her livery generation's whole-mule sheet (room-15 operation 4), five poses facing us;
     # it fits the day's light, so no operation is spent.
     # Her ear tips stand 1.2 of the man at her hooves (errata 205's mule: 1.10-1.35; she is 1.19 over the livery door).

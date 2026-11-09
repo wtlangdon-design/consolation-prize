@@ -5013,3 +5013,9 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Built.** The river: the bar, the long tom, the rocker, the water, the panner knee-deep beside the bar, the ford out to the bar, and Duel One on the bar (G7) when Vessel has called it from the tent. Held by `tests/gulch-river.test.ts`.
 
 **Open, for Tyler:** the plate, the panner and the duel's staging, in the playthrough (errata 72 E); the panner's speech colour, the builder's #a8dca0.
+
+## Q195 · Room 54, upstream: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 209; reference/fiddlers-gulch/brief.md); BUILT, room-54 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Upstream: the stakes, the best ground, the sluice and its NOT YET board, the falls, the man upstream, and G8, the messages carried between him and the panner, which teach pairs 25 and 26. Held by `tests/gulch-upstream.test.ts`.
+
+**Open, for Tyler:** the plate and the man upstream, in the playthrough (errata 72 E); his speech colour, the builder's #d8a8e0.

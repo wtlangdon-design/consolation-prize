@@ -1,0 +1,123 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "MAN_UPSTREAM",
+  "speaker": "gulch_man_upstream",
+  "name": "MAN UPSTREAM",
+  "note": "EXTRACTED from docs/109-fiddlers-gulch-lines.md (### THE MAN UPSTREAM) by tools/extract-content.mjs. Do not edit: change doc 109 and re-run. An option gated *(before Gn)* or *(after Gn)* reads GULCH_GATES; the way out is doc 04 part one's pool.",
+  "start": "UPS_G1",
+  "nodes": {
+    "UPS_G1": {
+      "id": "UPS_G1",
+      "prompt": "Did he send you? Tell him it's mine. All of it, to the falls.",
+      "options": [
+        {
+          "id": "gulch_man_upstream1",
+          "tag": "TOPIC",
+          "text": "Who's 'he'?",
+          "afterUse": "retain",
+          "say": "Him. Downstream. In the coat. He's found something and he's hiding it in his fist.",
+          "repeat": "Ask him to open his hand. He won't."
+        },
+        {
+          "id": "gulch_man_upstream2",
+          "tag": "TOPIC",
+          "text": "Whose ground is it?",
+          "afterUse": "retain",
+          "say": "Mine. And his, he says. That's two of us and one ground, and neither of us is moving.",
+          "repeat": "Mine. I'd show you the paper, but he'd show you his."
+        },
+        {
+          "id": "gulch_man_upstream3",
+          "tag": "TOPIC",
+          "text": "Why not share it?",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "gulch_man_upstream",
+              "line": "Share?"
+            },
+            {
+              "speaker": "gulch_man_upstream",
+              "line": "He looks at Thad as if Thad had suggested something unwell.",
+              "direction": true
+            },
+            {
+              "speaker": "gulch_man_upstream",
+              "line": "Then we'd both be rich, and nobody'd be right."
+            }
+          ],
+          "repeat": "Rich and wrong. No, thank you."
+        },
+        {
+          "id": "gulch_man_upstream4",
+          "tag": "TOPIC",
+          "text": "Do you know Deke Vessel?",
+          "afterUse": "retain",
+          "say": "Never heard of him. Did he send you?",
+          "repeat": "Everybody sends somebody. Who sent him?"
+        },
+        {
+          "id": "gulch_man_upstream5",
+          "tag": "COMIC",
+          "text": "I could measure it for you.",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "gulch_man_upstream",
+              "line": "With what?"
+            },
+            {
+              "speaker": "thad",
+              "line": "A tuning fork."
+            },
+            {
+              "speaker": "gulch_man_upstream",
+              "line": "…Get off my claim."
+            }
+          ],
+          "repeat": "Off. And take your fork."
+        },
+        {
+          "id": "gulch_man_upstream6",
+          "tag": "PROGRESS",
+          "text": "He says he took a nugget out of the river so big it needs its own tent.",
+          "afterUse": "remove",
+          "when": {
+            "T_CAMP_TRUSTS": true,
+            "T_GULCH_MESSAGE_UP": true
+          },
+          "exchange": [
+            {
+              "speaker": "gulch_man_upstream",
+              "line": "Does he."
+            },
+            {
+              "speaker": "gulch_man_upstream",
+              "line": "Tell him I've been in that tent. It's mostly tent."
+            },
+            {
+              "speaker": "thad",
+              "line": "Tent. Mostly tent. Yes."
+            },
+            {
+              "speaker": "gulch_man_upstream",
+              "line": "And tell him my ground runs so rich the gravel pays me rent."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_25": true,
+            "T_GULCH_MESSAGE_DOWN": true
+          }
+        },
+        {
+          "id": "gulch_man_upstreamx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

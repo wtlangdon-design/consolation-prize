@@ -303,6 +303,42 @@ ROOMS = {
                          'mask can hold it. On the bank and on the bar nothing is in front of him.',
         'lightSources': ['sky'],
     },
+    54: {
+        'id': 'upstream', 'name': 'UPSTREAM', 'tool': 'tools/gulch-graybox.py', 'errata': '209',
+        'what': "The head of Fiddler's Gulch, in daylight: the ravine walls narrowing to a little waterfall at the back, no "
+                'taller than a man, rock behind and above it; the river running down from the falls and out at the front '
+                'left, downstream; beside it a half-built wooden sluice with a board nailed across it; the best ground, '
+                'gravel with gold showing in it, staked twice over -- two lines of stakes crossing, each with a paper '
+                'notice; a small tent pitched right on the claim line at the back right; the man upstream standing guard '
+                'over the gravel with a shovel.',
+        'depth': slope(600, 290, why="Room 5's exterior slope, as the river below"),
+        'surfaces': [
+            ('sky, daylight', (0, 0, 1920, 80), 205),
+            ('the gulch walls, narrowing', (0, 40, 1920, 420), 96),
+            ('the best ground, gravel', (0, 420, 1920, 444), 100),
+        ],
+        'objects': [
+            ('THE FALLS', (880, 120, 160, 210), 105, 'behind'),
+            ('THE RIVER (from the falls)', (760, 330, 380, 190), 104, 'behind'),
+            ('THE RIVER (running down)', (320, 520, 640, 180), 104, 'behind'),
+            ('DOWNSTREAM (the way back)', (0, 640, 330, 224), 104, 'behind'),
+            ('THE SLUICE', (430, 430, 400, 110), 70, 'behind'),
+            ('THE TENT (on the claim line)', (1520, 300, 330, 240), 92, 'behind'),
+            ('THE STAKES', (1080, 560, 560, 150), 80, 'behind'),
+        ],
+        'lamp': None,
+        'marks': {'arrival': (260, 800, 'right'), 'man': (1420, 720, 'left'), 'stakes': (1250, 780, 'back'),
+                  'sluice': (640, 640, 'back'), 'falls': (960, 600, 'back')},
+        'walk': (300, 560, 1500, 298),
+        'exits': [('DOWNSTREAM (the way back)', 'gulch_river')],
+        'layoutThad': (760, 780),
+        'figures': [(260, 800, False), (1420, 720, True), (960, 600, False), (1700, 830, True), (640, 650, False)],
+        'occlusionNote': 'Nothing stands nearer the camera than the walk band: the stakes, the sluice and the tent are '
+                         'behind it or under his feet, so no plane is needed.',
+        'valueNote': 'The falls and the river at middle values, as the river below: the water there is brown with the '
+                     'digging downstream, and the falls are no taller than a man and far off.',
+        'lightSources': ['sky'],
+    },
 }
 
 if __name__ == '__main__':

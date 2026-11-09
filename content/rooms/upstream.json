@@ -1,0 +1,597 @@
+{
+  "schema": 1,
+  "id": "upstream",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 120,
+  "size": [
+    1920,
+    864
+  ],
+  "background": "art/backgrounds/room-54-upstream.png",
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-54.json",
+      "reference/room-54/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkable": [
+    {
+      "id": "floor_0",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        820,
+        400,
+        140,
+        115
+      ]
+    },
+    {
+      "id": "floor_1",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        760,
+        515,
+        200,
+        114
+      ]
+    },
+    {
+      "id": "floor_2",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        620,
+        629,
+        280,
+        115
+      ]
+    },
+    {
+      "id": "floor_3",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        480,
+        744,
+        420,
+        114
+      ]
+    },
+    {
+      "id": "stand",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        960,
+        600,
+        100,
+        90
+      ]
+    }
+  ],
+  "walkableOutline": [
+    [
+      820,
+      400
+    ],
+    [
+      960,
+      400
+    ],
+    [
+      960,
+      700
+    ],
+    [
+      900,
+      700
+    ],
+    [
+      900,
+      858
+    ],
+    [
+      480,
+      858
+    ],
+    [
+      480,
+      700
+    ],
+    [
+      620,
+      700
+    ],
+    [
+      620,
+      620
+    ],
+    [
+      700,
+      620
+    ],
+    [
+      700,
+      520
+    ],
+    [
+      760,
+      520
+    ],
+    [
+      760,
+      460
+    ],
+    [
+      820,
+      460
+    ]
+  ],
+  "entrance": [
+    520,
+    790
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        520,
+        790
+      ],
+      "facing": "right",
+      "note": "Up the river from the bar."
+    },
+    {
+      "from": "gulch_river",
+      "at": [
+        520,
+        790
+      ],
+      "facing": "right",
+      "note": "Up the river from the bar (doc 109, UPSTREAM, the way on)."
+    }
+  ],
+  "ambient": [
+    "gulch_man_upstream"
+  ],
+  "hotspots": [
+    {
+      "id": "falls",
+      "name": "THE FALLS",
+      "rect": [
+        1060,
+        60,
+        180,
+        170
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A little waterfall where the gulch ends, no taller than a man.",
+            "repeat": [
+              "Behind it, rock. Above it, more rock. This is as far as the gold goes.",
+              "The man upstream says his claim runs 'to the falls'. The falls haven't agreed to anything."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Falling water, loud and close.",
+            "repeat": [
+              "Water on rock, the same note over and over. A low D.",
+              "The D again. Somebody should tell it there are other notes."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I sang it an E, to give it ideas. It stayed on D."
+      },
+      "walkTo": {
+        "x": 890,
+        "y": 420,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "sluice",
+      "name": "THE SLUICE",
+      "rect": [
+        190,
+        300,
+        530,
+        340
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A sluice, half built, abandoned when the argument started.",
+            "repeat": [
+              "Somebody's nailed a board across it: NOT YET.",
+              "It would make them both richer. Neither will finish it while the other might gain."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water dribbling through a gap in the boards.",
+            "repeat": [
+              "A loose plank knocking, in no hurry.",
+              "Water going round the sluice instead of through it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I'd finish it for them. NOT YET, says the board. I don't know whose 'yet' it is."
+      },
+      "walkTo": {
+        "x": 760,
+        "y": 560,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "stakes",
+      "name": "THE STAKES",
+      "rect": [
+        960,
+        360,
+        960,
+        504
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Two sets of stakes on the same ground, crossing, each with a notice calling the other a liar.",
+            "repeat": [
+              "One notice is in ink. The other is in larger ink.",
+              "I could settle this with a tape measure. Nobody here wants it settled. They want it won."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A notice rattling on its stake.",
+            "repeat": [
+              "The other notice, rattling back.",
+              "Wind between the stakes, taking no side."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "Pull one and I'm on somebody's side. Pull both and I'm on everybody's list."
+      },
+      "walkTo": {
+        "x": 950,
+        "y": 560,
+        "facing": "right"
+      }
+    },
+    {
+      "id": "best_ground",
+      "name": "THE BEST GROUND",
+      "rect": [
+        700,
+        260,
+        1220,
+        604
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The head of the gulch: the richest ground in the camp, and the most argued over.",
+            "repeat": [
+              "Gold shows in the gravel here without digging. Nobody's digging. They're both guarding it.",
+              "In Consolation this would get a parade. Here it gets a man with a shovel and a grudge."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Water running thin over gravel.",
+            "repeat": [
+              "Grit settling, then the river again.",
+              "Quiet ground. The only quiet thing up here."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "Gold, lying there. I reached. A shovel came down between my hand and it, gently."
+      },
+      "walkTo": {
+        "x": 860,
+        "y": 520,
+        "facing": "back"
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_river",
+      "name": "DOWNSTREAM",
+      "rect": [
+        0,
+        560,
+        480,
+        304
+      ],
+      "colour": 0,
+      "to": "gulch_river",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Back down the river to the bar and the panners.",
+            "repeat": [
+              "Downstream, where the gold is merely good.",
+              "From up here the panners look small and busy, like men in a painting of a gold rush."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The rocker, faint, downstream.",
+            "repeat": [
+              "The river going away from here, glad to.",
+              "Somebody downstream shouting 'MINE!' again. It's the camp's favorite word."
+            ]
+          }
+        ]
+      },
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 109: back down the river to the bar and the panners.",
+      "walkTo": {
+        "x": 500,
+        "y": 800,
+        "facing": "left"
+      }
+    }
+  ],
+  "peopleResponses": {
+    "gulch_man_upstream": {
+      "PICK_UP": [
+        {
+          "say": "If I lift him off that gravel, the other man wins it. I'd never hear the end of it from either."
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "One step his way and the shovel came up, flat, like a door shutting. I'm on the right side of it."
+        }
+      ],
+      "USE": [
+        {
+          "say": "Use him for what? He does one thing, standing on gravel, and he does it without me."
+        }
+      ],
+      "LOOK_AT": [
+        {
+          "say": "A man upstream, alone, with a shovel, standing guard over gravel.",
+          "repeat": [
+            "He hasn't dug since the argument started. He just stands on it.",
+            "His tent is pitched right on the claim line, so he can sleep on the dispute."
+          ]
+        }
+      ],
+      "LISTEN_TO": [
+        {
+          "say": "Grumbling, to the river.",
+          "repeat": [
+            "A shovel blade tapping a stake, warningly.",
+            "A sigh. A rich man's sigh, very long."
+          ]
+        }
+      ]
+    }
+  },
+  "walkBoxes": [
+    {
+      "id": "floor_0",
+      "points": [
+        {
+          "x": 820,
+          "y": 400
+        },
+        {
+          "x": 960,
+          "y": 400
+        },
+        {
+          "x": 960,
+          "y": 515
+        },
+        {
+          "x": 820,
+          "y": 515
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 330,
+        "farHeight": 243,
+        "nearY": 858,
+        "nearHeight": 340
+      },
+      "neighbours": [
+        "floor_1"
+      ]
+    },
+    {
+      "id": "floor_1",
+      "points": [
+        {
+          "x": 760,
+          "y": 515
+        },
+        {
+          "x": 960,
+          "y": 515
+        },
+        {
+          "x": 960,
+          "y": 629
+        },
+        {
+          "x": 760,
+          "y": 629
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 330,
+        "farHeight": 243,
+        "nearY": 858,
+        "nearHeight": 340
+      },
+      "neighbours": [
+        "floor_0",
+        "floor_2",
+        "stand"
+      ]
+    },
+    {
+      "id": "floor_2",
+      "points": [
+        {
+          "x": 620,
+          "y": 629
+        },
+        {
+          "x": 900,
+          "y": 629
+        },
+        {
+          "x": 900,
+          "y": 744
+        },
+        {
+          "x": 620,
+          "y": 744
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 330,
+        "farHeight": 243,
+        "nearY": 858,
+        "nearHeight": 340
+      },
+      "neighbours": [
+        "floor_1",
+        "floor_3"
+      ]
+    },
+    {
+      "id": "floor_3",
+      "points": [
+        {
+          "x": 480,
+          "y": 744
+        },
+        {
+          "x": 900,
+          "y": 744
+        },
+        {
+          "x": 900,
+          "y": 858
+        },
+        {
+          "x": 480,
+          "y": 858
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 330,
+        "farHeight": 243,
+        "nearY": 858,
+        "nearHeight": 340
+      },
+      "neighbours": [
+        "floor_2"
+      ]
+    },
+    {
+      "id": "stand",
+      "points": [
+        {
+          "x": 960,
+          "y": 600
+        },
+        {
+          "x": 1060,
+          "y": 600
+        },
+        {
+          "x": 1060,
+          "y": 690
+        },
+        {
+          "x": 960,
+          "y": 690
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 330,
+        "farHeight": 243,
+        "nearY": 858,
+        "nearHeight": 340
+      },
+      "neighbours": [
+        "floor_1"
+      ]
+    }
+  ],
+  "lamps": [],
+  "props": [
+    {
+      "id": "not_yet",
+      "sheet": "art/props/room-54-not-yet.png",
+      "x": 365,
+      "y": 482,
+      "frame": [
+        0,
+        0,
+        104,
+        24
+      ],
+      "note": "THE SLUICE's board, NOT YET, as its second LOOK reads it: drawn whole and flat across the trough's front (tools/art/gulch-lettering.py), the plate's own board being a slanted plank."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionProofs": [],
+  "occlusionBands": [
+    "floor_0",
+    "floor_1",
+    "floor_2",
+    "floor_3",
+    "stand"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-54/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

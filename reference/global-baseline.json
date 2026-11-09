@@ -908,6 +908,23 @@
     }
    ],
    "castingNote": "The panner stands knee-deep in the river beside the bar (doc 109). He is drawn against Thad in this room, from this room's own operations, under the character style gate. The men in the river and at the long tom have no lines and are painted into the plate (the brief)."
+  },
+  "room-54-upstream": {
+   "visualType": "exterior-day",
+   "daylight": "Errata 190 (Tyler, 2026-11-08, approving doc 107): the camp is in daylight. The washout, the ledge and the five Gulch screens are drawn in daylight.",
+   "comparable": {
+    "id": "room-53-river",
+    "path": "art/backgrounds/room-53-river.png",
+    "note": "D -- the same river further up the gulch on the same day: its water, its gravel, its ravine walls narrowing to the falls (doc 107)."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "The man upstream stands guard over the gravel with a shovel (doc 109). He is drawn against Thad in this room, from this room's own operations, under the character style gate."
   }
  }
 }

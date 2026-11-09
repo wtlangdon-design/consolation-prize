@@ -5724,3 +5724,19 @@ Tyler caught two things on Main Street's horses that no check held: they were dr
 - **Deviation, recorded:** the way upstream leads to Room 54, built next on this branch and shipped in the same pull request.
 - Lesson: `tests/gulch-river.test.ts` fails if the bar's rules, the panner's muttering, the pebbles or the last word stop being doc 109's, if the duel is fought anywhere but the bar or leaves them on it, or if the water masks a man in the ford anywhere but from the knee down; `tests/lessons.test.ts` fails a seated placement whose lap is not on that room's seat (proved by taking the rule-keeper's foot row off: his lap at y 416 against the stump's top at 372).
 
+# 209 · FIDDLER'S GULCH BUILT, PART FIVE: UPSTREAM AND THE MESSAGES (ROOM 54) — THE BUILDER, 2026-11-09 (reference/fiddlers-gulch/brief.md)
+
+*Room 54 built under doc 55, in the brief's order. Every line is doc 109's or doc 49's, extracted.*
+
+- **The room.** The head of the gulch in daylight (errata 190): the walls closing in on a little waterfall no taller than a man; the river running down from it to the front left; a half-built sluice beside it with a board nailed across it; the best ground, gravel with gold showing in it, staked twice over by two crossing lines of stakes with a notice each; the man upstream's tent on the claim line. The way back downstream.
+  - room-54: 3 of 4 operations. The master; the plate without the men, with flecks of gold in the gravel (doc 109's LOOK: "Gold shows in the gravel here without digging"); the man upstream's pose sheet, painted over the in-game Thad.
+  - The master's perspective is flatter than Room 5's slope, 0.18 a row, read from its own two figures.
+  - The board reads NOT YET in the shipping face (`tools/art/gulch-lettering.py`), drawn whole and flat across the trough's front in the sluice's lit wood: the plate's own board is a slanted plank, and the shipping face cannot lie on a slant. The notices stay blank: doc 109 says one is in ink and the other in larger ink, and writes neither's words.
+  - The walk keeps to the gravel between the river and the stakes, so no stake (plate) stands in front of him; his stand beside the man upstream is an authored box.
+- **The man upstream** (`content/ambient/gulch-man-upstream.json`): a good coat, the shovel planted beside him, guarding the gravel among the stakes. Five drawn poses: guarding, the blade tapped warningly (doc 109's LISTEN), a look downstream, a long sigh, talking. His tree UPS_G1 and his barks in turn are doc 109's; doc 49 answers a wrong verb on him.
+- **G8, the messages** (the brief, 10; `gulchMessages()`): the options doc 109 writes outside the two tables, read into PAN_G1 and UPS_G1. Every one waits for the camp's trust (G3: "Both options need G3"). The panner's boast carried up (`T_GULCH_MESSAGE_UP`) is answered upstream with pair 25's counter, and the man upstream's carried down (`T_GULCH_MESSAGE_DOWN`) with pair 26's.
+  - **A builder's reading, recorded:** PAN_G1 option 6 is tagged `remove` and writes a second answer "if asked again before it is carried". It is offered until the message is carried (the man upstream's answer ends it), and says the second line if asked again before then.
+- **Pairs 25 and 26** (doc 109's Tier 7, learned in the Gulch) are read into the Assay from doc 109 in doc 03's shapes, with their three wrong answers each, answered by Vessel (`gulchPairs()`); ASSAY_PAIR_25 and ASSAY_PAIR_26 hold them. Duel Two's pool is read from doc 109's own sentence: "now 1–21, 25 and 26"; it still needs fourteen.
+- **Sound:** the Gulch's mix carried up the river; R54-A, the little falls close and thin water over gravel, noise with no pitch, "whatever Thad hears in them" (doc 45).
+- Lesson: `tests/gulch-upstream.test.ts` fails if a message is offered before G3 or before it is given, if carrying them stops teaching pairs 25 and 26, if the pairs stop being doc 109's or leave Duel Two's pool, or if the pool's fourteen moves.
+

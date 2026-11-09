@@ -1800,6 +1800,7 @@ const GULCH_PEOPLE = [
   { heading: 'THE RULE-KEEPER', node: 'RUL_G1', speaker: 'gulch_rule_keeper', label: 'RULE-KEEPER', file: 'gulch-rule-keeper', id: 'RULE_KEEPER' },
   { heading: 'THE DEACON, before he is found', node: 'DEA_G1', speaker: 'gulch_deacon', label: 'THE DEACON', file: 'gulch-deacon', id: 'DEACON', noBarks: true },
   { heading: 'THE PANNER', node: 'PAN_G1', speaker: 'gulch_panner', label: 'PANNER', file: 'gulch-panner', id: 'PANNER' },
+  { heading: 'THE MAN UPSTREAM', node: 'UPS_G1', speaker: 'gulch_man_upstream', label: 'MAN UPSTREAM', file: 'gulch-man-upstream', id: 'MAN_UPSTREAM' },
 ];
 function gulchSide(text, where) {
   // At the end of a response, or at the start of an opening line (`*(before G3)* "..."`).
@@ -1885,6 +1886,67 @@ function gulchVessel(speaker) {
     options };
 }
 
+/**
+ * G8, THE MESSAGES (doc 109, ## G8 · THE MESSAGES, AND PAIRS 25 AND 26): the options doc 109 adds to a Gulch tree
+ * outside its table, `**\`PAN_G1\`, option 6** — "text" · \`[PROGRESS · remove]\` · *req \`FLAG\`*` and the `> ` lines
+ * under it. A line's `→ \`FLAG\`` sets that flag; Thad's `→ pair N` teaches pair N (its knowledge flag, ASSAY_PAIR_N);
+ * `*(second, if asked again before it is carried)*` is the answer to asking again. "Both options need G3": every one
+ * waits for the camp's trust. An option asked again before its message is carried stays until it is carried: the
+ * message it gives is carried by the other man's option, whose flag ends it (the builder's reading of `remove` with a
+ * second answer, errata 209).
+ */
+function gulchMessages(person) {
+  const doc = read('docs/109-fiddlers-gulch-lines.md');
+  const at = doc.indexOf('\n## G8 ·');
+  if (at < 0) return [];
+  const body = doc.slice(at, doc.indexOf('\n### The pairs, for doc 03 Part Two', at));
+  if (!/Both options need G3/.test(body)) throw new Error('doc 109: G8 no longer says the messages need G3');
+  const out = [];
+  const heads = [...body.matchAll(new RegExp(`^\\*\\*\`${person.node}\`, option (\\d+)\\*\\* — (.+)$`, 'gm'))];
+  for (const head of heads) {
+    const [, n, rest] = head;
+    const start = head.index + head[0].length;
+    const after = body.slice(start);
+    const block = after.slice(0, after.search(/^\*\*`|^### |^---$/m) < 0 ? after.length : after.search(/^\*\*`|^### |^---$/m));
+    const text = quoted(rest)[0];
+    const tag = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(rest);
+    if (!text || !tag) throw new Error(`doc 109: ${person.node} option ${n} has no text or tag`);
+    const req = /\*req `([A-Z_]+)`\*/.exec(rest)?.[1];
+    const set = {};
+    const exchange = [];
+    let again = null;
+    for (const line of block.split('\n').filter((one) => one.startsWith('> '))) {
+      const second = /^> \*\(second[^)]*\)\* (.+)$/.exec(line);
+      if (second) { again = quoted(second[1]).join(' '); continue; }
+      const m = /^> \*\*([A-Z ]+):\*\* (.+)$/.exec(line);
+      if (!m) throw new Error(`doc 109: ${person.node} option ${n}: unreadable line ${line}`);
+      const [said, effect] = m[2].split('→');
+      const speaker = m[1] === 'THAD' ? 'thad' : person.speaker;
+      if (m[1] !== 'THAD' && m[1] !== person.label) throw new Error(`doc 109: ${person.node} option ${n} has a line of ${m[1]}'s`);
+      exchange.push(...gulchSpoken(said, speaker));
+      if (effect) {
+        const flag = /`([A-Z_]+)`/.exec(effect)?.[1];
+        const pair = /pair (\d+)/.exec(effect)?.[1];
+        if (flag) set[flag] = true;
+        else if (pair) set[`ASSAY_PAIR_${pair.padStart(2, '0')}`] = true;
+        else throw new Error(`doc 109: ${person.node} option ${n}: "→${effect}" names no flag and no pair`);
+      }
+    }
+    if (!exchange.length) throw new Error(`doc 109: ${person.node} option ${n} says nothing`);
+    // Carried by the other man's option: the flag it leaves is the one the other side's req does not read.
+    const given = Object.keys(set).find((one) => one.startsWith('T_'));
+    out.push({
+      id: `${person.speaker}${n}`, tag: tag[1], text,
+      afterUse: again ? 'retain' : (tag[2] ?? 'remove'),
+      when: { [GULCH_GATES.G3]: true, ...(req ? { [req]: true } : {}),
+        ...(again && given ? { [given.replace(/_UP$/, '_DOWN')]: false } : {}) },
+      exchange, set,
+      ...(again ? { repeat: again } : {}),
+    });
+  }
+  return out;
+}
+
 function gulchPeople() {
   const doc = read('docs/109-fiddlers-gulch-lines.md');
   const POOL = (() => {
@@ -1930,6 +1992,7 @@ function gulchPeople() {
     if (options.length < 3 || !options.some((one) => one.tag === 'COMIC')) {
       throw new Error(`doc 109: ${person.node} has ${options.length} options, ${options.filter((o) => o.tag === 'COMIC').length} [COMIC]`);
     }
+    options.push(...gulchMessages(person));
     options.push({ id: `${person.speaker}x`, tag: 'EXIT', text: POOL[index % POOL.length], universal: true, ends: true });
     // The prompt is the opening's last line; an opening that ends on a direction (RUL_G1: *(Nobody asked.)*) plays
     // whole, and the options follow it with no line held over them.
@@ -4413,6 +4476,36 @@ function heading(name) {
   return `## THE SPARRING — ${name}`;
 }
 
+/**
+ * PAIRS 25 AND 26 (doc 109, ## G8 · THE MESSAGES, AND PAIRS 25 AND 26): Tier 7, learned in the Gulch, in doc 03 Part
+ * Two's shape (`**25.**` then the italic boast and the bold counter), with their wrong answers in Part Three's (`>
+ * **"..."** — *Vessel: "..."*`), each answered by Vessel. Their knowledge flags are ASSAY_PAIR_25 and ASSAY_PAIR_26,
+ * written by the messages carried (gulchMessages).
+ */
+function gulchPairs(WRONG, BY) {
+  const doc = read('docs/109-fiddlers-gulch-lines.md');
+  const at = doc.indexOf('\n### The pairs, for doc 03 Part Two');
+  const wrongAt = doc.indexOf('\n### Their wrong answers, for doc 03 Part Three');
+  if (at < 0 || wrongAt < 0) throw new Error('doc 109: G8\'s pairs or their wrong answers are not where they were');
+  const head = /Tier (\d+): (.+?) \((\d+)\)/.exec(doc.slice(at, at + 200));
+  if (!head) throw new Error('doc 109: G8\'s pairs name no tier');
+  const two = doc.slice(at, wrongAt);
+  const three = doc.slice(wrongAt, doc.indexOf('\n---', wrongAt));
+  const pairs = [...two.matchAll(/^\*\*(\d+)\.\*\*\n> \*"(.+?)"\*\n> \*\*"(.+?)"\*\*/gm)].map(([, n, boast, counter]) => ({
+    n: Number(n), tier: Number(head[1]), learnedFrom: head[2], boast: plain(boast), counter: plain(counter), wrong: [],
+    flag: `ASSAY_PAIR_${String(n).padStart(2, '0')}`,
+  }));
+  if (pairs.length !== Number(head[3])) throw new Error(`doc 109: Tier ${head[1]} has ${pairs.length} pairs, not ${head[3]}`);
+  for (const [, n, text] of three.split(/^\*\*(\d+)\.\*\* /m).slice(1)
+    .reduce((acc, item, i, arr) => (i % 2 === 0 ? [...acc, [null, item, arr[i + 1]]] : acc), [])) {
+    const pair = pairs.find((one) => one.n === Number(n));
+    if (!pair) throw new Error(`doc 109: wrong answers for unknown pair ${n}`);
+    pair.wrong = [...text.matchAll(WRONG)].map(([, said, by, reply]) => ({ text: plain(said), reply: plain(reply), by: BY[by], attribution: by }));
+    if (pair.wrong.length !== 3) throw new Error(`doc 109: pair ${n} has ${pair.wrong.length} wrong answers, not 3`);
+  }
+  return pairs;
+}
+
 /** Doc 03 Part Two's pairs, boast and counter, as assay() reads them. */
 function assayPairs() {
   const doc = read('docs/03-liars-assay.md');
@@ -4550,6 +4643,10 @@ function assay() {
   };
   if (pair24.wrong.length !== 3) throw new Error(`doc 03: the fifth exchange has ${pair24.wrong.length} jokes, not 3`);
   pairs.push(pair24);
+  // TIER 7, LEARNED IN THE GULCH (doc 109, G8: "### The pairs, for doc 03 Part Two, as Tier 7"): read from doc 109
+  // directly in doc 03's own shapes, its boasts and counters and "### Their wrong answers", never copied into doc 03
+  // (the brief, 1). Learned by carrying the messages between the panner and the man upstream.
+  pairs.push(...gulchPairs(WRONG, BY));
   const duelThree = {
     puzzle: 'F4',
     opponent: 'fanshawe',
@@ -4613,7 +4710,13 @@ function assay() {
       duel_two: {
         puzzle: 'B6',
         opponent: 'deke_vessel',
-        pool: Array.from({ length: 21 }, (_, i) => i + 1),
+        // Doc 57 B6's "pairs 1–21", widened by doc 109's G8: "now 1–21, 25 and 26", read from doc 109's sentence.
+        pool: (() => {
+          const m = /\(doc 57 B6: "pairs 1–21", now (\d+)–(\d+), (\d+) and (\d+)\)/.exec(read('docs/109-fiddlers-gulch-lines.md'));
+          if (!m) throw new Error('doc 109: G8 no longer says what Duel Two\'s pool is now');
+          const [from, to, a, b] = m.slice(1).map(Number);
+          return [...Array.from({ length: to - from + 1 }, (_, i) => from + i), a, b];
+        })(),
         threshold: 14,
         opening: [...duelTwoPreamble, ...rules],
         openingRuling: 'doc 03 Duel Two (errata 75): Sowerby, Vessel, Sowerby, and then "(He reads all five.)".',

@@ -475,6 +475,12 @@
    "date": "2026-11-09",
    "kind": "loosened",
    "why": "Doc 109's THE WATCH: its first LOOK is THE FIND, said once by a room scene (G4), and the watch's own rule goes on from its second LOOK. The variant count saw a chain one short of three and called it thin. It now counts the lines the scene said (`chainFrom`) as the chain's own; a rule with no scene still needs three variants, and chainFrom is set only by compile-room's `scenes`."
+  },
+  {
+   "check": "tests/assay.test.ts",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Doc 109's G8 adds Tier 7, pairs 25 and 26, learned in the Gulch (Tyler, 2026-11-08: \"I'll leave it all up to you!\", doc 109 question 1). The test counted 21 learnable pairs, Tiers 1-5. It now holds every tier but 6 learnable and Tier 6 not, and counts 23 (21 and doc 109's 2). Not a misfire: the count was right for the documents it was written against."
   }
  ]
 }

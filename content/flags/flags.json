@@ -570,6 +570,24 @@
    "pending": true
   },
   {
+   "id": "ASSAY_PAIR_25",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:MAN_UPSTREAM:UPS_G1:gulch_man_upstream6"
+   ],
+   "note": "Doc 109, G8: Thad knows pair 25 (Tier 7, learned in the Gulch), from UPS_G1 option 6: the counter carried between the panner and the man upstream."
+  },
+  {
+   "id": "ASSAY_PAIR_26",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:PANNER:PAN_G1:gulch_panner7"
+   ],
+   "note": "Doc 109, G8: Thad knows pair 26 (Tier 7, learned in the Gulch), from PAN_G1 option 7: the counter carried between the panner and the man upstream."
+  },
+  {
    "id": "T_VESSEL_GREETED",
    "type": "boolean",
    "initial": false,
@@ -1723,6 +1741,33 @@
     "engine:ambient:barkTurns gulch_panner"
    ],
    "note": "Doc 109, THE PANNER's barks: said one a visit, in turn (barkTurns), the same in every reputation state."
+  },
+  {
+   "id": "MAN_UPSTREAM_BARKS",
+   "type": "number",
+   "initial": 0,
+   "writtenBy": [
+    "engine:ambient:barkTurns gulch_man_upstream"
+   ],
+   "note": "Doc 109, THE MAN UPSTREAM's barks: said one a visit, in turn (barkTurns), the same in every reputation state."
+  },
+  {
+   "id": "T_GULCH_MESSAGE_UP",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:PANNER:PAN_G1:gulch_panner6"
+   ],
+   "note": "Doc 109, G8: the panner's boast, given to Thad to carry upstream (PAN_G1 option 6). Offers UPS_G1 option 6."
+  },
+  {
+   "id": "T_GULCH_MESSAGE_DOWN",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:MAN_UPSTREAM:UPS_G1:gulch_man_upstream6"
+   ],
+   "note": "Doc 109, G8: the man upstream's answer and his own boast, to carry back down (UPS_G1 option 6). Offers PAN_G1 option 7, and ends the panner's option 6: his message has been carried."
   }
  ]
 }

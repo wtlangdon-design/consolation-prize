@@ -13,6 +13,7 @@ room42-price-board.py). The words are the documents', read from the extracted ex
   * THE GROG TENT (Room 51): "GROG", the sign its first LOOK reads, painted on the board over the flap.
   * THE TENTS (Room 51): "KNOCK", the sign its second LOOK reads, on the board hung on the guyed tent.
   * THE PLANK (Room 52): "GOLD ON THE PLANK", the plate its second LOOK reads, stamped on the brass in two lines.
+  * THE SLUICE (Room 54): "NOT YET", the board its second LOOK reads, nailed across the trough's front, drawn whole.
   * THE BARRELS (Room 52): "WHISKEY" on the left and "FLOUR" on the right, as its second LOOK reads them, stencilled.
   * THE BOTTLES (Room 52): the prices its third LOOK says are chalked on the shelf, as rough chalk marks too small to
     read -- writing figures would be writing (CLAUDE.md). Its second LOOK's COGNAC is not lettered: in the shipping
@@ -235,6 +236,35 @@ def grog_plate():
     return save(img, 'room-52-plate', (1148 + 1260) // 2, 575, fit=(150, 48))
 
 
+def sluice_board():
+    """The board nailed across the half-built sluice (doc 109, THE SLUICE, its second LOOK: "Somebody's nailed a board
+    across it: NOT YET."). The plate's sluice has a slanted plank across its top, and the shipping face cannot lie on a
+    slant, so the board is drawn whole as a prop, flat, nailed across the trough's front: a plank in the sluice's own
+    wood (read from the plate), a nail at each end, the words in dark paint."""
+    words = re.search(r'nailed a board across it: ([A-Z ]+)\.', look(54, 'THE SLUICE', 1))
+    if not words:
+        raise SystemExit('THE SLUICE: its second LOOK names no board')
+    _, rows = lettered([words.group(1)], (0, 0, 0, 255))
+    plate = np.asarray(Image.open(os.path.join(ROOT, 'art/backgrounds/room-54-upstream.png')).convert('RGB')).astype(int)
+    # A new board, so the light side of the sluice's own wood (its planks' lit tops), not the trough's shade, and the
+    # paint dark on it: the first, the shaded wood, held the words at too little contrast to read at game size.
+    wood = tuple(int(v) for v in np.percentile(plate[440:500, 300:600].reshape(-1, 3), 97, axis=0))
+    lit = tuple(min(255, int(v * 1.25)) for v in wood)
+    edge = tuple(int(v * 0.45) for v in wood)
+    r = rows[0]
+    w, h = r.shape[1] + 24, r.shape[0] + 10
+    img = np.zeros((h, w, 4), np.uint8)
+    img[...] = (*wood, 255)
+    img[1, 1:-1, :3] = lit
+    img[0, :, :3] = edge; img[-1, :, :3] = edge; img[:, 0, :3] = edge; img[:, -1, :3] = edge
+    for nx in (4, w - 6):
+        img[h // 2 - 1:h // 2 + 1, nx:nx + 2, :3] = (40, 36, 34)
+    y0, x0 = 5, 12
+    img[y0:y0 + r.shape[0], x0:x0 + r.shape[1]][r] = (36, 24, 14, 255)
+    # On the trough's front, the near segment: 300-430 x 445-490 on the plate.
+    return save(img, 'room-54-not-yet', 365, 482, fit=(130, 34))
+
+
 def barrel_words():
     words = re.findall(r'([A-Z]{4,}), says', look(52, 'THE BARRELS', 1))
     if len(words) != 2:
@@ -266,4 +296,5 @@ def chalk():
 if __name__ == '__main__':
     print(json.dumps({'signpost': signpost(), 'carving': carving(), 'cart': cart(),
                       'grog': grog(), 'knock': knock(), 'notice': notice(),
-                      'plate': grog_plate(), 'barrels': barrel_words(), 'chalk': chalk()}, indent=1))
+                      'plate': grog_plate(), 'barrels': barrel_words(), 'chalk': chalk(),
+                      'sluice': sluice_board()}, indent=1))

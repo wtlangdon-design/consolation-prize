@@ -75,6 +75,63 @@
           "repeat": "Still no. You're consistent. I like that in a beggar."
         },
         {
+          "id": "gulch_panner6",
+          "tag": "PROGRESS",
+          "text": "Any message for upstream?",
+          "afterUse": "retain",
+          "when": {
+            "T_CAMP_TRUSTS": true,
+            "T_GULCH_MESSAGE_DOWN": false
+          },
+          "exchange": [
+            {
+              "speaker": "gulch_panner",
+              "line": "He lowers his voice. Nobody is near.",
+              "direction": true
+            },
+            {
+              "speaker": "gulch_panner",
+              "line": "Tell him I took a nugget out of the river so big it needs its own tent."
+            }
+          ],
+          "set": {
+            "T_GULCH_MESSAGE_UP": true
+          },
+          "repeat": "Tell him exactly that. Don't improve it."
+        },
+        {
+          "id": "gulch_panner7",
+          "tag": "PROGRESS",
+          "text": "He says his ground runs so rich the gravel pays him rent.",
+          "afterUse": "remove",
+          "when": {
+            "T_CAMP_TRUSTS": true,
+            "T_GULCH_MESSAGE_DOWN": true
+          },
+          "exchange": [
+            {
+              "speaker": "gulch_panner",
+              "line": "He snorts.",
+              "direction": true
+            },
+            {
+              "speaker": "gulch_panner",
+              "line": "Tell him I've collected that rent. It was paid in buttons."
+            },
+            {
+              "speaker": "thad",
+              "line": "Rent. Buttons. Yes."
+            },
+            {
+              "speaker": "gulch_panner",
+              "line": "Don't tell him, mind. He'll only send another."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_26": true
+          }
+        },
+        {
           "id": "gulch_pannerx",
           "tag": "EXIT",
           "text": "Thank you. This has been clarifying.",

@@ -66,7 +66,8 @@
   "content/rooms/ledge.json",
   "content/rooms/gulch-tents.json",
   "content/rooms/grog-tent.json",
-  "content/rooms/gulch-river.json"
+  "content/rooms/gulch-river.json",
+  "content/rooms/upstream.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",
@@ -104,7 +105,8 @@
   "content/dialogue/gulch-lookout.json",
   "content/dialogue/gulch-rule-keeper.json",
   "content/dialogue/gulch-deacon.json",
-  "content/dialogue/gulch-panner.json"
+  "content/dialogue/gulch-panner.json",
+  "content/dialogue/gulch-man-upstream.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -257,7 +259,8 @@
   "content/ambient/gulch-lookout.json",
   "content/ambient/gulch-rule-keeper.json",
   "content/ambient/gulch-deacon.json",
-  "content/ambient/gulch-panner.json"
+  "content/ambient/gulch-panner.json",
+  "content/ambient/gulch-man-upstream.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",
@@ -737,6 +740,11 @@
     "src": "audio/consolation-gulch.wav",
     "gain": 0.6,
     "why": "Doc 45 R50-54-M (errata 195): the ledge's mix, carried down the bank to the river at the same gain."
+   },
+   "upstream": {
+    "src": "audio/consolation-gulch.wav",
+    "gain": 0.6,
+    "why": "Doc 45 R50-54-M (errata 195): the ledge's mix, carried up the river to the head of the gulch at the same gain."
    }
   },
   "tunedFlag": "T_IN_TUNE",

@@ -1,0 +1,200 @@
+{
+ "schema": 1,
+ "id": "room-54-upstream",
+ "room": "upstream",
+ "docRoom": 54,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 54 of Fiddler's Gulch (reference/fiddlers-gulch/brief.md; errata 202, 209; doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/107-fiddlers-gulch.md",
+  "docs/108-the-washout-and-the-mine.md",
+  "docs/109-fiddlers-gulch-lines.md",
+  "docs/49-wrong-answers.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-54.json",
+    "docs/00-errata.md::209 · FIDDLER'S GULCH BUILT, PART FIVE: UPSTREAM AND THE MESSAGES (ROOM 54)"
+   ],
+   "note": "One picture, daylight (errata 190); G8 changes what is said, not the picture."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-54/graybox.json",
+    "docs/00-errata.md::209 · FIDDLER'S GULCH BUILT, PART FIVE: UPSTREAM AND THE MESSAGES (ROOM 54)"
+   ],
+   "note": "Every subject is plate; the NOT YET board is a prop."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-54-upstream-with-thad.png",
+    "docs/00-errata.md::209 · FIDDLER'S GULCH BUILT, PART FIVE: UPSTREAM AND THE MESSAGES (ROOM 54)"
+   ],
+   "note": "The man upstream from room-54 operation 3, cut at the room's man where he stands and measured against Thad (texture 5.8 against 5.8)."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "content/ambient/gulch-man-upstream.json",
+    "tests/movement.test.mjs"
+   ],
+   "note": "He taps his shovel, looks downstream and sighs (errata 77)."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-54-upstream-with-thad.png"
+   ],
+   "note": "He stands on the gravel among the stakes with his shovel planted; Thad stands beside him at the stakes' edge."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-54/annotation.json",
+    "art/staging/room-54/plate-01/frame.json"
+   ],
+   "note": "Daylight, errata 190."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "tests/gulch-upstream.test.ts",
+    "docs/109-fiddlers-gulch-lines.md"
+   ],
+   "note": "G8: each man says the other has found something (PAN_G1 1, UPS_G1 1), and the panner asks for a message carried."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-54.json",
+    "content/rooms/upstream.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-54: 3 of 4 (master; plate; the man upstream)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/upstream.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-54/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/upstream/proof.json"
+   ],
+   "note": "No principal change."
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "tests/gulch-upstream.test.ts"
+   ],
+   "note": "The messages carried up and down; pairs 25 and 26 learned; Duel Two's pool."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "tests/gulch-upstream.test.ts",
+    "tests/movement.test.mjs"
+   ],
+   "note": "His barks in turn; his idle and actions."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-54/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-54-upstream.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-54/plate-01/frame.json"
+   ]
+  },
+  {
+   "subject": "the man upstream",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-54-man-upstream.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-54/man-upstream/man-upstream.json"
+   ]
+  },
+  {
+   "subject": "the lettering",
+   "class": "PROP",
+   "stage": "SHIPPING",
+   "path": "art/props/room-54-not-yet.png",
+   "evidence": [
+    "tools/art/gulch-lettering.py"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q195 · Room 54, upstream: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 209; reference/fiddlers-gulch/brief.md); BUILT, room-54 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate and the man upstream -- errata 72 E"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q195 · Room 54, upstream: built, awaiting Tyler's playthrough — **RULED 2026-11-09 (errata 202, 209; reference/fiddlers-gulch/brief.md); BUILT, room-54 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

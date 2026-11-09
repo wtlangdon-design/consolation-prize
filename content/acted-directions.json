@@ -1023,6 +1023,27 @@
       "speaker": "gulch_rule_keeper",
       "words": "He gives up.",
       "where": "assay/assay duel_one_bar"
+    },
+    {
+      "n": 95,
+      "class": "C",
+      "speaker": "gulch_panner",
+      "words": "He lowers his voice. Nobody is near.",
+      "where": "dialogue/gulch-panner PAN_G1 option 6"
+    },
+    {
+      "n": 96,
+      "class": "B",
+      "speaker": "gulch_panner",
+      "words": "He snorts.",
+      "where": "dialogue/gulch-panner PAN_G1 option 7"
+    },
+    {
+      "n": 97,
+      "class": "C",
+      "speaker": "gulch_man_upstream",
+      "words": "He looks at Thad as if Thad had suggested something unwell.",
+      "where": "dialogue/gulch-man-upstream UPS_G1 option 3"
     }
   ]
 }

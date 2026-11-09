@@ -789,6 +789,7 @@
    "gulch_tents": "dirt",
    "grog_tent": "dirt",
    "gulch_river": "mud",
+   "upstream": "dirt",
    "mine_adit": "dirt",
    "mine_climb": "dirt",
    "mine_two_rocks": "dirt",
@@ -867,6 +868,11 @@
    "src": "audio/sfx/river-bed.wav",
    "gain": 0.215,
    "why": "doc 45 R53-A: fast water over stones, the rocker's slow knock, gravel down the long tom (tools/audio/render-gulch-sfx.py)."
+  },
+  "upstream": {
+   "src": "audio/sfx/upstream-bed.wav",
+   "gain": 0.215,
+   "why": "doc 45 R54-A: the little falls, close; thin water over gravel. The falls are noise, not a pitch, whatever Thad hears in them (tools/audio/render-gulch-sfx.py)."
   }
  },
  "lines": [

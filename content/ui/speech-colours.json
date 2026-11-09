@@ -165,6 +165,10 @@
     "gulch_panner": {
       "colour": "#a8dca0",
       "note": "The builder's choice for errata 208 (Room 53): the pale green of the river under the brown, clear of Thad's, of Vessel's gold, the rule-keeper's straw and the lookout's steel blue, and of everyone he can share a room with; Tyler rules on it in the playthrough."
+    },
+    "gulch_man_upstream": {
+      "colour": "#d8a8e0",
+      "note": "The builder's choice for errata 209 (Room 54): a lilac, clear of the panner's green across the gulch, of Thad's, Vessel's gold, the rule-keeper's straw and the lookout's steel blue; Tyler rules on it in the playthrough."
     }
   },
   "everySpeaker": "Errata 169: every id that speaks -- a tree's speaker, a speaker in an exchange, a townsperson with barks -- has an entry here. The fallback ink sits a few units from Thad's, so an uncoloured speaker reads as Thad (Tyler, 2026-11-07: \"Are the map guy and Thad supposed to have the same color of text?\"). tools/check-speech-colours.mjs fails on any that has none. A figure who is another character in another place says so with sameAs and takes that character's colour."

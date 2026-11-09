@@ -685,6 +685,62 @@
           "attribution": "Fanshawe"
         }
       ]
+    },
+    {
+      "n": 25,
+      "tier": 7,
+      "learnedFrom": "learned in the Gulch",
+      "boast": "I took a nugget out of the river so big it needs its own tent.",
+      "counter": "I've been in that tent. It's mostly tent.",
+      "wrong": [
+        {
+          "text": "A tent is a poor place for valuables.",
+          "reply": "That's advice, son. Nobody ever won an Assay with advice.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "How big is the tent?",
+          "reply": "Big enough for the nugget. Keep up.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "I have a claim with a raccoon in it.",
+          "reply": "We all know the raccoon, son. He has a bigger following than you.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_25"
+    },
+    {
+      "n": 26,
+      "tier": 7,
+      "learnedFrom": "learned in the Gulch",
+      "boast": "My ground runs so rich the gravel pays me rent.",
+      "counter": "I've collected that rent. It was paid in buttons.",
+      "wrong": [
+        {
+          "text": "Gravel can't pay rent.",
+          "reply": "That's the truth, son. Rule three lets you raise it. Nobody's ever been fool enough.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "What does it pay?",
+          "reply": "More than you've got. Everything does, these days.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        },
+        {
+          "text": "My raccoon pays no rent at all.",
+          "reply": "Then evict him, son. That's how property works.",
+          "by": "deke_vessel",
+          "attribution": "Vessel"
+        }
+      ],
+      "flag": "ASSAY_PAIR_26"
     }
   ],
   "mockery": [
@@ -804,7 +860,9 @@
         18,
         19,
         20,
-        21
+        21,
+        25,
+        26
       ],
       "threshold": 14,
       "opening": [
