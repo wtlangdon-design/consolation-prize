@@ -140,6 +140,7 @@ Counts: **A 26 · B 3 · C 50** — 79 directions, every one flagged `"direction
 | 103 | C | map_seller | The map seller brightens considerably. | dialogue/amb-map-seller root opening |  |  |  |  |  | Errata 218, doc 07's Opening stage line, now said when the conversation opens (it was kept only as a prompt nothing shows): a change of manner, and "considerably" is the joke; no pose shows it. |
 | 104 | C | fanshawe | He gives Thad a map of the district. Claim Two is already circled. | dialogue/fanshawe FAN_A1 option 1 |  |  |  |  |  | Errata 228: the map arrived in the inventory with no line handing it over. As row 15: the circle is information only words carry. |
 | 105 | C | fanshawe | Fanshawe refills the glass. Thad, reaching for it, knocks it; Fanshawe's handkerchief is in Thad's hand before the wine reaches the cloth. | dialogue/fanshawe FAN_A2 option 6 |  |  |  |  |  | Errata 228: doc 57 A10 beat 3, written and not played, so "Keep it. I have dozens." named nothing. No frame of either man knocks or catches a glass. |
+| 106 | C | winnie | She runs it at the window. It does not take long. | dialogue/winnie WIN_B2 option 1 |  |  |  |  |  | Errata 232: the assay is run on the spot instead of off screen. Her frames have no assaying pose, and the joke (it is quick because there is nothing in it) is in the words. |
 
 ## When a B pose is drawn
 

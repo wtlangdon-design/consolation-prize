@@ -138,7 +138,7 @@ The queue ledger, chained to the sill. *(Errata 75: getting in the book is not d
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "Will you run my assay?" | `[PROGRESS · remove]` | "I'll run your assay. I'd run your assay if it were a bucket of rain." | grants assay → C6 |
+| 1 | "Will you run my assay?" | `[PROGRESS · remove]` | "I'll run your assay. I'd run your assay if it were a bucket of rain." *(She runs it at the window. It does not take long.)* | grants assay → C6, at once: WIN_B4's opening is said after the reply, Document B with it; once he has left the office, TALK TO opens WIN_B4 on its options *(errata 232)* |
 | 2 | "Now can I ask about Mott gold?" | `[PROGRESS · remove]` | "No Mott gold has ever crossed this window. Not one flake. Not in nine years. Not one." | sets `T_NO_MOTT_GOLD` |
 | 3 | "Has nobody ever noticed?" | `[PROGRESS · remove]` | "I noticed. I wrote it down. I've been writing it down since eighteen and forty-nine, in a book that is not this book." *(She produces it from under the floor.)* | sets `T_SECOND_LEDGER`; opens `WIN_B3` *(errata 181)* |
 | 4 | "Are you all right?" | `[COMIC · retain]` | "I am professionally offended, Mr. Grubb. It is the worst kind." *(second)* "Still offended. I'll tell you when it stops. It won't." | — |
@@ -163,7 +163,7 @@ Available only with `T_SECOND_LEDGER`. She produces it from under the floor. Thi
 
 ## ACT II — `WIN_B4`: the assay returns (C6) *(errata 75)*
 
-Opened by the first TALK TO after WIN_B2 option 1 has left C6 pending and Thad has been out of the office and back. The opening completes C6 and issues Document B.
+Its opening is said straight after WIN_B2 option 1 *(errata 232, Tyler, 2026-11-09: no step exists only to make the player leave and come back)*: she runs it there and then. WIN_B2 stays her node until Thad leaves the office, so its other questions can still be asked; after that, TALK TO opens WIN_B4 on its options. The opening completes C6 and issues Document B. A save from before the change, with the assay asked and not returned, opens it on the next TALK TO as before.
 
 > **WINNIE:** "Your assay."
 > **THAD:** "And?"
