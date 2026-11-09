@@ -3607,6 +3607,10 @@ function sumpTree() {
         + 'the conversation opens on the choices.' }),
       ...(opening.length ? { opening } : {}), options };
   }
+  // THE DOCUMENTS ARE EXPLAINED ONCE (errata 224). SUM_B1's opening is Thad's request and Sump's A-B-D answer,
+  // "circular… linear" and all; it played on every Act II visit, so the joke was told whole twice on the
+  // walkthrough. It is said the first time; later visits open on the choices.
+  if (nodes.SUM_B1?.opening?.length) nodes.SUM_B1.openingOnce = 'T_SUMP_DOCUMENTS_HEARD';
   if (!nodes.SUM_A1) throw new Error('doc 04: SUM_A1 was not extracted');
   const entries = ENTRIES.filter((one) => nodes[one.node]);
   for (const note of unplayed) process.stderr.write(`  doc 04 SUMP: ${note}\n`);

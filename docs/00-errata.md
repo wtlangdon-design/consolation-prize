@@ -6062,3 +6062,17 @@ Lesson: `tests/openings-voiced.test.ts`. It reads every document a tree names as
 - **Fixed.** A spoken break is keyed on its own cycle (`spokenBreakKey`, from `breakAt`, in `engine/core/Ambient.ts`). The renderer and the scene read the same break arithmetic.
 - **Not changed.** She still shouts once at every calling-out break, at the line for the current reputation. Whether she should shout that often is a question of taste, and it is Tyler's.
 - Lesson: `tests/break-speaks-once.test.ts` plays the scene's rule at 60 fps across forty cycles, and every break is said exactly once. With the wall-clock key, the same sweep says some breaks twice, and the scene's source is checked for the key it uses.
+
+# 224 · SECTION NINETEEN IS HEARD BEFORE IT IS CITED, SUMP EXPLAINS ONCE, AND THE PIE WOMAN'S TIMER IS HELD — TYLER, 2026-11-09
+
+The feel review of errata 221's transcript, and Tyler's answers on it: "6 - yes" (Thad should cite section nineteen only after he has heard it), "3. - maybe she yells it on a longer timer? Like every minute?", and "Proceed with all the necessary fixes."
+
+- **Section nineteen.** SUM_E1's citation ("Section nineteen. The executor of a deceased claimholder.") was offered to a player who had never heard of it. The walkthrough never asked SUM_B1's "Who else may see a sealed filing?", so in Act III Thad quoted a statute out of nowhere: the hinge of Act III's leap.
+  - SUM_B1's question now sets `T_SECTION_NINETEEN`, and SUM_E1's citation requires it (doc 04).
+  - So that this cannot dead-end, SUM_E1 offers the same question, with Sump's same answer, to a player who never asked it (row 2′, `unless T_SECTION_NINETEEN`). Nothing is written new: it is the Act II row, offered once more.
+  - The walkthrough now asks it in Act III, as such a player would. Traversal: 52/52, 0 dead ends.
+- **"Circular… linear", once.** SUM_B1's opening (Thad's request, the A-B-D answer, "That would be circular, and this office is linear.") played on every Act II visit, so the joke was told whole twice on the walkthrough. It is now said the first time (`openingOnce`, `T_SUMP_DOCUMENTS_HEARD`); later visits open on the choices.
+- **The pie woman's timer, measured.** She already had one: three breaks rotating on a 26-second cycle put her calling-out break every 78 seconds. What made her feel constant was the same line said two and three times at once, which errata 222 fixed. Nothing about her timing changes. A test now holds her to at least a minute between shouts, so a later change cannot bring her back.
+- Lesson:
+  - `tests/room-07.test.ts` checks that the citation is not offered before the question is heard, that the question is offered in Act III instead, and that the documents are explained once. Both fail with the fixes removed.
+  - `tests/pie-shout-timer.test.ts` runs her sprite through the break arithmetic for ten minutes and fails on any gap under a minute. A 15-second cycle fails it.

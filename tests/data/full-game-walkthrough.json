@@ -1488,6 +1488,7 @@
    "puzzle": "E2",
    "do": "choose",
    "choose": [
+    "sump2a",
     "sump2"
    ],
    "leave": true,
