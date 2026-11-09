@@ -4,7 +4,7 @@
  "room": "boot_hill",
  "roomWidth": 1920,
  "branch": "scene-a-build",
- "commit": "795187071a3aa08efcc1c374ae182f64d6f7591c",
+ "commit": "0dafc785397bf75a37da5a98e0378959346f643e",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -14,7 +14,7 @@
  "routeLog": [
   "started from fixture r14-stall-a, then entered boot_hill by control -- NOT proof that a player can reach it",
   "action 1 (verb): chose verb TALK_TO -- ",
-  "action 2 (click): clicked boot_hill/reverend_sowerby_at_the_gate at world 870,645 -- the blessing asked",
+  "action 2 (click): clicked boot_hill/reverend_sowerby_at_the_gate at world 1310,700 -- the blessing asked",
   "action 3 (waitFor): reached {\"says\":\"thad\"} in room boot_hill",
   "action 4 (waitFor): reached {\"says\":\"procession_sowerby\"} in room boot_hill"
  ],
@@ -100,25 +100,25 @@
    "kind": "ambient",
    "id": "procession_undertaker",
    "feet": [
-    1400,
-    745
+    1800,
+    820
    ],
    "sheet": "art/actors/room-31-undertaker-master.png",
    "clipPlane": null,
    "box": {
-    "x": 1336,
-    "y": 345,
+    "x": 1736,
+    "y": 420,
     "width": 129,
     "height": 402
    },
    "seen": {
-    "x": 1353,
-    "y": 449,
-    "width": 112,
-    "height": 297,
-    "bottom": 745,
-    "right": 1464,
-    "changed": 14420
+    "x": 1754,
+    "y": 519,
+    "width": 89,
+    "height": 302,
+    "bottom": 820,
+    "right": 1842,
+    "changed": 13325
    },
    "props": []
   },
@@ -126,25 +126,25 @@
    "kind": "ambient",
    "id": "procession_sowerby",
    "feet": [
-    870,
-    800
+    1310,
+    855
    ],
    "sheet": "art/actors/room-31-sowerby-master.png",
    "clipPlane": null,
    "box": {
-    "x": 779,
-    "y": 486,
+    "x": 1219,
+    "y": 541,
     "width": 182,
     "height": 316
    },
    "seen": {
-    "x": 806,
-    "y": 487,
-    "width": 145,
-    "height": 314,
-    "bottom": 800,
-    "right": 950,
-    "changed": 17984
+    "x": 1219,
+    "y": 541,
+    "width": 182,
+    "height": 315,
+    "bottom": 855,
+    "right": 1400,
+    "changed": 25166
    },
    "props": []
   },
@@ -152,25 +152,51 @@
    "kind": "ambient",
    "id": "procession_mourners",
    "feet": [
-    1640,
-    800
+    335,
+    738
    ],
    "sheet": "art/actors/room-31-mourners-master.png",
    "clipPlane": null,
    "box": {
-    "x": 1419,
-    "y": 397,
+    "x": 114,
+    "y": 335,
     "width": 443,
     "height": 405
    },
    "seen": {
-    "x": 1419,
-    "y": 461,
-    "width": 407,
-    "height": 340,
-    "bottom": 800,
-    "right": 1825,
-    "changed": 77602
+    "x": 154,
+    "y": 404,
+    "width": 364,
+    "height": 336,
+    "bottom": 739,
+    "right": 517,
+    "changed": 75384
+   },
+   "props": []
+  },
+  {
+   "kind": "ambient",
+   "id": "procession_hearse",
+   "feet": [
+    1215,
+    792
+   ],
+   "sheet": "art/actors/room-14-hearse-grievance.png",
+   "clipPlane": null,
+   "box": {
+    "x": 740,
+    "y": 405,
+    "width": 950,
+    "height": 389
+   },
+   "seen": {
+    "x": 740,
+    "y": 405,
+    "width": 950,
+    "height": 389,
+    "bottom": 793,
+    "right": 1689,
+    "changed": 160535
    },
    "props": []
   }
@@ -179,7 +205,7 @@
   {
    "panel": "B",
    "room": "boot_hill",
-   "clock": 10.7998,
+   "clock": 10.7486,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -282,6 +308,14 @@
      "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
     },
     {
+     "key": "art/actors/room-14-hearse-grievance.png",
+     "path": "art/actors/room-14-hearse-grievance.png",
+     "drawn": "art/actors/room-14-hearse-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dad61b167679d7d16d9205997076d408fd66b8c81a66f2987f4df72ae64b338b"
+    },
+    {
      "key": "art/actors/room-31-mourners-master.png",
      "path": "art/actors/room-31-mourners-master.png",
      "drawn": "art/actors/room-31-mourners-master.png",
@@ -311,15 +345,15 @@
    "controlWrites": [
     "enter(boot_hill)"
    ],
-   "capturedAt": "2026-11-09T18:37:56.422Z",
+   "capturedAt": "2026-11-09T20:40:05.666Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "54a004999b0fb3d769bd3591bf7c0ec901f3153cfd2ba4f9b4f67513419731a4"
+   "hash": "95ba70141562a6b4ad93a175ec40b86c06f8d5837de041adde738d2942e9c2c6"
   },
   {
    "panel": "A",
    "room": "boot_hill",
-   "clock": 11.8164,
+   "clock": 11.7485,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -417,6 +451,14 @@
      "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
     },
     {
+     "key": "art/actors/room-14-hearse-grievance.png",
+     "path": "art/actors/room-14-hearse-grievance.png",
+     "drawn": "art/actors/room-14-hearse-grievance.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dad61b167679d7d16d9205997076d408fd66b8c81a66f2987f4df72ae64b338b"
+    },
+    {
      "key": "art/actors/room-31-mourners-master.png",
      "path": "art/actors/room-31-mourners-master.png",
      "drawn": "art/actors/room-31-mourners-master.png",
@@ -447,7 +489,7 @@
     "enter(boot_hill)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-09T18:37:57.446Z",
+   "capturedAt": "2026-11-09T20:40:06.675Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "58aae0a85c9568ff6724be8574e344e9b26158edc73ded3b469ed3d9da2f7592"
@@ -455,7 +497,7 @@
   {
    "panel": "D",
    "room": "boot_hill",
-   "clock": 25.2159,
+   "clock": 25.9647,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -527,20 +569,20 @@
    "movers": {
     "thad": {
      "at": [
-      1010,
-      800
+      1180,
+      856
      ],
-     "facing": "left",
+     "facing": "right",
      "clip": "idle",
-     "height": 301,
+     "height": 305,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-00.png",
+     "from": "art/actors/thad-idle-right/idle-02.png",
      "bounds": [
-      850,
-      499,
-      319,
-      332
+      1018,
+      551,
+      323,
+      337
      ],
      "order": 0,
      "clipLevel": 0,
@@ -559,12 +601,20 @@
      "hash": "9a942450ba8b8917c7cba35705441b4e9a50357d06e95acef1355cbc8ae1acba"
     },
     {
-     "key": "art/actors/room-31-mourners-master.png",
-     "path": "art/actors/room-31-mourners-master.png",
-     "drawn": "art/actors/room-31-mourners-master.png",
+     "key": "art/actors/room-14-hearse-grievance.png",
+     "path": "art/actors/room-14-hearse-grievance.png",
+     "drawn": "art/actors/room-14-hearse-grievance.png",
      "candidate": false,
      "loaded": true,
-     "hash": "7e4b77b0f58ef7a8dce9edf6621d5567d983f1bfeb7517b01fa09e15933f4a62"
+     "hash": "dad61b167679d7d16d9205997076d408fd66b8c81a66f2987f4df72ae64b338b"
+    },
+    {
+     "key": "art/actors/room-14-mourners-bowed.png",
+     "path": "art/actors/room-14-mourners-bowed.png",
+     "drawn": "art/actors/room-14-mourners-bowed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b3fb2dd31a2a6f66362bc706bd0d1cb02567943a8fbe76effc95c8923bc0d73a"
     },
     {
      "key": "art/actors/room-31-sowerby-master.png",
@@ -598,10 +648,10 @@
     "cast(true)",
     "bystanders(true)"
    ],
-   "capturedAt": "2026-11-09T18:38:10.859Z",
+   "capturedAt": "2026-11-09T20:40:20.972Z",
    "intent": "principal changed state: TALK TO REVEREND SOWERBY, AT THE GATE (doc 110 section 2): Thad asks whether a hill can be blessed. Visible consequence: Thad's question, then the Reverend's answer over his own head.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "26e3bd25d10f35f70d3c24800634f42227dc910f97188beba5bbcc3f6c1d0a68",
+   "hash": "fffa997119b35a5110bca22ee85a6d70e43ac4a2d2d214778ee3ccafbe686b7b",
    "changedBy": "flags"
   }
  ],
@@ -632,11 +682,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-09T18:38:10.860Z",
+ "at": "2026-11-09T20:40:20.973Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 438578,
+  "bytes": 437726,
   "panels": 5,
   "scale": 0.5
  }
