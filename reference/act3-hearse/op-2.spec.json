@@ -1,0 +1,15 @@
+{
+ "assetId": "act3-hearse",
+ "subject": "act3-hearse-mourners-bowed",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-14-boot-hill",
+ "promptFile": "reference/act3-hearse/op-2.txt",
+ "out": "art/staging/act3-hearse/op-2/sheet.png",
+ "size": "1536x1024",
+ "images": [
+  "art/staging/act3-hearse/op-2/template.png",
+  "art/staging/act3-hearse/op-2/current.png"
+ ],
+ "derivedFrom": "art/actors/room-31-mourners-master.png"
+}
