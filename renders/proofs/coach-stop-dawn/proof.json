@@ -4,7 +4,7 @@
  "room": "coach_stop_dawn",
  "roomWidth": 1920,
  "branch": "everyone-within-3",
- "commit": "b945b3afa2ad65629cbbf02454ab8e9c62b24a5e",
+ "commit": "c90e70eac2262ddfce6511df0f604e379645c5e7",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -40,7 +40,7 @@
    ],
    "reportedHeight": 224,
    "expected": 224,
-   "drawnFrom": "art/actors/thad-idle-left/idle-02.png",
+   "drawnFrom": "art/actors/thad-idle-left/idle-03.png",
    "bounds": [
     824,
     477,
@@ -77,7 +77,7 @@
    ],
    "reportedHeight": 263,
    "expected": 263,
-   "drawnFrom": "art/actors/thad-idle-left/idle-00.png",
+   "drawnFrom": "art/actors/thad-idle-left/idle-03.png",
    "bounds": [
     803,
     599,
@@ -108,13 +108,13 @@
     "height": 988
    },
    "seen": {
-    "x": 402,
-    "y": 469,
-    "width": 157,
-    "height": 344,
+    "x": 389,
+    "y": 463,
+    "width": 170,
+    "height": 350,
     "bottom": 812,
     "right": 558,
-    "changed": 19813
+    "changed": 20983
    },
    "props": []
   }
@@ -123,7 +123,7 @@
   {
    "panel": "B",
    "room": "coach_stop_dawn",
-   "clock": 8.4997,
+   "clock": 9.3165,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -208,7 +208,7 @@
    "movers": {
     "thad": {
      "at": [
-      1181,
+      1250,
       770
      ],
      "facing": "left",
@@ -216,9 +216,9 @@
      "height": 245,
      "moving": true,
      "drawn": "sprite",
-     "from": "art/actors/thad-walk-left/walk-05.png",
+     "from": "art/actors/thad-walk-left/walk-02.png",
      "bounds": [
-      1050,
+      1119,
       525,
       247,
       263
@@ -253,15 +253,15 @@
    "controlWrites": [
     "enter(coach_stop_dawn)"
    ],
-   "capturedAt": "2026-11-09T20:05:43.591Z",
+   "capturedAt": "2026-11-09T20:18:37.475Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "65755c046b76fd68ac0569b56f90a2861915c0b821a14ae76f0cb0bd13274625"
+   "hash": "697bfede2d14570581ab964cd83f2d2fa9d45318c49043244790f7953e22bfa2"
   },
   {
    "panel": "A",
    "room": "coach_stop_dawn",
-   "clock": 9.4497,
+   "clock": 10.3664,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -387,7 +387,7 @@
     "enter(coach_stop_dawn)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-09T20:05:44.589Z",
+   "capturedAt": "2026-11-09T20:18:38.440Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "1c541d751f3bb118af4bdb6ff3b56e212ab9f9d0c66621feac027c08e08b7cf4"
@@ -420,11 +420,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-09T20:05:49.543Z",
+ "at": "2026-11-09T20:18:43.365Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 434288,
+  "bytes": 434490,
   "panels": 4,
   "scale": 0.5
  }
