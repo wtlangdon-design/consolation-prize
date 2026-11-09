@@ -263,7 +263,7 @@ FAN_A1's opening assumes Thad has been sold something. Until `T_SWINDLED`, TALK 
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "Number two. Prosperity." | `[PROGRESS · remove]` | "Prosperity! You've *named* it. Nobody names them. I like you enormously." | **He now knows.** Gives map |
+| 1 | "Number two. Prosperity." | `[PROGRESS · remove]` | "Prosperity! You've named it. Nobody names them. I like you enormously." *(He gives Thad a map of the district. Claim Two is already circled.)* | **He now knows.** Gives map *(errata 228: the map arrives on screen, as it does in option 2)* |
 | 2 | "I'd rather not say." | `[PROGRESS · remove]` | "Very wise. Very wise indeed." *(He gives the map anyway. It has Claim Two circled.)* | Same outcome — **there is no way to withhold it, and the player will not notice until Act III** |
 | 3 | "Were you really a colonel?" | `[TOPIC · remove]` | "Chapultepec, '47. Terrible business. Wonderful weather." | `WAR_CONTRADICTIONS` +1 |
 | 4 | "You have a great many chairs." | `[COMIC · retain]` | "I do! I have found that a man will tell you anything if you sit him down. It's the standing ones you want to watch." *(second)* "Do sit, Mr. Grubb. You're standing again." | — |
@@ -764,7 +764,7 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "I need to file this deed." | `[PROGRESS · remove]` | "Form 12-C requires a boundary by survey. Your deed says 'from the stake, thereabouts.'" *(He taps the word.)* "Thereabouts is not a unit, Mr. Grubb. I have checked." | sets `T_SURVEY_NEEDED` — **A6** *(errata 75: the refusal; the filing itself is doc 57 A9)* req `T_SWINDLED` *(errata 172: he has no deed before the swindle)* |
+| 1 | "I need to file this deed." | `[PROGRESS · remove]` | "Form 12-C requires a boundary by survey. Your deed says 'from the stake, thereabouts.'" *(He taps the word.)* "Thereabouts is not a unit, Mr. Grubb. I have checked." "With a boundary and two dollars, the office will file it." | *(errata 228: the fee, said before the money is called the filing fee)* sets `T_SURVEY_NEEDED` — **A6** *(errata 75: the refusal; the filing itself is doc 57 A9)* req `T_SWINDLED` *(errata 172: he has no deed before the swindle)* |
 | 1′ | "Where would I find a surveyor?" | `[PROGRESS · remove]` | "The territory licenses surveyors. Consolation has none. The statute accepts a boundary 'attested in good form by any person holding a trade license from this office.'" *(beat)* "I have issued one license this year. It was to a diviner." | req `T_SURVEY_NEEDED`; points to Ozymandia — A7 *(errata 75)* |
 | 1″ | "I have a survey." | `[PROGRESS · remove]` | "Then the deed, the survey and the fee. In that order. The order is in the statute, so that nobody can say he paid for the paper." | req THE SURVEY; doc 57 A9 *(errata 75)* |
 | 2 | "The deed's drawn wrong side up." | `[TOPIC · retain]` | "Statute does not specify an orientation. You would be surprised how much statute does not specify. I would not. I have read it." *(second)* "It still does not specify. I have read it again since you asked." | req `T_SWINDLED` |

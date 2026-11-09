@@ -4914,6 +4914,9 @@ function fanshaweTree() {
   const leaving = /\*\*FANSHAWE:\*\* "([^"]+)"/.exec(bullet('Leaving the table'))?.[1];
   const beat3 = /\*\*FANSHAWE:\*\* "([^"]+)"/.exec(bullet('Beat 3, after option 6 settles:'))?.[1];
   if (!leaving || !beat3) throw new Error('doc 57 A10: the leaving line or beat 3\'s line was not found');
+  const beat3Direction = /^- \*\*Beat 3, after option 6 settles:\*\* \*\(([^)]+)\)\*/m.exec(a10)?.[1];
+  const beat3Staging = beat3Direction ? performedDirection(beat3Direction) : null;
+  if (!beat3Staging) throw new Error('doc 57 A10: beat 3 lost its knocked glass');
   const turn = /\*\*The turn:\*\*[^*]*\*"([^"]+)"\*/.exec(body)?.[1];
   if (!turn) throw new Error('doc 04 FAN_C1: Thad\'s aside ("The turn") was not found');
   const SPEAKER = 'fanshawe';
@@ -4924,7 +4927,10 @@ function fanshaweTree() {
     // gives THE COMPANY MAP ... The map is what finds Prosperity").
     'FAN_A1:1': { gives: ['company_map'], puzzle: { A4: 'complete' } },
     'FAN_A1:2': { gives: ['company_map'], puzzle: { A4: 'complete' } },
-    'FAN_A2:6': { then: [{ speaker: SPEAKER, line: beat3 }], gives: ['handkerchief'], set: { T_DINED: true },
+    // THE HANDKERCHIEF ARRIVES ON SCREEN (errata 228): doc 57's knocked glass is played before "Keep it. I have
+    // dozens.", which otherwise named an object nobody had seen.
+    'FAN_A2:6': { then: [...(beat3Staging ? [{ speaker: SPEAKER, ...beat3Staging, ...(beat3Staging.direction ? {} : {}) }] : []),
+      { speaker: SPEAKER, line: beat3 }], gives: ['handkerchief'], set: { T_DINED: true },
       puzzle: { A10: 'complete' }, ends: true },
     'FAN_B1:1': { goto: 'FAN_B2' },
     // THE WAR'S PAYOFF (errata 184): "available in Act III with all five" (doc 04, THE WAR).
