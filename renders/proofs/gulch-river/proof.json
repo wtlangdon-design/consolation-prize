@@ -4,7 +4,7 @@
  "room": "gulch_river",
  "roomWidth": 1920,
  "branch": "everyone-within-3",
- "commit": "b0763f0118e5601447ab3eda8080a19274b7f1a7",
+ "commit": "1c0bc4b1066e7b59f307f0d7621aaa10565a00c9",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -40,7 +40,7 @@
    ],
    "reportedHeight": 111,
    "expected": 111,
-   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
    "bounds": [
     556,
     190,
@@ -77,7 +77,7 @@
    ],
    "reportedHeight": 489,
    "expected": 489,
-   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
    "bounds": [
     219,
     368,
@@ -118,9 +118,9 @@
     "height": 167,
     "bottom": 420,
     "right": 971,
-    "changed": 5704
+    "changed": 5719
    },
-   "cutShare": 0.16693442383525636,
+   "cutShare": 0.16474368336497736,
    "file": "raw-captures-ignored/panel-c-occlusion-ford.png"
   }
  ],
@@ -147,7 +147,7 @@
     "height": 279,
     "bottom": 588,
     "right": 1847,
-    "changed": 23537
+    "changed": 23652
    },
    "props": [],
    "maskedAbove": 588
@@ -157,7 +157,7 @@
   {
    "panel": "B",
    "room": "gulch_river",
-   "clock": 10.0755,
+   "clock": 10.2073,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -271,7 +271,7 @@
      "drawn": "art/actors/room-53-panner.png",
      "candidate": false,
      "loaded": true,
-     "hash": "13846a93e37acf189d3ccf838d910fe8188bb17d8b714f9342a4ed1550bc8905"
+     "hash": "872f792185ccef0d5c0145f8d6f3b1913d7ce46847d29e821343ff7cf78543cf"
     }
    ],
    "stubs": [],
@@ -279,15 +279,15 @@
    "controlWrites": [
     "enter(gulch_river)"
    ],
-   "capturedAt": "2026-11-09T20:06:02.949Z",
+   "capturedAt": "2026-11-09T20:11:53.563Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "9196770ca5d27fd28ebacd2590717d31431c49033d348f146fa309818d4ea479"
+   "hash": "7687d82d4b1ef9facc8220a72f9e88e9eff094c4bb21febda4d109a0eeca67df"
   },
   {
    "panel": "A",
    "room": "gulch_river",
-   "clock": 11.0755,
+   "clock": 11.3073,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -396,7 +396,7 @@
      "drawn": "art/actors/room-53-panner.png",
      "candidate": false,
      "loaded": true,
-     "hash": "13846a93e37acf189d3ccf838d910fe8188bb17d8b714f9342a4ed1550bc8905"
+     "hash": "872f792185ccef0d5c0145f8d6f3b1913d7ce46847d29e821343ff7cf78543cf"
     }
    ],
    "stubs": [],
@@ -405,7 +405,7 @@
     "enter(gulch_river)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-09T20:06:03.949Z",
+   "capturedAt": "2026-11-09T20:11:54.615Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "a00c7c14bea07c9cef0ec4c808e60a04f4a7378ae84b5c91274bbba5a3fb5a7f"
@@ -438,11 +438,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-09T20:06:11.284Z",
+ "at": "2026-11-09T20:12:01.904Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 634982,
+  "bytes": 635074,
   "panels": 5,
   "scale": 0.5
  }
