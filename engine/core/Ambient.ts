@@ -59,7 +59,7 @@ export interface Departing {
  * How far a figure's drawn frame reaches below its feet (`sprite.footRow`):
  * the frame's rows under the foot row, at the size it is drawn. 0 for a figure
  * standing on its frame's last row. The renderer and the staging checks place
- * a frame with this, so they agree on where every pixel lands (errata 199).
+ * a frame with this, so they agree on where every pixel lands (errata 201).
  */
 export function drawnBelowFeet(frameHeight: number, drawnHeight: number, footRow?: number): number {
   if (footRow === undefined) return 0;

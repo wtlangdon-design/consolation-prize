@@ -5419,7 +5419,7 @@ Tyler: "The three horses on main street are now a little too front and center an
   - `renders/room-02-main-street-horses.png`: night, with Thad walking past the horses and the pie woman in frame.
   - `renders/room-36-main-street-dawn-rail.png`: dawn, with Thad walking behind the empty rail.
 
-# 199 · THE HORSES TO THE RIGHT, AT A HORSE'S TRUE SIZE — TYLER, 2026-11-08
+# 201 · THE HORSES TO THE RIGHT, AT A HORSE'S TRUE SIZE — TYLER, 2026-11-08
 
 Tyler, of `renders/room-02-main-street-horses.png`: "Brightness is good. Maybe move them a bit to the right so they're not overlapping the bulletin board at all? And maybe slightly bigger since it looks like maybe Thad is their height standing next to them? I just want everything to scale correctly."
 

@@ -958,7 +958,7 @@
         385,
         227
       ],
-      "note": "Errata 187. Tyler, 2026-11-08: \"At dawn I think the horses should all be gone. Just the hitching post is there.\" Room 2's hitching rail, empty: cut from the night group's rest frame, at the engine's own scale for it, graded as the night draws it and then under the dawn's light (tools/art/hitching-rail-dawn.py). Its obstacle stays. Errata 198 moved the night group back to 1405,755, and the empty rail with it, re-cut at the scale the room's curve gives there. Errata 199 moved the night group right to 1470 and drew it at a horse's true size, its hooves on 746; the empty rail follows, re-cut at the new scale (385 x 227), its base line on 755, the foot of the night frame below the hooves."
+      "note": "Errata 187. Tyler, 2026-11-08: \"At dawn I think the horses should all be gone. Just the hitching post is there.\" Room 2's hitching rail, empty: cut from the night group's rest frame, at the engine's own scale for it, graded as the night draws it and then under the dawn's light (tools/art/hitching-rail-dawn.py). Its obstacle stays. Errata 198 moved the night group back to 1405,755, and the empty rail with it, re-cut at the scale the room's curve gives there. Errata 201 moved the night group right to 1470 and drew it at a horse's true size, its hooves on 746; the empty rail follows, re-cut at the new scale (385 x 227), its base line on 755, the foot of the night frame below the hooves."
     }
   ],
   "occlusionPlanes": [],

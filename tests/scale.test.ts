@@ -49,7 +49,7 @@ for (const anchor of anchors) {
 }
 
 /**
- * AN ANIMAL IS HELD TO THE MAN BESIDE IT (errata 199). Tyler, 2026-11-08, of
+ * AN ANIMAL IS HELD TO THE MAN BESIDE IT (errata 201). Tyler, 2026-11-08, of
  * Main Street's horses: "it looks like maybe Thad is their height standing
  * next to them ... I just want everything to scale correctly." An `animal` is
  * exempt from the standing man's 5%, so nothing held the horses' size: their

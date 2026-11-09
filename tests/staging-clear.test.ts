@@ -135,7 +135,7 @@ for (const roomId of built) {
     const drawn = one.sprite.figureHeight;
     const scale = drawn ? (man(one.x, one.y) * (one.sprite.stature ?? 1)) / drawn : 1;
     // Every pose, merged: a man is where any of his frames puts him.
-    // Its feet on its y, and what lies under them below it (sprite.footRow; errata 199), as the renderer draws it.
+    // Its feet on its y, and what lies under them below it (sprite.footRow; errata 201), as the renderer draws it.
     const masks = one.sprite.frames.map((frame) => maskOf(one.sprite.sheet, frame as [number, number, number, number], scale, one.x,
       one.y + drawnBelowFeet(frame[3], Math.max(1, Math.round(frame[3] * scale)), one.sprite.footRow)));
     return { ...one, masks };

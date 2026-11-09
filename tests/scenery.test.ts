@@ -30,7 +30,7 @@ test('main_street_dawn: the horses are gone, and the rail stands empty', async (
   assert.equal(layer.present.find((npc) => npc.id === 'hitching_horses'), undefined, 'no horses at dawn');
   const rail = (state.room.props ?? []).find((prop) => prop.id === 'hitching_rail');
   assert.ok(rail, 'the rail is a prop at dawn');
-  // The night group stands on its hooves (sprite.footRow, errata 199) and its frame reaches below them to the
+  // The night group stands on its hooves (sprite.footRow, errata 201) and its frame reaches below them to the
   // foot of the hay: the prop's base line is that foot, drawn at the rail's own height.
   const horses = content.ambient.get('hitching_horses')!;
   const below = drawnBelowFeet(horses.sprite!.frames[0]![3], rail.frame[3], horses.sprite!.footRow);

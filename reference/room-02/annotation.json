@@ -421,7 +421,7 @@
     44
    ],
    "keepsGroundAbove": true,
-   "note": "The hitching rail and its horses (errata 187, moved back by errata 198, moved right and sized by errata 199): a group on the ground he walks around, never through. The rect is the hooves', hay's and posts' footprint, from the drawn group (content/ambient/hitching-horses.json, hooves on 1470,746): errata 198's footprint [1226, 720, 332, 42] in the rest frame's own rows and columns, laid on the group as the engine now draws it (frame left 1278, the hay's foot on 755, 0.549 of a sheet pixel to a room pixel). The ground behind them stays walkable (keepsGroundAbove), as the dog's does, and he passes behind them there."
+   "note": "The hitching rail and its horses (errata 187, moved back by errata 198, moved right and sized by errata 201): a group on the ground he walks around, never through. The rect is the hooves', hay's and posts' footprint, from the drawn group (content/ambient/hitching-horses.json, hooves on 1470,746): errata 198's footprint [1226, 720, 332, 42] in the rest frame's own rows and columns, laid on the group as the engine now draws it (frame left 1278, the hay's foot on 755, 0.549 of a sheet pixel to a room pixel). The ground behind them stays walkable (keepsGroundAbove), as the dog's does, and he passes behind them there."
   }
  ],
  "lamps": [
@@ -585,7 +585,7 @@
    "facing": "back"
   }
  },
- "hotspotWalkToNote": "Errata 199. The point under the false fronts' centre, 1580,620, is behind the horses once they move right to clear the notice board (Tyler, 2026-11-08: \"move them a bit to the right so they're not overlapping the bulletin board at all\"): they would hide 55% of him there. The fronts run the whole street; he looks at them from 1700,620, 120 px on, past the paint's tail and clear of the trough.",
+ "hotspotWalkToNote": "Errata 201. The point under the false fronts' centre, 1580,620, is behind the horses once they move right to clear the notice board (Tyler, 2026-11-08: \"move them a bit to the right so they're not overlapping the bulletin board at all\"): they would hide 55% of him there. The fronts run the whole street; he looks at them from 1700,620, 120 px on, past the paint's tail and clear of the trough.",
  "onEnterScenes": [
   {
    "fromRef": "docs/57-puzzle-completion.md::## C3 · Manufacture a funeral",

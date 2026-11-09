@@ -2212,7 +2212,7 @@ export class Renderer {
     // her sheet happened to be drawn at, in every room, at every depth.
     const [drawW, drawH] = this.ambientSize(npc, width, height);
     const left = npc.x - Math.floor(drawW / 2);
-    // ITS FEET ON ITS y (AmbientFile.sprite.footRow; errata 199), and what lies under them below it.
+    // ITS FEET ON ITS y (AmbientFile.sprite.footRow; errata 201), and what lies under them below it.
     const top = npc.y - drawH + 1 + drawnBelowFeet(height, drawH, declared.footRow);
     const tint = this.tintAt(npc.x, npc.y);
     const grade = this.gradeFor(npc.id);

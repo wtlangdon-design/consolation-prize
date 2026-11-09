@@ -11,7 +11,7 @@ exactly the factor the engine draws the night group at -- the room's man at
 its feet times its stature, over its figureHeight, nearest-neighbour as the
 engine draws -- so the empty rail stands where the night rail stood, pixel for
 pixel (its base line is the frame's foot, below the horses' hooves when the
-group declares a foot row: errata 199). Then it is relit by the dawn plate's
+group declares a foot row: errata 201). Then it is relit by the dawn plate's
 ratio to the night's over the ground it stands on, as tools/art/room36-dawn.py
 lights the street.
 
@@ -91,7 +91,7 @@ def main():
     scale = man_at('main_street_dawn', npc['x'], npc['y']) * sprite['stature'] / sprite['figureHeight']
     size = (round(w * scale), round(h * scale))
     rail = Image.fromarray(rest, 'RGBA').resize(size, Image.NEAREST)
-    # The group's feet are its foot row, on its y (errata 199); the frame reaches below them by the rows under it,
+    # The group's feet are its foot row, on its y (errata 201); the frame reaches below them by the rows under it,
     # as the engine draws it (engine/core/Ambient.ts drawnBelowFeet). The prop's base line is the frame's foot.
     foot = sprite.get('footRow', h - 1)
     base = npc['y'] + round((h - 1 - foot) * size[1] / h)
