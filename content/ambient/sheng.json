@@ -71,8 +71,10 @@
    ]
   ],
   "figureHeight": 304,
-  "stature": 0.96,
-  "statureNote": "Slight (doc 04 gives no build; the master drew him a little under Thad); inside the 5% a standing man is held to (tests/scale.test.ts).",
+  "stature": 0.98,
+  "statureNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). Stature 0.98: still a little under Thad, as the master drew him, but inside the 3% (was 0.96: 0.958 of Thad).",
+  "levelMan": 316.666667,
+  "levelManNote": "ERRATA 235: the man its sheet was snapped to one level at (errata 112 G), kept while it is drawn at its new height without a re-snap; the drift is held to 5% (tests/one-level.test.mjs).",
   "rate": 0.25,
   "phase": 0.2,
   "breaks": [

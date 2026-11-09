@@ -1,0 +1,8 @@
+Image 1 is a TEMPLATE: seven mourners at a funeral in my pixel-art adventure game, EXACTLY as they are drawn in the game, standing together as one group, three times in a row on magenta. Image 2 is their whole current sheet, for their faces, hair and clothes only.
+
+Repaint Image 1. LEAVE THE FIRST GROUP EXACTLY AS IT IS. Repaint the other two as the SAME seven people in the SAME places, KEEPING EVERY FIGURE -- the same height, the same head size, the same clothes, the same feet on the same line, the old woman's cane and the hats held as they are -- and changing ONLY their heads and eyes:
+2. every one of them praying: heads bowed forward and down, eyes shut;
+3. the same, heads bowed and eyes shut, except ONE of them -- the young man with spectacles at the right of the group -- who keeps his head bowed but has one eye open, peeking sideways.
+Nothing else changes: no hands moved, no one turned, no one added.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as Image 1 -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background, every group separated by clear magenta, nothing touching. No glow, no blur, no shadows, no ground, no text, no numbers, no border.

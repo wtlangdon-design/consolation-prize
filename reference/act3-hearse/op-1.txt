@@ -1,0 +1,13 @@
+Image 1 is a TEMPLATE on magenta: three rows, and at the right end of each row the hero of my pixel-art adventure game, Thad, EXACTLY as he is drawn in the game, standing facing left. He is the RULER for size. Leave him exactly as he is in every row. Image 2 is Thad in the game's Boot Hill at night, for the light and the style. Image 3 is the black hearse and the black mule Grievance as they are drawn at the town's funeral, for what they look like.
+
+In each of the three rows, to the LEFT of Thad, draw the SAME funeral hitch, as one cut-out figure standing on the row's ground line (the line Thad's boots stand on), with clear magenta between it and Thad:
+- GRIEVANCE, the black mule from Image 3, in her black harness with brass fittings, the black feather plume on her head and a black ribbon plaited into her mane. She faces RIGHT, toward Thad, hitched between the shafts of the hearse. She stands square on all four legs, planted: she will not move. Her withers are three quarters of Thad's height; her long ears reach a little above his head.
+- Behind her, on the LEFT, the HEARSE from Image 3: black lacquer, brass carriage lamps at the front corners, the black plume on the roof, tall glass sides, black spoked wheels. Its curtains are DRAWN closed inside the glass. Where the curtains do not quite meet, the END OF A PALE PINE COFFIN shows through the glass: the coffin is INSIDE the hearse. No coffin outside it, no trestles, no lid, no ground or grass.
+
+The three rows differ ONLY in the mule's head and legs:
+1. her head turned back a little over her shoulder, toward the hearse behind her: she is not fooled;
+2. her head turned FULLY back over her shoulder, looking straight at the hearse;
+3. as row 1, with one front hoof lifted, stamping once.
+The hearse is identical in all three rows.
+
+Night light, as Image 2: dark blue-black, soft, with the brass catching a little warm light. No blue rim or glow around the edges. The same size of square pixel, the same soft, flat shading, low texture and dark outline as Thad -- NOT sharper, NOT more detailed. Flat pure magenta (#FF00FF) background everywhere else, nothing touching. No shadows, no ground, no text, no numbers, no border.

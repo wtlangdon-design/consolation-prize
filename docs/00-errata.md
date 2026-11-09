@@ -6340,3 +6340,48 @@ Lesson:
 - `tests/scale-vs-thad.test.mjs` measures every visible figure's on-screen pixels against Thad at the same soles. It holds a standing adult, and a group's tallest adult, to 0.95–1.05. Any other range in `content/scale-anchors.json` `figures` must cite a ruling.
 - It puts back three of these defects and requires each to fail. `tests/scale.test.ts` passed all three.
 - Reverting the panner's fix fails it.
+
+# 235 · EVERYONE WITHIN 3% OF THAD; THE SIGN PAINTER RE-CUT; THREE RE-SNAPS — TYLER, 2026-11-09 ("1 - yes", "2 - yes", "3 - you decide", "4 - you decide")
+
+Errata 234's open questions, answered:
+- **1, the sign painter's recut: "yes".**
+- **2, re-snap Ozymandia, the panner and the duel crowd: "yes".**
+- **3, tighten to 3%: "you decide".** The decision is yes. At Boot Hill's gate Sowerby was 1.044 of Thad, inside errata 234's 5%, and that was the frame Tyler called "much smaller than everyone else".
+- **4, Thad: "you decide".** The decision is no change. Thad is drawn at the curve in every room, so the other figures are fixed instead.
+
+What changed:
+- **The sign painter** was 0.80 of Thad, now 1.00.
+  - `tools/art/sign-painter.py` now scales him by his own crown-to-sole (726), not the hero's height on the generation sheet (935). The generator drew him about 0.8 of the hero.
+  - At his true size the ladder needs only 246 rows under his soles, not 528 (the old cut lengthened the drawn ladder by 289; this one shortens it by 14). His brush still lands on the board's number line (y 462).
+  - The run is deterministic from the staging sheet. The old script, re-run, reproduces the shipped sheet to the pixel.
+  - He is snapped to one level at his own height.
+- **Re-snapped at their true heights**, with `levelMan` gone:
+  - the panner: 350, 1.00 of Thad;
+  - Ozymandia: 342 at her stature 0.96, which is 0.96 of Thad. Tyler's "yes" to that size is recorded as her range in `content/scale-anchors.json` (0.93–0.99);
+  - the duel crowd: 197; its tallest man is 0.99 of Thad.
+  - The duel crowd is snapped from its pre-snap drawing in git.
+  - The panner and Ozymandia had no pre-snap drawing, so they use `tools/art/one-level.py --resnap`. It samples each new block from the old drawing instead of averaging it. Averaging smeared the panner's face (his eyes went).
+- **The tolerance is now 3%** (`tools/audit-scale-vs-thad.mjs`). Eleven figures failed it. Ozymandia is above. These are fixed in data:
+  - **Heights read under the hat** (crown to sole from eyes and chin):
+    - the map seller: 160 → 153;
+    - the bell ringer: 254.6 → 265, because the old figure took the whole bowler off;
+    - the man upstream: 293 → 282;
+    - Fanshawe at the duel: 352 → 364;
+    - the fiddler: 288 → 284, so 0.98 of Thad. His crown to sole is 279, but at 279 the stage lamp's pool would reach far enough that, ungraded, he would slip 1% under the brightness limit and his grade would hold nothing (`tests/figure-light.test.mjs`).
+  - **The man on the ladder is graded into the dawn** (`figureLight` brightness 0.95 in `content/rooms/coach-stop-dawn.json`). Re-cut with less ladder, his frame measured 1.15 of Thad's light against the limit of 1.12. Graded, it is 1.09.
+  - **Statures moved into the band, keeping their direction:**
+    - Sheng: 0.96 → 0.98;
+    - Hob at the funeral: 1.04 → 1.02;
+    - the two boarding-house women: 0.97 → 0.98.
+  - Each of these declares `levelMan`. The drift from its snapped level is 2–5%, inside the cap. So no re-snap.
+- **Now:** all 44 held figures are inside their range.
+  - The lowest are Pratt and Ozymandia, each at their ruled 0.96.
+  - The rest run from 0.972 to 1.025.
+- **Rulings respected:** Pratt's 0.96 (Tyler, 2026-11-06) and the Nugget's curve anchors are unchanged. Deke's ruled sizes measure 1.00.
+- **The coach stop now has a proof spec** (`proofs/spec/coach-stop-dawn.json`). It is reached from fixture r36-a by control, and the close blacks it out. Panel B shows the painter beside Thad.
+
+Lesson:
+- `tests/scale-vs-thad.test.mjs` holds 0.97–1.03.
+- It now also puts back Sowerby as a 1:1 sheet at the gate (1.04) and Sheng at 0.96. Both passed errata 234's 5%, and both fail here.
+- Reverting Sheng's stature fails it: "0.958x; held to 0.97-1.03".
+- `tests/one-level.test.mjs` checks every re-snapped sheet at its true height.

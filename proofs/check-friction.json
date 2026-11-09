@@ -559,6 +559,12 @@
    "date": "2026-11-09",
    "kind": "loosened",
    "why": "Errata 234: six sheets redrawn at Thad's height by their data (figureHeight) without re-snapping their pixels -- Sowerby's two, the mourners, Pratt's three -- and three partway (the duel crowd, the panner, Ozymandia). Each declares `levelMan`, the man its grid was snapped at; the grid is checked there, and a new assertion holds every such sheet's art pixels within 5% of the level, past which it must be re-snapped (tools/art/one-level.py). Not a misfire: the two rulings (one level, errata 112 G; Thad's height, errata 234) pull 2-8% apart on these sheets until their pixels are re-snapped, which is Tyler's to order."
+  },
+  {
+   "check": "tests/scale-vs-thad.test.mjs",
+   "date": "2026-11-09",
+   "kind": "loosened",
+   "why": "Errata 235: TIGHTENED, not loosened -- the tolerance went from 5% to 3% (Tyler, 2026-11-09, '3 - you decide'), and the put-back defects gained Sowerby at the gate and Sheng at 0.96; the friction check reads any changed number in a check as a loosening. The one exception added is Ozymandia's ruled range (0.93-0.99, Tyler's '2 - yes' to her re-snap at stature 0.96) in content/scale-anchors.json, beside Pratt's ruled range."
   }
  ]
 }

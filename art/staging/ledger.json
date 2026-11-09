@@ -43584,6 +43584,484 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-09T05:29:27.207Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "act3-hearse",
+   "subject": "act3-hearse-grievance-hitch",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/props/room-31-hearse.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/act3-hearse/op-1.txt",
+   "promptHash": "d062113787ee07e99a154e6438ca6bb99d2b61a52b0616b145db27a06f3fd535",
+   "references": [
+    {
+     "path": "art/staging/act3-hearse/op-1/template.png",
+     "hash": "28cbdcc6bff5af4524582acf3761ab2924a7e6136f63c65312e20cde86886eea",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act3-hearse/op-1/thad-in-room-14.png",
+     "hash": "c2ec20ad635b9de37822a34847b3a2f7df281581b8818e0714a032cac67d4f3b",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act3-hearse/op-1/room-31-hearse-and-grievance.png",
+     "hash": "c3136b0bdf7b51d072ea394fc354d9271422af4ab125bc172d0d18c6450200ee",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-14-boot-hill",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-01-stage-road)",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "28cbdcc6bff5af4524582acf3761ab2924a7e6136f63c65312e20cde86886eea",
+   "sourcePath": "art/staging/act3-hearse/op-1/template.png",
+   "out": "art/staging/act3-hearse/op-1/sheet.png",
+   "outputHash": "49bf0637099714ed1d803e06bfa22872ae2889a76a9cabcb713b282c11ac9c43",
+   "bytes": 1593843,
+   "usage": {
+    "input_tokens": 10006,
+    "input_tokens_details": {
+     "image_tokens": 9456,
+     "text_tokens": 550
+    },
+    "output_tokens": 780,
+    "output_tokens_details": {
+     "image_tokens": 780,
+     "text_tokens": 0
+    },
+    "total_tokens": 10786
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-09T19:00:59.253Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-09T19:00:59.266Z"
+  },
+  {
+   "attempt": 2,
+   "role": "canonical-design",
+   "assetId": "act3-hearse",
+   "subject": "act3-hearse-mourners-bowed",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": "art/actors/room-31-mourners-master.png",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/act3-hearse/op-2.txt",
+   "promptHash": "61decedda96a56a794ccf1a35e9bdcc7dcb4534c6ecbd69080a83da51934859e",
+   "references": [
+    {
+     "path": "art/staging/act3-hearse/op-2/template.png",
+     "hash": "12afd0e4606532475cbc3133d5a89766e8e5678d9c0102eb5706c758feee9339",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act3-hearse/op-2/current.png",
+     "hash": "0aae0bb9eab66ebdb1116a8692d5d84152814321a9baf79b68731ae3aa2434b1",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-14-boot-hill",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-01-stage-road)",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "12afd0e4606532475cbc3133d5a89766e8e5678d9c0102eb5706c758feee9339",
+   "sourcePath": "art/staging/act3-hearse/op-2/template.png",
+   "out": "art/staging/act3-hearse/op-2/sheet.png",
+   "outputHash": "140b3b8c0af596547f53e7eb5c8bdf7a4fd7e2512f2f42a2848faf0847e1d423",
+   "bytes": 1496027,
+   "usage": {
+    "input_tokens": 8834,
+    "input_tokens_details": {
+     "image_tokens": 8536,
+     "text_tokens": 298
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 10385
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-09T19:06:19.605Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-09T19:06:19.615Z"
+  },
+  {
+   "attempt": 3,
+   "role": "derived-state",
+   "assetId": "act3-hearse",
+   "subject": "act3-hearse-grievance-hitch",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 1,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/act3-hearse/op-3.txt",
+   "promptHash": "42ec2ad3601fadc481a2f98cf775e802aa91b5206e51b36992a26cf0b4dcc725",
+   "references": [
+    {
+     "path": "art/staging/act3-hearse/op-3/input.png",
+     "hash": "79d21c75963c3e19e6ed2262a7d7a11c9f07f61ef57f0d9efd1f561b977129e9",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/act3-hearse/op-1/room-31-hearse-and-grievance.png",
+     "hash": "c3136b0bdf7b51d072ea394fc354d9271422af4ab125bc172d0d18c6450200ee",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-14-boot-hill",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-01-stage-road)",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/act3-hearse/op-3/mask.png",
+    "hash": "a24117c7de6a1d8fbb9843addc03d470936a7098a1944a4515bf60bd51b0050a"
+   },
+   "sourceHash": "79d21c75963c3e19e6ed2262a7d7a11c9f07f61ef57f0d9efd1f561b977129e9",
+   "sourcePath": "art/staging/act3-hearse/op-3/input.png",
+   "out": "art/staging/act3-hearse/op-3/sheet.png",
+   "outputHash": "47e8cb0a65b6fc014a28d2a06414cbda410ecdfc198e44e8875b89870ee615f1",
+   "bytes": 1602371,
+   "usage": {
+    "input_tokens": 8267,
+    "input_tokens_details": {
+     "image_tokens": 7948,
+     "text_tokens": 319
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 8700
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-09T19:26:23.293Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-09T19:26:23.309Z"
+  },
+  {
+   "attempt": 4,
+   "role": "derived-state",
+   "assetId": "act3-hearse",
+   "subject": "act3-hearse-grievance-hitch",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 1,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/act3-hearse/op-4.txt",
+   "promptHash": "9df24fee251b7715da192b5af8b3d2d3341f818a050ca5cf9d65747120c9db70",
+   "references": [
+    {
+     "path": "art/staging/act3-hearse/op-4/input.png",
+     "hash": "79d21c75963c3e19e6ed2262a7d7a11c9f07f61ef57f0d9efd1f561b977129e9",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-14-boot-hill",
+    "purpose": "room-art",
+    "visualType": "exterior-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "770f2b65d4803e6db5467cf3f00c72d80e0c2cc10c9661db1b41635691909fce",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-01-stage-road)",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/act3-hearse/op-4/mask.png",
+    "hash": "4db2a087fe12794fdc2195da516d9ec67300027ba4eed727bdfe1bb6afa1f9ad"
+   },
+   "sourceHash": "79d21c75963c3e19e6ed2262a7d7a11c9f07f61ef57f0d9efd1f561b977129e9",
+   "sourcePath": "art/staging/act3-hearse/op-4/input.png",
+   "out": "art/staging/act3-hearse/op-4/sheet.png",
+   "outputHash": "f9b13032e93d0a565f7169d8425cd1f37ee38d9b19baf156f974bdea1232fbc3",
+   "bytes": 1575247,
+   "usage": {
+    "input_tokens": 7347,
+    "input_tokens_details": {
+     "image_tokens": 7084,
+     "text_tokens": 263
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 8898
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-09T19:30:55.324Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, errata 72 C: four operations per room under one asset id",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-09T19:30:55.335Z"
   }
  ],
  "promotions": [

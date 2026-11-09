@@ -99,11 +99,9 @@
   "breakEvery": 7,
   "frameNote": "0 the rod held at her waist, its point to the ground, her head bowed over it · 1 breath · 2 the rod tilting a little further down · 3 her head lowered further · 4 the rod dipping, her weight shifted forward onto it. Breathing on 0 and 1; every `breakEvery` seconds one break (errata 77).",
   "provenance": "reference/ozymandia-prosperity/op-01.spec.json",
-  "figureHeight": 353,
+  "figureHeight": 342,
   "stature": 0.96,
   "statureNote": "A little under Thad, as her tent design is drawn beside him: 0.96 of the room's man, crown to sole.",
-  "figureHeightNote": "ERRATA 234. Her true crown to sole, under her plumed hat (read from her eyes and chin, content/scale-anchors.json `figures`), is 342; at 368 she was drawn 0.89 of Thad, not her stature's 0.96. 353 is as far as the data can take her while her sheet keeps its snap to one level (errata 112 G; `levelMan`, within 5%): 0.93 of Thad, still short, and recorded for Tyler (`knownWrong`). 342 needs the sheet re-snapped by tools/art/one-level.py first.",
-  "levelMan": 383.3333,
-  "levelManNote": "ERRATA 234: the man her sheet was snapped to one level at (figureHeight 368 over stature 0.96), kept while she is drawn at 353. Her art pixels are 1.04 of the level's (tests/one-level.test.mjs)."
+  "figureHeightNote": "ERRATA 235 (Tyler, 2026-11-09: everyone within 3% of Thad). Crown to sole under her plumed hat, read from her eyes and chin: 342 at her stature 0.96, the sheet re-snapped to one level there (tools/art/one-level.py; Tyler, 2026-11-09, \"2 - yes\"). Was 368 (0.89 of Thad), then 353 as far as the old snap allowed (0.93)."
  }
 }

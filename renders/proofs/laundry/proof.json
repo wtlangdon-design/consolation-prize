@@ -3,8 +3,8 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "laundry",
  "roomWidth": 1920,
- "branch": "ccr-347d40c6-71r9f9",
- "commit": "a515b4ce440d379240ab69beb62e33ef509dac9a",
+ "branch": "everyone-within-3",
+ "commit": "43dc9bb688036ae10ff1f097b9006ab03a9d1004",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -45,11 +45,11 @@
    ],
    "reportedHeight": 331,
    "expected": 331,
-   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
    "bounds": [
-    778,
+    774,
     370,
-    343,
+    351,
     365
    ],
    "order": 0,
@@ -82,15 +82,15 @@
    ],
    "reportedHeight": 437,
    "expected": 437,
-   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
    "bounds": [
-    723,
+    718,
     420,
-    453,
+    463,
     482
    ],
    "order": 0,
-   "renderedHeight": 457,
+   "renderedHeight": 437,
    "renderedBottom": 856,
    "file": "raw-captures-ignored/panel-c-mud_near-near.png"
   }
@@ -104,22 +104,22 @@
     1177,
     690
    ],
-   "sheet": "art/actors/room-28-sheng.png",
+   "sheet": "art/actors/room-28-sheng-master.png",
    "clipPlane": null,
    "box": {
-    "x": 1031,
-    "y": 383,
-    "width": 292,
-    "height": 309
+    "x": 1087,
+    "y": 380,
+    "width": 180,
+    "height": 312
    },
    "seen": {
-    "x": 1031,
-    "y": 383,
-    "width": 279,
-    "height": 307,
-    "bottom": 689,
-    "right": 1309,
-    "changed": 28192
+    "x": 1087,
+    "y": 380,
+    "width": 177,
+    "height": 311,
+    "bottom": 690,
+    "right": 1263,
+    "changed": 24654
    },
    "props": []
   }
@@ -128,7 +128,7 @@
   {
    "panel": "B",
    "room": "laundry",
-   "clock": 9.2214,
+   "clock": 10.2586,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -151,18 +151,32 @@
     "T_TONIC_ON_ACCOUNT",
     "T_BLANKET_BORROWED",
     "T_PRATT_PAID",
-    "T_SEEN_CLAIMS_ROAD"
+    "T_SEEN_CLAIMS_ROAD",
+    "T_CUTAWAY_CLARION"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
-    "PRATT_OFFERS": 0
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
    },
    "inventory": [
     "tuning_fork",
@@ -182,9 +196,9 @@
      "drawn": "sprite",
      "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
-      57,
+      53,
       399,
-      405,
+      414,
       432
      ],
      "order": 0,
@@ -204,12 +218,12 @@
      "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
     },
     {
-     "key": "art/actors/room-28-sheng.png",
-     "path": "art/actors/room-28-sheng.png",
-     "drawn": "art/actors/room-28-sheng.png",
+     "key": "art/actors/room-28-sheng-master.png",
+     "path": "art/actors/room-28-sheng-master.png",
+     "drawn": "art/actors/room-28-sheng-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+     "hash": "8ba4590bb2084ed9f49d58532304fd4b210d0228ab01ee9f7624d6bfedbde342"
     }
    ],
    "stubs": [],
@@ -217,15 +231,15 @@
    "controlWrites": [
     "enter(laundry)"
    ],
-   "capturedAt": "2026-11-05T20:38:21.861Z",
+   "capturedAt": "2026-11-09T20:09:32.561Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "4ca591d53da57e22e609ae5ccaa67faadf27761ef0b17c5232e1782184b68402"
+   "hash": "8faee2adfb8fc3c5dd76ed819ee4a6482c13d0155cdd03760ff251ba62569812"
   },
   {
    "panel": "A",
    "room": "laundry",
-   "clock": 10.071299999999999,
+   "clock": 11.291799999999999,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -248,18 +262,32 @@
     "T_TONIC_ON_ACCOUNT",
     "T_BLANKET_BORROWED",
     "T_PRATT_PAID",
-    "T_SEEN_CLAIMS_ROAD"
+    "T_SEEN_CLAIMS_ROAD",
+    "T_CUTAWAY_CLARION"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
-    "PRATT_OFFERS": 0
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
    },
    "inventory": [
     "tuning_fork",
@@ -296,12 +324,12 @@
      "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
     },
     {
-     "key": "art/actors/room-28-sheng.png",
-     "path": "art/actors/room-28-sheng.png",
-     "drawn": "art/actors/room-28-sheng.png",
+     "key": "art/actors/room-28-sheng-master.png",
+     "path": "art/actors/room-28-sheng-master.png",
+     "drawn": "art/actors/room-28-sheng-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+     "hash": "8ba4590bb2084ed9f49d58532304fd4b210d0228ab01ee9f7624d6bfedbde342"
     }
    ],
    "stubs": [],
@@ -310,15 +338,15 @@
     "enter(laundry)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-05T20:38:22.705Z",
+   "capturedAt": "2026-11-09T20:09:33.556Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "bf2233e370d7e114a93c1cd415fc57a7d9ea35da8a353bb7abbca25371ddde8f"
+   "hash": "627728c522ec40c098d47824ec19bbb0404b5cd51abe4e090ad65362b23e2877"
   },
   {
    "panel": "D",
    "room": "laundry",
-   "clock": 20.304299999999998,
+   "clock": 39.1074,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -342,18 +370,33 @@
     "T_BLANKET_BORROWED",
     "T_PRATT_PAID",
     "T_SEEN_CLAIMS_ROAD",
-    "T_SHENG_HOLDS_PAPER"
+    "T_SHENG_HOLDS_PAPER",
+    "T_SHENG_PAPER_HEARD",
+    "T_CUTAWAY_CLARION"
    ],
    "counters": {
     "HARNESS_PUSH_COUNT": 0,
     "T_DRIVER_ASKED": 3,
     "ACT": 2,
+    "T_DUEL_TWO_LOSSES": 0,
     "T_NUGGET_PIANO_PAID": 0,
     "MISSPELLINGS_SEEN": 0,
     "WAR_CONTRADICTIONS": 0,
+    "HOB_RUNNING": 0,
     "SOWERBY_ADJECTIVES": 0,
     "RACCOON_NAME": 0,
-    "PRATT_OFFERS": 0
+    "PRATT_OFFERS": 0,
+    "PICK_SWINGS": 0,
+    "F5_LAID": 0,
+    "EXIT_TURN": 0,
+    "MINE_BACK_AGAIN": 0,
+    "ROD_AT_LINE": 0,
+    "LOOKOUT_STOPS": 0,
+    "LOOKOUT_BARKS_BEFORE_G3": 0,
+    "LOOKOUT_BARKS_AFTER_G3": 0,
+    "RULE_KEEPER_BARKS": 0,
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
    },
    "inventory": [
     "tuning_fork",
@@ -371,11 +414,11 @@
      "height": 378,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
-      734,
+      730,
       392,
-      392,
+      400,
       417
      ],
      "order": 0,
@@ -395,12 +438,12 @@
      "hash": "f93951ca14b4cccd7036ae73f9214e292b77d598c21c0bd85d2ac583bd92d40b"
     },
     {
-     "key": "art/actors/room-28-sheng.png",
-     "path": "art/actors/room-28-sheng.png",
-     "drawn": "art/actors/room-28-sheng.png",
+     "key": "art/actors/room-28-sheng-master.png",
+     "path": "art/actors/room-28-sheng-master.png",
+     "drawn": "art/actors/room-28-sheng-master.png",
      "candidate": false,
      "loaded": true,
-     "hash": "cf3e72bc2a39983dc7132613f8e038fe4711255be62d8723532b35899cd14d65"
+     "hash": "8ba4590bb2084ed9f49d58532304fd4b210d0228ab01ee9f7624d6bfedbde342"
     }
    ],
    "stubs": [],
@@ -409,17 +452,19 @@
     "enter(laundry)",
     "cast(false)",
     "cast(true)",
+    "bystanders(false)",
     "stand(950,701)",
     "cast(false)",
     "cast(true)",
     "stand(950,857)",
     "cast(false)",
-    "cast(true)"
+    "cast(true)",
+    "bystanders(true)"
    ],
-   "capturedAt": "2026-11-05T20:38:32.921Z",
+   "capturedAt": "2026-11-09T20:10:01.392Z",
    "intent": "principal changed state: T_SHENG_HOLDS_PAPER (doc 04 SHE_A1 option 1). Visible consequence: SHE_D1's options -- the ledger, the loan's question, his three topics.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "7efb399d338a9154a7e07667490fe8b5e6efad48cc8978a828272450f3346ebd",
+   "hash": "80fa342fd88da3aa6e3b727b415f67cec4facf73ddfe229dad93a2931043be47",
    "changedBy": "flags"
   }
  ],
@@ -450,11 +495,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-05T20:38:32.921Z",
+ "at": "2026-11-09T20:10:01.392Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 359326,
+  "bytes": 349218,
   "panels": 5,
   "scale": 0.5
  }
