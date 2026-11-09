@@ -1,0 +1,8 @@
+Image 1 is a sheet from my pixel-art adventure game: the same black hearse and the black mule Grievance three times, with the hero Thad at the right of each row as a ruler. Only the clear areas of the mask may change: Grievance's head, ears, neck and mane in each row. Image 2 is the hearse and Grievance as they are drawn at the town's funeral.
+
+In each of the three rows, change ONLY these two things, and keep everything else exactly as it is:
+1. HER EARS LONGER: a mule's long ears, upright, their tips reaching up level with the top of Thad's head in that row. Keep her head where it is and turned the same way as now in each row: a little back toward the hearse in row 1, fully back in row 2, a little back in row 3.
+2. A BLACK RIBBON plaited into her mane along the top of her neck, as at the funeral: a narrow black ribbon woven through the mane, its ends showing a little.
+Keep the black feather plume on her head, the bridle with its brass fittings and the collar exactly as they are.
+
+The same size of square pixel, the same soft, flat shading, low texture and dark outline as the rest of the picture -- NOT sharper, NOT more detailed. Night light. Flat pure magenta (#FF00FF) everywhere around her, nothing touching. No glow, no text, no border.
