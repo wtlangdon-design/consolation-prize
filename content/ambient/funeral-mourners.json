@@ -72,6 +72,11 @@
   "talkFrame": 0,
   "frameNote": "0 watching the grave, hats held · 1 breath (derived) · 2-4 a different two or three of them shifting their weight.",
   "provenance": "reference/cast-unify-28.spec.json",
-  "redrawn": "Errata 111 W (Tyler, 2026-11-06). Seven distinct mourners drawn on magenta by cast-unify 30 (reference/cast-unify-28.txt), every man holding his hat (doc 10), each measured and turned to look LEFT toward the grave, standing at his own spot on the hill at its depth curve inside THE MOURNERS hotspot, composed and relit into the night by tools/art/room31-mourners.py. The old group faced the camera."
+  "redrawn": "Errata 111 W (Tyler, 2026-11-06). Seven distinct mourners drawn on magenta by cast-unify 30 (reference/cast-unify-28.txt), every man holding his hat (doc 10), each measured and turned to look LEFT toward the grave, standing at his own spot on the hill at its depth curve inside THE MOURNERS hotspot, composed and relit into the night by tools/art/room31-mourners.py. The old group faced the camera.",
+  "figureHeight": 361,
+  "stature": 1,
+  "figureHeightNote": "ERRATA 234. A group, drawn so its tallest adult -- the young man at the left, hat in his hands, standing 46 px behind the group's foot -- is Thad's height where he stands (content/scale-anchors.json `figures`; tools/solve-figure-height.mjs). It is not anyone's crown to sole: it is the height that draws him at the curve's man at his own soles. Was a 1:1 sheet with him at 1.03 of Thad.",
+  "levelMan": 350,
+  "levelManNote": "ERRATA 234: the man the sheet was snapped to one level at (errata 112 G: this room's man at the group's foot, y 664), kept while it is drawn at 361. Its art pixels are 0.97 of the level's (tests/one-level.test.mjs)."
  }
 }

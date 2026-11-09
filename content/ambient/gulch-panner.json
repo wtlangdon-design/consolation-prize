@@ -80,9 +80,11 @@
   "talkFrame": 5,
   "provenance": "art/staging/room-53/panner/panner.json",
   "frameNote": "0 rest, panning · 1 breath · 2 the swirl · 3 a look upstream · 4 his hand closed against his chest · 5 talking, a finger raised.",
-  "figureHeight": 377,
+  "figureHeight": 361,
   "stature": 1,
-  "figureHeightNote": "The room's man at his feet (soles y 690, on the river bed): cut and snapped there by tools/art/interiors-people.py (errata 112's one level). The engine draws him at the room's man there, so he stands at the curve; the water is the room's, a clip plane, not his."
+  "figureHeightNote": "ERRATA 234. His true crown to sole, under his low-pulled hat (read from his eyes and chin, content/scale-anchors.json `figures`), is 350; at 377, the hat's top to his soles, he was drawn 0.93 of Thad. 361 is as far as the data can take him while his sheet keeps its snap to one level (errata 112 G; `levelMan`, within 5%): 0.97 of Thad. 350 needs the sheet re-snapped by tools/art/one-level.py first.",
+  "levelMan": 377,
+  "levelManNote": "ERRATA 234: the man his sheet was snapped to one level at (figureHeight 377), kept while he is drawn at 361. His art pixels are 1.04 of the level's (tests/one-level.test.mjs)."
  },
  "barksNote": "EXTRACTED from docs/109-fiddlers-gulch-lines.md (### THE PANNER) by tools/extract-content.mjs. Do not edit: change doc 109 and re-run. Said on approach, one a visit, in turn, the same in every reputation state.",
  "barkTurns": [

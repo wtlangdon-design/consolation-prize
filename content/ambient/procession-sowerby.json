@@ -78,7 +78,12 @@
   "breaksThatSpeak": [
    0
   ],
-  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one). Drawn in day colours and relit into the funeral's night where he stands (tools/art/room31-relight-one.py), as the rest of that cast is."
+  "redrawn": "Errata 111 (Tyler, 2026-11-06): drawn from the locked cast master, cast-unify operation 20 (reference/cast-unify-18.txt); cut with its own pixels and a clean edge; its own file (the room scripts write the old one). Drawn in day colours and relit into the funeral's night where he stands (tools/art/room31-relight-one.py), as the rest of that cast is.",
+  "figureHeight": 314,
+  "stature": 1,
+  "figureHeightNote": "ERRATA 234 (Tyler, 2026-11-09, of this frame: \"Thad looking much smaller than everyone else\"). Crown to sole of the rest frame (the raised finger is below his crown). He was a 1:1 sheet, 314 tall where Room 14's man is 301: 1.04 of Thad beside him. Now drawn at the room's man at his feet, as Thad is.",
+  "levelMan": 308,
+  "levelManNote": "ERRATA 234: the man his sheet was snapped to one level at (errata 112 G: Room 31's man where he stands, 308), kept while he is drawn at 314. His art pixels are 1.02 of the level's (tests/one-level.test.mjs)."
  },
  "barkTurns": [
   {

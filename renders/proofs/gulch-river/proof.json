@@ -3,53 +3,11 @@
  "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
  "room": "gulch_river",
  "roomWidth": 1920,
- "branch": "ccr-347d40c6-71r9f9",
- "commit": "a233c140b22f2152a62909c1c42204eb599287d6",
- "workingTreeClean": false,
- "dirtyAllowed": true,
- "uncommitted": [
-  "M art/staging/ledger.json",
-  " M content/acted-directions.json",
-  " M content/ambient/gulch-deacon.json",
-  " M content/ambient/gulch-rule-keeper.json",
-  " M content/assay/assay.json",
-  " M content/audio/sounds.json",
-  " M content/dialogue/gulch-deacon.json",
-  " M content/fixtures/room-45.json",
-  " M content/flags/flags.json",
-  " M content/manifest.json",
-  " M content/ui/speech-colours.json",
-  " M docs/95-acted-directions.md",
-  " M engine/core/Assay.ts",
-  " M engine/core/DialoguePerformance.ts",
-  " M engine/core/DialogueRunner.ts",
-  " M engine/core/types.ts",
-  " M engine/scenes/GameScene.ts",
-  " M tests/gulch-grog-tent.test.ts",
-  " M tests/lessons.test.ts",
-  " M tools/art/interiors-people.py",
-  " M tools/audio/render-gulch-sfx.py",
-  " M tools/compile-room.mjs",
-  " M tools/extract-content.mjs",
-  " M tools/extract-examine.mjs",
-  "?? art/actors/room-53-panner.png",
-  "?? art/masks/room-53-plane-1.png",
-  "?? art/masks/room-53-plane-2.png",
-  "?? audio/sfx/bar-pebble.wav",
-  "?? audio/sfx/river-bed.wav",
-  "?? content/ambient/gulch-panner.json",
-  "?? content/dialogue/gulch-panner.json",
-  "?? content/examine/room-53.json",
-  "?? content/rooms/gulch-river.json",
-  "?? proofs/spec/gulch-river.json",
-  "?? reference/room-53/annotation.json",
-  "?? reference/room-53/prompts/panner-01.spec.json",
-  "?? reference/room-53/prompts/panner-01.txt",
-  "?? renders/proofs/gulch-river/",
-  "?? renders/room-53-water-planes.png",
-  "?? tests/gulch-river.test.ts",
-  "?? tools/art/room53-water-mask.py"
- ],
+ "branch": "scale-vs-thad",
+ "commit": "15b69a1d93927974f86f71b6beb0fce18cadbe07",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
  "visualState": null,
  "candidates": [],
  "route": null,
@@ -82,7 +40,7 @@
    ],
    "reportedHeight": 111,
    "expected": 111,
-   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
    "bounds": [
     556,
     190,
@@ -119,7 +77,7 @@
    ],
    "reportedHeight": 489,
    "expected": 489,
-   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
    "bounds": [
     219,
     368,
@@ -160,9 +118,9 @@
     "height": 167,
     "bottom": 420,
     "right": 971,
-    "changed": 5719
+    "changed": 5725
    },
-   "cutShare": 0.16474368336497736,
+   "cutShare": 0.16386738717686578,
    "file": "raw-captures-ignored/panel-c-occlusion-ford.png"
   }
  ],
@@ -183,13 +141,13 @@
     "height": 382
    },
    "seen": {
-    "x": 1728,
-    "y": 315,
-    "width": 115,
-    "height": 274,
+    "x": 1726,
+    "y": 310,
+    "width": 120,
+    "height": 279,
     "bottom": 588,
-    "right": 1842,
-    "changed": 20765
+    "right": 1845,
+    "changed": 22652
    },
    "props": [],
    "maskedAbove": 588
@@ -199,7 +157,7 @@
   {
    "panel": "B",
    "room": "gulch_river",
-   "clock": 9.3312,
+   "clock": 10.651299999999999,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -248,7 +206,8 @@
     "LOOKOUT_BARKS_BEFORE_G3": 0,
     "LOOKOUT_BARKS_AFTER_G3": 0,
     "RULE_KEEPER_BARKS": 0,
-    "PANNER_BARKS": 0
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
    },
    "inventory": [
     "tuning_fork",
@@ -267,7 +226,7 @@
      "height": 423,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
       -74,
       337,
@@ -312,7 +271,7 @@
      "drawn": "art/actors/room-53-panner.png",
      "candidate": false,
      "loaded": true,
-     "hash": "052fdaa8007e4bba1eabc58ce97545498a4a1b452608bcc77780e4a739c4866a"
+     "hash": "9e0d89298b6e6fa6fd310a3a6b8c878565a00be70812ac558466124300366a79"
     }
    ],
    "stubs": [],
@@ -320,15 +279,15 @@
    "controlWrites": [
     "enter(gulch_river)"
    ],
-   "capturedAt": "2026-11-09T03:35:30.071Z",
+   "capturedAt": "2026-11-09T19:28:10.561Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "cdf910e4b474f4bd6724f55d37e427824d378b37f6c20285376746ef6e056c39"
+   "hash": "e37dd0be800e90c4c07a825785b8248fc4c7a31d7da5e99e20037201f3a0f446"
   },
   {
    "panel": "A",
    "room": "gulch_river",
-   "clock": 10.5145,
+   "clock": 11.7346,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -377,7 +336,8 @@
     "LOOKOUT_BARKS_BEFORE_G3": 0,
     "LOOKOUT_BARKS_AFTER_G3": 0,
     "RULE_KEEPER_BARKS": 0,
-    "PANNER_BARKS": 0
+    "PANNER_BARKS": 0,
+    "MAN_UPSTREAM_BARKS": 0
    },
    "inventory": [
     "tuning_fork",
@@ -436,7 +396,7 @@
      "drawn": "art/actors/room-53-panner.png",
      "candidate": false,
      "loaded": true,
-     "hash": "052fdaa8007e4bba1eabc58ce97545498a4a1b452608bcc77780e4a739c4866a"
+     "hash": "9e0d89298b6e6fa6fd310a3a6b8c878565a00be70812ac558466124300366a79"
     }
    ],
    "stubs": [],
@@ -445,7 +405,7 @@
     "enter(gulch_river)",
     "cast(false)"
    ],
-   "capturedAt": "2026-11-09T03:35:31.093Z",
+   "capturedAt": "2026-11-09T19:28:11.605Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "a00c7c14bea07c9cef0ec4c808e60a04f4a7378ae84b5c91274bbba5a3fb5a7f"
@@ -478,11 +438,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-09T03:35:37.798Z",
+ "at": "2026-11-09T19:28:18.735Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 635434,
+  "bytes": 635100,
   "panels": 5,
   "scale": 0.5
  }
