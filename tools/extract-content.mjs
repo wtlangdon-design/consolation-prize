@@ -1314,6 +1314,9 @@ function combinations() {
     };
     const success = caseIn('docs/54-batch-c.md', '## B3 — the Grievance puzzle', 'after `T_HUM_HEARD`');
     const livery = /\*\*LIVERY MAN:\*\* "([^"]+)"/.exec(success)?.[1];
+    // ITS STAGING, BEFORE THE LINE (errata 189, 190): the fork, the corrected tune, her look; doc 95 acts it.
+    const staging = /^\*\(([^)]*)\)\*/.exec(success.trim())?.[1];
+    if (!staging) throw new Error('B3: the success has no staging before the livery man\'s line');
     const both = caseIn('docs/57-puzzle-completion.md', '## B3 ', 'with both');
     const ride = /over black: "([^"]+)"/.exec(both)?.[1];
     if (!livery || !ride) throw new Error('B3: the success line or the ride is missing');
@@ -1321,7 +1324,7 @@ function combinations() {
       before: only(caseIn('docs/54-batch-c.md', '## B3 — the Grievance puzzle', 'before the livery man has hummed')),
       after: only(caseIn('docs/54-batch-c.md', '## B3 — the Grievance puzzle', 'after B3')),
       vague: only(caseIn('docs/57-puzzle-completion.md', '## B3 ', 'after `T_HUM_HEARD`, without `T_VESSEL_LOCATION`')),
-      livery, ride,
+      livery, ride, staging,
     };
   })();
   // DOC 57 A2: THE PARLOR PIANO ANSWERS BY CIRCUMSTANCE (errata 91 E). Doc 24's
@@ -1485,6 +1488,18 @@ function combinations() {
     const blanket = attempt('**The blanket**');
     const after = attempt('> USE THE LIVERY BLANKET on THE HOLE, after')[0];
     const say = ([first, ...rest]) => ({ say: first, ...(rest.length ? { then: rest } : {}) });
+    // ITS STAGING, BETWEEN THE LINES (errata 189: "the tonic's fumes and the raccoon's look"):
+    // the direction written between a case's first line and its second is shown, and doc 95
+    // decides whether it is acted. A direction after the last line ("The tonic is spent.") is
+    // what the case does, and the case does it.
+    const staged = (head, words) => {
+      const line = body.split('\n').find((one) => one.startsWith(head));
+      const between = line.slice(line.indexOf(`"${words[0]}"`) + words[0].length + 2, line.indexOf(`"${words[1]}"`));
+      const direction = /\*\(([^)]*)\)\*/.exec(between)?.[1];
+      if (!direction) throw new Error(`doc 54 A5: "${head}" has no staging between its lines`);
+      const [first, ...rest] = words;
+      return { say: first, then: [{ speaker: 'thad', line: direction, direction: true }, ...rest] };
+    };
     const inFumes = { case: 'while the fumes last', when: { T_FUMES: true }, say: fumes };
     const old = rebuilt.findIndex((one) => one.item === 'blanket' && one.room === 'prosperity');
     if (old < 0) throw new Error('doc 24: no blanket pair for the hole');
@@ -1494,7 +1509,7 @@ function combinations() {
       rules: [
         inFumes,
         { case: 'after', when: { T_WARM_HOLE: true }, say: after },
-        { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...say(blanket), set: { T_WARM_HOLE: true }, completes: 'A5' },
+        { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...staged('**The blanket**', blanket), set: { T_WARM_HOLE: true }, completes: 'A5' },
       ],
     });
     rebuilt.push({
@@ -1505,7 +1520,7 @@ function combinations() {
     rebuilt.push({
       item: 'tonic', room: 'prosperity', target: 'hole', puzzle: 'A5', say: smoke[0],
       note: 'Doc 54 A5, the smoke: it fumes; the tonic is spent; the hole and the raccoon refuse every verb until Thad leaves and returns (T_FUMES, cleared on leaving).',
-      rules: [inFumes, { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...say(smoke), takes: ['tonic'], set: { T_FUMES: true } }],
+      rules: [inFumes, { case: 'with the raccoon in', when: { T_WARM_HOLE: false }, ...staged('**The smoke**', smoke), takes: ['tonic'], set: { T_FUMES: true } }],
     });
     const d57 = read('docs/57-puzzle-completion.md');
     const f1 = d57.slice(d57.indexOf('## F1 '), d57.indexOf('\n## ', d57.indexOf('## F1 ') + 5));
@@ -1586,8 +1601,9 @@ function combinations() {
     note: 'Doc 57 B3 (with doc 54\'s lines): the fork on Grievance. With the hum and Vessel\'s whereabouts, the corrected tune, "Twelve years.", the ride over black, and Thad placed in the Nugget (errata 73 B).',
     rules: [
       { case: 'after B3', when: { T_VESSEL_FOUND: true }, say: b3.after },
-      { case: 'with both', when: { T_HUM_HEARD: true, T_VESSEL_LOCATION: true }, by: 'livery_man', say: b3.livery,
-        then: [{ speaker: 'thad', line: b3.ride, overBlack: true }], set: { T_VESSEL_FOUND: true }, completes: 'B3', goto: 'nugget' },
+      { case: 'with both', when: { T_HUM_HEARD: true, T_VESSEL_LOCATION: true }, say: b3.staging, direction: true,
+        then: [{ speaker: 'livery_man', line: b3.livery }, { speaker: 'thad', line: b3.ride, overBlack: true }],
+        set: { T_VESSEL_FOUND: true }, completes: 'B3', goto: 'nugget' },
       { case: 'after T_HUM_HEARD, without T_VESSEL_LOCATION', when: { T_HUM_HEARD: true }, say: b3.vague },
       { case: 'before the livery man has hummed', when: { T_HUM_HEARD: false }, say: b3.before },
     ],
@@ -3091,10 +3107,10 @@ function sumpTree() {
     'SUM_C1:1': { holds: ['death_certificate'], set: { T_DECEASED: true } },
     // The filing ends the conversation: doc 48 S6 beat 5, "T_FILED. Main Street dawn opens".
     // BEAT 3, THE COUNTY SEAL (doc 48 S6): "One stamp. It is the loudest sound in
-    // the game and the score rests under it." A beat with the sound and two
-    // seconds of rest, between WIN_F2 and the read-back (errata 99 P).
+    // the game and the score rests under it." A beat with the seal, between WIN_F2 and the
+    // read-back (errata 99 P): the cue S6-SEAL, which ducks the score under it (errata 106).
     'SUM_F1:1': { set: { T_FILED: true }, puzzle: { F5: 'complete' }, ends: true,
-      then: [...winF2, { speaker: SPEAKER, line: '…', sound: { src: 'audio/sfx/county-seal.wav', gain: 1, rest: 2 } }, ...readBack] },
+      then: [...winF2, { speaker: SPEAKER, line: '…', cue: 'S6-SEAL' }, ...readBack] },
     // Doc 04 gives this reply to Winnie by name: "**WINNIE:** "Don't you dare."".
     'SUM_F1:3': { speakerAll: 'winnie' },
   };
@@ -5149,6 +5165,19 @@ function sowerbyTree() {
     const last = [...opening].reverse().find((u) => u.speaker === SPEAKER);
     nodes[id] = { id, ...(last ? { prompt: last.line } : { noPrompt: true, exceptionReason: 'Doc 04 writes this node as a table only.' }),
       ...(opening.length ? { opening } : {}), options };
+    // THE COUNTER (doc 04's Mechanic; errata 75, 189): "The counter shows the running total -- ADJECTIVES
+    // and the price ... Two dollars an adjective; the minimum rate is fifty cents". The rate and the
+    // minimum are READ from that sentence, so the screen cannot drift from the writing.
+    if (id === 'SOW_C1') {
+      const WORDS = { one: 1, two: 2, three: 3, four: 4, five: 5, ten: 10, twenty: 20, fifty: 50 };
+      const rule = /(\w+) dollars an adjective; the minimum rate is (\w+) cents/i.exec(body);
+      const perUnit = rule && WORDS[rule[1].toLowerCase()];
+      const cents = rule && WORDS[rule[2].toLowerCase()];
+      if (!perUnit || !cents) throw new Error('doc 04 SOW_C1: the counter\'s rate ("… dollars an adjective; the minimum rate is … cents") does not read');
+      const stops = ROUTE['SOW_C1:3'].set;
+      nodes[id].counter = { counter: 'SOWERBY_ADJECTIVES', perUnit, minimum: cents / 100, stopsOn: Object.keys(stops)[0],
+        note: `Doc 04 SOW_C1: "${rule[0]}". Shown while this node is open: ADJECTIVES is the counter, the price is perUnit times it; once the negotiation is settled (stopsOn) it stops at the minimum, "Four words, fifty cents. The counter stops." (option 3).` };
+    }
   }
   return write('content/dialogue/sowerby.json', {
     aftermathAuthored: true,
@@ -5533,7 +5562,14 @@ function actedDirections() {
     const entry = { n: Number(n), class: kind, speaker, words, where };
     if (kind === 'A') {
       const figures = by.split(',').map((one) => one.trim()).filter(Boolean);
-      const sequence = frames.split(/\s+/).filter(Boolean).map(Number);
+      // ONE GROUP PER FIGURE when they act differently (errata 197: Grievance looks while her other self
+      // waits, then she is out): "0 0 2 3 ; 0 0 0 1", in the order the figures are named. Holds alike.
+      const groups = frames.split(';').map((group) => group.split(/\s+/).filter(Boolean).map(Number));
+      if (groups.length > 1 && groups.length !== figures.length) throw new Error(`doc 95 row ${n}: ${groups.length} frame groups for ${figures.length} figures`);
+      if (groups.some((group) => !group.length || group.some((one) => !Number.isInteger(one)))) throw new Error(`doc 95 row ${n}: a frame group does not read ("${words}")`);
+      const holdGroups = holds ? holds.split(';').map((one) => Number(one.trim())) : [];
+      if (holdGroups.length > 1 && holdGroups.length !== figures.length) throw new Error(`doc 95 row ${n}: ${holdGroups.length} holds for ${figures.length} figures`);
+      const sequence = groups[0];
       const length = Number(seconds);
       if (!figures.length || !sequence.length || sequence.some((one) => !Number.isInteger(one)) || !(length > 0)) {
         throw new Error(`doc 95 row ${n}: an A row names its figures, its frames and its seconds ("${words}")`);
@@ -5542,8 +5578,10 @@ function actedDirections() {
       if (cue && !sound) throw new Error(`doc 95 row ${n}: the cue "${cue}" is not "<CUE> @<frame>"`);
       entry.performedBy = figures;
       entry.frames = sequence;
+      if (groups.length > 1) entry.framesBy = groups;
       entry.seconds = length;
-      if (holds) entry.holds = Number(holds);
+      if (holdGroups.length === 1) entry.holds = holdGroups[0];
+      if (holdGroups.length > 1) entry.holdsBy = holdGroups;
       if (sound) entry.cue = { id: sound[1], frame: Number(sound[2]) };
     } else if (frames || seconds || holds || cue) {
       throw new Error(`doc 95 row ${n}: a ${kind} row is not acted, and names no frames ("${words}")`);

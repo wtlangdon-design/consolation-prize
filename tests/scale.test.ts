@@ -133,3 +133,40 @@ for (const path of manifest.ambient) {
       + `(${ratio.toFixed(2)}x) -- recut him at the curve's height or rule an exception`);
   });
 }
+
+// A FIGURE BEHIND A COUNTER IS A MAN'S WAIST-UP FOR WHERE HE STANDS (Tyler, 2026-11-08, of the
+// church: "he looks enormous behind the podium"). The standing check above never saw him: he is
+// cut at the pulpit's top and drawn 1:1, and nothing measured him. From crown to the cut he was 203
+// px, the waist-up of a man of nearly 500, at the back of a room whose man is 285 there. A
+// behind-counter figure's crown-to-cut is at most WAIST_UP of a man at its depth: its own `depthY`
+// (the room's curve carried back to that floor), else the stand where it is talked to.
+const WAIST_UP = 0.45;
+const unclamped = (room: RoomFile, y: number): number => {
+  const curve = (room.walkBoxes?.[0] as WalkBox | undefined)?.scaleMode as { kind: string; farY: number; farHeight: number; nearY: number; nearHeight: number } | undefined;
+  return curve?.kind === 'curve' ? curve.farHeight + (y - curve.farY) * (curve.nearHeight - curve.farHeight) / (curve.nearY - curve.farY) : 0;
+};
+for (const path of manifest.ambient) {
+  const npc = read(path) as AmbientFile;
+  const places = [{ room: npc.room, at: npc as Partial<AmbientFile> }]
+    .concat(Object.entries(npc.placements ?? {}).map(([room, at]) => ({ room, at: at as Partial<AmbientFile> })));
+  for (const { room: roomId, at } of places) {
+    const posture = at.posture ?? npc.posture;
+    const sprite = (at.sprite ?? npc.sprite) as (AmbientFile['sprite'] & { depthY?: number }) | undefined;
+    const room = rooms.get(roomId);
+    const stand = at.walkTo ?? npc.walkTo;
+    if (posture !== 'behind-counter' || !sprite?.frames?.length || !shipping(room) || !room?.walkBoxes) continue;
+    if (sprite.figureHeight || (sprite.depthY === undefined && !stand)) continue;
+    test(`${npc.id} in ${roomId}: behind the counter, a man's waist-up for where it stands`, () => {
+      const man = sprite.depthY !== undefined ? unclamped(room, sprite.depthY) : curveAt(room, stand!.x, stand!.y);
+      const png = readPng(readFileSync(resolve(ROOT, sprite.sheet)));
+      const [fx, fy, fw, fh] = sprite.frames[0]!;
+      let top = -1; let bottom = -1;
+      for (let y = 0; y < fh; y += 1) for (let x = 0; x < fw; x += 1) {
+        if (png.pixels[((fy + y) * png.width + fx + x) * 4 + 3]! > 128) { if (top < 0) top = y; bottom = y; }
+      }
+      const drawn = bottom - top + 1;
+      assert.ok(drawn <= WAIST_UP * man, `${npc.id} in ${roomId} is ${drawn} px from crown to the counter, where a man is ${Math.round(man)} `
+        + `(${(drawn / man).toFixed(2)} of him); a waist-up is at most ${WAIST_UP}`);
+    });
+  }
+}

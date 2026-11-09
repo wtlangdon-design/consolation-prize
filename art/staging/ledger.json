@@ -38952,6 +38952,293 @@
    "recordedAt": "2026-11-08T20:52:19.016Z"
   },
   {
+   "attempt": 6,
+   "role": "canonical-design",
+   "assetId": "room-11",
+   "subject": "thad-dinner",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/unacted-moments/dinner-prompt-01.txt",
+   "promptHash": "155634704c3d8f57814c98bba366547833a94caea1c3b0d27e8cde4da74cb651",
+   "references": [
+    {
+     "path": "art/staging/room-11/dinner-thad-01/thad-in-room-11.png",
+     "hash": "5d965d6e7c8b9dff9f24f09e15077cf1623ea967dd3befa8273f5ccd6bca51dd",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-11/dinner-thad-01/thad-stands.png",
+     "hash": "18d72a84d94976885acfb8056ba51d0239ae3b91f7f6d9c64aac368c385caa11",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "5d965d6e7c8b9dff9f24f09e15077cf1623ea967dd3befa8273f5ccd6bca51dd",
+   "sourcePath": "art/staging/room-11/dinner-thad-01/thad-in-room-11.png",
+   "out": "art/staging/room-11/dinner-thad-01/sheet.png",
+   "outputHash": "f213be97e9e755beae2adb1346144d4f7a60fd5d5a4edc30bf797839ffac3714",
+   "bytes": 1386451,
+   "usage": {
+    "input_tokens": 3677,
+    "input_tokens_details": {
+     "image_tokens": 3044,
+     "text_tokens": 633
+    },
+    "output_tokens": 158,
+    "output_tokens_details": {
+     "image_tokens": 158,
+     "text_tokens": 0
+    },
+    "total_tokens": 3835
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T21:40:25.108Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, reference/unacted-moments/brief.md (errata 189): room-11's last operation, one sheet for the dinner's seat and the porch's deed",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T21:40:25.113Z"
+  },
+  {
+   "attempt": 6,
+   "role": "derived-state",
+   "assetId": "room-15",
+   "subject": "grievance",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 4,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/unacted-moments/grievance-prompt-01.txt",
+   "promptHash": "5f8461ef6718f6e9d8d5e8fe5b58ddd96b692af4916bb64c2c8d0fc2800579d4",
+   "references": [
+    {
+     "path": "art/staging/room-15/grievance-out-01/livery-with-thad.png",
+     "hash": "710dcf9ea3228c405d1dcf6064a86f5b1e0391f99c81a711abf9f8bdf7e41078",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-15/grievance-01/sheet.png",
+     "hash": "ed8195c8949e58ffa5fe3f812f682ec990920cc26b35dacbc1ec4da898176a04",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "710dcf9ea3228c405d1dcf6064a86f5b1e0391f99c81a711abf9f8bdf7e41078",
+   "sourcePath": "art/staging/room-15/grievance-out-01/livery-with-thad.png",
+   "out": "art/staging/room-15/grievance-out-01/sheet.png",
+   "outputHash": "e62c1fa4196483ec10966b166150e0ba8208c27026d0974a4c27bbac920c14f9",
+   "bytes": 1299357,
+   "usage": {
+    "input_tokens": 3542,
+    "input_tokens_details": {
+     "image_tokens": 3044,
+     "text_tokens": 498
+    },
+    "output_tokens": 780,
+    "output_tokens_details": {
+     "image_tokens": 780,
+     "text_tokens": 0
+    },
+    "total_tokens": 4322
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T22:25:07.404Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-08: \"Yes, one more op\" (room-15 cap raised to 6) for Grievance walking out of her stall, doc 54 B3",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T22:25:07.410Z"
+  },
+  {
+   "attempt": 7,
+   "role": "derived-state",
+   "assetId": "room-11",
+   "subject": "fanshawe",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "derivedFrom": 5,
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/unacted-moments/fanshawe-turned-prompt-01.txt",
+   "promptHash": "d02032dbb0dd604eb8fb1ff2a194cf159c2df602f7170dec32a5c3f5150f0122",
+   "references": [
+    {
+     "path": "art/staging/room-11/fanshawe-turned-01/dinner-with-thad.png",
+     "hash": "765858a9394cff5a101b85252e51596b2a8dd5384206b4995cc9cd3b5e094ee4",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-11/fanshawe-turned-01/his-frames.png",
+     "hash": "3b1758600f849cd955274cc860a4a4a29519eedea1c1cf3dd04a7ceb0a5ce06e",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "765858a9394cff5a101b85252e51596b2a8dd5384206b4995cc9cd3b5e094ee4",
+   "sourcePath": "art/staging/room-11/fanshawe-turned-01/dinner-with-thad.png",
+   "out": "art/staging/room-11/fanshawe-turned-01/sheet.png",
+   "outputHash": "95e9381486348891c35e023b84f4fb7b08dc8549ba527445e0cd7032f8659778",
+   "bytes": 1308468,
+   "usage": {
+    "input_tokens": 3540,
+    "input_tokens_details": {
+     "image_tokens": 3044,
+     "text_tokens": 496
+    },
+    "output_tokens": 433,
+    "output_tokens_details": {
+     "image_tokens": 433,
+     "text_tokens": 0
+    },
+    "total_tokens": 3973
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-08T22:40:03.831Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-08: \"One more op\" (room-11 cap raised to 7) for Fanshawe turned toward Thad at the dinner",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-08T22:40:03.838Z"
+  },
+  {
+   "attempt": 8,
+   "role": "plate",
+   "assetId": "room-11",
+   "subject": "room-11-fanshawe-office",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/unacted-moments/dinner-table-prompt-02.txt",
+   "promptHash": "aa673bb443db8af696dd5f31c7af27898c32d746c9fcb16e3e8ec91519c44c55",
+   "references": [
+    {
+     "path": "art/staging/room-11/plate-01/composite-source.png",
+     "hash": "9d66a132a8ceb49f843cefc0a187b8feb0a01cdbd12a0acbf1bcf1b3ec14a265",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-11/dinner-02/where-they-sit.png",
+     "hash": "a475ba2266fc2fd9b5c6e90352f1c6d7b5d9e0a2370bf028e670c26668ca6476",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "9d66a132a8ceb49f843cefc0a187b8feb0a01cdbd12a0acbf1bcf1b3ec14a265",
+   "sourcePath": "art/staging/room-11/plate-01/composite-source.png",
+   "out": "art/staging/room-11/dinner-02/source.png",
+   "outputHash": "8c31a65cccee9f8df700ef41a46155a5ac6b15229c10d17526422fa293516ca2",
+   "bytes": 2142159,
+   "usage": {
+    "input_tokens": 3626,
+    "input_tokens_details": {
+     "image_tokens": 3072,
+     "text_tokens": 554
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 5177
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-09T00:08:05.180Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-09: \"Maybe just regenerate the whole set table instead of cutting and replacing?\" (room-11 cap raised to 8) -- the dinner table laid with one place before each man and the cloth to the floor",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-09T00:08:05.186Z"
+  },
+  {
+   "attempt": 9,
+   "role": "plate",
+   "assetId": "room-11",
+   "subject": "room-11-fanshawe-office",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null,
+    "stream": true,
+    "partial_images": 2
+   },
+   "prompt": null,
+   "promptFile": "reference/unacted-moments/dinner-table-prompt-03.txt",
+   "promptHash": "5240b384f32a46f52f2a71538bc8d4b8ce381849eb7785df803f495c0175b488",
+   "references": [
+    {
+     "path": "art/staging/room-11/dinner-03/table-now.png",
+     "hash": "8c31a65cccee9f8df700ef41a46155a5ac6b15229c10d17526422fa293516ca2",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-11/dinner-03/layout.png",
+     "hash": "9d94d72b13fe29354410a24ff07d34165e9ce03ae08e98f815778effb76a1fce",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-11/dinner-02/where-they-sit.png",
+     "hash": "a475ba2266fc2fd9b5c6e90352f1c6d7b5d9e0a2370bf028e670c26668ca6476",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "8c31a65cccee9f8df700ef41a46155a5ac6b15229c10d17526422fa293516ca2",
+   "sourcePath": "art/staging/room-11/dinner-03/table-now.png",
+   "out": "art/staging/room-11/dinner-03/source.png",
+   "outputHash": "031e8bd4e5bfa330c8060dfb5260608c8d73380033140d5aca079b67c71e1206",
+   "bytes": 2099554,
+   "usage": {
+    "input_tokens": 5126,
+    "input_tokens_details": {
+     "image_tokens": 4608,
+     "text_tokens": 518
+    },
+    "output_tokens": 1551,
+    "output_tokens_details": {
+     "image_tokens": 1551,
+     "text_tokens": 0
+    },
+    "total_tokens": 6677
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-09T00:11:02.978Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-09: \"One more op, with a map (Recommended)\" (room-11 cap raised to 9) -- attempt 8's table re-laid to a marked layout, one place before each man",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-09T00:11:02.984Z"
+  },
+  {
    "attempt": 1,
    "role": "composition-master",
    "assetId": "room-45",

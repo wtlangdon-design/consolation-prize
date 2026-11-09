@@ -1,0 +1,18 @@
+Image 1 is a finished background from my pixel-art adventure game: an office at night with a desk laid for dinner for two under a white cloth. Image 2 is EXACTLY image 1 with a layout drawn over it: numbered coloured boxes, a red line and red text. Image 3 is a frame from the game, for reference only, showing where the two diners sit: the old man BEHIND the desk at the middle of its far side, facing us; the young man in the chair at the desk's RIGHT-HAND END, facing left along it.
+
+The table in image 1 is laid wrongly: both places are along the near edge, where nobody sits. Re-lay the table top of image 1 so that each object stands inside its numbered box in image 2, at the size it is now:
+1 (magenta) the silver dish with the domed cover.
+2 (white) a silver candlestick with a lit candle.
+3 (blue) the old man's crystal wine glass with red wine.
+4 (blue) the old man's knife, lying point away from him, toward the wall.
+5 (blue) the old man's china plate, on the far side of the desk, directly in front of where he sits.
+6 (blue) the old man's fork, lying tines away from him.
+7 (white) the bottle of red wine.
+8 (white) the second silver candlestick with a lit candle.
+9 (yellow) the young man's crystal wine glass with red wine.
+10 (yellow) the young man's knife, lying along the length of the desk on the far side of his plate.
+11 (yellow) the young man's china plate, at the right-hand end of the desk, where he sits.
+12 (yellow) the young man's fork, lying along the length of the desk on the near side of his plate.
+Nothing at all is laid along the near edge of the desk (the red line in image 2): no plate, no glass, no cutlery there.
+
+The brass oil lamp stays exactly where it is. The white tablecloth stays exactly as it is in image 1, hanging to the carpet. None of image 2's boxes, numbers, line or text appear in the result. Change nothing else at all: same framing, same camera, same pixel grid, same colours, same light, every other object exactly as in image 1, pixel for pixel. The grey strips above and below stay grey. No people, no text.

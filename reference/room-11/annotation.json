@@ -164,6 +164,14 @@
      "set": {
       "ACT": 2,
       "T_ACT_II_OPENING": true
+     },
+     "holds": {
+      "clip": "deed",
+      "frames": [
+       0,
+       1
+      ],
+      "note": "Doc 48 S1 beat 4: 'Thad on the porch, holding the deed wrong side up.' Looking down at it for the first line, up from it for the second (tools/rig/cut-dinner.py)."
      }
     }
    ],
@@ -252,7 +260,22 @@
     "T_EXCAVATION_CLAUSE": false
    }
   ],
-  "note": "Doc 57: the dinner (A10) plays on entering while Thad holds THE INVITATION, until T_DINED; the offer (E0b) the next time he enters after E0, until the clause is read. The tree's entries say which (errata 84 F)."
+  "note": "Doc 57: the dinner (A10) plays on entering while Thad holds THE INVITATION, until T_DINED; the offer (E0b) the next time he enters after E0, until the clause is read. The tree's entries say which (errata 84 F).",
+  "seat": {
+   "x": 1440,
+   "y": 740,
+   "facing": "left",
+   "state": "dining",
+   "when": {
+    "T_BORDERS_MOTT": true,
+    "T_DINED": false
+   },
+   "note": "Doc 48 S1 beat 1, 'Thad seated; the table laid absurdly well': for the dinner only, he walks to the chair at the table's free end and sits there, facing Fanshawe, until the conversation ends (errata 197; the state `dining`, tools/rig/cut-dinner.py). Drawn at `sitAt`, in from the table's end, so his forearms rest on the cloth (Tyler, 2026-11-08: \"sitting very awkwardly at the table with his hands out on nothing\").",
+   "sitAt": {
+    "x": 1352,
+    "y": 702
+   }
+  }
  },
  "onEnterSay": {
   "fromRef": "docs/54-batch-c.md::## C3/C4 — the office, empty *(errata 68 D)*",
@@ -372,19 +395,36 @@
   {
    "id": "dinner",
    "sheet": "art/props/room-11-dinner.png",
-   "x": 1095,
-   "y": 643,
+   "x": 1087,
+   "y": 550,
    "frame": [
     0,
     0,
-    543,
-    245
+    598,
+    152
    ],
    "when": {
     "T_BORDERS_MOTT": true,
     "T_DINED": false
    },
-   "note": "Doc 48 S1 beat 1: 'the table laid absurdly well'. Room-11 operation 4 laid the desk; tools/art/room11-props.py keeps its changed pixels. Drawn while Thad holds THE INVITATION, until the dinner ends."
+   "note": "Doc 48 S1 beat 1: 'the table laid absurdly well'. Room-11 attempt 9's table, its two places moved by hand to where the two men sit (tools/art/room11-dinner-relay.py; Tyler: \"the place settings are setup in the wrong places for their dinner\"); this is its top, above the cloth's front edge, drawn behind a seated Thad (tools/art/room11-dinner-drape.py). Drawn while Thad holds THE INVITATION, until the dinner ends."
+  },
+  {
+   "id": "dinner_drape",
+   "sheet": "art/props/room-11-dinner-drape.png",
+   "x": 1087,
+   "y": 733,
+   "frame": [
+    0,
+    0,
+    598,
+    198
+   ],
+   "when": {
+    "T_BORDERS_MOTT": true,
+    "T_DINED": false
+   },
+   "note": "The same table's cloth, from just above its top's front edge to the carpet, standing on the carpet, so it is drawn in front of Thad seated and his legs are under it (tools/art/room11-dinner-drape.py). Same condition as the table."
   },
   {
    "id": "desk_bare",

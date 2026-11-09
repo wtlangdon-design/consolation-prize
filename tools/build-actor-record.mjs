@@ -113,6 +113,14 @@ const CLIPS = [
   { id: 'idle', dir: 'seated', prefix: 'seated', state: 'seated' },
   { id: 'idle-break', dir: 'idlebreak-seated', prefix: 'idle-break', state: 'seated' },
   { id: 'stand', dir: 'stand-seated', prefix: 'stand', state: 'seated' },
+  // AT FANSHAWE'S TABLE (doc 48 S1 beats 1-3; errata 197): seated on a dining chair, left only, the
+  // wine his idle break. A state as `seated` is, set while the dinner's conversation is open (the
+  // accost's `seat`). tools/rig/cut-dinner.py.
+  { id: 'idle', dir: 'dining', prefix: 'dining', state: 'dining' },
+  { id: 'idle-break', dir: 'idlebreak-dining', prefix: 'idle-break', state: 'dining' },
+  { id: 'stand', dir: 'stand-dining', prefix: 'stand', state: 'dining' },
+  // THE DEED, WRONG SIDE UP, on the porch (doc 48 S1 beat 4): played a frame at a time over its two lines.
+  { id: 'deed', dir: 'deed', prefix: 'deed' },
   // THE MERCANTILE'S PICKAXE, FROM BEHIND (doc 95 rows 4 and 6; errata 148): 0 standing (his stand-back
   // frame itself), 1 crouched, feeling the ground for the pick's head, 2 the mended pick held across him.
   // Played only by its acted directions, a frame at a time (Actor.hold). tools/art/acted-poses.py.
@@ -144,6 +152,10 @@ const PARTIAL_STATES = {
     lookup: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'stand', 'sit', 'rise'],
     seated: ['walk', 'recoil', 'sit', 'rise', 'use-near', 'give-offer', 'shrug', 'pickup-low', 'alight-coach',
       'aboard-coach', 'carry'],
+    // At Fanshawe's table he only converses: the state is set when he reaches the chair and cleared as the
+    // conversation ends, before anything can move him (the accost's `seat`, errata 197).
+    dining: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'reach', 'sit', 'rise', 'use-near', 'give-offer', 'shrug',
+      'pickup-low', 'alight-coach', 'aboard-coach', 'carry', 'farwalk', 'pick-fit', 'deed'],
   },
   // THE DOOR IS CLOSED BY THE STAGING, NOT BY A MISSING VARIANT. Beat 6b
   // clears `door-open` BEFORE the move, so the driver shuts the door and then

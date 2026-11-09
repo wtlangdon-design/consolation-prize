@@ -120,6 +120,8 @@ export interface Frame {
   still?: boolean;
   /** The duel's score as the judges have written it, chalked on the room's slate (errata 136 A). Null outside a duel. */
   tally?: { player: number; opponent: number } | null;
+  /** A node's running total, as the lines to draw (doc 04 SOW_C1; NodeCounter). Null when none is open. */
+  nodeCounter?: string[] | null;
   /**
    * THE TITLE SCREEN (errata 128): its items, and which one the pointer is
    * on. While it is up nothing of the room is drawn.
@@ -1093,6 +1095,8 @@ export class Renderer {
     if (this.state.dialogue.isActive && !frame.performing) {
       this.drawDialogue();
     }
+    // Over the panel's right side, which the option list leaves empty for the whole conversation.
+    this.drawNodeCounter(frame.nodeCounter ?? null);
     // Doc 17 beat 7. Over the room, not over black: the card lands on the
     // view of the town after the coach has gone, which is the shot it is
     // commenting on.
@@ -2788,6 +2792,21 @@ export class Renderer {
    *
    * The clamp itself is right and now clamps the right number.
    */
+  /**
+   * SOWERBY'S COUNTER (doc 04 SOW_C1: "a live price counter visible on screen"; errata 75, 189):
+   * right-aligned at ui.json's `nodeCounter.at`, in the bitmap face and the bright ink, outlined
+   * as speech is so it reads over any plate.
+   */
+  private drawNodeCounter(lines: string[] | null): void {
+    const place = this.state.content.ui.nodeCounter;
+    if (!lines || !place) return;
+    lines.forEach((line, index) => {
+      const width = this.font.measure(line);
+      this.font.drawOutlined(this.screen.context, line, place.at[0] - width, place.at[1] + index * SPEECH_LINE_HEIGHT,
+        this.screen.roleColour('inkBright'), this.screen.roleColour('overlayBg'));
+    });
+  }
+
   private drawBark(lines: string[], at: { x: number; y: number }, speaker: string | null = null): void {
     // A BARK IS IN ITS SPEAKER'S COLOUR, as his conversation is (errata 169). It was always the default ink, so the
     // whole street's remarks read as Thad's.

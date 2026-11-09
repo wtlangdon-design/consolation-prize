@@ -375,7 +375,14 @@
           "universal": true,
           "ends": true
         }
-      ]
+      ],
+      "counter": {
+        "counter": "SOWERBY_ADJECTIVES",
+        "perUnit": 2,
+        "minimum": 0.5,
+        "stopsOn": "T_SOWERBY_PRICE",
+        "note": "Doc 04 SOW_C1: \"Two dollars an adjective; the minimum rate is fifty cents\". Shown while this node is open: ADJECTIVES is the counter, the price is perUnit times it; once the negotiation is settled (stopsOn) it stops at the minimum, \"Four words, fifty cents. The counter stops.\" (option 3)."
+      }
     }
   }
 }

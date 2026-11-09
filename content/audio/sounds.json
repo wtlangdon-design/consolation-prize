@@ -225,6 +225,23 @@
     }
    ]
   },
+  "S6-SEAL": {
+   "why": "Doc 48 S6 beat 3: \"The county seal comes down. One stamp. It is the loudest sound in the game and the score rests under it.\" The rendered seal (tools/audio/render-seal-sfx.py, errata 99 P), now a cue (errata 106 reverses 28a's ban on timed sound for cues): the music ducks under it for the stamp and its tail and comes back. The loudest effect in the game on purpose: `levels.loudest` names it, and tools/check-sound-levels.mjs holds it 6 dB over every other sound.",
+   "play": [
+    {
+     "src": "audio/sfx/county-seal.wav",
+     "gain": 0.74,
+     "at": 0.12
+    }
+   ],
+   "duck": {
+    "to": 0.1,
+    "seconds": 2.4,
+    "attack": 0.08,
+    "release": 2
+   },
+   "room": "claims_registrar"
+  },
   "U-ASSAY-PENCIL": {
    "why": "doc 45 U-ASSAY-PENCIL: the judges' pencil, each point written down (doc 03: Sowerby holds it)",
    "play": [
@@ -268,7 +285,7 @@
    "room": "livery"
   },
   "B3-WHISTLE": {
-   "why": "doc 02 B3: Grievance responds to one whistled pitch, and Thad, by ear, corrects it. The fork, the phrase whistled right, and she goes (errata 109).",
+   "why": "doc 02 B3: Grievance responds to one whistled pitch, and Thad, by ear, corrects it. The fork, the phrase whistled right, and she goes (errata 109). Errata 197: sounded from doc 95's act (row 79) as the staging plays, not at the click, and her steps come after the long moment; the music comes back with the look (a dip held through silence is a hole).",
    "play": [
     {
      "src": "audio/sfx/grievance-whistle.wav",
@@ -281,7 +298,8 @@
     "seconds": 5.6,
     "attack": 0.08,
     "release": 2.5
-   }
+   },
+   "room": "livery"
   },
   "A-TUNING": {
    "why": "doc 02 A2 and A8: the piano tuned. The flat C-sharp as the room has always heard it, the fork, the pin turning, and the same notes mended (errata 109).",
@@ -605,18 +623,6 @@
    "cue": "R17-BELL"
   },
   {
-   "room": "livery",
-   "target": "grievance",
-   "verb": "USE",
-   "item": "tuning_fork",
-   "when": {
-    "T_HUM_HEARD": true,
-    "T_VESSEL_LOCATION": true,
-    "T_VESSEL_FOUND": false
-   },
-   "cue": "B3-WHISTLE"
-  },
-  {
    "room": "nugget",
    "target": "piano",
    "verb": "USE",
@@ -855,7 +861,8 @@
    "BR-STRIKE-TWICE": 10,
    "BR-STRIKE-FOUR": 10,
    "BR-PASSING": 10,
-   "BR-STRIKE-HALF": 8
+   "BR-STRIKE-HALF": 8,
+   "S6-SEAL": 42
   },
   "ambience": {
    "nugget": -12
@@ -878,7 +885,12 @@
   "cueBeds": {
    "O-02-S2": -2
   },
-  "cueBedsNote": "Tyler, 2026-11-07, of the opening under the stars: \"I didn't hear horses.\" The halted team sat at the beds' -8, twelve under the fiddle in Room 1; it is the only sound in the dark before anyone speaks, and is placed at -2."
+  "cueBedsNote": "Tyler, 2026-11-07, of the opening under the stars: \"I didn't hear horses.\" The halted team sat at the beds' -8, twelve under the fiddle in Room 1; it is the only sound in the dark before anyone speaks, and is placed at -2.",
+  "loudest": {
+   "cue": "S6-SEAL",
+   "overNext": 6,
+   "note": "Doc 48 S6 beat 3: \"It is the loudest sound in the game.\" The one named exception to errata 106's places: its own place is set over its ducked room like any cue's, and tools/check-sound-levels.mjs also holds that, against the music, it is at least `overNext` dB louder than any other sound in the game. Nothing else may be named here."
+  }
  },
  "roomGain": {
   "coffin": 0.32,

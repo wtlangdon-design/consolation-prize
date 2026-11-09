@@ -91,6 +91,16 @@ export class AmbientLayer {
   private seen = new Map<string, AmbientFile>();
   private seenRoom: string | null = null;
   private departures: { npc: AmbientFile; exit: AmbientExit; startedAt: number }[] = [];
+  /** Figures with an acted beat of theirs still to play: they do not walk out yet (see `present`). */
+  holdLeavers: ReadonlySet<string> = new Set();
+
+  /** Whoever's condition has just ended and who has a walk out he has not started: the figures `holdLeavers` can keep. */
+  get leaving(): AmbientFile[] {
+    if (this.latched === null || this.latchedRoom !== this.state.room.id) return [];
+    const live = new Set(this.live.map((npc) => npc.id));
+    return [...this.latched.values()].filter((npc) => npc.exit && !live.has(npc.id)
+      && !this.departures.some((one) => one.npc.id === npc.id));
+  }
   /** Figures walking IN (AmbientFile.arrive), latched as present when they arrive. */
   private arrivals: { npc: AmbientFile; exit: AmbientExit; startedAt: number }[] = [];
   private clock = 0;
@@ -143,7 +153,14 @@ export class AmbientLayer {
     }
     const out = live.filter((npc) => this.latched!.has(npc.id));
     for (const [id, npc] of this.latched) {
-      if (npc.exit || out.some((one) => one.id === id)) continue;
+      if (out.some((one) => one.id === id)) continue;
+      // HE ACTS HIS PART, THEN GOES (doc 54 A5: "The raccoon emerges, gives Thad one look of complete
+      // contempt, and leaves at a walk"). While an acted beat of his is still to play in what sent him
+      // away, a figure with a walk out stays; he walks when his last beat is over.
+      if (npc.exit) {
+        if (this.holdLeavers.has(id) && !this.departures.some((one) => one.npc.id === id)) out.push(npc);
+        continue;
+      }
       // ONE WHO FADES (AmbientFile.leaves) is drawn until the fade is over.
       if (npc.leaves) {
         const began = this.fadings.get(id);
@@ -192,6 +209,12 @@ export class AmbientLayer {
       .filter((npc): npc is AmbientFile => npc !== undefined)
       // PRESENT ONLY WHILE THEIR CONDITION HOLDS, the room's placement first.
       .filter((npc) => ambientHere(npc, roomId, (when) => this.state.flags.test(when)))
+      // ANOTHER SHEET WHILE A CONDITION HOLDS (AmbientFile.spriteWhen; errata 197): Fanshawe turned to his
+      // guest while the dinner is laid. The first whose condition holds is drawn instead.
+      .map((npc) => {
+        const variant = npc.spriteWhen?.find((one) => this.state.flags.test(one.when));
+        return variant && npc.sprite ? { ...npc, sprite: { ...npc.sprite, ...variant.sprite } } : npc;
+      })
       // A PER-ROOM PLACEMENT WINS over the file's own x,y in that room (doc 36
       // Q117): the same dog, standing where THIS plate has ground for him.
       .map((npc) => {

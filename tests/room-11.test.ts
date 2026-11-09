@@ -69,7 +69,7 @@ test('A4: after the swindle he opens on FAN_A1, and either answer about the clai
 
 test('A10: holding the invitation, the table is laid and the dinner opens; option 6 ends it with the handkerchief', async () => {
   const state = await inState('r11-b');
-  assert.deepEqual(shownProps(state), ['dinner'], 'the table laid absurdly well');
+  assert.deepEqual(shownProps(state), ['dinner', 'dinner_drape'], 'the table laid absurdly well, its cloth to the floor');
   assert.ok(state.findTarget('handkerchief'), 'his handkerchief is on the desk');
   const accost = state.room.onEnter?.accost;
   assert.ok(accost?.whenAny?.some((when) => state.flags.test(when)), 'he opens on him as he comes in');
